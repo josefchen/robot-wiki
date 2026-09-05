@@ -1,8 +1,8 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import { CiteRef } from '@/components/mdx/cite-ref';
-import { Badge } from '@/components/ui';
+import { Badge, TableScroll } from '@/components/ui';
 import {
   MILESTONES,
   filterMilestones,
@@ -62,6 +62,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
   const [filter, setFilter] = useState<MilestoneFilter>('all');
   const [selectedId, setSelectedId] = useState<string>(MILESTONES[0].id);
   const rowButtons = useRef<Array<HTMLButtonElement | null>>([]);
+  const captionId = useId();
 
   const visible = filterMilestones(MILESTONES, filter);
   // Selection is derived: if the filter hides the selected row, the detail
@@ -170,9 +171,9 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
         </p>
       ) : (
         <>
-          <div className="mt-4 overflow-x-auto">
+          <TableScroll labelledBy={captionId} className="mt-4">
             <table className="w-full min-w-[480px] border-collapse text-left">
-              <caption className="sr-only">
+              <caption id={captionId} className="sr-only">
                 Eight milestones that would settle the bear case. Select a row
                 to read the evidence behind its status and the observation
                 that would flip it.
@@ -241,7 +242,7 @@ export function MilestonesWatchlist({ className }: { className?: string }) {
                 })}
               </tbody>
             </table>
-          </div>
+          </TableScroll>
 
           {selected && (
             <div

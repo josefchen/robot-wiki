@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5f7e82429a17aeecf172f20424d9ac81efd5c38d5bd0c9de63807cd7da7ee0ab",
+  "fingerprint": "5c4520ebde4afb32e16b5281341acc5660021d52e22b1900414dca5612109fac",
   "viewports": [
     "375x812",
     "1440x900"
@@ -12894,175 +12894,175 @@
           "section": "see-also",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "tabIndex": 100,
+          "tabIndex": 101,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/frontier/reliability-gap/",
           "text": "The Reliability Gap",
-          "tabIndex": 101,
+          "tabIndex": 102,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/frontier/generalization/",
           "text": "Generalization",
-          "tabIndex": 102,
+          "tabIndex": 103,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "tabIndex": 103,
+          "tabIndex": 104,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "tabIndex": 104,
+          "tabIndex": 105,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
           "text": "Why Today's Humanoids Won't Learn Dexterity",
-          "tabIndex": 105,
+          "tabIndex": 106,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://rodneybrooks.com/predictions-scorecard-2026-january-01/",
           "text": "Predictions Scorecard, 2026 January 01",
-          "tabIndex": 106,
+          "tabIndex": 107,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
           "text": "'PR problem' is standing in the way of China's humanoid robot boom, says Morgan Stanley",
-          "tabIndex": 107,
+          "tabIndex": 108,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
           "text": "Humanoid Robots in 2026: What Is Actually Deployed",
-          "tabIndex": 108,
+          "tabIndex": 109,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
           "text": "Robot Boom Meets Earnings Reality: Unitree Profits Halved, Optimus Not for Sale",
-          "tabIndex": 109,
+          "tabIndex": 110,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
           "text": "Bessemer Predicts: Robotics and physical AI",
-          "tabIndex": 110,
+          "tabIndex": 111,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://interestingengineering.com/ai-robotics/qualcomm-robot-unexpected-collapse",
           "text": "Watch: Qualcomm-powered humanoid robot collapses during live keynote",
-          "tabIndex": 111,
+          "tabIndex": 112,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.briefs.co/news/robotics-startups-raised-23-billion-in-2026-closing-in-on-all-of-2025/",
           "text": "Robotics Startups Raised $23 Billion in 2026, Closing In On All of 2025",
-          "tabIndex": 112,
+          "tabIndex": 113,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/",
           "text": "Sector Snapshot: Robotics Startups On Fire As Venture Funding Surges To Record Numbers In 2026",
-          "tabIndex": 113,
+          "tabIndex": 114,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1126/scirobotics.aea7390",
           "text": "Good old-fashioned engineering can close the 100,000-year \"data gap\" in robotics",
-          "tabIndex": 114,
+          "tabIndex": 115,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2504.16054",
           "text": "π0.5: a Vision-Language-Action Model with Open-World Generalization",
-          "tabIndex": 115,
+          "tabIndex": 116,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.14830",
           "text": "RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
-          "tabIndex": 117,
+          "tabIndex": 118,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/download/pistar06.pdf",
           "text": "π*0.6: a VLA That Learns From Experience",
-          "tabIndex": 119,
+          "tabIndex": 120,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2506.18123",
           "text": "RoboArena: Distributed Real-World Evaluation of Generalist Robot Policies",
-          "tabIndex": 121,
+          "tabIndex": 122,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.17950",
           "text": "RoboChallenge: Large-scale Real-robot Evaluation of Embodied Policies",
-          "tabIndex": 123,
+          "tabIndex": 124,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2603.04363",
           "text": "ManipulationNet: An Infrastructure for Benchmarking Real-World Robot Manipulation with Physical Skill Challenges and Embodied Multimodal Reasoning",
-          "tabIndex": 125,
+          "tabIndex": 126,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2506.14754",
           "text": "Tactile Beyond Pixels: Multisensory Touch Representations for Robot Manipulation",
-          "tabIndex": 127,
+          "tabIndex": 128,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2607.07287",
           "text": "TouchWorld: A Predictive and Reactive Tactile Foundation Model for Dexterous Manipulation",
-          "tabIndex": 129,
+          "tabIndex": 130,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.20808",
           "text": "The Reality Gap in Robotics: Challenges, Solutions, and Best Practices",
-          "tabIndex": 131,
+          "tabIndex": 132,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2602.16710",
           "text": "EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data",
-          "tabIndex": 133,
+          "tabIndex": 134,
           "focusVisible": true
         }
       ],
@@ -13965,189 +13965,189 @@
           "section": "see-also",
           "href": "/frontier/generalization/",
           "text": "Generalization",
-          "tabIndex": 140,
+          "tabIndex": 141,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/frontier/reliability-gap/",
           "text": "The Reliability Gap",
-          "tabIndex": 141,
+          "tabIndex": 142,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/manipulation/hierarchical/",
           "text": "Hierarchical Approaches",
-          "tabIndex": 142,
+          "tabIndex": 143,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/world-models/taxonomy/",
           "text": "What Is a World Model?",
-          "tabIndex": 143,
+          "tabIndex": 144,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/dexterity/",
           "text": "Dexterity",
-          "tabIndex": 144,
+          "tabIndex": 145,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/bear-case/",
           "text": "The Bear Case",
-          "tabIndex": 145,
+          "tabIndex": 146,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://rodneybrooks.com/a-better-lesson/",
           "text": "A Better Lesson",
-          "tabIndex": 146,
+          "tabIndex": 147,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://web.archive.org/web/20241231102234/http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
           "text": "The Bitter Lesson",
-          "tabIndex": 147,
+          "tabIndex": 148,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.rockingrobots.com/nucleus-robotics-emerges-from-stealth-with-humanoids-on-the-german-factory-floor/",
           "text": "Nucleus Robotics Emerges From Stealth With Humanoids on the German Factory Floor",
-          "tabIndex": 148,
+          "tabIndex": 149,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
           "text": "Why Today's Humanoids Won't Learn Dexterity",
-          "tabIndex": 149,
+          "tabIndex": 150,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1126/scirobotics.aea7390",
           "text": "Good old-fashioned engineering can close the 100,000-year \"data gap\" in robotics",
-          "tabIndex": 150,
+          "tabIndex": 151,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2606.06556",
           "text": "Robots Need More than VLA and World Models",
-          "tabIndex": 151,
+          "tabIndex": 152,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
           "text": "Bessemer Predicts: Robotics and physical AI",
-          "tabIndex": 153,
+          "tabIndex": 154,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2602.16710",
           "text": "EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data",
-          "tabIndex": 154,
+          "tabIndex": 155,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2504.16054",
           "text": "π0.5: a Vision-Language-Action Model with Open-World Generalization",
-          "tabIndex": 156,
+          "tabIndex": 157,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/download/pi07.pdf",
           "text": "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities",
-          "tabIndex": 158,
+          "tabIndex": 159,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/download/pistar06.pdf",
           "text": "π*0.6: a VLA That Learns From Experience",
-          "tabIndex": 160,
+          "tabIndex": 161,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.14830",
           "text": "RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
-          "tabIndex": 162,
+          "tabIndex": 163,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2606.19980",
           "text": "ENPIRE: Agentic Robot Policy Self-Improvement in the Real World",
-          "tabIndex": 164,
+          "tabIndex": 165,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://deepmind.google/models/gemini-robotics/embodied-reasoning/",
           "text": "Gemini Robotics ER 2",
-          "tabIndex": 166,
+          "tabIndex": 167,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
           "text": "Gemini Robotics 2 brings whole body intelligence to robots",
-          "tabIndex": 167,
+          "tabIndex": 168,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.figure.ai/news/helix-02",
           "text": "Introducing Helix 02: Full-Body Autonomy",
-          "tabIndex": 168,
+          "tabIndex": 169,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
           "text": "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
-          "tabIndex": 169,
+          "tabIndex": 170,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2204.01691",
           "text": "Do As I Can, Not As I Say: Grounding Language in Robotic Affordances",
-          "tabIndex": 170,
+          "tabIndex": 171,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2506.09985",
           "text": "V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning",
-          "tabIndex": 172,
+          "tabIndex": 173,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf",
           "text": "Cosmos 3: Omnimodal World Models for Physical AI",
-          "tabIndex": 174,
+          "tabIndex": 175,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
           "text": "Humanoid Robots in 2026: What Is Actually Deployed",
-          "tabIndex": 175,
+          "tabIndex": 176,
           "focusVisible": true
         }
       ],
@@ -14157,7 +14157,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 18827,
+      "visibleTextLength": 18997,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -14980,231 +14980,231 @@
           "section": "see-also",
           "href": "/frontier/reliability-gap/",
           "text": "The Reliability Gap",
-          "tabIndex": 120,
+          "tabIndex": 121,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/manipulation/generalist-policies/",
           "text": "Other Generalist Policies",
-          "tabIndex": 121,
+          "tabIndex": 122,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/classical/grasp-planning/",
           "text": "Grasp Planning",
-          "tabIndex": 122,
+          "tabIndex": 123,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "tabIndex": 123,
+          "tabIndex": 124,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/classical/control/",
           "text": "Control",
-          "tabIndex": 124,
+          "tabIndex": 125,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/reliability-gap/",
           "text": "The Reliability Gap",
-          "tabIndex": 125,
+          "tabIndex": 126,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/generalization/",
           "text": "Generalization",
-          "tabIndex": 126,
+          "tabIndex": 127,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "tabIndex": 127,
+          "tabIndex": 128,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/bear-case/",
           "text": "The Bear Case",
-          "tabIndex": 128,
+          "tabIndex": 129,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
           "text": "Why Today's Humanoids Won't Learn Dexterity",
-          "tabIndex": 129,
+          "tabIndex": 130,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1113/JP282846",
           "text": "Why is our sense of touch so good at our fingertips?",
-          "tabIndex": 130,
+          "tabIndex": 131,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
           "text": "Benjie's Humanoid Olympic Games",
-          "tabIndex": 131,
+          "tabIndex": 132,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.figure.ai/news/project-go-big",
           "text": "Project Go-Big: Internet-Scale Humanoid Pretraining and Direct Human-to-Robot Transfer",
-          "tabIndex": 132,
+          "tabIndex": 133,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.prnewswire.com/news-releases/figure-unveils-figure-02-its-second-generation-humanoid-setting-new-standards-in-ai-and-robotics-302214889.html",
           "text": "Figure unveils Figure 02, its second-generation humanoid, setting new standards in AI and robotics",
-          "tabIndex": 133,
+          "tabIndex": 134,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.figure.ai/news/helix-02",
           "text": "Introducing Helix 02: Full-Body Autonomy",
-          "tabIndex": 134,
+          "tabIndex": 135,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.figure.ai/news/introducing-figure-03",
           "text": "Introducing Figure 03",
-          "tabIndex": 135,
+          "tabIndex": 136,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/",
           "text": "Sanctuary AI Equips General Purpose Robots with New Touch Sensors for Performing Highly Dexterous Tasks",
-          "tabIndex": 136,
+          "tabIndex": 137,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://sanctuary.ai/news/sanctuary-ai-demonstrates-in-hand-manipulation-capabilities-for-improved-general-purpose-robot-dexterity/",
           "text": "Sanctuary AI Demonstrates In-Hand Manipulation Capabilities for Improved General Purpose Robot Dexterity",
-          "tabIndex": 137,
+          "tabIndex": 138,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://sanctuary.ai/news/sanctuary-ai-controlling-advanced-hydraulic-hands/",
           "text": "Sanctuary AI Leads the Industry in Controlling Advanced Hydraulic Hands Using Reinforcement Learning",
-          "tabIndex": 138,
+          "tabIndex": 139,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://blog.robozaps.com/b/sanctuary-ai-phoenix-review",
           "text": "Sanctuary AI Phoenix 2026: Price, Is It For Sale & What It Is",
-          "tabIndex": 139,
+          "tabIndex": 140,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://shadowrobot.com/dexterous-hand-series/",
           "text": "Shadow Dexterous Hand Series",
-          "tabIndex": 140,
+          "tabIndex": 141,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://shadowrobot.com/how-much-does-a-robot-hand-cost/",
           "text": "How Much does a Robot Hand Cost?",
-          "tabIndex": 141,
+          "tabIndex": 142,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://droids.substack.com/p/the-forearm-is-the-new-hand-inside",
           "text": "The Forearm Is the New Hand: Inside Tesla's Optimus V3 Patents",
-          "tabIndex": 142,
+          "tabIndex": 143,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.teslarati.com/elon-musk-reveals-shocking-tesla-optimus-patent-detail/",
           "text": "Elon Musk reveals shocking Tesla Optimus patent detail",
-          "tabIndex": 143,
+          "tabIndex": 144,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://blog.robozaps.com/b/unitree-h2-review",
           "text": "Unitree H2 Humanoid Robot: $29,900 Price, Specs, vs H1 (2026)",
-          "tabIndex": 144,
+          "tabIndex": 145,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://en.wikipedia.org/wiki/Humanoid_hand",
           "text": "Humanoid hand",
-          "tabIndex": 145,
+          "tabIndex": 146,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2506.14754",
           "text": "Tactile Beyond Pixels: Multisensory Touch Representations for Robot Manipulation",
-          "tabIndex": 146,
+          "tabIndex": 147,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2607.07287",
           "text": "TouchWorld: A Predictive and Reactive Tactile Foundation Model for Dexterous Manipulation",
-          "tabIndex": 148,
+          "tabIndex": 149,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2508.11261",
           "text": "Tactile Robotics: An Outlook",
-          "tabIndex": 150,
+          "tabIndex": 151,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
           "text": "Gemini Robotics 2 brings whole body intelligence to robots",
-          "tabIndex": 151,
+          "tabIndex": 152,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/blog/olympics",
           "text": "Moravec's Paradox and the Robot Olympics",
-          "tabIndex": 152,
+          "tabIndex": 153,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/download/pi07.pdf",
           "text": "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities",
-          "tabIndex": 153,
+          "tabIndex": 154,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.14830",
           "text": "RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
-          "tabIndex": 155,
+          "tabIndex": 156,
           "focusVisible": true
         }
       ],
@@ -15856,7 +15856,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 14316,
+      "visibleTextLength": 14475,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -16228,154 +16228,154 @@
           "section": "see-also",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "tabIndex": 69,
+          "tabIndex": 70,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/manipulation/rl-finetuning/",
           "text": "RL Fine-Tuning of Policies",
-          "tabIndex": 70,
+          "tabIndex": 71,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/rl-sim2real/humanoid-wbc/",
           "text": "Humanoid Whole-Body Control",
-          "tabIndex": 71,
+          "tabIndex": 72,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/frontier/dexterity/",
           "text": "Dexterity",
-          "tabIndex": 72,
+          "tabIndex": 73,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "tabIndex": 73,
+          "tabIndex": 74,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/data-hardware/industrial-deployment/",
           "text": "Industrial Deployment",
-          "tabIndex": 74,
+          "tabIndex": 75,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/dexterity/",
           "text": "Dexterity",
-          "tabIndex": 75,
+          "tabIndex": 76,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/generalization/",
           "text": "Generalization",
-          "tabIndex": 76,
+          "tabIndex": 77,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "tabIndex": 77,
+          "tabIndex": 78,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/bear-case/",
           "text": "The Bear Case",
-          "tabIndex": 78,
+          "tabIndex": 79,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/safety-and-assurance/",
           "text": "Safety and Assurance",
-          "tabIndex": 79,
+          "tabIndex": 80,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/adjacent/autonomous-vehicles/",
           "text": "Autonomous Vehicles",
-          "tabIndex": 80,
+          "tabIndex": 81,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/adjacent/surgical/",
           "text": "Surgical Robotics",
-          "tabIndex": 81,
+          "tabIndex": 82,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/adjacent/space/",
           "text": "Space Robotics",
-          "tabIndex": 82,
+          "tabIndex": 83,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
           "text": "Bessemer Predicts: Robotics and physical AI",
-          "tabIndex": 83,
+          "tabIndex": 84,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/blog/pistar06",
           "text": "π*0.6: a VLA that Learns from Experience",
-          "tabIndex": 84,
+          "tabIndex": 85,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.14830",
           "text": "RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
-          "tabIndex": 86,
+          "tabIndex": 87,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://huggingface.co/datasets/google/asimov_agentic",
           "text": "Asimov Agentic Safety Evaluation",
-          "tabIndex": 88,
+          "tabIndex": 89,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
           "text": "Gemini Robotics 2 brings whole body intelligence to robots",
-          "tabIndex": 89,
+          "tabIndex": 90,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/download/pi07.pdf",
           "text": "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities",
-          "tabIndex": 90,
+          "tabIndex": 91,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
           "text": "Humanoid Robots in 2026: What Is Actually Deployed",
-          "tabIndex": 92,
+          "tabIndex": 93,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
           "text": "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
-          "tabIndex": 93,
+          "tabIndex": 94,
           "focusVisible": true
         }
       ],
@@ -23766,147 +23766,147 @@
           "section": "see-also",
           "href": "/manipulation/pi-line/",
           "text": "The Pi Line",
-          "tabIndex": 70,
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/manipulation/bc-foundations/",
-          "text": "Behavior Cloning Foundations",
           "tabIndex": 71,
           "focusVisible": true
         },
         {
           "section": "see-also",
+          "href": "/manipulation/bc-foundations/",
+          "text": "Behavior Cloning Foundations",
+          "tabIndex": 72,
+          "focusVisible": true
+        },
+        {
+          "section": "see-also",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "tabIndex": 72,
+          "tabIndex": 73,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/rl-sim2real/rl-for-robotics/",
           "text": "RL for Robotics",
-          "tabIndex": 73,
+          "tabIndex": 74,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/manipulation/bc-foundations/",
           "text": "Behavior Cloning Foundations",
-          "tabIndex": 74,
+          "tabIndex": 75,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/rl-sim2real/rl-for-robotics/",
           "text": "RL for Robotics",
-          "tabIndex": 75,
+          "tabIndex": 76,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "tabIndex": 76,
+          "tabIndex": 77,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/reliability-gap/",
           "text": "The Reliability Gap",
-          "tabIndex": 77,
+          "tabIndex": 78,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "tabIndex": 78,
+          "tabIndex": 79,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1011.0686",
           "text": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning",
-          "tabIndex": 79,
+          "tabIndex": 80,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2409.00588",
           "text": "Diffusion Policy Policy Optimization",
-          "tabIndex": 80,
+          "tabIndex": 81,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2502.05450",
           "text": "ConRFT: A Reinforced Fine-tuning Method for VLA Models via Consistency Policy",
-          "tabIndex": 82,
+          "tabIndex": 83,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.25889",
           "text": "π_RL: Online RL Fine-tuning for Flow-based Vision-Language-Action Models",
-          "tabIndex": 83,
+          "tabIndex": 84,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/download/pistar06.pdf",
           "text": "π*0.6: a VLA That Learns From Experience",
-          "tabIndex": 85,
+          "tabIndex": 86,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/blog/pistar06",
           "text": "π*0.6: a VLA that Learns from Experience",
-          "tabIndex": 87,
+          "tabIndex": 88,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
           "text": "π0.6 Model Card",
-          "tabIndex": 89,
+          "tabIndex": 90,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2410.21845",
           "text": "Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement Learning",
-          "tabIndex": 90,
+          "tabIndex": 91,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2511.00091",
           "text": "Self-Improving Vision-Language-Action Models with Data Generation via Residual RL",
-          "tabIndex": 91,
+          "tabIndex": 92,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2412.09858",
           "text": "RLDG: Robotic Generalist Policy Distillation via Reinforcement Learning",
-          "tabIndex": 93,
+          "tabIndex": 94,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2505.19789",
           "text": "What Can RL Bring to VLA Generalization? An Empirical Study",
-          "tabIndex": 94,
+          "tabIndex": 95,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2605.13105",
           "text": "What to Ignore, What to React: Visually Robust RL Fine-Tuning of VLA Models",
-          "tabIndex": 95,
+          "tabIndex": 96,
           "focusVisible": true
         }
       ],
@@ -44523,175 +44523,175 @@
           "section": "see-also",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "tabIndex": 120,
+          "tabIndex": 121,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/frontier/reliability-gap/",
           "text": "The Reliability Gap",
-          "tabIndex": 121,
+          "tabIndex": 122,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/frontier/generalization/",
           "text": "Generalization",
-          "tabIndex": 122,
+          "tabIndex": 123,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "tabIndex": 123,
+          "tabIndex": 124,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "tabIndex": 124,
+          "tabIndex": 125,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
           "text": "Why Today's Humanoids Won't Learn Dexterity",
-          "tabIndex": 125,
+          "tabIndex": 126,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://rodneybrooks.com/predictions-scorecard-2026-january-01/",
           "text": "Predictions Scorecard, 2026 January 01",
-          "tabIndex": 126,
+          "tabIndex": 127,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
           "text": "'PR problem' is standing in the way of China's humanoid robot boom, says Morgan Stanley",
-          "tabIndex": 127,
+          "tabIndex": 128,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
           "text": "Humanoid Robots in 2026: What Is Actually Deployed",
-          "tabIndex": 128,
+          "tabIndex": 129,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
           "text": "Robot Boom Meets Earnings Reality: Unitree Profits Halved, Optimus Not for Sale",
-          "tabIndex": 129,
+          "tabIndex": 130,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
           "text": "Bessemer Predicts: Robotics and physical AI",
-          "tabIndex": 130,
+          "tabIndex": 131,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://interestingengineering.com/ai-robotics/qualcomm-robot-unexpected-collapse",
           "text": "Watch: Qualcomm-powered humanoid robot collapses during live keynote",
-          "tabIndex": 131,
+          "tabIndex": 132,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.briefs.co/news/robotics-startups-raised-23-billion-in-2026-closing-in-on-all-of-2025/",
           "text": "Robotics Startups Raised $23 Billion in 2026, Closing In On All of 2025",
-          "tabIndex": 132,
+          "tabIndex": 133,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/",
           "text": "Sector Snapshot: Robotics Startups On Fire As Venture Funding Surges To Record Numbers In 2026",
-          "tabIndex": 133,
+          "tabIndex": 134,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1126/scirobotics.aea7390",
           "text": "Good old-fashioned engineering can close the 100,000-year \"data gap\" in robotics",
-          "tabIndex": 134,
+          "tabIndex": 135,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2504.16054",
           "text": "π0.5: a Vision-Language-Action Model with Open-World Generalization",
-          "tabIndex": 135,
+          "tabIndex": 136,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.14830",
           "text": "RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
-          "tabIndex": 137,
+          "tabIndex": 138,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/download/pistar06.pdf",
           "text": "π*0.6: a VLA That Learns From Experience",
-          "tabIndex": 139,
+          "tabIndex": 140,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2506.18123",
           "text": "RoboArena: Distributed Real-World Evaluation of Generalist Robot Policies",
-          "tabIndex": 141,
+          "tabIndex": 142,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.17950",
           "text": "RoboChallenge: Large-scale Real-robot Evaluation of Embodied Policies",
-          "tabIndex": 143,
+          "tabIndex": 144,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2603.04363",
           "text": "ManipulationNet: An Infrastructure for Benchmarking Real-World Robot Manipulation with Physical Skill Challenges and Embodied Multimodal Reasoning",
-          "tabIndex": 145,
+          "tabIndex": 146,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2506.14754",
           "text": "Tactile Beyond Pixels: Multisensory Touch Representations for Robot Manipulation",
-          "tabIndex": 147,
+          "tabIndex": 148,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2607.07287",
           "text": "TouchWorld: A Predictive and Reactive Tactile Foundation Model for Dexterous Manipulation",
-          "tabIndex": 149,
+          "tabIndex": 150,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.20808",
           "text": "The Reality Gap in Robotics: Challenges, Solutions, and Best Practices",
-          "tabIndex": 151,
+          "tabIndex": 152,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2602.16710",
           "text": "EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data",
-          "tabIndex": 153,
+          "tabIndex": 154,
           "focusVisible": true
         }
       ],
@@ -45594,189 +45594,189 @@
           "section": "see-also",
           "href": "/frontier/generalization/",
           "text": "Generalization",
-          "tabIndex": 160,
+          "tabIndex": 161,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/frontier/reliability-gap/",
           "text": "The Reliability Gap",
-          "tabIndex": 161,
+          "tabIndex": 162,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/manipulation/hierarchical/",
           "text": "Hierarchical Approaches",
-          "tabIndex": 162,
+          "tabIndex": 163,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/world-models/taxonomy/",
           "text": "What Is a World Model?",
-          "tabIndex": 163,
+          "tabIndex": 164,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/dexterity/",
           "text": "Dexterity",
-          "tabIndex": 164,
+          "tabIndex": 165,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/bear-case/",
           "text": "The Bear Case",
-          "tabIndex": 165,
+          "tabIndex": 166,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://rodneybrooks.com/a-better-lesson/",
           "text": "A Better Lesson",
-          "tabIndex": 166,
+          "tabIndex": 167,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://web.archive.org/web/20241231102234/http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
           "text": "The Bitter Lesson",
-          "tabIndex": 167,
+          "tabIndex": 168,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.rockingrobots.com/nucleus-robotics-emerges-from-stealth-with-humanoids-on-the-german-factory-floor/",
           "text": "Nucleus Robotics Emerges From Stealth With Humanoids on the German Factory Floor",
-          "tabIndex": 168,
+          "tabIndex": 169,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
           "text": "Why Today's Humanoids Won't Learn Dexterity",
-          "tabIndex": 169,
+          "tabIndex": 170,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1126/scirobotics.aea7390",
           "text": "Good old-fashioned engineering can close the 100,000-year \"data gap\" in robotics",
-          "tabIndex": 170,
+          "tabIndex": 171,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2606.06556",
           "text": "Robots Need More than VLA and World Models",
-          "tabIndex": 171,
+          "tabIndex": 172,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
           "text": "Bessemer Predicts: Robotics and physical AI",
-          "tabIndex": 173,
+          "tabIndex": 174,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2602.16710",
           "text": "EgoScale: Scaling Dexterous Manipulation with Diverse Egocentric Human Data",
-          "tabIndex": 174,
+          "tabIndex": 175,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2504.16054",
           "text": "π0.5: a Vision-Language-Action Model with Open-World Generalization",
-          "tabIndex": 176,
+          "tabIndex": 177,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/download/pi07.pdf",
           "text": "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities",
-          "tabIndex": 178,
+          "tabIndex": 179,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/download/pistar06.pdf",
           "text": "π*0.6: a VLA That Learns From Experience",
-          "tabIndex": 180,
+          "tabIndex": 181,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.14830",
           "text": "RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
-          "tabIndex": 182,
+          "tabIndex": 183,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2606.19980",
           "text": "ENPIRE: Agentic Robot Policy Self-Improvement in the Real World",
-          "tabIndex": 184,
+          "tabIndex": 185,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://deepmind.google/models/gemini-robotics/embodied-reasoning/",
           "text": "Gemini Robotics ER 2",
-          "tabIndex": 186,
+          "tabIndex": 187,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
           "text": "Gemini Robotics 2 brings whole body intelligence to robots",
-          "tabIndex": 187,
+          "tabIndex": 188,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.figure.ai/news/helix-02",
           "text": "Introducing Helix 02: Full-Body Autonomy",
-          "tabIndex": 188,
+          "tabIndex": 189,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
           "text": "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
-          "tabIndex": 189,
+          "tabIndex": 190,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2204.01691",
           "text": "Do As I Can, Not As I Say: Grounding Language in Robotic Affordances",
-          "tabIndex": 190,
+          "tabIndex": 191,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2506.09985",
           "text": "V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning",
-          "tabIndex": 192,
+          "tabIndex": 193,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf",
           "text": "Cosmos 3: Omnimodal World Models for Physical AI",
-          "tabIndex": 194,
+          "tabIndex": 195,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
           "text": "Humanoid Robots in 2026: What Is Actually Deployed",
-          "tabIndex": 195,
+          "tabIndex": 196,
           "focusVisible": true
         }
       ],
@@ -45786,7 +45786,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 19162,
+      "visibleTextLength": 19332,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -46609,231 +46609,231 @@
           "section": "see-also",
           "href": "/frontier/reliability-gap/",
           "text": "The Reliability Gap",
-          "tabIndex": 140,
+          "tabIndex": 141,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/manipulation/generalist-policies/",
           "text": "Other Generalist Policies",
-          "tabIndex": 141,
+          "tabIndex": 142,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/classical/grasp-planning/",
           "text": "Grasp Planning",
-          "tabIndex": 142,
+          "tabIndex": 143,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "tabIndex": 143,
+          "tabIndex": 144,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/classical/control/",
           "text": "Control",
-          "tabIndex": 144,
+          "tabIndex": 145,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/reliability-gap/",
           "text": "The Reliability Gap",
-          "tabIndex": 145,
+          "tabIndex": 146,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/generalization/",
           "text": "Generalization",
-          "tabIndex": 146,
+          "tabIndex": 147,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "tabIndex": 147,
+          "tabIndex": 148,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/bear-case/",
           "text": "The Bear Case",
-          "tabIndex": 148,
+          "tabIndex": 149,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
           "text": "Why Today's Humanoids Won't Learn Dexterity",
-          "tabIndex": 149,
+          "tabIndex": 150,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1113/JP282846",
           "text": "Why is our sense of touch so good at our fingertips?",
-          "tabIndex": 150,
+          "tabIndex": 151,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
           "text": "Benjie's Humanoid Olympic Games",
-          "tabIndex": 151,
+          "tabIndex": 152,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.figure.ai/news/project-go-big",
           "text": "Project Go-Big: Internet-Scale Humanoid Pretraining and Direct Human-to-Robot Transfer",
-          "tabIndex": 152,
+          "tabIndex": 153,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.prnewswire.com/news-releases/figure-unveils-figure-02-its-second-generation-humanoid-setting-new-standards-in-ai-and-robotics-302214889.html",
           "text": "Figure unveils Figure 02, its second-generation humanoid, setting new standards in AI and robotics",
-          "tabIndex": 153,
+          "tabIndex": 154,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.figure.ai/news/helix-02",
           "text": "Introducing Helix 02: Full-Body Autonomy",
-          "tabIndex": 154,
+          "tabIndex": 155,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.figure.ai/news/introducing-figure-03",
           "text": "Introducing Figure 03",
-          "tabIndex": 155,
+          "tabIndex": 156,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/",
           "text": "Sanctuary AI Equips General Purpose Robots with New Touch Sensors for Performing Highly Dexterous Tasks",
-          "tabIndex": 156,
+          "tabIndex": 157,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://sanctuary.ai/news/sanctuary-ai-demonstrates-in-hand-manipulation-capabilities-for-improved-general-purpose-robot-dexterity/",
           "text": "Sanctuary AI Demonstrates In-Hand Manipulation Capabilities for Improved General Purpose Robot Dexterity",
-          "tabIndex": 157,
+          "tabIndex": 158,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://sanctuary.ai/news/sanctuary-ai-controlling-advanced-hydraulic-hands/",
           "text": "Sanctuary AI Leads the Industry in Controlling Advanced Hydraulic Hands Using Reinforcement Learning",
-          "tabIndex": 158,
+          "tabIndex": 159,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://blog.robozaps.com/b/sanctuary-ai-phoenix-review",
           "text": "Sanctuary AI Phoenix 2026: Price, Is It For Sale & What It Is",
-          "tabIndex": 159,
+          "tabIndex": 160,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://shadowrobot.com/dexterous-hand-series/",
           "text": "Shadow Dexterous Hand Series",
-          "tabIndex": 160,
+          "tabIndex": 161,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://shadowrobot.com/how-much-does-a-robot-hand-cost/",
           "text": "How Much does a Robot Hand Cost?",
-          "tabIndex": 161,
+          "tabIndex": 162,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://droids.substack.com/p/the-forearm-is-the-new-hand-inside",
           "text": "The Forearm Is the New Hand: Inside Tesla's Optimus V3 Patents",
-          "tabIndex": 162,
+          "tabIndex": 163,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.teslarati.com/elon-musk-reveals-shocking-tesla-optimus-patent-detail/",
           "text": "Elon Musk reveals shocking Tesla Optimus patent detail",
-          "tabIndex": 163,
+          "tabIndex": 164,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://blog.robozaps.com/b/unitree-h2-review",
           "text": "Unitree H2 Humanoid Robot: $29,900 Price, Specs, vs H1 (2026)",
-          "tabIndex": 164,
+          "tabIndex": 165,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://en.wikipedia.org/wiki/Humanoid_hand",
           "text": "Humanoid hand",
-          "tabIndex": 165,
+          "tabIndex": 166,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2506.14754",
           "text": "Tactile Beyond Pixels: Multisensory Touch Representations for Robot Manipulation",
-          "tabIndex": 166,
+          "tabIndex": 167,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2607.07287",
           "text": "TouchWorld: A Predictive and Reactive Tactile Foundation Model for Dexterous Manipulation",
-          "tabIndex": 168,
+          "tabIndex": 169,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2508.11261",
           "text": "Tactile Robotics: An Outlook",
-          "tabIndex": 170,
+          "tabIndex": 171,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
           "text": "Gemini Robotics 2 brings whole body intelligence to robots",
-          "tabIndex": 171,
+          "tabIndex": 172,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/blog/olympics",
           "text": "Moravec's Paradox and the Robot Olympics",
-          "tabIndex": 172,
+          "tabIndex": 173,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/download/pi07.pdf",
           "text": "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities",
-          "tabIndex": 173,
+          "tabIndex": 174,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.14830",
           "text": "RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
-          "tabIndex": 175,
+          "tabIndex": 176,
           "focusVisible": true
         }
       ],
@@ -47485,7 +47485,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 14651,
+      "visibleTextLength": 14810,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -47857,154 +47857,154 @@
           "section": "see-also",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "tabIndex": 89,
+          "tabIndex": 90,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/manipulation/rl-finetuning/",
           "text": "RL Fine-Tuning of Policies",
-          "tabIndex": 90,
+          "tabIndex": 91,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/rl-sim2real/humanoid-wbc/",
           "text": "Humanoid Whole-Body Control",
-          "tabIndex": 91,
+          "tabIndex": 92,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/frontier/dexterity/",
           "text": "Dexterity",
-          "tabIndex": 92,
+          "tabIndex": 93,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "tabIndex": 93,
+          "tabIndex": 94,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/data-hardware/industrial-deployment/",
           "text": "Industrial Deployment",
-          "tabIndex": 94,
+          "tabIndex": 95,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/dexterity/",
           "text": "Dexterity",
-          "tabIndex": 95,
+          "tabIndex": 96,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/generalization/",
           "text": "Generalization",
-          "tabIndex": 96,
+          "tabIndex": 97,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "tabIndex": 97,
+          "tabIndex": 98,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/bear-case/",
           "text": "The Bear Case",
-          "tabIndex": 98,
+          "tabIndex": 99,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/safety-and-assurance/",
           "text": "Safety and Assurance",
-          "tabIndex": 99,
+          "tabIndex": 100,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/adjacent/autonomous-vehicles/",
           "text": "Autonomous Vehicles",
-          "tabIndex": 100,
+          "tabIndex": 101,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/adjacent/surgical/",
           "text": "Surgical Robotics",
-          "tabIndex": 101,
+          "tabIndex": 102,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/adjacent/space/",
           "text": "Space Robotics",
-          "tabIndex": 102,
+          "tabIndex": 103,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
           "text": "Bessemer Predicts: Robotics and physical AI",
-          "tabIndex": 103,
+          "tabIndex": 104,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/blog/pistar06",
           "text": "π*0.6: a VLA that Learns from Experience",
-          "tabIndex": 104,
+          "tabIndex": 105,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.14830",
           "text": "RL-100: Performant Robotic Manipulation with Real-World Reinforcement Learning",
-          "tabIndex": 106,
+          "tabIndex": 107,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://huggingface.co/datasets/google/asimov_agentic",
           "text": "Asimov Agentic Safety Evaluation",
-          "tabIndex": 108,
+          "tabIndex": 109,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
           "text": "Gemini Robotics 2 brings whole body intelligence to robots",
-          "tabIndex": 109,
+          "tabIndex": 110,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/download/pi07.pdf",
           "text": "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities",
-          "tabIndex": 110,
+          "tabIndex": 111,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
           "text": "Humanoid Robots in 2026: What Is Actually Deployed",
-          "tabIndex": 112,
+          "tabIndex": 113,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
           "text": "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
-          "tabIndex": 113,
+          "tabIndex": 114,
           "focusVisible": true
         }
       ],
@@ -55395,147 +55395,147 @@
           "section": "see-also",
           "href": "/manipulation/pi-line/",
           "text": "The Pi Line",
-          "tabIndex": 96,
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/manipulation/bc-foundations/",
-          "text": "Behavior Cloning Foundations",
           "tabIndex": 97,
           "focusVisible": true
         },
         {
           "section": "see-also",
+          "href": "/manipulation/bc-foundations/",
+          "text": "Behavior Cloning Foundations",
+          "tabIndex": 98,
+          "focusVisible": true
+        },
+        {
+          "section": "see-also",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "tabIndex": 98,
+          "tabIndex": 99,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/rl-sim2real/rl-for-robotics/",
           "text": "RL for Robotics",
-          "tabIndex": 99,
+          "tabIndex": 100,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/manipulation/bc-foundations/",
           "text": "Behavior Cloning Foundations",
-          "tabIndex": 100,
+          "tabIndex": 101,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/rl-sim2real/rl-for-robotics/",
           "text": "RL for Robotics",
-          "tabIndex": 101,
+          "tabIndex": 102,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/data-hardware/evaluation-crisis/",
           "text": "The Evaluation Crisis",
-          "tabIndex": 102,
+          "tabIndex": 103,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/reliability-gap/",
           "text": "The Reliability Gap",
-          "tabIndex": 103,
+          "tabIndex": 104,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/competing-theses/",
           "text": "Competing Theses",
-          "tabIndex": 104,
+          "tabIndex": 105,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1011.0686",
           "text": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning",
-          "tabIndex": 105,
+          "tabIndex": 106,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2409.00588",
           "text": "Diffusion Policy Policy Optimization",
-          "tabIndex": 106,
+          "tabIndex": 107,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2502.05450",
           "text": "ConRFT: A Reinforced Fine-tuning Method for VLA Models via Consistency Policy",
-          "tabIndex": 108,
+          "tabIndex": 109,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.25889",
           "text": "π_RL: Online RL Fine-tuning for Flow-based Vision-Language-Action Models",
-          "tabIndex": 109,
+          "tabIndex": 110,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/download/pistar06.pdf",
           "text": "π*0.6: a VLA That Learns From Experience",
-          "tabIndex": 111,
+          "tabIndex": 112,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.pi.website/blog/pistar06",
           "text": "π*0.6: a VLA that Learns from Experience",
-          "tabIndex": 113,
+          "tabIndex": 114,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
           "text": "π0.6 Model Card",
-          "tabIndex": 115,
+          "tabIndex": 116,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2410.21845",
           "text": "Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement Learning",
-          "tabIndex": 116,
+          "tabIndex": 117,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2511.00091",
           "text": "Self-Improving Vision-Language-Action Models with Data Generation via Residual RL",
-          "tabIndex": 117,
+          "tabIndex": 118,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2412.09858",
           "text": "RLDG: Robotic Generalist Policy Distillation via Reinforcement Learning",
-          "tabIndex": 119,
+          "tabIndex": 120,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2505.19789",
           "text": "What Can RL Bring to VLA Generalization? An Empirical Study",
-          "tabIndex": 120,
+          "tabIndex": 121,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2605.13105",
           "text": "What to Ignore, What to React: Visually Robust RL Fine-Tuning of VLA Models",
-          "tabIndex": 121,
+          "tabIndex": 122,
           "focusVisible": true
         }
       ],

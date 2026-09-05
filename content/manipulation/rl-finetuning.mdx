@@ -60,7 +60,9 @@ The mechanism has three moving parts. First, a language-conditioned distribution
 
 The theoretical basis is the KL-regularized RL solution, realized as conditioning rather than reweighting:
 
-$$\hat{\pi}(a \mid o) \propto \pi_{\mathrm{ref}}(a \mid o)\,\exp\!\left(A(o, a) / \beta\right)$$
+$$
+\hat{\pi}(a \mid o) \propto \pi_{\mathrm{ref}}(a \mid o)\,\exp\!\left(A(o, a) / \beta\right)
+$$
 
 This is what makes RL scale to a 5B-parameter flow-matching VLA: no gradients pass through the action head at RL time, so the whole apparatus rides on supervised-style training with an extra token <Cite id="pistar06-2025" /> <Cite id="pi06-model-card-2025" />.
 

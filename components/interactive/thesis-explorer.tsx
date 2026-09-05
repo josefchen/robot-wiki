@@ -1,7 +1,8 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import { CiteRef } from '@/components/mdx/cite-ref';
+import { TableScroll } from '@/components/ui';
 import {
   DEFAULT_THESIS_ID,
   THESES,
@@ -74,6 +75,7 @@ function EvidenceList({
 export function ThesisExplorer({ className }: { className?: string }) {
   const [selectedId, setSelectedId] = useState<string>(DEFAULT_THESIS_ID);
   const rowButtons = useRef<Array<HTMLButtonElement | null>>([]);
+  const captionId = useId();
 
   const selected =
     THESES.find((thesis) => thesis.id === selectedId) ?? THESES[0];
@@ -130,9 +132,9 @@ export function ThesisExplorer({ className }: { className?: string }) {
         </button>
       </div>
 
-      <div className="mt-4 overflow-x-auto">
+      <TableScroll labelledBy={captionId} className="mt-4">
         <table className="w-full min-w-[480px] border-collapse text-left">
-          <caption className="sr-only">
+          <caption id={captionId} className="sr-only">
             Six competing theses for robot intelligence. Select a row to read
             its proponents, the evidence on both sides, and its falsification
             criterion.
@@ -204,7 +206,7 @@ export function ThesisExplorer({ className }: { className?: string }) {
             })}
           </tbody>
         </table>
-      </div>
+      </TableScroll>
 
       <div
         data-testid="thesis-detail"

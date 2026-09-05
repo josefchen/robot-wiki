@@ -138,6 +138,17 @@ import {
   MATERIAL_POPULATION_SOURCE,
   SCHEMATIC_OCCURRENCE_POPULATION_SOURCE,
 } from '@/lib/figure-populations';
+import {
+  TABLE_MATH_EVIDENCE_PATH,
+  equationOccurrenceMembers,
+  readTableMathEvidence,
+  tableMathEvidenceFingerprint,
+  tableOccurrenceMembers,
+} from '@/lib/brand-v2-table-math-evidence';
+import {
+  EQUATION_OCCURRENCE_POPULATION_SOURCE,
+  TABLE_OCCURRENCE_POPULATION_SOURCE,
+} from '@/lib/table-math-populations';
 
 const ROOT = process.cwd();
 const FIXTURE_TEST_FILE = 'tests/unit/brand-v2-enforcement.test.ts';
@@ -148,6 +159,15 @@ function figureEvidence() {
       readFileSync(join(ROOT, FIGURE_RUNTIME_EVIDENCE_PATH), 'utf8'),
     ),
     fingerprint: figureEvidenceFingerprint({ root: ROOT }),
+    root: ROOT,
+  });
+}
+function tableMathEvidence() {
+  return readTableMathEvidence({
+    artifact: JSON.parse(
+      readFileSync(join(ROOT, TABLE_MATH_EVIDENCE_PATH), 'utf8'),
+    ),
+    fingerprint: tableMathEvidenceFingerprint({ root: ROOT }),
     root: ROOT,
   });
 }
@@ -449,6 +469,14 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
             [MATERIAL_POPULATION_SOURCE]: (
               registry.materials as Array<{ id: string }>
             ).map(({ id }) => id),
+            // The dense-surface lane's two occurrence populations, which are
+            // per table and per equation rather than per route.
+            [TABLE_OCCURRENCE_POPULATION_SOURCE]: tableOccurrenceMembers(
+              tableMathEvidence(),
+            ),
+            [EQUATION_OCCURRENCE_POPULATION_SOURCE]: equationOccurrenceMembers(
+              tableMathEvidence(),
+            ),
           },
         }),
         map,

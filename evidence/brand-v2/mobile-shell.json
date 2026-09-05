@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "c2b9a76c50bad68f43927f9d43b31db987b4eb49850949d387f6e9b2b4f93358",
+  "fingerprint": "fa592b383dcaaa36e5647da826571f97349669ba88604fa6f0b352f11f4176fa",
   "viewport": "375x812",
   "routes": [
     "/",
@@ -4306,7 +4306,7 @@
     },
     {
       "route": "/frontier/dexterity/",
-      "visibleTextLength": 18827,
+      "visibleTextLength": 18997,
       "header": {
         "present": true,
         "display": "flex",
@@ -4632,7 +4632,7 @@
     },
     {
       "route": "/frontier/reliability-gap/",
-      "visibleTextLength": 14316,
+      "visibleTextLength": 14475,
       "header": {
         "present": true,
         "display": "flex",

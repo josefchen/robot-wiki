@@ -150,6 +150,22 @@ import {
   MATERIAL_POPULATION_SOURCE,
   SCHEMATIC_OCCURRENCE_POPULATION_SOURCE,
 } from '../lib/figure-populations.ts';
+import {
+  TABLE_MATH_EVIDENCE_PATH,
+  TABLE_MATH_VIEWPORTS,
+  equationAccessibilityVerdicts,
+  equationOccurrenceMembers,
+  readTableMathEvidence,
+  tableContainmentVerdicts,
+  tableMathEvidenceFingerprint,
+  tableOccurrenceMembers,
+} from '../lib/brand-v2-table-math-evidence.ts';
+import {
+  EQUATION_OCCURRENCE_POPULATION_SOURCE,
+  TABLE_MATH_ASSERTION_ACTUALS,
+  TABLE_MATH_ASSERTION_POPULATION_SOURCES,
+  TABLE_OCCURRENCE_POPULATION_SOURCE,
+} from '../lib/table-math-populations.ts';
 import { readSectionSignatureRegistry } from '../lib/brand-v2-section-signatures.ts';
 import {
   HOME_TOOLS_EVIDENCE_PATH,
@@ -276,9 +292,29 @@ function isMeasured(id: string): boolean {
     ARTICLE_ASSERTIONS.has(id) ||
     APPARATUS_ASSERTIONS.has(id) ||
     FIGURE_RUNTIME_ASSERTIONS.has(id) ||
-    FIGURE_RECORD_ASSERTIONS.has(id)
+    FIGURE_RECORD_ASSERTIONS.has(id) ||
+    TABLE_MATH_ASSERTIONS.has(id)
   );
 }
+
+/**
+ * The two dense-surface rows, routed to the two-width sweep of every
+ * published article's tables and equations.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/article-tables-math.json` through a reader that throws
+ * on a stale fingerprint, the wrong viewports, a route set that disagrees
+ * with the module registry in either direction, a duplicate route/viewport
+ * pair, an empty page, an article whose own MDX carries math delimiters but
+ * which rendered no equation, and a sweep that found no table or no equation
+ * anywhere. Neither row is decidable from source: whether a table scrolls is
+ * a `scrollWidth` against the `clientWidth` a browser gave its container at
+ * one particular width, and an equation's accessible text is MathML that
+ * exists only after the pipeline has run.
+ */
+const TABLE_MATH_ASSERTIONS = new Set(
+  Object.keys(TABLE_MATH_ASSERTION_POPULATION_SOURCES),
+);
 
 /**
  * The wiki-apparatus preservation assertion, routed to the two-width sweep
@@ -952,6 +988,27 @@ const FIGURE_VERDICTS = {
   Map<string, { id: string; observed: unknown; failures: string[] }>
 >;
 
+const TABLE_MATH_EVIDENCE = readTableMathEvidence({
+  artifact: readJson(join(ROOT, TABLE_MATH_EVIDENCE_PATH)),
+  fingerprint: tableMathEvidenceFingerprint({ root: ROOT }),
+  root: ROOT,
+});
+
+const TABLE_MATH_VERDICTS = {
+  'VAL-B2-ART-007': equationAccessibilityVerdicts(TABLE_MATH_EVIDENCE),
+  'VAL-B2-ART-008': tableContainmentVerdicts(TABLE_MATH_EVIDENCE),
+} as const satisfies Record<
+  string,
+  Map<string, { id: string; observed: unknown; failures: string[] }>
+>;
+
+const TABLE_MATH_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [TABLE_OCCURRENCE_POPULATION_SOURCE]:
+    tableOccurrenceMembers(TABLE_MATH_EVIDENCE),
+  [EQUATION_OCCURRENCE_POPULATION_SOURCE]:
+    equationOccurrenceMembers(TABLE_MATH_EVIDENCE),
+};
+
 const FIGURE_POPULATIONS: Readonly<Record<string, string[]>> = {
   [FIGURE_OCCURRENCE_POPULATION_SOURCE]: figureOccurrenceMembers(FIGURE_EVIDENCE),
   [SCHEMATIC_OCCURRENCE_POPULATION_SOURCE]:
@@ -972,7 +1029,11 @@ function populationSources(assertionIds: string[]) {
     identityPopulations: IDENTITY_POPULATIONS,
     shellPopulations: SHELL_POPULATIONS,
     homePopulations: HOME_POPULATIONS,
-    articlePopulations: { ...ARTICLE_POPULATIONS, ...FIGURE_POPULATIONS },
+    articlePopulations: {
+      ...ARTICLE_POPULATIONS,
+      ...FIGURE_POPULATIONS,
+      ...TABLE_MATH_POPULATIONS,
+    },
   });
 }
 
@@ -989,6 +1050,8 @@ function populationSourceFor(id: string): string {
   if (apparatusSource) return apparatusSource;
   const figureSource = FIGURE_ASSERTION_POPULATION_SOURCES[id];
   if (figureSource) return figureSource;
+  const tableMathSource = TABLE_MATH_ASSERTION_POPULATION_SOURCES[id];
+  if (tableMathSource) return tableMathSource;
   if (id === SEMANTIC_ROLE_ASSERTION) {
     return SEMANTIC_TOKEN_POPULATION_SOURCE;
   }
@@ -1065,6 +1128,10 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // The record rows are re-derived from the registry, the shipped bytes and
   // the sealed baseline manifest, with no page involved.
   if (FIGURE_RECORD_ASSERTIONS.has(id)) return 'automated-machine';
+  // A dense-surface row's evidence is a container's scroll geometry and an
+  // equation's MathML as a browser laid them out at two widths, so it is a
+  // browser-state row.
+  if (TABLE_MATH_ASSERTIONS.has(id)) return 'browser-state';
   // A home row's evidence is what the built home page laid out at
   // 1440x900, so it is a browser-state row.
   if (HOME_ASSERTIONS.has(id)) return 'browser-state';
@@ -1431,6 +1498,17 @@ const SHELL_READER_TARGET = testTarget(
   'Proves the reader that gates every shell row throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a route with no discovered navigation, and an empty taxonomy ledger, and proves the current-route verdict fails a signal-blue mark, a colour-only difference, an unregistered marker and aria-current on a heading.',
 );
 
+const TABLE_MATH_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-article-tables-math.spec.ts',
+  'brand-v2 article tables, code, math and wide layouts › records every table and equation every published article renders, at both widths',
+  'Sweeps every published article in the built export at 375x812 and 1440x900, finds each table\'s real scrolling ancestor by walking up to the first computed scroll container rather than trusting a selector, proves the scroll by moving it and restoring it, checks the container is reachable by keyboard wherever it actually scrolls, and reads each equation\'s MathML, TeX annotation, hidden glyph layer and rendered face.',
+);
+const TABLE_MATH_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-table-math-evidence.test.ts',
+  'article table and math evidence > refuses stale, incomplete, and vacuous dense-surface evidence',
+  'Proves the reader that gates both dense-surface rows throws on a stale fingerprint, the wrong viewports, a route set that disagrees with the module registry in either direction, a duplicated route/viewport pair, an empty page, a math-bearing article that rendered no equation, and a sweep that found no table or no equation at all, and proves the verdicts fail an unreachable scroll container, a table wider than its viewport, an unnamed table, a raw-TeX leak, a document that overflows sideways and a root that hides the overflow instead.',
+);
+
 const MOBILE_SHELL_SWEEP_TARGET = testTarget(
   'tests/e2e/brand-v2-mobile-shell.spec.ts',
   'brand-v2 mobile header and drawer › every public route omits the descriptor from the compact header and traps the drawer in both directions',
@@ -1482,6 +1560,9 @@ function testTargetsFor(id: string): TestTarget[] {
   }
   if (SHELL_ASSERTIONS.has(id)) {
     return [SHELL_SWEEP_TARGET, SHELL_READER_TARGET];
+  }
+  if (TABLE_MATH_ASSERTIONS.has(id)) {
+    return [TABLE_MATH_SWEEP_TARGET, TABLE_MATH_READER_TARGET];
   }
   if (MOBILE_SHELL_ASSERTIONS.has(id)) {
     return [MOBILE_SHELL_SWEEP_TARGET, MOBILE_SHELL_READER_TARGET];
@@ -2468,6 +2549,41 @@ const FIGURE_ASSERTION_ACTUALS: Readonly<Record<string, string>> = {
 };
 
 /**
+ * What the two-width dense-surface sweep recorded for one table or equation
+ * occurrence. Throws on a member the population does not hold and on a
+ * member whose reading fails the requirement: the generator has no way to
+ * write a red row, so a table that lost its scroll container, a scroll
+ * container that lost its tab stop, or an equation whose MathML disappeared
+ * has to stop the corpus rather than appear in it.
+ */
+function tableMathAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const verdicts =
+    TABLE_MATH_VERDICTS[assertionId as keyof typeof TABLE_MATH_VERDICTS];
+  if (!verdicts) {
+    throw new Error(`${assertionId} has no dense-surface evidence branch`);
+  }
+  const verdict = verdicts.get(member);
+  if (!verdict) {
+    throw new Error(`${assertionId}: nothing was measured for ${member}`);
+  }
+  if (verdict.failures.length > 0) {
+    throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+  }
+  return {
+    actual: `${member} ${TABLE_MATH_ASSERTION_ACTUALS[assertionId]}, measured at ${TABLE_MATH_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join(' and ')}`,
+    computed: {
+      member,
+      measured: [{ id: verdict.id, observed: verdict.observed }],
+      viewports: TABLE_MATH_VIEWPORTS.map(({ id }) => id),
+      evidence: [TABLE_MATH_EVIDENCE_PATH],
+    },
+  };
+}
+
+/**
  * What the apparatus sweep recorded for one article route. Throws on a route
  * the sweep did not visit and on a route whose reading fails the
  * requirement: the generator has no way to write a red row, so an article
@@ -2851,6 +2967,19 @@ function resultFor(
       payload: { kind: 'browser-state', computed: evidence.computed },
     };
   }
+  if (TABLE_MATH_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = tableMathAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
   if (FIGURE_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -3047,6 +3176,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over ${canonicalPopulationSource}`
               : ARTICLE_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${ARTICLE_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over ${canonicalPopulationSource}`
+              : TABLE_MATH_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted ${TABLE_MATH_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over ${canonicalPopulationSource}`
               : APPARATUS_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${APPARATUS_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over ${canonicalPopulationSource}`
               : HOME_ASSERTIONS.has(id)

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "a34e6f917ae2eef1726ca080b80e288c4f9e4f61bb45a1d958deb01460a86053",
+  "fingerprint": "4cc1f7e22f614724ca4eab555b575b970113d69b1f1075b703c71fa4c9fd065d",
   "viewports": [
     "375x812",
     "1440x900"
@@ -12780,7 +12780,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18827,
+      "visibleTextLength": 18997,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -13958,7 +13958,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14316,
+      "visibleTextLength": 14475,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -21523,15 +21523,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The theoretical basis is the KL-regularized RL solution, rea"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 335,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "π^(a∣o)∝πref(a∣o) exp⁡ ⁣(A(o,a)/β)\\hat{\\pi}(a \\mid o) \\propt"
         },
         {
           "familyHead": "newsreader",
@@ -43791,7 +43782,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19162,
+      "visibleTextLength": 19332,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -44969,7 +44960,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 14651,
+      "visibleTextLength": 14810,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -52534,15 +52525,6 @@
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
           "text": "The theoretical basis is the KL-regularized RL solution, rea"
-        },
-        {
-          "familyHead": "newsreader",
-          "sizePx": 19,
-          "lineHeightRatio": 1.7,
-          "widthPx": 715,
-          "zeroAdvancePx": 11,
-          "insideRegisteredFrame": false,
-          "text": "π^(a∣o)∝πref(a∣o) exp⁡ ⁣(A(o,a)/β)\\hat{\\pi}(a \\mid o) \\propt"
         },
         {
           "familyHead": "newsreader",
