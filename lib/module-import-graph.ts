@@ -43,6 +43,23 @@ export type ModuleImportGraph = {
   /** Modules reachable from the given entries through used imports. */
   reachableFrom: (entries: Iterable<string>) => Set<string>;
   /**
+   * The modules each template-literal `import()` names, per writing module.
+   *
+   * Deliberately not folded into `edges`. `import(`@/content/${domain}/
+   * ${slug}.mdx`)` names a family, and one member of it renders on one
+   * route; a walk that added the whole family to `edges` would report that
+   * every article route reaches every article body, which is a bigger lie
+   * than reaching none. Consumers that resolve the family per route (the
+   * Tektur route expectations pick one member by its segments) use this to
+   * check that the member they picked is one the specifier can actually
+   * name, and consumers that hold the whole family (the evidence closures)
+   * use it to check that none of it escaped.
+   */
+  computedDependenciesByModule: ReadonlyMap<
+    string,
+    readonly ComputedDependency[]
+  >;
+  /**
    * The module a specifier resolves to, or null when it leaves the
    * first-party tree. Exposed because a consumer resolving a deferred mount
    * (`dynamic(() => import('./robot-scene'))`) has to answer the same
@@ -94,6 +111,21 @@ export type FirstPartySpecifierResolution = {
     | 'missing';
   /** The repository-relative path, when one exists. */
   path: string | null;
+  /**
+   * For a `computed` specifier, every scanned module the template literal
+   * can name, sorted. Empty for every other resolution. A computed
+   * specifier that names nothing is a hole, not a family, and a consumer
+   * that treats the two alike cannot tell coverage from silence.
+   */
+  computedTargets: readonly string[];
+};
+
+/** A template-literal `import()` and the module family it names. */
+export type ComputedDependency = {
+  specifier: string;
+  kind: ModuleDependencyKind;
+  /** Every scanned module the specifier can name, sorted. */
+  targets: readonly string[];
 };
 
 export type ModuleDependencyKind = 'import' | 'reexport' | 'dynamic';
@@ -322,6 +354,37 @@ export function buildModuleImportGraph(
     return candidates.find((candidate) => known.has(candidate)) ?? null;
   };
 
+  /**
+   * Every scanned module a template-literal specifier can name.
+   *
+   * Each interpolation stands for one path segment, so it matches `[^/]+`
+   * rather than `.*`: `@/content/${domain}/${slug}.mdx` names the article
+   * bodies two levels under `content/` and nothing nested deeper. The
+   * literal parts around the interpolations are matched as written, which
+   * is what keeps the family from widening to every module with the same
+   * extension.
+   */
+  const resolveComputed = (specifier: string, fromModule: string): string[] => {
+    let base: string;
+    if (specifier.startsWith('@/')) base = specifier.slice(2);
+    else if (specifier.startsWith('.')) {
+      // Only the literal head can be resolved relatively; an interpolation
+      // never introduces a `..` hop, so resolving the head and keeping the
+      // rest verbatim is exact rather than approximate.
+      const head = specifier.slice(0, specifier.indexOf('${'));
+      base =
+        relative(root, join(root, dirname(fromModule), head)) +
+        specifier.slice(head.length);
+    } else return [];
+    const pattern = new RegExp(
+      `^${base
+        .split(/\$\{[^}]*\}/)
+        .map((literal) => literal.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+        .join('[^/]+')}$`,
+    );
+    return [...known].filter((candidate) => pattern.test(candidate)).sort();
+  };
+
   const reexports = new Map<
     string,
     Map<string, { module: string; imported: string }>
@@ -401,17 +464,52 @@ export function buildModuleImportGraph(
     reexportHopsByModule.set(modulePath, hops);
   }
 
+  // Only a module that writes a backtick `import(` can have a computed
+  // dependency, so the expensive tokenizing scan runs on those alone. The
+  // prefilter is deliberately looser than the thing it looks for: it may
+  // admit a module whose only match is inside a comment, and the tokenizer
+  // then reports no computed specifier for it.
+  const computedDependenciesByModule = new Map<string, ComputedDependency[]>();
+  for (const [modulePath, text] of textByModule) {
+    if (!/\bimport\s*\(\s*`/.test(text)) continue;
+    const found = writtenSpecifiers(modulePath, text)
+      .filter(
+        ({ specifier }) =>
+          specifier.includes('${') &&
+          (specifier.startsWith('@/') || specifier.startsWith('.')),
+      )
+      .map(({ specifier, kind }) => ({
+        specifier,
+        kind,
+        targets: resolveComputed(specifier, modulePath),
+      }));
+    if (found.length > 0) computedDependenciesByModule.set(modulePath, found);
+  }
+
   const classify = (
     specifier: string,
     fromModule: string,
-  ): { resolution: FirstPartySpecifierResolution['resolution']; path: string | null } => {
-    // A template literal with an interpolation names a family of modules, and
-    // the regex walk above never saw it at all. Reporting it as missing would
-    // be wrong — it resolves at runtime — and reporting nothing would be the
-    // omission this classification exists to expose.
-    if (specifier.includes('${')) return { resolution: 'computed', path: null };
+  ): {
+    resolution: FirstPartySpecifierResolution['resolution'];
+    path: string | null;
+    computedTargets: readonly string[];
+  } => {
+    // A template literal with an interpolation names a family of modules
+    // rather than one, so it stays its own resolution with a null path: no
+    // single member of the family is the answer. What it does carry is the
+    // family itself, which is what lets a consumer check the members instead
+    // of taking a prefix claim on trust.
+    if (specifier.includes('${')) {
+      return {
+        resolution: 'computed',
+        path: null,
+        computedTargets: resolveComputed(specifier, fromModule),
+      };
+    }
     const asModule = resolve(specifier, fromModule);
-    if (asModule !== null) return { resolution: 'module', path: asModule };
+    if (asModule !== null) {
+      return { resolution: 'module', path: asModule, computedTargets: [] };
+    }
     const base = specifier.startsWith('@/')
       ? specifier.slice(2)
       : relative(root, join(root, dirname(fromModule), specifier));
@@ -428,9 +526,10 @@ export function buildModuleImportGraph(
           ? 'unscanned-module'
           : 'asset',
         path: candidate,
+        computedTargets: [],
       };
     }
-    return { resolution: 'missing', path: null };
+    return { resolution: 'missing', path: null, computedTargets: [] };
   };
 
   return {
@@ -440,6 +539,7 @@ export function buildModuleImportGraph(
     edges,
     bindingsByModule,
     reexportHopsByModule,
+    computedDependenciesByModule,
     resolveSpecifier: resolve,
     firstPartySpecifiersIn(modules) {
       const found: FirstPartySpecifierResolution[] = [];

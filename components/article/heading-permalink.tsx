@@ -11,6 +11,12 @@ import { useEffect, useRef, useState } from 'react';
  * reading-time measurement counts (scripts/measure-reading-times.ts). The
  * "Copied" confirmation is only mounted while it is showing, for the same
  * reason: at rest it is absent from the prerendered markup.
+ *
+ * The glyph is painted at rest rather than revealed on hover. It is the
+ * non-colour half of the pair that says a heading addresses a section: the
+ * other half is the signal-blue rule under the heading, and a reader who
+ * cannot separate that blue from the text colour has nothing left if the
+ * shape only appears under a pointer they may not have.
  */
 export function HeadingPermalink({
   headingId,
@@ -51,7 +57,10 @@ export function HeadingPermalink({
         onClick={copy}
         aria-label={`Copy link to this section, ${headingText}`}
         data-brand-control-id="control:secondary-action"
-        className="ml-2 cursor-pointer text-text-dim opacity-0 transition-opacity hover:text-accent focus:opacity-100 focus-visible:opacity-100 group-hover/heading:opacity-100"
+        // Painted at full strength rather than dimmed: a non-text graphic
+        // has to clear 3:1 against the page in every state, and signal blue
+        // held at 70% opacity over paper measures 2.2:1.
+        className="ml-2 cursor-pointer text-accent transition-colors hover:text-ink"
       >
         <LinkSimple size={15} aria-hidden />
       </button>

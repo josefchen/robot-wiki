@@ -15,9 +15,8 @@
       "suite": "brand-v2-reflow-320-200",
       "assertionId": "VAL-B2-EVID-011",
       "expected": "all three sealed accessibility profiles pass every public route",
-      "actual": "the shared v2 primitives cleared four of the seven archived routes, which now reflow at 320 CSS px with zero overflow; three still overflow on article-owned content a later milestone converges: a non-wrapping citation cluster on industrial-deployment (25px), a 2px residue on cross-embodiment, and a wide instrument panel on reward-design-mpc (35px)",
+      "actual": "the shared v2 primitives cleared five of the seven archived routes, which now reflow at 320 CSS px with zero overflow; industrial-deployment joined them once the citation chip was allowed to wrap inside the span that binds it to its punctuation. Two still overflow on article-owned content a later milestone converges: a 2px residue on cross-embodiment and a wide instrument panel on reward-design-mpc (35px)",
       "failedRoutes": [
-        "/data-hardware/industrial-deployment/",
         "/manipulation/cross-embodiment/",
         "/rl-sim2real/reward-design-mpc/"
       ],

@@ -140,7 +140,7 @@ export function CompanyCard({
         aria-expanded={expanded}
         aria-controls={`${headingId}-detail`}
         onClick={onToggle}
-        className="mt-3 cursor-pointer font-mono text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
+        className="mt-3 cursor-pointer font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
       >
         {expanded ? 'Collapse' : 'Expand'}
       </button>

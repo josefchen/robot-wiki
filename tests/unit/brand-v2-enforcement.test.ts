@@ -54,6 +54,17 @@ import {
   homeHeroLockupMembers,
 } from '@/lib/home-populations';
 import { HOME_COMPOSITION_EVIDENCE_PATH } from '@/lib/brand-v2-home-evidence';
+import {
+  ARTICLE_RUNTIME_EVIDENCE_PATH,
+  articleEvidenceFingerprint,
+  readArticleRuntimeEvidence,
+  sectionHeadingMembers,
+} from '@/lib/brand-v2-article-evidence';
+import {
+  HOME_WORDMARK_ROLE_ID,
+  HOME_WORDMARK_ROLE_POPULATION_SOURCE,
+  SECTION_HEADING_POPULATION_SOURCE,
+} from '@/lib/article-populations';
 
 /**
  * The identity populations, rebuilt here from the same derivations the
@@ -365,6 +376,34 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
               homeCompositionAnchorMembers(),
             [HOME_DOMAIN_DESTINATION_POPULATION_SOURCE]:
               canonicalDomainDestinations().map(({ id }) => id),
+          },
+          articlePopulations: {
+            [HOME_WORDMARK_ROLE_POPULATION_SOURCE]: [HOME_WORDMARK_ROLE_ID],
+            [SECTION_HEADING_POPULATION_SOURCE]: sectionHeadingMembers(
+              readArticleRuntimeEvidence({
+                artifact: JSON.parse(
+                  readFileSync(
+                    join(ROOT, ARTICLE_RUNTIME_EVIDENCE_PATH),
+                    'utf8',
+                  ),
+                ),
+                routes: (
+                  registry.routes.public as Array<{
+                    path: string;
+                    routeKind: string;
+                  }>
+                ).map(({ path }) => path),
+                articleRoutes: (
+                  registry.routes.public as Array<{
+                    path: string;
+                    routeKind: string;
+                  }>
+                )
+                  .filter(({ routeKind }) => routeKind === 'article')
+                  .map(({ path }) => path),
+                fingerprint: articleEvidenceFingerprint({ root: ROOT }),
+              }),
+            ),
           },
         }),
         map,

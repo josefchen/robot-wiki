@@ -78,6 +78,32 @@ import {
   homeEvidenceFingerprint,
   readHomeCompositionEvidence,
 } from '../lib/brand-v2-home-evidence.ts';
+import {
+  ARTICLE_RUNTIME_EVIDENCE_PATH,
+  ARTICLE_VIEWPORTS,
+  articleEvidenceFingerprint,
+  articleRuleVerdicts,
+  articleTitleVerdicts,
+  displayFaceVerdicts,
+  homeWordmarkVerdicts,
+  linkTreatmentVerdicts,
+  proseFaceVerdicts,
+  proseResidueVerdicts,
+  readArticleRuntimeEvidence,
+  readingSheetVerdicts,
+  registrationTrackingVerdicts,
+  roleFaceVerdicts,
+  sectionHeadingMembers,
+  sectionHeadingVerdicts,
+  titleSheetResidueVerdicts,
+  titleSheetVerdicts,
+} from '../lib/brand-v2-article-evidence.ts';
+import {
+  ARTICLE_ASSERTION_POPULATION_SOURCES,
+  HOME_WORDMARK_ROLE_ID,
+  HOME_WORDMARK_ROLE_POPULATION_SOURCE,
+  SECTION_HEADING_POPULATION_SOURCE,
+} from '../lib/article-populations.ts';
 import { readSectionSignatureRegistry } from '../lib/brand-v2-section-signatures.ts';
 import {
   HOME_TOOLS_EVIDENCE_PATH,
@@ -200,9 +226,29 @@ function isMeasured(id: string): boolean {
     SHELL_ASSERTIONS.has(id) ||
     MOBILE_SHELL_ASSERTIONS.has(id) ||
     HOME_ASSERTIONS.has(id) ||
-    HOME_TOOLS_ASSERTIONS.has(id)
+    HOME_TOOLS_ASSERTIONS.has(id) ||
+    ARTICLE_ASSERTIONS.has(id)
   );
 }
+
+/**
+ * The article-sheet and type-hierarchy assertions, routed to the two-width
+ * sweep of every public route in the built export.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/article-typography.json` through a reader that throws
+ * on a stale fingerprint, the wrong viewports, a route the registry does not
+ * hold, a registry and sweep that disagree about which routes are articles,
+ * a duplicate route/viewport pair, an empty page, an article with no reading
+ * column, and any missing pair. None of these is decidable from source: a
+ * type scale is a computed size, a measure is a width divided by the advance
+ * of the paragraph's own font, a link treatment is a painted decoration, and
+ * whether a rule lands on its anchor is a difference between two boxes a
+ * browser laid out.
+ */
+const ARTICLE_ASSERTIONS = new Set(
+  Object.keys(ARTICLE_ASSERTION_POPULATION_SOURCES),
+);
 
 /**
  * The three home-composition assertions, routed to the desktop sweep of the
@@ -634,6 +680,53 @@ const SHELL_POPULATIONS: Readonly<Record<string, string[]>> = {
   ),
 };
 
+const ARTICLE_EVIDENCE = readArticleRuntimeEvidence({
+  artifact: readJson(join(ROOT, ARTICLE_RUNTIME_EVIDENCE_PATH)),
+  routes: [...PUBLIC_ROUTE_PATH_BY_ID.values()],
+  articleRoutes: REGISTRY.routes.public
+    .filter(({ routeKind }) => routeKind === 'article')
+    .map(({ path }) => path),
+  fingerprint: articleEvidenceFingerprint({ root: ROOT }),
+});
+
+/**
+ * One verdict map per assertion, each keyed by the members that assertion
+ * quantifies over. The maps are built once so a reading that throws stops
+ * the whole corpus rather than one row.
+ */
+const ARTICLE_VERDICTS = {
+  'VAL-B2-ART-001': titleSheetVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-ART-002': readingSheetVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-ART-003': linkTreatmentVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-ART-009': titleSheetResidueVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-003': displayFaceVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-004': proseFaceVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-005': roleFaceVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-006': homeWordmarkVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-007': articleTitleVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-008': proseResidueVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-009': sectionHeadingVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-TYPE-010': registrationTrackingVerdicts(ARTICLE_EVIDENCE),
+} as const satisfies Record<
+  string,
+  Map<string, { id: string; observed: unknown; failures: string[] }>
+>;
+
+// `VAL-DESIGN-018` has no `VAL-B2` row of its own, so it has nowhere to be
+// recorded and nothing to turn red. Checking it here is what keeps it
+// enforced: an article that drew an unowned rule, or drew a registered one
+// off its anchor, stops the corpus from being generated at all.
+for (const verdict of articleRuleVerdicts(ARTICLE_EVIDENCE).values()) {
+  if (verdict.failures.length > 0) {
+    throw new Error(`VAL-DESIGN-018: ${verdict.failures.join('; ')}`);
+  }
+}
+
+const ARTICLE_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [HOME_WORDMARK_ROLE_POPULATION_SOURCE]: [HOME_WORDMARK_ROLE_ID],
+  [SECTION_HEADING_POPULATION_SOURCE]: sectionHeadingMembers(ARTICLE_EVIDENCE),
+};
+
 const HOME_LITERALS = {
   identity: PUBLIC_IDENTITY,
   descriptor: PUBLIC_DESCRIPTOR,
@@ -694,6 +787,7 @@ function populationSources(assertionIds: string[]) {
     identityPopulations: IDENTITY_POPULATIONS,
     shellPopulations: SHELL_POPULATIONS,
     homePopulations: HOME_POPULATIONS,
+    articlePopulations: ARTICLE_POPULATIONS,
   });
 }
 
@@ -704,6 +798,8 @@ function populationSourceFor(id: string): string {
   if (shellSource) return shellSource;
   const homeSource = HOME_ASSERTION_POPULATION_SOURCES[id];
   if (homeSource) return homeSource;
+  const articleSource = ARTICLE_ASSERTION_POPULATION_SOURCES[id];
+  if (articleSource) return articleSource;
   if (id === SEMANTIC_ROLE_ASSERTION) {
     return SEMANTIC_TOKEN_POPULATION_SOURCE;
   }
@@ -765,6 +861,10 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // same kind of reading at the mobile viewport, with the drawer open.
   if (SHELL_ASSERTIONS.has(id)) return 'browser-state';
   if (MOBILE_SHELL_ASSERTIONS.has(id)) return 'browser-state';
+  // An article row's evidence is what the shared template rendered at two
+  // widths, down to the advance of the paragraph's own font, so it is a
+  // browser-state row.
+  if (ARTICLE_ASSERTIONS.has(id)) return 'browser-state';
   // A home row's evidence is what the built home page laid out at
   // 1440x900, so it is a browser-state row.
   if (HOME_ASSERTIONS.has(id)) return 'browser-state';
@@ -2030,6 +2130,75 @@ function shellAssertionEvidence(
 }
 
 /**
+ * What the two-width article sweep recorded for one assertion and one
+ * member. Every branch throws on a member the sweep did not measure and on a
+ * member whose reading fails the requirement, because the generator has no
+ * way to write a red row: a sheet that regressed has to stop the corpus, not
+ * appear in it.
+ *
+ * The member is a route path for the row families that quantify over routes,
+ * the registered role id for the wordmark row, and `route#heading-id` for
+ * the section-heading row, which is the key space each verdict map already
+ * uses.
+ */
+function articleAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const verdicts =
+    ARTICLE_VERDICTS[assertionId as keyof typeof ARTICLE_VERDICTS];
+  if (!verdicts) {
+    throw new Error(`${assertionId} has no article evidence branch`);
+  }
+  const keys =
+    assertionId === 'VAL-B2-TYPE-006'
+      ? (() => {
+          if (member !== HOME_WORDMARK_ROLE_ID) {
+            throw new Error(
+              `${assertionId}: ${member} is not the registered wordmark role`,
+            );
+          }
+          return [...verdicts.keys()];
+        })()
+      : assertionId === 'VAL-B2-TYPE-009'
+        ? [member]
+        : (() => {
+            const route = PUBLIC_ROUTE_PATH_BY_ID.get(member);
+            if (!route) {
+              throw new Error(`${assertionId}: ${member} is not a route`);
+            }
+            return [route];
+          })();
+
+  const readings = keys.map((key) => {
+    const verdict = verdicts.get(key);
+    if (!verdict) {
+      throw new Error(`${assertionId}: the sweep did not measure ${key}`);
+    }
+    if (verdict.failures.length > 0) {
+      throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+    }
+    return verdict;
+  });
+  if (readings.length === 0) {
+    throw new Error(
+      `${assertionId}: ${member} resolved to no measured reading, so the row would rest on nothing`,
+    );
+  }
+
+  const where = readings.map(({ id }) => id).join(', ');
+  return {
+    actual: `${where} was measured at ${ARTICLE_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join(' and ')} and every clause of ${assertionId} held against the reading`,
+    computed: {
+      member,
+      measured: readings.map(({ id, observed }) => ({ id, observed })),
+      viewports: ARTICLE_VIEWPORTS.map(({ id }) => id),
+      evidence: [ARTICLE_RUNTIME_EVIDENCE_PATH],
+    },
+  };
+}
+
+/**
  * What the mobile sweep recorded for one mobile shell assertion and one
  * route. Both branches throw on a route the sweep did not visit and on a
  * route whose reading fails the requirement, because the generator has no
@@ -2351,6 +2520,19 @@ function resultFor(
       payload: { kind: 'browser-state', computed: evidence.computed },
     };
   }
+  if (ARTICLE_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = articleAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
   if (HOME_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -2525,6 +2707,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over ${canonicalPopulationSource}`
               : MOBILE_SHELL_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over ${canonicalPopulationSource}`
+              : ARTICLE_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted ${ARTICLE_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over ${canonicalPopulationSource}`
               : HOME_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted 1440x900 sweep of the built home page, including its hero type scale, its first-viewport paint and geometry readings, and its domain index rows, over ${canonicalPopulationSource}`
               : HOME_TOOLS_ASSERTIONS.has(id)

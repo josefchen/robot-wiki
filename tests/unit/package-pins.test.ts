@@ -148,10 +148,18 @@ describe('environment-trap script wiring', () => {
     );
     // The registry is regenerated first: the reconciliation artifact records
     // the registry fingerprint, so writing it against the old registry would
-    // persist evidence that is stale the moment it lands. The renderer
-    // parity artifact is source-derived and needs no export. Only then does
-    // the export get built, the browser suites write the three artifacts
-    // that need it, and the enforcement corpus read all four.
+    // persist evidence that is stale the moment it lands. Then the export
+    // gets built, the browser suites write the artifacts that need it, and
+    // the enforcement corpus reads them all.
+    //
+    // The renderer-parity step runs AFTER the browser suites, not before.
+    // Its own token test reads `evidence/brand-v2/token-runtime.json` and
+    // refuses it against a fingerprint derived from app/globals.css, and
+    // that artifact is written by tests/e2e/brand-v2.spec.ts inside the
+    // browser step. Running parity first therefore deadlocked the one chain
+    // that exists to break deadlocks: every stylesheet change aborted the
+    // refresh at step three, before the sweep that would have refreshed the
+    // artifact it was refusing.
     //
     // The export prune runs explicitly right after build:ungated because
     // --ignore-scripts also skips the postbuild prune, so the ungated build
@@ -166,11 +174,17 @@ describe('environment-trap script wiring', () => {
     expect(pkg.scripts['refresh:brand-v2-evidence']).toBe(
       'npm run generate:brand-v2-registries' +
         ' && npm run generate:og-cards' +
-        ' && npm run refresh:brand-v2-evidence:renderer-parity' +
         ' && npm run build:ungated' +
         ' && node scripts/prune-export-artifacts.ts' +
         ' && npm run refresh:brand-v2-evidence:browser' +
+        ' && npm run refresh:brand-v2-evidence:renderer-parity' +
         ' && npm run generate:brand-v2-enforcement',
+    );
+    // Pinned independently of the exact chain string: the parity step reads
+    // an artifact the browser step writes, so it can never move back ahead
+    // of it without restoring the stylesheet deadlock.
+    expect(pkg.scripts['refresh:brand-v2-evidence']).toMatch(
+      /npm run refresh:brand-v2-evidence:browser && npm run refresh:brand-v2-evidence:renderer-parity/,
     );
     // Pinned independently of the exact chain string: whatever else moves,
     // the prune must stay immediately after the ungated build and ahead of
@@ -191,6 +205,7 @@ describe('environment-trap script wiring', () => {
       'tests/e2e/brand-v2-primitives.spec.ts',
       'tests/e2e/brand-v2.spec.ts',
       'tests/e2e/brand-v2-tektur-font-delivery.spec.ts',
+      'tests/e2e/brand-v2-article.spec.ts',
     ]) {
       expect(pkg.scripts['refresh:brand-v2-evidence:browser']).toContain(spec);
     }

@@ -166,6 +166,56 @@ describe('evidence closure derivation', () => {
     ).toEqual([]);
   });
 
+  it('resolves the article template to the family of bodies it can name', () => {
+    const graph = evidenceClosureGraph(ROOT);
+    const template = 'app/(content)/[domain]/[slug]/page.tsx';
+    const computed = graph.computedDependenciesByModule.get(template) ?? [];
+
+    expect(computed).toHaveLength(1);
+    expect(computed[0].specifier).toBe('@/content/${domain}/${slug}.mdx');
+    expect(computed[0].kind).toBe('dynamic');
+    // One interpolation stands for one path segment, so the family is
+    // exactly the bodies two levels under content/ and not every module
+    // anywhere beneath it.
+    expect(computed[0].targets).toEqual(
+      graph.modules.filter((path) => /^content\/[^/]+\/[^/]+\.mdx$/.test(path)),
+    );
+    expect(computed[0].targets.length).toBeGreaterThan(40);
+
+    const [resolved] = graph
+      .firstPartySpecifiersIn([template])
+      .filter((entry) => entry.resolution === 'computed');
+    expect(resolved.computedTargets).toEqual(computed[0].targets);
+    expect(resolved.path).toBeNull();
+
+    // The family stays out of the edge walk on purpose. Folding it in would
+    // make every article route reach every article body, and the per-route
+    // Tektur attribution reads that walk.
+    expect(
+      [...(graph.edges.get(template) ?? [])].filter((path) =>
+        path.startsWith('content/'),
+      ),
+    ).toEqual([]);
+  });
+
+  it('refuses an allowance whose specifier names a family the closure does not hold', () => {
+    const graph = evidenceClosureGraph(ROOT);
+    const bodies = graph.modules.filter((path) => path.startsWith('content/'));
+    // Every body but one is an entry, so the prefix claim is one module
+    // short and the resolved family is the same module short. Before the
+    // specifier resolved, only the prefix claim could catch this.
+    expect(() =>
+      deriveEvidenceClosure({
+        root: ROOT,
+        entries: [
+          'app/(content)/[domain]/[slug]/page.tsx',
+          ...bodies.slice(1),
+        ],
+        computedSpecifiers: [ARTICLE_BODY_COMPUTED_IMPORT],
+      }),
+    ).toThrow(new RegExp(`outside the closure, starting with ${bodies[0].replace(/[.[\]()]/g, '\\$&')}`));
+  });
+
   it('covers each declared non-import dependency class, and each one separately', () => {
     // The input that used to pass: the import closure could not see the face
     // every glyph is drawn with or the geometry every hardware figure is

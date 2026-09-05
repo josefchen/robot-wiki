@@ -185,8 +185,11 @@ export default async function ModulePage({ params }: { params: Params }) {
     // the generated References bibliography. data-prose-column is the
     // named handle for the article's text column: validators measuring
     // the full-width rules resolve it here instead of by
-    // ancestor heuristics (library/design-system.md).
-    <article data-prose-column className="mx-auto w-full max-w-[65ch] px-6 py-12">
+    // ancestor heuristics (library/design-system.md). The column's measure
+    // and gutters live in app/globals.css, because the cap has to be written
+    // in the same face and size as the prose it caps for `ch` to mean the
+    // same thing on both sides of it.
+    <article data-prose-column className="mx-auto w-full py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -202,7 +205,22 @@ export default async function ModulePage({ params }: { params: Params }) {
         readingTimeMinutes={readingTime}
         citationCount={references.length}
       />
-      <div data-pagefind-body className="prose">
+      {/* The title sheet's own boundary, and the same registered device the
+          apparatus boundary below uses. The header used to close itself with
+          a bare border-bottom, which is a rule no registry owns and no
+          anchor aligns; mounting the device instead is what lets a validator
+          resolve every rule on an article to an owner and a real anchor. */}
+      <hr
+        aria-hidden="true"
+        data-registration-device
+        data-brand-device-id="device:section-rule"
+        data-brand-anchor-selector="[data-pagefind-body]"
+        data-brand-device-edge="left"
+        data-brand-anchor-edge="left"
+        data-brand-motif="dot-grid"
+        className="pointer-events-none mt-8 border-border"
+      />
+      <div data-pagefind-body className="prose mt-10">
         <Content />
       </div>
       {hasApparatus ? (

@@ -43,7 +43,7 @@ const EVIDENCE_CLOSURE_ROOTS = [
  * Modules outside those roots that the closure walk has to be able to see.
  *
  * The MDX registry is a route entry. The rest are the measurement side: the
- * five sweeps that write into `evidence/brand-v2/`, and the fixture and
+ * six sweeps that write into `evidence/brand-v2/`, and the fixture and
  * probe modules they share. A sweep's own bytes decide what it recorded, so
  * an artifact whose writer changed is exactly as stale as one whose subject
  * changed, and leaving the spec out of its own fingerprint let a rewritten
@@ -54,6 +54,7 @@ export const EVIDENCE_CLOSURE_FILES = [
   'tests/e2e/brand-v2-static-fixture.ts',
   'tests/e2e/static-export-server.ts',
   'tests/e2e/rendered-text-probe.ts',
+  'tests/e2e/brand-v2-article.spec.ts',
   'tests/e2e/brand-v2-home.spec.ts',
   'tests/e2e/brand-v2-home-tools.spec.ts',
   'tests/e2e/brand-v2-identity.spec.ts',
@@ -230,14 +231,15 @@ export function routeEntryModules(graph: ModuleImportGraph): string[] {
  *
  * `app/(content)/[domain]/[slug]/page.tsx` reaches every article body
  * through `import(`@/content/${domain}/${slug}.mdx`)`, which names a family
- * of modules rather than one. Resolving it properly belongs to
- * `brand-v2-article-template-typography-and-primitives`, which owns that
- * file. Until then a closure may accept it only by naming a directory whose
- * *every* scanned module it already contains, and the derivation checks
- * that claim: if one MDX body is outside the closure, the allowance does
- * not apply and the fingerprint refuses. An allowance that matches no
- * computed specifier is equally a failure, because a stale one would sit
- * there granting nothing and looking like coverage.
+ * of modules rather than one, so no single path is its resolution and it
+ * cannot be an ordinary edge. A closure may accept it only by naming a
+ * directory whose *every* scanned module it already contains, and the
+ * derivation checks that claim three ways: the specifier has to resolve to
+ * at least one module, every module it resolves to has to sit under the
+ * declared prefix, and every module under that prefix has to be inside the
+ * closure. An allowance that matches no computed specifier is equally a
+ * failure, because a stale one would sit there granting nothing and looking
+ * like coverage.
  */
 export type ComputedSpecifierAllowance = {
   module: string;
@@ -273,7 +275,7 @@ export const ARTICLE_BODY_COMPUTED_IMPORT: ComputedSpecifierAllowance = {
   module: 'app/(content)/[domain]/[slug]/page.tsx',
   coveredByPrefix: `${CONTENT_ROOT}/`,
   reason:
-    'the article template names its body with a template literal the module graph cannot resolve; this closure holds every content module as an entry, so no body escapes it. Resolving the specifier is owned by brand-v2-article-template-typography-and-primitives.',
+    'the article template names its body with a template literal, so one specifier names the whole family of MDX bodies rather than a single module; this closure holds every content module as an entry, and the resolved family is checked member by member against it, so no body escapes.',
 };
 
 /** Path-shaped tokens ending in one of a class's extensions. */
@@ -440,6 +442,24 @@ export function deriveEvidenceClosure(
           `${resolved.module} imports ${resolved.specifier}, a computed specifier this closure does not account for, so the modules it names would go unrecorded`,
         );
       }
+      // The specifier resolves to the family it names, so the claim is
+      // checked against that family and not only against the prefix the
+      // allowance declares. A prefix claim alone passes on a specifier that
+      // reaches somewhere else entirely, and passes on one that reaches
+      // nothing at all.
+      if (resolved.computedTargets.length === 0) {
+        throw new Error(
+          `${resolved.module} imports ${resolved.specifier}, which names no scanned module at all, so this closure covers a family that does not exist`,
+        );
+      }
+      const outsidePrefix = resolved.computedTargets.filter(
+        (modulePath) => !modulePath.startsWith(allowance.coveredByPrefix),
+      );
+      if (outsidePrefix.length > 0) {
+        throw new Error(
+          `${resolved.module} imports ${resolved.specifier} and this closure claims ${allowance.coveredByPrefix} covers it, but the specifier also names ${outsidePrefix.length} module(s) outside that prefix, starting with ${outsidePrefix[0]}`,
+        );
+      }
       const uncovered = graph.modules.filter(
         (modulePath) =>
           modulePath.startsWith(allowance.coveredByPrefix) &&
@@ -448,6 +468,14 @@ export function deriveEvidenceClosure(
       if (uncovered.length > 0) {
         throw new Error(
           `${resolved.module} imports ${resolved.specifier} and this closure claims ${allowance.coveredByPrefix} covers it, but ${uncovered.length} module(s) under that prefix are outside the closure, starting with ${uncovered[0]}`,
+        );
+      }
+      const unresolved = resolved.computedTargets.filter(
+        (modulePath) => !modules.has(modulePath),
+      );
+      if (unresolved.length > 0) {
+        throw new Error(
+          `${resolved.module} imports ${resolved.specifier}, which names ${unresolved.length} module(s) outside this closure, starting with ${unresolved[0]}`,
         );
       }
       usedAllowances.add(resolved.module);

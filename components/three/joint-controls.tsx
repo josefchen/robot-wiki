@@ -40,7 +40,7 @@ export function JointControls({
           data-brand-control-id="control:secondary-action"
           type="button"
           onClick={onReset}
-          className="rounded-sm border border-border px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+          className="rounded-sm border border-border px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
         >
           Reset pose
         </button>
