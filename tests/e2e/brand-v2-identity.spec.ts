@@ -58,6 +58,17 @@ const TECHNICAL_IDENTIFIERS = sealedTechnicalIdentifiers(ROOT);
  * deepest ones whose whole text is any spelling in that family, so a v1
  * lockup that carries no annotation is found rather than skipped.
  *
+ * **Structure.** Both of those still start from something the slot itself
+ * supplies, and the union of them has one hole: a slot that carries no role
+ * *and* renders a name outside the family is in neither. It does not stop
+ * being a brand slot, because what makes it one is where the shell put it.
+ * So a third population is derived from position and shape alone: links to
+ * the site root inside the chrome landmarks the shell renders outside
+ * `main`, leaves set in the display family inside those same landmarks, and
+ * the `h1` of the site root. Each of those positions is owed both a
+ * registered wordmark role and the exact locked name, and neither
+ * requirement can be satisfied by removing the slot from the population.
+ *
  * Both the discovery filter and the recorded text are the *rendered* string
  * (`installRenderedTextProbe`), not `textContent`. A `text-transform:
  * lowercase` on the wordmark restores the v1 spelling on screen while the
@@ -72,6 +83,15 @@ function collectIdentity(
   const BRAND_FAMILY = /^robot[\s\-_]*wiki$/i;
   const V1_DESCRIPTOR = /robotics\s+encyclopa?edia/i;
   const TECHNICAL_AS_DISPLAY = /robot-wiki(?!\.com|\.png|\/)/;
+  // The registered display family, matched on the resolved head of the
+  // stack rather than on a class name: `next/font/local` publishes the
+  // sealed `Tektur Variable` face under the runtime family `tektur`, and a
+  // class list says nothing about what the cascade actually resolved.
+  const DISPLAY_FAMILY = /tektur/i;
+  // The shell's chrome landmarks: everything it renders outside `main`.
+  // `[role="dialog"]` is the mobile drawer, which is chrome that only exists
+  // while it is open.
+  const CHROME_LANDMARKS = 'header, footer, aside, nav, [role="dialog"]';
 
   // Written without a regex character class over quote marks: the repo's
   // test-target inventory tokenizes this file, and a quote inside a regex
@@ -167,6 +187,93 @@ function collectIdentity(
     };
   });
 
+  // Derived from position and shape, with neither the annotation nor the
+  // text consulted. A candidate is a brand slot because of where the shell
+  // renders it, so removing its role or changing its name cannot remove it
+  // from this list.
+  const chromeLandmarks = Array.from(
+    document.querySelectorAll(CHROME_LANDMARKS),
+  ).filter(
+    (landmark) => !landmark.closest('main') && visible(landmark),
+  );
+  const landmarkName = (landmark: Element): string => {
+    const tag = landmark.tagName.toLowerCase();
+    return landmark.id ? `${tag}#${landmark.id}` : tag;
+  };
+  const structuralCandidates: Array<{
+    origin: 'chrome-home-link' | 'chrome-display-lockup' | 'root-hero-heading';
+    landmark: string;
+    element: Element;
+  }> = [];
+  for (const landmark of chromeLandmarks) {
+    // The lockup is the navigation entry for "/", so every one of the
+    // shell's three lockups is a link whose href is the site root. Read off
+    // the attribute rather than the resolved URL, because the skip link
+    // resolves to the current pathname and would join this set on home.
+    for (const anchor of Array.from(landmark.querySelectorAll('a[href]'))) {
+      if (anchor.getAttribute('href') !== '/') continue;
+      if (!visible(anchor)) continue;
+      structuralCandidates.push({
+        origin: 'chrome-home-link',
+        landmark: landmarkName(landmark),
+        element: anchor,
+      });
+    }
+    // Display type outside `main` is a lockup: chrome is not where headings
+    // live. Deepest match only, so the container of a lockup is not counted
+    // as a second one.
+    const displayElements = Array.from(landmark.querySelectorAll('*')).filter(
+      (el) =>
+        visible(el) &&
+        DISPLAY_FAMILY.test(getComputedStyle(el).fontFamily) &&
+        renderedText(el).length > 0,
+    );
+    for (const el of displayElements) {
+      if (displayElements.some((other) => other !== el && el.contains(other))) {
+        continue;
+      }
+      structuralCandidates.push({
+        origin: 'chrome-display-lockup',
+        landmark: landmarkName(landmark),
+        element: el,
+      });
+    }
+  }
+  if (window.location.pathname === '/') {
+    // VAL-B2-ID-007: the home hero's h1 is the dominant lockup, so the site
+    // root's own top-level heading is a brand slot by position.
+    for (const heading of Array.from(
+      document.querySelectorAll('main h1'),
+    ).filter((el) => visible(el))) {
+      structuralCandidates.push({
+        origin: 'root-hero-heading',
+        landmark: 'main',
+        element: heading,
+      });
+    }
+  }
+  const seenStructural = new Set<Element>();
+  const structuralBrandSlots = structuralCandidates
+    .filter(({ element }) => {
+      if (seenStructural.has(element)) return false;
+      seenStructural.add(element);
+      return true;
+    })
+    .map(({ origin, landmark, element }) => {
+      const style = getComputedStyle(element);
+      return {
+        origin,
+        landmark,
+        selector: selectorOf(element),
+        role: element.getAttribute('data-tektur-role'),
+        text: renderedText(element),
+        domText: domText(element),
+        pseudoText: pseudoText(element),
+        fontFamilyHead: unquote((style.fontFamily.split(',')[0] ?? '').trim()),
+        textTransform: style.textTransform,
+      };
+    });
+
   const bodyText = (document.body as HTMLElement).innerText ?? '';
   const descriptorCandidates = all.filter((el) => {
     if (!visible(el)) return false;
@@ -195,6 +302,7 @@ function collectIdentity(
   return {
     wordmarkRoleSlots,
     brandDisplayTexts,
+    structuralBrandSlots,
     exactDescriptorNodes,
     v1DescriptorMatches: bodyText
       .split('\n')
@@ -435,6 +543,39 @@ test.describe('brand-v2 public identity', () => {
         .map(({ selector }) => `${route} @ ${viewport}: ${selector} carries no wordmark role`),
     );
     expect(unannotated).toEqual([]);
+    // Structure closes the hole the two populations above share. Every route
+    // renders the shell's chrome, so every route produces slots here, and
+    // each of them owes both an annotation and the exact name. The two
+    // requirements are checked separately: a slot that is unannotated fails
+    // as unannotated even when it renders correctly, which is what a lockup
+    // that is stripped *and* renamed can no longer walk between.
+    const structurallyBare = observations.filter(
+      ({ structuralBrandSlots }) => structuralBrandSlots.length === 0,
+    );
+    expect(
+      structurallyBare.map(({ route, viewport }) => `${route} @ ${viewport}`),
+      'routes whose structure produced no brand slot',
+    ).toEqual([]);
+    const unannotatedStructural = observations.flatMap(
+      ({ route, viewport, structuralBrandSlots }) =>
+        structuralBrandSlots
+          .filter(({ role }) => !role?.endsWith('wordmark'))
+          .map(
+            ({ selector, origin, landmark }) =>
+              `${route} @ ${viewport}: ${selector} is a ${origin} in ${landmark} carrying no wordmark role`,
+          ),
+    );
+    expect(unannotatedStructural).toEqual([]);
+    const misnamedStructural = observations.flatMap(
+      ({ route, viewport, structuralBrandSlots }) =>
+        structuralBrandSlots
+          .filter(({ text }) => text !== PUBLIC_IDENTITY)
+          .map(
+            ({ selector, origin, text }) =>
+              `${route} @ ${viewport}: ${selector} is a ${origin} rendering "${text}"`,
+          ),
+    );
+    expect(misnamedStructural).toEqual([]);
     // The provoked states go through the same residue scans as the default
     // renders. That is the point of exercising them rather than listing
     // them: a legacy public string in the WebGL fallback now fails here.
@@ -580,5 +721,148 @@ test.describe('brand-v2 public identity', () => {
       expect(lockup.pseudoText.after, lockup.selector).toContain('robotics wiki');
       expect(lockup.domText, lockup.selector).toBe(PUBLIC_IDENTITY);
     }
+  });
+
+  /**
+   * The hole the union of the two earlier populations left. Each of them
+   * starts from a property the slot supplies about itself, so doing both at
+   * once walked out of both: strip the annotation and the role reading stops
+   * seeing it, rename it past the spelling family and the text reading stops
+   * seeing it too. The other lockups stay valid throughout, so every
+   * aggregate this suite checked stayed green while a brand position in the
+   * header rendered a name nobody approved.
+   */
+  test('reports a chrome brand slot that is unannotated and renamed at once', async ({
+    page,
+    staticBase,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.addInitScript(installRenderedTextProbe);
+    const response = await page.goto(`${staticBase}/`);
+    expect(response?.status()).toBe(200);
+    await page.evaluate(() => document.fonts.ready);
+
+    // The accepted half first: unplanted, this page satisfies both halves of
+    // the structural requirement through the same reading that has to fail
+    // below.
+    const clean = await page.evaluate(collectIdentity, PUBLIC_DESCRIPTOR);
+    expect(clean.structuralBrandSlots.length).toBeGreaterThan(0);
+    expect(
+      clean.structuralBrandSlots.filter(
+        ({ role }) => !role?.endsWith('wordmark'),
+      ),
+      'every structural brand slot the shipped page renders is annotated',
+    ).toEqual([]);
+    expect([
+      ...new Set(clean.structuralBrandSlots.map(({ text }) => text)),
+    ]).toEqual([PUBLIC_IDENTITY]);
+    expect(
+      clean.structuralBrandSlots.some(
+        ({ origin }) => origin === 'chrome-home-link',
+      ),
+    ).toBe(true);
+
+    const planted = await page.evaluate(() => {
+      // The chrome landmark the lockup lives in is a width decision the
+      // shell makes, so the plant finds the one this width renders rather
+      // than naming it. `checkVisibility` rather than `offsetParent`, which
+      // is null for anything positioned `fixed`.
+      const target = Array.from(
+        document.querySelectorAll(
+          'header a[href="/"], footer a[href="/"], aside a[href="/"], nav a[href="/"]',
+        ),
+      ).find(
+        (el) =>
+          el.getAttribute('data-tektur-role')?.endsWith('wordmark') === true &&
+          !el.closest('main') &&
+          (el as HTMLElement).checkVisibility({
+            contentVisibilityAuto: true,
+            opacityProperty: true,
+            visibilityProperty: true,
+          }),
+      );
+      if (!target) {
+        throw new Error('home renders no annotated chrome lockup to plant on');
+      }
+      const landmark = target.closest('header, footer, aside, nav');
+      const before = {
+        role: target.getAttribute('data-tektur-role'),
+        text: (target as HTMLElement).innerText.trim(),
+        landmark: landmark
+          ? `${landmark.tagName.toLowerCase()}${landmark.id ? `#${landmark.id}` : ''}`
+          : null,
+      };
+      target.removeAttribute('data-tektur-role');
+      target.textContent = 'Atlas Index';
+      return {
+        before,
+        after: {
+          role: target.getAttribute('data-tektur-role'),
+          text: target.textContent,
+        },
+      };
+    });
+    // The perturbation provably changed the document it was applied to.
+    expect(planted.before.role).toMatch(/wordmark$/);
+    expect(planted.before.text).toBe(PUBLIC_IDENTITY);
+    expect(planted.after.role).toBeNull();
+    expect(planted.after.text).toBe('Atlas Index');
+
+    const read = await page.evaluate(collectIdentity, PUBLIC_DESCRIPTOR);
+
+    // What the two earlier populations report, which is why neither could
+    // close this: the slot supplies no role, so the role reading drops it,
+    // and it supplies no recognisable name, so the spelling reading drops it
+    // as well. Both stay green because the lockups that remain are valid.
+    expect(
+      read.wordmarkRoleSlots.some(({ text }) => text === 'Atlas Index'),
+      'the role population cannot see a slot carrying no role',
+    ).toBe(false);
+    expect(
+      read.brandDisplayTexts.some(({ text }) => text === 'Atlas Index'),
+      'the spelling population cannot see a name outside the family',
+    ).toBe(false);
+    expect(
+      read.wordmarkRoleSlots
+        .filter(({ visible }) => visible)
+        .filter(({ text }) => text !== PUBLIC_IDENTITY),
+    ).toEqual([]);
+    expect(
+      read.brandDisplayTexts.filter(({ text }) => text !== PUBLIC_IDENTITY),
+    ).toEqual([]);
+    expect(
+      read.brandDisplayTexts.filter(({ role }) => !role?.endsWith('wordmark')),
+    ).toEqual([]);
+
+    // Structure keeps it, because what makes it a brand slot is the position
+    // the shell renders it in, and the plant changed neither the landmark
+    // nor the href.
+    const caught = read.structuralBrandSlots.filter(
+      ({ text }) => text === 'Atlas Index',
+    );
+    expect(caught, 'the structural population kept the stripped slot').toHaveLength(
+      1,
+    );
+    expect(caught[0].origin).toBe('chrome-home-link');
+    expect(caught[0].landmark).toBe(planted.before.landmark);
+    expect(caught[0].role).toBeNull();
+
+    // And it fails twice over, once as unannotated and once as misnamed, so
+    // repairing either half alone leaves the other reported.
+    expect(
+      read.structuralBrandSlots.filter(
+        ({ role }) => !role?.endsWith('wordmark'),
+      ),
+    ).toHaveLength(1);
+    expect(
+      read.structuralBrandSlots.filter(({ text }) => text !== PUBLIC_IDENTITY),
+    ).toHaveLength(1);
+    // The rest of the chrome is untouched, which is what made this survivable
+    // before: a suite that only asks whether valid lockups exist sees no
+    // change at all.
+    expect(
+      read.structuralBrandSlots.filter(({ text }) => text === PUBLIC_IDENTITY)
+        .length,
+    ).toBe(clean.structuralBrandSlots.length - 1);
   });
 });

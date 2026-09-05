@@ -20597,7 +20597,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/ painted every identity slot its modules are registered to render (home-wordmark, shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 4 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/ painted every identity slot its modules are registered to render (home-wordmark, shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 4 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 4 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -20615,6 +20615,12 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 4,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812",
+            "root-hero-heading in main: h1[data-tektur-role=\"home-wordmark\"] at 1440x900",
+            "root-hero-heading in main: h1[data-tektur-role=\"home-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -20639,7 +20645,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/a-z/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/a-z/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -20656,6 +20662,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -20680,7 +20690,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/adjacent/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/adjacent/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -20697,6 +20707,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -20721,7 +20735,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/adjacent/autonomous-vehicles/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/adjacent/autonomous-vehicles/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -20738,6 +20752,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -20762,7 +20780,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/adjacent/drones/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/adjacent/drones/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -20779,6 +20797,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -20803,7 +20825,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/adjacent/space/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/adjacent/space/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -20820,6 +20842,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -20844,7 +20870,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/adjacent/surgical/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/adjacent/surgical/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -20861,6 +20887,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -20885,7 +20915,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/classical/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/classical/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -20902,6 +20932,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -20926,7 +20960,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/classical/control/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/classical/control/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -20943,6 +20977,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -20967,7 +21005,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/classical/grasp-planning/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/classical/grasp-planning/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -20984,6 +21022,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21008,7 +21050,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/classical/kinematics/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/classical/kinematics/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21025,6 +21067,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21049,7 +21095,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/classical/motion-planning/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/classical/motion-planning/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21066,6 +21112,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21090,7 +21140,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/classical/perception/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/classical/perception/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21107,6 +21157,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21131,7 +21185,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/classical/scene-representation/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/classical/scene-representation/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21148,6 +21202,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21172,7 +21230,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/classical/state-estimation/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/classical/state-estimation/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21189,6 +21247,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21213,7 +21275,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/credits/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/credits/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21230,6 +21292,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21254,7 +21320,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/data-hardware/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/data-hardware/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21271,6 +21337,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21295,7 +21365,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/data-hardware/data-bottleneck/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/data-hardware/data-bottleneck/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21312,6 +21382,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21336,7 +21410,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/data-hardware/datasets/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/data-hardware/datasets/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21353,6 +21427,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21377,7 +21455,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/data-hardware/evaluation-crisis/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/data-hardware/evaluation-crisis/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21394,6 +21472,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21418,7 +21500,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/data-hardware/hardware-taxonomy/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/data-hardware/hardware-taxonomy/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21435,6 +21517,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21459,7 +21545,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/data-hardware/industrial-deployment/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/data-hardware/industrial-deployment/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21476,6 +21562,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21500,7 +21590,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/data-hardware/teleop-rigs/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/data-hardware/teleop-rigs/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21517,6 +21607,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21541,7 +21635,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/frontier/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/frontier/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21558,6 +21652,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21582,7 +21680,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/frontier/bear-case/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/frontier/bear-case/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21599,6 +21697,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21623,7 +21725,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/frontier/competing-theses/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/frontier/competing-theses/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21640,6 +21742,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21664,7 +21770,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/frontier/dexterity/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/frontier/dexterity/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21681,6 +21787,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21705,7 +21815,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/frontier/generalization/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/frontier/generalization/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21722,6 +21832,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21746,7 +21860,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/frontier/reliability-gap/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/frontier/reliability-gap/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21763,6 +21877,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21787,7 +21905,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/frontier/safety-and-assurance/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/frontier/safety-and-assurance/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21804,6 +21922,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21828,7 +21950,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/glossary/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/glossary/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21845,6 +21967,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21869,7 +21995,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21886,6 +22012,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21910,7 +22040,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/action-chunking/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/action-chunking/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21927,6 +22057,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21951,7 +22085,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/bc-foundations/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/bc-foundations/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -21968,6 +22102,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -21992,7 +22130,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/comparison-matrix/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/comparison-matrix/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22009,6 +22147,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22033,7 +22175,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/cross-embodiment/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/cross-embodiment/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22050,6 +22192,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22074,7 +22220,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/diffusion-policy/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/diffusion-policy/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22091,6 +22237,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22115,7 +22265,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/generalist-policies/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/generalist-policies/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22132,6 +22282,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22156,7 +22310,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/hierarchical/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/hierarchical/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22173,6 +22327,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22197,7 +22355,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/knowledge-insulation/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/knowledge-insulation/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22214,6 +22372,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22238,7 +22400,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/pi-line/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/pi-line/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22255,6 +22417,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22279,7 +22445,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/realtime-execution/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/realtime-execution/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22296,6 +22462,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22320,7 +22490,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/rl-finetuning/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/rl-finetuning/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22337,6 +22507,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22361,7 +22535,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/manipulation/vla-models/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/manipulation/vla-models/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22378,6 +22552,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22402,7 +22580,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/market-map/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/market-map/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22419,6 +22597,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22443,7 +22625,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/playground/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/playground/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22460,6 +22642,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22484,7 +22670,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/rl-sim2real/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/rl-sim2real/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22501,6 +22687,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22525,7 +22715,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/rl-sim2real/humanoid-wbc/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/rl-sim2real/humanoid-wbc/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22542,6 +22732,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22566,7 +22760,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/rl-sim2real/legged-locomotion/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/rl-sim2real/legged-locomotion/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22583,6 +22777,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22607,7 +22805,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/rl-sim2real/parallel-sim-rl/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/rl-sim2real/parallel-sim-rl/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22624,6 +22822,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22648,7 +22850,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/rl-sim2real/reward-design-mpc/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/rl-sim2real/reward-design-mpc/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22665,6 +22867,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22689,7 +22895,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/rl-sim2real/rl-for-robotics/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/rl-sim2real/rl-for-robotics/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22706,6 +22912,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22730,7 +22940,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/rl-sim2real/sim2real-transfer/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/rl-sim2real/sim2real-transfer/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22747,6 +22957,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22771,7 +22985,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/rl-sim2real/why-rl-locomotion/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/rl-sim2real/why-rl-locomotion/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22788,6 +23002,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22812,7 +23030,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/search/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/search/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22829,6 +23047,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22853,7 +23075,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/world-models/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/world-models/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22870,6 +23092,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22894,7 +23120,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/world-models/generative-sim/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/world-models/generative-sim/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22911,6 +23137,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22935,7 +23165,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/world-models/generative-video/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/world-models/generative-video/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22952,6 +23182,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -22976,7 +23210,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/world-models/jepa/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/world-models/jepa/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -22993,6 +23227,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23017,7 +23255,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/world-models/latent-dynamics/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/world-models/latent-dynamics/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -23034,6 +23272,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23058,7 +23300,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Every public brand display text is exactly `Robot Wiki`, with one space, capital `R`, capital `W`, and no hyphen or punctuation.",
-      "actual": "/world-models/taxonomy/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`, and the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role",
+      "actual": "/world-models/taxonomy/ painted every identity slot its modules are registered to render (shell-wordmark) at 1440x900 and 375x812, each one exactly `Robot Wiki`; the 2 lockup(s) also discovered by the whole `robot wiki` spelling family are the same string and carry a registered wordmark role; and the 2 brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly `Robot Wiki`",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -23075,6 +23317,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23221,6 +23467,12 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 4,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812",
+            "root-hero-heading in main: h1[data-tektur-role=\"home-wordmark\"] at 1440x900",
+            "root-hero-heading in main: h1[data-tektur-role=\"home-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23262,6 +23514,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23303,6 +23559,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23344,6 +23604,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23385,6 +23649,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23426,6 +23694,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23467,6 +23739,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23508,6 +23784,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23549,6 +23829,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23590,6 +23874,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23631,6 +23919,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23672,6 +23964,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23713,6 +24009,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23754,6 +24054,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23795,6 +24099,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23836,6 +24144,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23877,6 +24189,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23918,6 +24234,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -23959,6 +24279,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24000,6 +24324,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24041,6 +24369,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24082,6 +24414,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24123,6 +24459,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24164,6 +24504,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24205,6 +24549,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24246,6 +24594,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24287,6 +24639,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24328,6 +24684,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24369,6 +24729,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24410,6 +24774,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24451,6 +24819,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24492,6 +24864,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24533,6 +24909,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24574,6 +24954,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24615,6 +24999,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24656,6 +25044,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24697,6 +25089,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24738,6 +25134,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24779,6 +25179,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24820,6 +25224,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24861,6 +25269,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24902,6 +25314,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24943,6 +25359,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -24984,6 +25404,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25025,6 +25449,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25066,6 +25494,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25107,6 +25539,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25148,6 +25584,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25189,6 +25629,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25230,6 +25674,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25271,6 +25719,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25312,6 +25764,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25353,6 +25809,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25394,6 +25854,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25435,6 +25899,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25476,6 +25944,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25517,6 +25989,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25558,6 +26034,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25599,6 +26079,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25640,6 +26124,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -25681,6 +26169,10 @@
           ],
           "slotPopulationSource": "data/type-roles.json#identityWordmarkRoles x used-import-graph",
           "lockupsDiscovered": 2,
+          "structuralBrandSlots": [
+            "chrome-home-link in aside#sidebar-rail: a[data-tektur-role=\"shell-wordmark\"] at 1440x900",
+            "chrome-home-link in header: a[data-tektur-role=\"shell-wordmark\"] at 375x812"
+          ],
           "renderedNames": [
             "Robot Wiki"
           ],
@@ -49256,7 +49748,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Home renders one dominant v2 hero, the exact descriptor, black primary action treatment, lime selection/highlight treatment, and board-derived structure without fabricated metrics.",
-      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"ruled-plain/closing-heading/guidance-prose\"],\"registeredSignatures\":[\"plain/module-heading/credited-figure (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/live-instrument (brand-v2-home-live-tools-and-responsive-convergence)\",\"plain/module-heading/schematic-pair (brand-v2-home-live-tools-and-responsive-convergence)\",\"ruled-plain/closing-heading/guidance-prose (brand-v2-home-hero-domain-index-and-structure)\",\"ruled-plain/index-heading/row-links (brand-v2-home-hero-domain-index-and-structure)\",\"sheet/display-lockup/primary-action (brand-v2-home-hero-domain-index-and-structure)\"],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\"],\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":1,\"borderedCardCount\":4,\"borderedDomainRows\":0}",
+      "actual": "anchor:home-board-derived-structure holds on the built home page at 1440x900: {\"signatures\":[\"sheet/display-lockup/primary-action\",\"ruled-plain/index-heading/row-links\",\"plain/module-heading/live-instrument\",\"plain/module-heading/credited-figure\",\"plain/module-heading/schematic-pair\",\"ruled-plain/closing-heading/guidance-prose\"],\"registeredSignatures\":[\"plain/module-heading/credited-figure (brand-v2-home-hero-domain-index-and-structure)\",\"plain/module-heading/live-instrument (brand-v2-home-live-tools-and-responsive-convergence)\",\"plain/module-heading/schematic-pair (brand-v2-home-live-tools-and-responsive-convergence)\",\"ruled-plain/closing-heading/guidance-prose (brand-v2-home-hero-domain-index-and-structure)\",\"ruled-plain/index-heading/row-links (brand-v2-home-hero-domain-index-and-structure)\",\"sheet/display-lockup/primary-action (brand-v2-home-hero-domain-index-and-structure)\"],\"structuralVarietyTable\":[{\"index\":0,\"label\":\"Introduction\",\"declaredSignature\":\"sheet/display-lockup/primary-action\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The opening sheet that carries the public identity, the locked descriptor and the single black primary action into the first viewport.\",\"derivedStructuralForm\":\"rgb(245, 246, 247)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/92.16/600/tektur/none || a[rgb(11, 11, 12)/rgb(255, 255, 255)/1],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:1\",\"derivedSurfaceHeadingActionForm\":\"form:1\"},{\"index\":1,\"label\":\"Domain index\",\"declaredSignature\":\"ruled-plain/index-heading/row-links\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The domain index: seven canonical destinations as ruled editorial rows rather than a grid of equal marketing cards.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidcolor(srgb 0.552863 0.569961 0.582118),0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/24/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0],a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0] || p=7,ul=1,ol=0,li=7,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:2\",\"derivedSurfaceHeadingActionForm\":\"form:2\"},{\"index\":2,\"label\":\"Featured interactive\",\"declaredSignature\":\"plain/module-heading/live-instrument\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.\",\"derivedStructuralForm\":\"rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|8|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:3\",\"derivedSurfaceHeadingActionForm\":\"form:3\"},{\"index\":3,\"label\":\"Real hardware\",\"declaredSignature\":\"plain/module-heading/credited-figure\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The real-hardware figure, a credited photograph whose caption carries its source and licence.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=1,ul=0,ol=0,li=0,dl=0,figure=1,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:4\",\"derivedSurfaceHeadingActionForm\":\"form:4\"},{\"index\":4,\"label\":\"Interactive tools\",\"declaredSignature\":\"plain/module-heading/schematic-pair\",\"registeredOwner\":\"brand-v2-home-live-tools-and-responsive-convergence\",\"registeredPurpose\":\"The two tool entry points, each previewing the artifact it leads to with a schematic derived from the shipped data.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=3,ul=1,ol=0,li=6,dl=0,figure=1,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:5\",\"derivedSurfaceHeadingActionForm\":\"form:5\"},{\"index\":5,\"label\":\"How to read this wiki\",\"declaredSignature\":\"ruled-plain/closing-heading/guidance-prose\",\"registeredOwner\":\"brand-v2-home-hero-domain-index-and-structure\",\"registeredPurpose\":\"The closing guidance on how to read the wiki, prose that sets the citation-first expectation before the reader leaves home.\",\"derivedStructuralForm\":\"transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/18/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0\",\"derivedForm\":\"form:6\",\"derivedSurfaceHeadingActionForm\":\"form:6\"}],\"derivedForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\"],\"derivedSurfaceHeadingActionForms\":[\"form:1\",\"form:2\",\"form:3\",\"form:4\",\"form:5\",\"form:6\"],\"distinctStructuralForms\":6,\"maximumAdjacentRepeatedSignatures\":1,\"maximumAdjacentSurfaceHeadingRun\":1,\"borderedCardCount\":4,\"borderedDomainRows\":0}",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-SHELL-006:composition-anchors",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -49282,6 +49774,68 @@
             "ruled-plain/index-heading/row-links (brand-v2-home-hero-domain-index-and-structure)",
             "sheet/display-lockup/primary-action (brand-v2-home-hero-domain-index-and-structure)"
           ],
+          "structuralVarietyTable": [
+            {
+              "index": 0,
+              "label": "Introduction",
+              "declaredSignature": "sheet/display-lockup/primary-action",
+              "registeredOwner": "brand-v2-home-hero-domain-index-and-structure",
+              "registeredPurpose": "The opening sheet that carries the public identity, the locked descriptor and the single black primary action into the first viewport.",
+              "derivedStructuralForm": "rgb(245, 246, 247)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/92.16/600/tektur/none || a[rgb(11, 11, 12)/rgb(255, 255, 255)/1],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+              "derivedForm": "form:1",
+              "derivedSurfaceHeadingActionForm": "form:1"
+            },
+            {
+              "index": 1,
+              "label": "Domain index",
+              "declaredSignature": "ruled-plain/index-heading/row-links",
+              "registeredOwner": "brand-v2-home-hero-domain-index-and-structure",
+              "registeredPurpose": "The domain index: seven canonical destinations as ruled editorial rows rather than a grid of equal marketing cards.",
+              "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow + transparent|1solidcolor(srgb 0.552863 0.569961 0.582118),0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/24/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0],a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0] || p=7,ul=1,ol=0,li=7,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+              "derivedForm": "form:2",
+              "derivedSurfaceHeadingActionForm": "form:2"
+            },
+            {
+              "index": 2,
+              "label": "Featured interactive",
+              "declaredSignature": "plain/module-heading/live-instrument",
+              "registeredOwner": "brand-v2-home-live-tools-and-responsive-convergence",
+              "registeredPurpose": "The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.",
+              "derivedStructuralForm": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|8|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
+              "derivedForm": "form:3",
+              "derivedSurfaceHeadingActionForm": "form:3"
+            },
+            {
+              "index": 3,
+              "label": "Real hardware",
+              "declaredSignature": "plain/module-heading/credited-figure",
+              "registeredOwner": "brand-v2-home-hero-domain-index-and-structure",
+              "registeredPurpose": "The real-hardware figure, a credited photograph whose caption carries its source and licence.",
+              "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=1,ul=0,ol=0,li=0,dl=0,figure=1,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+              "derivedForm": "form:4",
+              "derivedSurfaceHeadingActionForm": "form:4"
+            },
+            {
+              "index": 4,
+              "label": "Interactive tools",
+              "declaredSignature": "plain/module-heading/schematic-pair",
+              "registeredOwner": "brand-v2-home-live-tools-and-responsive-convergence",
+              "registeredPurpose": "The two tool entry points, each previewing the artifact it leads to with a schematic derived from the shipped data.",
+              "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=3,ul=1,ol=0,li=6,dl=0,figure=1,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0",
+              "derivedForm": "form:5",
+              "derivedSurfaceHeadingActionForm": "form:5"
+            },
+            {
+              "index": 5,
+              "label": "How to read this wiki",
+              "declaredSignature": "ruled-plain/closing-heading/guidance-prose",
+              "registeredOwner": "brand-v2-home-hero-domain-index-and-structure",
+              "registeredPurpose": "The closing guidance on how to read the wiki, prose that sets the citation-first expectation before the reader leaves home.",
+              "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/18/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+              "derivedForm": "form:6",
+              "derivedSurfaceHeadingActionForm": "form:6"
+            }
+          ],
           "derivedForms": [
             "form:1",
             "form:2",
@@ -49298,6 +49852,7 @@
             "form:5",
             "form:6"
           ],
+          "distinctStructuralForms": 6,
           "maximumAdjacentRepeatedSignatures": 1,
           "maximumAdjacentSurfaceHeadingRun": 1,
           "borderedCardCount": 4,

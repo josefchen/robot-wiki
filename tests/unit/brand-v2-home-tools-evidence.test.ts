@@ -15,21 +15,58 @@ import {
   playgroundEntryVerdicts,
   progressCounterVerdicts,
   readHomeToolsEvidence,
+  modulePageMounts,
   readoutPercent,
   requiredSweepWidths,
   responsiveOverflowVerdicts,
+  type FeaturedMountRegistration,
   type HomeToolsEvidence,
 } from '@/lib/brand-v2-home-tools-evidence';
-import { readSeededMountRegistry } from '@/lib/brand-v2-seeded-mounts';
 import { progressCounterSurfaces } from '@/lib/home-populations';
 import { so101DerivedFigures, so101Preview } from '@/lib/so101-kinematics';
 
 const ROOT = process.cwd();
-const SEEDED_MOUNTS = readSeededMountRegistry(ROOT);
 
 const REGISTRY = JSON.parse(
   readFileSync(join(ROOT, 'contract/brand-v2-registries.json'), 'utf8'),
-) as { routes: { public: Array<{ id: string; path: string }> } };
+) as {
+  routes: { public: Array<{ id: string; path: string }> };
+  interactive: {
+    mounts: Array<{
+      id: string;
+      sourceId: string;
+      route: string;
+      ownerPath: string;
+      props: string;
+    }>;
+  };
+};
+
+/**
+ * Every registered mount of the component home features, derived from the
+ * interactive registry exactly as the sweep and the generator derive it.
+ */
+function featuredRegistrations(): FeaturedMountRegistration[] {
+  const home = REGISTRY.interactive.mounts.find(({ route }) => route === '/');
+  if (!home) throw new Error('home registers no interactive mount');
+  return REGISTRY.interactive.mounts
+    .filter(({ sourceId }) => sourceId === home.sourceId)
+    .map(({ id, route, ownerPath, props }) => ({
+      mountId: id,
+      route,
+      ownerPath,
+      props,
+    }));
+}
+
+const MOUNTS = featuredRegistrations();
+
+/** The registration of one measured mount, by id. */
+function registrationOf(mountId: string): FeaturedMountRegistration {
+  const found = MOUNTS.find((mount) => mount.mountId === mountId);
+  if (!found) throw new Error(`${mountId} is not a registered mount`);
+  return found;
+}
 
 function fingerprint(): string {
   return homeToolsEvidenceFingerprint({
@@ -69,7 +106,7 @@ describe('home tools evidence', () => {
       featuredInstrumentVerdicts(evidence).flatMap(({ failures }) => failures),
     ).toEqual([]);
     expect(
-      crossMountVerdicts(evidence, SEEDED_MOUNTS).flatMap(
+      crossMountVerdicts(evidence, MOUNTS).flatMap(
         ({ failures }) => failures,
       ),
     ).toEqual([]);
@@ -197,7 +234,7 @@ describe('home tools evidence', () => {
     const drifted = mutate((evidence) => {
       evidence.siblingMounts[0].drivenReadout = '77.7%';
     });
-    const verdicts = crossMountVerdicts(accept(drifted), SEEDED_MOUNTS);
+    const verdicts = crossMountVerdicts(accept(drifted), MOUNTS);
     expect(verdicts.filter(({ failures }) => failures.length > 0)).toHaveLength(
       1,
     );
@@ -206,15 +243,22 @@ describe('home tools evidence', () => {
     );
   });
 
-  it('fails a corresponding mount that opens on different state from home', () => {
+  it('fails a mount that inherits the component default yet opens elsewhere', () => {
     const home = committed().featured;
+    const homeSteps = home.initialSliders.find(({ accessibleName }) =>
+      /episode length/i.test(accessibleName),
+    )!.value;
+    const inheriting = MOUNTS.find(
+      (mount) =>
+        mount.mountId !== home.mountId &&
+        !/(?:^|\s)default[A-Z]/.test(mount.props),
+    )!;
     const drifted = mutate((evidence) => {
-      // A sibling nobody has to unlock is a second presentation of the same
-      // instrument: it reseeds itself to a shorter episode, which is a
-      // different starting state and a different reset for the same tool.
-      const declared = new Set(SEEDED_MOUNTS.map(({ mountId }) => mountId));
+      // A mount whose registration passes no `default*` prop renders the
+      // component's one default state, so it is claiming to open where home
+      // opens. Reseeded to a shorter episode, it no longer does.
       const sibling = evidence.siblingMounts.find(
-        (mount) => !declared.has(mount.mountId),
+        ({ mountId }) => mountId === inheriting.mountId,
       )!;
       for (const sliders of [sibling.initialSliders, sibling.resetSliders]) {
         const steps = sliders.find(({ accessibleName }) =>
@@ -226,42 +270,43 @@ describe('home tools evidence', () => {
       sibling.resetReadout = '48.8%';
       sibling.secondResetReadout = '48.8%';
     });
-    const failing = crossMountVerdicts(accept(drifted), SEEDED_MOUNTS).filter(
+    const failing = crossMountVerdicts(accept(drifted), MOUNTS).filter(
       ({ failures }) => failures.length > 0,
     );
-    expect(failing).toHaveLength(1);
+    expect(failing.map(({ id }) => id)).toEqual([inheriting.mountId]);
     const reported = failing[0].failures.join(' ');
-    expect(reported).toMatch(/opens at 95% per step over 14 steps/);
-    expect(reported).toContain(`where home opens reading ${home.initialReadout}`);
+    expect(reported).toMatch(
+      /registers no default state of its own and opens at 95% per step over 14 steps/,
+    );
+    expect(reported).toContain(`where home opens at 95% over ${homeSteps}`);
   });
 
-  it('holds a declared seed to the model without forcing home defaults on it', () => {
-    // A commit-to-reveal panel seeds the instrument to the figure its own
-    // published prose commits to, so it is exempt from opening on home's
-    // defaults. The exemption is not a hole: the seed still has to print
-    // what the shared model computes from the inputs it was seeded with.
+  it('holds a registered seed to the model without forcing home defaults on it', () => {
+    // A commit-to-reveal panel is registered with its own default state, so
+    // it is not claiming to open where home opens. Nothing exempts it from
+    // the model: it still has to print what the shared model computes from
+    // the inputs it was actually seeded with.
     const evidence = accept(committed());
-    const declaration = SEEDED_MOUNTS[0];
-    const verdict = crossMountVerdicts(evidence, SEEDED_MOUNTS).find(
-      ({ id }) => id === declaration.mountId,
+    const seeded = MOUNTS.find((mount) =>
+      /(?:^|\s)default[A-Z]/.test(mount.props),
+    )!;
+    const verdict = crossMountVerdicts(evidence, MOUNTS).find(
+      ({ id }) => id === seeded.mountId,
     )!;
     expect(verdict.failures).toEqual([]);
+    expect(verdict.observed.registersOwnDefaultState).toBe(true);
     expect(verdict.observed.initialStateComparedToHome).toBe(false);
-    expect(verdict.observed.seedDeclaration).toEqual({
-      seededInputs: declaration.seededInputs,
-      reason: declaration.reason,
-      owner: declaration.owner,
-    });
+    expect(verdict.observed.pairedWithHomeAsModulePage).toBe(true);
 
     const fabricated = mutate((row) => {
       const mount = row.siblingMounts.find(
-        ({ mountId }) => mountId === declaration.mountId,
+        ({ mountId }) => mountId === seeded.mountId,
       )!;
       mount.initialReadout = '90.0%';
       mount.resetReadout = '90.0%';
       mount.secondResetReadout = '90.0%';
     });
-    const failing = crossMountVerdicts(accept(fabricated), SEEDED_MOUNTS).filter(
+    const failing = crossMountVerdicts(accept(fabricated), MOUNTS).filter(
       ({ failures }) => failures.length > 0,
     );
     expect(failing).toHaveLength(1);
@@ -270,68 +315,122 @@ describe('home tools evidence', () => {
     );
   });
 
-  it('grants the seeded-state exemption by declaration and not by visibility', () => {
-    // The input that used to pass. Being behind a disclosure was the whole
-    // criterion, so a mount that reseeded itself and happened to sit inside
-    // a `<details>` was exempt from opening on home's state for a reason
-    // nobody had stated. Undeclared, the same mount now fails.
+  it('reads the seed off the registration rather than off a visibility fact or an approval', () => {
+    // The input that used to pass, and then the input that used to be
+    // needed. Being behind a disclosure was once the whole criterion, and
+    // the round that closed that replaced the visibility fact with a
+    // checked-in approval granting one mount an exception to the criterion.
+    // Neither exists now: whether a mount seeds itself is read off the props
+    // it is registered with, so a mount that reseeds itself while
+    // registering no default fails and no declaration can excuse one.
     const evidence = accept(committed());
-    const declaration = SEEDED_MOUNTS[0];
+    const seeded = registrationOf(
+      MOUNTS.find((mount) => /(?:^|\s)default[A-Z]/.test(mount.props))!.mountId,
+    );
     const gated = evidence.siblingMounts.find(
-      ({ mountId }) => mountId === declaration.mountId,
+      ({ mountId }) => mountId === seeded.mountId,
     )!;
     expect(gated.revealedByControls.length).toBeGreaterThan(0);
-    const undeclared = crossMountVerdicts(evidence, []).filter(
+    const stripped = MOUNTS.map((mount) =>
+      mount.mountId === seeded.mountId
+        ? { ...mount, props: 'className="mt-3" /' }
+        : mount,
+    );
+    const failing = crossMountVerdicts(evidence, stripped).filter(
       ({ failures }) => failures.length > 0,
     );
-    expect(undeclared.map(({ id }) => id)).toEqual([declaration.mountId]);
-    expect(undeclared[0].failures.join(' ')).toMatch(
-      /opens at 95% per step over 14 steps/,
+    expect(failing.map(({ id }) => id)).toEqual([seeded.mountId]);
+    expect(failing[0].failures.join(' ')).toMatch(
+      /registers no default state of its own and opens at 95% per step over 14 steps/,
     );
 
-    // A declaration that does not describe the configuration the mount was
-    // measured opening on cannot carry it either.
-    const misdeclared = crossMountVerdicts(evidence, [
-      {
-        ...declaration,
-        seededInputs: { ...declaration.seededInputs, steps: 30 },
-      },
-    ]);
-    expect(
-      misdeclared.filter(({ failures }) => failures.length > 0).map(({ id }) => id),
-    ).toEqual([declaration.mountId]);
-    expect(misdeclared.flatMap(({ failures }) => failures).join(' ')).toMatch(
-      /declares a seed of 95% per step over 30 steps and opens at 95% over 14/,
+    // And the mirror: a registration that seeds a mount which opens exactly
+    // where home opens is a seed that changes nothing a reader meets.
+    const inheriting = MOUNTS.find(
+      (mount) =>
+        mount.mountId !== evidence.featured.mountId &&
+        !/(?:^|\s)default[A-Z]/.test(mount.props),
+    )!;
+    const overSeeded = MOUNTS.map((mount) =>
+      mount.mountId === inheriting.mountId
+        ? { ...mount, props: `defaultSteps={30} ${mount.props}` }
+        : mount,
     );
-
-    // A declaration on the wrong route is equally not about this mount.
-    expect(
-      crossMountVerdicts(evidence, [
-        { ...declaration, route: '/frontier/reliability-gap/' },
-      ])
-        .flatMap(({ failures }) => failures)
-        .join(' '),
-    ).toMatch(/places .* on \/frontier\/reliability-gap\//);
-
-    // And a declaration for a mount nobody renders refuses outright.
-    expect(() =>
-      crossMountVerdicts(evidence, [
-        { ...declaration, mountId: 'mount:/nowhere/:ReliabilityCompounding:1' },
-      ]),
-    ).toThrow(/which the measured population does not contain/);
+    const inert = crossMountVerdicts(evidence, overSeeded).filter(
+      ({ failures }) => failures.length > 0,
+    );
+    expect(inert.map(({ id }) => id)).toEqual([inheriting.mountId]);
+    expect(inert[0].failures.join(' ')).toMatch(
+      /opens exactly where home opens, so the registered seed changes nothing/,
+    );
   });
 
-  it('refuses a population where every sibling has been exempted', () => {
+  it('refuses a registry and a sweep that disagree about the population', () => {
     const evidence = accept(committed());
-    const declaration = SEEDED_MOUNTS[0];
+    // A registered mount nobody measured leaves a member of the population
+    // undecided rather than absent.
+    expect(() =>
+      crossMountVerdicts(evidence, [
+        ...MOUNTS,
+        {
+          mountId: 'mount:/nowhere/:ReliabilityCompounding:1',
+          route: '/nowhere/',
+          ownerPath: 'content/nowhere.mdx',
+          props: '/',
+        },
+      ]),
+    ).toThrow(/which the measured population does not contain/);
+    // And a measured mount nobody registered has no derivation behind it.
+    expect(() =>
+      crossMountVerdicts(
+        evidence,
+        MOUNTS.filter(
+          ({ mountId }) => mountId !== evidence.siblingMounts[0].mountId,
+        ),
+      ),
+    ).toThrow(/which the interactive registry does not register/);
+    // The pair VAL-CROSS-015 quantifies over is derived, so a registry with
+    // no module-page mount pairs home with nothing.
+    expect(() =>
+      crossMountVerdicts(
+        evidence,
+        MOUNTS.map((mount) => ({ ...mount, ownerPath: 'app/page.tsx' })),
+      ),
+    ).toThrow(/registered on no module page/);
+  });
+
+  it('pairs home with every module page the featured interactive is mounted on', () => {
+    const pages = modulePageMounts(MOUNTS);
+    expect(pages.length).toBeGreaterThan(0);
+    expect(pages.every(({ ownerPath }) => ownerPath.startsWith('content/'))).toBe(
+      true,
+    );
+    // The home half is the one mount a route module owns rather than a
+    // content module, and it is home.
+    expect(
+      MOUNTS.filter(({ ownerPath }) => !ownerPath.startsWith('content/')).map(
+        ({ route }) => route,
+      ),
+    ).toEqual(['/']);
+    const evidence = accept(committed());
+    const paired = crossMountVerdicts(evidence, MOUNTS).filter(
+      ({ observed }) => observed.pairedWithHomeAsModulePage === true,
+    );
+    expect(paired.map(({ id }) => id).sort()).toEqual(
+      pages.map(({ mountId }) => mountId).sort(),
+    );
+  });
+
+  it('refuses a population where every sibling seeds its own default state', () => {
+    const evidence = accept(committed());
     expect(
       crossMountVerdicts(
         evidence,
-        evidence.siblingMounts.map((mount) => ({
-          ...declaration,
-          mountId: mount.mountId,
-          route: mount.route,
-        })),
+        MOUNTS.map((mount) =>
+          mount.mountId === evidence.featured.mountId
+            ? mount
+            : { ...mount, props: `defaultSteps={14} ${mount.props}` },
+        ),
       )
         .flatMap(({ failures }) => failures)
         .join(' '),

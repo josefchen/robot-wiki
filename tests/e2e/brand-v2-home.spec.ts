@@ -15,6 +15,7 @@ import {
   heroLockupVerdicts,
   homeCompositionVerdicts,
   homeEvidenceFingerprint,
+  homeStructureTable,
   readHomeCompositionEvidence,
   type HomeCompositionEvidence,
 } from '../../lib/brand-v2-home-evidence';
@@ -24,6 +25,40 @@ import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from '../../lib/identity';
 
 const ROOT = process.cwd();
 const SECTION_SIGNATURES = readSectionSignatureRegistry(ROOT);
+
+/**
+ * Wraps one in-page reading as the artifact this feature persists.
+ *
+ * The structural-variety table is built here rather than in the browser
+ * because half of each row comes from the checked-in signature registry,
+ * which the page has no access to and must not: a section that could read
+ * its own registry entry could also write one. Every construction of the
+ * artifact goes through this, so a planted reading carries the table its own
+ * sections derive rather than a stale one from the clean run.
+ */
+function homeArtifact(
+  collected: Omit<
+    HomeCompositionEvidence,
+    'version' | 'fingerprint' | 'viewport' | 'route' | 'structureTable'
+  >,
+): HomeCompositionEvidence {
+  return {
+    version: 1,
+    fingerprint: homeEvidenceFingerprint({
+      root: ROOT,
+      identity: PUBLIC_IDENTITY,
+      descriptor: PUBLIC_DESCRIPTOR,
+    }),
+    viewport: HOME_VIEWPORT.id,
+    route: HOME_ROUTE,
+    ...collected,
+    structureTable: homeStructureTable({
+      route: HOME_ROUTE,
+      sections: collected.sections,
+      registry: SECTION_SIGNATURES,
+    }),
+  };
+}
 
 /**
  * Reader-facing build-progress and planned-work copy. `VAL-DESIGN-001` and
@@ -509,17 +544,7 @@ test.describe('brand-v2 home composition', () => {
 
     const collected = await page.evaluate(collectHome, collectArgs(domains));
 
-    const artifact: HomeCompositionEvidence = {
-      version: 1,
-      fingerprint: homeEvidenceFingerprint({
-        root: ROOT,
-        identity: PUBLIC_IDENTITY,
-        descriptor: PUBLIC_DESCRIPTOR,
-      }),
-      viewport: HOME_VIEWPORT.id,
-      route: HOME_ROUTE,
-      ...collected,
-    };
+    const artifact: HomeCompositionEvidence = homeArtifact(collected);
 
     // Enforced here as well as in the generator, so a red home fails the
     // suite that measured it rather than only the artifact check.
@@ -637,17 +662,7 @@ test.describe('brand-v2 home composition', () => {
     });
 
     const collected = await page.evaluate(collectHome, collectArgs(domains));
-    const planted = {
-      version: 1 as const,
-      fingerprint: homeEvidenceFingerprint({
-        root: ROOT,
-        identity: PUBLIC_IDENTITY,
-        descriptor: PUBLIC_DESCRIPTOR,
-      }),
-      viewport: HOME_VIEWPORT.id,
-      route: HOME_ROUTE,
-      ...collected,
-    };
+    const planted = homeArtifact(collected);
     const verdicts = homeCompositionVerdicts(
       planted,
       { identity: PUBLIC_IDENTITY, descriptor: PUBLIC_DESCRIPTOR },
@@ -709,17 +724,7 @@ test.describe('brand-v2 home composition', () => {
       expect(highlight.nonColourCue, highlight.text).toBeNull();
     }
     const verdicts = homeCompositionVerdicts(
-      {
-        version: 1 as const,
-        fingerprint: homeEvidenceFingerprint({
-          root: ROOT,
-          identity: PUBLIC_IDENTITY,
-          descriptor: PUBLIC_DESCRIPTOR,
-        }),
-        viewport: HOME_VIEWPORT.id,
-        route: HOME_ROUTE,
-        ...collected,
-      },
+      homeArtifact(collected),
       { identity: PUBLIC_IDENTITY, descriptor: PUBLIC_DESCRIPTOR },
       SECTION_SIGNATURES,
     );
@@ -789,17 +794,7 @@ test.describe('brand-v2 home composition', () => {
       expect(highlight.nonColourCue, highlight.text).toBeNull();
     }
     const verdicts = homeCompositionVerdicts(
-      {
-        version: 1 as const,
-        fingerprint: homeEvidenceFingerprint({
-          root: ROOT,
-          identity: PUBLIC_IDENTITY,
-          descriptor: PUBLIC_DESCRIPTOR,
-        }),
-        viewport: HOME_VIEWPORT.id,
-        route: HOME_ROUTE,
-        ...collected,
-      },
+      homeArtifact(collected),
       { identity: PUBLIC_IDENTITY, descriptor: PUBLIC_DESCRIPTOR },
       SECTION_SIGNATURES,
     );
@@ -851,17 +846,7 @@ test.describe('brand-v2 home composition', () => {
       collected.sections.map(({ signature }) => signature),
     ).toContain('plain/module-heading/invented');
     const verdicts = homeCompositionVerdicts(
-      {
-        version: 1 as const,
-        fingerprint: homeEvidenceFingerprint({
-          root: ROOT,
-          identity: PUBLIC_IDENTITY,
-          descriptor: PUBLIC_DESCRIPTOR,
-        }),
-        viewport: HOME_VIEWPORT.id,
-        route: HOME_ROUTE,
-        ...collected,
-      },
+      homeArtifact(collected),
       { identity: PUBLIC_IDENTITY, descriptor: PUBLIC_DESCRIPTOR },
       SECTION_SIGNATURES,
     );
@@ -875,5 +860,85 @@ test.describe('brand-v2 home composition', () => {
     expect(structure).toMatch(
       /registers "ruled-plain\/closing-heading\/guidance-prose" for \/ .* which no section on that route declares/,
     );
+  });
+
+  /**
+   * The plant for the structural-variety table. It is the support
+   * `VAL-DESIGN-009` rests on, so it has to be checked against the page it
+   * claims to describe: a row nobody re-derives is prose, and prose can be
+   * edited into agreement with anything.
+   */
+  test('refuses a structural-variety table that disagrees with the sections it describes', async ({
+    page,
+    staticBase,
+  }) => {
+    const domains = canonicalDomainDestinations();
+    await page.setViewportSize({
+      width: HOME_VIEWPORT.width,
+      height: HOME_VIEWPORT.height,
+    });
+    await page.goto(`${staticBase}${HOME_ROUTE}`);
+    await page.waitForLoadState('networkidle');
+    await page.evaluate(() => document.fonts.ready);
+    const collected = await page.evaluate(collectHome, collectArgs(domains));
+    const artifact = homeArtifact(collected);
+
+    // The accepted half: the unplanted table is the one the sections and the
+    // registry derive, and the anchor that reads it is green.
+    expect(artifact.structureTable.length).toBe(collected.sections.length);
+    expect(
+      artifact.structureTable.map(({ registeredOwner }) => registeredOwner),
+      'every declared signature resolves to a registered owner',
+    ).not.toContain(null);
+    const clean =
+      homeCompositionVerdicts(
+        artifact,
+        { identity: PUBLIC_IDENTITY, descriptor: PUBLIC_DESCRIPTOR },
+        SECTION_SIGNATURES,
+      ).find(({ id }) => id === 'anchor:home-board-derived-structure')
+        ?.failures ?? [];
+    expect(clean).toEqual([]);
+
+    // Rewriting one row's registered owner is a table that states a purpose
+    // the registry never granted.
+    const original = artifact.structureTable[2];
+    const rewritten = { ...original, registeredOwner: 'somebody-else' };
+    expect(rewritten.registeredOwner).not.toEqual(original.registeredOwner);
+    const planted = homeCompositionVerdicts(
+      {
+        ...artifact,
+        structureTable: artifact.structureTable.map((row, index) =>
+          index === 2 ? rewritten : row,
+        ),
+      },
+      { identity: PUBLIC_IDENTITY, descriptor: PUBLIC_DESCRIPTOR },
+      SECTION_SIGNATURES,
+    );
+    const failing = planted
+      .filter(({ failures }) => failures.length > 0)
+      .map(({ id }) => id);
+    expect(failing).toEqual(['anchor:home-board-derived-structure']);
+    expect(
+      planted.flatMap(({ failures }) => failures).join(' '),
+    ).toMatch(/structural-variety row 2 was persisted as .*somebody-else/);
+
+    // And a table in another order is refused before any verdict runs: the
+    // claim is about adjacent sections, so order is part of the reading.
+    const swapped = [...artifact.structureTable];
+    [swapped[0], swapped[1]] = [swapped[1], swapped[0]];
+    expect(swapped[0].label).not.toEqual(artifact.structureTable[0].label);
+    expect(() =>
+      readHomeCompositionEvidence({
+        artifact: { ...artifact, structureTable: swapped },
+        fingerprint: artifact.fingerprint,
+      }),
+    ).toThrow(/structural-variety row 0 describes/);
+    // The accepted half again, through the reader this time.
+    expect(() =>
+      readHomeCompositionEvidence({
+        artifact,
+        fingerprint: artifact.fingerprint,
+      }),
+    ).not.toThrow();
   });
 });

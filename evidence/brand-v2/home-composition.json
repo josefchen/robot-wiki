@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "9ab454437c082d5d517e7ec4f33490f3a866f14a786158b08103ef892c99bc80",
+  "fingerprint": "011c35843e3ab0606f43ce408115fef614ab435ca5acf8bf983e349a7f4c5286",
   "viewport": "1440x900",
   "route": "/",
   "visibleTextLength": 4018,
@@ -402,5 +402,67 @@
   ],
   "overviewProse": "Robot Wiki is an encyclopedia of modern robotics for engineers who already know machine learning. It covers learned manipulation policies, sim-to-real reinforcement learning, world models, teleoperation data pipelines, and the classical control stack underneath them. Every technical claim is cited to a primary source. The centre of gravity is robot learning, and the site is not a catalogue of the industry.",
   "progressMetadataMatches": [],
-  "borderedCardCount": 4
+  "borderedCardCount": 4,
+  "structureTable": [
+    {
+      "index": 0,
+      "label": "Introduction",
+      "declaredSignature": "sheet/display-lockup/primary-action",
+      "registeredOwner": "brand-v2-home-hero-domain-index-and-structure",
+      "registeredPurpose": "The opening sheet that carries the public identity, the locked descriptor and the single black primary action into the first viewport.",
+      "derivedStructuralForm": "rgb(245, 246, 247)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|0|no-shadow + transparent|0,0,0,0|0|no-shadow || h1/92.16/600/tektur/none || a[rgb(11, 11, 12)/rgb(255, 255, 255)/1],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/1] || p=2,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedForm": "form:1",
+      "derivedSurfaceHeadingActionForm": "form:1"
+    },
+    {
+      "index": 1,
+      "label": "Domain index",
+      "declaredSignature": "ruled-plain/index-heading/row-links",
+      "registeredOwner": "brand-v2-home-hero-domain-index-and-structure",
+      "registeredPurpose": "The domain index: seven canonical destinations as ruled editorial rows rather than a grid of equal marketing cards.",
+      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow + transparent|1solidcolor(srgb 0.552863 0.569961 0.582118),0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/24/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0],a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0] || p=7,ul=1,ol=0,li=7,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedForm": "form:2",
+      "derivedSurfaceHeadingActionForm": "form:2"
+    },
+    {
+      "index": 2,
+      "label": "Featured interactive",
+      "declaredSignature": "plain/module-heading/live-instrument",
+      "registeredOwner": "brand-v2-home-live-tools-and-responsive-convergence",
+      "registeredPurpose": "The featured instrument, where the reader operates a live calculator that computes its readout instead of depicting one.",
+      "derivedStructuralForm": "rgb(255, 255, 255)|1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219),1solidrgb(217, 218, 219)|8|no-shadow + transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0],button[color(srgb 0.973176 0.973882 0.974588)/rgb(36, 45, 51)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=1,canvas=0,table=1,input=2,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedForm": "form:3",
+      "derivedSurfaceHeadingActionForm": "form:3"
+    },
+    {
+      "index": 3,
+      "label": "Real hardware",
+      "declaredSignature": "plain/module-heading/credited-figure",
+      "registeredOwner": "brand-v2-home-hero-domain-index-and-structure",
+      "registeredPurpose": "The real-hardware figure, a credited photograph whose caption carries its source and licence.",
+      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 45, 51)/0],a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=1,ul=0,ol=0,li=0,dl=0,figure=1,img=1,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedForm": "form:4",
+      "derivedSurfaceHeadingActionForm": "form:4"
+    },
+    {
+      "index": 4,
+      "label": "Interactive tools",
+      "declaredSignature": "plain/module-heading/schematic-pair",
+      "registeredOwner": "brand-v2-home-live-tools-and-responsive-convergence",
+      "registeredPurpose": "The two tool entry points, each previewing the artifact it leads to with a schematic derived from the shipped data.",
+      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow || h2/20/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(11, 11, 12)/0] || p=3,ul=1,ol=0,li=6,dl=0,figure=1,img=0,svg=2,canvas=0,table=1,input=0,h3=2,h4=0,blockquote=0,pre=0",
+      "derivedForm": "form:5",
+      "derivedSurfaceHeadingActionForm": "form:5"
+    },
+    {
+      "index": 5,
+      "label": "How to read this wiki",
+      "declaredSignature": "ruled-plain/closing-heading/guidance-prose",
+      "registeredOwner": "brand-v2-home-hero-domain-index-and-structure",
+      "registeredPurpose": "The closing guidance on how to read the wiki, prose that sets the citation-first expectation before the reader leaves home.",
+      "derivedStructuralForm": "transparent|0,0,0,0|0|no-shadow + transparent|1solidrgb(217, 218, 219),0,0,0|0|no-shadow || h2/18/600/tektur/none || a[rgba(0, 0, 0, 0)/rgb(36, 95, 255)/0] || p=3,ul=0,ol=0,li=0,dl=0,figure=0,img=0,svg=0,canvas=0,table=0,input=0,h3=0,h4=0,blockquote=0,pre=0",
+      "derivedForm": "form:6",
+      "derivedSurfaceHeadingActionForm": "form:6"
+    }
+  ]
 }

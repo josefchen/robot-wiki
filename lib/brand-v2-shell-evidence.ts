@@ -1,4 +1,6 @@
+import { z } from 'zod';
 import { deriveEvidenceClosure } from './brand-v2-evidence-closure.ts';
+import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 
 /**
  * Evidence for the desktop shell and navigation assertions
@@ -199,6 +201,83 @@ export function shellEvidenceFingerprint(input: {
   }).fingerprint;
 }
 
+const markerSchema = z.object({
+  deviceId: z.string().nullable(),
+  anchorSelector: z.string().nullable(),
+  ariaHidden: z.string().nullable(),
+  pointerEvents: z.string(),
+  borderLeftColour: z.string(),
+  borderLeftWidthPx: z.number(),
+  leftPx: z.number(),
+  heightPx: z.number(),
+  alignmentErrorPx: z.number(),
+  ownerHeightPx: z.number(),
+  contributedText: z.string(),
+});
+
+const navEntrySchema = z.object({
+  index: z.number(),
+  href: z.string(),
+  name: z.string(),
+  category: z.enum(['lockup', 'domain-overview', 'module', 'standalone']),
+  leftPx: z.number(),
+  colour: z.string(),
+  fontWeight: z.number(),
+  fontFamilyHead: z.string(),
+  ariaCurrent: z.string().nullable(),
+  marker: markerSchema.nullable(),
+});
+
+/** The complete nested shape of the persisted desktop shell sweep. */
+export const shellRuntimeEvidenceSchema = z.object({
+  version: z.literal(1),
+  fingerprint: z.string(),
+  viewport: z.string(),
+  routes: z.array(z.string()),
+  observations: z.array(
+    z.object({
+      route: z.string(),
+      visibleTextLength: z.number(),
+      ariaCurrentNodes: z.array(
+        z.object({
+          tag: z.string(),
+          href: z.string().nullable(),
+          navigationLink: z.boolean(),
+          accessibleName: z.string(),
+          outline: z.string(),
+        }),
+      ),
+      navEntries: z.array(navEntrySchema),
+      skipLink: z.object({
+        firstTabStopTag: z.string(),
+        firstTabStopHref: z.string().nullable(),
+        firstTabStopText: z.string(),
+        restTopPx: z.number(),
+        focusedTopPx: z.number(),
+        visibleWhenFocused: z.boolean(),
+        colour: z.string(),
+        borderColour: z.string(),
+        activatedFocusId: z.string().nullable(),
+      }),
+      railGeometry: z.object({
+        asideRightPx: z.number(),
+        navLeftPx: z.number(),
+        mainLeftPx: z.number(),
+        documentScrollWidthPx: z.number(),
+        documentClientWidthPx: z.number(),
+      }),
+      registrationLabels: z.array(
+        z.object({
+          text: z.string(),
+          fontSizePx: z.number(),
+          trackingEm: z.number(),
+        }),
+      ),
+    }),
+  ),
+  expandedLedger: z.array(navEntrySchema),
+});
+
 /**
  * Accepts the persisted sweep only when it is the sweep this tree needs:
  * current fingerprint, the declared viewport, exactly the registered public
@@ -211,20 +290,29 @@ export function readShellRuntimeEvidence(input: {
   routes: string[];
   fingerprint: string;
 }): ShellRuntimeEvidence {
-  const artifact = input.artifact as Partial<ShellRuntimeEvidence>;
-  if (!artifact || typeof artifact !== 'object') {
+  const envelope = input.artifact;
+  if (!envelope || typeof envelope !== 'object') {
     throw new Error('shell runtime evidence is not an object');
   }
-  if (artifact.version !== 1) {
+  const { version, fingerprint } = envelope as {
+    version?: unknown;
+    fingerprint?: unknown;
+  };
+  if (version !== 1) {
     throw new Error(
-      `shell runtime evidence version ${String(artifact.version)} is not 1`,
+      `shell runtime evidence version ${String(version)} is not 1`,
     );
   }
-  if (artifact.fingerprint !== input.fingerprint) {
+  if (fingerprint !== input.fingerprint) {
     throw new Error(
       'shell runtime evidence is stale: a shell source or a rail device registration changed since the sweep ran. Re-run npm run refresh:brand-v2-evidence.',
     );
   }
+  const artifact = parseEvidenceArtifact(
+    shellRuntimeEvidenceSchema,
+    envelope,
+    'shell runtime evidence',
+  );
   if (artifact.viewport !== SHELL_VIEWPORT.id) {
     throw new Error(
       `shell runtime evidence was swept at ${String(artifact.viewport)}, not ${SHELL_VIEWPORT.id}`,
@@ -234,13 +322,13 @@ export function readShellRuntimeEvidence(input: {
   if (expectedRoutes.length === 0) {
     throw new Error('shell evidence route population is empty');
   }
-  const recordedRoutes = [...(artifact.routes ?? [])].sort();
+  const recordedRoutes = [...artifact.routes].sort();
   if (JSON.stringify(recordedRoutes) !== JSON.stringify(expectedRoutes)) {
     throw new Error(
       `shell runtime evidence covers ${recordedRoutes.length} routes, not the ${expectedRoutes.length} registered public routes`,
     );
   }
-  const observations = artifact.observations ?? [];
+  const { observations } = artifact;
   const seen = new Set<string>();
   for (const observation of observations) {
     if (seen.has(observation.route)) {
@@ -271,13 +359,12 @@ export function readShellRuntimeEvidence(input: {
       `shell runtime evidence is missing ${missing.length} route observations, starting with ${missing[0]}`,
     );
   }
-  const ledger = artifact.expandedLedger ?? [];
-  if (ledger.length === 0) {
+  if (artifact.expandedLedger.length === 0) {
     throw new Error(
       'shell runtime evidence recorded an empty expanded taxonomy ledger',
     );
   }
-  return artifact as ShellRuntimeEvidence;
+  return artifact;
 }
 
 /** Trailing-slash-insensitive comparison of a route and an href. */

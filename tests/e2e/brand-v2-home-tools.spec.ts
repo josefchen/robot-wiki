@@ -19,6 +19,7 @@ import {
   readHomeToolsEvidence,
   responsiveOverflowVerdicts,
   type AccessibilityProfileObservation,
+  type FeaturedMountRegistration,
   type HomeToolsEvidence,
   type MountObservation,
   type ProgressCounterObservation,
@@ -27,12 +28,10 @@ import {
   type SurfaceCountExpectation,
 } from '../../lib/brand-v2-home-tools-evidence';
 import { BRAND_V2_RESPONSIVE_VIEWPORTS } from '../../lib/brand-v2-responsive-viewports';
-import { readSeededMountRegistry } from '../../lib/brand-v2-seeded-mounts';
 import { progressCounterSurfaces } from '../../lib/home-populations';
 import { so101DerivedFigures, so101Preview } from '../../lib/so101-kinematics';
 
 const ROOT = process.cwd();
-const SEEDED_MOUNTS = readSeededMountRegistry(ROOT);
 const READOUT = '[data-testid="episode-success-readout"]';
 
 /**
@@ -69,6 +68,11 @@ const COUNT_PHRASE = /(\d[\d,]*)\s+(?:glossary\s+)?(articles?|modules?|entries|t
  * interactive registry rather than named here. A second mount added to
  * another article joins `VAL-CROSS-015`'s population automatically instead
  * of escaping a hard-coded pair.
+ *
+ * `ownerPath` and `props` come along with each row because they are what the
+ * pairing and the seeding are derived from: the document that mounts an
+ * instance, and the props it is mounted with. Both are generated from the
+ * tree, so neither is something a mount can grant itself.
  */
 function featuredMounts() {
   const home = brandV2Registry.interactive.mounts.filter(
@@ -80,16 +84,24 @@ function featuredMounts() {
     );
   }
   const featured = home[0];
-  const siblings = brandV2Registry.interactive.mounts.filter(
-    (mount) =>
-      mount.sourceId === featured.sourceId && mount.id !== featured.id,
+  const registered = brandV2Registry.interactive.mounts.filter(
+    (mount) => mount.sourceId === featured.sourceId,
   );
+  const siblings = registered.filter((mount) => mount.id !== featured.id);
   if (siblings.length === 0) {
     throw new Error(
       `${featured.sourceId} is mounted only on home, so VAL-CROSS-015 has no second context to compare`,
     );
   }
-  return { featured, siblings };
+  const registrations: FeaturedMountRegistration[] = registered.map(
+    ({ id, route, ownerPath, props }) => ({
+      mountId: id,
+      route,
+      ownerPath,
+      props,
+    }),
+  );
+  return { featured, siblings, registrations };
 }
 
 /** The nearest registered surface that holds one mount of the instrument. */
@@ -921,9 +933,16 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
     ]);
     expect(featuredVerdicts.flatMap(({ failures }) => failures)).toEqual([]);
 
-    // VAL-CROSS-015: every other registered mount of the same component.
-    const parity = crossMountVerdicts(measured, SEEDED_MOUNTS);
+    // VAL-CROSS-015: home paired with the module pages the same component
+    // is registered on, and the shared behaviour of every registered mount.
+    const parity = crossMountVerdicts(measured, featuredMounts().registrations);
     expect(parity.length).toBe(measured.siblingMounts.length);
+    expect(
+      parity.filter(
+        ({ observed }) => observed.pairedWithHomeAsModulePage === true,
+      ).length,
+      'module-page mounts paired with home',
+    ).toBeGreaterThan(0);
     expect(parity.flatMap(({ failures }) => failures)).toEqual([]);
 
     // VAL-DESIGN-013: the playground preview is bound to the shipped model.
@@ -1027,6 +1046,15 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
       'anchor:playground-entry-textual-alternative',
     ]);
 
+    const { registrations } = featuredMounts();
+    // The accepted half first: the unplanted reading is green through the
+    // same function that has to refuse each plant below.
+    expect(
+      crossMountVerdicts(measured, registrations).flatMap(
+        ({ failures }) => failures,
+      ),
+    ).toEqual([]);
+
     const plantedParity = crossMountVerdicts(
       {
         ...measured,
@@ -1035,60 +1063,73 @@ test.describe('brand-v2 home live tools and responsive convergence', () => {
           drivenReadout: '99.9%',
         })),
       },
-      SEEDED_MOUNTS,
+      registrations,
     );
     expect(plantedParity.every(({ failures }) => failures.length > 0)).toBe(
       true,
     );
-    expect(
-      crossMountVerdicts(measured, SEEDED_MOUNTS).flatMap(
-        ({ failures }) => failures,
-      ),
-    ).toEqual([]);
 
-    // A declaration that does not describe the mount it exempts. The seeded
-    // configuration is the whole reason the exemption exists, so a
-    // declaration naming different inputs cannot carry it.
-    const declared = SEEDED_MOUNTS[0]!;
-    const misdeclared = crossMountVerdicts(measured, [
-      {
-        ...declared,
-        seededInputs: {
-          ...declared.seededInputs,
-          steps: declared.seededInputs.steps + 1,
-        },
-      },
-    ]);
+    // A mount registered with its own default state is held to the model it
+    // was seeded with, and to nothing home says. Stripping that registration
+    // makes it a mount claiming to inherit the component default while
+    // opening somewhere else, which is the reading the deleted exemption
+    // registry used to buy its way out of.
+    const seeded = registrations.find(({ props }) =>
+      /(?:^|\s)default[A-Z]\w*=/.test(props),
+    )!;
+    expect(seeded.ownerPath.startsWith('content/')).toBe(true);
+    const stripped = registrations.map((mount) =>
+      mount.mountId === seeded.mountId
+        ? { ...mount, props: 'className="mt-3" /' }
+        : mount,
+    );
     expect(
-      misdeclared
-        .filter(({ failures }) => failures.length > 0)
-        .map(({ id }) => id),
-    ).toEqual([declared.mountId]);
-    expect(
-      misdeclared.flatMap(({ failures }) => failures).join(' '),
-    ).toMatch(/does not describe the mount it exempts/);
+      stripped.find(({ mountId }) => mountId === seeded.mountId)!.props,
+    ).not.toEqual(seeded.props);
+    const unseeded = crossMountVerdicts(measured, stripped).filter(
+      ({ failures }) => failures.length > 0,
+    );
+    expect(unseeded.map(({ id }) => id)).toEqual([seeded.mountId]);
+    expect(unseeded[0].failures.join(' ')).toMatch(
+      /registers no default state of its own and opens at/,
+    );
 
-    // Declarations that swallow the population leave nothing for parity to
-    // mean, so every member fails rather than every member passing.
+    // A registration that seeds every sibling leaves nothing for the
+    // configuration half of the pair to mean, so every member fails rather
+    // than every member passing.
     const swallowed = crossMountVerdicts(
       measured,
-      measured.siblingMounts.map((mount) => ({
-        ...declared,
-        mountId: mount.mountId,
-        route: mount.route,
-      })),
+      registrations.map((mount) =>
+        mount.mountId === measured.featured.mountId
+          ? mount
+          : { ...mount, props: `defaultSteps={14} ${mount.props}` },
+      ),
     );
     expect(
       swallowed.flatMap(({ failures }) => failures).join(' '),
     ).toMatch(/no mount is left to compare home\u2019s initial state against/);
 
-    // A declaration for a mount nobody renders is an approval with no
-    // subject, and it refuses rather than sitting unread.
+    // A registered mount nobody measured, and a measured mount nobody
+    // registered, both refuse rather than reading as a complete population.
     expect(() =>
       crossMountVerdicts(measured, [
-        { ...declared, mountId: 'mount:/nowhere/:ReliabilityCompounding:1' },
+        ...registrations,
+        {
+          mountId: 'mount:/nowhere/:ReliabilityCompounding:1',
+          route: '/nowhere/',
+          ownerPath: 'content/nowhere.mdx',
+          props: '/',
+        },
       ]),
     ).toThrow(/which the measured population does not contain/);
+    expect(() =>
+      crossMountVerdicts(
+        measured,
+        registrations.filter(
+          ({ mountId }) => mountId !== measured.siblingMounts[0].mountId,
+        ),
+      ),
+    ).toThrow(/which the interactive registry does not register/);
 
     // VAL-DESIGN-015: one printed total that no expectation explains fails
     // the surface, even where another total on the same page reconciles.

@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { isAbsolute, join } from 'node:path';
 import { openSync, type Font } from 'fontkit';
+import { z } from 'zod';
 import { TEKTUR_FONT_METADATA } from '../data/tektur-font-metadata.ts';
 import {
   FIRST_PARTY_TYPE_ROLES,
@@ -10,6 +11,11 @@ import {
   TEKTUR_ROLE_INSTANCES,
   type TekturAssignedString,
 } from '../data/type-roles.ts';
+import {
+  numberRecordSchema,
+  parseEvidenceArtifact,
+  stringRecordSchema,
+} from './brand-v2-evidence-schema.ts';
 import { BRAND_V2_RESPONSIVE_VIEWPORTS } from './brand-v2-responsive-viewports.ts';
 import {
   inspectOgRendererFonts,
@@ -1626,6 +1632,83 @@ export function measureAssignedStringCmapCoverage(
   return coverage;
 }
 
+/** The complete nested shape of the persisted Tektur delivery sweep. */
+export const tekturDeliveryEvidenceSchema = z.object({
+  version: z.number(),
+  fingerprint: z.string(),
+  viewports: z.array(
+    z.object({ id: z.string(), width: z.number(), height: z.number() }),
+  ),
+  routes: z.array(z.string()),
+  roleObservations: z.array(
+    z.object({
+      route: z.string(),
+      viewportId: z.string(),
+      roles: numberRecordSchema,
+    }),
+  ),
+  roleAxes: z.array(
+    z.object({
+      role: z.string(),
+      family: z.string(),
+      weight: z.string(),
+      stretch: z.string(),
+      variationSettings: z.string(),
+      elements: z.number(),
+    }),
+  ),
+  unannotatedDisplayClassUses: z.array(z.string()),
+  familyObservations: z.array(
+    z.object({
+      route: z.string(),
+      viewportId: z.string(),
+      heads: z.array(z.string()),
+      headsOutsideMath: z.array(z.string()),
+    }),
+  ),
+  fontFaces: z.array(
+    z.object({ family: z.string(), sources: z.array(z.string()) }),
+  ),
+  unreadableStyleSheets: z.array(z.string()),
+  fontResources: z.object({
+    sameOriginPaths: z.array(z.string()),
+    foreignOrigin: z.array(z.string()),
+    observationsWithFontRequest: z.number(),
+    observationsMixingForeignOrigin: z.number(),
+    fontRequests: z.array(
+      z.object({
+        url: z.string(),
+        origin: z.enum(['same', 'foreign']),
+        resourceTypes: z.array(z.string()),
+        contentTypes: z.array(z.string()),
+        payloadSignature: z.string(),
+        sha256: z.string(),
+      }),
+    ),
+    unclassifiedRequests: z.array(z.string()),
+  }),
+  delivery: z.object({
+    route: z.string(),
+    viewportId: z.string(),
+    stacks: stringRecordSchema,
+    wordmark: z.object({
+      role: z.string(),
+      family: z.string(),
+      weight: z.string(),
+      stretch: z.string(),
+      variationSettings: z.string(),
+    }),
+  }),
+  assignedStringProbes: z.array(
+    z.object({
+      id: z.string(),
+      loaded: z.boolean(),
+      tekturAdvance: z.number(),
+      fallbackAdvance: z.number(),
+    }),
+  ),
+});
+
 /**
  * Reads the persisted browser sweep and re-measures everything a node
  * process can, refusing to return a weaker claim. Every population is
@@ -1640,20 +1723,25 @@ export function measureTekturEvidence(input: {
   root: string;
   css: string;
 }): TekturMeasurements {
-  const artifact = input.artifact as TekturDeliveryEvidence;
-  if (artifact === null || typeof artifact !== 'object') {
+  const envelope = input.artifact;
+  if (envelope === null || typeof envelope !== 'object') {
     throw new Error('Tektur delivery evidence is not an object');
   }
-  if (artifact.version !== 1) {
+  if ((envelope as { version?: unknown }).version !== 1) {
     throw new Error('Unsupported Tektur delivery evidence version');
   }
   const occurrences = deriveTekturRoleOccurrences({ root: input.root });
   const fingerprint = tekturDeliveryFingerprint({ ...input, occurrences });
-  if (artifact.fingerprint !== fingerprint) {
+  if ((envelope as { fingerprint?: unknown }).fingerprint !== fingerprint) {
     throw new Error(
-      `Tektur delivery evidence is stale: it was measured against ${artifact.fingerprint} and the current registry, routes, widths and binaries hash to ${fingerprint}; re-run npm run test:brand-v2`,
+      `Tektur delivery evidence is stale: it was measured against ${String((envelope as { fingerprint?: unknown }).fingerprint)} and the current registry, routes, widths and binaries hash to ${fingerprint}; re-run npm run test:brand-v2`,
     );
   }
+  const artifact = parseEvidenceArtifact(
+    tekturDeliveryEvidenceSchema,
+    envelope,
+    'Tektur delivery evidence',
+  );
   if (
     JSON.stringify(artifact.viewports) !==
     JSON.stringify(BRAND_V2_RESPONSIVE_VIEWPORTS)
@@ -1663,9 +1751,6 @@ export function measureTekturEvidence(input: {
     );
   }
   const derivedRoutes = occurrences.routes.map(({ route }) => route);
-  if (!Array.isArray(artifact.routes)) {
-    throw new Error('Tektur delivery evidence records no swept routes');
-  }
   const visited = [...new Set(artifact.routes)].sort();
   const required = [...derivedRoutes].sort();
   if (visited.length !== artifact.routes.length) {
@@ -1681,19 +1766,9 @@ export function measureTekturEvidence(input: {
     );
   }
 
-  if (
-    !Array.isArray(artifact.unannotatedDisplayClassUses) ||
-    artifact.unannotatedDisplayClassUses.length > 0
-  ) {
+  if (artifact.unannotatedDisplayClassUses.length > 0) {
     throw new Error(
-      `Tektur delivery evidence records display classes without a role annotation: ${
-        (artifact.unannotatedDisplayClassUses ?? []).join(', ') || 'unreadable'
-      }`,
-    );
-  }
-  if (!Array.isArray(artifact.familyObservations)) {
-    throw new Error(
-      'Tektur delivery evidence records no font-family observations',
+      `Tektur delivery evidence records display classes without a role annotation: ${artifact.unannotatedDisplayClassUses.join(', ')}`,
     );
   }
   const declaredWidths = BRAND_V2_RESPONSIVE_VIEWPORTS.map(({ id }) => id);

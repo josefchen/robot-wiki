@@ -1658,6 +1658,12 @@ function identityAssertionEvidence(
             ...verdict.wrongNames,
             ...verdict.cssSubstitutedNames,
             ...verdict.unannotatedLockups,
+            // Structure-derived, so a lockup that is stripped of its role
+            // *and* renamed past the spelling family is answered for by the
+            // position it is rendered in rather than dropped by both of the
+            // populations above.
+            ...verdict.unannotatedStructuralSlots,
+            ...verdict.misnamedStructuralSlots,
           ]
         : [...verdict.forbiddenRenders, ...verdict.forbiddenMetadata];
     if (failures.length > 0) {
@@ -1671,6 +1677,7 @@ function identityAssertionEvidence(
       expectedWordmarkRoles: verdict.expectedRoles,
       slotPopulationSource: IDENTITY_SLOT_POPULATION_SOURCE,
       lockupsDiscovered: verdict.lockupCount,
+      structuralBrandSlots: verdict.structuralSlots,
       renderedNames: verdict.renderedNames,
       forbiddenRenders: verdict.forbiddenRenders,
       forbiddenMetadata: verdict.forbiddenMetadata,
@@ -1679,7 +1686,7 @@ function identityAssertionEvidence(
     };
     return assertionId === 'VAL-B2-ID-001'
       ? {
-          actual: `${verdict.route} painted every identity slot its modules are registered to render (${verdict.expectedRoles.join(', ')}) at ${viewports}, each one exactly \`${PUBLIC_IDENTITY}\`, and the ${verdict.lockupCount} lockup(s) also discovered by the whole \`robot wiki\` spelling family are the same string and carry a registered wordmark role`,
+          actual: `${verdict.route} painted every identity slot its modules are registered to render (${verdict.expectedRoles.join(', ')}) at ${viewports}, each one exactly \`${PUBLIC_IDENTITY}\`; the ${verdict.lockupCount} lockup(s) also discovered by the whole \`robot wiki\` spelling family are the same string and carry a registered wordmark role; and the ${verdict.structuralSlots.length} brand slot(s) the page structure puts a lockup in, derived from position and shape without consulting either the annotation or the text, are all annotated with a registered wordmark role and all render exactly \`${PUBLIC_IDENTITY}\``,
           computed,
         }
       : {

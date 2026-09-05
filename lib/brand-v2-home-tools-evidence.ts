@@ -1,3 +1,4 @@
+import { z } from 'zod';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
   SHIPPED_GEOMETRY_MODEL_CLASS,
@@ -6,11 +7,8 @@ import {
   evidenceClosureGraph,
   routeEntryModules,
 } from './brand-v2-evidence-closure.ts';
+import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 import { BRAND_V2_RESPONSIVE_VIEWPORTS } from './brand-v2-responsive-viewports.ts';
-import {
-  SEEDED_MOUNT_REGISTRY_PATH,
-  type SeededMountDeclaration,
-} from './brand-v2-seeded-mounts.ts';
 
 /**
  * Evidence for home's live tool entry points and its responsive/accessible
@@ -136,9 +134,8 @@ export type MountObservation = {
    * behind an article's commit-to-reveal step is still in the population;
    * recording the path keeps "reachable after one documented action" from
    * being confused with "reachable immediately". It is an observation and
-   * not a criterion: whether a mount may open on its own seeded state is
-   * decided by `contract/brand-v2-seeded-mount-registry.json`, because being
-   * behind a disclosure is a visibility fact and not a reason.
+   * never a criterion: being behind a disclosure decides nothing about what
+   * a mount may open on, and no verdict reads this field.
    */
   revealedByControls: string[];
 };
@@ -338,24 +335,167 @@ export function homeToolsEvidenceFingerprint(input: {
   }).fingerprint;
 }
 
+const sliderSchema = z.object({
+  accessibleName: z.string(),
+  value: z.number(),
+  min: z.number(),
+  max: z.number(),
+  step: z.number(),
+});
+
+const mountObservationShape = {
+  mountId: z.string(),
+  route: z.string(),
+  ordinal: z.number(),
+  graphicTag: z.string().nullable(),
+  graphicRole: z.string().nullable(),
+  graphicAriaLabel: z.string().nullable(),
+  initialReadout: z.string(),
+  initialSliders: z.array(sliderSchema),
+  drivenReadout: z.string(),
+  drivenSliders: z.array(sliderSchema),
+  resetReadout: z.string(),
+  resetSliders: z.array(sliderSchema),
+  secondResetReadout: z.string(),
+  keyboardDrivenReadout: z.string().nullable(),
+  focusOutlineWidthPx: z.number().nullable(),
+  focusOutlineStyle: z.string().nullable(),
+  focusOutlineColour: z.string().nullable(),
+  resetControlNames: z.array(z.string()),
+  revealedByControls: z.array(z.string()),
+};
+
+/** The complete nested shape of the persisted home tools sweep. */
+export const homeToolsEvidenceSchema = z.object({
+  version: z.literal(1),
+  fingerprint: z.string(),
+  route: z.string(),
+  viewport: z.string(),
+  featured: z.object({
+    ...mountObservationShape,
+    claimText: z.string(),
+    currentStateText: z.string(),
+    graphicTopPx: z.number(),
+    graphicHeightPx: z.number(),
+    describedByText: z.string().nullable(),
+  }),
+  siblingMounts: z.array(z.object(mountObservationShape)),
+  playground: z.object({
+    href: z.string(),
+    graphics: z.array(
+      z.object({
+        tag: z.string(),
+        role: z.string().nullable(),
+        ariaHidden: z.string().nullable(),
+        ariaLabel: z.string().nullable(),
+        describedBy: z.string().nullable(),
+        shapeCount: z.number(),
+        naturalWidth: z.number().nullable(),
+        widthPx: z.number(),
+        heightPx: z.number(),
+      }),
+    ),
+    describedByText: z.string().nullable(),
+    surfaceId: z.string().nullable(),
+    surfaceBackgroundColour: z.string().nullable(),
+    renderedNumbers: z.array(z.number()),
+    textLength: z.number(),
+  }),
+  responsive: z.array(
+    z.object({
+      routeId: z.string(),
+      route: z.string(),
+      viewportId: z.string(),
+      width: z.number(),
+      documentScrollWidthPx: z.number(),
+      documentClientWidthPx: z.number(),
+      unclippedOverflow: z.array(
+        z.object({
+          tag: z.string(),
+          id: z.string(),
+          rightPx: z.number(),
+        }),
+      ),
+    }),
+  ),
+  accessibility: z.array(
+    z.object({
+      id: z.string(),
+      route: z.string(),
+      description: z.string(),
+      violationIds: z.array(z.string()),
+      consoleErrors: z.array(z.string()),
+      documentScrollWidthPx: z.number(),
+      documentClientWidthPx: z.number(),
+      failures: z.array(z.string()),
+      measuredMembers: z.number(),
+    }),
+  ),
+  progressCounters: z.array(
+    z.object({
+      routeId: z.string(),
+      route: z.string(),
+      matches: z.array(z.string()),
+      reconciledCounts: z.array(
+        z.object({
+          memberId: z.string(),
+          text: z.string(),
+          expected: z.number(),
+          actual: z.number(),
+        }),
+      ),
+      unreconciledCounts: z.array(z.string()),
+    }),
+  ),
+  designBounds: z.object({
+    microLabels: z.array(
+      z.object({
+        text: z.string(),
+        fontSizePx: z.number(),
+        family: z.string(),
+      }),
+    ),
+    borderedBoxCount: z.number(),
+    axeViolationIds: z.array(z.string()),
+    consoleErrors: z.array(z.string()),
+    chartDisclosureSummary: z
+      .object({
+        text: z.string(),
+        textTransform: z.string(),
+        letterSpacing: z.string(),
+        fontSizePx: z.number(),
+        borderTopWidthPx: z.number(),
+        borderBottomWidthPx: z.number(),
+      })
+      .nullable(),
+  }),
+});
+
 export function readHomeToolsEvidence(input: {
   artifact: unknown;
   fingerprint: string;
 }): HomeToolsEvidence {
-  const artifact = input.artifact as Partial<HomeToolsEvidence>;
-  if (!artifact || typeof artifact !== 'object') {
+  const envelope = input.artifact;
+  if (!envelope || typeof envelope !== 'object') {
     throw new Error('home tools evidence is not an object');
   }
-  if (artifact.version !== 1) {
-    throw new Error(
-      `home tools evidence version ${String(artifact.version)} is not 1`,
-    );
+  const { version, fingerprint } = envelope as {
+    version?: unknown;
+    fingerprint?: unknown;
+  };
+  if (version !== 1) {
+    throw new Error(`home tools evidence version ${String(version)} is not 1`);
   }
-  if (artifact.fingerprint !== input.fingerprint) {
+  if (fingerprint !== input.fingerprint) {
     throw new Error(
       'home tools evidence is stale: a home tool source, the shipped model, or the public route set changed since the sweep ran. Re-run npm run refresh:brand-v2-evidence.',
     );
   }
+  const artifact = parseEvidenceArtifact(
+    homeToolsEvidenceSchema,
+    envelope,
+    'home tools evidence',
+  );
   if (artifact.route !== HOME_TOOLS_ROUTE) {
     throw new Error(
       `home tools evidence covers ${String(artifact.route)}, not ${HOME_TOOLS_ROUTE}`,
@@ -366,48 +506,43 @@ export function readHomeToolsEvidence(input: {
       `home tools evidence was swept at ${String(artifact.viewport)}, not ${HOME_TOOLS_VIEWPORT.id}`,
     );
   }
-  if (!artifact.featured || typeof artifact.featured !== 'object') {
-    throw new Error(
-      'home tools evidence discovered no featured instrument, so VAL-NAV-006 was never measured',
-    );
-  }
-  if ((artifact.siblingMounts ?? []).length === 0) {
+  if (artifact.siblingMounts.length === 0) {
     throw new Error(
       'home tools evidence discovered no sibling mount of the featured instrument: VAL-CROSS-015 would quantify over nothing',
     );
   }
-  if ((artifact.playground ?? { graphics: [] }).graphics.length === 0) {
+  if (artifact.playground.graphics.length === 0) {
     throw new Error(
       'home tools evidence found no graphic in the playground entry point, so VAL-DESIGN-013 was never measured',
     );
   }
-  if ((artifact.responsive ?? []).length === 0) {
+  if (artifact.responsive.length === 0) {
     throw new Error(
       'home tools evidence recorded no responsive measurement: VAL-B2-SHELL-009 would quantify over nothing',
     );
   }
-  if ((artifact.accessibility ?? []).length === 0) {
+  if (artifact.accessibility.length === 0) {
     throw new Error(
       'home tools evidence recorded no accessibility profile, so VAL-DESIGN-014 was never measured',
     );
   }
-  if ((artifact.progressCounters ?? []).length === 0) {
+  if (artifact.progressCounters.length === 0) {
     throw new Error(
       'home tools evidence swept no route for progress counters: VAL-DESIGN-015 would quantify over nothing',
     );
   }
   // A reconciliation recorded before totals were named cannot say which
   // member it settles, so it cannot settle a required one.
-  for (const surface of artifact.progressCounters ?? []) {
-    for (const count of surface.reconciledCounts ?? []) {
-      if (typeof count.memberId !== 'string' || count.memberId.length === 0) {
+  for (const surface of artifact.progressCounters) {
+    for (const count of surface.reconciledCounts) {
+      if (count.memberId.length === 0) {
         throw new Error(
           `${surface.route} reconciles "${count.text}" against no named expectation member, so it predates the counted-noun population. Re-run npm run refresh:brand-v2-evidence.`,
         );
       }
     }
   }
-  return artifact as HomeToolsEvidence;
+  return artifact;
 }
 
 export type Verdict = {
@@ -687,82 +822,165 @@ function seededInputs(
 }
 
 /**
- * Decides `VAL-CROSS-015` per sibling mount of the featured component.
+ * One registered mount of the featured interactive, as the interactive
+ * registry records it.
  *
- * The population is every other registered mount of the same source, so a
- * mount that drifts is a failing member rather than a comparison nobody
- * made. Parity is asserted on the readout for equal slider values, not on
- * equal key presses: the mounts declare different ranges, and equal presses
- * on different ranges are not the same input.
+ * `ownerPath` and `props` are the two registered facts the pairing is
+ * derived from, and neither is a property the markup can grant itself: the
+ * registry is generated from the tree, so a mount's owner is the document
+ * that mounts it and its props are the ones it is written with.
+ */
+export type FeaturedMountRegistration = {
+  mountId: string;
+  route: string;
+  /** The document that mounts it: `app/page.tsx`, or a content module. */
+  ownerPath: string;
+  /** The mount's registered JSX props, verbatim. */
+  props: string;
+};
+
+/** Content modules are the module pages; `app/` owns the routes around them. */
+const MODULE_PAGE_OWNER_PREFIX = 'content/';
+
+/**
+ * Whether a registered mount seeds the instrument itself rather than
+ * inheriting the component's own default state.
  *
- * Identical behaviour covers the state a reader arrives at, not only the
- * state they can drive the instrument to, so a corresponding mount must
- * also open on home's initial inputs and readout. The one exception is a
- * mount that declares its own seeded configuration in
- * `contract/brand-v2-seeded-mount-registry.json`, with the reason and an
- * owner: a commit-to-reveal panel seeds the instrument to the figure its own
- * published prose commits to, and forcing home's defaults on it would make
- * that prose false.
+ * A `default*` prop in the registration is the whole of it. This is a fact
+ * about the registration, not about the render: a mount that passes no
+ * default opens on the same state every other such mount opens on, which is
+ * what makes "opens like home" a derivable claim rather than an approval.
+ */
+export function registersOwnDefaultState(props: string): boolean {
+  return /(?:^|\s)default[A-Z]\w*=/.test(props);
+}
+
+/**
+ * The home/module-page pairing `VAL-CROSS-015` quantifies over, derived from
+ * the interactive registry.
  *
- * The exemption is granted by that declaration and not by any property of
- * the mount the markup could acquire by accident. It used to be granted to
- * any mount the sweep had to open a disclosure to reach, which is a
- * visibility fact standing in for a pedagogical reason, and which any future
- * mount behind a `<details>` would have inherited for free. Three things keep
- * the declaration from becoming a hole: the declared configuration must be
- * the configuration the mount was measured opening on, a declared mount must
- * still print what the shared model predicts from its own seed, and at least
- * one sibling must remain undeclared, or there is nothing left for parity to
- * mean.
+ * Reported as the whole set of module-page mounts rather than as one picked
+ * mount. The assertion's singular ("its module page") has no unique referent
+ * in this tree: `interactive:ReliabilityCompounding` is registered on two
+ * module pages, and no registry field names one of them as canonical. A
+ * hand-picked pair would be an approval wearing a derivation's clothes, and
+ * checking home against every module-page mount is strictly stronger than
+ * checking it against any one of them, so the pair is widened rather than
+ * chosen. See the note on `crossMountVerdicts` for the registry field that
+ * would make the singular derivable.
+ */
+export function modulePageMounts(
+  registrations: readonly FeaturedMountRegistration[],
+): FeaturedMountRegistration[] {
+  return registrations.filter(({ ownerPath }) =>
+    ownerPath.startsWith(MODULE_PAGE_OWNER_PREFIX),
+  );
+}
+
+/**
+ * Decides `VAL-CROSS-015` per registered mount of the featured component.
+ *
+ * The assertion pairs home with the interactive's module page, and the
+ * pairing is derived here from the interactive registry: home is the mount
+ * whose owner is the home route's own module, and a module-page mount is one
+ * whose owner is a content module. Both halves are registered facts. What
+ * they cannot supply is the assertion's singular: this interactive is
+ * mounted on two module pages, and nothing in the registry says which is
+ * "its" one, so the pair is widened to every module-page mount rather than
+ * picked. A `canonicalRoute` (or equivalent) field on the interactive source
+ * row would make the singular derivable; until one exists this row is honest
+ * about being the stronger claim rather than the stated one.
+ *
+ * Three things are asserted, and they are kept apart because conflating them
+ * is what produced the exemption this replaced:
+ *
+ * - **The model.** Every mount, with no exception of any kind, must open
+ *   printing what the shared model predicts from its own recorded inputs.
+ *   The commit-to-reveal quiz seeded to 95% over 14 steps is held to this
+ *   exactly as home is; being seeded differently is not being excused.
+ * - **The behaviour.** Every mount driven to the same slider values must
+ *   read what home reads, must reset to its own initial state twice over,
+ *   and must expose the same controls. This is what "behaves identically"
+ *   says, and it is genuinely justified across all mounts of one component.
+ * - **The configuration.** A mount whose registration declares no `default*`
+ *   prop inherits the component's one default state, so it must open exactly
+ *   where home opens. A mount whose registration declares one must not:
+ *   opening where home opens would mean the registered seed does nothing.
+ *
+ * The reading this replaces asserted configuration parity over every mount
+ * and then exempted the seeded quiz through
+ * `contract/brand-v2-seeded-mount-registry.json`, a checked-in approval
+ * granting one mount an exception to a locked criterion. Nothing grants an
+ * exception now: the quiz's seed is read off its own registration, which is
+ * generated from the document that mounts it.
  */
 export function crossMountVerdicts(
   evidence: HomeToolsEvidence,
-  declarations: readonly SeededMountDeclaration[],
+  registrations: readonly FeaturedMountRegistration[],
 ): Verdict[] {
   const home = evidence.featured;
   const homeInputs = seededInputs(home.initialSliders);
-  const mountIds = new Set(evidence.siblingMounts.map(({ mountId }) => mountId));
-  const orphaned = declarations
-    .filter(({ mountId }) => !mountIds.has(mountId))
-    .map(({ mountId }) => mountId);
-  if (orphaned.length > 0) {
+  const byMountId = new Map(
+    registrations.map((registration) => [registration.mountId, registration]),
+  );
+  if (byMountId.size !== registrations.length) {
     throw new Error(
-      `${SEEDED_MOUNT_REGISTRY_PATH} declares a seeded configuration for ${orphaned.join(', ')}, which the measured population does not contain`,
+      'the featured interactive registry names one mount twice, so a mount would be read against two registrations',
     );
   }
-  const declaredByMount = new Map(
-    declarations.map((declaration) => [declaration.mountId, declaration]),
+  const homeRegistration = byMountId.get(home.mountId);
+  if (!homeRegistration) {
+    throw new Error(
+      `${home.mountId} is the measured home mount and the interactive registry does not contain it, so the home half of the VAL-CROSS-015 pair is unregistered`,
+    );
+  }
+  const modulePages = modulePageMounts(registrations);
+  if (modulePages.length === 0) {
+    throw new Error(
+      'the featured interactive is registered on no module page, so VAL-CROSS-015 pairs home with nothing',
+    );
+  }
+  const measured = new Set(evidence.siblingMounts.map(({ mountId }) => mountId));
+  const unmeasured = registrations
+    .filter(({ mountId }) => mountId !== home.mountId && !measured.has(mountId))
+    .map(({ mountId }) => mountId);
+  if (unmeasured.length > 0) {
+    throw new Error(
+      `the interactive registry registers ${unmeasured.join(', ')}, which the measured population does not contain`,
+    );
+  }
+  const unregistered = evidence.siblingMounts
+    .filter(({ mountId }) => !byMountId.has(mountId))
+    .map(({ mountId }) => mountId);
+  if (unregistered.length > 0) {
+    throw new Error(
+      `the sweep measured ${unregistered.join(', ')}, which the interactive registry does not register`,
+    );
+  }
+  // A mount that inherits the component default is what home's own initial
+  // state is compared against. If every sibling seeds itself, nothing is
+  // left to compare, and that is a failure rather than a silent pass.
+  const inheritingSiblings = evidence.siblingMounts.filter(
+    (mount) => !registersOwnDefaultState(byMountId.get(mount.mountId)!.props),
   );
-  const comparable = evidence.siblingMounts.filter(
-    (mount) => !declaredByMount.has(mount.mountId),
-  );
+  const homeInherits = !registersOwnDefaultState(homeRegistration.props);
   return evidence.siblingMounts.map((mount) => {
     const failures: string[] = [];
-    const declaration = declaredByMount.get(mount.mountId) ?? null;
+    const registration = byMountId.get(mount.mountId)!;
+    const seedsItself = registersOwnDefaultState(registration.props);
+    const onModulePage = registration.ownerPath.startsWith(
+      MODULE_PAGE_OWNER_PREFIX,
+    );
     const mountInputs = seededInputs(mount.initialSliders);
-    if (comparable.length === 0) {
+    if (registration.route !== mount.route) {
       failures.push(
-        'every sibling mount of the featured instrument declares its own seed, so no mount is left to compare home\u2019s initial state against',
+        `the interactive registry places ${mount.mountId} on ${registration.route}, where it was measured on ${mount.route}`,
       );
     }
-    if (declaration !== null) {
-      if (declaration.route !== mount.route) {
-        failures.push(
-          `${SEEDED_MOUNT_REGISTRY_PATH} places ${mount.mountId} on ${declaration.route}, where it is mounted on ${mount.route}`,
-        );
-      }
-      if (mountInputs === null) {
-        failures.push(
-          `${mount.mountId} declares a seed of ${declaration.seededInputs.perStepPercent}% per step over ${declaration.seededInputs.steps} steps, and the mount exposes no identifiable controls to compare it against`,
-        );
-      } else if (
-        mountInputs.perStepPercent !== declaration.seededInputs.perStepPercent ||
-        mountInputs.steps !== declaration.seededInputs.steps
-      ) {
-        failures.push(
-          `${mount.mountId} declares a seed of ${declaration.seededInputs.perStepPercent}% per step over ${declaration.seededInputs.steps} steps and opens at ${mountInputs.perStepPercent}% over ${mountInputs.steps}, so the declaration does not describe the mount it exempts`,
-        );
-      }
+    if (inheritingSiblings.length === 0) {
+      failures.push(
+        'every registered sibling of the featured instrument seeds its own default state, so no mount is left to compare home\u2019s initial state against',
+      );
     }
     if (mountInputs === null) {
       failures.push(
@@ -773,22 +991,29 @@ export function crossMountVerdicts(
         `${mount.mountId} opens reading ${mount.initialReadout} where the shared model predicts ${expectedEpisodeSuccessReadout(mountInputs)} for its own ${mountInputs.perStepPercent}% per step over ${mountInputs.steps} steps`,
       );
     }
-    if (declaration === null && mountInputs !== null) {
-      if (homeInputs === null) {
+    if (mountInputs !== null && homeInputs === null) {
+      failures.push(
+        'home exposes no identifiable per-step and episode-length controls, so no mount can be compared against it',
+      );
+    } else if (mountInputs !== null && homeInputs !== null) {
+      const opensLikeHome =
+        mountInputs.perStepPercent === homeInputs.perStepPercent &&
+        mountInputs.steps === homeInputs.steps;
+      if (!seedsItself && !homeInherits) {
         failures.push(
-          'home exposes no identifiable per-step and episode-length controls, so no mount can be compared against it',
+          `${mount.mountId} inherits the component default state while home is registered with one of its own (${homeRegistration.props.trim()}), so home is not the reading of that default to compare it against`,
         );
-      } else if (
-        mountInputs.perStepPercent !== homeInputs.perStepPercent ||
-        mountInputs.steps !== homeInputs.steps
-      ) {
+      } else if (!seedsItself && !opensLikeHome) {
         failures.push(
-          `${mount.mountId} opens at ${mountInputs.perStepPercent}% per step over ${mountInputs.steps} steps where home opens at ${homeInputs.perStepPercent}% over ${homeInputs.steps}`,
+          `${mount.mountId} registers no default state of its own and opens at ${mountInputs.perStepPercent}% per step over ${mountInputs.steps} steps where home opens at ${homeInputs.perStepPercent}% over ${homeInputs.steps}`,
         );
-      }
-      if (mount.initialReadout !== home.initialReadout) {
+      } else if (!seedsItself && mount.initialReadout !== home.initialReadout) {
         failures.push(
-          `${mount.mountId} opens reading ${mount.initialReadout} where home opens reading ${home.initialReadout}`,
+          `${mount.mountId} registers no default state of its own and opens reading ${mount.initialReadout} where home opens reading ${home.initialReadout}`,
+        );
+      } else if (seedsItself && opensLikeHome) {
+        failures.push(
+          `${mount.mountId} is registered with its own default state (${registration.props.trim()}) and opens exactly where home opens, so the registered seed changes nothing the reader meets`,
         );
       }
     }
@@ -837,18 +1062,16 @@ export function crossMountVerdicts(
           mountInputs === null
             ? null
             : expectedEpisodeSuccessReadout(mountInputs),
-        // Recorded on the verdict rather than inferred by a reader of the
-        // artifact: a mount exempted from initial-state parity names the
-        // declaration that exempted it, its reason and its owner.
-        initialStateComparedToHome: declaration === null,
-        seedDeclaration:
-          declaration === null
-            ? null
-            : {
-                seededInputs: declaration.seededInputs,
-                reason: declaration.reason,
-                owner: declaration.owner,
-              },
+        // The derivation, on the row it decided: which document mounts this
+        // instance, whether that makes it the module-page half of the pair,
+        // and whether its registration seeds it or leaves it inheriting the
+        // component default. Nothing here is an approval; all three are read
+        // off the generated interactive registry.
+        ownerPath: registration.ownerPath,
+        pairedWithHomeAsModulePage: onModulePage,
+        registeredProps: registration.props.trim(),
+        registersOwnDefaultState: seedsItself,
+        initialStateComparedToHome: !seedsItself,
         revealedByControls: mount.revealedByControls,
         reset: mount.resetReadout,
       },

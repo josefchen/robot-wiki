@@ -18,6 +18,7 @@
       "data/plex-mono-font-metadata.ts",
       "data/tektur-font-metadata.ts",
       "data/type-roles.ts",
+      "lib/brand-v2-evidence-schema.ts",
       "lib/brand-v2-renderer-parity.ts",
       "lib/brand-v2-semantic-marks.ts",
       "lib/brand-v2-token-evidence.ts",
@@ -36,7 +37,7 @@
       "lib/sync-duplicates.ts",
       "scripts/generate-og-cards.ts"
     ],
-    "fingerprint": "b23def38076f923b999ae8b74a432680c121bdc4ff32274790d58cc266e9cd96"
+    "fingerprint": "5c9bb5e2358fd24c104eac8b34d41c310985e21f98de3620183cef9fafe0bcc5"
   },
   "cardCount": 48,
   "paintedProperties": 9743,

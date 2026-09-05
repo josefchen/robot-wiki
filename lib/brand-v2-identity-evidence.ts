@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync } from 'node:fs';
 import { extname, join } from 'node:path';
+import { z } from 'zod';
 import { extractBrandV2Assertions } from './brand-v2-enforcement.ts';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
@@ -8,6 +9,7 @@ import {
   evidenceClosureGraph,
   routeEntryModules,
 } from './brand-v2-evidence-closure.ts';
+import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity.ts';
 import { stripComments } from './source-comments.ts';
 import { isSyncConflictDuplicate } from './sync-duplicates.ts';
@@ -151,6 +153,60 @@ export type IdentityRoleSlotObservation = {
   visible: boolean;
 };
 
+/**
+ * The structural rules a brand slot is derived by, independent of what it is
+ * annotated with and of what it says.
+ *
+ * Each names a position the shell actually puts a lockup in, as a fact about
+ * the document's shape:
+ *
+ * - `chrome-home-link`: a link to the site root inside the chrome landmarks
+ *   the shell renders outside `main`. Every one of the shell's three lockups
+ *   is one of these, because the lockup is the navigation entry for `/`.
+ * - `chrome-display-lockup`: a leaf in those same landmarks set in the
+ *   display family. Chrome is not where headings live, so display type
+ *   outside `main` is a lockup or it is drift.
+ * - `root-hero-heading`: the `h1` of the site root, which `VAL-B2-ID-007`
+ *   requires to be the dominant `Robot Wiki` lockup.
+ */
+export const IDENTITY_STRUCTURAL_ORIGINS = [
+  'chrome-home-link',
+  'chrome-display-lockup',
+  'root-hero-heading',
+] as const;
+
+export type IdentityStructuralOrigin =
+  (typeof IDENTITY_STRUCTURAL_ORIGINS)[number];
+
+/**
+ * A brand slot found by where it sits and what shape it is, before anything
+ * is known about its annotation or its text.
+ *
+ * This is the population the two readings beside it could not produce. Both
+ * of those start from a property the slot itself supplies: one from the role
+ * the module wrote on it, one from the spelling family its text falls in. A
+ * slot that carries no role and says something else is in neither, so the
+ * escape was to do both at once — take the annotation off a chrome lockup
+ * and rename it, and it stopped being looked at rather than starting to
+ * fail. Position and shape are not the slot's to change: an element is in
+ * the header or it is not, and it links to the site root or it does not.
+ */
+export type IdentityStructuralSlotObservation = {
+  origin: IdentityStructuralOrigin;
+  /** The chrome landmark it sits in, or `main` for the root hero heading. */
+  landmark: string;
+  selector: string;
+  /** The `data-tektur-role` it carries, or null when it carries none. */
+  role: string | null;
+  /** The rendered text, with `text-transform` and pseudo content applied. */
+  text: string;
+  /** What the document stores, kept only to expose divergence from `text`. */
+  domText: string;
+  pseudoText: { before: string; after: string };
+  fontFamilyHead: string;
+  textTransform: string;
+};
+
 export type IdentityRouteObservation = {
   route: string;
   viewport: IdentityViewportId;
@@ -158,6 +214,11 @@ export type IdentityRouteObservation = {
   wordmarkRoleSlots: IdentityRoleSlotObservation[];
   /** Every rendered leaf whose text is in the brand-name family. */
   brandDisplayTexts: IdentityLockupObservation[];
+  /**
+   * Every brand-slot position the document's structure puts a lockup in,
+   * found without consulting either the annotation or the text.
+   */
+  structuralBrandSlots: IdentityStructuralSlotObservation[];
   /** Rendered nodes whose whole text is exactly the locked descriptor. */
   exactDescriptorNodes: string[];
   /** Rendered text matching the v1 descriptor in either spelling. */
@@ -361,12 +422,109 @@ export type IdentityEvidenceInput = {
   expectedSlots: ReadonlyArray<{ route: string; roles: string[] }>;
 };
 
-function requireString(value: unknown, label: string): string {
-  if (typeof value !== 'string') {
-    throw new Error(`${label} is not a string`);
-  }
-  return value;
-}
+const pseudoTextSchema = z.object({
+  before: z.string(),
+  after: z.string(),
+});
+
+const lockupSchema = z.object({
+  role: z.string().nullable(),
+  selector: z.string(),
+  text: z.string(),
+  domText: z.string(),
+  pseudoText: pseudoTextSchema,
+  fontFamilyHead: z.string(),
+  fontVariationSettings: z.string(),
+  textTransform: z.string(),
+  symbolChildren: z.array(z.string()),
+  descriptorTexts: z.array(z.string()),
+});
+
+const roleSlotSchema = z.object({
+  role: z.string(),
+  selector: z.string(),
+  text: z.string(),
+  domText: z.string(),
+  pseudoText: pseudoTextSchema,
+  fontFamilyHead: z.string(),
+  textTransform: z.string(),
+  visible: z.boolean(),
+});
+
+const structuralSlotSchema = z.object({
+  origin: z.enum(IDENTITY_STRUCTURAL_ORIGINS),
+  landmark: z.string(),
+  selector: z.string(),
+  role: z.string().nullable(),
+  text: z.string(),
+  domText: z.string(),
+  pseudoText: pseudoTextSchema,
+  fontFamilyHead: z.string(),
+  textTransform: z.string(),
+});
+
+const routeObservationShape = {
+  route: z.string(),
+  viewport: z.enum(
+    IDENTITY_VIEWPORTS.map(({ id }) => id) as unknown as [
+      IdentityViewportId,
+      ...IdentityViewportId[],
+    ],
+  ),
+  wordmarkRoleSlots: z.array(roleSlotSchema),
+  brandDisplayTexts: z.array(lockupSchema),
+  structuralBrandSlots: z.array(structuralSlotSchema),
+  exactDescriptorNodes: z.array(z.string()),
+  v1DescriptorMatches: z.array(z.string()),
+  technicalIdentifierVisibleMatches: z.array(z.string()),
+  iconDeclarations: z.array(z.string()),
+  symbolNodesInLockups: z.array(z.string()),
+  metadata: z.object({
+    title: z.string(),
+    description: z.string().nullable(),
+    ogSiteName: z.string().nullable(),
+    ogTitle: z.string().nullable(),
+    ogDescription: z.string().nullable(),
+    ogImageAlt: z.string().nullable(),
+    ogImage: z.string().nullable(),
+    twitterTitle: z.string().nullable(),
+    twitterDescription: z.string().nullable(),
+    canonical: z.string().nullable(),
+  }),
+  repositoryHref: z.string().nullable(),
+  authorProfileHref: z.string().nullable(),
+  visibleTextLength: z.number(),
+};
+
+/** The complete nested shape of the persisted identity sweep. */
+export const identityRuntimeEvidenceSchema = z.object({
+  version: z.literal(1),
+  fingerprint: z.string(),
+  identity: z.string(),
+  descriptor: z.string(),
+  routes: z.array(z.string()),
+  viewports: z.array(z.string()),
+  observations: z.array(z.object(routeObservationShape)),
+  stateObservations: z.array(
+    z.object({
+      ...routeObservationShape,
+      state: z.string(),
+      provokedBy: z.string(),
+      renderedText: z.string(),
+      controlValues: z.array(
+        z.object({ selector: z.string(), value: z.string() }),
+      ),
+    }),
+  ),
+  technicalIdentifierWitnesses: z.array(
+    z.object({
+      literal: z.string(),
+      fileCount: z.number(),
+      fileKinds: z.array(z.string()),
+      occurrences: z.number(),
+    }),
+  ),
+});
 
 /**
  * Accepts the persisted sweep only when it is the sweep this tree needs:
@@ -381,20 +539,29 @@ function requireString(value: unknown, label: string): string {
 export function readIdentityRuntimeEvidence(
   input: IdentityEvidenceInput,
 ): IdentityRuntimeEvidence {
-  const artifact = input.artifact as Partial<IdentityRuntimeEvidence>;
-  if (!artifact || typeof artifact !== 'object') {
+  const envelope = input.artifact;
+  if (!envelope || typeof envelope !== 'object') {
     throw new Error('identity runtime evidence is not an object');
   }
-  if (artifact.version !== 1) {
+  const { version, fingerprint } = envelope as {
+    version?: unknown;
+    fingerprint?: unknown;
+  };
+  if (version !== 1) {
     throw new Error(
-      `identity runtime evidence version ${String(artifact.version)} is not 1`,
+      `identity runtime evidence version ${String(version)} is not 1`,
     );
   }
-  if (requireString(artifact.fingerprint, 'fingerprint') !== input.fingerprint) {
+  if (fingerprint !== input.fingerprint) {
     throw new Error(
       'identity runtime evidence is stale: an identity or metadata source changed since the sweep ran. Re-run npm run refresh:brand-v2-evidence.',
     );
   }
+  const artifact = parseEvidenceArtifact(
+    identityRuntimeEvidenceSchema,
+    envelope,
+    'identity runtime evidence',
+  );
   if (artifact.identity !== PUBLIC_IDENTITY) {
     throw new Error(
       `identity runtime evidence measured ${String(artifact.identity)}, not ${PUBLIC_IDENTITY}`,
@@ -409,7 +576,7 @@ export function readIdentityRuntimeEvidence(
   if (expectedRoutes.length === 0) {
     throw new Error('identity evidence route population is empty');
   }
-  const recordedRoutes = [...(artifact.routes ?? [])].sort();
+  const recordedRoutes = [...artifact.routes].sort();
   if (JSON.stringify(recordedRoutes) !== JSON.stringify(expectedRoutes)) {
     throw new Error(
       `identity runtime evidence covers ${recordedRoutes.length} routes, not the ${expectedRoutes.length} registered public routes`,
@@ -417,7 +584,7 @@ export function readIdentityRuntimeEvidence(
   }
   const expectedViewports = IDENTITY_VIEWPORTS.map(({ id }) => id);
   if (
-    JSON.stringify([...(artifact.viewports ?? [])].sort()) !==
+    JSON.stringify([...artifact.viewports].sort()) !==
     JSON.stringify([...expectedViewports].sort())
   ) {
     throw new Error(
@@ -440,7 +607,7 @@ export function readIdentityRuntimeEvidence(
       `${unexpectedRoutes.length} swept route(s) have no registered identity slot expectation, starting with ${unexpectedRoutes[0]}, so what they owe is unknown rather than met`,
     );
   }
-  const observations = artifact.observations ?? [];
+  const { observations } = artifact;
   const seen = new Set<string>();
   for (const observation of observations) {
     const key = `${observation.route}@${observation.viewport}`;
@@ -458,11 +625,20 @@ export function readIdentityRuntimeEvidence(
         `${key} discovered no brand display text; every route renders a shell lockup, so the sweep did not measure what it claims`,
       );
     }
+    // The structural population is the one that cannot be escaped, so an
+    // artifact that recorded none of it is not a reading of this route: the
+    // shell renders a chrome lockup on every route at every width, and a
+    // sweep that found none looked somewhere else.
+    if (observation.structuralBrandSlots.length === 0) {
+      throw new Error(
+        `${key} derived no structural brand slot; the shell renders a home link in its chrome on every route, so this artifact predates the structural reading or the sweep did not perform it. Re-run npm run refresh:brand-v2-evidence.`,
+      );
+    }
     // Registration, not text: a slot renamed out of the spelling family is
     // still owed, and this is the reading that keeps it in the population.
     const owed = expectedSlotsByRoute.get(observation.route) ?? [];
     const painted = new Set(
-      (observation.wordmarkRoleSlots ?? [])
+      observation.wordmarkRoleSlots
         .filter(({ visible }) => visible)
         .map(({ role }) => role),
     );
@@ -482,7 +658,7 @@ export function readIdentityRuntimeEvidence(
       `identity runtime evidence is missing ${missing.length} route/viewport observations, starting with ${missing[0]}`,
     );
   }
-  const stateObservations = artifact.stateObservations ?? [];
+  const { stateObservations } = artifact;
   for (const required of IDENTITY_REQUIRED_STATES) {
     const matches = stateObservations.filter(
       ({ state }) => state === required.state,
@@ -529,7 +705,7 @@ export function readIdentityRuntimeEvidence(
   if (input.technicalIdentifiers.length === 0) {
     throw new Error('sealed technical identifier population is empty');
   }
-  const witnesses = artifact.technicalIdentifierWitnesses ?? [];
+  const witnesses = artifact.technicalIdentifierWitnesses;
   const witnessed = [...new Set(witnesses.map(({ literal }) => literal))].sort();
   const expectedLiterals = [...new Set(input.technicalIdentifiers)].sort();
   if (JSON.stringify(witnessed) !== JSON.stringify(expectedLiterals)) {
@@ -544,7 +720,7 @@ export function readIdentityRuntimeEvidence(
       );
     }
   }
-  return artifact as IdentityRuntimeEvidence;
+  return artifact;
 }
 
 export type RouteIdentityVerdict = {
@@ -572,6 +748,19 @@ export type RouteIdentityVerdict = {
   cssSubstitutedNames: string[];
   /** Discovered lockups carrying no wordmark role annotation. */
   unannotatedLockups: string[];
+  /** Brand-slot positions the document's structure produced on this route. */
+  structuralSlots: string[];
+  /**
+   * Structural slots carrying no registered wordmark role. A slot the shell
+   * puts in a brand position is owed an annotation whatever it renders, so
+   * this is where a lockup that is renamed *and* unannotated is caught: it
+   * escapes the role population by carrying no role and the spelling family
+   * by carrying no recognisable name, and it cannot escape the position the
+   * document renders it in.
+   */
+  unannotatedStructuralSlots: string[];
+  /** Structural slots whose rendered text is not exactly the locked identity. */
+  misnamedStructuralSlots: string[];
   /** Rendered strings that are a forbidden v1 identity or descriptor. */
   forbiddenRenders: string[];
   /** Metadata values carrying a forbidden v1 identity or descriptor. */
@@ -662,6 +851,12 @@ export function routeVerdicts(
         .filter(({ visible }) => visible)
         .map((slot) => ({ slot, viewport: observation.viewport })),
     );
+    const structural = observations.flatMap((observation) =>
+      observation.structuralBrandSlots.map((slot) => ({
+        slot,
+        viewport: observation.viewport,
+      })),
+    );
     verdicts.set(route, {
       route,
       observations,
@@ -724,6 +919,39 @@ export function routeVerdicts(
           lockups
             .filter(({ role }) => !role?.endsWith('wordmark'))
             .map(({ selector }) => selector),
+        ),
+      ].sort(),
+      structuralSlots: [
+        ...new Set(
+          structural.map(
+            ({ slot, viewport }) =>
+              `${slot.origin} in ${slot.landmark}: ${slot.selector} at ${viewport}`,
+          ),
+        ),
+      ].sort(),
+      // Both halves are required of every structural slot, and each is
+      // reported on its own. An unannotated slot fails as unannotated even
+      // when it renders the right name, because an unregistered brand
+      // position is one no module answers for; a misnamed slot fails as
+      // misnamed even when it carries a role.
+      unannotatedStructuralSlots: [
+        ...new Set(
+          structural
+            .filter(({ slot }) => !slot.role?.endsWith('wordmark'))
+            .map(
+              ({ slot, viewport }) =>
+                `${slot.selector} is a ${slot.origin} in ${slot.landmark} at ${viewport} carrying no registered wordmark role`,
+            ),
+        ),
+      ].sort(),
+      misnamedStructuralSlots: [
+        ...new Set(
+          structural
+            .filter(({ slot }) => slot.text !== PUBLIC_IDENTITY)
+            .map(({ slot, viewport }) => {
+              const cause = renderCause(slot);
+              return `${slot.selector} is a ${slot.origin} in ${slot.landmark} rendering ${JSON.stringify(slot.text)} at ${viewport}${cause ? ` through ${cause}` : ''}`;
+            }),
         ),
       ].sort(),
       forbiddenRenders: [

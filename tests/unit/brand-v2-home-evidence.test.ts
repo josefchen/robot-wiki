@@ -345,7 +345,10 @@ describe('home composition evidence', () => {
           }
         }),
       ),
-    ).toThrow(/records no rejectedStateCues/);
+      // The shape gate reaches this before any verdict does, and names the
+      // field that is missing rather than the clause that would have
+      // dereferenced it.
+    ).toThrow(/shape its reader requires.*rejectedStateCues/s);
   });
 
   it('credits only a section signature the registry declares a purpose for', () => {

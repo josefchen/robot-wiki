@@ -1,9 +1,15 @@
+import { z } from 'zod';
 import {
   SHIPPED_GEOMETRY_MODEL_CLASS,
   WEB_FONT_BINARY_CLASS,
   deriveEvidenceClosure,
 } from './brand-v2-evidence-closure.ts';
 import {
+  numberRecordSchema,
+  parseEvidenceArtifact,
+} from './brand-v2-evidence-schema.ts';
+import {
+  SECTION_SIGNATURE_REGISTRY_PATH,
   reconcileSectionSignatures,
   type SectionSignature,
 } from './brand-v2-section-signatures.ts';
@@ -205,6 +211,42 @@ export type HomeSectionObservation = {
   headingSizePx: number | null;
 };
 
+/**
+ * One row of the structural-variety table: what a single top-level section
+ * is, in document order, joining what it declares to what is registered for
+ * that declaration and to what the browser measured it as.
+ *
+ * `VAL-DESIGN-009` ("home sections do not all share one structural template")
+ * is a negative, and a negative is supported by exhibiting the positive
+ * facts it denies rather than by reporting that a search found nothing. The
+ * reading this belongs to already computed every part of that support — the
+ * declared signature, the registry entry behind it, and the measured form —
+ * and then reduced them to a maximum run length and a list of anonymous
+ * equivalence-class labels, so the only way to see which section is which
+ * was to re-run the sweep. Each row is therefore carried whole, in order,
+ * into both the persisted artifact and the generated result.
+ */
+export type HomeStructureRow = {
+  /** Position in document order among `main`'s top-level sections. */
+  index: number;
+  label: string;
+  /** The `data-brand-module-signature` the section declares, if any. */
+  declaredSignature: string | null;
+  /** Who answers for that signature existing, from the registry. */
+  registeredOwner: string | null;
+  /** What that structure is for, from the registry. */
+  registeredPurpose: string | null;
+  /**
+   * The measured surface/heading/action/content reading, verbatim: the form
+   * the repetition bound actually runs over.
+   */
+  derivedStructuralForm: string;
+  /** The same reading as an equivalence-class label, for reading at a glance. */
+  derivedForm: string;
+  /** The surface/heading/action prefix as an equivalence-class label. */
+  derivedSurfaceHeadingActionForm: string;
+};
+
 export type HomeCompositionEvidence = {
   version: 1;
   fingerprint: string;
@@ -221,6 +263,12 @@ export type HomeCompositionEvidence = {
   highlights: HomeHighlightObservation[];
   domainEntries: HomeDomainEntry[];
   sections: HomeSectionObservation[];
+  /**
+   * The ordered structural-variety table, one row per top-level section in
+   * document order, persisted rather than recomputed so the support for
+   * `VAL-DESIGN-009` can be read off the artifact.
+   */
+  structureTable: HomeStructureRow[];
   /** Headings, labels, buttons, captions and first-party alt text. */
   chromeText: string;
   /** Anchor-text occurrences of each canonical domain display name. */
@@ -294,32 +342,179 @@ export function homeEvidenceFingerprint(input: {
   }).fingerprint;
 }
 
+const sectionObservationSchema = z.object({
+  index: z.number(),
+  label: z.string(),
+  signature: z.string().nullable(),
+  derivedSignature: z.string(),
+  derivedSurfaceHeadingAction: z.string(),
+  headingTag: z.string().nullable(),
+  headingSizePx: z.number().nullable(),
+});
+
+const structureRowSchema = z.object({
+  index: z.number(),
+  label: z.string(),
+  declaredSignature: z.string().nullable(),
+  registeredOwner: z.string().nullable(),
+  registeredPurpose: z.string().nullable(),
+  derivedStructuralForm: z.string(),
+  derivedForm: z.string(),
+  derivedSurfaceHeadingActionForm: z.string(),
+});
+
+/** The complete nested shape of the persisted home composition sweep. */
+export const homeCompositionEvidenceSchema = z.object({
+  version: z.literal(1),
+  fingerprint: z.string(),
+  viewport: z.string(),
+  route: z.string(),
+  visibleTextLength: z.number(),
+  documentScrollWidthPx: z.number(),
+  documentClientWidthPx: z.number(),
+  heroLockups: z.array(
+    z.object({
+      index: z.number(),
+      text: z.string(),
+      fontFamilyHead: z.string(),
+      fontSizePx: z.number(),
+      lineHeightPx: z.number(),
+      heightPx: z.number(),
+      renderedLines: z.number(),
+      topPx: z.number(),
+      bottomPx: z.number(),
+      descriptorText: z.string().nullable(),
+      descriptorFontFamilyHead: z.string().nullable(),
+    }),
+  ),
+  largestSupportingHeadingPx: z.number().nullable(),
+  actions: z.array(
+    z.object({
+      controlId: z.string().nullable(),
+      accessibleName: z.string(),
+      href: z.string().nullable(),
+      backgroundColour: z.string(),
+      colour: z.string(),
+      topPx: z.number(),
+      bottomPx: z.number(),
+    }),
+  ),
+  highlights: z.array(
+    z.object({
+      tag: z.string(),
+      carriers: z.array(z.string()),
+      text: z.string(),
+      nonColourCue: z.string().nullable(),
+      rejectedStateCues: z.array(z.string()),
+      annotation: z.string().nullable(),
+      topPx: z.number(),
+      bottomPx: z.number(),
+    }),
+  ),
+  domainEntries: z.array(
+    z.object({
+      name: z.string(),
+      href: z.string(),
+      description: z.string(),
+      topPx: z.number(),
+      bottomPx: z.number(),
+      heightPx: z.number(),
+      bordered: z.boolean(),
+    }),
+  ),
+  sections: z.array(sectionObservationSchema),
+  structureTable: z.array(structureRowSchema),
+  chromeText: z.string(),
+  domainAnchorCounts: numberRecordSchema,
+  proseSectionDomainNames: z.array(
+    z.object({ label: z.string(), names: z.array(z.string()) }),
+  ),
+  overviewProse: z.string(),
+  progressMetadataMatches: z.array(z.string()),
+  borderedCardCount: z.number(),
+});
+
+/**
+ * Builds the ordered structural-variety table from the measured sections and
+ * the signature registry.
+ *
+ * Exported so the sweep can persist exactly the table the verdict
+ * recomputes: the artifact carries the reader-facing evidence, and the
+ * verdict re-derives it from the same two inputs and fails when the two
+ * disagree, so the persisted table cannot be edited into agreement with a
+ * page it no longer describes.
+ */
+export function homeStructureTable(input: {
+  route: string;
+  sections: readonly HomeSectionObservation[];
+  registry: readonly SectionSignature[];
+}): HomeStructureRow[] {
+  const registered = new Map(
+    input.registry
+      .filter(({ route }) => route === input.route)
+      .map((entry) => [entry.signature, entry] as const),
+  );
+  const forms = formLabels(
+    input.sections.map(({ derivedSignature }) => derivedSignature),
+  );
+  const surfaceForms = formLabels(
+    input.sections.map(
+      ({ derivedSurfaceHeadingAction }) => derivedSurfaceHeadingAction,
+    ),
+  );
+  return input.sections.map((section, index) => {
+    const entry = section.signature
+      ? (registered.get(section.signature) ?? null)
+      : null;
+    return {
+      index: section.index,
+      label: section.label,
+      declaredSignature: section.signature,
+      registeredOwner: entry?.owner ?? null,
+      registeredPurpose: entry?.purpose ?? null,
+      derivedStructuralForm: section.derivedSignature,
+      derivedForm: forms[index] ?? 'form:0',
+      derivedSurfaceHeadingActionForm: surfaceForms[index] ?? 'form:0',
+    };
+  });
+}
+
 /**
  * Accepts the persisted sweep only when it is the sweep this tree needs:
  * current fingerprint, the declared viewport and route, a non-empty rendered
  * page, at least one discovered hero lockup, at least one discovered domain
- * entry, and at least one top-level section. Anything else throws, because a
- * sweep that found nothing is indistinguishable from a page that renders
- * nothing, and only one of those should produce a result.
+ * entry, at least one top-level section, and a structural-variety table that
+ * describes exactly those sections in their document order. Anything else
+ * throws, because a sweep that found nothing is indistinguishable from a
+ * page that renders nothing, and only one of those should produce a result.
  */
 export function readHomeCompositionEvidence(input: {
   artifact: unknown;
   fingerprint: string;
 }): HomeCompositionEvidence {
-  const artifact = input.artifact as Partial<HomeCompositionEvidence>;
-  if (!artifact || typeof artifact !== 'object') {
+  const envelope = input.artifact;
+  if (!envelope || typeof envelope !== 'object') {
     throw new Error('home composition evidence is not an object');
   }
-  if (artifact.version !== 1) {
+  const { version, fingerprint } = envelope as {
+    version?: unknown;
+    fingerprint?: unknown;
+  };
+  if (version !== 1) {
     throw new Error(
-      `home composition evidence version ${String(artifact.version)} is not 1`,
+      `home composition evidence version ${String(version)} is not 1`,
     );
   }
-  if (artifact.fingerprint !== input.fingerprint) {
+  if (fingerprint !== input.fingerprint) {
     throw new Error(
       'home composition evidence is stale: a home source or an identity literal changed since the sweep ran. Re-run npm run refresh:brand-v2-evidence.',
     );
   }
+  const artifact = parseEvidenceArtifact(
+    homeCompositionEvidenceSchema,
+    envelope,
+    'home composition evidence',
+  );
   if (artifact.viewport !== HOME_VIEWPORT.id) {
     throw new Error(
       `home composition evidence was swept at ${String(artifact.viewport)}, not ${HOME_VIEWPORT.id}`,
@@ -330,36 +525,50 @@ export function readHomeCompositionEvidence(input: {
       `home composition evidence covers ${String(artifact.route)}, not ${HOME_ROUTE}`,
     );
   }
-  if ((artifact.visibleTextLength ?? 0) <= 0) {
+  if (artifact.visibleTextLength <= 0) {
     throw new Error(
       'home composition evidence recorded an empty rendered page, so nothing about it was measured',
     );
   }
-  if ((artifact.heroLockups ?? []).length === 0) {
+  if (artifact.heroLockups.length === 0) {
     throw new Error(
       'home composition evidence discovered no hero lockup: VAL-B2-ID-007 would quantify over an empty population',
     );
   }
-  if ((artifact.domainEntries ?? []).length === 0) {
+  if (artifact.domainEntries.length === 0) {
     throw new Error(
       'home composition evidence discovered no domain entry, so the seven-destination claim was never measured',
     );
   }
-  if ((artifact.sections ?? []).length === 0) {
+  if (artifact.sections.length === 0) {
     throw new Error(
       'home composition evidence discovered no top-level section, so the structure claim was never measured',
     );
   }
-  // A highlight record written before the cue vocabulary was narrowed cannot
-  // say why a state was refused, so it is not evidence about this claim.
-  for (const highlight of artifact.highlights ?? []) {
-    if (!Array.isArray(highlight.rejectedStateCues)) {
+  // The table is the reader-facing support for VAL-DESIGN-009, so it has to
+  // be about the sections this artifact measured rather than about whatever
+  // page it was copied from. Order is part of that: the claim is that
+  // adjacent sections differ, and a table in another order says nothing
+  // about adjacency.
+  if (artifact.structureTable.length !== artifact.sections.length) {
+    throw new Error(
+      `home composition evidence carries ${artifact.structureTable.length} structural-variety row(s) for ${artifact.sections.length} measured section(s), so the table does not describe the page. Re-run npm run refresh:brand-v2-evidence.`,
+    );
+  }
+  for (const [position, section] of artifact.sections.entries()) {
+    const row = artifact.structureTable[position];
+    if (
+      row.index !== section.index ||
+      row.label !== section.label ||
+      row.declaredSignature !== section.signature ||
+      row.derivedStructuralForm !== section.derivedSignature
+    ) {
       throw new Error(
-        `the highlight on "${highlight.text}" records no rejectedStateCues, so it predates the non-colour cue reading and cannot grant this result`,
+        `structural-variety row ${position} describes "${row.label}" (${String(row.declaredSignature)}) where the sweep measured "${section.label}" (${String(section.signature)}) in that position`,
       );
     }
   }
-  return artifact as HomeCompositionEvidence;
+  return artifact;
 }
 
 /** Trailing-slash-insensitive comparison of a route and an href. */
@@ -641,6 +850,44 @@ export function homeCompositionVerdicts(
       );
     }
   }
+  // The ordered support for VAL-DESIGN-009, rebuilt from the sections and
+  // the registry rather than trusted from the artifact, and then compared
+  // with what the artifact carries. Persisting a table nobody re-derives
+  // would make it prose; re-deriving one nobody persists is what the reading
+  // this replaces did, and it left the support unreadable after the run.
+  const structureTable = homeStructureTable({
+    route: evidence.route,
+    sections: evidence.sections,
+    registry: sectionSignatures,
+  });
+  for (const [position, row] of structureTable.entries()) {
+    const persisted = evidence.structureTable[position];
+    if (JSON.stringify(persisted) !== JSON.stringify(row)) {
+      structureFailures.push(
+        `structural-variety row ${position} was persisted as ${JSON.stringify(persisted)} where the sections and ${SECTION_SIGNATURE_REGISTRY_PATH} derive ${JSON.stringify(row)}`,
+      );
+    }
+  }
+  // The claim stated positively: more than one structural form is present.
+  // The run bound alone cannot say this — six sections in three alternating
+  // forms and six sections in one form both keep every run at or under the
+  // bound if the forms alternate, and one form repeated across all of them
+  // is exactly the template VAL-DESIGN-009 forbids.
+  const distinctForms = new Set(
+    structureTable.map(({ derivedForm }) => derivedForm),
+  );
+  if (structureTable.length > 1 && distinctForms.size < 2) {
+    structureFailures.push(
+      `all ${structureTable.length} top-level sections on ${evidence.route} measure one structural form (${structureTable[0]?.derivedStructuralForm ?? 'unknown'}), so the page is one template repeated`,
+    );
+  }
+  for (const row of structureTable) {
+    if (row.declaredSignature !== null && row.registeredOwner === null) {
+      structureFailures.push(
+        `the "${row.label}" section declares "${row.declaredSignature}", which ${SECTION_SIGNATURE_REGISTRY_PATH} gives no owner or purpose, so its row states a structure nobody answers for`,
+      );
+    }
+  }
   const griddedDomainRows = evidence.domainEntries.filter(
     ({ bordered }) => bordered,
   );
@@ -711,17 +958,22 @@ export function homeCompositionVerdicts(
         registeredSignatures: sectionSignatures
           .filter(({ route }) => route === evidence.route)
           .map(({ signature, owner }) => `${signature} (${owner})`),
+        // One row per top-level section in document order, carrying what it
+        // declares, who registered that declaration and what for, and what
+        // it measured as. This is the support VAL-DESIGN-009 rests on, and
+        // it is emitted whole so the result states which sections differ
+        // and how, rather than only that a maximum run length was not
+        // exceeded.
+        structuralVarietyTable: structureTable,
         // The measured forms as equivalence-class labels rather than as the
         // long strings themselves: which sections measure alike is the fact
         // the bound is about, and it survives an unrelated restyle.
-        derivedForms: formLabels(
-          evidence.sections.map(({ derivedSignature }) => derivedSignature),
+        derivedForms: structureTable.map(({ derivedForm }) => derivedForm),
+        derivedSurfaceHeadingActionForms: structureTable.map(
+          ({ derivedSurfaceHeadingActionForm }) =>
+            derivedSurfaceHeadingActionForm,
         ),
-        derivedSurfaceHeadingActionForms: formLabels(
-          evidence.sections.map(
-            ({ derivedSurfaceHeadingAction }) => derivedSurfaceHeadingAction,
-          ),
-        ),
+        distinctStructuralForms: distinctForms.size,
         maximumAdjacentRepeatedSignatures: run,
         maximumAdjacentSurfaceHeadingRun: surfaceHeadingRun,
         borderedCardCount: evidence.borderedCardCount,

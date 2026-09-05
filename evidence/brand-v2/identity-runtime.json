@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "9a8442079ffcab717076e79c2a7c43db48d9f368f822cc0c6fbce5d38e48bd64",
+  "fingerprint": "e19b004f2a30cd470ff5d0e93a6ba7648cbbc1f3bede62fcb21b38915fc2c5e9",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -147,6 +147,36 @@
           ]
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        },
+        {
+          "origin": "root-hero-heading",
+          "landmark": "main",
+          "selector": "h1[data-tektur-role=\"home-wordmark\"]",
+          "role": "home-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [
         "p"
       ],
@@ -218,6 +248,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -285,6 +331,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -356,6 +418,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -423,6 +501,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -494,6 +588,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -561,6 +671,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -632,6 +758,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -699,6 +841,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -770,6 +928,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -837,6 +1011,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -908,6 +1098,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -975,6 +1181,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -1046,6 +1268,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -1113,6 +1351,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -1184,6 +1438,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -1251,6 +1521,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -1322,6 +1608,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -1389,6 +1691,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -1460,6 +1778,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -1527,6 +1861,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -1598,6 +1948,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -1665,6 +2031,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -1736,6 +2118,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -1803,6 +2201,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -1874,6 +2288,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -1941,6 +2371,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -2012,6 +2458,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -2079,6 +2541,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -2150,6 +2628,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -2217,6 +2711,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -2288,6 +2798,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -2355,6 +2881,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -2426,6 +2968,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -2493,6 +3051,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -2564,6 +3138,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -2631,6 +3221,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -2702,6 +3308,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -2769,6 +3391,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -2840,6 +3478,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -2907,6 +3561,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -2978,6 +3648,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -3045,6 +3731,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -3116,6 +3818,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -3183,6 +3901,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -3254,6 +3988,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -3321,6 +4071,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -3392,6 +4158,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -3459,6 +4241,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -3530,6 +4328,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -3597,6 +4411,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -3668,6 +4498,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -3735,6 +4581,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -3806,6 +4668,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -3873,6 +4751,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -3944,6 +4838,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -4011,6 +4921,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -4082,6 +5008,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -4149,6 +5091,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -4220,6 +5178,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -4287,6 +5261,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -4388,6 +5378,36 @@
           ]
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        },
+        {
+          "origin": "root-hero-heading",
+          "landmark": "main",
+          "selector": "h1[data-tektur-role=\"home-wordmark\"]",
+          "role": "home-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [
         "p"
       ],
@@ -4459,6 +5479,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -4526,6 +5562,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -4597,6 +5649,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -4664,6 +5732,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -4735,6 +5819,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -4802,6 +5902,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -4873,6 +5989,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -4940,6 +6072,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -5011,6 +6159,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -5078,6 +6242,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -5149,6 +6329,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -5216,6 +6412,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -5287,6 +6499,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -5354,6 +6582,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -5425,6 +6669,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -5492,6 +6752,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -5563,6 +6839,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -5630,6 +6922,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -5701,6 +7009,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -5768,6 +7092,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -5839,6 +7179,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -5906,6 +7262,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -5977,6 +7349,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -6044,6 +7432,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -6115,6 +7519,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -6182,6 +7602,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -6253,6 +7689,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -6320,6 +7772,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -6391,6 +7859,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -6458,6 +7942,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -6529,6 +8029,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -6596,6 +8112,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -6667,6 +8199,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -6734,6 +8282,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -6805,6 +8369,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -6872,6 +8452,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -6943,6 +8539,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -7010,6 +8622,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -7081,6 +8709,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -7148,6 +8792,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -7219,6 +8879,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -7286,6 +8962,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -7357,6 +9049,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -7424,6 +9132,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -7495,6 +9219,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -7562,6 +9302,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -7633,6 +9389,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -7700,6 +9472,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -7771,6 +9559,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -7838,6 +9642,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -7909,6 +9729,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -7976,6 +9812,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -8047,6 +9899,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -8114,6 +9982,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -8185,6 +10069,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -8252,6 +10152,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -8323,6 +10239,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -8390,6 +10322,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -8461,6 +10409,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -8528,6 +10492,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "header",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],
@@ -8601,6 +10581,22 @@
           "descriptorTexts": []
         }
       ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
+        }
+      ],
       "exactDescriptorNodes": [],
       "v1DescriptorMatches": [],
       "technicalIdentifierVisibleMatches": [],
@@ -8672,6 +10668,22 @@
           "textTransform": "none",
           "symbolChildren": [],
           "descriptorTexts": []
+        }
+      ],
+      "structuralBrandSlots": [
+        {
+          "origin": "chrome-home-link",
+          "landmark": "aside#sidebar-rail",
+          "selector": "a[data-tektur-role=\"shell-wordmark\"]",
+          "role": "shell-wordmark",
+          "text": "Robot Wiki",
+          "domText": "Robot Wiki",
+          "pseudoText": {
+            "before": "",
+            "after": ""
+          },
+          "fontFamilyHead": "tektur",
+          "textTransform": "none"
         }
       ],
       "exactDescriptorNodes": [],

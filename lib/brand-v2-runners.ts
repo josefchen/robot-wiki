@@ -21,6 +21,10 @@ export type BrandV2Registry = {
       InteractiveRegistryMember & {
         sourceId: string;
         route: string;
+        /** The document that mounts it: a route module, or a content module. */
+        ownerPath: string;
+        /** The JSX props it is mounted with, verbatim. */
+        props: string;
         /** 1-based position among that component's mounts on that route. */
         ordinal: number;
       }

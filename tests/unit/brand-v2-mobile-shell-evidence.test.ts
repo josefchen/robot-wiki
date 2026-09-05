@@ -386,7 +386,7 @@ describe('mobile shell evidence', () => {
           ).pseudoTexts;
         }),
       ),
-    ).toThrow(/no pseudo-element reading/);
+    ).toThrow(/shape its reader requires.*pseudoTexts/s);
   });
 
   it('fails a dismissal path that does not close or does not restore the trigger', () => {
@@ -512,6 +512,61 @@ describe('mobile shell evidence', () => {
         ),
       }),
     ).not.toBe(fingerprint());
+  });
+
+  it('refuses an artifact whose booleans arrived as strings', () => {
+    // The input that used to pass. `inert` is read by truthiness, which is
+    // the only sensible way to read a boolean, and `"false"` is a true
+    // value: an artifact that reported every background region as the string
+    // "false" satisfied the clause requiring every region to be inert, and
+    // the fingerprint was all that stood between it and a green row. Nothing
+    // downstream could have caught it, because by the time the verdict runs
+    // the type is gone.
+    const shaped = accept(committed());
+    expect(
+      shaped.observations.every(({ inert }) =>
+        inert.regions.every((region) => typeof region.inert === 'boolean'),
+      ),
+      'the committed sweep is accepted, and every region carries a real boolean',
+    ).toBe(true);
+
+    const stringly = mutate((evidence) => {
+      for (const observation of evidence.observations) {
+        for (const region of observation.inert.regions) {
+          (region as unknown as { inert: unknown }).inert = 'false';
+        }
+      }
+    });
+    // The perturbation provably changed the bytes, and the verdict it used
+    // to escape still cannot see it: "false" is truthy, so the clause the
+    // artifact violates reads as satisfied.
+    const planted = stringly.observations[0].inert.regions[0];
+    expect(planted.inert as unknown).toBe('false');
+    expect(Boolean(planted.inert), 'the verdict reads this as inert').toBe(true);
+    expect(() => accept(stringly)).toThrow(
+      /does not have the shape its reader requires/,
+    );
+    expect(() => accept(stringly)).toThrow(/inert/);
+
+    // The same hole one level down, on a field with no verdict of its own to
+    // notice it: a count that arrived as a numeric string.
+    const numeric = mutate((evidence) => {
+      (
+        evidence.observations[0].header as unknown as { heightPx: unknown }
+      ).heightPx = '56';
+    });
+    expect(() => accept(numeric)).toThrow(
+      /does not have the shape its reader requires/,
+    );
+
+    // And a whole sub-object missing rather than mistyped, which the cast
+    // also let through until a verdict happened to dereference it.
+    const truncated = mutate((evidence) => {
+      delete (evidence.observations[0] as unknown as { focus?: unknown }).focus;
+    });
+    expect(() => accept(truncated)).toThrow(
+      /does not have the shape its reader requires/,
+    );
   });
 
   it('derives descriptor fragments and the contrast maths it judges the scrim with', () => {

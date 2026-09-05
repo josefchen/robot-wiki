@@ -1,6 +1,12 @@
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { extname, join, relative } from 'node:path';
+import { z } from 'zod';
+import {
+  numberRecordSchema,
+  parseEvidenceArtifact,
+  stringRecordSchema,
+} from './brand-v2-evidence-schema.ts';
 import { BRAND_COLORS, BRAND_SPACING } from './brand-v2-tokens.ts';
 import { buildModuleImportGraph } from './module-import-graph.ts';
 import { cardPaintedColors } from './og-card-artwork.ts';
@@ -385,6 +391,17 @@ export type TokenRuntimeEvidence = {
   unusedRoutedAliases: string[];
 };
 
+/** The complete nested shape of the persisted all-route token sweep. */
+export const tokenRuntimeEvidenceSchema = z.object({
+  version: z.number(),
+  fingerprint: z.string(),
+  viewport: z.object({ width: z.number(), height: z.number() }),
+  properties: z.array(z.string()),
+  routes: z.array(z.string()),
+  observedByRoute: z.record(z.string(), stringRecordSchema),
+  unusedRoutedAliases: z.array(z.string()),
+});
+
 export function readTokenRuntimeEvidence(input: {
   artifact: unknown;
   contract: string;
@@ -392,47 +409,37 @@ export function readTokenRuntimeEvidence(input: {
   root: string;
   routes: readonly string[];
 }): TokenRuntimeEvidence {
-  const artifact = input.artifact as TokenRuntimeEvidence;
-  if (artifact === null || typeof artifact !== 'object') {
+  const envelope = input.artifact;
+  if (envelope === null || typeof envelope !== 'object') {
     throw new Error('Token runtime evidence is not an object');
   }
-  if (artifact.version !== 1) {
+  if ((envelope as { version?: unknown }).version !== 1) {
     throw new Error('Unsupported token runtime evidence version');
   }
   const fingerprint = tokenEvidenceFingerprint(input);
-  if (artifact.fingerprint !== fingerprint) {
+  if ((envelope as { fingerprint?: unknown }).fingerprint !== fingerprint) {
     throw new Error(
-      `Token runtime evidence is stale: it was measured against ${artifact.fingerprint} and the current tokens hash to ${fingerprint}; re-run npm run test:brand-v2`,
+      `Token runtime evidence is stale: it was measured against ${String((envelope as { fingerprint?: unknown }).fingerprint)} and the current tokens hash to ${fingerprint}; re-run npm run test:brand-v2`,
     );
   }
-  if (
-    typeof artifact.viewport?.width !== 'number' ||
-    typeof artifact.viewport?.height !== 'number'
-  ) {
-    throw new Error('Token runtime evidence records no measured viewport');
-  }
+  const artifact = parseEvidenceArtifact(
+    tokenRuntimeEvidenceSchema,
+    envelope,
+    'Token runtime evidence',
+  );
   const expectations = deriveRuntimeTokenExpectations(input);
   const expectedProperties = tokenEvidenceProperties(input);
   const unused = unusedRoutedAliases(input);
-  if (
-    !Array.isArray(artifact.unusedRoutedAliases) ||
-    artifact.unusedRoutedAliases.join('|') !== unused.join('|')
-  ) {
+  if (artifact.unusedRoutedAliases.join('|') !== unused.join('|')) {
     throw new Error(
       `Token runtime evidence records unused aliases ${JSON.stringify(artifact.unusedRoutedAliases)}; the stylesheet and product source derive ${JSON.stringify(unused)}`,
     );
-  }
-  if (!Array.isArray(artifact.properties)) {
-    throw new Error('Token runtime evidence records no measured properties');
   }
   const measured = [...new Set(artifact.properties)].sort();
   if (measured.join('|') !== expectedProperties.join('|')) {
     throw new Error(
       `Token runtime evidence measured ${measured.join(', ')}; the routed assertions quantify over ${expectedProperties.join(', ')}`,
     );
-  }
-  if (!Array.isArray(artifact.routes)) {
-    throw new Error('Token runtime evidence records no visited routes');
   }
   const visited = [...new Set(artifact.routes)].sort();
   const required = [...input.routes].sort();
@@ -449,8 +456,8 @@ export function readTokenRuntimeEvidence(input: {
     );
   }
   for (const route of required) {
-    const observed = artifact.observedByRoute?.[route];
-    if (observed === null || typeof observed !== 'object') {
+    const observed = artifact.observedByRoute[route];
+    if (observed === undefined) {
       throw new Error(`Token runtime evidence has no observation for ${route}`);
     }
     const observedProperties = Object.keys(observed).sort();
@@ -461,7 +468,7 @@ export function readTokenRuntimeEvidence(input: {
     }
     for (const [property, value] of Object.entries(observed)) {
       const expectation = expectations[property];
-      if (typeof value !== 'string' || !HEX.test(value)) {
+      if (!HEX.test(value)) {
         throw new Error(
           `Token runtime evidence for ${route} records ${property} as ${String(value)}, which is not an uppercase six-digit hex`,
         );
@@ -814,6 +821,42 @@ function describeCounts(counts: Record<string, number>): string {
   );
 }
 
+/** The complete nested shape of the persisted renderer parity walk. */
+export const tokenRendererEvidenceSchema = z.object({
+  version: z.number(),
+  fingerprint: z.string(),
+  rendererSource: z.object({
+    producers: z.array(z.string()),
+    cardTreeSource: z.string(),
+    renderBoundary: z.object({
+      module: z.string(),
+      renderer: z.string(),
+      sealOpener: z.string(),
+      finalTree: z.string(),
+    }),
+    modules: z.array(z.string()),
+    fingerprint: z.string(),
+  }),
+  cardCount: z.number(),
+  paintedProperties: z.number(),
+  paintedByCard: z.array(
+    z.object({
+      cardId: z.string(),
+      paintedProperties: z.number(),
+      byHex: numberRecordSchema,
+    }),
+  ),
+  paintedByHex: numberRecordSchema,
+  unregisteredPaintedValues: z.array(z.string()),
+  mirrorParity: z.array(
+    z.object({
+      token: z.string(),
+      mirror: z.string(),
+      authored: z.string(),
+    }),
+  ),
+});
+
 export function readTokenRendererEvidence(input: {
   artifact: unknown;
   contract: string;
@@ -821,35 +864,36 @@ export function readTokenRendererEvidence(input: {
   root: string;
   cardCount: number;
 }): TokenRendererEvidence {
-  const artifact = input.artifact as TokenRendererEvidence;
-  if (artifact === null || typeof artifact !== 'object') {
+  const envelope = input.artifact;
+  if (envelope === null || typeof envelope !== 'object') {
     throw new Error('Token renderer evidence is not an object');
   }
-  if (artifact.version !== 1) {
+  if ((envelope as { version?: unknown }).version !== 1) {
     throw new Error('Unsupported token renderer evidence version');
   }
   const fingerprint = tokenEvidenceFingerprint(input);
-  if (artifact.fingerprint !== fingerprint) {
+  if ((envelope as { fingerprint?: unknown }).fingerprint !== fingerprint) {
     throw new Error(
-      `Token renderer evidence is stale: it was measured against ${artifact.fingerprint} and the current tokens hash to ${fingerprint}; re-run npm test`,
+      `Token renderer evidence is stale: it was measured against ${String((envelope as { fingerprint?: unknown }).fingerprint)} and the current tokens hash to ${fingerprint}; re-run npm test`,
     );
   }
+  const artifact = parseEvidenceArtifact(
+    tokenRendererEvidenceSchema,
+    envelope,
+    'Token renderer evidence',
+  );
   const rendererSource = rendererSourceIdentity(input.root);
   const recordedSource = artifact.rendererSource;
   if (
-    recordedSource === null ||
-    typeof recordedSource !== 'object' ||
-    !Array.isArray(recordedSource.producers) ||
     recordedSource.producers.join('|') !== rendererSource.producers.join('|') ||
     recordedSource.cardTreeSource !== rendererSource.cardTreeSource ||
-    JSON.stringify(recordedSource.renderBoundary ?? null) !==
+    JSON.stringify(recordedSource.renderBoundary) !==
       JSON.stringify(rendererSource.renderBoundary) ||
-    !Array.isArray(recordedSource.modules) ||
     recordedSource.modules.join('|') !== rendererSource.modules.join('|') ||
     recordedSource.fingerprint !== rendererSource.fingerprint
   ) {
     throw new Error(
-      `Token renderer evidence records renderer source ${JSON.stringify(recordedSource ?? null)}; ${rendererSource.producers.join(' and ')} now reach ${rendererSource.modules.length} modules hashing to ${rendererSource.fingerprint}; re-run npm test`,
+      `Token renderer evidence records renderer source ${JSON.stringify(recordedSource)}; ${rendererSource.producers.join(' and ')} now reach ${rendererSource.modules.length} modules hashing to ${rendererSource.fingerprint}; re-run npm test`,
     );
   }
   if (artifact.cardCount !== input.cardCount) {
@@ -862,19 +906,14 @@ export function readTokenRendererEvidence(input: {
       'Token renderer evidence records no painted colour property, so it asserts nothing',
     );
   }
-  if (
-    !Array.isArray(artifact.unregisteredPaintedValues) ||
-    artifact.unregisteredPaintedValues.length > 0
-  ) {
+  if (artifact.unregisteredPaintedValues.length > 0) {
     throw new Error(
-      `Token renderer evidence records colour values outside the authored tokens: ${
-        (artifact.unregisteredPaintedValues ?? []).join(', ') || 'unreadable'
-      }`,
+      `Token renderer evidence records colour values outside the authored tokens: ${artifact.unregisteredPaintedValues.join(', ')}`,
     );
   }
   const authored = deriveAuthoredColorTokens(input.css);
   const authoredHexes = new Set(Object.values(authored.hexByToken));
-  const painted = Object.entries(artifact.paintedByHex ?? {});
+  const painted = Object.entries(artifact.paintedByHex);
   if (painted.length === 0) {
     throw new Error('Token renderer evidence paints no measured colour');
   }
@@ -902,11 +941,6 @@ export function readTokenRendererEvidence(input: {
   if (derived.cardIds.length !== input.cardCount) {
     throw new Error(
       `The derived Open Graph corpus has ${derived.cardIds.length} cards; the published registry counts ${input.cardCount}`,
-    );
-  }
-  if (!Array.isArray(artifact.paintedByCard)) {
-    throw new Error(
-      'Token renderer evidence records no per-card painted population',
     );
   }
   const recordedCardIds = artifact.paintedByCard.map(({ cardId }) => cardId);

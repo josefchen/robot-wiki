@@ -1,4 +1,6 @@
+import { z } from 'zod';
 import { deriveEvidenceClosure } from './brand-v2-evidence-closure.ts';
+import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 import { PUBLIC_DESCRIPTOR, PUBLIC_IDENTITY } from './identity.ts';
 
 /**
@@ -276,6 +278,139 @@ export function mobileShellEvidenceFingerprint(input: {
   }).fingerprint;
 }
 
+const lockupSchema = z.object({
+  tag: z.string(),
+  text: z.string(),
+  href: z.string().nullable(),
+  tekturRole: z.string().nullable(),
+  fontFamilyHead: z.string(),
+  fontSizePx: z.number(),
+  fontWeight: z.number(),
+  lineBoxes: z.number(),
+  widthPx: z.number(),
+  ariaCurrent: z.string().nullable(),
+});
+
+const headerSchema = z.object({
+  present: z.boolean(),
+  display: z.string(),
+  heightPx: z.number(),
+  contentWidthPx: z.number(),
+  leafTexts: z.array(z.string()),
+  pseudoTexts: z.array(
+    z.object({
+      selector: z.string(),
+      position: z.string(),
+      text: z.string(),
+    }),
+  ),
+  lockups: z.array(lockupSchema),
+  descriptorMatches: z.array(z.string()),
+  trigger: z
+    .object({
+      accessibleName: z.string(),
+      ariaExpanded: z.string().nullable(),
+      ariaControls: z.string().nullable(),
+    })
+    .nullable(),
+});
+
+const tabStopSchema = z.object({ tag: z.string(), label: z.string() });
+
+const focusTraceSchema = z.object({
+  focusOnOpen: tabStopSchema.nullable(),
+  focusOnOpenInsideDrawer: z.boolean(),
+  tabStopCount: z.number(),
+  first: tabStopSchema.nullable(),
+  last: tabStopSchema.nullable(),
+  forwardWrap: z.object({
+    focused: tabStopSchema.nullable(),
+    insideDrawer: z.boolean(),
+    landedOnFirstStop: z.boolean(),
+  }),
+  backwardWrap: z.object({
+    focused: tabStopSchema.nullable(),
+    insideDrawer: z.boolean(),
+    landedOnLastStop: z.boolean(),
+  }),
+});
+
+const rgbSchema = z.tuple([z.number(), z.number(), z.number()]);
+
+const routeObservationSchema = z.object({
+  route: z.string(),
+  visibleTextLength: z.number(),
+  header: headerSchema,
+  closedDrawerTabStops: z.number(),
+  triggerExpandedWhenOpen: z.string().nullable(),
+  triggerControlsResolvesWhenOpen: z.boolean(),
+  focus: focusTraceSchema,
+  inert: z.object({
+    regions: z.array(
+      z.object({
+        id: z.string(),
+        present: z.boolean(),
+        inert: z.boolean(),
+      }),
+    ),
+    reachableOutsideDrawer: z.array(z.string()),
+  }),
+  dismissals: z.array(
+    z.object({
+      via: z.enum(['escape', 'close-control', 'scrim']),
+      closed: z.boolean(),
+      focused: tabStopSchema.nullable(),
+      focusedTrigger: z.boolean(),
+    }),
+  ),
+  separation: z.object({
+    scrimBackground: z.string(),
+    pageBackground: z.string(),
+    panelBackground: z.string(),
+    scrimCompositedRgb: rgbSchema,
+    panelRgb: rgbSchema,
+    contrastRatio: z.number(),
+    coverage: z.number(),
+    panelBorderLeftPx: z.number(),
+    panelBorderRightPx: z.number(),
+    panelBoxShadow: z.string(),
+  }),
+  currentRoute: z.object({
+    hasNavigationItem: z.boolean(),
+    exposedAriaCurrent: z.array(
+      z.object({
+        tag: z.string(),
+        href: z.string().nullable(),
+        value: z.string().nullable(),
+        insideDrawer: z.boolean(),
+        accessibleName: z.string(),
+      }),
+    ),
+    markerDeviceId: z.string().nullable(),
+    markerColour: z.string().nullable(),
+    markerAlignmentErrorPx: z.number().nullable(),
+  }),
+});
+
+/**
+ * The complete nested shape of the persisted sweep, leaf by leaf.
+ *
+ * Every clause of `VAL-B2-SHELL-004` is a boolean the drawer either has or
+ * has not: whether focus landed inside it, whether a wrap reached the
+ * opposite edge, whether Escape closed it, whether each background region
+ * went inert. The verdict reads those by truthiness, which is the only
+ * sensible way to read a boolean and a catastrophic way to read a string, so
+ * `z.boolean()` here is what makes `"inert": "false"` an unreadable artifact
+ * rather than a passing one.
+ */
+export const mobileShellEvidenceSchema = z.object({
+  version: z.literal(1),
+  fingerprint: z.string(),
+  viewport: z.string(),
+  routes: z.array(z.string()),
+  observations: z.array(routeObservationSchema),
+});
+
 /**
  * Accepts the persisted sweep only when it is the sweep this tree needs:
  * current fingerprint, the declared viewport, exactly the registered public
@@ -289,20 +424,27 @@ export function readMobileShellEvidence(input: {
   routes: string[];
   fingerprint: string;
 }): MobileShellEvidence {
-  const artifact = input.artifact as Partial<MobileShellEvidence>;
-  if (!artifact || typeof artifact !== 'object') {
+  const envelope = input.artifact;
+  if (!envelope || typeof envelope !== 'object') {
     throw new Error('mobile shell evidence is not an object');
   }
-  if (artifact.version !== 1) {
-    throw new Error(
-      `mobile shell evidence version ${String(artifact.version)} is not 1`,
-    );
+  const { version, fingerprint } = envelope as {
+    version?: unknown;
+    fingerprint?: unknown;
+  };
+  if (version !== 1) {
+    throw new Error(`mobile shell evidence version ${String(version)} is not 1`);
   }
-  if (artifact.fingerprint !== input.fingerprint) {
+  if (fingerprint !== input.fingerprint) {
     throw new Error(
       'mobile shell evidence is stale: a mobile shell source or a rail device registration changed since the sweep ran. Re-run npm run refresh:brand-v2-evidence.',
     );
   }
+  const artifact = parseEvidenceArtifact(
+    mobileShellEvidenceSchema,
+    envelope,
+    'mobile shell evidence',
+  );
   if (artifact.viewport !== MOBILE_VIEWPORT.id) {
     throw new Error(
       `mobile shell evidence was swept at ${String(artifact.viewport)}, not ${MOBILE_VIEWPORT.id}`,
@@ -312,13 +454,13 @@ export function readMobileShellEvidence(input: {
   if (expectedRoutes.length === 0) {
     throw new Error('mobile shell evidence route population is empty');
   }
-  const recordedRoutes = [...(artifact.routes ?? [])].sort();
+  const recordedRoutes = [...artifact.routes].sort();
   if (JSON.stringify(recordedRoutes) !== JSON.stringify(expectedRoutes)) {
     throw new Error(
       `mobile shell evidence covers ${recordedRoutes.length} routes, not the ${expectedRoutes.length} registered public routes`,
     );
   }
-  const observations = artifact.observations ?? [];
+  const { observations } = artifact;
   const seen = new Set<string>();
   for (const observation of observations) {
     const { route } = observation;
@@ -334,11 +476,6 @@ export function readMobileShellEvidence(input: {
     if (!observation.header.present) {
       throw new Error(
         `${route} discovered no compact header, so the sweep did not measure what it claims`,
-      );
-    }
-    if (!Array.isArray(observation.header.pseudoTexts)) {
-      throw new Error(
-        `${route} recorded no pseudo-element reading for the compact header, so a CSS-rendered descriptor was never looked for`,
       );
     }
     if (observation.focus.tabStopCount === 0) {
@@ -370,7 +507,7 @@ export function readMobileShellEvidence(input: {
       `mobile shell evidence is missing ${missing.length} route observations, starting with ${missing[0]}`,
     );
   }
-  return artifact as MobileShellEvidence;
+  return artifact;
 }
 
 /**
