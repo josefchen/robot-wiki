@@ -26,9 +26,11 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import matter from 'gray-matter';
 import {
   AUDIT_LEDGERS,
   parseLedger,
+  parseCompoundPlans,
   reconcileDomain,
   summarise,
   withLedgerSummary,
@@ -42,6 +44,7 @@ import {
 } from '../lib/audit-citation-coverage.ts';
 import { publishedModules } from '../data/modules.ts';
 import { CITATIONS } from '../data/citations.ts';
+import { moduleFrontmatterSchema } from '../data/schemas/module.ts';
 
 const root = join(import.meta.dirname, '..');
 const asJson = process.argv.includes('--json');
@@ -56,18 +59,40 @@ for (const entry of publishedModules()) {
 
 const registryIds = new Set(CITATIONS.map(({ id }) => id));
 const sectionsByDomain: Record<string, LedgerSection[]> = {};
+// One required file, not an optional fallback: a missing/malformed catalog
+// must not quietly turn registered compounds back into scalar evidence.
+const compoundPlans = parseCompoundPlans(JSON.parse(
+  readFileSync(join(root, 'audit/compound-evidence.json'), 'utf8'),
+));
+for (const plan of compoundPlans) {
+  const ledger = AUDIT_LEDGERS.find((entry) => entry.ledgerPath === plan.ledgerPath);
+  if (!ledger || !published.get(ledger.domain)?.includes(plan.articleSlug)) {
+    throw new Error(`unbound compound plan ${plan.id}: target is not a published ledger article`);
+  }
+}
 
 const coverage: DomainCoverage[] = AUDIT_LEDGERS.map((ledger) => {
   const path = join(root, ledger.ledgerPath);
   let markdown = readFileSync(path, 'utf8');
+  const articleCitations: Record<string, readonly string[]> = {};
+  for (const plan of compoundPlans.filter((entry) =>
+    entry.ledgerPath === ledger.ledgerPath && entry.kind === 'frontmatter-p1')) {
+    const file = join(root, 'content', ledger.domain, `${plan.articleSlug}.mdx`);
+    const frontmatter = moduleFrontmatterSchema.parse(matter(readFileSync(file, 'utf8')).data);
+    if (frontmatter.domain !== ledger.domain || frontmatter.slug !== plan.articleSlug) {
+      throw new Error(`compound plan ${plan.id}: canonical frontmatter identity differs from its target`);
+    }
+    articleCitations[plan.articleSlug] = frontmatter.citations;
+  }
+  const context = { compoundPlans, articleCitations };
   if (writeSummaries) {
     const updated = withLedgerSummary(
-      markdown, parseLedger(ledger.ledgerPath, markdown, registryIds),
+      markdown, parseLedger(ledger.ledgerPath, markdown, registryIds, context),
     );
     if (updated !== markdown) writeFileSync(path, updated);
     markdown = updated;
   }
-  const sections = parseLedger(ledger.ledgerPath, markdown, registryIds);
+  const sections = parseLedger(ledger.ledgerPath, markdown, registryIds, context);
   sectionsByDomain[ledger.domain] = sections;
   return reconcileDomain({
     domain: ledger.domain,

@@ -20,6 +20,8 @@
  * slug array here would go stale in exactly the way it is meant to
  * detect.
  */
+import { createHash } from 'node:crypto';
+import { z } from 'zod';
 
 /** A domain's ledger and the assertion, if any, that quantifies over it. */
 export interface AuditLedger {
@@ -369,6 +371,94 @@ export type ClaimEvidence = {
   readonly supportingPassage: string;
 };
 
+const nonempty = z.string().trim().min(1);
+const digestSchema = z.string().regex(/^[a-f0-9]{64}$/);
+const pairedEvidenceSchema = z.object({
+  partId: nonempty,
+  citationId: z.string(),
+  sourceUrl: z.string(),
+  supportingPassage: z.string(),
+}).strict();
+const compoundPlanSchema = z.object({
+  id: nonempty,
+  ledgerPath: nonempty,
+  articleSlug: nonempty,
+  rowOrdinal: z.number().int().positive(),
+  originalCellsDigest: digestSchema,
+  kind: z.enum(['frontmatter-p1', 'explicit-parts']),
+  parts: z.array(z.object({
+    id: nonempty,
+    text: nonempty,
+    requiredCitationIds: z.array(nonempty).min(1),
+  }).strict()).min(1),
+  planReview: z.object({
+    reviewedBy: nonempty,
+    rationale: nonempty,
+    planDigest: digestSchema,
+  }).strict().nullable(),
+  evidence: z.array(pairedEvidenceSchema),
+  adjudications: z.array(z.object({
+    partId: nonempty,
+    outcome: z.enum(['supported', 'unresolved', 'contradicted']),
+    reviewedBy: nonempty,
+    rationale: nonempty,
+    evidenceDigest: digestSchema,
+  }).strict()),
+}).strict();
+
+/** One format, audit/compound-evidence.json; unknown/partial keys fail closed. */
+export type CompoundPlan = z.infer<typeof compoundPlanSchema>;
+export type AuditEvidenceContext = {
+  readonly compoundPlans?: unknown;
+  /** Canonical article frontmatter, never derived from available evidence. */
+  readonly articleCitations?: Readonly<Record<string, readonly string[]>>;
+};
+
+const digest = (value: unknown) =>
+  createHash('sha256').update(JSON.stringify(value)).digest('hex');
+
+/** Order: original claim, source checked, verdict, note; no evidence fields. */
+export function originalClaimDigest(
+  record: Pick<ClaimRecord, 'claim' | 'sourceChecked' | 'verdict' | 'note'>,
+): string {
+  return digest([record.claim, record.sourceChecked, record.verdict, record.note]);
+}
+
+/** These hashes detect stale review inputs, NOT semantic truth or retrieval. */
+export function compoundPlanDigest(plan: CompoundPlan): string {
+  return digest([plan.id, plan.ledgerPath, plan.articleSlug, plan.rowOrdinal,
+    plan.originalCellsDigest, plan.kind, plan.parts]);
+}
+
+export function compoundPartDigest(plan: CompoundPlan, partId: string): string {
+  return digest([compoundPlanDigest(plan), partId,
+    plan.evidence.filter((item) => item.partId === partId)
+      .map(({ citationId, sourceUrl, supportingPassage }) =>
+        [citationId, sourceUrl, supportingPassage])]);
+}
+
+export function parseCompoundPlans(input: unknown): CompoundPlan[] {
+  const parsed = z.array(compoundPlanSchema).safeParse(input);
+  if (!parsed.success) throw new Error(`compound evidence format: ${parsed.error.message}`);
+  const ids = new Set<string>();
+  const targets = new Set<string>();
+  for (const plan of parsed.data) {
+    if (ids.has(plan.id)) throw new Error(`duplicate compound plan ID: ${plan.id}`);
+    ids.add(plan.id);
+    const target = JSON.stringify([plan.ledgerPath, plan.articleSlug, plan.rowOrdinal]);
+    if (targets.has(target)) throw new Error(`duplicate compound row target: ${target}`);
+    targets.add(target);
+  }
+  return parsed.data;
+}
+
+type CompoundResult = {
+  readonly planId: string;
+  readonly evidence: readonly z.infer<typeof pairedEvidenceSchema>[];
+  readonly structuralFailures: readonly string[];
+  readonly adjudicationFailures: readonly string[];
+};
+
 export type ClaimRecord = ClaimEvidence & {
   readonly claim: string;
   readonly line: number;
@@ -377,6 +467,7 @@ export type ClaimRecord = ClaimEvidence & {
   readonly verdict: string;
   readonly outcome: VerdictClass;
   readonly evidenceFailures: readonly string[];
+  readonly compound?: CompoundResult;
   /** A lead for recovery, never evidence or an exemption. */
   readonly legacyPointer: ReturnType<typeof legacyEvidencePointer>;
 };
@@ -420,6 +511,89 @@ function evidenceFields(header: readonly string[], row: readonly string[]): Clai
   };
 }
 
+function checkEvidenceHeaders(header: readonly string[], ledgerPath: string): void {
+  const allowed = new Set(['citation id', 'source url fetched', 'supporting passage', 'evidence plan']);
+  const seen = new Set<string>();
+  for (const value of header) {
+    const name = value.toLowerCase();
+    if (!/^(?:citation\b|source\s*url\b|supporting\s*passage\b|evidence\b)/i.test(name)) continue;
+    if (!allowed.has(name) || seen.has(name)) {
+      throw new Error(`${ledgerPath}: ambiguous or unsupported evidence header: ${value}`);
+    }
+    seen.add(name);
+  }
+}
+
+// This is an exact legacy P1 batch format, not a classifier of arbitrary prose.
+const P1_BATCH = /^Frontmatter citations resolve to the intended documents \(([^)]+)\)$/;
+const exactSet = (a: readonly string[], b: readonly string[]) =>
+  a.length > 0 && a.length === new Set(a).size && b.length === new Set(b).size &&
+  a.length === b.length && a.every((value) => b.includes(value));
+
+function compoundEvidence(
+  plan: CompoundPlan,
+  record: Pick<ClaimRecord, 'claim' | 'sourceChecked' | 'verdict' | 'note'>,
+  binding: string,
+  scalar: ClaimEvidence,
+  registryIds: ReadonlySet<string>,
+  canonicalCitations: readonly string[] | undefined,
+): CompoundResult {
+  const structural: string[] = [];
+  const adjudication: string[] = [];
+  if (binding !== plan.id) structural.push('compound row is missing its exact Evidence plan binding');
+  if (originalClaimDigest(record) !== plan.originalCellsDigest) {
+    structural.push('compound original-cell digest is stale');
+  }
+  if (Object.values(scalar).some((value) => value !== '')) {
+    structural.push('compound evidence cannot mix scalar fields with paired items');
+  }
+  const partIds = plan.parts.map((part) => part.id);
+  if (new Set(partIds).size !== partIds.length) structural.push('duplicate compound part IDs');
+  const required = plan.parts.flatMap((part) => part.requiredCitationIds);
+  const batch = P1_BATCH.exec(record.claim);
+  if (batch && plan.kind !== 'frontmatter-p1') structural.push('P1 batch requires the frontmatter-p1 kind');
+  if (plan.kind === 'frontmatter-p1') {
+    const declared = batch?.[1].split(',').map((id) => id.trim()) ?? [];
+    if (!canonicalCitations || !exactSet(required, declared) ||
+      !exactSet(declared, canonicalCitations) ||
+      plan.parts.some((part) => part.requiredCitationIds.length !== 1)) {
+      structural.push('P1 required citation set must exactly equal the original batch AND canonical frontmatter');
+    }
+  }
+  const pairs = plan.parts.flatMap((part) => {
+    if (new Set(part.requiredCitationIds).size !== part.requiredCitationIds.length ||
+      part.requiredCitationIds.some((id) => !registryIds.has(id))) {
+      structural.push(`compound part ${part.id} needs distinct registered required IDs`);
+    }
+    return part.requiredCitationIds.map((id) => JSON.stringify([part.id, id]));
+  });
+  const supplied = plan.evidence.map((item) => JSON.stringify([item.partId, item.citationId]));
+  if (!exactSet(pairs, supplied)) {
+    structural.push('compound item coverage must equal every required (part, citation) pair; duplicates and extras fail');
+  }
+  for (const item of plan.evidence) {
+    for (const failure of claimEvidence(item, registryIds)) {
+      structural.push(`compound item ${item.partId}/${item.citationId}: ${failure}`);
+    }
+  }
+  if (!plan.planReview || plan.planReview.planDigest !== compoundPlanDigest(plan)) {
+    adjudication.push('compound plan review is missing or stale; changed/reduced plans need source-auditor review');
+  }
+  if (!exactSet(partIds, plan.adjudications.map((review) => review.partId))) {
+    adjudication.push('compound source adjudication coverage must equal every part without duplicates or extras');
+  }
+  for (const review of plan.adjudications) {
+    if (review.evidenceDigest !== compoundPartDigest(plan, review.partId)) {
+      adjudication.push(`stale source adjudication for compound part ${review.partId}`);
+    }
+    if (review.outcome !== 'supported') {
+      adjudication.push(`compound part ${review.partId} remains ${review.outcome}`);
+    }
+  }
+  return { planId: plan.id, evidence: plan.evidence,
+    structuralFailures: structural, adjudicationFailures: adjudication };
+}
+
 /**
  * Parse one domain ledger into one record per audited article.
  *
@@ -431,7 +605,12 @@ export function parseLedger(
   ledgerPath: string,
   markdown: string,
   registryIds: ReadonlySet<string> = new Set(),
+  context: AuditEvidenceContext = {},
 ): LedgerSection[] {
+  const plans = parseCompoundPlans(context.compoundPlans === undefined ? [] : context.compoundPlans);
+  const localPlans = plans.filter((plan) => plan.ledgerPath === ledgerPath);
+  const usedPlans = new Set<string>();
+  const seenBindings = new Set<string>();
   const order: string[] = [];
   const rows = new Map<string, number>();
   const unsourced = new Map<string, string[]>();
@@ -478,9 +657,11 @@ export function parseLedger(
     if (TABLE_SEPARATOR.test(line.trim())) continue;
     if (header === null || TABLE_SEPARATOR.test(lines[lineIndex + 1]?.trim() ?? '')) {
       header = cells(line);
+      checkEvidenceHeaders(header, ledgerPath);
       continue;
     }
     const row = cells(line);
+    if (row.length > header.length) throw new Error(`${ledgerPath}: extra unheaded evidence cells`);
     const source = row[sourceColumn(header, ledgerPath)] ?? '';
     const claim = row[claimColumn(header)] ?? '';
     rows.set(slug, (rows.get(slug) ?? 0) + 1);
@@ -488,7 +669,27 @@ export function parseLedger(
       unsourced.get(slug)?.push(claim);
     }
     const fields = evidenceFields(header, row);
-    const evidenceFailures = claimEvidence(fields, registryIds);
+    const noteIndex = noteColumn(header);
+    const note = noteIndex === -1 ? '' : (row[noteIndex] ?? '');
+    const verdictIndex = verdictColumn(header);
+    const verdict = row[verdictIndex] ?? '';
+    const binding = row[header.findIndex((name) => name.toLowerCase() === 'evidence plan')] ?? '';
+    if (binding && seenBindings.has(binding)) throw new Error(`${ledgerPath}: duplicate evidence plan binding ${binding}`);
+    if (binding) seenBindings.add(binding);
+    const plan = localPlans.find((candidate) =>
+      candidate.articleSlug === slug && candidate.rowOrdinal === rows.get(slug));
+    let compound: CompoundResult | undefined;
+    let evidenceFailures: string[];
+    if (plan) {
+      usedPlans.add(plan.id);
+      compound = compoundEvidence(plan, { claim, sourceChecked: source, verdict, note },
+        binding, fields, registryIds, context.articleCitations?.[slug]);
+      evidenceFailures = [...compound.structuralFailures, ...compound.adjudicationFailures];
+    } else if (binding || P1_BATCH.test(claim)) {
+      evidenceFailures = ['compound Evidence plan is missing; scalar evidence cannot certify this batch'];
+    } else {
+      evidenceFailures = claimEvidence(fields, registryIds);
+    }
     if (claim === '') evidenceFailures.push('Claim text must not be empty');
     if (evidenceFailures.length > 0) {
       unevidenced.get(slug)?.push({ claim, source });
@@ -498,14 +699,10 @@ export function parseLedger(
         counts[kind] = (counts[kind] ?? 0) + 1;
       }
     }
-    const noteIndex = noteColumn(header);
-    const note = noteIndex === -1 ? '' : (row[noteIndex] ?? '');
-    const verdictIndex = verdictColumn(header);
-    const verdict = row[verdictIndex] ?? '';
     const outcome = classifyVerdict(verdict, { source, note });
     records.get(slug)?.push({
       claim, line: lineIndex + 1, verdict, outcome, ...fields, evidenceFailures,
-      sourceChecked: source, note,
+      sourceChecked: source, note, ...(compound ? { compound } : {}),
       legacyPointer: legacyEvidencePointer([source, claim, note].join(' ~ '), registryIds),
     });
     // The verdict, which nothing used to read. The reconciliation counted
@@ -531,6 +728,9 @@ export function parseLedger(
     }
   }
 
+  for (const plan of localPlans) {
+    if (!usedPlans.has(plan.id)) throw new Error(`${ledgerPath}: unbound compound plan ${plan.id}`);
+  }
   const sections: LedgerSection[] = order.map((articleSlug) => ({
     slug: articleSlug,
     ledgerPath,
@@ -662,10 +862,16 @@ export function reconcileDomain(input: ReconcileInput): DomainCoverage {
       });
     }
     for (const { claim, source } of section.unevidencedRows) {
+      const record = section.claimRecords.find((row) =>
+        row.claim === claim && row.sourceChecked === source);
+      const compoundFailure = record?.compound ||
+        record?.evidenceFailures.some((failure) => failure.startsWith('compound'));
       failures.push({
         kind: 'unevidenced-claim',
         domain,
-        message: `${domain}: \`${section.slug}\` records "${source.slice(0, 60)}" as the source for "${claim.slice(0, 90)}", but lacks a complete per-claim Citation ID, Source URL fetched, or Supporting passage; a token elsewhere in the row is not evidence`,
+        message: compoundFailure
+          ? `${domain}: \`${section.slug}\` compound claim "${claim.slice(0, 90)}" fails: ${record!.evidenceFailures.join('; ')}`
+          : `${domain}: \`${section.slug}\` records "${source.slice(0, 60)}" as the source for "${claim.slice(0, 90)}", but lacks a complete per-claim Citation ID, Source URL fetched, or Supporting passage; a token elsewhere in the row is not evidence`,
       });
     }
     for (const { claim, verdict } of section.unresolvedRows) {

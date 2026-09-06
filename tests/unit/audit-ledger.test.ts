@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { createHash } from 'node:crypto';
 import {
   AUDIT_LEDGERS,
   classifyVerdict,
@@ -8,7 +9,10 @@ import {
   reconcileDomain,
   summarise,
   type LedgerSection,
+  type CompoundPlan,
+  type AuditEvidenceContext,
 } from '../../lib/audit-ledger.ts';
+import { CITATIONS } from '../../data/citations.ts';
 
 const THREE_COLUMN = `# Classical audit
 
@@ -597,5 +601,230 @@ describe('a ledger row that decided nothing', () => {
     expect(reconcile(unresolvedSection({ recordedInconsistencyRows: 2 })).failures).toEqual(
       [],
     );
+  });
+});
+
+describe('compound evidence on one original claim (synthetic fixtures, never fetched)', () => {
+  const ids = ['alvinn-1988', 'dagger-2011', 'hg-dagger-2019', 'pistar06-blog-2025',
+    'act-aloha-2023', 'diffusion-policy-2023'];
+  const registry = new Set(CITATIONS.map((citation) => citation.id));
+  const digest = (value: unknown) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
+  const original = [
+    `Frontmatter citations resolve to the intended documents (${ids.join(', ')})`,
+    'SYNTHETIC FIXTURE ONLY: no document fetched',
+    'verified',
+    'SYNTHETIC source-review fixture, not a factual adjudication',
+  ];
+  const headers = ['Claim', 'Source checked', 'Verdict', 'Note', 'Citation ID',
+    'Source URL fetched', 'Supporting passage', 'Evidence plan'];
+  const tableRow = (values: string[]) => `| ${values.join(' | ')} |`;
+  const scalar = [ids[0], 'https://source.example/a',
+    'SYNTHETIC FIXTURE ONLY, NOT FETCHED: source A claims its metadata matches.'];
+  const planDigest = (plan: CompoundPlan) => digest([
+    plan.id, plan.ledgerPath, plan.articleSlug, plan.rowOrdinal,
+    plan.originalCellsDigest, plan.kind, plan.parts,
+  ]);
+  const partDigest = (plan: CompoundPlan, partId: string) => digest([
+    planDigest(plan), partId,
+    plan.evidence.filter((item) => item.partId === partId)
+      .map(({ citationId, sourceUrl, supportingPassage }) => [citationId, sourceUrl, supportingPassage]),
+  ]);
+  const review = (plan: CompoundPlan) => {
+    plan.planReview = {
+      reviewedBy: 'synthetic-fixture-agent', rationale: 'SYNTHETIC plan review only',
+      planDigest: planDigest(plan),
+    };
+    plan.adjudications = plan.parts.map((part) => ({
+      partId: part.id, outcome: 'supported', reviewedBy: 'synthetic-fixture-agent',
+      rationale: 'SYNTHETIC source adjudication, never real source proof',
+      evidenceDigest: partDigest(plan, part.id),
+    }));
+    return plan;
+  };
+  const fixture = (): CompoundPlan => review({
+    id: 'synthetic-p1', ledgerPath: 'audit/manipulation.md', articleSlug: 'fixture',
+    rowOrdinal: 1, originalCellsDigest: digest(original), kind: 'frontmatter-p1',
+    parts: ids.map((id) => ({ id, text: `SYNTHETIC: title, authors and year for ${id}`,
+      requiredCitationIds: [id] })),
+    planReview: null,
+    evidence: ids.map((id) => ({ partId: id, citationId: id,
+      sourceUrl: `https://source.example/${id}`,
+      supportingPassage: `SYNTHETIC FIXTURE ONLY, NOT FETCHED: metadata for ${id} is claimed to match.` })),
+    adjudications: [],
+  });
+  const markdown = (extra = ['', '', '', 'synthetic-p1'], columns = headers, copies = 1) => [
+    '# SYNTHETIC FIXTURE ONLY — NOT A SOURCE AUDIT', '', '## fixture.mdx', '',
+    tableRow(columns), tableRow(columns.map(() => '---')),
+    ...Array.from({ length: copies }, () => tableRow([...original, ...extra])), '',
+  ].join('\n');
+  const parse = (text: string, plans: unknown = [fixture()], citations = ids) =>
+    parseLedger('audit/manipulation.md', text, registry, {
+      compoundPlans: plans, articleCitations: { fixture: citations },
+    } as AuditEvidenceContext);
+  const failed = (plan: CompoundPlan, reason: RegExp) => {
+    const [section] = parse(markdown(), [plan]);
+    expect(section.claimRows).toBe(1);
+    expect(section.unevidencedRows).toHaveLength(1);
+    expect(section.claimRecords[0].evidenceFailures.join('\n')).toMatch(reason);
+  };
+
+  it('keeps six paired items on ONE row and derives a one-row summary', () => {
+    const text = markdown();
+    const before = parse(text);
+    const sealed = withLedgerSummary(text, before);
+    const [section] = parse(sealed);
+    expect(section.claimRows).toBe(1);
+    expect(section.unevidencedRows).toEqual([]);
+    expect(section.evidenceKinds).toEqual({ 'citation-id': 1, locator: 1, passage: 1 });
+    expect(section.claimRecords[0].compound?.evidence).toHaveLength(6);
+    expect(section.claimRecords[0].compound?.structuralFailures).toEqual([]);
+    expect(section.claimRecords[0].compound?.adjudicationFailures).toEqual([]);
+    expect(section.summaryFailures).toEqual([]);
+    expect(ledgerSummary([section])).toContain('Complete evidence records: 1');
+    const record = section.claimRecords[0];
+    expect([record.claim, record.sourceChecked, record.verdict, record.note]).toEqual(original);
+  });
+
+  it('diagnostic 1: one scalar triple cannot satisfy a registered compound', () => {
+    expect(parse(markdown([...scalar, 'synthetic-p1']))[0].unevidencedRows).toHaveLength(1);
+  });
+  it('diagnostic 2: rejects batched IDs in a scalar cell', () => {
+    expect(parse(markdown([ids.join(', '), scalar[1], scalar[2], '']))[0].unevidencedRows).toHaveLength(1);
+  });
+  it('diagnostic 3: parallel JSON arrays cannot substitute for paired items', () => {
+    expect(parse(markdown([JSON.stringify(ids), JSON.stringify([scalar[1]]),
+      JSON.stringify([scalar[2]]), '']))[0].unevidencedRows).toHaveLength(1);
+  });
+  it.each([
+    ['diagnostic 4: unregistered JSON column', ['Evidence records'], ['[]']],
+    ['diagnostic 5: duplicate complete triples', headers.slice(4, 7), scalar],
+    ['diagnostic 6: duplicate partial unknown triple', headers.slice(4, 7), ['unknown-fixture-id', '', '']],
+    ['diagnostic 7: numbered extra triples', headers.slice(4, 7).map((h) => `${h} 2`), scalar],
+  ])('%s', (_name, extraHeaders, extraCells) => {
+    expect(() => parse(markdown([...scalar, '', ...extraCells], [...headers, ...extraHeaders])))
+      .toThrow(/evidence header/i);
+  });
+  it('diagnostic 8: another triple in passage prose is not paired evidence', () => {
+    const plan = fixture();
+    plan.evidence = [];
+    expect(parse(markdown([scalar[0], scalar[1],
+      `${scalar[2]} SYNTHETIC embedded JSON ${JSON.stringify(fixture().evidence[1])}`, plan.id]), [plan])[0]
+      .unevidencedRows).toHaveLength(1);
+  });
+  it('diagnostic 9: repeating the original row cannot reuse its binding', () => {
+    expect(() => parse(markdown(['', '', '', 'synthetic-p1'], headers, 2))).toThrow(/duplicate.*binding/i);
+  });
+  it('allows repeated evidence headers in separate continued tables', () => {
+    const base = `# Synthetic\n\n## fixture.mdx\n\n${tableRow(headers.slice(0, 7))}\n${tableRow(headers.slice(0, 7).map(() => '---'))}\n${tableRow(['SYNTHETIC single claim', ...original.slice(1), ...scalar])}\n`;
+    const continued = base + base.slice(base.indexOf('## fixture')).replace('fixture.mdx', 'fixture.mdx (continued)');
+    expect(parse(continued, [])[0].claimRows).toBe(2);
+    expect(parse(continued, [])[0].unevidencedRows).toEqual([]);
+  });
+  it('rejects an unheaded extra triple instead of dropping cells', () => {
+    expect(() => parse(markdown([...scalar, '', ...scalar]))).toThrow(/extra.*cells/i);
+  });
+  it('fails a missing catalog entry even with a valid scalar triple', () => {
+    expect(parse(markdown([...scalar, 'synthetic-p1']), [])[0].unevidencedRows).toHaveLength(1);
+  });
+  it('fails a removed binding column while a compound is registered', () => {
+    const plan = fixture();
+    expect(parse(markdown(scalar, headers.slice(0, 7)), [plan])[0].unevidencedRows).toHaveLength(1);
+  });
+  it('cannot bypass explicit P1 coverage by removing both plan and binding', () => {
+    expect(parse(markdown([...scalar, '']), [])[0].unevidencedRows).toHaveLength(1);
+  });
+  it.each(['claim', 'source', 'verdict', 'note'])('rejects stale original-cell binding: %s', (_field) => {
+    const index = ['claim', 'source', 'verdict', 'note'].indexOf(_field);
+    const changed = markdown().replace(original[index], `${original[index]} changed`);
+    expect(parse(changed)[0].claimRecords[0].evidenceFailures.join('\n')).toMatch(/original.*digest/i);
+  });
+  it('rejects duplicate plan IDs, duplicate row targets and unbound extra plans', () => {
+    const plan = fixture();
+    expect(() => parse(markdown(), [plan, plan])).toThrow(/duplicate.*plan/i);
+    expect(() => parse(markdown(), [plan, { ...plan, id: 'another-plan' }])).toThrow(/duplicate.*row/i);
+    expect(() => parse(markdown(), [{ ...plan, rowOrdinal: 2 }])).toThrow(/unbound.*plan/i);
+  });
+  it.each([null, {}, [{ id: 'partial' }]])('rejects malformed catalogs rather than using scalars: %j', (plans) => {
+    expect(() => parse(markdown([...scalar, 'synthetic-p1']), plans)).toThrow(/compound.*format/i);
+  });
+  it('rejects unknown keys rather than silently stripping malformed records', () => {
+    expect(() => parse(markdown(), [{ ...fixture(), unsupported: true }])).toThrow(/compound.*format/i);
+  });
+  it('rejects shrinking a P1 plan and recomputing all reviews to one available source', () => {
+    const plan = fixture();
+    plan.parts = plan.parts.slice(0, 1);
+    plan.evidence = plan.evidence.slice(0, 1);
+    failed(review(plan), /P1.*citation set/i);
+  });
+  it('checks canonical frontmatter independently of the explicit batch', () => {
+    expect(parse(markdown(), [fixture()], ids.slice(0, 1))[0].claimRecords[0].evidenceFailures.join('\n'))
+      .toMatch(/P1.*citation set/i);
+    expect(parseLedger('audit/manipulation.md', markdown(), registry, { compoundPlans: [fixture()] })
+      [0].unevidencedRows).toHaveLength(1);
+  });
+  it('does not allow an explicit-parts kind to bypass a P1 batch', () => {
+    const plan = fixture(); plan.kind = 'explicit-parts';
+    failed(review(plan), /P1.*kind/i);
+  });
+  it.each(['missing', 'duplicate', 'unknown', 'unexpected', 'unassigned', 'empty'])('requires exact AND item coverage: %s', (mutation) => {
+    const plan = fixture();
+    if (mutation === 'missing') plan.evidence.pop();
+    if (mutation === 'duplicate') plan.evidence[5] = { ...plan.evidence[0] };
+    if (mutation === 'unknown') plan.evidence[5].citationId = 'unregistered-fixture';
+    if (mutation === 'unexpected') plan.evidence.push({ ...plan.evidence[0], citationId: 'rt1-2022' });
+    if (mutation === 'unassigned') plan.evidence[5].partId = 'unassigned-fixture';
+    if (mutation === 'empty') plan.evidence = [];
+    failed(review(plan), /compound.*(?:item|coverage|registered)/i);
+  });
+  it.each(['citationId', 'sourceUrl', 'supportingPassage'] as const)('checks every required field of a later item: %s', (field) => {
+    const plan = fixture(); plan.evidence[5][field] = '';
+    failed(review(plan), /compound.*item/i);
+  });
+  it('rejects a malformed partial item, unknown required ID, and empty/duplicate parts', () => {
+    const plan = fixture();
+    expect(() => parse(markdown(), [{ ...plan, evidence: [{ partId: ids[0] }] }])).toThrow(/compound.*format/i);
+    plan.parts[5].requiredCitationIds = ['unregistered-fixture'];
+    failed(review(plan), /registered/i);
+    expect(() => parse(markdown(), [{ ...fixture(), parts: [] }])).toThrow(/compound.*format/i);
+    const duplicate = fixture(); duplicate.parts[5] = { ...duplicate.parts[0] };
+    failed(review(duplicate), /duplicate.*part/i);
+  });
+  it('never promotes legacy quoted notes into compound items', () => {
+    const plan = fixture(); plan.evidence = [];
+    failed(plan, /compound.*coverage/i);
+  });
+  it.each(['unresolved', 'contradicted'] as const)('keeps %s adjudication failing despite old verified verdict', (outcome) => {
+    const plan = fixture(); plan.adjudications[5].outcome = outcome;
+    const [section] = parse(markdown(), [plan]);
+    expect(section.claimRecords[0].compound?.structuralFailures).toEqual([]);
+    expect(section.claimRecords[0].compound?.adjudicationFailures.join('\n')).toContain(outcome);
+    expect(section.unevidencedRows).toHaveLength(1);
+    expect(section.claimRecords[0].verdict).toBe('verified');
+  });
+  it('fails missing, duplicate, unassigned and stale source adjudications', () => {
+    const missing = fixture(); missing.adjudications.pop(); failed(missing, /adjudication/i);
+    const duplicate = fixture(); duplicate.adjudications[5] = { ...duplicate.adjudications[0] };
+    failed(duplicate, /adjudication/i);
+    const unassigned = fixture(); unassigned.adjudications[5].partId = 'unassigned';
+    failed(unassigned, /adjudication/i);
+    const stale = fixture(); stale.evidence[5].supportingPassage += ' changed';
+    failed(stale, /stale.*adjudication/i);
+  });
+  it('requires review of changed plans, not just item counts or hashes', () => {
+    const plan = fixture(); plan.parts[5].text += ' changed';
+    failed(plan, /plan review/i);
+    plan.planReview = null; failed(plan, /plan review/i);
+  });
+  it('supports an explicit reviewed non-P1 AND plan without changing its original row', () => {
+    const text = markdown().replace(original[0], 'SYNTHETIC compound: mechanism AND limitation');
+    const plan = fixture();
+    plan.kind = 'explicit-parts';
+    plan.originalCellsDigest = digest(['SYNTHETIC compound: mechanism AND limitation', ...original.slice(1)]);
+    plan.parts = [{ id: 'mechanism-and-limitation', text: 'SYNTHETIC: both sources required',
+      requiredCitationIds: ids.slice(0, 2) }];
+    plan.evidence = plan.evidence.slice(0, 2).map((item) => ({ ...item, partId: plan.parts[0].id }));
+    expect(parse(text, [review(plan)])[0].unevidencedRows).toEqual([]);
+    plan.evidence.pop();
+    expect(parse(text, [review(plan)])[0].unevidencedRows).toHaveLength(1);
   });
 });
