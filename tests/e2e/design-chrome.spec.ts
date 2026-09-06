@@ -875,7 +875,7 @@ test.describe('design chrome discipline', () => {
     }
   });
 
-  test('the engineering grid placement population is derived, not sampled (VAL-DSBRAND-005)', async ({ page }) => {
+  test('the engineering grid placement population is derived, not sampled (VAL-DSBRAND-005)', async ({ browser }) => {
     // The audited route set is derived from the module registry (the
     // same publishedModules() population every corpus gate uses) plus
     // the standalone chrome routes, so a new module route joins the
@@ -895,38 +895,51 @@ test.describe('design chrome discipline', () => {
     ];
     expect(routes.length).toBeGreaterThan(1 + 1); // home + at least one module
     for (const route of routes) {
-      await page.goto(route);
-      const { grids, population } = await page.evaluate(() => {
-        let population = 0;
-        const grids: string[] = [];
-        for (const el of Array.from(document.querySelectorAll('*'))) {
-          population += 1;
-          const cs = getComputedStyle(el);
-          if (cs.backgroundImage.includes('svg')) {
-            grids.push(
-              `${el.tagName}.${el.getAttribute('class') ?? ''}`.slice(0, 60),
-            );
+      // One context per route, torn down before the next. Reusing a single
+      // page across all 54 navigations retains every visited document plus
+      // the playground's SwiftShader WebGL contexts in one renderer, and the
+      // renderer is killed part-way through the walk on a loaded host. The
+      // crash surfaces as `Target page, context or browser has been closed`
+      // here or, when the walk just survives, as a sub-200ms failure in the
+      // first test of the next spec file to reuse that browser.
+      const context = await browser.newContext();
+      const page = await context.newPage();
+      try {
+        await page.goto(route);
+        const { grids, population } = await page.evaluate(() => {
+          let population = 0;
+          const grids: string[] = [];
+          for (const el of Array.from(document.querySelectorAll('*'))) {
+            population += 1;
+            const cs = getComputedStyle(el);
+            if (cs.backgroundImage.includes('svg')) {
+              grids.push(
+                `${el.tagName}.${el.getAttribute('class') ?? ''}`.slice(0, 60),
+              );
+            }
           }
-        }
-        return { grids, population };
-      });
-      expect(population, `element population on ${route}`).toBeGreaterThan(0);
-      if (route === '/') {
-        expect(
-          grids,
-          'home grid inventory is exactly the title sheet',
-        ).toHaveLength(1);
-        expect(grids[0]).toMatch(/^DIV\.engineering-grid/);
-        const on = await page.evaluate(() => {
-          const grid = document.querySelector('.engineering-grid');
-          if (!grid) return 'missing';
-          if (grid.matches('body, main, article')) return 'on-structure';
-          if (grid.closest('.prose')) return 'behind-prose';
-          return 'title-sheet';
+          return { grids, population };
         });
-        expect(on).toBe('title-sheet');
-      } else {
-        expect(grids, `svg-grid backgrounds on ${route}`).toEqual([]);
+        expect(population, `element population on ${route}`).toBeGreaterThan(0);
+        if (route === '/') {
+          expect(
+            grids,
+            'home grid inventory is exactly the title sheet',
+          ).toHaveLength(1);
+          expect(grids[0]).toMatch(/^DIV\.engineering-grid/);
+          const on = await page.evaluate(() => {
+            const grid = document.querySelector('.engineering-grid');
+            if (!grid) return 'missing';
+            if (grid.matches('body, main, article')) return 'on-structure';
+            if (grid.closest('.prose')) return 'behind-prose';
+            return 'title-sheet';
+          });
+          expect(on).toBe('title-sheet');
+        } else {
+          expect(grids, `svg-grid backgrounds on ${route}`).toEqual([]);
+        }
+      } finally {
+        await context.close();
       }
     }
   });
