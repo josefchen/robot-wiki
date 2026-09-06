@@ -2,34 +2,6 @@
   "budget": 16,
   "entries": [
     {
-      "file": "tests/e2e/answer-feedback.spec.ts",
-      "title": "VAL-EDU-042: a commit marks the correct option and the reader pick, in both directions",
-      "receiver": "page",
-      "navigations": null,
-      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
-    },
-    {
-      "file": "tests/e2e/answer-feedback.spec.ts",
-      "title": "VAL-EDU-043: the mark survives forced colours, and no verdict word is rendered",
-      "receiver": "page",
-      "navigations": null,
-      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
-    },
-    {
-      "file": "tests/e2e/answer-feedback.spec.ts",
-      "title": "VAL-EDU-044: nothing is marked before a commit, and the declined state needs no script",
-      "receiver": "noJs",
-      "navigations": null,
-      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
-    },
-    {
-      "file": "tests/e2e/answer-feedback.spec.ts",
-      "title": "VAL-EDU-044: nothing is marked before a commit, and the declined state needs no script",
-      "receiver": "page",
-      "navigations": null,
-      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
-    },
-    {
       "file": "tests/e2e/brand-v2-article-apparatus.spec.ts",
       "title": "every published article renders the derived relationship graph and the brand-v2 apparatus treatment",
       "receiver": "page",

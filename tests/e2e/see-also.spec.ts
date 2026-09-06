@@ -90,6 +90,10 @@ test.describe('See also + Linked from', () => {
   test('See also block matches the frontmatter order, registry titles and routes', async ({
     browser,
   }) => {
+    // The isolated 47-route walk measures ~29s, leaving less than 1s under
+    // the single-page default. Budget the corpus, not a slower assertion;
+    // locator timeouts and every per-route predicate remain unchanged.
+    test.setTimeout(60_000);
     const withSeeAlso = articles.filter((a) => (a.seeAlso ?? []).length > 0);
     expect(withSeeAlso.length).toBeGreaterThan(0);
 
