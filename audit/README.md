@@ -8,36 +8,66 @@ content they vouch for, like `/research`.
 
 ## What was audited
 
-Every published article (all 42 across the seven domains), the four
+Every published article (all 47 across the seven domains), the four
 structured data files behind them (`data/methods.ts`,
 `data/hardware.ts`, `data/datasets.ts`, `data/teleop-rigs.ts`), the
-market-map dataset (`data/companies.ts`, 111 records), and every entry in
-the citation registry (`data/citations.ts`, 307 entries).
+market-map dataset (`data/companies.ts`, 111 records), and the citation
+registry as it stood at the 2026-08-18 sweep (`data/citations.ts`, 307 of
+today's 412 entries; the 105 added since are cited by audited articles and
+so are checked at claim level in the domain ledgers, but `citations.md`
+has no per-entry row for them).
+
+That first sentence is now checkable rather than asserted. Five articles
+published on 2026-08-22 sat outside these ledgers for a fortnight while
+this page still said "every published article", because nothing compared
+the two sets. `npm run check:audit-coverage` derives the published set
+from the module registry and the audited set from the ledgers below, and
+fails when they disagree in either direction, when a domain's population
+is empty, when an article has a heading but no checked claim, or when a
+claim row names no source. It runs inside `npm run validate:content`, so
+publishing an article without auditing it now breaks the build.
 
 | Ledger | Covers | Claims checked | Verified | Corrected | Cut | Unresolved |
 |---|---|---|---|---|---|---|
 | manipulation.md | 12 manipulation articles + methods.ts | 225 article rows (71+66+88) + 16 registry rows | 213 + 12 | 15 rows (13 distinct defects) | 0 | 0 |
-| rl-sim2real.md | 6 RL/sim2real/locomotion articles | 115 rows | 108 | 7 rows (6 defects) | 0 | 0 |
+| rl-sim2real.md | 7 RL/sim2real/locomotion articles | 115 + 52 rows | 108 + 43 | 7 rows (6 defects) + 8 rows | 0 | 1 |
 | world-models.md | 5 world-models articles | 92 rows | 76 | 16 rows (11 defects) | 0 | 0 |
-| data-hardware.md | 5 data/hardware articles + 4 data files | 84 rows | 57 | 25 rows (21 defects) | 2 | 0 |
-| classical.md | 5 classical articles | 79 rows | 73 | 6 | 0 | 0 |
-| frontier.md | 5 frontier articles + 4 lib files | 108 rows | 80 | 26 rows (24 defects) | 0 | 0 |
+| data-hardware.md | 6 data/hardware articles + 4 data files | 84 + 52 rows | 57 + 30 | 25 rows (21 defects) + 17 rows | 2 + 1 | 4 |
+| classical.md | 7 classical articles | 79 + 108 rows | 73 + 99 | 6 + 9 | 0 | 0 |
+| frontier.md | 6 frontier articles + 4 lib files | 108 + 40 rows | 80 + 37 | 26 rows (24 defects) + 1 row | 0 | 1 |
 | market-map.md | 111 company records + timeline | 98 ledger rows over 111 records | 14 V | 46 C (+21 C+N, and see ledger) | 1 record removed | 1 |
 | citations.md | 307 citation-registry entries | 307 | 303 (293 ok + 10 exceptions, 2026-08-18 run); 4 titles unavailable | see ledger | 0 | 0 |
 | adjacent.md | 4 adjacent-domain articles | 48 rows | 47 | 1 | 0 | 0 |
-| **Total** | **42 articles + all structured data + full registry** | **1,172 rows** | **983** | **142 rows** (+21 market-map C+N) | **3** | **1** |
+| **Total** | **47 articles + all structured data + full registry** | **1,424 rows** | **1,192** | **177 rows** (+21 market-map C+N) | **4** | **7** |
 
 Counting unit for this table: ledger rows (the citations ledger counts
 registry entries, one per row of its table). Every cell above is counted
 from the ledger's own tables; the Total row is the column sum, shown
-exactly: 241+115+92+84+79+108+98+307+48 = 1,172 rows checked;
-225+108+76+57+73+80+14+303+47 = 983 verified (the citations ledger's 303
-is its 293 ok plus 10 documented exceptions; the remaining 4 registry
+exactly: 241+167+92+136+187+148+98+307+48 = 1,424 rows checked;
+225+151+76+87+172+117+14+303+47 = 1,192 verified (the citations ledger's
+303 is its 293 ok plus 10 documented exceptions; the remaining 4 registry
 entries are counted in its 307 rows but sit outside the verified column
 because their titles were unavailable to the checker — 293 + 10 + 4 =
 307);
-15+7+16+25+6+26+46+0+1 = 142 corrected rows, plus the market-map ledger's
+15+15+16+42+15+27+46+0+1 = 177 corrected rows, plus the market-map ledger's
 21 combined C+N rows that its own summary reports separately.
+
+The four domain figures that changed carry a 2026-09-06 reseal addendum in
+their own ledger, adding 252 rows over the five articles published on
+2026-08-22 (rl-for-robotics 52, perception 59, scene-representation 49,
+industrial-deployment 52, safety-and-assurance 40): 209 verified, 35
+corrected, 1 cut, 6 unresolved, and 1 source inconsistency, which is the
+verdict class this table has never had a column for (frontier already
+carried 2). Three unresolved rows and the S row are named findings, not
+skipped work: each says in its own row which source was fetched and why it
+does not settle the claim.
+
+`check:audit-coverage` counts a smaller number than this table for two
+ledgers, and the difference is a convention, not a disagreement. It counts
+only rows under an article heading, so the 16 manipulation registry rows,
+the 4 data-hardware data-file rows and the frontier registry-sweep row are
+outside its population; it reports 994 article rows where this table
+reports 1,424 rows over a wider scope.
 
 (Derivability note for the citations row, stated on this page per the
 convention above: the 307 registry entries break down as 293 title-verified
