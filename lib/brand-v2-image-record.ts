@@ -125,16 +125,14 @@ function hexToRgb(hex: string): [number, number, number] | null {
  * unresolved; guessing a default would invent the ground the ink is
  * measured against.
  */
-function resolveCustomProperty(css: string, name: string): string | null {
+function resolveCustomProperty(
+  blocks: readonly StyleBlock[],
+  name: string,
+): string | null {
   let current = name;
   for (let depth = 0; depth < 8; depth += 1) {
-    const matches = [
-      ...css.matchAll(
-        new RegExp(`--${current.replace(/[^a-z0-9-]/gi, '')}\\s*:\\s*([^;}]+)`, 'g'),
-      ),
-    ];
-    if (matches.length === 0) return null;
-    const value = matches[matches.length - 1][1].trim();
+    const value = declaredValue(blocks, `--${current}`);
+    if (value === null) return null;
     const chained = /^var\(\s*--([a-z0-9-]+)/i.exec(value);
     if (!chained) return value;
     current = chained[1];
@@ -142,12 +140,186 @@ function resolveCustomProperty(css: string, name: string): string | null {
   return null;
 }
 
+/** One `selector { ... }` block, with the at-rules it is nested inside. */
+type StyleBlock = {
+  selectors: string[];
+  body: string;
+  /** `@media (...)`, `@supports (...)` and friends, outer to inner. */
+  conditions: string[];
+  /** `@layer name` preludes, outer to inner. */
+  layers: string[];
+};
+
+/**
+ * The value that wins among declarations of one property.
+ *
+ * Normal declarations resolve unlayered over layered, then by document
+ * order. A property whose value depends on a media query, a `@supports`
+ * test or two different layers disagreeing is not decidable from bytes, so
+ * it is refused by name rather than guessed at.
+ */
+function winningValue(
+  candidates: ReadonlyArray<{
+    value: string;
+    conditions: string[];
+    layers: string[];
+  }>,
+  what: string,
+): string | null {
+  const conditional = candidates.filter(
+    ({ conditions }) => conditions.length > 0,
+  );
+  if (conditional.length > 0) {
+    throw new Error(
+      `${what} is declared under ${[
+        ...new Set(conditional.map(({ conditions }) => conditions.join(' '))),
+      ].join(
+        ', ',
+      )}, so what the export paints depends on a condition this reader cannot resolve; measure it in a browser instead`,
+    );
+  }
+  const unlayered = candidates.filter(({ layers }) => layers.length === 0);
+  const pool = unlayered.length > 0 ? unlayered : candidates;
+  const layerNames = new Set(pool.map(({ layers }) => layers.join('>')));
+  const values = new Set(pool.map(({ value }) => value.trim()));
+  if (layerNames.size > 1 && values.size > 1) {
+    throw new Error(
+      `${what} is declared differently in layers ${[...layerNames].join(
+        ', ',
+      )}, so which one wins depends on a layer order this reader cannot resolve; measure it in a browser instead`,
+    );
+  }
+  return pool.length === 0 ? null : pool[pool.length - 1].value.trim();
+}
+
+/**
+ * Every rule block in the shipped stylesheets, in document order, with the
+ * at-rule context each one sits inside.
+ *
+ * The row used to take the FIRST `.material-x { ... }` the concatenated
+ * chunks happened to contain and the LAST `--token:` anywhere in them.
+ * Neither is what a browser paints: a later same-specificity rule wins, and
+ * a token redefined under a dark-scheme query is a different ground. This
+ * reader keeps document order and keeps the condition each declaration was
+ * written under, so the cases it cannot decide can be refused instead of
+ * guessed.
+ */
+function parseStyleBlocks(css: string): StyleBlock[] {
+  const source = css.replace(/\/\*[\s\S]*?\*\//g, '');
+  const blocks: StyleBlock[] = [];
+  const conditions: string[] = [];
+  const layers: string[] = [];
+  const opened: Array<'condition' | 'layer' | 'rule'> = [];
+  let prelude = '';
+  for (let i = 0; i < source.length; i += 1) {
+    const character = source[i];
+    if (character === '{') {
+      const head = prelude.trim();
+      prelude = '';
+      if (head.startsWith('@')) {
+        // A conditional group rule wraps more rules; `@font-face`, `@keyframes`
+        // and the like wrap declarations and are skipped whole.
+        if (/^@layer\b/i.test(head)) {
+          layers.push(head);
+          opened.push('layer');
+          continue;
+        }
+        if (/^@(media|supports|container|scope)\b/i.test(head)) {
+          conditions.push(head);
+          opened.push('condition');
+          continue;
+        }
+        let depth = 1;
+        while (i + 1 < source.length && depth > 0) {
+          i += 1;
+          if (source[i] === '{') depth += 1;
+          else if (source[i] === '}') depth -= 1;
+        }
+        continue;
+      }
+      let depth = 1;
+      const start = i + 1;
+      while (i + 1 < source.length && depth > 0) {
+        i += 1;
+        if (source[i] === '{') depth += 1;
+        else if (source[i] === '}') depth -= 1;
+      }
+      blocks.push({
+        selectors: head.split(',').map((part) => part.trim()).filter(Boolean),
+        body: source.slice(start, i),
+        conditions: [...conditions],
+        layers: [...layers],
+      });
+      continue;
+    }
+    if (character === '}') {
+      const closed = opened.pop();
+      if (closed === 'layer') layers.pop();
+      else if (closed === 'condition') conditions.pop();
+      prelude = '';
+      continue;
+    }
+    prelude += character;
+  }
+  return blocks;
+}
+
+function declarationsOf(body: string): Record<string, string> {
+  const declarations: Record<string, string> = {};
+  let depth = 0;
+  let current = '';
+  const parts: string[] = [];
+  for (const character of body) {
+    if (character === '(') depth += 1;
+    else if (character === ')') depth -= 1;
+    if (character === ';' && depth === 0) {
+      parts.push(current);
+      current = '';
+      continue;
+    }
+    current += character;
+  }
+  parts.push(current);
+  for (const part of parts) {
+    const separator = part.indexOf(':');
+    if (separator < 0) continue;
+    const property = part.slice(0, separator).trim();
+    if (property === '') continue;
+    declarations[property] = part.slice(separator + 1).trim();
+  }
+  return declarations;
+}
+
+/**
+ * The last unconditional value declared for `property` on `:root`/`html`.
+ *
+ * A definition inside a media query, a `.dark` scope or any other condition
+ * is a different ground for the same token, and this reader cannot say which
+ * one the reader of the page is under, so it refuses rather than picking.
+ */
+function declaredValue(
+  blocks: readonly StyleBlock[],
+  property: string,
+): string | null {
+  const candidates = blocks
+    .filter(({ selectors }) =>
+      selectors.some((selector) => /^(:root|html)$/i.test(selector)),
+    )
+    .flatMap(({ body, conditions, layers }) => {
+      const declared = declarationsOf(body)[property];
+      return declared === undefined ? [] : [{ value: declared, conditions, layers }];
+    });
+  return winningValue(candidates, property);
+}
+
 export function readMaterialPaints(
   root: string,
   materials: readonly MaterialRow[],
 ): MaterialPaint[] {
   const directory = join(root, MATERIAL_STYLESHEET_DIR);
-  const files = readdirSync(directory).filter((name) => name.endsWith('.css'));
+  const files = readdirSync(directory)
+    .filter((name) => name.endsWith('.css'))
+    .sort();
   const css = files
     .map((name) => readFileSync(join(directory, name), 'utf8'))
     .join('\n');
@@ -156,29 +328,76 @@ export function readMaterialPaints(
       `${MATERIAL_STYLESHEET_DIR} ships no .material- rule at all, so material honesty would be decided over nothing. Run npm run build first.`,
     );
   }
+  return materialPaintsFromCss(css, materials);
+}
+
+/**
+ * The same reading, from stylesheet text rather than from the export, so a
+ * cascade this reader has to get right can be planted in a test.
+ */
+export function materialPaintsFromCss(
+  css: string,
+  materials: readonly MaterialRow[],
+): MaterialPaint[] {
+  const blocks = parseStyleBlocks(css);
 
   return materials.map((material) => {
     const name = material.id.replace(/^material:/, '');
     const selector = `.material-${name}`;
-    const rule = new RegExp(
-      `\\${selector}\\s*\\{([^}]*)\\}`,
-    ).exec(css)?.[1] ?? null;
+    const own = blocks.filter(({ selectors }) => selectors.includes(selector));
+    // A rule that reaches the same element through a longer selector, or
+    // only under a condition, wins or loses by specificity and state rather
+    // than by document order. Reading it as if it were another equal rule
+    // would be a guess, so it is refused by name.
+    const contested = blocks.filter(({ selectors, conditions }) =>
+      selectors.some(
+        (candidate) =>
+          candidate !== selector &&
+          new RegExp(`(^|[\\s>+~])\\${selector}([\\s>+~:.\\[]|$)`).test(
+            candidate,
+          ) &&
+          (conditions.length > 0 || candidate.trim() !== selector),
+      ),
+    );
+    if (contested.length > 0) {
+      throw new Error(
+        `${selector} is also painted by ${contested
+          .flatMap(({ selectors }) => selectors)
+          .join(', ')}, so what the export paints depends on a cascade this reader cannot resolve; measure it in a browser instead`,
+      );
+    }
+    // Unlayered over layered, then document order: the cascade a browser
+    // applies to equal-specificity normal declarations, resolved per
+    // property so a rule that sets only the ground does not erase a tile
+    // another rule set.
+    const rule = own.length > 0 ? own.map(({ body }) => body).join(';') : null;
     const declarations: Record<string, string> = {};
-    for (const part of (rule ?? '').split(';')) {
-      const separator = part.indexOf(':');
-      if (separator < 0) continue;
-      declarations[part.slice(0, separator).trim()] = part
-        .slice(separator + 1)
-        .trim();
+    for (const property of new Set(
+      own.flatMap(({ body }) => Object.keys(declarationsOf(body))),
+    )) {
+      const value = winningValue(
+        own.flatMap(({ body, conditions, layers }) => {
+          const declared = declarationsOf(body)[property];
+          return declared === undefined
+            ? []
+            : [{ value: declared, conditions, layers }];
+        }),
+        `${selector} { ${property} }`,
+      );
+      if (value !== null) declarations[property] = value;
     }
 
     // The tile is a data URI whose SVG payload is full of single quotes and
     // parentheses, so the quoted forms have to be matched as quoted strings
-    // rather than as "anything up to the next bracket".
+    // rather than as "anything up to the next bracket". Only the winning
+    // declaration's urls count, so an overridden background is not read as
+    // if it still painted.
     const urls = [
-      ...(rule ?? '').matchAll(
-        /url\(\s*(?:"([^"]*)"|'([^']*)'|([^)]*))\s*\)/g,
-      ),
+      ...Object.entries(declarations)
+        .filter(([property]) => /^background(-image)?$/.test(property))
+        .map(([, value]) => value)
+        .join(' ')
+        .matchAll(/url\(\s*(?:"([^"]*)"|'([^']*)'|([^)]*))\s*\)/g),
     ].map((match) => match[1] ?? match[2] ?? match[3] ?? '');
     const dataUrl = urls.find((url) => url.startsWith('data:'));
     const tile = dataUrl
@@ -188,7 +407,7 @@ export function readMaterialPaints(
     const backgroundColor = declarations['background-color'] ?? '';
     const token = /^var\(\s*--([a-z0-9-]+)/i.exec(backgroundColor);
     const groundValue = token
-      ? resolveCustomProperty(css, token[1])
+      ? resolveCustomProperty(blocks, token[1])
       : backgroundColor || null;
     const groundRgb = groundValue ? hexToRgb(groundValue) : null;
 

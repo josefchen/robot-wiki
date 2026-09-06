@@ -20,6 +20,7 @@ import {
   firstPartyImageryVerdicts,
   firstPartySvgMembers,
   materialHonestyVerdicts,
+  materialPaintsFromCss,
   readMaterialPaints,
   originalSvgSemanticVerdicts,
   provenanceRecordVerdicts,
@@ -625,6 +626,83 @@ describe('the record rows', () => {
     expect(
       failures.some((f) =>
         /declares itself deterministic while its shipped rule animates \(grain-drift 4s infinite\)/.test(
+          f,
+        ),
+      ),
+    ).toBe(true);
+  });
+
+  it('VAL-B2-IMG-004 reads the rule that wins the cascade, not the first one written', () => {
+    // The reader used to take the first `.material-x { ... }` in the
+    // concatenated chunks and the last `--token:` anywhere in them. A
+    // stylesheet that declares an honest tile and then overrides it with a
+    // sensor readout passed, because the override was never read.
+    const material = [
+      { id: 'material:halftone', treatment: 'owned dot field', deterministic: true, ownership: 'owned' as const },
+    ];
+    const honest =
+      "@layer theme{:root{--color-paper:#ffffff}}.material-halftone{background-color:var(--color-paper);background-image:url('data:image/svg+xml,%3Csvg%3E%3Ccircle fill=%27%23000000%27 fill-opacity=%270.2%27/%3E%3C/svg%3E')}";
+    const overridden = `${honest}.material-halftone{background-image:url('https://sensors.example/lidar-return.png')}`;
+    expect(materialPaintsFromCss(honest, material)[0].remoteUrls).toEqual([]);
+    expect(materialPaintsFromCss(overridden, material)[0].remoteUrls).toEqual([
+      'https://sensors.example/lidar-return.png',
+    ]);
+    // The ground follows the same cascade: the later `:root` wins.
+    const reground = `${honest}:root{--color-paper:#101010}`;
+    expect(materialPaintsFromCss(reground, material)[0].groundHex).toBe(
+      '#101010',
+    );
+  });
+
+  it('VAL-B2-IMG-004 refuses a paint it cannot resolve from bytes alone', () => {
+    const material = [
+      { id: 'material:halftone', treatment: 'owned dot field', deterministic: true, ownership: 'owned' as const },
+    ];
+    const base = '.material-halftone{background-color:#ffffff}';
+    expect(() =>
+      materialPaintsFromCss(
+        `${base}@media (prefers-color-scheme:dark){.material-halftone{background-color:#000000}}`,
+        material,
+      ),
+    ).toThrow(/depends on a condition this reader cannot resolve/);
+    expect(() =>
+      materialPaintsFromCss(
+        `${base}.dark .material-halftone{background-color:#000000}`,
+        material,
+      ),
+    ).toThrow(/depends on a cascade this reader cannot resolve/);
+    expect(() =>
+      materialPaintsFromCss(
+        '@layer a{:root{--color-paper:#ffffff}}@layer b{:root{--color-paper:#000000}}.material-halftone{background-color:var(--color-paper)}',
+        material,
+      ),
+    ).toThrow(/depends on a layer order this reader cannot resolve/);
+  });
+
+  it('VAL-B2-IMG-008 reports reusable content resting on no approved licence basis', () => {
+    // Filed as editorial content but pointed at a company mark's provenance
+    // record: `official-identification-use` is VAL-B2-MAP-010's path, not a
+    // licence for editorial reuse.
+    const mutated = assets.map((asset) =>
+      asset.category === 'editorial-image'
+        ? {
+            ...asset,
+            path: 'images/logos/1x-technologies.svg',
+            sourceRegistryId: '1x-technologies-logo',
+          }
+        : asset,
+    );
+    const failures = failuresOf(reusableContentVerdicts(mutated));
+    expect(
+      failures.some((f) =>
+        /rests on "official-identification-use", which is not one of the reusable-content values/.test(
+          f,
+        ),
+      ),
+    ).toBe(true);
+    expect(
+      failures.some((f) =>
+        /is filed as editorial content while declaring itself a company mark/.test(
           f,
         ),
       ),
