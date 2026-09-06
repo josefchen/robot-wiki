@@ -136,7 +136,9 @@ import {
   furnitureReachVerdicts,
   readApparatusRuntimeEvidence,
   referenceSheetVerdicts,
+  RELATIONSHIP_BASELINE_PATH,
   relationshipPreservationVerdicts,
+  relationshipSourceDrift,
   termAffordanceVerdicts,
 } from '../lib/brand-v2-apparatus-evidence.ts';
 import {
@@ -955,7 +957,11 @@ const APPARATUS_EVIDENCE = readApparatusRuntimeEvidence({
 });
 
 const APPARATUS_VERDICTS = {
-  'VAL-B2-ART-010': relationshipPreservationVerdicts(APPARATUS_EVIDENCE, ROOT),
+  'VAL-B2-ART-010': relationshipPreservationVerdicts(
+    APPARATUS_EVIDENCE,
+    ROOT,
+    relationshipSourceDrift(ROOT),
+  ),
 } as const satisfies Record<
   string,
   Map<string, { id: string; observed: unknown; failures: string[] }>
@@ -3402,6 +3408,8 @@ function generate() {
               ? `${id} per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against ${canonicalPopulationSource} through the same approved-delta comparison the baseline gate runs`
               : LINK_SAFETY_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of ${LINK_SAFETY_EVIDENCE.keyboardRoutes.join(', ')} that the census fingerprint pins to this export, over ${canonicalPopulationSource}`
+              : id === 'VAL-B2-ART-010'
+              ? `${id} per-member evidence derived from the persisted ${APPARATUS_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges, and every citation chip occurrence accounted to the body that declares it or to the mounted component that sources it — with that derived graph itself bound to the sealed pre-rollout manifest ${RELATIONSHIP_BASELINE_PATH} through the approved-delta allowlist, over ${canonicalPopulationSource}`
               : APPARATUS_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${APPARATUS_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over ${canonicalPopulationSource}`
               : HOME_ASSERTIONS.has(id)

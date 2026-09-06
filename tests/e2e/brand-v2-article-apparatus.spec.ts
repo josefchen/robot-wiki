@@ -12,6 +12,7 @@ import {
   readApparatusRuntimeEvidence,
   referenceSheetVerdicts,
   relationshipPreservationVerdicts,
+  relationshipSourceDrift,
   SIGNAL_BLUE_RENDERED,
   termAffordanceVerdicts,
   type ApparatusObservation,
@@ -432,7 +433,11 @@ test.describe('brand-v2 article wiki apparatus', () => {
     for (const [label, verdicts] of [
       [
         'VAL-B2-ART-010 relationship preservation',
-        relationshipPreservationVerdicts(evidence, ROOT),
+        relationshipPreservationVerdicts(
+          evidence,
+          ROOT,
+          relationshipSourceDrift(ROOT),
+        ),
       ],
       ['VAL-WIKI-016 breadcrumb truth', breadcrumbTruthVerdicts(evidence, ROOT)],
       ['VAL-WIKI-006 reference sheet', referenceSheetVerdicts(evidence)],

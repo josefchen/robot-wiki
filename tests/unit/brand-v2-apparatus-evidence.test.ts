@@ -12,11 +12,27 @@ import {
   expectedApparatusGraph,
   furnitureReachVerdicts,
   readApparatusRuntimeEvidence,
+  readRelationshipDeltas,
+  readSealedRelationshipMembers,
   referenceSheetVerdicts,
+  relationshipBaselineDrift,
   relationshipPreservationVerdicts,
+  relationshipSourceDrift,
   termAffordanceVerdicts,
   type ApparatusRuntimeEvidence,
 } from '@/lib/brand-v2-apparatus-evidence';
+import { currentRelationshipMembers } from '@/lib/relationship-manifest';
+import { collectArticleTruthManifests } from '@/scripts/brand-v2-baseline';
+
+/**
+ * The rollout's own effect on the source side, rebuilt from the tree with
+ * the collector the migration sealed and compared against the sealed
+ * manifest. Every case below passes the real one, so a case that plants a
+ * rendered defect is not also silently planting a source one.
+ */
+function sourceDrift(): Map<string, string[]> {
+  return relationshipSourceDrift(ROOT);
+}
 
 const ROOT = process.cwd();
 
@@ -114,7 +130,7 @@ describe('the apparatus evidence reader', () => {
     );
 
     const families = [
-      relationshipPreservationVerdicts(evidence, ROOT),
+      relationshipPreservationVerdicts(evidence, ROOT, sourceDrift()),
       breadcrumbTruthVerdicts(evidence, ROOT),
       referenceSheetVerdicts(evidence),
       furnitureReachVerdicts(evidence),
@@ -233,7 +249,7 @@ describe('the apparatus verdict families', () => {
         observation.references.entries.reverse();
       }),
     );
-    const failures = relationshipPreservationVerdicts(mutated, ROOT).get(
+    const failures = relationshipPreservationVerdicts(mutated, ROOT, sourceDrift()).get(
       target.route,
     )!.failures;
     expect(failures.join(' ')).toMatch(/renders references/);
@@ -254,7 +270,7 @@ describe('the apparatus verdict families', () => {
       }),
     );
     expect(
-      relationshipPreservationVerdicts(mutated, ROOT).get(target.route)!
+      relationshipPreservationVerdicts(mutated, ROOT, sourceDrift()).get(target.route)!
         .failures.join(' '),
     ).toMatch(/renders See also/);
   });
@@ -280,7 +296,7 @@ describe('the apparatus verdict families', () => {
       }),
     );
     expect(
-      relationshipPreservationVerdicts(mutated, ROOT).get(target.route)!
+      relationshipPreservationVerdicts(mutated, ROOT, sourceDrift()).get(target.route)!
         .failures.join(' '),
     ).toMatch(/no longer renders the inline citation marker/);
   });
@@ -303,9 +319,155 @@ describe('the apparatus verdict families', () => {
       }),
     );
     expect(
-      relationshipPreservationVerdicts(mutated, ROOT).get(target.route)!
+      relationshipPreservationVerdicts(mutated, ROOT, sourceDrift()).get(target.route)!
         .failures.join(' '),
     ).toMatch(/the citation registry does not hold/);
+  });
+
+  it('fails a component that stopped rendering the chip its own source writes', () => {
+    // The gap this closes: nineteen chip occurrences on six routes came from
+    // mounted components, and the row asked only that the BODY's chips
+    // survive. A component could drop every chip it writes and the article
+    // still passed, because the body's chips were all still there.
+    const graph = expectedApparatusGraph(ROOT);
+    const [route, expected] = [...graph.entries()].find(
+      ([, value]) => value.componentCitationSites.length > 0,
+    )!;
+    const site = expected.componentCitationSites[0];
+    const evidence = accept(committed());
+    const rendered = evidence.observations.find(
+      (candidate) =>
+        candidate.route === route &&
+        candidate.viewport === APPARATUS_DESKTOP_VIEWPORT_ID,
+    )!;
+    expect(
+      rendered.citations.filter((chip) => chip.id === site.id).length,
+      'the corpus does not render the site under test, so the case is vacuous',
+    ).toBeGreaterThan(0);
+    const mutated = accept(
+      mutate((copy) => {
+        for (const observation of copy.observations) {
+          if (observation.route !== route) continue;
+          const victim = observation.citations
+            .map((chip, index) => ({ chip, index }))
+            .filter(({ chip }) => chip.id === site.id)
+            .pop();
+          if (victim) observation.citations.splice(victim.index, 1);
+        }
+      }),
+    );
+    expect(
+      relationshipPreservationVerdicts(mutated, ROOT, sourceDrift()).get(route)!
+        .failures.join(' '),
+    ).toMatch(
+      new RegExp(`the chip ${site.mountId.replace(/[/:]/g, '.')} cites is gone`),
+    );
+  });
+
+  it('fails a chip that appears from a source nothing on the page holds', () => {
+    const graph = expectedApparatusGraph(ROOT);
+    // An id that is real in the registry, so the registry clause cannot be
+    // the one that fires, on a route that mounts nothing able to reach it.
+    const [route, expected] = [...graph.entries()].find(
+      ([, value]) => value.mountCitationOwners.length === 0,
+    )!;
+    const intruder = [...graph.values()]
+      .flatMap(({ citationMarkers }) => citationMarkers)
+      .find((id) => !expected.citationMarkers.includes(id))!;
+    const mutated = accept(
+      mutate((copy) => {
+        for (const observation of copy.observations) {
+          if (observation.route !== route) continue;
+          observation.citations.push({
+            ...observation.citations[0],
+            id: intruder,
+          });
+        }
+      }),
+    );
+    expect(
+      relationshipPreservationVerdicts(mutated, ROOT, sourceDrift()).get(route)!
+        .failures.join(' '),
+    ).toMatch(/that neither its body nor any component it mounts sources/);
+  });
+
+  it('binds the derived graph to the sealed manifest instead of to itself', () => {
+    const sealed = readSealedRelationshipMembers(ROOT);
+    const current = currentRelationshipMembers(ROOT);
+    expect(sealed.length).toBeGreaterThan(0);
+    // One collector, two gates: the sealed manifests and this row have to
+    // hash an article's relationships the same way or "unchanged" means two
+    // different things depending on which gate is asked.
+    expect(
+      collectArticleTruthManifests().relationships.members.map(
+        ({ id, hash }) => ({ id, hash }),
+      ),
+    ).toEqual(current);
+    // The unplanted tree: every article's relationships are the sealed ones.
+    expect([...sourceDrift().values()].flat()).toEqual([]);
+
+    // The rollout edits an article's seeAlso list or drops a <Cite> from a
+    // body. The derived expectation moves with it and the rendered
+    // comparison stays green; only the sealed manifest can see it.
+    const moved = current.map((member, index) =>
+      index === 0 ? { ...member, hash: '0'.repeat(64) } : member,
+    );
+    const drift = relationshipBaselineDrift({
+      sealed,
+      current: moved,
+      deltas: readRelationshipDeltas(ROOT),
+    });
+    expect([...drift.values()].flat().join('\n')).toMatch(
+      /changed the relationships the migration sealed \([0-9a-f]{12} -> 000000000000\), and no approved delta names the change/,
+    );
+
+    // An approved delta closes it, and only for the change it names.
+    const memberId = current[0].id;
+    const sealedHash = sealed.find(({ id }) => id === memberId)!.hash;
+    expect(
+      [
+        ...relationshipBaselineDrift({
+          sealed,
+          current: moved,
+          deltas: [
+            ...readRelationshipDeltas(ROOT),
+            {
+              id: 'test-delta',
+              manifest: 'relationships',
+              memberId,
+              oldHash: sealedHash,
+              newHash: '0'.repeat(64),
+            },
+          ],
+        }).values(),
+      ].flat(),
+    ).toEqual([]);
+    expect(
+      [
+        ...relationshipBaselineDrift({
+          sealed,
+          current: moved,
+          deltas: [
+            ...readRelationshipDeltas(ROOT),
+            {
+              id: 'test-delta',
+              manifest: 'relationships',
+              memberId,
+              oldHash: sealedHash,
+              newHash: '1'.repeat(64),
+            },
+          ],
+        }).values(),
+      ]
+        .flat()
+        .join('\n'),
+    ).toMatch(/is covered by approved delta test-delta for .*but the tree moved/);
+  });
+
+  it('refuses a baseline comparison with an empty side', () => {
+    expect(() =>
+      relationshipBaselineDrift({ sealed: [], current: [], deltas: [] }),
+    ).toThrow(/empty side/);
   });
 
   it('fails a template that renders a different apparatus at 375px than at 1440px', () => {
@@ -325,7 +487,7 @@ describe('the apparatus verdict families', () => {
       }),
     );
     expect(
-      relationshipPreservationVerdicts(mutated, ROOT).get(target.route)!
+      relationshipPreservationVerdicts(mutated, ROOT, sourceDrift()).get(target.route)!
         .failures.join(' '),
     ).toMatch(/different linked-from list at 375px/);
   });

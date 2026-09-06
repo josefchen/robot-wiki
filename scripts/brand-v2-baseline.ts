@@ -23,6 +23,7 @@ import {
   type ManifestInput,
   type ValueStateRecord,
 } from '../lib/brand-v2-baseline.ts';
+import { relationshipManifestInputs } from '../lib/relationship-manifest.ts';
 import {
   ARTICLE_TRUTH_MANIFEST_KINDS,
   type ArticleTruthKind,
@@ -150,27 +151,13 @@ function accessibleNames(): ManifestInput[] {
   return names;
 }
 
-function relationships(mdx: PublishedMdx): ManifestInput[] {
-  return mdx.map(({ id, data, body }) => {
-    const internalLinks = [...body.matchAll(/\]\((\/[^)#?]+\/?)(?:#[^)]+)?\)/g)]
-      .map((match) => match[1])
-      .sort();
-    const citations = [...body.matchAll(/<Cite\s+id=["']([^"']+)["']/g)]
-      .map((match) => match[1])
-      .sort();
-    const terms = [...body.matchAll(/<Term\s+id=["']([^"']+)["']/g)]
-      .map((match) => match[1])
-      .sort();
-    return {
-      id: `article:${id}`,
-      value: {
-        seeAlso: jsonValue(data.seeAlso ?? []),
-        citations,
-        terms,
-        internalLinks,
-      },
-    };
-  });
+/**
+ * Delegated to `lib/relationship-manifest.ts`, which `VAL-B2-ART-010` also
+ * reads: that row binds the rendered apparatus to these sealed hashes and
+ * cannot import a script, so the collector lives where both can reach it.
+ */
+function relationships(): ManifestInput[] {
+  return relationshipManifestInputs(ROOT);
 }
 
 function navigation(): ManifestInput[] {
@@ -490,7 +477,7 @@ export function collectArticleTruthManifests(): Record<
     'accessible-names': accessibleNames(),
     'article-metadata': articleMetadata(mdx),
     prose: prose(mdx),
-    relationships: relationships(mdx),
+    relationships: relationships(),
   };
   return Object.fromEntries(
     ARTICLE_TRUTH_MANIFEST_KINDS.map((kind) => [
@@ -526,7 +513,7 @@ export function collectBundle(options?: {
     routes: routes(),
     prose: prose(mdx),
     'accessible-names': accessibleNames(),
-    relationships: relationships(mdx),
+    relationships: relationships(),
     navigation: navigation(),
     'market-playground': marketPlayground(),
     'assets-svg': assetsSvg(),

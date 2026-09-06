@@ -1,5 +1,5 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync, readFileSync, statSync } from 'node:fs';
+import { dirname, join, relative, resolve } from 'node:path';
 import matter from 'gray-matter';
 import { z } from 'zod';
 import { DOMAIN_META, modules, publishedModules } from '../data/modules.ts';
@@ -13,6 +13,7 @@ import {
 } from './brand-v2-evidence-closure.ts';
 import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 import { inlineCitationIds, moduleBody, resolveReferences } from './references.ts';
+import { currentRelationshipMembers } from './relationship-manifest.ts';
 
 /**
  * Evidence for the wiki apparatus an article carries around its prose:
@@ -105,6 +106,12 @@ export function apparatusEvidenceFingerprint(input: { root: string }): string {
           `from=${expected.linkedFrom.join(',')}`,
           `refs=${expected.references.join(',')}`,
           `cites=${expected.citationMarkers.join(',')}`,
+          `sites=${expected.componentCitationSites
+            .map(({ mountId, id }) => `${mountId}#${id}`)
+            .join(',')}`,
+          `owners=${expected.mountCitationOwners
+            .map(({ mountId, ids }) => `${mountId}#${ids.join('+')}`)
+            .join(',')}`,
         ].join('|'),
       ),
   ];
@@ -133,9 +140,171 @@ export type ExpectedApparatus = {
   citationMarkers: string[];
   /** Citation ids that carry no inline chip: the "Further reading" set. */
   furtherReading: string[];
+  /**
+   * One entry per literal `<CiteRef id="..."/>` site written in a component
+   * this route mounts. These chips are as fixed as the body's: the id is in
+   * the component's own source, so the page owes one rendered chip per site
+   * on top of whatever the body cites.
+   */
+  componentCitationSites: ComponentCitationSite[];
+  /**
+   * Per mount, every citation id reachable from that component's own module
+   * tree. This is the vocabulary a mount may draw from, not a promise about
+   * what it renders: a data-driven panel shows the ids of whatever row is
+   * selected. It is what makes a chip the body never declared attributable
+   * to something on the page rather than to nothing at all.
+   */
+  mountCitationOwners: MountCitationOwner[];
+};
+
+export type ComponentCitationSite = {
+  mountId: string;
+  sourcePath: string;
+  id: string;
+};
+
+export type MountCitationOwner = {
+  mountId: string;
+  sourcePath: string;
+  ids: string[];
 };
 
 let cachedGraph: Map<string, ExpectedApparatus> | null = null;
+
+const REGISTRIES_PATH = 'contract/brand-v2-registries.json';
+
+/**
+ * The citation registry is the vocabulary these scans are read against, so
+ * scanning it would report every id in the wiki as declared by whatever
+ * component imports it.
+ */
+const CITATION_VOCABULARY_MODULE = 'data/citations.ts';
+
+/** A literal chip site: `<Cite id="x"/>` or `<CiteRef id="x"/>` in JSX. */
+const LITERAL_CITE_SITE = /<Cite(?:Ref)?\s+[^>]*?\bid=["']([^"']+)["']/g;
+
+/**
+ * Source with comments blanked.
+ *
+ * `components/mdx/cite-ref.tsx` documents itself with `<Cite
+ * id="act-aloha-2023" />`, and every component that imports it would
+ * otherwise inherit that id as a chip it owes the page.
+ */
+function withoutComments(text: string): string {
+  return text
+    .replace(/\/\*[\s\S]*?\*\//g, ' ')
+    .replace(/(^|[^:])\/\/[^\n]*/g, '$1 ');
+}
+
+function resolveFirstPartyImport(
+  root: string,
+  specifier: string,
+  fromPath: string,
+): string | null {
+  const base = specifier.startsWith('@/')
+    ? join(root, specifier.slice(2))
+    : specifier.startsWith('.')
+      ? resolve(dirname(join(root, fromPath)), specifier)
+      : null;
+  if (base === null) return null;
+  for (const candidate of [
+    base,
+    `${base}.ts`,
+    `${base}.tsx`,
+    `${base}.mjs`,
+    join(base, 'index.ts'),
+    join(base, 'index.tsx'),
+  ]) {
+    if (existsSync(candidate) && statSync(candidate).isFile()) {
+      return relative(root, candidate);
+    }
+  }
+  return null;
+}
+
+/**
+ * Every citation id reachable from one module's own source and the
+ * first-party modules it imports, three levels deep.
+ *
+ * The ids are recognised by the registry rather than by the shape of the
+ * call that renders them: a chip whose id arrives through a data row
+ * (`lib/competing-theses.ts` holds twenty) is as owned as one written in
+ * the JSX, and a rule that only saw the JSX would call the data-driven ones
+ * unowned.
+ */
+function citationIdsReachableFrom(
+  root: string,
+  sourcePath: string,
+  depth = 3,
+  seen = new Set<string>(),
+): Set<string> {
+  const ids = new Set<string>();
+  if (
+    depth < 0 ||
+    seen.has(sourcePath) ||
+    sourcePath === CITATION_VOCABULARY_MODULE
+  ) {
+    return ids;
+  }
+  seen.add(sourcePath);
+  const text = withoutComments(readFileSync(join(root, sourcePath), 'utf8'));
+  for (const match of text.matchAll(/['"]([A-Za-z0-9][A-Za-z0-9._-]{3,})['"]/g)) {
+    if (getCitation(match[1] as string)) ids.add(match[1] as string);
+  }
+  for (const match of text.matchAll(/from\s+['"]([^'"]+)['"]/g)) {
+    const next = resolveFirstPartyImport(root, match[1] as string, sourcePath);
+    if (next === null) continue;
+    for (const id of citationIdsReachableFrom(root, next, depth - 1, seen)) {
+      ids.add(id);
+    }
+  }
+  return ids;
+}
+
+type RegisteredMount = {
+  id: string;
+  route: string;
+  sourceId: string;
+};
+
+/**
+ * The interactive mounts the census registered, by route.
+ *
+ * The registry is the same one `VAL-B2-STATE-*` quantifies over, so a
+ * component that renders chips on a route it is not registered on is a
+ * census failure there and an unowned chip here.
+ */
+function mountsByRoute(
+  root: string,
+): Map<string, Array<RegisteredMount & { sourcePath: string }>> {
+  const registries = JSON.parse(
+    readFileSync(join(root, REGISTRIES_PATH), 'utf8'),
+  ) as {
+    interactive: {
+      sources: Array<{ id: string; sourcePath: string }>;
+      mounts: RegisteredMount[];
+    };
+  };
+  const sourcePathById = new Map(
+    registries.interactive.sources.map(({ id, sourcePath }) => [id, sourcePath]),
+  );
+  const byRoute = new Map<
+    string,
+    Array<RegisteredMount & { sourcePath: string }>
+  >();
+  for (const mount of registries.interactive.mounts) {
+    const sourcePath = sourcePathById.get(mount.sourceId);
+    if (!sourcePath) {
+      throw new Error(
+        `${REGISTRIES_PATH} mounts ${mount.sourceId} at ${mount.route} without registering its source`,
+      );
+    }
+    const list = byRoute.get(mount.route) ?? [];
+    list.push({ ...mount, sourcePath });
+    byRoute.set(mount.route, list);
+  }
+  return byRoute;
+}
 
 /**
  * The apparatus every published article is supposed to render, derived from
@@ -148,6 +317,7 @@ export function expectedApparatusGraph(
 ): Map<string, ExpectedApparatus> {
   if (cachedGraph) return cachedGraph;
   const backlinks = publishedBacklinkGraph();
+  const mounts = mountsByRoute(root);
   const graph = new Map<string, ExpectedApparatus>();
   for (const entry of publishedModules()) {
     const key = `${entry.domain}/${entry.slug}`;
@@ -168,6 +338,26 @@ export function expectedApparatusGraph(
     const body = moduleBody(source);
     const inline = inlineCitationIds(body);
     const references = resolveReferences(declared, inline, getCitation);
+    const routeMounts = mounts.get(`/${key}/`) ?? [];
+    const componentCitationSites: ComponentCitationSite[] = [];
+    const mountCitationOwners: MountCitationOwner[] = [];
+    for (const mount of routeMounts) {
+      const componentSource = withoutComments(
+        readFileSync(join(root, mount.sourcePath), 'utf8'),
+      );
+      for (const match of componentSource.matchAll(LITERAL_CITE_SITE)) {
+        componentCitationSites.push({
+          mountId: mount.id,
+          sourcePath: mount.sourcePath,
+          id: match[1] as string,
+        });
+      }
+      mountCitationOwners.push({
+        mountId: mount.id,
+        sourcePath: mount.sourcePath,
+        ids: [...citationIdsReachableFrom(root, mount.sourcePath)].sort(),
+      });
+    }
     graph.set(`/${key}/`, {
       key,
       breadcrumb: [
@@ -188,6 +378,8 @@ export function expectedApparatusGraph(
       furtherReading: references
         .filter(({ furtherReading }) => furtherReading)
         .map(({ citation }) => citation.id),
+      componentCitationSites,
+      mountCitationOwners,
     });
   }
   if (graph.size === 0) {
@@ -486,6 +678,184 @@ function subsequenceGap(
   return null;
 }
 
+export type RelationshipManifestMember = { id: string; hash: string };
+
+export type RelationshipDelta = {
+  id: string;
+  manifest: string;
+  memberId: string;
+  oldHash: string;
+  newHash: string;
+};
+
+export const RELATIONSHIP_BASELINE_PATH =
+  'evidence/brand-v2/baseline/relationships.json';
+
+/**
+ * What the v2 rollout did to the source side of each article's relationships.
+ *
+ * `VAL-B2-ART-010` says the relationships are "unchanged by the v2
+ * rollout", and everything else in this file compares the rendered page
+ * against the graph derived from the tree that is shipping now. Those two
+ * sides move together: an edit that dropped a `seeAlso` edge or a `<Cite>`
+ * from an MDX body changes the page and the expectation at once, and the
+ * comparison stays green over a relationship the rollout was not allowed to
+ * touch. The immutable manifest sealed before the rollout is the only side
+ * that cannot move, so the row is bound to it here: the rebuilt member hash
+ * must equal the sealed one, or an approved delta must name that exact
+ * change.
+ *
+ * The hashes are rebuilt by the same collector the baseline was sealed with
+ * (`scripts/brand-v2-baseline.ts#collectArticleTruthManifests`), passed in
+ * rather than imported so this module stays loadable without dragging the
+ * whole census collection behind it.
+ */
+/** The sealed pre-rollout relationship members, as the migration wrote them. */
+export function readSealedRelationshipMembers(
+  root: string,
+): RelationshipManifestMember[] {
+  const manifest = JSON.parse(
+    readFileSync(join(root, RELATIONSHIP_BASELINE_PATH), 'utf8'),
+  ) as { kind?: string; members?: RelationshipManifestMember[] };
+  if (manifest.kind !== 'relationships' || !Array.isArray(manifest.members)) {
+    throw new Error(
+      `${RELATIONSHIP_BASELINE_PATH} is not a sealed relationships manifest`,
+    );
+  }
+  return manifest.members;
+}
+
+/** The approved deltas, read where every other consumer reads them. */
+export function readRelationshipDeltas(root: string): RelationshipDelta[] {
+  const file = JSON.parse(
+    readFileSync(
+      join(root, 'contract', 'brand-v2-approved-deltas.json'),
+      'utf8',
+    ),
+  ) as { entries?: RelationshipDelta[] };
+  return (file.entries ?? []).filter(
+    ({ manifest }) => manifest === 'relationships',
+  );
+}
+
+/** The drift map every caller of `VAL-B2-ART-010` passes, built once here. */
+export function relationshipSourceDrift(root: string): Map<string, string[]> {
+  return relationshipBaselineDrift({
+    sealed: readSealedRelationshipMembers(root),
+    current: currentRelationshipMembers(root),
+    deltas: readRelationshipDeltas(root),
+  });
+}
+
+export function relationshipBaselineDrift(input: {
+  sealed: readonly RelationshipManifestMember[];
+  current: readonly RelationshipManifestMember[];
+  deltas: readonly RelationshipDelta[];
+}): Map<string, string[]> {
+  const routeOf = (memberId: string) => `/${memberId.replace(/^article:/, '')}/`;
+  const sealedByMember = new Map(
+    input.sealed.map((member) => [member.id, member]),
+  );
+  const deltaByMember = new Map(
+    input.deltas
+      .filter(({ manifest }) => manifest === 'relationships')
+      .map((delta) => [`article:${delta.memberId.replace(/^article:/, '')}`, delta]),
+  );
+  const drift = new Map<string, string[]>();
+  const add = (route: string, failure: string) => {
+    drift.set(route, [...(drift.get(route) ?? []), failure]);
+  };
+  if (input.sealed.length === 0 || input.current.length === 0) {
+    throw new Error(
+      'the relationships baseline comparison has an empty side, so every article would read as preserved',
+    );
+  }
+  const currentIds = new Set(input.current.map(({ id }) => id));
+  for (const sealed of input.sealed) {
+    if (currentIds.has(sealed.id)) continue;
+    throw new Error(
+      `${sealed.id} is sealed in ${RELATIONSHIP_BASELINE_PATH} and absent from the tree, so its relationships cannot be compared at all`,
+    );
+  }
+  for (const member of input.current) {
+    const route = routeOf(member.id);
+    const sealed = sealedByMember.get(member.id);
+    const delta = deltaByMember.get(member.id);
+    if (!sealed) {
+      if (!delta) {
+        add(
+          route,
+          `${route} carries relationships the migration baseline never sealed, and no approved delta adds ${member.id}`,
+        );
+      }
+      continue;
+    }
+    if (sealed.hash === member.hash) continue;
+    if (!delta) {
+      add(
+        route,
+        `${route} changed the relationships the migration sealed (${sealed.hash.slice(0, 12)} -> ${member.hash.slice(0, 12)}), and no approved delta names the change`,
+      );
+      continue;
+    }
+    if (delta.oldHash !== sealed.hash || delta.newHash !== member.hash) {
+      add(
+        route,
+        `${route} is covered by approved delta ${delta.id} for ${delta.oldHash.slice(0, 12)} -> ${delta.newHash.slice(0, 12)}, but the tree moved ${sealed.hash.slice(0, 12)} -> ${member.hash.slice(0, 12)}`,
+      );
+    }
+  }
+  return drift;
+}
+
+/**
+ * Which chip occurrences the page owes, and who owns the rest.
+ *
+ * Occurrences, not ids: an article that cites one source in three sentences
+ * renders three chips, and a component that adds a fourth for the same
+ * source is adding a chip, not repeating one. Counting ids would hide
+ * exactly the disappearance this is here to catch.
+ */
+function citationOwnershipFailures(
+  route: string,
+  rendered: string[],
+  expected: ExpectedApparatus,
+): string[] {
+  const failures: string[] = [];
+  const tally = (ids: readonly string[]) => {
+    const counts = new Map<string, number>();
+    for (const id of ids) counts.set(id, (counts.get(id) ?? 0) + 1);
+    return counts;
+  };
+  const renderedCounts = tally(rendered);
+  const owed = tally(expected.citationMarkers);
+  for (const site of expected.componentCitationSites) {
+    owed.set(site.id, (owed.get(site.id) ?? 0) + 1);
+  }
+  for (const site of expected.componentCitationSites) {
+    const want = owed.get(site.id) ?? 0;
+    const got = renderedCounts.get(site.id) ?? 0;
+    if (got < want) {
+      failures.push(
+        `${route} renders ${got} chip(s) for "${site.id}" where the body and ${site.sourcePath} write ${want}: the chip ${site.mountId} cites is gone`,
+      );
+    }
+  }
+  const ownedByMount = new Set(
+    expected.mountCitationOwners.flatMap(({ ids }) => ids),
+  );
+  for (const [id, count] of renderedCounts) {
+    const floor = owed.get(id) ?? 0;
+    if (count <= floor) continue;
+    if (!ownedByMount.has(id)) {
+      failures.push(
+        `${route} renders ${count - floor} citation chip(s) for "${id}" that neither its body nor any component it mounts sources`,
+      );
+    }
+  }
+  return failures;
+}
+
 /**
  * `VAL-B2-ART-010`: the rendered relationship graph is the graph the
  * registry derives. Order matters on all four lists: a bibliography whose
@@ -499,10 +869,15 @@ function subsequenceGap(
  * mobile reading is still swept, and `apparatusViewportAgreement` below
  * asserts the two agree, which is the check that a responsive branch did
  * not quietly drop a section.
+ *
+ * `sourceDrift` is the other half of the word "unchanged": the rendered
+ * side answers to the derived graph, and the derived graph answers to the
+ * sealed migration manifest through `relationshipBaselineDrift`.
  */
 export function relationshipPreservationVerdicts(
   evidence: ApparatusRuntimeEvidence,
   root: string,
+  sourceDrift: Map<string, string[]>,
 ): Map<string, Verdict<Record<string, string[]>>> {
   const graph = expectedApparatusGraph(root);
   const verdicts = new Map<string, Verdict<Record<string, string[]>>>();
@@ -523,12 +898,19 @@ export function relationshipPreservationVerdicts(
     }
     // The rendered chips are a SUPERSET of the ones the MDX declares, and
     // that is correct rather than drift: six routes mount a component that
-    // renders chips from a curated data module (`lib/competing-theses.ts` is
-    // the largest, adding eight), so a body-only expectation is the
-    // incomplete side of the comparison. Equality here would have failed six
-    // healthy articles. What preservation actually needs is that every chip
-    // the body declares still renders, in body order, and that no rendered
-    // chip points at an id the citation registry does not hold.
+    // renders chips of its own (`lib/competing-theses.ts` feeds the largest,
+    // eight), so a body-only expectation is the incomplete side of the
+    // comparison. Equality here would fail six healthy articles.
+    //
+    // A superset with nothing said about the surplus is the other error, and
+    // it is the one that shipped: nineteen chip occurrences on six routes
+    // belonged to no expectation at all, so a component could stop rendering
+    // its chips - or start rendering one for an id nothing on the page
+    // sources - and this row would still pass. Every occurrence is now
+    // accounted for. The floor is the body's chips plus one per literal
+    // `<CiteRef id="..."/>` site in a component the route mounts, and
+    // anything above the floor has to be an id one of those mounts can
+    // reach.
     const renderedMarkers = desktop.citations.map(({ id }) => id);
     const missingInline = subsequenceGap(
       renderedMarkers,
@@ -539,12 +921,14 @@ export function relationshipPreservationVerdicts(
         `${route} no longer renders the inline citation marker "${missingInline}" the body declares, in body order (${expected.citationMarkers.length} declared, ${renderedMarkers.length} rendered)`,
       );
     }
+    failures.push(...citationOwnershipFailures(route, renderedMarkers, expected));
     const unregistered = renderedMarkers.filter((id) => !getCitation(id));
     if (unregistered.length > 0) {
       failures.push(
         `${route} renders citation marker(s) [${[...new Set(unregistered)].join(', ')}] that the citation registry does not hold`,
       );
     }
+    failures.push(...(sourceDrift.get(route) ?? []));
     if (!sameSequence(desktop.seeAlso.keys, expected.seeAlso)) {
       failures.push(
         `${route} renders See also [${desktop.seeAlso.keys.join(', ')}] where the frontmatter curates [${expected.seeAlso.join(', ')}]`,
