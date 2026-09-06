@@ -94081,7 +94081,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki` still resolves 8 comment-free use(s) across 6 first-party runtime file(s) and 2326 use(s) across 253 shipped .html/.js/.txt/.xml file(s) of the built export, including 109 measured destination(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki` still resolves 9 comment-free use(s) across 7 first-party runtime file(s) and 2326 use(s) across 253 shipped .html/.js/.txt/.xml file(s) of the built export, including 109 measured destination(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -94089,10 +94089,11 @@
         "kind": "browser-state",
         "computed": {
           "literal": "robot-wiki",
-          "occurrences": 8,
+          "occurrences": 9,
           "files": [
             "lib/brand-v2-figure-evidence.ts",
             "lib/brand-v2-identity-evidence.ts",
+            "lib/brand-v2-link-safety.ts",
             "lib/brand-v2-reference-rubric.ts",
             "lib/identity.ts",
             "lib/og-cards.ts",
@@ -94233,7 +94234,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki.com` still resolves 2 comment-free use(s) across 2 first-party runtime file(s) and 2103 use(s) across 252 shipped .html/.txt/.xml file(s) of the built export, including 109 measured destination(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki.com` still resolves 3 comment-free use(s) across 3 first-party runtime file(s) and 2103 use(s) across 252 shipped .html/.txt/.xml file(s) of the built export, including 109 measured destination(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -94241,8 +94242,9 @@
         "kind": "browser-state",
         "computed": {
           "literal": "robot-wiki.com",
-          "occurrences": 2,
+          "occurrences": 3,
           "files": [
+            "lib/brand-v2-link-safety.ts",
             "lib/og-cards.ts",
             "lib/site.ts"
           ],
