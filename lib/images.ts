@@ -16,22 +16,44 @@
  */
 const FENCED_CODE = /```[\s\S]*?```/g;
 const INLINE_CODE = /`[^`\n]*`/g;
+/**
+ * A `/* … *\/` block, which in a `.tsx` module is documentation rather than
+ * a rendered element. `components/mdx/image-ref.tsx` documents itself with
+ * the literal `<Image id="..."/>`, so a scan that read comments would
+ * report `...` as a referenced registry id.
+ */
+const BLOCK_COMMENT = /\/\*[\s\S]*?\*\//g;
 
 /** <Image id="..."> or <ImageRef id="...">, either quote style. */
 const IMAGE_ELEMENT =
   /<Image(?:Ref)?\b[^>]*?\bid\s*=\s*(["'])([^"']+)\1/g;
 
 /**
+ * Every image id a source body renders, in document order, repeats
+ * included. Usages inside code spans, fenced blocks or block comments are
+ * ignored.
+ *
+ * The occurrence list rather than the set, because a page that mounts the
+ * same figure twice renders it twice, and a derivation that deduped could
+ * not reconcile against what a browser counts.
+ */
+export function referencedImageIdOccurrences(body: string): string[] {
+  const blank = (match: string) => match.replace(/[^\n]/g, ' ');
+  const masked = body
+    .replace(FENCED_CODE, blank)
+    .replace(INLINE_CODE, blank)
+    .replace(BLOCK_COMMENT, blank);
+  return [...masked.matchAll(IMAGE_ELEMENT)].map((match) => match[2] as string);
+}
+
+/**
  * Image ids referenced in a source body, in order of first use, deduped.
  * Usages inside code spans or fenced blocks are ignored.
  */
 export function referencedImageIds(body: string): string[] {
-  const blank = (match: string) => match.replace(/[^\n]/g, ' ');
-  const masked = body.replace(FENCED_CODE, blank).replace(INLINE_CODE, blank);
   const ids: string[] = [];
   const seen = new Set<string>();
-  for (const match of masked.matchAll(IMAGE_ELEMENT)) {
-    const id = match[2];
+  for (const id of referencedImageIdOccurrences(body)) {
     if (!seen.has(id)) {
       seen.add(id);
       ids.push(id);

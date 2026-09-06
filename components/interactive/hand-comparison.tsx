@@ -1,6 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useId, useMemo, useState } from 'react';
+import { TableScroll } from '@/components/ui';
 import { getCitation } from '@/data/citations';
 import {
   DEFAULT_HAND_SORT,
@@ -92,6 +93,7 @@ export function HandComparison({ className }: { className?: string }) {
     new Set(),
   );
 
+  const captionId = useId();
   const rows = useMemo(
     () => sortHands(DEXTEROUS_HANDS, sort.key, sort.direction),
     [sort],
@@ -149,14 +151,19 @@ export function HandComparison({ className }: { className?: string }) {
           data-pagefind-ignore
           type="button"
           onClick={reset}
-          className="ml-auto rounded-sm bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
+          className="ml-auto rounded-sm bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
         >
           Reset
         </button>
       </div>
 
-      <div className="mt-4 overflow-x-auto">
+      <TableScroll labelledBy={captionId} className="mt-4">
         <table className="w-full min-w-[520px] border-collapse text-left">
+          <caption id={captionId} className="sr-only">
+            Five dexterous hands with their degrees of freedom, tactile
+            threshold, cost and training bet. Sort by any spec column, and
+            select a row to compare it against the others.
+          </caption>
           <thead>
             <tr className="border-b border-border">
               <th scope="col" className={HEADER_CELL}>
@@ -182,7 +189,7 @@ export function HandComparison({ className }: { className?: string }) {
                       type="button"
                       aria-label={column.ariaLabel}
                       onClick={() => handleSort(column.key)}
-                      className="inline-flex items-center gap-1 transition-colors hover:text-text"
+                      className="inline-flex items-center gap-1 font-sans transition-colors hover:text-text"
                     >
                       {column.label}
                       <span
@@ -297,7 +304,7 @@ export function HandComparison({ className }: { className?: string }) {
             })}
           </tbody>
         </table>
-      </div>
+      </TableScroll>
 
       <div
         data-testid="hand-comparison-selection"

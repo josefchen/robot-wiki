@@ -264,7 +264,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
             data-pagefind-ignore
             type="button"
             onClick={reset}
-            className="cursor-pointer rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+            className="cursor-pointer rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
           >
             Reset
           </button>
@@ -288,7 +288,7 @@ export function DatasetTable({ className }: DatasetTableProps) {
             data-pagefind-ignore
             type="button"
             onClick={clearFilters}
-            className="mt-3 cursor-pointer rounded-sm border border-border bg-surface px-3 py-1.5 font-mono text-xs text-text transition-colors hover:border-border-strong active:translate-y-[1px]"
+            className="mt-3 cursor-pointer rounded-sm border border-border bg-surface px-3 py-1.5 font-sans text-xs text-text transition-colors hover:border-border-strong active:translate-y-[1px]"
           >
             Clear filters
           </button>

@@ -312,7 +312,13 @@ export const imageSchema = z
     // A first-party diagram is used on the ground that this site drew it,
     // not on the ground of the licence it is published under, so `owned` is
     // the second admissible basis there and nowhere else.
-    const grounded: LegalBasis[] = [LEGAL_BASIS_BY_LICENCE[image.licence]];
+    // A company mark rests on identification, never on the licence of the
+    // file it was fetched as. §1.13 states it flatly and VAL-B2-IMG-008
+    // calls it the path marks use ONLY, so a mark that declares any other
+    // basis is refused here rather than silently overridden downstream.
+    const grounded: LegalBasis[] = isMark
+      ? ['official-identification-use']
+      : [LEGAL_BASIS_BY_LICENCE[image.licence]];
     if (image.figureKind === 'original-schematic') grounded.push('owned');
     if (image.legalBasis !== undefined && !grounded.includes(image.legalBasis)) {
       ctx.addIssue({

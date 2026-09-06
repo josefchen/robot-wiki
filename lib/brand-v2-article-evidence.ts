@@ -1,5 +1,12 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import matter from 'gray-matter';
 import { z } from 'zod';
+import { getCitation } from '../data/citations.ts';
+import { publishedModules } from '../data/modules.ts';
 import { TEKTUR_ROLE_INSTANCES } from '../data/type-roles.ts';
+import { formatLongDate } from './dates.ts';
+import { inlineCitationIds, moduleBody, resolveReferences } from './references.ts';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
   deriveEvidenceClosure,
@@ -57,12 +64,15 @@ export const ARTICLE_VIEWPORTS = [
 export const MOBILE_VIEWPORT_ID = '375x812';
 export const DESKTOP_VIEWPORT_ID = '1440x900';
 
-/** Signal blue, in the rendered form and both hex spellings shipped here. */
-export const SIGNAL_BLUE_FORMS = [
-  'rgb(36, 95, 255)',
-  '#245fff',
-  '#245edb',
-] as const;
+/**
+ * Signal blue, in the rendered form and the hex spelling shipped here.
+ *
+ * `#245edb` is NOT here. It is the superseded v1 blue that
+ * `contract/brand-v2-enforcement-map.json` lists under "Previous signal
+ * values ... Zero runtime/generated matches", so a link that still paints
+ * it is residue the rollout was supposed to remove, not an accepted form.
+ */
+export const SIGNAL_BLUE_FORMS = ['rgb(36, 95, 255)', '#245fff'] as const;
 
 /** The sealed ranges, read off the contract rows they belong to. */
 export const ARTICLE_H1_SIZE_PX = {
@@ -105,12 +115,107 @@ function articleClosureEntries(root: string): string[] {
 }
 
 /**
+ * What the three facts on an article's title sheet are supposed to say,
+ * derived from the sources that produce them.
+ *
+ * `VAL-B2-ART-001` asks for the article's "existing factual review date,
+ * reading time, and citation count", and existing and factual are the whole
+ * requirement: a sheet printing today's date, `1 min`, and `0` renders three
+ * values of the right shape and none of the right content. The template
+ * derives all three (`app/(content)/[domain]/[slug]/page.tsx`) from the
+ * frontmatter `lastReviewed`, the measurement in `data/reading-times.json`,
+ * and the resolved References list, so those are the three sources read
+ * here - by the same functions the template uses, not by a reimplementation
+ * that could agree with a broken header.
+ *
+ * `readingMinutes` is null where no measurement exists: the template then
+ * prints a word-count estimate, and a shipped article whose reading time is
+ * an estimate is a defect this file must be able to name rather than one it
+ * silently accepts.
+ */
+export type TitleSheetSourceFacts = {
+  route: string;
+  source: string;
+  lastReviewed: string | null;
+  reviewDateText: string | null;
+  readingMinutes: number | null;
+  /** Resolved reference ids in the order the bibliography renders them. */
+  citationIds: string[];
+};
+
+export const READING_TIMES_PATH = 'data/reading-times.json';
+
+function readingTimeMeasurements(
+  root: string,
+): Map<string, { words: number; minutes: number }> {
+  const raw = JSON.parse(readFileSync(join(root, READING_TIMES_PATH), 'utf8')) as
+    | Record<string, { words?: unknown; minutes?: unknown }>
+    | null;
+  const measurements = new Map<string, { words: number; minutes: number }>();
+  for (const [key, value] of Object.entries(raw ?? {})) {
+    if (typeof value?.minutes !== 'number' || typeof value?.words !== 'number') {
+      continue;
+    }
+    measurements.set(key, { words: value.words, minutes: value.minutes });
+  }
+  return measurements;
+}
+
+export function titleSheetSourceFacts(
+  root: string,
+): Map<string, TitleSheetSourceFacts> {
+  const measurements = readingTimeMeasurements(root);
+  const facts = new Map<string, TitleSheetSourceFacts>();
+  for (const { domain, slug } of publishedModules()) {
+    const source = `content/${domain}/${slug}.mdx`;
+    const raw = readFileSync(join(root, source), 'utf8');
+    const frontmatter = matter(raw).data as {
+      lastReviewed?: unknown;
+      citations?: unknown;
+    };
+    const lastReviewed =
+      typeof frontmatter.lastReviewed === 'string' &&
+      frontmatter.lastReviewed.length > 0
+        ? frontmatter.lastReviewed
+        : null;
+    const declared = Array.isArray(frontmatter.citations)
+      ? frontmatter.citations.filter(
+          (id): id is string => typeof id === 'string',
+        )
+      : [];
+    const citationIds = resolveReferences(
+      declared,
+      inlineCitationIds(moduleBody(raw)),
+      getCitation,
+    ).map(({ citation }) => citation.id);
+    facts.set(`/${domain}/${slug}/`, {
+      route: `/${domain}/${slug}/`,
+      source,
+      lastReviewed,
+      reviewDateText: lastReviewed === null ? null : formatLongDate(lastReviewed),
+      readingMinutes: measurements.get(`${domain}/${slug}`)?.minutes ?? null,
+      citationIds,
+    });
+  }
+  if (facts.size === 0) {
+    throw new Error(
+      'no published article was read for its title-sheet facts, so ART-001 would reconcile nothing',
+    );
+  }
+  return facts;
+}
+
+/**
  * The fingerprint the sweep records and the generator re-derives, over the
  * bytes of the whole closure plus the sealed ranges the verdicts apply.
  *
  * The ranges are hashed in as facts because they are the other half of every
  * verdict: widening one without re-running the sweep would otherwise leave a
- * measurement that was taken against the old range reading as current.
+ * measurement that was taken against the old range reading as current. The
+ * derived title-sheet facts are hashed in for the same reason and one more:
+ * `data/reading-times.json` is written by postbuild and reaches the header
+ * without ever entering the module graph, so a re-measured article moves the
+ * rendered sheet while every byte in the closure stays put.
  */
 export function articleEvidenceFingerprint(input: { root: string }): string {
   const ranges = [
@@ -127,6 +232,14 @@ export function articleEvidenceFingerprint(input: { root: string }): string {
     `tracking:${REGISTRATION_TRACKING_EM.min}-${REGISTRATION_TRACKING_EM.max}@${REGISTRATION_TRACKING_SPREAD_EM}`,
     `rule-tolerance:${RULE_ALIGNMENT_TOLERANCE_PX}`,
     ...ARTICLE_VIEWPORTS.map(({ id }) => `viewport:${id}`),
+    ...[...titleSheetSourceFacts(input.root).values()]
+      .sort((left, right) => left.route.localeCompare(right.route))
+      .map(
+        (fact) =>
+          `title-sheet:${fact.route}=${fact.lastReviewed ?? 'none'}/${
+            fact.readingMinutes ?? 'unmeasured'
+          }/${fact.citationIds.join(',')}`,
+      ),
   ];
   return deriveEvidenceClosure({
     root: input.root,
@@ -194,8 +307,26 @@ const sectionLinkSchema = z.object({
     .nullable(),
 });
 
+const linkVariantSchema = z.object({
+  signature: z.string(),
+  count: z.number().int().positive(),
+  colour: z.string(),
+  decorationLine: z.string(),
+  decorationStyle: z.string(),
+  decorationColour: z.string(),
+  familyHead: z.string(),
+  shape: z.string(),
+});
+
 const linkTreatmentSchema = z.object({
-  kind: z.enum(['section', 'citation', 'glossary', 'external', 'internal']),
+  kind: z.enum([
+    'section',
+    'citation',
+    'glossary',
+    'external',
+    'internal',
+    'reference',
+  ]),
   count: z.number(),
   colour: z.string(),
   decorationLine: z.string(),
@@ -204,6 +335,11 @@ const linkTreatmentSchema = z.object({
   familyHead: z.string(),
   /** A bordered chip, a glyph, or another shape the treatment carries. */
   shape: z.string(),
+  /**
+   * Every distinct painting the class contains, not the first member's.
+   * A class whose members disagree renders more than one row here.
+   */
+  variants: z.array(linkVariantSchema),
 });
 
 const registrationLabelSchema = z.object({
@@ -240,6 +376,23 @@ const titleBlockSchema = z.object({
   lastReviewed: z.string().nullable(),
   readingMinutes: z.number().nullable(),
   citationCount: z.number().nullable(),
+  /**
+   * The same three facts as a reader meets them.
+   *
+   * The `data-header-*` attributes above are the machine spelling and the
+   * text below is the human one. Reading only the attribute would let a
+   * sheet carry a correct date in an attribute nobody renders and print a
+   * different one in the `<time>` beside it.
+   */
+  reviewDateText: z.string(),
+  reviewDateTime: z.string(),
+  readingTimeText: z.string(),
+  citationCountText: z.string(),
+  /**
+   * The ids of the bibliography entries the same page renders, in order.
+   * The header's count claims to be the length of this list.
+   */
+  bibliographyIds: z.array(z.string()),
   /** Anything a title sheet must not carry, counted as it renders. */
   imageCount: z.number(),
   badgeCount: z.number(),
@@ -275,6 +428,8 @@ const observationSchema = z.object({
       text: z.string(),
       familyHead: z.string(),
       sizePx: z.number(),
+      inProse: z.boolean(),
+      controlId: z.string(),
     }),
   ),
   rules: z.array(ruleSchema),
@@ -457,13 +612,21 @@ const PLEX_MONO_HEAD = 'ibm plex mono';
 
 /**
  * `VAL-B2-ART-001`: an article's title sheet renders its context, one Tektur
- * title, one summary, and the three facts its frontmatter and its own
- * bibliography already carry. The facts are checked for presence and shape,
- * never for a value this file invents: a title sheet that printed a review
- * date nobody published would satisfy any check that only counted it.
+ * title, one summary, and its EXISTING FACTUAL review date, reading time and
+ * citation count.
+ *
+ * Presence was never the requirement. A sheet that printed a review date
+ * nobody published, a reading time nothing measured, or a count that did not
+ * match its own bibliography would satisfy every non-empty check and would
+ * still be exactly the fabrication the row forbids - the same class of
+ * defect as `VAL-B2-ART-009`'s fabricated badge, one step further in. So
+ * each of the three is reconciled against the source that produced it
+ * (`titleSheetSourceFacts`), in both spellings the sheet carries, and the
+ * count is reconciled against the bibliography rendered below it as well.
  */
 export function titleSheetVerdicts(
   evidence: ArticleRuntimeEvidence,
+  sourceFacts: Map<string, TitleSheetSourceFacts>,
 ): Map<string, Verdict<ArticleObservation['titleBlock']>> {
   const verdicts = new Map<string, Verdict<ArticleObservation['titleBlock']>>();
   for (const route of evidence.articleRoutes) {
@@ -494,21 +657,126 @@ export function titleSheetVerdicts(
         `${route} renders ${block.breadcrumbLabels.length} breadcrumb crumbs, so it names no domain context`,
       );
     }
-    if (block.lastReviewed === null || block.lastReviewed.length === 0) {
-      failures.push(`${route} prints no review date`);
-    }
-    if (block.readingMinutes === null || block.readingMinutes <= 0) {
-      failures.push(`${route} prints no reading time`);
-    }
-    if (block.citationCount === null || block.citationCount < 0) {
-      failures.push(`${route} prints no citation count`);
+    const facts = sourceFacts.get(route);
+    if (!facts) {
+      failures.push(
+        `${route} renders a title sheet no published module accounts for, so its facts have no source`,
+      );
+    } else {
+      failures.push(...reviewDateFailures(route, block, facts));
+      failures.push(...readingTimeFailures(route, block, facts));
+      failures.push(...citationCountFailures(route, block, facts));
     }
     verdicts.set(route, { id: route, observed: block, failures });
   }
   if (verdicts.size === 0) {
     throw new Error('no article route was measured for its title sheet');
   }
+  const unrendered = [...sourceFacts.keys()].filter(
+    (route) => !verdicts.has(route),
+  );
+  if (unrendered.length > 0) {
+    throw new Error(
+      `${unrendered.length} published article(s) carry title-sheet facts no sweep reconciled, starting with ${unrendered[0]}`,
+    );
+  }
   return verdicts;
+}
+
+function reviewDateFailures(
+  route: string,
+  block: ArticleObservation['titleBlock'],
+  facts: TitleSheetSourceFacts,
+): string[] {
+  const failures: string[] = [];
+  if (facts.lastReviewed === null) {
+    failures.push(
+      `${route} publishes with no lastReviewed date in ${facts.source}, so its sheet has no review date to print`,
+    );
+    return failures;
+  }
+  if (block.lastReviewed === null || block.lastReviewed.length === 0) {
+    failures.push(`${route} prints no review date`);
+  } else if (block.lastReviewed !== facts.lastReviewed) {
+    failures.push(
+      `${route} prints review date ${block.lastReviewed} where ${facts.source} records ${facts.lastReviewed}`,
+    );
+  }
+  if (block.reviewDateTime !== facts.lastReviewed) {
+    failures.push(
+      `${route} dates its review "${block.reviewDateTime}" in machine-readable form, not ${facts.lastReviewed}`,
+    );
+  }
+  if (block.reviewDateText !== facts.reviewDateText) {
+    failures.push(
+      `${route} shows the reader review date "${block.reviewDateText}", not "${facts.reviewDateText}"`,
+    );
+  }
+  return failures;
+}
+
+function readingTimeFailures(
+  route: string,
+  block: ArticleObservation['titleBlock'],
+  facts: TitleSheetSourceFacts,
+): string[] {
+  const failures: string[] = [];
+  if (facts.readingMinutes === null) {
+    // The template's fallback is a word-count estimate over the MDX source,
+    // which is a different number from the measured one and is meant for a
+    // dev server, not for a shipped sheet.
+    failures.push(
+      `${route} has no entry in ${READING_TIMES_PATH}, so its sheet prints an unmeasured estimate`,
+    );
+    return failures;
+  }
+  if (block.readingMinutes === null || block.readingMinutes <= 0) {
+    failures.push(`${route} prints no reading time`);
+  } else if (block.readingMinutes !== facts.readingMinutes) {
+    failures.push(
+      `${route} prints a ${block.readingMinutes} min read where ${READING_TIMES_PATH} measured ${facts.readingMinutes}`,
+    );
+  }
+  if (block.readingTimeText !== `${facts.readingMinutes} min`) {
+    failures.push(
+      `${route} shows the reader "${block.readingTimeText}", not "${facts.readingMinutes} min"`,
+    );
+  }
+  return failures;
+}
+
+function citationCountFailures(
+  route: string,
+  block: ArticleObservation['titleBlock'],
+  facts: TitleSheetSourceFacts,
+): string[] {
+  const failures: string[] = [];
+  const expected = facts.citationIds.length;
+  if (block.citationCount === null) {
+    failures.push(`${route} prints no citation count`);
+  } else if (block.citationCount !== expected) {
+    failures.push(
+      `${route} claims ${block.citationCount} citation(s) where its resolved References list holds ${expected}`,
+    );
+  }
+  if (block.citationCountText !== String(expected)) {
+    failures.push(
+      `${route} shows the reader "${block.citationCountText}" citations, not "${expected}"`,
+    );
+  }
+  const rendered = block.bibliographyIds;
+  if (rendered.join('|') !== facts.citationIds.join('|')) {
+    const lost = facts.citationIds.filter((id) => !rendered.includes(id));
+    const extra = rendered.filter((id) => !facts.citationIds.includes(id));
+    failures.push(
+      `${route} renders a bibliography of ${rendered.length} entries that is not its resolved References list (${
+        lost.length > 0 ? `missing ${lost.join(', ')}; ` : ''
+      }${extra.length > 0 ? `unaccounted ${extra.join(', ')}; ` : ''}order ${
+        lost.length === 0 && extra.length === 0 ? 'differs' : 'aside'
+      })`,
+    );
+  }
+  return failures;
 }
 
 export type MeasureObservation = {
@@ -616,7 +884,7 @@ export function readingSheetVerdicts(
 
 /** A treatment reduced to the marks a reader can tell apart. */
 function treatmentSignature(
-  treatment: z.infer<typeof linkTreatmentSchema>,
+  treatment: z.infer<typeof linkVariantSchema>,
 ): string {
   return [
     treatment.colour,
@@ -628,18 +896,39 @@ function treatmentSignature(
 }
 
 /**
- * The four classes `VAL-B2-ART-003` names. A plain internal cross-reference
- * is collected too and travels in the observation, but it is not one of the
- * four and holding it apart from an external source would be a rule this
- * file invented: both are links to a document, and the row is about telling
- * a section address, a citation, a definition and a source apart.
+ * The four classes `VAL-B2-ART-003` names, and the collected kinds that
+ * realise each one. A plain internal cross-reference is collected too and
+ * travels in the observation, but it is not one of the four and holding it
+ * apart from an external source would be a rule this file invented: both
+ * are links to a document.
+ *
+ * "External sources" is realised by two kinds. Only 14 of 47 articles write
+ * a bare external URL in prose, so a population that recognised only that
+ * kind left the criterion's fourth class absent on 33 articles - and absent
+ * classes were tolerated by a floor of two. Every article's generated
+ * References list is the class's guaranteed realisation.
  */
-const DISTINGUISHED_LINK_KINDS = [
-  'section',
+const DISTINGUISHED_LINK_CLASSES = {
+  'section links': ['section'],
+  'inline citations': ['citation'],
+  'glossary definitions': ['glossary'],
+  'external sources': ['external', 'reference'],
+} as const;
+
+const DISTINGUISHED_LINK_KINDS = Object.values(
+  DISTINGUISHED_LINK_CLASSES,
+).flat() as readonly string[];
+
+/**
+ * The kinds §4.4 assigns the signal-blue-plus-underline source-path
+ * treatment: the inline citation chip, a bare external URL in prose, and
+ * every entry of the generated References list.
+ */
+const SIGNAL_BLUE_LINK_KINDS: readonly string[] = [
   'citation',
-  'glossary',
   'external',
-] as const;
+  'reference',
+];
 
 /**
  * `VAL-B2-ART-003`: the four link classes an article writes are told apart
@@ -658,46 +947,90 @@ export function linkTreatmentVerdicts(
   for (const route of evidence.articleRoutes) {
     const observation = at(evidence, route, DESKTOP_VIEWPORT_ID);
     const present = observation.linkTreatments.filter(
-      ({ count, kind }) =>
-        count > 0 &&
-        (DISTINGUISHED_LINK_KINDS as readonly string[]).includes(kind),
+      ({ count, kind }) => count > 0 && DISTINGUISHED_LINK_KINDS.includes(kind),
     );
     const failures: string[] = [];
-    if (present.length < 2) {
-      failures.push(
-        `${route} renders ${present.length} link class(es), too few for a distinguishability claim`,
-      );
-    }
-    const bySignature = new Map<string, string[]>();
-    for (const treatment of present) {
-      const signature = treatmentSignature(treatment);
-      bySignature.set(signature, [
-        ...(bySignature.get(signature) ?? []),
-        treatment.kind,
-      ]);
-    }
-    for (const [signature, kinds] of bySignature) {
-      if (kinds.length > 1) {
+    for (const [className, kinds] of Object.entries(
+      DISTINGUISHED_LINK_CLASSES,
+    )) {
+      if (
+        !present.some(({ kind }) => (kinds as readonly string[]).includes(kind))
+      ) {
         failures.push(
-          `${route} paints ${kinds.sort().join(' and ')} identically (${signature})`,
+          `${route} renders no ${className}, so one of the four classes the row tells apart is not on the page`,
         );
       }
     }
-    const glossary = present.find(({ kind }) => kind === 'glossary');
-    if (glossary && glossary.decorationStyle !== 'dotted') {
-      failures.push(
-        `${route} draws its glossary definitions with a ${glossary.decorationStyle} underline, which does not read as a definition`,
-      );
+    // Every distinct painting inside every class, not one sample per class.
+    // A class whose members disagree is reported by the collision that
+    // disagreement causes, which is the reader-visible harm.
+    const bySignature = new Map<string, Set<string>>();
+    for (const treatment of present) {
+      for (const variant of treatment.variants) {
+        const signature = treatmentSignature(variant);
+        bySignature.set(
+          signature,
+          (bySignature.get(signature) ?? new Set()).add(treatment.kind),
+        );
+      }
     }
-    const external = present.find(({ kind }) => kind === 'external');
-    if (
-      external &&
-      !SIGNAL_BLUE_FORMS.includes(
-        external.colour.toLowerCase() as (typeof SIGNAL_BLUE_FORMS)[number],
-      )
-    ) {
+    for (const [signature, kinds] of bySignature) {
+      const classes = new Set(
+        [...kinds].map(
+          (kind) =>
+            Object.entries(DISTINGUISHED_LINK_CLASSES).find(([, members]) =>
+              (members as readonly string[]).includes(kind),
+            )?.[0] ?? kind,
+        ),
+      );
+      if (classes.size > 1) {
+        failures.push(
+          `${route} paints ${[...classes].sort().join(' and ')} identically (${signature})`,
+        );
+      }
+    }
+    for (const treatment of present.filter(({ kind }) => kind === 'glossary')) {
+      for (const variant of treatment.variants) {
+        if (variant.decorationStyle !== 'dotted') {
+          failures.push(
+            `${route} draws ${variant.count} glossary definition(s) with a ${variant.decorationStyle} underline, which does not read as a definition`,
+          );
+        }
+      }
+    }
+    // §4.4 gives inline citations and source links one treatment: "inline
+    // citations and source links use signal blue plus underline", under a
+    // clause that "underline, label, or icon MUST supplement colour". Both
+    // halves are graded on every occurrence of all three kinds, including
+    // the generated References list, because the row requires treatments
+    // "matching their semantics" and not merely differing from each other:
+    // repainting the whole citation class one wrong colour keeps every
+    // class distinct while telling the reader the wrong thing.
+    let gradedSourcePathOccurrences = 0;
+    for (const treatment of present.filter(({ kind }) =>
+      SIGNAL_BLUE_LINK_KINDS.includes(kind),
+    )) {
+      for (const variant of treatment.variants) {
+        gradedSourcePathOccurrences += variant.count;
+        if (
+          !SIGNAL_BLUE_FORMS.includes(
+            variant.colour.toLowerCase() as (typeof SIGNAL_BLUE_FORMS)[number],
+          )
+        ) {
+          failures.push(
+            `${route} paints ${variant.count} ${treatment.kind} link(s) ${variant.colour}, not the signal blue §4.4 locks for inline citations and source links`,
+          );
+        }
+        if (!variant.decorationLine.includes('underline')) {
+          failures.push(
+            `${route} draws ${variant.count} ${treatment.kind} link(s) with text-decoration-line "${variant.decorationLine}", so colour is the only mark separating a source path from surrounding text`,
+          );
+        }
+      }
+    }
+    if (gradedSourcePathOccurrences === 0) {
       failures.push(
-        `${route} paints its external sources ${external.colour}, not the signal blue reserved for information paths`,
+        `${route} graded no citation, external or reference occurrence, so its source-path treatment was decided by an empty population`,
       );
     }
     verdicts.set(route, { id: route, observed: present, failures });
@@ -864,18 +1197,77 @@ export function proseFaceVerdicts(
 export type RoleFaceObservation = {
   monoRequiredCount: number;
   interfaceControlCount: number;
+  controlsInProse: number;
   registrationLabelCount: number;
 };
 
 /**
+ * The sizes at which `library/design-system.md` specifies IBM Plex Mono for
+ * a control's own label: the `Data/control` row of §4.3 at 11-14px ("IBM
+ * Plex Mono where fixed-width scanning helps") and the `Registration label`
+ * row directly beneath it at 9-11px, which is the face §4.1 assigns to
+ * "labels, coordinates, sequence numbers, chart annotations" - the 10px tick
+ * captions and sort arrows an instrument's own controls carry.
+ */
+const MONO_CONTROL_SIZE_PX = { min: 9, max: 14 } as const;
+
+/**
+ * The registered `statePurpose` values whose controls carry an instruction
+ * rather than a value. §4.1 gives Plex Mono "code, values, source metadata,
+ * labels, coordinates, sequence numbers, chart annotations" and §10.1 gives
+ * an Action "a compact Tektur or IBM Plex Sans label": "Reset", "Step
+ * forward" and "Copy" name what pressing them does, so nothing about them
+ * is fixed-width data and §4.3's "where fixed-width scanning helps"
+ * allowance cannot reach them at any size.
+ *
+ * The other purposes - `persistent-selection`, `discrete-selection`,
+ * `input`, `information-path` - do carry values: a filter chip is the value
+ * it selects, a segmented button is one option of a compact group, a source
+ * link is the metadata it points at. Those keep the §4.3 band.
+ */
+const INSTRUCTION_STATE_PURPOSES = new Set(['action', 'unavailable-action']);
+
+/**
+ * Registered control ids whose label is an instruction, read from the
+ * sealed registry rather than listed here, so adding a control to the
+ * registry cannot silently create a face this row does not govern.
+ */
+function instructionControlIds(root: string): Set<string> {
+  const registry = JSON.parse(
+    readFileSync(join(root, 'contract', 'brand-v2-registries.json'), 'utf8'),
+  ) as { controls: Array<{ id: string; statePurpose: string }> };
+  const ids = new Set(
+    registry.controls
+      .filter(({ statePurpose }) => INSTRUCTION_STATE_PURPOSES.has(statePurpose))
+      .map(({ id }) => id),
+  );
+  if (ids.size === 0 || ids.size === registry.controls.length) {
+    throw new Error(
+      `the control registry no longer splits instruction-labelled controls from value-labelled ones (${ids.size} of ${registry.controls.length})`,
+    );
+  }
+  return ids;
+}
+
+/**
  * `VAL-B2-TYPE-005`: the supporting faces sit where the contract assigns
  * them. Three populations, each discovered by what an element is rather than
- * by the face it wears: code and sample elements, interface controls outside
- * the reading column, and the registration labels that name measured values.
+ * by the face it wears: code and sample elements, every control a reader can
+ * operate, and the registration labels that name measured values.
+ *
+ * The criterion reads "Interface copy and controls compute to IBM Plex Sans;
+ * code, source metadata, technical values, and registration labels compute
+ * to IBM Plex Mono WHERE SPECIFIED", so the mono side is whatever the design
+ * system specifies. §4.3 specifies a `Data/control` role at 11-14px in Plex
+ * Mono, which is the instrument-panel control label. A control is therefore
+ * graded against Plex Sans unless it sits inside that specified band, and
+ * any third face - Tektur, Newsreader, a system fallback - fails outright.
  */
 export function roleFaceVerdicts(
   evidence: ArticleRuntimeEvidence,
+  root: string = process.cwd(),
 ): Map<string, Verdict<RoleFaceObservation>> {
+  const instructionIds = instructionControlIds(root);
   const verdicts = new Map<string, Verdict<RoleFaceObservation>>();
   for (const route of evidence.routes) {
     const observation = at(evidence, route, DESKTOP_VIEWPORT_ID);
@@ -888,11 +1280,21 @@ export function roleFaceVerdicts(
       }
     }
     for (const control of observation.interfaceControls) {
-      if (!control.familyHead.includes(PLEX_SANS_HEAD)) {
+      if (control.familyHead.includes(PLEX_SANS_HEAD)) continue;
+      if (instructionIds.has(control.controlId)) {
         failures.push(
-          `${route} sets the control "${control.text}" in ${control.familyHead}, not IBM Plex Sans`,
+          `${route} sets the control "${control.text}" (<${control.tag}>, ${control.sizePx}px, ${control.controlId}) in ${control.familyHead}: a control registered to act carries an instruction, not a value, and computes to IBM Plex Sans at every size`,
         );
+        continue;
       }
+      const dataControl =
+        control.familyHead.includes(PLEX_MONO_HEAD) &&
+        control.sizePx >= MONO_CONTROL_SIZE_PX.min &&
+        control.sizePx <= MONO_CONTROL_SIZE_PX.max;
+      if (dataControl) continue;
+      failures.push(
+        `${route} sets the control "${control.text}" (<${control.tag}>, ${control.sizePx}px) in ${control.familyHead}, which is neither IBM Plex Sans nor the specified ${MONO_CONTROL_SIZE_PX.min}-${MONO_CONTROL_SIZE_PX.max}px Plex Mono data/control or registration-label role`,
+      );
     }
     for (const label of observation.registrationLabels) {
       if (!label.familyHead.includes(PLEX_MONO_HEAD)) {
@@ -906,20 +1308,50 @@ export function roleFaceVerdicts(
       observed: {
         monoRequiredCount: observation.monoRequired.length,
         interfaceControlCount: observation.interfaceControls.length,
+        controlsInProse: observation.interfaceControls.filter(
+          ({ inProse }) => inProse,
+        ).length,
         registrationLabelCount: observation.registrationLabels.length,
       },
       failures,
     });
   }
-  // A family of three populations that all emptied would leave every route
-  // passing on nothing at all.
+  // A family of populations that all emptied would leave every route
+  // passing on nothing at all. `controlsInProse` is counted separately
+  // because it is the half that used to be excluded outright: if the
+  // embedded instruments ever stop being collected, the sweep goes quiet
+  // rather than red. `instructionControls` and `valueControls` are counted
+  // separately for the same reason on the other axis: the split between
+  // them is what decides which face a control answers to, so a collector
+  // that stopped reading `data-brand-control-id` would move every control
+  // to one side and silently retire the other clause.
   const totals = evidence.observations.reduce(
     (sum, observation) => ({
       mono: sum.mono + observation.monoRequired.length,
       controls: sum.controls + observation.interfaceControls.length,
+      controlsInProse:
+        sum.controlsInProse +
+        observation.interfaceControls.filter(({ inProse }) => inProse).length,
+      instructionControls:
+        sum.instructionControls +
+        observation.interfaceControls.filter(({ controlId }) =>
+          instructionIds.has(controlId),
+        ).length,
+      valueControls:
+        sum.valueControls +
+        observation.interfaceControls.filter(
+          ({ controlId }) => controlId !== '' && !instructionIds.has(controlId),
+        ).length,
       labels: sum.labels + observation.registrationLabels.length,
     }),
-    { mono: 0, controls: 0, labels: 0 },
+    {
+      mono: 0,
+      controls: 0,
+      controlsInProse: 0,
+      instructionControls: 0,
+      valueControls: 0,
+      labels: 0,
+    },
   );
   for (const [name, total] of Object.entries(totals)) {
     if (total === 0) {

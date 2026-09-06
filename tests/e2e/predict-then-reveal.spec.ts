@@ -1,5 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test, type Page } from '@playwright/test';
+import { forEachInOwnContext } from './helpers/per-route-context';
 import { settleTransitions } from './settle';
 
 /**
@@ -463,40 +464,44 @@ test.describe('prediction step (PredictThenReveal)', () => {
    * exactly 8 render a prediction step and none renders two. The route
    * list is derived from the module registry, not hardcoded.
    */
-  test('corpus sweep: exactly 8 published routes render a prediction step (VAL-EDU-016)', async ({ page }) => {
+  test('corpus sweep: exactly 8 published routes render a prediction step (VAL-EDU-016)', async ({ browser }) => {
     const { publishedModules } = await import('../../data/modules');
     const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
     // Registry-derived: no literal published count is pinned (it drifted
     // 42 -> 43 -> 47 across publishes); non-zero cardinality only.
     expect(routes.length).toBeGreaterThan(0);
     const carriers: Array<{ route: string; predicts: number; selfChecks: number }> = [];
-    for (const route of routes) {
+    await forEachInOwnContext(browser, routes, async (page, route) => {
       await page.goto(route);
       const predicts = await page.locator('[data-predict]').count();
       const selfChecks = await page.locator('[data-self-check]').count();
       expect(predicts, `${route}: more than one prediction step`).toBeLessThanOrEqual(1);
       if (predicts === 1) carriers.push({ route, predicts, selfChecks });
-    }
+    });
     expect(carriers.length).toBe(8);
     // On routes carrying both regions, the two are distinct elements with
     // distinct radio name values.
-    for (const { route } of carriers.filter((c) => c.selfChecks > 0)) {
-      await page.goto(route);
-      const names = await page.evaluate(() => {
-        const collect = (root: Element | null) =>
-          root
-            ? Array.from(root.querySelectorAll('fieldset input[type="radio"]')).map(
-                (e) => (e as HTMLInputElement).name,
-              )
-            : [];
-        const predict = collect(document.querySelector('[data-predict]'));
-        const check = collect(document.querySelector('[data-self-check]'));
-        return { predict, check };
-      });
-      expect(new Set([...names.predict]).size, `${route}: predict radios share no single name`).toBe(1);
-      expect(new Set([...names.check]).size, `${route}: self-check radios share no single name`).toBe(1);
-      expect(names.predict[0], `${route}: regions share a radio name`).not.toBe(names.check[0]);
-    }
+    await forEachInOwnContext(
+      browser,
+      carriers.filter((c) => c.selfChecks > 0),
+      async (page, { route }) => {
+        await page.goto(route);
+        const names = await page.evaluate(() => {
+          const collect = (root: Element | null) =>
+            root
+              ? Array.from(root.querySelectorAll('fieldset input[type="radio"]')).map(
+                  (e) => (e as HTMLInputElement).name,
+                )
+              : [];
+          const predict = collect(document.querySelector('[data-predict]'));
+          const check = collect(document.querySelector('[data-self-check]'));
+          return { predict, check };
+        });
+        expect(new Set([...names.predict]).size, `${route}: predict radios share no single name`).toBe(1);
+        expect(new Set([...names.check]).size, `${route}: self-check radios share no single name`).toBe(1);
+        expect(names.predict[0], `${route}: regions share a radio name`).not.toBe(names.check[0]);
+      },
+    );
   });
 
   /**
@@ -506,7 +511,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
    * registry, not hardcoded, so a region added on any published route is
    * visited here; the per-kind counts at the end are the drift guard.
    */
-  test('corpus sweep: option sets across all 14 regions (VAL-EDU-017, VAL-EDU-041)', async ({ page }) => {
+  test('corpus sweep: option sets across all 14 regions (VAL-EDU-017, VAL-EDU-041)', async ({ browser }) => {
     const HEDGE = /\b(only|could|may|might|unless|depends|typically|generally|usually|tends to|at least|roughly|approximately)\b/i;
     const FILLER = /\ball of the (above|these)\b|\bnone of the\b/i;
     const { publishedModules } = await import('../../data/modules');
@@ -521,7 +526,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     let selfCheckCount = 0;
     const predictRoutes: string[] = [];
     const selfCheckRoutes: string[] = [];
-    for (const route of routes) {
+    await forEachInOwnContext(browser, routes, async (page, route) => {
       await page.goto(route);
       const regions = page.locator('[data-predict], [data-self-check]');
       const count = await regions.count();
@@ -577,7 +582,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
           selfCheckRoutes.push(route);
         }
       }
-    }
+    });
     // Non-zero cardinality before the property assertions: a sweep that
     // matched zero regions fails here rather than passing vacuously.
     expect(regionCount, 'sweep visited no regions on any published route').toBeGreaterThan(0);
@@ -639,7 +644,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
    * from the module registry, not hardcoded, and the per-kind counts at
    * the end catch a region added on any published route.
    */
-  test('corpus sweep: cited answers and non-templated text (VAL-EDU-018, VAL-EDU-019)', async ({ page }) => {
+  test('corpus sweep: cited answers and non-templated text (VAL-EDU-018, VAL-EDU-019)', async ({ browser }) => {
     const { publishedModules } = await import('../../data/modules');
     const { getCitation } = await import('../../data/citations');
     const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
@@ -652,7 +657,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
     let selfCheckCount = 0;
     const predictRoutes: string[] = [];
     const selfCheckRoutes: string[] = [];
-    for (const route of routes) {
+    await forEachInOwnContext(browser, routes, async (page, route) => {
       await page.goto(route);
       const regions = page.locator('[data-predict], [data-self-check]');
       const count = await regions.count();
@@ -747,7 +752,7 @@ test.describe('prediction step (PredictThenReveal)', () => {
           set.set(key, route);
         }
       }
-    }
+    });
     // Non-zero cardinality before the totals: a sweep that matched zero
     // regions fails here rather than passing vacuously.
     expect(

@@ -236,8 +236,19 @@ export function figureKind(image: SiteImage): FigureKind {
   );
 }
 
-/** The §1.13 legal basis, declared or derived from the recorded licence. */
+/**
+ * The §1.13 legal basis, declared or derived from the recorded licence.
+ *
+ * A company mark is not covered by the licence its file happens to carry.
+ * §1.13 says "Company marks use `official-identification-use`" without
+ * qualification, and `VAL-B2-IMG-008` calls it "the distinct
+ * official-identification-use path in VAL-B2-MAP-010" that marks use ONLY.
+ * Falling back to the licence map published a mark carrying `apache-2.0`
+ * as resting on `cc-by`, which is a claim about somebody else's trademark
+ * that the contract does not let this repository make.
+ */
 export function legalBasis(image: SiteImage): LegalBasis {
+  if (isCompanyMarkFile(image.file)) return 'official-identification-use';
   return image.legalBasis ?? LEGAL_BASIS_BY_LICENCE[image.licence];
 }
 

@@ -123,7 +123,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
             type="button"
             onClick={() => move(-1)}
             disabled={step <= 0}
-            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40"
           >
             Step back
           </button>
@@ -133,7 +133,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
             type="button"
             onClick={() => move(1)}
             disabled={step >= DENOISING_STEPS}
-            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40"
+            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40"
           >
             Step forward
           </button>
@@ -142,7 +142,7 @@ export function DenoisingLoop({ defaultStep = 0, className }: DenoisingLoopProps
             data-pagefind-ignore
             type="button"
             onClick={() => setStep(defaultStep)}
-            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+            className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
           >
             Reset
           </button>

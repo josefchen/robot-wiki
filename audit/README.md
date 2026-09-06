@@ -1,53 +1,330 @@
 # Content-integrity audit trail
 
+## Current acceptance status
+
+The article audit is **not accepted**. Article-ID coverage did not establish
+complete per-claim evidence. The earlier checker accepted a citation ID,
+locator, document nickname, or internal-basis token anywhere in a row as if
+that supplied the complete record. It did not.
+
+Each claim table now requires separate `Citation ID`, `Source URL fetched`,
+and `Supporting passage` columns, in addition to claim text and verdict.
+The citation cell must identify one registered source. The URL is the
+document actually fetched, and the passage is the text actually read there.
+A source title, section pointer, or quotation in a generic note is not
+automatically promoted into those fields. Filling the fields remains an
+audit task, not a string-copying operation. Structural completeness alone
+also does not prove that a passage supports its claim.
+
+`npm run check:audit-coverage -- --json` reports the current record gaps.
+`npm run check:audit-coverage -- --write-summaries` regenerates each domain's
+row-unit summary without changing claim text, evidence, or verdicts. It
+still exits nonzero while any claim lacks the required record. Those
+generated summaries distinguish recorded verdicts from complete evidence.
+Missing source passages must be recovered from sources, never invented.
+
+The earlier narrative and counts in the historical sections below are
+retained as historical audit claims, not current acceptance evidence.
+The original tooling/accounting repair re-fetched no source, changed no
+article prose, and moved no `lastReviewed` date.
+
+### Current structured-record counts (integration batch 2, 2026-09-06)
+
+Counting unit: parsed article claim rows, **not** source documents, historical
+verdicts, datasets or citation-registry entries.
+
+| Domain | Articles with records | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|---:|
+| manipulation | 12 | 225 | 4 | 221 |
+| rl-sim2real | 7 | 167 | 13 | 154 |
+| world-models | 5 | 92 | 4 | 88 |
+| data-hardware | 6 | 128 | 3 | 125 |
+| classical | 7 | 187 | 0 | 187 |
+| frontier | 6 | 147 | 5 | 142 |
+| adjacent | 4 | 48 | 0 | 48 |
+| **Corpus** | **47** | **994** | **29** | **965** |
+
+**Not accepted.** Eighteen of nineteen explicitly prepared candidates are
+normalized: DreamerV3 3, Rudin 7, EVST 3, Marvel–Norcross 3 and OSHA 2.
+Frontier original row 200 is held because the current 850 mm wording omits
+the source's case-specific **at least** lower bound. This checkpoint makes
+no factual correction and does not repair the claim only in an evidence note.
+The eleven complete records at `0946948` are byte-identical; all 994 original
+ordered claim/source/verdict/note tuples and article populations survive.
+The two six-part P1 plans in `audit/compound-evidence.json` remain empty,
+unreviewed and incomplete, with their bindings untouched.
+
+The articles with complete evidence records are:
+
+| Article | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|
+| bc-foundations | 14 | 3 | 11 |
+| action-chunking | 32 | 1 | 31 |
+| rl-for-robotics | 52 | 10 | 42 |
+| why-rl-locomotion | 12 | 1 | 11 |
+| parallel-sim-rl | 18 | 1 | 17 |
+| reward-design-mpc | 23 | 1 | 22 |
+| taxonomy | 20 | 1 | 19 |
+| latent-dynamics | 21 | 3 | 18 |
+| industrial-deployment | 52 | 3 | 49 |
+| safety-and-assurance | 40 | 5 | 35 |
+
+Each new record contains its registered citation ID, actual fetched URL,
+sufficient supporting text, source identity and observed historical retrieval
+provenance. Completed source-worker identity, offset and hash checks were
+reused after packet-hash and current-row/article checks; no document was
+refetched. Dreamer task counts use arXiv v2 (17 April 2024), and its Nature
+publication uses the distinct version-of-record title and 2 April 2025 date.
+Rudin's unversioned full text is not relabelled as a pinned revision; bounds,
+hardware and policy-update versus physics-step units remain explicit.
+EVST is first-party vendor guidance, not independent market measurement.
+Marvel–Norcross is a research manuscript, not fetched normative ISO/IEC text.
+OSHA supplies the whole existing occupancy claim, not 2025 ISO clauses.
+
+Unapplied findings remain blocked: the other nine Dreamer dispositions;
+Rudin's original 172/236/337 corrections and 336 conflict; frontier's
+850 mm lower bound and separate 1.6/2.0 m/s source inconsistency; prior
+DAgger and TD3 corrections; and missing-source/compound records.
+Production MDX, citations, data, code, tests and article `lastReviewed`
+are unchanged. No prose-humanizer pass applies; audit accounting received
+a manual read. No build, browser/export, full-unit or citation-network gate
+is rerun for ownership. Prior unchanged typecheck/lint and three-file
+117-test audit evidence at `0946948` are reused, not presented as new runs.
+A local checkpoint is not permission to publish or advance Mission state.
+
+#### Observed batch-2 checks
+
+All invocations used `NODE_DISABLE_COMPILE_CACHE=1`, sequentially:
+
+- Pure current-tree preservation check: exit 0. All 47 article sections,
+  994 original tuples, 1,163 original table-line prefixes, 1,167 integrated
+  table lines and eleven byte-identical complete records survive. Eighteen
+  additions produce 29 complete / 965 incomplete records, with zero summary
+  failures. The compact ordered-tuple projection SHA-256 remains
+  `ea9322cafaec5a09303d8b70803df2d69566bc902382831977e2159b56c72f5c`.
+  Canonical frontmatter was supplied to the current compound loader; both
+  empty P1 plans, their bindings and the protected owner files are unchanged.
+- `npm run test -- tests/unit/audit-ledger.test.ts`: exit 0, one file,
+  **73 passed**, zero failed.
+- `npm run validate:content`: exit 1. Schema/content passed for 47 published
+  modules, 412 citations, 119 terms, 118 images and 111 companies. Source-only
+  no-slop passed for 47 MDX files with 14 quotation exceptions; chart
+  descriptions passed for 48 mounts in 43 files and 48 descriptions.
+  The original piped audit log lacks its final count and remains an incomplete
+  capture, not a complete count receipt.
+- `node scripts/check-audit-coverage.ts`, with output directed to a regular
+  file: exit 1, **968 findings** (965 incomplete claim records plus three
+  aggregate evidence-field failures). Only this offline substep was repeated
+  to recover the missing terminal count; schema/no-slop/chart checks were not
+  rerun. Article membership is 47/47 and citation-ledger membership 412/412;
+  nine separately named unresolved citation checks remain unaltered.
+- Independent `git diff --check`: exit 0, no whitespace errors.
+
+These are local normalization checks, not independent Mission validation.
+No source was refetched and no source contradiction was resolved. An initial
+packet-receipt check stopped before product writes because Rudin's verifier
+had hashed its redirected stdout log before printing the final receipt.
+The final log reports exit 0 and matches every corresponding `checks.json`
+field; all source/candidate/offset artifact hashes match. That bookkeeping
+failure and the incomplete content-gate capture are preserved, not relabelled.
+
+### Historical integration batch 1 structured-record counts (2026-09-06)
+
+Counting unit: parsed article claim rows, **not** distinct documents,
+historical verdicts, dataset rows, or citation-registry entries.
+
+| Domain | Articles with records | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|---:|
+| manipulation | 12 | 225 | 4 | 221 |
+| rl-sim2real | 7 | 167 | 6 | 161 |
+| world-models | 5 | 92 | 1 | 91 |
+| data-hardware | 6 | 128 | 0 | 128 |
+| classical | 7 | 187 | 0 | 187 |
+| frontier | 6 | 147 | 0 | 147 |
+| adjacent | 4 | 48 | 0 | 48 |
+| **Corpus** | **47** | **994** | **11** | **983** |
+
+**Not accepted.** This integrated checkpoint combines three completed
+source-recovery slices, not three accepted domain audits. The existing
+registry-aware parser derives all counts above. The 11 complete records
+retain nine recorded-verified and two previously corrected dispositions;
+no historical verdict was promoted and no new production correction was
+applied. All 994 original ordered claim/source/verdict/note records and
+their article populations are preserved against `2cf7d6b`.
+
+The recovered article populations are:
+
+| Article | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|
+| bc-foundations | 14 | 3 | 11 |
+| action-chunking | 32 | 1 | 31 |
+| rl-for-robotics | 52 | 6 | 46 |
+| latent-dynamics | 21 | 1 | 20 |
+
+Source identity, actual passages, and observed retrieval provenance remain
+in the individual ledgers. RL reused four preserved ar5iv bodies fetched
+at the September 6 00:22 UTC session event; the old curl result records
+sizes and exit 0, not HTTP status. DAgger used new FetchUrl responses
+observed at 18:04:33.917Z and 18:04:42.594Z, with reported status 200.
+Dreamer used FetchUrl responses observed at 18:12:13.364Z; only V1
+completes a row. The V3 ar5iv HTTP-200 conversion-error page is not source
+proof, and V2 is not substituted for V1 or V3. Integration made no new
+source request. The remaining-source candidate manifest is planning only,
+not claim verification.
+
+Unresolved production findings remain explicit: TD3's "fixed it"
+overstatement in `rl-sim2real.md`; the unqualified DAgger linear task-cost
+bound, horizon-dependent `u`, and true-versus-empirical epsilon distinction
+in `manipulation.md`; and the Dreamer V1/V3 source attribution, unsupported
+"entire source of the sample efficiency" strengthening, missing V3 body,
+and publication/version boundaries in `world-models.md`. Multi-source
+metadata and compound rows remain incomplete. This audit-only integration
+does not alter article prose, citations, data, parser rules, tests, or
+`lastReviewed`, and does not resolve the separately recorded network gaps.
+
+Combined-tree preservation/source checks, the focused 30-test audit file,
+the content/audit invocation, and the independent whitespace check are
+recorded with exact HEAD, diff, and file hashes under
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/integration-batch1/`.
+Those invocation records, not the earlier six-record results below, are
+the integration evidence. No broad unit, typecheck, lint, build, browser,
+or network gate is rerun for this audit-only checkpoint. The content gate
+remains red. A local checkpoint is not permission to push, publish, accept
+the feature, or advance Mission validation state.
+
+### Historical four-paper checkpoint and ownership boundary
+
+The bounded CQL / robomimic / RLPD / TD3 recovery began at **0 complete /
+994 missing** and completed six existing rows in `rl-for-robotics`:
+that article is **6/52 complete, 46 missing**; the RL domain is **6/167
+complete, 161 missing**. At that checkpoint the corpus was **6 complete /
+988 missing**; the other six domains were unchanged. Every original
+claim, source, verdict and note cell and all article/row populations were
+retained. No source was fetched again; four preserved September 6 00:22 UTC
+ar5iv bodies were checked by identity, source passages, byte count and hash.
+The historical curl result did not record HTTP status, and no HTTP-200 or
+current-liveness claim is made.
+
+One direct TD3 row remains incomplete because "fixed it" overstates the
+paper's reduction/limitation result; its precise unapplied correction is
+recorded in `rl-sim2real.md`. The 27-source P1 batch and other multi-source
+rows remain incomplete rather than being assigned one convenient source.
+No production prose, citation, data, parser, test or `lastReviewed` changed.
+This is partial evidence recovery, **not article, feature or release acceptance**.
+The content gate remains red; no push or build is authorized by these counts.
+
+Recount with `NODE_DISABLE_COMPILE_CACHE=1 npm run check:audit-coverage -- --json`;
+the slice regenerated only the RL summary with the existing
+`parseLedger` / `withLedgerSummary` functions, not a global migration.
+
+Actual focused checks for this slice: `NODE_DISABLE_COMPILE_CACHE=1 npm run
+test -- tests/unit/audit-ledger.test.ts` passed all 30 tests in one file
+(exit 0). `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` passed
+schema/content, source-only no-slop and chart-description checks, then
+failed the audit with **991 findings: 988 incomplete claim rows plus three
+corpus field-count failures** (exit 1). All 47 article IDs and 412 citation
+ledger IDs reconcile; nine recorded network-check gaps remain separately
+named by that invocation, not re-probed or resolved here. No build, browser,
+full-unit, lint or typecheck rerun was performed.
+
+The subsequent final-preservation attempt failed on concurrent DAgger
+edits, before its chained `git diff --check` ran; it produced no successful
+final-verification artifact and no commit. The preserved read-only
+18:18:14.218Z ownership-boundary snapshot then observed **10 complete /
+984 missing**, with the README still at six. The failure log and
+`rl-four-paper-slice/concurrency-boundary.json` remain historical evidence.
+Only after all contributing workers stopped did the owner authorize this
+four-file integration and its separate checks. The old mutating RL helper
+was not rerun against the combined tree.
+
+## Historical coverage claims and counts
+
 This directory is the evidence trail for the claim in the wiki's README
 that every published article was checked against its cited primary
 sources. It exists so a reader can check that claim rather than take it
 on faith. The ledgers are committed to the repository alongside the
 content they vouch for, like `/research`.
 
-## What was audited
+### Earlier claimed coverage
 
-Every published article (all 42 across the seven domains), the four
+Every published article (all 47 across the seven domains), the four
 structured data files behind them (`data/methods.ts`,
 `data/hardware.ts`, `data/datasets.ts`, `data/teleop-rigs.ts`), the
-market-map dataset (`data/companies.ts`, 111 records), and every entry in
-the citation registry (`data/citations.ts`, 307 entries).
+market-map dataset (`data/companies.ts`, 111 records), and the whole
+citation registry (`data/citations.ts`, all 412 entries, re-audited
+end to end on 2026-09-06).
+
+That first sentence is now checkable rather than asserted. Five articles
+published on 2026-08-22 sat outside these ledgers for a fortnight while
+this page still said "every published article", because nothing compared
+the two sets. `npm run check:audit-coverage` derives the published set
+from the module registry and the audited set from the ledgers below, and
+fails when they disagree in either direction, when a domain's population
+is empty, when an article has a heading but no checked claim, or when a
+claim row names no source. It runs inside `npm run validate:content`, so
+publishing an article without auditing it now breaks the build.
+
+The citations row had the same defect one scope down and now has the same
+answer. The per-entry table in `citations.md` had covered 300 entries since
+2026-08-16 while the registry grew to 412, and the gap was tracked by a
+hand-written scope note. `lib/audit-citation-coverage.ts` reconciles the
+registry against that table in the same gate, so a citation entry with no
+audit row breaks the build too.
 
 | Ledger | Covers | Claims checked | Verified | Corrected | Cut | Unresolved |
 |---|---|---|---|---|---|---|
 | manipulation.md | 12 manipulation articles + methods.ts | 225 article rows (71+66+88) + 16 registry rows | 213 + 12 | 15 rows (13 distinct defects) | 0 | 0 |
-| rl-sim2real.md | 6 RL/sim2real/locomotion articles | 115 rows | 108 | 7 rows (6 defects) | 0 | 0 |
+| rl-sim2real.md | 7 RL/sim2real/locomotion articles | 115 + 52 rows | 108 + 43 | 7 rows (6 defects) + 8 rows | 0 | 1 |
 | world-models.md | 5 world-models articles | 92 rows | 76 | 16 rows (11 defects) | 0 | 0 |
-| data-hardware.md | 5 data/hardware articles + 4 data files | 84 rows | 57 | 25 rows (21 defects) | 2 | 0 |
-| classical.md | 5 classical articles | 79 rows | 73 | 6 | 0 | 0 |
-| frontier.md | 5 frontier articles + 4 lib files | 108 rows | 80 | 26 rows (24 defects) | 0 | 0 |
+| data-hardware.md | 6 data/hardware articles + 4 data files | 84 + 52 rows | 57 + 30 | 25 rows (21 defects) + 17 rows | 2 + 1 | 4 |
+| classical.md | 7 classical articles | 79 + 108 rows | 73 + 99 | 6 + 9 | 0 | 0 |
+| frontier.md | 6 frontier articles + 4 lib files | 108 + 40 rows | 80 + 37 | 26 rows (24 defects) + 1 row | 0 | 1 |
 | market-map.md | 111 company records + timeline | 98 ledger rows over 111 records | 14 V | 46 C (+21 C+N, and see ledger) | 1 record removed | 1 |
-| citations.md | 307 citation-registry entries | 307 | 303 (293 ok + 10 exceptions, 2026-08-18 run); 4 titles unavailable | see ledger | 0 | 0 |
+| citations.md | 412 citation-registry entries | 412 | 397 (378 ok + 19 exceptions, 2026-09-06 run); 5 titles unavailable | see ledger | 0 | 10 |
 | adjacent.md | 4 adjacent-domain articles | 48 rows | 47 | 1 | 0 | 0 |
-| **Total** | **42 articles + all structured data + full registry** | **1,172 rows** | **983** | **142 rows** (+21 market-map C+N) | **3** | **1** |
+| **Total** | **47 articles + all structured data + full registry** | **1,529 rows** | **1,286** | **177 rows** (+21 market-map C+N) | **4** | **17** |
 
 Counting unit for this table: ledger rows (the citations ledger counts
 registry entries, one per row of its table). Every cell above is counted
 from the ledger's own tables; the Total row is the column sum, shown
-exactly: 241+115+92+84+79+108+98+307+48 = 1,172 rows checked;
-225+108+76+57+73+80+14+303+47 = 983 verified (the citations ledger's 303
-is its 293 ok plus 10 documented exceptions; the remaining 4 registry
-entries are counted in its 307 rows but sit outside the verified column
-because their titles were unavailable to the checker — 293 + 10 + 4 =
-307);
-15+7+16+25+6+26+46+0+1 = 142 corrected rows, plus the market-map ledger's
+exactly: 241+167+92+136+187+148+98+412+48 = 1,529 rows checked;
+225+151+76+87+172+117+14+397+47 = 1,286 verified (the citations ledger's
+397 is its 378 ok plus 19 documented exceptions; 5 more entries are
+counted in its 412 rows but sit outside the verified column because their
+titles were unavailable to the checker, and 10 are unresolved — 378 + 19 +
+5 + 10 = 412);
+15+15+16+42+15+27+46+0+1 = 177 corrected rows, plus the market-map ledger's
 21 combined C+N rows that its own summary reports separately.
 
+The four domain figures that changed carry a 2026-09-06 reseal addendum in
+their own ledger, adding 252 rows over the five articles published on
+2026-08-22 (rl-for-robotics 52, perception 59, scene-representation 49,
+industrial-deployment 52, safety-and-assurance 40): 209 verified, 35
+corrected, 1 cut, 6 unresolved, and 1 source inconsistency, which is the
+verdict class this table has never had a column for (frontier already
+carried 2). Three unresolved rows and the S row are named findings, not
+skipped work: each says in its own row which source was fetched and why it
+does not settle the claim.
+
+`check:audit-coverage` counts a smaller number than this table for two
+ledgers, and the difference is a convention, not a disagreement. It counts
+only rows under an article heading, so the 16 manipulation registry rows,
+the 4 data-hardware data-file rows and the frontier registry-sweep row are
+outside its population; it reports 994 article rows where this table
+reports 1,529 rows over a wider scope. The citation registry is the same
+scope in both: 412 rows here, and the `citations 412/412` line the gate
+prints.
+
 (Derivability note for the citations row, stated on this page per the
-convention above: the 307 registry entries break down as 293 title-verified
-+ 10 documented exceptions + 4 titles-unavailable. The per-entry table in
-`citations.md` predates 7 later additions and covers 300 of the 307; those
-7 are verified as claim-level sources in their own domain ledgers and are
-covered by the 2026-08-18 re-run of both checkers, as the ledger's scope
-note records. So 303, not 307, is the figure derivable from the verdict
-columns alone, and the 4-entry gap is named here rather than left for the
-reader to discover in `citations.md`.)
+convention above: the 412 registry entries break down as 378 title-verified
++ 19 documented exceptions + 5 titles-unavailable + 10 unresolved. The
+per-entry table in `citations.md` now has one row per registry entry, and
+`check:audit-coverage` fails if that stops being true, so the row is
+derivable from the ledger rather than from a note. The 10 unresolved are
+listed by id and by reason in the ledger's 2026-09-06 re-audit section:
+one year disagreement reported as a title mismatch, three pages whose
+title is not the document's, three hosts that did not answer, and three
+bot walls with no DOI to fall back on. None is a dead link.)
 
 (The market-map totals count ledger rows, each row naming at least one
 record; several records were verified, corrected and nulled in one row, so
@@ -176,7 +453,7 @@ existed; re-cited via Teslarati). The 2026-08-18 sweep found no others.
 
 ```bash
 npm run validate:content    # content-pipeline validation; prints the live corpus
-                            # counts (42 modules, 307 citations, 111 companies)
+                            # counts (47 modules, 412 citations, 111 companies)
 npm run check:links             # liveness of every registry URL (bot-walls via Crossref)
 npm run check:citations         # identity: fetched title vs registry title, per entry
 npm run check:dataset-sources   # liveness of every market-map company source URL
@@ -195,10 +472,26 @@ transient-error exceptions such as the Sutton archival mirror's
 intermittent TLS resets (a single passing fetch is not evidence an
 intermittent failure went away).
 
-Last clean run: 2026-08-18 — check:links 307 checked, 301 live (20
-verified via Crossref), 0 dead, 0 blocked, 0 error, 6 documented
-exceptions; check:citations 293 ok (46 via Crossref) + 10 documented
-exceptions, 4 titles unavailable, 0 mismatches.
+Last full run: 2026-09-06 — check:citations 412 checked, 378 ok (73
+verified via Crossref) + 19 documented exceptions, 5 titles unavailable, 4
+title mismatches, 0 dead, 3 blocked, 3 error, 2 archival captures; exit 1
+on the ten unresolved entries the ledger names. Not clean, and not
+claimed to be. `check:links` was re-run over the same 412 entries on
+2026-09-06: 391 live (26 verified via Crossref), **0 dead**, 3 blocked
+(technology-org-deployed-2026, a3-orders-2025, kroger-ocado-closures-2025),
+3 error (ng-reward-shaping-1999, astrom-murray-2008, mcgee-schmidt-1985),
+15 documented exceptions; exit 1 on those six. All six are inside the ten
+unresolved ids `check:audit-coverage` already prints, so the two network
+gates agree and neither reports link rot. The earlier note here said this
+sweep had not been run at 412 entries, which was true when written and is
+the fourth stale scope sentence this ledger has carried; it is replaced by
+the measured run rather than amended.
+
+Operational note: `check:links` does complete in this harness when it is
+launched detached (about 100 seconds for 412 URLs), the same finding
+`check:citations` produced on 2026-09-06. Four earlier passes recorded it
+as unrunnable; that was a property of foreground invocation, not of the
+gate.
 
 The dataset-source gate made the market-map URL sweep reproducible for the
 first time (it was previously a one-off `curl` pass). Its first full run
@@ -303,7 +596,9 @@ honestly as Sharpa's own release on a wire. Recounted from the committed
 = 34 + 106 + 54 + 24 = 218**, superseding the 215 above. All three URLs were
 probed live with the gate's own browser user agent before being written.
 
-## Unresolved items
+## Historical: Unresolved items
+
+This earlier market-map note is not the current article/citation gap count.
 
 Exactly one, recorded in `market-map.md`: the eka-robotics /
 foundry-robotics funding fields rest on sources that could not be fetched

@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { IMAGES, licenceLabel } from '../../data/images';
 import { CREDIT_NOUNS } from '../../data/schemas/image';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { forEachInOwnContext } from './helpers/per-route-context';
 import { settleTransitions } from './settle';
 
 /**
@@ -340,7 +341,7 @@ test.describe('licensed imagery', () => {
   });
 
   test('share-alike images state their own licence, never the site licence', async ({
-    page,
+    browser,
   }) => {
     // The two CC BY-SA entries must show CC BY-SA 4.0 in their credit and
     // on /credits; nothing on an image-bearing page may claim CC BY 4.0
@@ -353,7 +354,7 @@ test.describe('licensed imagery', () => {
     };
     for (const image of shareAlike) {
       const routes = [articleRoutes[image.id], '/credits/'].filter(Boolean);
-      for (const route of routes) {
+      await forEachInOwnContext(browser, routes, async (page, route) => {
         await page.goto(`${BASE}${route}`);
         const credit = page
           .locator('main [data-image-credit]')
@@ -369,7 +370,7 @@ test.describe('licensed imagery', () => {
         await expect(
           credit.getByRole('link', { name: 'CC BY-SA 4.0' }),
         ).toHaveAttribute('href', image.licenceUrl);
-      }
+      });
     }
   });
 });

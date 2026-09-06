@@ -7,6 +7,7 @@ import { getCitation } from '../../data/citations';
 import { publishedModules } from '../../data/modules';
 import { inlineCitationIds, moduleBody, resolveReferences } from '../../lib/references';
 import { WORDS_PER_MINUTE } from '../../lib/reading-time';
+import { forEachInOwnContext } from './helpers/per-route-context';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
@@ -96,12 +97,12 @@ test.afterAll(async () => {
 
 test.describe('Article header metadata', () => {
   test('every article shows its frontmatter last-reviewed date, unambiguous and machine-reconcilable (VAL-WIKI-013)', async ({
-    page,
+    browser,
   }) => {
     test.setTimeout(300_000);
     expect(published.length).toBeGreaterThan(0);
 
-    for (const m of published) {
+    await forEachInOwnContext(browser, published, async (page, m) => {
       await test.step(`${m.domain}/${m.slug}`, async () => {
         await page.goto(`${BASE}/${m.domain}/${m.slug}/`);
         const iso = frontmatterLastReviewed(m.domain, m.slug);
@@ -123,16 +124,16 @@ test.describe('Article header metadata', () => {
         expect(text).toBe(expectedDateText(iso));
         expect(text).not.toMatch(/^\d{1,4}[\/.]\d{1,2}[\/.]\d{1,4}$/);
       });
-    }
+    });
   });
 
   test('every header citation count equals the References entries actually rendered (VAL-WIKI-014)', async ({
-    page,
+    browser,
   }) => {
     test.setTimeout(300_000);
     const seenCounts = new Set<number>();
 
-    for (const m of published) {
+    await forEachInOwnContext(browser, published, async (page, m) => {
       await test.step(`${m.domain}/${m.slug}`, async () => {
         await page.goto(`${BASE}/${m.domain}/${m.slug}/`);
 
@@ -151,7 +152,7 @@ test.describe('Article header metadata', () => {
         expect(renderedCount).toBe(resolvedCount);
         seenCounts.add(headerCount);
       });
-    }
+    });
 
     // Not a hardcoded constant: the published set genuinely spans several
     // distinct citation counts.
@@ -159,7 +160,7 @@ test.describe('Article header metadata', () => {
   });
 
   test('reading time matches the rendered article at 200 wpm within a minute, varies, never degenerate (VAL-WIKI-015)', async ({
-    page,
+    browser,
   }) => {
     test.setTimeout(300_000);
     expect(WORDS_PER_MINUTE).toBe(200);
@@ -167,7 +168,7 @@ test.describe('Article header metadata', () => {
     const minutesByArticle = new Map<string, number>();
     const wordsByArticle = new Map<string, number>();
 
-    for (const m of published) {
+    await forEachInOwnContext(browser, published, async (page, m) => {
       const key = `${m.domain}/${m.slug}`;
       await test.step(key, async () => {
         await page.goto(`${BASE}/${key}/`);
@@ -185,7 +186,7 @@ test.describe('Article header metadata', () => {
         minutesByArticle.set(key, displayed);
         wordsByArticle.set(key, words);
       });
-    }
+    });
 
     // Varies between articles: not one constant value site-wide.
     const distinctMinutes = new Set(minutesByArticle.values());

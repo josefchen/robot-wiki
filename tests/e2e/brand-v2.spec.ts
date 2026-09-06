@@ -235,7 +235,8 @@ test.describe('brand-v2 core visual authority', () => {
    * reader used here.
    */
   test('every public route resolves the sealed palette exactly', async ({
-    page,
+    browser,
+    viewport,
     staticBase,
   }) => {
     test.setTimeout(600_000);
@@ -250,24 +251,38 @@ test.describe('brand-v2 core visual authority', () => {
       routes.map((route) => [route, expectedRoute]),
     );
     const observedByRoute: Record<string, Record<string, string>> = {};
+    let measured: { width: number; height: number } | null = null;
     for (const route of routes) {
-      const response = await page.goto(`${staticBase}${route}`);
-      expect(response?.status(), route).toBe(200);
-      const raw = await page.evaluate(readRootTokens, names);
-      observedByRoute[route] = Object.fromEntries(
-        names.map((name, index) => [name, canonicalToken(raw[index])]),
-      );
+      // One context per route, torn down before the next. A renderer keeps
+      // every document the page navigated away from (~26MB per route here),
+      // so a 61-route walk on one page spends over a gigabyte and kills a
+      // later test. The context is built inline rather than through
+      // tests/e2e/helpers/per-route-context.ts because this spec's import
+      // graph is hashed into its evidence fingerprint, and that closure
+      // refuses modules outside its scanned roots.
+      const context = await browser.newContext({ viewport });
+      const page = await context.newPage();
+      try {
+        const response = await page.goto(`${staticBase}${route}`);
+        expect(response?.status(), route).toBe(200);
+        const raw = await page.evaluate(readRootTokens, names);
+        observedByRoute[route] = Object.fromEntries(
+          names.map((name, index) => [name, canonicalToken(raw[index])]),
+        );
+        measured = page.viewportSize();
+      } finally {
+        await context.close();
+      }
     }
     expect(observedByRoute).toEqual(expected);
 
-    const viewport = page.viewportSize();
-    expect(viewport, 'the sweep must record the viewport it measured').not.toBe(
+    expect(measured, 'the sweep must record the viewport it measured').not.toBe(
       null,
     );
     const artifact = {
       version: 1,
       fingerprint: tokenEvidenceFingerprint(TOKEN_SOURCES),
-      viewport: viewport as { width: number; height: number },
+      viewport: measured as unknown as { width: number; height: number },
       properties: names,
       routes,
       observedByRoute,

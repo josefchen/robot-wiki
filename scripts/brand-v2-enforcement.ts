@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   evidenceResultSchema,
@@ -15,6 +15,27 @@ import {
   type PrimitiveRegistrySlice,
 } from '../lib/brand-v2-primitive-reconciliation.ts';
 import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
+import { testTitlesIn } from '../lib/test-title-index.ts';
+import {
+  ARTICLE_TRUTH_MANIFEST_KINDS,
+  ARTICLE_TRUTH_POPULATION_SOURCE,
+  articleTruthPopulation,
+  articleTruthVerdicts,
+  type ArticleTruthKind,
+  type ArticleTruthManifests,
+} from '../lib/brand-v2-baseline-truth.ts';
+import { collectArticleTruthManifests } from './brand-v2-baseline.ts';
+import type { ApprovedDelta } from '../lib/brand-v2-baseline.ts';
+import {
+  LINK_SAFETY_EVIDENCE_PATH,
+  LINK_SAFETY_POPULATION_SOURCE,
+  LINK_SAFETY_SWEEP_MODULE,
+  censusOutboundAnchors,
+  exportedRoutes,
+  linkSafetyFingerprint,
+  linkSafetyRouteMembers,
+  readLinkSafetyEvidence,
+} from '../lib/brand-v2-link-safety.ts';
 import { assetContentVerdicts } from '../lib/brand-v2-asset-content.ts';
 import {
   ASSET_SEAL_PATH,
@@ -96,6 +117,8 @@ import {
   sectionHeadingMembers,
   sectionHeadingVerdicts,
   titleSheetResidueVerdicts,
+  READING_TIMES_PATH,
+  titleSheetSourceFacts,
   titleSheetVerdicts,
 } from '../lib/brand-v2-article-evidence.ts';
 import {
@@ -114,7 +137,9 @@ import {
   furnitureReachVerdicts,
   readApparatusRuntimeEvidence,
   referenceSheetVerdicts,
+  RELATIONSHIP_BASELINE_PATH,
   relationshipPreservationVerdicts,
+  relationshipSourceDrift,
   termAffordanceVerdicts,
 } from '../lib/brand-v2-apparatus-evidence.ts';
 import {
@@ -134,6 +159,7 @@ import {
   firstPartyImageryVerdicts,
   firstPartySvgMembers,
   materialHonestyVerdicts,
+  readMaterialPaints,
   originalSvgSemanticVerdicts,
   provenanceRecordVerdicts,
   reusableContentVerdicts,
@@ -150,6 +176,22 @@ import {
   MATERIAL_POPULATION_SOURCE,
   SCHEMATIC_OCCURRENCE_POPULATION_SOURCE,
 } from '../lib/figure-populations.ts';
+import {
+  TABLE_MATH_EVIDENCE_PATH,
+  TABLE_MATH_VIEWPORTS,
+  equationAccessibilityVerdicts,
+  equationOccurrenceMembers,
+  readTableMathEvidence,
+  tableContainmentVerdicts,
+  tableMathEvidenceFingerprint,
+  tableOccurrenceMembers,
+} from '../lib/brand-v2-table-math-evidence.ts';
+import {
+  EQUATION_OCCURRENCE_POPULATION_SOURCE,
+  TABLE_MATH_ASSERTION_ACTUALS,
+  TABLE_MATH_ASSERTION_POPULATION_SOURCES,
+  TABLE_OCCURRENCE_POPULATION_SOURCE,
+} from '../lib/table-math-populations.ts';
 import { readSectionSignatureRegistry } from '../lib/brand-v2-section-signatures.ts';
 import {
   HOME_TOOLS_EVIDENCE_PATH,
@@ -276,9 +318,31 @@ function isMeasured(id: string): boolean {
     ARTICLE_ASSERTIONS.has(id) ||
     APPARATUS_ASSERTIONS.has(id) ||
     FIGURE_RUNTIME_ASSERTIONS.has(id) ||
-    FIGURE_RECORD_ASSERTIONS.has(id)
+    FIGURE_RECORD_ASSERTIONS.has(id) ||
+    TABLE_MATH_ASSERTIONS.has(id) ||
+    ARTICLE_TRUTH_ASSERTIONS.has(id) ||
+    LINK_SAFETY_ASSERTIONS.has(id)
   );
 }
+
+/**
+ * The two dense-surface rows, routed to the two-width sweep of every
+ * published article's tables and equations.
+ *
+ * Membership grants nothing. Status and payload come from
+ * `evidence/brand-v2/article-tables-math.json` through a reader that throws
+ * on a stale fingerprint, the wrong viewports, a route set that disagrees
+ * with the module registry in either direction, a duplicate route/viewport
+ * pair, an empty page, an article whose own MDX carries math delimiters but
+ * which rendered no equation, and a sweep that found no table or no equation
+ * anywhere. Neither row is decidable from source: whether a table scrolls is
+ * a `scrollWidth` against the `clientWidth` a browser gave its container at
+ * one particular width, and an equation's accessible text is MathML that
+ * exists only after the pipeline has run.
+ */
+const TABLE_MATH_ASSERTIONS = new Set(
+  Object.keys(TABLE_MATH_ASSERTION_POPULATION_SOURCES),
+);
 
 /**
  * The wiki-apparatus preservation assertion, routed to the two-width sweep
@@ -731,6 +795,61 @@ const BASELINE = readJson(
   join(ROOT, 'evidence', 'brand-v2', 'baseline', 'baseline.json'),
 ) as { manifests: Record<string, unknown> };
 
+const APPROVED_DELTAS = (
+  readJson(join(ROOT, 'contract', 'brand-v2-approved-deltas.json')) as {
+    entries: ApprovedDelta[];
+  }
+).entries;
+
+/**
+ * `VAL-B2-BASE-002`'s evidence: the four article-truth manifests as the
+ * migration sealed them, against the same four rebuilt from the tree that is
+ * shipping now.
+ *
+ * This is recomputed on every run rather than read out of a stored result,
+ * because a preservation row whose actual side is a copy of its expected
+ * side can only detect drift away from the copy. `articleTruthVerdicts`
+ * throws on any difference no approved delta names, so the corpus cannot be
+ * regenerated green over an article whose facts moved.
+ */
+const ARTICLE_TRUTH_BASELINE = Object.fromEntries(
+  ARTICLE_TRUTH_MANIFEST_KINDS.map((kind) => [
+    kind,
+    (BASELINE.manifests as Record<string, ArticleTruthManifests[ArticleTruthKind]>)[
+      kind
+    ],
+  ]),
+) as ArticleTruthManifests;
+const ARTICLE_TRUTH_VERDICTS = articleTruthVerdicts({
+  baseline: ARTICLE_TRUTH_BASELINE,
+  current: collectArticleTruthManifests(),
+  deltas: APPROVED_DELTAS,
+});
+const ARTICLE_TRUTH_MEMBERS = articleTruthPopulation({
+  baseline: ARTICLE_TRUTH_BASELINE,
+  deltas: APPROVED_DELTAS,
+});
+
+/**
+ * `VAL-B2-BASE-007`'s evidence: the outbound-anchor census of the shipped
+ * export, re-derived here, plus the persisted keyboard trace that the census
+ * fingerprint pins to this exact export.
+ */
+const LINK_SAFETY_OUT = join(ROOT, 'out');
+const LINK_SAFETY_EXPORTED_ROUTES = exportedRoutes(LINK_SAFETY_OUT);
+const LINK_SAFETY_CENSUS = censusOutboundAnchors(LINK_SAFETY_OUT);
+const LINK_SAFETY_EVIDENCE = readLinkSafetyEvidence({
+  artifact: readJson(join(ROOT, LINK_SAFETY_EVIDENCE_PATH)),
+  census: LINK_SAFETY_CENSUS,
+  exportedRoutes: LINK_SAFETY_EXPORTED_ROUTES,
+  fingerprint: linkSafetyFingerprint({ root: ROOT, census: LINK_SAFETY_CENSUS }),
+});
+const LINK_SAFETY_BY_MEMBER = new Map(
+  LINK_SAFETY_EVIDENCE.routes.map((verdict) => [verdict.id, verdict]),
+);
+const LINK_SAFETY_ASSERTIONS = new Set(['VAL-B2-BASE-007']);
+const ARTICLE_TRUTH_ASSERTIONS = new Set(['VAL-B2-BASE-002']);
+
 const NAVIGATION_BASELINE = navigationBaselineMembers(
   BASELINE,
   readJson(join(ROOT, 'contract', 'brand-v2-approved-deltas.json')),
@@ -793,7 +912,10 @@ const ARTICLE_EVIDENCE = readArticleRuntimeEvidence({
  * the whole corpus rather than one row.
  */
 const ARTICLE_VERDICTS = {
-  'VAL-B2-ART-001': titleSheetVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-ART-001': titleSheetVerdicts(
+    ARTICLE_EVIDENCE,
+    titleSheetSourceFacts(ROOT),
+  ),
   'VAL-B2-ART-002': readingSheetVerdicts(ARTICLE_EVIDENCE),
   'VAL-B2-ART-003': linkTreatmentVerdicts(ARTICLE_EVIDENCE),
   'VAL-B2-ART-009': titleSheetResidueVerdicts(ARTICLE_EVIDENCE),
@@ -837,7 +959,11 @@ const APPARATUS_EVIDENCE = readApparatusRuntimeEvidence({
 });
 
 const APPARATUS_VERDICTS = {
-  'VAL-B2-ART-010': relationshipPreservationVerdicts(APPARATUS_EVIDENCE, ROOT),
+  'VAL-B2-ART-010': relationshipPreservationVerdicts(
+    APPARATUS_EVIDENCE,
+    ROOT,
+    relationshipSourceDrift(ROOT),
+  ),
 } as const satisfies Record<
   string,
   Map<string, { id: string; observed: unknown; failures: string[] }>
@@ -940,7 +1066,10 @@ const FIGURE_VERDICTS = {
   'VAL-B2-IMG-005': altTextAndDeliveryVerdicts(FIGURE_EVIDENCE),
   'VAL-B2-IMG-001': firstPartyImageryVerdicts(ASSET_ROWS),
   'VAL-B2-IMG-002': provenanceRecordVerdicts(ASSET_ROWS, ROOT),
-  'VAL-B2-IMG-004': materialHonestyVerdicts(MATERIAL_ROWS),
+  'VAL-B2-IMG-004': materialHonestyVerdicts(
+    MATERIAL_ROWS,
+    readMaterialPaints(ROOT, MATERIAL_ROWS),
+  ),
   'VAL-B2-IMG-008': reusableContentVerdicts(ASSET_ROWS),
   'VAL-B2-VIZ-014': originalSvgSemanticVerdicts(
     ASSET_ROWS,
@@ -951,6 +1080,27 @@ const FIGURE_VERDICTS = {
   string,
   Map<string, { id: string; observed: unknown; failures: string[] }>
 >;
+
+const TABLE_MATH_EVIDENCE = readTableMathEvidence({
+  artifact: readJson(join(ROOT, TABLE_MATH_EVIDENCE_PATH)),
+  fingerprint: tableMathEvidenceFingerprint({ root: ROOT }),
+  root: ROOT,
+});
+
+const TABLE_MATH_VERDICTS = {
+  'VAL-B2-ART-007': equationAccessibilityVerdicts(TABLE_MATH_EVIDENCE),
+  'VAL-B2-ART-008': tableContainmentVerdicts(TABLE_MATH_EVIDENCE),
+} as const satisfies Record<
+  string,
+  Map<string, { id: string; observed: unknown; failures: string[] }>
+>;
+
+const TABLE_MATH_POPULATIONS: Readonly<Record<string, string[]>> = {
+  [TABLE_OCCURRENCE_POPULATION_SOURCE]:
+    tableOccurrenceMembers(TABLE_MATH_EVIDENCE),
+  [EQUATION_OCCURRENCE_POPULATION_SOURCE]:
+    equationOccurrenceMembers(TABLE_MATH_EVIDENCE),
+};
 
 const FIGURE_POPULATIONS: Readonly<Record<string, string[]>> = {
   [FIGURE_OCCURRENCE_POPULATION_SOURCE]: figureOccurrenceMembers(FIGURE_EVIDENCE),
@@ -972,8 +1122,35 @@ function populationSources(assertionIds: string[]) {
     identityPopulations: IDENTITY_POPULATIONS,
     shellPopulations: SHELL_POPULATIONS,
     homePopulations: HOME_POPULATIONS,
-    articlePopulations: { ...ARTICLE_POPULATIONS, ...FIGURE_POPULATIONS },
+    articlePopulations: {
+      ...ARTICLE_POPULATIONS,
+      ...FIGURE_POPULATIONS,
+      ...TABLE_MATH_POPULATIONS,
+    },
   });
+}
+
+/**
+ * Every population the rows quantify over: the ones the shared builder
+ * assembles from the registries, plus the two migration-baseline rows whose
+ * sentences quantify over something narrower than "the eleven manifest
+ * classes".
+ *
+ * `VAL-B2-BASE-002` is a claim about article text, accessible names,
+ * per-article metadata and the relationship graph; `VAL-B2-BASE-007` is a
+ * claim about the outbound links the export ships. Recording either against
+ * the eleven manifest names would emit a row for a member the assertion
+ * never quantified over (R8a). They are merged here rather than added as a
+ * parameter of the shared builder because that module sits inside the
+ * closure every browser artifact fingerprints, so a signature change there
+ * would stale thirteen sweeps that measured nothing new.
+ */
+function allPopulationSources(assertionIds: string[]): Record<string, string[]> {
+  return {
+    ...populationSources(assertionIds),
+    [ARTICLE_TRUTH_POPULATION_SOURCE]: ARTICLE_TRUTH_MEMBERS,
+    [LINK_SAFETY_POPULATION_SOURCE]: linkSafetyRouteMembers(LINK_SAFETY_CENSUS),
+  };
 }
 
 function populationSourceFor(id: string): string {
@@ -989,6 +1166,8 @@ function populationSourceFor(id: string): string {
   if (apparatusSource) return apparatusSource;
   const figureSource = FIGURE_ASSERTION_POPULATION_SOURCES[id];
   if (figureSource) return figureSource;
+  const tableMathSource = TABLE_MATH_ASSERTION_POPULATION_SOURCES[id];
+  if (tableMathSource) return tableMathSource;
   if (id === SEMANTIC_ROLE_ASSERTION) {
     return SEMANTIC_TOKEN_POPULATION_SOURCE;
   }
@@ -1007,6 +1186,8 @@ function populationSourceFor(id: string): string {
     return TEKTUR_BINARY_POPULATION_SOURCE;
   }
   const area = id.split('-')[2];
+  if (ARTICLE_TRUTH_ASSERTIONS.has(id)) return ARTICLE_TRUTH_POPULATION_SOURCE;
+  if (LINK_SAFETY_ASSERTIONS.has(id)) return LINK_SAFETY_POPULATION_SOURCE;
   if (area === 'BASE') {
     return 'evidence/brand-v2/baseline/baseline.json#manifests';
   }
@@ -1065,6 +1246,15 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // The record rows are re-derived from the registry, the shipped bytes and
   // the sealed baseline manifest, with no page involved.
   if (FIGURE_RECORD_ASSERTIONS.has(id)) return 'automated-machine';
+  // A dense-surface row's evidence is a container's scroll geometry and an
+  // equation's MathML as a browser laid them out at two widths, so it is a
+  // browser-state row.
+  if (TABLE_MATH_ASSERTIONS.has(id)) return 'browser-state';
+  // Link safety is half bytes and half tab order, and the half that decides
+  // the row's hardest clause — whether a keyboard reaches every outbound
+  // link with a visible ring — exists only once a browser has laid the page
+  // out, so it is a browser-state row.
+  if (LINK_SAFETY_ASSERTIONS.has(id)) return 'browser-state';
   // A home row's evidence is what the built home page laid out at
   // 1440x900, so it is a browser-state row.
   if (HOME_ASSERTIONS.has(id)) return 'browser-state';
@@ -1431,6 +1621,17 @@ const SHELL_READER_TARGET = testTarget(
   'Proves the reader that gates every shell row throws on a stale fingerprint, a wrong viewport, a missing route, an empty page, a route with no discovered navigation, and an empty taxonomy ledger, and proves the current-route verdict fails a signal-blue mark, a colour-only difference, an unregistered marker and aria-current on a heading.',
 );
 
+const TABLE_MATH_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-article-tables-math.spec.ts',
+  'brand-v2 article tables, code, math and wide layouts › records every table and equation every published article renders, at both widths',
+  'Sweeps every published article in the built export at 375x812 and 1440x900, finds each table\'s real scrolling ancestor by walking up to the first computed scroll container rather than trusting a selector, proves the scroll by moving it and restoring it, checks the container is reachable by keyboard wherever it actually scrolls, and reads each equation\'s MathML, TeX annotation, hidden glyph layer and rendered face.',
+);
+const TABLE_MATH_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-table-math-evidence.test.ts',
+  'article table and math evidence > refuses stale, incomplete, and vacuous dense-surface evidence',
+  'Proves the reader that gates both dense-surface rows throws on a stale fingerprint, the wrong viewports, a route set that disagrees with the module registry in either direction, a duplicated route/viewport pair, an empty page, a math-bearing article that rendered no equation, and a sweep that found no table or no equation at all, and proves the verdicts fail an unreachable scroll container, a table wider than its viewport, an unnamed table, a raw-TeX leak, a document that overflows sideways and a root that hides the overflow instead.',
+);
+
 const MOBILE_SHELL_SWEEP_TARGET = testTarget(
   'tests/e2e/brand-v2-mobile-shell.spec.ts',
   'brand-v2 mobile header and drawer › every public route omits the descriptor from the compact header and traps the drawer in both directions',
@@ -1464,7 +1665,97 @@ const HOME_TOOLS_READER_TARGET = testTarget(
   'Proves the reader that gates the overflow row throws on a stale fingerprint, a wrong version, a wrong route, a wrong viewport, a sweep with no responsive measurement, no sibling mount, no playground graphic and no swept surface, and proves the per-route verdict fails a route measured at fewer than the declared widths as well as one whose document scrolled wider than its viewport.',
 );
 
+const FIGURE_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-figures.spec.ts',
+  'brand-v2 figures, diagrams and licensed imagery › sweeps every figure-bearing route at both widths',
+  'Sweeps every route the figure graph derives - published article bodies AND every statically rendered App Router page, so a figure mounted straight into a page component is in the population - at 375x812 and 1440x900, and records each figure occurrence with its rendered caption, credit, boundary, inverse labels and textual alternative.',
+);
+const FIGURE_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-figure-evidence.test.ts',
+  'the figure evidence reader > refuses a sweep taken against a different tree',
+  'Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one.',
+);
+
+/**
+ * The record rows are decided by `lib/brand-v2-image-record.ts` against the
+ * registry and the shipped bytes, and the tests that plant a defect in each
+ * of them live in one describe block. The rows used to name the asset census
+ * and the rendered-sweep reader: two real tests, neither of which reads a
+ * provenance record, a licence basis, a material rule or an SVG's geometry,
+ * so a row's named proof could pass with the clause it claims deleted.
+ */
+const FIGURE_RECORD_FILE = 'tests/unit/brand-v2-figure-evidence.test.ts';
+const FIGURE_RECORD_GREEN_TARGET = testTarget(
+  FIGURE_RECORD_FILE,
+  'the record rows > passes on the shipped registry and quantifies over the right members',
+  'Runs all five record verdict families over the shipped registry and the exported stylesheet, and proves each quantifies over its own population: every registered material resolves a paint rule, the editorial population excludes the 111 company marks, and the first-party SVG population is the two originals.',
+);
+const FIGURE_RECORD_MUTATION_TARGETS: Readonly<Record<string, TestTarget[]>> = {
+  'VAL-B2-IMG-001': [
+    testTarget(
+      FIGURE_RECORD_FILE,
+      'the record rows > VAL-B2-IMG-001 reports an asset whose provenance advertises synthesis',
+      'Renames a shipped original to a path carrying banned synthesis vocabulary and proves the first-party imagery verdict names it.',
+    ),
+  ],
+  'VAL-B2-IMG-002': [
+    testTarget(
+      FIGURE_RECORD_FILE,
+      'the record rows > VAL-B2-IMG-002 reports a recorded content hash the shipped file does not have',
+      'Replaces every editorial image’s recorded byte hash and proves the provenance verdict compares the record against the file the export ships.',
+    ),
+  ],
+  'VAL-B2-IMG-004': [
+    testTarget(
+      FIGURE_RECORD_FILE,
+      'the record rows > VAL-B2-IMG-004 reports a texture that claims to be a measurement',
+      'Rewrites a material’s treatment as a scan of a real workcell and proves the honesty verdict names the claim.',
+    ),
+    testTarget(
+      FIGURE_RECORD_FILE,
+      'the record rows > VAL-B2-IMG-004 reads the tile, ground and contrast the export ships',
+      'Reads each registered material’s painted rule out of the exported stylesheet rather than out of the registry, so a texture that is described but never painted cannot pass.',
+    ),
+  ],
+  'VAL-B2-IMG-008': [
+    testTarget(
+      FIGURE_RECORD_FILE,
+      'the record rows > VAL-B2-IMG-008 reports reusable content resting on no approved licence basis',
+      'Replaces every editorial image’s licence basis with one the criterion does not admit and proves the reusable-content verdict names each asset and the basis it now claims.',
+    ),
+  ],
+  'VAL-B2-VIZ-014': [
+    testTarget(
+      FIGURE_RECORD_FILE,
+      'the record rows > VAL-B2-VIZ-014 reports an original SVG whose geometry moved',
+      'Moves a sealed path in a first-party SVG and proves the semantic verdict compares the shipped geometry against the sealed baseline member.',
+    ),
+  ],
+};
+
 function testTargetsFor(id: string): TestTarget[] {
+  // Figure rows are decided by the figure sweep and its reader. They used to
+  // fall through to the generic route census and flow, so the corpus named a
+  // pair of tests that never look at a figure as the evidence for every
+  // figure claim.
+  if (FIGURE_RUNTIME_ASSERTIONS.has(id)) {
+    return [FIGURE_SWEEP_TARGET, FIGURE_READER_TARGET];
+  }
+  if (FIGURE_RECORD_ASSERTIONS.has(id)) {
+    const mutations = FIGURE_RECORD_MUTATION_TARGETS[id];
+    if (!mutations) {
+      throw new Error(
+        `${id} is a record row with no test that plants a defect in it, so the row would name only a green run`,
+      );
+    }
+    return [
+      // IMG-001 quantifies over the asset census, so the census
+      // reconciliation is part of what makes its population complete.
+      ...(id === 'VAL-B2-IMG-001' ? [ASSET_TARGET] : []),
+      FIGURE_RECORD_GREEN_TARGET,
+      ...mutations,
+    ];
+  }
   if (HOME_ASSERTIONS.has(id)) {
     return [HOME_SWEEP_TARGET, HOME_READER_TARGET];
   }
@@ -1482,6 +1773,9 @@ function testTargetsFor(id: string): TestTarget[] {
   }
   if (SHELL_ASSERTIONS.has(id)) {
     return [SHELL_SWEEP_TARGET, SHELL_READER_TARGET];
+  }
+  if (TABLE_MATH_ASSERTIONS.has(id)) {
+    return [TABLE_MATH_SWEEP_TARGET, TABLE_MATH_READER_TARGET];
   }
   if (MOBILE_SHELL_ASSERTIONS.has(id)) {
     return [MOBILE_SHELL_SWEEP_TARGET, MOBILE_SHELL_READER_TARGET];
@@ -2468,6 +2762,55 @@ const FIGURE_ASSERTION_ACTUALS: Readonly<Record<string, string>> = {
 };
 
 /**
+ * What the two-width dense-surface sweep recorded for one table or equation
+ * occurrence. Throws on a member the population does not hold and on a
+ * member whose reading fails the requirement: the generator has no way to
+ * write a red row, so a table that lost its scroll container, a scroll
+ * container that lost its tab stop, or an equation whose MathML disappeared
+ * has to stop the corpus rather than appear in it.
+ */
+function tableMathAssertionEvidence(
+  assertionId: string,
+  member: string,
+): IdentityEvidence {
+  const verdicts =
+    TABLE_MATH_VERDICTS[assertionId as keyof typeof TABLE_MATH_VERDICTS];
+  if (!verdicts) {
+    throw new Error(`${assertionId} has no dense-surface evidence branch`);
+  }
+  const verdict = verdicts.get(member);
+  if (!verdict) {
+    throw new Error(`${assertionId}: nothing was measured for ${member}`);
+  }
+  if (verdict.failures.length > 0) {
+    throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
+  }
+  // The member id is `route|viewport|shape#index`, so a member IS one
+  // viewport's observation. Naming both swept widths here claimed a
+  // measurement the row does not carry: the corpus said each table and each
+  // equation had been measured at 375x812 and 1440x900 when each row holds
+  // exactly one of them.
+  const memberViewport = member.split('|')[1] ?? null;
+  const viewport = TABLE_MATH_VIEWPORTS.find(
+    ({ id }) => id === memberViewport,
+  );
+  if (!viewport) {
+    throw new Error(
+      `${assertionId}: member "${member}" names no swept viewport, so the row cannot say where it was measured`,
+    );
+  }
+  return {
+    actual: `${member} ${TABLE_MATH_ASSERTION_ACTUALS[assertionId]}, measured at ${viewport.width}x${viewport.height}`,
+    computed: {
+      member,
+      measured: [{ id: verdict.id, observed: verdict.observed }],
+      viewports: [viewport.id],
+      evidence: [TABLE_MATH_EVIDENCE_PATH],
+    },
+  };
+}
+
+/**
  * What the apparatus sweep recorded for one article route. Throws on a route
  * the sweep did not visit and on a route whose reading fails the
  * requirement: the generator has no way to write a red row, so an article
@@ -2851,6 +3194,82 @@ function resultFor(
       payload: { kind: 'browser-state', computed: evidence.computed },
     };
   }
+  if (ARTICLE_TRUTH_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const verdict = ARTICLE_TRUTH_VERDICTS.get(member);
+    if (!verdict) {
+      throw new Error(`${assertionId}: ${member} has no article-truth verdict`);
+    }
+    return {
+      ...common,
+      actual:
+        verdict.status === 'identical'
+          ? `${verdict.kind} member ${verdict.baselineMemberId} hashes to ${verdict.baselineHash} in the current tree, the value the immutable migration baseline sealed`
+          : `${verdict.kind} member ${verdict.baselineMemberId} moved from ${verdict.baselineHash} to ${verdict.currentHash} exactly as approved delta ${verdict.deltaId ?? '(unnamed)'} permits: ${verdict.deltaReason ?? 'no reason recorded'}`,
+      payload: {
+        kind: 'source-build',
+        sourcePath: `evidence/brand-v2/baseline/${verdict.kind}.json`,
+        predicate: requirement,
+        observed: {
+          manifest: verdict.kind,
+          member: verdict.baselineMemberId,
+          baselineHash: verdict.baselineHash,
+          currentHash: verdict.currentHash,
+          status: verdict.status,
+          approvedDelta: verdict.deltaId,
+        },
+        tool: 'scripts/brand-v2-baseline.ts#collectArticleTruthManifests',
+      },
+    };
+  }
+  if (LINK_SAFETY_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const verdict = LINK_SAFETY_BY_MEMBER.get(member);
+    if (!verdict) {
+      throw new Error(`${assertionId}: ${member} has no link-safety verdict`);
+    }
+    return {
+      ...common,
+      actual: `${verdict.route} ships ${verdict.outboundAnchors} outbound anchor(s) across ${verdict.shapes.join(', ')}, every one carrying rel="noopener" and none removed from the tab order; the Tab key reached all ${verdict.reachedByTab} outbound anchor occurrences on it with a visible focus ring in ${verdict.tabStops} stops`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          route: verdict.route,
+          outboundAnchors: verdict.outboundAnchors,
+          distinctHrefs: verdict.distinctHrefs,
+          shapes: verdict.shapes,
+          anchorsWithoutNoopener: 0,
+          anchorsWithNoreferrer: verdict.anchorsWithNoreferrer,
+          reachedByTab: verdict.reachedByTab,
+          tabStops: verdict.tabStops,
+          keyboardRoutesWalked: LINK_SAFETY_EVIDENCE.keyboardRoutes.length,
+          evidence: [LINK_SAFETY_EVIDENCE_PATH],
+          tool: LINK_SAFETY_SWEEP_MODULE,
+        },
+      },
+    };
+  }
+  if (TABLE_MATH_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const evidence = tableMathAssertionEvidence(assertionId, member);
+    return {
+      ...common,
+      actual: evidence.actual,
+      payload: { kind: 'browser-state', computed: evidence.computed },
+    };
+  }
   if (FIGURE_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -2999,7 +3418,7 @@ function generate() {
     'utf8',
   );
   const assertions = extractBrandV2Assertions(contract);
-  const sources = populationSources(assertions.map(({ id }) => id));
+  const sources = allPopulationSources(assertions.map(({ id }) => id));
   const results: EvidenceResult[] = [];
   const rows: EnforcementMap['rows'] = assertions.map(
     ({ id, requirement }) => {
@@ -3045,8 +3464,18 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over ${canonicalPopulationSource}`
               : MOBILE_SHELL_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over ${canonicalPopulationSource}`
+              : id === 'VAL-B2-ART-001'
+              ? `${id} per-member evidence derived from the persisted ${ARTICLE_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every public route in the built export, reconciling each title sheet's review date, reading time and citation count - in the machine-readable spelling and in the words the reader is shown - against the frontmatter lastReviewed, the ${READING_TIMES_PATH} measurement and the resolved References list the template derives them from, over ${canonicalPopulationSource}`
               : ARTICLE_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${ARTICLE_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over ${canonicalPopulationSource}`
+              : TABLE_MATH_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the persisted ${TABLE_MATH_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over ${canonicalPopulationSource}`
+              : ARTICLE_TRUTH_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against ${canonicalPopulationSource} through the same approved-delta comparison the baseline gate runs`
+              : LINK_SAFETY_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the ${LINK_SAFETY_EVIDENCE.keyboardRoutes.length} routes that carry an outbound anchor, which the census fingerprint pins to this export, over ${canonicalPopulationSource}`
+              : id === 'VAL-B2-ART-010'
+              ? `${id} per-member evidence derived from the persisted ${APPARATUS_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges, and every citation chip occurrence accounted to the body that declares it or to the mounted component that sources it — with that derived graph itself bound to the sealed pre-rollout manifest ${RELATIONSHIP_BASELINE_PATH} through the approved-delta allowlist, over ${canonicalPopulationSource}`
               : APPARATUS_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${APPARATUS_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over ${canonicalPopulationSource}`
               : HOME_ASSERTIONS.has(id)
@@ -3077,12 +3506,55 @@ function generate() {
       };
     },
   );
+  const map = enforcementMapSchema.parse({ schemaVersion: 1, rows });
+  assertNamedTestsExist(map);
   return {
     sources,
-    map: enforcementMapSchema.parse({ schemaVersion: 1, rows }),
+    map,
     results: results.map((result) => evidenceResultSchema.parse(result)),
     colourOnlyMarks: colourOnlyMarkArchive(),
   };
+}
+
+/**
+ * Every `kind: 'test'` target names a title a runner would actually print.
+ *
+ * The map's shape lets a row cite any string. A row whose named test does
+ * not exist has no proof at all, and the corpus reads as covered either
+ * way, so the name is checked against the titles the file defines.
+ */
+function assertNamedTestsExist(map: EnforcementMap): void {
+  const titlesByFile = new Map<string, Set<string>>();
+  const missing: string[] = [];
+  let checked = 0;
+  for (const row of map.rows) {
+    for (const target of row.enforcementTargets) {
+      if (target.kind !== 'test') continue;
+      checked += 1;
+      if (!existsSync(join(ROOT, target.file))) {
+        missing.push(`${row.assertionId} names ${target.file}, which does not exist`);
+        continue;
+      }
+      if (!titlesByFile.has(target.file)) {
+        titlesByFile.set(target.file, testTitlesIn(ROOT, target.file));
+      }
+      if (!titlesByFile.get(target.file)!.has(target.title)) {
+        missing.push(
+          `${row.assertionId} names "${target.title}" in ${target.file}, which defines no such test`,
+        );
+      }
+    }
+  }
+  if (checked === 0) {
+    throw new Error(
+      'no assertion row names a test, so the corpus proves nothing about its own enforcement',
+    );
+  }
+  if (missing.length > 0) {
+    throw new Error(
+      `${missing.length} enforcement target(s) name a test that does not exist:\n${missing.join('\n')}`,
+    );
+  }
 }
 
 /**

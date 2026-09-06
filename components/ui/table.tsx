@@ -162,7 +162,7 @@ export function Table<T extends Record<string, unknown>>({
                       className="-my-1 inline-flex cursor-pointer items-center gap-1 py-1 hover:text-text"
                     >
                       {column.header}
-                      <span aria-hidden="true" className="font-mono text-[10px]">
+                      <span aria-hidden="true" className="font-sans text-[10px]">
                         {isSorted ? (sort.direction === 'asc' ? '↑' : '↓') : ''}
                       </span>
                     </button>

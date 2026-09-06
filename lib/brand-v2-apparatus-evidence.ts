@@ -1,9 +1,11 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync, readFileSync, statSync } from 'node:fs';
+import { dirname, join, relative, resolve } from 'node:path';
 import matter from 'gray-matter';
 import { z } from 'zod';
 import { DOMAIN_META, modules, publishedModules } from '../data/modules.ts';
 import { getCitation } from '../data/citations.ts';
+import { DEFAULT_THESIS_ID, THESES } from './competing-theses.ts';
+import { MILESTONES } from './bear-case.ts';
 import { publishedBacklinkGraph, resolveArticleEntries } from './backlinks.ts';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
@@ -13,6 +15,10 @@ import {
 } from './brand-v2-evidence-closure.ts';
 import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 import { inlineCitationIds, moduleBody, resolveReferences } from './references.ts';
+import {
+  currentArticleFactFrontmatterMembers,
+  currentRelationshipMembers,
+} from './relationship-manifest.ts';
 
 /**
  * Evidence for the wiki apparatus an article carries around its prose:
@@ -105,6 +111,17 @@ export function apparatusEvidenceFingerprint(input: { root: string }): string {
           `from=${expected.linkedFrom.join(',')}`,
           `refs=${expected.references.join(',')}`,
           `cites=${expected.citationMarkers.join(',')}`,
+          `sites=${expected.componentCitationSites
+            .map(({ mountId, id, spelling }) => `${mountId}#${id}@${spelling}`)
+            .join(',')}`,
+          `dynamic=${expected.dynamicCitationSites
+            .map(({ mountId, expression, occurrences }) =>
+              `${mountId}#${expression}:${occurrences.map(({ key, id }) => `${key}=${id}`).join('+')}`,
+            )
+            .join(',')}`,
+          `owners=${expected.mountCitationOwners
+            .map(({ mountId, ids }) => `${mountId}#${ids.join('+')}`)
+            .join(',')}`,
         ].join('|'),
       ),
   ];
@@ -133,9 +150,289 @@ export type ExpectedApparatus = {
   citationMarkers: string[];
   /** Citation ids that carry no inline chip: the "Further reading" set. */
   furtherReading: string[];
+  /**
+   * One entry per fixed `<CiteRef id="..."/>` site written in a component
+   * this route mounts, whether the id is quoted at the site or held in a
+   * constant the site names. These chips are as fixed as the body's: the id
+   * is in the component's own module graph, so the page owes one rendered
+   * chip per site on top of whatever the body cites.
+   */
+  componentCitationSites: ComponentCitationSite[];
+  /**
+   * One entry per `<CiteRef id={expression}/>` site whose id is chosen at
+   * render time from a data row. Each site carries the COMPLETE default-state
+   * occurrence population derived from its data, not a one-per-expression
+   * floor. Unrecognised mapped sources fail closed.
+   */
+  dynamicCitationSites: DynamicCitationSite[];
+  /**
+   * Per mount, every citation id reachable from that component's own module
+   * tree. This is the vocabulary a mount may draw from, not a promise about
+   * what it renders: a data-driven panel shows the ids of whatever row is
+   * selected. It is what makes a chip the body never declared attributable
+   * to something on the page rather than to nothing at all.
+   */
+  mountCitationOwners: MountCitationOwner[];
+};
+
+export type ComponentCitationSite = {
+  mountId: string;
+  sourcePath: string;
+  id: string;
+  /** How the site spells the id: quoted at the site, or through a constant. */
+  spelling: 'literal' | 'identifier';
+};
+
+export type DynamicCitationSite = {
+  mountId: string;
+  sourcePath: string;
+  /** The expression as written, so the failure can name the site. */
+  expression: string;
+  /** Default selection, side, evidence row and citation position. */
+  occurrences: Array<{ key: string; id: string }>;
+};
+
+export type MountCitationOwner = {
+  mountId: string;
+  sourcePath: string;
+  ids: string[];
 };
 
 let cachedGraph: Map<string, ExpectedApparatus> | null = null;
+
+const REGISTRIES_PATH = 'contract/brand-v2-registries.json';
+
+/**
+ * The citation registry is the vocabulary these scans are read against, so
+ * scanning it would report every id in the wiki as declared by whatever
+ * component imports it.
+ */
+const CITATION_VOCABULARY_MODULE = 'data/citations.ts';
+
+/** A literal chip site: `<Cite id="x"/>` or `<CiteRef id="x"/>` in JSX. */
+const LITERAL_CITE_SITE = /<Cite(?:Ref)?\s+[^>]*?\bid=["']([^"']+)["']/g;
+
+/** An expression chip site: `<CiteRef id={SOMETHING}/>`. */
+const EXPRESSION_CITE_SITE = /<Cite(?:Ref)?\s+[^>]*?\bid=\{([^}]+)\}/g;
+
+/** A bare identifier, the only expression a constant can be read out of. */
+const BARE_IDENTIFIER = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
+
+/**
+ * The registered citation id a named constant holds, following first-party
+ * imports.
+ *
+ * `<CiteRef id={TRANSIENT_CONTACT_LIMIT_CITATION} />` renders exactly the
+ * same fixed chip as `<CiteRef id="han-force-pain-2024" />`; only the
+ * spelling differs. A scanner that recognised only the quoted spelling gave
+ * the constant-valued sites no floor at all, so the chip could disappear
+ * with every preservation row still green.
+ */
+function resolveCitationIdentifier(
+  root: string,
+  sourcePath: string,
+  name: string,
+  depth = 3,
+  seen = new Set<string>(),
+): string | null {
+  const key = `${sourcePath}#${name}`;
+  if (depth < 0 || seen.has(key) || !BARE_IDENTIFIER.test(name)) return null;
+  seen.add(key);
+  const text = withoutComments(readFileSync(join(root, sourcePath), 'utf8'));
+  const declared = new RegExp(
+    `\\bconst\\s+${name}\\s*(?::[^=\\n]+)?=\\s*['"]([^'"]+)['"]`,
+  ).exec(text);
+  if (declared && getCitation(declared[1] as string)) {
+    return declared[1] as string;
+  }
+  for (const match of text.matchAll(
+    /import\s*(?:type\s*)?\{([^}]*)\}\s*from\s*['"]([^'"]+)['"]/g,
+  )) {
+    const binding = (match[1] as string)
+      .split(',')
+      .map((entry) => entry.trim())
+      .find(
+        (entry) => entry === name || new RegExp(`\\bas\\s+${name}$`).test(entry),
+      );
+    if (binding === undefined) continue;
+    const original = binding.includes(' as ')
+      ? (binding.split(/\s+as\s+/)[0] as string).trim()
+      : name;
+    const next = resolveFirstPartyImport(root, match[2] as string, sourcePath);
+    if (next === null) continue;
+    const resolved = resolveCitationIdentifier(
+      root,
+      next,
+      original,
+      depth - 1,
+      seen,
+    );
+    if (resolved !== null) return resolved;
+  }
+  return null;
+}
+
+/**
+ * Source with comments blanked.
+ *
+ * `components/mdx/cite-ref.tsx` documents itself with `<Cite
+ * id="act-aloha-2023" />`, and every component that imports it would
+ * otherwise inherit that id as a chip it owes the page.
+ */
+function withoutComments(text: string): string {
+  return text
+    .replace(/\/\*[\s\S]*?\*\//g, ' ')
+    .replace(/(^|[^:])\/\/[^\n]*/g, '$1 ');
+}
+
+function resolveFirstPartyImport(
+  root: string,
+  specifier: string,
+  fromPath: string,
+): string | null {
+  const base = specifier.startsWith('@/')
+    ? join(root, specifier.slice(2))
+    : specifier.startsWith('.')
+      ? resolve(dirname(join(root, fromPath)), specifier)
+      : null;
+  if (base === null) return null;
+  for (const candidate of [
+    base,
+    `${base}.ts`,
+    `${base}.tsx`,
+    `${base}.mjs`,
+    join(base, 'index.ts'),
+    join(base, 'index.tsx'),
+  ]) {
+    if (existsSync(candidate) && statSync(candidate).isFile()) {
+      return relative(root, candidate);
+    }
+  }
+  return null;
+}
+
+/**
+ * Every citation id reachable from one module's own source and the
+ * first-party modules it imports, three levels deep.
+ *
+ * The ids are recognised by the registry rather than by the shape of the
+ * call that renders them: a chip whose id arrives through a data row
+ * (`lib/competing-theses.ts` holds twenty) is as owned as one written in
+ * the JSX, and a rule that only saw the JSX would call the data-driven ones
+ * unowned.
+ */
+function citationIdsReachableFrom(
+  root: string,
+  sourcePath: string,
+  depth = 3,
+  seen = new Set<string>(),
+): Set<string> {
+  const ids = new Set<string>();
+  if (
+    depth < 0 ||
+    seen.has(sourcePath) ||
+    sourcePath === CITATION_VOCABULARY_MODULE
+  ) {
+    return ids;
+  }
+  seen.add(sourcePath);
+  const text = withoutComments(readFileSync(join(root, sourcePath), 'utf8'));
+  for (const match of text.matchAll(/['"]([A-Za-z0-9][A-Za-z0-9._-]{3,})['"]/g)) {
+    if (getCitation(match[1] as string)) ids.add(match[1] as string);
+  }
+  for (const match of text.matchAll(/from\s+['"]([^'"]+)['"]/g)) {
+    const next = resolveFirstPartyImport(root, match[1] as string, sourcePath);
+    if (next === null) continue;
+    for (const id of citationIdsReachableFrom(root, next, depth - 1, seen)) {
+      ids.add(id);
+    }
+  }
+  return ids;
+}
+
+type RegisteredMount = {
+  id: string;
+  route: string;
+  sourceId: string;
+};
+
+/**
+ * Data-row expansion is specific to the component's state model, not to
+ * JSX site count. These are the two mapped citation sources in the current
+ * census. Another source must supply its own derivation, never
+ * fall back to one arbitrary citation from its reachable vocabulary.
+ */
+function mappedCitationOccurrences(
+  sourcePath: string,
+  expression: string,
+): DynamicCitationSite['occurrences'] {
+  if (sourcePath === 'components/interactive/milestones-watchlist.tsx' && expression === 'id') {
+    const selected = MILESTONES[0];
+    if (!selected || selected.citationIds.length === 0) {
+      throw new Error('the default milestone has no citation occurrences');
+    }
+    return selected.citationIds.map((id, index) => ({
+      key: `${selected.id}/citationIds/${index}`,
+      id,
+    }));
+  }
+  if (sourcePath !== 'components/interactive/thesis-explorer.tsx' || expression !== 'id') {
+    throw new Error(
+      `${sourcePath} has an unmodelled mapped citation id={${expression}}; derive its complete default-state occurrences before grading it`,
+    );
+  }
+  const selected = THESES.find(({ id }) => id === DEFAULT_THESIS_ID);
+  if (!selected) throw new Error('the default thesis has no data row');
+  const occurrences = (['evidenceFor', 'evidenceAgainst'] as const).flatMap((side) =>
+    selected[side].flatMap((row, rowIndex) =>
+      row.citationIds.map((id, citationIndex) => ({
+        key: `${selected.id}/${side}/${rowIndex}/${citationIndex}`,
+        id,
+      })),
+    ),
+  );
+  if (occurrences.length === 0) throw new Error('the default thesis has no citation occurrences');
+  return occurrences;
+}
+
+/**
+ * The interactive mounts the census registered, by route.
+ *
+ * The registry is the same one `VAL-B2-STATE-*` quantifies over, so a
+ * component that renders chips on a route it is not registered on is a
+ * census failure there and an unowned chip here.
+ */
+function mountsByRoute(
+  root: string,
+): Map<string, Array<RegisteredMount & { sourcePath: string }>> {
+  const registries = JSON.parse(
+    readFileSync(join(root, REGISTRIES_PATH), 'utf8'),
+  ) as {
+    interactive: {
+      sources: Array<{ id: string; sourcePath: string }>;
+      mounts: RegisteredMount[];
+    };
+  };
+  const sourcePathById = new Map(
+    registries.interactive.sources.map(({ id, sourcePath }) => [id, sourcePath]),
+  );
+  const byRoute = new Map<
+    string,
+    Array<RegisteredMount & { sourcePath: string }>
+  >();
+  for (const mount of registries.interactive.mounts) {
+    const sourcePath = sourcePathById.get(mount.sourceId);
+    if (!sourcePath) {
+      throw new Error(
+        `${REGISTRIES_PATH} mounts ${mount.sourceId} at ${mount.route} without registering its source`,
+      );
+    }
+    const list = byRoute.get(mount.route) ?? [];
+    list.push({ ...mount, sourcePath });
+    byRoute.set(mount.route, list);
+  }
+  return byRoute;
+}
 
 /**
  * The apparatus every published article is supposed to render, derived from
@@ -148,6 +445,7 @@ export function expectedApparatusGraph(
 ): Map<string, ExpectedApparatus> {
   if (cachedGraph) return cachedGraph;
   const backlinks = publishedBacklinkGraph();
+  const mounts = mountsByRoute(root);
   const graph = new Map<string, ExpectedApparatus>();
   for (const entry of publishedModules()) {
     const key = `${entry.domain}/${entry.slug}`;
@@ -168,6 +466,51 @@ export function expectedApparatusGraph(
     const body = moduleBody(source);
     const inline = inlineCitationIds(body);
     const references = resolveReferences(declared, inline, getCitation);
+    const routeMounts = mounts.get(`/${key}/`) ?? [];
+    const componentCitationSites: ComponentCitationSite[] = [];
+    const dynamicCitationSites: DynamicCitationSite[] = [];
+    const mountCitationOwners: MountCitationOwner[] = [];
+    for (const mount of routeMounts) {
+      const componentSource = withoutComments(
+        readFileSync(join(root, mount.sourcePath), 'utf8'),
+      );
+      for (const match of componentSource.matchAll(LITERAL_CITE_SITE)) {
+        componentCitationSites.push({
+          mountId: mount.id,
+          sourcePath: mount.sourcePath,
+          id: match[1] as string,
+          spelling: 'literal',
+        });
+      }
+      for (const match of componentSource.matchAll(EXPRESSION_CITE_SITE)) {
+        const expression = (match[1] as string).trim();
+        const resolved = resolveCitationIdentifier(
+          root,
+          mount.sourcePath,
+          expression,
+        );
+        if (resolved !== null) {
+          componentCitationSites.push({
+            mountId: mount.id,
+            sourcePath: mount.sourcePath,
+            id: resolved,
+            spelling: 'identifier',
+          });
+          continue;
+        }
+        dynamicCitationSites.push({
+          mountId: mount.id,
+          sourcePath: mount.sourcePath,
+          expression,
+          occurrences: mappedCitationOccurrences(mount.sourcePath, expression),
+        });
+      }
+      mountCitationOwners.push({
+        mountId: mount.id,
+        sourcePath: mount.sourcePath,
+        ids: [...citationIdsReachableFrom(root, mount.sourcePath)].sort(),
+      });
+    }
     graph.set(`/${key}/`, {
       key,
       breadcrumb: [
@@ -188,12 +531,38 @@ export function expectedApparatusGraph(
       furtherReading: references
         .filter(({ furtherReading }) => furtherReading)
         .map(({ citation }) => citation.id),
+      componentCitationSites,
+      dynamicCitationSites,
+      mountCitationOwners,
     });
   }
   if (graph.size === 0) {
     throw new Error(
       'the expected apparatus graph is empty: no published article was derived, so every preservation verdict would pass vacuously',
     );
+  }
+  // Three site populations, and each one is a scanner that can go quiet
+  // instead of red: a regex that stops matching, a constant resolver that
+  // stops resolving, or an expression classifier that files every dynamic
+  // site as fixed. A silent scanner turns a floor into no floor at all,
+  // which is the exact failure this row was reopened for, so each is
+  // required to find members rather than merely to run.
+  const sites = [...graph.values()].flatMap(
+    ({ componentCitationSites: own }) => own,
+  );
+  const counts = {
+    literal: sites.filter(({ spelling }) => spelling === 'literal').length,
+    identifier: sites.filter(({ spelling }) => spelling === 'identifier').length,
+    dynamic: [...graph.values()].flatMap(
+      ({ dynamicCitationSites: own }) => own,
+    ).length,
+  };
+  for (const [kind, count] of Object.entries(counts)) {
+    if (count === 0) {
+      throw new Error(
+        `the component citation scan found no ${kind} <CiteRef> site in any mounted component, so that spelling imposes no floor on any article`,
+      );
+    }
   }
   cachedGraph = graph;
   return graph;
@@ -258,10 +627,25 @@ const furnitureLinkSchema = z.object({
   section: z.string(),
   href: z.string(),
   text: z.string(),
-  /** Index in the document's sequential focus order, -1 when unreachable. */
-  tabIndex: z.number(),
+  /** Position among the page's focusable elements, in document order. */
+  documentOrder: z.number(),
+  /**
+   * Which Tab press focused this link, or -1 if the walk never reached it.
+   * A real key press, so an ancestor that is `inert`, a trap above the
+   * link or a positive `tabindex` that reordered the page all show up here
+   * as they would for a reader.
+   */
+  tabStop: z.number(),
+  /** How many times Tab was pressed, so an unreached link is falsifiable. */
+  tabPresses: z.number(),
+  restingRing: z.string(),
+  /** The ring at the moment the keyboard focused it; null if never reached. */
+  focusedRing: z.string().nullable(),
+  /** Whether `:focus-visible` matched under the real keyboard press. */
   focusVisible: z.boolean(),
 });
+
+export type FurnitureLinkObservation = z.infer<typeof furnitureLinkSchema>;
 
 const observationSchema = z.object({
   route: z.string(),
@@ -276,7 +660,15 @@ const observationSchema = z.object({
     items: z.array(crumbSchema),
   }),
   /** Every `aria-current="page"` in the document, as a short outline. */
-  ariaCurrentPage: z.array(z.string()),
+  ariaCurrentPage: z.array(
+    z.object({
+      outline: z.string(),
+      /** Absolute href when the marked element is an anchor. */
+      href: z.string().nullable(),
+      insideNavLandmark: z.boolean(),
+      matchesRoute: z.boolean(),
+    }),
+  ),
   /** Whether the route has a matching shell navigation link. */
   hasMatchingNavLink: z.boolean(),
   references: z.object({
@@ -478,6 +870,320 @@ function subsequenceGap(
   return null;
 }
 
+export type RelationshipManifestMember = { id: string; hash: string };
+
+export type RelationshipDelta = {
+  id: string;
+  manifest: string;
+  memberId: string;
+  oldHash: string;
+  newHash: string;
+};
+
+export const RELATIONSHIP_BASELINE_PATH =
+  'evidence/brand-v2/baseline/relationships.json';
+
+/**
+ * What the v2 rollout did to the source side of each article's relationships.
+ *
+ * `VAL-B2-ART-010` says the relationships are "unchanged by the v2
+ * rollout", and everything else in this file compares the rendered page
+ * against the graph derived from the tree that is shipping now. Those two
+ * sides move together: an edit that dropped a `seeAlso` edge or a `<Cite>`
+ * from an MDX body changes the page and the expectation at once, and the
+ * comparison stays green over a relationship the rollout was not allowed to
+ * touch. The immutable manifest sealed before the rollout is the only side
+ * that cannot move, so the row is bound to it here: the rebuilt member hash
+ * must equal the sealed one, or an approved delta must name that exact
+ * change.
+ *
+ * The hashes are rebuilt by the same collector the baseline was sealed with
+ * (`scripts/brand-v2-baseline.ts#collectArticleTruthManifests`), passed in
+ * rather than imported so this module stays loadable without dragging the
+ * whole census collection behind it.
+ */
+/** The sealed pre-rollout relationship members, as the migration wrote them. */
+export function readSealedRelationshipMembers(
+  root: string,
+): RelationshipManifestMember[] {
+  const manifest = JSON.parse(
+    readFileSync(join(root, RELATIONSHIP_BASELINE_PATH), 'utf8'),
+  ) as { kind?: string; members?: RelationshipManifestMember[] };
+  if (manifest.kind !== 'relationships' || !Array.isArray(manifest.members)) {
+    throw new Error(
+      `${RELATIONSHIP_BASELINE_PATH} is not a sealed relationships manifest`,
+    );
+  }
+  return manifest.members;
+}
+
+/** The approved deltas, read where every other consumer reads them. */
+export function readRelationshipDeltas(
+  root: string,
+  manifest = 'relationships',
+): RelationshipDelta[] {
+  const file = JSON.parse(
+    readFileSync(
+      join(root, 'contract', 'brand-v2-approved-deltas.json'),
+      'utf8',
+    ),
+  ) as { entries?: RelationshipDelta[] };
+  return (file.entries ?? []).filter((entry) => entry.manifest === manifest);
+}
+
+export const ARTICLE_METADATA_BASELINE_PATH =
+  'evidence/brand-v2/baseline/article-metadata.json';
+
+/** The sealed pre-rollout frontmatter facts, as the migration wrote them. */
+export function readSealedFrontmatterFactMembers(
+  root: string,
+): RelationshipManifestMember[] {
+  const manifest = JSON.parse(
+    readFileSync(join(root, ARTICLE_METADATA_BASELINE_PATH), 'utf8'),
+  ) as { kind?: string; members?: RelationshipManifestMember[] };
+  if (manifest.kind !== 'article-metadata' || !Array.isArray(manifest.members)) {
+    throw new Error(
+      `${ARTICLE_METADATA_BASELINE_PATH} is not a sealed article-metadata manifest`,
+    );
+  }
+  return manifest.members.filter(({ id }) =>
+    id.startsWith('article-fact-frontmatter:'),
+  );
+}
+
+/**
+ * The half of "references ... unchanged" that lives in the frontmatter.
+ *
+ * `expectedApparatusGraph` resolves the References list from the frontmatter
+ * the tree is shipping now, so an added or removed declared source moves the
+ * rendered bibliography and the expectation it is compared against in the
+ * same commit. The sealed `article-fact-frontmatter:` members are the side
+ * that cannot move with it.
+ */
+export function frontmatterFactDrift(input: {
+  sealed: readonly RelationshipManifestMember[];
+  current: readonly RelationshipManifestMember[];
+  deltas: readonly RelationshipDelta[];
+}): Map<string, string[]> {
+  const routeOf = (memberId: string) =>
+    `/${memberId.replace(/^article-fact-frontmatter:/, '')}/`;
+  if (input.sealed.length === 0 || input.current.length === 0) {
+    throw new Error(
+      'the frontmatter-fact comparison has an empty side, so every article would read as preserving its declared References',
+    );
+  }
+  const sealedByMember = new Map(
+    input.sealed.map((member) => [member.id, member]),
+  );
+  const deltaByMember = new Map(
+    input.deltas.map((delta) => [delta.memberId, delta]),
+  );
+  const drift = new Map<string, string[]>();
+  const add = (route: string, failure: string) => {
+    drift.set(route, [...(drift.get(route) ?? []), failure]);
+  };
+  const currentIds = new Set(input.current.map(({ id }) => id));
+  for (const sealed of input.sealed) {
+    if (currentIds.has(sealed.id)) continue;
+    throw new Error(
+      `${sealed.id} is sealed in ${ARTICLE_METADATA_BASELINE_PATH} and absent from the tree, so its declared References cannot be compared at all`,
+    );
+  }
+  for (const member of input.current) {
+    const route = routeOf(member.id);
+    const sealed = sealedByMember.get(member.id);
+    const delta = deltaByMember.get(member.id);
+    if (!sealed) {
+      if (!delta) {
+        add(
+          route,
+          `${route} declares frontmatter References the migration baseline never sealed, and no approved delta adds ${member.id}`,
+        );
+      }
+      continue;
+    }
+    if (sealed.hash === member.hash) continue;
+    if (!delta) {
+      add(
+        route,
+        `${route} changed the frontmatter review date or declared References the migration sealed (${sealed.hash.slice(0, 12)} -> ${member.hash.slice(0, 12)}), and no approved delta names the change`,
+      );
+      continue;
+    }
+    if (delta.oldHash !== sealed.hash || delta.newHash !== member.hash) {
+      add(
+        route,
+        `${route} is covered by approved delta ${delta.id} for ${delta.oldHash.slice(0, 12)} -> ${delta.newHash.slice(0, 12)}, but its frontmatter moved ${sealed.hash.slice(0, 12)} -> ${member.hash.slice(0, 12)}`,
+      );
+    }
+  }
+  return drift;
+}
+
+/** The drift map every caller of `VAL-B2-ART-010` passes, built once here. */
+export function relationshipSourceDrift(root: string): Map<string, string[]> {
+  const drift = relationshipBaselineDrift({
+    sealed: readSealedRelationshipMembers(root),
+    current: currentRelationshipMembers(root),
+    deltas: readRelationshipDeltas(root),
+  });
+  const frontmatter = frontmatterFactDrift({
+    sealed: readSealedFrontmatterFactMembers(root),
+    current: currentArticleFactFrontmatterMembers(root),
+    deltas: readRelationshipDeltas(root, 'article-metadata'),
+  });
+  for (const [route, failures] of frontmatter) {
+    drift.set(route, [...(drift.get(route) ?? []), ...failures]);
+  }
+  return drift;
+}
+
+export function relationshipBaselineDrift(input: {
+  sealed: readonly RelationshipManifestMember[];
+  current: readonly RelationshipManifestMember[];
+  deltas: readonly RelationshipDelta[];
+}): Map<string, string[]> {
+  const routeOf = (memberId: string) => `/${memberId.replace(/^article:/, '')}/`;
+  const sealedByMember = new Map(
+    input.sealed.map((member) => [member.id, member]),
+  );
+  const deltaByMember = new Map(
+    input.deltas
+      .filter(({ manifest }) => manifest === 'relationships')
+      .map((delta) => [`article:${delta.memberId.replace(/^article:/, '')}`, delta]),
+  );
+  const drift = new Map<string, string[]>();
+  const add = (route: string, failure: string) => {
+    drift.set(route, [...(drift.get(route) ?? []), failure]);
+  };
+  if (input.sealed.length === 0 || input.current.length === 0) {
+    throw new Error(
+      'the relationships baseline comparison has an empty side, so every article would read as preserved',
+    );
+  }
+  const currentIds = new Set(input.current.map(({ id }) => id));
+  for (const sealed of input.sealed) {
+    if (currentIds.has(sealed.id)) continue;
+    throw new Error(
+      `${sealed.id} is sealed in ${RELATIONSHIP_BASELINE_PATH} and absent from the tree, so its relationships cannot be compared at all`,
+    );
+  }
+  for (const member of input.current) {
+    const route = routeOf(member.id);
+    const sealed = sealedByMember.get(member.id);
+    const delta = deltaByMember.get(member.id);
+    if (!sealed) {
+      if (!delta) {
+        add(
+          route,
+          `${route} carries relationships the migration baseline never sealed, and no approved delta adds ${member.id}`,
+        );
+      }
+      continue;
+    }
+    if (sealed.hash === member.hash) continue;
+    if (!delta) {
+      add(
+        route,
+        `${route} changed the relationships the migration sealed (${sealed.hash.slice(0, 12)} -> ${member.hash.slice(0, 12)}), and no approved delta names the change`,
+      );
+      continue;
+    }
+    if (delta.oldHash !== sealed.hash || delta.newHash !== member.hash) {
+      add(
+        route,
+        `${route} is covered by approved delta ${delta.id} for ${delta.oldHash.slice(0, 12)} -> ${delta.newHash.slice(0, 12)}, but the tree moved ${sealed.hash.slice(0, 12)} -> ${member.hash.slice(0, 12)}`,
+      );
+    }
+  }
+  return drift;
+}
+
+/**
+ * Which chip occurrences the page owes, and who owns the rest.
+ *
+ * Occurrences, not ids: an article that cites one source in three sentences
+ * renders three chips, and a component that adds a fourth for the same
+ * source is adding a chip, not repeating one. Counting ids would hide
+ * exactly the disappearance this is here to catch.
+ */
+function citationOwnershipFailures(
+  route: string,
+  rendered: string[],
+  expected: ExpectedApparatus,
+): string[] {
+  const failures: string[] = [];
+  const tally = (ids: readonly string[]) => {
+    const counts = new Map<string, number>();
+    for (const id of ids) counts.set(id, (counts.get(id) ?? 0) + 1);
+    return counts;
+  };
+  const renderedCounts = tally(rendered);
+  const owed = tally(expected.citationMarkers);
+  for (const site of expected.componentCitationSites) {
+    owed.set(site.id, (owed.get(site.id) ?? 0) + 1);
+  }
+  for (const site of expected.componentCitationSites) {
+    const want = owed.get(site.id) ?? 0;
+    const got = renderedCounts.get(site.id) ?? 0;
+    if (got < want) {
+      failures.push(
+        `${route} renders ${got} chip(s) for "${site.id}" where the body and ${site.sourcePath} write ${want}: the ${site.spelling}-spelled chip ${site.mountId} cites is gone`,
+      );
+    }
+  }
+  const ownedByMount = new Set(
+    expected.mountCitationOwners.flatMap(({ ids }) => ids),
+  );
+  const surplus = new Map<string, number>();
+  for (const [id, count] of renderedCounts) {
+    const floor = owed.get(id) ?? 0;
+    if (count <= floor) continue;
+    surplus.set(id, count - floor);
+    if (!ownedByMount.has(id)) {
+      failures.push(
+        `${route} renders ${count - floor} citation chip(s) for "${id}" that neither its body nor any component it mounts sources`,
+      );
+    }
+  }
+  // A mapped expression can render many chips, including ids already cited
+  // by body prose. Expand every data row and account for each occurrence
+  // above the body/fixed-site counts. Seven surviving chips cannot cover an
+  // eighth missing chip, nor can another id replace it.
+  const dynamicPerMount = new Map<string, DynamicCitationSite[]>();
+  for (const site of expected.dynamicCitationSites) {
+    dynamicPerMount.set(site.mountId, [
+      ...(dynamicPerMount.get(site.mountId) ?? []),
+      site,
+    ]);
+  }
+  for (const owner of expected.mountCitationOwners) {
+    const sites = dynamicPerMount.get(owner.mountId) ?? [];
+    if (sites.length === 0) continue;
+    const rendered = owner.ids.reduce(
+      (sum, id) => sum + (surplus.get(id) ?? 0),
+      0,
+    );
+    const occurrences = sites.flatMap((site) => site.occurrences);
+    if (rendered !== occurrences.length) {
+      failures.push(
+        `${route} renders ${rendered} chip(s) sourced by ${owner.sourcePath} where its ${sites.length} data-driven site(s) [${sites
+          .map(({ expression }) => `id={${expression}}`)
+          .join(', ')}] expand to ${occurrences.length} mapped occurrences`,
+      );
+    }
+    for (const [id, count] of tally(occurrences.map((occurrence) => occurrence.id))) {
+      const got = surplus.get(id) ?? 0;
+      if (got !== count) {
+        failures.push(
+          `${route} mapped citation "${id}" in ${owner.sourcePath} renders ${got} occurrence(s), expected ${count} from data rows [${occurrences.filter((occurrence) => occurrence.id === id).map(({ key }) => key).join(', ')}]`,
+        );
+      }
+    }
+  }
+  return failures;
+}
+
 /**
  * `VAL-B2-ART-010`: the rendered relationship graph is the graph the
  * registry derives. Order matters on all four lists: a bibliography whose
@@ -491,10 +1197,15 @@ function subsequenceGap(
  * mobile reading is still swept, and `apparatusViewportAgreement` below
  * asserts the two agree, which is the check that a responsive branch did
  * not quietly drop a section.
+ *
+ * `sourceDrift` is the other half of the word "unchanged": the rendered
+ * side answers to the derived graph, and the derived graph answers to the
+ * sealed migration manifest through `relationshipBaselineDrift`.
  */
 export function relationshipPreservationVerdicts(
   evidence: ApparatusRuntimeEvidence,
   root: string,
+  sourceDrift: Map<string, string[]>,
 ): Map<string, Verdict<Record<string, string[]>>> {
   const graph = expectedApparatusGraph(root);
   const verdicts = new Map<string, Verdict<Record<string, string[]>>>();
@@ -515,12 +1226,19 @@ export function relationshipPreservationVerdicts(
     }
     // The rendered chips are a SUPERSET of the ones the MDX declares, and
     // that is correct rather than drift: six routes mount a component that
-    // renders chips from a curated data module (`lib/competing-theses.ts` is
-    // the largest, adding eight), so a body-only expectation is the
-    // incomplete side of the comparison. Equality here would have failed six
-    // healthy articles. What preservation actually needs is that every chip
-    // the body declares still renders, in body order, and that no rendered
-    // chip points at an id the citation registry does not hold.
+    // renders chips of its own (`lib/competing-theses.ts` feeds the largest,
+    // eight), so a body-only expectation is the incomplete side of the
+    // comparison. Equality here would fail six healthy articles.
+    //
+    // A superset with nothing said about the surplus is the other error, and
+    // it is the one that shipped: nineteen chip occurrences on six routes
+    // belonged to no expectation at all, so a component could stop rendering
+    // its chips - or start rendering one for an id nothing on the page
+    // sources - and this row would still pass. Every occurrence is now
+    // accounted for. The floor is the body's chips plus one per literal
+    // `<CiteRef id="..."/>` site in a component the route mounts, and
+    // anything above the floor has to be an id one of those mounts can
+    // reach.
     const renderedMarkers = desktop.citations.map(({ id }) => id);
     const missingInline = subsequenceGap(
       renderedMarkers,
@@ -531,12 +1249,14 @@ export function relationshipPreservationVerdicts(
         `${route} no longer renders the inline citation marker "${missingInline}" the body declares, in body order (${expected.citationMarkers.length} declared, ${renderedMarkers.length} rendered)`,
       );
     }
+    failures.push(...citationOwnershipFailures(route, renderedMarkers, expected));
     const unregistered = renderedMarkers.filter((id) => !getCitation(id));
     if (unregistered.length > 0) {
       failures.push(
         `${route} renders citation marker(s) [${[...new Set(unregistered)].join(', ')}] that the citation registry does not hold`,
       );
     }
+    failures.push(...(sourceDrift.get(route) ?? []));
     if (!sameSequence(desktop.seeAlso.keys, expected.seeAlso)) {
       failures.push(
         `${route} renders See also [${desktop.seeAlso.keys.join(', ')}] where the frontmatter curates [${expected.seeAlso.join(', ')}]`,
@@ -694,6 +1414,22 @@ export function breadcrumbTruthVerdicts(
         `${id} exposes ${observation.ariaCurrentPage.length} aria-current="page" element(s) where ${allowed} is truthful for this route`,
       );
     }
+    // The count is only half of it. The marker has to be ON the navigation
+    // link that leads here: a marker parked on some other element still
+    // counts as one, and a screen reader is then told the wrong item is the
+    // current page while the real one is announced as an ordinary link.
+    for (const marker of observation.ariaCurrentPage) {
+      if (!marker.insideNavLandmark) {
+        failures.push(
+          `${id} marks an element outside every navigation landmark as the current page: ${marker.outline}`,
+        );
+      }
+      if (!marker.matchesRoute) {
+        failures.push(
+          `${id} marks ${marker.href ?? 'a non-link element'} as the current page, which is not this route`,
+        );
+      }
+    }
 
     verdicts.set(id, { id, observed: breadcrumb, failures });
   }
@@ -786,6 +1522,12 @@ export function referenceSheetVerdicts(
  * `VAL-WIKI-018`: every furniture link is reachable by Tab in document
  * order and shows a focus indicator that differs from its resting state.
  *
+ * Graded from a real Tab walk: the sweep presses the key and records which
+ * press focused which link, the ring the browser painted at that instant,
+ * and whether `:focus-visible` matched. A selector list of things that
+ * look focusable is a model of the focus order, not the focus order, and
+ * a scripted `focus()` sets a different ring than a keyboard press does.
+ *
  * The member is the link. The axe half of the row is carried by the
  * registry-wide sweep in `tests/e2e/axe-registry-sweep.spec.ts`, which
  * visits every published route; duplicating it here would run axe twice per
@@ -799,25 +1541,47 @@ export function furnitureReachVerdicts(
     Verdict<z.infer<typeof furnitureLinkSchema>>
   >();
   const sectionsSeen = new Set<string>();
+  let reachedAnywhere = 0;
   for (const observation of evidence.observations) {
-    let previous = -1;
+    let previousStop = -1;
+    let previousId = '';
     for (const link of observation.furnitureLinks) {
       const id = `${observation.route}|${observation.viewport}|${link.section}|${link.href}`;
       const failures: string[] = [];
       sectionsSeen.add(link.section);
-      if (link.tabIndex < 0) {
-        failures.push(`${id} is not in the sequential focus order`);
-      } else if (link.tabIndex < previous) {
+      if (link.tabStop < 0) {
         failures.push(
-          `${id} takes focus at position ${link.tabIndex}, before the furniture link above it at ${previous}`,
+          `${id} is never focused: ${link.tabPresses} Tab presses walked the page without reaching it`,
         );
-      }
-      if (link.tabIndex >= 0) previous = link.tabIndex;
-      if (!link.focusVisible) {
-        failures.push(`${id} shows no focus indicator distinct from its resting state`);
+      } else {
+        reachedAnywhere += 1;
+        if (link.tabStop < previousStop) {
+          failures.push(
+            `${id} takes focus at Tab stop ${link.tabStop}, before ${previousId} at stop ${previousStop}, so the keyboard order contradicts the order the page reads in`,
+          );
+        }
+        previousStop = link.tabStop;
+        previousId = id;
+        if (link.focusedRing === link.restingRing) {
+          failures.push(
+            `${id} paints the same outline and shadow focused as at rest (${link.restingRing}), so a keyboard reader cannot see where they are`,
+          );
+        }
+        if (!link.focusVisible) {
+          failures.push(
+            `${id} does not match :focus-visible under a real Tab press, so its ring is not the one a keyboard reader gets`,
+          );
+        }
       }
       verdicts.set(id, { id, observed: link, failures });
     }
+  }
+  // A walk that reached nothing would report a full population of links
+  // whose every clause was skipped for want of a stop to grade.
+  if (reachedAnywhere === 0) {
+    throw new Error(
+      'the Tab walk focused no furniture link anywhere in the corpus, so the reachability clauses graded nothing',
+    );
   }
   if (verdicts.size === 0) {
     throw new Error(
@@ -900,6 +1664,21 @@ export function citationChipVerdicts(
       if (!/^https?:\/\//.test(chip.href)) {
         failures.push(
           `${id} points at "${chip.href}", which is not an external source URL`,
+        );
+      }
+      // The chip must go to ITS OWN source, not merely to some external
+      // URL. A shape-only check passed a chip whose href had drifted to a
+      // different registry entry's document: the reader is then sent to a
+      // paper that does not make the claim the chip is standing next to,
+      // which is the failure the row exists to prevent.
+      const registered = getCitation(chip.id);
+      if (registered === undefined) {
+        failures.push(
+          `${id} names a citation id the registry does not hold, so nothing can say where it should point`,
+        );
+      } else if (chip.href !== registered.url) {
+        failures.push(
+          `${id} points at "${chip.href}" where the registry records "${registered.url}" for ${chip.id}`,
         );
       }
       if (!chip.opensExternally) {

@@ -1,5 +1,23 @@
 # World-models content-integrity audit
 
+<!-- audit-summary:start -->
+## Current ledger summary
+
+Counting unit: parsed claim rows across all article sections, including continuations.
+Recorded verdicts are not proof of source verification. Incomplete evidence fails the audit.
+
+- Articles with records: 5
+- Claim rows: 92
+- Recorded verified: 76
+- Recorded corrected: 16
+- Recorded cut: 0
+- Recorded source inconsistencies: 0
+- Unresolved or unrecognised verdicts: 0
+- Complete evidence records: 4
+- Incomplete evidence records: 88
+
+<!-- audit-summary:end -->
+
 Date of audit: 2026-08-17. Scope: the five published `world-models` articles
 (taxonomy, latent-dynamics, generative-video, jepa, generative-sim) against
 their cited primary sources, fetched and read during this audit (arXiv abs
@@ -22,7 +40,7 @@ source research for this domain, and two of the corrections below (the
 to its phrasing. Interactive panels were checked for honest-unknown labeling
 and for consistency with the corrected prose.
 
-## Summary
+## Historical: Summary
 
 Counting unit: ledger rows, one claim per row, counted from the tables
 below. Recomputed by the 2026-08-18 reconciliation sweep; an earlier
@@ -166,54 +184,54 @@ correlation, not a throughput figure. No figure was cut.
 
 ## taxonomy.mdx
 
-| Claim (quoted) | Source checked | Verdict | Note |
-|---|---|---|---|
-| "Ask three labs what their world model is and you will get three different objects" (three-paradigm framing; six paradigms on three axes) | World-model survey, arXiv 2605.00080 HTML | verified | Article's own organizing cut, consistent with the survey's taxonomy sections; presented as the article's framing, not the survey's. |
-| Survey quote: "a model does not qualify as a world model in our sense simply because it generates plausible future images or videos" | Survey, arXiv 2605.00080 | verified | Verbatim in the survey's definition section. |
-| "The survey's named top open challenge, weak action conditioning ... many models are trained mostly on observation history and task intent" | Survey, Sec. 8.1 | verified | Sec. 8.1 is weak action conditioning; observation-history/task-intent training is its stated cause. |
-| Stat: "paradigms 6, sharing one name" | Article's own count of its six sections | verified | Self-consistent; the disambiguation is the module's contribution. |
-| Stat: "DreamerV3 tasks 150+, one fixed hyperparameter set" | DreamerV3, arXiv 2301.04104 abstract + Nature 640:647-653 (2025) | verified | "outperforms specialized methods across over 150 diverse tasks, with a single configuration". |
-| Stat: "TD-MPC2 params 317M, one agent, 80 tasks" | TD-MPC2, arXiv 2310.16828 abstract | verified | "a single 317M parameter agent to perform 80 tasks across multiple task domains, embodiments, and action spaces". |
-| Stat: "V-JEPA 2 video 1M+, hours of action-free pretraining" | V-JEPA 2, arXiv 2506.09985 | verified | "Leveraging 1M hours of internet-scale video and 1M images"; action-free pre-training stage. |
-| Dreamer RSSM: deterministic recurrent state plus stochastic latent, decoder during training, actor and critic trained on imagined latent rollouts | Dreamer, arXiv 1912.01603 | verified | RSSM composition and latent-imagination training as described. |
-| "DreamerV3's contribution was a set of normalization tricks (symlog transforms, two-hot reward encoding) that let one fixed hyperparameter set work across more than 150 tasks, and it was the first agent to collect diamonds in Minecraft from scratch" | DreamerV3 paper | verified | Symlog, two-hot reward encoding, free bits, percentile return normalization all in the paper; Minecraft first-diamonds claim is the paper's headline. |
-| "DayDreamer took the same algorithm onto physical hardware: a quadruped learned to roll over, stand, and walk from scratch in about one hour" | DayDreamer, arXiv 2206.14176 abstract | verified | "roll off its back, stand up, and walk from scratch and without resets in only 1 hour"; 4 robots, same hyperparameters. |
-| TD-MPC2 paragraph: no decoder, reward/value-only latent, MPPI at every control step, policy-prior warm start; "a single 317M-parameter agent across 80 tasks spanning multiple task domains, embodiments, and action spaces" | TD-MPC2 paper | verified | Matches the abstract and method sections; the 80-task figure is the correct one (contrast latent-dynamics correction 1). |
-| "NVIDIA's Cosmos 3 folds understanding, generation, forward dynamics, inverse dynamics, and policy into one omni-model with separate autoregressive and diffusion subsequences sharing joint attention" | Cosmos 3 technical report | verified | MoT with AR and diffusion subsequences, separate parameters, dual-stream joint attention; three action modes (forward dynamics, inverse dynamics, policy) plus VLM and generation roles. |
-| "Genie 3 generates navigable worlds in real time at 24 fps and 720p, consistent for a few minutes, and its own published limitation list (constrained agent action space, few-minute interaction duration)" | DeepMind Genie 3 blog + comparison-table image | verified | 720p/24 fps/few-minutes confirmed; the limitation list is the blog's own. |
-| "What these models are actually used for today is data generation, policy evaluation, and RL post-training in narrow task families, not general replacement of physics engines" | Survey Sec. 8 + the paradigm papers | verified | Article's synthesis, framed as such; consistent with the survey's application sections. |
-| "V-JEPA 2 pretrains action-free on over a million hours of internet video, then post-trains an action-conditioned predictor on less than 62 hours of unlabeled robot video from the Droid dataset, and plans zero-shot on Franka arms" | V-JEPA 2 paper | verified | 1M hours; <62 h Droid; zero-shot Franka planning by embedding-distance search. |
-| "WorldVLA interleaves action and image tokens autoregressively and reports that the two objectives improve each other" | WorldVLA, arXiv 2506.21539 | verified | Autoregressive action world model; mutual-improvement claim is the paper's. |
-| "Cosmos Policy is the same idea on top of the Cosmos backbone" | Cosmos Policy, arXiv 2601.16163 abstract | **verified; citation added** | Previously uncited. Paper: Cosmos-Predict2 post-trained into a robot policy in a single stage, no architectural modifications, actions and future state images encoded as latent frames. Registry entry `cosmos-policy-2026` added and cited. |
-| "OccWorld ... predicts how a scene's occupancy grid evolves and produces competitive planning results without instance or map supervision" | OccWorld, arXiv 2311.16038 | verified | 3D occupancy world model for driving; planning without instance/map supervision. |
-| "MuJoCo is an explicit, hand-specified state-transition model" (boundary verdict: a physics engine is a world model) | MuJoCo paper, DOI 10.1109/IROS.2012.6386109 | verified | DOI resolves to IEEE Xplore 6386109; the verdict is the article's own argument under the survey's functional cut. |
-| "A 3DGS reconstruction of a real scene is a learned renderer" (boundary verdict: not a world model) | 3D Gaussian Splatting, arXiv 2308.04079 | verified | Novel-view synthesis; no action-conditioned dynamics, so it fails the functional cut as stated. |
+| Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage |
+|---|---|---|---|---|---|---|
+| "Ask three labs what their world model is and you will get three different objects" (three-paradigm framing; six paradigms on three axes) | World-model survey, arXiv 2605.00080 HTML | verified | Article's own organizing cut, consistent with the survey's taxonomy sections; presented as the article's framing, not the survey's. | | | |
+| Survey quote: "a model does not qualify as a world model in our sense simply because it generates plausible future images or videos" | Survey, arXiv 2605.00080 | verified | Verbatim in the survey's definition section. | | | |
+| "The survey's named top open challenge, weak action conditioning ... many models are trained mostly on observation history and task intent" | Survey, Sec. 8.1 | verified | Sec. 8.1 is weak action conditioning; observation-history/task-intent training is its stated cause. | | | |
+| Stat: "paradigms 6, sharing one name" | Article's own count of its six sections | verified | Self-consistent; the disambiguation is the module's contribution. | | | |
+| Stat: "DreamerV3 tasks 150+, one fixed hyperparameter set" | DreamerV3, arXiv 2301.04104 abstract + Nature 640:647-653 (2025) | verified | "outperforms specialized methods across over 150 diverse tasks, with a single configuration". | `dreamerv3-2023` | https://arxiv.org/html/2301.04104v2 | “We evaluate the generality of Dreamer across 8 domains—with over 150 tasks—under fixed hyperparameters.” Results section of Hafner, Pasukonis, Ba and Lillicrap, Mastering Diverse Domains through World Models, arXiv 2301.04104v2 (17 April 2024). Fixed algorithmic hyperparameters across evaluated tasks, not one jointly trained multi-task agent or identical compute/data budgets. FetchUrl result observed 2026-09-06T18:33:23.192Z, reported HTTP 200; retained versioned HTML reused, no new fetch. |
+| Stat: "TD-MPC2 params 317M, one agent, 80 tasks" | TD-MPC2, arXiv 2310.16828 abstract | verified | "a single 317M parameter agent to perform 80 tasks across multiple task domains, embodiments, and action spaces". | | | |
+| Stat: "V-JEPA 2 video 1M+, hours of action-free pretraining" | V-JEPA 2, arXiv 2506.09985 | verified | "Leveraging 1M hours of internet-scale video and 1M images"; action-free pre-training stage. | | | |
+| Dreamer RSSM: deterministic recurrent state plus stochastic latent, decoder during training, actor and critic trained on imagined latent rollouts | Dreamer, arXiv 1912.01603 | verified | RSSM composition and latent-imagination training as described. | | | |
+| "DreamerV3's contribution was a set of normalization tricks (symlog transforms, two-hot reward encoding) that let one fixed hyperparameter set work across more than 150 tasks, and it was the first agent to collect diamonds in Minecraft from scratch" | DreamerV3 paper | verified | Symlog, two-hot reward encoding, free bits, percentile return normalization all in the paper; Minecraft first-diamonds claim is the paper's headline. | | | |
+| "DayDreamer took the same algorithm onto physical hardware: a quadruped learned to roll over, stand, and walk from scratch in about one hour" | DayDreamer, arXiv 2206.14176 abstract | verified | "roll off its back, stand up, and walk from scratch and without resets in only 1 hour"; 4 robots, same hyperparameters. | | | |
+| TD-MPC2 paragraph: no decoder, reward/value-only latent, MPPI at every control step, policy-prior warm start; "a single 317M-parameter agent across 80 tasks spanning multiple task domains, embodiments, and action spaces" | TD-MPC2 paper | verified | Matches the abstract and method sections; the 80-task figure is the correct one (contrast latent-dynamics correction 1). | | | |
+| "NVIDIA's Cosmos 3 folds understanding, generation, forward dynamics, inverse dynamics, and policy into one omni-model with separate autoregressive and diffusion subsequences sharing joint attention" | Cosmos 3 technical report | verified | MoT with AR and diffusion subsequences, separate parameters, dual-stream joint attention; three action modes (forward dynamics, inverse dynamics, policy) plus VLM and generation roles. | | | |
+| "Genie 3 generates navigable worlds in real time at 24 fps and 720p, consistent for a few minutes, and its own published limitation list (constrained agent action space, few-minute interaction duration)" | DeepMind Genie 3 blog + comparison-table image | verified | 720p/24 fps/few-minutes confirmed; the limitation list is the blog's own. | | | |
+| "What these models are actually used for today is data generation, policy evaluation, and RL post-training in narrow task families, not general replacement of physics engines" | Survey Sec. 8 + the paradigm papers | verified | Article's synthesis, framed as such; consistent with the survey's application sections. | | | |
+| "V-JEPA 2 pretrains action-free on over a million hours of internet video, then post-trains an action-conditioned predictor on less than 62 hours of unlabeled robot video from the Droid dataset, and plans zero-shot on Franka arms" | V-JEPA 2 paper | verified | 1M hours; <62 h Droid; zero-shot Franka planning by embedding-distance search. | | | |
+| "WorldVLA interleaves action and image tokens autoregressively and reports that the two objectives improve each other" | WorldVLA, arXiv 2506.21539 | verified | Autoregressive action world model; mutual-improvement claim is the paper's. | | | |
+| "Cosmos Policy is the same idea on top of the Cosmos backbone" | Cosmos Policy, arXiv 2601.16163 abstract | **verified; citation added** | Previously uncited. Paper: Cosmos-Predict2 post-trained into a robot policy in a single stage, no architectural modifications, actions and future state images encoded as latent frames. Registry entry `cosmos-policy-2026` added and cited. | | | |
+| "OccWorld ... predicts how a scene's occupancy grid evolves and produces competitive planning results without instance or map supervision" | OccWorld, arXiv 2311.16038 | verified | 3D occupancy world model for driving; planning without instance/map supervision. | | | |
+| "MuJoCo is an explicit, hand-specified state-transition model" (boundary verdict: a physics engine is a world model) | MuJoCo paper, DOI 10.1109/IROS.2012.6386109 | verified | DOI resolves to IEEE Xplore 6386109; the verdict is the article's own argument under the survey's functional cut. | | | |
+| "A 3DGS reconstruction of a real scene is a learned renderer" (boundary verdict: not a world model) | 3D Gaussian Splatting, arXiv 2308.04079 | verified | Novel-view synthesis; no action-conditioned dynamics, so it fails the functional cut as stated. | | | |
 
 ## latent-dynamics.mdx
 
-| Claim (quoted) | Source checked | Verdict | Note |
-|---|---|---|---|
-| Stat: "DreamerV3 tasks 150+, one fixed hyperparameter set" | DreamerV3 abstract | verified | As in taxonomy. |
-| Stat: "TD-MPC2 agent 317M, one agent, 104 tasks" | TD-MPC2 abstract | **corrected** | Conflated the 104-task benchmark with the agent's 80 tasks. Now "one agent, 80 tasks". |
-| Stat: "DayDreamer 1 h, to walk from scratch" | DayDreamer abstract | verified | "in only 1 hour". |
-| Stat: "horizon 15-50, imagined steps, typical" | Survey + DreamerV3 + TD-MPC2 | **corrected** | No source states a 15-50 typical range; figure traces to research/02 Part B1. Now "15, imagined steps, DreamerV3" (DreamerV3 imagination horizon H = 15; Nature version T = 16). |
-| RSSM two-part state; encoder posterior; decoder during training; reward and continuation heads | Dreamer, arXiv 1912.01603 | verified | Architecture as described. |
-| "The actor and the critic are trained purely on imagined latent rollouts ... No environment steps are consumed during this phase" | Dreamer paper | verified | Latent-imagination training as described. |
-| "DreamerV3 was the first agent to collect diamonds in Minecraft from scratch, without human data or curricula" + intermediate-achievement chain | DreamerV3 paper | verified | Paper's headline result; the wood/tools/furnaces/iron/diamond chain is the paper's own description of the achievement tree. |
-| "The paper was published in Nature in 2025" | Nature 640:647-653, DOI 10.1038/s41586-025-08744-2 | verified | "Mastering diverse control tasks through world models", published 2025-04-02. |
-| Robustness techniques: symlog, two-hot reward encoding, free bits, percentile-based return normalization | DreamerV3 paper | verified | All four named in the paper. |
-| DreamerV3 imagination horizon 15 steps | DreamerV3 paper | verified | H = 15 imagination rollouts (Nature version: prediction horizon T = 16); used in correction 2. |
-| TD-MPC: task-oriented latent trained only for reward/value, per-step local trajectory optimization, learned terminal value | TD-MPC, arXiv 2203.04955 | verified | Method as described. |
-| "TD-MPC2 scales the recipe: still no decoder anywhere ... MPPI, sampling candidate action sequences in latent space ... warm-starting the sampling from a learned policy prior" | TD-MPC2 paper | verified | Method as described. |
-| "The reported result is a single 317M-parameter agent across 104 continuous-control tasks in 4 task domains" | TD-MPC2 abstract | **corrected** | The 104-task/4-domain figure describes the benchmark evaluation with a single hyperparameter set; the single 317M agent performs 80 tasks. Rewritten to the abstract's wording. |
-| TD-MPC2 planning horizon 3 steps | TD-MPC2, Appendix Table 8 | verified | H = 3; used in correction 2. |
-| DayDreamer: four robots, same hyperparameters | DayDreamer abstract | verified | "four robots ... same hyperparameters". |
-| "In practice this caps usable imagination at roughly 15 to 50 steps" cited to the survey | Survey, DreamerV3, TD-MPC2 | **corrected** | Survey states no such range. Rewritten: "keeps usable imagination short: DreamerV3 trains its actor and critic on 15-step imagined rollouts, and TD-MPC2 plans only 3 steps ahead", cited to the two primary papers. |
-| `lib/latent-imagination.ts` TYPICAL_HORIZON [15, 50] + "see research/02 Part B1" comment | Primary papers | **corrected** | Now [3, 15] with comments naming TD-MPC2 and DreamerV3; component band/aria-label/annotation updated to "published 3-15"; tests updated. |
-| "The Robotic World Model work retargets latent imagination at robust robot control ... dual-autoregressive mechanism for long-horizon prediction under partial observability" | Robotic World Model, arXiv 2501.10100 | verified | Dual-autoregressive mechanism and partial-observability framing as stated. |
-| "Dream-MPC ... replacing population-based MPPI with gradient-based trajectory optimization through the learned model, improving on both the policy and gradient-free MPC across 24 tasks" | Dream-MPC paper | verified | Gradient-based latent trajectory optimization; 24 tasks. |
-| "Fast-WAM ... keeps world modeling as a training objective, drops future prediction at test time, and stays competitive while running over four times faster" | Fast-WAM paper | verified | Training-time-only world modeling; >4x speedup; 190 ms figure checked at the paper. |
-| Honest-limits list (latent models can drift from what the observation would have pinned down; evaluation is indirect) | Survey Sec. 7.1.2 + primary papers | verified | Consistent with the survey's weak-proxy discussion; framed as the article's synthesis. |
+| Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage |
+|---|---|---|---|---|---|---|
+| Stat: "DreamerV3 tasks 150+, one fixed hyperparameter set" | DreamerV3 abstract | verified | As in taxonomy. | `dreamerv3-2023` | https://arxiv.org/html/2301.04104v2 | “We evaluate the generality of Dreamer across 8 domains—with over 150 tasks—under fixed hyperparameters.” Results section of Hafner, Pasukonis, Ba and Lillicrap, Mastering Diverse Domains through World Models, arXiv 2301.04104v2 (17 April 2024). Fixed algorithmic hyperparameters across evaluated tasks, not one jointly trained multi-task agent or identical compute/data budgets. FetchUrl result observed 2026-09-06T18:33:23.192Z, reported HTTP 200; retained versioned HTML reused, no new fetch. |
+| Stat: "TD-MPC2 agent 317M, one agent, 104 tasks" | TD-MPC2 abstract | **corrected** | Conflated the 104-task benchmark with the agent's 80 tasks. Now "one agent, 80 tasks". |  |  |  |
+| Stat: "DayDreamer 1 h, to walk from scratch" | DayDreamer abstract | verified | "in only 1 hour". |  |  |  |
+| Stat: "horizon 15-50, imagined steps, typical" | Survey + DreamerV3 + TD-MPC2 | **corrected** | No source states a 15-50 typical range; figure traces to research/02 Part B1. Now "15, imagined steps, DreamerV3" (DreamerV3 imagination horizon H = 15; Nature version T = 16). |  |  |  |
+| RSSM two-part state; encoder posterior; decoder during training; reward and continuation heads | Dreamer, arXiv 1912.01603 | verified | Architecture as described. |  |  |  |
+| "The actor and the critic are trained purely on imagined latent rollouts ... No environment steps are consumed during this phase" | Dreamer paper | verified | Latent-imagination training as described. | `dreamer-2019` | https://ar5iv.labs.arxiv.org/html/1912.01603 | §2 Agent components; §3 Imagination environment, Action and value models, Learning objective; Algorithm 1 separates behavior learning from environment interaction. “Dreamer uses an actor critic approach to learn behaviors that consider rewards beyond the horizon. We learn an action model and a value model in the latent space of the world model for this.” “Imagined trajectories start at the true model states … of observation sequences drawn from the agent’s past experience.” “The value model optimizes Bellman consistency for imagined rewards and the action model is updated by propagating gradients of value estimates back through the neural network dynamics.” “The world model is fixed while learning behaviors.” FetchUrl result observed 2026-09-06; unversioned ar5iv body (arXiv abs reports latest v3, 2020-03-17; the HTML response does not independently label its version). |
+| "DreamerV3 was the first agent to collect diamonds in Minecraft from scratch, without human data or curricula" + intermediate-achievement chain | DreamerV3 paper | verified | Paper's headline result; the wood/tools/furnaces/iron/diamond chain is the paper's own description of the achievement tree. |  |  |  |
+| "The paper was published in Nature in 2025" | Nature 640:647-653, DOI 10.1038/s41586-025-08744-2 | verified | "Mastering diverse control tasks through world models", published 2025-04-02. | `dreamerv3-2023` | https://www.nature.com/articles/s41586-025-08744-2 | “Hafner, D., Pasukonis, J., Ba, J. _et al._ Mastering diverse control tasks through world models.<br>_Nature_ **640**, 647–653 (2025). https://doi.org/10.1038/s41586-025-08744-2<br>- Published: 02 April 2025<br>- Version of record: 02 April 2025” Publisher version of record: Hafner, Pasukonis, Ba and Lillicrap, Mastering diverse control tasks through world models, Nature 640:647–653 (2025), DOI 10.1038/s41586-025-08744-2. Published/version of record 2025-04-02; issue 2025-04-17. This is the journal version of the work registered as dreamerv3-2023, not the preprint title Mastering Diverse Domains through World Models. FetchUrl result observed 2026-09-06T18:33:23.192Z, reported HTTP 200; retained publisher text reused, no new fetch. |
+| Robustness techniques: symlog, two-hot reward encoding, free bits, percentile-based return normalization | DreamerV3 paper | verified | All four named in the paper. |  |  |  |
+| DreamerV3 imagination horizon 15 steps | DreamerV3 paper | verified | H = 15 imagination rollouts (Nature version: prediction horizon T = 16); used in correction 2. |  |  |  |
+| TD-MPC: task-oriented latent trained only for reward/value, per-step local trajectory optimization, learned terminal value | TD-MPC, arXiv 2203.04955 | verified | Method as described. |  |  |  |
+| "TD-MPC2 scales the recipe: still no decoder anywhere ... MPPI, sampling candidate action sequences in latent space ... warm-starting the sampling from a learned policy prior" | TD-MPC2 paper | verified | Method as described. |  |  |  |
+| "The reported result is a single 317M-parameter agent across 104 continuous-control tasks in 4 task domains" | TD-MPC2 abstract | **corrected** | The 104-task/4-domain figure describes the benchmark evaluation with a single hyperparameter set; the single 317M agent performs 80 tasks. Rewritten to the abstract's wording. |  |  |  |
+| TD-MPC2 planning horizon 3 steps | TD-MPC2, Appendix Table 8 | verified | H = 3; used in correction 2. |  |  |  |
+| DayDreamer: four robots, same hyperparameters | DayDreamer abstract | verified | "four robots ... same hyperparameters". |  |  |  |
+| "In practice this caps usable imagination at roughly 15 to 50 steps" cited to the survey | Survey, DreamerV3, TD-MPC2 | **corrected** | Survey states no such range. Rewritten: "keeps usable imagination short: DreamerV3 trains its actor and critic on 15-step imagined rollouts, and TD-MPC2 plans only 3 steps ahead", cited to the two primary papers. |  |  |  |
+| `lib/latent-imagination.ts` TYPICAL_HORIZON [15, 50] + "see research/02 Part B1" comment | Primary papers | **corrected** | Now [3, 15] with comments naming TD-MPC2 and DreamerV3; component band/aria-label/annotation updated to "published 3-15"; tests updated. |  |  |  |
+| "The Robotic World Model work retargets latent imagination at robust robot control ... dual-autoregressive mechanism for long-horizon prediction under partial observability" | Robotic World Model, arXiv 2501.10100 | verified | Dual-autoregressive mechanism and partial-observability framing as stated. |  |  |  |
+| "Dream-MPC ... replacing population-based MPPI with gradient-based trajectory optimization through the learned model, improving on both the policy and gradient-free MPC across 24 tasks" | Dream-MPC paper | verified | Gradient-based latent trajectory optimization; 24 tasks. |  |  |  |
+| "Fast-WAM ... keeps world modeling as a training objective, drops future prediction at test time, and stays competitive while running over four times faster" | Fast-WAM paper | verified | Training-time-only world modeling; >4x speedup; 190 ms figure checked at the paper. |  |  |  |
+| Honest-limits list (latent models can drift from what the observation would have pinned down; evaluation is indirect) | Survey Sec. 7.1.2 + primary papers | verified | Consistent with the survey's weak-proxy discussion; framed as the article's synthesis. |  |  |  |
 
 ## generative-video.mdx
 
@@ -376,3 +394,110 @@ found in the banked edits.
 - Ars Technica's Project Genie piece is corroborated by Google's own
   announcement for the load-bearing facts; keep preferring the first-party
   blog.google announcement for any future Project Genie capability claims.
+
+## Dreamer source recovery (2026-09-06)
+
+This is an incomplete source-record recovery, not a new clean audit. The
+three-paper group contains 13 existing rows: taxonomy ordinals 5, 8, 9;
+latent-dynamics ordinals 1, 4, 5, 6, 7, 8, 9, 10, 16, 17. Ordinals count
+claim rows within the named article table, not physical file lines. Only
+latent-dynamics ordinal 6 is completed here, using the fetched original
+Dreamer method and Algorithm 1. Its quotation supports the recorded
+actor/critic-imagination claim, not every sentence in the surrounding paragraph.
+All original claim, source, note, and verdict cells remain unchanged.
+The other 12 group rows and every other incomplete domain row remain failures.
+
+Retrieval observations (FetchUrl results recorded 2026-09-06T18:12:13.364Z;
+these are tool-result observation times, not independently measured origin-server
+fetch times):
+
+- Dreamer V1: https://arxiv.org/abs/1912.01603 and
+  https://ar5iv.labs.arxiv.org/html/1912.01603 both report status 200.
+  The abs page identifies the registry title and all four authors, first
+  submission 2019-12-03 and latest v3 dated 2020-03-17. The HTML body has the
+  matching title/authors but no independent version label. Read its method,
+  Algorithm 1, experimental context, and Appendix A; the displayed middle
+  truncation is not missing source text, because the tool saved the full result.
+- Dreamer V2: https://arxiv.org/abs/2010.02193 and
+  https://ar5iv.labs.arxiv.org/html/2010.02193 both report status 200.
+  The abs page identifies Mastering Atari with Discrete World Models, Hafner /
+  Lillicrap / Norouzi / Ba, first submission 2020-10-05, latest v4 dated
+  2022-02-12, and ICLR 2021. Method context states that V2 replaces V1's
+  Gaussian latents with categorical variables. There is no registry entry
+  for this paper and no dedicated existing V2 row in this domain. It is not
+  substituted for the cited V1 or V3 document. Its displayed truncation also
+  has a full saved result; this worker does not claim a complete V2 audit.
+- Dreamer V3: https://arxiv.org/abs/2301.04104 reports status 200 and matches
+  the registry title and four authors, first submission 2023-01-10, latest
+  v2 dated 2024-04-17. It supplies only metadata and an abstract.
+  https://ar5iv.labs.arxiv.org/html/2301.04104 reports status 200 but is
+  titled “No content available” and says “Conversion to HTML had a Fatal
+  error and exited abruptly. This document may be truncated or damaged.”
+  This is an error page, not a reachable intended document under VAL-AUDIT-008.
+  Abstract text is not used to complete the task-count/hyperparameter,
+  Minecraft achievement-chain, robustness, or horizon records.
+
+Unresolved source and attribution boundaries under VAL-AUDIT-003 P1–P3
+and VAL-AUDIT-009:
+
+- Taxonomy 5/9 and latent-dynamics 1/7/9/10 need the V3 experimental/method
+  body and version-specific horizon context. Taxonomy 8 also cites V3 in the
+  actual article, although its old Source checked cell names V1; no V1
+  passage is silently used as evidence for the V3 citation.
+- Latent-dynamics 5 includes “categorical in DreamerV3” beside
+  `dreamer-2019`. V1 Appendix A says “Distributions in latent space are
+  30-dimensional diagonal Gaussians.” The V2 method explicitly says it
+  replaces V1's Gaussian latents with categorical variables. The current
+  source attribution cannot establish the V3-specific clause. V1 describes
+  discount prediction for early termination, not an unqualified universal
+  continuation head. The compound architecture row stays incomplete.
+- Latent-dynamics 4/16/17 are compound correction records requiring the
+  survey, TD-MPC2, and/or current implementation verification in addition
+  to V3. A single Dreamer source cannot certify those complete records.
+- Latent-dynamics 8 needs the Nature publication record. WebSearch query:
+  `DreamerV3 "Mastering diverse control tasks through world models" Nature 2025 08744`
+  located https://www.nature.com/articles/s41586-025-08744-2 and dated the
+  result 2025-04-02, but this is discovery-grade, not a fetched publication
+  record. The Nature title differs from the arXiv title; retain the
+  publication/version distinction rather than asserting a mismatch solely
+  from the two titles. The old H=15 versus T=16 note is not newly verified.
+- The adjacent sentence in latent-dynamics says imagination is “the entire
+  source of the sample efficiency”. That exclusivity is not supported by
+  the recovered row's passage. V1 §6 also credits the learned world model:
+  “At the same time, Dreamer inherits the data-efficiency of PlaNet,
+  confirming that the learned world model can help to generalize from small
+  amounts of experience.” This is a separate unsupported-strengthening
+  finding, not an applied prose correction or part of the completed claim.
+
+Needed FetchUrl targets for a follow-up authorized to fetch them are
+https://arxiv.org/html/2301.04104v2, https://arxiv.org/pdf/2301.04104v1,
+and https://www.nature.com/articles/s41586-025-08744-2. They were not fetched
+by this worker because they were not among its explicitly supplied targets.
+The historical audit skeleton at mission worker-transcripts.jsonl line 147
+records V3 requests but replaces source outputs with length placeholders.
+The exact named transferred HTML-log candidate, original Linux session
+candidate, and /tmp/dreamerv3v1.pdf were absent. No preserved V3 passage
+was reused and no broad temporary-directory search was performed.
+
+Verification for this source-only slice uses the existing pure ledger parser,
+`withLedgerSummary` for this file only, and deterministic comparisons against
+`2cf7d6b:audit/world-models.md`. The reproducible scoped command is
+`NODE_DISABLE_COMPILE_CACHE=1 node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/dreamer-slice/verify.mjs`.
+No unit, typecheck, global content, build, or browser run belongs to this
+worker's gate lane. No article prose, citation entry, production file,
+lastReviewed date, or protected owner file changed; no humanizer pass applies
+to unchanged article prose. There is no commit or publication from this slice.
+
+Additional source-internal discrepancies observed while reading this group
+(no existing slice row uses either quantity, so neither changes a verdict):
+V1 §6 Long horizons says “Performance curves for all 19 tasks” but later in
+the same paragraph reports “16 of 20 tasks, with 4 ties”. V2 §2.1 Experience
+dataset gives the fixed discount hyperparameter as 0.999, while Appendix D
+Table D.1 gives Discount 0.995. These two source discrepancies are recorded,
+not resolved, and are not used as evidence for the completed method row.
+
+## Prepared-source normalization checkpoint (batch 2, 2026-09-06)
+
+Three prepared V3 records are normalized: taxonomy ordinal 5 and latent-dynamics ordinals 1 and 8. The task-count evidence is explicitly the 2024 arXiv v2; the publication record uses the differently titled 2025 Nature version of record. The prior V3 ar5iv conversion failure remains historical error-page evidence, not a successful source. Nine other V3 dispositions remain blocked for attribution, exclusivity, Minecraft qualification, reward-loss and H=15/T=16 inconsistencies, or missing compound sources. The original-Dreamer complete row is unchanged.
+
+Counting unit: 5 article sections, 92 original claim rows, 4 complete evidence records and 88 incomplete records. This is not article or domain acceptance. Completed source-packet identity, passage-offset and hash checks were reused; current row bindings and article context were checked on 2026-09-06. Historical retrieval events in the added evidence remain separate from this review. No new source fetch, production prose, citation registry, data, code, tests or article lastReviewed change occurred. All original claim/source/verdict/note cells and previously complete records are retained. No prose-humanizer pass applies; audit accounting received manual review. Shared checkpoint checks are recorded in audit/README.md; the content gate remains red and publication is not authorized.

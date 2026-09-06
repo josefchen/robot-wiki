@@ -11,6 +11,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import {
   attributionSentence,
   imageSchema,
+  isCompanyMarkFile,
   LEGAL_BASIS_BY_LICENCE,
   type SiteImage,
 } from '@/data/schemas/image';
@@ -464,11 +465,32 @@ describe('§1.13 provenance record', () => {
     }
   });
 
-  it('grounds each declared basis in the licence recorded beside it', () => {
+  it('grounds each declared basis in the licence recorded beside it, except a company mark, which rests on identification', () => {
     for (const image of IMAGES) {
-      const grounded = [LEGAL_BASIS_BY_LICENCE[image.licence]];
+      // §1.13: "Company marks use `official-identification-use`", and
+      // VAL-B2-IMG-008 calls it the path marks use ONLY. The licence a mark
+      // file happens to carry - `cc-by-4.0` on the Physical Intelligence
+      // logo, `apache-2.0` on others - is a statement about the file, not a
+      // licence to reproduce somebody else's trademark.
+      const grounded: string[] = isCompanyMarkFile(image.file)
+        ? ['official-identification-use']
+        : [LEGAL_BASIS_BY_LICENCE[image.licence]];
       if (figureKind(image) === 'original-schematic') grounded.push('owned');
       expect(grounded, `${image.id} (${image.licence})`).toContain(legalBasis(image));
+    }
+  });
+
+  it('rests every company mark on identification whatever licence its file carries', () => {
+    const marks = IMAGES.filter((image) => isCompanyMarkFile(image.file));
+    expect(marks.length).toBeGreaterThan(100);
+    // The licence spread is the point: if every mark happened to be
+    // `unlicensed`, the licence fallback would agree by accident and this
+    // would prove nothing.
+    expect(new Set(marks.map(({ licence }) => licence)).size).toBeGreaterThan(1);
+    for (const mark of marks) {
+      expect(legalBasis(mark), `${mark.id} (${mark.licence})`).toBe(
+        'official-identification-use',
+      );
     }
   });
 

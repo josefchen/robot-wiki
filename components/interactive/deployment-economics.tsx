@@ -47,7 +47,7 @@ const CONTROLS: Array<{
     key: 'robotCost',
     label: 'Robot cost',
     format: (v) => `$${(v / 1000).toFixed(0)}k`,
-    note: 'Assumption: list price for a mid-range industrial arm; EVST places arm prices at $25k-$80k.',
+    note: 'Assumption: list price for a mid-range industrial arm; no cited source publishes an arm-only price.',
   },
   {
     key: 'integrationMultiple',
@@ -132,7 +132,7 @@ export function DeploymentEconomics({ className }: DeploymentEconomicsProps) {
           data-pagefind-ignore
           type="button"
           onClick={reset}
-          className="rounded-sm bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
+          className="rounded-sm bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
         >
           Reset
         </button>
