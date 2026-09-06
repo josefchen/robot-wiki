@@ -620,6 +620,187 @@
         "VAL-B2-BASE-010"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-expression-name-so101-chain-preview",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/home/so101-chain-preview.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9712784f324b174e820d00ff0098bfe9afe89ea5e1ff2983c28b53f5c7602f7b",
+      "reason": "New accessible name on a component the migration added. `components/home/so101-chain-preview.tsx` was created by 0940ad7 to draw the home playground entry from the shipped SO-101 kinematic chain, and its figure names itself \"Side view of the shipped SO-101 arm at its zero configuration, ${chain.length} revolute joints from the base to the gripper\" from that same model. No pre-existing name changed and no article fact is restated: the sentence describes a graphic that did not exist at the baseline.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-002 with VAL-B2-BASE-011: a name that did not exist at the baseline is an addition the allowlist must name exactly, and this entry names one member in one file.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-expression-name-icon-label",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/ui/icon.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7204473944d05a79c79228f09942e708bb1ef64ccc61ee96199dd77c7d94ee20",
+      "reason": "New accessible name on a primitive the migration added. `components/ui/icon.tsx` arrived with the registered shared primitives in 320c435 and passes its caller-supplied `label` through to `aria-label`, so the expression sealed here is `{label}`. It introduces no wording of its own; each caller keeps naming its own icon.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-002 with VAL-B2-BASE-011: the primitive is new, so the name it forwards is an addition the allowlist must name exactly.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-expression-name-tabs-label",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/ui/tabs.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d55d37439f362881d118d507ce09f359ca61bb0d69761ce20c97b298e957df39",
+      "reason": "New accessible name on a primitive the migration added. `components/ui/tabs.tsx` arrived with the registered shared primitives in 320c435 and names its tablist from the caller-supplied `ariaLabel` prop; c8b46b2 kept that name when it made the tablist keyboard-reachable. The expression forwards a caller string and states no fact of its own.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-002 with VAL-B2-BASE-011: the primitive is new, so the name it forwards is an addition the allowlist must name exactly.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-expression-name-table-caption-reference",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/ui/table.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "f89cea058abd05a4dd1d6a66661bfc3aa72be13121936915852d4d5a0f5b4f44",
+      "reason": "Fact-preserving accessible-name addition. c8b46b2 made the shared table scroll box a focusable `role=\"region\"`, which must be named, and named it by pointing `aria-labelledby` at the caption the table already prints (`{captionId}`). The name is the caption text itself, so no new wording, figure, unit or attribution enters the page.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-008 with VAL-B2-BASE-002: a table that scrolls must be a keyboard-reachable region with an accessible name, and borrowing the printed caption restates a fact the reader already sees.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-expression-name-table-sort-renumbered",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/ui/table.tsx:aria-label:1",
+      "oldHash": "56471ceacd455dfb31f3b1b1ad1de431f7fb97e9883349b566dacdffc328ddfa",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Ordinal shift, not a lost name. The sort-button name `{`Sort by ${column.header}`}` was the first expression-valued name in `components/ui/table.tsx`; c8b46b2 added the caption reference on the scroll region above it, which renumbered the unchanged sort name to ordinal 2. Its hash 56471cea... reappears unchanged under `expression:components/ui/table.tsx:aria-label:2`, registered in brand-v2-expression-name-table-sort-renumbered-successor.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-002 with VAL-B2-BASE-011: member ids in this manifest are positional within a file, so an inserted name renumbers the ones after it; both halves of the shift are named here and the text of the moved name is byte-identical.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-expression-name-table-sort-renumbered-successor",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/ui/table.tsx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "56471ceacd455dfb31f3b1b1ad1de431f7fb97e9883349b566dacdffc328ddfa",
+      "reason": "The other half of the ordinal shift registered in brand-v2-expression-name-table-sort-renumbered: the same sort-button name `{`Sort by ${column.header}`}`, byte-identical (hash 56471cea... on both sides of the move), now sealed at ordinal 2 because the caption reference was inserted before it.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-002 with VAL-B2-BASE-011: the name is unchanged and only its position in the file moved; the hash equality on both sides is what makes that checkable.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-expression-name-training-time-bar-removed",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/training-time-chart.tsx:aria-label:3",
+      "oldHash": "4942c226b5b9c62939c9f88c3ec65d62ea4edb89a3905bf1a63f8dc1cf52dd83",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Removed name on a graphic that is now marked decorative. 88cfb04 dropped the `role=\"img\"` and `aria-label` from the iteration-time breakdown bar in `components/interactive/training-time-chart.tsx`: the legend directly beneath the bar prints every bucket and its share as ordinary text, so the label repeated three numbers the next line already speaks and left the SVG root uncovered by the chart-description sweep. The bar, its texture, its legend key and its numbers are untouched; only what assistive technology is told about the graphic changed.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-002 with VAL-B2-BASE-011: removing a name is a difference the allowlist must name exactly. The removal is fact-preserving because the same three figures stay printed in the legend the name duplicated.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-audit-2026-09-06-ul-4600-registry-title",
+      "manifest": "article-metadata",
+      "memberId": "citation:ul-4600-2023",
+      "oldHash": "d2a74bb684e48ba34eb0b659de9ec9c409426d907a85932b4456c7ae906ff63c",
+      "newHash": "2a75d8db6014a94f94f5a8b0125800c12dca01f77b1312cd9de063a9d56c77e6",
+      "reason": "Audit correction to a registry title, not a rollout change. e3303c0 replaced \"UL 4600, Standard for Safety for the Evaluation of Autonomous Products, Edition 3\" with the title the publisher's own catalogue page prints, \"UL 4600, Standard for Evaluation of Autonomous Products, Edition 3\". Authors, year, venue, url and type are unchanged, and no claim resting on the source moved.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-002 requires citation source labels to be identical to the baseline; correcting one to the label its publisher prints is a fact restoration, recorded here against the exact member.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-audit-2026-09-06-osha-otm-registry-title",
+      "manifest": "article-metadata",
+      "memberId": "citation:osha-otm-robots",
+      "oldHash": "fe0a40b755d67ff86535c7db7334e85d87622cb6b5bc1af127390e5945ca5c0d",
+      "newHash": "10330d6e3e86be06dcc60d62bf6b7b31372cc4052046c84ce117aee01ca51229",
+      "reason": "Audit correction to a registry title, not a rollout change. e3303c0 replaced \"Industrial Robots and Robot System Safety\" with the chapter title OSHA's own page prints, \"Industrial Robot Systems and Industrial Robot System Safety\". Authors, year, venue, url and type are unchanged.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-002 requires citation source labels to be identical to the baseline; correcting one to the label its publisher prints is a fact restoration, recorded here against the exact member.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-audit-2026-09-06-amazon-fleet-registry-title",
+      "manifest": "article-metadata",
+      "memberId": "citation:amazon-robot-fleet-2026",
+      "oldHash": "b645dd3f67787cca291e3e32ebed58cb29e89c4e8124ed861b2c3a85d2e8b669",
+      "newHash": "e48c54b866a4892dbdd88d397d55370c832d0d6810db3f292a4eea66553edc7c",
+      "reason": "Audit correction to a registry title, not a rollout change. e3303c0 replaced \"Amazon robotics fleet passes one million robots\" with the title the live page at that same url prints, \"Amazon robotics: Meet the robots inside fulfillment centers\". The url, authors, year, venue and type are unchanged; the page no longer describes Blue Jay anywhere a claim could rest on it, which the entry comment records.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-002 requires citation source labels to be identical to the baseline; correcting one to the title served at its own url is a fact restoration, recorded here against the exact member.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-a3-orders-registry-target",
+      "manifest": "article-metadata",
+      "memberId": "citation:a3-orders-2025",
+      "oldHash": "0959a2ff02b2afc671e30b03ccf5133576c45264f5ad52b5f48978640a20e350",
+      "newHash": "898ca9cb5063f1a38e8d9d9b51bc57e627ea76f39d567967f5ff1014dcd7694e",
+      "reason": "Citation target and label follow the source that is actually served. a25d57e moved a3-orders-2025 to the A3 release the publisher now serves, \"Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation Adoption\" at .../robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption, dated A3 2026-02-06 rather than 2026-02-04. Authors, year and type are unchanged and the figures the wiki attributes to A3 (6.6 percent order growth, the cobot unit share) are the ones this release prints.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-002 requires citation targets, source labels and dates to be identical to the baseline; this entry names the one member whose url, venue and title moved to the document the publisher serves.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-industrial-deployment-declared-source-added",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:data-hardware/industrial-deployment",
+      "oldHash": "e42559fff6bde906d0c4844b13a1e0e8fab9bccf0ba2b49c7700291271b52fe4",
+      "newHash": "b35a32a495a8ed85111c3823139f481b56d55f6b9a700e631589018c78723e80",
+      "reason": "One declared source added by the content audit. 20f32c0 audited /data-hardware/industrial-deployment/ against fetched primary sources and added robozaps-humanoids-2026 to the article's frontmatter citation list so the humanoid-count sentence names the source it rests on. The review date and the other declared sources are unchanged, and no source was dropped.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-002 names References among the relationships that must be identical to the baseline; adding a source to a bibliography is a fact change and is recorded here against the exact article member.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

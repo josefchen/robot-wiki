@@ -470,8 +470,576 @@
     "accessible-names": {
       "schemaVersion": 1,
       "kind": "accessible-names",
-      "memberCount": 167,
+      "memberCount": 309,
       "members": [
+        {
+          "id": "expression:app/a-z/page.tsx:aria-labelledby:1",
+          "hash": "a56b98dabfb5e4c8d49dea9a362c8d7adc6a285578ef9e1e49059c52d67b851c"
+        },
+        {
+          "id": "expression:components/article/article-links.tsx:aria-labelledby:1",
+          "hash": "ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545"
+        },
+        {
+          "id": "expression:components/article/commit-to-reveal.tsx:aria-labelledby:1",
+          "hash": "5bc5ff9905410c81d29ec5adda60fb2476953f09c42dfb8bc93b08e9408c9e7b"
+        },
+        {
+          "id": "expression:components/article/heading-permalink.tsx:aria-label:1",
+          "hash": "6beaa8541a6a545ab398df8494749d8145b155893c3c1be6aab4283cd33ca1cc"
+        },
+        {
+          "id": "expression:components/interactive/action-conditioning.tsx:aria-label:1",
+          "hash": "4dc263e6a13e5886fbbfbcdaf0da7c6526b9409e66ef6ec0b14bfa3c99406992"
+        },
+        {
+          "id": "expression:components/interactive/action-conditioning.tsx:aria-label:2",
+          "hash": "331448d655ed78fb47e8a8fbb99e31a756768cb4140ffcac5d68819cf7ff768b"
+        },
+        {
+          "id": "expression:components/interactive/action-conditioning.tsx:aria-label:4",
+          "hash": "5b3fb08471bdbfd31c2e1fe41a3eb39e2cc984bf4fbe9f6f38ae5f1c7feb1b5b"
+        },
+        {
+          "id": "expression:components/interactive/action-conditioning.tsx:title:3",
+          "hash": "2cb32ca72407654e64051aec26821a1c64edd6f5aff59732315fae43398c731a"
+        },
+        {
+          "id": "expression:components/interactive/action-tokenization.tsx:aria-label:1",
+          "hash": "d354ea6ead9969f1d5b3a200063ea9f7aa1147be2adf59b72f2c808c894e61bc"
+        },
+        {
+          "id": "expression:components/interactive/action-tokenization.tsx:aria-label:2",
+          "hash": "be91ca1500d96e4cfefc643f7f7955b613a9614d9f559b945c164f976ecece2b"
+        },
+        {
+          "id": "expression:components/interactive/action-tokenization.tsx:aria-label:3",
+          "hash": "7216bbc0f2345866d79b4a54e651a5fed6199f542df63b1b05f738fd88e45cc4"
+        },
+        {
+          "id": "expression:components/interactive/advantage-scrubber.tsx:aria-label:1",
+          "hash": "5320c4d83412cc0acd6f0531ccd3ce06fd08332e464ab3b37628a0845bffecb3"
+        },
+        {
+          "id": "expression:components/interactive/advantage-scrubber.tsx:aria-label:2",
+          "hash": "a3996cc8aa795782b4cb2141f0763d4da0800b85d7b188582f17f0091607a50b"
+        },
+        {
+          "id": "expression:components/interactive/appearance-physics-push.tsx:aria-label:1",
+          "hash": "443b1843e06bad68eef6a43c7d677445c57df83d95573c8d533b6a77061054d1"
+        },
+        {
+          "id": "expression:components/interactive/appearance-physics-push.tsx:aria-label:2",
+          "hash": "6cf78c9f1e33805cc078c4824d15cdd2113a695c3c72e5e7fd330467daa04169"
+        },
+        {
+          "id": "expression:components/interactive/chunk-size-curve.tsx:aria-label:1",
+          "hash": "0d39c7e2edb1e21b2b3f6ba77cdda456138e530538f75955f8a18bd70f43498b"
+        },
+        {
+          "id": "expression:components/interactive/chunk-size-curve.tsx:aria-label:2",
+          "hash": "35b6344f9457b937171cc4a3c13637a434e0cc7695ba6580f9b8245ab29783c9"
+        },
+        {
+          "id": "expression:components/interactive/collaborative-operation-modes.tsx:aria-label:1",
+          "hash": "c4abb1ac4745b513596361623c162070eab1f4e25b6de9cdf4ed39cf6a2014da"
+        },
+        {
+          "id": "expression:components/interactive/collaborative-operation-modes.tsx:aria-label:2",
+          "hash": "b6443a41e2467a76600fcf30f37993ce4c5427657eac64d24e34cdd6d2aede2f"
+        },
+        {
+          "id": "expression:components/interactive/collaborative-operation-modes.tsx:aria-label:3",
+          "hash": "79ec2f32f5e109772a4bef1a05f80e43db6c9612322cc07c442b3d9141c0927f"
+        },
+        {
+          "id": "expression:components/interactive/compounding-error.tsx:aria-label:1",
+          "hash": "94694606375f7b7e40897dd7309215dcff87e4dd2546e4f3364d7a69eba252e2"
+        },
+        {
+          "id": "expression:components/interactive/compounding-error.tsx:aria-label:2",
+          "hash": "4139e204875dd6e1411b89d50adfb2f94d71286dc25281e7b9b585cdeca9c7e7"
+        },
+        {
+          "id": "expression:components/interactive/compounding-error.tsx:aria-label:3",
+          "hash": "0dc6cce12f2210785ef1b77bd4ef616e3bcb6fa1b3064b1bda53945d17ceaed4"
+        },
+        {
+          "id": "expression:components/interactive/compounding-error.tsx:aria-label:4",
+          "hash": "a7354f5f7d221fe30d1eb576a1776147887c1c728975ff47c82db128af2fd407"
+        },
+        {
+          "id": "expression:components/interactive/contact-geometry.tsx:aria-label:1",
+          "hash": "d74c19d3f2da72217b7d3bae3f8e55fbe8c16dab8f113ada1781d61c236696ba"
+        },
+        {
+          "id": "expression:components/interactive/contact-geometry.tsx:aria-label:2",
+          "hash": "2e7f36e4f52b5db23b580291ec4a74764f42a685f42d63666341f22c19c48f63"
+        },
+        {
+          "id": "expression:components/interactive/control-loop-budget.tsx:aria-label:1",
+          "hash": "640bca107b970908e991b01f648cebff7744d22bc075250e609c029d79f39ab3"
+        },
+        {
+          "id": "expression:components/interactive/control-loop-budget.tsx:aria-label:2",
+          "hash": "160d91b1a2d60420a32bc0820fc053ddd577c77f2684e4327dc5d18912f0f09f"
+        },
+        {
+          "id": "expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:1",
+          "hash": "ae7cb503e20d867703a8d8c5fc0d4abf8633f4160096b26b7412875c0c15c647"
+        },
+        {
+          "id": "expression:components/interactive/data-scale-chart.tsx:aria-label:1",
+          "hash": "1a2252276d56bdf8d68436ae097b36dfa8bfcba8112f4a829bf3d4e439fddbea"
+        },
+        {
+          "id": "expression:components/interactive/data-scale-chart.tsx:aria-label:2",
+          "hash": "462ee34925b1486657f2875ff749cdaa1d688e50ccc0cf1b806da1a40f79db5d"
+        },
+        {
+          "id": "expression:components/interactive/dataset-table.tsx:aria-label:1",
+          "hash": "7204473944d05a79c79228f09942e708bb1ef64ccc61ee96199dd77c7d94ee20"
+        },
+        {
+          "id": "expression:components/interactive/denoising-loop.tsx:aria-label:1",
+          "hash": "59ea71d7216b98e231870581e7b4e07756eb94bd21f6b0f74c4ef68d46464ffd"
+        },
+        {
+          "id": "expression:components/interactive/denoising-loop.tsx:aria-label:2",
+          "hash": "b5184c545082f57fe746eaeee2e4b0932ede549f951202b379c32089f863df7d"
+        },
+        {
+          "id": "expression:components/interactive/deployment-economics.tsx:aria-label:1",
+          "hash": "e2f403af501cf8676da660787aceb6c3d44cae1557688ecc685476142c033527"
+        },
+        {
+          "id": "expression:components/interactive/deployment-economics.tsx:aria-label:2",
+          "hash": "b7a1bbfb6a7dcc6a4c4719f331bbe0b64d206999e4a2b9d9921b969ae7032895"
+        },
+        {
+          "id": "expression:components/interactive/egoscale-scaling.tsx:aria-label:1",
+          "hash": "f88f094061770ddf9d2eb111d3b7599bc8005878dc47b81c497894d6cd213e11"
+        },
+        {
+          "id": "expression:components/interactive/egoscale-scaling.tsx:aria-label:2",
+          "hash": "58ff8490a589f0d6fb226da7ced8c6876c2a4accd3af54568b01c56213290dcd"
+        },
+        {
+          "id": "expression:components/interactive/execution-modes.tsx:aria-label:1",
+          "hash": "b2fca5c6e9846c2a79d3b7c86e0b977e92bd33afb0f563f012bb252fc796d451"
+        },
+        {
+          "id": "expression:components/interactive/execution-modes.tsx:aria-label:2",
+          "hash": "a5cd08034950c8a5d4d4dc0c33d651f90767cf034b866b60a81c398663c3156a"
+        },
+        {
+          "id": "expression:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
+          "hash": "5b3d032b37211b8e425c613657e9adb323d9f325b170860d6802f8cdcb83ecc7"
+        },
+        {
+          "id": "expression:components/interactive/flow-matching-trajectory.tsx:aria-label:2",
+          "hash": "785965cefb0e4a3c45abcc363d759743bc31a56915b623958200990f2095d931"
+        },
+        {
+          "id": "expression:components/interactive/friction-transfer.tsx:aria-label:1",
+          "hash": "05e3410a89f58959d397279ad1a010ed6adcf50381af2e5bbea881034cc3a579"
+        },
+        {
+          "id": "expression:components/interactive/friction-transfer.tsx:aria-label:2",
+          "hash": "159d268f4d444e473b671b664fa490d4a9e1d3cbd3a0fa25455ddc53ee4e1223"
+        },
+        {
+          "id": "expression:components/interactive/friction-transfer.tsx:aria-label:3",
+          "hash": "ff4f39707519bc609cbfa385aeb51901dd85856e148ac7010a81d18444d11f61"
+        },
+        {
+          "id": "expression:components/interactive/gait-diagram.tsx:aria-label:1",
+          "hash": "a481a1246abb26b68285a84bc44fd2a1149e79fb7da7ae515c0061ff84c8cbf1"
+        },
+        {
+          "id": "expression:components/interactive/gait-diagram.tsx:aria-label:2",
+          "hash": "85224aae382857d94a46ea77067130b1c682a191b6830fcbe26d737454f9a15d"
+        },
+        {
+          "id": "expression:components/interactive/gait-diagram.tsx:aria-label:3",
+          "hash": "88c976f62aa4cb07a336c40ad72533124ff081b507178c204942ccc87fadddff"
+        },
+        {
+          "id": "expression:components/interactive/generalist-release-timeline.tsx:aria-label:1",
+          "hash": "5b4b2a73b888f5eb98c702f4a7b60564ef018314ce46944956f565aad3792c38"
+        },
+        {
+          "id": "expression:components/interactive/generalist-release-timeline.tsx:aria-label:2",
+          "hash": "86256fe5ef275859890a57fbc0ce09c0714c67ee4224af7975cd4598d7a2f418"
+        },
+        {
+          "id": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:1",
+          "hash": "5d5588b4d851728d8ff5d24d8b82c0a1e430d57412663d46b28d96df931512b7"
+        },
+        {
+          "id": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:2",
+          "hash": "e19c5d84fd999886d25274e4db66479d1af530abb074a350135cedf5bf71589f"
+        },
+        {
+          "id": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:3",
+          "hash": "a47a3268a408a79b507476a215c63dc17712003d1b56eb72d816d485a53abc02"
+        },
+        {
+          "id": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:4",
+          "hash": "b91013db3393fd8a7c973a3a565bd73075a7e6745162e11696daa7e591866e2a"
+        },
+        {
+          "id": "expression:components/interactive/hand-comparison.tsx:aria-label:1",
+          "hash": "69266c25ff143d0fb9a6d2dce0b9a2c7809c4e67318f98463ed18c6c8129a354"
+        },
+        {
+          "id": "expression:components/interactive/hand-comparison.tsx:aria-label:2",
+          "hash": "266e95385052ab5e090aaf6ecfc8acb880671c72eccd5930f69bd25170d17cb5"
+        },
+        {
+          "id": "expression:components/interactive/hardware-guide.tsx:aria-label:1",
+          "hash": "7204473944d05a79c79228f09942e708bb1ef64ccc61ee96199dd77c7d94ee20"
+        },
+        {
+          "id": "expression:components/interactive/hierarchy-timescales.tsx:aria-label:1",
+          "hash": "604467fa4a867fbd875aa904fc7428b6691d71d64d49c9d9275c419f6bf9488b"
+        },
+        {
+          "id": "expression:components/interactive/hierarchy-timescales.tsx:aria-label:2",
+          "hash": "d315f61f06f0bb15e941686544da907644c50c4c9e246049cb622011c2be4153"
+        },
+        {
+          "id": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:1",
+          "hash": "0d0d749157fb2c0680b3d1bec4e4708667a2a4f60d6acbc4c153465aa6236819"
+        },
+        {
+          "id": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:2",
+          "hash": "fd6e99d22c1ecdc9914c08a29b7cf91beefb864ecd480a6a3e61f2d87da21c04"
+        },
+        {
+          "id": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:3",
+          "hash": "37daf3bfb716335e27ec6a68cd92f9841a40b0c126780e95d4a26662ba832a61"
+        },
+        {
+          "id": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:4",
+          "hash": "880da618cb1740d0331ab86a28d043e5b7b3f454a06f407551e6517d411e69cd"
+        },
+        {
+          "id": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:5",
+          "hash": "e239605a4e741aa095d28b694a3ef71bf9689986111701a6c9a5bfa2b0cd4522"
+        },
+        {
+          "id": "expression:components/interactive/jepa-planning.tsx:aria-label:1",
+          "hash": "b1ddde9e8446c250bab863894d581595f2e356d6c1f68f589c80f1afe9eddd7c"
+        },
+        {
+          "id": "expression:components/interactive/jepa-planning.tsx:aria-label:2",
+          "hash": "33a3db044631c484669e1a0057b109ff678dbccd80ca8273b741f93f77d654a5"
+        },
+        {
+          "id": "expression:components/interactive/jepa-planning.tsx:aria-label:3",
+          "hash": "18c82ed3f88462df9c9d60473ba8650c4138ea1816c36dd1b1690f3c02dcaa4a"
+        },
+        {
+          "id": "expression:components/interactive/kalman-tracker.tsx:aria-label:1",
+          "hash": "60e792adb1f37d670cb225094ef26f3edf154e394366fdc9f081a72d537a5519"
+        },
+        {
+          "id": "expression:components/interactive/kalman-tracker.tsx:aria-label:2",
+          "hash": "fb3891647cbed3dce0a972822bfbdcd65ec2f6cd0207563b7035e9e130c207cd"
+        },
+        {
+          "id": "expression:components/interactive/kalman-tracker.tsx:aria-label:3",
+          "hash": "45b7ff8578fdc102c022cdffed74ed76e415b5ac1f61f617d893292491c1367a"
+        },
+        {
+          "id": "expression:components/interactive/latency-comparison.tsx:aria-label:1",
+          "hash": "ae4da384925c085c266f409973d72fefd275797a8d84eae2411717ea0eaf6bab"
+        },
+        {
+          "id": "expression:components/interactive/latency-comparison.tsx:aria-label:2",
+          "hash": "b1e892324a37ef7e5ffa9e557dad37f05b37d87f295ad6e242edcb955084da34"
+        },
+        {
+          "id": "expression:components/interactive/latency-comparison.tsx:aria-label:3",
+          "hash": "2540454fe1728f272ee08e2cea16bda88998893f2c6683e390c2d9f89bac0154"
+        },
+        {
+          "id": "expression:components/interactive/latent-imagination.tsx:aria-label:1",
+          "hash": "86527a72fcad380278b7105f0f17c2d9bc702d18ae5c44872e8673d117ec8d7e"
+        },
+        {
+          "id": "expression:components/interactive/latent-imagination.tsx:aria-label:2",
+          "hash": "f1d3a8209b7ebb87c7f3a9de868d887e35fe1ccdd17bef3fca06a5dbab96e72e"
+        },
+        {
+          "id": "expression:components/interactive/latent-imagination.tsx:aria-label:3",
+          "hash": "cbd9f5fbd27779d5e7d2074a7f29d30b7e387739b7e5f8f2bef54c66bc099ca4"
+        },
+        {
+          "id": "expression:components/interactive/latent-imagination.tsx:aria-label:4",
+          "hash": "1ddc031d6d180c64bfb8f1be090534e2d0d2ae5cd5a1012624c0332fbfc65026"
+        },
+        {
+          "id": "expression:components/interactive/milestones-watchlist.tsx:aria-label:1",
+          "hash": "9be59015f7c92bd62a9b76d4c30c03f8766eee0ca84b99676a308920ec11ee1f"
+        },
+        {
+          "id": "expression:components/interactive/mot-insulation.tsx:aria-label:1",
+          "hash": "b02cb7e56c872013cde84ab0309172b5c2508fae9253a31eccc6abeb1745f74f"
+        },
+        {
+          "id": "expression:components/interactive/mot-insulation.tsx:aria-label:2",
+          "hash": "50c53902daa2e70fee623ac37f296b70253baf99721c6769548ebec15cc7d1bb"
+        },
+        {
+          "id": "expression:components/interactive/mot-insulation.tsx:aria-label:3",
+          "hash": "bf350c6a3e8e09c9b3e8e83bfae87d4216070ee8d7b1b565706b559c2f079d62"
+        },
+        {
+          "id": "expression:components/interactive/mpc-vs-rl.tsx:aria-label:1",
+          "hash": "037782f322dcea324e5c291a6dcb19ae0a5f453e204bac0fd87f48b31ffbb51e"
+        },
+        {
+          "id": "expression:components/interactive/pendulum-controller.tsx:aria-label:1",
+          "hash": "1fa7c8fceb6e6cb99b35ad334f4e110d076fccba31f4d38b886d258bf16be971"
+        },
+        {
+          "id": "expression:components/interactive/pendulum-controller.tsx:aria-label:2",
+          "hash": "aa8afbbe34f2edc0ef32472a63fa91a203aae524dcb588d00cc62fcfafc7d84f"
+        },
+        {
+          "id": "expression:components/interactive/pendulum-controller.tsx:aria-label:3",
+          "hash": "836eb81006aa2d7734819ae6141217377eca63a3f63f6a8f39464c6b63b73fc4"
+        },
+        {
+          "id": "expression:components/interactive/perception-error-budget.tsx:aria-label:1",
+          "hash": "020dd9eb673ad870adb3c1cc548d058d3410200012890621f8ca3c76b06f59b3"
+        },
+        {
+          "id": "expression:components/interactive/perception-error-budget.tsx:aria-label:2",
+          "hash": "e9c3c9926e8a7a52b8cd9ea65d55c5741b5c1e8c88b60f7884627f2341f94fd3"
+        },
+        {
+          "id": "expression:components/interactive/perception-error-budget.tsx:aria-label:3",
+          "hash": "d3949f4d30798b562ae5f78dc9ce883c4033ccf27e60cfbb89ffdf0d8487e2c0"
+        },
+        {
+          "id": "expression:components/interactive/perception-error-budget.tsx:aria-label:4",
+          "hash": "3e91aa448582853f4489ef50c4b6119686f2f75a464fad0b71b1a865bea6a37d"
+        },
+        {
+          "id": "expression:components/interactive/perception-error-budget.tsx:aria-label:5",
+          "hash": "65d95e5ac75fa14c984bc2ae503a041db831f11fbbaea451188c56f04a29f89a"
+        },
+        {
+          "id": "expression:components/interactive/perception-error-budget.tsx:aria-label:6",
+          "hash": "9f1a4277079af4e214756999b2740a4df1212edce6f1c329dac1404813885982"
+        },
+        {
+          "id": "expression:components/interactive/perception-latency.tsx:aria-label:1",
+          "hash": "6d64eabb721a04c478119c89e3eed2d490e72fd9b9f75b93909300dc2dd990dd"
+        },
+        {
+          "id": "expression:components/interactive/perception-latency.tsx:aria-label:2",
+          "hash": "88c93b50b9550468a9f1a38fd9640270d366a16bf28b78951643a10119ab94f4"
+        },
+        {
+          "id": "expression:components/interactive/pi-generation-timeline.tsx:aria-label:1",
+          "hash": "10da0a2f586e71b2d877aea7b18ad38da283d1367e9adca40af837fcbbad1b4e"
+        },
+        {
+          "id": "expression:components/interactive/pi-generation-timeline.tsx:aria-label:2",
+          "hash": "377f4623c8c930c91a9f58373600a927d43548b2fe9a84db6e42f4753cb2c52b"
+        },
+        {
+          "id": "expression:components/interactive/planar-fk-arm.tsx:aria-label:1",
+          "hash": "85b7e56553fa6f4b4b036e04aeb71db0cdc47311510c71ffe99e3742d070e895"
+        },
+        {
+          "id": "expression:components/interactive/planar-fk-arm.tsx:aria-label:2",
+          "hash": "39bed823555296fe26a17dd62cd8d8a5a395549ede3fff59752e00f2b0b654b4"
+        },
+        {
+          "id": "expression:components/interactive/receding-horizon.tsx:aria-label:1",
+          "hash": "08a70003b208c632c7df577c9a67fb2669457c8837a91635e4966889d0f04590"
+        },
+        {
+          "id": "expression:components/interactive/receding-horizon.tsx:aria-label:2",
+          "hash": "87fd4638fa4bffd68621c75c3d368ccbc3edd433432ffeba992bdb96308aaf2a"
+        },
+        {
+          "id": "expression:components/interactive/receding-horizon.tsx:aria-label:3",
+          "hash": "dd825e19d94e32be31d04cbb7dfd0f7c90b7a54973fce16eb7c3dabaf71c2a43"
+        },
+        {
+          "id": "expression:components/interactive/reliability-compounding.tsx:aria-label:1",
+          "hash": "f304e08bb2139a4f08cb2b343dcbc74913ce56bd190b962c007f657752f575c0"
+        },
+        {
+          "id": "expression:components/interactive/reliability-compounding.tsx:aria-label:2",
+          "hash": "17cf2512f7fc9eb953228423c9db15026e5c8abb54298aee76fdfddbecdb14e4"
+        },
+        {
+          "id": "expression:components/interactive/reliability-compounding.tsx:aria-label:3",
+          "hash": "d055f79f38588f140bfd44a2b8f43205bec6223b9d050a51ee0e3f5ef9698ba5"
+        },
+        {
+          "id": "expression:components/interactive/reward-shaping.tsx:aria-label:1",
+          "hash": "550e11408c76a53562d209abb7732b38297d8da38dff20203303724297ebf951"
+        },
+        {
+          "id": "expression:components/interactive/reward-shaping.tsx:aria-label:2",
+          "hash": "045632e1fbde9b2ac65ab659b94c7989407bdc5e9b06895ddd5488e4e1670f44"
+        },
+        {
+          "id": "expression:components/interactive/reward-shaping.tsx:aria-label:3",
+          "hash": "c69ac205d266028aa32bfa55ee57a76a77b8f6213b8cb17a46af172ed6b7ba35"
+        },
+        {
+          "id": "expression:components/interactive/rrt-explorer.tsx:aria-label:1",
+          "hash": "aa49b46600af577f41f0ee0141b221406fd87186068a664e4790a6cafaf0d383"
+        },
+        {
+          "id": "expression:components/interactive/rrt-explorer.tsx:aria-label:2",
+          "hash": "3f17f0265b73f1c7f87d387b8aa6afa94e3c3d2c61bc3155f129940eb590cd1d"
+        },
+        {
+          "id": "expression:components/interactive/rrt-explorer.tsx:aria-label:3",
+          "hash": "4ee44fefeb578890936071d8cf88f15733c4eb6af9326b670998c8ac177af476"
+        },
+        {
+          "id": "expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:1",
+          "hash": "b54290ee515f863323271c2c7c4415364f255faa25c6861b8dbc6da7041c3218"
+        },
+        {
+          "id": "expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:2",
+          "hash": "020dd9eb673ad870adb3c1cc548d058d3410200012890621f8ca3c76b06f59b3"
+        },
+        {
+          "id": "expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:3",
+          "hash": "010b8bd09dc1953efe1dc71a22bcbaab2bf014c0c9e26d52e3089d19d7749775"
+        },
+        {
+          "id": "expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:4",
+          "hash": "1a237ab15d8401741712b12e9dfabf7d45bae861c5332ddadb9148b9ba25e8bd"
+        },
+        {
+          "id": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:1",
+          "hash": "2389feddad9507672360f2e5499139864e9378f814b33488675e4319c9891612"
+        },
+        {
+          "id": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:2",
+          "hash": "e7faf52a232e26b744996dd015fa5885d87a7a8b90d24c719adf401d841e4a51"
+        },
+        {
+          "id": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:3",
+          "hash": "59864107be5ed1dd4766d5c31dd8633071c95038d62dc04fb1075ffbee4e1404"
+        },
+        {
+          "id": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:4",
+          "hash": "85aabd44794710eb76efdcef135c75106fc9b15fe8e1185e45a7df613e26d791"
+        },
+        {
+          "id": "expression:components/interactive/teacher-student.tsx:aria-label:1",
+          "hash": "14c6b50346804c3fad0919140e6a8a8ec07e8ab96f78de299932367a145da3cd"
+        },
+        {
+          "id": "expression:components/interactive/teacher-student.tsx:aria-label:2",
+          "hash": "f163178fc7b8f1cc8720ddc8bbbd8772e0137886bcd580fda4c9c56528a631d5"
+        },
+        {
+          "id": "expression:components/interactive/thesis-explorer.tsx:aria-label:2",
+          "hash": "9be59015f7c92bd62a9b76d4c30c03f8766eee0ca84b99676a308920ec11ee1f"
+        },
+        {
+          "id": "expression:components/interactive/thesis-explorer.tsx:aria-labelledby:1",
+          "hash": "ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545"
+        },
+        {
+          "id": "expression:components/interactive/training-time-chart.tsx:aria-label:1",
+          "hash": "0237098f66aa62e902ad9da9063d23fa14b79f36d7abf1b0175466f3a43d5985"
+        },
+        {
+          "id": "expression:components/interactive/training-time-chart.tsx:aria-label:2",
+          "hash": "64082282133a8dcadd899f8a53c0a54393b2c7677008df76396be42118240a74"
+        },
+        {
+          "id": "expression:components/interactive/training-time-chart.tsx:aria-label:3",
+          "hash": "4942c226b5b9c62939c9f88c3ec65d62ea4edb89a3905bf1a63f8dc1cf52dd83"
+        },
+        {
+          "id": "expression:components/interactive/wbc-decomposition.tsx:aria-label:1",
+          "hash": "f6e2703e94768c6120e4726775cde23f6b87836dd2a8d4c0a05bfe0d75920f7d"
+        },
+        {
+          "id": "expression:components/interactive/wm-disambiguator.tsx:aria-label:1",
+          "hash": "2ec786e659e8941603fe30f763c79025f471c6d10e44b61e44ab51fae9f71308"
+        },
+        {
+          "id": "expression:components/interactive/wm-disambiguator.tsx:aria-label:2",
+          "hash": "c35d2243fbe9a9462c65ccb5b7686b7a13d8c39621492c7e5660df319a64b2d4"
+        },
+        {
+          "id": "expression:components/market-map/bubble-view.tsx:aria-label:1",
+          "hash": "beddde4af146d929f5ddf63f3e47b93bf70b1e60514e2f3a4bc12f0404ebe372"
+        },
+        {
+          "id": "expression:components/market-map/company-card.tsx:aria-labelledby:1",
+          "hash": "5a217a65d2f0e4fe52f1f6eddea6ed4c6fd03612057483f67fcbf295cf8bf3f0"
+        },
+        {
+          "id": "expression:components/market-map/grid-view.tsx:aria-labelledby:1",
+          "hash": "1c97b2b0bd826a558fb981ee547a32de332600fa31b0e4116de08a016b5d821a"
+        },
+        {
+          "id": "expression:components/mdx/cite-ref.tsx:title:1",
+          "hash": "72d6213d7ad6a4cc1dc537c171a5bc752c66da10855bbf7484ea0cacb24d70ac"
+        },
+        {
+          "id": "expression:components/mdx/image-ref.tsx:alt:1",
+          "hash": "1f8734b615dd5f8b3f757422acb76bec741fe49bf057cd2969b2f19bf851bd65"
+        },
+        {
+          "id": "expression:components/mdx/prose-heading.tsx:aria-label:1",
+          "hash": "e21585e0aefe30d6b87d6ce41bca401fc13d536ec161c0e7d84b147c6872b9db"
+        },
+        {
+          "id": "expression:components/nav/nav-tree.tsx:aria-label:1",
+          "hash": "d55d37439f362881d118d507ce09f359ca61bb0d69761ce20c97b298e957df39"
+        },
+        {
+          "id": "expression:components/search/results-group.tsx:aria-labelledby:1",
+          "hash": "0facac9dcd7ca95699fcbfce9aa99747edf71c4c66f47e33d009d6467a35e077"
+        },
+        {
+          "id": "expression:components/three/joint-controls.tsx:aria-label:1",
+          "hash": "84ab756341d368ecfe8dd91d68f7a3f4b17009ecb1a096aa9c9716e38e98a5a9"
+        },
+        {
+          "id": "expression:components/three/trajectory-panel.tsx:aria-label:1",
+          "hash": "26b1ac91d9a674f74611364a1e4c4da2d5b54484f721c2e43150c121a8f6ff16"
+        },
+        {
+          "id": "expression:components/ui/aside.tsx:aria-label:1",
+          "hash": "d54ff529567c70aa2cdd74a1be1e74696e038ed219d71317ad042157ec0ae095"
+        },
+        {
+          "id": "expression:components/ui/callout.tsx:aria-label:1",
+          "hash": "c84b16af28f47632aed418982e95df7d307e7d4e9c8c1d85a11153fda9f3565b"
+        },
+        {
+          "id": "expression:components/ui/cite.tsx:aria-label:1",
+          "hash": "0b9b5251e27428a2a934fd2129506979bbd681e5155200e64961e0ff0907dfe0"
+        },
+        {
+          "id": "expression:components/ui/figure.tsx:alt:1",
+          "hash": "6b97733ff68d2c73b9a1d61a862fc3f92d20303d54d9c3217f40ad53fc7cd2c2"
+        },
+        {
+          "id": "expression:components/ui/table.tsx:aria-label:1",
+          "hash": "56471ceacd455dfb31f3b1b1ad1de431f7fb97e9883349b566dacdffc328ddfa"
+        },
         {
           "id": "literal:app/a-z/page.tsx:aria-label:1",
           "hash": "ae3c8b7ac49be08eef69087d31e982cb3f6ca0a173c8d7687f16dd7aae37eb85"
@@ -1141,7 +1709,7 @@
           "hash": "d550ad329a599b816b66f380d86d2934984da43e02fcac828437c8e7e4a59feb"
         }
       ],
-      "rootHash": "514fd35de7ca5de51cb1fc0baf43c0308fa1b7712f4be48ce9e49bdef2614d2c"
+      "rootHash": "75ec030397518f812287f4cbc1a32add4af474f16e86c5b76b25712a7c9475a5"
     },
     "relationships": {
       "schemaVersion": 1,
@@ -5066,8 +5634,196 @@
     "article-metadata": {
       "schemaVersion": 1,
       "kind": "article-metadata",
-      "memberCount": 54,
+      "memberCount": 514,
       "members": [
+        {
+          "id": "article-fact-frontmatter:adjacent/autonomous-vehicles",
+          "hash": "470fadba0a632d36072091b9af49a7e1d4e40907477fdfa0ebb85288bac21627"
+        },
+        {
+          "id": "article-fact-frontmatter:adjacent/drones",
+          "hash": "85edb7283fd183a3cda7f4ec3f1e00e8084a69d496f181d5738a22929dd0a2f7"
+        },
+        {
+          "id": "article-fact-frontmatter:adjacent/space",
+          "hash": "2075967092e1d60c27ad91b63c5a8d6a576257d8922c9f3fe8a05149ff7c3527"
+        },
+        {
+          "id": "article-fact-frontmatter:adjacent/surgical",
+          "hash": "466a7e694d21f361484588457c9ae7078348644dfea83e607e86f7019d9e721d"
+        },
+        {
+          "id": "article-fact-frontmatter:classical/control",
+          "hash": "9187a197f69cb2e859d6066f61ea722ed210fc1c2dcd4c117629ca7fc21d15cb"
+        },
+        {
+          "id": "article-fact-frontmatter:classical/grasp-planning",
+          "hash": "dadaaba0076ae030aedbc51e72107087e5442995f3ad24d668ca6d44fea1149a"
+        },
+        {
+          "id": "article-fact-frontmatter:classical/kinematics",
+          "hash": "cd1a232f0de0417fab4e97316afe0c41930e33dd64ec58420715409b42568d16"
+        },
+        {
+          "id": "article-fact-frontmatter:classical/motion-planning",
+          "hash": "94099e20e4f182c7f9fa6eaa8180709e5636dfdf0182740b8609b1ea19c1912c"
+        },
+        {
+          "id": "article-fact-frontmatter:classical/perception",
+          "hash": "c8b08def309ccac1107c8cfcc96f55cfa43c59eb161399e003a7466b23d5ee71"
+        },
+        {
+          "id": "article-fact-frontmatter:classical/scene-representation",
+          "hash": "29ae71fb4b4a96c7da2d5513fb6b3f66b39c0aa466d5acf6fe315e3dcc000033"
+        },
+        {
+          "id": "article-fact-frontmatter:classical/state-estimation",
+          "hash": "54c2f5df14c9c3a2a8de48b787ca75ab2d8f632ac2302fb612b0542055d3162e"
+        },
+        {
+          "id": "article-fact-frontmatter:data-hardware/data-bottleneck",
+          "hash": "799c6d64c521a5fdb696aebe6fd7abb710d0dbb7121cefffe482989e8e10a054"
+        },
+        {
+          "id": "article-fact-frontmatter:data-hardware/datasets",
+          "hash": "fac69ffb34f419e71205fe3f92eab53e6627c308ba7dd1efe4dbac89820f4b22"
+        },
+        {
+          "id": "article-fact-frontmatter:data-hardware/evaluation-crisis",
+          "hash": "7c6f843d192b7de5701c04b4dd5dc077f53c629d49616f1ec1e15ec1934a60a6"
+        },
+        {
+          "id": "article-fact-frontmatter:data-hardware/hardware-taxonomy",
+          "hash": "f6975123a06f018b08797dc37dacb07e4c3dd3fc1e80800f14831200c887fa01"
+        },
+        {
+          "id": "article-fact-frontmatter:data-hardware/industrial-deployment",
+          "hash": "e42559fff6bde906d0c4844b13a1e0e8fab9bccf0ba2b49c7700291271b52fe4"
+        },
+        {
+          "id": "article-fact-frontmatter:data-hardware/teleop-rigs",
+          "hash": "18a02d9f4ee613e9b63179d2c733fcfa07bf6877e0c8f215ad4a2356d47f1fec"
+        },
+        {
+          "id": "article-fact-frontmatter:frontier/bear-case",
+          "hash": "691f43ac7f6e68d03834dc390815cf49fbc93adeadea70a0e3fbd3267be1d5da"
+        },
+        {
+          "id": "article-fact-frontmatter:frontier/competing-theses",
+          "hash": "16953ed491209de5dd6c08da62023b8bb6928f224f9688faca706742bb6d81c5"
+        },
+        {
+          "id": "article-fact-frontmatter:frontier/dexterity",
+          "hash": "441fa59fc2203e45fd293c702ae5a052556ce22ed58a56480a38c95befa69e80"
+        },
+        {
+          "id": "article-fact-frontmatter:frontier/generalization",
+          "hash": "43b0eea1ea67daa644a283630d01d6a198f25dbcb69f7bcae10a63c04cf895b1"
+        },
+        {
+          "id": "article-fact-frontmatter:frontier/reliability-gap",
+          "hash": "210398955c62a6dc1d8228efb290f786bd03c62b44d6f217a03903e935c42f75"
+        },
+        {
+          "id": "article-fact-frontmatter:frontier/safety-and-assurance",
+          "hash": "df8654777cd260202df18dcaf8313c36810002172cb3e06775453e80e332b28e"
+        },
+        {
+          "id": "article-fact-frontmatter:manipulation/action-chunking",
+          "hash": "c128aea24d54f93eb8275fde4baa7102c1a07ac123565200935c835d7acf46cb"
+        },
+        {
+          "id": "article-fact-frontmatter:manipulation/bc-foundations",
+          "hash": "d62fc6ae636330aa4622f4119dcd9ab75ccb176c2ced420c90eac25509d4a320"
+        },
+        {
+          "id": "article-fact-frontmatter:manipulation/comparison-matrix",
+          "hash": "1f497f7b20cb6c654ceb51399c759883919bc98178a087023e4c0d00bd3e61cf"
+        },
+        {
+          "id": "article-fact-frontmatter:manipulation/cross-embodiment",
+          "hash": "b347e78a982927bdef0fbba98e87cd6ff2404a016bb7c41b44a35bb833c19a6d"
+        },
+        {
+          "id": "article-fact-frontmatter:manipulation/diffusion-policy",
+          "hash": "7bfb76aa4d0bd672f23c08366bf0f562568ca2110d7e6eba5284008791fab4fb"
+        },
+        {
+          "id": "article-fact-frontmatter:manipulation/generalist-policies",
+          "hash": "828a1115b0abdbeb399def5a82b54a3308657cdaadd2615b9fb220c28dd22505"
+        },
+        {
+          "id": "article-fact-frontmatter:manipulation/hierarchical",
+          "hash": "22d1f5a0a0b5eda18c7e5f1faee3268dd9a030050434c0028f5ac93cf8dc6049"
+        },
+        {
+          "id": "article-fact-frontmatter:manipulation/knowledge-insulation",
+          "hash": "7b90552b300a75d46b3e57c95f273a7134ce5bbb093ccb61fa3d9f2d2c9cae0d"
+        },
+        {
+          "id": "article-fact-frontmatter:manipulation/pi-line",
+          "hash": "9a93eeeb33593c2a4a48bc0a077853fd4508940e06a691f7fc85e4eab53b81bb"
+        },
+        {
+          "id": "article-fact-frontmatter:manipulation/realtime-execution",
+          "hash": "0f00c3851f933521f34fa36f0215e10613b839db72ed700271e9c89d3b657876"
+        },
+        {
+          "id": "article-fact-frontmatter:manipulation/rl-finetuning",
+          "hash": "352e6726856b62f49d39d9fcedadbe871af8c1eb7b5c53a92f4efa43aab54dfd"
+        },
+        {
+          "id": "article-fact-frontmatter:manipulation/vla-models",
+          "hash": "825b63ee0b45e3b6dd3d92bc62d821850fc3a8ff12264c8e9852c4b9728a167d"
+        },
+        {
+          "id": "article-fact-frontmatter:rl-sim2real/humanoid-wbc",
+          "hash": "0b472a4c099476551d4f08451e80e27a6b7ba1b239a46dedb878f5a7ab378eb0"
+        },
+        {
+          "id": "article-fact-frontmatter:rl-sim2real/legged-locomotion",
+          "hash": "6b031822485e95956265d1be25a7a902d4503665e7c494e01e12ded5af540f76"
+        },
+        {
+          "id": "article-fact-frontmatter:rl-sim2real/parallel-sim-rl",
+          "hash": "647e246be8ea460d52815be47d46b5394a0ff433e1be9952b879ff4433cb6373"
+        },
+        {
+          "id": "article-fact-frontmatter:rl-sim2real/reward-design-mpc",
+          "hash": "4a7a61e62c1a8fe53495957209b1fcad2139db3bdd51726e1a4bd9ca62692a22"
+        },
+        {
+          "id": "article-fact-frontmatter:rl-sim2real/rl-for-robotics",
+          "hash": "da109f78835e8de1df7f25e0e9c3039c0e1085859e8360067c0ebc9b4f5eb897"
+        },
+        {
+          "id": "article-fact-frontmatter:rl-sim2real/sim2real-transfer",
+          "hash": "7e20d5f9fd8846fd9b21e9d54087dcab5afc29aceccd8453a80f268b2d9d7f17"
+        },
+        {
+          "id": "article-fact-frontmatter:rl-sim2real/why-rl-locomotion",
+          "hash": "705531667d79bdcaac06c7c01dfeaa57ee89371972fbb64b7e783dbafcf8153d"
+        },
+        {
+          "id": "article-fact-frontmatter:world-models/generative-sim",
+          "hash": "dc8b63e95316c8fa728604c717cc7f1256d00757281ca900e41801b540717887"
+        },
+        {
+          "id": "article-fact-frontmatter:world-models/generative-video",
+          "hash": "c451dead7ec4a9ad4a00c0e55d9060c32574824cdbb6e07f80614d5fc5a80f82"
+        },
+        {
+          "id": "article-fact-frontmatter:world-models/jepa",
+          "hash": "8ccaf7f286580d3959d1dbceae8bac646642a3c1e0668719ed345172f9acbb30"
+        },
+        {
+          "id": "article-fact-frontmatter:world-models/latent-dynamics",
+          "hash": "2691bcb2a4d18719d3399bb03338cdbb9fe406cc4aac2c61c04d63f25d07ffaa"
+        },
+        {
+          "id": "article-fact-frontmatter:world-models/taxonomy",
+          "hash": "8bf1afb8c4501077982d24136928be9adfb029ae271fcae44e2cc034f2993709"
+        },
         {
           "id": "article-metadata:adjacent/autonomous-vehicles",
           "hash": "a3b6fc4ff0b8788615f36bcf2ec33dd531d6e6a99709da26bab4fc237c5ac523"
@@ -5281,17 +6037,1669 @@
           "hash": "ed8896d055cbcc66f2280e2b979ff2585577ccc747b748519c013d8332a3d7f8"
         },
         {
+          "id": "canonical-metadata-source:lib/references.ts",
+          "hash": "3c29d7761ac2cb90d0832c55c233059cd2e25622958b6a80d88058961c656cb2"
+        },
+        {
           "id": "canonical-metadata-source:lib/site.ts",
           "hash": "a5755f9cc1f313f8179dfaa00c41c93f083500d9e0bd0c8b0ef98af083787fac"
+        },
+        {
+          "id": "citation:1x-neo-2026",
+          "hash": "88805e539ba5e9f1cd1a106c113fcfd4335b7fe456c4f38dcd2f4af49c25f97e"
+        },
+        {
+          "id": "citation:1x-world-model-lab-2026",
+          "hash": "04a47e0a6d34a0c96d364b25ecef07a50560df98eef35e312ed00dc4bd9adcc1"
+        },
+        {
+          "id": "citation:3dgs-2023",
+          "hash": "413c185524c9d20b898aae765f9ea64a40292fd46341a311e46f782edde028fd"
+        },
+        {
+          "id": "citation:a3-orders-2025",
+          "hash": "0959a2ff02b2afc671e30b03ccf5133576c45264f5ad52b5f48978640a20e350"
+        },
+        {
+          "id": "citation:a3-robot-safety-standards",
+          "hash": "098f81821859550d1f2a95738ff7f508e42da34498d22f6163b368648a9f884d"
+        },
+        {
+          "id": "citation:acemoglu-restrepo-2020",
+          "hash": "4c9a4b3c4bf44569e550047a5247d991a20eee7cb3aaec3bd97fc71d68d47413"
+        },
+        {
+          "id": "citation:act-aloha-2023",
+          "hash": "520b4f9909dd2460e0be5925b806749f8c39403b4ab138b187fe0583a91ac52e"
+        },
+        {
+          "id": "citation:adras-j-15m-2024",
+          "hash": "69f5d64d6a6721ebb5642fe6b434258c8f70190ba6fa9bb3cd27613151bcf634"
+        },
+        {
+          "id": "citation:aegis-curiosity-2017",
+          "hash": "b0001c33cbe5bb01f948e2c4c257f0ea6acd175b04ac5ecab1b770e21c0d0d3f"
+        },
+        {
+          "id": "citation:agibot-go2-2026",
+          "hash": "aed35c70b1c09896d8ff602d379c5f4053452fd611e62c9634f2ee10cb298d9b"
+        },
+        {
+          "id": "citation:agibot-go2-robotreport-2026",
+          "hash": "877e9cfb6edd82eb71784783796672e956f3bdbe91e5f9bac79820af45bc9bdf"
+        },
+        {
+          "id": "citation:agibot-world-2025",
+          "hash": "68d060d391d0cca49c824f96d2bc226add599dd915d28d8a9410b159ec6cb425"
+        },
+        {
+          "id": "citation:agibot-world-2026",
+          "hash": "496d109a588a4741bef819d0f7785700e49f8c72d802df2c51858da766b57859"
+        },
+        {
+          "id": "citation:albu-schaffer-2003",
+          "hash": "de470ae4cdbc200e7055be17f53debd7f633a464064d9f8bfb30acbd2c715a27"
+        },
+        {
+          "id": "citation:alvinn-1988",
+          "hash": "5ec2a02834c9fddd2f588e63e3e8c8652abcdd341b9ffbfefb758d7b0a3b1ff1"
+        },
+        {
+          "id": "citation:amazon-robot-fleet-2026",
+          "hash": "b645dd3f67787cca291e3e32ebed58cb29e89c4e8124ed861b2c3a85d2e8b669"
+        },
+        {
+          "id": "citation:amazon-sequoia-digit-2023",
+          "hash": "8b01fca384952563e4cd93a4a2dd7413ead83835c05c4efaa576c72ba1e2ba06"
+        },
+        {
+          "id": "citation:amazon-vulcan-2026",
+          "hash": "23019270cb511343acd3d85f3a48268992975a715958439e901eb8112c857306"
+        },
+        {
+          "id": "citation:ames-cbf-2019",
+          "hash": "b0732b6b90e455efe90bd0dca4ee0a50fa1b8e242c877bb419a2d73c499a457c"
+        },
+        {
+          "id": "citation:ami-labs-2026",
+          "hash": "ea95c050eaf7938259f468147a20b1138207ca47bf1915bea8fcdc4391073c8b"
+        },
+        {
+          "id": "citation:angelopoulos-conformal-2021",
+          "hash": "41c4a5841a88bc27c36a79f1257717a2a9bd13bb584ab6b22fdaa5b03557f3a4"
+        },
+        {
+          "id": "citation:anyskin-2024",
+          "hash": "5a2ec020a193e50368179ab1d81a1a765ac4e8cd4b410bbc358e222355ad6c3d"
+        },
+        {
+          "id": "citation:asap-2025",
+          "hash": "ce30bad4bef4828fdde1ede1b42e1916d1c93288270149e27ed923c83736304e"
+        },
+        {
+          "id": "citation:asimov-agentic-2026",
+          "hash": "1835cbb4526e4b9ab98786c53a3436eabfc574987f4efc702728034b30839e52"
+        },
+        {
+          "id": "citation:astrom-murray-2008",
+          "hash": "661ad2aee0671ef7392c07e4ab7a06ad5c274cf96502171710aa530495bcfb7b"
+        },
+        {
+          "id": "citation:autonomous-rl-2022",
+          "hash": "1abdd212392b2aa70b7a742c14b2b100a4ecf166093cd39f8152b08595633f28"
+        },
+        {
+          "id": "citation:azure-kinect-depth-docs-2026",
+          "hash": "9ac966db5ac42a81a26846b367eaab2ed66829d838cb0caf9b6f615b43ba9723"
+        },
+        {
+          "id": "citation:bd-atlas-2026",
+          "hash": "7382604f27c94a5ff16c6bd6c7fd914dc3c436cfbe3ece207e0ecc14b9f99b83"
+        },
+        {
+          "id": "citation:bd-atlas-lbm-2025",
+          "hash": "ef1a1a093cd2af32c1580645a2a3768061336deac7ea2a2150c2430a37afacfb"
+        },
+        {
+          "id": "citation:bd-spot-rl-2024",
+          "hash": "58d63ada05ce64bd9a2d55e472152ec8d7ffd5ad67b10f3cb1ba36f70cb1a0b8"
+        },
+        {
+          "id": "citation:bessemer-robotics-2026",
+          "hash": "d7b06aea244d30b06113ac5d671057b9aa5f3ca2c1d2d59b2574c212da778258"
+        },
+        {
+          "id": "citation:bicchi-1995",
+          "hash": "90eab6de9f4ffe54bfed35f2d042525525ded24bc91274c998944095867b3243"
+        },
+        {
+          "id": "citation:bicchi-kumar-2000",
+          "hash": "450ee17ae6de223d5f23abd925832dbe26754110f232af40cb045d11f932c23a"
+        },
+        {
+          "id": "citation:bop-challenge-2023",
+          "hash": "580eb9020e665e732f5ec21aa7f0bc98998cd5eea3ba73f2bc854796fcfdb627"
+        },
+        {
+          "id": "citation:brax-2021",
+          "hash": "46b03c63245f85ae45dd4b62e09340abbe4b7c09b7ea934fe670ea4da42b98f4"
+        },
+        {
+          "id": "citation:bridgedata-v2-2023",
+          "hash": "e79f02cffbe59e6762a389f04980a5efb6c305660634f1859ed2086bc23211f1"
+        },
+        {
+          "id": "citation:brooks-better-lesson-2019",
+          "hash": "a9e3f641087918bf97b5d72fd65813983b9d31955cca0b8eee8395cecf60a94b"
+        },
+        {
+          "id": "citation:brooks-dexterity-2025",
+          "hash": "9399034368aeab64f2f71bc3cfd344ee0a0d90c445d514d9a5da4c6884e0ea68"
+        },
+        {
+          "id": "citation:brooks-scorecard-2026",
+          "hash": "901ba23c4450628c6b4e7920a4fcdef2ccf37ed0d94abef53370e970f6c1f67c"
+        },
+        {
+          "id": "citation:bunny-visionpro-2024",
+          "hash": "da8bd9a49ac308e941f61ba321fb3e0f592ef74d15098eadeb48e3dbb9af6ea3"
+        },
+        {
+          "id": "citation:cadena-2016",
+          "hash": "6caede15f24fe822a2926ba4ad1bf68ae4d9a0f3808e584f4eff3f12b44bc225"
+        },
+        {
+          "id": "citation:canadarm2-csa-2024",
+          "hash": "94408f096b717fb78853026973c7a13595c6e8c591c96627c22725dd9f7ce9e3"
+        },
+        {
+          "id": "citation:chauffeurnet-2018",
+          "hash": "bd94291f2a7e1591965eca0bad90ce529a7536a0a53c0f50e8f95c887ab0b07d"
+        },
+        {
+          "id": "citation:chaumette-hutchinson-2006",
+          "hash": "58499ed2811a20901a220a70b2c396ac22633caf1d1e273631ce7a4abcd424cb"
+        },
+        {
+          "id": "citation:chaumette-hutchinson-2007",
+          "hash": "c79dfed6e51784ff77f3dfd56ac2e906093e4c9332b00aa43529286ca7b5a723"
+        },
+        {
+          "id": "citation:choi-2023",
+          "hash": "602b88466f43bcaa701c14548a94e006554c63c301d25f13503034ae9cd9d478"
+        },
+        {
+          "id": "citation:cleargrasp-2020",
+          "hash": "33b58f64dcc04cf88036796d302667f0fe364f3e514b3d3040c8e1df769c5f72"
+        },
+        {
+          "id": "citation:cmr-versius-authorization-2024",
+          "hash": "dd17c5b3ef8e882bed0397993907c909d4876ea78d85d970740e30c56cc715a1"
+        },
+        {
+          "id": "citation:code-as-policies-2022",
+          "hash": "470a4b87edef2a66f8ab0b0e6d30218c815573991d2f58d8e4115906c9076344"
+        },
+        {
+          "id": "citation:computex-collapse-2026",
+          "hash": "86142545793d1db618e0235e9c7dc9d68bb631cf729e19d2f54e9b4de86ced9d"
+        },
+        {
+          "id": "citation:conrft-2025",
+          "hash": "9822a7d7a1846112b1833ae0e2e7396deeb554a50745f2ebe053633db624e595"
+        },
+        {
+          "id": "citation:consistency-policy-2024",
+          "hash": "71869ecc33f7ce69a42f5efab554c375ca67356c24036be013cf97d3c4d9c4d4"
+        },
+        {
+          "id": "citation:cosmos-3-2026",
+          "hash": "994ba3e0820518fbb2cbb29c9aa4fb84b2df5d3328befe894185365bc8d4a5f5"
+        },
+        {
+          "id": "citation:cosmos-policy-2026",
+          "hash": "451cc193e84bdae3b84ecf1d13d8db1bf88ee11928af58545bd3520791fc2621"
+        },
+        {
+          "id": "citation:cql-2020",
+          "hash": "d327e76382d335be7998a795c5c314b75a7da3dee27672709b410f7f212d6c84"
+        },
+        {
+          "id": "citation:crunchbase-robotics-funding-2026",
+          "hash": "dddc948aa2f4510341874b795ffb7e5668bc2923859466fa448b03ca11ba72dc"
+        },
+        {
+          "id": "citation:curless-levoy-1996",
+          "hash": "44087b2b7f5b59002d68432eff1c6221ec0f99403e175c7fdf4b68fff2b89ca7"
+        },
+        {
+          "id": "citation:cutkosky-1989",
+          "hash": "aa773d514f65b19acdcfd84dbc422ddbf23951ef3f4914c274f7ee3576f7e1c2"
+        },
+        {
+          "id": "citation:dagger-2011",
+          "hash": "ff67b82ca7f6475bd767e2d88b198052bdbfb347de58b7d1aa4e52f51df66296"
+        },
+        {
+          "id": "citation:davinci5-clearance-2024",
+          "hash": "c9bde45337390be4dbde7c68d59258db57f8d03a20c04892d5c5dded9d326d56"
+        },
+        {
+          "id": "citation:daydreamer-2022",
+          "hash": "5b3ad03a4bab08a7f20fe3a214873aadece2f8c1bf10312d7eae880c56f23636"
+        },
+        {
+          "id": "citation:ddpg-2016",
+          "hash": "73240fe8ce275e270fb76847f94202f561d0f0862ab5e7e5027043243579b0c0"
+        },
+        {
+          "id": "citation:dellaert-kaess-2006",
+          "hash": "673d3e52ef8c22223c2bb4e6a49bc6b36cc19a8945126e24e17f2978902a2612"
+        },
+        {
+          "id": "citation:denavit-hartenberg-1955",
+          "hash": "fcdf9c44273e1f1e66d942796bc8e0f2e71d02b0a132fc1ef83336f1d49b260c"
+        },
+        {
+          "id": "citation:dense-object-nets-2018",
+          "hash": "118ab6401f6ae122c15248ca9961dfe55da793fd70b44fd0661dc6cce722679c"
+        },
+        {
+          "id": "citation:dex-nerf-2021",
+          "hash": "7e50ccc36e0f3ac476f4dd6951f07b9e41d9d093bc05834d2b3bbdcfd4a79f0d"
+        },
+        {
+          "id": "citation:dexnet-2-2017",
+          "hash": "b80d1d989ec525dd071ba3d5d365a851aee33a9653fefd84d16e3fd5c6fda284"
+        },
+        {
+          "id": "citation:dextre-csa-2024",
+          "hash": "af77e69e84a1689b46ccffdb39afd6c351323af251e1e698ee2253b36ef1d3d0"
+        },
+        {
+          "id": "citation:di-carlo-2018",
+          "hash": "dc3844fb1e250cbe45db353b44e4c48be39f2b5d830fa0ca9a99f19358cc2fc9"
+        },
+        {
+          "id": "citation:diffusion-policy-2023",
+          "hash": "e201d4b512cfb1d6dcb3e451d2a4185860a8ba5278f244cacb4beb77852ee287"
+        },
+        {
+          "id": "citation:digit-sensor-2020",
+          "hash": "8a89366ac2d4c82308490e6364f090e5961f882c81d5e619dd82ceed18be6c0c"
+        },
+        {
+          "id": "citation:dinov2-2023",
+          "hash": "01b0c7cd9907d02ddff595e39c726d1c3d4960b1b5ba29e060542a80183cdd38"
+        },
+        {
+          "id": "citation:diversity-scaling-2025",
+          "hash": "d12dce7850ac7c6c678552178ab014ae6f781272aa73c36697328d40e587387e"
+        },
+        {
+          "id": "citation:dppo-2024",
+          "hash": "5dfc3d6a5e3018de7a9fa73aab316b06586cb4790c3db9052f1bdd7357b9be5d"
+        },
+        {
+          "id": "citation:dream-mpc-2026",
+          "hash": "c3f7bebca93a8a8c6df126d882ec6f01186f4b2cf1e42384801fc82e8b1a9168"
+        },
+        {
+          "id": "citation:dreamer-2019",
+          "hash": "7bd67d38759e04289c31a8a45473ba82f4b1ecf83eaf8154314fb0d99caceab3"
+        },
+        {
+          "id": "citation:dreamerv3-2023",
+          "hash": "af1f491d388b8cd4fad840cabcb5c9d4a6bf223e50442f131559336aa52d0831"
+        },
+        {
+          "id": "citation:droid-2024",
+          "hash": "6dc6cccea9bb5bc2a469ce496c00816b379d15721e2aa776474be2fe662d8587"
+        },
+        {
+          "id": "citation:droids-optimus-v3-hand-2026",
+          "hash": "0185c5349dd3689a5a419395a0c450dc27617dbc112711f766bb9b2dd043c22c"
+        },
+        {
+          "id": "citation:dso-2018",
+          "hash": "19143993a91a3bfcae1a2c61a58a5c74d0bb03b941cc749b80f5a8fd7c3cd255"
+        },
+        {
+          "id": "citation:dust3r-2024",
+          "hash": "fd4c5631cd3943222aa160b63d5f0fceab20d716c81d0a919b3b878a142a6abe"
+        },
+        {
+          "id": "citation:e2e-ad-survey-2024",
+          "hash": "598a1d131f0275bc39d073127e006be6fe8ede3b5a5178c8cbec5df2baf05183"
+        },
+        {
+          "id": "citation:ecot-2024",
+          "hash": "aaa56788a96e607282947b78c730df1520499ebb19663cfee4575e0771a4565b"
+        },
+        {
+          "id": "citation:ego4d-2022",
+          "hash": "f3f4895f9134965717c6ef374389b204551ef72d8516b3f80575d3118f028c2f"
+        },
+        {
+          "id": "citation:egodex-2025",
+          "hash": "c7004dd6f840ff6faa9458b8a3d1b96bade90a9ee63384d766a32964774f745c"
+        },
+        {
+          "id": "citation:egoscale-2026",
+          "hash": "55713819ef68b6f855d865db9b736415cfbb6f1591b5782487d6586dbdcfbcfe"
+        },
+        {
+          "id": "citation:emma-2024",
+          "hash": "83ee5cf89a5069e214527e0202885df36378442c6cfe6c6f7e9ff42f3270e1e5"
+        },
+        {
+          "id": "citation:enpire-2026",
+          "hash": "f37ab3cca4c8b12882abcf23a488914907421aec0043f0c9321d74546c981661"
+        },
+        {
+          "id": "citation:espiau-1992",
+          "hash": "ac508e351b81dd93b8021b58c656227689bda9eb1065527e9b76318f9aeaeaee"
+        },
+        {
+          "id": "citation:ets-vii-ard-2001",
+          "hash": "bd45f1b017b36029c727e279f690e3275a677081edce6bafec8d987160560dc1"
+        },
+        {
+          "id": "citation:ets-vii-robot-2001",
+          "hash": "960cca8bfacae161d5fbd6caf0ca3d978db050e6c7707b9520b4c4df9a0d7ffc"
+        },
+        {
+          "id": "citation:eureka-2024",
+          "hash": "a3f42febbe6a3a6243c2dda60ef3b44f3f601d9dd9c2e2bd314a8933a0405ef0"
+        },
+        {
+          "id": "citation:evst-cell-cost-2026",
+          "hash": "19b2a6b9d77e57c9e89282ed62240b8d7182426226ce35a861cbe973ce76e2af"
+        },
+        {
+          "id": "citation:exbody2-2024",
+          "hash": "5804828e272c7c4a5bc6d3ec5ebaf7221624f16b63266e3f9190f9bbe20eda32"
+        },
+        {
+          "id": "citation:falanga-latency-2019",
+          "hash": "ec203e214ca2a431620e6bee7fd53dd794e6a030daea90795e768e6223ed41f5"
+        },
+        {
+          "id": "citation:farid-failure-2022",
+          "hash": "c16937709a1f6bc63ac70270a6df84297d8a038d736531821cdb9361b0cb09a7"
+        },
+        {
+          "id": "citation:fast-wam-2026",
+          "hash": "da3295182673d8de778921a3f2d2cbd96a509fe2fb8c08b3e0a0397c6aa254b2"
+        },
+        {
+          "id": "citation:ferrari-canny-1992",
+          "hash": "31bee1a5569e25119c252c4026f2956cff64273e535dc7a2a05df4704bd55606"
+        },
+        {
+          "id": "citation:figure-02-2024",
+          "hash": "be26562fc65787e77469ad5a8f5fb36a64753ebd4e8f400b3dc7f1aba80312b3"
+        },
+        {
+          "id": "citation:figure-03-2025",
+          "hash": "c8f538ef33eb59a3c31f6c87067e88a91e2d279b42cedadc36a1b22243121f6c"
+        },
+        {
+          "id": "citation:figure-8hr-shift-2026",
+          "hash": "383d197d01e718af3dd125a09f96a1db96a7b6644cd85d113ad1e1db5dbe3738"
+        },
+        {
+          "id": "citation:figure-go-big-2025",
+          "hash": "28782d466aa2b52e9894ea70a01a37bba9b10e0882e4950526990910715fa993"
+        },
+        {
+          "id": "citation:fineweb-2024",
+          "hash": "054095c64ad41d615927f586dcf6117d0b00dbbee1ce3a350d23db2685fc5758"
+        },
+        {
+          "id": "citation:forster-2017",
+          "hash": "da1623e8f66380713abf7da46ce1615daee5450d74d5abe14ba4dbb4644ef1c8"
+        },
+        {
+          "id": "citation:foundationpose-2024",
+          "hash": "084371b49584da4f79e8b17b1fa3c00aba75b06a5a6f0fff99dcbcab52ce3c90"
+        },
+        {
+          "id": "citation:franka-fci-docs",
+          "hash": "8e1fbb4deee0873f2da0ad76a1d0e51e30891ddde43cc36c0d677c2ba0b4d89f"
+        },
+        {
+          "id": "citation:gain-adaptation-2025",
+          "hash": "64f72df683619eb4339fe396b327f5b499899c9acc7a3b629c56ac264d7230cc"
+        },
+        {
+          "id": "citation:gammell-2014",
+          "hash": "15cecad30dd811c606238933838e7ff6370ab992c2b5aa21d1cddca2842ffcd6"
+        },
+        {
+          "id": "citation:garcia-1989",
+          "hash": "a0b1eee317b24250d5ce410cb72cc54e9690022d323bb8d3056d44aa36e0be49"
+        },
+        {
+          "id": "citation:gello-2023",
+          "hash": "2ce55f4690e8df78ca0273b1625bc536c805a44e000b587de520d22126674af8"
+        },
+        {
+          "id": "citation:gemini-robotics-15-2025",
+          "hash": "cc376bb74c9cf032ea30295134e5a6e904954f247b4a6fbf5e18a23680a8b8b5"
+        },
+        {
+          "id": "citation:gemini-robotics-2-2026",
+          "hash": "4af3e0a96fc988d8809b4260949dd7196544d194cb98792735af7ca85d71091f"
+        },
+        {
+          "id": "citation:gemini-robotics-2025",
+          "hash": "1763899bac2a98acb2822d75a7f0424ce87bfffacda9fa6a435de79855a0d0c1"
+        },
+        {
+          "id": "citation:gemini-robotics-er2-2026",
+          "hash": "3f984605127f8e59c4e22cab220328faa97ceaa9bae0248d093f841f421e4516"
+        },
+        {
+          "id": "citation:genie-3-2025",
+          "hash": "11d093fa419ab1ae5874c9e289f71026cca5304dc1e83d3900479b3ac9e05a29"
+        },
+        {
+          "id": "citation:gmt-2025",
+          "hash": "aa21c5491e3da93eb31f4dfe38225c1a4657d230ed0cddc53613165806a10d1d"
+        },
+        {
+          "id": "citation:goldberg-data-gap-2025",
+          "hash": "9d8f4b7f39ae85de08843e5cc4e55243acad10f5e585e5ba1d2bf6db407f6d6e"
+        },
+        {
+          "id": "citation:gpt3-2020",
+          "hash": "9b4281a8da014dcf84ecabee5fa218683091994b10723a26308b4458a4fec7b0"
+        },
+        {
+          "id": "citation:gr-1-2023",
+          "hash": "3eafa8217bd22967b9aa7c2b996954ea6df5f561629163d6fa715be55118781a"
+        },
+        {
+          "id": "citation:gr-2-2024",
+          "hash": "62d195722efe80a8ad953067b8118f9c1a8b2f6b1f9c7912406c4fc80005593e"
+        },
+        {
+          "id": "citation:gr00t-n1-2025",
+          "hash": "e4c4a62f5205e91478679fa504458e3284a72fdd22805904990ef79ad58d1465"
+        },
+        {
+          "id": "citation:groot-wbc-2026",
+          "hash": "4d9bf47e2fa41b7ba8cfea5ce396ffaf0f2627f133133914e4a30820ec6f0a58"
+        },
+        {
+          "id": "citation:grounding-dino-2024",
+          "hash": "cefe13aade3b55350f9e7d473049f7581f082f2fe85cf430b14e7e3faab2b041"
+        },
+        {
+          "id": "citation:grs-2024",
+          "hash": "0b2ad33e621b8de088aae390be3f3e420584199ff2d7d1e92bbea3db22c872da"
+        },
+        {
+          "id": "citation:gsn-standard-v3",
+          "hash": "ee1c1a9f894d861ba5357e78d92b765a3decf18a932d8457e5d307fa0ed84555"
+        },
+        {
+          "id": "citation:gtsam-2026",
+          "hash": "11da611a486d7b01addb2aaddaafb867dc22c9bcdd31411b7f2de933535148e6"
+        },
+        {
+          "id": "citation:h2o-2024",
+          "hash": "02452707f0eeef29fd24598b1f2b6a24b817ba29dc71cac78ea677927d5b7d26"
+        },
+        {
+          "id": "citation:haarnoja-walk-2019",
+          "hash": "819b71df5bbc9333627c07e5fa41e7d7e872b04365e50e3c61a02d52810248a2"
+        },
+        {
+          "id": "citation:haddadin-2009",
+          "hash": "d6c480d0266d6359708a14d1100b8831d5ac3c2a309fc3112243ec7a20fb7dab"
+        },
+        {
+          "id": "citation:han-force-pain-2024",
+          "hash": "97874e21cf36f7657193264348796d8ab43a972134e75dea022a129d4d372fbc"
+        },
+        {
+          "id": "citation:helix-02-2026",
+          "hash": "fdc6578ce6b659ebeb7c04552c9fa3c556d2ead485293ed96e1b7d28d7bc53e6"
+        },
+        {
+          "id": "citation:helix-2025",
+          "hash": "2549340f29b6d46517495557423e61b41a36aaef0099a60bf82f1312740b1931"
+        },
+        {
+          "id": "citation:her-2017",
+          "hash": "ce5abecf3aaa481c8494b0b3d34ef904b8e5b038aab031637df862a23bd75dec"
+        },
+        {
+          "id": "citation:hg-dagger-2019",
+          "hash": "57bf09925a1882f8aad9b71b4f960340fad0fb7e1ebd54d32af41e9d91013e65"
+        },
+        {
+          "id": "citation:hi-robot-2025",
+          "hash": "c2ee33ddacd634f5bf5f9bb4a116f39fb77bf9c127ecf108fb5ef12df546077d"
+        },
+        {
+          "id": "citation:high-speed-flight-2021",
+          "hash": "9768186c120c031a73cb63f089bb08dec5871f5a626faf18da5cf6a6d45c227b"
+        },
+        {
+          "id": "citation:hil-serl-2024",
+          "hash": "283b3934258d441cb795a8ac4122f71a633cd7de138865cd702f9e6d826780f1"
+        },
+        {
+          "id": "citation:hinterstoisser-2012",
+          "hash": "1cf0c7870e545e776dfcc17af2fc0f79a54ab12f1134fa2652b61231c8d268e1"
+        },
+        {
+          "id": "citation:hogan-1985",
+          "hash": "00421d557e81cd6e7e9e785abe6348ac78d0b79ef90c4cbc9f6b194b1cab0ace"
+        },
+        {
+          "id": "citation:holodeck-2024",
+          "hash": "8da27e37168451d330cb80ce9950a4c6921ab531b5a6a8bca854bdebf0d8101e"
+        },
+        {
+          "id": "citation:holson-olympics-2025",
+          "hash": "fd688071f1f97aeaec1557cc3678bc9450328acebea6a83dc79e92efc7759f41"
+        },
+        {
+          "id": "citation:humanplus-2024",
+          "hash": "b2e67ec768c62bfc41c4dbf9d85c6c209758960b2d1066f948e7b72ed3f078ed"
+        },
+        {
+          "id": "citation:hwangbo-2019",
+          "hash": "5db80dac2ac5803f9bde628ceb783f168b16320e544d1f77d06385206b095464"
+        },
+        {
+          "id": "citation:iec-60204-1-2016",
+          "hash": "94541c5eadfa24ddc66c00fd8e6a73c63c519a6858eec591ca2e3d6220c19040"
+        },
+        {
+          "id": "citation:iec-61508-1-2010",
+          "hash": "4e42b6ba010c0a10ac86825e4c13916960971a9c976e73ceaf11c1861040f0fe"
+        },
+        {
+          "id": "citation:ifr-china-five-year-plan-2026",
+          "hash": "4e71bb3daa5b9fd65e6b29f0490e447ec26b8b6241d9b922a84f88513181cdac"
+        },
+        {
+          "id": "citation:ifr-world-robotics-2025",
+          "hash": "3df9bbcf0381168aea792d10ebea00824bf259e00435a258e2066ff9b12cde95"
+        },
+        {
+          "id": "citation:imap-2021",
+          "hash": "a622840c513ff699cbaeee6dba02c9824a3befad452820d838e48b874ff1639f"
+        },
+        {
+          "id": "citation:ingenuity-first-flight-2021",
+          "hash": "97c6553589ce9cf475c621c5ea826e2f48de9655131989966d01d89b23470d2c"
+        },
+        {
+          "id": "citation:ingenuity-mission-end-2024",
+          "hash": "c20a84c485cd0dcbbbcc3c589c220eb63ff09420c2bfbfc56c46fa6195e33074"
+        },
+        {
+          "id": "citation:instant-ngp-2022",
+          "hash": "2171cd37247fa9dced5224fd28b1c0544406d65e8950ab9db7e02d6e1e6102dc"
+        },
+        {
+          "id": "citation:interactive-world-simulator-2026",
+          "hash": "2edaab8ea3e9f9a4eef81aa3e2dc68109e08212908151e05c05ac97ed3e98c3d"
+        },
+        {
+          "id": "citation:intuitive-q4-2025",
+          "hash": "c9be50af31b25b3504059770815b7e19229cf858991f7b5da580d9189ba82a82"
+        },
+        {
+          "id": "citation:iql-2022",
+          "hash": "b8237933f2cef14edea503ad2c803eae9ac35ad5b6697313f62717a26b87beb9"
+        },
+        {
+          "id": "citation:isaac-gr00t-repo-2026",
+          "hash": "57ca8ada545ca643a39a10ffea5b6690ad238c00bed8f89e8a67ef12fda4019d"
+        },
+        {
+          "id": "citation:isaac-gym-2021",
+          "hash": "2eb4c288958968d065f043458195e31d657f01fbcea45869267de12240f6f66c"
+        },
+        {
+          "id": "citation:isaac-lab-2025",
+          "hash": "ad6a1922d8ad5f625a24e78f7400ce563beedc8bfd628aa235b55e46aa64a57e"
+        },
+        {
+          "id": "citation:iso-10218-1-2025",
+          "hash": "04fda04e848465ae3825b9042017305c3d0b09b38018367790d21798d6a3ff67"
+        },
+        {
+          "id": "citation:iso-10218-2-2025",
+          "hash": "994f9c7ec1eb4ec0140be479e845cbe9718fac81baf8ea4ce2769ae48838c8ff"
+        },
+        {
+          "id": "citation:iso-12100",
+          "hash": "5b975504ec9c5bddf8e85a2f481d08c0a76af369665bc13e77c78aaa97ee23fd"
+        },
+        {
+          "id": "citation:iso-13849-1-2023",
+          "hash": "2ed4ff616708a4c1efa5d35be6795da05f9f62ac595ece1fa779e919b06dbf2b"
+        },
+        {
+          "id": "citation:iso-13850-2015",
+          "hash": "7c4782487334b514b3f36edf5db2faf237ad7a042b62059f3580d8f97924694c"
+        },
+        {
+          "id": "citation:iso-3691-4-2023",
+          "hash": "d282b7d4bce6ccb707cee9d688ff5229bb73c4d6172c2c6ea43ee137bb0b92c2"
+        },
+        {
+          "id": "citation:iso-cd-25785-1",
+          "hash": "9ef45d4de825af0faf471a5baece9ed875b9e0064316cb52b776dcc079c7b533"
+        },
+        {
+          "id": "citation:iso-ts-15066",
+          "hash": "7f4d7685e76710276ccc5f3ff08289a8222b1c89c00670988bf8084e2c95ccbe"
+        },
+        {
+          "id": "citation:jepa-value-planning-2026",
+          "hash": "9e8c5978df3518049fbf1889dfa4e76f5b9668092aa95478edbdec62ab4d201e"
+        },
+        {
+          "id": "citation:jetson-thor-2026",
+          "hash": "ef1a60ec7b1b93ea0954b2f330d90cd2036a7d5a42acd09ef5204ffa5e0c79f7"
+        },
+        {
+          "id": "citation:julier-uhlmann-1997",
+          "hash": "58af50c9e4528d5d02e6b0a88a4e476a801009f2b335c761ba4661b0b4170b2c"
+        },
+        {
+          "id": "citation:kaess-2008",
+          "hash": "c084e001bc688e050882325747488aa7a7ccc9e2f319e68036a3338e13832c44"
+        },
+        {
+          "id": "citation:kaess-2012",
+          "hash": "4edc94c4eb726478855fd19101bb0e320a302e6544c08deffd754093af09d3ac"
+        },
+        {
+          "id": "citation:kalman-1960",
+          "hash": "be8ae5b7664cb02741d56719b2a69c55414b2d451d6440fef556a2fa9ad19aa4"
+        },
+        {
+          "id": "citation:kalman-1960-filter",
+          "hash": "3cd93b79bf95ec4914e3c9949a02abd0caedadba217740807953f886872a98b4"
+        },
+        {
+          "id": "citation:kalra-paddock-2016",
+          "hash": "c7a1a877f8c39af39e06544680917cc61455bc426ca74afc94fde3e6f98e2043"
+        },
+        {
+          "id": "citation:karaman-frazzoli-2011",
+          "hash": "c5cab28aefad5ee99ff88f0ce690c883d9cd502e868e2f822dac0611ddc54b42"
+        },
+        {
+          "id": "citation:karcini-position-2026",
+          "hash": "e16c78a6a44c4a1ffbe73e1f54510e0fbabd1075157bf2610f06310a8ce59a91"
+        },
+        {
+          "id": "citation:kavraki-1996",
+          "hash": "145a736eeeabcf31a454902a710ef298173cc63f1052e0e736417e0f7ed6da63"
+        },
+        {
+          "id": "citation:keselman-2017-realsense",
+          "hash": "686158aa3b097adbb8583758d55f1f382eb7d5c5424601382b117b22a11e1b67"
+        },
+        {
+          "id": "citation:khatib-1987",
+          "hash": "aed5ee454ec6b5f809c596b177a24912ebc9e6f3c800dd23d2bc117d35ed726c"
+        },
+        {
+          "id": "citation:kinectfusion-2011",
+          "hash": "32a349ce806cc6c5cee723553dae2dc4183667596b96d0202993088332cc90ad"
+        },
+        {
+          "id": "citation:knowledge-insulation-2025",
+          "hash": "966f07a22ac99bcaa007a6204141d497fe93382d0d779c23c172f30c079ea373"
+        },
+        {
+          "id": "citation:knowledge-insulation-paper-2025",
+          "hash": "ed6e5738e3054361e99b5ab191a6af0da19e1aa96ec0957e3583b2440da13e14"
+        },
+        {
+          "id": "citation:knowno-2023",
+          "hash": "e4aa06d5853a6ab71df1ce73e8e1e71e164c44d64fceed5099ca68b60e0e5ce9"
+        },
+        {
+          "id": "citation:koopman-safe-enough-2026",
+          "hash": "61c6af6603b4b9921b3d250a7e57616fafff11e6d2a6067495be01de2f8451b0"
+        },
+        {
+          "id": "citation:kroger-ocado-closures-2025",
+          "hash": "7c7824e9cb7e4a0f8bac731d09f0e6691c9be2665e6efe61d272f2c6c3f8d80c"
+        },
+        {
+          "id": "citation:kschischang-2001",
+          "hash": "c11a297c86066172e46dafd54d12cd9efabdc4d75869a8399f4544bebbebebb9"
+        },
+        {
+          "id": "citation:kungfubot-2025",
+          "hash": "aff71e0926cf98319fc71b589b27c82e3ad981aed2f77c17860572aad16fc499"
+        },
+        {
+          "id": "citation:lavalle-1998",
+          "hash": "878bb7cd7495489357edb06ddd9c5f42cdace193ec520ff54d4ce0491d537d2f"
+        },
+        {
+          "id": "citation:lavalle-2006",
+          "hash": "32c1180308ad0d264b7687d866e56f94c2c638a884371669cbdb5ae7208e1f72"
+        },
+        {
+          "id": "citation:lavalle-kuffner-2001",
+          "hash": "a7921c1dd42d04cc7a1a78ad8dab9cae72dcf44ea88e48c294b9c7ae06252476"
+        },
+        {
+          "id": "citation:layered-costmaps-2014",
+          "hash": "d7e203c6c489039aae6b0c87879da6dcf00275355acbcf6a9dcfe31885695112"
+        },
+        {
+          "id": "citation:leap-hand-2023",
+          "hash": "9782ccb3af46c1d054eef8f4fcf958f26047453c47456d6452c6296d2e727ece"
+        },
+        {
+          "id": "citation:lee-2020",
+          "hash": "7ae53a0779add4bc2f53492262c73b9519e023bd5162650f793babf685b5cc32"
+        },
+        {
+          "id": "citation:legged-gym-repo-2021",
+          "hash": "ebff57045221ad8bc07c191b53df5f01d1a9df15aa807d47a633dfd67c425c85"
+        },
+        {
+          "id": "citation:lerobot-docs-2026",
+          "hash": "3dede9a840f5a8299362e2e40271a1ccde8aa4e1b3a93feebeaf201cf93d0cf7"
+        },
+        {
+          "id": "citation:lerobot-pricing-2026",
+          "hash": "55b9853ccfe3b46e1afa3abe0b0b61401187df575eca9d7d358d14b65883ee4a"
+        },
+        {
+          "id": "citation:levenberg-1944",
+          "hash": "4384a958b15f4de4b0135ae1ca23fa526392c28e7b6a397cdcca1ff752bed517"
+        },
+        {
+          "id": "citation:leverb-2025",
+          "hash": "50d218e7d32fd48c2d8e7d7b4cd80eedea561b5989aa5adc632e227a63a681e9"
+        },
+        {
+          "id": "citation:levine-hand-eye-2018",
+          "hash": "482d2067f6445d36bea411ba4a1f4544aa9d34b9761d2f56183b8562feb250ff"
+        },
+        {
+          "id": "citation:libero-2023",
+          "hash": "70ef50043f361cf31e3fe9b38576fd6a89a2608f8f3cd456bc84f96a97e80077"
+        },
+        {
+          "id": "citation:libero-plus-2025",
+          "hash": "eb6f2319b271220a36631dc534eb957945348c54b28ab424327c01cfaad173b8"
+        },
+        {
+          "id": "citation:lin-data-scaling-laws-2024",
+          "hash": "39178f82f9f1d4801f19eff10e6c0c26fa2723bce64ab718d0c562e9c93596d6"
+        },
+        {
+          "id": "citation:lin-humanoid-sim2real-2025",
+          "hash": "708a2400976e7a5a8972f604053bddccecdac3e6f0fb830d463e2c86e9004638"
+        },
+        {
+          "id": "citation:llama-3-2024",
+          "hash": "8d05cdb367779fac83d1e97b1d31fe3d7f865637310f9e46543754857b3b9a15"
+        },
+        {
+          "id": "citation:lowry-2016-place-recognition",
+          "hash": "615e10dbfbd8be612ab8c0168c03839782f334a9324b5b2fe377e151c156591a"
+        },
+        {
+          "id": "citation:lozano-perez-1983",
+          "hash": "49d050e2d6ab07d601fcc4a35626804e82c4efd4299e1cae45bf5f6a79cf3330"
+        },
+        {
+          "id": "citation:macefield-touch-2022",
+          "hash": "ee388377fc0f9f697efb55e383cf1ea6eac03fdf4d17687df52a80dbf2cd7cea"
+        },
+        {
+          "id": "citation:maestro-commercial-510k-2024",
+          "hash": "72f685388ab90ee15dc23f43b57319a39c6002d9c9427f0b29df9a20708affb4"
+        },
+        {
+          "id": "citation:maestro-tavac-2023",
+          "hash": "db66eb669d7223eaf65ff2ae8e41022dc687bb8ee6cade061812fd468e2e83cb"
+        },
+        {
+          "id": "citation:manipulationnet-2026",
+          "hash": "3159c0ee4b999aee6780efb4f213739b342648e8dc1e319fb4fbc696b800b980"
+        },
+        {
+          "id": "citation:markenscoff-1990",
+          "hash": "731403647a2072d20cb3937c7f66df2c97f139e85f4e83b1bb480657c38bf794"
+        },
+        {
+          "id": "citation:marquardt-1963",
+          "hash": "fb43a6dd3233d15edd6525d1455072449f81e01fc0e5c5a6ea748b44acecc353"
+        },
+        {
+          "id": "citation:martin-martin-2019",
+          "hash": "5fc74accfbe5e0aa528b1846963ca0e85fc776eef267e8504aa652696555be1b"
+        },
+        {
+          "id": "citation:marvel-norcross-2017",
+          "hash": "772628dc872866fecbf51ae6414dd70b1358010b3ad792b06afe436afbd5238f"
+        },
+        {
+          "id": "citation:mason-1981",
+          "hash": "76863ddebf4ebd0b378bbbd13a7417a030b59d5c9cb11f5ce4638b0586234065"
+        },
+        {
+          "id": "citation:mast3r-2024",
+          "hash": "8bf70ecec7c9ef5f2f4d4981fb32ccdbdf41f0ee641fef3d3b3e8fdfcc90a841"
+        },
+        {
+          "id": "citation:mayne-2000",
+          "hash": "17a6b725a27fc95af182d0c12ed8cf9140a5f4cfad8db4d6fa2eaf1464eb8f0b"
+        },
+        {
+          "id": "citation:mcgee-schmidt-1985",
+          "hash": "b8c85ab8285f25a89cab325f03093405b2c2aba9470f2cb8c06679ca45471c9a"
+        },
+        {
+          "id": "citation:megapose-2022",
+          "hash": "0d6f542bdb754f6193ef760a84fd33e13d0cccb6dd4dd8ee77d61d084ed8a274"
+        },
+        {
+          "id": "citation:mem-2026",
+          "hash": "e40f3766aab07b3c29c30f5b34e98cc2b57208d70537730b6c9e015ae02e0002"
+        },
+        {
+          "id": "citation:meta-fair-touch-2024",
+          "hash": "959d9741dd8ec4da71c56ee352e6528d529fa576d8efac88faf82722110939ca"
+        },
+        {
+          "id": "citation:mev1-servicing-2025",
+          "hash": "c2948105097b5582142b97ae1a15724c99a53cb07735bb2d4db308a366cf97db"
+        },
+        {
+          "id": "citation:micro-drone-swarm-2022",
+          "hash": "8ffb9a3dcae475f6dc6b8cfcaf7468af0165e7c9da4e190f4238a504bf3be5d8"
+        },
+        {
+          "id": "citation:miki-2022",
+          "hash": "c269510c1c0f3c5dbfc1a5e38b6b09c39c9c98035f533fd019896ff4cf244689"
+        },
+        {
+          "id": "citation:mishra-1987",
+          "hash": "9dcd97a9912dd6ea10faea0109a66757d0793e59ce80235c94465fed6c1e8223"
+        },
+        {
+          "id": "citation:mit-humanoid-rewards-2023",
+          "hash": "7d2a373b31aa7a1220784742955a3070947871c9d77945749c9b84a5297502da"
+        },
+        {
+          "id": "citation:mit-work-future-2020",
+          "hash": "03624f322a993d4133d878f41b3c8ad66610012d5503939222df2e45a75ebcbd"
+        },
+        {
+          "id": "citation:mobile-aloha-2024",
+          "hash": "b027d5e7208b618527232e7cbb390e35803805f0bbf5ccaf2affe792a49deec0"
+        },
+        {
+          "id": "citation:modern-robotics-2017",
+          "hash": "35d35972e8b5c6c45e457a49dd0e2461219b3f12ef8eed85fee6d8f969f94dc6"
+        },
+        {
+          "id": "citation:moka-2024",
+          "hash": "ef0e06135f4f36cee34f92f0a1b7094102d8ef5678d817e7abb1478bab9ef4a6"
+        },
+        {
+          "id": "citation:moravec-elfes-1985",
+          "hash": "b052b881b00ab03a01ff7715c7366ee3de3d1873d49ed654a93fd83fee60f115"
+        },
+        {
+          "id": "citation:morgan-stanley-pr-problem-2026",
+          "hash": "3fa672ae7322d86a77c456b6a8efc67f0e43b5340c31bc11a59e74817f525f16"
+        },
+        {
+          "id": "citation:moxie-completion-2023",
+          "hash": "f80ea47de176c8c393208318750b854c9bf5d2566d62f4a531c3f2394078ef35"
+        },
+        {
+          "id": "citation:mujoco-2012",
+          "hash": "3904b6ee08fe89c0acf5c6716bca405f34209ede66b373a31c933033dbadf3c6"
+        },
+        {
+          "id": "citation:mujoco-ilqr-2026",
+          "hash": "a331c731706de8da4070f46df6684b30b2685f4082cc1bd6bbb58c5014cf12f8"
+        },
+        {
+          "id": "citation:mujoco-playground-2025",
+          "hash": "66a63b22189a8a3d1db64d10864d0a3f6fb84b9fffe58cdb3a1cc02c1c46973e"
+        },
+        {
+          "id": "citation:murray-li-sastry-1994",
+          "hash": "4a638b22782a20b9b32aa7b348f4a0275cff231cc34de9ad5883db78fa3dee66"
+        },
+        {
+          "id": "citation:nav2-2020",
+          "hash": "12a437d9ecc89afed6ab5fc24100d6bd083e04b20ffef90d94f43762180a1a86"
+        },
+        {
+          "id": "citation:nerf-2020",
+          "hash": "8ccafeff70e6058980999634e6cd152949ecba7ac670fdcf3ecaff3543dc1d7e"
+        },
+        {
+          "id": "citation:newton-manipulation-blog-2026",
+          "hash": "0a5639a292e7d556c91c7424be1ccb6c9b5004442b5de96b0ad625c6cf72d9aa"
+        },
+        {
+          "id": "citation:ng-reward-shaping-1999",
+          "hash": "0999000c5bcfddbbb124f508a2bf995102332a5cc7849289c5fcffe0790e722d"
+        },
+        {
+          "id": "citation:nguyen-1988",
+          "hash": "093b61f141a0f117c788ab6a72deaf79da6ecc527cda58476a25736612bea5b9"
+        },
+        {
+          "id": "citation:nice-slam-2022",
+          "hash": "b65d69624f3ae27b0e10d8fd04970a34d8590ae6278545a7bb8462e0b2f58fc0"
+        },
+        {
+          "id": "citation:ntsb-uber-2019",
+          "hash": "ac69c0ae16106194999aad00212597e6dede0dca84f11cfc3e03571734a7ab24"
+        },
+        {
+          "id": "citation:nucleus-supervised-2026",
+          "hash": "fb530616d72710c976cbf07f1ab24baa9d3f30395d150315d6385db728a97b09"
+        },
+        {
+          "id": "citation:ocado-oia-2026",
+          "hash": "6191d62aea34af2b7c28ca36708759aaf748fc79cb3e7c48c9f67cb2fb04b0d6"
+        },
+        {
+          "id": "citation:occworld-2023",
+          "hash": "398a001be264384a6e8d426c8af07f4c1b97dbe693cbe1d853bf3973a6013e44"
+        },
+        {
+          "id": "citation:octo-2024",
+          "hash": "985e025fca0b0eb11884d62ef7931ba367f312bb371098bfa1408343c67830e2"
+        },
+        {
+          "id": "citation:odyssey-2-2025",
+          "hash": "bbfef5ce93fa6455c636daa1e0d8fe568c209d444411f6a63095ac89a27afbfb"
+        },
+        {
+          "id": "citation:offline-rl-tutorial-2020",
+          "hash": "9bdff3f5a1917132b46a9dc47a56802cdffa4978d09a8eaa1ed0d0e9390ab7d5"
+        },
+        {
+          "id": "citation:offline-rl-vs-bc-2022",
+          "hash": "815a1bb4635ac5c89f53d9dad791b456a457b8f295ae51f7674aee42ab6df1d3"
+        },
+        {
+          "id": "citation:ohno-tps-1988",
+          "hash": "21155c2fe180ffa122682b33a12a2e66639b37efbe6b5871327c9708f5020dab"
+        },
+        {
+          "id": "citation:omnih2o-2024",
+          "hash": "102b57ba09a78925e6d0fa9dc585c648c08e09d304ec13636932842e51a792f2"
+        },
+        {
+          "id": "citation:ompl-2012",
+          "hash": "ac00652e73612d228afb0ef933dc7abf4e532c1764b78adc01dbe8e248637352"
+        },
+        {
+          "id": "citation:one-step-diffusion-2024",
+          "hash": "0d70d4ba521cf53f3563a7ac9190607c5a7b9334b80bb08bff486d4e63c99516"
+        },
+        {
+          "id": "citation:open-television-2024",
+          "hash": "6bdf1757be2153ac823fc024f7ce523ee89f5a0dc45ecad1b83973f7906b6d33"
+        },
+        {
+          "id": "citation:open-x-embodiment-2023",
+          "hash": "9c51fe628e2ec3e431f3f9794a8304cf8b8a2c38f75cf9a6edeebfec072e252b"
+        },
+        {
+          "id": "citation:openai-rubiks-cube-2019",
+          "hash": "a16d3652cef1054616ec5631e839912e64e994ba84496f1a0801c9e19d237dc8"
+        },
+        {
+          "id": "citation:openpi-repo-2024",
+          "hash": "7cd0cc8b046d1f027cbe5dea4f4d942f38761b41c36f121e069820882bed131b"
+        },
+        {
+          "id": "citation:openvla-2024",
+          "hash": "87ebdd3d372b19b5b856a50100b055e25b8badc2c59b04aae2f06a78242bfc3f"
+        },
+        {
+          "id": "citation:openvla-oft-2025",
+          "hash": "d60a208c6e33c152559c4dfcf54a4cf97174f55c2cb9b05f61095e8960b02d8e"
+        },
+        {
+          "id": "citation:optimal-stopping-2025",
+          "hash": "9fd81b4cfe75831a299cf5b86922900f0a22bd047f2410f2645cffe67ef8b6e5"
+        },
+        {
+          "id": "citation:orb-slam-2015",
+          "hash": "197f1857285de54385282cfd6f88016234acfedf97366d20243af01efb3ff2bf"
+        },
+        {
+          "id": "citation:orb-slam3-2021",
+          "hash": "ab5a3274c2155b94db31261c42088fce57cf84b018cb5318840932ac5d379c24"
+        },
+        {
+          "id": "citation:orbital-express-2008",
+          "hash": "cbf1bfecd09f8559a66b04253e183588e184929dd5a5a58e0e0d1417023002f5"
+        },
+        {
+          "id": "citation:osam1-discontinued-2024",
+          "hash": "77b2f02abe261fb93a12fb5ccab58b4212bf06d2fe97a45e6207b5d5024826ca"
+        },
+        {
+          "id": "citation:osha-otm-robots",
+          "hash": "fe0a40b755d67ff86535c7db7334e85d87622cb6b5bc1af127390e5945ca5c0d"
+        },
+        {
+          "id": "citation:ott-2010",
+          "hash": "697062dce3de201a4e8979b50da16b0d360e329a1e1414d1249d26f1e0356529"
+        },
+        {
+          "id": "citation:oxe-quality-critique-2026",
+          "hash": "c64b76b115a5c3606e36401165d2c597e31bf73d2c1c98321bfaf8ef46f3bbdd"
+        },
+        {
+          "id": "citation:paden-2016",
+          "hash": "1b621a2e426b42f1b942f524fd94429ecff022c3e997f76acbd5b917e4e8603f"
+        },
+        {
+          "id": "citation:pair-vla-2026",
+          "hash": "7e9c2747455b6ea3138c59989a767519bb0c6e527c100d09e8a6965e2d153b8d"
+        },
+        {
+          "id": "citation:park-2017-bounding",
+          "hash": "300019392e7a336cdbfd4d4eaefef5ffa2e8021001d8f476d202f19a054c4bc9"
+        },
+        {
+          "id": "citation:peng-2018",
+          "hash": "3e0e4f0c222e8a83c40e6de913b16021c35d212c0301d9b37739a7fb5b437bf1"
+        },
+        {
+          "id": "citation:perseverance-autonomy-2023",
+          "hash": "6e0a85b589a05f40c681167d568277bb04fc50b6a6495a28ca3d3cc54d7a8c1d"
+        },
+        {
+          "id": "citation:phc-2023",
+          "hash": "bd55f143ab30d29db3d2d758235fd732055bbf6006b0143d98bc42f15f01ac32"
+        },
+        {
+          "id": "citation:photoneo-phoxi-l-2026",
+          "hash": "3757c1f39c4a1f7ef2c5392eef2fa4d155d6be5c51fa4862588cad973f4d6f25"
+        },
+        {
+          "id": "citation:pi-human-to-robot-2025",
+          "hash": "3143a5d82ee2e1e7414f7b61a0c7afb6f01820c6b33fb669a06adb0a7d0464c6"
+        },
+        {
+          "id": "citation:pi-olympics-2025",
+          "hash": "0da61929093b713a6d3ffaffc07b657ef0bd1348d12821c1b1249ba13b698d8c"
+        },
+        {
+          "id": "citation:pi-real-time-chunking-blog-2025",
+          "hash": "d41a492a66db6cef35424e6d2ec0003983770bdd85754adbc0122cf887fe4d6a"
+        },
+        {
+          "id": "citation:pi-rl-2026",
+          "hash": "39070768fe28eb711c9633085a1912a0f636aa23b39ef68d9b9440e9b53138c5"
+        },
+        {
+          "id": "citation:pi0-2024",
+          "hash": "4164ee43603c968b2bfc639333124635f3e067cea6e2ba041ba487c175f0b552"
+        },
+        {
+          "id": "citation:pi0-fast-2025",
+          "hash": "9290b741c05abc4ac58f91f16f26f9e312f462faaae95f1aa23c7e561bb3774c"
+        },
+        {
+          "id": "citation:pi05-2025",
+          "hash": "cde284733ba24679935bd0ccacba6eb0d93bfed33868ee107ddea5e99acb66ce"
+        },
+        {
+          "id": "citation:pi06-model-card-2025",
+          "hash": "b071bfe59d9118629e8ccf9dced50b3625b9539f789bd4d81bbe97a1ca36a296"
+        },
+        {
+          "id": "citation:pi07-2026",
+          "hash": "7a10f4aaeb33004faa4c0f40637dce5562e352e85708e19577a82ef0307b01ed"
+        },
+        {
+          "id": "citation:pi07-blog-2026",
+          "hash": "7865300700c49ba7b9006d96102734690cb0afe546b30ca9abadca0c4d36edf8"
+        },
+        {
+          "id": "citation:pistar06-2025",
+          "hash": "275a4b1ba812c1c2f6b891f85874857ee59a858c08173f12e2630a68aac6fd03"
+        },
+        {
+          "id": "citation:pistar06-blog-2025",
+          "hash": "7e70e8d48d68ffd2f28c4321b78144cd7da0d4eb1c315e62cfb0440c23b068ea"
+        },
+        {
+          "id": "citation:play2perfect-2026",
+          "hash": "484878cb596873a014b2c44cf205c2619a5475dd4a5e1d7cc8537a3162dc5526"
+        },
+        {
+          "id": "citation:pld-2026",
+          "hash": "fcc63426d5343d76bd9caf0f9eb51ffa334b46ee2c6711e0f068b185de0e739d"
+        },
+        {
+          "id": "citation:pointnet-2017",
+          "hash": "5734df406e484dd05ddc39873c196dfc098b31a284ac348e343454a9203ae6c3"
+        },
+        {
+          "id": "citation:pointnet-plus-plus-2017",
+          "hash": "a6b1a8bf96b6a63c31609ea86b178a5b159969b74bb28c9cad0b1c96912c8298"
+        },
+        {
+          "id": "citation:posecnn-2018",
+          "hash": "71dde216b196770040f17b9cee1331f5fadd98a8f2dc3d51bcd3a007663a4ab4"
+        },
+        {
+          "id": "citation:ppo-2017",
+          "hash": "90e774557508f4df74ef1fe6da528a77357c323275cd71ecb067fe93101d92bc"
+        },
+        {
+          "id": "citation:pratt-williamson-1995",
+          "hash": "0b2b23aa4fb05ffa815289f904b0bf0e39cd00dd4b6bb0d84f9221e2e95a4a15"
+        },
+        {
+          "id": "citation:prattichizzo-trinkle-2016",
+          "hash": "3b8e22ae7a6518bc7e57733f1134a4b4ffbd7e21d4a47d0b572a8cad29f78b21"
+        },
+        {
+          "id": "citation:prime-1-lunar-2025",
+          "hash": "9538137ed82c07182490e4c2c9196f2654fc7a26c083d794c0dd12eb30a7192b"
+        },
+        {
+          "id": "citation:project-genie-2026",
+          "hash": "9925edd37d28453625f77cf227caa9481cd93df2570a5d22d017ff11b065e126"
+        },
+        {
+          "id": "citation:q-transformer-2023",
+          "hash": "4953d37e15172afae4d02b81c11b6cf1d63dc4c3704290859b0871eef53e8285"
+        },
+        {
+          "id": "citation:qin-badgwell-2003",
+          "hash": "12be7b7fdd2b5301b9293e933ef8b1c50d0a606da29f604f12d9e2f25d7b6ebe"
+        },
+        {
+          "id": "citation:qt-opt-2018",
+          "hash": "25383328f8830aca157f3dc3511b1bdde88ec9c55c0829078c378d9685bf9cd0"
+        },
+        {
+          "id": "citation:racing-rl-vs-oc-2023",
+          "hash": "4451d5fd66ff8f022f18f307d76cbe8cbd8e951d596f5d567ca5d66e2dd84f8e"
+        },
+        {
+          "id": "citation:rai-atlas-rl-2025",
+          "hash": "ca9e6a2e20f419dccbd049d913672cc062aff840f49594757211c8fde84bb28d"
+        },
+        {
+          "id": "citation:raibert-craig-1981",
+          "hash": "b3319118ba0655355563ca04f35821a6478a060d5ddfb0e1478f830d0285101c"
+        },
+        {
+          "id": "citation:ratliff-2009",
+          "hash": "6c6285507ebdaf50eb63f9cd7cda2c88d7b3dc5f3bca075a6656b1253fd159ed"
+        },
+        {
+          "id": "citation:rda-2026",
+          "hash": "861a1d8d4b79b261970643201415de0a86a70626224ba438c018bd67c99d1da2"
+        },
+        {
+          "id": "citation:real-time-chunking-2025",
+          "hash": "a190096602971e66807f00b92b7217cd80a2ace0cf90012439558218cb35f89e"
+        },
+        {
+          "id": "citation:real-world-rl-ingredients-2020",
+          "hash": "aa0ce09fb1eb5bdea684b57ccc863f8c16404ad7a128c3dfe5ce7169646637fd"
+        },
+        {
+          "id": "citation:reality-gap-survey-2026",
+          "hash": "61f78f972cd0f14098745b150222e46f64c9c55164f2cd14498d0b95207eacf6"
+        },
+        {
+          "id": "citation:realsense-d400-datasheet-2026",
+          "hash": "62f192479f3151077b2ed23ec514a40c5a52762f651a1d1a533fd99557cb0f88"
+        },
+        {
+          "id": "citation:realsense-tuning-2026",
+          "hash": "3460a496c9c91ea9fafa3e432431299f274580f20189eb7403b30a9ec09563da"
+        },
+        {
+          "id": "citation:rekep-2024",
+          "hash": "ffc2c9b16180e5f971cc830027e9851ad88e32ec30e68a774a1480c50afe58d7"
+        },
+        {
+          "id": "citation:reset-free-rl-2021",
+          "hash": "3db3d37b316b6ba05f6191209bf0bfb55b346db8ec69d6986149c1919cb80073"
+        },
+        {
+          "id": "citation:rewards-constraints-2024",
+          "hash": "777cd588e9fc00f43a3981dc370b35973a44ee21b8c3620f4ba5cfb5150fcf17"
+        },
+        {
+          "id": "citation:rl-100-2025",
+          "hash": "f4eb7b2f132c7e8ff748524a66dddaa2a943906ab06566ac51cc82263b259860"
+        },
+        {
+          "id": "citation:rl-vla-generalization-2025",
+          "hash": "7d37691edcafad0a241f918f83cc2c820b8fe12c684ee89290e75b70e27a736b"
+        },
+        {
+          "id": "citation:rldg-2024",
+          "hash": "c523286ddaf5691ca79d920fc50fc7ffee21a347affc9a38998c6cf9cf70cfbf"
+        },
+        {
+          "id": "citation:rlpd-2023",
+          "hash": "e3db34bcf38bb08f787e075b8d56a50129faf69bcd28ddb1a165479a1f0ddf75"
+        },
+        {
+          "id": "citation:rma-2021",
+          "hash": "dac13a06ada79d84f5c21cd9247f8609ff7f084e21f7a8512cdf730756f14695"
+        },
+        {
+          "id": "citation:roa-suarez-2015",
+          "hash": "b38f01157b32ebfd30ef81af42c523b4d2a42afae24b20f4b2c46fd787e7e2ab"
+        },
+        {
+          "id": "citation:roboarena-2025",
+          "hash": "c642db9a2ea8478ecea35374f20411022f163971a93b66dec013fe931ba29ae1"
+        },
+        {
+          "id": "citation:robocasa-2024",
+          "hash": "4e0af6a064e7b6251a1ac485c78f8859dad109c5f4987526408d81013c63e9fe"
+        },
+        {
+          "id": "citation:robocasa365-2026",
+          "hash": "67c7c94bb98941f2bd6b452995209de434b80a0afcc175e696949312d9f545e7"
+        },
+        {
+          "id": "citation:robochallenge-2025",
+          "hash": "b50264aa17746b92d613cb87fbb8fddb50acf3c450679fe8a4fdc0994d241e8f"
+        },
+        {
+          "id": "citation:robogen-2024",
+          "hash": "1e3ca86bc9ff7b9b537da4665dbe45177915817b63a3b752677589f4f2b0cfb6"
+        },
+        {
+          "id": "citation:robogsim-2024",
+          "hash": "3b348b103a2728c1ad56f8652c17d628c146f59640f8f82f1b0f078c6e980b86"
+        },
+        {
+          "id": "citation:robomimic-2021",
+          "hash": "f6f932d985b76d284b4b2ff6f99b631c62ad9bcb0a2947514c472688ce182951"
+        },
+        {
+          "id": "citation:robomind-2024",
+          "hash": "65217ba2fa4e9a5d29c03feacfe9a40945bfe1b6f9364e511736904ec2acbce2"
+        },
+        {
+          "id": "citation:robopoint-2024",
+          "hash": "55c62d822d2c8d1f28c026f52964cf2d81fab57f3666f8b72cba7f66b1e61529"
+        },
+        {
+          "id": "citation:robotic-world-model-2025",
+          "hash": "2a0f6dc4f7038c7a9e5ac436492eab3dd7d2ef8a9a4279fa927613eca88ebcb9"
+        },
+        {
+          "id": "citation:robotics-funding-23b-2026",
+          "hash": "9150ef60a55d67ddc09eddc2ac991b3feef7ff8a4d89372e9544ce4dd9c056b8"
+        },
+        {
+          "id": "citation:roboworld-2026",
+          "hash": "b6fbfcece911d99fa4ec4f29d237f0fd85fccf7905f47ecf49612518a9f3afd2"
+        },
+        {
+          "id": "citation:robozaps-humanoids-2026",
+          "hash": "c3d9f900c2330bc6335776f32bdd15a873bfea5675902e9e849140339b50f60d"
+        },
+        {
+          "id": "citation:robozaps-phoenix-2026",
+          "hash": "e5b8200524945ada112c4558de0318baeb8e3abb4130e5cc5a2c3fb6989ede9a"
+        },
+        {
+          "id": "citation:robozaps-unitree-h2-2026",
+          "hash": "5a0a6bc91c80e63c0e52131cf482300a9d7d3c287ca0d55fb2d52ffc313591a7"
+        },
+        {
+          "id": "citation:robust-tracking-2026",
+          "hash": "5cf8a831ea6d239abc51f6a888497d1fdc14571b400980399c134c975131f9e2"
+        },
+        {
+          "id": "citation:rss-2017",
+          "hash": "b3e6521b9f5b25ce934079500a6381a0b2235ac09fe9f321edd4ca8bcb03fa7c"
+        },
+        {
+          "id": "citation:rt1-2022",
+          "hash": "22ef479c3a35fd13ccc484ea41d1a1a2fddd9b34f882e71b1edd0b5b74fca410"
+        },
+        {
+          "id": "citation:rt2-2023",
+          "hash": "400195ea2ca30f8fc215e5b6b13560e33b5f5d4b8e2bdde43e2cfa1a6de914ac"
+        },
+        {
+          "id": "citation:rudin-2021",
+          "hash": "01efac3b11b2061eff96f3e24ca1910c3d9887ec4dedd2c0616f2667ddf48136"
+        },
+        {
+          "id": "citation:sac-2018",
+          "hash": "1905470cf82816d7f7b2789829bdf7ffa0a27f0dcf6b1ede93b3879c40387ee4"
+        },
+        {
+          "id": "citation:sae-j3016-2021",
+          "hash": "937770bd3f55c83623fc1f49f7f34a2f85acf3a1f853aef429e31bdcb3163e34"
+        },
+        {
+          "id": "citation:salisbury-1980",
+          "hash": "3a55490dba80b9802e55a088687feaf87491525bdd3a33dd7f1a2e88860e8546"
+        },
+        {
+          "id": "citation:sam2-2024",
+          "hash": "45985edecca41ba55c54d4588e866670b0cd17f90cf0ecfdaa4eb3474e410a33"
+        },
+        {
+          "id": "citation:sanctuary-hydraulic-rl-2025",
+          "hash": "28be03133f1a66b8e9518971304f88606018fec0c9722bc6a1288f4aa20f82c8"
+        },
+        {
+          "id": "citation:sanctuary-inhand-2024",
+          "hash": "c582615cbccf22dc2dba8aadc028b2987964408cb62ff2b0efe34089d57ef2dc"
+        },
+        {
+          "id": "citation:sanctuary-tactile-2025",
+          "hash": "e9e8a8b10f74deb6b664986450a14c02e28f76eea063d811746310710f75f3e6"
+        },
+        {
+          "id": "citation:saycan-2022",
+          "hash": "0b81bbd822fba682a0d6da6cb8835fc5482c4294510a7ec6c485c13a2b251005"
+        },
+        {
+          "id": "citation:schulman-2013",
+          "hash": "e5213235e3d55875fcf3755f9028903529e4c464666046ba0335183c2c1f0bdf"
+        },
+        {
+          "id": "citation:scopilot-clearance-2025",
+          "hash": "2fb4a657eae3c23f34ebbd0da08cd4aa81d54cb44b53554c8bb853646a1861a6"
+        },
+        {
+          "id": "citation:seeed-so-arm101-pro-2026",
+          "hash": "8dc4e311e37698cfee4b2ebc0aeee84e221d6df21e83be442ec6242d53773e53"
+        },
+        {
+          "id": "citation:segment-anything-2023",
+          "hash": "3d1006804524353642362e80d93881b57be60a7c76fc02e6ef2c91978aef58c5"
+        },
+        {
+          "id": "citation:sentis-khatib-2005",
+          "hash": "9fba4c7682b4d9743b67f6ecdf0e59720df9cb5bec1835dee2f5591e147513e6"
+        },
+        {
+          "id": "citation:shadow-dexterous-hand-2026",
+          "hash": "d08236aa643656535d7086d7f5fba0910cbbb1cf7b6c45cd28ae2c8332447e36"
+        },
+        {
+          "id": "citation:shadow-hand-cost-2022",
+          "hash": "cc0d42e16a2547bbe684b6a6feeb791bada332a692c0486394ea55a4f0f4a703"
+        },
+        {
+          "id": "citation:simpler-2024",
+          "hash": "0c4a98391e0eed5b5bf2f6baf5af4d3a9108b0bbd33682a4ac788ca3200f4f9f"
+        },
+        {
+          "id": "citation:sinha-anomaly-2024",
+          "hash": "7dba434ccdc0c7d3c8b39bf16bc467d9435f2b0828dfd2e8aa1fa21eff62d64a"
+        },
+        {
+          "id": "citation:skild-series-c-2026",
+          "hash": "22047e445b8510a111023676f32a531d9ff8421ab71986fb12c8639039419b5e"
+        },
+        {
+          "id": "citation:smith-1990",
+          "hash": "f9ad9ffb83dea734274d4471ff1676c11e84edb5af4f6ce9b88a6328c9f40098"
+        },
+        {
+          "id": "citation:so-arm100-repo-2026",
+          "hash": "a9431271253a5b505ef4b3a59cea6ea93b8133fac6ab2af9e8ed5752d51ad288"
+        },
+        {
+          "id": "citation:soria-nmpc-swarm-2021",
+          "hash": "ad4b1e02348b13409b9b57b1a08d09d0f5fd05dc207432cd87404e79d1e33f3a"
+        },
+        {
+          "id": "citation:sparsh-x-2025",
+          "hash": "62f4691abdbec6fcf89101ef5a9106c67f72e971eedad92eb5f4aa1c6f8990da"
+        },
+        {
+          "id": "citation:splatsim-2024",
+          "hash": "3d6e9e3a1cb0a15ac1d12a342d639442c83d394cd5aced73f51b2bcc89b91b56"
+        },
+        {
+          "id": "citation:stagewise-cmorl-2024",
+          "hash": "92686c961f03b7f4776b97c4eb6400e8fd9820960936cec668221078900776bd"
+        },
+        {
+          "id": "citation:star-suturing-2016",
+          "hash": "937d0bb3fb61801559a5d3b5cd59521f5b8cfdead6cc93493fbb21a279911b8d"
+        },
+        {
+          "id": "citation:state-of-simulation-2026",
+          "hash": "7d5b970004811558b8f5e66ff184b3fbd5cb120ee61e31a90d72e29e5d168b53"
+        },
+        {
+          "id": "citation:sutton-barto-2018",
+          "hash": "ff24bc960c12bbf39950d16f4db64771532207fd594551882180fe453a3bbe1d"
+        },
+        {
+          "id": "citation:sutton-bitter-lesson-2019",
+          "hash": "f5e0ba51bb2c133d56486c8f0697ae26cfa5213f915505b324a463929fdfdc4b"
+        },
+        {
+          "id": "citation:swift-drone-racing-2023",
+          "hash": "d033ce51a033bcef509d15f7bee6110d290a3c8119dcf8511c311be882368209"
+        },
+        {
+          "id": "citation:symbotic-10k-2025",
+          "hash": "02f514eb7abfe1445b33ef03f3df58d0c83b70c55286830bef0f4376d4c3e0fc"
+        },
+        {
+          "id": "citation:tactile-outlook-2025",
+          "hash": "dfc596a30c37f1a4da3632acb05f87d2cb83ae5b20cbfff1a69fbb92e030e1aa"
+        },
+        {
+          "id": "citation:td3-2018",
+          "hash": "f8fef907b02330a73ea918014a854c0d3db9afaf4890e29cc31a5bb3ec6de476"
+        },
+        {
+          "id": "citation:td3-bc-2021",
+          "hash": "dcafe78b85b0aced502f5ded2f7979bedf9eb2cbe134e0b567be58b178e1c66a"
+        },
+        {
+          "id": "citation:tdmpc-2022",
+          "hash": "d6689fd54f4745af3cd35e3f5c308fa1b6d9ebdc79b7504ba053081531c7724e"
+        },
+        {
+          "id": "citation:tdmpc2-2023",
+          "hash": "1245c16b59d24ae4c4b9140f9213d3699fa709b5d19f9c3c6194c8529f9516a7"
+        },
+        {
+          "id": "citation:technology-org-deployed-2026",
+          "hash": "0ab3260e968f874a242dc8ae5df41c5d7c02ee3b60b66e68a6e5945d4cad5f8b"
+        },
+        {
+          "id": "citation:tedrake-underactuated",
+          "hash": "a5bbe77fb9074a11f6b47aed4e84ece503ee72089efb8d47d5c81971791f4db6"
+        },
+        {
+          "id": "citation:teslarati-optimus-hand-2026",
+          "hash": "a2d41c019178ebe6d482ab2f9ba3adee9b9b92759cce732e8008b54704439e55"
+        },
+        {
+          "id": "citation:thrun-2005",
+          "hash": "d49963717a453ec34290ef54de0944271997112072a7bae825abe43205a14b11"
+        },
+        {
+          "id": "citation:tobin-2017",
+          "hash": "7d96999df8825f9ddc4a3efbd1e8c362659c5309f746c43038ec78ae092f4d6c"
+        },
+        {
+          "id": "citation:touchworld-2026",
+          "hash": "70ae67fa71d3e10479508646521168ba08320fcfd367c103780ebd2395fb81e4"
+        },
+        {
+          "id": "citation:training-time-rtc-2025",
+          "hash": "d721bceb974654f626088840a88cdfdaf7955650ab8e5d3494217b21524f8060"
+        },
+        {
+          "id": "citation:tri-lbm-2025",
+          "hash": "15fd642d48a66c979a58a2f97006fab9fb8a37541b1b0b0e8e2e669f6985cd5a"
+        },
+        {
+          "id": "citation:trossen-ai-2026",
+          "hash": "8af29ad5e7d983464c68026c3e1ae20eb13a4d701dd9ac8624aba25b497012e0"
+        },
+        {
+          "id": "citation:tsai-lenz-1989",
+          "hash": "d3e404927ce42ceca16021c811fba2ea06e80c678d9a5303b6a624431abbb33a"
+        },
+        {
+          "id": "citation:ul-4600-2023",
+          "hash": "d2a74bb684e48ba34eb0b659de9ec9c409426d907a85932b4456c7ae906ff63c"
+        },
+        {
+          "id": "citation:umi-2024",
+          "hash": "08e6f722788f7bcd412f38c0940fa389189c536a981968c1d09a5fb24ec6ef98"
+        },
+        {
+          "id": "citation:uniad-2023",
+          "hash": "2f0e7c66eeceff37b7a40ad515bb4093c3b509c838b7d7b0d9ba8447e2f0482a"
+        },
+        {
+          "id": "citation:unitree-g1-2026",
+          "hash": "409613d87c93ac6edec42fb61d4003e0e75889d371d6525c9caf8e51ed6be94e"
+        },
+        {
+          "id": "citation:unitree-h2-2026",
+          "hash": "c434b7ec731f213e3bf12751922192cff4e43ddf79cbfc8a260528b87b622efa"
+        },
+        {
+          "id": "citation:unitree-profit-2026",
+          "hash": "20b05ac33b2e329045668d193a86ca7d38221f0da94e63376cc74d7583636a35"
+        },
+        {
+          "id": "citation:ur-force-mode-docs",
+          "hash": "f2b1be913317856a565d971c15e9f477137cebb74fcf4a5823676e2483a599ef"
+        },
+        {
+          "id": "citation:vasarhelyi-flocking-2018",
+          "hash": "e5c935463b8bd1f8838da85b39f8a00bddfe2fe5ed5be8b93fce877224b1b6f9"
+        },
+        {
+          "id": "citation:vectornet-2020",
+          "hash": "6c1652714cb839940c09466f030850df5356e34e5445e8ebcee164f7c4c2509f"
+        },
+        {
+          "id": "citation:versius-plus-510k-2025",
+          "hash": "4a2e4a054bed398161721f94b7c7e00118583ce6a3e1b702b156cf715c4aa6c1"
+        },
+        {
+          "id": "citation:vjepa-2024",
+          "hash": "3f8086f4500c1926e712c5d104b6d1c1c3bf6ee54ab06e858c15169d04cb0bdd"
+        },
+        {
+          "id": "citation:vjepa2-2025",
+          "hash": "0873c364a9e9cc3aafe3eee85bf2075cdc1604ef75afe61fd06cf7f7877e351d"
+        },
+        {
+          "id": "citation:vla-ad-survey-2026",
+          "hash": "687aab73e1fa6e345880abf43aea50839d007f8aa91624cd21a80642509343d5"
+        },
+        {
+          "id": "citation:vla-perf-2026",
+          "hash": "732e9a44f99fec4af41b8dd4871c45504548ec83a154cfab07b77791309f10ec"
+        },
+        {
+          "id": "citation:vovk-conformal-2022",
+          "hash": "4cd49c34b3aeaec6279c1ea4d5ed3dea80351fa1fd2ae83ee624ff84a83fd4f3"
+        },
+        {
+          "id": "citation:wabersich-safety-filters-2023",
+          "hash": "ded8775df209e2e8d81e55c5f87700842fb4fd0d859e6427d7c2982a5dd01130"
+        },
+        {
+          "id": "citation:wampler-1986",
+          "hash": "0f5d2d505083a1292e702870a7e1701a657fb9f0d1a571a26d8b27510f03ea93"
+        },
+        {
+          "id": "citation:waymo-crash-rates-2025",
+          "hash": "9bcbfb2844510a849e31c9bc2af85eabd273b5a0fb481cccb6dd326a38542cb9"
+        },
+        {
+          "id": "citation:waymo-open-dataset-2020",
+          "hash": "96b16b184dbf6b104f8614eab7269a1379030965902647f126e3eab9d921380e"
+        },
+        {
+          "id": "citation:waymo-world-model-2026",
+          "hash": "8a1800dcf265c94b5ecf6572102185fe7ebfc0b62200b31967b72c51d9050d57"
+        },
+        {
+          "id": "citation:whitney-1969",
+          "hash": "f82956036345468bc572d0703e7f094761952686e3157b5553053caeaec9453f"
+        },
+        {
+          "id": "citation:wholebodyvla-2025",
+          "hash": "13d2b6002cf75c0ec56b4fa83998ca02a835bdc2a80f6df5f6111e27dda5cecc"
+        },
+        {
+          "id": "citation:wikipedia-humanoid-hand-2026",
+          "hash": "9e4d3e765bc3d3d18fc5bfb2720a7d762e8a433c1b6caf2ce4f26f9f414f25a2"
+        },
+        {
+          "id": "citation:world-model-survey-2026",
+          "hash": "06d7ff87d1a69fe7e2af368900e93ef1d69cb790cd19b476b0d8a34757664e14"
+        },
+        {
+          "id": "citation:worldvla-2025",
+          "hash": "52d5a3279e20a40e542d39961b722be9481826cd16d84d0d09ae3d30d7a858c6"
+        },
+        {
+          "id": "citation:yang-autonomy-2017",
+          "hash": "2e08f5dd8f965c73a0075457aa70e07d9e421ae216a844f9aac46c8ce45b8f9a"
+        },
+        {
+          "id": "citation:zhang-2000-calibration",
+          "hash": "9d48eb087ccac25eaa995c5e40dd3b344434242c3eeac6c0ecd986f1d8a9979b"
+        },
+        {
+          "id": "citation:ziegler-nichols-1942",
+          "hash": "e5287e74e35f5c80d00d10d196dc17da5726047270dd57a6996640b48336e536"
         }
       ],
-      "rootHash": "3fcfedcb578c7193c473711b85f39f30fd0307dea411e866ed31d438225eb84d"
+      "rootHash": "1a17baba4ff9d5c5ac4f3f150951d7ed922fc1a4d76445689f70e9548b04f2ff"
     }
   },
   "manifestRoots": {
     "routes": "1daa72c2178dbca176ee725dcf637d56f9aba34e52e09b79967b5eea66b0c202",
     "prose": "810ac2f807560bedcb29c44ec9f0e3a90fcf8676227b45de90ca3a61a650b321",
-    "accessible-names": "514fd35de7ca5de51cb1fc0baf43c0308fa1b7712f4be48ce9e49bdef2614d2c",
+    "accessible-names": "75ec030397518f812287f4cbc1a32add4af474f16e86c5b76b25712a7c9475a5",
     "relationships": "c839c4432c472bc45f27c9cdccd0b458c38b07337af82b61db8ad9c003e76ef1",
     "navigation": "4fdb7575f94eee8d3b4e33e9a36017a3ebd4d216720071772b7c3623b44084ff",
     "market-playground": "3ab7651e7bcb8bfc2ef26bb89353d12d983bd6db7a2b155d6819c7040dab8024",
@@ -5299,7 +7707,7 @@
     "interactive-sources-mounts": "fcca07da66d9b13efcc7e5d5c45ae77a70223bd7127a5ab0fec98a8686618f5c",
     "behavioral-defaults": "519bb5f93dcab827ae22f1b5b026cac8e7e163125124ab3242881ad6fc7847a3",
     "value-states": "984cc55763e7894fc92f4b98a7b4bf31914d0cd4295b02564abaf24307436077",
-    "article-metadata": "3fcfedcb578c7193c473711b85f39f30fd0307dea411e866ed31d438225eb84d"
+    "article-metadata": "1a17baba4ff9d5c5ac4f3f150951d7ed922fc1a4d76445689f70e9548b04f2ff"
   },
-  "rootHash": "74037f4101d96cc04e42a502048374588d7b6ec543d089917d1ceb646f8d5eb6"
+  "rootHash": "859877a75aaf77e6d9c1e0485a9d50500fa6551b308c6dac47238f124dcecf0b"
 }

@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   assertAdditiveBaseline,
@@ -12,8 +14,17 @@ import {
   type BaselineKind,
 } from '@/lib/brand-v2-baseline';
 import {
+  ARTICLE_TRUTH_MANIFEST_KINDS,
+  articleTruthVerdicts,
+  type ArticleTruthKind,
+} from '@/lib/brand-v2-baseline-truth';
+import { CITATIONS } from '@/data/citations';
+import { publishedModules } from '@/data/modules';
+import {
+  collectArticleTruthManifests,
   collectBaselineCheckResult,
   collectBundle,
+  jsxExpressionAt,
 } from '../../scripts/brand-v2-baseline';
 
 function fixtureBundle(): BaselineBundle {
@@ -473,5 +484,160 @@ describe('brand-v2 immutable baseline', () => {
     expect(() => assertAdditiveBaseline(previous, recreated)).toThrow(
       /removed baseline kind legacy-kind/,
     );
+  });
+});
+
+/**
+ * `VAL-B2-BASE-002` names four things the sealed manifests did not hold:
+ * the target, label and date of every citation, the review date and
+ * declared sources of every article, and the accessible names this corpus
+ * writes as expressions rather than as string literals. These cases read
+ * the real tree, because a fixture would prove the collector can find a
+ * member it was handed, not that the corpus's own members are measured.
+ */
+describe('the article-truth collectors over the real tree', () => {
+  const collected = collectArticleTruthManifests();
+  const sealed = JSON.parse(
+    readFileSync(
+      join(process.cwd(), 'evidence/brand-v2/baseline/baseline.json'),
+      'utf8',
+    ),
+  ) as BaselineBundle;
+
+  function members(kind: ArticleTruthKind, prefix: string) {
+    return collected[kind].members.filter(({ id }) => id.startsWith(prefix));
+  }
+
+  it('seals one member per registered citation, holding the record and not the file', () => {
+    const citations = members('article-metadata', 'citation:');
+    expect(citations.length).toBe(CITATIONS.length);
+    expect(citations.length).toBeGreaterThan(300);
+    for (const { id, value } of citations) {
+      const record = value as unknown as Record<string, unknown>;
+      expect(String(record.url), id).toMatch(/^https:\/\//);
+      expect(String(record.title).length, id).toBeGreaterThan(0);
+      expect(typeof record.year, id).toBe('number');
+    }
+    // The record, not the file: an entry comment is audit reasoning, and
+    // hashing the file would make a re-worded note read as a fact change
+    // and let a fact change hide inside a re-worded note.
+    const allowed = new Set([
+      'id',
+      'title',
+      'authors',
+      'year',
+      'venue',
+      'arxiv',
+      'url',
+      'type',
+    ]);
+    for (const { id, value } of citations) {
+      for (const key of Object.keys(value as object)) {
+        expect(allowed.has(key), `${id} sealed an unexpected field ${key}`).toBe(
+          true,
+        );
+      }
+    }
+  });
+
+  it('seals the review date and the declared sources of every published article', () => {
+    const facts = members('article-metadata', 'article-fact-frontmatter:');
+    expect(facts.length).toBe(publishedModules().length);
+    for (const { id, value } of facts) {
+      const record = value as unknown as {
+        lastReviewed: string;
+        citations: string[];
+      };
+      expect(record.lastReviewed, id).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(record.citations.length, id).toBeGreaterThan(0);
+    }
+  });
+
+  it('seals the accessible names this corpus writes as expressions', () => {
+    const expressions = members('accessible-names', 'expression:');
+    const literals = members('accessible-names', 'literal:');
+    expect(expressions.length).toBeGreaterThan(100);
+    // Most names in this corpus interpolate a live reading, so a manifest
+    // that held only the literal ones would leave the majority unmeasured.
+    expect(expressions.length).toBeGreaterThan(literals.length / 2);
+    for (const { id, value } of expressions) {
+      const record = value as unknown as { expression: string };
+      expect(record.expression.startsWith('{'), id).toBe(true);
+      expect(record.expression.endsWith('}'), id).toBe(true);
+    }
+    // At least one sealed name is a template with its own interpolation,
+    // which is what a brace-counting scanner has to survive.
+    expect(
+      expressions.some(({ value }) =>
+        (value as unknown as { expression: string }).expression.includes('${'),
+      ),
+    ).toBe(true);
+  });
+
+  it('holds those members in the sealed baseline, not only in the collector', () => {
+    const sealedIds = new Set(
+      sealed.manifests['article-metadata'].members.map(({ id }) => id),
+    );
+    const sealedNames = new Set(
+      sealed.manifests['accessible-names'].members.map(({ id }) => id),
+    );
+    expect([...sealedIds].filter((id) => id.startsWith('citation:')).length)
+      .toBeGreaterThan(300);
+    expect(
+      [...sealedIds].filter((id) => id.startsWith('article-fact-frontmatter:'))
+        .length,
+    ).toBe(publishedModules().length);
+    expect([...sealedNames].filter((id) => id.startsWith('expression:')).length)
+      .toBeGreaterThan(100);
+  });
+
+  it('grades the whole current tree against the seal and the allowlist', () => {
+    const deltas = (
+      JSON.parse(
+        readFileSync(
+          join(process.cwd(), 'contract/brand-v2-approved-deltas.json'),
+          'utf8',
+        ),
+      ) as { entries: ApprovedDelta[] }
+    ).entries;
+    const baseline = Object.fromEntries(
+      ARTICLE_TRUTH_MANIFEST_KINDS.map((kind) => [
+        kind,
+        sealed.manifests[kind],
+      ]),
+    ) as Parameters<typeof articleTruthVerdicts>[0]['baseline'];
+    const verdicts = articleTruthVerdicts({
+      baseline,
+      current: collected,
+      deltas,
+    });
+    expect(verdicts.size).toBeGreaterThan(900);
+    expect([...verdicts.keys()].some((id) => id.includes('citation:'))).toBe(
+      true,
+    );
+    expect([...verdicts.keys()].some((id) => id.includes('expression:'))).toBe(
+      true,
+    );
+  });
+});
+
+describe('the accessible-name expression scanner', () => {
+  it('reads to the brace that closes the name, not the first one it meets', () => {
+    const source = [
+      'aria-label={`Sort ${rows.map((r) => `${r.id}`).join(", ")} by ${',
+      "  column.header // } not this one",
+      '}`}',
+      'className="rest"',
+    ].join('\n');
+    const open = source.indexOf('{');
+    const expression = jsxExpressionAt(source, open);
+    expect(expression).not.toBeNull();
+    expect(expression!.endsWith('`}')).toBe(true);
+    expect(expression).toContain('column.header');
+    expect(expression).not.toContain('className');
+  });
+
+  it('reports an unterminated name instead of guessing where it ends', () => {
+    expect(jsxExpressionAt('aria-label={`unterminated', 11)).toBeNull();
   });
 });

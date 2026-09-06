@@ -23,6 +23,7 @@ import {
   type ManifestInput,
   type ValueStateRecord,
 } from '../lib/brand-v2-baseline.ts';
+import { CITATIONS } from '../data/citations.ts';
 import { relationshipManifestInputs } from '../lib/relationship-manifest.ts';
 import {
   ARTICLE_TRUTH_MANIFEST_KINDS,
@@ -117,6 +118,77 @@ function prose(mdx: PublishedMdx): ManifestInput[] {
   }));
 }
 
+type ScanFrame =
+  | { kind: 'code'; depth: number }
+  | { kind: 'string'; quote: string }
+  | { kind: 'template' };
+
+/**
+ * The `{...}` a JSX attribute is given, from its opening brace to the brace
+ * that closes it, or null if the file ends first.
+ *
+ * A regex cannot do this: these names are template literals holding
+ * `${...}` interpolations that themselves hold braces, quotes and nested
+ * templates, and the first `}` is almost never the closing one.
+ */
+export function jsxExpressionAt(text: string, openBrace: number): string | null {
+  const frames: ScanFrame[] = [{ kind: 'code', depth: 1 }];
+  let index = openBrace + 1;
+  while (index < text.length) {
+    const frame = frames[frames.length - 1];
+    const character = text[index];
+    if (frame.kind === 'string') {
+      if (character === '\\') index += 1;
+      else if (character === frame.quote) frames.pop();
+      index += 1;
+      continue;
+    }
+    if (frame.kind === 'template') {
+      if (character === '\\') index += 1;
+      else if (character === '`') frames.pop();
+      else if (character === '$' && text[index + 1] === '{') {
+        frames.push({ kind: 'code', depth: 1 });
+        index += 1;
+      }
+      index += 1;
+      continue;
+    }
+    if (character === '/' && text[index + 1] === '/') {
+      const newline = text.indexOf('\n', index);
+      index = newline === -1 ? text.length : newline;
+      continue;
+    }
+    if (character === '/' && text[index + 1] === '*') {
+      const end = text.indexOf('*/', index);
+      index = end === -1 ? text.length : end + 2;
+      continue;
+    }
+    if (character === '`') frames.push({ kind: 'template' });
+    else if (character === '"' || character === "'") {
+      frames.push({ kind: 'string', quote: character });
+    } else if (character === '{') frame.depth += 1;
+    else if (character === '}') {
+      frame.depth -= 1;
+      if (frame.depth === 0) {
+        frames.pop();
+        if (frames.length === 0) return text.slice(openBrace, index + 1);
+      }
+    }
+    index += 1;
+  }
+  return null;
+}
+
+/**
+ * Indentation is stripped from continuation lines so that re-nesting a
+ * component moves nothing here: a name assembled across several lines is
+ * the same name at any indent, and JSX collapses the run of whitespace
+ * before it reaches the accessibility tree anyway.
+ */
+function normalizeExpression(expression: string): string {
+  return expression.replace(/\r\n/g, '\n').replace(/\n[ \t]+/g, '\n');
+}
+
 function accessibleNames(): ManifestInput[] {
   const names: ManifestInput[] = [];
   const fixture = JSON.parse(
@@ -135,6 +207,13 @@ function accessibleNames(): ManifestInput[] {
     ...filesUnder(join(ROOT, 'content'), ['.mdx']),
   ];
   const pattern = /\b(aria-label|aria-labelledby|alt|title)=["']([^"']+)["']/g;
+  // Most of this corpus names its charts, sliders and figures with a
+  // template literal that interpolates the live reading, so the literal
+  // pattern above sees only the minority of names that happen to be
+  // constant. Sealing the expression that produces the name is the closest
+  // a source-level manifest gets to sealing the name itself, and it is the
+  // difference between 145 measured names and 145 unmeasured ones.
+  const expressionPattern = /\b(aria-label|aria-labelledby|alt|title)=\{/g;
   for (const path of files) {
     const relativePath = relative(ROOT, path);
     const text = readFileSync(path, 'utf8');
@@ -145,6 +224,23 @@ function accessibleNames(): ManifestInput[] {
       names.push({
         id: `literal:${relativePath}:${match[1]}:${ordinal}`,
         value: { attribute: match[1], text: match[2] },
+      });
+    }
+    let expressionOrdinal = 0;
+    while ((match = expressionPattern.exec(text))) {
+      const expression = jsxExpressionAt(text, match.index + match[0].length - 1);
+      if (expression === null) {
+        throw new Error(
+          `${relativePath} opens a ${match[1]}={...} accessible name at index ${match.index} that never closes, so it cannot be sealed`,
+        );
+      }
+      expressionOrdinal += 1;
+      names.push({
+        id: `expression:${relativePath}:${match[1]}:${expressionOrdinal}`,
+        value: {
+          attribute: match[1],
+          expression: normalizeExpression(expression),
+        },
       });
     }
   }
@@ -429,12 +525,55 @@ function articleMetadata(mdx: PublishedMdx): ManifestInput[] {
     'data/glossary.ts',
     'lib/site.ts',
     'lib/og-cards.ts',
+    'lib/references.ts',
     'app/layout.tsx',
     'components/article/article-header.tsx',
   ];
 
+  /**
+   * The facts the frontmatter states and the title sheet and References
+   * print: the review date the reader is shown, and the declared source
+   * list the bibliography is built from.
+   *
+   * `prose` hashes `matter().content`, which is the body with the
+   * frontmatter already removed, and `relationships` hashes the `<Cite>`
+   * markers the body writes. Neither reaches a declared-but-not-inlined
+   * source or a review date, so before these members a rollout could have
+   * restated when an article was last reviewed, or dropped a source from
+   * its bibliography, and every article-truth member would still have
+   * matched the seal.
+   */
+  const factFrontmatter = mdx.map(({ id, path, data }) => ({
+    id: `article-fact-frontmatter:${id}`,
+    value: {
+      path,
+      lastReviewed: String(data.lastReviewed ?? ''),
+      citations: jsonValue(data.citations ?? []),
+    },
+  }));
+
+  /**
+   * One member per registered source, holding the record itself rather
+   * than the file that carries it.
+   *
+   * `VAL-B2-BASE-002` names "citation targets/source labels/dates" among
+   * the things that must be identical to the migration baseline, and the
+   * only place any of those three exist is this registry. Hashing
+   * `data/citations.ts` as a file would tie the row to its comment prose
+   * as well, so an audit note would read as a fact change and a fact
+   * change could hide inside a re-worded note; hashing the parsed records
+   * grades exactly the url, title, authors, year and venue a reader is
+   * shown.
+   */
+  const citations = CITATIONS.map((citation) => ({
+    id: `citation:${citation.id}`,
+    value: jsonValue(citation),
+  }));
+
   return [
     ...articles,
+    ...factFrontmatter,
+    ...citations,
     ...ownerPaths.map((path) => ({
       id: `canonical-metadata-source:${path}`,
       value: { path, sourceHash: sha256(source(path)) },
