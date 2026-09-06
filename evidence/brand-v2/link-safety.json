@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "assertionId": "VAL-B2-BASE-007",
   "source": "out/ static export",
-  "routesSwept": 63,
-  "outboundAnchors": 2534,
+  "routesSwept": 62,
+  "outboundAnchors": 2532,
   "distinctOutboundHrefs": 774,
   "anchorsByShape": {
     "figure-credit": 246,
-    "footer": 126,
+    "footer": 124,
     "citation-chip": 1009,
     "reference-entry": 634,
     "other": 519

@@ -171,6 +171,13 @@ test.describe('outbound links are safe and citation links are keyboard reachable
       existsSync(join(OUT, 'index.html')),
       'out/ is missing: run `npm run build` before this suite',
     ).toBe(true);
+    // postbuild prunes export artifacts after `next build` writes them, so a
+    // sweep of a half-finished export counts routes that the shipped one
+    // does not. The search index is the last thing postbuild writes.
+    expect(
+      existsSync(join(OUT, 'pagefind')),
+      'out/ is a partial export: postbuild did not finish, so the route count would not be the shipped one',
+    ).toBe(true);
     expect(census.length).toBeGreaterThan(400);
   });
 
