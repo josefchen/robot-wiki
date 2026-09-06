@@ -276,7 +276,15 @@ const observationSchema = z.object({
     items: z.array(crumbSchema),
   }),
   /** Every `aria-current="page"` in the document, as a short outline. */
-  ariaCurrentPage: z.array(z.string()),
+  ariaCurrentPage: z.array(
+    z.object({
+      outline: z.string(),
+      /** Absolute href when the marked element is an anchor. */
+      href: z.string().nullable(),
+      insideNavLandmark: z.boolean(),
+      matchesRoute: z.boolean(),
+    }),
+  ),
   /** Whether the route has a matching shell navigation link. */
   hasMatchingNavLink: z.boolean(),
   references: z.object({
@@ -694,6 +702,22 @@ export function breadcrumbTruthVerdicts(
         `${id} exposes ${observation.ariaCurrentPage.length} aria-current="page" element(s) where ${allowed} is truthful for this route`,
       );
     }
+    // The count is only half of it. The marker has to be ON the navigation
+    // link that leads here: a marker parked on some other element still
+    // counts as one, and a screen reader is then told the wrong item is the
+    // current page while the real one is announced as an ordinary link.
+    for (const marker of observation.ariaCurrentPage) {
+      if (!marker.insideNavLandmark) {
+        failures.push(
+          `${id} marks an element outside every navigation landmark as the current page: ${marker.outline}`,
+        );
+      }
+      if (!marker.matchesRoute) {
+        failures.push(
+          `${id} marks ${marker.href ?? 'a non-link element'} as the current page, which is not this route`,
+        );
+      }
+    }
 
     verdicts.set(id, { id, observed: breadcrumb, failures });
   }
@@ -900,6 +924,21 @@ export function citationChipVerdicts(
       if (!/^https?:\/\//.test(chip.href)) {
         failures.push(
           `${id} points at "${chip.href}", which is not an external source URL`,
+        );
+      }
+      // The chip must go to ITS OWN source, not merely to some external
+      // URL. A shape-only check passed a chip whose href had drifted to a
+      // different registry entry's document: the reader is then sent to a
+      // paper that does not make the claim the chip is standing next to,
+      // which is the failure the row exists to prevent.
+      const registered = getCitation(chip.id);
+      if (registered === undefined) {
+        failures.push(
+          `${id} names a citation id the registry does not hold, so nothing can say where it should point`,
+        );
+      } else if (chip.href !== registered.url) {
+        failures.push(
+          `${id} points at "${chip.href}" where the registry records "${registered.url}" for ${chip.id}`,
         );
       }
       if (!chip.opensExternally) {

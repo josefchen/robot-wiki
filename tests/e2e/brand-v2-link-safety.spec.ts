@@ -117,17 +117,32 @@ test.describe('outbound links are safe and citation links are keyboard reachable
     }) => {
       await page.goto(`${staticBase}${route}`, { waitUntil: 'networkidle' });
 
+      /**
+       * Every outbound anchor OCCURRENCE, stamped with a stable identity.
+       *
+       * Deduplicating by href is what let one reachable link speak for
+       * another: `/adjacent/autonomous-vehicles/` renders the ALVINN URL as
+       * several inline citation chips AND as a References entry, so a chip
+       * that is hidden, covered or removed from the tab order is masked the
+       * moment the reference entry with the same destination is focused.
+       * The occurrence index is written into the DOM so the Tab walk can
+       * name the exact anchor it reached rather than its destination.
+       */
       const outboundInDom = await page.evaluate((firstParty) => {
-        return Array.from(document.querySelectorAll('a[href]'))
-          .map((a) => (a as HTMLAnchorElement).href)
-          .filter((href) => {
-            if (!/^https?:\/\//i.test(href)) return false;
-            try {
-              return !firstParty.includes(new URL(href).hostname);
-            } catch {
-              return false;
-            }
-          });
+        const occurrences: Array<{ occurrence: string; href: string }> = [];
+        for (const anchor of document.querySelectorAll('a[href]')) {
+          const href = (anchor as HTMLAnchorElement).href;
+          if (!/^https?:\/\//i.test(href)) continue;
+          try {
+            if (firstParty.includes(new URL(href).hostname)) continue;
+          } catch {
+            continue;
+          }
+          const occurrence = String(occurrences.length);
+          anchor.setAttribute('data-link-occurrence', occurrence);
+          occurrences.push({ occurrence, href });
+        }
+        return occurrences;
       }, [...FIRST_PARTY_HOSTS, new URL(staticBase).hostname]);
 
       await page.evaluate(() => {
@@ -149,11 +164,17 @@ test.describe('outbound links are safe and citation links are keyboard reachable
           const visible =
             (style.outlineStyle !== 'none' && outlinePx > 0) ||
             style.boxShadow !== 'none';
-          return { href: (el as HTMLAnchorElement).href, visible };
+          return {
+            occurrence: el.getAttribute('data-link-occurrence'),
+            href: (el as HTMLAnchorElement).href,
+            visible,
+          };
         });
-        if (focused && /^https?:\/\//i.test(focused.href)) {
-          reached.add(focused.href);
-          if (!focused.visible) withoutIndicator.push(focused.href);
+        if (focused?.occurrence !== null && focused !== null) {
+          reached.add(focused.occurrence as string);
+          if (!focused.visible) {
+            withoutIndicator.push(`#${focused.occurrence} ${focused.href}`);
+          }
         }
         const wrapped = await page.evaluate(
           () => document.activeElement === document.body,
@@ -161,25 +182,26 @@ test.describe('outbound links are safe and citation links are keyboard reachable
         if (wrapped && i > 0) break;
       }
 
-      const unreached = [...new Set(outboundInDom)].filter(
-        (href) => !reached.has(href),
-      );
+      const unreached = outboundInDom
+        .filter(({ occurrence }) => !reached.has(occurrence))
+        .map(({ occurrence, href }) => `#${occurrence} ${href}`);
       keyboardVerdicts.push({
         route,
-        outboundInDom: new Set(outboundInDom).size,
-        reachedByTab: [...new Set(outboundInDom)].length - unreached.length,
+        outboundInDom: outboundInDom.length,
+        reachedByTab: outboundInDom.length - unreached.length,
         unreached,
         withoutFocusIndicator: [...new Set(withoutIndicator)],
         tabStops: stops,
       });
 
       expect(
-        new Set(outboundInDom).size,
+        outboundInDom.length,
         `${route} rendered no outbound link to reach`,
       ).toBeGreaterThan(0);
-      expect(unreached, `${route} has outbound links the Tab key never reaches`).toEqual(
-        [],
-      );
+      expect(
+        unreached,
+        `${route} has outbound anchor occurrences the Tab key never reaches`,
+      ).toEqual([]);
       expect(
         [...new Set(withoutIndicator)],
         `${route} focused outbound links with no visible focus indicator`,

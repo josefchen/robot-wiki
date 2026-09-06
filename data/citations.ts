@@ -7223,11 +7223,11 @@ export const CITATIONS: Citation[] = [
     // share and the article inherited the error (audit 2026-09-06).
     id: 'a3-orders-2025',
     title:
-      'Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation Adoption',
+      'Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation Adoption',
     authors: ['Association for Advancing Automation'],
     year: 2026,
-    venue: 'A3, 2026-02-04',
-    url: 'https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-automation-adoption',
+    venue: 'A3, 2026-02-06',
+    url: 'https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption',
     type: 'press',
   },
   {

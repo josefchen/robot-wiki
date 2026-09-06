@@ -180,7 +180,9 @@ describe('article table and math evidence', () => {
           if (observation.route === mathRoute) observation.equations = [];
         }
       }),
-    ).toThrow(/no display equation/);
+    ).toThrow(
+      /typesets 0 display equation\(s\) where its own MDX body opens \d+ display-math block\(s\)/,
+    );
     expect(
       read((copy) => {
         for (const observation of copy.observations) observation.tables = [];

@@ -326,9 +326,32 @@ function collectApparatus(): Omit<
         };
       }),
     },
+    // Not just how many current-page markers exist, but WHAT each one is
+    // on. Counting alone accepted the marker sitting on any element at all
+    // - a footer link, a card, the wrong nav item - as long as exactly one
+    // existed and some navigation link happened to match the route. The
+    // marker's whole job is to say "this navigation item is where you are",
+    // so the element it sits on has to be that item.
     ariaCurrentPage: Array.from(
       document.querySelectorAll('[aria-current="page"]'),
-    ).map((el) => el.outerHTML.replace(/\s+/g, ' ').slice(0, 120)),
+    ).map((el) => {
+      const href =
+        el.tagName === 'A' ? (el as HTMLAnchorElement).href : null;
+      let pathname: string | null = null;
+      if (href !== null) {
+        try {
+          pathname = new URL(href).pathname;
+        } catch {
+          pathname = null;
+        }
+      }
+      return {
+        outline: el.outerHTML.replace(/\s+/g, ' ').slice(0, 120),
+        href,
+        insideNavLandmark: taxonomy.some((nav) => nav.contains(el)),
+        matchesRoute: pathname !== null && pathname === here,
+      };
+    }),
     hasMatchingNavLink,
     references: {
       present: referencesSection !== null,

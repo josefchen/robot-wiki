@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "65a8f7c6d200908e00c34dfe701c6c0d65b477348414bc3ceb72cdba0d1b0b54",
+  "fingerprint": "21b8a27f25b0a9efec86ad2a391fdc10e738fc01f4060dda1cc4d5aff5c03298",
   "viewports": [
     "375x812",
     "1440x900"
@@ -2489,7 +2489,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18931,
+      "visibleTextLength": 18947,
       "tables": [],
       "equations": [],
       "route": "/data-hardware/industrial-deployment/",
@@ -2864,7 +2864,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23913,
+      "visibleTextLength": 23972,
       "tables": [],
       "equations": [],
       "route": "/frontier/safety-and-assurance/",
@@ -4184,7 +4184,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23099,
+      "visibleTextLength": 23231,
       "tables": [
         {
           "index": 0,
@@ -6879,7 +6879,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19285,
+      "visibleTextLength": 19301,
       "tables": [],
       "equations": [],
       "route": "/data-hardware/industrial-deployment/",
@@ -7254,7 +7254,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24248,
+      "visibleTextLength": 24307,
       "tables": [],
       "equations": [],
       "route": "/frontier/safety-and-assurance/",
@@ -8574,7 +8574,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23530,
+      "visibleTextLength": 23662,
       "tables": [
         {
           "index": 0,

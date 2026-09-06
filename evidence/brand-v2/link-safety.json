@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "assertionId": "VAL-B2-BASE-007",
-  "fingerprint": "a75166eef34dfae9f47352fbccb3a6f743ccc7b32e10abef04078c9682c2e92a",
+  "fingerprint": "7233135eaf971c7c398be67efdc8f465c5ad4900863b84dd183ad299e158913e",
   "source": "out/ static export",
   "routes": [
     {
@@ -521,7 +521,7 @@
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "outboundAnchors": 65,
+      "outboundAnchors": 66,
       "distinctHrefs": 29,
       "shapes": [
         "citation-chip",
@@ -617,46 +617,46 @@
     }
   ],
   "routesSwept": 62,
-  "outboundAnchors": 2532,
+  "outboundAnchors": 2533,
   "distinctOutboundHrefs": 774,
   "anchorsByShape": {
     "figure-credit": 246,
     "footer": 124,
-    "citation-chip": 1009,
+    "citation-chip": 1010,
     "reference-entry": 634,
     "other": 519
   },
   "anchorsWithoutNoopener": 0,
-  "anchorsWithNoreferrer": 2079,
+  "anchorsWithNoreferrer": 2080,
   "keyboard": [
     {
       "route": "/classical/perception/",
-      "outboundInDom": 30,
-      "reachedByTab": 30,
+      "outboundInDom": 68,
+      "reachedByTab": 68,
       "unreached": [],
       "withoutFocusIndicator": [],
       "tabStops": 186
     },
     {
       "route": "/credits/",
-      "outboundInDom": 125,
-      "reachedByTab": 125,
+      "outboundInDom": 238,
+      "reachedByTab": 238,
       "unreached": [],
       "withoutFocusIndicator": [],
       "tabStops": 374
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "outboundInDom": 23,
-      "reachedByTab": 23,
+      "outboundInDom": 54,
+      "reachedByTab": 54,
       "unreached": [],
       "withoutFocusIndicator": [],
       "tabStops": 154
     },
     {
       "route": "/market-map/",
-      "outboundInDom": 234,
-      "reachedByTab": 234,
+      "outboundInDom": 252,
+      "reachedByTab": 252,
       "unreached": [],
       "withoutFocusIndicator": [],
       "tabStops": 391

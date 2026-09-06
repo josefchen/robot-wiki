@@ -149,40 +149,59 @@ function collectTablesAndMath(): Omit<
     },
   );
 
-  const equations = Array.from(document.querySelectorAll<HTMLElement>('.katex')).map(
-    (katex, index) => {
-      // KaTeX nests `.katex` inside `.katex-display`; the display wrapper is
-      // the box that scrolls and carries the tab stop, so measure that one.
-      const display = katex.closest<HTMLElement>('.katex-display');
-      const box = display ?? katex;
-      const rect = box.getBoundingClientRect();
-      return {
-        index,
-        display: display !== null,
-        mathmlText: textOf(katex.querySelector('.katex-mathml')),
-        annotationTex: textOf(
-          katex.querySelector('annotation[encoding="application/x-tex"]'),
-        ),
-        htmlLayerHidden:
-          katex.querySelector('.katex-html')?.getAttribute('aria-hidden') ===
-          'true',
-        renderError: katex.querySelector('.katex-error') !== null,
-        // The glyph layer only. The MathML layer legitimately carries the
-        // TeX source in its annotation, so reading the whole subtree would
-        // report every correctly typeset equation as leaking raw TeX.
-        renderedText: textOf(katex.querySelector('.katex-html')),
-        fontFamilyHead: (getComputedStyle(katex).fontFamily.split(',')[0] ?? '')
-          .replace(/"/g, '')
-          .trim(),
-        scrollWidth: box.scrollWidth,
-        clientWidth: box.clientWidth,
-        tabIndex: box.tabIndex,
-        viewportOverflowPx: round(
-          Math.max(0, rect.right - window.innerWidth, -rect.left),
-        ),
-      };
-    },
+  /**
+   * Every expression a reader meets, typeset or not.
+   *
+   * A failed parse is NOT a `.katex` with an error inside it: KaTeX renders
+   * it as a ROOT `<span class="katex-error">` whose class list carries no
+   * `katex` token at all. A population derived from `.katex` therefore loses
+   * the broken equation before anything grades it, and its absence reads as
+   * a clean sweep. Both roots are collected, and the outermost of any nested
+   * pair is kept so one expression is one member.
+   */
+  const mathRoots = Array.from(
+    document.querySelectorAll<HTMLElement>('.katex, .katex-error'),
+  ).filter(
+    (element) => element.parentElement?.closest('.katex, .katex-error') == null,
   );
+
+  const equations = mathRoots.map((root, index) => {
+    const parseFailed = root.classList.contains('katex-error');
+    // KaTeX nests `.katex` inside `.katex-display`; the display wrapper is
+    // the box that scrolls and carries the tab stop, so measure that one.
+    const display = root.closest<HTMLElement>('.katex-display');
+    const box = display ?? root;
+    const rect = box.getBoundingClientRect();
+    return {
+      index,
+      display: display !== null,
+      mathmlText: textOf(root.querySelector('.katex-mathml')),
+      annotationTex: textOf(
+        root.querySelector('annotation[encoding="application/x-tex"]'),
+      ),
+      htmlLayerHidden:
+        root.querySelector('.katex-html')?.getAttribute('aria-hidden') ===
+        'true',
+      renderError: parseFailed || root.querySelector('.katex-error') !== null,
+      // The glyph layer only. The MathML layer legitimately carries the
+      // TeX source in its annotation, so reading the whole subtree would
+      // report every correctly typeset equation as leaking raw TeX. A
+      // failed parse has no glyph layer: its own text is the raw source
+      // KaTeX gave up on, which is what the reader sees.
+      renderedText: parseFailed
+        ? textOf(root)
+        : textOf(root.querySelector('.katex-html')),
+      fontFamilyHead: (getComputedStyle(root).fontFamily.split(',')[0] ?? '')
+        .replace(/"/g, '')
+        .trim(),
+      scrollWidth: box.scrollWidth,
+      clientWidth: box.clientWidth,
+      tabIndex: box.tabIndex,
+      viewportOverflowPx: round(
+        Math.max(0, rect.right - window.innerWidth, -rect.left),
+      ),
+    };
+  });
 
   // The measure the sheet actually sets, read the way VAL-B2-ART-002 reads
   // it: the widest running paragraph, divided by the advance of its own `0`.

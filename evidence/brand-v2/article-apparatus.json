@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "28feb872f2595835573fa18c6fb6be567adc127bd09ff5b8b8b4752c09e94f54",
+  "fingerprint": "cded255d9713269c8aa4eed3b93f73522df93a728e2bcb7809e0d1b0fa95ca42",
   "viewports": [
     "375x812",
     "1440x900"
@@ -94,7 +94,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/adjacent/autonomous-vehicles/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -1035,7 +1040,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/adjacent/drones/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -1570,7 +1580,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/adjacent/space/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -2241,7 +2256,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/adjacent/surgical/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -2775,7 +2795,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/control/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -3755,7 +3780,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/grasp-planning/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -4308,7 +4338,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/kinematics/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -4838,7 +4873,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/motion-planning/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -5363,7 +5403,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/perception/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -6501,7 +6546,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/scene-representation/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -7427,7 +7477,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/state-estimation/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -8015,7 +8070,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/data-hardware/data-bottleneck/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -8633,7 +8693,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/data-hardware/datasets/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -9210,7 +9275,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/data-hardware/evaluation-crisis/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -9799,7 +9869,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/data-hardware/hardware-taxonomy/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -10801,7 +10876,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 18931,
+      "visibleTextLength": 18947,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -10837,7 +10912,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/data-hardware/industrial-deployment/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -10872,8 +10952,8 @@
           {
             "id": "a3-orders-2025",
             "index": 2,
-            "sourceHref": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-automation-adoption",
-            "title": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation Adoption",
+            "sourceHref": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
+            "title": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation Adoption",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -11208,9 +11288,9 @@
         {
           "id": "a3-orders-2025",
           "label": "Automation 2026",
-          "href": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-automation-adoption",
+          "href": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
           "opensExternally": true,
-          "tooltipText": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation AdoptionAssociation for Advancing Automation, A3, 2026-02-04",
+          "tooltipText": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation AdoptionAssociation for Advancing Automation, A3, 2026-02-06",
           "describedByResolves": true,
           "referenceHref": "#ref-a3-orders-2025",
           "inProse": true
@@ -11604,8 +11684,8 @@
         },
         {
           "section": "references",
-          "href": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-automation-adoption",
-          "text": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation Adoption",
+          "href": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
+          "text": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation Adoption",
           "tabIndex": 111,
           "focusVisible": true
         },
@@ -11778,7 +11858,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/data-hardware/teleop-rigs/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -12331,7 +12416,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/frontier/bear-case/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -13167,7 +13257,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/frontier/competing-theses/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -14252,7 +14347,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/frontier/dexterity/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -15309,7 +15409,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/frontier/generalization/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -15951,7 +16056,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/frontier/reliability-gap/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -16444,7 +16554,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 23913,
+      "visibleTextLength": 23972,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -16480,7 +16590,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/frontier/safety-and-assurance/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -17564,7 +17679,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/action-chunking/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -18010,7 +18130,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/bc-foundations/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -18483,7 +18608,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/comparison-matrix/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -19378,7 +19508,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/cross-embodiment/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -19829,7 +19964,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/diffusion-policy/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -20280,7 +20420,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/generalist-policies/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -20934,7 +21079,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/hierarchical/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -21540,7 +21690,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/knowledge-insulation/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -22049,7 +22204,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/pi-line/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -22858,7 +23018,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/realtime-execution/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -23394,7 +23559,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/rl-finetuning/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -24011,7 +24181,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/vla-models/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -24619,7 +24794,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/humanoid-wbc/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -25323,7 +25503,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/legged-locomotion/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -25893,7 +26078,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/parallel-sim-rl/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -26387,7 +26577,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/reward-design-mpc/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -27064,7 +27259,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 23099,
+      "visibleTextLength": 23231,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -27100,7 +27295,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/rl-for-robotics/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -27571,6 +27771,16 @@
           "inProse": true
         },
         {
+          "id": "sac-2018",
+          "label": "Haarnoja 2018",
+          "href": "https://arxiv.org/abs/1801.01290",
+          "opensExternally": true,
+          "tooltipText": "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic ActorTuomas Haarnoja, Aurick Zhou, Pieter Abbeel et al., ICML 2018",
+          "describedByResolves": true,
+          "referenceHref": "#ref-sac-2018",
+          "inProse": true
+        },
+        {
           "id": "rudin-2021",
           "label": "Rudin 2021",
           "href": "https://arxiv.org/abs/2109.11978",
@@ -27920,224 +28130,224 @@
           "section": "see-also",
           "href": "/rl-sim2real/parallel-sim-rl/",
           "text": "Massively Parallel Sim RL",
-          "tabIndex": 120,
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/manipulation/rl-finetuning/",
-          "text": "RL Fine-Tuning of Policies",
-          "tabIndex": 121,
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/manipulation/bc-foundations/",
-          "text": "Behavior Cloning Foundations",
           "tabIndex": 122,
           "focusVisible": true
         },
         {
-          "section": "linked-from",
+          "section": "see-also",
           "href": "/manipulation/rl-finetuning/",
           "text": "RL Fine-Tuning of Policies",
           "tabIndex": 123,
           "focusVisible": true
         },
         {
+          "section": "see-also",
+          "href": "/manipulation/bc-foundations/",
+          "text": "Behavior Cloning Foundations",
+          "tabIndex": 124,
+          "focusVisible": true
+        },
+        {
+          "section": "linked-from",
+          "href": "/manipulation/rl-finetuning/",
+          "text": "RL Fine-Tuning of Policies",
+          "tabIndex": 125,
+          "focusVisible": true
+        },
+        {
           "section": "linked-from",
           "href": "/rl-sim2real/why-rl-locomotion/",
           "text": "Why RL Won Locomotion but Not Manipulation",
-          "tabIndex": 124,
+          "tabIndex": 126,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://web.archive.org/web/20260818231355/http://www.incompleteideas.net/book/the-book-2nd.html",
           "text": "Reinforcement Learning: An Introduction",
-          "tabIndex": 125,
+          "tabIndex": 127,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2109.11978",
           "text": "Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning",
-          "tabIndex": 126,
+          "tabIndex": 128,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1812.11103",
           "text": "Learning to Walk via Deep Reinforcement Learning",
-          "tabIndex": 127,
+          "tabIndex": 129,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1806.10293",
           "text": "QT-Opt: Scalable Deep Reinforcement Learning for Vision-Based Robotic Manipulation",
-          "tabIndex": 128,
+          "tabIndex": 130,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1177/0278364917710318",
           "text": "Learning hand-eye coordination for robotic grasping with deep learning and large-scale data collection",
-          "tabIndex": 129,
+          "tabIndex": 131,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2206.14176",
           "text": "DayDreamer: World Models for Physical Robot Learning",
-          "tabIndex": 130,
+          "tabIndex": 132,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1707.06347",
           "text": "Proximal Policy Optimization Algorithms",
-          "tabIndex": 131,
+          "tabIndex": 133,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1801.01290",
           "text": "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor",
-          "tabIndex": 132,
+          "tabIndex": 134,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1509.02971",
           "text": "Continuous Control with Deep Reinforcement Learning",
-          "tabIndex": 133,
+          "tabIndex": 135,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1802.09477",
           "text": "Addressing Function Approximation Error in Actor-Critic Methods",
-          "tabIndex": 134,
+          "tabIndex": 136,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2005.01643",
           "text": "Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems",
-          "tabIndex": 135,
+          "tabIndex": 137,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2006.04779",
           "text": "Conservative Q-Learning for Offline Reinforcement Learning",
-          "tabIndex": 136,
+          "tabIndex": 138,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2110.06169",
           "text": "Offline Reinforcement Learning with Implicit Q-Learning",
-          "tabIndex": 137,
+          "tabIndex": 139,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2106.06860",
           "text": "A Minimalist Approach to Offline Reinforcement Learning",
-          "tabIndex": 138,
+          "tabIndex": 140,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2309.10150",
           "text": "Q-Transformer: Scalable Offline Reinforcement Learning via Autoregressive Q-Functions",
-          "tabIndex": 139,
+          "tabIndex": 141,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2204.05618",
           "text": "When Should We Prefer Offline Reinforcement Learning Over Behavioral Cloning?",
-          "tabIndex": 140,
+          "tabIndex": 142,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2108.03298",
           "text": "What Matters in Learning from Offline Human Demonstrations for Robot Manipulation",
-          "tabIndex": 141,
+          "tabIndex": 143,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2302.02948",
           "text": "Efficient Online Reinforcement Learning with Offline Data",
-          "tabIndex": 142,
+          "tabIndex": 144,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1707.01495",
           "text": "Hindsight Experience Replay",
-          "tabIndex": 143,
+          "tabIndex": 145,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2112.09605",
           "text": "Autonomous Reinforcement Learning: Formalism and Benchmarking",
-          "tabIndex": 144,
+          "tabIndex": 146,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2104.11203",
           "text": "Reset-Free Reinforcement Learning via Multi-Task Learning: Learning Dexterous Manipulation Behaviors without Human Intervention",
-          "tabIndex": 145,
+          "tabIndex": 147,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2004.12570",
           "text": "The Ingredients of Real-World Robotic Reinforcement Learning",
-          "tabIndex": 146,
+          "tabIndex": 148,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2410.21845",
           "text": "Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement Learning",
-          "tabIndex": 147,
+          "tabIndex": 149,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.25889",
           "text": "π_RL: Online RL Fine-tuning for Flow-based Vision-Language-Action Models",
-          "tabIndex": 148,
+          "tabIndex": 150,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2511.00091",
           "text": "Self-Improving Vision-Language-Action Models with Data Generation via Residual RL",
-          "tabIndex": 150,
+          "tabIndex": 152,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2403.12945",
           "text": "DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset",
-          "tabIndex": 152,
+          "tabIndex": 154,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2310.08864",
           "text": "Open X-Embodiment: Robotic Learning Datasets and RT-X Models",
-          "tabIndex": 153,
+          "tabIndex": 155,
           "focusVisible": true
         }
       ],
@@ -28183,7 +28393,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/sim2real-transfer/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -28838,7 +29053,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/why-rl-locomotion/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -29273,7 +29493,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/world-models/generative-sim/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -29706,7 +29931,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/world-models/generative-video/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -30254,7 +30484,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/world-models/jepa/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -30758,7 +30993,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/world-models/latent-dynamics/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -31229,7 +31469,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/world-models/taxonomy/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -31782,7 +32027,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/adjacent/autonomous-vehicles/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -32723,7 +32973,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/adjacent/drones/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -33258,7 +33513,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/adjacent/space/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -33929,7 +34189,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/adjacent/surgical/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -34463,7 +34728,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/control/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -35443,7 +35713,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/grasp-planning/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -35996,7 +36271,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/kinematics/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -36526,7 +36806,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/motion-planning/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -37051,7 +37336,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/perception/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -38189,7 +38479,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/scene-representation/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -39115,7 +39410,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/classical/state-estimation/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -39703,7 +40003,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/data-hardware/data-bottleneck/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -40321,7 +40626,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/data-hardware/datasets/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -40898,7 +41208,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/data-hardware/evaluation-crisis/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -41487,7 +41802,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/data-hardware/hardware-taxonomy/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -42489,7 +42809,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 19285,
+      "visibleTextLength": 19301,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -42525,7 +42845,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/data-hardware/industrial-deployment/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -42560,8 +42885,8 @@
           {
             "id": "a3-orders-2025",
             "index": 2,
-            "sourceHref": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-automation-adoption",
-            "title": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation Adoption",
+            "sourceHref": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
+            "title": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation Adoption",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -42896,9 +43221,9 @@
         {
           "id": "a3-orders-2025",
           "label": "Automation 2026",
-          "href": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-automation-adoption",
+          "href": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
           "opensExternally": true,
-          "tooltipText": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation AdoptionAssociation for Advancing Automation, A3, 2026-02-04",
+          "tooltipText": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation AdoptionAssociation for Advancing Automation, A3, 2026-02-06",
           "describedByResolves": true,
           "referenceHref": "#ref-a3-orders-2025",
           "inProse": true
@@ -43292,8 +43617,8 @@
         },
         {
           "section": "references",
-          "href": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-automation-adoption",
-          "text": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation Adoption",
+          "href": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
+          "text": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation Adoption",
           "tabIndex": 131,
           "focusVisible": true
         },
@@ -43466,7 +43791,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/data-hardware/teleop-rigs/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -44019,7 +44349,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/frontier/bear-case/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -44855,7 +45190,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/frontier/competing-theses/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -45940,7 +46280,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/frontier/dexterity/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -46997,7 +47342,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/frontier/generalization/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -47639,7 +47989,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/frontier/reliability-gap/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -48132,7 +48487,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 24248,
+      "visibleTextLength": 24307,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -48168,7 +48523,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/frontier/safety-and-assurance/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -49252,7 +49612,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/action-chunking/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -49698,7 +50063,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/bc-foundations/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -50171,7 +50541,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/comparison-matrix/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -51066,7 +51441,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/cross-embodiment/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -51517,7 +51897,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/diffusion-policy/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -51968,7 +52353,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/generalist-policies/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -52622,7 +53012,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/hierarchical/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -53228,7 +53623,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/knowledge-insulation/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -53737,7 +54137,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/pi-line/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -54546,7 +54951,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/realtime-execution/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -55082,7 +55492,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/rl-finetuning/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -55699,7 +56114,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/manipulation/vla-models/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -56307,7 +56727,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/humanoid-wbc/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -57011,7 +57436,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/legged-locomotion/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -57581,7 +58011,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/parallel-sim-rl/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -58075,7 +58510,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/reward-design-mpc/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -58752,7 +59192,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 23530,
+      "visibleTextLength": 23662,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -58788,7 +59228,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/rl-for-robotics/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -59259,6 +59704,16 @@
           "inProse": true
         },
         {
+          "id": "sac-2018",
+          "label": "Haarnoja 2018",
+          "href": "https://arxiv.org/abs/1801.01290",
+          "opensExternally": true,
+          "tooltipText": "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic ActorTuomas Haarnoja, Aurick Zhou, Pieter Abbeel et al., ICML 2018",
+          "describedByResolves": true,
+          "referenceHref": "#ref-sac-2018",
+          "inProse": true
+        },
+        {
           "id": "rudin-2021",
           "label": "Rudin 2021",
           "href": "https://arxiv.org/abs/2109.11978",
@@ -59608,224 +60063,224 @@
           "section": "see-also",
           "href": "/rl-sim2real/parallel-sim-rl/",
           "text": "Massively Parallel Sim RL",
-          "tabIndex": 141,
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/manipulation/rl-finetuning/",
-          "text": "RL Fine-Tuning of Policies",
-          "tabIndex": 142,
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/manipulation/bc-foundations/",
-          "text": "Behavior Cloning Foundations",
           "tabIndex": 143,
           "focusVisible": true
         },
         {
-          "section": "linked-from",
+          "section": "see-also",
           "href": "/manipulation/rl-finetuning/",
           "text": "RL Fine-Tuning of Policies",
           "tabIndex": 144,
           "focusVisible": true
         },
         {
+          "section": "see-also",
+          "href": "/manipulation/bc-foundations/",
+          "text": "Behavior Cloning Foundations",
+          "tabIndex": 145,
+          "focusVisible": true
+        },
+        {
+          "section": "linked-from",
+          "href": "/manipulation/rl-finetuning/",
+          "text": "RL Fine-Tuning of Policies",
+          "tabIndex": 146,
+          "focusVisible": true
+        },
+        {
           "section": "linked-from",
           "href": "/rl-sim2real/why-rl-locomotion/",
           "text": "Why RL Won Locomotion but Not Manipulation",
-          "tabIndex": 145,
+          "tabIndex": 147,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://web.archive.org/web/20260818231355/http://www.incompleteideas.net/book/the-book-2nd.html",
           "text": "Reinforcement Learning: An Introduction",
-          "tabIndex": 146,
+          "tabIndex": 148,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2109.11978",
           "text": "Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning",
-          "tabIndex": 147,
+          "tabIndex": 149,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1812.11103",
           "text": "Learning to Walk via Deep Reinforcement Learning",
-          "tabIndex": 148,
+          "tabIndex": 150,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1806.10293",
           "text": "QT-Opt: Scalable Deep Reinforcement Learning for Vision-Based Robotic Manipulation",
-          "tabIndex": 149,
+          "tabIndex": 151,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1177/0278364917710318",
           "text": "Learning hand-eye coordination for robotic grasping with deep learning and large-scale data collection",
-          "tabIndex": 150,
+          "tabIndex": 152,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2206.14176",
           "text": "DayDreamer: World Models for Physical Robot Learning",
-          "tabIndex": 151,
+          "tabIndex": 153,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1707.06347",
           "text": "Proximal Policy Optimization Algorithms",
-          "tabIndex": 152,
+          "tabIndex": 154,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1801.01290",
           "text": "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor",
-          "tabIndex": 153,
+          "tabIndex": 155,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1509.02971",
           "text": "Continuous Control with Deep Reinforcement Learning",
-          "tabIndex": 154,
+          "tabIndex": 156,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1802.09477",
           "text": "Addressing Function Approximation Error in Actor-Critic Methods",
-          "tabIndex": 155,
+          "tabIndex": 157,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2005.01643",
           "text": "Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems",
-          "tabIndex": 156,
+          "tabIndex": 158,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2006.04779",
           "text": "Conservative Q-Learning for Offline Reinforcement Learning",
-          "tabIndex": 157,
+          "tabIndex": 159,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2110.06169",
           "text": "Offline Reinforcement Learning with Implicit Q-Learning",
-          "tabIndex": 158,
+          "tabIndex": 160,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2106.06860",
           "text": "A Minimalist Approach to Offline Reinforcement Learning",
-          "tabIndex": 159,
+          "tabIndex": 161,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2309.10150",
           "text": "Q-Transformer: Scalable Offline Reinforcement Learning via Autoregressive Q-Functions",
-          "tabIndex": 160,
+          "tabIndex": 162,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2204.05618",
           "text": "When Should We Prefer Offline Reinforcement Learning Over Behavioral Cloning?",
-          "tabIndex": 161,
+          "tabIndex": 163,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2108.03298",
           "text": "What Matters in Learning from Offline Human Demonstrations for Robot Manipulation",
-          "tabIndex": 162,
+          "tabIndex": 164,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2302.02948",
           "text": "Efficient Online Reinforcement Learning with Offline Data",
-          "tabIndex": 163,
+          "tabIndex": 165,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1707.01495",
           "text": "Hindsight Experience Replay",
-          "tabIndex": 164,
+          "tabIndex": 166,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2112.09605",
           "text": "Autonomous Reinforcement Learning: Formalism and Benchmarking",
-          "tabIndex": 165,
+          "tabIndex": 167,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2104.11203",
           "text": "Reset-Free Reinforcement Learning via Multi-Task Learning: Learning Dexterous Manipulation Behaviors without Human Intervention",
-          "tabIndex": 166,
+          "tabIndex": 168,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2004.12570",
           "text": "The Ingredients of Real-World Robotic Reinforcement Learning",
-          "tabIndex": 167,
+          "tabIndex": 169,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2410.21845",
           "text": "Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement Learning",
-          "tabIndex": 168,
+          "tabIndex": 170,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2510.25889",
           "text": "π_RL: Online RL Fine-tuning for Flow-based Vision-Language-Action Models",
-          "tabIndex": 169,
+          "tabIndex": 171,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2511.00091",
           "text": "Self-Improving Vision-Language-Action Models with Data Generation via Residual RL",
-          "tabIndex": 171,
+          "tabIndex": 173,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2403.12945",
           "text": "DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset",
-          "tabIndex": 173,
+          "tabIndex": 175,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2310.08864",
           "text": "Open X-Embodiment: Robotic Learning Datasets and RT-X Models",
-          "tabIndex": 174,
+          "tabIndex": 176,
           "focusVisible": true
         }
       ],
@@ -59871,7 +60326,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/sim2real-transfer/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -60526,7 +60986,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/rl-sim2real/why-rl-locomotion/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -60961,7 +61426,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/world-models/generative-sim/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -61394,7 +61864,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/world-models/generative-video/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -61942,7 +62417,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/world-models/jepa/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -62446,7 +62926,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/world-models/latent-dynamics/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {
@@ -62917,7 +63402,12 @@
         ]
       },
       "ariaCurrentPage": [
-        "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-["
+        {
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[",
+          "href": "http://localhost:34263/world-models/taxonomy/",
+          "insideNavLandmark": true,
+          "matchesRoute": true
+        }
       ],
       "hasMatchingNavLink": true,
       "references": {

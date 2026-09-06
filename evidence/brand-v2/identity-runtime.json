@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "074fdc84658512945891aebbbdf30da4636de1775ee01a2e6e395503f178699e",
+  "fingerprint": "f3cca28b95105baab0c6484096d9bfd39938a0603747c3e90e0e3f7bb21a6528",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -2907,7 +2907,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19285,
+      "visibleTextLength": 19301,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "1440x900"
     },
@@ -3923,7 +3923,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24248,
+      "visibleTextLength": 24307,
       "route": "/frontier/safety-and-assurance/",
       "viewport": "1440x900"
     },
@@ -6717,7 +6717,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23530,
+      "visibleTextLength": 23662,
       "route": "/rl-sim2real/rl-for-robotics/",
       "viewport": "1440x900"
     },
@@ -7098,7 +7098,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 460,
+      "visibleTextLength": 767,
       "route": "/search/",
       "viewport": "1440x900"
     },
@@ -10700,7 +10700,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18931,
+      "visibleTextLength": 18947,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "375x812"
     },
@@ -11716,7 +11716,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23913,
+      "visibleTextLength": 23972,
       "route": "/frontier/safety-and-assurance/",
       "viewport": "375x812"
     },
@@ -14510,7 +14510,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23099,
+      "visibleTextLength": 23231,
       "route": "/rl-sim2real/rl-for-robotics/",
       "viewport": "375x812"
     },
@@ -15974,24 +15974,24 @@
     },
     {
       "literal": "robot-wiki",
-      "fileCount": 253,
+      "fileCount": 249,
       "fileKinds": [
         ".html",
         ".js",
         ".txt",
         ".xml"
       ],
-      "occurrences": 2326
+      "occurrences": 2295
     },
     {
       "literal": "robot-wiki.com",
-      "fileCount": 252,
+      "fileCount": 248,
       "fileKinds": [
         ".html",
         ".txt",
         ".xml"
       ],
-      "occurrences": 2103
+      "occurrences": 2083
     }
   ]
 }

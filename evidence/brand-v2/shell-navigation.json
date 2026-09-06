@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "b6189d38b787970129e9554f09d2fe7a8480772a7f316a4dc484c09397a3398b",
+  "fingerprint": "142d628294c92e9837d4f2a6322eed51b5291b186ee309b1b48b59fae9b6591d",
   "viewport": "1440x900",
   "routes": [
     "/",
@@ -4159,7 +4159,7 @@
       }
     },
     {
-      "visibleTextLength": 19285,
+      "visibleTextLength": 19301,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -5823,7 +5823,7 @@
       }
     },
     {
-      "visibleTextLength": 24248,
+      "visibleTextLength": 24307,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -11143,7 +11143,7 @@
       }
     },
     {
-      "visibleTextLength": 23530,
+      "visibleTextLength": 23662,
       "ariaCurrentNodes": [
         {
           "tag": "a",

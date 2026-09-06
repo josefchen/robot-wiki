@@ -179,7 +179,10 @@ export function CommitToReveal({
       >
         <summary
           data-brand-control-id="control:secondary-action"
-          className="cursor-pointer text-text-dim"
+          // `font-sans` is explicit rather than inherited: this disclosure
+          // mounts inside `.prose`, which sets Newsreader, and design-system
+          // 4.1 assigns controls to IBM Plex Sans.
+          className="cursor-pointer font-sans text-text-dim"
         >
           {chosen === null ? 'Read the reasoning' : 'Reasoning'}
         </summary>

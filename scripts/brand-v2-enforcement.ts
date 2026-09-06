@@ -1649,7 +1649,28 @@ const HOME_TOOLS_READER_TARGET = testTarget(
   'Proves the reader that gates the overflow row throws on a stale fingerprint, a wrong version, a wrong route, a wrong viewport, a sweep with no responsive measurement, no sibling mount, no playground graphic and no swept surface, and proves the per-route verdict fails a route measured at fewer than the declared widths as well as one whose document scrolled wider than its viewport.',
 );
 
+const FIGURE_SWEEP_TARGET = testTarget(
+  'tests/e2e/brand-v2-figures.spec.ts',
+  'brand-v2 figures, diagrams and licensed imagery › sweeps every figure-bearing route at both widths',
+  'Sweeps every route the figure graph derives - published article bodies AND every statically rendered App Router page, so a figure mounted straight into a page component is in the population - at 375x812 and 1440x900, and records each figure occurrence with its rendered caption, credit, boundary, inverse labels and textual alternative.',
+);
+const FIGURE_READER_TARGET = testTarget(
+  'tests/unit/brand-v2-figure-evidence.test.ts',
+  'the figure evidence reader > refuses a sweep taken against a different tree',
+  'Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one.',
+);
+
 function testTargetsFor(id: string): TestTarget[] {
+  // Figure rows are decided by the figure sweep and its reader. They used to
+  // fall through to the generic route census and flow, so the corpus named a
+  // pair of tests that never look at a figure as the evidence for every
+  // figure claim.
+  if (FIGURE_RUNTIME_ASSERTIONS.has(id)) {
+    return [FIGURE_SWEEP_TARGET, FIGURE_READER_TARGET];
+  }
+  if (FIGURE_RECORD_ASSERTIONS.has(id)) {
+    return [ASSET_TARGET, FIGURE_READER_TARGET];
+  }
   if (HOME_ASSERTIONS.has(id)) {
     return [HOME_SWEEP_TARGET, HOME_READER_TARGET];
   }
@@ -2679,12 +2700,26 @@ function tableMathAssertionEvidence(
   if (verdict.failures.length > 0) {
     throw new Error(`${assertionId}: ${verdict.failures.join('; ')}`);
   }
+  // The member id is `route|viewport|shape#index`, so a member IS one
+  // viewport's observation. Naming both swept widths here claimed a
+  // measurement the row does not carry: the corpus said each table and each
+  // equation had been measured at 375x812 and 1440x900 when each row holds
+  // exactly one of them.
+  const memberViewport = member.split('|')[1] ?? null;
+  const viewport = TABLE_MATH_VIEWPORTS.find(
+    ({ id }) => id === memberViewport,
+  );
+  if (!viewport) {
+    throw new Error(
+      `${assertionId}: member "${member}" names no swept viewport, so the row cannot say where it was measured`,
+    );
+  }
   return {
-    actual: `${member} ${TABLE_MATH_ASSERTION_ACTUALS[assertionId]}, measured at ${TABLE_MATH_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join(' and ')}`,
+    actual: `${member} ${TABLE_MATH_ASSERTION_ACTUALS[assertionId]}, measured at ${viewport.width}x${viewport.height}`,
     computed: {
       member,
       measured: [{ id: verdict.id, observed: verdict.observed }],
-      viewports: TABLE_MATH_VIEWPORTS.map(({ id }) => id),
+      viewports: [viewport.id],
       evidence: [TABLE_MATH_EVIDENCE_PATH],
     },
   };

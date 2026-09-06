@@ -82,7 +82,7 @@ export const RAW_TEX_PATTERN = /\$\$|\\frac|\\begin\{|\\sum_|\\int_/;
  * fail the sweep over a price list. A line opening with `$$` has no such
  * second reading.
  */
-const DISPLAY_MATH_SOURCE_PATTERN = /^[ \t]*\$\$/m;
+const DISPLAY_MATH_DELIMITER_PATTERN = /^[ \t]*\$\$/gm;
 
 function tableMathClosureEntries(root: string): string[] {
   return [
@@ -105,30 +105,45 @@ export function tableMathRoutes(): string[] {
 }
 
 /**
- * The routes whose own MDX body opens a display-math block, and which must
- * therefore render at least one typeset display equation.
+ * How many display-math blocks each route's own MDX body opens, derived
+ * independently of anything a browser reported.
  *
- * Only the source-to-DOM direction is enforced. A component is free to
- * render math the article body never wrote, and refusing that would be a
- * claim about authoring rather than about accessibility.
+ * This is the half that makes a failed equation a failing member rather than
+ * an absent one. KaTeX renders a parse failure as a root `.katex-error` and
+ * emits no `.katex-display` at all, so counting only what typeset
+ * successfully cannot tell a page with three equations from a page with four
+ * where one broke. Comparing the successful output against a count derived
+ * from the source can.
  */
-export function mathSourceRoutes(root: string): string[] {
-  const routes = publishedModules()
-    .filter(({ domain, slug }) =>
-      DISPLAY_MATH_SOURCE_PATTERN.test(
-        moduleBody(
-          readFileSync(join(root, 'content', domain, `${slug}.mdx`), 'utf8'),
-        ),
-      ),
-    )
-    .map(({ domain, slug }) => `/${domain}/${slug}/`)
-    .sort();
-  if (routes.length === 0) {
+export function displayMathSourceCounts(root: string): Map<string, number> {
+  const counts = new Map<string, number>();
+  for (const { domain, slug } of publishedModules()) {
+    const body = moduleBody(
+      readFileSync(join(root, 'content', domain, `${slug}.mdx`), 'utf8'),
+    );
+    const delimiters = body.match(DISPLAY_MATH_DELIMITER_PATTERN)?.length ?? 0;
+    if (delimiters === 0) continue;
+    if (delimiters % 2 !== 0) {
+      throw new Error(
+        `content/${domain}/${slug}.mdx opens ${delimiters} display-math delimiters, an odd number, so its display blocks cannot be counted`,
+      );
+    }
+    counts.set(`/${domain}/${slug}/`, delimiters / 2);
+  }
+  if (counts.size === 0) {
     throw new Error(
       'no published article opens a display-math block, so the equation reconciliation would check nothing',
     );
   }
-  return routes;
+  return counts;
+}
+
+/**
+ * The routes whose own MDX body opens a display-math block, and which must
+ * therefore render at least one typeset display equation.
+ */
+export function mathSourceRoutes(root: string): string[] {
+  return [...displayMathSourceCounts(root).keys()].sort();
 }
 
 /**
@@ -145,7 +160,9 @@ export function tableMathEvidenceFingerprint(input: { root: string }): string {
     `raw-tex:${RAW_TEX_PATTERN.source}`,
     ...TABLE_MATH_VIEWPORTS.map(({ id }) => `viewport:${id}`),
     ...tableMathRoutes().map((route) => `route:${route}`),
-    ...mathSourceRoutes(input.root).map((route) => `math-source:${route}`),
+    ...[...displayMathSourceCounts(input.root).entries()]
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([route, blocks]) => `math-source:${route}=${blocks}`),
   ];
   return deriveEvidenceClosure({
     root: input.root,
@@ -262,7 +279,7 @@ export function equationMemberId(
   equation: EquationObservation,
 ): string {
   return `${observation.route}|${observation.viewport}|${
-    equation.display ? 'display' : 'inline'
+    equation.renderError ? 'error' : equation.display ? 'display' : 'inline'
   }#${equation.index}`;
 }
 
@@ -322,7 +339,7 @@ export function readTableMathEvidence(input: {
     );
   }
 
-  const mathRoutes = new Set(mathSourceRoutes(input.root));
+  const mathBlocks = displayMathSourceCounts(input.root);
   const seen = new Set<string>();
   for (const observation of artifact.observations) {
     const key = `${observation.route}|${observation.viewport}`;
@@ -340,12 +357,24 @@ export function readTableMathEvidence(input: {
         `table and math evidence records an empty page at ${key}: a blank render cannot decide a table or equation claim`,
       );
     }
-    if (
-      mathRoutes.has(observation.route) &&
-      !observation.equations.some(({ display }) => display)
-    ) {
+    // The successful output, reconciled against a count derived from the
+    // source. A parse failure emits a root `.katex-error` and no
+    // `.katex-display`, so this comparison is what turns a broken equation
+    // into a failing member instead of a missing one; an excess means a
+    // component renders display math the derivation cannot see, which is
+    // equally a population this evidence does not describe.
+    const typesetDisplays = observation.equations.filter(
+      ({ display, renderError }) => display && !renderError,
+    ).length;
+    const declaredBlocks = mathBlocks.get(observation.route) ?? 0;
+    if (typesetDisplays !== declaredBlocks) {
+      const broken = observation.equations.filter(
+        ({ renderError }) => renderError,
+      ).length;
       throw new Error(
-        `${key} renders no display equation although its own MDX body opens a display-math block, so the sweep is looking at the wrong thing`,
+        `${key} typesets ${typesetDisplays} display equation(s) where its own MDX body opens ${declaredBlocks} display-math block(s)${
+          broken > 0 ? ` and ${broken} expression(s) failed to parse` : ''
+        }`,
       );
     }
   }

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   AUDIT_LEDGERS,
+  classifyVerdict,
   parseLedger,
   reconcileDomain,
   summarise,
@@ -83,6 +84,77 @@ describe('audit ledger parsing', () => {
     ]);
   });
 
+  it('reads the verdict of every row, not just its source', () => {
+    const sections = parseLedger('audit/classical.md', THREE_COLUMN);
+    expect(sections[0].unresolvedRows).toEqual([]);
+    expect(sections[0].unverdictedRows).toEqual([]);
+    expect(sections[0].recordedInconsistencyRows).toBe(0);
+  });
+
+  it('collects a row the auditor could not resolve, however it is spelled', () => {
+    const stuck = THREE_COLUMN.replace(
+      '| DH 1955 uses exactly four scalars per joint | denavit-hartenberg-1955 | C ("five" -> "four") |',
+      '| DH 1955 uses exactly four scalars per joint | denavit-hartenberg-1955 | **unresolved** |',
+    ).replace(
+      '| C-space reformulation is due to Lozano-Perez 1983 | lozano-perez-1983 | V |',
+      '| C-space reformulation is due to Lozano-Perez 1983 | lozano-perez-1983 | UNRESOLVED |',
+    );
+    const sections = parseLedger('audit/classical.md', stuck);
+    expect(sections[0].unresolvedRows).toEqual([
+      {
+        claim: 'DH 1955 uses exactly four scalars per joint',
+        verdict: '**unresolved**',
+      },
+    ]);
+    expect(sections[1].unresolvedRows).toEqual([
+      {
+        claim: 'C-space reformulation is due to Lozano-Perez 1983',
+        verdict: 'UNRESOLVED',
+      },
+    ]);
+  });
+
+  it('collects a row whose verdict cell nobody filled in', () => {
+    const blank = THREE_COLUMN.replace(
+      '| FK is an ordered product of per-joint transforms | modern-robotics-2017 | V |',
+      '| FK is an ordered product of per-joint transforms | modern-robotics-2017 |  |',
+    );
+    expect(parseLedger('audit/classical.md', blank)[0].unverdictedRows).toEqual([
+      'FK is an ordered product of per-joint transforms',
+    ]);
+  });
+
+  it('grades a verdict vocabulary it does not recognise as unresolved, not as passing', () => {
+    expect(classifyVerdict('V', { source: 'x', note: '' })).toBe('passing');
+    expect(classifyVerdict('**corrected**', { source: 'x', note: '' })).toBe(
+      'passing',
+    );
+    expect(
+      classifyVerdict('C twice over: both figures moved', {
+        source: 'x',
+        note: '',
+      }),
+    ).toBe('passing');
+    expect(classifyVerdict('**unresolved**', { source: 'x', note: 'n' })).toBe(
+      'unresolved',
+    );
+    expect(
+      classifyVerdict('V | **Could not check.** paywalled', {
+        source: 'x',
+        note: 'n',
+      }),
+    ).toBe('unresolved');
+    expect(classifyVerdict('probably fine', { source: 'x', note: 'n' })).toBe(
+      'unrecognised',
+    );
+    // `S` closes only when the auditor read a source and wrote down what it
+    // said; an `S` with an empty note is a shrug, not a finding.
+    expect(classifyVerdict('S', { source: 'x', note: 'disagrees' })).toBe(
+      'recorded-inconsistency',
+    );
+    expect(classifyVerdict('S', { source: 'x', note: '' })).toBe('unresolved');
+  });
+
   it('refuses a table that names no source column at all', () => {
     const noSource = `### kinematics.mdx
 
@@ -105,6 +177,9 @@ describe('registry-to-ledger reconciliation', () => {
       ledgerPath: 'audit/classical.md',
       claimRows,
       unsourcedRows: [],
+      unresolvedRows: [],
+      unverdictedRows: [],
+      recordedInconsistencyRows: 0,
     }));
 
   it('passes when the audited set equals the published set', () => {
@@ -200,6 +275,9 @@ describe('registry-to-ledger reconciliation', () => {
           ledgerPath: 'audit/classical.md',
           claimRows: 2,
           unsourcedRows: ['DH 1955 uses exactly four scalars'],
+          unresolvedRows: [],
+          unverdictedRows: [],
+          recordedInconsistencyRows: 0,
         },
       ],
     });
@@ -262,5 +340,51 @@ describe('the coverage summary', () => {
     expect(summary.auditedCount).toBe(3);
     expect(summary.claimRows).toBe(4);
     expect(summary.failures).toHaveLength(1);
+  });
+});
+
+describe('a ledger row that decided nothing', () => {
+  const unresolvedSection = (
+    over: Partial<LedgerSection> = {},
+  ): LedgerSection => ({
+    slug: 'kinematics',
+    ledgerPath: 'audit/classical.md',
+    claimRows: 2,
+    unsourcedRows: [],
+    unresolvedRows: [],
+    unverdictedRows: [],
+    recordedInconsistencyRows: 0,
+    ...over,
+  });
+  const reconcile = (section: LedgerSection) =>
+    reconcileDomain({
+      domain: 'classical',
+      assertionId: 'VAL-AUDIT-005',
+      ledgerPath: 'audit/classical.md',
+      published: ['kinematics'],
+      sections: [section],
+    });
+
+  it('fails the domain, because the contract says an unchecked claim is a failure', () => {
+    const result = reconcile(
+      unresolvedSection({
+        unresolvedRows: [{ claim: 'On-policy is more stable', verdict: 'UNRESOLVED' }],
+      }),
+    );
+    expect(result.failures.map((f) => f.kind)).toContain('unresolved-claim');
+    expect(result.failures[0].message).toContain('On-policy is more stable');
+  });
+
+  it('fails a row nobody gave a verdict at all', () => {
+    const result = reconcile(
+      unresolvedSection({ unverdictedRows: ['A claim with an empty verdict cell'] }),
+    );
+    expect(result.failures.map((f) => f.kind)).toContain('unverdicted-claim');
+  });
+
+  it('passes a documented disagreement, which is a decided row', () => {
+    expect(reconcile(unresolvedSection({ recordedInconsistencyRows: 2 })).failures).toEqual(
+      [],
+    );
   });
 });

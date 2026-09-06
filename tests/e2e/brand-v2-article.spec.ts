@@ -243,22 +243,72 @@ function collectArticle(): Omit<ArticleObservation, 'route' | 'viewport' | 'isAr
     };
   });
 
+  /**
+   * The treatment of a whole link class, not of its first member.
+   *
+   * Sampling `elements[0]` graded one anchor and let the rest of the class
+   * be whatever they liked: a citation chip repainted in the body colour was
+   * invisible as long as the first chip on the page was still blue. Every
+   * distinct painting a class contains is recorded, so the distinguishability
+   * check sees all of them.
+   */
   const describeLink = (
-    kind: 'section' | 'citation' | 'glossary' | 'external' | 'internal',
+    kind:
+      | 'section'
+      | 'citation'
+      | 'glossary'
+      | 'external'
+      | 'internal'
+      | 'reference',
     elements: Element[],
     shape: (el: Element) => string,
   ) => {
-    const first = elements[0];
-    const style = first ? getComputedStyle(first) : null;
+    const variants = new Map<
+      string,
+      {
+        signature: string;
+        count: number;
+        colour: string;
+        decorationLine: string;
+        decorationStyle: string;
+        decorationColour: string;
+        familyHead: string;
+        shape: string;
+      }
+    >();
+    for (const el of elements) {
+      const style = getComputedStyle(el);
+      const variant = {
+        colour: style.color,
+        decorationLine: style.textDecorationLine,
+        decorationStyle: style.textDecorationStyle,
+        decorationColour: style.textDecorationColor,
+        familyHead: head(style.fontFamily),
+        shape: shape(el),
+      };
+      const signature = [
+        variant.colour,
+        variant.decorationLine,
+        variant.decorationStyle,
+        variant.decorationColour,
+        variant.familyHead,
+        variant.shape,
+      ].join('|');
+      const seen = variants.get(signature);
+      if (seen) seen.count += 1;
+      else variants.set(signature, { signature, count: 1, ...variant });
+    }
+    const first = [...variants.values()][0];
     return {
       kind,
       count: elements.length,
-      colour: style?.color ?? '',
-      decorationLine: style?.textDecorationLine ?? '',
-      decorationStyle: style?.textDecorationStyle ?? '',
-      decorationColour: style?.textDecorationColor ?? '',
-      familyHead: style ? head(style.fontFamily) : '',
-      shape: first ? shape(first) : '',
+      colour: first?.colour ?? '',
+      decorationLine: first?.decorationLine ?? '',
+      decorationStyle: first?.decorationStyle ?? '',
+      decorationColour: first?.decorationColour ?? '',
+      familyHead: first?.familyHead ?? '',
+      shape: first?.shape ?? '',
+      variants: [...variants.values()],
     };
   };
   const proseAnchors = [...(prose?.querySelectorAll('a[href]') ?? [])];
@@ -290,8 +340,18 @@ function collectArticle(): Omit<ArticleObservation, 'route' | 'viewport' | 'isAr
     const inChip = el.closest('[data-cite-id]') !== null ? 'chip' : 'inline';
     return `${inChip} border:${style.borderTopWidth}/${style.borderTopStyle} radius:${style.borderTopLeftRadius}`;
   };
+  /**
+   * The bibliography links the shared article template generates. They sit
+   * outside `.prose`, so an anchor collection scoped to the reading column
+   * never saw them: the one link class every published article is guaranteed
+   * to render was the class nothing graded.
+   */
+  const referenceAnchors = [
+    ...document.querySelectorAll('a[data-reference-source-link][href]'),
+  ];
   const linkTreatments = [
     describeLink('section', sectionAnchors, boxShape),
+    describeLink('reference', referenceAnchors, boxShape),
     describeLink('citation', citationAnchors, boxShape),
     describeLink('glossary', glossaryAnchors, boxShape),
     describeLink('external', rest.filter(isExternal), boxShape),
@@ -336,16 +396,76 @@ function collectArticle(): Omit<ArticleObservation, 'route' | 'viewport' | 'isAr
     }),
   );
 
+  /**
+   * Every control a reader can operate, wherever it sits.
+   *
+   * Scoping this to controls outside `.prose` excluded exactly the controls
+   * an article actually carries: every embedded instrument mounts inside the
+   * reading column, so its buttons, selects and disclosures were outside the
+   * graded population entirely and their face was decided by nothing. Text
+   * fields are included by their own label or placeholder, because a field
+   * renders what the reader types in the field's face.
+   */
+  /**
+   * The element that actually paints a control's label, which is not always
+   * the control.
+   *
+   * A face is only a face where a glyph lands. A `<button>` whose label sits
+   * in two spans that each set their own family renders nothing in its own
+   * inherited font, and text inside an inline SVG is set by that SVG's own
+   * `font-family` attribute. Grading the container reported faces no reader
+   * sees; grading the text-owning descendants grades every face one does.
+   */
+  const ownsText = (el: Element) =>
+    [...el.childNodes].some(
+      (node) => node.nodeType === 3 && (node.textContent ?? '').trim() !== '',
+    );
+  const controlFaces = (el: Element) => {
+    if (
+      el instanceof HTMLInputElement ||
+      el instanceof HTMLTextAreaElement ||
+      el instanceof HTMLSelectElement
+    ) {
+      const text =
+        (el instanceof HTMLSelectElement
+          ? nameOf(el)
+          : el.value || el.placeholder || el.getAttribute('aria-label') || ''
+        )
+          .replace(/\s+/g, ' ')
+          .trim();
+      return text === '' ? [] : [{ el, text }];
+    }
+    return [el, ...el.querySelectorAll('*')]
+      .filter(
+        (candidate) =>
+          candidate.closest('svg') === null && ownsText(candidate),
+      )
+      .map((candidate) => ({
+        el: candidate,
+        text: [...candidate.childNodes]
+          .filter((node) => node.nodeType === 3)
+          .map((node) => node.textContent ?? '')
+          .join(' ')
+          .replace(/\s+/g, ' ')
+          .trim(),
+      }));
+  };
   const interfaceControls = [
-    ...document.querySelectorAll('button, select, [role="tab"]'),
-  ]
-    .filter((el) => el.closest('.prose') === null && nameOf(el).length > 0)
-    .map((el) => ({
-      tag: el.tagName.toLowerCase(),
-      text: nameOf(el).slice(0, 32),
-      familyHead: head(getComputedStyle(el).fontFamily),
-      sizePx: Number.parseFloat(getComputedStyle(el).fontSize),
-    }));
+    ...document.querySelectorAll(
+      'button, select, summary, textarea, input:not([type="hidden"]):not([type="range"]):not([type="checkbox"]):not([type="radio"]), [role="tab"], [role="button"], [role="switch"]',
+    ),
+  ].flatMap((control) =>
+    controlFaces(control).map(({ el, text }) => {
+      const style = getComputedStyle(el);
+      return {
+        tag: control.tagName.toLowerCase(),
+        text: text.slice(0, 32),
+        familyHead: head(style.fontFamily),
+        sizePx: round(Number.parseFloat(style.fontSize) || 0),
+        inProse: control.closest('.prose') !== null,
+      };
+    }),
+  );
 
   /**
    * Every hairline the reading column paints outside a registered surface or

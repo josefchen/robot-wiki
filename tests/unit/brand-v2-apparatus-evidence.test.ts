@@ -372,9 +372,20 @@ describe('the apparatus verdict families', () => {
   it('fails a second aria-current="page" anywhere in the document', () => {
     const mutated = accept(
       mutate((evidence) => {
+        const [first] = evidence.observations[0].ariaCurrentPage;
         evidence.observations[0].ariaCurrentPage = [
-          '<a aria-current="page">one</a>',
-          '<h1 aria-current="page">two</h1>',
+          first ?? {
+            outline: '<a aria-current="page">one</a>',
+            href: 'https://robot.wiki/one/',
+            insideNavLandmark: true,
+            matchesRoute: true,
+          },
+          {
+            outline: '<h1 aria-current="page">two</h1>',
+            href: null,
+            insideNavLandmark: false,
+            matchesRoute: false,
+          },
         ];
       }),
     );
@@ -382,6 +393,21 @@ describe('the apparatus verdict families', () => {
     expect(
       breadcrumbTruthVerdicts(mutated, ROOT).get(id)!.failures.join(' '),
     ).toMatch(/aria-current="page"/);
+  });
+
+  it('fails a current-page marker parked on something that is not the navigation link for this route', () => {
+    const mutated = accept(
+      mutate((evidence) => {
+        for (const marker of evidence.observations[0].ariaCurrentPage) {
+          marker.matchesRoute = false;
+          marker.href = 'https://robot.wiki/somewhere-else/';
+        }
+      }),
+    );
+    const id = `${mutated.observations[0].route}|${mutated.observations[0].viewport}`;
+    expect(
+      breadcrumbTruthVerdicts(mutated, ROOT).get(id)!.failures.join(' '),
+    ).toMatch(/which is not this route/);
   });
 
   it('fails a reference entry below the AA contrast floor', () => {

@@ -211,6 +211,7 @@ export function linkSafetyRouteMembersFromArtifact(artifact: unknown): string[] 
 const keyboardVerdictSchema = z
   .object({
     route: z.string().min(1),
+    /** Outbound anchor OCCURRENCES, not distinct destinations. */
     outboundInDom: z.number().int().nonnegative(),
     reachedByTab: z.number().int().nonnegative(),
     unreached: z.array(z.string()),
@@ -253,7 +254,7 @@ export interface LinkSafetyRouteVerdict {
   shapes: OutboundAnchorShape[];
   anchorsWithNoreferrer: number;
   keyboardMeasured: boolean;
-  /** Distinct outbound hrefs the Tab key reached on this route. */
+  /** Outbound anchor occurrences the Tab key reached on this route. */
   reachedByTab: number | null;
   tabStops: number | null;
   /**
@@ -414,7 +415,7 @@ export function readLinkSafetyEvidence(input: {
     }
     if (verdict.unreached.length > 0) {
       throw new Error(
-        `${verdict.route} has outbound links the Tab key never reached: ${verdict.unreached.slice(0, 3).join(', ')}`,
+        `${verdict.route} has outbound anchor occurrences the Tab key never reached: ${verdict.unreached.slice(0, 3).join(', ')}`,
       );
     }
     if (verdict.withoutFocusIndicator.length > 0) {
@@ -424,7 +425,7 @@ export function readLinkSafetyEvidence(input: {
     }
     if (verdict.reachedByTab !== verdict.outboundInDom) {
       throw new Error(
-        `${verdict.route} reached ${verdict.reachedByTab} of ${verdict.outboundInDom} outbound links`,
+        `${verdict.route} reached ${verdict.reachedByTab} of ${verdict.outboundInDom} outbound anchor occurrences`,
       );
     }
   }

@@ -57,12 +57,15 @@ export const ARTICLE_VIEWPORTS = [
 export const MOBILE_VIEWPORT_ID = '375x812';
 export const DESKTOP_VIEWPORT_ID = '1440x900';
 
-/** Signal blue, in the rendered form and both hex spellings shipped here. */
-export const SIGNAL_BLUE_FORMS = [
-  'rgb(36, 95, 255)',
-  '#245fff',
-  '#245edb',
-] as const;
+/**
+ * Signal blue, in the rendered form and the hex spelling shipped here.
+ *
+ * `#245edb` is NOT here. It is the superseded v1 blue that
+ * `contract/brand-v2-enforcement-map.json` lists under "Previous signal
+ * values ... Zero runtime/generated matches", so a link that still paints
+ * it is residue the rollout was supposed to remove, not an accepted form.
+ */
+export const SIGNAL_BLUE_FORMS = ['rgb(36, 95, 255)', '#245fff'] as const;
 
 /** The sealed ranges, read off the contract rows they belong to. */
 export const ARTICLE_H1_SIZE_PX = {
@@ -194,8 +197,26 @@ const sectionLinkSchema = z.object({
     .nullable(),
 });
 
+const linkVariantSchema = z.object({
+  signature: z.string(),
+  count: z.number().int().positive(),
+  colour: z.string(),
+  decorationLine: z.string(),
+  decorationStyle: z.string(),
+  decorationColour: z.string(),
+  familyHead: z.string(),
+  shape: z.string(),
+});
+
 const linkTreatmentSchema = z.object({
-  kind: z.enum(['section', 'citation', 'glossary', 'external', 'internal']),
+  kind: z.enum([
+    'section',
+    'citation',
+    'glossary',
+    'external',
+    'internal',
+    'reference',
+  ]),
   count: z.number(),
   colour: z.string(),
   decorationLine: z.string(),
@@ -204,6 +225,11 @@ const linkTreatmentSchema = z.object({
   familyHead: z.string(),
   /** A bordered chip, a glyph, or another shape the treatment carries. */
   shape: z.string(),
+  /**
+   * Every distinct painting the class contains, not the first member's.
+   * A class whose members disagree renders more than one row here.
+   */
+  variants: z.array(linkVariantSchema),
 });
 
 const registrationLabelSchema = z.object({
@@ -275,6 +301,7 @@ const observationSchema = z.object({
       text: z.string(),
       familyHead: z.string(),
       sizePx: z.number(),
+      inProse: z.boolean(),
     }),
   ),
   rules: z.array(ruleSchema),
@@ -616,7 +643,7 @@ export function readingSheetVerdicts(
 
 /** A treatment reduced to the marks a reader can tell apart. */
 function treatmentSignature(
-  treatment: z.infer<typeof linkTreatmentSchema>,
+  treatment: z.infer<typeof linkVariantSchema>,
 ): string {
   return [
     treatment.colour,
@@ -628,18 +655,28 @@ function treatmentSignature(
 }
 
 /**
- * The four classes `VAL-B2-ART-003` names. A plain internal cross-reference
- * is collected too and travels in the observation, but it is not one of the
- * four and holding it apart from an external source would be a rule this
- * file invented: both are links to a document, and the row is about telling
- * a section address, a citation, a definition and a source apart.
+ * The four classes `VAL-B2-ART-003` names, and the collected kinds that
+ * realise each one. A plain internal cross-reference is collected too and
+ * travels in the observation, but it is not one of the four and holding it
+ * apart from an external source would be a rule this file invented: both
+ * are links to a document.
+ *
+ * "External sources" is realised by two kinds. Only 14 of 47 articles write
+ * a bare external URL in prose, so a population that recognised only that
+ * kind left the criterion's fourth class absent on 33 articles - and absent
+ * classes were tolerated by a floor of two. Every article's generated
+ * References list is the class's guaranteed realisation.
  */
-const DISTINGUISHED_LINK_KINDS = [
-  'section',
-  'citation',
-  'glossary',
-  'external',
-] as const;
+const DISTINGUISHED_LINK_CLASSES = {
+  'section links': ['section'],
+  'inline citations': ['citation'],
+  'glossary definitions': ['glossary'],
+  'external sources': ['external', 'reference'],
+} as const;
+
+const DISTINGUISHED_LINK_KINDS = Object.values(
+  DISTINGUISHED_LINK_CLASSES,
+).flat() as readonly string[];
 
 /**
  * `VAL-B2-ART-003`: the four link classes an article writes are told apart
@@ -658,47 +695,71 @@ export function linkTreatmentVerdicts(
   for (const route of evidence.articleRoutes) {
     const observation = at(evidence, route, DESKTOP_VIEWPORT_ID);
     const present = observation.linkTreatments.filter(
-      ({ count, kind }) =>
-        count > 0 &&
-        (DISTINGUISHED_LINK_KINDS as readonly string[]).includes(kind),
+      ({ count, kind }) => count > 0 && DISTINGUISHED_LINK_KINDS.includes(kind),
     );
     const failures: string[] = [];
-    if (present.length < 2) {
-      failures.push(
-        `${route} renders ${present.length} link class(es), too few for a distinguishability claim`,
-      );
-    }
-    const bySignature = new Map<string, string[]>();
-    for (const treatment of present) {
-      const signature = treatmentSignature(treatment);
-      bySignature.set(signature, [
-        ...(bySignature.get(signature) ?? []),
-        treatment.kind,
-      ]);
-    }
-    for (const [signature, kinds] of bySignature) {
-      if (kinds.length > 1) {
+    for (const [className, kinds] of Object.entries(
+      DISTINGUISHED_LINK_CLASSES,
+    )) {
+      if (
+        !present.some(({ kind }) => (kinds as readonly string[]).includes(kind))
+      ) {
         failures.push(
-          `${route} paints ${kinds.sort().join(' and ')} identically (${signature})`,
+          `${route} renders no ${className}, so one of the four classes the row tells apart is not on the page`,
         );
       }
     }
-    const glossary = present.find(({ kind }) => kind === 'glossary');
-    if (glossary && glossary.decorationStyle !== 'dotted') {
-      failures.push(
-        `${route} draws its glossary definitions with a ${glossary.decorationStyle} underline, which does not read as a definition`,
-      );
+    // Every distinct painting inside every class, not one sample per class.
+    // A class whose members disagree is reported by the collision that
+    // disagreement causes, which is the reader-visible harm.
+    const bySignature = new Map<string, Set<string>>();
+    for (const treatment of present) {
+      for (const variant of treatment.variants) {
+        const signature = treatmentSignature(variant);
+        bySignature.set(
+          signature,
+          (bySignature.get(signature) ?? new Set()).add(treatment.kind),
+        );
+      }
     }
-    const external = present.find(({ kind }) => kind === 'external');
-    if (
-      external &&
-      !SIGNAL_BLUE_FORMS.includes(
-        external.colour.toLowerCase() as (typeof SIGNAL_BLUE_FORMS)[number],
-      )
-    ) {
-      failures.push(
-        `${route} paints its external sources ${external.colour}, not the signal blue reserved for information paths`,
+    for (const [signature, kinds] of bySignature) {
+      const classes = new Set(
+        [...kinds].map(
+          (kind) =>
+            Object.entries(DISTINGUISHED_LINK_CLASSES).find(([, members]) =>
+              (members as readonly string[]).includes(kind),
+            )?.[0] ?? kind,
+        ),
       );
+      if (classes.size > 1) {
+        failures.push(
+          `${route} paints ${[...classes].sort().join(' and ')} identically (${signature})`,
+        );
+      }
+    }
+    for (const treatment of present.filter(({ kind }) => kind === 'glossary')) {
+      for (const variant of treatment.variants) {
+        if (variant.decorationStyle !== 'dotted') {
+          failures.push(
+            `${route} draws ${variant.count} glossary definition(s) with a ${variant.decorationStyle} underline, which does not read as a definition`,
+          );
+        }
+      }
+    }
+    for (const treatment of present.filter(
+      ({ kind }) => kind === 'external' || kind === 'reference',
+    )) {
+      for (const variant of treatment.variants) {
+        if (
+          !SIGNAL_BLUE_FORMS.includes(
+            variant.colour.toLowerCase() as (typeof SIGNAL_BLUE_FORMS)[number],
+          )
+        ) {
+          failures.push(
+            `${route} paints ${variant.count} ${treatment.kind} source link(s) ${variant.colour}, not the signal blue reserved for information paths`,
+          );
+        }
+      }
     }
     verdicts.set(route, { id: route, observed: present, failures });
   }
@@ -864,14 +925,33 @@ export function proseFaceVerdicts(
 export type RoleFaceObservation = {
   monoRequiredCount: number;
   interfaceControlCount: number;
+  controlsInProse: number;
   registrationLabelCount: number;
 };
 
 /**
+ * The sizes at which `library/design-system.md` specifies IBM Plex Mono for
+ * a control's own label: the `Data/control` row of §4.3 at 11-14px ("IBM
+ * Plex Mono where fixed-width scanning helps") and the `Registration label`
+ * row directly beneath it at 9-11px, which is the face §4.1 assigns to
+ * "labels, coordinates, sequence numbers, chart annotations" - the 10px tick
+ * captions and sort arrows an instrument's own controls carry.
+ */
+const MONO_CONTROL_SIZE_PX = { min: 9, max: 14 } as const;
+
+/**
  * `VAL-B2-TYPE-005`: the supporting faces sit where the contract assigns
  * them. Three populations, each discovered by what an element is rather than
- * by the face it wears: code and sample elements, interface controls outside
- * the reading column, and the registration labels that name measured values.
+ * by the face it wears: code and sample elements, every control a reader can
+ * operate, and the registration labels that name measured values.
+ *
+ * The criterion reads "Interface copy and controls compute to IBM Plex Sans;
+ * code, source metadata, technical values, and registration labels compute
+ * to IBM Plex Mono WHERE SPECIFIED", so the mono side is whatever the design
+ * system specifies. §4.3 specifies a `Data/control` role at 11-14px in Plex
+ * Mono, which is the instrument-panel control label. A control is therefore
+ * graded against Plex Sans unless it sits inside that specified band, and
+ * any third face - Tektur, Newsreader, a system fallback - fails outright.
  */
 export function roleFaceVerdicts(
   evidence: ArticleRuntimeEvidence,
@@ -888,11 +968,15 @@ export function roleFaceVerdicts(
       }
     }
     for (const control of observation.interfaceControls) {
-      if (!control.familyHead.includes(PLEX_SANS_HEAD)) {
-        failures.push(
-          `${route} sets the control "${control.text}" in ${control.familyHead}, not IBM Plex Sans`,
-        );
-      }
+      if (control.familyHead.includes(PLEX_SANS_HEAD)) continue;
+      const dataControl =
+        control.familyHead.includes(PLEX_MONO_HEAD) &&
+        control.sizePx >= MONO_CONTROL_SIZE_PX.min &&
+        control.sizePx <= MONO_CONTROL_SIZE_PX.max;
+      if (dataControl) continue;
+      failures.push(
+        `${route} sets the control "${control.text}" (<${control.tag}>, ${control.sizePx}px) in ${control.familyHead}, which is neither IBM Plex Sans nor the specified ${MONO_CONTROL_SIZE_PX.min}-${MONO_CONTROL_SIZE_PX.max}px Plex Mono data/control or registration-label role`,
+      );
     }
     for (const label of observation.registrationLabels) {
       if (!label.familyHead.includes(PLEX_MONO_HEAD)) {
@@ -906,20 +990,29 @@ export function roleFaceVerdicts(
       observed: {
         monoRequiredCount: observation.monoRequired.length,
         interfaceControlCount: observation.interfaceControls.length,
+        controlsInProse: observation.interfaceControls.filter(
+          ({ inProse }) => inProse,
+        ).length,
         registrationLabelCount: observation.registrationLabels.length,
       },
       failures,
     });
   }
-  // A family of three populations that all emptied would leave every route
-  // passing on nothing at all.
+  // A family of four populations that all emptied would leave every route
+  // passing on nothing at all. `controlsInProse` is counted separately
+  // because it is the half that used to be excluded outright: if the
+  // embedded instruments ever stop being collected, the sweep goes quiet
+  // rather than red.
   const totals = evidence.observations.reduce(
     (sum, observation) => ({
       mono: sum.mono + observation.monoRequired.length,
       controls: sum.controls + observation.interfaceControls.length,
+      controlsInProse:
+        sum.controlsInProse +
+        observation.interfaceControls.filter(({ inProse }) => inProse).length,
       labels: sum.labels + observation.registrationLabels.length,
     }),
-    { mono: 0, controls: 0, labels: 0 },
+    { mono: 0, controls: 0, controlsInProse: 0, labels: 0 },
   );
   for (const [name, total] of Object.entries(totals)) {
     if (total === 0) {

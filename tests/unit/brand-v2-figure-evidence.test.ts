@@ -168,7 +168,7 @@ describe('the figure evidence reader', () => {
     target.figures = [];
     expect(() =>
       readFigureRuntimeEvidence({ artifact: copy, fingerprint, root: ROOT }),
-    ).toThrow(/renders no figure for/);
+    ).toThrow(/renders 0 figure occurrence\(s\) where the page.s own sources derive/);
   });
 
   it('refuses a figure the image registry does not hold', () => {

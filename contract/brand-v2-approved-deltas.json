@@ -560,6 +560,51 @@
         "VAL-AUDIT-004"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-audit-frontier-emergency-stop-unsourced-classification",
+      "manifest": "prose",
+      "memberId": "article:frontier/safety-and-assurance",
+      "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+      "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+      "reason": "Content-audit correction, not a presentation change. The sentence \"It is a complement to guarding rather than a substitute for it\" asserted a normative classification of the emergency stop that no free primary source states: ISO 13850 is paywalled and its public abstract stops at \"functional requirements and design principles for the emergency stop function\", ISO 12100's public abstract does not name emergency stop among complementary protective measures, and EUR-Lex and the ISO OBP preview both return shell pages to a fetcher. It is replaced by what needs no standard to defend - that a manually actuated control does nothing until a person presses it, and so covers none of the cases a guard exists to cover. Every cited fact, citation id, standard edition, and date in the article is unchanged; audit/frontier.md row SA17 records the correction and the sources attempted.",
+      "ownerApproval": "contract/content-audit.md VAL-AUDIT-006 and its P1-P5 procedure: a claim the validator could not check must be reported as a failure, not skipped, and an unsupported claim is corrected rather than left standing.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-AUDIT-006",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-audit-rl-on-policy-stability-comparison",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c",
+      "newHash": "4e635604fd0c570453a9242dcbbb981cb23c13c39446a9f9dbaabf454aec764d",
+      "reason": "Content-audit correction, not a presentation change. \"On-policy updates are the more stable and less hyperparameter-sensitive of the two\" was an uncited two-sided comparison: sac-2018's stability sentence compares SAC with other off-policy methods, ppo-2017 claims an advantage over TRPO, and nothing cited compares hyperparameter sensitivity across the two families at all. It is replaced by the one-sided statement sac-2018 does make in Section 1, quoted and cited: combining off-policy learning with deep function approximation \"presents a major challenge for stability and convergence\". The Rudin figures, the arithmetic, and every other claim in the paragraph are unchanged; audit/rl-sim2real.md records the correction.",
+      "ownerApproval": "contract/content-audit.md VAL-AUDIT-002 and its P1-P5 procedure: a claim the validator could not check must be reported as a failure, not skipped, and an unsupported claim is corrected rather than left standing.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-AUDIT-002",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-audit-rl-on-policy-stability-comparison-relationships",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "4dc209aac54602011b461a31b52f2e99afe61c49ba4984ba5f437535c0eecb6f",
+      "newHash": "b1c8ce4a8bf054a123e66740c07b3b934328b9b89c4f2653d7da4913d143dd4c",
+      "reason": "The same content-audit correction seen from the citation side: replacing the uncited on-policy-versus-off-policy comparison with sac-2018's own quoted sentence adds one <Cite id=\"sac-2018\" /> to this article, and sac-2018 is already in its reference list. No citation was removed, no id changed, and no other relationship moved.",
+      "ownerApproval": "contract/content-audit.md VAL-AUDIT-002 and its P1-P5 procedure: a claim the validator could not check must be reported as a failure, not skipped, and an unsupported claim is corrected rather than left standing.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-AUDIT-002",
+        "VAL-B2-ART-010"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

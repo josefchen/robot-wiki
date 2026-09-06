@@ -1,11 +1,12 @@
 {
   "version": 1,
-  "fingerprint": "e5d93729bf4ea0bbb63544f6dbc8361fee359012213ed9367819f5059c606323",
+  "fingerprint": "e209c89e340f279e0ba03689b284b1f64530ed34647508194e9fdf17285d4217",
   "viewports": [
     "375x812",
     "1440x900"
   ],
   "routes": [
+    "/",
     "/classical/kinematics/",
     "/credits/",
     "/data-hardware/hardware-taxonomy/",
@@ -14,6 +15,57 @@
     "/rl-sim2real/legged-locomotion/"
   ],
   "observations": [
+    {
+      "viewportWidth": 375,
+      "documentScrollWidth": 375,
+      "visibleTextLength": 4147,
+      "figures": [
+        {
+          "imageId": "spot-raf-agile-liberty-2021",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/spot-raf-agile-liberty-2021.jpg",
+          "alt": "A yellow Boston Dynamics Spot quadruped robot walks across an airfield tarmac alongside Royal Air Force airmen in camouflage uniform.",
+          "declaredWidth": "1920",
+          "declaredHeight": "869",
+          "loading": "lazy",
+          "naturalWidth": 1920,
+          "naturalHeight": 869,
+          "complete": true,
+          "renderedWidth": 327,
+          "renderedHeight": 149.09,
+          "overflowPx": 0,
+          "caption": "A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021.",
+          "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+          "captionContrast": 12.95,
+          "credit": "Photo: Senior Airman John Ennis, U.S. Air Force / Wikimedia Commons. Licence: Public domain.",
+          "creditFontFamily": "\"IBM Plex Mono\", \"IBM Plex Mono Fallback\", ui-monospace, \"SF Mono\", monospace",
+          "creditContrast": 12.95,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Spot_robot_Royal_Air_Force.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://commons.wikimedia.org/wiki/Template:PD-USGov-Military-Air_Force",
+              "text": "Public domain"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/",
+      "viewport": "375x812"
+    },
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
@@ -5259,6 +5311,57 @@
       ],
       "route": "/rl-sim2real/legged-locomotion/",
       "viewport": "375x812"
+    },
+    {
+      "viewportWidth": 1440,
+      "documentScrollWidth": 1440,
+      "visibleTextLength": 4369,
+      "figures": [
+        {
+          "imageId": "spot-raf-agile-liberty-2021",
+          "index": 0,
+          "figureKind": "photograph",
+          "src": "/images/spot-raf-agile-liberty-2021.jpg",
+          "alt": "A yellow Boston Dynamics Spot quadruped robot walks across an airfield tarmac alongside Royal Air Force airmen in camouflage uniform.",
+          "declaredWidth": "1920",
+          "declaredHeight": "869",
+          "loading": "lazy",
+          "naturalWidth": 1920,
+          "naturalHeight": 869,
+          "complete": true,
+          "renderedWidth": 976,
+          "renderedHeight": 442.83,
+          "overflowPx": 0,
+          "caption": "A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021.",
+          "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+          "captionContrast": 12.95,
+          "credit": "Photo: Senior Airman John Ennis, U.S. Air Force / Wikimedia Commons. Licence: Public domain.",
+          "creditFontFamily": "\"IBM Plex Mono\", \"IBM Plex Mono Fallback\", ui-monospace, \"SF Mono\", monospace",
+          "creditContrast": 12.95,
+          "creditLinks": [
+            {
+              "href": "https://commons.wikimedia.org/wiki/File:Spot_robot_Royal_Air_Force.jpg",
+              "text": "Wikimedia Commons"
+            },
+            {
+              "href": "https://commons.wikimedia.org/wiki/Template:PD-USGov-Military-Air_Force",
+              "text": "Public domain"
+            }
+          ],
+          "surfaceId": null,
+          "surfaceBackground": null,
+          "surfaceLuminance": null,
+          "surfaceBorderWidth": 0,
+          "surfaceBorderStyle": null,
+          "surroundLuminance": null,
+          "boundaryContrast": 0,
+          "label": null,
+          "labelFontFamily": null,
+          "labelContrast": null
+        }
+      ],
+      "route": "/",
+      "viewport": "1440x900"
     },
     {
       "viewportWidth": 1440,

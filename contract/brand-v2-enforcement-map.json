@@ -1595,15 +1595,15 @@
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-figures.spec.ts",
+          "title": "brand-v2 figures, diagrams and licensed imagery › sweeps every figure-bearing route at both widths",
+          "mechanism": "Sweeps every route the figure graph derives - published article bodies AND every statically rendered App Router page, so a figure mounted straight into a page component is in the population - at 375x812 and 1440x900, and records each figure occurrence with its rendered caption, credit, boundary, inverse labels and textual alternative."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
+          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
         }
       ],
       "enforcementMode": "browser-state",
@@ -2876,16 +2876,26 @@
           "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
-          "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/|1440x900|spot-raf-agile-liberty-2021#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-ART-005:/|375x812|spot-raf-agile-liberty-2021#0",
+          "mechanism": "VAL-B2-ART-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/e2e/brand-v2-figures.spec.ts",
+          "title": "brand-v2 figures, diagrams and licensed imagery › sweeps every figure-bearing route at both widths",
+          "mechanism": "Sweeps every route the figure graph derives - published article bodies AND every statically rendered App Router page, so a figure mounted straight into a page component is in the population - at 375x812 and 1440x900, and records each figure occurrence with its rendered caption, credit, boundary, inverse labels and textual alternative."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
+          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
         }
       ],
       "enforcementMode": "browser-state",
@@ -2893,7 +2903,7 @@
         "statement": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
         "expected": "Every figure caption states a takeaway and every external figure/texture credit exposes creator, source, and license.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 248,
+        "populationSize": 250,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -3149,7 +3159,9 @@
           "result:VAL-B2-ART-005:/manipulation/bc-foundations/|1440x900|covariate-shift#0",
           "result:VAL-B2-ART-005:/manipulation/bc-foundations/|375x812|covariate-shift#0",
           "result:VAL-B2-ART-005:/rl-sim2real/legged-locomotion/|1440x900|anymal-anybotics-2022#0",
-          "result:VAL-B2-ART-005:/rl-sim2real/legged-locomotion/|375x812|anymal-anybotics-2022#0"
+          "result:VAL-B2-ART-005:/rl-sim2real/legged-locomotion/|375x812|anymal-anybotics-2022#0",
+          "result:VAL-B2-ART-005:/|1440x900|spot-raf-agile-liberty-2021#0",
+          "result:VAL-B2-ART-005:/|375x812|spot-raf-agile-liberty-2021#0"
         ]
       }
     },
@@ -3199,15 +3211,15 @@
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > reconciles fixed, domain, and article routes without counting 404 as public",
-          "mechanism": "Derives and reconciles the current public-route population; it does not prove the row’s pending visual outcome."
+          "file": "tests/e2e/brand-v2-figures.spec.ts",
+          "title": "brand-v2 figures, diagrams and licensed imagery › sweeps every figure-bearing route at both widths",
+          "mechanism": "Sweeps every route the figure graph derives - published article bodies AND every statically rendered App Router page, so a figure mounted straight into a page component is in the population - at 375x812 and 1440x900, and records each figure occurrence with its rendered caption, credit, boundary, inverse labels and textual alternative."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-route-flows.spec.ts",
-          "title": "brand-v2-route-flows › derives and renders every public destination while keeping 404 separate",
-          "mechanism": "Executes navigate, history restoration, and per-route browser-render, computed-style, Axe, keyboard, forced-colours, reflow, overflow, resource/font, and residue profiles for every registry-derived public destination; the row’s brand-v2 visual predicate remains pending."
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
+          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
         }
       ],
       "enforcementMode": "browser-state",
@@ -16211,6 +16223,12 @@
           "file": "tests/unit/brand-v2-census.test.ts",
           "title": "brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception",
           "mechanism": "Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
+          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -16407,6 +16425,12 @@
           "file": "tests/unit/brand-v2-census.test.ts",
           "title": "brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception",
           "mechanism": "Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
+          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -16479,9 +16503,15 @@
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception",
-          "mechanism": "Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail."
+          "file": "tests/e2e/brand-v2-figures.spec.ts",
+          "title": "brand-v2 figures, diagrams and licensed imagery › sweeps every figure-bearing route at both widths",
+          "mechanism": "Sweeps every route the figure graph derives - published article bodies AND every statically rendered App Router page, so a figure mounted straight into a page component is in the population - at 375x812 and 1440x900, and records each figure occurrence with its rendered caption, credit, boundary, inverse labels and textual alternative."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
+          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
         }
       ],
       "enforcementMode": "browser-state",
@@ -16533,6 +16563,12 @@
           "file": "tests/unit/brand-v2-census.test.ts",
           "title": "brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception",
           "mechanism": "Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
+          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -17800,10 +17836,26 @@
           "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
         },
         {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/|1440x900|spot-raf-agile-liberty-2021#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
+          "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-IMG-005:/|375x812|spot-raf-agile-liberty-2021#0",
+          "mechanism": "VAL-B2-IMG-005 pending rollout evidence over evidence/brand-v2/figures.json#figures"
+        },
+        {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception",
-          "mechanism": "Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail."
+          "file": "tests/e2e/brand-v2-figures.spec.ts",
+          "title": "brand-v2 figures, diagrams and licensed imagery › sweeps every figure-bearing route at both widths",
+          "mechanism": "Sweeps every route the figure graph derives - published article bodies AND every statically rendered App Router page, so a figure mounted straight into a page component is in the population - at 375x812 and 1440x900, and records each figure occurrence with its rendered caption, credit, boundary, inverse labels and textual alternative."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
+          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
         }
       ],
       "enforcementMode": "browser-state",
@@ -17811,7 +17863,7 @@
         "statement": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
         "expected": "Image alt text communicates content/function and does not repeat adjacent captions or use technical repository identity as public branding.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 248,
+        "populationSize": 250,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -18067,7 +18119,9 @@
           "result:VAL-B2-IMG-005:/manipulation/bc-foundations/|1440x900|covariate-shift#0",
           "result:VAL-B2-IMG-005:/manipulation/bc-foundations/|375x812|covariate-shift#0",
           "result:VAL-B2-IMG-005:/rl-sim2real/legged-locomotion/|1440x900|anymal-anybotics-2022#0",
-          "result:VAL-B2-IMG-005:/rl-sim2real/legged-locomotion/|375x812|anymal-anybotics-2022#0"
+          "result:VAL-B2-IMG-005:/rl-sim2real/legged-locomotion/|375x812|anymal-anybotics-2022#0",
+          "result:VAL-B2-IMG-005:/|1440x900|spot-raf-agile-liberty-2021#0",
+          "result:VAL-B2-IMG-005:/|375x812|spot-raf-agile-liberty-2021#0"
         ]
       }
     },
@@ -18183,6 +18237,12 @@
           "file": "tests/unit/brand-v2-census.test.ts",
           "title": "brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception",
           "mechanism": "Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
+          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -28678,14 +28738,14 @@
         {
           "kind": "test",
           "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > derives every interactive source and production mount from repository source",
-          "mechanism": "Derives the current interactive source and production-mount populations from repository source and reconciles their registered cases."
+          "title": "brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception",
+          "mechanism": "Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail."
         },
         {
           "kind": "test",
-          "file": "tests/e2e/brand-v2-interactive-states.spec.ts",
-          "title": "brand-v2 interactive-state runner › reconciles non-empty registry sources, production mounts, controls, and exact cases",
-          "mechanism": "Accounts for every registered interactive case and exercises or explicitly classifies its current milestone-1 mechanism; later visual convergence remains pending."
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
+          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
         }
       ],
       "enforcementMode": "automated-machine",

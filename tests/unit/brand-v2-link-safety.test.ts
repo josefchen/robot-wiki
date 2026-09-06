@@ -194,7 +194,7 @@ describe('brand-v2 outbound link safety', () => {
     const artifact = artifactFor(CENSUS);
     artifact.keyboard[0].unreached = ['https://fonts.google.com/'];
     expect(() => read(CENSUS, artifact)).toThrow(
-      /outbound links the Tab key never reached/,
+      /outbound anchor occurrences the Tab key never reached/,
     );
   });
 

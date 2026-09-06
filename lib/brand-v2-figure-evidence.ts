@@ -5,7 +5,7 @@ import { IMAGES, attributionText, figureKind, licenceLabel } from '../data/image
 import type { SiteImage } from '../data/schemas/image.ts';
 import { LEGAL_BASES } from '../data/schemas/image.ts';
 import { publishedModules } from '../data/modules.ts';
-import { referencedImageIds } from './images.ts';
+import { referencedImageIdOccurrences } from './images.ts';
 import { moduleBody } from './references.ts';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
@@ -93,9 +93,53 @@ function figureClosureEntries(root: string): string[] {
 }
 
 /**
+ * App Router segment files that are entries into a statically rendered
+ * route, and the route path each one owns.
+ */
+const STATIC_PAGE_MODULE = /^app\/(.*)page\.tsx$/;
+
+/**
+ * A page that resolves its figure ids from data rather than from a literal,
+ * and the population that stands in for the literal the scan cannot read.
+ *
+ * `/credits` maps over the whole registry, so `<ImageRef id={image.id} />`
+ * names every entry and no source scan can enumerate it. Declaring the
+ * substitute here rather than special-casing it inside the walk is what
+ * lets the walk FAIL on any other data-driven mount: a second page that
+ * renders figures from a list would otherwise contribute nothing to the
+ * expectation and its figures would be unmeasured extras.
+ */
+const DATA_DRIVEN_FIGURE_ROUTES: ReadonlyMap<string, () => string[]> = new Map([
+  [CREDITS_ROUTE, () => IMAGES.map(({ id }) => id)],
+]);
+
+/** `<Image id={…}>`: an id the page computes, which no source scan can read. */
+const COMPUTED_IMAGE_ID = /<Image(?:Ref)?\b[^>]*?\bid\s*=\s*\{/;
+
+/** The route path an App Router page module renders, or null when dynamic. */
+export function staticRoutePath(modulePath: string): string | null {
+  const match = STATIC_PAGE_MODULE.exec(modulePath);
+  if (!match) return null;
+  const segments = (match[1] ?? '').split('/').filter((part) => part.length > 0);
+  if (segments.some((part) => part.startsWith('['))) return null;
+  const visible = segments.filter(
+    (part) => !(part.startsWith('(') && part.endsWith(')')),
+  );
+  return `/${visible.map((part) => `${part}/`).join('')}`;
+}
+
+/**
  * The figures every swept route is supposed to render, derived the way the
- * pages derive them: `referencedImageIds` over each published article body,
- * and the whole registry for `/credits`, which lists every entry.
+ * pages derive them: image references over each published article body, and
+ * over every module a static route entry can reach.
+ *
+ * The static half is what a scan of published MDX alone cannot see. The home
+ * page mounts `<ImageRef id="spot-raf-agile-liberty-2021" />` directly, so a
+ * derivation that only opened `content/` omitted a production figure from
+ * the measured population entirely, and its absence read as coverage.
+ *
+ * The value is the OCCURRENCE multiset, not the id set: a page that mounts
+ * the same figure twice renders two boxes, and both are graded.
  *
  * Keyed by route so a sweep observation can be matched without re-deriving.
  */
@@ -106,13 +150,33 @@ export function expectedFigureGraph(root: string): Map<string, string[]> {
       join(root, 'content', entry.domain, `${entry.slug}.mdx`),
       'utf8',
     );
-    const ids = referencedImageIds(moduleBody(source));
+    const ids = referencedImageIdOccurrences(moduleBody(source));
     if (ids.length > 0) graph.set(`/${entry.domain}/${entry.slug}/`, ids);
   }
-  graph.set(
-    CREDITS_ROUTE,
-    IMAGES.map(({ id }) => id),
-  );
+
+  const closure = evidenceClosureGraph(root);
+  for (const modulePath of closure.modules) {
+    const route = staticRoutePath(modulePath);
+    if (route === null) continue;
+    const reachable = [
+      ...closure.reachableFrom([modulePath]),
+      ...(closure.reexportHopsByModule.get(modulePath) ?? []),
+    ].sort();
+    const declared = DATA_DRIVEN_FIGURE_ROUTES.get(route);
+    const ids: string[] = [];
+    for (const reached of reachable) {
+      const text = closure.textByModule.get(reached) ?? '';
+      if (COMPUTED_IMAGE_ID.test(text) && declared === undefined) {
+        throw new Error(
+          `${reached} mounts a figure whose id is computed, and ${route} declares no substitute population, so its figures would be unmeasured extras`,
+        );
+      }
+      ids.push(...referencedImageIdOccurrences(text));
+    }
+    const expected = declared ? [...declared(), ...ids] : ids;
+    if (expected.length > 0) graph.set(route, expected);
+  }
+
   if (graph.size < 2) {
     throw new Error(
       'the expected figure graph holds fewer than two routes, so the figure population would be decided by one page',
@@ -316,12 +380,40 @@ export function readFigureRuntimeEvidence(input: {
         `figure runtime evidence records an empty page at ${key}: a blank render cannot decide a figure claim`,
       );
     }
-    const expectedIds = graph.get(observation.route) ?? [];
-    const renderedIds = observation.figures.map(({ imageId }) => imageId);
-    const missing = expectedIds.filter((id) => !renderedIds.includes(id));
-    if (missing.length > 0) {
+    // Registry membership first: a rendered id nobody registered is a more
+    // specific fault than a count that disagrees, and reporting the count
+    // instead would bury it.
+    for (const figure of observation.figures) {
+      if (!registryById.has(figure.imageId)) {
+        throw new Error(
+          `${key} renders a figure for "${figure.imageId}", which the image registry does not hold`,
+        );
+      }
+    }
+    // Multiset equality in BOTH directions. A rendered occurrence the
+    // derivation cannot account for is exactly as serious as a derived one
+    // that never rendered: it means a component draws a figure from data
+    // this walk cannot see, and that figure's provenance row is decided by
+    // nothing.
+    const expectedIds = [...(graph.get(observation.route) ?? [])].sort();
+    const renderedIds = observation.figures.map(({ imageId }) => imageId).sort();
+    if (JSON.stringify(expectedIds) !== JSON.stringify(renderedIds)) {
+      const missing = expectedIds.filter(
+        (id, index) =>
+          expectedIds.filter((other) => other === id).length >
+            renderedIds.filter((other) => other === id).length &&
+          expectedIds.indexOf(id) === index,
+      );
+      const extra = renderedIds.filter(
+        (id, index) =>
+          renderedIds.filter((other) => other === id).length >
+            expectedIds.filter((other) => other === id).length &&
+          renderedIds.indexOf(id) === index,
+      );
       throw new Error(
-        `${key} renders no figure for ${missing[0]}, which the page's own source references`,
+        `${key} renders ${renderedIds.length} figure occurrence(s) where the page's own sources derive ${expectedIds.length}${
+          missing.length > 0 ? `; missing ${missing.join(', ')}` : ''
+        }${extra.length > 0 ? `; unaccounted ${extra.join(', ')}` : ''}`,
       );
     }
     for (const figure of observation.figures) {

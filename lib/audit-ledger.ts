@@ -80,6 +80,15 @@ export interface LedgerSection {
   readonly claimRows: number;
   /** Claim texts whose "Source checked" cell is empty. */
   readonly unsourcedRows: readonly string[];
+  /**
+   * Rows whose verdict settles nothing: the claim was not checked, or the
+   * outcome is written in a vocabulary this grader does not know.
+   */
+  readonly unresolvedRows: readonly { claim: string; verdict: string }[];
+  /** Rows in a table shape that carries no verdict column at all. */
+  readonly unverdictedRows: readonly string[];
+  /** Rows whose verdict is `recorded-inconsistency`. */
+  readonly recordedInconsistencyRows: number;
 }
 
 export type CoverageFailureKind =
@@ -87,7 +96,9 @@ export type CoverageFailureKind =
   | 'unaudited-published-article'
   | 'audited-unpublished-article'
   | 'vacuous-section'
-  | 'unsourced-claim';
+  | 'unsourced-claim'
+  | 'unresolved-claim'
+  | 'unverdicted-claim';
 
 export interface CoverageFailure {
   readonly kind: CoverageFailureKind;
@@ -121,10 +132,21 @@ export interface CoverageSummary {
 const ARTICLE_HEADING = /^#{2,3}\s+([a-z0-9][a-z0-9-]*)\.mdx\b/;
 const TABLE_SEPARATOR = /^\|[\s:|-]+\|$/;
 
+/**
+ * Split a GFM table row on its unescaped delimiters.
+ *
+ * A quoted spec-sheet excerpt inside a cell can itself contain `|`. Splitting
+ * naively shifted every later column left, so two rows in
+ * `audit/data-hardware.md` presented `Chipset` and `273 GB/s` where their
+ * verdict lives - values no verdict grader could recognise, from rows that
+ * were in fact verified.
+ */
 function cells(line: string): string[] {
   const trimmed = line.trim();
   const inner = trimmed.slice(1, trimmed.endsWith('|') ? -1 : undefined);
-  return inner.split('|').map((cell) => cell.trim());
+  return inner
+    .split(/(?<!\\)\|/)
+    .map((cell) => cell.replace(/\\\|/g, '|').trim());
 }
 
 /**
@@ -146,6 +168,73 @@ function sourceColumn(header: readonly string[], ledgerPath: string): number {
   return index;
 }
 
+/**
+ * The index of the column holding the outcome of the check, or -1 when the
+ * table shape has none.
+ */
+function verdictColumn(header: readonly string[]): number {
+  return header.findIndex((cell) => /verdict/i.test(cell));
+}
+
+function noteColumn(header: readonly string[]): number {
+  return header.findIndex((cell) => /note/i.test(cell));
+}
+
+/**
+ * What a ledger verdict cell settles.
+ *
+ * `contract/content-audit.md` is explicit that "a claim the validator could
+ * not check must be reported as a failure, not skipped", so an unresolved
+ * row is a defect and not a note. `recorded-inconsistency` is the separate
+ * outcome the frontier ledger registers as `S`: the source WAS fetched and
+ * read, and what it says disagrees with itself; the row records which
+ * reading the wiki follows and why. That is a checked claim with a closed
+ * outcome, so it passes - but only when it actually carries the source and
+ * the note that make it one.
+ *
+ * `unrecognised` exists so a verdict vocabulary that grows cannot grow past
+ * this grader in silence. A cell nobody here can classify fails.
+ */
+export type VerdictClass =
+  | 'passing'
+  | 'recorded-inconsistency'
+  | 'unresolved'
+  | 'unrecognised';
+
+const PASSING_VERDICT_HEADS = new Set([
+  'v',
+  'verified',
+  'verified-by-convention',
+  'c',
+  'corrected',
+  'cut',
+  'n/a',
+  'a',
+]);
+
+export function classifyVerdict(
+  raw: string,
+  context: { readonly source: string; readonly note: string },
+): VerdictClass {
+  // `**corrected**`, `C (was "eight", ...)`, `V (exclusion recorded)`: the
+  // outcome is the leading token, and the parenthesis is its explanation.
+  const plain = raw.replace(/\*+/g, '').trim();
+  if (plain === '') return 'unrecognised';
+  if (/could not check/i.test(plain)) return 'unresolved';
+  // The leading word, which is the outcome; everything after it is the
+  // explanation ("C (was \"eight\"...)", "Cut (claim removed...)",
+  // "V (exclusion recorded...)", "C twice over: ...").
+  const head = (/^[a-z/]+(?:-[a-z]+)*/i.exec(plain)?.[0] ?? '').toLowerCase();
+  if (head === 'unresolved') return 'unresolved';
+  if (head === 's') {
+    return context.source !== '' && context.note !== ''
+      ? 'recorded-inconsistency'
+      : 'unresolved';
+  }
+  if (PASSING_VERDICT_HEADS.has(head)) return 'passing';
+  return 'unrecognised';
+}
+
 function claimColumn(header: readonly string[]): number {
   const index = header.findIndex((cell) => /claim/i.test(cell));
   return index === -1 ? 0 : index;
@@ -165,6 +254,9 @@ export function parseLedger(
   const order: string[] = [];
   const rows = new Map<string, number>();
   const unsourced = new Map<string, string[]>();
+  const unresolved = new Map<string, { claim: string; verdict: string }[]>();
+  const unverdicted = new Map<string, string[]>();
+  const recorded = new Map<string, number>();
 
   let slug: string | null = null;
   let header: string[] | null = null;
@@ -178,6 +270,9 @@ export function parseLedger(
         order.push(slug);
         rows.set(slug, 0);
         unsourced.set(slug, []);
+        unresolved.set(slug, []);
+        unverdicted.set(slug, []);
+        recorded.set(slug, 0);
       }
       continue;
     }
@@ -199,9 +294,39 @@ export function parseLedger(
     }
     const row = cells(line);
     const source = row[sourceColumn(header, ledgerPath)] ?? '';
+    const claim = row[claimColumn(header)] ?? '';
     rows.set(slug, (rows.get(slug) ?? 0) + 1);
     if (source === '') {
-      unsourced.get(slug)?.push(row[claimColumn(header)] ?? '');
+      unsourced.get(slug)?.push(claim);
+    }
+    // The verdict, which nothing used to read. The reconciliation counted
+    // a row that says "UNRESOLVED - could not check" exactly as it counted
+    // a row that says "verified", so unresolved work was reported as
+    // completed coverage by the gate that was supposed to prove it.
+    const verdictIndex = verdictColumn(header);
+    if (verdictIndex === -1) {
+      unverdicted.get(slug)?.push(claim);
+      continue;
+    }
+    const verdict = row[verdictIndex] ?? '';
+    if (verdict.replace(/\*+/g, '').trim() === '') {
+      unverdicted.get(slug)?.push(claim);
+      continue;
+    }
+    const noteIndex = noteColumn(header);
+    switch (
+      classifyVerdict(verdict, {
+        source,
+        note: noteIndex === -1 ? '' : (row[noteIndex] ?? ''),
+      })
+    ) {
+      case 'passing':
+        break;
+      case 'recorded-inconsistency':
+        recorded.set(slug, (recorded.get(slug) ?? 0) + 1);
+        break;
+      default:
+        unresolved.get(slug)?.push({ claim, verdict });
     }
   }
 
@@ -210,6 +335,9 @@ export function parseLedger(
     ledgerPath,
     claimRows: rows.get(articleSlug) ?? 0,
     unsourcedRows: unsourced.get(articleSlug) ?? [],
+    unresolvedRows: unresolved.get(articleSlug) ?? [],
+    unverdictedRows: unverdicted.get(articleSlug) ?? [],
+    recordedInconsistencyRows: recorded.get(articleSlug) ?? 0,
   }));
 }
 
@@ -267,6 +395,20 @@ export function reconcileDomain(input: ReconcileInput): DomainCoverage {
         kind: 'unsourced-claim',
         domain,
         message: `${domain}: \`${section.slug}\` records a claim with no source checked: "${claim}"`,
+      });
+    }
+    for (const { claim, verdict } of section.unresolvedRows) {
+      failures.push({
+        kind: 'unresolved-claim',
+        domain,
+        message: `${domain}: \`${section.slug}\` records verdict "${verdict.slice(0, 60)}" for "${claim.slice(0, 90)}"; contract/content-audit.md requires a claim the validator could not check to be reported as a failure, not skipped`,
+      });
+    }
+    for (const claim of section.unverdictedRows) {
+      failures.push({
+        kind: 'unverdicted-claim',
+        domain,
+        message: `${domain}: \`${section.slug}\` records a claim in a table with no verdict column, so its outcome is unstated: "${claim.slice(0, 90)}"`,
       });
     }
   }
