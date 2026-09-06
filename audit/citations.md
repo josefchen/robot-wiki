@@ -668,6 +668,13 @@ than added here. That hand-maintained gap is what let the table fall 112
 entries behind the registry over the following fortnight. The 2026-09-06
 re-audit rebuilt the table over all 412 entries and the coverage gate now
 derives the comparison, so the note no longer needs to be kept by hand.
+
+Link liveness over the same 412 entries, re-run 2026-09-06:
+`npm run check:links` reports 391 live (26 verified via Crossref), 0 dead,
+3 blocked, 3 error, 15 documented exceptions; exit 1 on the six it could
+not reach, every one of which is already among the ten unresolved ids
+above. The 307-entry row in the table above is the 2026-08-18 run and is
+kept as history, not as current scope.
 The original session's test/typecheck/build runs are not recorded here
 because their output was not preserved in the ledger and no handoff for
 that session exists.

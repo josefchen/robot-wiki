@@ -237,9 +237,22 @@ Last full run: 2026-09-06 — check:citations 412 checked, 378 ok (73
 verified via Crossref) + 19 documented exceptions, 5 titles unavailable, 4
 title mismatches, 0 dead, 3 blocked, 3 error, 2 archival captures; exit 1
 on the ten unresolved entries the ledger names. Not clean, and not
-claimed to be. `check:links` has not been re-run at 412 entries; its last
-recorded run is 2026-08-18 at 307 checked, 301 live (20 via Crossref), 0
-dead, 0 blocked, 0 error, 6 documented exceptions.
+claimed to be. `check:links` was re-run over the same 412 entries on
+2026-09-06: 391 live (26 verified via Crossref), **0 dead**, 3 blocked
+(technology-org-deployed-2026, a3-orders-2025, kroger-ocado-closures-2025),
+3 error (ng-reward-shaping-1999, astrom-murray-2008, mcgee-schmidt-1985),
+15 documented exceptions; exit 1 on those six. All six are inside the ten
+unresolved ids `check:audit-coverage` already prints, so the two network
+gates agree and neither reports link rot. The earlier note here said this
+sweep had not been run at 412 entries, which was true when written and is
+the fourth stale scope sentence this ledger has carried; it is replaced by
+the measured run rather than amended.
+
+Operational note: `check:links` does complete in this harness when it is
+launched detached (about 100 seconds for 412 URLs), the same finding
+`check:citations` produced on 2026-09-06. Four earlier passes recorded it
+as unrunnable; that was a property of foreground invocation, not of the
+gate.
 
 The dataset-source gate made the market-map URL sweep reproducible for the
 first time (it was previously a one-off `curl` pass). Its first full run
