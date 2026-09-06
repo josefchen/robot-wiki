@@ -23,10 +23,119 @@ still exits nonzero while any claim lacks the required record. Those
 generated summaries distinguish recorded verdicts from complete evidence.
 Missing source passages must be recovered from sources, never invented.
 
-The earlier narrative and counts below are retained as historical audit
-claims, not current acceptance evidence. This tooling/accounting repair
-re-fetched no source, changed no article prose, and moved no `lastReviewed`
-date.
+The earlier narrative and counts in the historical sections below are
+retained as historical audit claims, not current acceptance evidence.
+The original tooling/accounting repair re-fetched no source, changed no
+article prose, and moved no `lastReviewed` date.
+
+### Current structured-record counts (integration batch 1, 2026-09-06)
+
+Counting unit: parsed article claim rows, **not** distinct documents,
+historical verdicts, dataset rows, or citation-registry entries.
+
+| Domain | Articles with records | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|---:|
+| manipulation | 12 | 225 | 4 | 221 |
+| rl-sim2real | 7 | 167 | 6 | 161 |
+| world-models | 5 | 92 | 1 | 91 |
+| data-hardware | 6 | 128 | 0 | 128 |
+| classical | 7 | 187 | 0 | 187 |
+| frontier | 6 | 147 | 0 | 147 |
+| adjacent | 4 | 48 | 0 | 48 |
+| **Corpus** | **47** | **994** | **11** | **983** |
+
+**Not accepted.** This integrated checkpoint combines three completed
+source-recovery slices, not three accepted domain audits. The existing
+registry-aware parser derives all counts above. The 11 complete records
+retain nine recorded-verified and two previously corrected dispositions;
+no historical verdict was promoted and no new production correction was
+applied. All 994 original ordered claim/source/verdict/note records and
+their article populations are preserved against `2cf7d6b`.
+
+The recovered article populations are:
+
+| Article | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|
+| bc-foundations | 14 | 3 | 11 |
+| action-chunking | 32 | 1 | 31 |
+| rl-for-robotics | 52 | 6 | 46 |
+| latent-dynamics | 21 | 1 | 20 |
+
+Source identity, actual passages, and observed retrieval provenance remain
+in the individual ledgers. RL reused four preserved ar5iv bodies fetched
+at the September 6 00:22 UTC session event; the old curl result records
+sizes and exit 0, not HTTP status. DAgger used new FetchUrl responses
+observed at 18:04:33.917Z and 18:04:42.594Z, with reported status 200.
+Dreamer used FetchUrl responses observed at 18:12:13.364Z; only V1
+completes a row. The V3 ar5iv HTTP-200 conversion-error page is not source
+proof, and V2 is not substituted for V1 or V3. Integration made no new
+source request. The remaining-source candidate manifest is planning only,
+not claim verification.
+
+Unresolved production findings remain explicit: TD3's "fixed it"
+overstatement in `rl-sim2real.md`; the unqualified DAgger linear task-cost
+bound, horizon-dependent `u`, and true-versus-empirical epsilon distinction
+in `manipulation.md`; and the Dreamer V1/V3 source attribution, unsupported
+"entire source of the sample efficiency" strengthening, missing V3 body,
+and publication/version boundaries in `world-models.md`. Multi-source
+metadata and compound rows remain incomplete. This audit-only integration
+does not alter article prose, citations, data, parser rules, tests, or
+`lastReviewed`, and does not resolve the separately recorded network gaps.
+
+Combined-tree preservation/source checks, the focused 30-test audit file,
+the content/audit invocation, and the independent whitespace check are
+recorded with exact HEAD, diff, and file hashes under
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/integration-batch1/`.
+Those invocation records, not the earlier six-record results below, are
+the integration evidence. No broad unit, typecheck, lint, build, browser,
+or network gate is rerun for this audit-only checkpoint. The content gate
+remains red. A local checkpoint is not permission to push, publish, accept
+the feature, or advance Mission validation state.
+
+### Historical four-paper checkpoint and ownership boundary
+
+The bounded CQL / robomimic / RLPD / TD3 recovery began at **0 complete /
+994 missing** and completed six existing rows in `rl-for-robotics`:
+that article is **6/52 complete, 46 missing**; the RL domain is **6/167
+complete, 161 missing**. At that checkpoint the corpus was **6 complete /
+988 missing**; the other six domains were unchanged. Every original
+claim, source, verdict and note cell and all article/row populations were
+retained. No source was fetched again; four preserved September 6 00:22 UTC
+ar5iv bodies were checked by identity, source passages, byte count and hash.
+The historical curl result did not record HTTP status, and no HTTP-200 or
+current-liveness claim is made.
+
+One direct TD3 row remains incomplete because "fixed it" overstates the
+paper's reduction/limitation result; its precise unapplied correction is
+recorded in `rl-sim2real.md`. The 27-source P1 batch and other multi-source
+rows remain incomplete rather than being assigned one convenient source.
+No production prose, citation, data, parser, test or `lastReviewed` changed.
+This is partial evidence recovery, **not article, feature or release acceptance**.
+The content gate remains red; no push or build is authorized by these counts.
+
+Recount with `NODE_DISABLE_COMPILE_CACHE=1 npm run check:audit-coverage -- --json`;
+the slice regenerated only the RL summary with the existing
+`parseLedger` / `withLedgerSummary` functions, not a global migration.
+
+Actual focused checks for this slice: `NODE_DISABLE_COMPILE_CACHE=1 npm run
+test -- tests/unit/audit-ledger.test.ts` passed all 30 tests in one file
+(exit 0). `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` passed
+schema/content, source-only no-slop and chart-description checks, then
+failed the audit with **991 findings: 988 incomplete claim rows plus three
+corpus field-count failures** (exit 1). All 47 article IDs and 412 citation
+ledger IDs reconcile; nine recorded network-check gaps remain separately
+named by that invocation, not re-probed or resolved here. No build, browser,
+full-unit, lint or typecheck rerun was performed.
+
+The subsequent final-preservation attempt failed on concurrent DAgger
+edits, before its chained `git diff --check` ran; it produced no successful
+final-verification artifact and no commit. The preserved read-only
+18:18:14.218Z ownership-boundary snapshot then observed **10 complete /
+984 missing**, with the README still at six. The failure log and
+`rl-four-paper-slice/concurrency-boundary.json` remain historical evidence.
+Only after all contributing workers stopped did the owner authorize this
+four-file integration and its separate checks. The old mutating RL helper
+was not rerun against the combined tree.
 
 ## Historical coverage claims and counts
 
@@ -387,7 +496,9 @@ honestly as Sharpa's own release on a wire. Recounted from the committed
 = 34 + 106 + 54 + 24 = 218**, superseding the 215 above. All three URLs were
 probed live with the gate's own browser user agent before being written.
 
-## Unresolved items
+## Historical: Unresolved items
+
+This earlier market-map note is not the current article/citation gap count.
 
 Exactly one, recorded in `market-map.md`: the eka-robotics /
 foundry-robotics funding fields rest on sources that could not be fetched
