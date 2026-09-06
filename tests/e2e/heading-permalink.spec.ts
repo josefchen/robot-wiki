@@ -82,13 +82,13 @@ interface HeadingRow {
 
 test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
   test('every prose h2 and h3 in the corpus has a unique id and a named affordance', async () => {
-    const page = await open('/');
     const rows: HeadingRow[] = [];
     const failures: string[] = [];
 
     for (const entry of publishedModules()) {
       const route = `/${entry.domain}/${entry.slug}/`;
-      await page.goto(`http://127.0.0.1:${server.port}${route}`);
+      const page = await open(route);
+      try {
       const seen = new Set<string>();
       const headings = await page
         .locator(HEADINGS)
@@ -134,12 +134,14 @@ test.describe('heading copy-link affordance (VAL-WIKI-030)', () => {
           failures.push(`${route} #${h.id}: dash in affordance name`);
         }
       }
+      } finally {
+        await page.context().close();
+      }
     }
 
     expect(failures, failures.slice(0, 20).join('\n')).toEqual([]);
     // The corpus bound: a silent zero-match sweep must not read as a pass.
     expect(rows.length).toBeGreaterThan(200);
-    await page.context().close();
   });
 
   for (const route of SAMPLE) {

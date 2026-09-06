@@ -1,0 +1,112 @@
+[
+  {
+    "id": "bc-foundations-frontmatter-p1",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "bc-foundations",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "45402fec2cd8d9d466f1ce3f761bea306b3ecee9c776cb680557690f5f981222",
+    "kind": "frontmatter-p1",
+    "parts": [
+      {
+        "id": "alvinn-1988",
+        "text": "For alvinn-1988, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "requiredCitationIds": [
+          "alvinn-1988"
+        ]
+      },
+      {
+        "id": "dagger-2011",
+        "text": "For dagger-2011, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "requiredCitationIds": [
+          "dagger-2011"
+        ]
+      },
+      {
+        "id": "hg-dagger-2019",
+        "text": "For hg-dagger-2019, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "requiredCitationIds": [
+          "hg-dagger-2019"
+        ]
+      },
+      {
+        "id": "pistar06-blog-2025",
+        "text": "For pistar06-blog-2025, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "requiredCitationIds": [
+          "pistar06-blog-2025"
+        ]
+      },
+      {
+        "id": "act-aloha-2023",
+        "text": "For act-aloha-2023, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "requiredCitationIds": [
+          "act-aloha-2023"
+        ]
+      },
+      {
+        "id": "diffusion-policy-2023",
+        "text": "For diffusion-policy-2023, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "requiredCitationIds": [
+          "diffusion-policy-2023"
+        ]
+      }
+    ],
+    "planReview": null,
+    "evidence": [],
+    "adjudications": []
+  },
+  {
+    "id": "action-chunking-frontmatter-p1",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 32,
+    "originalCellsDigest": "d12ec111c616d10359c59efaadd67c849eb6223798408e57facb1e246745dba4",
+    "kind": "frontmatter-p1",
+    "parts": [
+      {
+        "id": "dagger-2011",
+        "text": "For dagger-2011, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "requiredCitationIds": [
+          "dagger-2011"
+        ]
+      },
+      {
+        "id": "act-aloha-2023",
+        "text": "For act-aloha-2023, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "requiredCitationIds": [
+          "act-aloha-2023"
+        ]
+      },
+      {
+        "id": "mobile-aloha-2024",
+        "text": "For mobile-aloha-2024, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "requiredCitationIds": [
+          "mobile-aloha-2024"
+        ]
+      },
+      {
+        "id": "diffusion-policy-2023",
+        "text": "For diffusion-policy-2023, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "requiredCitationIds": [
+          "diffusion-policy-2023"
+        ]
+      },
+      {
+        "id": "real-time-chunking-2025",
+        "text": "For real-time-chunking-2025, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "requiredCitationIds": [
+          "real-time-chunking-2025"
+        ]
+      },
+      {
+        "id": "pi-real-time-chunking-blog-2025",
+        "text": "For pi-real-time-chunking-blog-2025, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "requiredCitationIds": [
+          "pi-real-time-chunking-blog-2025"
+        ]
+      }
+    ],
+    "planReview": null,
+    "evidence": [],
+    "adjudications": []
+  }
+]

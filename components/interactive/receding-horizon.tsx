@@ -149,7 +149,7 @@ export function RecedingHorizon({
           data-brand-control-id="control:secondary-action"
           type="button"
           onClick={() => set(defaults.tp, defaults.ta)}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
         >
           Diffusion Policy (16/8)
         </button>
@@ -157,7 +157,7 @@ export function RecedingHorizon({
           data-brand-control-id="control:secondary-action"
           type="button"
           onClick={() => set(MAX_TP, MAX_TP)}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
         >
           Open-loop (32/32)
         </button>
@@ -166,7 +166,7 @@ export function RecedingHorizon({
           data-pagefind-ignore
           type="button"
           onClick={() => set(defaults.tp, defaults.ta)}
-          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+          className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
         >
           Reset
         </button>

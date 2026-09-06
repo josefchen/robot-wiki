@@ -118,7 +118,7 @@ export function GraspWrenchLab({ className }: { className?: string }) {
     : 'var(--color-err)';
 
   const buttonBase =
-    'rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:text-text-dim disabled:active:translate-y-0';
+    'rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:text-text-dim disabled:active:translate-y-0';
 
   const addContact = () =>
     setContacts((c) =>

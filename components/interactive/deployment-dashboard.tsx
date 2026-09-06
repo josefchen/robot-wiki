@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { Badge } from '@/components/ui';
+import { useId, useState } from 'react';
+import { Badge, TableScroll } from '@/components/ui';
 import { getCitation } from '@/data/citations';
 import {
   DEPLOYMENT_ROWS,
@@ -42,6 +42,7 @@ const HEADER_CELL =
 export function DeploymentDashboard({ className }: { className?: string }) {
   const [filter, setFilter] = useState<DeploymentFilter>('all');
   const rows = filterDeployments(DEPLOYMENT_ROWS, filter);
+  const captionId = useId();
 
   return (
     <div
@@ -89,14 +90,19 @@ export function DeploymentDashboard({ className }: { className?: string }) {
           data-pagefind-ignore
           type="button"
           onClick={() => setFilter('all')}
-          className="rounded-sm bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
+          className="rounded-sm bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
         >
           Reset
         </button>
       </div>
 
-      <div className="mt-4 overflow-x-auto">
+      <TableScroll labelledBy={captionId} className="mt-4">
         <table className="w-full min-w-[480px] border-collapse text-left">
+          <caption id={captionId} className="sr-only">
+            Deployment programs with their reported value, whether the figure
+            is verified or claimed, and the source behind it. Filter the rows
+            by status above the table.
+          </caption>
           <thead>
             <tr className="border-b border-border">
               <th scope="col" className={HEADER_CELL}>
@@ -163,7 +169,7 @@ export function DeploymentDashboard({ className }: { className?: string }) {
             })}
           </tbody>
         </table>
-      </div>
+      </TableScroll>
     </div>
   );
 }

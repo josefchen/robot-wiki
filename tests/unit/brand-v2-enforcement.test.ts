@@ -18,6 +18,16 @@ import {
 } from '@/lib/brand-v2-reference-rubric';
 import { BRAND_V2_DEEP_ROWS } from '@/lib/brand-v2-runners';
 import {
+  ARTICLE_TRUTH_MANIFEST_KINDS,
+  ARTICLE_TRUTH_POPULATION_SOURCE,
+  articleTruthPopulation,
+  type ArticleTruthManifests,
+} from '@/lib/brand-v2-baseline-truth';
+import {
+  LINK_SAFETY_POPULATION_SOURCE,
+  linkSafetyRouteMembersFromArtifact,
+} from '@/lib/brand-v2-link-safety';
+import {
   AUTHORED_TOKEN_SOURCE,
   deriveSemanticTokenPopulation,
 } from '@/lib/brand-v2-token-evidence';
@@ -138,6 +148,17 @@ import {
   MATERIAL_POPULATION_SOURCE,
   SCHEMATIC_OCCURRENCE_POPULATION_SOURCE,
 } from '@/lib/figure-populations';
+import {
+  TABLE_MATH_EVIDENCE_PATH,
+  equationOccurrenceMembers,
+  readTableMathEvidence,
+  tableMathEvidenceFingerprint,
+  tableOccurrenceMembers,
+} from '@/lib/brand-v2-table-math-evidence';
+import {
+  EQUATION_OCCURRENCE_POPULATION_SOURCE,
+  TABLE_OCCURRENCE_POPULATION_SOURCE,
+} from '@/lib/table-math-populations';
 
 const ROOT = process.cwd();
 const FIXTURE_TEST_FILE = 'tests/unit/brand-v2-enforcement.test.ts';
@@ -148,6 +169,15 @@ function figureEvidence() {
       readFileSync(join(ROOT, FIGURE_RUNTIME_EVIDENCE_PATH), 'utf8'),
     ),
     fingerprint: figureEvidenceFingerprint({ root: ROOT }),
+    root: ROOT,
+  });
+}
+function tableMathEvidence() {
+  return readTableMathEvidence({
+    artifact: JSON.parse(
+      readFileSync(join(ROOT, TABLE_MATH_EVIDENCE_PATH), 'utf8'),
+    ),
+    fingerprint: tableMathEvidenceFingerprint({ root: ROOT }),
     root: ROOT,
   });
 }
@@ -348,8 +378,9 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
     expect(
       validateEnforcementCorpus({
         assertionIds: extractBrandV2Assertions(contract).map(({ id }) => id),
-        populationSources: buildEnforcementPopulationSources({
-          registry,
+        populationSources: {
+          ...buildEnforcementPopulationSources({
+            registry,
           baselineManifestIds: Object.keys(
             JSON.parse(
               readFileSync(
@@ -449,8 +480,50 @@ describe('brand-v2 enforcement map and evidence schemas', () => {
             [MATERIAL_POPULATION_SOURCE]: (
               registry.materials as Array<{ id: string }>
             ).map(({ id }) => id),
-          },
-        }),
+            // The dense-surface lane's two occurrence populations, which are
+            // per table and per equation rather than per route.
+            [TABLE_OCCURRENCE_POPULATION_SOURCE]: tableOccurrenceMembers(
+              tableMathEvidence(),
+            ),
+            [EQUATION_OCCURRENCE_POPULATION_SOURCE]: equationOccurrenceMembers(
+              tableMathEvidence(),
+            ),
+            },
+          }),
+          // The two migration-baseline rows whose sentences quantify over
+          // something narrower than the eleven manifest names: article truth
+          // over the four article-truth manifest classes and the members an
+          // approved delta added to them, link safety over the routes of the
+          // export that carry an outbound anchor. The generator merges them
+          // the same way, outside the shared builder.
+          [ARTICLE_TRUTH_POPULATION_SOURCE]: articleTruthPopulation({
+            baseline: Object.fromEntries(
+              ARTICLE_TRUTH_MANIFEST_KINDS.map((kind) => [
+                kind,
+                JSON.parse(
+                  readFileSync(
+                    join(ROOT, 'evidence', 'brand-v2', 'baseline', `${kind}.json`),
+                    'utf8',
+                  ),
+                ),
+              ]),
+            ) as ArticleTruthManifests,
+            deltas: JSON.parse(
+              readFileSync(
+                join(ROOT, 'contract', 'brand-v2-approved-deltas.json'),
+                'utf8',
+              ),
+            ).entries,
+          }),
+          [LINK_SAFETY_POPULATION_SOURCE]: linkSafetyRouteMembersFromArtifact(
+            JSON.parse(
+              readFileSync(
+                join(ROOT, 'evidence', 'brand-v2', 'link-safety.json'),
+                'utf8',
+              ),
+            ),
+          ),
+        },
         map,
         results,
         testTargetInventory: deriveTestTargetInventory(),

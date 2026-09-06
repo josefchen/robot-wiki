@@ -191,6 +191,7 @@ test.describe('brand-v2 desktop shell and navigation', () => {
    * and identity evidence readers already exist to prevent.
    */
   test('every public route marks its current route, opens on the skip link, and keeps the sealed taxonomy', async ({
+    browser,
     page,
     staticBase,
   }) => {
@@ -204,61 +205,79 @@ test.describe('brand-v2 desktop shell and navigation', () => {
 
     const observations: ShellRouteObservation[] = [];
     for (const route of routes) {
-      const response = await page.goto(`${staticBase}${route}`);
-      expect(response?.status(), route).toBe(200);
-      await page.waitForLoadState('networkidle');
-      await page.evaluate(() => document.fonts.ready);
-      const collected = await page.evaluate(collectShell);
-
-      const restTopPx = await page.evaluate(
-        () =>
-          Math.round(
-            (document
-              .querySelector('a[href="#main-content"]')
-              ?.getBoundingClientRect().top ?? 0) * 100,
-          ) / 100,
-      );
-      await page.keyboard.press('Tab');
-      const focused = await page.evaluate(() => {
-        const el = document.activeElement as HTMLElement | null;
-        if (!el) return null;
-        const style = getComputedStyle(el);
-        const rect = el.getBoundingClientRect();
-        return {
-          tag: el.tagName.toLowerCase(),
-          href: el.getAttribute('href'),
-          text: (el.textContent ?? '').trim(),
-          top: Math.round(rect.top * 100) / 100,
-          visible:
-            rect.top >= 0 &&
-            rect.bottom <= window.innerHeight &&
-            rect.width > 0 &&
-            rect.height > 0,
-          colour: style.color,
-          borderColour: style.borderTopColor,
-        };
-      });
-      expect(focused, `${route} focused nothing on the first Tab`).not.toBeNull();
-      await page.keyboard.press('Enter');
-      const activatedFocusId = await page.evaluate(
-        () => (document.activeElement as HTMLElement | null)?.id ?? null,
-      );
-
-      observations.push({
-        ...collected,
-        route,
-        skipLink: {
-          firstTabStopTag: focused?.tag ?? '',
-          firstTabStopHref: focused?.href ?? null,
-          firstTabStopText: focused?.text ?? '',
-          restTopPx,
-          focusedTopPx: focused?.top ?? -1,
-          visibleWhenFocused: focused?.visible ?? false,
-          colour: focused?.colour ?? '',
-          borderColour: focused?.borderColour ?? '',
-          activatedFocusId,
+      // One context per route, torn down before the next. A renderer keeps
+      // every document the page navigated away from (~26MB per route here),
+      // so a 61-route walk on one page spends over a gigabyte and kills a
+      // later test. The context is built inline rather than through
+      // tests/e2e/helpers/per-route-context.ts because this spec's import
+      // graph is hashed into its evidence fingerprint, and that closure
+      // refuses modules outside its scanned roots.
+      const context = await browser.newContext({
+        viewport: {
+          width: SHELL_VIEWPORT.width,
+          height: SHELL_VIEWPORT.height,
         },
       });
+      const page = await context.newPage();
+      try {
+        const response = await page.goto(`${staticBase}${route}`);
+        expect(response?.status(), route).toBe(200);
+        await page.waitForLoadState('networkidle');
+        await page.evaluate(() => document.fonts.ready);
+        const collected = await page.evaluate(collectShell);
+
+        const restTopPx = await page.evaluate(
+          () =>
+            Math.round(
+              (document
+                .querySelector('a[href="#main-content"]')
+                ?.getBoundingClientRect().top ?? 0) * 100,
+            ) / 100,
+        );
+        await page.keyboard.press('Tab');
+        const focused = await page.evaluate(() => {
+          const el = document.activeElement as HTMLElement | null;
+          if (!el) return null;
+          const style = getComputedStyle(el);
+          const rect = el.getBoundingClientRect();
+          return {
+            tag: el.tagName.toLowerCase(),
+            href: el.getAttribute('href'),
+            text: (el.textContent ?? '').trim(),
+            top: Math.round(rect.top * 100) / 100,
+            visible:
+              rect.top >= 0 &&
+              rect.bottom <= window.innerHeight &&
+              rect.width > 0 &&
+              rect.height > 0,
+            colour: style.color,
+            borderColour: style.borderTopColor,
+          };
+        });
+        expect(focused, `${route} focused nothing on the first Tab`).not.toBeNull();
+        await page.keyboard.press('Enter');
+        const activatedFocusId = await page.evaluate(
+          () => (document.activeElement as HTMLElement | null)?.id ?? null,
+        );
+
+        observations.push({
+          ...collected,
+          route,
+          skipLink: {
+            firstTabStopTag: focused?.tag ?? '',
+            firstTabStopHref: focused?.href ?? null,
+            firstTabStopText: focused?.text ?? '',
+            restTopPx,
+            focusedTopPx: focused?.top ?? -1,
+            visibleWhenFocused: focused?.visible ?? false,
+            colour: focused?.colour ?? '',
+            borderColour: focused?.borderColour ?? '',
+            activatedFocusId,
+          },
+        });
+      } finally {
+        await context.close();
+      }
     }
 
     // The all-expanded taxonomy: only an expanded sidebar exposes every

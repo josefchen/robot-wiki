@@ -57,7 +57,12 @@ export const INK_RGB = 'rgb(11, 11, 12)';
  * has shipped. Section 11 reserves it for focus and link behaviour, so its
  * appearance on a current-route treatment is the drift these rows catch.
  */
-export const SIGNAL_BLUE_FORMS = ['rgb(36, 95, 255)', '#245fff', '#245edb'] as const;
+/**
+ * `#245edb` is deliberately absent: the enforcement map lists it under
+ * "Previous signal values" with zero permitted runtime matches, so
+ * accepting it here would bless the residue the sweep exists to find.
+ */
+export const SIGNAL_BLUE_FORMS = ['rgb(36, 95, 255)', '#245fff'] as const;
 
 /** How a navigation entry sits in the taxonomy, from its own geometry. */
 export type NavEntryCategory =

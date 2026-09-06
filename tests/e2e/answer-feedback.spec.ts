@@ -1,5 +1,6 @@
-import { expect, test, type Locator, type Page } from '@playwright/test';
+import { expect, test, type Browser, type Locator, type Page } from '@playwright/test';
 import { publishedModules } from '../../data/modules';
+import { forEachInOwnContext } from './helpers/per-route-context';
 
 /**
  * Answer-feedback contract (VAL-EDU-042, 043, 044) over every prediction
@@ -214,11 +215,11 @@ function expectCompleteRegions(
 }
 
 /** Every region in the corpus, derived from the module registry. */
-async function derivedRegions(page: Page): Promise<Region[]> {
+async function derivedRegions(browser: Browser): Promise<Region[]> {
   const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
   expect(routes.length, 'no published routes derived from the registry').toBeGreaterThan(0);
   const out: Region[] = [];
-  for (const route of routes) {
+  await forEachInOwnContext(browser, routes, async (page, route) => {
     await page.goto(route);
     const regions = page.locator('[data-predict], [data-self-check]');
     const count = await regions.count();
@@ -229,24 +230,36 @@ async function derivedRegions(page: Page): Promise<Region[]> {
           : 'self-check';
       out.push({ route, kind, index: i });
     }
-  }
+  });
   return out;
 }
 
 test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
-  test('the derived corpus is 8 prediction steps and 6 self-checks', async ({ page }) => {
-    expectCompleteRegions(await derivedRegions(page));
+  // Share only immutable region descriptors, never a page. All four tests
+  // need the same registry walk; repeating it retains no additional proof.
+  // A fresh context for each route releases the previous renderer's memory.
+  let regions: Region[] | undefined;
+
+  test.beforeAll(async ({ browser }) => {
+    // The 47-route isolated sweep is corpus setup, not one page interaction.
+    // Keep its budget separate from the 30s feedback-state test budgets.
+    test.setTimeout(60_000);
+    regions = await derivedRegions(browser);
+  });
+
+  test('the derived corpus is 8 prediction steps and 6 self-checks', () => {
+    expectCompleteRegions(regions);
   });
 
   test('VAL-EDU-042: a commit marks the correct option and the reader pick, in both directions', async ({
-    page,
+    browser,
   }) => {
-    const regions = expectCompleteRegions(await derivedRegions(page));
-    const token = await okToken(page);
+    const complete = expectCompleteRegions(regions);
     let graded = 0;
-    for (const { route, kind, index } of regions) {
+    await forEachInOwnContext(browser, complete, async (page, { route, kind, index }) => {
       const where = `${route} ${kind}#${index}`;
       await page.goto(route);
+      const token = await okToken(page);
       const region = page.locator('[data-predict], [data-self-check]').nth(index);
       const radios = region.locator('fieldset input[type="radio"]');
       const values = await radios.evaluateAll((els) =>
@@ -329,34 +342,17 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
         }
       }
       graded += 1;
-    }
+    });
     expect(graded).toBe(EXPECTED_PREDICT + EXPECTED_SELF_CHECK);
   });
 
   test.describe('shared VAL-EDU-043/044 corpus', () => {
-    /**
-     * This one beforeAll corpus walk is intentionally shared by both tests.
-     * It relies on playwright.config.ts keeping workers: 1 and
-     * fullyParallel disabled. If that serial configuration changes, replace
-     * this shared state with a fixture that populates per test or per worker.
-     */
-    let regions: Region[] | undefined;
-
-    test.beforeAll(async ({ browser }) => {
-      const page = await browser.newPage();
-      try {
-        regions = await derivedRegions(page);
-      } finally {
-        await page.close();
-      }
-    });
-
     test('VAL-EDU-043: the mark survives forced colours, and no verdict word is rendered', async ({
-      page,
+      browser,
     }) => {
       const complete = expectCompleteRegions(regions);
       let graded = 0;
-      for (const { route, kind, index } of complete) {
+      await forEachInOwnContext(browser, complete, async (page, { route, kind, index }) => {
         const where = `${route} ${kind}#${index}`;
         // (b) verdict scan across all four states, before forcing colours.
         await page.goto(route);
@@ -405,17 +401,16 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
         ).not.toBeNull();
         await page.emulateMedia({ forcedColors: null });
         graded += 1;
-      }
+      });
       expect(graded).toBe(EXPECTED_PREDICT + EXPECTED_SELF_CHECK);
     });
 
     test('VAL-EDU-044: nothing is marked before a commit, and the declined state needs no script', async ({
-      page,
       browser,
     }) => {
       const complete = expectCompleteRegions(regions);
       let scriptedGraded = 0;
-      for (const { route, kind, index } of complete) {
+      await forEachInOwnContext(browser, complete, async (page, { route, kind, index }) => {
         const where = `${route} ${kind}#${index}`;
         await page.goto(route);
         const region = page.locator('[data-predict], [data-self-check]').nth(index);
@@ -449,21 +444,16 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
           `${where}: a pick marker in the declined state`,
         ).toEqual([]);
         scriptedGraded += 1;
-      }
+      });
       expect(scriptedGraded).toBe(EXPECTED_PREDICT + EXPECTED_SELF_CHECK);
 
       // (c) the same declined state with no script at all: the marking is
       // CSS driven off data-correct, not applied by a hydration effect.
-      const context = await browser.newContext({ javaScriptEnabled: false });
-      const noJs = await context.newPage();
-      const token = await (async () => {
-        await noJs.goto(complete[0].route);
-        return okToken(noJs);
-      })();
       let noJsGraded = 0;
-      for (const { route, kind, index } of complete) {
+      await forEachInOwnContext(browser, complete, async (noJs, { route, kind, index }) => {
         const where = `${route} ${kind}#${index} (no JS)`;
         await noJs.goto(route);
+        const token = await okToken(noJs);
         const region = noJs.locator('[data-predict], [data-self-check]').nth(index);
         await region.locator('details[data-reveal] > summary').click();
         const rows = await readRows(region);
@@ -480,9 +470,8 @@ test.describe('answer feedback (VAL-EDU-042/043/044)', () => {
         ).not.toBeNull();
         expect(rows.filter((r) => r.selected), `${where}: a selection mark`).toHaveLength(0);
         noJsGraded += 1;
-      }
+      }, { javaScriptEnabled: false });
       expect(noJsGraded).toBe(EXPECTED_PREDICT + EXPECTED_SELF_CHECK);
-      await context.close();
     });
   });
 });

@@ -2,6 +2,7 @@
 
 import { useId, type ReactNode } from 'react';
 import { cx } from '@/lib/utils';
+import { TableScroll } from './table-scroll';
 
 /**
  * The chart-description primitive (VAL-EDU-021..028).
@@ -128,17 +129,7 @@ export function ChartDescription({
           {summary ?? 'Chart data'}
         </summary>
         {form === 'table' ? (
-          <div
-            // Scrollable region on narrow viewports; keyboard-accessible
-            // per the same axe rule as the house Table and .katex-display.
-            // Focusable and anonymous is the failure mode: the region role
-            // plus the disclosure summary as its name mean a screen reader
-            // announces what the box holds when focus lands in it.
-            tabIndex={0}
-            role="region"
-            aria-labelledby={summaryId}
-            className="mt-2 overflow-x-auto"
-          >
+          <TableScroll labelledBy={summaryId} className="mt-2">
             <table className="w-full min-w-[480px] border-collapse text-left">
               <thead>
                 <tr className="border-b border-border">
@@ -178,7 +169,7 @@ export function ChartDescription({
                 ))}
               </tbody>
             </table>
-          </div>
+          </TableScroll>
         ) : (
           <dl className="mt-2 flex flex-col gap-1.5 font-sans text-sm sm:flex-row sm:flex-wrap sm:gap-x-6">
             {states!.map((state) => (

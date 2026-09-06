@@ -14,6 +14,7 @@ import {
   type ChartSnapshot,
   type SliderInfo,
 } from './helpers/table-agreement';
+import { forEachInOwnContext } from './helpers/per-route-context';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
@@ -200,9 +201,9 @@ async function captureCharts(page: import('@playwright/test').Page): Promise<Omi
   });
 }
 
-test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ page }) => {
+test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ browser }) => {
   const charts: CapturedChart[] = [];
-  for (const route of ROUTES) {
+  await forEachInOwnContext(browser, ROUTES, async (page, route) => {
     await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(150);
     for (const c of await captureCharts(page)) {
@@ -229,7 +230,7 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
         })),
       });
     }
-  }
+  });
 
   // Population: derived, non-empty, pinned to the round-1 enumeration.
   expect(charts.length, 'table-form disclosure population').toBeGreaterThanOrEqual(1);
@@ -307,10 +308,10 @@ test('VAL-EDU-023: every table-form disclosure agrees with its chart', async ({ 
   ).toBeLessThanOrEqual(8);
 });
 
-test('VAL-EDU-023 clause (c): control probes move the readout to the sampled rows', async ({ page }) => {
+test('VAL-EDU-023 clause (c): control probes move the readout to the sampled rows', async ({ browser }) => {
   test.setTimeout(240_000);
   const probes: ProbeRecord[] = [];
-  for (const route of ROUTES) {
+  await forEachInOwnContext(browser, ROUTES, async (page, route) => {
     await page.goto(BASE + route, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(150);
     const caps = await captureCharts(page);
@@ -434,7 +435,7 @@ test('VAL-EDU-023 clause (c): control probes move the readout to the sampled row
         { ci, sliderIndex: s.index, value: s.value },
       );
     }
-  }
+  });
   expect(probes.length, 'charts probed by the control clause').toBeGreaterThanOrEqual(6);
   const failed = probes.filter((p) => !p.pass);
   expect(

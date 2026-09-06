@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { publishedModules } from '../../data/modules';
+import { forEachInOwnContext } from './helpers/per-route-context';
 import { RESULT_LIMIT } from '../../lib/search';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
@@ -133,12 +134,11 @@ test.describe('VAL-SEARCH-024: prose results are ranked, with the title weighted
 
   test.beforeAll(async ({ browser }) => {
     test.setTimeout(300_000);
-    const page = await browser.newPage();
     const routes = publishedModules().map((m) => `/${m.domain}/${m.slug}/`);
 
     const headings = new Map<string, string>();
     const bodies = new Map<string, string>();
-    for (const route of routes) {
+    await forEachInOwnContext(browser, routes, async (page, route) => {
       await page.goto(`${BASE}${route}`, { waitUntil: 'domcontentloaded' });
       const { h1, body } = await page.evaluate(() => ({
         h1: document.querySelector('main h1')?.textContent ?? '',
@@ -148,7 +148,7 @@ test.describe('VAL-SEARCH-024: prose results are ranked, with the title weighted
       }));
       headings.set(route, normalize(h1));
       bodies.set(route, normalize(body));
-    }
+    });
 
     cases = [];
     for (const route of routes) {
@@ -163,7 +163,6 @@ test.describe('VAL-SEARCH-024: prose results are ranked, with the title weighted
       if (elsewhere.length === 0) continue;
       cases.push({ query: heading, owner: route, alsoMentionedOn: elsewhere });
     }
-    await page.close();
   });
 
   test('at least 5 title queries are also mentioned in another article', () => {

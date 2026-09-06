@@ -558,6 +558,93 @@ describe('validateContent currency hygiene (remark-math gotcha)', () => {
   });
 });
 
+describe('validateContent display-math fencing (remark-math gotcha)', () => {
+  let root: string;
+
+  beforeEach(() => {
+    root = mkdtempSync(join(tmpdir(), 'robot-wiki-displaymath-'));
+    seedSeeAlsoTargets(root);
+  });
+
+  afterEach(() => {
+    rmSync(root, { recursive: true, force: true });
+  });
+
+  function writeModule(source: string) {
+    writeFileSync(join(root, 'manipulation', 'action-chunking.mdx'), source);
+  }
+
+  function run() {
+    return validateContent({ contentRoot: root, modules: registry, citations });
+  }
+
+  function messages(): string {
+    return run()
+      .map((i) => i.message)
+      .join('\n');
+  }
+
+  it('fails when one line both opens and closes a display equation', () => {
+    writeModule(
+      `${frontmatter()}\n$$\\mathcal{L} = \\mathbb{E}[r] - \\beta D_{KL}$$\n`,
+    );
+    expect(messages()).toContain('display equation written on one line');
+  });
+
+  it('reports the line number and names the fenced form', () => {
+    writeModule(
+      `${frontmatter()}\nFirst line is clean.\n\n$$x_{k+1} = f(x_k)$$\n`,
+    );
+    const text = messages();
+    expect(text).toContain('line 4');
+    expect(text).toMatch(/\$\$ on its own line/);
+  });
+
+  it('flags a line carrying two same-line equations once per line', () => {
+    writeModule(`${frontmatter()}\n$$a = b$$ and $$c = d$$\n`);
+    const hits = run().filter((issue) =>
+      issue.message.includes('display equation written on one line'),
+    );
+    expect(hits).toHaveLength(1);
+  });
+
+  it('passes the fenced form the rest of the corpus uses', () => {
+    writeModule(`${frontmatter()}\n$$\nx_{k+1} = f(x_k)\n$$\n`);
+    expect(run()).toEqual([]);
+  });
+
+  it('passes a fence whose equation starts on the opening line', () => {
+    writeModule(`${frontmatter()}\n$$ x_{k+1} =\nf(x_k)\n$$\n`);
+    expect(run()).toEqual([]);
+  });
+
+  it('passes inline math, which is single-dollar by design', () => {
+    writeModule(
+      `${frontmatter()}\nThe bound is $O(\\varepsilon T^2)$ for every horizon.\n`,
+    );
+    expect(run()).toEqual([]);
+  });
+
+  it('ignores a same-line equation inside a fenced code block', () => {
+    writeModule(
+      `${frontmatter()}\n\`\`\`markdown\n$$e = mc^2$$\n\`\`\`\n`,
+    );
+    expect(run()).toEqual([]);
+  });
+
+  it('ignores a same-line equation inside an inline code span', () => {
+    writeModule(
+      `${frontmatter()}\nNever write \`$$e = mc^2$$\` on one line.\n`,
+    );
+    expect(run()).toEqual([]);
+  });
+
+  it('ignores escaped dollars, which are literal text', () => {
+    writeModule(`${frontmatter()}\nThe pair \\$\\$ is two dollar signs.\n`);
+    expect(run()).toEqual([]);
+  });
+});
+
 describe('validateContent glossary checks (fixtures)', () => {
   let root: string;
 

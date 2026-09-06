@@ -17,4 +17,5 @@ export { SkipLink } from './skip-link';
 export { Stat } from './stat';
 export { Surface, type SurfaceLevel } from './surface';
 export { Table, type Column } from './table';
+export { ScrollRegion, TableScroll } from './table-scroll';
 export { Tabs } from './tabs';

@@ -1,5 +1,23 @@
 # Adjacent domains content-integrity audit
 
+<!-- audit-summary:start -->
+## Current ledger summary
+
+Counting unit: parsed claim rows across all article sections, including continuations.
+Recorded verdicts are not proof of source verification. Incomplete evidence fails the audit.
+
+- Articles with records: 4
+- Claim rows: 48
+- Recorded verified: 47
+- Recorded corrected: 1
+- Recorded cut: 0
+- Recorded source inconsistencies: 0
+- Unresolved or unrecognised verdicts: 0
+- Complete evidence records: 0
+- Incomplete evidence records: 48
+
+<!-- audit-summary:end -->
+
 Date of audit: 2026-08-18 (consolidation pass; these four articles had no
 prior per-domain ledger). Scope: the four published `adjacent` articles
 (autonomous-vehicles, drones, surgical, space), checked against their
@@ -12,7 +30,7 @@ fetching that source. Bot-walled DOI sources were verified through
 Crossref plus a secondary readable copy (PubMed, preprint PDF, or
 first-party press release), as in the frontier audit.
 
-## Summary
+## Historical: Summary
 
 Counting unit: ledger rows, one row per fetched source passage, counted
 from the tables below. Several rows verify several figures from a single

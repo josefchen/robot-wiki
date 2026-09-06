@@ -19,6 +19,7 @@ import {
   sectionHeadingMembers,
   sectionHeadingVerdicts,
   titleSheetResidueVerdicts,
+  titleSheetSourceFacts,
   titleSheetVerdicts,
   type ArticleRuntimeEvidence,
 } from '@/lib/brand-v2-article-evidence';
@@ -76,7 +77,7 @@ describe('the article evidence reader', () => {
     expect(evidence.routes).toEqual(expect.arrayContaining(ARTICLE_ROUTES));
 
     const families = [
-      titleSheetVerdicts(evidence),
+      titleSheetVerdicts(evidence, titleSheetSourceFacts(ROOT)),
       readingSheetVerdicts(evidence),
       linkTreatmentVerdicts(evidence),
       titleSheetResidueVerdicts(evidence),
@@ -211,10 +212,122 @@ describe('the article verdict families', () => {
         block.readingMinutes = null;
       }),
     );
-    const failures = [...titleSheetVerdicts(evidence).values()].flatMap(
+    const failures = [
+      ...titleSheetVerdicts(evidence, titleSheetSourceFacts(ROOT)).values(),
+    ].flatMap(
       ({ failures: own }) => own,
     );
     expect(failures.length).toBeGreaterThanOrEqual(4);
+  });
+
+  it('fails a title sheet whose three facts are plausible and wrong', () => {
+    // Every one of these is well-formed, non-empty and of the right type,
+    // so a presence check reads the sheet as complete. The date is a date,
+    // the reading time is a positive number of minutes, and the count is a
+    // non-negative integer - they are simply not this article's.
+    const facts = titleSheetSourceFacts(ROOT);
+    const route = ARTICLE_ROUTES[0];
+    const truth = facts.get(route)!;
+    const evidence = accept(
+      mutate((e) => {
+        for (const observation of e.observations) {
+          if (observation.route !== route) continue;
+          const block = observation.titleBlock;
+          block.lastReviewed = '2026-01-01';
+          block.reviewDateTime = '2026-01-01';
+          block.reviewDateText = '1 January 2026';
+          block.readingMinutes = (truth.readingMinutes ?? 1) + 3;
+          block.readingTimeText = `${(truth.readingMinutes ?? 1) + 3} min`;
+          block.citationCount = truth.citationIds.length + 2;
+          block.citationCountText = String(truth.citationIds.length + 2);
+        }
+      }),
+    );
+    const failures = [
+      ...titleSheetVerdicts(evidence, facts).values(),
+    ].flatMap(({ failures: own }) => own);
+    expect(failures.join('\n')).toMatch(
+      new RegExp(
+        `${route} prints review date 2026-01-01 where content/.+\\.mdx records ${truth.lastReviewed}`,
+      ),
+    );
+    expect(failures.join('\n')).toMatch(
+      /shows the reader review date "1 January 2026", not/,
+    );
+    expect(failures.join('\n')).toMatch(
+      /prints a \d+ min read where data\/reading-times\.json measured \d+/,
+    );
+    expect(failures.join('\n')).toMatch(
+      /claims \d+ citation\(s\) where its resolved References list holds \d+/,
+    );
+  });
+
+  it('fails a sheet whose rendered words disagree with its own attributes', () => {
+    // The half a data-attribute sweep cannot see: the machine-readable
+    // values stay correct and the reader is shown something else.
+    const facts = titleSheetSourceFacts(ROOT);
+    const evidence = accept(
+      mutate((e) => {
+        for (const observation of e.observations) {
+          const block = observation.titleBlock;
+          if (!observation.isArticle) continue;
+          block.reviewDateText = 'Reviewed recently';
+          block.readingTimeText = 'a short read';
+          block.citationCountText = 'several';
+        }
+      }),
+    );
+    const failures = [
+      ...titleSheetVerdicts(evidence, facts).values(),
+    ].flatMap(({ failures: own }) => own);
+    expect(failures.join('\n')).toMatch(
+      /shows the reader review date "Reviewed recently"/,
+    );
+    expect(failures.join('\n')).toMatch(/shows the reader "a short read"/);
+    expect(failures.join('\n')).toMatch(/shows the reader "several" citations/);
+  });
+
+  it('fails a header count that no longer matches the bibliography below it', () => {
+    const facts = titleSheetSourceFacts(ROOT);
+    const route = ARTICLE_ROUTES[0];
+    const truth = facts.get(route)!;
+    const evidence = accept(
+      mutate((e) => {
+        for (const observation of e.observations) {
+          if (observation.route !== route) continue;
+          observation.titleBlock.bibliographyIds =
+            observation.titleBlock.bibliographyIds.slice(1);
+        }
+      }),
+    );
+    const failures = [
+      ...titleSheetVerdicts(evidence, facts).values(),
+    ].flatMap(({ failures: own }) => own);
+    expect(failures.join('\n')).toMatch(
+      new RegExp(
+        `${route} renders a bibliography of ${
+          truth.citationIds.length - 1
+        } entries that is not its resolved References list \\(missing ${
+          truth.citationIds[0]
+        }`,
+      ),
+    );
+  });
+
+  it('reads the three facts from the sources the template reads', () => {
+    const facts = titleSheetSourceFacts(ROOT);
+    expect(facts.size).toBe(ARTICLE_ROUTES.length);
+    for (const route of ARTICLE_ROUTES) {
+      const fact = facts.get(route);
+      expect(fact, `${route} has no title-sheet source fact`).toBeDefined();
+      // A published article with no review date, no measurement or no
+      // citations would make its own row unfalsifiable, so the facts
+      // themselves are asserted rather than only the comparison.
+      expect(fact!.lastReviewed).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(fact!.readingMinutes).toBeGreaterThan(0);
+      expect(fact!.citationIds.length).toBeGreaterThan(0);
+      expect(new Set(fact!.citationIds).size).toBe(fact!.citationIds.length);
+    }
   });
 
   it('fails a reading sheet measured in the wrong font', () => {
@@ -277,6 +390,151 @@ describe('the article verdict families', () => {
     expect(failures.join('\n')).toMatch(/draws no underline/);
     expect(failures.join('\n')).toMatch(/no non-colour link affordance/);
     expect(failures.join('\n')).toMatch(/not reachable by keyboard/);
+  });
+
+  it('fails a citation class repainted a colour no source path uses', () => {
+    // The class stays internally consistent and stays distinct from every
+    // other class, so a collision check sees nothing; only holding the
+    // citation occurrences to their own locked treatment catches it.
+    const evidence = accept(
+      mutate((e) => {
+        for (const observation of e.observations) {
+          for (const treatment of observation.linkTreatments) {
+            if (treatment.kind !== 'citation') continue;
+            treatment.colour = 'rgb(165, 42, 30)';
+            for (const variant of treatment.variants) {
+              variant.colour = 'rgb(165, 42, 30)';
+              variant.signature = `${variant.signature}|replanted`;
+            }
+          }
+        }
+      }),
+    );
+    const failures = [...linkTreatmentVerdicts(evidence).values()].flatMap(
+      ({ failures: own }) => own,
+    );
+    expect(failures.join('\n')).toMatch(
+      /paints \d+ citation link\(s\) rgb\(165, 42, 30\), not the signal blue §4\.4 locks for inline citations and source links/,
+    );
+    expect(failures.length).toBeGreaterThanOrEqual(ARTICLE_ROUTES.length);
+  });
+
+  it('fails a generated References entry that keeps the colour and loses the underline', () => {
+    const evidence = accept(
+      mutate((e) => {
+        for (const observation of e.observations) {
+          for (const treatment of observation.linkTreatments) {
+            if (treatment.kind !== 'reference') continue;
+            treatment.decorationLine = 'none';
+            for (const variant of treatment.variants) {
+              variant.decorationLine = 'none';
+            }
+          }
+        }
+      }),
+    );
+    const failures = [...linkTreatmentVerdicts(evidence).values()].flatMap(
+      ({ failures: own }) => own,
+    );
+    expect(failures.join('\n')).toMatch(
+      /draws \d+ reference link\(s\) with text-decoration-line "none", so colour is the only mark separating a source path from surrounding text/,
+    );
+  });
+
+  it('fails a route whose source-path population emptied instead of passing', () => {
+    const evidence = accept(
+      mutate((e) => {
+        for (const observation of e.observations) {
+          for (const treatment of observation.linkTreatments) {
+            if (!['citation', 'external', 'reference'].includes(treatment.kind)) {
+              continue;
+            }
+            treatment.variants = [];
+          }
+        }
+      }),
+    );
+    const failures = [...linkTreatmentVerdicts(evidence).values()].flatMap(
+      ({ failures: own }) => own,
+    );
+    expect(failures.join('\n')).toMatch(
+      /graded no citation, external or reference occurrence, so its source-path treatment was decided by an empty population/,
+    );
+  });
+
+  it('fails an action control set in the data face at a size the old band allowed', () => {
+    // 12px is inside the 9-14px `Data/control` band, so the size-only
+    // exemption passed this outright. "Reset" is an instruction, not a
+    // value: nothing about it is fixed-width data to scan.
+    const evidence = accept(
+      mutate((e) => {
+        for (const observation of e.observations) {
+          for (const control of observation.interfaceControls) {
+            if (control.controlId !== 'control:secondary-action') continue;
+            control.familyHead = 'ibm plex mono';
+            control.sizePx = 12;
+          }
+        }
+      }),
+    );
+    const failures = [...roleFaceVerdicts(evidence, ROOT).values()].flatMap(
+      ({ failures: own }) => own,
+    );
+    expect(failures.join('\n')).toMatch(
+      /sets the control ".*" \(<button>, 12px, control:secondary-action\) in ibm plex mono: a control registered to act carries an instruction, not a value, and computes to IBM Plex Sans at every size/,
+    );
+  });
+
+  it('keeps the data-face allowance for the controls that carry a value', () => {
+    const evidence = accept(
+      mutate((e) => {
+        for (const observation of e.observations) {
+          for (const control of observation.interfaceControls) {
+            if (control.controlId !== 'control:selection') continue;
+            control.familyHead = 'ibm plex mono';
+            control.sizePx = 12;
+          }
+        }
+      }),
+    );
+    expect(
+      [...roleFaceVerdicts(evidence, ROOT).values()].flatMap(
+        ({ failures }) => failures,
+      ),
+    ).toEqual([]);
+    // The same control outside the band is still wrong, so the allowance is
+    // the §4.3 row and not a blanket exemption.
+    const oversized = accept(
+      mutate((e) => {
+        for (const observation of e.observations) {
+          for (const control of observation.interfaceControls) {
+            if (control.controlId !== 'control:selection') continue;
+            control.familyHead = 'ibm plex mono';
+            control.sizePx = 20;
+          }
+        }
+      }),
+    );
+    expect(
+      [...roleFaceVerdicts(oversized, ROOT).values()]
+        .flatMap(({ failures }) => failures)
+        .join('\n'),
+    ).toMatch(/which is neither IBM Plex Sans nor the specified 9-14px/);
+  });
+
+  it('refuses a control sweep that stopped reading which control it measured', () => {
+    const evidence = accept(
+      mutate((e) => {
+        for (const observation of e.observations) {
+          for (const control of observation.interfaceControls) {
+            control.controlId = '';
+          }
+        }
+      }),
+    );
+    expect(() => roleFaceVerdicts(evidence, ROOT)).toThrow(
+      /the instructionControls population of the role-face rows is empty/,
+    );
   });
 
   it('fails a prose paragraph set in the display or the data face', () => {

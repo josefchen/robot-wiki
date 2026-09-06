@@ -1,8 +1,576 @@
 {
   "schemaVersion": 1,
   "kind": "accessible-names",
-  "memberCount": 167,
+  "memberCount": 309,
   "members": [
+    {
+      "id": "expression:app/a-z/page.tsx:aria-labelledby:1",
+      "hash": "a56b98dabfb5e4c8d49dea9a362c8d7adc6a285578ef9e1e49059c52d67b851c"
+    },
+    {
+      "id": "expression:components/article/article-links.tsx:aria-labelledby:1",
+      "hash": "ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545"
+    },
+    {
+      "id": "expression:components/article/commit-to-reveal.tsx:aria-labelledby:1",
+      "hash": "5bc5ff9905410c81d29ec5adda60fb2476953f09c42dfb8bc93b08e9408c9e7b"
+    },
+    {
+      "id": "expression:components/article/heading-permalink.tsx:aria-label:1",
+      "hash": "6beaa8541a6a545ab398df8494749d8145b155893c3c1be6aab4283cd33ca1cc"
+    },
+    {
+      "id": "expression:components/interactive/action-conditioning.tsx:aria-label:1",
+      "hash": "4dc263e6a13e5886fbbfbcdaf0da7c6526b9409e66ef6ec0b14bfa3c99406992"
+    },
+    {
+      "id": "expression:components/interactive/action-conditioning.tsx:aria-label:2",
+      "hash": "331448d655ed78fb47e8a8fbb99e31a756768cb4140ffcac5d68819cf7ff768b"
+    },
+    {
+      "id": "expression:components/interactive/action-conditioning.tsx:aria-label:4",
+      "hash": "5b3fb08471bdbfd31c2e1fe41a3eb39e2cc984bf4fbe9f6f38ae5f1c7feb1b5b"
+    },
+    {
+      "id": "expression:components/interactive/action-conditioning.tsx:title:3",
+      "hash": "2cb32ca72407654e64051aec26821a1c64edd6f5aff59732315fae43398c731a"
+    },
+    {
+      "id": "expression:components/interactive/action-tokenization.tsx:aria-label:1",
+      "hash": "d354ea6ead9969f1d5b3a200063ea9f7aa1147be2adf59b72f2c808c894e61bc"
+    },
+    {
+      "id": "expression:components/interactive/action-tokenization.tsx:aria-label:2",
+      "hash": "be91ca1500d96e4cfefc643f7f7955b613a9614d9f559b945c164f976ecece2b"
+    },
+    {
+      "id": "expression:components/interactive/action-tokenization.tsx:aria-label:3",
+      "hash": "7216bbc0f2345866d79b4a54e651a5fed6199f542df63b1b05f738fd88e45cc4"
+    },
+    {
+      "id": "expression:components/interactive/advantage-scrubber.tsx:aria-label:1",
+      "hash": "5320c4d83412cc0acd6f0531ccd3ce06fd08332e464ab3b37628a0845bffecb3"
+    },
+    {
+      "id": "expression:components/interactive/advantage-scrubber.tsx:aria-label:2",
+      "hash": "a3996cc8aa795782b4cb2141f0763d4da0800b85d7b188582f17f0091607a50b"
+    },
+    {
+      "id": "expression:components/interactive/appearance-physics-push.tsx:aria-label:1",
+      "hash": "443b1843e06bad68eef6a43c7d677445c57df83d95573c8d533b6a77061054d1"
+    },
+    {
+      "id": "expression:components/interactive/appearance-physics-push.tsx:aria-label:2",
+      "hash": "6cf78c9f1e33805cc078c4824d15cdd2113a695c3c72e5e7fd330467daa04169"
+    },
+    {
+      "id": "expression:components/interactive/chunk-size-curve.tsx:aria-label:1",
+      "hash": "0d39c7e2edb1e21b2b3f6ba77cdda456138e530538f75955f8a18bd70f43498b"
+    },
+    {
+      "id": "expression:components/interactive/chunk-size-curve.tsx:aria-label:2",
+      "hash": "35b6344f9457b937171cc4a3c13637a434e0cc7695ba6580f9b8245ab29783c9"
+    },
+    {
+      "id": "expression:components/interactive/collaborative-operation-modes.tsx:aria-label:1",
+      "hash": "c4abb1ac4745b513596361623c162070eab1f4e25b6de9cdf4ed39cf6a2014da"
+    },
+    {
+      "id": "expression:components/interactive/collaborative-operation-modes.tsx:aria-label:2",
+      "hash": "b6443a41e2467a76600fcf30f37993ce4c5427657eac64d24e34cdd6d2aede2f"
+    },
+    {
+      "id": "expression:components/interactive/collaborative-operation-modes.tsx:aria-label:3",
+      "hash": "79ec2f32f5e109772a4bef1a05f80e43db6c9612322cc07c442b3d9141c0927f"
+    },
+    {
+      "id": "expression:components/interactive/compounding-error.tsx:aria-label:1",
+      "hash": "94694606375f7b7e40897dd7309215dcff87e4dd2546e4f3364d7a69eba252e2"
+    },
+    {
+      "id": "expression:components/interactive/compounding-error.tsx:aria-label:2",
+      "hash": "4139e204875dd6e1411b89d50adfb2f94d71286dc25281e7b9b585cdeca9c7e7"
+    },
+    {
+      "id": "expression:components/interactive/compounding-error.tsx:aria-label:3",
+      "hash": "0dc6cce12f2210785ef1b77bd4ef616e3bcb6fa1b3064b1bda53945d17ceaed4"
+    },
+    {
+      "id": "expression:components/interactive/compounding-error.tsx:aria-label:4",
+      "hash": "a7354f5f7d221fe30d1eb576a1776147887c1c728975ff47c82db128af2fd407"
+    },
+    {
+      "id": "expression:components/interactive/contact-geometry.tsx:aria-label:1",
+      "hash": "d74c19d3f2da72217b7d3bae3f8e55fbe8c16dab8f113ada1781d61c236696ba"
+    },
+    {
+      "id": "expression:components/interactive/contact-geometry.tsx:aria-label:2",
+      "hash": "2e7f36e4f52b5db23b580291ec4a74764f42a685f42d63666341f22c19c48f63"
+    },
+    {
+      "id": "expression:components/interactive/control-loop-budget.tsx:aria-label:1",
+      "hash": "640bca107b970908e991b01f648cebff7744d22bc075250e609c029d79f39ab3"
+    },
+    {
+      "id": "expression:components/interactive/control-loop-budget.tsx:aria-label:2",
+      "hash": "160d91b1a2d60420a32bc0820fc053ddd577c77f2684e4327dc5d18912f0f09f"
+    },
+    {
+      "id": "expression:components/interactive/cross-embodiment-strategies.tsx:aria-label:1",
+      "hash": "ae7cb503e20d867703a8d8c5fc0d4abf8633f4160096b26b7412875c0c15c647"
+    },
+    {
+      "id": "expression:components/interactive/data-scale-chart.tsx:aria-label:1",
+      "hash": "1a2252276d56bdf8d68436ae097b36dfa8bfcba8112f4a829bf3d4e439fddbea"
+    },
+    {
+      "id": "expression:components/interactive/data-scale-chart.tsx:aria-label:2",
+      "hash": "462ee34925b1486657f2875ff749cdaa1d688e50ccc0cf1b806da1a40f79db5d"
+    },
+    {
+      "id": "expression:components/interactive/dataset-table.tsx:aria-label:1",
+      "hash": "7204473944d05a79c79228f09942e708bb1ef64ccc61ee96199dd77c7d94ee20"
+    },
+    {
+      "id": "expression:components/interactive/denoising-loop.tsx:aria-label:1",
+      "hash": "59ea71d7216b98e231870581e7b4e07756eb94bd21f6b0f74c4ef68d46464ffd"
+    },
+    {
+      "id": "expression:components/interactive/denoising-loop.tsx:aria-label:2",
+      "hash": "b5184c545082f57fe746eaeee2e4b0932ede549f951202b379c32089f863df7d"
+    },
+    {
+      "id": "expression:components/interactive/deployment-economics.tsx:aria-label:1",
+      "hash": "e2f403af501cf8676da660787aceb6c3d44cae1557688ecc685476142c033527"
+    },
+    {
+      "id": "expression:components/interactive/deployment-economics.tsx:aria-label:2",
+      "hash": "b7a1bbfb6a7dcc6a4c4719f331bbe0b64d206999e4a2b9d9921b969ae7032895"
+    },
+    {
+      "id": "expression:components/interactive/egoscale-scaling.tsx:aria-label:1",
+      "hash": "f88f094061770ddf9d2eb111d3b7599bc8005878dc47b81c497894d6cd213e11"
+    },
+    {
+      "id": "expression:components/interactive/egoscale-scaling.tsx:aria-label:2",
+      "hash": "58ff8490a589f0d6fb226da7ced8c6876c2a4accd3af54568b01c56213290dcd"
+    },
+    {
+      "id": "expression:components/interactive/execution-modes.tsx:aria-label:1",
+      "hash": "b2fca5c6e9846c2a79d3b7c86e0b977e92bd33afb0f563f012bb252fc796d451"
+    },
+    {
+      "id": "expression:components/interactive/execution-modes.tsx:aria-label:2",
+      "hash": "a5cd08034950c8a5d4d4dc0c33d651f90767cf034b866b60a81c398663c3156a"
+    },
+    {
+      "id": "expression:components/interactive/flow-matching-trajectory.tsx:aria-label:1",
+      "hash": "5b3d032b37211b8e425c613657e9adb323d9f325b170860d6802f8cdcb83ecc7"
+    },
+    {
+      "id": "expression:components/interactive/flow-matching-trajectory.tsx:aria-label:2",
+      "hash": "785965cefb0e4a3c45abcc363d759743bc31a56915b623958200990f2095d931"
+    },
+    {
+      "id": "expression:components/interactive/friction-transfer.tsx:aria-label:1",
+      "hash": "05e3410a89f58959d397279ad1a010ed6adcf50381af2e5bbea881034cc3a579"
+    },
+    {
+      "id": "expression:components/interactive/friction-transfer.tsx:aria-label:2",
+      "hash": "159d268f4d444e473b671b664fa490d4a9e1d3cbd3a0fa25455ddc53ee4e1223"
+    },
+    {
+      "id": "expression:components/interactive/friction-transfer.tsx:aria-label:3",
+      "hash": "ff4f39707519bc609cbfa385aeb51901dd85856e148ac7010a81d18444d11f61"
+    },
+    {
+      "id": "expression:components/interactive/gait-diagram.tsx:aria-label:1",
+      "hash": "a481a1246abb26b68285a84bc44fd2a1149e79fb7da7ae515c0061ff84c8cbf1"
+    },
+    {
+      "id": "expression:components/interactive/gait-diagram.tsx:aria-label:2",
+      "hash": "85224aae382857d94a46ea77067130b1c682a191b6830fcbe26d737454f9a15d"
+    },
+    {
+      "id": "expression:components/interactive/gait-diagram.tsx:aria-label:3",
+      "hash": "88c976f62aa4cb07a336c40ad72533124ff081b507178c204942ccc87fadddff"
+    },
+    {
+      "id": "expression:components/interactive/generalist-release-timeline.tsx:aria-label:1",
+      "hash": "5b4b2a73b888f5eb98c702f4a7b60564ef018314ce46944956f565aad3792c38"
+    },
+    {
+      "id": "expression:components/interactive/generalist-release-timeline.tsx:aria-label:2",
+      "hash": "86256fe5ef275859890a57fbc0ce09c0714c67ee4224af7975cd4598d7a2f418"
+    },
+    {
+      "id": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:1",
+      "hash": "5d5588b4d851728d8ff5d24d8b82c0a1e430d57412663d46b28d96df931512b7"
+    },
+    {
+      "id": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:2",
+      "hash": "e19c5d84fd999886d25274e4db66479d1af530abb074a350135cedf5bf71589f"
+    },
+    {
+      "id": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:3",
+      "hash": "a47a3268a408a79b507476a215c63dc17712003d1b56eb72d816d485a53abc02"
+    },
+    {
+      "id": "expression:components/interactive/grasp-wrench-lab.tsx:aria-label:4",
+      "hash": "b91013db3393fd8a7c973a3a565bd73075a7e6745162e11696daa7e591866e2a"
+    },
+    {
+      "id": "expression:components/interactive/hand-comparison.tsx:aria-label:1",
+      "hash": "69266c25ff143d0fb9a6d2dce0b9a2c7809c4e67318f98463ed18c6c8129a354"
+    },
+    {
+      "id": "expression:components/interactive/hand-comparison.tsx:aria-label:2",
+      "hash": "266e95385052ab5e090aaf6ecfc8acb880671c72eccd5930f69bd25170d17cb5"
+    },
+    {
+      "id": "expression:components/interactive/hardware-guide.tsx:aria-label:1",
+      "hash": "7204473944d05a79c79228f09942e708bb1ef64ccc61ee96199dd77c7d94ee20"
+    },
+    {
+      "id": "expression:components/interactive/hierarchy-timescales.tsx:aria-label:1",
+      "hash": "604467fa4a867fbd875aa904fc7428b6691d71d64d49c9d9275c419f6bf9488b"
+    },
+    {
+      "id": "expression:components/interactive/hierarchy-timescales.tsx:aria-label:2",
+      "hash": "d315f61f06f0bb15e941686544da907644c50c4c9e246049cb622011c2be4153"
+    },
+    {
+      "id": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:1",
+      "hash": "0d0d749157fb2c0680b3d1bec4e4708667a2a4f60d6acbc4c153465aa6236819"
+    },
+    {
+      "id": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:2",
+      "hash": "fd6e99d22c1ecdc9914c08a29b7cf91beefb864ecd480a6a3e61f2d87da21c04"
+    },
+    {
+      "id": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:3",
+      "hash": "37daf3bfb716335e27ec6a68cd92f9841a40b0c126780e95d4a26662ba832a61"
+    },
+    {
+      "id": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:4",
+      "hash": "880da618cb1740d0331ab86a28d043e5b7b3f454a06f407551e6517d411e69cd"
+    },
+    {
+      "id": "expression:components/interactive/impedance-contact-lab.tsx:aria-label:5",
+      "hash": "e239605a4e741aa095d28b694a3ef71bf9689986111701a6c9a5bfa2b0cd4522"
+    },
+    {
+      "id": "expression:components/interactive/jepa-planning.tsx:aria-label:1",
+      "hash": "b1ddde9e8446c250bab863894d581595f2e356d6c1f68f589c80f1afe9eddd7c"
+    },
+    {
+      "id": "expression:components/interactive/jepa-planning.tsx:aria-label:2",
+      "hash": "33a3db044631c484669e1a0057b109ff678dbccd80ca8273b741f93f77d654a5"
+    },
+    {
+      "id": "expression:components/interactive/jepa-planning.tsx:aria-label:3",
+      "hash": "18c82ed3f88462df9c9d60473ba8650c4138ea1816c36dd1b1690f3c02dcaa4a"
+    },
+    {
+      "id": "expression:components/interactive/kalman-tracker.tsx:aria-label:1",
+      "hash": "60e792adb1f37d670cb225094ef26f3edf154e394366fdc9f081a72d537a5519"
+    },
+    {
+      "id": "expression:components/interactive/kalman-tracker.tsx:aria-label:2",
+      "hash": "fb3891647cbed3dce0a972822bfbdcd65ec2f6cd0207563b7035e9e130c207cd"
+    },
+    {
+      "id": "expression:components/interactive/kalman-tracker.tsx:aria-label:3",
+      "hash": "45b7ff8578fdc102c022cdffed74ed76e415b5ac1f61f617d893292491c1367a"
+    },
+    {
+      "id": "expression:components/interactive/latency-comparison.tsx:aria-label:1",
+      "hash": "ae4da384925c085c266f409973d72fefd275797a8d84eae2411717ea0eaf6bab"
+    },
+    {
+      "id": "expression:components/interactive/latency-comparison.tsx:aria-label:2",
+      "hash": "b1e892324a37ef7e5ffa9e557dad37f05b37d87f295ad6e242edcb955084da34"
+    },
+    {
+      "id": "expression:components/interactive/latency-comparison.tsx:aria-label:3",
+      "hash": "2540454fe1728f272ee08e2cea16bda88998893f2c6683e390c2d9f89bac0154"
+    },
+    {
+      "id": "expression:components/interactive/latent-imagination.tsx:aria-label:1",
+      "hash": "86527a72fcad380278b7105f0f17c2d9bc702d18ae5c44872e8673d117ec8d7e"
+    },
+    {
+      "id": "expression:components/interactive/latent-imagination.tsx:aria-label:2",
+      "hash": "f1d3a8209b7ebb87c7f3a9de868d887e35fe1ccdd17bef3fca06a5dbab96e72e"
+    },
+    {
+      "id": "expression:components/interactive/latent-imagination.tsx:aria-label:3",
+      "hash": "cbd9f5fbd27779d5e7d2074a7f29d30b7e387739b7e5f8f2bef54c66bc099ca4"
+    },
+    {
+      "id": "expression:components/interactive/latent-imagination.tsx:aria-label:4",
+      "hash": "1ddc031d6d180c64bfb8f1be090534e2d0d2ae5cd5a1012624c0332fbfc65026"
+    },
+    {
+      "id": "expression:components/interactive/milestones-watchlist.tsx:aria-label:1",
+      "hash": "9be59015f7c92bd62a9b76d4c30c03f8766eee0ca84b99676a308920ec11ee1f"
+    },
+    {
+      "id": "expression:components/interactive/mot-insulation.tsx:aria-label:1",
+      "hash": "b02cb7e56c872013cde84ab0309172b5c2508fae9253a31eccc6abeb1745f74f"
+    },
+    {
+      "id": "expression:components/interactive/mot-insulation.tsx:aria-label:2",
+      "hash": "50c53902daa2e70fee623ac37f296b70253baf99721c6769548ebec15cc7d1bb"
+    },
+    {
+      "id": "expression:components/interactive/mot-insulation.tsx:aria-label:3",
+      "hash": "bf350c6a3e8e09c9b3e8e83bfae87d4216070ee8d7b1b565706b559c2f079d62"
+    },
+    {
+      "id": "expression:components/interactive/mpc-vs-rl.tsx:aria-label:1",
+      "hash": "037782f322dcea324e5c291a6dcb19ae0a5f453e204bac0fd87f48b31ffbb51e"
+    },
+    {
+      "id": "expression:components/interactive/pendulum-controller.tsx:aria-label:1",
+      "hash": "1fa7c8fceb6e6cb99b35ad334f4e110d076fccba31f4d38b886d258bf16be971"
+    },
+    {
+      "id": "expression:components/interactive/pendulum-controller.tsx:aria-label:2",
+      "hash": "aa8afbbe34f2edc0ef32472a63fa91a203aae524dcb588d00cc62fcfafc7d84f"
+    },
+    {
+      "id": "expression:components/interactive/pendulum-controller.tsx:aria-label:3",
+      "hash": "836eb81006aa2d7734819ae6141217377eca63a3f63f6a8f39464c6b63b73fc4"
+    },
+    {
+      "id": "expression:components/interactive/perception-error-budget.tsx:aria-label:1",
+      "hash": "020dd9eb673ad870adb3c1cc548d058d3410200012890621f8ca3c76b06f59b3"
+    },
+    {
+      "id": "expression:components/interactive/perception-error-budget.tsx:aria-label:2",
+      "hash": "e9c3c9926e8a7a52b8cd9ea65d55c5741b5c1e8c88b60f7884627f2341f94fd3"
+    },
+    {
+      "id": "expression:components/interactive/perception-error-budget.tsx:aria-label:3",
+      "hash": "d3949f4d30798b562ae5f78dc9ce883c4033ccf27e60cfbb89ffdf0d8487e2c0"
+    },
+    {
+      "id": "expression:components/interactive/perception-error-budget.tsx:aria-label:4",
+      "hash": "3e91aa448582853f4489ef50c4b6119686f2f75a464fad0b71b1a865bea6a37d"
+    },
+    {
+      "id": "expression:components/interactive/perception-error-budget.tsx:aria-label:5",
+      "hash": "65d95e5ac75fa14c984bc2ae503a041db831f11fbbaea451188c56f04a29f89a"
+    },
+    {
+      "id": "expression:components/interactive/perception-error-budget.tsx:aria-label:6",
+      "hash": "9f1a4277079af4e214756999b2740a4df1212edce6f1c329dac1404813885982"
+    },
+    {
+      "id": "expression:components/interactive/perception-latency.tsx:aria-label:1",
+      "hash": "6d64eabb721a04c478119c89e3eed2d490e72fd9b9f75b93909300dc2dd990dd"
+    },
+    {
+      "id": "expression:components/interactive/perception-latency.tsx:aria-label:2",
+      "hash": "88c93b50b9550468a9f1a38fd9640270d366a16bf28b78951643a10119ab94f4"
+    },
+    {
+      "id": "expression:components/interactive/pi-generation-timeline.tsx:aria-label:1",
+      "hash": "10da0a2f586e71b2d877aea7b18ad38da283d1367e9adca40af837fcbbad1b4e"
+    },
+    {
+      "id": "expression:components/interactive/pi-generation-timeline.tsx:aria-label:2",
+      "hash": "377f4623c8c930c91a9f58373600a927d43548b2fe9a84db6e42f4753cb2c52b"
+    },
+    {
+      "id": "expression:components/interactive/planar-fk-arm.tsx:aria-label:1",
+      "hash": "85b7e56553fa6f4b4b036e04aeb71db0cdc47311510c71ffe99e3742d070e895"
+    },
+    {
+      "id": "expression:components/interactive/planar-fk-arm.tsx:aria-label:2",
+      "hash": "39bed823555296fe26a17dd62cd8d8a5a395549ede3fff59752e00f2b0b654b4"
+    },
+    {
+      "id": "expression:components/interactive/receding-horizon.tsx:aria-label:1",
+      "hash": "08a70003b208c632c7df577c9a67fb2669457c8837a91635e4966889d0f04590"
+    },
+    {
+      "id": "expression:components/interactive/receding-horizon.tsx:aria-label:2",
+      "hash": "87fd4638fa4bffd68621c75c3d368ccbc3edd433432ffeba992bdb96308aaf2a"
+    },
+    {
+      "id": "expression:components/interactive/receding-horizon.tsx:aria-label:3",
+      "hash": "dd825e19d94e32be31d04cbb7dfd0f7c90b7a54973fce16eb7c3dabaf71c2a43"
+    },
+    {
+      "id": "expression:components/interactive/reliability-compounding.tsx:aria-label:1",
+      "hash": "f304e08bb2139a4f08cb2b343dcbc74913ce56bd190b962c007f657752f575c0"
+    },
+    {
+      "id": "expression:components/interactive/reliability-compounding.tsx:aria-label:2",
+      "hash": "17cf2512f7fc9eb953228423c9db15026e5c8abb54298aee76fdfddbecdb14e4"
+    },
+    {
+      "id": "expression:components/interactive/reliability-compounding.tsx:aria-label:3",
+      "hash": "d055f79f38588f140bfd44a2b8f43205bec6223b9d050a51ee0e3f5ef9698ba5"
+    },
+    {
+      "id": "expression:components/interactive/reward-shaping.tsx:aria-label:1",
+      "hash": "550e11408c76a53562d209abb7732b38297d8da38dff20203303724297ebf951"
+    },
+    {
+      "id": "expression:components/interactive/reward-shaping.tsx:aria-label:2",
+      "hash": "045632e1fbde9b2ac65ab659b94c7989407bdc5e9b06895ddd5488e4e1670f44"
+    },
+    {
+      "id": "expression:components/interactive/reward-shaping.tsx:aria-label:3",
+      "hash": "c69ac205d266028aa32bfa55ee57a76a77b8f6213b8cb17a46af172ed6b7ba35"
+    },
+    {
+      "id": "expression:components/interactive/rrt-explorer.tsx:aria-label:1",
+      "hash": "aa49b46600af577f41f0ee0141b221406fd87186068a664e4790a6cafaf0d383"
+    },
+    {
+      "id": "expression:components/interactive/rrt-explorer.tsx:aria-label:2",
+      "hash": "3f17f0265b73f1c7f87d387b8aa6afa94e3c3d2c61bc3155f129940eb590cd1d"
+    },
+    {
+      "id": "expression:components/interactive/rrt-explorer.tsx:aria-label:3",
+      "hash": "4ee44fefeb578890936071d8cf88f15733c4eb6af9326b670998c8ac177af476"
+    },
+    {
+      "id": "expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:1",
+      "hash": "b54290ee515f863323271c2c7c4415364f255faa25c6861b8dbc6da7041c3218"
+    },
+    {
+      "id": "expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:2",
+      "hash": "020dd9eb673ad870adb3c1cc548d058d3410200012890621f8ca3c76b06f59b3"
+    },
+    {
+      "id": "expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:3",
+      "hash": "010b8bd09dc1953efe1dc71a22bcbaab2bf014c0c9e26d52e3089d19d7749775"
+    },
+    {
+      "id": "expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:4",
+      "hash": "1a237ab15d8401741712b12e9dfabf7d45bae861c5332ddadb9148b9ba25e8bd"
+    },
+    {
+      "id": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:1",
+      "hash": "2389feddad9507672360f2e5499139864e9378f814b33488675e4319c9891612"
+    },
+    {
+      "id": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:2",
+      "hash": "e7faf52a232e26b744996dd015fa5885d87a7a8b90d24c719adf401d841e4a51"
+    },
+    {
+      "id": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:3",
+      "hash": "59864107be5ed1dd4766d5c31dd8633071c95038d62dc04fb1075ffbee4e1404"
+    },
+    {
+      "id": "expression:components/interactive/scene-representation-ladder.tsx:aria-label:4",
+      "hash": "85aabd44794710eb76efdcef135c75106fc9b15fe8e1185e45a7df613e26d791"
+    },
+    {
+      "id": "expression:components/interactive/teacher-student.tsx:aria-label:1",
+      "hash": "14c6b50346804c3fad0919140e6a8a8ec07e8ab96f78de299932367a145da3cd"
+    },
+    {
+      "id": "expression:components/interactive/teacher-student.tsx:aria-label:2",
+      "hash": "f163178fc7b8f1cc8720ddc8bbbd8772e0137886bcd580fda4c9c56528a631d5"
+    },
+    {
+      "id": "expression:components/interactive/thesis-explorer.tsx:aria-label:2",
+      "hash": "9be59015f7c92bd62a9b76d4c30c03f8766eee0ca84b99676a308920ec11ee1f"
+    },
+    {
+      "id": "expression:components/interactive/thesis-explorer.tsx:aria-labelledby:1",
+      "hash": "ce8ca107ba97d02a852a480cb2d9edfb10cf21b4708d2d98c573619a78fd6545"
+    },
+    {
+      "id": "expression:components/interactive/training-time-chart.tsx:aria-label:1",
+      "hash": "0237098f66aa62e902ad9da9063d23fa14b79f36d7abf1b0175466f3a43d5985"
+    },
+    {
+      "id": "expression:components/interactive/training-time-chart.tsx:aria-label:2",
+      "hash": "64082282133a8dcadd899f8a53c0a54393b2c7677008df76396be42118240a74"
+    },
+    {
+      "id": "expression:components/interactive/training-time-chart.tsx:aria-label:3",
+      "hash": "4942c226b5b9c62939c9f88c3ec65d62ea4edb89a3905bf1a63f8dc1cf52dd83"
+    },
+    {
+      "id": "expression:components/interactive/wbc-decomposition.tsx:aria-label:1",
+      "hash": "f6e2703e94768c6120e4726775cde23f6b87836dd2a8d4c0a05bfe0d75920f7d"
+    },
+    {
+      "id": "expression:components/interactive/wm-disambiguator.tsx:aria-label:1",
+      "hash": "2ec786e659e8941603fe30f763c79025f471c6d10e44b61e44ab51fae9f71308"
+    },
+    {
+      "id": "expression:components/interactive/wm-disambiguator.tsx:aria-label:2",
+      "hash": "c35d2243fbe9a9462c65ccb5b7686b7a13d8c39621492c7e5660df319a64b2d4"
+    },
+    {
+      "id": "expression:components/market-map/bubble-view.tsx:aria-label:1",
+      "hash": "beddde4af146d929f5ddf63f3e47b93bf70b1e60514e2f3a4bc12f0404ebe372"
+    },
+    {
+      "id": "expression:components/market-map/company-card.tsx:aria-labelledby:1",
+      "hash": "5a217a65d2f0e4fe52f1f6eddea6ed4c6fd03612057483f67fcbf295cf8bf3f0"
+    },
+    {
+      "id": "expression:components/market-map/grid-view.tsx:aria-labelledby:1",
+      "hash": "1c97b2b0bd826a558fb981ee547a32de332600fa31b0e4116de08a016b5d821a"
+    },
+    {
+      "id": "expression:components/mdx/cite-ref.tsx:title:1",
+      "hash": "72d6213d7ad6a4cc1dc537c171a5bc752c66da10855bbf7484ea0cacb24d70ac"
+    },
+    {
+      "id": "expression:components/mdx/image-ref.tsx:alt:1",
+      "hash": "1f8734b615dd5f8b3f757422acb76bec741fe49bf057cd2969b2f19bf851bd65"
+    },
+    {
+      "id": "expression:components/mdx/prose-heading.tsx:aria-label:1",
+      "hash": "e21585e0aefe30d6b87d6ce41bca401fc13d536ec161c0e7d84b147c6872b9db"
+    },
+    {
+      "id": "expression:components/nav/nav-tree.tsx:aria-label:1",
+      "hash": "d55d37439f362881d118d507ce09f359ca61bb0d69761ce20c97b298e957df39"
+    },
+    {
+      "id": "expression:components/search/results-group.tsx:aria-labelledby:1",
+      "hash": "0facac9dcd7ca95699fcbfce9aa99747edf71c4c66f47e33d009d6467a35e077"
+    },
+    {
+      "id": "expression:components/three/joint-controls.tsx:aria-label:1",
+      "hash": "84ab756341d368ecfe8dd91d68f7a3f4b17009ecb1a096aa9c9716e38e98a5a9"
+    },
+    {
+      "id": "expression:components/three/trajectory-panel.tsx:aria-label:1",
+      "hash": "26b1ac91d9a674f74611364a1e4c4da2d5b54484f721c2e43150c121a8f6ff16"
+    },
+    {
+      "id": "expression:components/ui/aside.tsx:aria-label:1",
+      "hash": "d54ff529567c70aa2cdd74a1be1e74696e038ed219d71317ad042157ec0ae095"
+    },
+    {
+      "id": "expression:components/ui/callout.tsx:aria-label:1",
+      "hash": "c84b16af28f47632aed418982e95df7d307e7d4e9c8c1d85a11153fda9f3565b"
+    },
+    {
+      "id": "expression:components/ui/cite.tsx:aria-label:1",
+      "hash": "0b9b5251e27428a2a934fd2129506979bbd681e5155200e64961e0ff0907dfe0"
+    },
+    {
+      "id": "expression:components/ui/figure.tsx:alt:1",
+      "hash": "6b97733ff68d2c73b9a1d61a862fc3f92d20303d54d9c3217f40ad53fc7cd2c2"
+    },
+    {
+      "id": "expression:components/ui/table.tsx:aria-label:1",
+      "hash": "56471ceacd455dfb31f3b1b1ad1de431f7fb97e9883349b566dacdffc328ddfa"
+    },
     {
       "id": "literal:app/a-z/page.tsx:aria-label:1",
       "hash": "ae3c8b7ac49be08eef69087d31e982cb3f6ca0a173c8d7687f16dd7aae37eb85"
@@ -672,5 +1240,5 @@
       "hash": "d550ad329a599b816b66f380d86d2934984da43e02fcac828437c8e7e4a59feb"
     }
   ],
-  "rootHash": "514fd35de7ca5de51cb1fc0baf43c0308fa1b7712f4be48ce9e49bdef2614d2c"
+  "rootHash": "75ec030397518f812287f4cbc1a32add4af474f16e86c5b76b25712a7c9475a5"
 }

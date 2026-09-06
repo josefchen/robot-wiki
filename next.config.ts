@@ -39,7 +39,7 @@ const withMDX = createMDX({
       // resolves bare strings from its own node_modules context, so a
       // relative './lib/...' specifier is not found. Computed at config
       // load, so the repo stays portable.
-      path.join(process.cwd(), 'lib/rehype-scrollable-math.mjs'),
+      //
       // Runs after rehype-katex: excludes the MathML + TeX annotation span
       // (.katex-mathml) from the Pagefind index so excerpts carry the
       // rendered formula once instead of triplicated.
@@ -61,6 +61,12 @@ const withMDX = createMDX({
         'rehype-pretty-code',
         { theme: 'github-light-high-contrast', keepBackground: false },
       ],
+      // Last on purpose: it names both boxes that scroll inside the prose
+      // column, and one of them - the fenced sample's `<pre>` inside its
+      // titled figure - does not exist until rehype-pretty-code has built
+      // it. The display equations it also names are already in the tree
+      // from rehype-katex above.
+      path.join(process.cwd(), 'lib/rehype-scroll-regions.mjs'),
     ],
   },
 });

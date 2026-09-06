@@ -186,7 +186,7 @@ export function AppearancePhysicsPush({
               onClick={push}
               disabled={atTrackEnd && layers.physics}
               className={cx(
-                'rounded-sm border px-3 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]',
+                'rounded-sm border px-3 py-1.5 font-sans text-xs transition-colors active:translate-y-[1px]',
                 atTrackEnd && layers.physics
                   ? 'cursor-not-allowed border-border bg-surface-2 text-text-dim opacity-50'
                   : 'border-accent text-accent hover:bg-surface-2',
@@ -199,7 +199,7 @@ export function AppearancePhysicsPush({
               data-pagefind-ignore
               type="button"
               onClick={reset}
-              className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+              className="rounded-sm border border-border bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
             >
               Reset
             </button>
