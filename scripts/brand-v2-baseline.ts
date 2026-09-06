@@ -23,7 +23,7 @@ import {
   type ManifestInput,
   type ValueStateRecord,
 } from '../lib/brand-v2-baseline.ts';
-import { CITATIONS } from '../data/citations.ts';
+import { CITATIONS, citationLabel, citationMeta } from '../data/citations.ts';
 import {
   articleFactFrontmatterInputs,
   relationshipManifestInputs,
@@ -566,10 +566,45 @@ function articleMetadata(mdx: PublishedMdx): ManifestInput[] {
     value: jsonValue(citation),
   }));
 
+  /**
+   * The chip and tooltip strings the reader is actually shown, resolved
+   * through the derivation that produces them.
+   *
+   * The members above seal the RECORD - url, title, authors, year, venue -
+   * and `VAL-B2-BASE-002` names "source labels" among the things that must
+   * be identical to the migration baseline. A label is not a field: it is
+   * `citationLabel()` applied to the byline, through `SURNAME_OVERRIDES`,
+   * `ORG_TOKENS` and `BYLINE_OVERRIDES`, and the tooltip is
+   * `citationMeta()` through `venueStatesYear()`. Every one of those could
+   * be rewritten - a surname override removed, the author cut-off moved
+   * from three to two, the year suppressed - and every sealed member above
+   * would still have matched while every chip on the site changed.
+   *
+   * Sealing the resolved strings rather than the functions binds the row to
+   * what a reader sees: a refactor that leaves every label identical is not
+   * a change to the labels, and a one-word edit to an override table is.
+   */
+  const rendered = CITATIONS.map(
+    (citation) =>
+      `${citation.id}\t${citationLabel(citation)}\t${citationMeta(citation)}`,
+  ).sort();
+  if (rendered.length !== CITATIONS.length || CITATIONS.length === 0) {
+    throw new Error(
+      'the citation rendering seal resolved no label at all, so it would seal an empty derivation',
+    );
+  }
+
   return [
     ...articles,
     ...factFrontmatter,
     ...citations,
+    {
+      id: 'citation-rendering:label-and-meta',
+      value: {
+        count: rendered.length,
+        digest: sha256(rendered.join('\n')),
+      },
+    },
     ...ownerPaths.map((path) => ({
       id: `canonical-metadata-source:${path}`,
       value: { path, sourceHash: sha256(source(path)) },

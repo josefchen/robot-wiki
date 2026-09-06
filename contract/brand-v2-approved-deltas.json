@@ -801,6 +801,21 @@
         "VAL-B2-BASE-012"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-citation-rendering-seal-added",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0e79fe7b2d2828ace0e597a938188665ca6a49a1377c5eef7019ac6016e8aea8",
+      "reason": "New sealed member, no existing member touched. VAL-B2-BASE-002 names source labels, and the baseline sealed only the citation RECORDS: url, title, authors, year, venue. The chip a reader sees is citationLabel() resolved through SURNAME_OVERRIDES, ORG_TOKENS and BYLINE_OVERRIDES, and the tooltip is citationMeta() through venueStatesYear(); any of those could be rewritten and every sealed member still matched while every chip on the site changed. This member seals the 412 resolved label and tooltip strings by digest, so the derivation is bound to what it renders. The hash recorded here is the rendering at ac6359f, unchanged by the commit that adds the member.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-002 requires citation targets, source labels and dates to be identical to the migration baseline; this delta records the addition of the member that makes the label half of that requirement checkable, at its pre-existing value.",
+      "responsibleMilestone": "brand-v2",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
