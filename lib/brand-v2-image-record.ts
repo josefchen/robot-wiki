@@ -153,14 +153,16 @@ type StyleBlock = {
 /**
  * The value that wins among declarations of one property.
  *
- * Normal declarations resolve unlayered over layered, then by document
- * order. A property whose value depends on a media query, a `@supports`
+ * Importance wins before layer and document order. Normal declarations
+ * resolve unlayered over layered; important declarations reverse that
+ * relationship. A property whose value depends on a media query, a `@supports`
  * test or two different layers disagreeing is not decidable from bytes, so
  * it is refused by name rather than guessed at.
  */
 function winningValue(
   candidates: ReadonlyArray<{
     value: string;
+    important: boolean;
     conditions: string[];
     layers: string[];
   }>,
@@ -178,8 +180,12 @@ function winningValue(
       )}, so what the export paints depends on a condition this reader cannot resolve; measure it in a browser instead`,
     );
   }
-  const unlayered = candidates.filter(({ layers }) => layers.length === 0);
-  const pool = unlayered.length > 0 ? unlayered : candidates;
+  const important = candidates.filter((candidate) => candidate.important);
+  const priority = important.length > 0 ? important : candidates;
+  const preferred = priority.filter(({ layers }) =>
+    important.length > 0 ? layers.length > 0 : layers.length === 0,
+  );
+  const pool = preferred.length > 0 ? preferred : priority;
   const layerNames = new Set(pool.map(({ layers }) => layers.join('>')));
   const values = new Set(pool.map(({ value }) => value.trim()));
   if (layerNames.size > 1 && values.size > 1) {
@@ -264,8 +270,10 @@ function parseStyleBlocks(css: string): StyleBlock[] {
   return blocks;
 }
 
-function declarationsOf(body: string): Record<string, string> {
-  const declarations: Record<string, string> = {};
+type Declaration = { value: string; important: boolean };
+
+function declarationsOf(body: string): Record<string, Declaration> {
+  const declarations: Record<string, Declaration> = {};
   let depth = 0;
   let current = '';
   const parts: string[] = [];
@@ -285,7 +293,15 @@ function declarationsOf(body: string): Record<string, string> {
     if (separator < 0) continue;
     const property = part.slice(0, separator).trim();
     if (property === '') continue;
-    declarations[property] = part.slice(separator + 1).trim();
+    const raw = part.slice(separator + 1).trim();
+    const important = /!\s*important\s*$/i.test(raw);
+    // Importance also applies to duplicate properties in ONE block. Taking
+    // its last text first would discard the winner before the cascade runs.
+    if (declarations[property]?.important && !important) continue;
+    declarations[property] = {
+      value: raw.replace(/!\s*important\s*$/i, '').trim(),
+      important,
+    };
   }
   return declarations;
 }
@@ -307,7 +323,7 @@ function declaredValue(
     )
     .flatMap(({ body, conditions, layers }) => {
       const declared = declarationsOf(body)[property];
-      return declared === undefined ? [] : [{ value: declared, conditions, layers }];
+      return declared === undefined ? [] : [{ ...declared, conditions, layers }];
     });
   return winningValue(candidates, property);
 }
@@ -366,8 +382,7 @@ export function materialPaintsFromCss(
           .join(', ')}, so what the export paints depends on a cascade this reader cannot resolve; measure it in a browser instead`,
       );
     }
-    // Unlayered over layered, then document order: the cascade a browser
-    // applies to equal-specificity normal declarations, resolved per
+    // Importance, layer precedence, then document order, resolved per
     // property so a rule that sets only the ground does not erase a tile
     // another rule set.
     const rule = own.length > 0 ? own.map(({ body }) => body).join(';') : null;
@@ -380,7 +395,7 @@ export function materialPaintsFromCss(
           const declared = declarationsOf(body)[property];
           return declared === undefined
             ? []
-            : [{ value: declared, conditions, layers }];
+            : [{ ...declared, conditions, layers }];
         }),
         `${selector} { ${property} }`,
       );

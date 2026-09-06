@@ -4,6 +4,8 @@ import matter from 'gray-matter';
 import { z } from 'zod';
 import { DOMAIN_META, modules, publishedModules } from '../data/modules.ts';
 import { getCitation } from '../data/citations.ts';
+import { DEFAULT_THESIS_ID, THESES } from './competing-theses.ts';
+import { MILESTONES } from './bear-case.ts';
 import { publishedBacklinkGraph, resolveArticleEntries } from './backlinks.ts';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
@@ -113,7 +115,9 @@ export function apparatusEvidenceFingerprint(input: { root: string }): string {
             .map(({ mountId, id, spelling }) => `${mountId}#${id}@${spelling}`)
             .join(',')}`,
           `dynamic=${expected.dynamicCitationSites
-            .map(({ mountId, expression }) => `${mountId}#${expression}`)
+            .map(({ mountId, expression, occurrences }) =>
+              `${mountId}#${expression}:${occurrences.map(({ key, id }) => `${key}=${id}`).join('+')}`,
+            )
             .join(',')}`,
           `owners=${expected.mountCitationOwners
             .map(({ mountId, ids }) => `${mountId}#${ids.join('+')}`)
@@ -156,9 +160,9 @@ export type ExpectedApparatus = {
   componentCitationSites: ComponentCitationSite[];
   /**
    * One entry per `<CiteRef id={expression}/>` site whose id is chosen at
-   * render time from a data row. The identity cannot be derived from the
-   * source, but the site's existence can: the mount owes at least one chip
-   * of its own per site, drawn from the vocabulary it can reach.
+   * render time from a data row. Each site carries the COMPLETE default-state
+   * occurrence population derived from its data, not a one-per-expression
+   * floor. Unrecognised mapped sources fail closed.
    */
   dynamicCitationSites: DynamicCitationSite[];
   /**
@@ -184,6 +188,8 @@ export type DynamicCitationSite = {
   sourcePath: string;
   /** The expression as written, so the failure can name the site. */
   expression: string;
+  /** Default selection, side, evidence row and citation position. */
+  occurrences: Array<{ key: string; id: string }>;
 };
 
 export type MountCitationOwner = {
@@ -351,6 +357,45 @@ type RegisteredMount = {
 };
 
 /**
+ * Data-row expansion is specific to the component's state model, not to
+ * JSX site count. These are the two mapped citation sources in the current
+ * census. Another source must supply its own derivation, never
+ * fall back to one arbitrary citation from its reachable vocabulary.
+ */
+function mappedCitationOccurrences(
+  sourcePath: string,
+  expression: string,
+): DynamicCitationSite['occurrences'] {
+  if (sourcePath === 'components/interactive/milestones-watchlist.tsx' && expression === 'id') {
+    const selected = MILESTONES[0];
+    if (!selected || selected.citationIds.length === 0) {
+      throw new Error('the default milestone has no citation occurrences');
+    }
+    return selected.citationIds.map((id, index) => ({
+      key: `${selected.id}/citationIds/${index}`,
+      id,
+    }));
+  }
+  if (sourcePath !== 'components/interactive/thesis-explorer.tsx' || expression !== 'id') {
+    throw new Error(
+      `${sourcePath} has an unmodelled mapped citation id={${expression}}; derive its complete default-state occurrences before grading it`,
+    );
+  }
+  const selected = THESES.find(({ id }) => id === DEFAULT_THESIS_ID);
+  if (!selected) throw new Error('the default thesis has no data row');
+  const occurrences = (['evidenceFor', 'evidenceAgainst'] as const).flatMap((side) =>
+    selected[side].flatMap((row, rowIndex) =>
+      row.citationIds.map((id, citationIndex) => ({
+        key: `${selected.id}/${side}/${rowIndex}/${citationIndex}`,
+        id,
+      })),
+    ),
+  );
+  if (occurrences.length === 0) throw new Error('the default thesis has no citation occurrences');
+  return occurrences;
+}
+
+/**
  * The interactive mounts the census registered, by route.
  *
  * The registry is the same one `VAL-B2-STATE-*` quantifies over, so a
@@ -457,6 +502,7 @@ export function expectedApparatusGraph(
           mountId: mount.id,
           sourcePath: mount.sourcePath,
           expression,
+          occurrences: mappedCitationOccurrences(mount.sourcePath, expression),
         });
       }
       mountCitationOwners.push({
@@ -1100,12 +1146,10 @@ function citationOwnershipFailures(
       );
     }
   }
-  // A data-driven site picks its id from a row, so no derivation names it;
-  // what is derivable is that the site exists and that the id it renders
-  // must come from the vocabulary its own mount reaches. One occurrence per
-  // site is therefore the floor, counted only above what the body and the
-  // fixed sites already owe, so a mount whose chips all disappear is named
-  // instead of absorbed by the article's own citations.
+  // A mapped expression can render many chips, including ids already cited
+  // by body prose. Expand every data row and account for each occurrence
+  // above the body/fixed-site counts. Seven surviving chips cannot cover an
+  // eighth missing chip, nor can another id replace it.
   const dynamicPerMount = new Map<string, DynamicCitationSite[]>();
   for (const site of expected.dynamicCitationSites) {
     dynamicPerMount.set(site.mountId, [
@@ -1120,12 +1164,21 @@ function citationOwnershipFailures(
       (sum, id) => sum + (surplus.get(id) ?? 0),
       0,
     );
-    if (rendered < sites.length) {
+    const occurrences = sites.flatMap((site) => site.occurrences);
+    if (rendered !== occurrences.length) {
       failures.push(
         `${route} renders ${rendered} chip(s) sourced by ${owner.sourcePath} where its ${sites.length} data-driven site(s) [${sites
           .map(({ expression }) => `id={${expression}}`)
-          .join(', ')}] each owe at least one`,
+          .join(', ')}] expand to ${occurrences.length} mapped occurrences`,
       );
+    }
+    for (const [id, count] of tally(occurrences.map((occurrence) => occurrence.id))) {
+      const got = surplus.get(id) ?? 0;
+      if (got !== count) {
+        failures.push(
+          `${route} mapped citation "${id}" in ${owner.sourcePath} renders ${got} occurrence(s), expected ${count} from data rows [${occurrences.filter((occurrence) => occurrence.id === id).map(({ key }) => key).join(', ')}]`,
+        );
+      }
     }
   }
   return failures;

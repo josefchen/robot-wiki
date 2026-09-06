@@ -482,6 +482,42 @@ describe('the apparatus verdict families', () => {
     );
   });
 
+  it('fails one missing mapped citation even when seven mapped citations and every body citation survive', () => {
+    const route = '/frontier/competing-theses/';
+    const id = 'bessemer-robotics-2026';
+    const graph = expectedApparatusGraph(ROOT);
+    const bodyMarkers = graph.get(route)!.citationMarkers;
+    const bodyCount = bodyMarkers.filter(
+      (candidate) => candidate === id,
+    ).length;
+    const evidence = mutate((copy) => {
+      for (const observation of copy.observations) {
+        if (observation.route !== route) continue;
+        const positions = observation.citations
+          .flatMap((chip, index) => (chip.id === id ? [index] : []));
+        expect(positions).toHaveLength(bodyCount + 1);
+        // The final matching chip belongs to closing body prose, not the
+        // explorer. Remove the surplus occurrence that leaves the complete
+        // ordered body subsequence intact, so the old body guard stays green.
+        const victim = positions.reverse().find((position) => {
+          let next = 0;
+          observation.citations.forEach((chip, index) => {
+            if (index !== position && chip.id === bodyMarkers[next]) next += 1;
+          });
+          return next === bodyMarkers.length;
+        });
+        expect(victim).toBeDefined();
+        observation.citations.splice(victim!, 1);
+        expect(observation.citations.filter((chip) => chip.id === id))
+          .toHaveLength(bodyCount);
+      }
+    });
+    expect(
+      relationshipPreservationVerdicts(accept(evidence), ROOT, sourceDrift())
+        .get(route)!.failures.join(' '),
+    ).toMatch(/mapped.*bessemer-robotics-2026/);
+  });
+
   it('refuses a citation-site scan that stopped finding one of its spellings', () => {
     const graph = expectedApparatusGraph(ROOT);
     const spellings = [...graph.values()].flatMap(({ componentCitationSites }) =>

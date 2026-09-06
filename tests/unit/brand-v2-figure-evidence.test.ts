@@ -654,6 +654,49 @@ describe('the record rows', () => {
     );
   });
 
+  it('VAL-B2-IMG-004 preserves earlier important declarations across rules and inside one rule', () => {
+    const materials = [registry.materials.find(({ id }) => id === 'material:halftone')!];
+    const important =
+      "background-image:url('https://sensors.example/lidar-return.png') !important;background-repeat:no-repeat !IMPORTANT";
+    const normal =
+      "background-image:url('data:image/svg+xml,%3Csvg/%3E');background-repeat:repeat";
+    for (const css of [
+      `.material-halftone{${important}}.material-halftone{${normal}}`,
+      `.material-halftone{${important};${normal}}`,
+    ]) {
+      const paints = materialPaintsFromCss(css, materials);
+      expect(paints[0].remoteUrls).toEqual(['https://sensors.example/lidar-return.png']);
+      expect(paints[0].declarations['background-repeat']).toBe('no-repeat');
+      const failures = failuresOf(materialHonestyVerdicts(materials, paints));
+      expect(failures.some((failure) => /fetched at read time/.test(failure))).toBe(true);
+    }
+    const placedTile = materialPaintsFromCss(
+      `.material-halftone{background-repeat:no-repeat !important}.material-halftone{${normal}}`,
+      materials,
+    );
+    expect(
+      failuresOf(materialHonestyVerdicts(materials, placedTile))
+        .some((failure) => /background-repeat "no-repeat"/.test(failure)),
+    ).toBe(true);
+  });
+
+  it('VAL-B2-IMG-004 reverses unlayered precedence for important declarations and applies token importance', () => {
+    const materials = [registry.materials.find(({ id }) => id === 'material:halftone')!];
+    const paints = materialPaintsFromCss(
+      ':root{--ground:#ffffff !important;--ground:#000000}' +
+      '@layer theme{.material-halftone{background-repeat:no-repeat !important}}' +
+      '.material-halftone{background-repeat:repeat !important;background-color:var(--ground)}',
+      materials,
+    );
+    expect(paints[0].declarations['background-repeat']).toBe('no-repeat');
+    expect(paints[0].groundHex).toBe('#ffffff');
+    expect(() => materialPaintsFromCss(
+      '@layer first{.material-halftone{background-repeat:no-repeat !important}}' +
+      '@layer second{.material-halftone{background-repeat:repeat !important}}',
+      materials,
+    )).toThrow(/layer order/);
+  });
+
   it('VAL-B2-IMG-004 refuses a paint it cannot resolve from bytes alone', () => {
     const material = [
       { id: 'material:halftone', treatment: 'owned dot field', deterministic: true, ownership: 'owned' as const },
