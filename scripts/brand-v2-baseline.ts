@@ -24,7 +24,10 @@ import {
   type ValueStateRecord,
 } from '../lib/brand-v2-baseline.ts';
 import { CITATIONS } from '../data/citations.ts';
-import { relationshipManifestInputs } from '../lib/relationship-manifest.ts';
+import {
+  articleFactFrontmatterInputs,
+  relationshipManifestInputs,
+} from '../lib/relationship-manifest.ts';
 import {
   ARTICLE_TRUTH_MANIFEST_KINDS,
   type ArticleTruthKind,
@@ -543,14 +546,7 @@ function articleMetadata(mdx: PublishedMdx): ManifestInput[] {
    * its bibliography, and every article-truth member would still have
    * matched the seal.
    */
-  const factFrontmatter = mdx.map(({ id, path, data }) => ({
-    id: `article-fact-frontmatter:${id}`,
-    value: {
-      path,
-      lastReviewed: String(data.lastReviewed ?? ''),
-      citations: jsonValue(data.citations ?? []),
-    },
-  }));
+  const factFrontmatter = articleFactFrontmatterInputs(ROOT);
 
   /**
    * One member per registered source, holding the record itself rather

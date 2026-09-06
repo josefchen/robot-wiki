@@ -59,3 +59,48 @@ export function currentRelationshipMembers(
     ({ id, hash }) => ({ id, hash }),
   );
 }
+
+/**
+ * The frontmatter facts the title sheet prints and the References list is
+ * generated from: the review date and the declared source list.
+ *
+ * This is the same collector `scripts/brand-v2-baseline.ts` seals as the
+ * `article-fact-frontmatter:` members of the `article-metadata` manifest,
+ * and it lives here for the same reason `relationshipManifestInputs` does.
+ * `VAL-B2-ART-010` needs it because the bibliography a page renders is
+ * derived from `frontmatter.citations` on both sides of its comparison:
+ * adding a valid registry id to that list moves the rendered References
+ * and the derived expectation together, and the `relationships` manifest
+ * hashes only the `<Cite>` markers the body writes, so nothing that row
+ * reads can see the addition. A script may not be imported from inside the
+ * evidence closure, so a second copy of this shape would become a second
+ * definition of the sealed value.
+ */
+export function articleFactFrontmatterInputs(root: string): ManifestInput[] {
+  return publishedModules().map(({ domain, slug }) => {
+    const path = `content/${domain}/${slug}.mdx`;
+    const data = matter(
+      readFileSync(join(root, path), 'utf8').replace(/\r\n/g, '\n'),
+    ).data as Record<string, unknown>;
+    return {
+      id: `article-fact-frontmatter:${domain}/${slug}`,
+      value: {
+        path,
+        lastReviewed: String(data.lastReviewed ?? ''),
+        citations: JSON.parse(
+          JSON.stringify(data.citations ?? []),
+        ) as JsonValue,
+      },
+    };
+  });
+}
+
+/** The rebuilt frontmatter-fact members, hashed as the seal hashed them. */
+export function currentArticleFactFrontmatterMembers(
+  root: string,
+): Array<{ id: string; hash: string }> {
+  return buildManifest(
+    'article-metadata',
+    articleFactFrontmatterInputs(root),
+  ).members.map(({ id, hash }) => ({ id, hash }));
+}

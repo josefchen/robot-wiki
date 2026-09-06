@@ -10,9 +10,11 @@ import {
   breadcrumbTruthVerdicts,
   citationChipVerdicts,
   expectedApparatusGraph,
+  frontmatterFactDrift,
   furnitureReachVerdicts,
   readApparatusRuntimeEvidence,
   readRelationshipDeltas,
+  readSealedFrontmatterFactMembers,
   readSealedRelationshipMembers,
   referenceSheetVerdicts,
   relationshipBaselineDrift,
@@ -21,7 +23,10 @@ import {
   termAffordanceVerdicts,
   type ApparatusRuntimeEvidence,
 } from '@/lib/brand-v2-apparatus-evidence';
-import { currentRelationshipMembers } from '@/lib/relationship-manifest';
+import {
+  currentArticleFactFrontmatterMembers,
+  currentRelationshipMembers,
+} from '@/lib/relationship-manifest';
 import { collectArticleTruthManifests } from '@/scripts/brand-v2-baseline';
 
 /**
@@ -360,7 +365,9 @@ describe('the apparatus verdict families', () => {
       relationshipPreservationVerdicts(mutated, ROOT, sourceDrift()).get(route)!
         .failures.join(' '),
     ).toMatch(
-      new RegExp(`the chip ${site.mountId.replace(/[/:]/g, '.')} cites is gone`),
+      new RegExp(
+        `the literal-spelled chip ${site.mountId.replace(/[/:]/g, '.')} cites is gone`,
+      ),
     );
   });
 
@@ -389,6 +396,175 @@ describe('the apparatus verdict families', () => {
       relationshipPreservationVerdicts(mutated, ROOT, sourceDrift()).get(route)!
         .failures.join(' '),
     ).toMatch(/that neither its body nor any component it mounts sources/);
+  });
+
+  it('fails a component chip whose id is spelled as a constant rather than quoted', () => {
+    // `<CiteRef id={TRANSIENT_CONTACT_LIMIT_CITATION} />` renders exactly
+    // the fixed chip a quoted id would. Recognising only the quoted
+    // spelling left this occurrence with no floor: deleting it from both
+    // viewport readings produced zero failures.
+    const graph = expectedApparatusGraph(ROOT);
+    const identifierSites = [...graph.entries()].flatMap(([route, value]) =>
+      value.componentCitationSites
+        .filter(({ spelling }) => spelling === 'identifier')
+        .map((site) => ({ route, site })),
+    );
+    expect(
+      identifierSites.length,
+      'no constant-valued <CiteRef> site was derived, so this case is vacuous',
+    ).toBeGreaterThan(0);
+    const { route, site } = identifierSites[0];
+    const mutated = accept(
+      mutate((copy) => {
+        for (const observation of copy.observations) {
+          if (observation.route !== route) continue;
+          const victim = observation.citations
+            .map((chip, index) => ({ chip, index }))
+            .filter(({ chip }) => chip.id === site.id)
+            .pop();
+          if (victim) observation.citations.splice(victim.index, 1);
+        }
+      }),
+    );
+    expect(
+      relationshipPreservationVerdicts(mutated, ROOT, sourceDrift()).get(route)!
+        .failures.join(' '),
+    ).toMatch(
+      new RegExp(
+        `renders \\d+ chip\\(s\\) for "${site.id}" .*: the identifier-spelled chip ${site.mountId.replace(/[/:]/g, '.')} cites is gone`,
+      ),
+    );
+  });
+
+  it('fails a mount whose data-driven chips all disappeared', () => {
+    const graph = expectedApparatusGraph(ROOT);
+    const dynamic = [...graph.entries()].filter(
+      ([, value]) => value.dynamicCitationSites.length > 0,
+    );
+    expect(
+      dynamic.length,
+      'no data-driven <CiteRef> site was derived, so this case is vacuous',
+    ).toBeGreaterThan(0);
+    const [route, expected] = dynamic[0];
+    const owner = expected.mountCitationOwners.find(({ mountId }) =>
+      expected.dynamicCitationSites.some((site) => site.mountId === mountId),
+    )!;
+    // The mount's chips repeat ids the body already cites, so removing them
+    // by id removes nothing. What has to go is the surplus: every occurrence
+    // above the count the body and the fixed sites already owe.
+    const owed = new Map<string, number>();
+    for (const id of expected.citationMarkers) {
+      owed.set(id, (owed.get(id) ?? 0) + 1);
+    }
+    for (const site of expected.componentCitationSites) {
+      owed.set(site.id, (owed.get(site.id) ?? 0) + 1);
+    }
+    const mutated = accept(
+      mutate((copy) => {
+        for (const observation of copy.observations) {
+          if (observation.route !== route) continue;
+          const kept = new Map<string, number>();
+          observation.citations = observation.citations.filter((chip) => {
+            const seen = (kept.get(chip.id) ?? 0) + 1;
+            kept.set(chip.id, seen);
+            return !owner.ids.includes(chip.id) || seen <= (owed.get(chip.id) ?? 0);
+          });
+        }
+      }),
+    );
+    expect(
+      relationshipPreservationVerdicts(mutated, ROOT, sourceDrift()).get(route)!
+        .failures.join(' '),
+    ).toMatch(
+      new RegExp(
+        `renders 0 chip\\(s\\) sourced by ${owner.sourcePath.replace(/[/.]/g, '.')} where its \\d+ data-driven site`,
+      ),
+    );
+  });
+
+  it('refuses a citation-site scan that stopped finding one of its spellings', () => {
+    const graph = expectedApparatusGraph(ROOT);
+    const spellings = [...graph.values()].flatMap(({ componentCitationSites }) =>
+      componentCitationSites.map(({ spelling }) => spelling),
+    );
+    expect(new Set(spellings)).toEqual(new Set(['literal', 'identifier']));
+    expect(
+      [...graph.values()].flatMap(
+        ({ dynamicCitationSites }) => dynamicCitationSites,
+      ).length,
+    ).toBeGreaterThan(0);
+  });
+
+  it('binds the References the frontmatter declares to the sealed frontmatter', () => {
+    const sealed = readSealedFrontmatterFactMembers(ROOT);
+    const current = currentArticleFactFrontmatterMembers(ROOT);
+    expect(sealed.length).toBeGreaterThan(0);
+    expect(current.length).toBe(sealed.length);
+    // One collector, two gates: the sealed `article-metadata` manifest and
+    // this row have to hash the frontmatter facts the same way.
+    expect(
+      collectArticleTruthManifests()
+        ['article-metadata'].members.filter(({ id }) =>
+          id.startsWith('article-fact-frontmatter:'),
+        )
+        .map(({ id, hash }) => ({ id, hash })),
+    ).toEqual(current);
+    expect(
+      [
+        ...frontmatterFactDrift({
+          sealed,
+          current,
+          deltas: readRelationshipDeltas(ROOT, 'article-metadata'),
+        }).values(),
+      ].flat(),
+    ).toEqual([]);
+
+    // Appending a valid registry id to `frontmatter.citations` moves the
+    // rendered References list and the derived expectation together, so the
+    // rendered comparison stays green. Only the sealed side can see it.
+    const moved = current.map((member, index) =>
+      index === 0 ? { ...member, hash: '0'.repeat(64) } : member,
+    );
+    expect(
+      [
+        ...frontmatterFactDrift({
+          sealed,
+          current: moved,
+          deltas: readRelationshipDeltas(ROOT, 'article-metadata'),
+        }).values(),
+      ]
+        .flat()
+        .join('\n'),
+    ).toMatch(
+      /changed the frontmatter review date or declared References the migration sealed \([0-9a-f]{12} -> 000000000000\), and no approved delta names the change/,
+    );
+
+    const memberId = current[0].id;
+    const sealedHash = sealed.find(({ id }) => id === memberId)!.hash;
+    expect(
+      [
+        ...frontmatterFactDrift({
+          sealed,
+          current: moved,
+          deltas: [
+            ...readRelationshipDeltas(ROOT, 'article-metadata'),
+            {
+              id: 'test-frontmatter-delta',
+              manifest: 'article-metadata',
+              memberId,
+              oldHash: sealedHash,
+              newHash: '0'.repeat(64),
+            },
+          ],
+        }).values(),
+      ].flat(),
+    ).toEqual([]);
+  });
+
+  it('refuses a frontmatter-fact comparison with an empty side', () => {
+    expect(() =>
+      frontmatterFactDrift({ sealed: [], current: [], deltas: [] }),
+    ).toThrow(/empty side/);
   });
 
   it('binds the derived graph to the sealed manifest instead of to itself', () => {

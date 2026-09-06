@@ -13,7 +13,10 @@ import {
 } from './brand-v2-evidence-closure.ts';
 import { parseEvidenceArtifact } from './brand-v2-evidence-schema.ts';
 import { inlineCitationIds, moduleBody, resolveReferences } from './references.ts';
-import { currentRelationshipMembers } from './relationship-manifest.ts';
+import {
+  currentArticleFactFrontmatterMembers,
+  currentRelationshipMembers,
+} from './relationship-manifest.ts';
 
 /**
  * Evidence for the wiki apparatus an article carries around its prose:
@@ -107,7 +110,10 @@ export function apparatusEvidenceFingerprint(input: { root: string }): string {
           `refs=${expected.references.join(',')}`,
           `cites=${expected.citationMarkers.join(',')}`,
           `sites=${expected.componentCitationSites
-            .map(({ mountId, id }) => `${mountId}#${id}`)
+            .map(({ mountId, id, spelling }) => `${mountId}#${id}@${spelling}`)
+            .join(',')}`,
+          `dynamic=${expected.dynamicCitationSites
+            .map(({ mountId, expression }) => `${mountId}#${expression}`)
             .join(',')}`,
           `owners=${expected.mountCitationOwners
             .map(({ mountId, ids }) => `${mountId}#${ids.join('+')}`)
@@ -141,12 +147,20 @@ export type ExpectedApparatus = {
   /** Citation ids that carry no inline chip: the "Further reading" set. */
   furtherReading: string[];
   /**
-   * One entry per literal `<CiteRef id="..."/>` site written in a component
-   * this route mounts. These chips are as fixed as the body's: the id is in
-   * the component's own source, so the page owes one rendered chip per site
-   * on top of whatever the body cites.
+   * One entry per fixed `<CiteRef id="..."/>` site written in a component
+   * this route mounts, whether the id is quoted at the site or held in a
+   * constant the site names. These chips are as fixed as the body's: the id
+   * is in the component's own module graph, so the page owes one rendered
+   * chip per site on top of whatever the body cites.
    */
   componentCitationSites: ComponentCitationSite[];
+  /**
+   * One entry per `<CiteRef id={expression}/>` site whose id is chosen at
+   * render time from a data row. The identity cannot be derived from the
+   * source, but the site's existence can: the mount owes at least one chip
+   * of its own per site, drawn from the vocabulary it can reach.
+   */
+  dynamicCitationSites: DynamicCitationSite[];
   /**
    * Per mount, every citation id reachable from that component's own module
    * tree. This is the vocabulary a mount may draw from, not a promise about
@@ -161,6 +175,15 @@ export type ComponentCitationSite = {
   mountId: string;
   sourcePath: string;
   id: string;
+  /** How the site spells the id: quoted at the site, or through a constant. */
+  spelling: 'literal' | 'identifier';
+};
+
+export type DynamicCitationSite = {
+  mountId: string;
+  sourcePath: string;
+  /** The expression as written, so the failure can name the site. */
+  expression: string;
 };
 
 export type MountCitationOwner = {
@@ -182,6 +205,66 @@ const CITATION_VOCABULARY_MODULE = 'data/citations.ts';
 
 /** A literal chip site: `<Cite id="x"/>` or `<CiteRef id="x"/>` in JSX. */
 const LITERAL_CITE_SITE = /<Cite(?:Ref)?\s+[^>]*?\bid=["']([^"']+)["']/g;
+
+/** An expression chip site: `<CiteRef id={SOMETHING}/>`. */
+const EXPRESSION_CITE_SITE = /<Cite(?:Ref)?\s+[^>]*?\bid=\{([^}]+)\}/g;
+
+/** A bare identifier, the only expression a constant can be read out of. */
+const BARE_IDENTIFIER = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
+
+/**
+ * The registered citation id a named constant holds, following first-party
+ * imports.
+ *
+ * `<CiteRef id={TRANSIENT_CONTACT_LIMIT_CITATION} />` renders exactly the
+ * same fixed chip as `<CiteRef id="han-force-pain-2024" />`; only the
+ * spelling differs. A scanner that recognised only the quoted spelling gave
+ * the constant-valued sites no floor at all, so the chip could disappear
+ * with every preservation row still green.
+ */
+function resolveCitationIdentifier(
+  root: string,
+  sourcePath: string,
+  name: string,
+  depth = 3,
+  seen = new Set<string>(),
+): string | null {
+  const key = `${sourcePath}#${name}`;
+  if (depth < 0 || seen.has(key) || !BARE_IDENTIFIER.test(name)) return null;
+  seen.add(key);
+  const text = withoutComments(readFileSync(join(root, sourcePath), 'utf8'));
+  const declared = new RegExp(
+    `\\bconst\\s+${name}\\s*(?::[^=\\n]+)?=\\s*['"]([^'"]+)['"]`,
+  ).exec(text);
+  if (declared && getCitation(declared[1] as string)) {
+    return declared[1] as string;
+  }
+  for (const match of text.matchAll(
+    /import\s*(?:type\s*)?\{([^}]*)\}\s*from\s*['"]([^'"]+)['"]/g,
+  )) {
+    const binding = (match[1] as string)
+      .split(',')
+      .map((entry) => entry.trim())
+      .find(
+        (entry) => entry === name || new RegExp(`\\bas\\s+${name}$`).test(entry),
+      );
+    if (binding === undefined) continue;
+    const original = binding.includes(' as ')
+      ? (binding.split(/\s+as\s+/)[0] as string).trim()
+      : name;
+    const next = resolveFirstPartyImport(root, match[2] as string, sourcePath);
+    if (next === null) continue;
+    const resolved = resolveCitationIdentifier(
+      root,
+      next,
+      original,
+      depth - 1,
+      seen,
+    );
+    if (resolved !== null) return resolved;
+  }
+  return null;
+}
 
 /**
  * Source with comments blanked.
@@ -340,6 +423,7 @@ export function expectedApparatusGraph(
     const references = resolveReferences(declared, inline, getCitation);
     const routeMounts = mounts.get(`/${key}/`) ?? [];
     const componentCitationSites: ComponentCitationSite[] = [];
+    const dynamicCitationSites: DynamicCitationSite[] = [];
     const mountCitationOwners: MountCitationOwner[] = [];
     for (const mount of routeMounts) {
       const componentSource = withoutComments(
@@ -350,6 +434,29 @@ export function expectedApparatusGraph(
           mountId: mount.id,
           sourcePath: mount.sourcePath,
           id: match[1] as string,
+          spelling: 'literal',
+        });
+      }
+      for (const match of componentSource.matchAll(EXPRESSION_CITE_SITE)) {
+        const expression = (match[1] as string).trim();
+        const resolved = resolveCitationIdentifier(
+          root,
+          mount.sourcePath,
+          expression,
+        );
+        if (resolved !== null) {
+          componentCitationSites.push({
+            mountId: mount.id,
+            sourcePath: mount.sourcePath,
+            id: resolved,
+            spelling: 'identifier',
+          });
+          continue;
+        }
+        dynamicCitationSites.push({
+          mountId: mount.id,
+          sourcePath: mount.sourcePath,
+          expression,
         });
       }
       mountCitationOwners.push({
@@ -379,6 +486,7 @@ export function expectedApparatusGraph(
         .filter(({ furtherReading }) => furtherReading)
         .map(({ citation }) => citation.id),
       componentCitationSites,
+      dynamicCitationSites,
       mountCitationOwners,
     });
   }
@@ -386,6 +494,29 @@ export function expectedApparatusGraph(
     throw new Error(
       'the expected apparatus graph is empty: no published article was derived, so every preservation verdict would pass vacuously',
     );
+  }
+  // Three site populations, and each one is a scanner that can go quiet
+  // instead of red: a regex that stops matching, a constant resolver that
+  // stops resolving, or an expression classifier that files every dynamic
+  // site as fixed. A silent scanner turns a floor into no floor at all,
+  // which is the exact failure this row was reopened for, so each is
+  // required to find members rather than merely to run.
+  const sites = [...graph.values()].flatMap(
+    ({ componentCitationSites: own }) => own,
+  );
+  const counts = {
+    literal: sites.filter(({ spelling }) => spelling === 'literal').length,
+    identifier: sites.filter(({ spelling }) => spelling === 'identifier').length,
+    dynamic: [...graph.values()].flatMap(
+      ({ dynamicCitationSites: own }) => own,
+    ).length,
+  };
+  for (const [kind, count] of Object.entries(counts)) {
+    if (count === 0) {
+      throw new Error(
+        `the component citation scan found no ${kind} <CiteRef> site in any mounted component, so that spelling imposes no floor on any article`,
+      );
+    }
   }
   cachedGraph = graph;
   return graph;
@@ -741,25 +872,124 @@ export function readSealedRelationshipMembers(
 }
 
 /** The approved deltas, read where every other consumer reads them. */
-export function readRelationshipDeltas(root: string): RelationshipDelta[] {
+export function readRelationshipDeltas(
+  root: string,
+  manifest = 'relationships',
+): RelationshipDelta[] {
   const file = JSON.parse(
     readFileSync(
       join(root, 'contract', 'brand-v2-approved-deltas.json'),
       'utf8',
     ),
   ) as { entries?: RelationshipDelta[] };
-  return (file.entries ?? []).filter(
-    ({ manifest }) => manifest === 'relationships',
+  return (file.entries ?? []).filter((entry) => entry.manifest === manifest);
+}
+
+export const ARTICLE_METADATA_BASELINE_PATH =
+  'evidence/brand-v2/baseline/article-metadata.json';
+
+/** The sealed pre-rollout frontmatter facts, as the migration wrote them. */
+export function readSealedFrontmatterFactMembers(
+  root: string,
+): RelationshipManifestMember[] {
+  const manifest = JSON.parse(
+    readFileSync(join(root, ARTICLE_METADATA_BASELINE_PATH), 'utf8'),
+  ) as { kind?: string; members?: RelationshipManifestMember[] };
+  if (manifest.kind !== 'article-metadata' || !Array.isArray(manifest.members)) {
+    throw new Error(
+      `${ARTICLE_METADATA_BASELINE_PATH} is not a sealed article-metadata manifest`,
+    );
+  }
+  return manifest.members.filter(({ id }) =>
+    id.startsWith('article-fact-frontmatter:'),
   );
+}
+
+/**
+ * The half of "references ... unchanged" that lives in the frontmatter.
+ *
+ * `expectedApparatusGraph` resolves the References list from the frontmatter
+ * the tree is shipping now, so an added or removed declared source moves the
+ * rendered bibliography and the expectation it is compared against in the
+ * same commit. The sealed `article-fact-frontmatter:` members are the side
+ * that cannot move with it.
+ */
+export function frontmatterFactDrift(input: {
+  sealed: readonly RelationshipManifestMember[];
+  current: readonly RelationshipManifestMember[];
+  deltas: readonly RelationshipDelta[];
+}): Map<string, string[]> {
+  const routeOf = (memberId: string) =>
+    `/${memberId.replace(/^article-fact-frontmatter:/, '')}/`;
+  if (input.sealed.length === 0 || input.current.length === 0) {
+    throw new Error(
+      'the frontmatter-fact comparison has an empty side, so every article would read as preserving its declared References',
+    );
+  }
+  const sealedByMember = new Map(
+    input.sealed.map((member) => [member.id, member]),
+  );
+  const deltaByMember = new Map(
+    input.deltas.map((delta) => [delta.memberId, delta]),
+  );
+  const drift = new Map<string, string[]>();
+  const add = (route: string, failure: string) => {
+    drift.set(route, [...(drift.get(route) ?? []), failure]);
+  };
+  const currentIds = new Set(input.current.map(({ id }) => id));
+  for (const sealed of input.sealed) {
+    if (currentIds.has(sealed.id)) continue;
+    throw new Error(
+      `${sealed.id} is sealed in ${ARTICLE_METADATA_BASELINE_PATH} and absent from the tree, so its declared References cannot be compared at all`,
+    );
+  }
+  for (const member of input.current) {
+    const route = routeOf(member.id);
+    const sealed = sealedByMember.get(member.id);
+    const delta = deltaByMember.get(member.id);
+    if (!sealed) {
+      if (!delta) {
+        add(
+          route,
+          `${route} declares frontmatter References the migration baseline never sealed, and no approved delta adds ${member.id}`,
+        );
+      }
+      continue;
+    }
+    if (sealed.hash === member.hash) continue;
+    if (!delta) {
+      add(
+        route,
+        `${route} changed the frontmatter review date or declared References the migration sealed (${sealed.hash.slice(0, 12)} -> ${member.hash.slice(0, 12)}), and no approved delta names the change`,
+      );
+      continue;
+    }
+    if (delta.oldHash !== sealed.hash || delta.newHash !== member.hash) {
+      add(
+        route,
+        `${route} is covered by approved delta ${delta.id} for ${delta.oldHash.slice(0, 12)} -> ${delta.newHash.slice(0, 12)}, but its frontmatter moved ${sealed.hash.slice(0, 12)} -> ${member.hash.slice(0, 12)}`,
+      );
+    }
+  }
+  return drift;
 }
 
 /** The drift map every caller of `VAL-B2-ART-010` passes, built once here. */
 export function relationshipSourceDrift(root: string): Map<string, string[]> {
-  return relationshipBaselineDrift({
+  const drift = relationshipBaselineDrift({
     sealed: readSealedRelationshipMembers(root),
     current: currentRelationshipMembers(root),
     deltas: readRelationshipDeltas(root),
   });
+  const frontmatter = frontmatterFactDrift({
+    sealed: readSealedFrontmatterFactMembers(root),
+    current: currentArticleFactFrontmatterMembers(root),
+    deltas: readRelationshipDeltas(root, 'article-metadata'),
+  });
+  for (const [route, failures] of frontmatter) {
+    drift.set(route, [...(drift.get(route) ?? []), ...failures]);
+  }
+  return drift;
 }
 
 export function relationshipBaselineDrift(input: {
@@ -852,19 +1082,49 @@ function citationOwnershipFailures(
     const got = renderedCounts.get(site.id) ?? 0;
     if (got < want) {
       failures.push(
-        `${route} renders ${got} chip(s) for "${site.id}" where the body and ${site.sourcePath} write ${want}: the chip ${site.mountId} cites is gone`,
+        `${route} renders ${got} chip(s) for "${site.id}" where the body and ${site.sourcePath} write ${want}: the ${site.spelling}-spelled chip ${site.mountId} cites is gone`,
       );
     }
   }
   const ownedByMount = new Set(
     expected.mountCitationOwners.flatMap(({ ids }) => ids),
   );
+  const surplus = new Map<string, number>();
   for (const [id, count] of renderedCounts) {
     const floor = owed.get(id) ?? 0;
     if (count <= floor) continue;
+    surplus.set(id, count - floor);
     if (!ownedByMount.has(id)) {
       failures.push(
         `${route} renders ${count - floor} citation chip(s) for "${id}" that neither its body nor any component it mounts sources`,
+      );
+    }
+  }
+  // A data-driven site picks its id from a row, so no derivation names it;
+  // what is derivable is that the site exists and that the id it renders
+  // must come from the vocabulary its own mount reaches. One occurrence per
+  // site is therefore the floor, counted only above what the body and the
+  // fixed sites already owe, so a mount whose chips all disappear is named
+  // instead of absorbed by the article's own citations.
+  const dynamicPerMount = new Map<string, DynamicCitationSite[]>();
+  for (const site of expected.dynamicCitationSites) {
+    dynamicPerMount.set(site.mountId, [
+      ...(dynamicPerMount.get(site.mountId) ?? []),
+      site,
+    ]);
+  }
+  for (const owner of expected.mountCitationOwners) {
+    const sites = dynamicPerMount.get(owner.mountId) ?? [];
+    if (sites.length === 0) continue;
+    const rendered = owner.ids.reduce(
+      (sum, id) => sum + (surplus.get(id) ?? 0),
+      0,
+    );
+    if (rendered < sites.length) {
+      failures.push(
+        `${route} renders ${rendered} chip(s) sourced by ${owner.sourcePath} where its ${sites.length} data-driven site(s) [${sites
+          .map(({ expression }) => `id={${expression}}`)
+          .join(', ')}] each owe at least one`,
       );
     }
   }
