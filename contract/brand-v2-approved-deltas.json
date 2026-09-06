@@ -223,6 +223,343 @@
         "VAL-B2-IMG-008"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "content-audit-2026-09-06-perception",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "899550dced0889b7b848a2bad16feb7416bc43f5ceca244bd59b759855f5986e",
+      "reason": "Audit correction, not a visual change. `classical/perception` was published on 2026-08-22 and no ledger covered it; it was audited against its cited primary sources on 2026-09-06 and its record is in audit/classical.md. 59 claims checked, 6 corrected: the 1989 hand-eye attribution (Shiu and Ahmad published the same form four months before Tsai and Lenz), the stat note scope, the stereo Z-accuracy bound (the datasheet states plus or minus 2 percent only out to 2 m), the depth-spec measurement condition (a texture-less white target at default laser power, not \"every depth spec\"), Dense Object Nets training time per object rather than per object class, and Dex-Net 2.0's 6.7 million point clouds rather than depth images. Every corrected sentence has a ledger row naming the source that was fetched and the passage that settles it. This delta is registered because the change is fact-CORRECTING rather than fact-preserving, which is exactly the class the allowlist exists to make visible.",
+      "ownerApproval": "contract/content-audit.md P1-P3: a claim the cited source does not support must be corrected, and every correction is recorded in the domain ledger with the fetched source and the passage that settles it. contract/design-integrity.md admits baseline change only through this allowlist, so a fact-CORRECTING edit is registered here rather than folded into the baseline.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-audit-2026-09-06-scene-representation",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "f47db4a00911792f59a384ec06bac53f4e64cf8ccde54e63ac17835f59c80071",
+      "reason": "Audit correction, not a visual change. `classical/scene-representation` was published on 2026-08-22 and no ledger covered it; it was audited against its cited primary sources on 2026-09-06 and its record is in audit/classical.md. 49 claims checked, 3 corrected: the signed-distance sign convention was Curless and Levoy's reverse (their Fig. 6b), so the polarity clause moved onto KinectFusion which states it; DSO's photometric calibration is an accuracy and robustness gain, not a precondition; and NICE-SLAM uses several pretrained decoders, not one. Every corrected sentence has a ledger row naming the source that was fetched and the passage that settles it. This delta is registered because the change is fact-CORRECTING rather than fact-preserving, which is exactly the class the allowlist exists to make visible.",
+      "ownerApproval": "contract/content-audit.md P1-P3: a claim the cited source does not support must be corrected, and every correction is recorded in the domain ledger with the fetched source and the passage that settles it. contract/design-integrity.md admits baseline change only through this allowlist, so a fact-CORRECTING edit is registered here rather than folded into the baseline.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-audit-2026-09-06-industrial-deployment",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "d6d0028698bd85c52502b2d6bfa2ec3db4e9e0cddb2ef481cfec7643c893bdca",
+      "reason": "Audit correction, not a visual change. `data-hardware/industrial-deployment` was published on 2026-08-22 and no ledger covered it; it was audited against its cited primary sources on 2026-09-06 and its record is in audit/data-hardware.md. 52 claims checked, 17 corrected and 1 cut: the cobot share was a unit share reported as a value share, the Kroger write-off figure appears in no cited source, Amazon's page no longer describes Blue Jay and states its speed-ups as \"up to\", the IFR press summary carries no application data at all, Symbotic's 10-K states 50 systems in deployment against 48 operational, and the MIT task force names two co-chairs and an executive director. Every corrected sentence has a ledger row naming the source that was fetched and the passage that settles it. This delta is registered because the change is fact-CORRECTING rather than fact-preserving, which is exactly the class the allowlist exists to make visible.",
+      "ownerApproval": "contract/content-audit.md P1-P3: a claim the cited source does not support must be corrected, and every correction is recorded in the domain ledger with the fetched source and the passage that settles it. contract/design-integrity.md admits baseline change only through this allowlist, so a fact-CORRECTING edit is registered here rather than folded into the baseline.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-004"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-audit-2026-09-06-safety-and-assurance",
+      "manifest": "prose",
+      "memberId": "article:frontier/safety-and-assurance",
+      "oldHash": "2c204df57e99f0e6aeb52ff40985cd7c7933475dd5a58ba87110adecd1280d6f",
+      "newHash": "59b265bf4a5043e0a5ee2193ee3662c302fb8b930de2e81206cf317b1836db98",
+      "reason": "Audit correction, not a visual change. `frontier/safety-and-assurance` was published on 2026-08-22 and no ledger covered it; it was audited against its cited primary sources on 2026-09-06 and its record is in audit/frontier.md. 40 claims checked, 1 corrected: ASIMOV is an evaluation harness for agentic systems on safety-critical robotics tasks, not a pre-execution screen on a policy's action stream. Every corrected sentence has a ledger row naming the source that was fetched and the passage that settles it. This delta is registered because the change is fact-CORRECTING rather than fact-preserving, which is exactly the class the allowlist exists to make visible.",
+      "ownerApproval": "contract/content-audit.md P1-P3: a claim the cited source does not support must be corrected, and every correction is recorded in the domain ledger with the fetched source and the passage that settles it. contract/design-integrity.md admits baseline change only through this allowlist, so a fact-CORRECTING edit is registered here rather than folded into the baseline.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-audit-2026-09-06-rl-for-robotics",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c",
+      "newHash": "8c24f485ea7274f5f74f24bd87d17d361ff03ff532955d49742af746fe74d9ad",
+      "reason": "Audit correction, not a visual change. `rl-sim2real/rl-for-robotics` was published on 2026-08-22 and no ledger covered it; it was audited against its cited primary sources on 2026-09-06 and its record is in audit/rl-sim2real.md. 52 claims checked, 8 corrected: the per-step wall clock derivable from Rudin is under 8.2 microseconds rather than a fraction of one, SAC names two challenges rather than one, the on-policy hardware claim was an uncited universal, CQL maximizes Q under the data distribution rather than leaving it alone, robomimic reports BCQ strongly and CQL weakly on mixed agent data, and the autonomous-RL metric is a bounded intervention budget scored over the whole training lifetime. Every corrected sentence has a ledger row naming the source that was fetched and the passage that settles it. This delta is registered because the change is fact-CORRECTING rather than fact-preserving, which is exactly the class the allowlist exists to make visible.",
+      "ownerApproval": "contract/content-audit.md P1-P3: a claim the cited source does not support must be corrected, and every correction is recorded in the domain ledger with the fetched source and the passage that settles it. contract/design-integrity.md admits baseline change only through this allowlist, so a fact-CORRECTING edit is registered here rather than folded into the baseline.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-rl-finetuning-display-math-delimiters",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "8a0f433c78e6aedaa4b5e0c2729fd6f36cf4141af498cb19042a663b41ebdb87",
+      "reason": "Pipeline fix, not a prose edit. The KL-regularized objective carried both `$$` delimiters on one line, which remark-math reads as inline, so the equation rendered as running text instead of a display block with its own scroll box. Landed by brand-v2-article-tables-code-math-and-wide-layouts (73bea3b). The equation, its symbols, its citation and every surrounding sentence are unchanged; only the delimiter placement moved onto its own lines.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-007: every display equation renders as a display block with an accessible textual alternative, which an inline-parsed equation cannot satisfy.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-table-scroll-name-av-stack-table",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/mdx/av-stack-table.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "fadcb5e690f0d78e4aa8842858afc250065ef0a7c2503327fe5c1c140c10a10e",
+      "reason": "Fact-preserving accessible-name addition. `components/mdx/av-stack-table.tsx` renders its comparison table inside the shared TableScroll primitive, which requires the scroll region to carry a name so the columns past its right edge are reachable without a pointer. The added name is \"Autonomous driving stack stages\", which restates the subject the table already prints; no cell, figure, unit, citation or attribution changed. Added by brand-v2-article-tables-code-math-and-wide-layouts (73bea3b).",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-008: a table that scrolls must be a keyboard-reachable region with an accessible name. The name states the table subject already printed in its caption; no cell, figure or attribution changed.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-table-scroll-name-dh-parameter-table",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/mdx/dh-parameter-table.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3138f95335e2674447a9fea32903b49bdc7225df5d2d464e1ea182e6d2c7345e",
+      "reason": "Fact-preserving accessible-name addition. `components/mdx/dh-parameter-table.tsx` renders its comparison table inside the shared TableScroll primitive, which requires the scroll region to carry a name so the columns past its right edge are reachable without a pointer. The added name is \"Denavit-Hartenberg parameters of the planar 3R arm\", which restates the subject the table already prints; no cell, figure, unit, citation or attribution changed. Added by brand-v2-article-tables-code-math-and-wide-layouts (73bea3b).",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-008: a table that scrolls must be a keyboard-reachable region with an accessible name. The name states the table subject already printed in its caption; no cell, figure or attribution changed.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-table-scroll-name-gr2-results-table",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/mdx/gr2-results-table.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4fb90bdb5e2cc263136a93b3eeaaa68d808d64f867197e05c4899def800c8b11",
+      "reason": "Fact-preserving accessible-name addition. `components/mdx/gr2-results-table.tsx` renders its comparison table inside the shared TableScroll primitive, which requires the scroll region to carry a name so the columns past its right edge are reachable without a pointer. The added name is \"Gemini Robotics 2 published success rates\", which restates the subject the table already prints; no cell, figure, unit, citation or attribution changed. Added by brand-v2-article-tables-code-math-and-wide-layouts (73bea3b).",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-008: a table that scrolls must be a keyboard-reachable region with an accessible name. The name states the table subject already printed in its caption; no cell, figure or attribution changed.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-table-scroll-name-mdp-comparison",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/mdx/mdp-comparison.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2215c1607681ba089b464cf0b8d72d9cde06e112d636c47410b6644f106119e0",
+      "reason": "Fact-preserving accessible-name addition. `components/mdx/mdp-comparison.tsx` renders its comparison table inside the shared TableScroll primitive, which requires the scroll region to carry a name so the columns past its right edge are reachable without a pointer. The added name is \"Locomotion and manipulation MDP properties\", which restates the subject the table already prints; no cell, figure, unit, citation or attribution changed. Added by brand-v2-article-tables-code-math-and-wide-layouts (73bea3b).",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-008: a table that scrolls must be a keyboard-reachable region with an accessible name. The name states the table subject already printed in its caption; no cell, figure or attribution changed.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-table-scroll-name-mpc-comparison",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/mdx/mpc-comparison.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b02f16ea16d9ef90f53b882167dfeeb5a33f11e4312c45cc93879b580fbae6d3",
+      "reason": "Fact-preserving accessible-name addition. `components/mdx/mpc-comparison.tsx` renders its comparison table inside the shared TableScroll primitive, which requires the scroll region to carry a name so the columns past its right edge are reachable without a pointer. The added name is \"Model-based and learned control comparison\", which restates the subject the table already prints; no cell, figure, unit, citation or attribution changed. Added by brand-v2-article-tables-code-math-and-wide-layouts (73bea3b).",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-008: a table that scrolls must be a keyboard-reachable region with an accessible name. The name states the table subject already printed in its caption; no cell, figure or attribution changed.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-table-scroll-name-orbital-servicing-table",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/mdx/orbital-servicing-table.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b1bed429862f5c88db310f92e5053b59197938cdcca839b5816d2d756cf1d5d0",
+      "reason": "Fact-preserving accessible-name addition. `components/mdx/orbital-servicing-table.tsx` renders its comparison table inside the shared TableScroll primitive, which requires the scroll region to carry a name so the columns past its right edge are reachable without a pointer. The added name is \"On-orbit servicing robotics milestones\", which restates the subject the table already prints; no cell, figure, unit, citation or attribution changed. Added by brand-v2-article-tables-code-math-and-wide-layouts (73bea3b).",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-008: a table that scrolls must be a keyboard-reachable region with an accessible name. The name states the table subject already printed in its caption; no cell, figure or attribution changed.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-table-scroll-name-scaling-laws-table",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/mdx/scaling-laws-table.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6dca5d3ecbc4ef5a6f18c5a460fc71eaabdda0330f75f077e5e3a7cbbb60ddea",
+      "reason": "Fact-preserving accessible-name addition. `components/mdx/scaling-laws-table.tsx` renders its comparison table inside the shared TableScroll primitive, which requires the scroll region to carry a name so the columns past its right edge are reachable without a pointer. The added name is \"What to scale, by axis\", which restates the subject the table already prints; no cell, figure, unit, citation or attribution changed. Added by brand-v2-article-tables-code-math-and-wide-layouts (73bea3b).",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-008: a table that scrolls must be a keyboard-reachable region with an accessible name. The name states the table subject already printed in its caption; no cell, figure or attribution changed.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-table-scroll-name-surgical-systems-table",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/mdx/surgical-systems-table.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "191e075c4e27d4f7ebe08455cf78e5f37a575fddb969e47ed567995dbaa70977",
+      "reason": "Fact-preserving accessible-name addition. `components/mdx/surgical-systems-table.tsx` renders its comparison table inside the shared TableScroll primitive, which requires the scroll region to carry a name so the columns past its right edge are reachable without a pointer. The added name is \"Commercial surgical robot systems compared\", which restates the subject the table already prints; no cell, figure, unit, citation or attribution changed. Added by brand-v2-article-tables-code-math-and-wide-layouts (73bea3b).",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-008: a table that scrolls must be a keyboard-reachable region with an accessible name. The name states the table subject already printed in its caption; no cell, figure or attribution changed.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-table-scroll-name-swarm-control-table",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/mdx/swarm-control-table.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4dd057b8c9d5bce8db87bab6318bfa531fcfeddcaf49ff0f97921fd9c24ba936",
+      "reason": "Fact-preserving accessible-name addition. `components/mdx/swarm-control-table.tsx` renders its comparison table inside the shared TableScroll primitive, which requires the scroll region to carry a name so the columns past its right edge are reachable without a pointer. The added name is \"Aerial swarm control families\", which restates the subject the table already prints; no cell, figure, unit, citation or attribution changed. Added by brand-v2-article-tables-code-math-and-wide-layouts (73bea3b).",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-008: a table that scrolls must be a keyboard-reachable region with an accessible name. The name states the table subject already printed in its caption; no cell, figure or attribution changed.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-table-scroll-name-wm-taxonomy-table",
+      "manifest": "accessible-names",
+      "memberId": "literal:components/mdx/wm-taxonomy-table.tsx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "5d11375498ff2401a505ea2e2d9c50286327115b2126e2b1205ea226b9f74b3e",
+      "reason": "Fact-preserving accessible-name addition. `components/mdx/wm-taxonomy-table.tsx` renders its comparison table inside the shared TableScroll primitive, which requires the scroll region to carry a name so the columns past its right edge are reachable without a pointer. The added name is \"World model paradigms compared\", which restates the subject the table already prints; no cell, figure, unit, citation or attribution changed. Added by brand-v2-article-tables-code-math-and-wide-layouts (73bea3b).",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-ART-008: a table that scrolls must be a keyboard-reachable region with an accessible name. The name states the table subject already printed in its caption; no cell, figure or attribution changed.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-ART-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-root-layout-identity-and-local-tektur",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:app/layout.tsx",
+      "oldHash": "539ab11a4ab2cdf715f036dc9aafe8b4bdb757dc63ef804f4e4214dea3bfacb4",
+      "newHash": "5c2838b18b6c195683d85f8bb25167631cd4a1d7c8c496b31f6d8f02ae9eaaeb",
+      "reason": "Brand-string migration plus local font wiring. The metadata title default and template moved from `robot-wiki` to the exact public identity `Robot Wiki`, both derived from PUBLIC_IDENTITY so the Pagefind suffix cannot drift from the template; the site description is now the exact locked descriptor rather than a paraphrase; and Tektur's approved Latin two-axis WOFF2 is registered through next/font/local with the static OG TTF deliberately not referenced here. No route, canonical URL, OG target, author field or article fact changed.",
+      "ownerApproval": "AGENTS.md brand-v2 authority: the public display identity is exactly `Robot Wiki`, the descriptor is exactly `Citation-first encyclopedia of modern robot learning.`, and Tektur Variable is the display family delivered through next/font/local.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ID-001",
+        "VAL-B2-ID-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-article-header-typography",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:components/article/article-header.tsx",
+      "oldHash": "78d980dd4c1103b70cc16c087ccb6e621104fba7103ca763501a5b6c93f19c7e",
+      "newHash": "5e8eb054c56501630e98e4323718c3172407b62657ed593301fa3d72c04ffd62",
+      "reason": "Presentation-only restyle of the article title block. The h1 takes the Tektur display face through `data-tektur-role=\"article-h1\"`, the summary takes the reading face, the metadata row takes registration labels over measured values, and the three per-cell vertical rails and the sheet's own bottom rule were removed in favour of the registered `device:section-rule` the template mounts, so every rule on an article has a registry owner and a real anchor. The rendered strings are the same: title, summary, Last reviewed, Reading time and citation count all come from the same registry fields and are printed unchanged.",
+      "ownerApproval": "contract/design-integrity.md brand-v2 typography and rule-ownership requirements; AGENTS.md brand-v2 authority on the Tektur display role. Preservation of routes, content, citations and data truth is unaffected because no rendered string changed.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-001"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-audit-2026-09-06-reset-free-learning-definition",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "5249db7c6a0745fa1476476baa774f348b144c987a9c52a4e56ef58f97d09783",
+      "reason": "Audit correction. The `reset-free-learning` definition said Sharma and colleagues evaluate the agent \"on how much human intervention it needs rather than only on final performance\". In that paper intervention is a bounded budget with a per-step cost; the metrics are deployed-policy evaluation (summed regret) and continuing-policy evaluation. The definition now states the budget and the lifetime scoring, matching the correction made to `rl-for-robotics.mdx`, which carried the same over-attribution. Recorded in audit/rl-sim2real.md. No term, citation list or other definition changed.",
+      "ownerApproval": "contract/content-audit.md P1-P3: a claim the cited source does not support must be corrected, and every correction is recorded in the domain ledger with the fetched source and the passage that settles it. contract/design-integrity.md admits baseline change only through this allowlist, so a fact-CORRECTING edit is registered here rather than folded into the baseline.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-audit-2026-09-06-perception-citation-placement",
+      "manifest": "relationships",
+      "memberId": "article:classical/perception",
+      "oldHash": "9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041",
+      "newHash": "4c339ce7a1011483f3ebc1cfeff60a61f0e2a055886411734b7be20a5c35fb3e",
+      "reason": "Audit correction to citation placement. The sentence claiming \"the 2 percent and the 0.200 mm are measured against cooperative matte targets, which is the condition every depth spec is measured under\" was an unsourced generalisation; it now states what each datasheet states and carries the two citations that settle it, so the article's citation multiset gained one `realsense-d400-datasheet-2026` and one `photoneo-phoxi-l-2026` occurrence. Recorded in audit/classical.md. Curated See also, derived Linked from, internal links and glossary terms are untouched.",
+      "ownerApproval": "contract/content-audit.md P1-P3: a claim the cited source does not support must be corrected, and every correction is recorded in the domain ledger with the fetched source and the passage that settles it. contract/design-integrity.md admits baseline change only through this allowlist, so a fact-CORRECTING edit is registered here rather than folded into the baseline.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-AUDIT-005"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "content-audit-2026-09-06-industrial-deployment-citation-placement",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d",
+      "newHash": "3ac7b7e19d2f20b06c061fc235dd1f38c497eadd1b07573333cda5c930f0c091",
+      "reason": "Audit correction to citation placement and one added source. The Unitree volume-leader claim is now attributed to Unitree's own figure and carries Omdia's counter-count through the added `robozaps-humanoids-2026` entry, the application-family sentence moved off the IFR press summary (which contains no application data) onto OSHA's list and the integrator guide, and the OSHA citation moved off a clause about phased go-lives that it does not support. Recorded in audit/data-hardware.md. Curated See also, derived Linked from and glossary terms are untouched.",
+      "ownerApproval": "contract/content-audit.md P1-P3: a claim the cited source does not support must be corrected, and every correction is recorded in the domain ledger with the fetched source and the passage that settles it. contract/design-integrity.md admits baseline change only through this allowlist, so a fact-CORRECTING edit is registered here rather than folded into the baseline.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-AUDIT-004"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
