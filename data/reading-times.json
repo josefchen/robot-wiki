@@ -48,7 +48,7 @@
     "minutes": 6
   },
   "rl-sim2real/rl-for-robotics": {
-    "words": 2733,
+    "words": 2758,
     "minutes": 14
   },
   "rl-sim2real/why-rl-locomotion": {
@@ -116,8 +116,8 @@
     "minutes": 9
   },
   "data-hardware/industrial-deployment": {
-    "words": 2065,
-    "minutes": 10
+    "words": 2234,
+    "minutes": 11
   },
   "classical/kinematics": {
     "words": 2366,
@@ -140,11 +140,11 @@
     "minutes": 11
   },
   "classical/perception": {
-    "words": 3357,
+    "words": 3383,
     "minutes": 17
   },
   "classical/scene-representation": {
-    "words": 2254,
+    "words": 2271,
     "minutes": 11
   },
   "frontier/reliability-gap": {
@@ -168,7 +168,7 @@
     "minutes": 9
   },
   "frontier/safety-and-assurance": {
-    "words": 2755,
+    "words": 2777,
     "minutes": 14
   },
   "adjacent/autonomous-vehicles": {
