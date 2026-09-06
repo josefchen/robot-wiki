@@ -1,12 +1,42 @@
 # Content-integrity audit trail
 
+## Current acceptance status
+
+The article audit is **not accepted**. Article-ID coverage did not establish
+complete per-claim evidence. The earlier checker accepted a citation ID,
+locator, document nickname, or internal-basis token anywhere in a row as if
+that supplied the complete record. It did not.
+
+Each claim table now requires separate `Citation ID`, `Source URL fetched`,
+and `Supporting passage` columns, in addition to claim text and verdict.
+The citation cell must identify one registered source. The URL is the
+document actually fetched, and the passage is the text actually read there.
+A source title, section pointer, or quotation in a generic note is not
+automatically promoted into those fields. Filling the fields remains an
+audit task, not a string-copying operation. Structural completeness alone
+also does not prove that a passage supports its claim.
+
+`npm run check:audit-coverage -- --json` reports the current record gaps.
+`npm run check:audit-coverage -- --write-summaries` regenerates each domain's
+row-unit summary without changing claim text, evidence, or verdicts. It
+still exits nonzero while any claim lacks the required record. Those
+generated summaries distinguish recorded verdicts from complete evidence.
+Missing source passages must be recovered from sources, never invented.
+
+The earlier narrative and counts below are retained as historical audit
+claims, not current acceptance evidence. This tooling/accounting repair
+re-fetched no source, changed no article prose, and moved no `lastReviewed`
+date.
+
+## Historical coverage claims and counts
+
 This directory is the evidence trail for the claim in the wiki's README
 that every published article was checked against its cited primary
 sources. It exists so a reader can check that claim rather than take it
 on faith. The ledgers are committed to the repository alongside the
 content they vouch for, like `/research`.
 
-## What was audited
+### Earlier claimed coverage
 
 Every published article (all 47 across the seven domains), the four
 structured data files behind them (`data/methods.ts`,

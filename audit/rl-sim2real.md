@@ -1,5 +1,23 @@
 # RL, sim-to-real and locomotion content-integrity audit
 
+<!-- audit-summary:start -->
+## Current ledger summary
+
+Counting unit: parsed claim rows across all article sections, including continuations.
+Recorded verdicts are not proof of source verification. Incomplete evidence fails the audit.
+
+- Articles with records: 7
+- Claim rows: 167
+- Recorded verified: 151
+- Recorded corrected: 16
+- Recorded cut: 0
+- Recorded source inconsistencies: 0
+- Unresolved or unrecognised verdicts: 0
+- Complete evidence records: 0
+- Incomplete evidence records: 167
+
+<!-- audit-summary:end -->
+
 Date of audit: 2026-08-17. Scope: the six published `rl-sim2real` articles
 (why-rl-locomotion, parallel-sim-rl, sim2real-transfer, legged-locomotion,
 humanoid-wbc, reward-design-mpc) against their cited primary sources, fetched
@@ -16,7 +34,7 @@ The verdicts below record the source actually read and the passage that
 settles the claim. Interactive panels were checked for honest-unknown labeling
 (illustrative/scripted callouts) and for consistency with the corrected prose.
 
-## Summary
+## Historical: Summary
 
 Counting unit: ledger rows, one claim per row, counted from the tables
 below. Recomputed by the 2026-08-18 reconciliation sweep; an earlier
@@ -38,7 +56,7 @@ which a reader cannot reproduce from the tables.
 
 Arithmetic: 108 + 7 = 115 rows.
 
-### 2026-09-06 reseal addendum
+### Historical: 2026-09-06 reseal addendum
 
 The registry published `rl-for-robotics` on 2026-08-22, after the sweep
 above, so this ledger stopped covering its domain the day that article

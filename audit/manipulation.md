@@ -1,5 +1,23 @@
 # Manipulation content-integrity audit — Part 1 (bc-foundations, action-chunking, diffusion-policy)
 
+<!-- audit-summary:start -->
+## Current ledger summary
+
+Counting unit: parsed claim rows across all article sections, including continuations.
+Recorded verdicts are not proof of source verification. Incomplete evidence fails the audit.
+
+- Articles with records: 12
+- Claim rows: 225
+- Recorded verified: 213
+- Recorded corrected: 12
+- Recorded cut: 0
+- Recorded source inconsistencies: 0
+- Unresolved or unrecognised verdicts: 0
+- Complete evidence records: 0
+- Incomplete evidence records: 225
+
+<!-- audit-summary:end -->
+
 Date of audit: 2026-08-17. Scope: the three milestone-3 manipulation articles
 against their cited primary sources, fetched and read during this audit
 (arXiv abs pages, arXiv HTML full texts, official PDFs, the official ACT
@@ -12,7 +30,7 @@ protocol context, attributions) was extracted per article and checked against
 the source the article cites for it, by fetching that source. The verdicts
 below record the source actually read and the passage that settles the claim.
 
-## Summary
+## Historical: Summary
 
 Counting unit: ledger rows, one claim per row, counted from the tables
 below. The ten `PolicyChunkingTable` rows are counted individually (each
@@ -249,7 +267,7 @@ being kept.
 | pistar06-2025 title capitalization | π*0.6 PDF title page | **corrected** | Printed as "a VLA That Learns From Experience". |
 | Diffusion Policy abs-page "12 tasks" vs v5 "15" (part-1 note) | arXiv abs page vs paper v5 | no action | `check:citations` compares document titles against the registry, not abstract prose, so this divergence cannot trip it; the registry title matches the abs page and the article's 15 matches the cited document. Recorded here so the next reachability audit does not relitigate it. |
 
-## Part 2 summary
+## Historical: Part 2 summary
 
 Counting unit: ledger rows, one claim per row. Recomputed from the tables
 above by the 2026-08-18 reconciliation sweep. The original version of this
@@ -452,7 +470,7 @@ paraphrase.
 | pi-human-to-robot-2025 | pi.website/research/human_to_robot | verified | Lab research note; registry marks it as such (type blog, Physical Intelligence author). |
 | gemini-robotics-2-2026 | GR2 blog | verified | Title, author (Carolina Parada), URL all match the live post. |
 
-## Part 3 summary
+## Historical: Part 3 summary
 
 Counting unit: ledger rows, one claim per row. Recomputed from the tables
 above by the 2026-08-18 reconciliation sweep; the original summary said 86

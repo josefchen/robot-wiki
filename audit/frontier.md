@@ -1,5 +1,23 @@
 # Frontier content-integrity audit (VAL-AUDIT-006)
 
+<!-- audit-summary:start -->
+## Current ledger summary
+
+Counting unit: parsed claim rows across all article sections, including continuations.
+Recorded verdicts are not proof of source verification. Incomplete evidence fails the audit.
+
+- Articles with records: 6
+- Claim rows: 147
+- Recorded verified: 116
+- Recorded corrected: 28
+- Recorded cut: 0
+- Recorded source inconsistencies: 3
+- Unresolved or unrecognised verdicts: 0
+- Complete evidence records: 0
+- Incomplete evidence records: 147
+
+<!-- audit-summary:end -->
+
 Per-claim ledger for the five `/frontier/*` articles: **reliability-gap**, **dexterity**, **generalization**, **competing-theses**, **bear-case**, plus the four data files those articles render (`lib/deployment-reality.ts`, `lib/dexterous-hands.ts`, `lib/competing-theses.ts`, `lib/bear-case.ts`) and the EgoScale law module (`lib/egoscale-law.ts`).
 
 Audit date: 2026-08-18. Procedure: `content-auditor` skill, properties P1-P5 from `contract/content-audit.md`. Every row names the primary source actually fetched. Verdicts: **V** verified, **C** corrected, **X** cut, **S** source inconsistency recorded (not a wiki error).
@@ -222,7 +240,7 @@ names the official catalogue entry actually read. No clause number is asserted a
 |---|---|---|---|---|
 | P1a | All 52 citation ids used by the five articles resolve in the registry; titles/authors/years spot-checked against live sources (pi05, pi07, rl-100, egoscale, sparsh-x, touchworld, tactile-outlook, enpire, karcini, manipulationnet, reality-gap-survey, vjepa2, roboarena, robochallenge, saycan, lin-data-scaling-laws, open-x-embodiment, macefield, goldberg, cosmos-3, brooks pair, GR2/ER2, figure/sanctuary/shadow/unitree pages) | fetched sources above + Crossref for the two DOI entries | V | no metadata mismatches found; three new entries added (sutton-bitter-lesson-2019, teslarati-optimus-hand-2026, nucleus-supervised-2026), 306 registry citations total |
 
-## Summary
+## Historical: Summary
 
 Unit convention: one row per audited claim. A defect corrected across multiple surfaces
 (prose + data table + test, or two articles) is one defect with several rows.
@@ -242,7 +260,7 @@ Unit convention: one row per audited claim. A defect corrected across multiple s
 - **Source inconsistencies (S):** 2. G13 and the EgoScale quirk register entry above. Both
   are recorded per policy; neither was "fixed," and `lib/egoscale-law.ts` is unchanged.
 
-### 2026-09-06 reseal addendum
+### Historical: 2026-09-06 reseal addendum
 
 The registry published `safety-and-assurance` on 2026-08-22, after the
 sweep above, so this ledger stopped covering its domain the day that

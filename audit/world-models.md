@@ -1,5 +1,23 @@
 # World-models content-integrity audit
 
+<!-- audit-summary:start -->
+## Current ledger summary
+
+Counting unit: parsed claim rows across all article sections, including continuations.
+Recorded verdicts are not proof of source verification. Incomplete evidence fails the audit.
+
+- Articles with records: 5
+- Claim rows: 92
+- Recorded verified: 76
+- Recorded corrected: 16
+- Recorded cut: 0
+- Recorded source inconsistencies: 0
+- Unresolved or unrecognised verdicts: 0
+- Complete evidence records: 0
+- Incomplete evidence records: 92
+
+<!-- audit-summary:end -->
+
 Date of audit: 2026-08-17. Scope: the five published `world-models` articles
 (taxonomy, latent-dynamics, generative-video, jepa, generative-sim) against
 their cited primary sources, fetched and read during this audit (arXiv abs
@@ -22,7 +40,7 @@ source research for this domain, and two of the corrections below (the
 to its phrasing. Interactive panels were checked for honest-unknown labeling
 and for consistency with the corrected prose.
 
-## Summary
+## Historical: Summary
 
 Counting unit: ledger rows, one claim per row, counted from the tables
 below. Recomputed by the 2026-08-18 reconciliation sweep; an earlier

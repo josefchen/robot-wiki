@@ -1,5 +1,23 @@
 # Data, hardware & evaluation content-integrity audit
 
+<!-- audit-summary:start -->
+## Current ledger summary
+
+Counting unit: parsed claim rows across all article sections, including continuations.
+Recorded verdicts are not proof of source verification. Incomplete evidence fails the audit.
+
+- Articles with records: 6
+- Claim rows: 128
+- Recorded verified: 86
+- Recorded corrected: 40
+- Recorded cut: 2
+- Recorded source inconsistencies: 0
+- Unresolved or unrecognised verdicts: 0
+- Complete evidence records: 0
+- Incomplete evidence records: 128
+
+<!-- audit-summary:end -->
+
 Date of audit: 2026-08-17 (consolidation pass 2026-08-18). Scope: the five
 published `data-hardware` articles (data-bottleneck, datasets,
 hardware-taxonomy, teleop-rigs, evaluation-crisis) plus the structured
@@ -29,7 +47,7 @@ vs hours) to the paper or dataset card that states them. Vendor pages are
 re-fetched live for prices and availability. Hardware specs no vendor
 states are `null` ("not disclosed"), never estimated.
 
-## Summary
+## Historical: Summary
 
 Counting convention (see audit/README.md): totals below count DISTINCT
 DEFECTS, not ledger rows. One defect corrected in several places (prose,
@@ -53,7 +71,7 @@ tables below (one row per claim). An earlier version of this header said
 from 84 − 21 − 2, mixing the row-unit total with the defect-unit corrected
 count. Recomputed by the 2026-08-18 reconciliation sweep.
 
-### 2026-09-06 reseal addendum
+### Historical: 2026-09-06 reseal addendum
 
 The registry published `industrial-deployment` on 2026-08-22, after the
 sweep above, so this ledger stopped covering its domain the day that
@@ -129,7 +147,7 @@ Corrections (the load-bearing ones):
    outlook for claims about OXE/DROID/AgiBot it never makes, and AgiBot
    World is named as the visuo-tactile counterexample it is.
 
-## Re-verification addendum (this session, 2026-08-17)
+## Historical: Re-verification addendum (this session, 2026-08-17)
 
 The first session's corrections arrived banked and uncommitted with no
 ledger. Every banked correction was re-fetched from the primary source
@@ -390,7 +408,7 @@ this ledger's conventions.
 
 
 
-## Consolidation pass addendum (2026-08-18, audit-ledger-consolidation)
+## Historical: Consolidation pass addendum (2026-08-18, audit-ledger-consolidation)
 
 The six closure items from the interrupted data-hardware handoff were
 resolved by the consolidation pass:

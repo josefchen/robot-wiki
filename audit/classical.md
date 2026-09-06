@@ -1,5 +1,23 @@
 # Classical-foundations content-integrity audit
 
+<!-- audit-summary:start -->
+## Current ledger summary
+
+Counting unit: parsed claim rows across all article sections, including continuations.
+Recorded verdicts are not proof of source verification. Incomplete evidence fails the audit.
+
+- Articles with records: 7
+- Claim rows: 187
+- Recorded verified: 172
+- Recorded corrected: 15
+- Recorded cut: 0
+- Recorded source inconsistencies: 0
+- Unresolved or unrecognised verdicts: 0
+- Complete evidence records: 0
+- Incomplete evidence records: 187
+
+<!-- audit-summary:end -->
+
 Date of audit: 2026-08-17. Scope: the five published `classical` articles
 (kinematics, motion-planning, control, state-estimation, grasp-planning)
 against their cited primary sources, fetched and read during this audit
@@ -26,7 +44,7 @@ Citation-registry bibliographic entries all carry prior verification
 comments and the reachability audit (audit/citations.md) already landed, so
 P1 spot-checks here focused on the entries the prose leans on hardest.
 
-## Summary
+## Historical: Summary
 
 - Claims checked: 79
 - Verified: 73
@@ -35,7 +53,7 @@ P1 spot-checks here focused on the entries the prose leans on hardest.
   sentence and the article's frontmatter; no claim was cut wholesale)
 - Unresolved: 0
 
-### 2026-09-06 reseal addendum
+### Historical: 2026-09-06 reseal addendum
 
 The registry published `perception` and `scene-representation` on
 2026-08-22, after the sweep above, so this ledger stopped covering its
@@ -387,7 +405,7 @@ the table below, in this file, rather than anywhere ephemeral.
 | Full e2e | `npm run test:e2e` (port 3200 killed first) | 572 passed / 0 failed / 1 skipped |
 
 
-## Re-verification addendum (second session, 2026-08-17)
+## Historical: Re-verification addendum (second session, 2026-08-17)
 
 The session that produced the ledger above ended before recording its
 handoff. A second session re-verified the banked work before vouching for
