@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import {
   EUREKA_GENERATIONS,
   EUREKA_TASK,
   diffLines,
 } from '@/lib/eureka';
+import { scrollRegionAttributes } from '@/lib/scroll-region.mjs';
 import { cx } from '@/lib/utils';
 
 /**
@@ -50,6 +51,11 @@ const STAT_TONE: Record<'ok' | 'warn' | 'err', string> = {
 };
 
 export function EurekaLoop({ className }: { className?: string }) {
+  // Both code panes scroll horizontally, so each one is a region that has
+  // to say what it holds; the labels above them already say it, so the
+  // regions borrow those rather than repeating them.
+  const codeLabelId = `${useId()}-code`;
+  const diffLabelId = `${useId()}-diff`;
   const [gen, setGen] = useState(0);
   const current = EUREKA_GENERATIONS[gen];
   const isLast = gen === EUREKA_GENERATIONS.length - 1;
@@ -121,7 +127,7 @@ export function EurekaLoop({ className }: { className?: string }) {
 
       <div className="mt-3 grid gap-4 lg:grid-cols-[11fr_7fr]">
         <div>
-          <p className="font-mono text-[11px] text-text-dim">
+          <p id={codeLabelId} className="font-mono text-[11px] text-text-dim">
             {gen === 0
               ? 'Proposed reward code'
               : 'Proposed reward code, diff vs previous'}
@@ -129,18 +135,20 @@ export function EurekaLoop({ className }: { className?: string }) {
           <pre
             data-testid="eureka-code"
             data-brand-surface-id="surface:flat"
+            {...scrollRegionAttributes({ labelledBy: codeLabelId })}
             className="mt-2 overflow-x-auto rounded-sm border border-border bg-bg p-3 font-mono text-xs leading-relaxed text-text"
           >
             {current.code.join('\n')}
           </pre>
           {diff && (
             <div className="mt-3">
-              <p className="font-mono text-[11px] text-text-dim">
+              <p id={diffLabelId} className="font-mono text-[11px] text-text-dim">
                 Mutation diff, generation {gen - 1} to {gen}
               </p>
               <pre
                 data-testid="eureka-diff"
                 data-brand-surface-id="surface:flat"
+                {...scrollRegionAttributes({ labelledBy: diffLabelId })}
                 className="mt-2 overflow-x-auto rounded-sm border border-border bg-bg p-3 font-mono text-xs leading-relaxed"
               >
                 {diff.map((line, i) => (

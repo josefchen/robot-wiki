@@ -1,4 +1,5 @@
 import { CopyButton } from '@/components/ui/copy-button';
+import { scrollRegionAttributes } from '@/lib/scroll-region.mjs';
 
 type CodeBlockProps = {
   code: string;
@@ -30,7 +31,12 @@ export function CodeBlock({ code, language, title }: CodeBlockProps) {
         </span>
         <CopyButton text={code} />
       </figcaption>
-      <pre className="overflow-x-auto p-3 font-mono text-[13px] leading-relaxed text-text">
+      <pre
+        {...scrollRegionAttributes({
+          label: title ?? language ?? 'Code sample',
+        })}
+        className="overflow-x-auto p-3 font-mono text-[13px] leading-relaxed text-text"
+      >
         <code>{code}</code>
       </pre>
     </figure>

@@ -1,43 +1,68 @@
 import type { ReactNode } from 'react';
+import { scrollRegionAttributes } from '@/lib/scroll-region.mjs';
 import { cx } from '@/lib/utils';
 
-type TableScrollProps = {
+type ScrollRegionProps = {
   /**
-   * The id of the table's own `<caption>`. The region borrows the caption
-   * rather than repeating it, so a reader who reaches the scroll container
-   * and a reader who reaches the table hear the same sentence.
+   * The id of an element whose text already names the content, such as a
+   * table's own `<caption>` or a code sample's title bar. The region
+   * borrows that text rather than repeating it, so a reader who reaches the
+   * scroll container and a reader who reaches the content hear the same
+   * sentence.
    */
-  labelledBy: string;
+  labelledBy?: string;
+  /** A name for content that has no visible label of its own. */
+  label?: string;
   className?: string;
   children: ReactNode;
 };
 
 /**
- * The horizontal scroll container a dense table sits in.
+ * A horizontal scroll container, with the three attributes that make it
+ * usable without a pointer.
  *
- * A table wider than the reading column has to scroll inside its own box or
- * it widens the document, and a box that scrolls has to be reachable by
- * keyboard or the columns past its right edge are unreachable without a
- * pointer. Four interactive comparison tables shipped with a bare
- * `overflow-x-auto` div and neither property, which is invisible to an axe
- * run at desktop width because the box only overflows at 375px.
+ * Content wider than the reading column has to scroll inside its own box or
+ * it widens the document; a box that scrolls has to be reachable by
+ * keyboard or everything past its right edge is unreachable; and a box that
+ * takes focus has to say what it is, or the keyboard reader lands on
+ * something that announces nothing. Four interactive comparison tables
+ * shipped with a bare `overflow-x-auto` div and none of the three, which is
+ * invisible to an axe run at desktop width because the box only overflows
+ * at 375px. Display equations and fenced code samples then shipped with the
+ * tab stop and no name, which is the same defect one step along.
  *
- * The four attributes below are the whole contract, and they live here so a
- * fifth table cannot be authored without them.
+ * `lib/scroll-region.mjs` owns the attributes, because the other two call
+ * sites are a rehype pass that cannot import a React component.
+ */
+export function ScrollRegion({
+  labelledBy,
+  label,
+  className,
+  children,
+}: ScrollRegionProps) {
+  const attributes = labelledBy
+    ? scrollRegionAttributes({ labelledBy })
+    : scrollRegionAttributes({ label: label ?? '' });
+  return (
+    <div {...attributes} className={cx('overflow-x-auto', className)}>
+      {children}
+    </div>
+  );
+}
+
+/**
+ * The scroll container a dense table sits in, named by its own caption.
+ * Kept as its own export so a table cannot be authored without the caption
+ * id the region borrows.
  */
 export function TableScroll({
   labelledBy,
   className,
   children,
-}: TableScrollProps) {
+}: ScrollRegionProps & { labelledBy: string }) {
   return (
-    <div
-      tabIndex={0}
-      role="region"
-      aria-labelledby={labelledBy}
-      className={cx('overflow-x-auto', className)}
-    >
+    <ScrollRegion labelledBy={labelledBy} className={className}>
       {children}
-    </div>
+    </ScrollRegion>
   );
 }

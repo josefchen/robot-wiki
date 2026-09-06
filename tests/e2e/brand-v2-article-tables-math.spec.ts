@@ -7,6 +7,7 @@ import {
   TABLE_MATH_VIEWPORTS,
   equationAccessibilityVerdicts,
   readTableMathEvidence,
+  scrollRegionVerdicts,
   tableContainmentVerdicts,
   tableMathEvidenceFingerprint,
   tableMathRoutes,
@@ -197,11 +198,68 @@ function collectTablesAndMath(): Omit<
       scrollWidth: box.scrollWidth,
       clientWidth: box.clientWidth,
       tabIndex: box.tabIndex,
+      role: box.getAttribute('role'),
+      accessibleName: ariaName(box),
       viewportOverflowPx: round(
         Math.max(0, rect.right - window.innerWidth, -rect.left),
       ),
     };
   });
+
+  /**
+   * Every box a reader can scroll, or tab into, that is not a control.
+   *
+   * Two independent conditions, and neither is the property being asserted:
+   * a box joins because its computed overflow scrolls and its content is
+   * wider than its visible width, or because it takes keyboard focus while
+   * being no control at all. A box that is unreachable joins on the first,
+   * a box that is anonymous joins on the second, and a collector that
+   * admitted only reachable named boxes would have neither in its
+   * population. Native controls are excluded because their name comes from
+   * their content and their role from their tag.
+   */
+  const CONTROL_SELECTOR =
+    'a[href], button, input, select, textarea, summary, [contenteditable], [role="button"], [role="link"], [role="tab"]';
+  const scrollRegions = Array.from(
+    document.querySelectorAll<HTMLElement>('body *'),
+  )
+    .filter((element) => {
+      if (element.matches(CONTROL_SELECTOR)) return false;
+      const overflowX = getComputedStyle(element).overflowX;
+      const scrolls =
+        (overflowX === 'auto' || overflowX === 'scroll') &&
+        element.scrollWidth > element.clientWidth + 1;
+      return scrolls || element.tabIndex >= 0;
+    })
+    .map((element, index) => {
+      const start = element.scrollLeft;
+      element.scrollLeft = start + 40;
+      const scrolledBy = element.scrollLeft - start;
+      element.scrollLeft = start;
+      const holds = (selector: string) =>
+        element.matches(selector) || element.querySelector(selector) !== null;
+      return {
+        index,
+        kind: holds('table')
+          ? ('table' as const)
+          : holds('.katex, .katex-error')
+          ? ('math' as const)
+          : element.tagName === 'PRE' || holds('pre, code')
+          ? ('code' as const)
+          : ('other' as const),
+        outline: `<${element.tagName.toLowerCase()}${
+          element.className && typeof element.className === 'string'
+            ? ` class="${element.className.slice(0, 60)}"`
+            : ''
+        }>`,
+        role: element.getAttribute('role'),
+        accessibleName: ariaName(element),
+        tabIndex: element.tabIndex,
+        clientWidth: element.clientWidth,
+        scrollWidth: element.scrollWidth,
+        scrolledBy: round(scrolledBy),
+      };
+    });
 
   // The measure the sheet actually sets, read the way VAL-B2-ART-002 reads
   // it: the widest running paragraph, divided by the advance of its own `0`.
@@ -240,6 +298,7 @@ function collectTablesAndMath(): Omit<
     visibleTextLength: (document.body.innerText ?? '').trim().length,
     tables,
     equations,
+    scrollRegions,
   };
 }
 
@@ -296,6 +355,7 @@ test.describe('brand-v2 article tables, code, math and wide layouts', () => {
     for (const [label, verdicts] of [
       ['VAL-B2-ART-007 equation accessibility', equationAccessibilityVerdicts(evidence)],
       ['VAL-B2-ART-008 table containment', tableContainmentVerdicts(evidence)],
+      ['scrollable regions are keyboard reachable and labelled', scrollRegionVerdicts(evidence)],
     ] as const) {
       const failures = [...verdicts.values()]
         .flatMap(({ failures: own }) => own)
@@ -329,11 +389,22 @@ test.describe('brand-v2 dense surfaces on the sample module', () => {
         document.querySelectorAll<HTMLElement>('[data-prose-column] pre'),
       ).map((pre) => {
         const style = getComputedStyle(pre);
+        const labelledBy = pre.getAttribute('aria-labelledby');
         return {
           text: (pre.textContent ?? '').trim(),
           fontFamily: style.fontFamily,
           overflowX: style.overflowX,
           borderWidth: Number.parseFloat(style.borderTopWidth) || 0,
+          tabIndex: pre.tabIndex,
+          role: pre.getAttribute('role'),
+          accessibleName: labelledBy
+            ? (
+                labelledBy
+                  .split(/\s+/)
+                  .map((id) => document.getElementById(id)?.textContent ?? '')
+                  .join(' ') ?? ''
+              ).trim()
+            : (pre.getAttribute('aria-label') ?? '').trim(),
           tokenColours: Array.from(
             new Set(
               Array.from(pre.querySelectorAll('span')).map(
@@ -351,6 +422,13 @@ test.describe('brand-v2 dense surfaces on the sample module', () => {
       expect(block.fontFamily).toMatch(/mono/i);
       expect(block.overflowX).toBe('auto');
       expect(block.borderWidth).toBeGreaterThan(0);
+      // A box that scrolls has to be reachable, and a box a keyboard reader
+      // lands on has to say what it holds. The sample's own title bar is
+      // the name, so the reader who reaches the box and the reader who
+      // reads the caption hear the same filename.
+      expect(block.tabIndex).toBe(0);
+      expect(block.role).toBe('region');
+      expect(block.accessibleName.length).toBeGreaterThan(0);
       // "Syntax highlighting applied" is exactly this: the tokens are not
       // all one colour. A single colour means the highlighter never ran.
       expect(block.tokenColours).toBeGreaterThan(1);

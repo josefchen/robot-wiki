@@ -31,7 +31,7 @@ export const TABLE_MATH_ASSERTION_POPULATION_SOURCES: Readonly<
 /** What each row means when its member passes, in the row's own terms. */
 export const TABLE_MATH_ASSERTION_ACTUALS: Readonly<Record<string, string>> = {
   'VAL-B2-ART-007':
-    'emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, and is reachable by keyboard wherever it is wide enough to scroll',
+    'emits MathML with a TeX annotation behind a hidden glyph layer, shows the reader no raw TeX, is reachable by keyboard wherever it is wide enough to scroll, and where it is a display block names the region a keyboard reader lands on',
   'VAL-B2-ART-008':
     'is a named table with scoped headers that stays inside the viewport by scrolling in its own keyboard-reachable container, on a page with no horizontal document overflow and no clipped root or body, beside a reading column still inside the sealed measure',
 };

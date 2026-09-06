@@ -156,7 +156,7 @@ export function unescapedCurrencyLines(body: string): number[] {
 // Display-math fencing (check 7b). remark-math only opens a math BLOCK when
 // the `$$` fence closes on a later line; both delimiters on one line parse as
 // inline math instead, so the equation renders as a run-in with no display
-// box and, downstream, no `.katex-display` for rehype-scrollable-math to make
+// box and, downstream, no `.katex-display` for rehype-scroll-regions to make
 // a focusable scroll region. `content/manipulation/rl-finetuning.mdx` shipped
 // that way and read as a typo nobody could see in the source.
 const DISPLAY_MATH_DELIMITER = /(?<!\\)\$\$/g;

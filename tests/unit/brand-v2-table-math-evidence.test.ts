@@ -5,15 +5,19 @@ import {
   TABLE_MATH_EVIDENCE_PATH,
   TABLE_MATH_DESKTOP_VIEWPORT_ID,
   TABLE_MATH_MOBILE_VIEWPORT_ID,
+  codeFenceSourceCounts,
   equationAccessibilityVerdicts,
   equationOccurrenceMembers,
   mathSourceRoutes,
   readTableMathEvidence,
+  scrollRegionMembers,
+  scrollRegionVerdicts,
   tableContainmentVerdicts,
   tableMathEvidenceFingerprint,
   tableMathRoutes,
   tableOccurrenceMembers,
   type EquationObservation,
+  type ScrollRegionObservation,
   type TableMathEvidence,
   type TableObservation,
 } from '@/lib/brand-v2-table-math-evidence';
@@ -91,6 +95,23 @@ function withEquation(
   return copy;
 }
 
+function withScrollRegion(
+  match: (region: ScrollRegionObservation) => boolean,
+  patch: Partial<ScrollRegionObservation>,
+): TableMathEvidence {
+  const copy = structuredClone(evidence());
+  let touched = 0;
+  for (const observation of copy.observations) {
+    observation.scrollRegions = observation.scrollRegions.map((region) => {
+      if (!match(region)) return region;
+      touched += 1;
+      return { ...region, ...patch };
+    });
+  }
+  expect(touched, 'the mutation matched no scroll region').toBeGreaterThan(0);
+  return copy;
+}
+
 function failuresOf(verdicts: Map<string, { failures: string[] }>): string[] {
   return [...verdicts.values()].flatMap(({ failures }) => failures);
 }
@@ -106,6 +127,52 @@ describe('the committed dense-surface sweep', () => {
     expect(current.routes).toEqual(tableMathRoutes());
     expect(failuresOf(equationAccessibilityVerdicts(current))).toEqual([]);
     expect(failuresOf(tableContainmentVerdicts(current))).toEqual([]);
+    expect(failuresOf(scrollRegionVerdicts(current))).toEqual([]);
+  });
+
+  it('collects a scroll box on facts other than the ones it grades', () => {
+    const regions = evidence().observations.flatMap(
+      ({ scrollRegions }) => scrollRegions,
+    );
+    // The two blind spots the table defect hid behind: a sweep at one width
+    // never sees a box that only overflows at 375px, and a population keyed
+    // on reachability drops exactly the boxes the row exists to catch. So
+    // the population must hold boxes that do NOT currently scroll, and hold
+    // members at both widths.
+    expect(
+      regions.filter(
+        (region) => region.scrollWidth <= region.clientWidth + 1,
+      ).length,
+    ).toBeGreaterThan(0);
+    expect(
+      regions.filter((region) => region.scrollWidth > region.clientWidth + 1)
+        .length,
+    ).toBeGreaterThan(0);
+    const members = scrollRegionMembers(evidence());
+    for (const viewport of [
+      TABLE_MATH_MOBILE_VIEWPORT_ID,
+      TABLE_MATH_DESKTOP_VIEWPORT_ID,
+    ]) {
+      expect(
+        members.filter((id) => id.includes(`|${viewport}|`)).length,
+      ).toBeGreaterThan(0);
+    }
+    for (const kind of ['table', 'math', 'code']) {
+      expect(
+        members.filter((id) => id.includes(`|${kind}-box#`)).length,
+        `no ${kind} box in the scroll-region population`,
+      ).toBeGreaterThan(0);
+    }
+    expect(new Set(members).size).toBe(members.length);
+  });
+
+  it('derives the code samples each route must render from the articles themselves', () => {
+    const counts = codeFenceSourceCounts(ROOT);
+    expect(counts.size).toBeGreaterThan(0);
+    for (const [route, samples] of counts) {
+      expect(tableMathRoutes()).toContain(route);
+      expect(samples).toBeGreaterThan(0);
+    }
   });
 
   it('quantifies each row over occurrences rather than over routes', () => {
@@ -188,6 +255,28 @@ describe('article table and math evidence', () => {
         for (const observation of copy.observations) observation.tables = [];
       }),
     ).toThrow(/no table anywhere/);
+    expect(
+      read((copy) => {
+        const codeRoute = [...codeFenceSourceCounts(ROOT).keys()][0];
+        for (const observation of copy.observations) {
+          if (observation.route !== codeRoute) continue;
+          observation.scrollRegions = observation.scrollRegions.filter(
+            ({ kind }) => kind !== 'code',
+          );
+        }
+      }),
+    ).toThrow(
+      /renders 0 code box\(es\) where its own MDX body opens \d+ fenced sample\(s\)/,
+    );
+    expect(
+      read((copy) => {
+        for (const observation of copy.observations) {
+          observation.scrollRegions = observation.scrollRegions.filter(
+            ({ kind }) => kind !== 'math',
+          );
+        }
+      }),
+    ).toThrow(/no math box anywhere/);
   });
 
   it('refuses to grade a population it emptied', () => {
@@ -202,6 +291,64 @@ describe('article table and math evidence', () => {
     }
     expect(() => tableContainmentVerdicts(empty)).toThrow(/vacuously/);
     expect(() => equationAccessibilityVerdicts(empty)).toThrow(/vacuously/);
+    for (const observation of empty.observations) observation.scrollRegions = [];
+    expect(() => scrollRegionVerdicts(empty)).toThrow(/vacuously/);
+  });
+
+  it('fails the anonymous keyboard stop every equation and code box shipped as', () => {
+    // The state this repository shipped: `.katex-display` and the fenced
+    // sample carried tabindex="0" and nothing else, so a keyboard reader
+    // reached a scroll box that announced neither a boundary nor a name.
+    const failures = failuresOf(
+      scrollRegionVerdicts(
+        withScrollRegion(({ kind }) => kind === 'math' || kind === 'code', {
+          role: null,
+          accessibleName: '',
+        }),
+      ),
+    ).join('\n');
+    expect(failures).toMatch(
+      /takes focus with role none, so a screen reader announces no boundary/,
+    );
+    expect(failures).toMatch(/is an anonymous scroll stop/);
+  });
+
+  it('fails a scroll box no keyboard can reach, and one whose overflow is clipped', () => {
+    expect(
+      failuresOf(
+        scrollRegionVerdicts(
+          withScrollRegion(
+            (region) => region.scrollWidth > region.clientWidth + 1,
+            { tabIndex: -1 },
+          ),
+        ),
+      ).join('\n'),
+    ).toMatch(/unreachable without a pointer/);
+    expect(
+      failuresOf(
+        scrollRegionVerdicts(
+          withScrollRegion(
+            (region) => region.scrollWidth > region.clientWidth + 1,
+            { scrolledBy: 0 },
+          ),
+        ),
+      ).join('\n'),
+    ).toMatch(/did not move when it was scrolled/);
+  });
+
+  it('fails a display equation that is a nameless keyboard stop', () => {
+    const failures = failuresOf(
+      equationAccessibilityVerdicts(
+        withEquation(({ display }) => display, {
+          role: null,
+          accessibleName: ' ',
+        }),
+      ),
+    ).join('\n');
+    expect(failures).toMatch(
+      /is a keyboard stop with role none, so nothing announces the equation boundary/,
+    );
+    expect(failures).toMatch(/is an anonymous keyboard stop/);
   });
 
   it('fails a table whose scrolling box no reader can reach or name', () => {

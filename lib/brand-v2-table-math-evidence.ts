@@ -84,6 +84,13 @@ export const RAW_TEX_PATTERN = /\$\$|\\frac|\\begin\{|\\sum_|\\int_/;
  */
 const DISPLAY_MATH_DELIMITER_PATTERN = /^[ \t]*\$\$/gm;
 
+/**
+ * Fenced code, used the same way: a route whose own MDX opens a fence must
+ * render a code box, so a collector that stopped finding them fails rather
+ * than reporting a clean sweep over nothing.
+ */
+const CODE_FENCE_DELIMITER_PATTERN = /^[ \t]*```/gm;
+
 function tableMathClosureEntries(root: string): string[] {
   return [
     ...routeEntryModules(evidenceClosureGraph(root)),
@@ -147,6 +154,37 @@ export function mathSourceRoutes(root: string): string[] {
 }
 
 /**
+ * How many fenced code samples each route's own MDX body opens.
+ *
+ * The floor under the code half of the scroll-region population. A route
+ * may render more code boxes than its prose opens - an interactive mounts
+ * its own - so this is a minimum rather than an equality, but a route that
+ * renders fewer has lost a sample the source still contains.
+ */
+export function codeFenceSourceCounts(root: string): Map<string, number> {
+  const counts = new Map<string, number>();
+  for (const { domain, slug } of publishedModules()) {
+    const body = moduleBody(
+      readFileSync(join(root, 'content', domain, `${slug}.mdx`), 'utf8'),
+    );
+    const fences = body.match(CODE_FENCE_DELIMITER_PATTERN)?.length ?? 0;
+    if (fences === 0) continue;
+    if (fences % 2 !== 0) {
+      throw new Error(
+        `content/${domain}/${slug}.mdx opens ${fences} code fences, an odd number, so its code samples cannot be counted`,
+      );
+    }
+    counts.set(`/${domain}/${slug}/`, fences / 2);
+  }
+  if (counts.size === 0) {
+    throw new Error(
+      'no published article opens a fenced code sample, so the code reconciliation would check nothing',
+    );
+  }
+  return counts;
+}
+
+/**
  * The fingerprint the sweep records and the generator re-derives.
  *
  * The derived math-route list is hashed in as a fact: an article that gained
@@ -163,6 +201,9 @@ export function tableMathEvidenceFingerprint(input: { root: string }): string {
     ...[...displayMathSourceCounts(input.root).entries()]
       .sort(([left], [right]) => left.localeCompare(right))
       .map(([route, blocks]) => `math-source:${route}=${blocks}`),
+    ...[...codeFenceSourceCounts(input.root).entries()]
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([route, samples]) => `code-source:${route}=${samples}`),
   ];
   return deriveEvidenceClosure({
     root: input.root,
@@ -191,6 +232,9 @@ const equationObservationSchema = z.object({
   scrollWidth: z.number(),
   clientWidth: z.number(),
   tabIndex: z.number(),
+  /** The role and name of the box itself, which is a keyboard stop. */
+  role: z.string().nullable(),
+  accessibleName: z.string(),
   /** How far the painted box sits outside the viewport, in px. */
   viewportOverflowPx: z.number(),
 });
@@ -229,6 +273,34 @@ const tableObservationSchema = z.object({
   viewportOverflowPx: z.number(),
 });
 
+/**
+ * One box a reader can scroll, or land on, that is not a control.
+ *
+ * The population is derived from what the browser laid out, from two
+ * independent conditions, and neither of them is the property being
+ * asserted. A box joins because its computed overflow scrolls and its
+ * content is wider than its visible width - whether or not anything made it
+ * reachable - or because it takes keyboard focus while being no control at
+ * all. The first condition catches an unreachable scroll box, the second
+ * catches an anonymous tab stop; the incumbent table check had neither, so
+ * it collected only containers that were ALREADY reachable and swept only
+ * at 1440px, where none of them overflow.
+ */
+const scrollRegionObservationSchema = z.object({
+  index: z.number(),
+  /** `table`, `math`, `code` or `other`, from what the box holds. */
+  kind: z.enum(['table', 'math', 'code', 'other']),
+  /** Opening tag and identifying attributes, for the failure message. */
+  outline: z.string(),
+  role: z.string().nullable(),
+  accessibleName: z.string(),
+  tabIndex: z.number(),
+  clientWidth: z.number(),
+  scrollWidth: z.number(),
+  /** Whether a real `scrollTo` moved it, proving the scroll is live. */
+  scrolledBy: z.number(),
+});
+
 const routeObservationSchema = z.object({
   route: z.string(),
   viewport: z.string(),
@@ -243,6 +315,7 @@ const routeObservationSchema = z.object({
   visibleTextLength: z.number(),
   tables: z.array(tableObservationSchema),
   equations: z.array(equationObservationSchema),
+  scrollRegions: z.array(scrollRegionObservationSchema),
 });
 
 export const tableMathEvidenceSchema = z.object({
@@ -257,6 +330,9 @@ export type TableMathEvidence = z.infer<typeof tableMathEvidenceSchema>;
 export type TableMathRouteObservation = z.infer<typeof routeObservationSchema>;
 export type TableObservation = z.infer<typeof tableObservationSchema>;
 export type EquationObservation = z.infer<typeof equationObservationSchema>;
+export type ScrollRegionObservation = z.infer<
+  typeof scrollRegionObservationSchema
+>;
 
 /** One member's reading, and every way it failed the requirement. */
 export type Verdict<Observed> = {
@@ -271,6 +347,14 @@ export function tableMemberId(
   table: TableObservation,
 ): string {
   return `${observation.route}|${observation.viewport}|table#${table.index}`;
+}
+
+/** The stable member id of one scrollable or focusable box. */
+export function scrollRegionMemberId(
+  observation: TableMathRouteObservation,
+  region: ScrollRegionObservation,
+): string {
+  return `${observation.route}|${observation.viewport}|${region.kind}-box#${region.index}`;
 }
 
 /** The stable member id of one rendered equation occurrence. */
@@ -340,6 +424,7 @@ export function readTableMathEvidence(input: {
   }
 
   const mathBlocks = displayMathSourceCounts(input.root);
+  const codeSamples = codeFenceSourceCounts(input.root);
   const seen = new Set<string>();
   for (const observation of artifact.observations) {
     const key = `${observation.route}|${observation.viewport}`;
@@ -377,6 +462,18 @@ export function readTableMathEvidence(input: {
         }`,
       );
     }
+    // The same reconciliation for the other dense box. A route may render
+    // more code boxes than its prose opens, because an interactive mounts
+    // its own, but never fewer.
+    const codeBoxes = observation.scrollRegions.filter(
+      ({ kind }) => kind === 'code',
+    ).length;
+    const declaredSamples = codeSamples.get(observation.route) ?? 0;
+    if (codeBoxes < declaredSamples) {
+      throw new Error(
+        `${key} renders ${codeBoxes} code box(es) where its own MDX body opens ${declaredSamples} fenced sample(s)`,
+      );
+    }
   }
   const missingPairs = artifact.routes
     .flatMap((route) => expectedViewports.map((v) => `${route}|${v}`))
@@ -396,6 +493,17 @@ export function readTableMathEvidence(input: {
       'the sweep found no equation anywhere, so every equation verdict would pass vacuously',
     );
   }
+  for (const kind of ['math', 'code'] as const) {
+    if (
+      artifact.observations.every(({ scrollRegions }) =>
+        scrollRegions.every((region) => region.kind !== kind),
+      )
+    ) {
+      throw new Error(
+        `the sweep found no ${kind} box anywhere, so every ${kind} scroll-region verdict would pass vacuously`,
+      );
+    }
+  }
   return artifact;
 }
 
@@ -412,6 +520,14 @@ function* eachEquation(
 ): Generator<[TableMathRouteObservation, EquationObservation]> {
   for (const observation of evidence.observations) {
     for (const equation of observation.equations) yield [observation, equation];
+  }
+}
+
+function* eachScrollRegion(
+  evidence: TableMathEvidence,
+): Generator<[TableMathRouteObservation, ScrollRegionObservation]> {
+  for (const observation of evidence.observations) {
+    for (const region of observation.scrollRegions) yield [observation, region];
   }
 }
 
@@ -478,6 +594,22 @@ export function equationAccessibilityVerdicts(
       failures.push(
         `${id} scrolls ${equation.scrollWidth}px inside a ${equation.clientWidth}px box with tabIndex ${equation.tabIndex}, so its right-hand side is unreachable without a pointer`,
       );
+    }
+    // A display block IS a keyboard stop, on every route, because the
+    // pipeline gives it one. Exposing the equation therefore means the box
+    // a reader lands on says what it is: an anonymous stop in the middle of
+    // an article exposes the equation to nobody.
+    if (equation.display && equation.tabIndex >= 0) {
+      if (equation.role !== 'region') {
+        failures.push(
+          `${id} is a keyboard stop with role ${equation.role ?? 'none'}, so nothing announces the equation boundary a reader has landed on`,
+        );
+      }
+      if (equation.accessibleName.trim().length === 0) {
+        failures.push(
+          `${id} is an anonymous keyboard stop: a reader who tabs into the equation is told nothing about where they are`,
+        );
+      }
     }
     if (equation.viewportOverflowPx > CONTAINMENT_TOLERANCE_PX) {
       failures.push(
@@ -613,6 +745,60 @@ export function tableContainmentVerdicts(
     verdicts.set(id, { id, observed: { ...table, measureCh }, failures });
   }
   return nonEmpty(verdicts, 'table occurrence');
+}
+
+/**
+ * `library/design-system.md`: scrollable regions are keyboard reachable and
+ * labelled.
+ *
+ * Graded per box and per viewport over every scrollable or focusable
+ * non-control box the page laid out, whatever it holds. The three facts are
+ * separate and each is checked: the box takes focus, it owns a region so a
+ * screen reader announces a boundary at all, and that region has a name. A
+ * box with the tab stop and no name is the state this repository shipped
+ * for every display equation and every fenced sample: the keyboard reader
+ * reaches a scroll box that says nothing about what it is holding.
+ */
+export function scrollRegionVerdicts(
+  evidence: TableMathEvidence,
+): Map<string, Verdict<ScrollRegionObservation>> {
+  const verdicts = new Map<string, Verdict<ScrollRegionObservation>>();
+  for (const [observation, region] of eachScrollRegion(evidence)) {
+    const id = scrollRegionMemberId(observation, region);
+    const failures: string[] = [];
+    const scrolls = region.scrollWidth > region.clientWidth + 1;
+
+    if (scrolls && region.tabIndex < 0) {
+      failures.push(
+        `${id} scrolls ${region.scrollWidth}px inside a ${region.clientWidth}px box with tabIndex ${region.tabIndex}, so everything past its right edge is unreachable without a pointer: ${region.outline}`,
+      );
+    }
+    if (region.role !== 'region') {
+      failures.push(
+        `${id} takes focus with role ${region.role ?? 'none'}, so a screen reader announces no boundary where the scrolling starts: ${region.outline}`,
+      );
+    }
+    if (region.accessibleName.trim().length === 0) {
+      failures.push(
+        `${id} is an anonymous scroll stop: a reader who lands on it is told nothing about what it holds: ${region.outline}`,
+      );
+    }
+    if (scrolls && region.scrolledBy <= 0) {
+      failures.push(
+        `${id} reports a scrollable box that did not move when it was scrolled, so its overflow is clipped rather than scrollable: ${region.outline}`,
+      );
+    }
+
+    verdicts.set(id, { id, observed: region, failures });
+  }
+  return nonEmpty(verdicts, 'scrollable region');
+}
+
+/** Members the scroll-region rule quantifies over. */
+export function scrollRegionMembers(evidence: TableMathEvidence): string[] {
+  return [...eachScrollRegion(evidence)]
+    .map(([observation, region]) => scrollRegionMemberId(observation, region))
+    .sort();
 }
 
 /** Members `VAL-B2-ART-008` quantifies over: every rendered table occurrence. */
