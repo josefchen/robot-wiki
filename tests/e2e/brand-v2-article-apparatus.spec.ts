@@ -1,5 +1,6 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import type { Page } from '@playwright/test';
 import { brandV2Registry, expect, test } from './brand-v2-static-fixture';
 import {
   APPARATUS_RUNTIME_EVIDENCE_PATH,
@@ -11,11 +12,59 @@ import {
   readApparatusRuntimeEvidence,
   referenceSheetVerdicts,
   relationshipPreservationVerdicts,
+  SIGNAL_BLUE_RENDERED,
   termAffordanceVerdicts,
   type ApparatusObservation,
 } from '../../lib/brand-v2-apparatus-evidence';
 
 const ROOT = process.cwd();
+
+/**
+ * `transition: none`, not `transition-duration: 0s`.
+ *
+ * Both stop a transition from STARTING, and only the first cancels one that
+ * is already running: CSS Transitions cancels a running transition when the
+ * after-change style no longer carries a matching `transition-property`,
+ * while a duration change is documented not to disturb a transition already
+ * in flight. That distinction is the whole defect. An anchor that paints
+ * before the author stylesheet reaches it wears the user-agent link colour
+ * `rgb(0, 0, 238)`, and `.transition-colors` then runs it to the sealed
+ * accent over 150ms; a sample taken during that run reports a colour that is
+ * on the page for a tenth of a second and in no stylesheet. The reported
+ * `rgb(30, 80, 252)` is exactly 84% of the way along that line, which is why
+ * it only appeared when another spec shared the worker and slowed the load.
+ */
+const SUPPRESS_MOTION =
+  '*, *::before, *::after { transition: none !important; animation: none !important; }';
+
+/**
+ * Install the suppression before the first byte of every document this page
+ * loads, so the transition never starts rather than being cancelled after
+ * the fact. Applies to all subsequent navigations on the page.
+ */
+async function suppressMotionFromFirstPaint(page: Page) {
+  await page.addInitScript((css: string) => {
+    const install = () => {
+      const style = document.createElement('style');
+      style.dataset.suppressMotion = '';
+      style.textContent = css;
+      (document.head ?? document.documentElement).append(style);
+    };
+    if (document.head) install();
+    else document.addEventListener('DOMContentLoaded', install, { once: true });
+  }, SUPPRESS_MOTION);
+}
+
+/** Settle a freshly navigated article so every read is the at-rest value. */
+async function settleForMeasurement(page: Page) {
+  await page.evaluate(() => document.fonts.ready);
+  // Belt to the init script's braces: a document that somehow began a
+  // transition before the injected style applied has it cancelled here.
+  await page.addStyleTag({ content: SUPPRESS_MOTION });
+  await page.evaluate(
+    () => new Promise((resolve) => requestAnimationFrame(() => resolve(null))),
+  );
+}
 
 /**
  * Runs inside the page. Everything is discovered from the rendered document.
@@ -319,6 +368,8 @@ test.describe('brand-v2 article wiki apparatus', () => {
       .map(({ path }) => path);
     expect(articleRoutes.length).toBeGreaterThan(5);
 
+    await suppressMotionFromFirstPaint(page);
+
     const observations: ApparatusObservation[] = [];
     for (const viewport of APPARATUS_VIEWPORTS) {
       await page.setViewportSize({
@@ -328,22 +379,7 @@ test.describe('brand-v2 article wiki apparatus', () => {
       for (const route of articleRoutes) {
         const response = await page.goto(`${staticBase}${route}`);
         expect(response?.status(), route).toBe(200);
-        await page.evaluate(() => document.fonts.ready);
-        // Colour here is time-dependent without this. Tailwind's
-        // `transition-colors` covers `color` and `outline-color`, so a token
-        // that settles after hydration is read mid-interpolation: a
-        // reference link measured 33,88,254 on one slow route while every
-        // other route measured the sealed 36,95,255, purely on timing.
-        // Suppressing transitions makes the sample the at-rest value the
-        // reader ends up looking at, which is the thing the contract seals.
-        await page.addStyleTag({
-          content:
-            '*, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }',
-        });
-        await page.evaluate(
-          () =>
-            new Promise((resolve) => requestAnimationFrame(() => resolve(null))),
-        );
+        await settleForMeasurement(page);
         observations.push({
           ...(await page.evaluate(collectApparatus)),
           route,
@@ -390,5 +426,88 @@ test.describe('brand-v2 article wiki apparatus', () => {
     const artifactPath = join(ROOT, APPARATUS_RUNTIME_EVIDENCE_PATH);
     mkdirSync(dirname(artifactPath), { recursive: true });
     writeFileSync(artifactPath, `${JSON.stringify(artifact, null, 2)}\n`);
+  });
+
+  /**
+   * The sweep above measures sealed colours, so it can only be trusted if a
+   * document that is still settling cannot leak an interpolated value into
+   * it. This drives that condition on purpose.
+   *
+   * Both halves are asserted. The control proves the plant still reproduces
+   * the defect, so the guard announces it rather than passing silently if a
+   * future browser stops transitioning here; the guarded half proves the
+   * suppression removes it. Without the control this test would pass on a
+   * page where nothing ever transitioned, which is the population trap one
+   * scope down.
+   */
+  test('reads the at-rest colour when the author stylesheet reaches an anchor after it has painted', async ({
+    browser,
+    staticBase,
+  }) => {
+    const route = brandV2Registry.routes.public.find(
+      ({ routeKind }) => routeKind === 'article',
+    )?.path;
+    expect(route, 'registry publishes at least one article route').toBeTruthy();
+
+    /**
+     * Disable and re-enable the shipped stylesheet. The anchor falls back to
+     * the user-agent link colour and is then restyled, which is the same
+     * before-change/after-change pair a late stylesheet produces, and it
+     * starts the `transition-colors` run that the reported failure sampled.
+     */
+    const plantLateStylesheet = async (page: Page) => {
+      await page.evaluate(async () => {
+        const linked = Array.from(document.styleSheets).filter(
+          (sheet) => sheet.ownerNode instanceof HTMLLinkElement,
+        );
+        for (const sheet of linked) sheet.disabled = true;
+        // Long enough for the unstyled colour to be the settled one, so the
+        // restyle below starts its run from the user-agent blue rather than
+        // from a value still a few frames away from the accent.
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        for (const sheet of linked) sheet.disabled = false;
+      });
+    };
+
+    const referenceColours = (page: Page) =>
+      page.evaluate(() =>
+        Array.from(
+          document.querySelectorAll<HTMLAnchorElement>(
+            'a[data-reference-source-link]',
+          ),
+        ).map((link) => getComputedStyle(link).color),
+      );
+
+    const control = await browser.newPage({
+      viewport: { width: 1440, height: 900 },
+    });
+    try {
+      await control.goto(`${staticBase}${route}`);
+      await control.evaluate(() => document.fonts.ready);
+      await plantLateStylesheet(control);
+      const during = await referenceColours(control);
+      expect(during.length, 'the route carries reference source links').toBeGreaterThan(0);
+      expect(
+        during.some((colour) => colour !== SIGNAL_BLUE_RENDERED),
+        `the plant no longer starts a colour transition, so this guard proves nothing (saw ${[...new Set(during)].join(', ')})`,
+      ).toBe(true);
+    } finally {
+      await control.close();
+    }
+
+    const guarded = await browser.newPage({
+      viewport: { width: 1440, height: 900 },
+    });
+    try {
+      await suppressMotionFromFirstPaint(guarded);
+      await guarded.goto(`${staticBase}${route}`);
+      await plantLateStylesheet(guarded);
+      await settleForMeasurement(guarded);
+      const settled = await referenceColours(guarded);
+      expect(settled.length).toBeGreaterThan(0);
+      expect([...new Set(settled)]).toEqual([SIGNAL_BLUE_RENDERED]);
+    } finally {
+      await guarded.close();
+    }
   });
 });

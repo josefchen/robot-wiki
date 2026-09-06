@@ -133,18 +133,43 @@ const INLINE_CODE = /`[^`\n]*`/g;
 const JSX_ATTR_STRING = /\b[A-Za-z_][\w-]*\s*=\s*(["'])[\s\S]*?\1/g;
 const UNESCAPED_CURRENCY = /(?<!\\)\$(?=\d)/g;
 
+// Blank (not remove) masked regions so match indices keep their line numbers.
+const blankOut = (match: string) => match.replace(/[^\n]/g, ' ');
+
+function maskCode(body: string): string {
+  return body
+    .replace(FENCED_CODE, blankOut)
+    .replace(INLINE_CODE, blankOut)
+    .replace(JSX_ATTR_STRING, blankOut);
+}
+
 /** 1-based line numbers of unescaped currency dollar signs in an MDX body. */
 export function unescapedCurrencyLines(body: string): number[] {
-  // Blank (not remove) masked regions so match indices keep their line numbers.
-  const blank = (match: string) => match.replace(/[^\n]/g, ' ');
-  const masked = body
-    .replace(FENCED_CODE, blank)
-    .replace(INLINE_CODE, blank)
-    .replace(JSX_ATTR_STRING, blank);
+  const masked = maskCode(body);
   const lines: number[] = [];
   for (const match of masked.matchAll(UNESCAPED_CURRENCY)) {
     lines.push(masked.slice(0, match.index).split('\n').length);
   }
+  return lines;
+}
+
+// Display-math fencing (check 7b). remark-math only opens a math BLOCK when
+// the `$$` fence closes on a later line; both delimiters on one line parse as
+// inline math instead, so the equation renders as a run-in with no display
+// box and, downstream, no `.katex-display` for rehype-scrollable-math to make
+// a focusable scroll region. `content/manipulation/rl-finetuning.mdx` shipped
+// that way and read as a typo nobody could see in the source.
+const DISPLAY_MATH_DELIMITER = /(?<!\\)\$\$/g;
+
+/** 1-based line numbers where a `$$` display equation opens and closes. */
+export function sameLineDisplayMathLines(body: string): number[] {
+  const lines: number[] = [];
+  maskCode(body)
+    .split('\n')
+    .forEach((line, index) => {
+      const delimiters = line.match(DISPLAY_MATH_DELIMITER)?.length ?? 0;
+      if (delimiters >= 2) lines.push(index + 1);
+    });
   return lines;
 }
 
@@ -429,6 +454,13 @@ export function validateContent(opts: ValidateContentOptions): ValidationIssue[]
       push(
         rel,
         `unescaped currency dollar sign at line ${line}: write prices as \\$ (remark-math parses unescaped $ amounts as inline KaTeX; see library/content-quality.md)`,
+      );
+    }
+
+    for (const line of sameLineDisplayMathLines(body)) {
+      push(
+        rel,
+        `display equation written on one line at line ${line}: remark-math reads $$...$$ with both delimiters on one line as INLINE math, so it renders as a run-in with no display box and no scrollable region. Put each $$ on its own line with the equation between them.`,
       );
     }
   }

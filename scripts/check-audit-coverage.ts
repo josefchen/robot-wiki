@@ -32,7 +32,13 @@ import {
   summarise,
   type DomainCoverage,
 } from '../lib/audit-ledger.ts';
+import {
+  CITATION_LEDGER_PATH,
+  parseCitationLedgerRows,
+  reconcileCitationCoverage,
+} from '../lib/audit-citation-coverage.ts';
 import { publishedModules } from '../data/modules.ts';
+import { CITATIONS } from '../data/citations.ts';
 
 const root = join(import.meta.dirname, '..');
 const asJson = process.argv.includes('--json');
@@ -65,13 +71,30 @@ const uncoveredDomains = [...published.keys()].filter(
   (domain) => !covered.has(domain),
 );
 
+/**
+ * The same omission one scope down again: an article ledger cites sources by
+ * registry id, and nothing checked that the registry entry behind that id had
+ * ever been fetched. The article side is offline and deterministic, and so is
+ * this: it asks whether a row exists, not whether the row is right. Whether
+ * the document at the URL is the one the entry names is settled by
+ * `npm run check:citations`, which is 412 network calls and is deliberately
+ * not a build gate.
+ */
+const citations = reconcileCitationCoverage({
+  registry: CITATIONS.map(({ id, url }) => ({ id, url })),
+  rows: parseCitationLedgerRows(
+    readFileSync(join(root, CITATION_LEDGER_PATH), 'utf8'),
+  ),
+});
+
 const summary = summarise(coverage);
-const ok = summary.ok && uncoveredDomains.length === 0;
+const ok =
+  summary.ok && uncoveredDomains.length === 0 && citations.failures.length === 0;
 
 if (asJson) {
   console.log(
     JSON.stringify(
-      { ok, uncoveredDomains, domains: coverage, summary },
+      { ok, uncoveredDomains, domains: coverage, summary, citations },
       null,
       2,
     ),
@@ -87,18 +110,31 @@ if (asJson) {
       ).padStart(3)} claim rows  (${assertion})`,
     );
   }
+  console.log(
+    `${citations.failures.length === 0 ? 'ok  ' : 'FAIL'} ${'citations'.padEnd(14)} ${String(
+      citations.coveredCount,
+    ).padStart(3)}/${String(citations.registryCount).padEnd(3)} audited in ${CITATION_LEDGER_PATH}  (VAL-AUDIT-008)`,
+  );
   for (const domain of uncoveredDomains) {
     console.error(
       `check:audit-coverage: domain \`${domain}\` publishes articles and has no ledger in AUDIT_LEDGERS`,
     );
   }
-  for (const failure of summary.failures) {
+  for (const failure of [...summary.failures, ...citations.failures]) {
     console.error(`check:audit-coverage: ${failure.message}`);
+  }
+  // Named, never silently absorbed: an offline gate cannot re-litigate a
+  // network verdict, but a row recording an unsettled one must not read as
+  // clean coverage either.
+  if (citations.unresolved.length > 0) {
+    console.log(
+      `check:audit-coverage: ${citations.unresolved.length} citation row(s) record an unresolved check, owned by \`npm run check:citations\` (VAL-AUDIT-008): ${citations.unresolved.join(', ')}`,
+    );
   }
   console.log(
     ok
-      ? `check:audit-coverage: OK (${summary.auditedCount}/${summary.publishedCount} published articles audited, ${summary.claimRows} claim rows)`
-      : `check:audit-coverage: FAILED (${summary.failures.length + uncoveredDomains.length} findings)`,
+      ? `check:audit-coverage: OK (${summary.auditedCount}/${summary.publishedCount} published articles audited, ${summary.claimRows} claim rows, ${citations.coveredCount}/${citations.registryCount} citations audited)`
+      : `check:audit-coverage: FAILED (${summary.failures.length + uncoveredDomains.length + citations.failures.length} findings)`,
   );
 }
 

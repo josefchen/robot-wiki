@@ -11,11 +11,9 @@ content they vouch for, like `/research`.
 Every published article (all 47 across the seven domains), the four
 structured data files behind them (`data/methods.ts`,
 `data/hardware.ts`, `data/datasets.ts`, `data/teleop-rigs.ts`), the
-market-map dataset (`data/companies.ts`, 111 records), and the citation
-registry as it stood at the 2026-08-18 sweep (`data/citations.ts`, 307 of
-today's 412 entries; the 105 added since are cited by audited articles and
-so are checked at claim level in the domain ledgers, but `citations.md`
-has no per-entry row for them).
+market-map dataset (`data/companies.ts`, 111 records), and the whole
+citation registry (`data/citations.ts`, all 412 entries, re-audited
+end to end on 2026-09-06).
 
 That first sentence is now checkable rather than asserted. Five articles
 published on 2026-08-22 sat outside these ledgers for a fortnight while
@@ -27,6 +25,13 @@ is empty, when an article has a heading but no checked claim, or when a
 claim row names no source. It runs inside `npm run validate:content`, so
 publishing an article without auditing it now breaks the build.
 
+The citations row had the same defect one scope down and now has the same
+answer. The per-entry table in `citations.md` had covered 300 entries since
+2026-08-16 while the registry grew to 412, and the gap was tracked by a
+hand-written scope note. `lib/audit-citation-coverage.ts` reconciles the
+registry against that table in the same gate, so a citation entry with no
+audit row breaks the build too.
+
 | Ledger | Covers | Claims checked | Verified | Corrected | Cut | Unresolved |
 |---|---|---|---|---|---|---|
 | manipulation.md | 12 manipulation articles + methods.ts | 225 article rows (71+66+88) + 16 registry rows | 213 + 12 | 15 rows (13 distinct defects) | 0 | 0 |
@@ -36,19 +41,19 @@ publishing an article without auditing it now breaks the build.
 | classical.md | 7 classical articles | 79 + 108 rows | 73 + 99 | 6 + 9 | 0 | 0 |
 | frontier.md | 6 frontier articles + 4 lib files | 108 + 40 rows | 80 + 37 | 26 rows (24 defects) + 1 row | 0 | 1 |
 | market-map.md | 111 company records + timeline | 98 ledger rows over 111 records | 14 V | 46 C (+21 C+N, and see ledger) | 1 record removed | 1 |
-| citations.md | 307 citation-registry entries | 307 | 303 (293 ok + 10 exceptions, 2026-08-18 run); 4 titles unavailable | see ledger | 0 | 0 |
+| citations.md | 412 citation-registry entries | 412 | 397 (378 ok + 19 exceptions, 2026-09-06 run); 5 titles unavailable | see ledger | 0 | 10 |
 | adjacent.md | 4 adjacent-domain articles | 48 rows | 47 | 1 | 0 | 0 |
-| **Total** | **47 articles + all structured data + full registry** | **1,424 rows** | **1,192** | **177 rows** (+21 market-map C+N) | **4** | **7** |
+| **Total** | **47 articles + all structured data + full registry** | **1,529 rows** | **1,286** | **177 rows** (+21 market-map C+N) | **4** | **17** |
 
 Counting unit for this table: ledger rows (the citations ledger counts
 registry entries, one per row of its table). Every cell above is counted
 from the ledger's own tables; the Total row is the column sum, shown
-exactly: 241+167+92+136+187+148+98+307+48 = 1,424 rows checked;
-225+151+76+87+172+117+14+303+47 = 1,192 verified (the citations ledger's
-303 is its 293 ok plus 10 documented exceptions; the remaining 4 registry
-entries are counted in its 307 rows but sit outside the verified column
-because their titles were unavailable to the checker — 293 + 10 + 4 =
-307);
+exactly: 241+167+92+136+187+148+98+412+48 = 1,529 rows checked;
+225+151+76+87+172+117+14+397+47 = 1,286 verified (the citations ledger's
+397 is its 378 ok plus 19 documented exceptions; 5 more entries are
+counted in its 412 rows but sit outside the verified column because their
+titles were unavailable to the checker, and 10 are unresolved — 378 + 19 +
+5 + 10 = 412);
 15+15+16+42+15+27+46+0+1 = 177 corrected rows, plus the market-map ledger's
 21 combined C+N rows that its own summary reports separately.
 
@@ -67,17 +72,20 @@ ledgers, and the difference is a convention, not a disagreement. It counts
 only rows under an article heading, so the 16 manipulation registry rows,
 the 4 data-hardware data-file rows and the frontier registry-sweep row are
 outside its population; it reports 994 article rows where this table
-reports 1,424 rows over a wider scope.
+reports 1,529 rows over a wider scope. The citation registry is the same
+scope in both: 412 rows here, and the `citations 412/412` line the gate
+prints.
 
 (Derivability note for the citations row, stated on this page per the
-convention above: the 307 registry entries break down as 293 title-verified
-+ 10 documented exceptions + 4 titles-unavailable. The per-entry table in
-`citations.md` predates 7 later additions and covers 300 of the 307; those
-7 are verified as claim-level sources in their own domain ledgers and are
-covered by the 2026-08-18 re-run of both checkers, as the ledger's scope
-note records. So 303, not 307, is the figure derivable from the verdict
-columns alone, and the 4-entry gap is named here rather than left for the
-reader to discover in `citations.md`.)
+convention above: the 412 registry entries break down as 378 title-verified
++ 19 documented exceptions + 5 titles-unavailable + 10 unresolved. The
+per-entry table in `citations.md` now has one row per registry entry, and
+`check:audit-coverage` fails if that stops being true, so the row is
+derivable from the ledger rather than from a note. The 10 unresolved are
+listed by id and by reason in the ledger's 2026-09-06 re-audit section:
+one year disagreement reported as a title mismatch, three pages whose
+title is not the document's, three hosts that did not answer, and three
+bot walls with no DOI to fall back on. None is a dead link.)
 
 (The market-map totals count ledger rows, each row naming at least one
 record; several records were verified, corrected and nulled in one row, so
@@ -206,7 +214,7 @@ existed; re-cited via Teslarati). The 2026-08-18 sweep found no others.
 
 ```bash
 npm run validate:content    # content-pipeline validation; prints the live corpus
-                            # counts (42 modules, 307 citations, 111 companies)
+                            # counts (47 modules, 412 citations, 111 companies)
 npm run check:links             # liveness of every registry URL (bot-walls via Crossref)
 npm run check:citations         # identity: fetched title vs registry title, per entry
 npm run check:dataset-sources   # liveness of every market-map company source URL
@@ -225,10 +233,13 @@ transient-error exceptions such as the Sutton archival mirror's
 intermittent TLS resets (a single passing fetch is not evidence an
 intermittent failure went away).
 
-Last clean run: 2026-08-18 — check:links 307 checked, 301 live (20
-verified via Crossref), 0 dead, 0 blocked, 0 error, 6 documented
-exceptions; check:citations 293 ok (46 via Crossref) + 10 documented
-exceptions, 4 titles unavailable, 0 mismatches.
+Last full run: 2026-09-06 — check:citations 412 checked, 378 ok (73
+verified via Crossref) + 19 documented exceptions, 5 titles unavailable, 4
+title mismatches, 0 dead, 3 blocked, 3 error, 2 archival captures; exit 1
+on the ten unresolved entries the ledger names. Not clean, and not
+claimed to be. `check:links` has not been re-run at 412 entries; its last
+recorded run is 2026-08-18 at 307 checked, 301 live (20 via Crossref), 0
+dead, 0 blocked, 0 error, 6 documented exceptions.
 
 The dataset-source gate made the market-map URL sweep reproducible for the
 first time (it was previously a one-off `curl` pass). Its first full run
