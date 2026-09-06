@@ -81,6 +81,14 @@ export interface LedgerSection {
   /** Claim texts whose "Source checked" cell is empty. */
   readonly unsourcedRows: readonly string[];
   /**
+   * Rows that carry a source cell but no per-claim evidence anywhere in the
+   * row: no citation-registry id, no locator, no quoted passage or passage
+   * pointer, no named document, and no declared non-fetch basis.
+   */
+  readonly unevidencedRows: readonly { claim: string; source: string }[];
+  /** How many rows carry each kind of evidence, for non-vacuity. */
+  readonly evidenceKinds: Readonly<Record<string, number>>;
+  /**
    * Rows whose verdict settles nothing: the claim was not checked, or the
    * outcome is written in a vocabulary this grader does not know.
    */
@@ -97,6 +105,7 @@ export type CoverageFailureKind =
   | 'audited-unpublished-article'
   | 'vacuous-section'
   | 'unsourced-claim'
+  | 'unevidenced-claim'
   | 'unresolved-claim'
   | 'unverdicted-claim';
 
@@ -113,6 +122,8 @@ export interface DomainCoverage {
   readonly publishedCount: number;
   readonly auditedCount: number;
   readonly claimRows: number;
+  /** How many claim rows carry each kind of per-claim evidence. */
+  readonly evidenceKinds: Readonly<Record<string, number>>;
   readonly failures: readonly CoverageFailure[];
 }
 
@@ -121,6 +132,8 @@ export interface CoverageSummary {
   readonly publishedCount: number;
   readonly auditedCount: number;
   readonly claimRows: number;
+  /** How many claim rows carry each kind of per-claim evidence. */
+  readonly evidenceKinds: Readonly<Record<string, number>>;
   readonly failures: readonly CoverageFailure[];
 }
 
@@ -241,6 +254,121 @@ function claimColumn(header: readonly string[]): number {
 }
 
 /**
+ * The bases on which a row may rest without naming a fetched document.
+ *
+ * A claim that a number follows from another number, or from this
+ * repository's own code, is checkable without leaving the tree. Everything
+ * else has to name something a reader can go and read.
+ */
+const NON_FETCH_BASES = [
+  /\barithmetic\b/i,
+  /\bderivation\b/i,
+  /\bby definition\b/i,
+  /\binternal\b/i,
+  /\bregistry\b/i,
+  /\bthis (?:file|table|ledger)\b/i,
+  /\bchecked symbolically\b/i,
+  /\bcomponents?\b/i,
+  /\binteractives?\b/i,
+  /(?:^|\s)Int:\s/,
+  /\barticle'?s own\b/i,
+  /\bcited inline\b/i,
+  /\bfrontmatter\b/i,
+];
+
+/**
+ * Something a reader can follow: a URL, a bare host, a DOI, an arXiv id, a
+ * repository path, or a citation-registry id.
+ */
+const LOCATOR_PATTERNS = [
+  /https?:\/\/\S+/i,
+  /\b[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.(?:com|org|net|edu|gov|io|ai|dev|co|uk|de|jp|cn|eu|info|website|tech)\b/i,
+  /\b10\.\d{4,9}\/\S+/,
+  /\barxiv[:\s]*\d{4}\.\d{4,5}/i,
+  /\b(?:app|components|content|data|lib|scripts|public)\/[\w./-]+\.[a-z]{2,4}\b/,
+];
+
+/**
+ * Whether a `Source checked` cell names evidence rather than a placeholder.
+ *
+ * The gate used to accept any non-empty cell, so "tbd", "see above" and a
+ * stray dash were all a sourced claim. A row now has to carry at least one
+ * of the three things the ledgers themselves say a row carries: the
+ * citation-registry id the article cites, a locator for the document that
+ * was fetched, or an explicit non-fetch basis.
+ */
+export function claimEvidence(
+  source: string,
+  registryIds: ReadonlySet<string>,
+): {
+  readonly kind:
+    | 'citation-id'
+    | 'locator'
+    | 'passage'
+    | 'named-document'
+    | 'non-fetch';
+  readonly value: string;
+} | null {
+  const cell = source.replace(/\*+/g, '').trim();
+  if (cell === '') return null;
+  for (const id of cell.matchAll(/`([^`]+)`/g)) {
+    if (registryIds.has(id[1])) return { kind: 'citation-id', value: id[1] };
+  }
+  for (const word of cell.matchAll(/[a-z0-9][a-z0-9-]{3,}/gi)) {
+    if (registryIds.has(word[0])) return { kind: 'citation-id', value: word[0] };
+  }
+  for (const pattern of LOCATOR_PATTERNS) {
+    const match = pattern.exec(cell);
+    if (match) return { kind: 'locator', value: match[0] };
+  }
+  // "DP paper, Sec. 3.1", "ACT paper Table III + Sec. III": the document is
+  // named in the section's own preamble and the cell points at the passage
+  // inside it. That is a per-claim evidence field, and it is what most rows
+  // in the older ledgers carry.
+  const passage = PASSAGE_POINTER.exec(cell);
+  if (passage && DOCUMENT_NAME.test(cell)) {
+    return { kind: 'passage', value: passage[0] };
+  }
+  for (const pattern of NON_FETCH_BASES) {
+    const match = pattern.exec(cell);
+    if (match) return { kind: 'non-fetch', value: match[0] };
+  }
+  // "π0 paper", "GR2 blog", "Isaac-GR00T repo, License section": a named
+  // document with no locator. Weaker than a URL, and still evidence a
+  // reader can go and find; a cell with none of the five is not.
+  // The qualifier has to name something: a bare "note" or "page" is a word,
+  // not a document, so a match with no proper name and no number in it is
+  // not evidence.
+  const named = [
+    ...cell.matchAll(new RegExp(NAMED_DOCUMENT.source, 'gi')),
+    ...cell.matchAll(new RegExp(AUTHOR_YEAR.source, 'g')),
+  ].find(([match]) => /[A-Z\u03a0\u03c00-9]/.test(match));
+  if (named) return { kind: 'named-document', value: named[0] };
+  const quoted = QUOTED_PASSAGE.exec(cell);
+  if (quoted) return { kind: 'passage', value: quoted[0].slice(0, 60) };
+  return null;
+}
+
+/** A document noun, qualified by the name of the thing it belongs to. */
+const NAMED_DOCUMENT =
+  /(?:[A-Za-zπ0-9À-ɏ][\w.\-–—/À-ɏ]*\s+){1,6}(?:papers?|preprint|blogs?|posts?|essays?|articles?|surveys?|reports?|announcements?|releases?|model card|cards?|repos?|repository|pdfs?|pages?|docs?|documentation|standards?|manuals?|datasheets?|specs?|specification|proceedings|thesis|books?|chapters?|notes?|videos?|talks?|filing|10-k|press ?kit|newsroom|readme|changelog|licen[cs]e|tables?|figures?|datasets?|benchmarks?|leaderboards?)\b/i;
+
+/** `Rudin 2021`, `Park et al. 2017`, `TechCrunch (2026-03-09)`. */
+const AUTHOR_YEAR =
+  /\b[A-Z][A-Za-z\u00c0-\u024f-]+(?:\s+et al\.?)?[\s,]*\(?\d{4}(?:-\d{2}-\d{2})?\)?/;
+
+/** A passage the checker copied out of the source it read. */
+const QUOTED_PASSAGE = /["“][^"”]{20,}["”]/;
+
+/** Where inside a document the claim was read. */
+const PASSAGE_POINTER =
+  /(?:§|\bsec(?:tion)?\.?\s*[\dIVX]|\btable\s*[\dIVX]|\bfig(?:ure)?\.?\s*[\dIVX]|\bapp(?:endix)?\.?\s*[A-Z\d]|\bch(?:apter)?\.?\s*[\dIVX]|\bp{1,2}\.\s*\d|\babstract\b|\bcaption\b|\bconclusion\b|\bintroduction\b|\bmethods?\b|\breadme\b|\bdatasheet\b|\bspec sheet\b)/i;
+
+/** Something named as the document the passage is inside. */
+const DOCUMENT_NAME =
+  /(?:\bpaper\b|\breport\b|\bpreprint\b|\bstandard\b|\bmanual\b|\bdocs?\b|\bpage\b|\bblog\b|\brelease\b|\bcard\b|["“][^"”]{4,}["”]|\b[A-Z][A-Za-z0-9-]*(?:\s+[A-Z][A-Za-z0-9-]*)*\b|π\d)/;
+
+/**
  * Parse one domain ledger into one record per audited article.
  *
  * Sections for the same article are folded together: `audit/frontier.md`
@@ -250,6 +378,7 @@ function claimColumn(header: readonly string[]): number {
 export function parseLedger(
   ledgerPath: string,
   markdown: string,
+  registryIds: ReadonlySet<string> = new Set(),
 ): LedgerSection[] {
   const order: string[] = [];
   const rows = new Map<string, number>();
@@ -257,6 +386,8 @@ export function parseLedger(
   const unresolved = new Map<string, { claim: string; verdict: string }[]>();
   const unverdicted = new Map<string, string[]>();
   const recorded = new Map<string, number>();
+  const unevidenced = new Map<string, { claim: string; source: string }[]>();
+  const evidenceKinds = new Map<string, Record<string, number>>();
 
   let slug: string | null = null;
   let header: string[] | null = null;
@@ -273,6 +404,8 @@ export function parseLedger(
         unresolved.set(slug, []);
         unverdicted.set(slug, []);
         recorded.set(slug, 0);
+        unevidenced.set(slug, []);
+        evidenceKinds.set(slug, {});
       }
       continue;
     }
@@ -298,6 +431,25 @@ export function parseLedger(
     rows.set(slug, (rows.get(slug) ?? 0) + 1);
     if (source === '') {
       unsourced.get(slug)?.push(claim);
+    } else {
+      // The evidence a row carries is not confined to one cell: the source
+      // column says which document was read, and the note column usually
+      // holds the passage that settles the claim. The row as a whole has to
+      // name something, or the check it records cannot be repeated.
+      const noteIndex = noteColumn(header);
+      const evidence = claimEvidence(
+        [source, claim, noteIndex === -1 ? '' : (row[noteIndex] ?? '')].join(
+          ' ~ ',
+        ),
+        registryIds,
+      );
+      if (evidence === null) {
+        unevidenced.get(slug)?.push({ claim, source });
+      } else {
+        const counts = evidenceKinds.get(slug) ?? {};
+        counts[evidence.kind] = (counts[evidence.kind] ?? 0) + 1;
+        evidenceKinds.set(slug, counts);
+      }
     }
     // The verdict, which nothing used to read. The reconciliation counted
     // a row that says "UNRESOLVED - could not check" exactly as it counted
@@ -338,6 +490,8 @@ export function parseLedger(
     unresolvedRows: unresolved.get(articleSlug) ?? [],
     unverdictedRows: unverdicted.get(articleSlug) ?? [],
     recordedInconsistencyRows: recorded.get(articleSlug) ?? 0,
+    unevidencedRows: unevidenced.get(articleSlug) ?? [],
+    evidenceKinds: evidenceKinds.get(articleSlug) ?? {},
   }));
 }
 
@@ -397,6 +551,13 @@ export function reconcileDomain(input: ReconcileInput): DomainCoverage {
         message: `${domain}: \`${section.slug}\` records a claim with no source checked: "${claim}"`,
       });
     }
+    for (const { claim, source } of section.unevidencedRows) {
+      failures.push({
+        kind: 'unevidenced-claim',
+        domain,
+        message: `${domain}: \`${section.slug}\` records "${source.slice(0, 60)}" as the source for "${claim.slice(0, 90)}", which names no citation id, locator, passage or declared non-fetch basis, so the check cannot be repeated`,
+      });
+    }
     for (const { claim, verdict } of section.unresolvedRows) {
       failures.push({
         kind: 'unresolved-claim',
@@ -420,19 +581,53 @@ export function reconcileDomain(input: ReconcileInput): DomainCoverage {
     publishedCount: published.length,
     auditedCount: audited.size,
     claimRows: sections.reduce((total, s) => total + s.claimRows, 0),
+    evidenceKinds: sections.reduce<Record<string, number>>((totals, section) => {
+      for (const [kind, count] of Object.entries(section.evidenceKinds)) {
+        totals[kind] = (totals[kind] ?? 0) + count;
+      }
+      return totals;
+    }, {}),
     failures,
   };
 }
 
+/**
+ * The kinds of per-claim evidence that must each be present somewhere in
+ * the corpus.
+ *
+ * These three are the strong forms: the id of a registry entry, a locator
+ * for a document that was fetched, and a passage copied out of it. If the
+ * ledgers ever hold none of one of them, either that form has left the
+ * ledgers or the classifier has stopped recognising it, and the check has
+ * relaxed without anyone deciding to relax it.
+ */
+const REQUIRED_EVIDENCE_KINDS = ['citation-id', 'locator', 'passage'] as const;
+
 export function summarise(
   coverage: readonly DomainCoverage[],
 ): CoverageSummary {
-  const failures = coverage.flatMap((domain) => domain.failures);
+  const evidenceKinds: Record<string, number> = {};
+  for (const domain of coverage) {
+    for (const [kind, count] of Object.entries(domain.evidenceKinds)) {
+      evidenceKinds[kind] = (evidenceKinds[kind] ?? 0) + count;
+    }
+  }
+  const failures = [...coverage.flatMap((domain) => domain.failures)];
+  for (const kind of REQUIRED_EVIDENCE_KINDS) {
+    if ((evidenceKinds[kind] ?? 0) === 0) {
+      failures.push({
+        kind: 'unevidenced-claim',
+        domain: 'all',
+        message: `no claim row in any ledger carries ${kind} evidence, so the per-claim evidence check is deciding over a narrower population than it reports`,
+      });
+    }
+  }
   return {
     ok: failures.length === 0 && coverage.length > 0,
     publishedCount: coverage.reduce((n, d) => n + d.publishedCount, 0),
     auditedCount: coverage.reduce((n, d) => n + d.auditedCount, 0),
     claimRows: coverage.reduce((n, d) => n + d.claimRows, 0),
+    evidenceKinds,
     failures,
   };
 }

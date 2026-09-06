@@ -50,6 +50,8 @@ for (const entry of publishedModules()) {
   published.set(entry.domain, slugs);
 }
 
+const registryIds = new Set(CITATIONS.map(({ id }) => id));
+
 const coverage: DomainCoverage[] = AUDIT_LEDGERS.map((ledger) => {
   const markdown = readFileSync(join(root, ledger.ledgerPath), 'utf8');
   return reconcileDomain({
@@ -57,7 +59,7 @@ const coverage: DomainCoverage[] = AUDIT_LEDGERS.map((ledger) => {
     assertionId: ledger.assertionId,
     ledgerPath: ledger.ledgerPath,
     published: published.get(ledger.domain) ?? [],
-    sections: parseLedger(ledger.ledgerPath, markdown),
+    sections: parseLedger(ledger.ledgerPath, markdown, registryIds),
   });
 });
 
@@ -114,6 +116,14 @@ if (asJson) {
     `${citations.failures.length === 0 ? 'ok  ' : 'FAIL'} ${'citations'.padEnd(14)} ${String(
       citations.coveredCount,
     ).padStart(3)}/${String(citations.registryCount).padEnd(3)} audited in ${CITATION_LEDGER_PATH}  (VAL-AUDIT-008)`,
+  );
+  // Derived from the rows, never written by hand: what each claim row
+  // actually carries as its evidence.
+  console.log(
+    `     ${'evidence'.padEnd(14)} ${Object.entries(summary.evidenceKinds)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([kind, count]) => `${kind} ${count}`)
+      .join(', ')}`,
   );
   for (const domain of uncoveredDomains) {
     console.error(
