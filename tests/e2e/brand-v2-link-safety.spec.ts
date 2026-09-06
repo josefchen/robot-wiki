@@ -1,5 +1,13 @@
-import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { existsSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import {
+  censusOutboundAnchors,
+  exportedRoutes,
+  FIRST_PARTY_HOSTS,
+  linkSafetyFingerprint,
+  LINK_SAFETY_EVIDENCE_PATH,
+  type OutboundAnchor,
+} from '../../lib/brand-v2-link-safety.ts';
 import { test, expect } from './brand-v2-static-fixture';
 
 /**
@@ -7,7 +15,7 @@ import { test, expect } from './brand-v2-static-fixture';
  * (VAL-B2-BASE-007).
  *
  * The population is discovered from the shipped export, never listed: the
- * sweep walks every `index.html` under out/, parses every anchor, and keeps
+ * census walks every `index.html` under out/, parses every anchor, and keeps
  * the ones whose href leaves the site. A restyle that drops `rel` from one
  * component, or a new component that ships an unsafe outbound link, is then
  * a failure here rather than a gap nobody enumerated.
@@ -28,114 +36,15 @@ import { test, expect } from './brand-v2-static-fixture';
  * shape census is what makes the sample honest: if a new kind of outbound
  * link appears anywhere in the export and no swept route carries it, the
  * coverage assertion fails instead of the sweep quietly missing it.
+ *
+ * The census itself lives in `lib/brand-v2-link-safety.ts` because the
+ * enforcement generator re-derives the byte half from the same code. Two
+ * copies of "which anchors leave the site" would eventually disagree, and
+ * the row would then be evidence about a population the sweep never walked.
  */
 
 const OUT = join(process.cwd(), 'out');
-const EVIDENCE_PATH = join(
-  process.cwd(),
-  'evidence',
-  'brand-v2',
-  'link-safety.json',
-);
-
-/** Hosts that are this site rather than somewhere else. */
-const FIRST_PARTY_HOSTS = new Set(['robot-wiki.com', 'www.robot-wiki.com']);
-
-type Shape =
-  | 'citation-chip'
-  | 'reference-entry'
-  | 'figure-credit'
-  | 'footer'
-  | 'other';
-
-interface OutboundAnchor {
-  route: string;
-  href: string;
-  rel: string | null;
-  target: string | null;
-  tabindex: string | null;
-  shape: Shape;
-}
-
-/** Every route the export carries, as a site-absolute trailing-slash path. */
-function exportedRoutes(): string[] {
-  const routes: string[] = [];
-  const walk = (dir: string): void => {
-    for (const entry of readdirSync(dir, { withFileTypes: true })) {
-      const full = join(dir, entry.name);
-      if (entry.isDirectory()) {
-        walk(full);
-        continue;
-      }
-      if (entry.name !== 'index.html') continue;
-      const rel = relative(OUT, dir).split('\\').join('/');
-      routes.push(rel === '' ? '/' : `/${rel}/`);
-    }
-  };
-  walk(OUT);
-  return routes.sort();
-}
-
-function attribute(tag: string, name: string): string | null {
-  const match = new RegExp(`\\s${name}="([^"]*)"`, 'i').exec(tag);
-  return match ? match[1] : null;
-}
-
-/**
- * Classify an anchor by the surface that rendered it, using the markup
- * around it rather than class names: `data-cite-id` wraps the inline chip,
- * `id="ref-…"` list items are the References section, `<figure>` wraps
- * image credits, and `<footer>` is the site footer.
- */
-function shapeOf(html: string, anchorIndex: number): Shape {
-  const before = html.slice(0, anchorIndex);
-  const lastOpen = (tag: string): number => before.lastIndexOf(`<${tag}`);
-  const lastClose = (tag: string): number => before.lastIndexOf(`</${tag}>`);
-  if (lastOpen('footer') > lastClose('footer')) return 'footer';
-  if (lastOpen('figure') > lastClose('figure')) return 'figure-credit';
-  const citeOpen = before.lastIndexOf('data-cite-id=');
-  if (citeOpen !== -1 && before.slice(citeOpen).split('</span>').length <= 3) {
-    return 'citation-chip';
-  }
-  const refOpen = before.lastIndexOf('id="ref-');
-  if (refOpen !== -1 && before.lastIndexOf('</li>') < refOpen) {
-    return 'reference-entry';
-  }
-  return 'other';
-}
-
-function isOutbound(href: string): boolean {
-  if (!/^https?:\/\//i.test(href)) return false;
-  try {
-    return !FIRST_PARTY_HOSTS.has(new URL(href).hostname);
-  } catch {
-    return false;
-  }
-}
-
-/** Every outbound anchor in the export, with the attributes that matter. */
-function censusOutboundAnchors(): OutboundAnchor[] {
-  const found: OutboundAnchor[] = [];
-  for (const route of exportedRoutes()) {
-    const file = join(OUT, route === '/' ? '' : route, 'index.html');
-    const html = readFileSync(file, 'utf8');
-    const anchor = /<a\b[^>]*>/gi;
-    let match: RegExpExecArray | null;
-    while ((match = anchor.exec(html)) !== null) {
-      const href = attribute(match[0], 'href');
-      if (!href || !isOutbound(href)) continue;
-      found.push({
-        route,
-        href,
-        rel: attribute(match[0], 'rel'),
-        target: attribute(match[0], 'target'),
-        tabindex: attribute(match[0], 'tabindex'),
-        shape: shapeOf(html, match.index),
-      });
-    }
-  }
-  return found;
-}
+const EVIDENCE_PATH = join(process.cwd(), LINK_SAFETY_EVIDENCE_PATH);
 
 /**
  * Routes walked with the keyboard. Chosen to carry every shape the census
@@ -161,9 +70,8 @@ interface KeyboardVerdict {
 }
 
 test.describe('outbound links are safe and citation links are keyboard reachable', () => {
-  const census = existsSync(join(OUT, 'index.html'))
-    ? censusOutboundAnchors()
-    : [];
+  const exported = existsSync(join(OUT, 'index.html')) ? exportedRoutes(OUT) : [];
+  const census: OutboundAnchor[] = exported.length > 0 ? censusOutboundAnchors(OUT) : [];
   const keyboardVerdicts: KeyboardVerdict[] = [];
 
   test('the export carries outbound links to judge', () => {
@@ -292,6 +200,13 @@ test.describe('outbound links are safe and citation links are keyboard reachable
       'the export renders an outbound-link shape no keyboard-swept route carries',
     ).toEqual([]);
 
+    // The generator refuses a trace that does not cover every walked route,
+    // so the artifact is only written once all four have run.
+    expect(
+      keyboardVerdicts.map(({ route }) => route).sort(),
+      'a keyboard route produced no verdict, so the trace would be partial',
+    ).toEqual([...KEYBOARD_ROUTES].sort());
+
     const byShape: Record<string, number> = {};
     for (const anchor of census) {
       byShape[anchor.shape] = (byShape[anchor.shape] ?? 0) + 1;
@@ -300,18 +215,39 @@ test.describe('outbound links are safe and citation links are keyboard reachable
       EVIDENCE_PATH,
       `${JSON.stringify(
         {
-          schemaVersion: 1,
+          schemaVersion: 2,
           assertionId: 'VAL-B2-BASE-007',
+          fingerprint: linkSafetyFingerprint({
+            root: process.cwd(),
+            census,
+          }),
           source: 'out/ static export',
-          routesSwept: exportedRoutes().length,
+          // Per route, so a corpus check that runs without a build still has
+          // the population; the reader reconciles it against the census.
+          routes: [...new Set(census.map((a) => a.route))]
+            .sort()
+            .map((route) => {
+              const anchors = census.filter((a) => a.route === route);
+              return {
+                route,
+                outboundAnchors: anchors.length,
+                distinctHrefs: new Set(anchors.map((a) => a.href)).size,
+                shapes: [...new Set(anchors.map((a) => a.shape))].sort(),
+              };
+            }),
+          routesSwept: exported.length,
           outboundAnchors: census.length,
           distinctOutboundHrefs: new Set(census.map((a) => a.href)).size,
           anchorsByShape: byShape,
-          anchorsWithoutNoopener: 0,
+          anchorsWithoutNoopener: census.filter(
+            (a) => !(a.rel ?? '').split(/\s+/).includes('noopener'),
+          ).length,
           anchorsWithNoreferrer: census.filter((a) =>
             (a.rel ?? '').split(/\s+/).includes('noreferrer'),
           ).length,
-          keyboard: keyboardVerdicts,
+          keyboard: keyboardVerdicts.sort((left, right) =>
+            left.route.localeCompare(right.route),
+          ),
         },
         null,
         2,

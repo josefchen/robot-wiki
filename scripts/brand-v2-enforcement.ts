@@ -15,6 +15,26 @@ import {
   type PrimitiveRegistrySlice,
 } from '../lib/brand-v2-primitive-reconciliation.ts';
 import { BRAND_V2_DEEP_ROWS } from '../lib/brand-v2-runners.ts';
+import {
+  ARTICLE_TRUTH_MANIFEST_KINDS,
+  ARTICLE_TRUTH_POPULATION_SOURCE,
+  articleTruthPopulation,
+  articleTruthVerdicts,
+  type ArticleTruthKind,
+  type ArticleTruthManifests,
+} from '../lib/brand-v2-baseline-truth.ts';
+import { collectArticleTruthManifests } from './brand-v2-baseline.ts';
+import type { ApprovedDelta } from '../lib/brand-v2-baseline.ts';
+import {
+  LINK_SAFETY_EVIDENCE_PATH,
+  LINK_SAFETY_POPULATION_SOURCE,
+  LINK_SAFETY_SWEEP_MODULE,
+  censusOutboundAnchors,
+  exportedRoutes,
+  linkSafetyFingerprint,
+  linkSafetyRouteMembers,
+  readLinkSafetyEvidence,
+} from '../lib/brand-v2-link-safety.ts';
 import { assetContentVerdicts } from '../lib/brand-v2-asset-content.ts';
 import {
   ASSET_SEAL_PATH,
@@ -293,7 +313,9 @@ function isMeasured(id: string): boolean {
     APPARATUS_ASSERTIONS.has(id) ||
     FIGURE_RUNTIME_ASSERTIONS.has(id) ||
     FIGURE_RECORD_ASSERTIONS.has(id) ||
-    TABLE_MATH_ASSERTIONS.has(id)
+    TABLE_MATH_ASSERTIONS.has(id) ||
+    ARTICLE_TRUTH_ASSERTIONS.has(id) ||
+    LINK_SAFETY_ASSERTIONS.has(id)
   );
 }
 
@@ -767,6 +789,61 @@ const BASELINE = readJson(
   join(ROOT, 'evidence', 'brand-v2', 'baseline', 'baseline.json'),
 ) as { manifests: Record<string, unknown> };
 
+const APPROVED_DELTAS = (
+  readJson(join(ROOT, 'contract', 'brand-v2-approved-deltas.json')) as {
+    entries: ApprovedDelta[];
+  }
+).entries;
+
+/**
+ * `VAL-B2-BASE-002`'s evidence: the four article-truth manifests as the
+ * migration sealed them, against the same four rebuilt from the tree that is
+ * shipping now.
+ *
+ * This is recomputed on every run rather than read out of a stored result,
+ * because a preservation row whose actual side is a copy of its expected
+ * side can only detect drift away from the copy. `articleTruthVerdicts`
+ * throws on any difference no approved delta names, so the corpus cannot be
+ * regenerated green over an article whose facts moved.
+ */
+const ARTICLE_TRUTH_BASELINE = Object.fromEntries(
+  ARTICLE_TRUTH_MANIFEST_KINDS.map((kind) => [
+    kind,
+    (BASELINE.manifests as Record<string, ArticleTruthManifests[ArticleTruthKind]>)[
+      kind
+    ],
+  ]),
+) as ArticleTruthManifests;
+const ARTICLE_TRUTH_VERDICTS = articleTruthVerdicts({
+  baseline: ARTICLE_TRUTH_BASELINE,
+  current: collectArticleTruthManifests(),
+  deltas: APPROVED_DELTAS,
+});
+const ARTICLE_TRUTH_MEMBERS = articleTruthPopulation({
+  baseline: ARTICLE_TRUTH_BASELINE,
+  deltas: APPROVED_DELTAS,
+});
+
+/**
+ * `VAL-B2-BASE-007`'s evidence: the outbound-anchor census of the shipped
+ * export, re-derived here, plus the persisted keyboard trace that the census
+ * fingerprint pins to this exact export.
+ */
+const LINK_SAFETY_OUT = join(ROOT, 'out');
+const LINK_SAFETY_EXPORTED_ROUTES = exportedRoutes(LINK_SAFETY_OUT);
+const LINK_SAFETY_CENSUS = censusOutboundAnchors(LINK_SAFETY_OUT);
+const LINK_SAFETY_EVIDENCE = readLinkSafetyEvidence({
+  artifact: readJson(join(ROOT, LINK_SAFETY_EVIDENCE_PATH)),
+  census: LINK_SAFETY_CENSUS,
+  exportedRoutes: LINK_SAFETY_EXPORTED_ROUTES,
+  fingerprint: linkSafetyFingerprint({ root: ROOT, census: LINK_SAFETY_CENSUS }),
+});
+const LINK_SAFETY_BY_MEMBER = new Map(
+  LINK_SAFETY_EVIDENCE.routes.map((verdict) => [verdict.id, verdict]),
+);
+const LINK_SAFETY_ASSERTIONS = new Set(['VAL-B2-BASE-007']);
+const ARTICLE_TRUTH_ASSERTIONS = new Set(['VAL-B2-BASE-002']);
+
 const NAVIGATION_BASELINE = navigationBaselineMembers(
   BASELINE,
   readJson(join(ROOT, 'contract', 'brand-v2-approved-deltas.json')),
@@ -1037,6 +1114,29 @@ function populationSources(assertionIds: string[]) {
   });
 }
 
+/**
+ * Every population the rows quantify over: the ones the shared builder
+ * assembles from the registries, plus the two migration-baseline rows whose
+ * sentences quantify over something narrower than "the eleven manifest
+ * classes".
+ *
+ * `VAL-B2-BASE-002` is a claim about article text, accessible names,
+ * per-article metadata and the relationship graph; `VAL-B2-BASE-007` is a
+ * claim about the outbound links the export ships. Recording either against
+ * the eleven manifest names would emit a row for a member the assertion
+ * never quantified over (R8a). They are merged here rather than added as a
+ * parameter of the shared builder because that module sits inside the
+ * closure every browser artifact fingerprints, so a signature change there
+ * would stale thirteen sweeps that measured nothing new.
+ */
+function allPopulationSources(assertionIds: string[]): Record<string, string[]> {
+  return {
+    ...populationSources(assertionIds),
+    [ARTICLE_TRUTH_POPULATION_SOURCE]: ARTICLE_TRUTH_MEMBERS,
+    [LINK_SAFETY_POPULATION_SOURCE]: linkSafetyRouteMembers(LINK_SAFETY_CENSUS),
+  };
+}
+
 function populationSourceFor(id: string): string {
   const identitySource = IDENTITY_ASSERTION_POPULATION_SOURCES[id];
   if (identitySource) return identitySource;
@@ -1070,6 +1170,8 @@ function populationSourceFor(id: string): string {
     return TEKTUR_BINARY_POPULATION_SOURCE;
   }
   const area = id.split('-')[2];
+  if (ARTICLE_TRUTH_ASSERTIONS.has(id)) return ARTICLE_TRUTH_POPULATION_SOURCE;
+  if (LINK_SAFETY_ASSERTIONS.has(id)) return LINK_SAFETY_POPULATION_SOURCE;
   if (area === 'BASE') {
     return 'evidence/brand-v2/baseline/baseline.json#manifests';
   }
@@ -1132,6 +1234,11 @@ function modeFor(id: string): EnforcementMap['rows'][number]['enforcementMode'] 
   // equation's MathML as a browser laid them out at two widths, so it is a
   // browser-state row.
   if (TABLE_MATH_ASSERTIONS.has(id)) return 'browser-state';
+  // Link safety is half bytes and half tab order, and the half that decides
+  // the row's hardest clause — whether a keyboard reaches every outbound
+  // link with a visible ring — exists only once a browser has laid the page
+  // out, so it is a browser-state row.
+  if (LINK_SAFETY_ASSERTIONS.has(id)) return 'browser-state';
   // A home row's evidence is what the built home page laid out at
   // 1440x900, so it is a browser-state row.
   if (HOME_ASSERTIONS.has(id)) return 'browser-state';
@@ -2967,6 +3074,77 @@ function resultFor(
       payload: { kind: 'browser-state', computed: evidence.computed },
     };
   }
+  if (ARTICLE_TRUTH_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const verdict = ARTICLE_TRUTH_VERDICTS.get(member);
+    if (!verdict) {
+      throw new Error(`${assertionId}: ${member} has no article-truth verdict`);
+    }
+    return {
+      ...common,
+      actual:
+        verdict.status === 'identical'
+          ? `${verdict.kind} member ${verdict.baselineMemberId} hashes to ${verdict.baselineHash} in the current tree, the value the immutable migration baseline sealed`
+          : `${verdict.kind} member ${verdict.baselineMemberId} moved from ${verdict.baselineHash} to ${verdict.currentHash} exactly as approved delta ${verdict.deltaId ?? '(unnamed)'} permits: ${verdict.deltaReason ?? 'no reason recorded'}`,
+      payload: {
+        kind: 'source-build',
+        sourcePath: `evidence/brand-v2/baseline/${verdict.kind}.json`,
+        predicate: requirement,
+        observed: {
+          manifest: verdict.kind,
+          member: verdict.baselineMemberId,
+          baselineHash: verdict.baselineHash,
+          currentHash: verdict.currentHash,
+          status: verdict.status,
+          approvedDelta: verdict.deltaId,
+        },
+        tool: 'scripts/brand-v2-baseline.ts#collectArticleTruthManifests',
+      },
+    };
+  }
+  if (LINK_SAFETY_ASSERTIONS.has(assertionId)) {
+    if (member === undefined) {
+      throw new Error(
+        `${assertionId} is measured per member and must record per-member evidence`,
+      );
+    }
+    const verdict = LINK_SAFETY_BY_MEMBER.get(member);
+    if (!verdict) {
+      throw new Error(`${assertionId}: ${member} has no link-safety verdict`);
+    }
+    return {
+      ...common,
+      actual: `${verdict.route} ships ${verdict.outboundAnchors} outbound anchor(s) across ${verdict.shapes.join(', ')}, every one carrying rel="noopener" and none removed from the tab order; ${
+        verdict.keyboardMeasured
+          ? `the Tab key reached all ${verdict.reachedByTab} distinct outbound links on it with a visible focus ring in ${verdict.tabStops} stops`
+          : `its shapes are keyboard-proven on ${verdict.keyboardWitnesses
+              .map(({ shape, route }) => `${shape}@${route}`)
+              .join(', ')}`
+      }`,
+      payload: {
+        kind: 'browser-state',
+        computed: {
+          route: verdict.route,
+          outboundAnchors: verdict.outboundAnchors,
+          distinctHrefs: verdict.distinctHrefs,
+          shapes: verdict.shapes,
+          anchorsWithoutNoopener: 0,
+          anchorsWithNoreferrer: verdict.anchorsWithNoreferrer,
+          keyboardMeasured: verdict.keyboardMeasured,
+          reachedByTab: verdict.reachedByTab,
+          tabStops: verdict.tabStops,
+          keyboardWitnesses: verdict.keyboardWitnesses,
+          keyboardRoutes: LINK_SAFETY_EVIDENCE.keyboardRoutes,
+          evidence: [LINK_SAFETY_EVIDENCE_PATH],
+          tool: LINK_SAFETY_SWEEP_MODULE,
+        },
+      },
+    };
+  }
   if (TABLE_MATH_ASSERTIONS.has(assertionId)) {
     if (member === undefined) {
       throw new Error(
@@ -3128,7 +3306,7 @@ function generate() {
     'utf8',
   );
   const assertions = extractBrandV2Assertions(contract);
-  const sources = populationSources(assertions.map(({ id }) => id));
+  const sources = allPopulationSources(assertions.map(({ id }) => id));
   const results: EvidenceResult[] = [];
   const rows: EnforcementMap['rows'] = assertions.map(
     ({ id, requirement }) => {
@@ -3178,6 +3356,10 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted ${ARTICLE_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over ${canonicalPopulationSource}`
               : TABLE_MATH_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${TABLE_MATH_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every published article in the built export, over each table and equation the page actually rendered rather than over the routes that hold them, reading each table's own scrolling ancestor as the browser laid it out and each equation's MathML and TeX annotation as the pipeline emitted them, over ${canonicalPopulationSource}`
+              : ARTICLE_TRUTH_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against ${canonicalPopulationSource} through the same approved-delta comparison the baseline gate runs`
+              : LINK_SAFETY_ASSERTIONS.has(id)
+              ? `${id} per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of ${LINK_SAFETY_EVIDENCE.keyboardRoutes.join(', ')} that the census fingerprint pins to this export, over ${canonicalPopulationSource}`
               : APPARATUS_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${APPARATUS_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every published article in the built export, reconciled in both directions against the relationship graph the registry derives — bibliography order, curated See also edges, derived Linked from edges and inline citation markers — over ${canonicalPopulationSource}`
               : HOME_ASSERTIONS.has(id)

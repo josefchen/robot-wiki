@@ -23,6 +23,10 @@ import {
   type ManifestInput,
   type ValueStateRecord,
 } from '../lib/brand-v2-baseline.ts';
+import {
+  ARTICLE_TRUTH_MANIFEST_KINDS,
+  type ArticleTruthKind,
+} from '../lib/brand-v2-baseline-truth.ts';
 
 const ROOT = join(import.meta.dirname, '..');
 const BASELINE_DIR = join(ROOT, 'evidence', 'brand-v2', 'baseline');
@@ -465,6 +469,35 @@ function toolVersions(): BaselineBundle['tools'] {
     vitest: pkg.devDependencies.vitest,
     lockfileSha256: sha256(readFileSync(join(ROOT, 'package-lock.json'))),
   };
+}
+
+/**
+ * The four article-truth manifests, rebuilt from the current tree.
+ *
+ * `collectBundle` builds all eleven, and three of them are expensive in ways
+ * this caller has no use for: value states walk every render site, and the
+ * source manifests hash every interactive module. `VAL-B2-BASE-002` is a
+ * claim about article text, accessible names, per-article metadata and the
+ * relationship graph, so the enforcement generator rebuilds exactly those,
+ * from the same collectors the sealed baseline was built with.
+ */
+export function collectArticleTruthManifests(): Record<
+  ArticleTruthKind,
+  ReturnType<typeof buildManifest>
+> {
+  const mdx = publishedMdx();
+  const inputs: Record<ArticleTruthKind, ManifestInput[]> = {
+    'accessible-names': accessibleNames(),
+    'article-metadata': articleMetadata(mdx),
+    prose: prose(mdx),
+    relationships: relationships(mdx),
+  };
+  return Object.fromEntries(
+    ARTICLE_TRUTH_MANIFEST_KINDS.map((kind) => [
+      kind,
+      buildManifest(kind, inputs[kind]),
+    ]),
+  ) as Record<ArticleTruthKind, ReturnType<typeof buildManifest>>;
 }
 
 export function collectBundle(options?: {
