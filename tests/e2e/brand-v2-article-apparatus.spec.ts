@@ -16,6 +16,7 @@ import {
   SIGNAL_BLUE_RENDERED,
   termAffordanceVerdicts,
   type ApparatusObservation,
+  type FurnitureLinkObservation,
 } from '../../lib/brand-v2-apparatus-evidence';
 
 const ROOT = process.cwd();
@@ -85,10 +86,25 @@ async function settleForMeasurement(page: Page) {
  * for 150ms after focus lands; a colour read taken here would report the
  * link's own text colour and look exactly like a missing focus ring.
  */
+/**
+ * Everything the page can answer without a key press. The furniture links
+ * come back stamped but ungraded: whether Tab reaches them, and what ring
+ * the browser paints when it does, is settled by `walkTabOrder`.
+ */
 function collectApparatus(): Omit<
   ApparatusObservation,
-  'route' | 'viewport'
-> {
+  'route' | 'viewport' | 'furnitureLinks'
+> & {
+  focusableCount: number;
+  furnitureLinks: Array<{
+    section: string;
+    href: string;
+    text: string;
+    occurrence: string;
+    documentOrder: number;
+    restingRing: string;
+  }>;
+} {
   const round = (value: number) => Math.round(value * 100) / 100;
   const clean = (el: Element | null | undefined) =>
     (el?.textContent ?? '').replace(/\s+/g, ' ').trim();
@@ -148,22 +164,6 @@ function collectApparatus(): Omit<
   });
   const orderOf = new Map(focusables.map((el, index) => [el, index]));
 
-  /**
-   * Does focusing this element change its own outline or shadow? Style and
-   * width only, for the transition reason above.
-   */
-  const focusChangesRing = (el: HTMLElement) => {
-    const before = getComputedStyle(el);
-    const resting = `${before.outlineStyle}|${before.outlineWidth}|${before.boxShadow}`;
-    const previous = document.activeElement as HTMLElement | null;
-    el.focus();
-    const after = getComputedStyle(el);
-    const focused = `${after.outlineStyle}|${after.outlineWidth}|${after.boxShadow}`;
-    el.blur();
-    if (previous && previous !== document.body) previous.focus();
-    return resting !== focused;
-  };
-
   const describedByResolves = (el: Element) => {
     const id = el.getAttribute('aria-describedby');
     if (!id) return false;
@@ -186,22 +186,35 @@ function collectApparatus(): Omit<
     ),
   );
 
+  /**
+   * The furniture links, stamped so the Tab walk that follows can name the
+   * exact anchor it reached. `documentOrder` is where the link sits among
+   * the focusable elements of the page; `restingRing` is its outline and
+   * shadow before anything is focused. The two facts the row is about --
+   * whether Tab actually reaches the link, and whether the ring changes
+   * when it does -- are measured by pressing the key, not modelled here.
+   */
   const furnitureLinks: Array<{
     section: string;
     href: string;
     text: string;
-    tabIndex: number;
-    focusVisible: boolean;
+    occurrence: string;
+    documentOrder: number;
+    restingRing: string;
   }> = [];
   const collectFurniture = (section: string, scope: Element | null) => {
     if (!scope) return;
     for (const link of Array.from(scope.querySelectorAll<HTMLAnchorElement>('a[href]'))) {
+      const style = getComputedStyle(link);
+      const occurrence = String(furnitureLinks.length);
+      link.setAttribute('data-furniture-occurrence', occurrence);
       furnitureLinks.push({
         section,
         href: link.getAttribute('href') ?? '',
         text: clean(link),
-        tabIndex: orderOf.get(link) ?? -1,
-        focusVisible: focusChangesRing(link),
+        occurrence,
+        documentOrder: orderOf.get(link) ?? -1,
+        restingRing: `${style.outlineStyle}|${style.outlineWidth}|${style.boxShadow}`,
       });
     }
   };
@@ -354,6 +367,7 @@ function collectApparatus(): Omit<
       };
     }),
     hasMatchingNavLink,
+    focusableCount: focusables.length,
     references: {
       present: referencesSection !== null,
       headingId: 'references-heading',
@@ -372,6 +386,131 @@ function collectApparatus(): Omit<
     terms,
     furnitureLinks,
   };
+}
+
+type CollectedApparatus = Awaited<ReturnType<typeof collectApparatus>>;
+
+/**
+ * The real Tab order, taken by pressing the key.
+ *
+ * What this replaces was a model: the document was queried for elements
+ * that look focusable, their index in that list was recorded as the link's
+ * "tab index", and the focus ring was read after calling `element.focus()`
+ * from script. Both are the wrong instrument for `VAL-WIKI-018`, which
+ * says the link is reachable BY TAB and shows a ring when it is. A
+ * `querySelectorAll` cannot see that an ancestor is `inert`, that a
+ * dialog traps focus above the link, that a positive `tabindex` reordered
+ * the page, or that the browser skips the element for any of the reasons
+ * the focus algorithm has and a selector list does not. And a scripted
+ * `focus()` does not set the `:focus-visible` heuristic a keyboard press
+ * sets, so a ring that only ever appears for keyboard users read the same
+ * as a ring that never appears at all.
+ *
+ * Focus is recorded by a `focusin` listener rather than by an evaluate per
+ * press, so the walk costs one round trip per Tab instead of two, and the
+ * ring is read at the instant the browser painted it.
+ */
+async function walkTabOrder(
+  page: Page,
+  collected: CollectedApparatus,
+): Promise<FurnitureLinkObservation[]> {
+  await page.evaluate(() => {
+    const trace: Array<{
+      occurrence: string | null;
+      ring: string;
+      focusVisible: boolean;
+    }> = [];
+    (window as unknown as { __furnitureTrace: typeof trace }).__furnitureTrace =
+      trace;
+    document.addEventListener(
+      'focusin',
+      () => {
+        const el = document.activeElement;
+        if (!(el instanceof HTMLElement)) return;
+        const style = getComputedStyle(el);
+        trace.push({
+          occurrence: el.getAttribute('data-furniture-occurrence'),
+          ring: `${style.outlineStyle}|${style.outlineWidth}|${style.boxShadow}`,
+          focusVisible: el.matches(':focus-visible'),
+        });
+      },
+      true,
+    );
+    document.body.setAttribute('tabindex', '-1');
+    (document.body as HTMLElement).focus();
+    // Parking focus on the body is itself a focusin, and counting it would
+    // make a stop index one larger than the Tab press that produced it.
+    trace.length = 0;
+  });
+
+  // Enough presses to walk the page once, plus room for the browser's own
+  // stops (the address bar returns focus to the document at the wrap).
+  const budget = collected.focusableCount + 8;
+  const wanted = new Set(
+    collected.furnitureLinks.map(({ occurrence }) => occurrence),
+  );
+  let pressed = 0;
+  while (pressed < budget) {
+    await page.keyboard.press('Tab');
+    pressed += 1;
+    if (pressed % 25 === 0 || pressed === budget) {
+      const seen = await page.evaluate(
+        () =>
+          (
+            window as unknown as {
+              __furnitureTrace: Array<{ occurrence: string | null }>;
+            }
+          ).__furnitureTrace
+            .map(({ occurrence }) => occurrence)
+            .filter((occurrence): occurrence is string => occurrence !== null),
+      );
+      if (seen.length >= wanted.size && wanted.size > 0) {
+        const found = new Set(seen);
+        if ([...wanted].every((occurrence) => found.has(occurrence))) break;
+      }
+    }
+  }
+
+  const trace = await page.evaluate(
+    () =>
+      (
+        window as unknown as {
+          __furnitureTrace: Array<{
+            occurrence: string | null;
+            ring: string;
+            focusVisible: boolean;
+          }>;
+        }
+      ).__furnitureTrace,
+  );
+  const stopByOccurrence = new Map<
+    string,
+    { stop: number; ring: string; focusVisible: boolean }
+  >();
+  trace.forEach((entry, index) => {
+    if (entry.occurrence === null) return;
+    if (stopByOccurrence.has(entry.occurrence)) return;
+    stopByOccurrence.set(entry.occurrence, {
+      stop: index,
+      ring: entry.ring,
+      focusVisible: entry.focusVisible,
+    });
+  });
+
+  return collected.furnitureLinks.map((link) => {
+    const reached = stopByOccurrence.get(link.occurrence);
+    return {
+      section: link.section,
+      href: link.href,
+      text: link.text,
+      documentOrder: link.documentOrder,
+      tabStop: reached?.stop ?? -1,
+      tabPresses: pressed,
+      restingRing: link.restingRing,
+      focusedRing: reached?.ring ?? null,
+      focusVisible: reached?.focusVisible ?? false,
+    };
+  });
 }
 
 test.describe('brand-v2 article wiki apparatus', () => {
@@ -404,8 +543,10 @@ test.describe('brand-v2 article wiki apparatus', () => {
         const response = await page.goto(`${staticBase}${route}`);
         expect(response?.status(), route).toBe(200);
         await settleForMeasurement(page);
+        const collected = await page.evaluate(collectApparatus);
         observations.push({
-          ...(await page.evaluate(collectApparatus)),
+          ...collected,
+          furnitureLinks: await walkTabOrder(page, collected),
           route,
           viewport: viewport.id,
         });

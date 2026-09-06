@@ -450,10 +450,25 @@ const furnitureLinkSchema = z.object({
   section: z.string(),
   href: z.string(),
   text: z.string(),
-  /** Index in the document's sequential focus order, -1 when unreachable. */
-  tabIndex: z.number(),
+  /** Position among the page's focusable elements, in document order. */
+  documentOrder: z.number(),
+  /**
+   * Which Tab press focused this link, or -1 if the walk never reached it.
+   * A real key press, so an ancestor that is `inert`, a trap above the
+   * link or a positive `tabindex` that reordered the page all show up here
+   * as they would for a reader.
+   */
+  tabStop: z.number(),
+  /** How many times Tab was pressed, so an unreached link is falsifiable. */
+  tabPresses: z.number(),
+  restingRing: z.string(),
+  /** The ring at the moment the keyboard focused it; null if never reached. */
+  focusedRing: z.string().nullable(),
+  /** Whether `:focus-visible` matched under the real keyboard press. */
   focusVisible: z.boolean(),
 });
+
+export type FurnitureLinkObservation = z.infer<typeof furnitureLinkSchema>;
 
 const observationSchema = z.object({
   route: z.string(),
@@ -1194,6 +1209,12 @@ export function referenceSheetVerdicts(
  * `VAL-WIKI-018`: every furniture link is reachable by Tab in document
  * order and shows a focus indicator that differs from its resting state.
  *
+ * Graded from a real Tab walk: the sweep presses the key and records which
+ * press focused which link, the ring the browser painted at that instant,
+ * and whether `:focus-visible` matched. A selector list of things that
+ * look focusable is a model of the focus order, not the focus order, and
+ * a scripted `focus()` sets a different ring than a keyboard press does.
+ *
  * The member is the link. The axe half of the row is carried by the
  * registry-wide sweep in `tests/e2e/axe-registry-sweep.spec.ts`, which
  * visits every published route; duplicating it here would run axe twice per
@@ -1207,25 +1228,47 @@ export function furnitureReachVerdicts(
     Verdict<z.infer<typeof furnitureLinkSchema>>
   >();
   const sectionsSeen = new Set<string>();
+  let reachedAnywhere = 0;
   for (const observation of evidence.observations) {
-    let previous = -1;
+    let previousStop = -1;
+    let previousId = '';
     for (const link of observation.furnitureLinks) {
       const id = `${observation.route}|${observation.viewport}|${link.section}|${link.href}`;
       const failures: string[] = [];
       sectionsSeen.add(link.section);
-      if (link.tabIndex < 0) {
-        failures.push(`${id} is not in the sequential focus order`);
-      } else if (link.tabIndex < previous) {
+      if (link.tabStop < 0) {
         failures.push(
-          `${id} takes focus at position ${link.tabIndex}, before the furniture link above it at ${previous}`,
+          `${id} is never focused: ${link.tabPresses} Tab presses walked the page without reaching it`,
         );
-      }
-      if (link.tabIndex >= 0) previous = link.tabIndex;
-      if (!link.focusVisible) {
-        failures.push(`${id} shows no focus indicator distinct from its resting state`);
+      } else {
+        reachedAnywhere += 1;
+        if (link.tabStop < previousStop) {
+          failures.push(
+            `${id} takes focus at Tab stop ${link.tabStop}, before ${previousId} at stop ${previousStop}, so the keyboard order contradicts the order the page reads in`,
+          );
+        }
+        previousStop = link.tabStop;
+        previousId = id;
+        if (link.focusedRing === link.restingRing) {
+          failures.push(
+            `${id} paints the same outline and shadow focused as at rest (${link.restingRing}), so a keyboard reader cannot see where they are`,
+          );
+        }
+        if (!link.focusVisible) {
+          failures.push(
+            `${id} does not match :focus-visible under a real Tab press, so its ring is not the one a keyboard reader gets`,
+          );
+        }
       }
       verdicts.set(id, { id, observed: link, failures });
     }
+  }
+  // A walk that reached nothing would report a full population of links
+  // whose every clause was skipped for want of a stop to grade.
+  if (reachedAnywhere === 0) {
+    throw new Error(
+      'the Tab walk focused no furniture link anywhere in the corpus, so the reachability clauses graded nothing',
+    );
   }
   if (verdicts.size === 0) {
     throw new Error(

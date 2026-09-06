@@ -651,20 +651,37 @@ describe('the apparatus verdict families', () => {
     );
   });
 
-  it('fails a furniture link that fell out of the Tab order', () => {
+  it('fails a furniture link the Tab walk never reached', () => {
     const mutated = accept(
       mutate((evidence) => {
-        evidence.observations[0].furnitureLinks[0].tabIndex = -1;
+        evidence.observations[0].furnitureLinks[0].tabStop = -1;
       }),
     );
     const link = mutated.observations[0].furnitureLinks[0];
     const id = `${mutated.observations[0].route}|${mutated.observations[0].viewport}|${link.section}|${link.href}`;
     expect(furnitureReachVerdicts(mutated).get(id)!.failures.join(' ')).toMatch(
-      /not in the sequential focus order/,
+      /is never focused: \d+ Tab presses walked the page without reaching it/,
     );
   });
 
-  it('fails a furniture link whose focus state paints nothing new', () => {
+  it('fails a furniture link that paints the same ring focused as at rest', () => {
+    const mutated = accept(
+      mutate((evidence) => {
+        const link = evidence.observations[0].furnitureLinks[0];
+        link.focusedRing = link.restingRing;
+      }),
+    );
+    const link = mutated.observations[0].furnitureLinks[0];
+    const id = `${mutated.observations[0].route}|${mutated.observations[0].viewport}|${link.section}|${link.href}`;
+    expect(furnitureReachVerdicts(mutated).get(id)!.failures.join(' ')).toMatch(
+      /paints the same outline and shadow focused as at rest/,
+    );
+  });
+
+  it('fails a ring that only a scripted focus would have shown', () => {
+    // `:focus-visible` is the difference between a ring a keyboard reader
+    // sees and one only a script ever triggers, and it is only decidable
+    // under a real key press.
     const mutated = accept(
       mutate((evidence) => {
         evidence.observations[0].furnitureLinks[0].focusVisible = false;
@@ -673,8 +690,62 @@ describe('the apparatus verdict families', () => {
     const link = mutated.observations[0].furnitureLinks[0];
     const id = `${mutated.observations[0].route}|${mutated.observations[0].viewport}|${link.section}|${link.href}`;
     expect(furnitureReachVerdicts(mutated).get(id)!.failures.join(' ')).toMatch(
-      /no focus indicator/,
+      /does not match :focus-visible under a real Tab press/,
     );
+  });
+
+  it('fails a keyboard order that contradicts the reading order', () => {
+    const mutated = accept(
+      mutate((evidence) => {
+        const links = evidence.observations[0].furnitureLinks;
+        const last = links[links.length - 1];
+        last.tabStop = links[0].tabStop - 1;
+      }),
+    );
+    const links = mutated.observations[0].furnitureLinks;
+    const last = links[links.length - 1];
+    const id = `${mutated.observations[0].route}|${mutated.observations[0].viewport}|${last.section}|${last.href}`;
+    expect(furnitureReachVerdicts(mutated).get(id)!.failures.join(' ')).toMatch(
+      /so the keyboard order contradicts the order the page reads in/,
+    );
+  });
+
+  it('refuses a walk that reached no furniture link at all', () => {
+    const mutated = accept(
+      mutate((evidence) => {
+        for (const observation of evidence.observations) {
+          for (const link of observation.furnitureLinks) link.tabStop = -1;
+        }
+      }),
+    );
+    // Every link still fails individually, and the family refuses as well:
+    // a walk that focused nothing graded none of its own clauses.
+    expect(() => furnitureReachVerdicts(mutated)).toThrow(
+      /focused no furniture link anywhere in the corpus/,
+    );
+  });
+
+  it('records a real Tab walk, not a model of one', () => {
+    const evidence = accept(committed());
+    const links = evidence.observations.flatMap(
+      ({ furnitureLinks }) => furnitureLinks,
+    );
+    expect(links.length).toBeGreaterThan(100);
+    const reached = links.filter(({ tabStop }) => tabStop >= 0);
+    expect(reached.length).toBe(links.length);
+    for (const link of reached) {
+      // A stop index is a count of key presses, so it cannot be the
+      // document-order index the collector already knew; and the walk must
+      // have pressed at least as many times as the stop it reports.
+      expect(link.tabPresses).toBeGreaterThan(link.tabStop);
+      expect(link.focusedRing).not.toBeNull();
+    }
+    // The ring the browser painted under the keyboard differs from the
+    // resting one for every link, which is the fact the row is about.
+    expect(
+      reached.filter(({ focusedRing, restingRing }) => focusedRing === restingRing),
+    ).toEqual([]);
+    expect(reached.every(({ focusVisible }) => focusVisible)).toBe(true);
   });
 
   it('refuses a furniture sweep that lost a whole family', () => {
