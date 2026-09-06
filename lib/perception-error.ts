@@ -31,7 +31,10 @@
  *
  * The target selector sets a FLOOR on the depth term rather than a value.
  * A depth sensor's published accuracy spec is measured against a
- * cooperative matte target; a specular or transparent surface breaks the
+ * cooperative target under stated conditions — the D400 KPI table names a
+ * texture-less white target at default laser power, and the PhoXi L
+ * publishes no target condition at all; a specular or transparent surface
+ * breaks the
  * assumption the spec was measured under, and the vendor datasheets
  * publish no figure for either case. So the degraded floors here are
  * declared illustrative multiples of the published spec, not measurements,

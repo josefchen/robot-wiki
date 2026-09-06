@@ -72,6 +72,29 @@ ROWS rather than distinct defects, and says so per the convention above.
 Arithmetic: 30 + 17 + 1 + 4 = 52 rows. Domain total after the addendum:
 128 rows over 6 of 6 published articles.
 
+Registry and code corrections applied in the same pass (P1 and P3
+defects found outside the article prose):
+
+- `amazon-robot-fleet-2026`: registry title was
+  "Amazon robotics fleet passes one million robots"; the live page is
+  titled "Amazon robotics: Meet the robots inside fulfillment centers".
+  Corrected, and the comment now records that Blue Jay survives only in
+  the page's meta description, so no claim may rest on it through this
+  entry.
+- `a3-orders-2025`: the comment said "cobots 19.6% of orders by value".
+  19.6% is the UNIT share (7,212 of 36,766); the value share is 10.7%
+  ($241M of $2.25bn). The article had inherited the error. Both corrected.
+- `mit-work-future-2020`: the comment named three co-chairs. The report
+  names two co-chairs (Autor, Mindell) and an executive director
+  (Reynolds). Corrected, and the comment now records that the registry
+  URL is a landing page that no longer carries the report, naming the
+  archived PDF the audit actually read.
+- `components/interactive/deployment-economics.tsx`: the `robotCost`
+  control note attributed a "$25k-$80k" arm price range to EVST, which
+  states it publishes no fixed list prices and gives no arm-only figure.
+  The attribution is removed; the note now says no cited source publishes
+  an arm-only price.
+
 The banked corrections from the interrupted session were all re-fetched
 and confirmed before being vouchs for; this audit's own additional
 corrections, found while re-verifying, are listed in the addendum below.

@@ -261,6 +261,16 @@ comparison so the gap cannot reopen silently.
 - Source inconsistencies (S): 1 (SA6, Marvel & Norcross give two different
   framings of the 1600 mm/s figure in one paper)
 
+Registry corrections applied in the same pass (P1 defects, both title
+strings, both verified against the publisher's own catalogue page):
+
+- `osha-otm-robots`: "…Industrial Robots and Robot System Safety" →
+  "…Industrial Robot Systems and Industrial Robot System Safety".
+- `ul-4600-2023`: "UL 4600, Standard for Safety for the Evaluation of
+  Autonomous Products, Edition 3" → "UL 4600, Standard for Evaluation of
+  Autonomous Products, Edition 3". Edition and 2023-03-17 date were
+  already correct.
+
 Arithmetic: 37 + 1 + 0 + 1 + 1 = 40 rows. Domain total after the addendum:
 147 rows over 6 of 6 published articles. P5 is clean on this article: the
 single live disagreement names Koopman and Shalev-Shwartz, Shammah and

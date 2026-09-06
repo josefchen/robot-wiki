@@ -686,7 +686,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'reset-free-learning',
     term: 'reset-free learning',
     definition:
-      'Training on real hardware without a human returning the scene to a start state between attempts, which is what stands between a working algorithm and an unattended experiment. Sharma and colleagues formalize the setting as autonomous reinforcement learning, where the agent interacts continually and is evaluated on how much human intervention it needs rather than only on final performance. Gupta and colleagues make the operational version work by learning a collection of tasks whose members reset each other, so the behaviour that undoes the last attempt is itself something the agent is trying to learn.',
+      'Training on real hardware without a human returning the scene to a start state between attempts, which is what stands between a working algorithm and an unattended experiment. Sharma and colleagues formalize the setting as autonomous reinforcement learning, where the agent interacts continually under a bounded intervention budget and is scored across its whole training lifetime rather than only on the final policy. Gupta and colleagues make the operational version work by learning a collection of tasks whose members reset each other, so the behaviour that undoes the last attempt is itself something the agent is trying to learn.',
     citations: ['autonomous-rl-2022', 'reset-free-rl-2021'],
   },
   {

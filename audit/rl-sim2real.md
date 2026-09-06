@@ -57,6 +57,15 @@ so the gap cannot reopen silently.
 Arithmetic: 43 + 8 + 0 + 1 = 52 rows. Domain total after the addendum:
 167 rows over 7 of 7 published articles.
 
+Glossary correction applied in the same pass (the same P3 defect the
+`rl-for-robotics.mdx` prose carried): the `reset-free-learning`
+definition said Sharma and colleagues evaluate the agent "on how much
+human intervention it needs rather than only on final performance".
+Intervention in that paper is a bounded budget with a per-step cost, not
+a metric; the metrics are deployed-policy evaluation (summed regret) and
+continuing-policy evaluation. The definition now states the budget and
+the lifetime scoring.
+
 Corrections:
 
 1. `sim2real-transfer.mdx` attributed a coined phrase to the Isaac Lab paper:

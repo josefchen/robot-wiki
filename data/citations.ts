@@ -7059,7 +7059,7 @@ export const CITATIONS: Citation[] = [
     // that page rather than from memory.
     id: 'ul-4600-2023',
     title:
-      'UL 4600, Standard for Safety for the Evaluation of Autonomous Products, Edition 3',
+      'UL 4600, Standard for Evaluation of Autonomous Products, Edition 3',
     authors: ['UL Standards & Engagement'],
     year: 2023,
     venue: 'UL Standard (public catalogue entry)',
@@ -7185,7 +7185,7 @@ export const CITATIONS: Citation[] = [
     // descriptions. Public regulator guidance, not a paywalled standard.
     id: 'osha-otm-robots',
     title:
-      'OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System Safety',
+      'OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System Safety',
     authors: ['Occupational Safety and Health Administration'],
     year: 2026,
     venue: 'U.S. Department of Labor, as of 2026-08-22',
@@ -7217,7 +7217,10 @@ export const CITATIONS: Citation[] = [
   },
   {
     // A3 press release: 2025 North American robot orders up 6.6%,
-    // cobots 19.6% of orders by value, sixth straight quarter of growth.
+    // sixth straight quarter of growth. Cobots are 19.6% of UNITS ordered
+    // (7,212 of 36,766) and 10.7% of order value ($241M of $2.25bn); an
+    // earlier version of this comment reported the unit share as a value
+    // share and the article inherited the error (audit 2026-09-06).
     id: 'a3-orders-2025',
     title:
       'Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation Adoption',
@@ -7256,9 +7259,12 @@ export const CITATIONS: Citation[] = [
   {
     // Amazon company press, June 2026: more than 1 million robots
     // deployed across its operations network since 2012; fleet guide
-    // naming Proteus, Sparrow, Vulcan, Sequoia and Blue Jay.
+    // naming Sequoia, Hercules, Titan, Vulcan, Sparrow, Robin, Cardinal
+    // and Proteus. Blue Jay survives only in the page's meta description,
+    // so no wiki claim may rest on it through this entry (audit
+    // 2026-09-06, industrial-deployment).
     id: 'amazon-robot-fleet-2026',
-    title: 'Amazon robotics fleet passes one million robots',
+    title: 'Amazon robotics: Meet the robots inside fulfillment centers',
     authors: ['Tyler Greenawalt (About Amazon)'],
     year: 2026,
     venue: 'Amazon company press, as of 2026-06-04',
@@ -7288,8 +7294,12 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Final report of the MIT Task Force on the Work of the Future
-    // (co-chairs Autor, Mindell, Reynolds; published 2020-11-17). The
-    // landing page carries the report and its downloads.
+    // (co-chairs Autor and Mindell, executive director Reynolds;
+    // published 2020-11-17). The url is the initiative's landing page,
+    // which no longer carries the report or its downloads; the audited
+    // text is the archived final-report PDF at
+    // web.archive.org/web/20230918120306/https://workofthefuture.mit.edu/wp-content/uploads/2021/01/2020-Final-Report4.pdf
+    // (audit 2026-09-06, industrial-deployment).
     id: 'mit-work-future-2020',
     title:
       'The Work of the Future: Building Better Jobs in an Age of Intelligent Machines',

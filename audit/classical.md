@@ -52,6 +52,22 @@ derives both sides of that comparison so the gap cannot reopen silently.
 Arithmetic: 99 + 9 = 108 rows. Domain total after the addendum: 187 rows
 over 7 of 7 published articles.
 
+Code correction applied in the same pass (the same P3 defect the
+`perception.mdx` prose carried): `lib/perception-error.ts` asserted in
+its header that "a depth sensor's published accuracy spec is measured
+against a cooperative matte target". The D400 KPI table names a
+texture-less white target at default laser power, and the PhoXi L
+publishes no target condition at all. The comment now says what the two
+cited datasheets say.
+
+Two rows carry findings rather than corrections: the PhoXi L's
+structured-light family label is right (Photoneo's wiki and manual) but
+is not stated on the product page the article cites, and at 0.5° hand-eye
+error on an opaque target the instrument's verdict word at its 1.5 m
+maximum is "marginal" rather than "will jam", though the composed 16.7 mm
+total does clear the 15 mm clearance band. Both are recorded in their
+rows.
+
 Corrections:
 
 1. `grasp-planning.mdx` attributed the form-closure lower bound (at least

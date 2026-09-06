@@ -47,7 +47,7 @@ const CONTROLS: Array<{
     key: 'robotCost',
     label: 'Robot cost',
     format: (v) => `$${(v / 1000).toFixed(0)}k`,
-    note: 'Assumption: list price for a mid-range industrial arm; EVST places arm prices at $25k-$80k.',
+    note: 'Assumption: list price for a mid-range industrial arm; no cited source publishes an arm-only price.',
   },
   {
     key: 'integrationMultiple',
