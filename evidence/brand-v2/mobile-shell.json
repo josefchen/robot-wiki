@@ -2024,7 +2024,7 @@
     },
     {
       "route": "/classical/perception/",
-      "visibleTextLength": 26834,
+      "visibleTextLength": 26989,
       "header": {
         "present": true,
         "display": "flex",
@@ -2187,7 +2187,7 @@
     },
     {
       "route": "/classical/scene-representation/",
-      "visibleTextLength": 19294,
+      "visibleTextLength": 19426,
       "header": {
         "present": true,
         "display": "flex",
@@ -3491,7 +3491,7 @@
     },
     {
       "route": "/data-hardware/industrial-deployment/",
-      "visibleTextLength": 17836,
+      "visibleTextLength": 19091,
       "header": {
         "present": true,
         "display": "flex",
@@ -4795,7 +4795,7 @@
     },
     {
       "route": "/frontier/safety-and-assurance/",
-      "visibleTextLength": 23772,
+      "visibleTextLength": 23913,
       "header": {
         "present": true,
         "display": "flex",
@@ -4958,7 +4958,7 @@
     },
     {
       "route": "/glossary/",
-      "visibleTextLength": 82473,
+      "visibleTextLength": 82533,
       "header": {
         "present": true,
         "display": "flex",
@@ -8381,7 +8381,7 @@
     },
     {
       "route": "/rl-sim2real/rl-for-robotics/",
-      "visibleTextLength": 22922,
+      "visibleTextLength": 23099,
       "header": {
         "present": true,
         "display": "flex",

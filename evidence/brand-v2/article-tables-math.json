@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "f7ba9d06da2cf6442104a89aec61230a4bb484affacf854025e6a8aa4debac8d",
+  "fingerprint": "ab3112cf0fb6a960ed3390492db251b2aabb1d371dba482e0b895d9f238dcb26",
   "viewports": [
     "375x812",
     "1440x900"
@@ -1723,7 +1723,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 26834,
+      "visibleTextLength": 26989,
       "tables": [],
       "equations": [
         {
@@ -1821,7 +1821,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19294,
+      "visibleTextLength": 19426,
       "tables": [],
       "equations": [],
       "route": "/classical/scene-representation/",
@@ -2489,7 +2489,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 17836,
+      "visibleTextLength": 19091,
       "tables": [],
       "equations": [],
       "route": "/data-hardware/industrial-deployment/",
@@ -2864,7 +2864,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23772,
+      "visibleTextLength": 23913,
       "tables": [],
       "equations": [],
       "route": "/frontier/safety-and-assurance/",
@@ -4184,7 +4184,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 22922,
+      "visibleTextLength": 23099,
       "tables": [
         {
           "index": 0,
@@ -6113,7 +6113,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 27200,
+      "visibleTextLength": 27355,
       "tables": [],
       "equations": [
         {
@@ -6211,7 +6211,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19660,
+      "visibleTextLength": 19792,
       "tables": [],
       "equations": [],
       "route": "/classical/scene-representation/",
@@ -6879,7 +6879,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 18190,
+      "visibleTextLength": 19445,
       "tables": [],
       "equations": [],
       "route": "/data-hardware/industrial-deployment/",
@@ -7254,7 +7254,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 24107,
+      "visibleTextLength": 24248,
       "tables": [],
       "equations": [],
       "route": "/frontier/safety-and-assurance/",
@@ -8574,7 +8574,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 23353,
+      "visibleTextLength": 23530,
       "tables": [
         {
           "index": 0,

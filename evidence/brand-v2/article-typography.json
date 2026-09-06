@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "4cc1f7e22f614724ca4eab555b575b970113d69b1f1075b703c71fa4c9fd065d",
+  "fingerprint": "6889d28e245345520c2e95777bd09db38fc4e19c9de793792da1d6e7b9c34892",
   "viewports": [
     "375x812",
     "1440x900"
@@ -5668,7 +5668,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 26834,
+      "visibleTextLength": 26989,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -5886,7 +5886,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Tsai and Lenz posed it in 1989 in the form still used: move "
+          "text": "The 1989 papers on it share one form: move the robot through"
         },
         {
           "familyHead": "newsreader",
@@ -6309,7 +6309,7 @@
         },
         {
           "kind": "citation",
-          "count": 72,
+          "count": 76,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -6479,7 +6479,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19294,
+      "visibleTextLength": 19426,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10171,7 +10171,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 17836,
+      "visibleTextLength": 19091,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10238,8 +10238,8 @@
           "Industrial Deployment"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 10,
-        "citationCount": 20,
+        "readingMinutes": 11,
+        "citationCount": 21,
         "imageCount": 0,
         "badgeCount": 0,
         "eyebrowTexts": [],
@@ -10290,7 +10290,7 @@
           "widthPx": 301,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
-          "text": "Assumption: list price for a mid-range industrial arm; EVST "
+          "text": "Assumption: list price for a mid-range industrial arm; no ci"
         },
         {
           "familyHead": "newsreader",
@@ -10659,7 +10659,7 @@
         },
         {
           "kind": "citation",
-          "count": 58,
+          "count": 62,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -14511,7 +14511,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23772,
+      "visibleTextLength": 23913,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -15187,7 +15187,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 82473,
+      "visibleTextLength": 82533,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -26179,7 +26179,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 22922,
+      "visibleTextLength": 23099,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -36670,7 +36670,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 27200,
+      "visibleTextLength": 27355,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -36888,7 +36888,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Tsai and Lenz posed it in 1989 in the form still used: move "
+          "text": "The 1989 papers on it share one form: move the robot through"
         },
         {
           "familyHead": "newsreader",
@@ -37311,7 +37311,7 @@
         },
         {
           "kind": "citation",
-          "count": 72,
+          "count": 76,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -37481,7 +37481,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19660,
+      "visibleTextLength": 19792,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41173,7 +41173,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 18190,
+      "visibleTextLength": 19445,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41240,8 +41240,8 @@
           "Industrial Deployment"
         ],
         "lastReviewed": "2026-08-22",
-        "readingMinutes": 10,
-        "citationCount": 20,
+        "readingMinutes": 11,
+        "citationCount": 21,
         "imageCount": 0,
         "badgeCount": 0,
         "eyebrowTexts": [],
@@ -41292,7 +41292,7 @@
           "widthPx": 324.5,
           "zeroAdvancePx": 6,
           "insideRegisteredFrame": true,
-          "text": "Assumption: list price for a mid-range industrial arm; EVST "
+          "text": "Assumption: list price for a mid-range industrial arm; no ci"
         },
         {
           "familyHead": "newsreader",
@@ -41661,7 +41661,7 @@
         },
         {
           "kind": "citation",
-          "count": 58,
+          "count": 62,
           "colour": "rgb(36, 95, 255)",
           "decorationLine": "underline",
           "decorationStyle": "solid",
@@ -45513,7 +45513,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 24107,
+      "visibleTextLength": 24248,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -46189,7 +46189,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 82695,
+      "visibleTextLength": 82755,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -57181,7 +57181,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 23353,
+      "visibleTextLength": 23530,
       "tekturRoles": [
         {
           "role": "shell-wordmark",

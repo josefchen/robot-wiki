@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "assertionId": "VAL-B2-BASE-007",
+  "source": "out/ static export",
+  "routesSwept": 62,
+  "outboundAnchors": 2532,
+  "distinctOutboundHrefs": 774,
+  "anchorsByShape": {
+    "figure-credit": 246,
+    "footer": 124,
+    "citation-chip": 1009,
+    "reference-entry": 634,
+    "other": 519
+  },
+  "anchorsWithoutNoopener": 0,
+  "anchorsWithNoreferrer": 2079,
+  "keyboard": [
+    {
+      "route": "/classical/perception/",
+      "outboundInDom": 30,
+      "reachedByTab": 30,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 186
+    },
+    {
+      "route": "/data-hardware/industrial-deployment/",
+      "outboundInDom": 23,
+      "reachedByTab": 23,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 154
+    },
+    {
+      "route": "/credits/",
+      "outboundInDom": 125,
+      "reachedByTab": 125,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 374
+    },
+    {
+      "route": "/market-map/",
+      "outboundInDom": 234,
+      "reachedByTab": 234,
+      "unreached": [],
+      "withoutFocusIndicator": [],
+      "tabStops": 391
+    }
+  ]
+}

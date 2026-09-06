@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "5c4520ebde4afb32e16b5281341acc5660021d52e22b1900414dca5612109fac",
+  "fingerprint": "cdc9f4f0a2c749d2088c822c447dd985de73e5be090315df4e9b229b203c34e0",
   "viewports": [
     "375x812",
     "1440x900"
@@ -5327,7 +5327,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 26834,
+      "visibleTextLength": 26989,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -5898,6 +5898,26 @@
           "inProse": true
         },
         {
+          "id": "realsense-d400-datasheet-2026",
+          "label": "RealSense 2026",
+          "href": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+          "opensExternally": true,
+          "tooltipText": "Intel RealSense D400 Series Product Family DatasheetRealSense, RealSense, as of 2026-08-22",
+          "describedByResolves": true,
+          "referenceHref": "#ref-realsense-d400-datasheet-2026",
+          "inProse": true
+        },
+        {
+          "id": "photoneo-phoxi-l-2026",
+          "label": "Photoneo 2026",
+          "href": "https://www.photoneo.com/products/phoxi-scan-l/",
+          "opensExternally": true,
+          "tooltipText": "PhoXi 3D Scanner LPhotoneo, Photoneo, as of 2026-08-22",
+          "describedByResolves": true,
+          "referenceHref": "#ref-photoneo-phoxi-l-2026",
+          "inProse": true
+        },
+        {
           "id": "pointnet-2017",
           "label": "Qi 2017",
           "href": "https://arxiv.org/abs/1612.00593",
@@ -6197,245 +6217,245 @@
           "section": "see-also",
           "href": "/classical/grasp-planning/",
           "text": "Grasp Planning",
-          "tabIndex": 118,
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/manipulation/hierarchical/",
-          "text": "Hierarchical Approaches",
-          "tabIndex": 119,
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/classical/state-estimation/",
-          "text": "State Estimation",
-          "tabIndex": 120,
-          "focusVisible": true
-        },
-        {
-          "section": "linked-from",
-          "href": "/manipulation/hierarchical/",
-          "text": "Hierarchical Approaches",
-          "tabIndex": 121,
-          "focusVisible": true
-        },
-        {
-          "section": "linked-from",
-          "href": "/classical/state-estimation/",
-          "text": "State Estimation",
           "tabIndex": 122,
+          "focusVisible": true
+        },
+        {
+          "section": "see-also",
+          "href": "/manipulation/hierarchical/",
+          "text": "Hierarchical Approaches",
+          "tabIndex": 123,
+          "focusVisible": true
+        },
+        {
+          "section": "see-also",
+          "href": "/classical/state-estimation/",
+          "text": "State Estimation",
+          "tabIndex": 124,
+          "focusVisible": true
+        },
+        {
+          "section": "linked-from",
+          "href": "/manipulation/hierarchical/",
+          "text": "Hierarchical Approaches",
+          "tabIndex": 125,
+          "focusVisible": true
+        },
+        {
+          "section": "linked-from",
+          "href": "/classical/state-estimation/",
+          "text": "State Estimation",
+          "tabIndex": 126,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/classical/grasp-planning/",
           "text": "Grasp Planning",
-          "tabIndex": 123,
+          "tabIndex": 127,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/classical/scene-representation/",
           "text": "Scene Representation and Mapping",
-          "tabIndex": 124,
+          "tabIndex": 128,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/34.888718",
           "text": "A flexible new technique for camera calibration",
-          "tabIndex": 125,
+          "tabIndex": 129,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/70.34770",
           "text": "A new technique for fully autonomous and efficient 3D robotics hand/eye calibration",
-          "tabIndex": 126,
+          "tabIndex": 130,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/CVPRW.2017.167",
           "text": "Intel RealSense Stereoscopic Depth Cameras",
-          "tabIndex": 127,
+          "tabIndex": 131,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
           "text": "Intel RealSense D400 Series Product Family Datasheet",
-          "tabIndex": 128,
+          "tabIndex": 132,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/",
           "text": "Tuning depth cameras for best performance",
-          "tabIndex": 129,
+          "tabIndex": 133,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
           "text": "Azure Kinect DK depth camera",
-          "tabIndex": 130,
+          "tabIndex": 134,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.photoneo.com/products/phoxi-scan-l/",
           "text": "PhoXi 3D Scanner L",
-          "tabIndex": 131,
+          "tabIndex": 135,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/ICRA40945.2020.9197518",
           "text": "ClearGrasp: 3D Shape Estimation of Transparent Objects for Manipulation",
-          "tabIndex": 132,
+          "tabIndex": 136,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2303.05499",
           "text": "Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection",
-          "tabIndex": 133,
+          "tabIndex": 137,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2304.07193",
           "text": "DINOv2: Learning Robust Visual Features without Supervision",
-          "tabIndex": 135,
+          "tabIndex": 139,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2304.02643",
           "text": "Segment Anything",
-          "tabIndex": 137,
+          "tabIndex": 141,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2408.00714",
           "text": "SAM 2: Segment Anything in Images and Videos",
-          "tabIndex": 139,
+          "tabIndex": 143,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1612.00593",
           "text": "PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation",
-          "tabIndex": 141,
+          "tabIndex": 145,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1706.02413",
           "text": "PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space",
-          "tabIndex": 142,
+          "tabIndex": 146,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1806.08756",
           "text": "Dense Object Nets: Learning Dense Visual Object Descriptors By and For Robotic Manipulation",
-          "tabIndex": 143,
+          "tabIndex": 147,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1711.00199",
           "text": "PoseCNN: A Convolutional Neural Network for 6D Object Pose Estimation in Cluttered Scenes",
-          "tabIndex": 144,
+          "tabIndex": 148,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2312.08344",
           "text": "FoundationPose: Unified 6D Pose Estimation and Tracking of Novel Objects",
-          "tabIndex": 145,
+          "tabIndex": 149,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2212.06870",
           "text": "MegaPose: 6D Pose Estimation of Novel Objects via Render and Compare",
-          "tabIndex": 146,
+          "tabIndex": 150,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2403.09799",
           "text": "BOP Challenge 2023 on Detection, Segmentation and Pose Estimation of Seen and Unseen Rigid Objects",
-          "tabIndex": 148,
+          "tabIndex": 152,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1007/978-3-642-37331-2_42",
           "text": "Model Based Training, Detection and Pose Estimation of Texture-Less 3D Objects in Heavily Cluttered Scenes",
-          "tabIndex": 150,
+          "tabIndex": 154,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/70.143350",
           "text": "A new approach to visual servoing in robotics",
-          "tabIndex": 151,
+          "tabIndex": 155,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/MRA.2006.250573",
           "text": "Visual servo control. I. Basic approaches",
-          "tabIndex": 152,
+          "tabIndex": 156,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/MRA.2007.339609",
           "text": "Visual servo control. II. Advanced approaches",
-          "tabIndex": 153,
+          "tabIndex": 157,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1703.09312",
           "text": "Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics",
-          "tabIndex": 154,
+          "tabIndex": 158,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2403.03174",
           "text": "MOKA: Open-World Robotic Manipulation through Mark-Based Visual Prompting",
-          "tabIndex": 155,
+          "tabIndex": 159,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2409.01652",
           "text": "ReKep: Spatio-Temporal Reasoning of Relational Keypoint Constraints for Robotic Manipulation",
-          "tabIndex": 156,
+          "tabIndex": 160,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2406.10721",
           "text": "RoboPoint: A Vision-Language Model for Spatial Affordance Prediction for Robotics",
-          "tabIndex": 157,
+          "tabIndex": 161,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2606.26428",
           "text": "Play2Perfect: What Matters in Dexterous Play Pretraining for Precise Assembly?",
-          "tabIndex": 158,
+          "tabIndex": 162,
           "focusVisible": true
         }
       ],
@@ -6445,7 +6465,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 19294,
+      "visibleTextLength": 19426,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -10781,7 +10801,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 17836,
+      "visibleTextLength": 19091,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -10889,7 +10909,7 @@
             "id": "amazon-robot-fleet-2026",
             "index": 5,
             "sourceHref": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
-            "title": "Amazon robotics fleet passes one million robots",
+            "title": "Amazon robotics: Meet the robots inside fulfillment centers",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -10973,7 +10993,7 @@
             "id": "osha-otm-robots",
             "index": 12,
             "sourceHref": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
-            "title": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System Safety",
+            "title": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System Safety",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -11006,8 +11026,20 @@
             "focusable": true
           },
           {
-            "id": "unitree-profit-2026",
+            "id": "robozaps-humanoids-2026",
             "index": 15,
+            "sourceHref": "https://blog.robozaps.com/b/best-humanoid-robots",
+            "title": "38 Best Humanoid Robots in 2026",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "unitree-profit-2026",
+            "index": 16,
             "sourceHref": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
             "title": "Robot Boom Meets Earnings Reality: Unitree Profits Halved, Optimus Not for Sale",
             "colour": "rgb(36, 95, 255)",
@@ -11019,7 +11051,7 @@
           },
           {
             "id": "morgan-stanley-pr-problem-2026",
-            "index": 16,
+            "index": 17,
             "sourceHref": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
             "title": "'PR problem' is standing in the way of China's humanoid robot boom, says Morgan Stanley",
             "colour": "rgb(36, 95, 255)",
@@ -11031,7 +11063,7 @@
           },
           {
             "id": "figure-8hr-shift-2026",
-            "index": 17,
+            "index": 18,
             "sourceHref": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
             "title": "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
             "colour": "rgb(36, 95, 255)",
@@ -11043,7 +11075,7 @@
           },
           {
             "id": "goldberg-data-gap-2025",
-            "index": 18,
+            "index": 19,
             "sourceHref": "https://doi.org/10.1126/scirobotics.aea7390",
             "title": "Good old-fashioned engineering can close the 100,000-year \"data gap\" in robotics",
             "colour": "rgb(36, 95, 255)",
@@ -11055,7 +11087,7 @@
           },
           {
             "id": "bessemer-robotics-2026",
-            "index": 19,
+            "index": 20,
             "sourceHref": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
             "title": "Bessemer Predicts: Robotics and physical AI",
             "colour": "rgb(36, 95, 255)",
@@ -11124,13 +11156,13 @@
           "inProse": true
         },
         {
-          "id": "evst-cell-cost-2026",
-          "label": "EVST Engineering Team 2026",
-          "href": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+          "id": "robozaps-humanoids-2026",
+          "label": "RoboZaps 2026",
+          "href": "https://blog.robozaps.com/b/best-humanoid-robots",
           "opensExternally": true,
-          "tooltipText": "Palletizing Robot Cost & ROI 2026: Price & Payback GuideEVST Engineering Team, EVST (EVS TECH CO., LTD), 2026-07-15",
+          "tooltipText": "38 Best Humanoid Robots in 2026RoboZaps, 2026",
           "describedByResolves": true,
-          "referenceHref": "#ref-evst-cell-cost-2026",
+          "referenceHref": "#ref-robozaps-humanoids-2026",
           "inProse": true
         },
         {
@@ -11144,13 +11176,33 @@
           "inProse": true
         },
         {
-          "id": "ifr-world-robotics-2025",
-          "label": "International Federation of Robotics 2025",
-          "href": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+          "id": "evst-cell-cost-2026",
+          "label": "EVST Engineering Team 2026",
+          "href": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
           "opensExternally": true,
-          "tooltipText": "World Robotics 2025: Industrial Robots (press summary)International Federation of Robotics, IFR, Frankfurt, published 2025-09-25",
+          "tooltipText": "Palletizing Robot Cost & ROI 2026: Price & Payback GuideEVST Engineering Team, EVST (EVS TECH CO., LTD), 2026-07-15",
           "describedByResolves": true,
-          "referenceHref": "#ref-ifr-world-robotics-2025",
+          "referenceHref": "#ref-evst-cell-cost-2026",
+          "inProse": true
+        },
+        {
+          "id": "osha-otm-robots",
+          "label": "Administration 2026",
+          "href": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+          "opensExternally": true,
+          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
+          "describedByResolves": true,
+          "referenceHref": "#ref-osha-otm-robots",
+          "inProse": true
+        },
+        {
+          "id": "evst-cell-cost-2026",
+          "label": "EVST Engineering Team 2026",
+          "href": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+          "opensExternally": true,
+          "tooltipText": "Palletizing Robot Cost & ROI 2026: Price & Payback GuideEVST Engineering Team, EVST (EVS TECH CO., LTD), 2026-07-15",
+          "describedByResolves": true,
+          "referenceHref": "#ref-evst-cell-cost-2026",
           "inProse": true
         },
         {
@@ -11178,7 +11230,7 @@
           "label": "Amazon) 2026",
           "href": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
           "opensExternally": true,
-          "tooltipText": "Amazon robotics fleet passes one million robotsTyler Greenawalt (About Amazon), Amazon company press, as of 2026-06-04",
+          "tooltipText": "Amazon robotics: Meet the robots inside fulfillment centersTyler Greenawalt (About Amazon), Amazon company press, as of 2026-06-04",
           "describedByResolves": true,
           "referenceHref": "#ref-amazon-robot-fleet-2026",
           "inProse": true
@@ -11318,7 +11370,7 @@
           "label": "Administration 2026",
           "href": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
           "opensExternally": true,
-          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
+          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
           "describedByResolves": true,
           "referenceHref": "#ref-osha-otm-robots",
           "inProse": true
@@ -11328,7 +11380,7 @@
           "label": "Administration 2026",
           "href": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
           "opensExternally": true,
-          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
+          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
           "describedByResolves": true,
           "referenceHref": "#ref-osha-otm-robots",
           "inProse": true
@@ -11505,175 +11557,182 @@
           "section": "see-also",
           "href": "/data-hardware/hardware-taxonomy/",
           "text": "Hardware Taxonomy",
-          "tabIndex": 100,
+          "tabIndex": 104,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/data-hardware/teleop-rigs/",
           "text": "Teleoperation Rigs",
-          "tabIndex": 101,
+          "tabIndex": 105,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/data-hardware/data-bottleneck/",
           "text": "The Data Bottleneck",
-          "tabIndex": 102,
+          "tabIndex": 106,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/data-hardware/hardware-taxonomy/",
           "text": "Hardware Taxonomy",
-          "tabIndex": 103,
+          "tabIndex": 107,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/bear-case/",
           "text": "The Bear Case",
-          "tabIndex": 104,
+          "tabIndex": 108,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
           "text": "World Robotics 2025: Industrial Robots (press summary)",
-          "tabIndex": 105,
+          "tabIndex": 109,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://ifr.org/ifr-press-releases/news/china-makes-ai-powered-robots-core-of-national-strategy",
           "text": "China Makes AI-powered Robots Core of National Strategy",
-          "tabIndex": 106,
+          "tabIndex": 110,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-automation-adoption",
           "text": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation Adoption",
-          "tabIndex": 107,
+          "tabIndex": 111,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm",
           "text": "Symbotic Inc. Form 10-K, fiscal year ended September 27, 2025",
-          "tabIndex": 108,
+          "tabIndex": 112,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions",
           "text": "Amazon announces 2 new ways it's using robots to assist employees and deliver for customers",
-          "tabIndex": 109,
+          "tabIndex": 113,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
-          "text": "Amazon robotics fleet passes one million robots",
-          "tabIndex": 110,
+          "text": "Amazon robotics: Meet the robots inside fulfillment centers",
+          "tabIndex": 114,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch",
           "text": "Introducing Vulcan: Amazon's first robot with a sense of touch",
-          "tabIndex": 111,
+          "tabIndex": 115,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1086/705716",
           "text": "Robots and Jobs: Evidence from US Labor Markets",
-          "tabIndex": 112,
+          "tabIndex": 116,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://ipc.mit.edu/research/work-of-the-future/",
           "text": "The Work of the Future: Building Better Jobs in an Age of Intelligent Machines",
-          "tabIndex": 113,
+          "tabIndex": 117,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.taylorfrancis.com/books/mono/10.4324/9780429273018/toyota-production-system-taiichi-ohno",
           "text": "Toyota Production System: Beyond Large-Scale Production",
-          "tabIndex": 114,
+          "tabIndex": 118,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
           "text": "Palletizing Robot Cost & ROI 2026: Price & Payback Guide",
-          "tabIndex": 115,
+          "tabIndex": 119,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html",
           "text": "Warehouse closures crush Ocado shares: US partner shuts three sites in 'a devastating blow' to UK firm",
-          "tabIndex": 116,
+          "tabIndex": 120,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
-          "text": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System Safety",
-          "tabIndex": 117,
+          "text": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System Safety",
+          "tabIndex": 121,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://ocadointelligentautomation.com/",
           "text": "Ocado Intelligent Automation",
-          "tabIndex": 118,
+          "tabIndex": 122,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
           "text": "Humanoid Robots in 2026: What Is Actually Deployed",
-          "tabIndex": 119,
+          "tabIndex": 123,
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://blog.robozaps.com/b/best-humanoid-robots",
+          "text": "38 Best Humanoid Robots in 2026",
+          "tabIndex": 124,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
           "text": "Robot Boom Meets Earnings Reality: Unitree Profits Halved, Optimus Not for Sale",
-          "tabIndex": 120,
+          "tabIndex": 125,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
           "text": "'PR problem' is standing in the way of China's humanoid robot boom, says Morgan Stanley",
-          "tabIndex": 121,
+          "tabIndex": 126,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
           "text": "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
-          "tabIndex": 122,
+          "tabIndex": 127,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1126/scirobotics.aea7390",
           "text": "Good old-fashioned engineering can close the 100,000-year \"data gap\" in robotics",
-          "tabIndex": 123,
+          "tabIndex": 128,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
           "text": "Bessemer Predicts: Robotics and physical AI",
-          "tabIndex": 124,
+          "tabIndex": 129,
           "focusVisible": true
         }
       ],
@@ -16385,7 +16444,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 23772,
+      "visibleTextLength": 23913,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -16601,7 +16660,7 @@
             "id": "osha-otm-robots",
             "index": 14,
             "sourceHref": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
-            "title": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System Safety",
+            "title": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System Safety",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -16637,7 +16696,7 @@
             "id": "ul-4600-2023",
             "index": 17,
             "sourceHref": "https://www.shopulstandards.com/ProductDetail.aspx?productid=UL4600",
-            "title": "UL 4600, Standard for Safety for the Evaluation of Autonomous Products, Edition 3",
+            "title": "UL 4600, Standard for Evaluation of Autonomous Products, Edition 3",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -16940,7 +16999,7 @@
           "label": "Administration 2026",
           "href": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
           "opensExternally": true,
-          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
+          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
           "describedByResolves": true,
           "referenceHref": "#ref-osha-otm-robots",
           "inProse": true
@@ -16980,7 +17039,7 @@
           "label": "Engagement 2023",
           "href": "https://www.shopulstandards.com/ProductDetail.aspx?productid=UL4600",
           "opensExternally": true,
-          "tooltipText": "UL 4600, Standard for Safety for the Evaluation of Autonomous Products, Edition 3UL Standards & Engagement, UL Standard (public catalogue entry), 2023",
+          "tooltipText": "UL 4600, Standard for Evaluation of Autonomous Products, Edition 3UL Standards & Engagement, UL Standard (public catalogue entry), 2023",
           "describedByResolves": true,
           "referenceHref": "#ref-ul-4600-2023",
           "inProse": true
@@ -17360,7 +17419,7 @@
         {
           "section": "references",
           "href": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
-          "text": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System Safety",
+          "text": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System Safety",
           "tabIndex": 120,
           "focusVisible": true
         },
@@ -17381,7 +17440,7 @@
         {
           "section": "references",
           "href": "https://www.shopulstandards.com/ProductDetail.aspx?productid=UL4600",
-          "text": "UL 4600, Standard for Safety for the Evaluation of Autonomous Products, Edition 3",
+          "text": "UL 4600, Standard for Evaluation of Autonomous Products, Edition 3",
           "tabIndex": 123,
           "focusVisible": true
         },
@@ -27005,7 +27064,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 22922,
+      "visibleTextLength": 23099,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -27836,7 +27895,7 @@
           "href": "/glossary/#reset-free-learning",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "reset-free learningTraining on real hardware without a human returning the scene to a start state between attempts, which is what stands between a working algorithm and an unattended experiment. Sharma and colleagues formalize the setting as autonomous reinforcement learning, where the agent interacts continually and is evaluated on how much human intervention it needs rather than only on final performance. Gupta and colleagues make the operational version work by learning a collection of tasks whose members reset each other, so the behaviour that undoes the last attempt is itself something the agent is trying to learn.",
+          "tooltipText": "reset-free learningTraining on real hardware without a human returning the scene to a start state between attempts, which is what stands between a working algorithm and an unattended experiment. Sharma and colleagues formalize the setting as autonomous reinforcement learning, where the agent interacts continually under a bounded intervention budget and is scored across its whole training lifetime rather than only on the final policy. Gupta and colleagues make the operational version work by learning a collection of tasks whose members reset each other, so the behaviour that undoes the last attempt is itself something the agent is trying to learn.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true
@@ -36956,7 +37015,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 27200,
+      "visibleTextLength": 27355,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -37527,6 +37586,26 @@
           "inProse": true
         },
         {
+          "id": "realsense-d400-datasheet-2026",
+          "label": "RealSense 2026",
+          "href": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+          "opensExternally": true,
+          "tooltipText": "Intel RealSense D400 Series Product Family DatasheetRealSense, RealSense, as of 2026-08-22",
+          "describedByResolves": true,
+          "referenceHref": "#ref-realsense-d400-datasheet-2026",
+          "inProse": true
+        },
+        {
+          "id": "photoneo-phoxi-l-2026",
+          "label": "Photoneo 2026",
+          "href": "https://www.photoneo.com/products/phoxi-scan-l/",
+          "opensExternally": true,
+          "tooltipText": "PhoXi 3D Scanner LPhotoneo, Photoneo, as of 2026-08-22",
+          "describedByResolves": true,
+          "referenceHref": "#ref-photoneo-phoxi-l-2026",
+          "inProse": true
+        },
+        {
           "id": "pointnet-2017",
           "label": "Qi 2017",
           "href": "https://arxiv.org/abs/1612.00593",
@@ -37826,245 +37905,245 @@
           "section": "see-also",
           "href": "/classical/grasp-planning/",
           "text": "Grasp Planning",
-          "tabIndex": 139,
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/manipulation/hierarchical/",
-          "text": "Hierarchical Approaches",
-          "tabIndex": 140,
-          "focusVisible": true
-        },
-        {
-          "section": "see-also",
-          "href": "/classical/state-estimation/",
-          "text": "State Estimation",
-          "tabIndex": 141,
-          "focusVisible": true
-        },
-        {
-          "section": "linked-from",
-          "href": "/manipulation/hierarchical/",
-          "text": "Hierarchical Approaches",
-          "tabIndex": 142,
-          "focusVisible": true
-        },
-        {
-          "section": "linked-from",
-          "href": "/classical/state-estimation/",
-          "text": "State Estimation",
           "tabIndex": 143,
+          "focusVisible": true
+        },
+        {
+          "section": "see-also",
+          "href": "/manipulation/hierarchical/",
+          "text": "Hierarchical Approaches",
+          "tabIndex": 144,
+          "focusVisible": true
+        },
+        {
+          "section": "see-also",
+          "href": "/classical/state-estimation/",
+          "text": "State Estimation",
+          "tabIndex": 145,
+          "focusVisible": true
+        },
+        {
+          "section": "linked-from",
+          "href": "/manipulation/hierarchical/",
+          "text": "Hierarchical Approaches",
+          "tabIndex": 146,
+          "focusVisible": true
+        },
+        {
+          "section": "linked-from",
+          "href": "/classical/state-estimation/",
+          "text": "State Estimation",
+          "tabIndex": 147,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/classical/grasp-planning/",
           "text": "Grasp Planning",
-          "tabIndex": 144,
+          "tabIndex": 148,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/classical/scene-representation/",
           "text": "Scene Representation and Mapping",
-          "tabIndex": 145,
+          "tabIndex": 149,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/34.888718",
           "text": "A flexible new technique for camera calibration",
-          "tabIndex": 146,
+          "tabIndex": 150,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/70.34770",
           "text": "A new technique for fully autonomous and efficient 3D robotics hand/eye calibration",
-          "tabIndex": 147,
+          "tabIndex": 151,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/CVPRW.2017.167",
           "text": "Intel RealSense Stereoscopic Depth Cameras",
-          "tabIndex": 148,
+          "tabIndex": 152,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
           "text": "Intel RealSense D400 Series Product Family Datasheet",
-          "tabIndex": 149,
+          "tabIndex": 153,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/",
           "text": "Tuning depth cameras for best performance",
-          "tabIndex": 150,
+          "tabIndex": 154,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
           "text": "Azure Kinect DK depth camera",
-          "tabIndex": 151,
+          "tabIndex": 155,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.photoneo.com/products/phoxi-scan-l/",
           "text": "PhoXi 3D Scanner L",
-          "tabIndex": 152,
+          "tabIndex": 156,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/ICRA40945.2020.9197518",
           "text": "ClearGrasp: 3D Shape Estimation of Transparent Objects for Manipulation",
-          "tabIndex": 153,
+          "tabIndex": 157,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2303.05499",
           "text": "Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection",
-          "tabIndex": 154,
+          "tabIndex": 158,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2304.07193",
           "text": "DINOv2: Learning Robust Visual Features without Supervision",
-          "tabIndex": 156,
+          "tabIndex": 160,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2304.02643",
           "text": "Segment Anything",
-          "tabIndex": 158,
+          "tabIndex": 162,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2408.00714",
           "text": "SAM 2: Segment Anything in Images and Videos",
-          "tabIndex": 160,
+          "tabIndex": 164,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1612.00593",
           "text": "PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation",
-          "tabIndex": 162,
+          "tabIndex": 166,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1706.02413",
           "text": "PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space",
-          "tabIndex": 163,
+          "tabIndex": 167,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1806.08756",
           "text": "Dense Object Nets: Learning Dense Visual Object Descriptors By and For Robotic Manipulation",
-          "tabIndex": 164,
+          "tabIndex": 168,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1711.00199",
           "text": "PoseCNN: A Convolutional Neural Network for 6D Object Pose Estimation in Cluttered Scenes",
-          "tabIndex": 165,
+          "tabIndex": 169,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2312.08344",
           "text": "FoundationPose: Unified 6D Pose Estimation and Tracking of Novel Objects",
-          "tabIndex": 166,
+          "tabIndex": 170,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2212.06870",
           "text": "MegaPose: 6D Pose Estimation of Novel Objects via Render and Compare",
-          "tabIndex": 167,
+          "tabIndex": 171,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2403.09799",
           "text": "BOP Challenge 2023 on Detection, Segmentation and Pose Estimation of Seen and Unseen Rigid Objects",
-          "tabIndex": 169,
+          "tabIndex": 173,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1007/978-3-642-37331-2_42",
           "text": "Model Based Training, Detection and Pose Estimation of Texture-Less 3D Objects in Heavily Cluttered Scenes",
-          "tabIndex": 171,
+          "tabIndex": 175,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/70.143350",
           "text": "A new approach to visual servoing in robotics",
-          "tabIndex": 172,
+          "tabIndex": 176,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/MRA.2006.250573",
           "text": "Visual servo control. I. Basic approaches",
-          "tabIndex": 173,
+          "tabIndex": 177,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1109/MRA.2007.339609",
           "text": "Visual servo control. II. Advanced approaches",
-          "tabIndex": 174,
+          "tabIndex": 178,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/1703.09312",
           "text": "Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics",
-          "tabIndex": 175,
+          "tabIndex": 179,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2403.03174",
           "text": "MOKA: Open-World Robotic Manipulation through Mark-Based Visual Prompting",
-          "tabIndex": 176,
+          "tabIndex": 180,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2409.01652",
           "text": "ReKep: Spatio-Temporal Reasoning of Relational Keypoint Constraints for Robotic Manipulation",
-          "tabIndex": 177,
+          "tabIndex": 181,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2406.10721",
           "text": "RoboPoint: A Vision-Language Model for Spatial Affordance Prediction for Robotics",
-          "tabIndex": 178,
+          "tabIndex": 182,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://arxiv.org/abs/2606.26428",
           "text": "Play2Perfect: What Matters in Dexterous Play Pretraining for Precise Assembly?",
-          "tabIndex": 179,
+          "tabIndex": 183,
           "focusVisible": true
         }
       ],
@@ -38074,7 +38153,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 19660,
+      "visibleTextLength": 19792,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -42410,7 +42489,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 18190,
+      "visibleTextLength": 19445,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -42518,7 +42597,7 @@
             "id": "amazon-robot-fleet-2026",
             "index": 5,
             "sourceHref": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
-            "title": "Amazon robotics fleet passes one million robots",
+            "title": "Amazon robotics: Meet the robots inside fulfillment centers",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -42602,7 +42681,7 @@
             "id": "osha-otm-robots",
             "index": 12,
             "sourceHref": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
-            "title": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System Safety",
+            "title": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System Safety",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -42635,8 +42714,20 @@
             "focusable": true
           },
           {
-            "id": "unitree-profit-2026",
+            "id": "robozaps-humanoids-2026",
             "index": 15,
+            "sourceHref": "https://blog.robozaps.com/b/best-humanoid-robots",
+            "title": "38 Best Humanoid Robots in 2026",
+            "colour": "rgb(36, 95, 255)",
+            "decorationLine": "underline",
+            "contrast": 4.67,
+            "furtherReading": false,
+            "overflowPx": 0,
+            "focusable": true
+          },
+          {
+            "id": "unitree-profit-2026",
+            "index": 16,
             "sourceHref": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
             "title": "Robot Boom Meets Earnings Reality: Unitree Profits Halved, Optimus Not for Sale",
             "colour": "rgb(36, 95, 255)",
@@ -42648,7 +42739,7 @@
           },
           {
             "id": "morgan-stanley-pr-problem-2026",
-            "index": 16,
+            "index": 17,
             "sourceHref": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
             "title": "'PR problem' is standing in the way of China's humanoid robot boom, says Morgan Stanley",
             "colour": "rgb(36, 95, 255)",
@@ -42660,7 +42751,7 @@
           },
           {
             "id": "figure-8hr-shift-2026",
-            "index": 17,
+            "index": 18,
             "sourceHref": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
             "title": "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
             "colour": "rgb(36, 95, 255)",
@@ -42672,7 +42763,7 @@
           },
           {
             "id": "goldberg-data-gap-2025",
-            "index": 18,
+            "index": 19,
             "sourceHref": "https://doi.org/10.1126/scirobotics.aea7390",
             "title": "Good old-fashioned engineering can close the 100,000-year \"data gap\" in robotics",
             "colour": "rgb(36, 95, 255)",
@@ -42684,7 +42775,7 @@
           },
           {
             "id": "bessemer-robotics-2026",
-            "index": 19,
+            "index": 20,
             "sourceHref": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
             "title": "Bessemer Predicts: Robotics and physical AI",
             "colour": "rgb(36, 95, 255)",
@@ -42753,13 +42844,13 @@
           "inProse": true
         },
         {
-          "id": "evst-cell-cost-2026",
-          "label": "EVST Engineering Team 2026",
-          "href": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+          "id": "robozaps-humanoids-2026",
+          "label": "RoboZaps 2026",
+          "href": "https://blog.robozaps.com/b/best-humanoid-robots",
           "opensExternally": true,
-          "tooltipText": "Palletizing Robot Cost & ROI 2026: Price & Payback GuideEVST Engineering Team, EVST (EVS TECH CO., LTD), 2026-07-15",
+          "tooltipText": "38 Best Humanoid Robots in 2026RoboZaps, 2026",
           "describedByResolves": true,
-          "referenceHref": "#ref-evst-cell-cost-2026",
+          "referenceHref": "#ref-robozaps-humanoids-2026",
           "inProse": true
         },
         {
@@ -42773,13 +42864,33 @@
           "inProse": true
         },
         {
-          "id": "ifr-world-robotics-2025",
-          "label": "International Federation of Robotics 2025",
-          "href": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+          "id": "evst-cell-cost-2026",
+          "label": "EVST Engineering Team 2026",
+          "href": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
           "opensExternally": true,
-          "tooltipText": "World Robotics 2025: Industrial Robots (press summary)International Federation of Robotics, IFR, Frankfurt, published 2025-09-25",
+          "tooltipText": "Palletizing Robot Cost & ROI 2026: Price & Payback GuideEVST Engineering Team, EVST (EVS TECH CO., LTD), 2026-07-15",
           "describedByResolves": true,
-          "referenceHref": "#ref-ifr-world-robotics-2025",
+          "referenceHref": "#ref-evst-cell-cost-2026",
+          "inProse": true
+        },
+        {
+          "id": "osha-otm-robots",
+          "label": "Administration 2026",
+          "href": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+          "opensExternally": true,
+          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
+          "describedByResolves": true,
+          "referenceHref": "#ref-osha-otm-robots",
+          "inProse": true
+        },
+        {
+          "id": "evst-cell-cost-2026",
+          "label": "EVST Engineering Team 2026",
+          "href": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+          "opensExternally": true,
+          "tooltipText": "Palletizing Robot Cost & ROI 2026: Price & Payback GuideEVST Engineering Team, EVST (EVS TECH CO., LTD), 2026-07-15",
+          "describedByResolves": true,
+          "referenceHref": "#ref-evst-cell-cost-2026",
           "inProse": true
         },
         {
@@ -42807,7 +42918,7 @@
           "label": "Amazon) 2026",
           "href": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
           "opensExternally": true,
-          "tooltipText": "Amazon robotics fleet passes one million robotsTyler Greenawalt (About Amazon), Amazon company press, as of 2026-06-04",
+          "tooltipText": "Amazon robotics: Meet the robots inside fulfillment centersTyler Greenawalt (About Amazon), Amazon company press, as of 2026-06-04",
           "describedByResolves": true,
           "referenceHref": "#ref-amazon-robot-fleet-2026",
           "inProse": true
@@ -42947,7 +43058,7 @@
           "label": "Administration 2026",
           "href": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
           "opensExternally": true,
-          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
+          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
           "describedByResolves": true,
           "referenceHref": "#ref-osha-otm-robots",
           "inProse": true
@@ -42957,7 +43068,7 @@
           "label": "Administration 2026",
           "href": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
           "opensExternally": true,
-          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
+          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
           "describedByResolves": true,
           "referenceHref": "#ref-osha-otm-robots",
           "inProse": true
@@ -43134,175 +43245,182 @@
           "section": "see-also",
           "href": "/data-hardware/hardware-taxonomy/",
           "text": "Hardware Taxonomy",
-          "tabIndex": 120,
+          "tabIndex": 124,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/data-hardware/teleop-rigs/",
           "text": "Teleoperation Rigs",
-          "tabIndex": 121,
+          "tabIndex": 125,
           "focusVisible": true
         },
         {
           "section": "see-also",
           "href": "/data-hardware/data-bottleneck/",
           "text": "The Data Bottleneck",
-          "tabIndex": 122,
+          "tabIndex": 126,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/data-hardware/hardware-taxonomy/",
           "text": "Hardware Taxonomy",
-          "tabIndex": 123,
+          "tabIndex": 127,
           "focusVisible": true
         },
         {
           "section": "linked-from",
           "href": "/frontier/bear-case/",
           "text": "The Bear Case",
-          "tabIndex": 124,
+          "tabIndex": 128,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
           "text": "World Robotics 2025: Industrial Robots (press summary)",
-          "tabIndex": 125,
+          "tabIndex": 129,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://ifr.org/ifr-press-releases/news/china-makes-ai-powered-robots-core-of-national-strategy",
           "text": "China Makes AI-powered Robots Core of National Strategy",
-          "tabIndex": 126,
+          "tabIndex": 130,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-automation-adoption",
           "text": "Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation Adoption",
-          "tabIndex": 127,
+          "tabIndex": 131,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm",
           "text": "Symbotic Inc. Form 10-K, fiscal year ended September 27, 2025",
-          "tabIndex": 128,
+          "tabIndex": 132,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions",
           "text": "Amazon announces 2 new ways it's using robots to assist employees and deliver for customers",
-          "tabIndex": 129,
+          "tabIndex": 133,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
-          "text": "Amazon robotics fleet passes one million robots",
-          "tabIndex": 130,
+          "text": "Amazon robotics: Meet the robots inside fulfillment centers",
+          "tabIndex": 134,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch",
           "text": "Introducing Vulcan: Amazon's first robot with a sense of touch",
-          "tabIndex": 131,
+          "tabIndex": 135,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1086/705716",
           "text": "Robots and Jobs: Evidence from US Labor Markets",
-          "tabIndex": 132,
+          "tabIndex": 136,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://ipc.mit.edu/research/work-of-the-future/",
           "text": "The Work of the Future: Building Better Jobs in an Age of Intelligent Machines",
-          "tabIndex": 133,
+          "tabIndex": 137,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.taylorfrancis.com/books/mono/10.4324/9780429273018/toyota-production-system-taiichi-ohno",
           "text": "Toyota Production System: Beyond Large-Scale Production",
-          "tabIndex": 134,
+          "tabIndex": 138,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
           "text": "Palletizing Robot Cost & ROI 2026: Price & Payback Guide",
-          "tabIndex": 135,
+          "tabIndex": 139,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html",
           "text": "Warehouse closures crush Ocado shares: US partner shuts three sites in 'a devastating blow' to UK firm",
-          "tabIndex": 136,
+          "tabIndex": 140,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
-          "text": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System Safety",
-          "tabIndex": 137,
+          "text": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System Safety",
+          "tabIndex": 141,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://ocadointelligentautomation.com/",
           "text": "Ocado Intelligent Automation",
-          "tabIndex": 138,
+          "tabIndex": 142,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
           "text": "Humanoid Robots in 2026: What Is Actually Deployed",
-          "tabIndex": 139,
+          "tabIndex": 143,
+          "focusVisible": true
+        },
+        {
+          "section": "references",
+          "href": "https://blog.robozaps.com/b/best-humanoid-robots",
+          "text": "38 Best Humanoid Robots in 2026",
+          "tabIndex": 144,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
           "text": "Robot Boom Meets Earnings Reality: Unitree Profits Halved, Optimus Not for Sale",
-          "tabIndex": 140,
+          "tabIndex": 145,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
           "text": "'PR problem' is standing in the way of China's humanoid robot boom, says Morgan Stanley",
-          "tabIndex": 141,
+          "tabIndex": 146,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
           "text": "Figure AI's Helix-02 Robots Complete Full 8-Hour Autonomous Shifts as Humanoid Race Intensifies",
-          "tabIndex": 142,
+          "tabIndex": 147,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://doi.org/10.1126/scirobotics.aea7390",
           "text": "Good old-fashioned engineering can close the 100,000-year \"data gap\" in robotics",
-          "tabIndex": 143,
+          "tabIndex": 148,
           "focusVisible": true
         },
         {
           "section": "references",
           "href": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
           "text": "Bessemer Predicts: Robotics and physical AI",
-          "tabIndex": 144,
+          "tabIndex": 149,
           "focusVisible": true
         }
       ],
@@ -48014,7 +48132,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 24107,
+      "visibleTextLength": 24248,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -48230,7 +48348,7 @@
             "id": "osha-otm-robots",
             "index": 14,
             "sourceHref": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
-            "title": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System Safety",
+            "title": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System Safety",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -48266,7 +48384,7 @@
             "id": "ul-4600-2023",
             "index": 17,
             "sourceHref": "https://www.shopulstandards.com/ProductDetail.aspx?productid=UL4600",
-            "title": "UL 4600, Standard for Safety for the Evaluation of Autonomous Products, Edition 3",
+            "title": "UL 4600, Standard for Evaluation of Autonomous Products, Edition 3",
             "colour": "rgb(36, 95, 255)",
             "decorationLine": "underline",
             "contrast": 4.67,
@@ -48569,7 +48687,7 @@
           "label": "Administration 2026",
           "href": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
           "opensExternally": true,
-          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
+          "tooltipText": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System SafetyOccupational Safety and Health Administration, U.S. Department of Labor, as of 2026-08-22",
           "describedByResolves": true,
           "referenceHref": "#ref-osha-otm-robots",
           "inProse": true
@@ -48609,7 +48727,7 @@
           "label": "Engagement 2023",
           "href": "https://www.shopulstandards.com/ProductDetail.aspx?productid=UL4600",
           "opensExternally": true,
-          "tooltipText": "UL 4600, Standard for Safety for the Evaluation of Autonomous Products, Edition 3UL Standards & Engagement, UL Standard (public catalogue entry), 2023",
+          "tooltipText": "UL 4600, Standard for Evaluation of Autonomous Products, Edition 3UL Standards & Engagement, UL Standard (public catalogue entry), 2023",
           "describedByResolves": true,
           "referenceHref": "#ref-ul-4600-2023",
           "inProse": true
@@ -48989,7 +49107,7 @@
         {
           "section": "references",
           "href": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
-          "text": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robots and Robot System Safety",
+          "text": "OSHA Technical Manual, Section IV: Chapter 4, Industrial Robot Systems and Industrial Robot System Safety",
           "tabIndex": 140,
           "focusVisible": true
         },
@@ -49010,7 +49128,7 @@
         {
           "section": "references",
           "href": "https://www.shopulstandards.com/ProductDetail.aspx?productid=UL4600",
-          "text": "UL 4600, Standard for Safety for the Evaluation of Autonomous Products, Edition 3",
+          "text": "UL 4600, Standard for Evaluation of Autonomous Products, Edition 3",
           "tabIndex": 143,
           "focusVisible": true
         },
@@ -58634,7 +58752,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 23353,
+      "visibleTextLength": 23530,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -59465,7 +59583,7 @@
           "href": "/glossary/#reset-free-learning",
           "focusable": true,
           "describedByResolves": true,
-          "tooltipText": "reset-free learningTraining on real hardware without a human returning the scene to a start state between attempts, which is what stands between a working algorithm and an unattended experiment. Sharma and colleagues formalize the setting as autonomous reinforcement learning, where the agent interacts continually and is evaluated on how much human intervention it needs rather than only on final performance. Gupta and colleagues make the operational version work by learning a collection of tasks whose members reset each other, so the behaviour that undoes the last attempt is itself something the agent is trying to learn.",
+          "tooltipText": "reset-free learningTraining on real hardware without a human returning the scene to a start state between attempts, which is what stands between a working algorithm and an unattended experiment. Sharma and colleagues formalize the setting as autonomous reinforcement learning, where the agent interacts continually under a bounded intervention budget and is scored across its whole training lifetime rather than only on the final policy. Gupta and colleagues make the operational version work by learning a collection of tasks whose members reset each other, so the behaviour that undoes the last attempt is itself something the agent is trying to learn.",
           "decorationLine": "underline",
           "decorationStyle": "dotted",
           "distinguishedWithoutColour": true

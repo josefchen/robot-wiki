@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "3f60711cc8854616f549a014096938594c68e7c0c9dd385bb989d0b85323bfad",
+  "fingerprint": "04adcc767cec020831a9837f2d41ddf49f908912f5a0e8cb2b68b2c61856ec22",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -1764,7 +1764,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 27200,
+      "visibleTextLength": 27355,
       "route": "/classical/perception/",
       "viewport": "1440x900"
     },
@@ -1891,7 +1891,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19660,
+      "visibleTextLength": 19792,
       "route": "/classical/scene-representation/",
       "viewport": "1440x900"
     },
@@ -2907,7 +2907,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 18190,
+      "visibleTextLength": 19445,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "1440x900"
     },
@@ -3923,7 +3923,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 24107,
+      "visibleTextLength": 24248,
       "route": "/frontier/safety-and-assurance/",
       "viewport": "1440x900"
     },
@@ -4050,7 +4050,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 82695,
+      "visibleTextLength": 82755,
       "route": "/glossary/",
       "viewport": "1440x900"
     },
@@ -6717,7 +6717,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23353,
+      "visibleTextLength": 23530,
       "route": "/rl-sim2real/rl-for-robotics/",
       "viewport": "1440x900"
     },
@@ -9557,7 +9557,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 26834,
+      "visibleTextLength": 26989,
       "route": "/classical/perception/",
       "viewport": "375x812"
     },
@@ -9684,7 +9684,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19294,
+      "visibleTextLength": 19426,
       "route": "/classical/scene-representation/",
       "viewport": "375x812"
     },
@@ -10700,7 +10700,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 17836,
+      "visibleTextLength": 19091,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "375x812"
     },
@@ -11716,7 +11716,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 23772,
+      "visibleTextLength": 23913,
       "route": "/frontier/safety-and-assurance/",
       "viewport": "375x812"
     },
@@ -11843,7 +11843,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 82473,
+      "visibleTextLength": 82533,
       "route": "/glossary/",
       "viewport": "375x812"
     },
@@ -14510,7 +14510,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 22922,
+      "visibleTextLength": 23099,
       "route": "/rl-sim2real/rl-for-robotics/",
       "viewport": "375x812"
     },
