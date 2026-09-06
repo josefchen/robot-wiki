@@ -128,20 +128,6 @@
       "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
     },
     {
-      "file": "tests/e2e/brand-v2-shell.spec.ts",
-      "title": "every public route marks its current route, opens on the skip link, and keeps the sealed taxonomy",
-      "receiver": "page",
-      "navigations": 62,
-      "reason": "Measured 62 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
-    },
-    {
-      "file": "tests/e2e/brand-v2.spec.ts",
-      "title": "every public route resolves the sealed palette exactly",
-      "receiver": "page",
-      "navigations": 61,
-      "reason": "Measured 61 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
-    },
-    {
       "file": "tests/e2e/breadcrumbs.spec.ts",
       "title": "every domain renders Home > Domain > Article with the trailing crumb as non-link text (VAL-WIKI-016)",
       "receiver": "page",
