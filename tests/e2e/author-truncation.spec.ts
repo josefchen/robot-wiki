@@ -78,62 +78,65 @@ test.describe('References author truncation (VAL-WIKI-029)', () => {
   // The population is derived from the module registry, so an article added
   // later is swept without touching this file.
   test('every entry on every published article is bounded and its marker counts correctly', async () => {
-    const page = await open('/', 1440);
     const failures: string[] = [];
     let entriesSeen = 0;
     let markersSeen = 0;
 
     for (const entry of publishedModules()) {
       const route = `/${entry.domain}/${entry.slug}/`;
-      await page.goto(`http://127.0.0.1:${server.port}${route}`);
-      const rendered = await authorText(page);
-      const ids = declaredIds(entry.domain, entry.slug);
-      expect(Object.keys(rendered), `entries on ${route}`).toHaveLength(
-        ids.length,
-      );
-      expect(ids.length).toBeGreaterThan(0);
+      const page = await open(route, 1440);
+      try {
+        const rendered = await authorText(page);
+        const ids = declaredIds(entry.domain, entry.slug);
+        expect(Object.keys(rendered), `entries on ${route}`).toHaveLength(
+          ids.length,
+        );
+        expect(ids.length).toBeGreaterThan(0);
 
-      for (const id of ids) {
-        entriesSeen += 1;
-        const citation = getCitation(id);
-        expect(citation, `registry entry ${id}`).toBeDefined();
-        if (!citation) continue;
-        const text = rendered[id] ?? '';
-        const total = citation.authors.length;
-        const shown = citation.authors.filter((a) => text.includes(a));
-        const match = ELISION.exec(text);
+        for (const id of ids) {
+          entriesSeen += 1;
+          const citation = getCitation(id);
+          expect(citation, `registry entry ${id}`).toBeDefined();
+          if (!citation) continue;
+          const text = rendered[id] ?? '';
+          const total = citation.authors.length;
+          const shown = citation.authors.filter((a) => text.includes(a));
+          const match = ELISION.exec(text);
 
-        if (total <= AUTHORS_SHOWN) {
-          if (match) failures.push(`${route} ${id}: marker on a ${total}-author entry`);
-          if (text !== citation.authors.join(', ')) {
-            failures.push(`${route} ${id}: short list not rendered in full`);
+          if (total <= AUTHORS_SHOWN) {
+            if (match) failures.push(`${route} ${id}: marker on a ${total}-author entry`);
+            if (text !== citation.authors.join(', ')) {
+              failures.push(`${route} ${id}: short list not rendered in full`);
+            }
+            continue;
           }
-          continue;
-        }
 
-        markersSeen += 1;
-        if (shown.length !== AUTHORS_SHOWN) {
-          failures.push(
-            `${route} ${id}: rendered ${shown.length} of ${total} names, bound is ${AUTHORS_SHOWN}`,
-          );
+          markersSeen += 1;
+          if (shown.length !== AUTHORS_SHOWN) {
+            failures.push(
+              `${route} ${id}: rendered ${shown.length} of ${total} names, bound is ${AUTHORS_SHOWN}`,
+            );
+          }
+          if (!match) {
+            failures.push(`${route} ${id}: no elision marker on a ${total}-author entry`);
+            continue;
+          }
+          const stated = Number(match[1]);
+          if (stated !== total - AUTHORS_SHOWN) {
+            failures.push(
+              `${route} ${id}: marker states ${stated}, expected ${total - AUTHORS_SHOWN}`,
+            );
+          }
+          // Clause (d): rendered names are registry names in registry order,
+          // and the first author is never elided away.
+          if (
+            shown.join('|') !== citation.authors.slice(0, AUTHORS_SHOWN).join('|')
+          ) {
+            failures.push(`${route} ${id}: rendered names out of registry order`);
+          }
         }
-        if (!match) {
-          failures.push(`${route} ${id}: no elision marker on a ${total}-author entry`);
-          continue;
-        }
-        const stated = Number(match[1]);
-        if (stated !== total - AUTHORS_SHOWN) {
-          failures.push(
-            `${route} ${id}: marker states ${stated}, expected ${total - AUTHORS_SHOWN}`,
-          );
-        }
-        // Clause (d): rendered names are registry names in registry order,
-        // and the first author is never elided away.
-        if (
-          shown.join('|') !== citation.authors.slice(0, AUTHORS_SHOWN).join('|')
-        ) {
-          failures.push(`${route} ${id}: rendered names out of registry order`);
-        }
+      } finally {
+        await page.context().close();
       }
     }
 
@@ -141,7 +144,6 @@ test.describe('References author truncation (VAL-WIKI-029)', () => {
     // Guards against a silent zero-match sweep.
     expect(entriesSeen).toBeGreaterThan(200);
     expect(markersSeen).toBeGreaterThan(20);
-    await page.context().close();
   });
 
   for (const width of [1440, 375]) {

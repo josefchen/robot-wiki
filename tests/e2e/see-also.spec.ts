@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import { modules, publishedModules } from '../../data/modules';
+import { forEachInOwnContext } from './helpers/per-route-context';
 import {
   buildBacklinkGraph,
   internalLinkTargets,
@@ -87,12 +88,12 @@ async function articleRegionHrefs(page: Page): Promise<Set<string>> {
 
 test.describe('See also + Linked from', () => {
   test('See also block matches the frontmatter order, registry titles and routes', async ({
-    page,
+    browser,
   }) => {
     const withSeeAlso = articles.filter((a) => (a.seeAlso ?? []).length > 0);
     expect(withSeeAlso.length).toBeGreaterThan(0);
 
-    for (const article of withSeeAlso) {
+    await forEachInOwnContext(browser, withSeeAlso, async (page, article) => {
       await test.step(article.key, async () => {
         await page.goto(`/${article.key}/`);
         const section = page.locator('section[data-section="see-also"]');
@@ -122,7 +123,7 @@ test.describe('See also + Linked from', () => {
           await expect(item).toContainText(target.summary);
         }
       });
-    }
+    });
   });
 
   test('the trailing sections stack See also, Linked from, References in order', async ({
@@ -149,7 +150,7 @@ test.describe('See also + Linked from', () => {
   });
 
   test('every See also link navigates to a published article whose h1 matches the label (VAL-WIKI-008)', async ({
-    page,
+    browser,
   }) => {
     // The sweep clicks every edge in the published set: ~90 edges at
     // roughly three navigations each, far past the 30s default.
@@ -159,10 +160,10 @@ test.describe('See also + Linked from', () => {
     );
     expect(edges.length).toBeGreaterThan(0);
 
-    for (const { source, target } of edges) {
+    await forEachInOwnContext(browser, edges, async (page, { source, target }) => {
       const entry = registryByKey.get(target);
       expect(entry, `registry entry ${target}`).toBeDefined();
-      if (!entry) continue;
+      if (!entry) return;
 
       await test.step(`${source} -> ${target}`, async () => {
         await page.goto(`/${source}/`);
@@ -180,15 +181,15 @@ test.describe('See also + Linked from', () => {
       // A fresh document request for the destination returns 200.
       const response = await page.goto(`/${target}/`);
       expect(response?.ok(), `${target} should return 200`).toBe(true);
-    }
+    });
   });
 
   test('Linked from matches the derived backlink graph exactly for every published article (VAL-WIKI-011)', async ({
-    page,
+    browser,
   }) => {
     test.setTimeout(300_000);
 
-    for (const article of articles) {
+    await forEachInOwnContext(browser, articles, async (page, article) => {
       await test.step(article.key, async () => {
         await page.goto(`/${article.key}/`);
 
@@ -224,7 +225,7 @@ test.describe('See also + Linked from', () => {
           ).toBe(true);
         }
       });
-    }
+    });
   });
 
   test('action-chunking reaches diffusion-policy through both a prose link and a seeAlso edge (VAL-WIKI-011)', async ({
@@ -292,7 +293,7 @@ test.describe('See also + Linked from', () => {
   });
 
   test('every published article renders 2 to 4 See also entries (VAL-WIKI-007)', async ({
-    page,
+    browser,
   }) => {
     // seeAlso is required on published modules since the backfill (the
     // prebuild validator enforces it), so the no-seeAlso empty state is
@@ -301,7 +302,7 @@ test.describe('See also + Linked from', () => {
     // each labeled with the target article's title.
     test.setTimeout(300_000);
     expect(articles.length).toBeGreaterThan(0);
-    for (const article of articles) {
+    await forEachInOwnContext(browser, articles, async (page, article) => {
       await test.step(article.key, async () => {
         await page.goto(`/${article.key}/`);
         const section = page.locator('section[data-section="see-also"]');
@@ -322,7 +323,7 @@ test.describe('See also + Linked from', () => {
           );
         }
       });
-    }
+    });
   });
 
   test('zero axe violations with See also, Linked from and References all present', async ({

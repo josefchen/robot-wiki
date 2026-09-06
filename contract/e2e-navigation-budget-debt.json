@@ -1,0 +1,208 @@
+{
+  "budget": 16,
+  "entries": [
+    {
+      "file": "tests/e2e/answer-feedback.spec.ts",
+      "title": "VAL-EDU-042: a commit marks the correct option and the reader pick, in both directions",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/answer-feedback.spec.ts",
+      "title": "VAL-EDU-043: the mark survives forced colours, and no verdict word is rendered",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/answer-feedback.spec.ts",
+      "title": "VAL-EDU-044: nothing is marked before a commit, and the declined state needs no script",
+      "receiver": "noJs",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/answer-feedback.spec.ts",
+      "title": "VAL-EDU-044: nothing is marked before a commit, and the declined state needs no script",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/brand-v2-article-apparatus.spec.ts",
+      "title": "every published article renders the derived relationship graph and the brand-v2 apparatus treatment",
+      "receiver": "page",
+      "navigations": 122,
+      "reason": "Measured 122 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
+    },
+    {
+      "file": "tests/e2e/brand-v2-article-tables-math.spec.ts",
+      "title": "records every table and equation every published article renders, at both widths",
+      "receiver": "page",
+      "navigations": 94,
+      "reason": "Measured 94 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
+    },
+    {
+      "file": "tests/e2e/brand-v2-article.spec.ts",
+      "title": "every public route renders the sealed type hierarchy, and every article the sealed reading sheet",
+      "receiver": "page",
+      "navigations": 122,
+      "reason": "Measured 122 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
+    },
+    {
+      "file": "tests/e2e/brand-v2-deep-rows.spec.ts",
+      "title": "archives only the still-unreachable v2 visual claim",
+      "receiver": "page",
+      "navigations": 27,
+      "reason": "Measured 27 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
+    },
+    {
+      "file": "tests/e2e/brand-v2-figures.spec.ts",
+      "title": "sweeps every figure-bearing route at both widths",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/brand-v2-forced-colours.spec.ts",
+      "title": "preserves every derived route in forced-colours mode",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/brand-v2-home-tools.spec.ts",
+      "title": "no public route overflows horizontally at any declared width",
+      "receiver": "page",
+      "navigations": 244,
+      "reason": "Measured 244 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
+    },
+    {
+      "file": "tests/e2e/brand-v2-home-tools.spec.ts",
+      "title": "the featured instrument is live, operable, resettable, and identical across its registered mounts",
+      "receiver": "page",
+      "navigations": 63,
+      "reason": "Measured 63 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
+    },
+    {
+      "file": "tests/e2e/brand-v2-identity.spec.ts",
+      "title": "every public route renders the exact v2 identity at both identity viewports",
+      "receiver": "page",
+      "navigations": 122,
+      "reason": "Measured 122 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
+    },
+    {
+      "file": "tests/e2e/brand-v2-interactive-states.spec.ts",
+      "title": "reconciles non-empty registry sources, production mounts, controls, and exact cases",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/brand-v2-mobile-shell.spec.ts",
+      "title": "every public route omits the descriptor from the compact header and traps the drawer in both directions",
+      "receiver": "page",
+      "navigations": 61,
+      "reason": "Measured 61 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
+    },
+    {
+      "file": "tests/e2e/brand-v2-reduced-motion.spec.ts",
+      "title": "keeps every registered mount route interactive under reduce",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/brand-v2-reflow-320-200.spec.ts",
+      "title": "enforces route loading, zoom-equivalent, and text-only profiles for every route",
+      "receiver": "page",
+      "navigations": 61,
+      "reason": "Measured 61 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
+    },
+    {
+      "file": "tests/e2e/brand-v2-route-flows.spec.ts",
+      "title": "derives and renders every public destination while keeping 404 separate",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/brand-v2-shell.spec.ts",
+      "title": "every public route marks its current route, opens on the skip link, and keeps the sealed taxonomy",
+      "receiver": "page",
+      "navigations": 62,
+      "reason": "Measured 62 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
+    },
+    {
+      "file": "tests/e2e/brand-v2.spec.ts",
+      "title": "every public route resolves the sealed palette exactly",
+      "receiver": "page",
+      "navigations": 61,
+      "reason": "Measured 61 navigations on one shared page. Conversion deferred: this sweep records brand-v2 evidence that feeds check:brand-v2-enforcement and baseline:brand-v2, so it has to be reworked and re-verified inside the brand-v2 lane."
+    },
+    {
+      "file": "tests/e2e/breadcrumbs.spec.ts",
+      "title": "every domain renders Home > Domain > Article with the trailing crumb as non-link text (VAL-WIKI-016)",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/breadcrumbs.spec.ts",
+      "title": "the ancestor crumbs navigate: home to / and domain to its landing page (VAL-WIKI-017)",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/chart-state-descriptions.spec.ts",
+      "title": "zero doubly boxed milestone-added elements (VAL-EDU-031)",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/first-screen-interactive.spec.ts",
+      "title": "the corpus is non-empty and every published article was measured",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/rl-for-robotics.spec.ts",
+      "title": "every sibling still renders with its own title after the renumber (VAL-RL-036)",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/safety-and-assurance.spec.ts",
+      "title": "all six frontier routes render with an h1, their sidebar highlight and three headings (VAL-FRONT-001, VAL-FRONT-002)",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/search-aliases.spec.ts",
+      "title": "no alias renders in its entity row, and survives only in the bibliography (VAL-SEARCH-020c)",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/search-ranking.spec.ts",
+      "title": "a 6-word window of every snippet is verbatim on its destination route",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    },
+    {
+      "file": "tests/e2e/search-ranking.spec.ts",
+      "title": "the title-matching article is the first prose result, identically across three runs",
+      "receiver": "page",
+      "navigations": null,
+      "reason": "The iterable is built at run time, so this checker cannot bound the walk. Recorded as uncertified, not certified as safe."
+    }
+  ]
+}

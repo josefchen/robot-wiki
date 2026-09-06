@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { CORE_DOMAINS } from '../../data/domains';
 import { PUBLIC_IDENTITY } from '../../lib/identity';
+import { forEachInOwnContext } from './helpers/per-route-context';
 
 /**
  * Structural contract for the restructured home page (2026-08-10). Encodes
@@ -525,7 +526,7 @@ test.describe('home page', () => {
     expect(hAxis.box.w).toBeGreaterThanOrEqual(metrics.box.w - 2);
   });
 
-  test('the engineering grid appears only on the home title sheet (VAL-DSBRAND-005)', async ({ page }) => {
+  test('the engineering grid appears only on the home title sheet (VAL-DSBRAND-005)', async ({ browser }) => {
     // Population derived from the registry: every published module route
     // plus the standalone surfaces, so a newly published module joins the
     // sweep without a fixture edit.
@@ -539,7 +540,7 @@ test.describe('home page', () => {
       '/glossary/',
     ];
     expect(routes.length).toBeGreaterThan(2);
-    for (const route of routes) {
+    await forEachInOwnContext(browser, routes, async (page, route) => {
       await page.goto(route);
       const grids = await page.evaluate(() => {
         const hit = (el: Element): boolean => {
@@ -564,6 +565,6 @@ test.describe('home page', () => {
       } else {
         expect(grids, `svg-grid backgrounds on ${route}`).toEqual([]);
       }
-    }
+    });
   });
 });

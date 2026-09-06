@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { publishedModules } from '../../data/modules';
+import { forEachInOwnContext } from './helpers/per-route-context';
 
 const ROUTE = '/market-map/';
 
@@ -264,10 +265,9 @@ test.describe('market map visualization', () => {
   });
 
   test('uppercase letterspaced micro-labels stay at or under 5 (VAL-DESIGN-010)', async ({
-    page,
+    browser,
   }) => {
     test.setTimeout(240_000);
-    await page.setViewportSize({ width: 1440, height: 900 });
     const routes = [
       '/',
       '/glossary/',
@@ -275,29 +275,34 @@ test.describe('market map visualization', () => {
       '/playground/',
       ...publishedModules().map((m) => `/${m.domain}/${m.slug}/`),
     ];
-    for (const route of routes) {
-      await page.goto(route);
-      const count = await page.evaluate(() => {
-        let n = 0;
-        for (const el of Array.from(document.querySelectorAll('body *'))) {
-          if (el.children.length > 0) continue;
-          const text = (el.textContent ?? '').trim();
-          if (text.length < 3) continue;
-          const cs = getComputedStyle(el);
-          const fontSize = parseFloat(cs.fontSize);
-          if (fontSize > 15) continue;
-          const spacing =
-            cs.letterSpacing === 'normal' ? 0 : parseFloat(cs.letterSpacing);
-          if (spacing < 0.02 * fontSize) continue;
-          const upper =
-            cs.textTransform === 'uppercase' ||
-            (text === text.toUpperCase() && /[A-Z]/.test(text));
-          if (upper) n += 1;
-        }
-        return n;
-      });
-      expect(count, `${route} micro-label count`).toBeLessThanOrEqual(5);
-    }
+    await forEachInOwnContext(
+      browser,
+      routes,
+      async (page, route) => {
+        await page.goto(route);
+        const count = await page.evaluate(() => {
+          let n = 0;
+          for (const el of Array.from(document.querySelectorAll('body *'))) {
+            if (el.children.length > 0) continue;
+            const text = (el.textContent ?? '').trim();
+            if (text.length < 3) continue;
+            const cs = getComputedStyle(el);
+            const fontSize = parseFloat(cs.fontSize);
+            if (fontSize > 15) continue;
+            const spacing =
+              cs.letterSpacing === 'normal' ? 0 : parseFloat(cs.letterSpacing);
+            if (spacing < 0.02 * fontSize) continue;
+            const upper =
+              cs.textTransform === 'uppercase' ||
+              (text === text.toUpperCase() && /[A-Z]/.test(text));
+            if (upper) n += 1;
+          }
+          return n;
+        });
+        expect(count, `${route} micro-label count`).toBeLessThanOrEqual(5);
+      },
+      { viewport: { width: 1440, height: 900 } },
+    );
   });
 
   test('demoted micro-labels read as sentence case, not lowercase (VAL-DESIGN-010)', async ({

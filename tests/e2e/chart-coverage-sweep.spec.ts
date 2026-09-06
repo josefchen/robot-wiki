@@ -2,6 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { DOMAINS, publishedModules } from '../../data/modules';
+import { forEachInOwnContext } from './helpers/per-route-context';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
 
 /**
@@ -152,15 +153,15 @@ async function classifySvgs(page: Page, route: string): Promise<SvgRow[]> {
 
 test.describe('VAL-EDU-035 chart-description coverage is complete site-wide', () => {
   test('every SVG on the derived route set is classified; none uncovered', async ({
-    page,
+    browser,
   }) => {
     test.setTimeout(180_000);
     const rows: SvgRow[] = [];
-    for (const route of COVERAGE_ROUTES) {
+    await forEachInOwnContext(browser, COVERAGE_ROUTES, async (page, route) => {
       const response = await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
       expect(response?.status(), `${route} serves 200`).toBe(200);
       rows.push(...(await classifySvgs(page, route)));
-    }
+    });
     expect(rows.length, 'the sweep saw at least one SVG').toBeGreaterThan(0);
     const dangling = rows.filter((row) => row.describedBy && row.targetLength < 0);
     const uncovered = rows.filter(
@@ -184,14 +185,14 @@ test.describe('VAL-EDU-035 chart-description coverage is complete site-wide', ()
 
 test.describe('VAL-EDU-036 descriptions are specific and unique site-wide', () => {
   test('every chart description names quantities, has digits, and is unique', async ({
-    page,
+    browser,
   }) => {
     test.setTimeout(180_000);
     const seen = new Map<string, { route: string; text: string }>();
     let descriptionCount = 0;
     const problems: string[] = [];
 
-    for (const route of ARTICLE_ROUTES) {
+    await forEachInOwnContext(browser, ARTICLE_ROUTES, async (page, route) => {
       await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
       const reports = await page.evaluate(
         ({ stopwords, bannedSources }) => {
@@ -272,7 +273,7 @@ test.describe('VAL-EDU-036 descriptions are specific and unique site-wide', () =
           seen.set(key, { route, text: report.text });
         }
       }
-    }
+    });
 
     expect(descriptionCount, 'the corpus has chart descriptions').toBeGreaterThan(0);
     expect(problems, problems.join('\n')).toEqual([]);
@@ -312,18 +313,22 @@ test.describe('VAL-EDU-037 WmDisambiguator predictions are available as text', (
 
 test.describe('VAL-EDU-040 article routes do not scroll sideways at 375px', () => {
   test('every published article has scrollWidth equal to innerWidth', async ({
-    page,
+    browser,
   }) => {
     test.setTimeout(180_000);
-    await page.setViewportSize({ width: 375, height: 812 });
     const overflows: string[] = [];
-    for (const route of ARTICLE_ROUTES) {
-      await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
-      const delta = await page.evaluate(
-        () => document.documentElement.scrollWidth - window.innerWidth,
-      );
-      if (delta !== 0) overflows.push(`${route} delta=${delta}`);
-    }
+    await forEachInOwnContext(
+      browser,
+      ARTICLE_ROUTES,
+      async (page, route) => {
+        await page.goto(`${BASE}${route}`, { waitUntil: 'load' });
+        const delta = await page.evaluate(
+          () => document.documentElement.scrollWidth - window.innerWidth,
+        );
+        if (delta !== 0) overflows.push(`${route} delta=${delta}`);
+      },
+      { viewport: { width: 375, height: 812 } },
+    );
     expect(overflows, overflows.join('\n')).toEqual([]);
   });
 });

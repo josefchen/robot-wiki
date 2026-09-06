@@ -37,6 +37,7 @@
     "test:brand-v2-reference": "playwright test --config playwright.brand-v2.config.ts tests/e2e/brand-v2-reference-rubric.spec.ts",
     "validate:content": "node scripts/validate-content.ts && node scripts/lint-no-slop.ts --source-only && node scripts/check-chart-descriptions.ts && node scripts/check-audit-coverage.ts",
     "check:audit-coverage": "node scripts/check-audit-coverage.ts",
+    "check:e2e-navigation-budget": "node scripts/check-e2e-navigation-budget.ts",
     "lint-no-slop": "node scripts/lint-no-slop.ts",
     "generate:companies": "node scripts/generate-companies.ts",
     "pregenerate:og-cards": "node scripts/prune-generated-og-shadows.ts",
