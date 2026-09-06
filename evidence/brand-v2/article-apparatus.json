@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "cdc9f4f0a2c749d2088c822c447dd985de73e5be090315df4e9b229b203c34e0",
+  "fingerprint": "3301f2188de915d864ec33d6118f2b8d7873a120bf456ebc967d1ab2981caea2",
   "viewports": [
     "375x812",
     "1440x900"
@@ -10801,7 +10801,7 @@
     {
       "documentScrollWidth": 375,
       "viewportWidth": 375,
-      "visibleTextLength": 19091,
+      "visibleTextLength": 18931,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",
@@ -42489,7 +42489,7 @@
     {
       "documentScrollWidth": 1440,
       "viewportWidth": 1440,
-      "visibleTextLength": 19445,
+      "visibleTextLength": 19285,
       "breadcrumb": {
         "landmarkCount": 1,
         "label": "Breadcrumb",

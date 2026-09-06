@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "6889d28e245345520c2e95777bd09db38fc4e19c9de793792da1d6e7b9c34892",
+  "fingerprint": "4655a8ea1260b4d0791a6ff75a415549cc7fd0177a382a3e0bed69ea384250e4",
   "viewports": [
     "375x812",
     "1440x900"
@@ -10171,7 +10171,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19091,
+      "visibleTextLength": 18931,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -10272,7 +10272,7 @@
           "widthPx": 335,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Before the survey of what runs where, hold the economics in "
+          "text": "Before the survey, hold the economics in your hands: every s"
         },
         {
           "familyHead": "newsreader",
@@ -41173,7 +41173,7 @@
       "isArticle": true
     },
     {
-      "visibleTextLength": 19445,
+      "visibleTextLength": 19285,
       "tekturRoles": [
         {
           "role": "shell-wordmark",
@@ -41274,7 +41274,7 @@
           "widthPx": 715,
           "zeroAdvancePx": 11,
           "insideRegisteredFrame": false,
-          "text": "Before the survey of what runs where, hold the economics in "
+          "text": "Before the survey, hold the economics in your hands: every s"
         },
         {
           "familyHead": "newsreader",

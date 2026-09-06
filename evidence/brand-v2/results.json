@@ -79748,7 +79748,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 38536 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/data-hardware/industrial-deployment/ rendered no v1 identity spelling and no v1 descriptor in 38216 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -81299,7 +81299,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/search/ rendered no v1 identity spelling and no v1 descriptor in 1312 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/search/ rendered no v1 identity spelling and no v1 descriptor in 1005 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -81664,7 +81664,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki` still resolves 8 comment-free use(s) across 6 first-party runtime file(s) and 2295 use(s) across 249 shipped .html/.js/.txt/.xml file(s) of the built export, including 109 measured destination(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki` still resolves 8 comment-free use(s) across 6 first-party runtime file(s) and 2326 use(s) across 253 shipped .html/.js/.txt/.xml file(s) of the built export, including 109 measured destination(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -81792,14 +81792,14 @@
             "https://robot-wiki.com/world-models/latent-dynamics/",
             "https://robot-wiki.com/world-models/taxonomy/"
           ],
-          "exportFileCount": 249,
+          "exportFileCount": 253,
           "exportFileKinds": [
             ".html",
             ".js",
             ".txt",
             ".xml"
           ],
-          "exportOccurrences": 2295,
+          "exportOccurrences": 2326,
           "displayMatches": [],
           "evidence": [
             "evidence/brand-v2/identity-runtime.json"
@@ -81816,7 +81816,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Technical uses of `robot-wiki`, `robot-wiki.com`, and `robot-atlas-trajectory` remain technical and are not altered merely to satisfy public-display sweeps.",
-      "actual": "`robot-wiki.com` still resolves 2 comment-free use(s) across 2 first-party runtime file(s) and 2083 use(s) across 248 shipped .html/.txt/.xml file(s) of the built export, including 109 measured destination(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
+      "actual": "`robot-wiki.com` still resolves 2 comment-free use(s) across 2 first-party runtime file(s) and 2103 use(s) across 252 shipped .html/.txt/.xml file(s) of the built export, including 109 measured destination(s), and renders nowhere as visible product identity across 61 routes at 1440x900 and 375x812",
       "selectorOrRegistryId": "contract/design-integrity.md#VAL-B2-ID-004:technical-identifiers",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -81940,13 +81940,13 @@
             "https://robot-wiki.com/world-models/latent-dynamics/",
             "https://robot-wiki.com/world-models/taxonomy/"
           ],
-          "exportFileCount": 248,
+          "exportFileCount": 252,
           "exportFileKinds": [
             ".html",
             ".txt",
             ".xml"
           ],
-          "exportOccurrences": 2083,
+          "exportOccurrences": 2103,
           "displayMatches": [],
           "evidence": [
             "evidence/brand-v2/identity-runtime.json"

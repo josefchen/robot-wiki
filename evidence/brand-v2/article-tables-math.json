@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "ab3112cf0fb6a960ed3390492db251b2aabb1d371dba482e0b895d9f238dcb26",
+  "fingerprint": "65a8f7c6d200908e00c34dfe701c6c0d65b477348414bc3ceb72cdba0d1b0b54",
   "viewports": [
     "375x812",
     "1440x900"
@@ -2489,7 +2489,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 335,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19091,
+      "visibleTextLength": 18931,
       "tables": [],
       "equations": [],
       "route": "/data-hardware/industrial-deployment/",
@@ -6879,7 +6879,7 @@
       "bodyOverflowX": "visible",
       "proseWidthPx": 715,
       "zeroAdvancePx": 10,
-      "visibleTextLength": 19445,
+      "visibleTextLength": 19285,
       "tables": [],
       "equations": [],
       "route": "/data-hardware/industrial-deployment/",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "04adcc767cec020831a9837f2d41ddf49f908912f5a0e8cb2b68b2c61856ec22",
+  "fingerprint": "074fdc84658512945891aebbbdf30da4636de1775ee01a2e6e395503f178699e",
   "identity": "Robot Wiki",
   "descriptor": "Citation-first encyclopedia of modern robot learning.",
   "routes": [
@@ -2907,7 +2907,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19445,
+      "visibleTextLength": 19285,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "1440x900"
     },
@@ -7098,7 +7098,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 767,
+      "visibleTextLength": 460,
       "route": "/search/",
       "viewport": "1440x900"
     },
@@ -10700,7 +10700,7 @@
       },
       "repositoryHref": "https://github.com/josefchen",
       "authorProfileHref": "https://github.com/josefchen",
-      "visibleTextLength": 19091,
+      "visibleTextLength": 18931,
       "route": "/data-hardware/industrial-deployment/",
       "viewport": "375x812"
     },
@@ -15974,24 +15974,24 @@
     },
     {
       "literal": "robot-wiki",
-      "fileCount": 249,
+      "fileCount": 253,
       "fileKinds": [
         ".html",
         ".js",
         ".txt",
         ".xml"
       ],
-      "occurrences": 2295
+      "occurrences": 2326
     },
     {
       "literal": "robot-wiki.com",
-      "fileCount": 248,
+      "fileCount": 252,
       "fileKinds": [
         ".html",
         ".txt",
         ".xml"
       ],
-      "occurrences": 2083
+      "occurrences": 2103
     }
   ]
 }
