@@ -1,8 +1,9 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { IMAGES, attributionText, figureKind, legalBasis, preservationPolicy } from '../data/images.ts';
 import type { SiteImage } from '../data/schemas/image.ts';
 import { sha256, stableJson } from './brand-v2-baseline.ts';
+import { contrastRatio } from './brand-v2-mobile-shell-evidence.ts';
 import type { Verdict } from './brand-v2-figure-evidence.ts';
 import { REUSABLE_CONTENT_BASES } from './brand-v2-figure-evidence.ts';
 
@@ -63,6 +64,172 @@ const EVIDENCE_IMPERSONATION_MARKERS = [
 ];
 
 const registryById = new Map(IMAGES.map((image) => [image.id, image]));
+
+/**
+ * What the shipped stylesheet actually paints for a registered material.
+ *
+ * The registry rows are prose an author wrote about their own texture --
+ * "owned monochrome SVG dot field", `deterministic: true` -- and grading
+ * them against a marker list only ever asked whether the author had used a
+ * suspicious word. A texture that really did impersonate a sensor reading
+ * would pass, provided its description did not say so. These facts come
+ * from the CSS the export ships: the tile it draws, whether it repeats,
+ * where its bytes come from, and how far its ink sits from the ground it
+ * covers.
+ */
+export type MaterialPaint = {
+  id: string;
+  selector: string;
+  /** Absent when the registry names a material the stylesheet never paints. */
+  rule: string | null;
+  declarations: Record<string, string>;
+  /** The decoded SVG tile, when the material paints one. */
+  tile: string | null;
+  /** Any url() that is fetched rather than shipped inside the rule. */
+  remoteUrls: string[];
+  /** The resolved background the tile is composited over. */
+  groundHex: string | null;
+  /**
+   * The contrast ratio between each drawn ink (composited at its own
+   * opacity over the ground) and that ground, per WCAG 2.x.
+   */
+  inkContrast: Array<{ ink: string; ratio: number }>;
+};
+
+const MATERIAL_STYLESHEET_DIR = join('out', '_next', 'static', 'chunks');
+
+/** `#RGB`/`#RRGGBB` to an sRGB triple. */
+function hexToRgb(hex: string): [number, number, number] | null {
+  const value = hex.trim().replace(/^#/, '');
+  const full =
+    value.length === 3
+      ? value
+          .split('')
+          .map((character) => character + character)
+          .join('')
+      : value;
+  if (!/^[0-9a-f]{6}$/i.test(full)) return null;
+  return [
+    Number.parseInt(full.slice(0, 2), 16),
+    Number.parseInt(full.slice(2, 4), 16),
+    Number.parseInt(full.slice(4, 6), 16),
+  ];
+}
+
+/**
+ * A custom property resolved to a literal colour.
+ *
+ * Tokens are defined in terms of each other (`--color-surface:
+ * var(--color-white)`), so a single lookup answers with another variable.
+ * The chain is followed to a literal or the property is reported as
+ * unresolved; guessing a default would invent the ground the ink is
+ * measured against.
+ */
+function resolveCustomProperty(css: string, name: string): string | null {
+  let current = name;
+  for (let depth = 0; depth < 8; depth += 1) {
+    const matches = [
+      ...css.matchAll(
+        new RegExp(`--${current.replace(/[^a-z0-9-]/gi, '')}\\s*:\\s*([^;}]+)`, 'g'),
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const value = matches[matches.length - 1][1].trim();
+    const chained = /^var\(\s*--([a-z0-9-]+)/i.exec(value);
+    if (!chained) return value;
+    current = chained[1];
+  }
+  return null;
+}
+
+export function readMaterialPaints(
+  root: string,
+  materials: readonly MaterialRow[],
+): MaterialPaint[] {
+  const directory = join(root, MATERIAL_STYLESHEET_DIR);
+  const files = readdirSync(directory).filter((name) => name.endsWith('.css'));
+  const css = files
+    .map((name) => readFileSync(join(directory, name), 'utf8'))
+    .join('\n');
+  if (!/\.material-/.test(css)) {
+    throw new Error(
+      `${MATERIAL_STYLESHEET_DIR} ships no .material- rule at all, so material honesty would be decided over nothing. Run npm run build first.`,
+    );
+  }
+
+  return materials.map((material) => {
+    const name = material.id.replace(/^material:/, '');
+    const selector = `.material-${name}`;
+    const rule = new RegExp(
+      `\\${selector}\\s*\\{([^}]*)\\}`,
+    ).exec(css)?.[1] ?? null;
+    const declarations: Record<string, string> = {};
+    for (const part of (rule ?? '').split(';')) {
+      const separator = part.indexOf(':');
+      if (separator < 0) continue;
+      declarations[part.slice(0, separator).trim()] = part
+        .slice(separator + 1)
+        .trim();
+    }
+
+    // The tile is a data URI whose SVG payload is full of single quotes and
+    // parentheses, so the quoted forms have to be matched as quoted strings
+    // rather than as "anything up to the next bracket".
+    const urls = [
+      ...(rule ?? '').matchAll(
+        /url\(\s*(?:"([^"]*)"|'([^']*)'|([^)]*))\s*\)/g,
+      ),
+    ].map((match) => match[1] ?? match[2] ?? match[3] ?? '');
+    const dataUrl = urls.find((url) => url.startsWith('data:'));
+    const tile = dataUrl
+      ? decodeURIComponent(dataUrl.slice(dataUrl.indexOf(',') + 1))
+      : null;
+
+    const backgroundColor = declarations['background-color'] ?? '';
+    const token = /^var\(\s*--([a-z0-9-]+)/i.exec(backgroundColor);
+    const groundValue = token
+      ? resolveCustomProperty(css, token[1])
+      : backgroundColor || null;
+    const groundRgb = groundValue ? hexToRgb(groundValue) : null;
+
+    const inkContrast: Array<{ ink: string; ratio: number }> = [];
+    if (tile && groundRgb) {
+      const paints = [
+        ...tile.matchAll(
+          /(?:fill|stroke)=['"](#[0-9a-f]{3,6})['"](?:[^>]*?(?:fill|stroke)-opacity=['"]([\d.]+)['"])?/gi,
+        ),
+      ];
+      for (const [, hex, opacity] of paints) {
+        const rgb = hexToRgb(hex);
+        if (!rgb) continue;
+        const alpha = opacity === undefined ? 1 : Number.parseFloat(opacity);
+        // What the reader sees is the ink composited over the ground at its
+        // own opacity, not the ink's own colour.
+        const composited = rgb.map((channel, index) =>
+          Math.round(channel * alpha + groundRgb[index] * (1 - alpha)),
+        ) as [number, number, number];
+        inkContrast.push({
+          ink: `${hex}@${alpha}`,
+          ratio: Math.round(contrastRatio(composited, groundRgb) * 100) / 100,
+        });
+      }
+    }
+
+    return {
+      id: material.id,
+      selector,
+      rule,
+      declarations,
+      tile,
+      remoteUrls: urls.filter((url) => !url.startsWith('data:')),
+      groundHex: groundRgb
+        ? `#${groundRgb.map((c) => c.toString(16).padStart(2, '0')).join('')}`
+        : null,
+      inkContrast,
+    };
+  });
+}
+
 
 function nonEmpty<T>(verdicts: Map<string, T>, what: string): Map<string, T> {
   if (verdicts.size === 0) {
@@ -296,18 +463,52 @@ export function reusableContentVerdicts(
 }
 
 /**
+ * The contrast a texture has to stay under.
+ *
+ * A texture is something the eye reads as surface; a reading is something
+ * the eye reads as a value, and the difference that can be measured is
+ * contrast against the ground. 3:1 is WCAG 2.x's non-text minimum: the
+ * contrast at which a graphical object is required to be legible as
+ * information. Ink under it cannot carry a value a reader could take for
+ * data; ink at or over it is drawn to be read.
+ */
+const MATERIAL_TEXTURE_MAX_CONTRAST = 3;
+
+/** SVG nodes that make a tile a drawing of something, or make it move. */
+const TILE_DISQUALIFIERS: Array<{ pattern: RegExp; why: string }> = [
+  { pattern: /<text\b|<tspan\b/i, why: 'draws text, which labels a value rather than covering a surface' },
+  { pattern: /<image\b|<use\b/i, why: 'embeds another image, so what it paints is not decidable from this tile' },
+  { pattern: /<animate|<script\b|<foreignObject\b/i, why: 'can change between renders, so no two readers see the same surface' },
+];
+
+/**
  * `VAL-B2-IMG-004`: a material texture never impersonates evidence, sensor
  * output, or measured data.
  *
- * The members are the registered materials rather than files, because the
- * treatments are generated: a grain and a halftone are drawn by the
- * stylesheet, so there is no image to inspect and the claim is about what
- * the treatment declares itself to be.
+ * The members are the registered materials, and they are graded against the
+ * CSS the export actually ships rather than against the sentence the
+ * registry writes about itself. The old row asked whether the author's own
+ * description contained a suspicious word and whether the author's own
+ * `deterministic` flag was true; a texture drawn as a labelled plot would
+ * have passed both, and a registry that renamed its treatment could have
+ * silenced either.
+ *
+ * What is measured instead: the rule exists in the shipped stylesheet, its
+ * bytes are shipped rather than fetched, the tile repeats rather than
+ * standing as a single figure, the tile draws no text and nothing that
+ * moves, and its ink sits inside a luminance band of the ground it covers
+ * so that it cannot carry a legible value.
  */
 export function materialHonestyVerdicts(
   materials: readonly MaterialRow[],
-): Map<string, Verdict<MaterialRow>> {
-  const verdicts = new Map<string, Verdict<MaterialRow>>();
+  paints: readonly MaterialPaint[],
+): Map<string, Verdict<MaterialRow & { paint: MaterialPaint | null }>> {
+  const paintById = new Map(paints.map((paint) => [paint.id, paint]));
+  const verdicts = new Map<
+    string,
+    Verdict<MaterialRow & { paint: MaterialPaint | null }>
+  >();
+  let measured = 0;
   for (const material of materials) {
     const failures: string[] = [];
     const marker = EVIDENCE_IMPERSONATION_MARKERS.find((pattern) =>
@@ -318,17 +519,78 @@ export function materialHonestyVerdicts(
         `${material.id} describes its treatment as "${material.treatment}", which claims to be a reading rather than a texture`,
       );
     }
-    // A treatment that varies per render cannot be compared against anything
-    // and is the shape a fake signal takes.
-    if (!material.deterministic) {
-      failures.push(`${material.id} renders non-deterministically`);
-    }
     if (!['owned', 'licensed'].includes(material.ownership)) {
       failures.push(
         `${material.id} declares ownership "${material.ownership}", which is neither owned nor licensed`,
       );
     }
-    verdicts.set(material.id, { id: material.id, observed: material, failures });
+
+    const paint = paintById.get(material.id) ?? null;
+    if (!paint || paint.rule === null) {
+      failures.push(
+        `${material.id} is registered as a material the site paints, and the shipped stylesheet has no ${paint?.selector ?? `.material-*`} rule at all`,
+      );
+    } else {
+      measured += 1;
+      for (const url of paint.remoteUrls) {
+        failures.push(
+          `${material.id} paints from ${url}, which is fetched at read time rather than shipped, so neither its ownership nor what it draws is decidable from this repository`,
+        );
+      }
+      const animated =
+        'animation' in paint.declarations ||
+        'animation-name' in paint.declarations;
+      if (animated) {
+        failures.push(
+          `${material.id} declares itself deterministic while its shipped rule animates (${paint.declarations.animation ?? paint.declarations['animation-name']})`,
+        );
+      }
+      if (!material.deterministic) {
+        failures.push(`${material.id} renders non-deterministically`);
+      }
+      if (paint.tile !== null) {
+        if (paint.declarations['background-repeat'] !== 'repeat') {
+          failures.push(
+            `${material.id} paints a tile with background-repeat "${paint.declarations['background-repeat'] ?? 'unset'}": a surface repeats, a single placed figure is a picture of something`,
+          );
+        }
+        for (const { pattern, why } of TILE_DISQUALIFIERS) {
+          if (pattern.test(paint.tile)) {
+            failures.push(`${material.id} ${why}`);
+          }
+        }
+        if (paint.groundHex === null) {
+          failures.push(
+            `${material.id} paints a tile over a ground this stylesheet cannot resolve to a colour, so its contrast against that ground is unmeasured`,
+          );
+        }
+        if (paint.inkContrast.length === 0 && paint.groundHex !== null) {
+          failures.push(
+            `${material.id} paints a tile whose ink this reader could not resolve, so the clause that keeps a texture from carrying a value graded nothing`,
+          );
+        }
+        for (const { ink, ratio } of paint.inkContrast) {
+          if (ratio >= MATERIAL_TEXTURE_MAX_CONTRAST) {
+            failures.push(
+              `${material.id} paints ink ${ink} at ${ratio}:1 against its ${paint.groundHex} ground, at or past the ${MATERIAL_TEXTURE_MAX_CONTRAST}:1 WCAG non-text threshold: that is contrast drawn to be read as information, not to cover a surface`,
+            );
+          }
+        }
+      }
+    }
+
+    verdicts.set(material.id, {
+      id: material.id,
+      observed: { ...material, paint },
+      failures,
+    });
+  }
+  // A registry whose materials all lost their rules would otherwise report a
+  // full population every clause of which was skipped.
+  if (measured === 0) {
+    throw new Error(
+      'no registered material resolved to a shipped stylesheet rule, so every measured clause was skipped',
+    );
   }
   return nonEmpty(verdicts, 'registered material');
 }

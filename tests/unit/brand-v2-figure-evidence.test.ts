@@ -20,6 +20,7 @@ import {
   firstPartyImageryVerdicts,
   firstPartySvgMembers,
   materialHonestyVerdicts,
+  readMaterialPaints,
   originalSvgSemanticVerdicts,
   provenanceRecordVerdicts,
   reusableContentVerdicts,
@@ -408,12 +409,25 @@ describe('VAL-B2-IMG-005 alt text and static delivery', () => {
 
 describe('the record rows', () => {
   const assets = registry.assets;
+  const materialPaints = readMaterialPaints(ROOT, registry.materials);
 
   it('passes on the shipped registry and quantifies over the right members', () => {
     expect(failuresOf(firstPartyImageryVerdicts(assets))).toEqual([]);
     expect(failuresOf(provenanceRecordVerdicts(assets, ROOT))).toEqual([]);
     expect(failuresOf(reusableContentVerdicts(assets))).toEqual([]);
-    expect(failuresOf(materialHonestyVerdicts(registry.materials))).toEqual([]);
+    expect(
+      failuresOf(materialHonestyVerdicts(registry.materials, materialPaints)),
+    ).toEqual([]);
+    // Non-vacuity: the clauses that read the shipped stylesheet have
+    // something to read for every registered material.
+    expect(materialPaints.map((paint) => paint.rule === null)).toEqual([
+      false,
+      false,
+      false,
+    ]);
+    expect(
+      materialPaints.filter((paint) => paint.tile !== null).length,
+    ).toBeGreaterThan(0);
     expect(
       failuresOf(originalSvgSemanticVerdicts(assets, ROOT, sealedSvgMembers)),
     ).toEqual([]);
@@ -454,16 +468,167 @@ describe('the record rows', () => {
 
   it('VAL-B2-IMG-004 reports a texture that claims to be a measurement', () => {
     const failures = failuresOf(
-      materialHonestyVerdicts([
-        {
-          id: 'material:halftone',
-          treatment: 'owned monochrome depth map of the scanned workcell',
-          deterministic: true,
-          ownership: 'owned',
-        },
-      ]),
+      materialHonestyVerdicts(
+        [
+          {
+            id: 'material:halftone',
+            treatment: 'owned monochrome depth map of the scanned workcell',
+            deterministic: true,
+            ownership: 'owned',
+          },
+        ],
+        materialPaints,
+      ),
     );
     expect(failures.some((f) => /claims to be a reading/.test(f))).toBe(true);
+  });
+
+  it('VAL-B2-IMG-004 reads the tile, ground and contrast the export ships', () => {
+    const halftone = materialPaints.find(
+      (paint) => paint.id === 'material:halftone',
+    );
+    expect(halftone?.tile).toMatch(/<circle/);
+    expect(halftone?.remoteUrls).toEqual([]);
+    expect(halftone?.declarations['background-repeat']).toBe('repeat');
+    // The ground is written as var(--color-surface), which is itself a var:
+    // an unresolved chain would leave the contrast clause with nothing.
+    expect(halftone?.groundHex).toMatch(/^#[0-9a-f]{6}$/);
+    expect(halftone?.inkContrast.length).toBeGreaterThan(0);
+    for (const { ratio } of halftone?.inkContrast ?? []) {
+      expect(ratio).toBeLessThan(3);
+    }
+  });
+
+  it('VAL-B2-IMG-004 reports ink drawn at reading contrast', () => {
+    const failures = failuresOf(
+      materialHonestyVerdicts(
+        registry.materials,
+        materialPaints.map((paint) =>
+          paint.id === 'material:halftone'
+            ? {
+                ...paint,
+                inkContrast: [{ ink: '#242D33@1', ratio: 12.4 }],
+              }
+            : paint,
+        ),
+      ),
+    );
+    expect(
+      failures.some((f) =>
+        /paints ink #242D33@1 at 12.4:1 .*WCAG non-text threshold/.test(f),
+      ),
+    ).toBe(true);
+  });
+
+  it('VAL-B2-IMG-004 reports a tile that is fetched rather than shipped', () => {
+    const failures = failuresOf(
+      materialHonestyVerdicts(
+        registry.materials,
+        materialPaints.map((paint) =>
+          paint.id === 'material:concrete'
+            ? { ...paint, remoteUrls: ['https://cdn.example.com/grain.png'] }
+            : paint,
+        ),
+      ),
+    );
+    expect(
+      failures.some((f) =>
+        /paints from https:\/\/cdn\.example\.com\/grain\.png, which is fetched at read time/.test(
+          f,
+        ),
+      ),
+    ).toBe(true);
+  });
+
+  it('VAL-B2-IMG-004 reports a tile that draws a label, and one that is placed once', () => {
+    const labelled = failuresOf(
+      materialHonestyVerdicts(
+        registry.materials,
+        materialPaints.map((paint) =>
+          paint.id === 'material:halftone'
+            ? {
+                ...paint,
+                tile: '<svg><text x="0" y="8">0.42 m</text></svg>',
+                declarations: { ...paint.declarations },
+              }
+            : paint,
+        ),
+      ),
+    );
+    expect(labelled.some((f) => /draws text, which labels a value/.test(f))).toBe(
+      true,
+    );
+
+    const placedOnce = failuresOf(
+      materialHonestyVerdicts(
+        registry.materials,
+        materialPaints.map((paint) =>
+          paint.id === 'material:halftone'
+            ? {
+                ...paint,
+                declarations: {
+                  ...paint.declarations,
+                  'background-repeat': 'no-repeat',
+                },
+              }
+            : paint,
+        ),
+      ),
+    );
+    expect(
+      placedOnce.some((f) => /background-repeat "no-repeat"/.test(f)),
+    ).toBe(true);
+  });
+
+  it('VAL-B2-IMG-004 reports a material the shipped stylesheet never paints, and refuses when none of them ship', () => {
+    const missing = failuresOf(
+      materialHonestyVerdicts(
+        registry.materials,
+        materialPaints.map((paint) =>
+          paint.id === 'material:concrete' ? { ...paint, rule: null } : paint,
+        ),
+      ),
+    );
+    expect(
+      missing.some((f) =>
+        /material:concrete is registered as a material the site paints, and the shipped stylesheet has no \.material-concrete rule/.test(
+          f,
+        ),
+      ),
+    ).toBe(true);
+
+    expect(() =>
+      materialHonestyVerdicts(
+        registry.materials,
+        materialPaints.map((paint) => ({ ...paint, rule: null })),
+      ),
+    ).toThrow(/no registered material resolved to a shipped stylesheet rule/);
+  });
+
+  it('VAL-B2-IMG-004 reports a rule that animates while the registry calls it deterministic', () => {
+    const failures = failuresOf(
+      materialHonestyVerdicts(
+        registry.materials,
+        materialPaints.map((paint) =>
+          paint.id === 'material:concrete'
+            ? {
+                ...paint,
+                declarations: {
+                  ...paint.declarations,
+                  animation: 'grain-drift 4s infinite',
+                },
+              }
+            : paint,
+        ),
+      ),
+    );
+    expect(
+      failures.some((f) =>
+        /declares itself deterministic while its shipped rule animates \(grain-drift 4s infinite\)/.test(
+          f,
+        ),
+      ),
+    ).toBe(true);
   });
 
   it('VAL-B2-VIZ-014 reports an original SVG whose geometry moved', () => {

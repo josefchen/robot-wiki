@@ -158,6 +158,7 @@ import {
   firstPartyImageryVerdicts,
   firstPartySvgMembers,
   materialHonestyVerdicts,
+  readMaterialPaints,
   originalSvgSemanticVerdicts,
   provenanceRecordVerdicts,
   reusableContentVerdicts,
@@ -1064,7 +1065,10 @@ const FIGURE_VERDICTS = {
   'VAL-B2-IMG-005': altTextAndDeliveryVerdicts(FIGURE_EVIDENCE),
   'VAL-B2-IMG-001': firstPartyImageryVerdicts(ASSET_ROWS),
   'VAL-B2-IMG-002': provenanceRecordVerdicts(ASSET_ROWS, ROOT),
-  'VAL-B2-IMG-004': materialHonestyVerdicts(MATERIAL_ROWS),
+  'VAL-B2-IMG-004': materialHonestyVerdicts(
+    MATERIAL_ROWS,
+    readMaterialPaints(ROOT, MATERIAL_ROWS),
+  ),
   'VAL-B2-IMG-008': reusableContentVerdicts(ASSET_ROWS),
   'VAL-B2-VIZ-014': originalSvgSemanticVerdicts(
     ASSET_ROWS,
