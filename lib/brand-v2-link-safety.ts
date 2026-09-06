@@ -253,17 +253,9 @@ export interface LinkSafetyRouteVerdict {
   distinctHrefs: number;
   shapes: OutboundAnchorShape[];
   anchorsWithNoreferrer: number;
-  keyboardMeasured: boolean;
   /** Outbound anchor occurrences the Tab key reached on this route. */
-  reachedByTab: number | null;
-  tabStops: number | null;
-  /**
-   * Where this route's shapes were proven keyboard reachable when the route
-   * itself was not walked. Every shape in the export is carried by at least
-   * one walked route, which is what makes the sample honest rather than a
-   * subset nobody reconciled.
-   */
-  keyboardWitnesses: Array<{ shape: OutboundAnchorShape; route: string }>;
+  reachedByTab: number;
+  tabStops: number;
 }
 
 export interface LinkSafetyEvidence {
@@ -282,8 +274,8 @@ export interface LinkSafetyEvidence {
  * The byte half is re-derived from `census` here rather than read out of the
  * artifact. The keyboard half is read, and refused when the trace does not
  * match the export it claims to describe, when it records an unreached link
- * or an invisible focus ring, or when a shape the export renders was never
- * walked by any route in the trace.
+ * or an invisible focus ring, or when any route carrying an outbound anchor
+ * was not walked.
  */
 export function readLinkSafetyEvidence(input: {
   artifact: unknown;
@@ -431,19 +423,24 @@ export function readLinkSafetyEvidence(input: {
   }
 
   const shapes = [...new Set(input.census.map(({ shape }) => shape))].sort();
-  const witnessesByShape = new Map<OutboundAnchorShape, string[]>();
-  for (const shape of shapes) {
-    const walked = keyboardRoutes.filter((route) =>
-      input.census.some(
-        (anchor) => anchor.route === route && anchor.shape === shape,
-      ),
+  /**
+   * Every route carrying an outbound anchor is walked, not a sample of them.
+   *
+   * The trace used to walk four hand-picked routes and let a route stand in
+   * for every other route rendering the same outbound-link SHAPE. Shape is
+   * a property of the markup around an anchor, and keyboard reachability is
+   * not: the same citation chip is reachable in flowed prose and unreachable
+   * inside a collapsed disclosure, behind an overlay, or in a container the
+   * tab order never enters. `VAL-B2-BASE-007` asks whether citation links
+   * remain keyboard reachable, and the enforcement-map schema in
+   * `VAL-B2-GOV-002` rules that "a prose description or hard-coded sample is
+   * insufficient" as a population source, so the population is the census.
+   */
+  const unwalked = routes.filter((route) => !keyboardRoutes.includes(route));
+  if (unwalked.length > 0) {
+    throw new Error(
+      `${unwalked.length} route(s) carrying outbound links were never walked with the Tab key, so their reachability is measured by nothing: ${unwalked.slice(0, 5).join(', ')}`,
     );
-    if (walked.length === 0) {
-      throw new Error(
-        `the export renders ${shape} outbound links and no keyboard-walked route carries one, so that shape's reachability is measured by nothing`,
-      );
-    }
-    witnessesByShape.set(shape, walked);
   }
 
   return {
@@ -461,6 +458,11 @@ export function readLinkSafetyEvidence(input: {
       const keyboard = artifact.keyboard.find(
         (verdict) => verdict.route === route,
       );
+      if (!keyboard) {
+        throw new Error(
+          `link-safety evidence carries no keyboard verdict for ${route}`,
+        );
+      }
       return {
         id: linkSafetyMemberId(route),
         route,
@@ -470,16 +472,8 @@ export function readLinkSafetyEvidence(input: {
         anchorsWithNoreferrer: anchors.filter((anchor) =>
           (anchor.rel ?? '').split(/\s+/).includes('noreferrer'),
         ).length,
-        keyboardMeasured: keyboard !== undefined,
-        reachedByTab: keyboard?.reachedByTab ?? null,
-        tabStops: keyboard?.tabStops ?? null,
-        keyboardWitnesses:
-          keyboard === undefined
-            ? routeShapes.map((shape) => ({
-                shape,
-                route: (witnessesByShape.get(shape) as string[])[0],
-              }))
-            : [],
+        reachedByTab: keyboard.reachedByTab,
+        tabStops: keyboard.tabStops,
       };
     }),
   };

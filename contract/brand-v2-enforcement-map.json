@@ -8903,6 +8903,11 @@
         },
         {
           "kind": "evidence-row",
+          "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation-rendering:label-and-meta",
+          "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
+        },
+        {
+          "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-002:article-metadata:citation:1x-neo-2026",
           "mechanism": "VAL-B2-BASE-002 per-member evidence derived by rebuilding the four article-truth manifests from the current tree with the collectors the immutable baseline was sealed with, and comparing each member's hash against evidence/brand-v2/baseline/baseline.json#manifests:article-truth through the same approved-delta comparison the baseline gate runs"
         },
@@ -11443,7 +11448,7 @@
         "statement": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
         "actualSource": "evidence/brand-v2/results.json",
-        "populationSize": 930,
+        "populationSize": 931,
         "omissionProof": {
           "testFile": "tests/unit/brand-v2-enforcement.test.ts",
           "testTitle": "brand-v2 enforcement map and evidence schemas > reports missing-assertion-row when one row is omitted from a two-row map",
@@ -11876,6 +11881,7 @@
           "result:VAL-B2-BASE-002:article-metadata:canonical-metadata-source:lib/og-cards.ts",
           "result:VAL-B2-BASE-002:article-metadata:canonical-metadata-source:lib/references.ts",
           "result:VAL-B2-BASE-002:article-metadata:canonical-metadata-source:lib/site.ts",
+          "result:VAL-B2-BASE-002:article-metadata:citation-rendering:label-and-meta",
           "result:VAL-B2-BASE-002:article-metadata:citation:1x-neo-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:1x-world-model-lab-2026",
           "result:VAL-B2-BASE-002:article-metadata:citation:3dgs-2023",
@@ -12528,312 +12534,312 @@
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/404/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/a-z/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/adjacent/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/adjacent/autonomous-vehicles/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/adjacent/drones/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/adjacent/space/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/adjacent/surgical/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/control/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/grasp-planning/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/kinematics/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/motion-planning/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/perception/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/scene-representation/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/classical/state-estimation/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/credits/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/data-bottleneck/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/datasets/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/evaluation-crisis/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/hardware-taxonomy/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/industrial-deployment/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/data-hardware/teleop-rigs/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/bear-case/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/competing-theses/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/dexterity/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/generalization/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/reliability-gap/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/frontier/safety-and-assurance/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/glossary/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/action-chunking/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/bc-foundations/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/comparison-matrix/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/cross-embodiment/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/diffusion-policy/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/generalist-policies/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/hierarchical/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/knowledge-insulation/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/pi-line/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/realtime-execution/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/rl-finetuning/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/manipulation/vla-models/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/market-map/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/playground/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/humanoid-wbc/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/legged-locomotion/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/parallel-sim-rl/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/reward-design-mpc/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/rl-for-robotics/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/sim2real-transfer/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/rl-sim2real/why-rl-locomotion/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/search/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/generative-sim/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/generative-video/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/jepa/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/latent-dynamics/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "evidence-row",
           "evidenceRowId": "result:VAL-B2-BASE-007:link-safety:/world-models/taxonomy/",
-          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted keyboard trace of /classical/perception/, /credits/, /data-hardware/industrial-deployment/, /market-map/ that the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
+          "mechanism": "VAL-B2-BASE-007 per-member evidence derived from the outbound-anchor census of the shipped export, re-derived here for the relationship half, joined to the persisted Tab-key trace of every one of the 62 routes that carry an outbound anchor, which the census fingerprint pins to this export, over evidence/brand-v2/link-safety.json#routes"
         },
         {
           "kind": "test",
@@ -19857,8 +19863,14 @@
         {
           "kind": "test",
           "file": "tests/unit/brand-v2-figure-evidence.test.ts",
-          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
-          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
+          "title": "the record rows > passes on the shipped registry and quantifies over the right members",
+          "mechanism": "Runs all five record verdict families over the shipped registry and the exported stylesheet, and proves each quantifies over its own population: every registered material resolves a paint rule, the editorial population excludes the 111 company marks, and the first-party SVG population is the two originals."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the record rows > VAL-B2-IMG-001 reports an asset whose provenance advertises synthesis",
+          "mechanism": "Renames a shipped original to a path carrying banned synthesis vocabulary and proves the first-party imagery verdict names it."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -20052,15 +20064,15 @@
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception",
-          "mechanism": "Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail."
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the record rows > passes on the shipped registry and quantifies over the right members",
+          "mechanism": "Runs all five record verdict families over the shipped registry and the exported stylesheet, and proves each quantifies over its own population: every registered material resolves a paint rule, the editorial population excludes the 111 company marks, and the first-party SVG population is the two originals."
         },
         {
           "kind": "test",
           "file": "tests/unit/brand-v2-figure-evidence.test.ts",
-          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
-          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
+          "title": "the record rows > VAL-B2-IMG-002 reports a recorded content hash the shipped file does not have",
+          "mechanism": "Replaces every editorial image’s recorded byte hash and proves the provenance verdict compares the record against the file the export ships."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -20190,15 +20202,21 @@
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception",
-          "mechanism": "Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail."
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the record rows > passes on the shipped registry and quantifies over the right members",
+          "mechanism": "Runs all five record verdict families over the shipped registry and the exported stylesheet, and proves each quantifies over its own population: every registered material resolves a paint rule, the editorial population excludes the 111 company marks, and the first-party SVG population is the two originals."
         },
         {
           "kind": "test",
           "file": "tests/unit/brand-v2-figure-evidence.test.ts",
-          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
-          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
+          "title": "the record rows > VAL-B2-IMG-004 reports a texture that claims to be a measurement",
+          "mechanism": "Rewrites a material’s treatment as a scan of a real workcell and proves the honesty verdict names the claim."
+        },
+        {
+          "kind": "test",
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the record rows > VAL-B2-IMG-004 reads the tile, ground and contrast the export ships",
+          "mechanism": "Reads each registered material’s painted rule out of the exported stylesheet rather than out of the registry, so a texture that is described but never painted cannot pass."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -21864,15 +21882,15 @@
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception",
-          "mechanism": "Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail."
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the record rows > passes on the shipped registry and quantifies over the right members",
+          "mechanism": "Runs all five record verdict families over the shipped registry and the exported stylesheet, and proves each quantifies over its own population: every registered material resolves a paint rule, the editorial population excludes the 111 company marks, and the first-party SVG population is the two originals."
         },
         {
           "kind": "test",
           "file": "tests/unit/brand-v2-figure-evidence.test.ts",
-          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
-          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
+          "title": "the record rows > VAL-B2-IMG-008 reports reusable content resting on no approved licence basis",
+          "mechanism": "Replaces every editorial image’s licence basis with one the criterion does not admit and proves the reusable-content verdict names each asset and the basis it now claims."
         }
       ],
       "enforcementMode": "automated-machine",
@@ -32367,15 +32385,15 @@
         },
         {
           "kind": "test",
-          "file": "tests/unit/brand-v2-census.test.ts",
-          "title": "brand-v2 canonical census > accounts for every physical asset through a registry or narrow identical-byte exception",
-          "mechanism": "Reconciles the git-tracked physical-asset population against registered assets and proves missing and unregistered assets fail."
+          "file": "tests/unit/brand-v2-figure-evidence.test.ts",
+          "title": "the record rows > passes on the shipped registry and quantifies over the right members",
+          "mechanism": "Runs all five record verdict families over the shipped registry and the exported stylesheet, and proves each quantifies over its own population: every registered material resolves a paint rule, the editorial population excludes the 111 company marks, and the first-party SVG population is the two originals."
         },
         {
           "kind": "test",
           "file": "tests/unit/brand-v2-figure-evidence.test.ts",
-          "title": "the figure evidence reader > refuses a sweep taken against a different tree",
-          "mechanism": "Proves the reader that gates the figure rows throws on a stale fingerprint and on a sweep that skipped a route the content derives, and that the route-to-figure reconciliation compares occurrence multisets in both directions so an unaccounted rendered figure fails as loudly as a missing one."
+          "title": "the record rows > VAL-B2-VIZ-014 reports an original SVG whose geometry moved",
+          "mechanism": "Moves a sealed path in a first-party SVG and proves the semantic verdict compares the shipped geometry against the sealed baseline member."
         }
       ],
       "enforcementMode": "automated-machine",

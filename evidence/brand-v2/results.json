@@ -51039,10 +51039,10 @@
                   "role": "region",
                   "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
                   "clientWidth": 299,
-                  "scrollWidth": 851,
+                  "scrollWidth": 854,
                   "scrolledBy": 40
                 },
-                "tableWidth": 851,
+                "tableWidth": 854,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 33.5
@@ -51487,10 +51487,10 @@
                   "role": "region",
                   "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
                   "clientWidth": 301,
-                  "scrollWidth": 553,
+                  "scrollWidth": 543,
                   "scrolledBy": 40
                 },
-                "tableWidth": 552.73,
+                "tableWidth": 542.73,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 33.5
@@ -52607,10 +52607,10 @@
                   "role": "region",
                   "accessibleName": "Action horizon and control frequency across the policy lineage. n/a marks undisclosed or embodiment-dependent values.",
                   "clientWidth": 333,
-                  "scrollWidth": 469,
+                  "scrollWidth": 472,
                   "scrolledBy": 40
                 },
-                "tableWidth": 468.66,
+                "tableWidth": 471.66,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 33.5
@@ -52943,10 +52943,10 @@
                   "role": "region",
                   "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Rates the sources do not verify, such as the RT-2 and OpenVLA control rates, are omitted rather than guessed.",
                   "clientWidth": 299,
-                  "scrollWidth": 915,
+                  "scrollWidth": 918,
                   "scrolledBy": 40
                 },
-                "tableWidth": 914.66,
+                "tableWidth": 917.66,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 33.5
@@ -53503,10 +53503,10 @@
                   "role": "region",
                   "accessibleName": "The six RL fine-tuning recipes covered in this module, with the headline result as reported by each source. Vendor-reported results (Recap) come from the lab's own report and are flagged as such; the rest are preprints or peer-reviewed papers. Openness marks released code or weights; not disclosed means the source does not say.",
                   "clientWidth": 333,
-                  "scrollWidth": 536,
+                  "scrollWidth": 539,
                   "scrolledBy": 40
                 },
-                "tableWidth": 535.86,
+                "tableWidth": 538.86,
                 "containerOverflowPx": 0,
                 "viewportOverflowPx": 0,
                 "measureCh": 33.5
@@ -74075,6 +74075,34 @@
       }
     },
     {
+      "resultId": "result:VAL-B2-BASE-002:article-metadata:citation-rendering:label-and-meta",
+      "assertionId": "VAL-B2-BASE-002",
+      "populationMemberId": "article-metadata:citation-rendering:label-and-meta",
+      "coveredPopulationMemberIds": [
+        "article-metadata:citation-rendering:label-and-meta"
+      ],
+      "coverageKind": "per-member",
+      "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+      "actual": "article-metadata member citation-rendering:label-and-meta moved from null to 0e79fe7b2d2828ace0e597a938188665ca6a49a1377c5eef7019ac6016e8aea8 exactly as approved delta brand-v2-citation-rendering-seal-added permits: New sealed member, no existing member touched. VAL-B2-BASE-002 names source labels, and the baseline sealed only the citation RECORDS: url, title, authors, year, venue. The chip a reader sees is citationLabel() resolved through SURNAME_OVERRIDES, ORG_TOKENS and BYLINE_OVERRIDES, and the tooltip is citationMeta() through venueStatesYear(); any of those could be rewritten and every sealed member still matched while every chip on the site changed. This member seals the 412 resolved label and tooltip strings by digest, so the derivation is bound to what it renders. The hash recorded here is the rendering at ac6359f, unchanged by the commit that adds the member.",
+      "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
+      "exceptionVerdict": "none",
+      "status": "passed",
+      "payload": {
+        "kind": "source-build",
+        "sourcePath": "evidence/brand-v2/baseline/article-metadata.json",
+        "predicate": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
+        "observed": {
+          "manifest": "article-metadata",
+          "member": "citation-rendering:label-and-meta",
+          "baselineHash": null,
+          "currentHash": "0e79fe7b2d2828ace0e597a938188665ca6a49a1377c5eef7019ac6016e8aea8",
+          "status": "approved-addition",
+          "approvedDelta": "brand-v2-citation-rendering-seal-added"
+        },
+        "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
+      }
+    },
+    {
       "resultId": "result:VAL-B2-BASE-002:article-metadata:citation:1x-neo-2026",
       "assertionId": "VAL-B2-BASE-002",
       "populationMemberId": "article-metadata:citation:1x-neo-2026",
@@ -88375,7 +88403,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/ ships 4 outbound anchor(s) across figure-credit, footer, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on figure-credit@/credits/, footer@/classical/perception/",
+      "actual": "/ ships 4 outbound anchor(s) across figure-credit, footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 4 outbound anchor occurrences on it with a visible focus ring in 46 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -88391,25 +88419,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 2,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "figure-credit",
-              "route": "/credits/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 4,
+          "tabStops": 46,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -88426,7 +88438,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/404/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on footer@/classical/perception/",
+      "actual": "/404/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 2 outbound anchor occurrences on it with a visible focus ring in 21 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -88441,21 +88453,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 2,
+          "tabStops": 21,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -88472,7 +88472,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/a-z/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on footer@/classical/perception/",
+      "actual": "/a-z/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 2 outbound anchor occurrences on it with a visible focus ring in 210 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -88487,21 +88487,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 2,
+          "tabStops": 210,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -88518,7 +88506,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/adjacent/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on footer@/classical/perception/",
+      "actual": "/adjacent/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 2 outbound anchor occurrences on it with a visible focus ring in 30 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -88533,21 +88521,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 2,
+          "tabStops": 30,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -88564,7 +88540,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/adjacent/autonomous-vehicles/ ships 60 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/adjacent/autonomous-vehicles/ ships 60 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 60 outbound anchor occurrences on it with a visible focus ring in 172 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -88581,29 +88557,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 58,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 60,
+          "tabStops": 172,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -88620,7 +88576,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/adjacent/drones/ ships 34 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/adjacent/drones/ ships 34 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 34 outbound anchor occurrences on it with a visible focus ring in 114 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -88637,29 +88593,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 32,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 34,
+          "tabStops": 114,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -88676,7 +88612,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/adjacent/space/ ships 41 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/adjacent/space/ ships 41 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 41 outbound anchor occurrences on it with a visible focus ring in 111 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -88693,29 +88629,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 39,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 41,
+          "tabStops": 111,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -88732,7 +88648,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/adjacent/surgical/ ships 31 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/adjacent/surgical/ ships 31 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 96 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -88749,29 +88665,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 29,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 31,
+          "tabStops": 96,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -88788,7 +88684,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on footer@/classical/perception/",
+      "actual": "/classical/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 2 outbound anchor occurrences on it with a visible focus ring in 36 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -88803,21 +88699,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 2,
+          "tabStops": 36,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -88834,7 +88718,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/control/ ships 54 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/classical/control/ ships 54 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 54 outbound anchor occurrences on it with a visible focus ring in 174 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -88851,29 +88735,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 52,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 54,
+          "tabStops": 174,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -88890,7 +88754,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/grasp-planning/ ships 29 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/classical/grasp-planning/ ships 29 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 29 outbound anchor occurrences on it with a visible focus ring in 121 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -88907,29 +88771,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 27,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 29,
+          "tabStops": 121,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -88946,7 +88790,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/kinematics/ ships 25 outbound anchor(s) across citation-chip, figure-credit, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, figure-credit@/credits/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/classical/kinematics/ ships 25 outbound anchor(s) across citation-chip, figure-credit, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 25 outbound anchor occurrences on it with a visible focus ring in 110 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -88964,33 +88808,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 23,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "figure-credit",
-              "route": "/credits/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 25,
+          "tabStops": 110,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89007,7 +88827,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/motion-planning/ ships 26 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/classical/motion-planning/ ships 26 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 26 outbound anchor occurrences on it with a visible focus ring in 106 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89024,29 +88844,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 24,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 26,
+          "tabStops": 106,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89063,7 +88863,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/perception/ ships 68 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 68 distinct outbound links on it with a visible focus ring in 186 stops",
+      "actual": "/classical/perception/ ships 68 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 68 outbound anchor occurrences on it with a visible focus ring in 186 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89080,16 +88880,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 66,
-          "keyboardMeasured": true,
           "reachedByTab": 68,
           "tabStops": 186,
-          "keyboardWitnesses": [],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89106,7 +88899,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/scene-representation/ ships 52 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/classical/scene-representation/ ships 52 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 52 outbound anchor occurrences on it with a visible focus ring in 149 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89123,29 +88916,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 50,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 52,
+          "tabStops": 149,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89162,7 +88935,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/classical/state-estimation/ ships 31 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/classical/state-estimation/ ships 31 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 120 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89179,29 +88952,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 29,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 31,
+          "tabStops": 120,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89218,7 +88971,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/credits/ ships 238 outbound anchor(s) across figure-credit, footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 238 distinct outbound links on it with a visible focus ring in 374 stops",
+      "actual": "/credits/ ships 238 outbound anchor(s) across figure-credit, footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 238 outbound anchor occurrences on it with a visible focus ring in 374 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89235,16 +88988,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 234,
-          "keyboardMeasured": true,
           "reachedByTab": 238,
           "tabStops": 374,
-          "keyboardWitnesses": [],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89261,7 +89007,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on footer@/classical/perception/",
+      "actual": "/data-hardware/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 2 outbound anchor occurrences on it with a visible focus ring in 34 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89276,21 +89022,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 2,
+          "tabStops": 34,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89307,7 +89041,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/data-bottleneck/ ships 29 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/data-hardware/data-bottleneck/ ships 29 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 29 outbound anchor occurrences on it with a visible focus ring in 106 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89324,29 +89058,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 27,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 29,
+          "tabStops": 106,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89363,7 +89077,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/datasets/ ships 40 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, other@/credits/, reference-entry@/classical/perception/",
+      "actual": "/data-hardware/datasets/ ships 40 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 40 outbound anchor occurrences on it with a visible focus ring in 141 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89381,33 +89095,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 32,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "other",
-              "route": "/credits/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 40,
+          "tabStops": 141,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89424,7 +89114,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/evaluation-crisis/ ships 33 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/data-hardware/evaluation-crisis/ ships 33 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 33 outbound anchor occurrences on it with a visible focus ring in 121 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89441,29 +89131,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 31,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 33,
+          "tabStops": 121,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89480,7 +89150,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/hardware-taxonomy/ ships 111 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, figure-credit@/credits/, footer@/classical/perception/, other@/credits/, reference-entry@/classical/perception/",
+      "actual": "/data-hardware/hardware-taxonomy/ ships 111 outbound anchor(s) across citation-chip, figure-credit, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 111 outbound anchor occurrences on it with a visible focus ring in 238 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89499,37 +89169,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 69,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "figure-credit",
-              "route": "/credits/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "other",
-              "route": "/credits/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 111,
+          "tabStops": 238,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89546,7 +89188,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/industrial-deployment/ ships 54 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 54 distinct outbound links on it with a visible focus ring in 154 stops",
+      "actual": "/data-hardware/industrial-deployment/ ships 54 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 54 outbound anchor occurrences on it with a visible focus ring in 154 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89563,16 +89205,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 52,
-          "keyboardMeasured": true,
           "reachedByTab": 54,
           "tabStops": 154,
-          "keyboardWitnesses": [],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89589,7 +89224,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/data-hardware/teleop-rigs/ ships 36 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, other@/credits/, reference-entry@/classical/perception/",
+      "actual": "/data-hardware/teleop-rigs/ ships 36 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 36 outbound anchor occurrences on it with a visible focus ring in 119 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89607,33 +89242,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 25,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "other",
-              "route": "/credits/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 36,
+          "tabStops": 119,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89650,7 +89261,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on footer@/classical/perception/",
+      "actual": "/frontier/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 2 outbound anchor occurrences on it with a visible focus ring in 34 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89665,21 +89276,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 2,
+          "tabStops": 34,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89696,7 +89295,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/bear-case/ ships 51 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/frontier/bear-case/ ships 51 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 51 outbound anchor occurrences on it with a visible focus ring in 160 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89713,29 +89312,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 49,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 51,
+          "tabStops": 160,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89752,7 +89331,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/competing-theses/ ships 72 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/frontier/competing-theses/ ships 72 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 72 outbound anchor occurrences on it with a visible focus ring in 201 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89769,29 +89348,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 70,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 72,
+          "tabStops": 201,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89808,7 +89367,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/dexterity/ ships 73 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, other@/credits/, reference-entry@/classical/perception/",
+      "actual": "/frontier/dexterity/ ships 73 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 73 outbound anchor occurrences on it with a visible focus ring in 182 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89826,33 +89385,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 61,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "other",
-              "route": "/credits/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 73,
+          "tabStops": 182,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89869,7 +89404,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/generalization/ ships 35 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/frontier/generalization/ ships 35 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 35 outbound anchor occurrences on it with a visible focus ring in 121 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89886,29 +89421,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 33,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 35,
+          "tabStops": 121,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89925,7 +89440,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/reliability-gap/ ships 31 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, other@/credits/, reference-entry@/classical/perception/",
+      "actual": "/frontier/reliability-gap/ ships 31 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 31 outbound anchor occurrences on it with a visible focus ring in 116 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -89943,33 +89458,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 23,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "other",
-              "route": "/credits/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 31,
+          "tabStops": 116,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -89986,7 +89477,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/frontier/safety-and-assurance/ ships 60 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/frontier/safety-and-assurance/ ships 60 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 60 outbound anchor occurrences on it with a visible focus ring in 160 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90003,29 +89494,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 58,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 60,
+          "tabStops": 160,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90042,7 +89513,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/glossary/ ships 192 outbound anchor(s) across footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on footer@/classical/perception/, other@/credits/",
+      "actual": "/glossary/ ships 192 outbound anchor(s) across footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 192 outbound anchor occurrences on it with a visible focus ring in 210 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90058,25 +89529,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 190,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "other",
-              "route": "/credits/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 192,
+          "tabStops": 210,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90093,7 +89548,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on footer@/classical/perception/",
+      "actual": "/manipulation/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 2 outbound anchor occurrences on it with a visible focus ring in 46 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90108,21 +89563,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 2,
+          "tabStops": 46,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90139,7 +89582,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/action-chunking/ ships 18 outbound anchor(s) across citation-chip, figure-credit, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, figure-credit@/credits/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/manipulation/action-chunking/ ships 18 outbound anchor(s) across citation-chip, figure-credit, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 18 outbound anchor occurrences on it with a visible focus ring in 105 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90157,33 +89600,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 16,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "figure-credit",
-              "route": "/credits/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 18,
+          "tabStops": 105,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90200,7 +89619,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/bc-foundations/ ships 21 outbound anchor(s) across citation-chip, figure-credit, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, figure-credit@/credits/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/manipulation/bc-foundations/ ships 21 outbound anchor(s) across citation-chip, figure-credit, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 21 outbound anchor occurrences on it with a visible focus ring in 108 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90218,33 +89637,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 19,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "figure-credit",
-              "route": "/credits/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 21,
+          "tabStops": 108,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90261,7 +89656,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/comparison-matrix/ ships 48 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/manipulation/comparison-matrix/ ships 48 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 48 outbound anchor occurrences on it with a visible focus ring in 155 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90278,29 +89673,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 46,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 48,
+          "tabStops": 155,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90317,7 +89692,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/cross-embodiment/ ships 24 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, other@/credits/, reference-entry@/classical/perception/",
+      "actual": "/manipulation/cross-embodiment/ ships 24 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 24 outbound anchor occurrences on it with a visible focus ring in 94 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90335,33 +89710,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 21,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "other",
-              "route": "/credits/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 24,
+          "tabStops": 94,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90378,7 +89729,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/diffusion-policy/ ships 23 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/manipulation/diffusion-policy/ ships 23 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 23 outbound anchor occurrences on it with a visible focus ring in 111 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90395,29 +89746,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 21,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 23,
+          "tabStops": 111,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90434,7 +89765,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/generalist-policies/ ships 37 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, other@/credits/, reference-entry@/classical/perception/",
+      "actual": "/manipulation/generalist-policies/ ships 37 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 37 outbound anchor occurrences on it with a visible focus ring in 137 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90452,33 +89783,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 34,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "other",
-              "route": "/credits/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 37,
+          "tabStops": 137,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90495,7 +89802,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/hierarchical/ ships 34 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, other@/credits/, reference-entry@/classical/perception/",
+      "actual": "/manipulation/hierarchical/ ships 34 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 34 outbound anchor occurrences on it with a visible focus ring in 119 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90513,33 +89820,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 31,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "other",
-              "route": "/credits/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 34,
+          "tabStops": 119,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90556,7 +89839,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/knowledge-insulation/ ships 29 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, other@/credits/, reference-entry@/classical/perception/",
+      "actual": "/manipulation/knowledge-insulation/ ships 29 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 29 outbound anchor occurrences on it with a visible focus ring in 116 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90574,33 +89857,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 26,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "other",
-              "route": "/credits/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 29,
+          "tabStops": 116,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90617,7 +89876,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/pi-line/ ships 47 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, other@/credits/, reference-entry@/classical/perception/",
+      "actual": "/manipulation/pi-line/ ships 47 outbound anchor(s) across citation-chip, footer, other, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 47 outbound anchor occurrences on it with a visible focus ring in 173 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90635,33 +89894,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 44,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "other",
-              "route": "/credits/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 47,
+          "tabStops": 173,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90678,7 +89913,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/realtime-execution/ ships 29 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/manipulation/realtime-execution/ ships 29 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 29 outbound anchor occurrences on it with a visible focus ring in 112 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90695,29 +89930,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 27,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 29,
+          "tabStops": 112,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90734,7 +89949,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/rl-finetuning/ ships 32 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/manipulation/rl-finetuning/ ships 32 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 32 outbound anchor occurrences on it with a visible focus ring in 127 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90751,29 +89966,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 30,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 32,
+          "tabStops": 127,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90790,7 +89985,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/manipulation/vla-models/ ships 30 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/manipulation/vla-models/ ships 30 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 30 outbound anchor occurrences on it with a visible focus ring in 133 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90807,29 +90002,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 28,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 30,
+          "tabStops": 133,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90846,7 +90021,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/market-map/ ships 252 outbound anchor(s) across footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 252 distinct outbound links on it with a visible focus ring in 391 stops",
+      "actual": "/market-map/ ships 252 outbound anchor(s) across footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 252 outbound anchor occurrences on it with a visible focus ring in 391 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90862,16 +90037,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "keyboardMeasured": true,
           "reachedByTab": 252,
           "tabStops": 391,
-          "keyboardWitnesses": [],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90888,7 +90056,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/playground/ ships 3 outbound anchor(s) across footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on footer@/classical/perception/, other@/credits/",
+      "actual": "/playground/ ships 3 outbound anchor(s) across footer, other, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 3 outbound anchor occurrences on it with a visible focus ring in 35 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90904,25 +90072,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "other",
-              "route": "/credits/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 3,
+          "tabStops": 35,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90939,7 +90091,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/rl-sim2real/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on footer@/classical/perception/",
+      "actual": "/rl-sim2real/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 2 outbound anchor occurrences on it with a visible focus ring in 36 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -90954,21 +90106,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 2,
+          "tabStops": 36,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -90985,7 +90125,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/rl-sim2real/humanoid-wbc/ ships 36 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/rl-sim2real/humanoid-wbc/ ships 36 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 36 outbound anchor occurrences on it with a visible focus ring in 125 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91002,29 +90142,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 34,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 36,
+          "tabStops": 125,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91041,7 +90161,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/rl-sim2real/legged-locomotion/ ships 29 outbound anchor(s) across citation-chip, figure-credit, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, figure-credit@/credits/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/rl-sim2real/legged-locomotion/ ships 29 outbound anchor(s) across citation-chip, figure-credit, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 29 outbound anchor occurrences on it with a visible focus ring in 107 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91059,33 +90179,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 27,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "figure-credit",
-              "route": "/credits/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 29,
+          "tabStops": 107,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91102,7 +90198,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/rl-sim2real/parallel-sim-rl/ ships 25 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/rl-sim2real/parallel-sim-rl/ ships 25 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 25 outbound anchor occurrences on it with a visible focus ring in 101 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91119,29 +90215,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 23,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 25,
+          "tabStops": 101,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91158,7 +90234,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/rl-sim2real/reward-design-mpc/ ships 38 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/rl-sim2real/reward-design-mpc/ ships 38 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 38 outbound anchor occurrences on it with a visible focus ring in 143 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91175,29 +90251,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 36,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 38,
+          "tabStops": 143,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91214,7 +90270,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/rl-sim2real/rl-for-robotics/ ships 66 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/rl-sim2real/rl-for-robotics/ ships 66 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 66 outbound anchor occurrences on it with a visible focus ring in 178 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91231,29 +90287,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 64,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 66,
+          "tabStops": 178,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91270,7 +90306,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/rl-sim2real/sim2real-transfer/ ships 32 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/rl-sim2real/sim2real-transfer/ ships 32 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 32 outbound anchor occurrences on it with a visible focus ring in 123 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91287,29 +90323,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 30,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 32,
+          "tabStops": 123,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91326,7 +90342,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/rl-sim2real/why-rl-locomotion/ ships 17 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/rl-sim2real/why-rl-locomotion/ ships 17 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 17 outbound anchor occurrences on it with a visible focus ring in 88 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91343,29 +90359,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 15,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 17,
+          "tabStops": 88,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91382,7 +90378,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/search/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on footer@/classical/perception/",
+      "actual": "/search/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 2 outbound anchor occurrences on it with a visible focus ring in 21 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91397,21 +90393,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 2,
+          "tabStops": 21,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91428,7 +90412,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on footer@/classical/perception/",
+      "actual": "/world-models/ ships 2 outbound anchor(s) across footer, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 2 outbound anchor occurrences on it with a visible focus ring in 32 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91443,21 +90427,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 0,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 2,
+          "tabStops": 32,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91474,7 +90446,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/generative-sim/ ships 24 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/world-models/generative-sim/ ships 24 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 24 outbound anchor occurrences on it with a visible focus ring in 101 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91491,29 +90463,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 22,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 24,
+          "tabStops": 101,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91530,7 +90482,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/generative-video/ ships 28 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/world-models/generative-video/ ships 28 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 28 outbound anchor occurrences on it with a visible focus ring in 110 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91547,29 +90499,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 26,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 28,
+          "tabStops": 110,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91586,7 +90518,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/jepa/ ships 29 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/world-models/jepa/ ships 29 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 29 outbound anchor occurrences on it with a visible focus ring in 100 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91603,29 +90535,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 27,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 29,
+          "tabStops": 100,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91642,7 +90554,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/latent-dynamics/ ships 25 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/world-models/latent-dynamics/ ships 25 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 25 outbound anchor occurrences on it with a visible focus ring in 95 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91659,29 +90571,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 23,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 25,
+          "tabStops": 95,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],
@@ -91698,7 +90590,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "External links preserve safe relationship attributes and citation links remain keyboard reachable.",
-      "actual": "/world-models/taxonomy/ ships 27 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; its shapes are keyboard-proven on citation-chip@/classical/perception/, footer@/classical/perception/, reference-entry@/classical/perception/",
+      "actual": "/world-models/taxonomy/ ships 27 outbound anchor(s) across citation-chip, footer, reference-entry, every one carrying rel=\"noopener\" and none removed from the tab order; the Tab key reached all 27 outbound anchor occurrences on it with a visible focus ring in 120 stops",
       "selectorOrRegistryId": "evidence/brand-v2/link-safety.json#routes",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -91715,29 +90607,9 @@
           ],
           "anchorsWithoutNoopener": 0,
           "anchorsWithNoreferrer": 25,
-          "keyboardMeasured": false,
-          "reachedByTab": null,
-          "tabStops": null,
-          "keyboardWitnesses": [
-            {
-              "shape": "citation-chip",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "footer",
-              "route": "/classical/perception/"
-            },
-            {
-              "shape": "reference-entry",
-              "route": "/classical/perception/"
-            }
-          ],
-          "keyboardRoutes": [
-            "/classical/perception/",
-            "/credits/",
-            "/data-hardware/industrial-deployment/",
-            "/market-map/"
-          ],
+          "reachedByTab": 27,
+          "tabStops": 120,
+          "keyboardRoutesWalked": 62,
           "evidence": [
             "evidence/brand-v2/link-safety.json"
           ],

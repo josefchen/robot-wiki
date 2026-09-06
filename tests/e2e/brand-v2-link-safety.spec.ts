@@ -31,11 +31,12 @@ import { test, expect } from './brand-v2-static-fixture';
  *
  * Keyboard reachability is not decidable from the bytes: it depends on
  * layout, focusability and the tab order a browser actually builds. It is
- * therefore measured by walking the real tab order with the Tab key on
- * routes chosen to cover every outbound-link SHAPE the census found. The
- * shape census is what makes the sample honest: if a new kind of outbound
- * link appears anywhere in the export and no swept route carries it, the
- * coverage assertion fails instead of the sweep quietly missing it.
+ * therefore measured by walking the real tab order with the Tab key, on
+ * every route the census says carries an outbound anchor. Shape is a
+ * property of the markup around an anchor and reachability is not - the
+ * same citation chip is reachable in flowed prose and unreachable inside a
+ * collapsed disclosure or behind an overlay - so no route stands in for
+ * another.
  *
  * The census itself lives in `lib/brand-v2-link-safety.ts` because the
  * enforcement generator re-derives the byte half from the same code. Two
@@ -47,18 +48,15 @@ const OUT = join(process.cwd(), 'out');
 const EVIDENCE_PATH = join(process.cwd(), LINK_SAFETY_EVIDENCE_PATH);
 
 /**
- * Routes walked with the keyboard. Chosen to carry every shape the census
- * finds; the coverage assertion below is what keeps that claim true.
+ * Tab presses allowed per route before it is declared an infinite focus
+ * trap, derived from the route's own focusable count rather than fixed: the
+ * budget has to clear the longest tab order in the export, and a fixed
+ * number that clears /market-map/ today silently truncates the walk on the
+ * day a route grows past it.
  */
-const KEYBOARD_ROUTES = [
-  '/classical/perception/',
-  '/data-hardware/industrial-deployment/',
-  '/credits/',
-  '/market-map/',
-] as const;
-
-/** Tab presses allowed before a route is declared an infinite focus trap. */
-const TAB_BUDGET = 700;
+function tabBudget(focusable: number): number {
+  return focusable * 2 + 50;
+}
 
 interface KeyboardVerdict {
   route: string;
@@ -110,11 +108,22 @@ test.describe('outbound links are safe and citation links are keyboard reachable
     expect(empty).toEqual([]);
   });
 
-  for (const route of KEYBOARD_ROUTES) {
+  /**
+   * The walked population, read off the census rather than listed. One test
+   * per route so the reporter names the route that failed and each walk gets
+   * its own timeout; the coverage assertion below reconciles the verdicts
+   * against the same census.
+   */
+  const keyboardRoutes = [...new Set(census.map((a) => a.route))].sort();
+
+  for (const route of keyboardRoutes) {
     test(`${route} hands every outbound link to the Tab key with a visible focus ring`, async ({
       page,
       staticBase,
-    }) => {
+    }, testInfo) => {
+      // /market-map/ alone is ~390 tab stops, and a stop is a round trip.
+      testInfo.setTimeout(120_000);
+      const failures: string[] = [];
       await page.goto(`${staticBase}${route}`, { waitUntil: 'networkidle' });
 
       /**
@@ -150,36 +159,52 @@ test.describe('outbound links are safe and citation links are keyboard reachable
         (document.body as HTMLElement).focus();
       });
 
+      const budget = tabBudget(
+        await page.evaluate(
+          () =>
+            document.querySelectorAll(
+              'a[href], button, input, select, textarea, summary, [tabindex]',
+            ).length,
+        ),
+      );
+
       const reached = new Set<string>();
       const withoutIndicator: string[] = [];
       let stops = 0;
-      for (let i = 0; i < TAB_BUDGET; i += 1) {
+      for (let i = 0; i < budget; i += 1) {
         await page.keyboard.press('Tab');
         stops += 1;
-        const focused = await page.evaluate(() => {
+        // One round trip per press, not two: the walk is now 62 routes
+        // rather than four, and the wrap test is the same read of
+        // document.activeElement as the focus test.
+        const focused: {
+          wrapped: boolean;
+          occurrence: string | null;
+          href: string;
+          visible: boolean;
+        } = await page.evaluate(() => {
           const el = document.activeElement as HTMLElement | null;
-          if (!el || el.tagName !== 'A') return null;
+          const blank = { occurrence: null, href: '', visible: false };
+          if (!el || el === document.body) return { wrapped: true, ...blank };
+          if (el.tagName !== 'A') return { wrapped: false, ...blank };
           const style = getComputedStyle(el);
           const outlinePx = Number.parseFloat(style.outlineWidth || '0');
-          const visible =
-            (style.outlineStyle !== 'none' && outlinePx > 0) ||
-            style.boxShadow !== 'none';
           return {
+            wrapped: false,
             occurrence: el.getAttribute('data-link-occurrence'),
             href: (el as HTMLAnchorElement).href,
-            visible,
+            visible:
+              (style.outlineStyle !== 'none' && outlinePx > 0) ||
+              style.boxShadow !== 'none',
           };
         });
-        if (focused?.occurrence !== null && focused !== null) {
-          reached.add(focused.occurrence as string);
+        if (focused.occurrence !== null) {
+          reached.add(focused.occurrence);
           if (!focused.visible) {
             withoutIndicator.push(`#${focused.occurrence} ${focused.href}`);
           }
         }
-        const wrapped = await page.evaluate(
-          () => document.activeElement === document.body,
-        );
-        if (wrapped && i > 0) break;
+        if (focused.wrapped && i > 0) break;
       }
 
       const unreached = outboundInDom
@@ -194,40 +219,39 @@ test.describe('outbound links are safe and citation links are keyboard reachable
         tabStops: stops,
       });
 
-      expect(
-        outboundInDom.length,
-        `${route} rendered no outbound link to reach`,
-      ).toBeGreaterThan(0);
-      expect(
-        unreached,
-        `${route} has outbound anchor occurrences the Tab key never reaches`,
-      ).toEqual([]);
-      expect(
-        [...new Set(withoutIndicator)],
-        `${route} focused outbound links with no visible focus indicator`,
-      ).toEqual([]);
+      // Collected rather than thrown, so one unreachable link does not hide
+      // the state of the other sixty-one routes.
+      if (outboundInDom.length === 0) {
+        failures.push(`${route} rendered no outbound link to reach`);
+      }
+      if (unreached.length > 0) {
+        failures.push(
+          `${route} has outbound anchor occurrences the Tab key never reaches: ${unreached.slice(0, 3).join(', ')}`,
+        );
+      }
+      if (withoutIndicator.length > 0) {
+        failures.push(
+          `${route} focused outbound links with no visible focus indicator: ${[...new Set(withoutIndicator)].slice(0, 3).join(', ')}`,
+        );
+      }
+      if (stops >= budget) {
+        failures.push(
+          `${route} exhausted its ${budget}-press tab budget without the focus returning to the body`,
+        );
+      }
+
+      expect(failures, `${route}: keyboard reachability failures`).toEqual([]);
     });
   }
 
-  test('the keyboard sweep covers every outbound-link shape in the export', () => {
-    const shapesPresent = new Set(census.map((a) => a.shape));
-    const swept = new Set(
-      census
-        .filter((a) => (KEYBOARD_ROUTES as readonly string[]).includes(a.route))
-        .map((a) => a.shape),
-    );
-    const uncovered = [...shapesPresent].filter((s) => !swept.has(s)).sort();
-    expect(
-      uncovered,
-      'the export renders an outbound-link shape no keyboard-swept route carries',
-    ).toEqual([]);
-
-    // The generator refuses a trace that does not cover every walked route,
-    // so the artifact is only written once all four have run.
+  test('the keyboard sweep covers every route the export ships an outbound link on', () => {
+    // The population is the census, not a list. The generator refuses a
+    // trace missing any route, so the artifact is only written once the walk
+    // above has produced a verdict for every one of them.
     expect(
       keyboardVerdicts.map(({ route }) => route).sort(),
-      'a keyboard route produced no verdict, so the trace would be partial',
-    ).toEqual([...KEYBOARD_ROUTES].sort());
+      'a route carrying outbound links produced no keyboard verdict, so the trace would be partial',
+    ).toEqual([...new Set(census.map((a) => a.route))].sort());
 
     const byShape: Record<string, number> = {};
     for (const anchor of census) {

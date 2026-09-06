@@ -141,7 +141,7 @@ describe('brand-v2 outbound link safety', () => {
     expect(evidence.anchorsWithoutNoopener).toBe(0);
     expect(
       evidence.routes.find((route) => route.route === '/credits/'),
-    ).toMatchObject({ keyboardMeasured: true, reachedByTab: 1 });
+    ).toMatchObject({ reachedByTab: 1, tabStops: 12 });
   });
 
   it('derives the same population from the artifact as from the export', () => {
@@ -204,13 +204,30 @@ describe('brand-v2 outbound link safety', () => {
     expect(() => read(CENSUS, artifact)).toThrow(/no visible focus indicator/);
   });
 
-  it('refuses a shape the export renders and no walked route carries', () => {
+  it('refuses a route carrying outbound links that the Tab key never walked', () => {
+    // The trace used to walk four hand-picked routes and let a shape proven
+    // on one stand in for every other route rendering that shape.
     const artifact = artifactFor(CENSUS);
     artifact.keyboard = artifact.keyboard.filter(
       ({ route }) => route !== '/manipulation/vla-models/',
     );
     expect(() => read(CENSUS, artifact)).toThrow(
-      /reachability is measured by nothing/,
+      /1 route\(s\) carrying outbound links were never walked with the Tab key, so their reachability is measured by nothing: \/manipulation\/vla-models\//,
+    );
+  });
+
+  it('refuses a partial walk even when the unwalked route renders a shape another walked route carries', () => {
+    const census = [
+      ...CENSUS,
+      // Same shape as the walked /credits/ footer link, different route.
+      anchor({ route: '/a-z/', href: 'https://x.test/', shape: 'footer' }),
+    ];
+    const artifact = artifactFor(census);
+    artifact.keyboard = artifact.keyboard.filter(
+      ({ route }) => route !== '/a-z/',
+    );
+    expect(() => read(census, artifact)).toThrow(
+      /never walked with the Tab key/,
     );
   });
 
