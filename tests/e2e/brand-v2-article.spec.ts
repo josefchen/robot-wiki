@@ -18,6 +18,7 @@ import {
   roleFaceVerdicts,
   sectionHeadingVerdicts,
   titleSheetResidueVerdicts,
+  titleSheetSourceFacts,
   titleSheetVerdicts,
   type ArticleObservation,
 } from '../../lib/brand-v2-article-evidence';
@@ -137,6 +138,28 @@ function collectArticle(): Omit<ArticleObservation, 'route' | 'viewport' | 'isAr
       (header?.querySelector('[data-header-citation-count]') as HTMLElement | null)
         ?.dataset.headerCitationCount,
     ),
+    // What the reader is shown, beside what the markup declares. The value
+    // cell is the `dd`; for the review date the `dd` holds the `<time>` the
+    // machine-readable spelling lives on.
+    reviewDateText: nameOf(
+      header?.querySelector('[data-header-last-reviewed] dd') ??
+        document.createElement('dd'),
+    ),
+    reviewDateTime:
+      header
+        ?.querySelector('[data-header-last-reviewed] time')
+        ?.getAttribute('datetime') ?? '',
+    readingTimeText: nameOf(
+      header?.querySelector('[data-header-reading-minutes]') ??
+        document.createElement('dd'),
+    ),
+    citationCountText: nameOf(
+      header?.querySelector('[data-header-citation-count]') ??
+        document.createElement('dd'),
+    ),
+    bibliographyIds: [
+      ...document.querySelectorAll<HTMLElement>('[data-reference-id]'),
+    ].map((entry) => entry.dataset.referenceId ?? ''),
     imageCount: header
       ? header.querySelectorAll('img, svg, picture, video, figure').length
       : 0,
@@ -610,7 +633,10 @@ test.describe('brand-v2 article sheet and type hierarchy', () => {
     });
 
     for (const [label, verdicts] of [
-      ['VAL-B2-ART-001 title sheet', titleSheetVerdicts(evidence)],
+      [
+        'VAL-B2-ART-001 title sheet',
+        titleSheetVerdicts(evidence, titleSheetSourceFacts(ROOT)),
+      ],
       ['VAL-B2-ART-002 reading sheet', readingSheetVerdicts(evidence)],
       ['VAL-B2-ART-003 link treatments', linkTreatmentVerdicts(evidence)],
       ['VAL-B2-ART-009 title-sheet residue', titleSheetResidueVerdicts(evidence)],

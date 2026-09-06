@@ -116,6 +116,8 @@ import {
   sectionHeadingMembers,
   sectionHeadingVerdicts,
   titleSheetResidueVerdicts,
+  READING_TIMES_PATH,
+  titleSheetSourceFacts,
   titleSheetVerdicts,
 } from '../lib/brand-v2-article-evidence.ts';
 import {
@@ -906,7 +908,10 @@ const ARTICLE_EVIDENCE = readArticleRuntimeEvidence({
  * the whole corpus rather than one row.
  */
 const ARTICLE_VERDICTS = {
-  'VAL-B2-ART-001': titleSheetVerdicts(ARTICLE_EVIDENCE),
+  'VAL-B2-ART-001': titleSheetVerdicts(
+    ARTICLE_EVIDENCE,
+    titleSheetSourceFacts(ROOT),
+  ),
   'VAL-B2-ART-002': readingSheetVerdicts(ARTICLE_EVIDENCE),
   'VAL-B2-ART-003': linkTreatmentVerdicts(ARTICLE_EVIDENCE),
   'VAL-B2-ART-009': titleSheetResidueVerdicts(ARTICLE_EVIDENCE),
@@ -3387,6 +3392,8 @@ function generate() {
               ? `${id} per-member evidence derived from the persisted desktop shell sweep of the built export, including its keyboard trace and its expanded taxonomy ledger, over ${canonicalPopulationSource}`
               : MOBILE_SHELL_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted mobile shell sweep of the built export, including the drawer's two-directional keyboard trap trace, its three dismissal paths and the composited scrim reading, over ${canonicalPopulationSource}`
+              : id === 'VAL-B2-ART-001'
+              ? `${id} per-member evidence derived from the persisted ${ARTICLE_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every public route in the built export, reconciling each title sheet's review date, reading time and citation count - in the machine-readable spelling and in the words the reader is shown - against the frontmatter lastReviewed, the ${READING_TIMES_PATH} measurement and the resolved References list the template derives them from, over ${canonicalPopulationSource}`
               : ARTICLE_ASSERTIONS.has(id)
               ? `${id} per-member evidence derived from the persisted ${ARTICLE_VIEWPORTS.map(({ width, height }) => `${width}x${height}`).join('/')} sweep of every public route in the built export, measuring each reading column's measure in the advance of its own font, over ${canonicalPopulationSource}`
               : TABLE_MATH_ASSERTIONS.has(id)

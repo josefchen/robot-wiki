@@ -1,5 +1,12 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import matter from 'gray-matter';
 import { z } from 'zod';
+import { getCitation } from '../data/citations.ts';
+import { publishedModules } from '../data/modules.ts';
 import { TEKTUR_ROLE_INSTANCES } from '../data/type-roles.ts';
+import { formatLongDate } from './dates.ts';
+import { inlineCitationIds, moduleBody, resolveReferences } from './references.ts';
 import {
   ARTICLE_BODY_COMPUTED_IMPORT,
   deriveEvidenceClosure,
@@ -108,12 +115,107 @@ function articleClosureEntries(root: string): string[] {
 }
 
 /**
+ * What the three facts on an article's title sheet are supposed to say,
+ * derived from the sources that produce them.
+ *
+ * `VAL-B2-ART-001` asks for the article's "existing factual review date,
+ * reading time, and citation count", and existing and factual are the whole
+ * requirement: a sheet printing today's date, `1 min`, and `0` renders three
+ * values of the right shape and none of the right content. The template
+ * derives all three (`app/(content)/[domain]/[slug]/page.tsx`) from the
+ * frontmatter `lastReviewed`, the measurement in `data/reading-times.json`,
+ * and the resolved References list, so those are the three sources read
+ * here - by the same functions the template uses, not by a reimplementation
+ * that could agree with a broken header.
+ *
+ * `readingMinutes` is null where no measurement exists: the template then
+ * prints a word-count estimate, and a shipped article whose reading time is
+ * an estimate is a defect this file must be able to name rather than one it
+ * silently accepts.
+ */
+export type TitleSheetSourceFacts = {
+  route: string;
+  source: string;
+  lastReviewed: string | null;
+  reviewDateText: string | null;
+  readingMinutes: number | null;
+  /** Resolved reference ids in the order the bibliography renders them. */
+  citationIds: string[];
+};
+
+export const READING_TIMES_PATH = 'data/reading-times.json';
+
+function readingTimeMeasurements(
+  root: string,
+): Map<string, { words: number; minutes: number }> {
+  const raw = JSON.parse(readFileSync(join(root, READING_TIMES_PATH), 'utf8')) as
+    | Record<string, { words?: unknown; minutes?: unknown }>
+    | null;
+  const measurements = new Map<string, { words: number; minutes: number }>();
+  for (const [key, value] of Object.entries(raw ?? {})) {
+    if (typeof value?.minutes !== 'number' || typeof value?.words !== 'number') {
+      continue;
+    }
+    measurements.set(key, { words: value.words, minutes: value.minutes });
+  }
+  return measurements;
+}
+
+export function titleSheetSourceFacts(
+  root: string,
+): Map<string, TitleSheetSourceFacts> {
+  const measurements = readingTimeMeasurements(root);
+  const facts = new Map<string, TitleSheetSourceFacts>();
+  for (const { domain, slug } of publishedModules()) {
+    const source = `content/${domain}/${slug}.mdx`;
+    const raw = readFileSync(join(root, source), 'utf8');
+    const frontmatter = matter(raw).data as {
+      lastReviewed?: unknown;
+      citations?: unknown;
+    };
+    const lastReviewed =
+      typeof frontmatter.lastReviewed === 'string' &&
+      frontmatter.lastReviewed.length > 0
+        ? frontmatter.lastReviewed
+        : null;
+    const declared = Array.isArray(frontmatter.citations)
+      ? frontmatter.citations.filter(
+          (id): id is string => typeof id === 'string',
+        )
+      : [];
+    const citationIds = resolveReferences(
+      declared,
+      inlineCitationIds(moduleBody(raw)),
+      getCitation,
+    ).map(({ citation }) => citation.id);
+    facts.set(`/${domain}/${slug}/`, {
+      route: `/${domain}/${slug}/`,
+      source,
+      lastReviewed,
+      reviewDateText: lastReviewed === null ? null : formatLongDate(lastReviewed),
+      readingMinutes: measurements.get(`${domain}/${slug}`)?.minutes ?? null,
+      citationIds,
+    });
+  }
+  if (facts.size === 0) {
+    throw new Error(
+      'no published article was read for its title-sheet facts, so ART-001 would reconcile nothing',
+    );
+  }
+  return facts;
+}
+
+/**
  * The fingerprint the sweep records and the generator re-derives, over the
  * bytes of the whole closure plus the sealed ranges the verdicts apply.
  *
  * The ranges are hashed in as facts because they are the other half of every
  * verdict: widening one without re-running the sweep would otherwise leave a
- * measurement that was taken against the old range reading as current.
+ * measurement that was taken against the old range reading as current. The
+ * derived title-sheet facts are hashed in for the same reason and one more:
+ * `data/reading-times.json` is written by postbuild and reaches the header
+ * without ever entering the module graph, so a re-measured article moves the
+ * rendered sheet while every byte in the closure stays put.
  */
 export function articleEvidenceFingerprint(input: { root: string }): string {
   const ranges = [
@@ -130,6 +232,14 @@ export function articleEvidenceFingerprint(input: { root: string }): string {
     `tracking:${REGISTRATION_TRACKING_EM.min}-${REGISTRATION_TRACKING_EM.max}@${REGISTRATION_TRACKING_SPREAD_EM}`,
     `rule-tolerance:${RULE_ALIGNMENT_TOLERANCE_PX}`,
     ...ARTICLE_VIEWPORTS.map(({ id }) => `viewport:${id}`),
+    ...[...titleSheetSourceFacts(input.root).values()]
+      .sort((left, right) => left.route.localeCompare(right.route))
+      .map(
+        (fact) =>
+          `title-sheet:${fact.route}=${fact.lastReviewed ?? 'none'}/${
+            fact.readingMinutes ?? 'unmeasured'
+          }/${fact.citationIds.join(',')}`,
+      ),
   ];
   return deriveEvidenceClosure({
     root: input.root,
@@ -266,6 +376,23 @@ const titleBlockSchema = z.object({
   lastReviewed: z.string().nullable(),
   readingMinutes: z.number().nullable(),
   citationCount: z.number().nullable(),
+  /**
+   * The same three facts as a reader meets them.
+   *
+   * The `data-header-*` attributes above are the machine spelling and the
+   * text below is the human one. Reading only the attribute would let a
+   * sheet carry a correct date in an attribute nobody renders and print a
+   * different one in the `<time>` beside it.
+   */
+  reviewDateText: z.string(),
+  reviewDateTime: z.string(),
+  readingTimeText: z.string(),
+  citationCountText: z.string(),
+  /**
+   * The ids of the bibliography entries the same page renders, in order.
+   * The header's count claims to be the length of this list.
+   */
+  bibliographyIds: z.array(z.string()),
   /** Anything a title sheet must not carry, counted as it renders. */
   imageCount: z.number(),
   badgeCount: z.number(),
@@ -484,13 +611,21 @@ const PLEX_MONO_HEAD = 'ibm plex mono';
 
 /**
  * `VAL-B2-ART-001`: an article's title sheet renders its context, one Tektur
- * title, one summary, and the three facts its frontmatter and its own
- * bibliography already carry. The facts are checked for presence and shape,
- * never for a value this file invents: a title sheet that printed a review
- * date nobody published would satisfy any check that only counted it.
+ * title, one summary, and its EXISTING FACTUAL review date, reading time and
+ * citation count.
+ *
+ * Presence was never the requirement. A sheet that printed a review date
+ * nobody published, a reading time nothing measured, or a count that did not
+ * match its own bibliography would satisfy every non-empty check and would
+ * still be exactly the fabrication the row forbids - the same class of
+ * defect as `VAL-B2-ART-009`'s fabricated badge, one step further in. So
+ * each of the three is reconciled against the source that produced it
+ * (`titleSheetSourceFacts`), in both spellings the sheet carries, and the
+ * count is reconciled against the bibliography rendered below it as well.
  */
 export function titleSheetVerdicts(
   evidence: ArticleRuntimeEvidence,
+  sourceFacts: Map<string, TitleSheetSourceFacts>,
 ): Map<string, Verdict<ArticleObservation['titleBlock']>> {
   const verdicts = new Map<string, Verdict<ArticleObservation['titleBlock']>>();
   for (const route of evidence.articleRoutes) {
@@ -521,21 +656,126 @@ export function titleSheetVerdicts(
         `${route} renders ${block.breadcrumbLabels.length} breadcrumb crumbs, so it names no domain context`,
       );
     }
-    if (block.lastReviewed === null || block.lastReviewed.length === 0) {
-      failures.push(`${route} prints no review date`);
-    }
-    if (block.readingMinutes === null || block.readingMinutes <= 0) {
-      failures.push(`${route} prints no reading time`);
-    }
-    if (block.citationCount === null || block.citationCount < 0) {
-      failures.push(`${route} prints no citation count`);
+    const facts = sourceFacts.get(route);
+    if (!facts) {
+      failures.push(
+        `${route} renders a title sheet no published module accounts for, so its facts have no source`,
+      );
+    } else {
+      failures.push(...reviewDateFailures(route, block, facts));
+      failures.push(...readingTimeFailures(route, block, facts));
+      failures.push(...citationCountFailures(route, block, facts));
     }
     verdicts.set(route, { id: route, observed: block, failures });
   }
   if (verdicts.size === 0) {
     throw new Error('no article route was measured for its title sheet');
   }
+  const unrendered = [...sourceFacts.keys()].filter(
+    (route) => !verdicts.has(route),
+  );
+  if (unrendered.length > 0) {
+    throw new Error(
+      `${unrendered.length} published article(s) carry title-sheet facts no sweep reconciled, starting with ${unrendered[0]}`,
+    );
+  }
   return verdicts;
+}
+
+function reviewDateFailures(
+  route: string,
+  block: ArticleObservation['titleBlock'],
+  facts: TitleSheetSourceFacts,
+): string[] {
+  const failures: string[] = [];
+  if (facts.lastReviewed === null) {
+    failures.push(
+      `${route} publishes with no lastReviewed date in ${facts.source}, so its sheet has no review date to print`,
+    );
+    return failures;
+  }
+  if (block.lastReviewed === null || block.lastReviewed.length === 0) {
+    failures.push(`${route} prints no review date`);
+  } else if (block.lastReviewed !== facts.lastReviewed) {
+    failures.push(
+      `${route} prints review date ${block.lastReviewed} where ${facts.source} records ${facts.lastReviewed}`,
+    );
+  }
+  if (block.reviewDateTime !== facts.lastReviewed) {
+    failures.push(
+      `${route} dates its review "${block.reviewDateTime}" in machine-readable form, not ${facts.lastReviewed}`,
+    );
+  }
+  if (block.reviewDateText !== facts.reviewDateText) {
+    failures.push(
+      `${route} shows the reader review date "${block.reviewDateText}", not "${facts.reviewDateText}"`,
+    );
+  }
+  return failures;
+}
+
+function readingTimeFailures(
+  route: string,
+  block: ArticleObservation['titleBlock'],
+  facts: TitleSheetSourceFacts,
+): string[] {
+  const failures: string[] = [];
+  if (facts.readingMinutes === null) {
+    // The template's fallback is a word-count estimate over the MDX source,
+    // which is a different number from the measured one and is meant for a
+    // dev server, not for a shipped sheet.
+    failures.push(
+      `${route} has no entry in ${READING_TIMES_PATH}, so its sheet prints an unmeasured estimate`,
+    );
+    return failures;
+  }
+  if (block.readingMinutes === null || block.readingMinutes <= 0) {
+    failures.push(`${route} prints no reading time`);
+  } else if (block.readingMinutes !== facts.readingMinutes) {
+    failures.push(
+      `${route} prints a ${block.readingMinutes} min read where ${READING_TIMES_PATH} measured ${facts.readingMinutes}`,
+    );
+  }
+  if (block.readingTimeText !== `${facts.readingMinutes} min`) {
+    failures.push(
+      `${route} shows the reader "${block.readingTimeText}", not "${facts.readingMinutes} min"`,
+    );
+  }
+  return failures;
+}
+
+function citationCountFailures(
+  route: string,
+  block: ArticleObservation['titleBlock'],
+  facts: TitleSheetSourceFacts,
+): string[] {
+  const failures: string[] = [];
+  const expected = facts.citationIds.length;
+  if (block.citationCount === null) {
+    failures.push(`${route} prints no citation count`);
+  } else if (block.citationCount !== expected) {
+    failures.push(
+      `${route} claims ${block.citationCount} citation(s) where its resolved References list holds ${expected}`,
+    );
+  }
+  if (block.citationCountText !== String(expected)) {
+    failures.push(
+      `${route} shows the reader "${block.citationCountText}" citations, not "${expected}"`,
+    );
+  }
+  const rendered = block.bibliographyIds;
+  if (rendered.join('|') !== facts.citationIds.join('|')) {
+    const lost = facts.citationIds.filter((id) => !rendered.includes(id));
+    const extra = rendered.filter((id) => !facts.citationIds.includes(id));
+    failures.push(
+      `${route} renders a bibliography of ${rendered.length} entries that is not its resolved References list (${
+        lost.length > 0 ? `missing ${lost.join(', ')}; ` : ''
+      }${extra.length > 0 ? `unaccounted ${extra.join(', ')}; ` : ''}order ${
+        lost.length === 0 && extra.length === 0 ? 'differs' : 'aside'
+      })`,
+    );
+  }
+  return failures;
 }
 
 export type MeasureObservation = {
