@@ -28,7 +28,107 @@ retained as historical audit claims, not current acceptance evidence.
 The original tooling/accounting repair re-fetched no source, changed no
 article prose, and moved no `lastReviewed` date.
 
-### Current structured-record counts (integration batch 1, 2026-09-06)
+### Current structured-record counts (integration batch 2, 2026-09-06)
+
+Counting unit: parsed article claim rows, **not** source documents, historical
+verdicts, datasets or citation-registry entries.
+
+| Domain | Articles with records | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|---:|
+| manipulation | 12 | 225 | 4 | 221 |
+| rl-sim2real | 7 | 167 | 13 | 154 |
+| world-models | 5 | 92 | 4 | 88 |
+| data-hardware | 6 | 128 | 3 | 125 |
+| classical | 7 | 187 | 0 | 187 |
+| frontier | 6 | 147 | 5 | 142 |
+| adjacent | 4 | 48 | 0 | 48 |
+| **Corpus** | **47** | **994** | **29** | **965** |
+
+**Not accepted.** Eighteen of nineteen explicitly prepared candidates are
+normalized: DreamerV3 3, Rudin 7, EVST 3, Marvel–Norcross 3 and OSHA 2.
+Frontier original row 200 is held because the current 850 mm wording omits
+the source's case-specific **at least** lower bound. This checkpoint makes
+no factual correction and does not repair the claim only in an evidence note.
+The eleven complete records at `0946948` are byte-identical; all 994 original
+ordered claim/source/verdict/note tuples and article populations survive.
+The two six-part P1 plans in `audit/compound-evidence.json` remain empty,
+unreviewed and incomplete, with their bindings untouched.
+
+The articles with complete evidence records are:
+
+| Article | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|
+| bc-foundations | 14 | 3 | 11 |
+| action-chunking | 32 | 1 | 31 |
+| rl-for-robotics | 52 | 10 | 42 |
+| why-rl-locomotion | 12 | 1 | 11 |
+| parallel-sim-rl | 18 | 1 | 17 |
+| reward-design-mpc | 23 | 1 | 22 |
+| taxonomy | 20 | 1 | 19 |
+| latent-dynamics | 21 | 3 | 18 |
+| industrial-deployment | 52 | 3 | 49 |
+| safety-and-assurance | 40 | 5 | 35 |
+
+Each new record contains its registered citation ID, actual fetched URL,
+sufficient supporting text, source identity and observed historical retrieval
+provenance. Completed source-worker identity, offset and hash checks were
+reused after packet-hash and current-row/article checks; no document was
+refetched. Dreamer task counts use arXiv v2 (17 April 2024), and its Nature
+publication uses the distinct version-of-record title and 2 April 2025 date.
+Rudin's unversioned full text is not relabelled as a pinned revision; bounds,
+hardware and policy-update versus physics-step units remain explicit.
+EVST is first-party vendor guidance, not independent market measurement.
+Marvel–Norcross is a research manuscript, not fetched normative ISO/IEC text.
+OSHA supplies the whole existing occupancy claim, not 2025 ISO clauses.
+
+Unapplied findings remain blocked: the other nine Dreamer dispositions;
+Rudin's original 172/236/337 corrections and 336 conflict; frontier's
+850 mm lower bound and separate 1.6/2.0 m/s source inconsistency; prior
+DAgger and TD3 corrections; and missing-source/compound records.
+Production MDX, citations, data, code, tests and article `lastReviewed`
+are unchanged. No prose-humanizer pass applies; audit accounting received
+a manual read. No build, browser/export, full-unit or citation-network gate
+is rerun for ownership. Prior unchanged typecheck/lint and three-file
+117-test audit evidence at `0946948` are reused, not presented as new runs.
+A local checkpoint is not permission to publish or advance Mission state.
+
+#### Observed batch-2 checks
+
+All invocations used `NODE_DISABLE_COMPILE_CACHE=1`, sequentially:
+
+- Pure current-tree preservation check: exit 0. All 47 article sections,
+  994 original tuples, 1,163 original table-line prefixes, 1,167 integrated
+  table lines and eleven byte-identical complete records survive. Eighteen
+  additions produce 29 complete / 965 incomplete records, with zero summary
+  failures. The compact ordered-tuple projection SHA-256 remains
+  `ea9322cafaec5a09303d8b70803df2d69566bc902382831977e2159b56c72f5c`.
+  Canonical frontmatter was supplied to the current compound loader; both
+  empty P1 plans, their bindings and the protected owner files are unchanged.
+- `npm run test -- tests/unit/audit-ledger.test.ts`: exit 0, one file,
+  **73 passed**, zero failed.
+- `npm run validate:content`: exit 1. Schema/content passed for 47 published
+  modules, 412 citations, 119 terms, 118 images and 111 companies. Source-only
+  no-slop passed for 47 MDX files with 14 quotation exceptions; chart
+  descriptions passed for 48 mounts in 43 files and 48 descriptions.
+  The original piped audit log lacks its final count and remains an incomplete
+  capture, not a complete count receipt.
+- `node scripts/check-audit-coverage.ts`, with output directed to a regular
+  file: exit 1, **968 findings** (965 incomplete claim records plus three
+  aggregate evidence-field failures). Only this offline substep was repeated
+  to recover the missing terminal count; schema/no-slop/chart checks were not
+  rerun. Article membership is 47/47 and citation-ledger membership 412/412;
+  nine separately named unresolved citation checks remain unaltered.
+- Independent `git diff --check`: exit 0, no whitespace errors.
+
+These are local normalization checks, not independent Mission validation.
+No source was refetched and no source contradiction was resolved. An initial
+packet-receipt check stopped before product writes because Rudin's verifier
+had hashed its redirected stdout log before printing the final receipt.
+The final log reports exit 0 and matches every corresponding `checks.json`
+field; all source/candidate/offset artifact hashes match. That bookkeeping
+failure and the incomplete content-gate capture are preserved, not relabelled.
+
+### Historical integration batch 1 structured-record counts (2026-09-06)
 
 Counting unit: parsed article claim rows, **not** distinct documents,
 historical verdicts, dataset rows, or citation-registry entries.
