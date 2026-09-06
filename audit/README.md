@@ -28,7 +28,110 @@ retained as historical audit claims, not current acceptance evidence.
 The original tooling/accounting repair re-fetched no source, changed no
 article prose, and moved no `lastReviewed` date.
 
-### Current structured-record counts (integration batch 2, 2026-09-06)
+### Current structured-record counts (integration batch 3, 2026-09-06)
+
+Counting unit: parsed article claim rows, **not** source documents, evidence
+items or historical verdicts. **The audit remains incomplete and unaccepted.**
+
+| Domain | Articles with records | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|---:|
+| manipulation | 12 | 225 | 25 | 200 |
+| rl-sim2real | 7 | 167 | 23 | 144 |
+| world-models | 5 | 92 | 4 | 88 |
+| data-hardware | 6 | 128 | 3 | 125 |
+| classical | 7 | 187 | 3 | 184 |
+| frontier | 6 | 147 | 5 | 142 |
+| adjacent | 4 | 48 | 0 | 48 |
+| **Corpus** | **47** | **994** | **63** | **931** |
+
+Thirty-four of thirty-five prepared candidates qualify: **30 scalar or
+existing-correction records plus four compound claim rows**. Manipulation
+adds 21 (bc-foundations 5, action-chunking 16); classical adds 3 (perception 1,
+scene-representation 2); rl-for-robotics adds 10. All 29 previously complete
+records, all original claim/source/verdict/note cells and all populations
+survive. The compact ordered original-tuple SHA-256 remains
+`ea9322cafaec5a09303d8b70803df2d69566bc902382831977e2159b56c72f5c`.
+
+| Article | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|
+| bc-foundations | 14 | 8 | 6 |
+| action-chunking | 32 | 17 | 15 |
+| rl-for-robotics | 52 | 20 | 32 |
+| why-rl-locomotion | 12 | 1 | 11 |
+| parallel-sim-rl | 18 | 1 | 17 |
+| reward-design-mpc | 23 | 1 | 22 |
+| taxonomy | 20 | 1 | 19 |
+| latent-dynamics | 21 | 3 | 18 |
+| industrial-deployment | 52 | 3 | 49 |
+| perception | 59 | 1 | 58 |
+| scene-representation | 49 | 2 | 47 |
+| safety-and-assurance | 40 | 5 | 35 |
+
+The four new explicit compound plans bind manipulation original lines
+73, 77, 79 and 101. Their ten required parts have eleven exactly paired
+source items and ten supported, digest-bound adjudications. Required parts
+retain the full conjunction, causal pause attribution, human annotation
+burden and two-source date arithmetic as applicable; they were not reduced
+to available evidence. Reviews identify the implementation
+**agent/source-auditor**, not a human or independent validator.
+
+**Held candidate:** manipulation original line 100 remains unchanged and
+incomplete. Current prose states total 100–200 ms inference latency, but
+RTC tested **added +100/+200 ms**. The prepared plan also omits the blog
+named by the original source attribution. No qualifying prose is smuggled
+into an evidence note. The two existing six-document P1 plans remain
+byte-equivalent as objects, empty and incomplete: their six supported
+partial items remain unapplied in the packet, alongside the actual metadata
+gaps and contradictions. Enough items is not complete P1 coverage.
+
+**TD3 authority resolved: not authorized, not applied.** The inspected
+`VAL-B2-BASE-010` policy requires an exact approved old/new delta with owner
+approval. The content-audit contract requires unsupported claims to fail
+and corrections to be recorded; it does not explicitly delegate approval
+of a new prose-member hash. The current owner brief and Mission boundary
+forbid inferring that approval from older entries or this assignment.
+Consequently the sentence, Cite, relationships, original row 167 and
+approved-delta file remain unchanged. The already-returned precise
+old/new/source boundary remains in the Mission's
+`source-recovery-20260906/td3-correction-boundary.md`; no second approval
+request or source fetch was made. This does not certify “fixed it” as true.
+
+The completed source packets were reused after packet-hash and current
+article/row checks: manipulation 16 preserved source records / 53 exact
+excerpts, classical 16 capture hashes / 8 in-memory PDF derivations /
+56 excerpts, and RL 17 request/result bindings / 71 excerpts. These are
+reused source-worker checks, not new source reads. Actual supporting text
+and fetched URLs are in the ledgers/catalog; each domain's batch-3 notice
+points to the retained provenance and excerpt records. Source edition,
+metadata and HTTP-status limitations remain explicit. No new request,
+publication-year substitution or inferred fetch date was introduced.
+arXiv 1812.11103 is the registered **Learning to Walk via Deep Reinforcement
+Learning**, not the old supplied “SAC Applications” label.
+
+Original manipulation line 93 and RL ordinal 8 support their **already
+corrected** article accounts; they do not prove the historical erroneous
+quotations. ACT's numeric ablation remains simulated and disables temporal
+ensembling. Minitaur's approximate control-step/wall-time derivation and
+QT-Opt's grasp-attempt/total-robot-hour quantities retain distinct units.
+The other 22 classical and 8 RL prepared rows stay blocked; manipulation
+retains 11 applicable incomplete rows plus 10 outside its document scope.
+Known source conflicts, metadata problems, DAgger bounds, the held frontier
+850 mm qualifier and separately owned ACT temporal-ensembling direction
+are not resolved or reassigned by this checkpoint.
+
+Production MDX, citation registry, code, tests, article `lastReviewed`,
+immutable baseline and approval records are unchanged. Existing 117-test,
+typecheck and lint results at `0946948` remain reusable for unchanged code;
+they are not presented as new runs. No build, browser/export, full-unit
+corpus or citation-network check is duplicated at this known-red checkpoint.
+Independent Sol/high scrutiny, required user testing and complete release
+evidence remain outstanding. No push, feature advancement or acceptance.
+
+Batch-3 application, preservation and actual command/exit/log receipts:
+
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/integration-batch3/`
+
+### Historical integration batch 2 structured-record counts (2026-09-06)
 
 Counting unit: parsed article claim rows, **not** source documents, historical
 verdicts, datasets or citation-registry entries.

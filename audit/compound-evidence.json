@@ -108,5 +108,288 @@
     "planReview": null,
     "evidence": [],
     "adjudications": []
+  },
+  {
+    "id": "bc-foundations-claim-7-source-recovery",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "bc-foundations",
+    "rowOrdinal": 7,
+    "originalCellsDigest": "3b9df8617baacd6d544f25b760a7a22138a1f75bd5e783a8e710a972e2bca709",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "act-pausing",
+        "text": "ACT documents indefinite robot pauses in evaluated prior policies and attributes their poor performance to compounding errors and non-Markovian demonstration behavior.",
+        "requiredCitationIds": [
+          "act-aloha-2023"
+        ]
+      },
+      {
+        "id": "dp-pausing",
+        "text": "Diffusion Policy documents single-step policies overfitting to demonstration pauses, with BC-RNN and IBC getting stuck when idle actions remain in training.",
+        "requiredCitationIds": [
+          "diffusion-policy-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+      "rationale": "Agent plan review against unchanged original cells and current article context: Both documents are required; one source cannot certify the conjunction. No claim that every freeze has one cause. Parts retain the entire named conjunction and qualifications, including causal pause attribution or all mechanism/burden/date requirements as applicable. This is not human approval or P1 acceptance.",
+      "planDigest": "5bdbf562ebc3214f6485d93ff26813ca95786bc2a624a705500baa40283b0666"
+    },
+    "evidence": [
+      {
+        "partId": "act-pausing",
+        "citationId": "act-aloha-2023",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2304.13705",
+        "supportingPassage": "As a detailed comparison with prior methods, we report the average success rate in Table [I](https://ar5iv.labs.arxiv.org/html/2304.13705#S4.T1 \"TABLE I ‣ IV-C Implementing ACT ‣ IV Action Chunking with Transformers ‣ Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware\") for two simulated and two real tasks.\nFor simulated tasks, we average performance across 3 random seeds with 50 trials each. We report the success rate on both scripted data (left of separation bar) and human data (right of separation bar).\nFor real-world tasks, we run one seed and evaluate with 25 trials. ACT achieves the highest success rate compared to all prior methods, outperforming the second best algorithm by a large margin on each task.\nFor the two simulated tasks with scripted or human data, ACT outperforms the best previous method in success rate by 59%, 49%, 29%, and 20%.\nWhile previous methods are able to make progress in the first two subtasks, the final success rate remains low, below 30%.\nFor the two real-world tasks Slide Ziploc and Slot Battery, ACT achieves 88% and 96% final success rates respectively, with other methods making no progress past the first stage.\nWe attribute the poor performance of prior methods to compounding errors and non-Markovian behavior in the data: the behavior degrades significantly towards the end of an episode, and the robot can pause indefinitely for certain states.\nACT mitigates both issues with action chunking. Our ablations in Subsection [VI-A](https://ar5iv.labs.arxiv.org/html/2304.13705#S6.SS1 \"VI-A Action Chunking and Temporal Ensembling ‣ VI Ablations ‣ Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware\") also shows that chunking can significantly improve these prior methods when incorporated.\nIn addition, we notice a drop in performance for all methods when switching from scripted data to human data in simulated tasks: the stochasticity and multi-modality of human demonstrations make imitation learning a lot harder."
+      },
+      {
+        "partId": "dp-pausing",
+        "citationId": "diffusion-policy-2023",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2303.04137",
+        "supportingPassage": "### 4.3 Benefits of Action-Sequence Prediction\n\nSequence prediction is often avoided in most policy learning methods due to the difficulties in effectively sampling from high-dimensional output spaces. For example, IBC would struggle in effectively sampling high-dimensional action space with a non-smooth energy landscape. Similarly, BC-RNN and BET would have difficulty specifying the number of modes that exist in the action distribution (needed for GMM or k-means steps).\n\nIn contrast, DDPM scales well with output dimensions without sacrificing the expressiveness of the model, as demonstrated in many image generation applications. Leveraging this capability, Diffusion Policy represents action in the form of a high-dimensional action sequence, which naturally addresses the following issues:\n\n- •\n\n\nTemporal action consistency: Take Fig [3](https://ar5iv.labs.arxiv.org/html/2303.04137#S4.F3 \"Figure 3 ‣ 4.1 Model Multi-Modal Action Distributions ‣ 4 Intriguing Properties of Diffusion Policy ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion\") as an example. To push the T block into the target from the bottom, the policy can go around the T block from either left or right. However, suppose each action in the sequence is predicted as independent multimodal distributions (as done in BC-RNN and BET). In that case, consecutive actions could be drawn from different modes, resulting in jittery actions that alternate between the two valid trajectories.\n\n- •\n\n\nRobustness to idle actions: Idle actions occur when a demonstration is paused and results in sequences of identical positional actions or near-zero velocity actions. It is common during teleoperation and is sometimes required for tasks like liquid pouring. However, single-step policies can easily overfit to this pausing behavior. For example, BC-RNN and IBC often get stuck in real-world experiments when the idle actions are not explicitly removed from training."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "act-pausing",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+        "rationale": "Agent/source-auditor review reusing the completed manipulation packet’s exact preserved source excerpts and successful provenance checks. The preserved ACT results passage explicitly connects the observed indefinite pauses with non-Markovian data and compounding errors; this is the authors’ diagnosis in their evaluated settings, not a universal cause of every robot freeze.",
+        "evidenceDigest": "7cc311f9330bc2da1fe915c9c23a3bd78a056460ad54f08c4dc8ed9aaf181d70"
+      },
+      {
+        "partId": "dp-pausing",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+        "rationale": "Agent/source-auditor review reusing the completed manipulation packet’s exact preserved source excerpts and successful provenance checks. Section 4.3 explicitly describes idle demonstration actions, single-step overfitting and BC-RNN/IBC getting stuck without idle-action removal; together with ACT this covers the original two-source pause claim.",
+        "evidenceDigest": "e279e723b98f64b5d29cd433dae67d9e5e3e520f8e2501c5f9a9737dcb47020f"
+      }
+    ]
+  },
+  {
+    "id": "bc-foundations-claim-11-source-recovery",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "bc-foundations",
+    "rowOrdinal": 11,
+    "originalCellsDigest": "239a93d9c8e578ad4bd41e4db7f1c8a22b3e4a67c363911be05523cc34b5945b",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "visited-state-labels",
+        "text": "Classic DAgger requests an expert action at policy-visited states, including states induced by the learned policy’s mistakes.",
+        "requiredCitationIds": [
+          "dagger-2011"
+        ]
+      },
+      {
+        "id": "human-control-limit",
+        "text": "Human DAgger labeling without control authority is limited by perceived actuator lag and degraded label quality.",
+        "requiredCitationIds": [
+          "hg-dagger-2019"
+        ]
+      },
+      {
+        "id": "annotation-burden",
+        "text": "Labeling such arbitrary visited states is time-consuming and unnatural for a human using a teleoperation interface.",
+        "requiredCitationIds": [
+          "act-aloha-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+      "rationale": "Agent plan review against unchanged original cells and current article context: Three document-bound parts cover the mechanism and burden. ACT is additional corroboration from the existing frontmatter source set; no empirical latency number is invented. Needs an explicitly reviewed product plan before application. Parts retain the entire named conjunction and qualifications, including causal pause attribution or all mechanism/burden/date requirements as applicable. This is not human approval or P1 acceptance.",
+      "planDigest": "6d3fcfb2fadd298360105294186011909dbdfe60e9cee76cbe22fe1362a98a9b"
+    },
+    "evidence": [
+      {
+        "partId": "visited-state-labels",
+        "citationId": "dagger-2011",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/1011.0686",
+        "supportingPassage": "Get dataset 𝒟i={(s,π∗​(s))}\\\\mathcal{D}\\_{i}=\\\\{(s,\\\\pi^{\\*}(s))\\\\} of visited states by πi\\\\pi\\_{i} and actions given by expert."
+      },
+      {
+        "partId": "human-control-limit",
+        "citationId": "hg-dagger-2019",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/1810.02890",
+        "supportingPassage": "###### Abstract\n\nImitation learning has proven to be useful for many real-world problems, but approaches such as behavioral cloning suffer from data mismatch and compounding error issues. One attempt to address these limitations is the DAgger algorithm, which uses the state distribution induced by the novice to sample corrective actions from the expert. Such sampling schemes, however, require the expert to provide action labels without being fully in control of the system. This can decrease safety and, when using humans as experts, is likely to degrade the quality of the collected labels due to perceived actuator lag. In this work, we propose HG-DAgger, a variant of DAgger that is more suitable for interactive imitation learning from human experts in real-world systems. In addition to training a novice policy, HG-DAgger also learns a safety threshold for a model-uncertainty-based risk metric that can be used to predict the performance of the fully trained novice in different regions of the state space. We evaluate our method on both a simulated and real-world autonomous driving task, and demonstrate improved performance over both DAgger and behavioral cloning.\n\n[Separate excerpt from the same retrieved document]\n\n## II Methods\n\nWe are motivated by the assumption that higher quality action labels can be acquired when the human expert is given stretches of uninterrupted control authority. Other methods hand off control stochastically at each time-step, or require that the human expert retroactively provide corrective action labels to states visited by the novice. Instead, we allow the human expert to take control when they deem it necessary and to maintain exclusive control authority until they manually hand control back to the novice policy.\n\nUsing nomenclature borrowed from the hierarchical RL literature, we refer to this human supervisor as a gating function, which decides whether the expert or novice “sub-policy” should be in control at a given moment. For this reason, we call our algorithm Human-Gated DAgger (HG-DAgger). Fig. [1](https://ar5iv.labs.arxiv.org/html/1810.02890#S1.F1 \"Figure 1 ‣ I Introduction ‣ HG-DAgger: Interactive Imitation Learning with Human Experts\") illustrates this control scheme.\n\nLike other DAgger variants, HG-DAgger trains a sequence of novice policies on a training data set 𝒟\\\\mathcal{D}, which is iteratively augmented with additional expert labels collected during repeated data-gathering rollouts of a combined expert-novice system. Unlike other DAgger variants, however, the gating function employed by HG-DAgger is controlled directly by the expert. In HG-DAgger, the novice policy is rolled out until the expert observes that the novice has entered an unsafe region of the state space.\nThe expert takes control and guides the system back to a safe and stable region of the state space. Expert action labels are only collected and added to 𝒟\\\\mathcal{D} during these recovery trajectories, during which the human expert has uninterrupted control of the system. Once in a safe region, control is returned to the novice."
+      },
+      {
+        "partId": "annotation-burden",
+        "citationId": "act-aloha-2023",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2304.13705",
+        "supportingPassage": "A major shortcoming of BC is compounding errors, where errors from previous timesteps accumulate and cause the robot to drift off of its training distribution, leading to hard-to-recover states \\[ [47](https://ar5iv.labs.arxiv.org/html/2304.13705#bib.bib47 \"\"), [64](https://ar5iv.labs.arxiv.org/html/2304.13705#bib.bib64 \"\")\\].\nThis problem is particularly prominent in the fine manipulation setting \\[ [29](https://ar5iv.labs.arxiv.org/html/2304.13705#bib.bib29 \"\")\\].\nOne way to mitigate compounding errors is to allow additional on-policy interactions and expert corrections, such as DAgger \\[ [47](https://ar5iv.labs.arxiv.org/html/2304.13705#bib.bib47 \"\")\\] and its variants \\[ [30](https://ar5iv.labs.arxiv.org/html/2304.13705#bib.bib30 \"\"), [40](https://ar5iv.labs.arxiv.org/html/2304.13705#bib.bib40 \"\"), [24](https://ar5iv.labs.arxiv.org/html/2304.13705#bib.bib24 \"\")\\].\nHowever, expert annotation can be time-consuming and unnatural with a teleoperation interface \\[ [29](https://ar5iv.labs.arxiv.org/html/2304.13705#bib.bib29 \"\")\\]."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "visited-state-labels",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+        "rationale": "Agent/source-auditor review reusing the completed manipulation packet’s exact preserved source excerpts and successful provenance checks. The preserved DAgger collection step labels the policy-visited state dataset with expert actions. This is not certification of the separate unqualified task-cost bound.",
+        "evidenceDigest": "b6745ec0c7e69be2c64fccac65d2fb14c30d94cc68c2186633ba4fdc787a1130"
+      },
+      {
+        "partId": "human-control-limit",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+        "rationale": "Agent/source-auditor review reusing the completed manipulation packet’s exact preserved source excerpts and successful provenance checks. HG-DAgger supplies the human-control and perceived-lag limitation. Its unresolved publication-venue metadata is kept in P1, not asserted as resolved by this mechanism evidence.",
+        "evidenceDigest": "c7765e3c38c0b0e775a0dabe2a46d6dbb0b77203021e6ead6c6c4d8214be3390"
+      },
+      {
+        "partId": "annotation-burden",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+        "rationale": "Agent/source-auditor review reusing the completed manipulation packet’s exact preserved source excerpts and successful provenance checks. ACT explicitly calls this annotation time-consuming and unnatural with a teleoperation interface, covering the burden words not established by DAgger alone. No empirical latency number is inferred.",
+        "evidenceDigest": "ed548d7d2b1b1a2f41077a7b684eca508e2f70fe492518520042d0894718a2ef"
+      }
+    ]
+  },
+  {
+    "id": "bc-foundations-claim-13-source-recovery",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "bc-foundations",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "fdb101b54553cc4cdd21e4b697b83afe093ff9ff40b6978a52ee230004d100a4",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "dagger-pattern",
+        "text": "The earlier DAgger corrective-data pattern aggregates expert actions for policy-visited states.",
+        "requiredCitationIds": [
+          "dagger-2011"
+        ]
+      },
+      {
+        "id": "fourteen-year-interval",
+        "text": "The DAgger AISTATS 2011 date and the Recap blog’s 2025 date differ by fourteen calendar years.",
+        "requiredCitationIds": [
+          "dagger-2011",
+          "pistar06-blog-2025"
+        ]
+      },
+      {
+        "id": "recap-coaching",
+        "text": "Recap coaching uses human teleoperator takeovers to correct mistake states visited by the current robot policy and further train its vision-language-action policy.",
+        "requiredCitationIds": [
+          "pistar06-blog-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+      "rationale": "Agent plan review against unchanged original cells and current article context: An analogy between corrective-data patterns, not a claim that Recap and DAgger are identical algorithms. Timeline and mechanism retain distinct paired sources. Parts retain the entire named conjunction and qualifications, including causal pause attribution or all mechanism/burden/date requirements as applicable. This is not human approval or P1 acceptance.",
+      "planDigest": "32cd4a0e5177b8ec3de22763977da19f6fbd1e7803747be2395d477b78a49652"
+    },
+    "evidence": [
+      {
+        "partId": "dagger-pattern",
+        "citationId": "dagger-2011",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/1011.0686",
+        "supportingPassage": "Get dataset 𝒟i={(s,π∗​(s))}\\\\mathcal{D}\\_{i}=\\\\{(s,\\\\pi^{\\*}(s))\\\\} of visited states by πi\\\\pi\\_{i} and actions given by expert."
+      },
+      {
+        "partId": "fourteen-year-interval",
+        "citationId": "dagger-2011",
+        "sourceUrl": "https://arxiv.org/abs/1011.0686",
+        "supportingPassage": "\\[Submitted on 2 Nov 2010 ( [v1](https://arxiv.org/abs/1011.0686v1)), last revised 16 Mar 2011 (this version, v3)\\]\n\n# Title:A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning\n\nAuthors: [Stephane Ross](https://arxiv.org/search/cs?searchtype=author&query=Ross,+S), [Geoffrey J. Gordon](https://arxiv.org/search/cs?searchtype=author&query=Gordon,+G+J), [J. Andrew Bagnell](https://arxiv.org/search/cs?searchtype=author&query=Bagnell,+J+A)\n\nView a PDF of the paper titled A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning, by Stephane Ross and 2 other authors\n\n[View PDF](https://arxiv.org/pdf/1011.0686) [HTML (experimental)](https://arxiv.org/html/1011.0686v3)\n\n> Abstract:Sequential prediction problems such as imitation learning, where future observations depend on previous predictions (actions), violate the common i.i.d. assumptions made in statistical learning. This leads to poor performance in theory and often in practice. Some recent approaches provide stronger guarantees in this setting, but remain somewhat unsatisfactory as they train either non-stationary or stochastic policies and require a large number of iterations. In this paper, we propose a new iterative algorithm, which trains a stationary deterministic policy, that can be seen as a no regret algorithm in an online learning setting. We show that any such no regret algorithm, combined with additional reduction assumptions, must find a policy with good performance under the distribution of observations it induces in such sequential settings. We demonstrate that this new approach outperforms previous approaches on two challenging imitation learning problems and a benchmark sequence labeling problem.\n\n|     |     |\n| --- | --- |\n| Comments: | Appearing in the 14th International Conference on Artificial Intelligence and Statistics (AISTATS 2011) |\n| Subjects: | Machine Learning (cs.LG); Artificial Intelligence (cs.AI); Machine Learning (stat.ML) |\n| Cite as: | [arXiv:1011.0686](https://arxiv.org/abs/1011.0686) \\[cs.LG\\] |\n|  | (or [arXiv:1011.0686v3](https://arxiv.org/abs/1011.0686v3) \\[cs.LG\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.1011.0686](https://doi.org/10.48550/arXiv.1011.0686)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+      },
+      {
+        "partId": "fourteen-year-interval",
+        "citationId": "pistar06-blog-2025",
+        "sourceUrl": "https://www.pi.website/blog/pistar06",
+        "supportingPassage": "# π\\*0.6: a VLA that Learns from Experience\n\nPublished\n\nNovember 17, 2025\n\nEmail\n\nresearch@physicalintelligence.companyAli Amin, Raichelle Aniceto, Ashwin Balakrishna, Kevin Black, Ken Conley, Grace Connors, James Darpinian, Karan Dhabalia, Jared DiCarlo, Danny Driess, Michael Equi, Adnan Esmail, Yunhao Fang, Chelsea Finn, Catherine Glossop, Thomas Godden, Ivan Goryachev, Lachy Groom, Hunter Hancock, Karol Hausman, Gashon Hussein, Brian Ichter, Szymon Jakubczak, Rowan Jen, Tim Jones, Ben Katz, Liyiming Ke, Chandra Kuchi, Marinda Lamb, Devin LeBlanc, Sergey Levine, Adrian Li-Bell, Yao Lu, Vishnu Mano, Mohith Mothukuri, Suraj Nair, Karl Pertsch, Allen Z. Ren, Charvi Sharma, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, Will Stoeckle, Alex Swerdlow, James Tanner, Marcel Torne, Quan Vuong, Anna Walling, Haohuan Wang, Blake Williams, Sukwon Yoo, Lili Yu, Ury Zhilinsky, Zhiyuan Zhou"
+      },
+      {
+        "partId": "recap-coaching",
+        "citationId": "pistar06-blog-2025",
+        "sourceUrl": "https://www.pi.website/blog/pistar06",
+        "supportingPassage": "### Coaching with corrections and practicing with reinforcement\n\nRecap enables two ways to get good training signals from \"bad\" experiential data: _coaching_ to provide corrections, where an expert shows the robot how it can fix a mistake or do better, and _reinforcement learning_, where the robot judges for itself which of its behaviors were better or worse based on the overall outcome of an episode, and iteratively learns to perform the good behaviors while avoiding the bad ones.\n\nFor coaching to be useful, an expert teleoperator needs to provide corrections showing how to recover from the mistakes that the robot actually makes in the real world. In practice, this means running our best current policy and \"taking over\" with manual teleoperation when the robot makes a mistake. This intervention can be used as supervision, but unlike the demonstrations used to train the original policy, the intervention provides supervision for the situations that the policy actually puts the robot into, addressing the compounding mistakes issue.\n\n[Separate excerpt from the same retrieved document]\n\nWe studied three applications: making espresso drinks, folding diverse laundry, and assembling boxes for packaging. The first stage of Recap is to pre-train the π\\*0.6 model with offline RL, in contrast to the standard supervised learning method used by the base π0.6 and π0.5 VLAs. From here, we fine-tune π\\*0.6 to each task with demonstrations, and then train it further with RL using additional data collected on the robot, with both expert-provided corrections to fix large mistakes and feedback from rewards to improve from autonomous experience."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "dagger-pattern",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+        "rationale": "Agent/source-auditor review reusing the completed manipulation packet’s exact preserved source excerpts and successful provenance checks. DAgger supplies the visited-state expert-label pattern used for the article’s analogy, not an equivalence between DAgger and Recap algorithms.",
+        "evidenceDigest": "5143fb8c7e88dba325fa6c3db9f8d9679a04dc3f7cd3fcc83c6db0a6d69abac4"
+      },
+      {
+        "partId": "fourteen-year-interval",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+        "rationale": "Agent/source-auditor review reusing the completed manipulation packet’s exact preserved source excerpts and successful provenance checks. Both separately paired date sources are required: 2025 - 2011 = 14 calendar years. This is not a precise anniversary-duration measurement or a complete byline check.",
+        "evidenceDigest": "fad41678dbc8633f9cc7ee9c1c6ed30ffca4f4e930973520f33f90d5ede7d7ae"
+      },
+      {
+        "partId": "recap-coaching",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+        "rationale": "Agent/source-auditor review reusing the completed manipulation packet’s exact preserved source excerpts and successful provenance checks. The dated primary blog describes running the current policy, manual takeovers at mistakes and further VLA training. The known Gashon/Gashun registry discrepancy remains unresolved P1 evidence.",
+        "evidenceDigest": "279fa451b34523779a37c55cb8e0cf9c9e3650b910b59513dca3055e2331f193"
+      }
+    ]
+  },
+  {
+    "id": "action-chunking-claim-16-source-recovery",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 16,
+    "originalCellsDigest": "7249cec10c06ea952c343e6b58fabf8f3067bf9484a13d9539ac40e31ca123fd",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "act-pausing",
+        "text": "ACT documents indefinite robot pauses in evaluated prior policies and attributes their poor performance to compounding errors and non-Markovian demonstration behavior.",
+        "requiredCitationIds": [
+          "act-aloha-2023"
+        ]
+      },
+      {
+        "id": "dp-pausing",
+        "text": "Diffusion Policy documents single-step policies overfitting to demonstration pauses, with BC-RNN and IBC getting stuck when idle actions remain in training.",
+        "requiredCitationIds": [
+          "diffusion-policy-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+      "rationale": "Agent plan review against unchanged original cells and current article context: Complete source pairing for the two-paper pausing comparison, keeping each paper experimental context. Parts retain the entire named conjunction and qualifications, including causal pause attribution or all mechanism/burden/date requirements as applicable. This is not human approval or P1 acceptance.",
+      "planDigest": "e8d5e0b67007da2d3d5bfc6f379cd48bf44b0eed84c5a29330b41b8a996b10eb"
+    },
+    "evidence": [
+      {
+        "partId": "act-pausing",
+        "citationId": "act-aloha-2023",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2304.13705",
+        "supportingPassage": "As a detailed comparison with prior methods, we report the average success rate in Table [I](https://ar5iv.labs.arxiv.org/html/2304.13705#S4.T1 \"TABLE I ‣ IV-C Implementing ACT ‣ IV Action Chunking with Transformers ‣ Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware\") for two simulated and two real tasks.\nFor simulated tasks, we average performance across 3 random seeds with 50 trials each. We report the success rate on both scripted data (left of separation bar) and human data (right of separation bar).\nFor real-world tasks, we run one seed and evaluate with 25 trials. ACT achieves the highest success rate compared to all prior methods, outperforming the second best algorithm by a large margin on each task.\nFor the two simulated tasks with scripted or human data, ACT outperforms the best previous method in success rate by 59%, 49%, 29%, and 20%.\nWhile previous methods are able to make progress in the first two subtasks, the final success rate remains low, below 30%.\nFor the two real-world tasks Slide Ziploc and Slot Battery, ACT achieves 88% and 96% final success rates respectively, with other methods making no progress past the first stage.\nWe attribute the poor performance of prior methods to compounding errors and non-Markovian behavior in the data: the behavior degrades significantly towards the end of an episode, and the robot can pause indefinitely for certain states.\nACT mitigates both issues with action chunking. Our ablations in Subsection [VI-A](https://ar5iv.labs.arxiv.org/html/2304.13705#S6.SS1 \"VI-A Action Chunking and Temporal Ensembling ‣ VI Ablations ‣ Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware\") also shows that chunking can significantly improve these prior methods when incorporated.\nIn addition, we notice a drop in performance for all methods when switching from scripted data to human data in simulated tasks: the stochasticity and multi-modality of human demonstrations make imitation learning a lot harder."
+      },
+      {
+        "partId": "dp-pausing",
+        "citationId": "diffusion-policy-2023",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2303.04137",
+        "supportingPassage": "### 4.3 Benefits of Action-Sequence Prediction\n\nSequence prediction is often avoided in most policy learning methods due to the difficulties in effectively sampling from high-dimensional output spaces. For example, IBC would struggle in effectively sampling high-dimensional action space with a non-smooth energy landscape. Similarly, BC-RNN and BET would have difficulty specifying the number of modes that exist in the action distribution (needed for GMM or k-means steps).\n\nIn contrast, DDPM scales well with output dimensions without sacrificing the expressiveness of the model, as demonstrated in many image generation applications. Leveraging this capability, Diffusion Policy represents action in the form of a high-dimensional action sequence, which naturally addresses the following issues:\n\n- •\n\n\nTemporal action consistency: Take Fig [3](https://ar5iv.labs.arxiv.org/html/2303.04137#S4.F3 \"Figure 3 ‣ 4.1 Model Multi-Modal Action Distributions ‣ 4 Intriguing Properties of Diffusion Policy ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion\") as an example. To push the T block into the target from the bottom, the policy can go around the T block from either left or right. However, suppose each action in the sequence is predicted as independent multimodal distributions (as done in BC-RNN and BET). In that case, consecutive actions could be drawn from different modes, resulting in jittery actions that alternate between the two valid trajectories.\n\n- •\n\n\nRobustness to idle actions: Idle actions occur when a demonstration is paused and results in sequences of identical positional actions or near-zero velocity actions. It is common during teleoperation and is sometimes required for tasks like liquid pouring. However, single-step policies can easily overfit to this pausing behavior. For example, BC-RNN and IBC often get stuck in real-world experiments when the idle actions are not explicitly removed from training."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "act-pausing",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+        "rationale": "Agent/source-auditor review reusing the completed manipulation packet’s exact preserved source excerpts and successful provenance checks. The preserved ACT results passage explicitly connects the observed indefinite pauses with non-Markovian data and compounding errors; this is the authors’ diagnosis in their evaluated settings, not a universal cause of every robot freeze.",
+        "evidenceDigest": "535311a4e2510568de464a2a33ba37ec389b5a48398ce5afcfb8c8624d7c2bfc"
+      },
+      {
+        "partId": "dp-pausing",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation agent/source-auditor, session 8683abf4-26f3-4a7f-94dc-1469ce93be89; not independent validation or human approval",
+        "rationale": "Agent/source-auditor review reusing the completed manipulation packet’s exact preserved source excerpts and successful provenance checks. Section 4.3 explicitly describes idle demonstration actions, single-step overfitting and BC-RNN/IBC getting stuck without idle-action removal; together with ACT this covers the original two-source pause claim.",
+        "evidenceDigest": "2e60d57a49d558e20c31f6a6f8a9c6b19284a5855399602db31583d1bb05ee11"
+      }
+    ]
   }
 ]
