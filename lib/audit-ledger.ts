@@ -80,12 +80,11 @@ export interface LedgerSection {
   readonly claimRows: number;
   /** Claim texts whose "Source checked" cell is empty. */
   readonly unsourcedRows: readonly string[];
-  /**
-   * Rows that carry a source cell but no per-claim evidence anywhere in the
-   * row: no citation-registry id, no locator, no quoted passage or passage
-   * pointer, no named document, and no declared non-fetch basis.
-   */
+  /** Rows missing any required, separately recorded evidence field. */
   readonly unevidencedRows: readonly { claim: string; source: string }[];
+  readonly claimRecords: readonly ClaimRecord[];
+  /** Domain-level summary errors, attached once to the first section. */
+  readonly summaryFailures: readonly string[];
   /** How many rows carry each kind of evidence, for non-vacuity. */
   readonly evidenceKinds: Readonly<Record<string, number>>;
   /**
@@ -107,7 +106,8 @@ export type CoverageFailureKind =
   | 'unsourced-claim'
   | 'unevidenced-claim'
   | 'unresolved-claim'
-  | 'unverdicted-claim';
+  | 'unverdicted-claim'
+  | 'ledger-summary-mismatch';
 
 export interface CoverageFailure {
   readonly kind: CoverageFailureKind;
@@ -289,15 +289,10 @@ const LOCATOR_PATTERNS = [
 ];
 
 /**
- * Whether a `Source checked` cell names evidence rather than a placeholder.
- *
- * The gate used to accept any non-empty cell, so "tbd", "see above" and a
- * stray dash were all a sourced claim. A row now has to carry at least one
- * of the three things the ledgers themselves say a row carries: the
- * citation-registry id the article cites, a locator for the document that
- * was fetched, or an explicit non-fetch basis.
+ * Legacy-pointer triage for recovering incomplete records. This weak
+ * classifier supplies NO required field and can never make a row pass.
  */
-export function claimEvidence(
+function legacyEvidencePointer(
   source: string,
   registryIds: ReadonlySet<string>,
 ): {
@@ -368,6 +363,63 @@ const PASSAGE_POINTER =
 const DOCUMENT_NAME =
   /(?:\bpaper\b|\breport\b|\bpreprint\b|\bstandard\b|\bmanual\b|\bdocs?\b|\bpage\b|\bblog\b|\brelease\b|\bcard\b|["“][^"”]{4,}["”]|\b[A-Z][A-Za-z0-9-]*(?:\s+[A-Z][A-Za-z0-9-]*)*\b|π\d)/;
 
+export type ClaimEvidence = {
+  readonly citationId: string;
+  readonly sourceUrl: string;
+  readonly supportingPassage: string;
+};
+
+export type ClaimRecord = ClaimEvidence & {
+  readonly claim: string;
+  readonly line: number;
+  readonly sourceChecked: string;
+  readonly note: string;
+  readonly verdict: string;
+  readonly outcome: VerdictClass;
+  readonly evidenceFailures: readonly string[];
+  /** A lead for recovery, never evidence or an exemption. */
+  readonly legacyPointer: ReturnType<typeof legacyEvidencePointer>;
+};
+
+/** Structural completeness, not proof that the passage supports the claim. */
+export function claimEvidence(
+  fields: ClaimEvidence,
+  registryIds: ReadonlySet<string>,
+): string[] {
+  const failures: string[] = [];
+  if (!registryIds.has(fields.citationId)) {
+    failures.push('Citation ID must name exactly one registered source');
+  }
+  try {
+    const url = new URL(fields.sourceUrl);
+    if (
+      !['http:', 'https:'].includes(url.protocol) ||
+      url.username || url.password || /\s/.test(fields.sourceUrl)
+    ) {
+      throw new Error('not an uncredentialed HTTP(S) source URL');
+    }
+  } catch {
+    failures.push('Source URL fetched must be a complete HTTP(S) URL');
+  }
+  if (
+    fields.supportingPassage.trim() === '' ||
+    /^(?:[-–—]+|n\/a|none|tbd|verbatim|see (?:above|source)|same (?:page|source)|not (?:recorded|available)|https?:\/\/\S+|abstract|readme|(?:sec(?:tion)?\.?|table|fig(?:ure)?\.?|chapter|p{1,2}\.)\s*[\dIVXA-Z.-]+)\.?$/i.test(fields.supportingPassage)
+  ) {
+    failures.push('Supporting passage must contain the passage actually read, not a locator or placeholder');
+  }
+  return failures;
+}
+
+function evidenceFields(header: readonly string[], row: readonly string[]): ClaimEvidence {
+  const cell = (name: string) =>
+    row[header.findIndex((value) => value.toLowerCase() === name)]?.trim() ?? '';
+  return {
+    citationId: cell('citation id').replace(/^`([^`]+)`$/, '$1'),
+    sourceUrl: cell('source url fetched').replace(/^<([^>]+)>$/, '$1'),
+    supportingPassage: cell('supporting passage'),
+  };
+}
+
 /**
  * Parse one domain ledger into one record per audited article.
  *
@@ -388,11 +440,13 @@ export function parseLedger(
   const recorded = new Map<string, number>();
   const unevidenced = new Map<string, { claim: string; source: string }[]>();
   const evidenceKinds = new Map<string, Record<string, number>>();
+  const records = new Map<string, ClaimRecord[]>();
 
   let slug: string | null = null;
   let header: string[] | null = null;
 
-  for (const line of markdown.replace(/\r\n/g, '\n').split('\n')) {
+  const lines = markdown.replace(/\r\n/g, '\n').split('\n');
+  for (const [lineIndex, line] of lines.entries()) {
     const heading = ARTICLE_HEADING.exec(line);
     if (heading) {
       slug = heading[1];
@@ -406,6 +460,7 @@ export function parseLedger(
         recorded.set(slug, 0);
         unevidenced.set(slug, []);
         evidenceKinds.set(slug, {});
+        records.set(slug, []);
       }
       continue;
     }
@@ -421,7 +476,7 @@ export function parseLedger(
       continue;
     }
     if (TABLE_SEPARATOR.test(line.trim())) continue;
-    if (header === null) {
+    if (header === null || TABLE_SEPARATOR.test(lines[lineIndex + 1]?.trim() ?? '')) {
       header = cells(line);
       continue;
     }
@@ -431,47 +486,41 @@ export function parseLedger(
     rows.set(slug, (rows.get(slug) ?? 0) + 1);
     if (source === '') {
       unsourced.get(slug)?.push(claim);
+    }
+    const fields = evidenceFields(header, row);
+    const evidenceFailures = claimEvidence(fields, registryIds);
+    if (claim === '') evidenceFailures.push('Claim text must not be empty');
+    if (evidenceFailures.length > 0) {
+      unevidenced.get(slug)?.push({ claim, source });
     } else {
-      // The evidence a row carries is not confined to one cell: the source
-      // column says which document was read, and the note column usually
-      // holds the passage that settles the claim. The row as a whole has to
-      // name something, or the check it records cannot be repeated.
-      const noteIndex = noteColumn(header);
-      const evidence = claimEvidence(
-        [source, claim, noteIndex === -1 ? '' : (row[noteIndex] ?? '')].join(
-          ' ~ ',
-        ),
-        registryIds,
-      );
-      if (evidence === null) {
-        unevidenced.get(slug)?.push({ claim, source });
-      } else {
-        const counts = evidenceKinds.get(slug) ?? {};
-        counts[evidence.kind] = (counts[evidence.kind] ?? 0) + 1;
-        evidenceKinds.set(slug, counts);
+      const counts = evidenceKinds.get(slug)!;
+      for (const kind of ['citation-id', 'locator', 'passage']) {
+        counts[kind] = (counts[kind] ?? 0) + 1;
       }
     }
+    const noteIndex = noteColumn(header);
+    const note = noteIndex === -1 ? '' : (row[noteIndex] ?? '');
+    const verdictIndex = verdictColumn(header);
+    const verdict = row[verdictIndex] ?? '';
+    const outcome = classifyVerdict(verdict, { source, note });
+    records.get(slug)?.push({
+      claim, line: lineIndex + 1, verdict, outcome, ...fields, evidenceFailures,
+      sourceChecked: source, note,
+      legacyPointer: legacyEvidencePointer([source, claim, note].join(' ~ '), registryIds),
+    });
     // The verdict, which nothing used to read. The reconciliation counted
     // a row that says "UNRESOLVED - could not check" exactly as it counted
     // a row that says "verified", so unresolved work was reported as
     // completed coverage by the gate that was supposed to prove it.
-    const verdictIndex = verdictColumn(header);
     if (verdictIndex === -1) {
       unverdicted.get(slug)?.push(claim);
       continue;
     }
-    const verdict = row[verdictIndex] ?? '';
     if (verdict.replace(/\*+/g, '').trim() === '') {
       unverdicted.get(slug)?.push(claim);
       continue;
     }
-    const noteIndex = noteColumn(header);
-    switch (
-      classifyVerdict(verdict, {
-        source,
-        note: noteIndex === -1 ? '' : (row[noteIndex] ?? ''),
-      })
-    ) {
+    switch (outcome) {
       case 'passing':
         break;
       case 'recorded-inconsistency':
@@ -482,7 +531,7 @@ export function parseLedger(
     }
   }
 
-  return order.map((articleSlug) => ({
+  const sections: LedgerSection[] = order.map((articleSlug) => ({
     slug: articleSlug,
     ledgerPath,
     claimRows: rows.get(articleSlug) ?? 0,
@@ -492,7 +541,65 @@ export function parseLedger(
     recordedInconsistencyRows: recorded.get(articleSlug) ?? 0,
     unevidencedRows: unevidenced.get(articleSlug) ?? [],
     evidenceKinds: evidenceKinds.get(articleSlug) ?? {},
+    claimRecords: records.get(articleSlug) ?? [],
+    summaryFailures: [],
   }));
+  const expected = ledgerSummary(sections);
+  const summaries = [...markdown.matchAll(/<!-- audit-summary:start -->[\s\S]*?<!-- audit-summary:end -->/g)];
+  const outsideSummary = markdown.replace(/<!-- audit-summary:start -->[\s\S]*?<!-- audit-summary:end -->/g, '');
+  const competingSummary = /^#{2,3}\s+(?!Historical:)[^\n]*\bsummary\b/im.test(outsideSummary);
+  if (sections.length > 0 && (summaries.length !== 1 || summaries[0][0] !== expected || competingSummary)) {
+    sections[0] = {
+      ...sections[0],
+      summaryFailures: [
+        `${ledgerPath}: the current ledger summary is missing, duplicated, conflicts with an unlabelled legacy summary, or does not equal the parsed row outcomes; regenerate it without changing claim verdicts or evidence`,
+      ],
+    };
+  }
+  return sections;
+}
+
+/** Deterministic row-unit summary. Missing proof is separate from an auditor's verdict. */
+export function ledgerSummary(sections: readonly LedgerSection[]): string {
+  const records = sections.flatMap((section) => section.claimRecords);
+  const head = (record: ClaimRecord) => record.verdict.replace(/\*+/g, '').trim().toLowerCase();
+  const passing = records.filter((record) => record.outcome === 'passing');
+  const corrected = passing.filter((record) => /^(?:c|corrected)\b/.test(head(record))).length;
+  const cut = passing.filter((record) => /^cut\b/.test(head(record))).length;
+  const incomplete = records.filter((record) => record.evidenceFailures.length > 0).length;
+  return [
+    '<!-- audit-summary:start -->',
+    '## Current ledger summary',
+    '',
+    'Counting unit: parsed claim rows across all article sections, including continuations.',
+    'Recorded verdicts are not proof of source verification. Incomplete evidence fails the audit.',
+    '',
+    `- Articles with records: ${sections.length}`,
+    `- Claim rows: ${records.length}`,
+    `- Recorded verified: ${passing.length - corrected - cut}`,
+    `- Recorded corrected: ${corrected}`,
+    `- Recorded cut: ${cut}`,
+    `- Recorded source inconsistencies: ${records.filter((record) => record.outcome === 'recorded-inconsistency').length}`,
+    `- Unresolved or unrecognised verdicts: ${records.filter((record) => ['unresolved', 'unrecognised'].includes(record.outcome)).length}`,
+    `- Complete evidence records: ${records.length - incomplete}`,
+    `- Incomplete evidence records: ${incomplete}`,
+    '',
+    '<!-- audit-summary:end -->',
+  ].join('\n');
+}
+
+/** Update only accounting prose. Legacy claim rows and verdicts remain verbatim. */
+export function withLedgerSummary(markdown: string, sections: readonly LedgerSection[]): string {
+  if (!/^# [^\n]+\n/.test(markdown)) {
+    throw new Error('the ledger needs a level-one title before inserting its summary');
+  }
+  const narrative = markdown
+    .replace(/<!-- audit-summary:start -->[\s\S]*?<!-- audit-summary:end -->\n*/g, '')
+    .replace(/^#{2,3}\s+(?!Historical:)([^\n]*(?:\bsummary\b|\baddendum\b)[^\n]*)$/gim,
+      (heading, title: string) => `${heading.match(/^#+/)![0]} Historical: ${title}`);
+  const titleEnd = narrative.indexOf('\n');
+  if (titleEnd < 0) throw new Error('the ledger has no title and narrative to summarise');
+  return `${narrative.slice(0, titleEnd)}\n\n${ledgerSummary(sections)}\n\n${narrative.slice(titleEnd + 1).trimStart()}`;
 }
 
 export interface ReconcileInput {
@@ -529,6 +636,9 @@ export function reconcileDomain(input: ReconcileInput): DomainCoverage {
 
   const publishedSet = new Set(published);
   for (const section of sections) {
+    for (const message of section.summaryFailures) {
+      failures.push({ kind: 'ledger-summary-mismatch', domain, message });
+    }
     if (!publishedSet.has(section.slug)) {
       failures.push({
         kind: 'audited-unpublished-article',
@@ -555,7 +665,7 @@ export function reconcileDomain(input: ReconcileInput): DomainCoverage {
       failures.push({
         kind: 'unevidenced-claim',
         domain,
-        message: `${domain}: \`${section.slug}\` records "${source.slice(0, 60)}" as the source for "${claim.slice(0, 90)}", which names no citation id, locator, passage or declared non-fetch basis, so the check cannot be repeated`,
+        message: `${domain}: \`${section.slug}\` records "${source.slice(0, 60)}" as the source for "${claim.slice(0, 90)}", but lacks a complete per-claim Citation ID, Source URL fetched, or Supporting passage; a token elsewhere in the row is not evidence`,
       });
     }
     for (const { claim, verdict } of section.unresolvedRows) {
@@ -592,14 +702,7 @@ export function reconcileDomain(input: ReconcileInput): DomainCoverage {
 }
 
 /**
- * The kinds of per-claim evidence that must each be present somewhere in
- * the corpus.
- *
- * These three are the strong forms: the id of a registry entry, a locator
- * for a document that was fetched, and a passage copied out of it. If the
- * ledgers ever hold none of one of them, either that form has left the
- * ledgers or the classifier has stopped recognising it, and the check has
- * relaxed without anyone deciding to relax it.
+ * Each field must occur on EVERY claim, not somewhere in the corpus.
  */
 const REQUIRED_EVIDENCE_KINDS = ['citation-id', 'locator', 'passage'] as const;
 
@@ -614,11 +717,12 @@ export function summarise(
   }
   const failures = [...coverage.flatMap((domain) => domain.failures)];
   for (const kind of REQUIRED_EVIDENCE_KINDS) {
-    if ((evidenceKinds[kind] ?? 0) === 0) {
+    const claimRows = coverage.reduce((total, domain) => total + domain.claimRows, 0);
+    if (claimRows === 0 || (evidenceKinds[kind] ?? 0) !== claimRows) {
       failures.push({
         kind: 'unevidenced-claim',
         domain: 'all',
-        message: `no claim row in any ledger carries ${kind} evidence, so the per-claim evidence check is deciding over a narrower population than it reports`,
+        message: `${evidenceKinds[kind] ?? 0}/${claimRows} claim rows carry complete ${kind} evidence; every claim requires all three fields`,
       });
     }
   }

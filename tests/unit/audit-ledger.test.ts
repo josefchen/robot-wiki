@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 import {
   AUDIT_LEDGERS,
   classifyVerdict,
+  ledgerSummary,
+  withLedgerSummary,
   parseLedger,
   reconcileDomain,
   summarise,
@@ -44,6 +46,40 @@ const FIVE_COLUMN = `# Frontier audit
 `;
 
 describe('audit ledger parsing', () => {
+  it('requires every distinct citation, fetched URL and passage field on each claim', () => {
+    const registry = new Set(['alvinn-1988', 'dagger-2011']);
+    const markdown = `## behavioral-cloning.mdx
+
+| Claim | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage |
+| --- | --- | --- | --- | --- | --- | --- |
+| ALVINN follows roads | Each fetched during this audit | verified | alvinn-1988 and dagger-2011 were checked | alvinn-1988 | | |
+`;
+    const [section] = parseLedger('audit/manipulation.md', markdown, registry);
+    expect(section.unevidencedRows).toHaveLength(1);
+    const complete = markdown.replace(
+      '| alvinn-1988 | | |',
+      '| alvinn-1988 | https://papers.example/alvinn | ALVINN is a backpropagation network designed for the task of road following. |',
+    );
+    expect(parseLedger('audit/manipulation.md', complete, registry)[0].unevidencedRows).toEqual([]);
+    for (const cell of [
+      'alvinn-1988',
+      'https://papers.example/alvinn',
+      'ALVINN is a backpropagation network designed for the task of road following.',
+    ]) {
+      const missing = complete.replace(`| ${cell} |`, '| |');
+      expect(parseLedger('audit/manipulation.md', missing, registry)[0].unevidencedRows)
+        .toHaveLength(1);
+    }
+    for (const pointer of ['Table III', 'https://papers.example/alvinn', 'verbatim']) {
+      const pointerOnly = complete.replace(
+        'ALVINN is a backpropagation network designed for the task of road following.',
+        pointer,
+      );
+      expect(parseLedger('audit/manipulation.md', pointerOnly, registry)[0].unevidencedRows)
+        .toHaveLength(1);
+    }
+  });
+
   it('reads every article section and its claim rows out of a three-column ledger', () => {
     const sections = parseLedger('audit/classical.md', THREE_COLUMN);
     expect(sections.map((s) => s.slug)).toEqual([
@@ -59,11 +95,76 @@ describe('audit ledger parsing', () => {
     expect(sections.some((s) => s.slug === 'Summary')).toBe(false);
   });
 
+  it('rejects a summary that still reports an unresolved claim after its row was corrected', () => {
+    const markdown = `## kinematics.mdx
+
+| Claim | Source checked | Verdict | Citation ID | Source URL fetched | Supporting passage |
+| --- | --- | --- | --- | --- | --- |
+| Four DH parameters | denavit-hartenberg-1955 | C | denavit-hartenberg-1955 | https://papers.example/dh | Four parameters are sufficient to describe the relationship between adjacent frames. |
+
+## Summary
+
+- Claims checked: 1
+- Verified: 0
+- Corrected: 1
+- Cut: 0
+- Unresolved: 1
+`;
+    const result = reconcileDomain({
+      domain: 'classical',
+      assertionId: 'VAL-AUDIT-005',
+      ledgerPath: 'audit/classical.md',
+      published: ['kinematics'],
+      sections: parseLedger('audit/classical.md', markdown, new Set(['denavit-hartenberg-1955'])),
+    });
+    expect(result.failures.map(({ kind }) => kind)).toContain('ledger-summary-mismatch');
+    const rows = markdown.slice(0, markdown.indexOf('## Summary'));
+    const registry = new Set(['denavit-hartenberg-1955']);
+    const summary = ledgerSummary(parseLedger('audit/classical.md', rows, registry));
+    const current = `${rows}${summary}\n`;
+    expect(parseLedger('audit/classical.md', current, registry)[0].summaryFailures).toEqual([]);
+    const stale = current.replace(
+      'Unresolved or unrecognised verdicts: 0',
+      'Unresolved or unrecognised verdicts: 1',
+    );
+    expect(parseLedger('audit/classical.md', stale, registry)[0].summaryFailures)
+      .toHaveLength(1);
+    const changedVerdict = current.replace('| C |', '| V |');
+    expect(parseLedger('audit/classical.md', changedVerdict, registry)[0].summaryFailures)
+      .toHaveLength(1);
+    expect(parseLedger('audit/classical.md', `${current}\n${summary}`, registry)[0].summaryFailures)
+      .toHaveLength(1);
+    const unsettled = ledgerSummary(parseLedger(
+      'audit/classical.md', rows.replace('| C |', '| C, could not check the replacement |'), registry,
+    ));
+    expect(unsettled).toContain('Recorded corrected: 0');
+    expect(unsettled).toContain('Recorded verified: 0');
+    expect(unsettled).toContain('Unresolved or unrecognised verdicts: 1');
+  });
+
   it('folds a continued section into the article it continues', () => {
     const sections = parseLedger('audit/frontier.md', FIVE_COLUMN);
     expect(sections).toHaveLength(1);
     expect(sections[0].slug).toBe('reliability-gap');
     expect(sections[0].claimRows).toBe(2);
+  });
+
+  it('regenerates only summary prose and cannot turn incomplete legacy rows into passes', () => {
+    const before = parseLedger('audit/classical.md', THREE_COLUMN);
+    const updated = withLedgerSummary(THREE_COLUMN, before);
+    const after = parseLedger('audit/classical.md', updated);
+    expect(updated).toContain('## Historical: Summary');
+    expect(updated).toContain('Incomplete evidence records: 3');
+    expect(after[0].summaryFailures).toEqual([]);
+    const withoutLines = (sections: LedgerSection[]) =>
+      sections.flatMap((section) => section.claimRecords.map((record) => ({ ...record, line: 0 })));
+    expect(withoutLines(after)).toEqual(withoutLines(before));
+    expect(after.flatMap((section) => section.unevidencedRows)).toHaveLength(3);
+    expect(withLedgerSummary(updated, after)).toBe(updated);
+    expect(() => withLedgerSummary(THREE_COLUMN.replace('# Classical audit\n', ''), before))
+      .toThrow(/level-one title/);
+    expect(parseLedger('audit/classical.md', `${updated}\n## Summary\nUnresolved: 1`)[0].summaryFailures)
+      .toHaveLength(1);
   });
 
   it('finds the source column wherever the table puts it', () => {
@@ -182,6 +283,8 @@ describe('registry-to-ledger reconciliation', () => {
       recordedInconsistencyRows: 0,
       unevidencedRows: [],
       evidenceKinds: {},
+      claimRecords: [],
+      summaryFailures: [],
     }));
 
   it('passes when the audited set equals the published set', () => {
@@ -282,6 +385,8 @@ describe('registry-to-ledger reconciliation', () => {
           recordedInconsistencyRows: 0,
           unevidencedRows: [],
           evidenceKinds: {},
+          claimRecords: [],
+          summaryFailures: [],
         },
       ],
     });
@@ -301,24 +406,22 @@ describe('per-claim evidence', () => {
 | A claim about a joint transform | ${source} | V | ${note} |
 `;
 
-  it('accepts a registry id, a locator, a quoted passage and a declared basis', () => {
-    for (const [source, kind] of [
-      ['modern-robotics-2017', 'citation-id'],
-      ['figure.ai/news/helix-02 (fetched)', 'locator'],
-      ['DP paper, Sec. 3.1', 'passage'],
-      ['π0 model card', 'named-document'],
-      ['arithmetic (p^N)', 'non-fetch'],
-    ] as const) {
+  it('rejects a lone registry id, locator, quoted passage or declared basis', () => {
+    for (const source of [
+      'modern-robotics-2017',
+      'figure.ai/news/helix-02 (fetched)',
+      'DP paper, Sec. 3.1',
+      'π0 model card',
+      'arithmetic (p^N)',
+    ]) {
       const [section] = parseLedger(
         'audit/classical.md',
         ledger(source, '-'),
         REGISTRY,
       );
-      expect(section.unevidencedRows, `${source} was read as unevidenced`).toEqual(
-        [],
-      );
-      expect(section.evidenceKinds[kind], `${source} was read as something else`)
-        .toBe(1);
+      expect(section.unevidencedRows, `${source} was accepted alone`).toHaveLength(1);
+      expect(section.evidenceKinds).toEqual({});
+      expect(section.claimRecords[0].legacyPointer).not.toBeNull();
     }
   });
 
@@ -344,12 +447,12 @@ describe('per-claim evidence', () => {
       }).failures;
       expect(failures.map(({ kind }) => kind)).toContain('unevidenced-claim');
       expect(failures.map(({ message }) => message).join('\n')).toMatch(
-        /names no citation id, locator, passage or declared non-fetch basis, so the check cannot be repeated/,
+        /lacks a complete per-claim Citation ID, Source URL fetched, or Supporting passage/,
       );
     }
   });
 
-  it('reads the passage out of the note when the source cell only says how', () => {
+  it('does not promote a quoted note into three distinct evidence fields', () => {
     const [section] = parseLedger(
       'audit/classical.md',
       ledger(
@@ -358,8 +461,8 @@ describe('per-claim evidence', () => {
       ),
       REGISTRY,
     );
-    expect(section.unevidencedRows).toEqual([]);
-    expect(section.evidenceKinds.passage).toBe(1);
+    expect(section.unevidencedRows).toHaveLength(1);
+    expect(section.evidenceKinds).toEqual({});
   });
 
   it('refuses a corpus that carries none of the strong evidence forms', () => {
@@ -377,7 +480,7 @@ describe('per-claim evidence', () => {
     ]);
     expect(summary.ok).toBe(false);
     expect(summary.failures.map(({ message }) => message).join('\n')).toMatch(
-      /no claim row in any ledger carries citation-id evidence/,
+      /0\/1 claim rows carry complete citation-id evidence/,
     );
   });
 });
@@ -414,7 +517,7 @@ describe('the coverage summary', () => {
         publishedCount: 2,
         auditedCount: 2,
         claimRows: 3,
-        evidenceKinds: { 'citation-id': 2, locator: 1 },
+        evidenceKinds: { 'citation-id': 3, locator: 3, passage: 3 },
         failures: [],
       },
       {
@@ -424,7 +527,7 @@ describe('the coverage summary', () => {
         publishedCount: 2,
         auditedCount: 1,
         claimRows: 1,
-        evidenceKinds: { passage: 1 },
+        evidenceKinds: { 'citation-id': 1, locator: 1, passage: 1 },
         failures: [
           {
             kind: 'unaudited-published-article',
@@ -439,9 +542,9 @@ describe('the coverage summary', () => {
     expect(summary.auditedCount).toBe(3);
     expect(summary.claimRows).toBe(4);
     expect(summary.evidenceKinds).toEqual({
-      'citation-id': 2,
-      locator: 1,
-      passage: 1,
+      'citation-id': 4,
+      locator: 4,
+      passage: 4,
     });
     expect(summary.failures).toHaveLength(1);
   });
@@ -460,6 +563,8 @@ describe('a ledger row that decided nothing', () => {
     recordedInconsistencyRows: 0,
     unevidencedRows: [],
     evidenceKinds: {},
+    claimRecords: [],
+    summaryFailures: [],
     ...over,
   });
   const reconcile = (section: LedgerSection) =>

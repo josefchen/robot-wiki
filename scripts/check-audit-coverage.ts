@@ -14,23 +14,26 @@
  * `audit/`. Neither is a list typed out while looking at today's tree.
  *
  * What this gate does NOT do: read a paper. Whether a ledger row's
- * verdict is true is settled by the source quoted in that row. This
- * checks that a row exists, names a source, and belongs to an article
- * the site actually publishes.
+ * verdict is true is settled by the source quoted in that row. This checks
+ * distinct required evidence fields, row outcomes and derived summaries,
+ * as well as article membership. Legacy pointer triage is not evidence.
  *
  *   npm run check:audit-coverage
  *   npm run check:audit-coverage -- --json
+ *   npm run check:audit-coverage -- --write-summaries
  *
  * Exit code 1 on any reconciliation failure, 0 otherwise.
  */
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   AUDIT_LEDGERS,
   parseLedger,
   reconcileDomain,
   summarise,
+  withLedgerSummary,
   type DomainCoverage,
+  type LedgerSection,
 } from '../lib/audit-ledger.ts';
 import {
   CITATION_LEDGER_PATH,
@@ -42,6 +45,7 @@ import { CITATIONS } from '../data/citations.ts';
 
 const root = join(import.meta.dirname, '..');
 const asJson = process.argv.includes('--json');
+const writeSummaries = process.argv.includes('--write-summaries');
 
 const published = new Map<string, string[]>();
 for (const entry of publishedModules()) {
@@ -51,15 +55,26 @@ for (const entry of publishedModules()) {
 }
 
 const registryIds = new Set(CITATIONS.map(({ id }) => id));
+const sectionsByDomain: Record<string, LedgerSection[]> = {};
 
 const coverage: DomainCoverage[] = AUDIT_LEDGERS.map((ledger) => {
-  const markdown = readFileSync(join(root, ledger.ledgerPath), 'utf8');
+  const path = join(root, ledger.ledgerPath);
+  let markdown = readFileSync(path, 'utf8');
+  if (writeSummaries) {
+    const updated = withLedgerSummary(
+      markdown, parseLedger(ledger.ledgerPath, markdown, registryIds),
+    );
+    if (updated !== markdown) writeFileSync(path, updated);
+    markdown = updated;
+  }
+  const sections = parseLedger(ledger.ledgerPath, markdown, registryIds);
+  sectionsByDomain[ledger.domain] = sections;
   return reconcileDomain({
     domain: ledger.domain,
     assertionId: ledger.assertionId,
     ledgerPath: ledger.ledgerPath,
     published: published.get(ledger.domain) ?? [],
-    sections: parseLedger(ledger.ledgerPath, markdown, registryIds),
+    sections,
   });
 });
 
@@ -96,7 +111,7 @@ const ok =
 if (asJson) {
   console.log(
     JSON.stringify(
-      { ok, uncoveredDomains, domains: coverage, summary, citations },
+      { ok, uncoveredDomains, domains: coverage, summary, citations, sectionsByDomain },
       null,
       2,
     ),
@@ -109,7 +124,7 @@ if (asJson) {
         domain.auditedCount,
       ).padStart(2)}/${String(domain.publishedCount).padEnd(2)} audited, ${String(
         domain.claimRows,
-      ).padStart(3)} claim rows  (${assertion})`,
+      ).padStart(3)} claim rows, ${domain.evidenceKinds['citation-id'] ?? 0} complete evidence records  (${assertion})`,
     );
   }
   console.log(
