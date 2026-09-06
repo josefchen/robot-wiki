@@ -605,6 +605,21 @@
         "VAL-B2-ART-010"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-audit-ledger-not-applicable-verdict-head",
+      "manifest": "value-states",
+      "memberId": "state-site:lib/audit-ledger.ts:not-applicable:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2a94f82417203a9cff2ca1829661ce8125d916eb4e87f41ad0d2ea3f28513b42",
+      "reason": "New source occurrence of the literal `n/a`, not a new rendered value state. `lib/audit-ledger.ts` gained PASSING_VERDICT_HEADS when the ledger parser started grading the verdict cell, and `n/a` is one of the verdict heads a content-audit row may carry for a claim that does not apply. It renders nothing: no cell, chip, readout, table or article prints this string, and the undisclosed/inapplicable/published separation the manifest seals is untouched. The site is registered rather than filtered out of the collector, because a collector that skipped occurrences it judged non-rendering could equally skip a real one.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-BASE-013 with VAL-B2-BASE-010: the value-state population is collected from every tracked source occurrence of the two renderings, so a new occurrence is a difference the allowlist must name exactly, and this entry names one member and one file.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-013",
+        "VAL-B2-BASE-010"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
