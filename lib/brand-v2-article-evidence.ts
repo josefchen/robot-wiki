@@ -429,6 +429,7 @@ const observationSchema = z.object({
       familyHead: z.string(),
       sizePx: z.number(),
       inProse: z.boolean(),
+      controlId: z.string(),
     }),
   ),
   rules: z.array(ruleSchema),
@@ -919,6 +920,17 @@ const DISTINGUISHED_LINK_KINDS = Object.values(
 ).flat() as readonly string[];
 
 /**
+ * The kinds §4.4 assigns the signal-blue-plus-underline source-path
+ * treatment: the inline citation chip, a bare external URL in prose, and
+ * every entry of the generated References list.
+ */
+const SIGNAL_BLUE_LINK_KINDS: readonly string[] = [
+  'citation',
+  'external',
+  'reference',
+];
+
+/**
  * `VAL-B2-ART-003`: the four link classes an article writes are told apart
  * by their own marks. Distinguishability is decided by comparing the
  * rendered signatures, not by checking each against a value typed here: two
@@ -986,20 +998,40 @@ export function linkTreatmentVerdicts(
         }
       }
     }
-    for (const treatment of present.filter(
-      ({ kind }) => kind === 'external' || kind === 'reference',
+    // §4.4 gives inline citations and source links one treatment: "inline
+    // citations and source links use signal blue plus underline", under a
+    // clause that "underline, label, or icon MUST supplement colour". Both
+    // halves are graded on every occurrence of all three kinds, including
+    // the generated References list, because the row requires treatments
+    // "matching their semantics" and not merely differing from each other:
+    // repainting the whole citation class one wrong colour keeps every
+    // class distinct while telling the reader the wrong thing.
+    let gradedSourcePathOccurrences = 0;
+    for (const treatment of present.filter(({ kind }) =>
+      SIGNAL_BLUE_LINK_KINDS.includes(kind),
     )) {
       for (const variant of treatment.variants) {
+        gradedSourcePathOccurrences += variant.count;
         if (
           !SIGNAL_BLUE_FORMS.includes(
             variant.colour.toLowerCase() as (typeof SIGNAL_BLUE_FORMS)[number],
           )
         ) {
           failures.push(
-            `${route} paints ${variant.count} ${treatment.kind} source link(s) ${variant.colour}, not the signal blue reserved for information paths`,
+            `${route} paints ${variant.count} ${treatment.kind} link(s) ${variant.colour}, not the signal blue §4.4 locks for inline citations and source links`,
+          );
+        }
+        if (!variant.decorationLine.includes('underline')) {
+          failures.push(
+            `${route} draws ${variant.count} ${treatment.kind} link(s) with text-decoration-line "${variant.decorationLine}", so colour is the only mark separating a source path from surrounding text`,
           );
         }
       }
+    }
+    if (gradedSourcePathOccurrences === 0) {
+      failures.push(
+        `${route} graded no citation, external or reference occurrence, so its source-path treatment was decided by an empty population`,
+      );
     }
     verdicts.set(route, { id: route, observed: present, failures });
   }
@@ -1180,6 +1212,44 @@ export type RoleFaceObservation = {
 const MONO_CONTROL_SIZE_PX = { min: 9, max: 14 } as const;
 
 /**
+ * The registered `statePurpose` values whose controls carry an instruction
+ * rather than a value. §4.1 gives Plex Mono "code, values, source metadata,
+ * labels, coordinates, sequence numbers, chart annotations" and §10.1 gives
+ * an Action "a compact Tektur or IBM Plex Sans label": "Reset", "Step
+ * forward" and "Copy" name what pressing them does, so nothing about them
+ * is fixed-width data and §4.3's "where fixed-width scanning helps"
+ * allowance cannot reach them at any size.
+ *
+ * The other purposes - `persistent-selection`, `discrete-selection`,
+ * `input`, `information-path` - do carry values: a filter chip is the value
+ * it selects, a segmented button is one option of a compact group, a source
+ * link is the metadata it points at. Those keep the §4.3 band.
+ */
+const INSTRUCTION_STATE_PURPOSES = new Set(['action', 'unavailable-action']);
+
+/**
+ * Registered control ids whose label is an instruction, read from the
+ * sealed registry rather than listed here, so adding a control to the
+ * registry cannot silently create a face this row does not govern.
+ */
+function instructionControlIds(root: string): Set<string> {
+  const registry = JSON.parse(
+    readFileSync(join(root, 'contract', 'brand-v2-registries.json'), 'utf8'),
+  ) as { controls: Array<{ id: string; statePurpose: string }> };
+  const ids = new Set(
+    registry.controls
+      .filter(({ statePurpose }) => INSTRUCTION_STATE_PURPOSES.has(statePurpose))
+      .map(({ id }) => id),
+  );
+  if (ids.size === 0 || ids.size === registry.controls.length) {
+    throw new Error(
+      `the control registry no longer splits instruction-labelled controls from value-labelled ones (${ids.size} of ${registry.controls.length})`,
+    );
+  }
+  return ids;
+}
+
+/**
  * `VAL-B2-TYPE-005`: the supporting faces sit where the contract assigns
  * them. Three populations, each discovered by what an element is rather than
  * by the face it wears: code and sample elements, every control a reader can
@@ -1195,7 +1265,9 @@ const MONO_CONTROL_SIZE_PX = { min: 9, max: 14 } as const;
  */
 export function roleFaceVerdicts(
   evidence: ArticleRuntimeEvidence,
+  root: string = process.cwd(),
 ): Map<string, Verdict<RoleFaceObservation>> {
+  const instructionIds = instructionControlIds(root);
   const verdicts = new Map<string, Verdict<RoleFaceObservation>>();
   for (const route of evidence.routes) {
     const observation = at(evidence, route, DESKTOP_VIEWPORT_ID);
@@ -1209,6 +1281,12 @@ export function roleFaceVerdicts(
     }
     for (const control of observation.interfaceControls) {
       if (control.familyHead.includes(PLEX_SANS_HEAD)) continue;
+      if (instructionIds.has(control.controlId)) {
+        failures.push(
+          `${route} sets the control "${control.text}" (<${control.tag}>, ${control.sizePx}px, ${control.controlId}) in ${control.familyHead}: a control registered to act carries an instruction, not a value, and computes to IBM Plex Sans at every size`,
+        );
+        continue;
+      }
       const dataControl =
         control.familyHead.includes(PLEX_MONO_HEAD) &&
         control.sizePx >= MONO_CONTROL_SIZE_PX.min &&
@@ -1238,11 +1316,15 @@ export function roleFaceVerdicts(
       failures,
     });
   }
-  // A family of four populations that all emptied would leave every route
+  // A family of populations that all emptied would leave every route
   // passing on nothing at all. `controlsInProse` is counted separately
   // because it is the half that used to be excluded outright: if the
   // embedded instruments ever stop being collected, the sweep goes quiet
-  // rather than red.
+  // rather than red. `instructionControls` and `valueControls` are counted
+  // separately for the same reason on the other axis: the split between
+  // them is what decides which face a control answers to, so a collector
+  // that stopped reading `data-brand-control-id` would move every control
+  // to one side and silently retire the other clause.
   const totals = evidence.observations.reduce(
     (sum, observation) => ({
       mono: sum.mono + observation.monoRequired.length,
@@ -1250,9 +1332,26 @@ export function roleFaceVerdicts(
       controlsInProse:
         sum.controlsInProse +
         observation.interfaceControls.filter(({ inProse }) => inProse).length,
+      instructionControls:
+        sum.instructionControls +
+        observation.interfaceControls.filter(({ controlId }) =>
+          instructionIds.has(controlId),
+        ).length,
+      valueControls:
+        sum.valueControls +
+        observation.interfaceControls.filter(
+          ({ controlId }) => controlId !== '' && !instructionIds.has(controlId),
+        ).length,
       labels: sum.labels + observation.registrationLabels.length,
     }),
-    { mono: 0, controls: 0, controlsInProse: 0, labels: 0 },
+    {
+      mono: 0,
+      controls: 0,
+      controlsInProse: 0,
+      instructionControls: 0,
+      valueControls: 0,
+      labels: 0,
+    },
   );
   for (const [name, total] of Object.entries(totals)) {
     if (total === 0) {

@@ -486,6 +486,10 @@ function collectArticle(): Omit<ArticleObservation, 'route' | 'viewport' | 'isAr
         familyHead: head(style.fontFamily),
         sizePx: round(Number.parseFloat(style.fontSize) || 0),
         inProse: control.closest('.prose') !== null,
+        controlId:
+          control
+            .closest('[data-brand-control-id]')
+            ?.getAttribute('data-brand-control-id') ?? '',
       };
     }),
   );

@@ -126,7 +126,7 @@ export function ThesisExplorer({ className }: { className?: string }) {
           data-pagefind-ignore
           type="button"
           onClick={() => select(DEFAULT_THESIS_ID)}
-          className="ml-auto rounded-sm bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
+          className="ml-auto rounded-sm bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
         >
           Reset
         </button>

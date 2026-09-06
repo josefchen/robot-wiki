@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "882222d3ac1d519b34fcbabcb9b5a3136c08fa544012de1fd84b0fe364e639b9",
+  "fingerprint": "82ca65f7b72949f3afd1e0a78445369050ac22ca643a288def056d9856220a06",
   "viewports": [
     "375x812",
     "1440x900"
@@ -3319,10 +3319,10 @@
             "role": "region",
             "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
             "clientWidth": 299,
-            "scrollWidth": 851,
+            "scrollWidth": 854,
             "scrolledBy": 40
           },
-          "tableWidth": 851,
+          "tableWidth": 854,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -3337,7 +3337,7 @@
           "accessibleName": "40 hardware entries across arms, humanoids, hands, sensors, and compute. Figures a source does not publish are marked not disclosed and always sort last; every listed price carries an as-of date. Price buckets use the low end of a range.",
           "tabIndex": 0,
           "clientWidth": 299,
-          "scrollWidth": 851,
+          "scrollWidth": 854,
           "scrolledBy": 40
         }
       ],
@@ -3537,10 +3537,10 @@
             "role": "region",
             "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
             "clientWidth": 301,
-            "scrollWidth": 553,
+            "scrollWidth": 543,
             "scrolledBy": 40
           },
-          "tableWidth": 552.73,
+          "tableWidth": 542.73,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -3555,7 +3555,7 @@
           "accessibleName": "Five dexterous hands with their degrees of freedom, tactile threshold, cost and training bet. Sort by any spec column, and select a row to compare it against the others.",
           "tabIndex": 0,
           "clientWidth": 301,
-          "scrollWidth": 553,
+          "scrollWidth": 543,
           "scrolledBy": 40
         }
       ],
@@ -3992,10 +3992,10 @@
             "role": "region",
             "accessibleName": "Action horizon and control frequency across the policy lineage. n/a marks undisclosed or embodiment-dependent values.",
             "clientWidth": 333,
-            "scrollWidth": 469,
+            "scrollWidth": 472,
             "scrolledBy": 40
           },
-          "tableWidth": 468.66,
+          "tableWidth": 471.66,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4152,7 +4152,7 @@
           "accessibleName": "Action horizon and control frequency across the policy lineage. n/a marks undisclosed or embodiment-dependent values.",
           "tabIndex": 0,
           "clientWidth": 333,
-          "scrollWidth": 469,
+          "scrollWidth": 472,
           "scrolledBy": 40
         }
       ],
@@ -4443,10 +4443,10 @@
             "role": "region",
             "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Rates the sources do not verify, such as the RT-2 and OpenVLA control rates, are omitted rather than guessed.",
             "clientWidth": 299,
-            "scrollWidth": 915,
+            "scrollWidth": 918,
             "scrolledBy": 40
           },
-          "tableWidth": 914.66,
+          "tableWidth": 917.66,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -4494,7 +4494,7 @@
           "accessibleName": "18 policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Rates the sources do not verify, such as the RT-2 and OpenVLA control rates, are omitted rather than guessed.",
           "tabIndex": 0,
           "clientWidth": 299,
-          "scrollWidth": 915,
+          "scrollWidth": 918,
           "scrolledBy": 40
         }
       ],
@@ -5181,10 +5181,10 @@
             "role": "region",
             "accessibleName": "The six RL fine-tuning recipes covered in this module, with the headline result as reported by each source. Vendor-reported results (Recap) come from the lab's own report and are flagged as such; the rest are preprints or peer-reviewed papers. Openness marks released code or weights; not disclosed means the source does not say.",
             "clientWidth": 333,
-            "scrollWidth": 536,
+            "scrollWidth": 539,
             "scrolledBy": 40
           },
-          "tableWidth": 535.86,
+          "tableWidth": 538.86,
           "containerOverflowPx": 0,
           "viewportOverflowPx": 0
         }
@@ -5238,7 +5238,7 @@
           "accessibleName": "The six RL fine-tuning recipes covered in this module, with the headline result as reported by each source. Vendor-reported results (Recap) come from the lab's own report and are flagged as such; the rest are preprints or peer-reviewed papers. Openness marks released code or weights; not disclosed means the source does not say.",
           "tabIndex": 0,
           "clientWidth": 333,
-          "scrollWidth": 536,
+          "scrollWidth": 539,
           "scrolledBy": 40
         }
       ],

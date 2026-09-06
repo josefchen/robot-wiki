@@ -151,7 +151,7 @@ export function HandComparison({ className }: { className?: string }) {
           data-pagefind-ignore
           type="button"
           onClick={reset}
-          className="ml-auto rounded-sm bg-surface-2 px-3 py-1.5 font-mono text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
+          className="ml-auto rounded-sm bg-surface-2 px-3 py-1.5 font-sans text-xs text-text-dim transition-colors hover:text-text active:translate-y-[1px]"
         >
           Reset
         </button>
@@ -189,7 +189,7 @@ export function HandComparison({ className }: { className?: string }) {
                       type="button"
                       aria-label={column.ariaLabel}
                       onClick={() => handleSort(column.key)}
-                      className="inline-flex items-center gap-1 transition-colors hover:text-text"
+                      className="inline-flex items-center gap-1 font-sans transition-colors hover:text-text"
                     >
                       {column.label}
                       <span

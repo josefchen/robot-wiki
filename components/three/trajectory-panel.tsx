@@ -136,7 +136,7 @@ export function TrajectoryPanel({ controller }: TrajectoryPanelProps) {
                 type="button"
                 data-testid={`trajectory-keyframe-${index}`}
                 onClick={() => controller.jumpToKeyframe(index)}
-                className="rounded-sm border border-border px-2 py-1 font-mono text-[11px] tabular-nums text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
+                className="rounded-sm border border-border px-2 py-1 font-sans text-[11px] tabular-nums text-text-dim transition-colors hover:border-border-strong hover:text-text active:translate-y-[1px]"
                 aria-label={`Move arm to keyframe ${index + 1}`}
               >
                 {`kf ${index + 1} · ${formatSeconds(index * controller.segmentSeconds)}`}

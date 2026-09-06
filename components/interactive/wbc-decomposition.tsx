@@ -67,7 +67,7 @@ export function WbcDecomposition({
   const reset = () => setApproachId(DEFAULT_APPROACH);
 
   const buttonBase =
-    'rounded-sm border px-2.5 py-1.5 font-mono text-xs transition-colors active:translate-y-[1px]';
+    'rounded-sm border px-2.5 py-1.5 font-sans text-xs transition-colors active:translate-y-[1px]';
   const buttonIdle =
     'border-border bg-surface-2 text-text-dim hover:border-border-strong hover:text-text';
   const buttonActive = 'border-accent bg-surface-2 text-accent';
