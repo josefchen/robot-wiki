@@ -52,9 +52,9 @@ const ROWS: MethodRow[] = [
     method: 'Recap (pi*0.6)',
     year: 2025,
     mechanism:
-      'Value function predicts steps-to-completion; advantage is binarized and fed back as a conditioning token. No policy gradient',
+      'Negative remaining-step values with a failure penalty; reward-inclusive advantage is thresholded into a conditioning token. Supervised-style extraction still trains the action expert',
     result:
-      'Espresso throughput and success both more than doubled; over 90% success on all three reported applications',
+      'Double-espresso throughput >2x versus offline RL + SFT; the paper’s 90%+ summary excludes diverse laundry, and its box chart reports subtask success',
     evidence: 'vendor-reported',
     open: false,
   },

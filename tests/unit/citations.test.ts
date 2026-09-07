@@ -8,6 +8,23 @@ import {
 } from '@/data/citations';
 import { citationSchema } from '@/data/schemas/citation';
 
+// Exact retained primary-body editions, not a blanket arXiv HTML exception.
+const primaryBodyExceptions = [
+  ['octo-2024', '2405.12213', 'https://arxiv.org/html/2405.12213v2'],
+  ['rt1-2022', '2212.06817', 'https://arxiv.org/html/2212.06817v2'],
+  ['pi05-2025', '2504.16054', 'https://arxiv.org/html/2504.16054v1'],
+] as const;
+
+function hasBoundArxivUrl(c: Pick<Citation, 'id' | 'arxiv' | 'url'>): boolean {
+  if (!c.arxiv || !/^\d{4}\.\d{4,5}$/.test(c.arxiv)) return false;
+  const abs = `https://arxiv.org/abs/${c.arxiv}`;
+  return c.url === abs ||
+    (c.url.startsWith(abs) && /^v[1-9]\d*$/.test(c.url.slice(abs.length))) ||
+    primaryBodyExceptions.some(([id, arxiv, url]) =>
+      c.id === id && c.arxiv === arxiv && c.url === url,
+    );
+}
+
 describe('citation registry', () => {
   it('contains only schema-valid entries', () => {
     for (const citation of CITATIONS) {
@@ -21,19 +38,31 @@ describe('citation registry', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it('links arXiv entries to their abs page', () => {
+  it('binds arXiv URLs to the registered document and exact body exceptions', () => {
     for (const c of CITATIONS) {
       if (c.arxiv) {
-        // Default: the unversioned abs page. A versioned URL (…vN) is the
-        // sanctioned exception for quotes that exist only in a superseded
-        // arXiv version (audit/README.md quote policy).
-        // Exact primary-body exception: Octo's explicit v2 byline includes
-        // Ria Doshi, omitted by its landing metadata. No general HTML allowance.
-        const octoV2 = c.id === 'octo-2024' && c.arxiv === '2405.12213' &&
-          c.url === 'https://arxiv.org/html/2405.12213v2';
-        expect(octoV2 || c.url === `https://arxiv.org/abs/${c.arxiv}` || /^https:\/\/arxiv\.org\/abs\/\d{4}\.\d{4,5}v\d+$/.test(c.url)).toBe(true);
+        expect(hasBoundArxivUrl(c), `${c.id}: ${c.url}`).toBe(true);
       }
     }
+  });
+
+  it('rejects wrong documents, unknown exception IDs, wrong versions and unsafe URLs', () => {
+    const rt1 = { id: 'rt1-2022', arxiv: '2212.06817' };
+    for (const url of [
+      'https://arxiv.org/abs/2504.16054v1',
+      'https://arxiv.org/html/2212.06817v1',
+      'https://arxiv.org/html/2212.06817v2?redirect=elsewhere',
+      'http://arxiv.org/html/2212.06817v2',
+      'https://arxiv.org.evil.example/html/2212.06817v2',
+      'javascript:alert(1)',
+    ]) expect(hasBoundArxivUrl({ ...rt1, url }), url).toBe(false);
+    expect(hasBoundArxivUrl({
+      ...rt1, id: 'unknown-exception', url: primaryBodyExceptions[1][2],
+    })).toBe(false);
+    expect(hasBoundArxivUrl({
+      ...rt1, arxiv: '2504.16054', url: primaryBodyExceptions[1][2],
+    })).toBe(false);
+    expect(hasBoundArxivUrl({ ...rt1, url: 'https://arxiv.org/abs/2212.06817v2' })).toBe(true);
   });
 
   it('getCitation resolves known ids and misses unknown ones', () => {

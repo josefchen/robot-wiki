@@ -115,7 +115,7 @@ describe('filterMethods', () => {
     );
   });
 
-  it('partitions open vs closed weights exactly (VAL-MAN-034)', () => {
+  it('partitions downloadable, unavailable and unverified weights (VAL-MAN-034)', () => {
     const open = filterMethods(METHODS, {
       ...DEFAULT_FILTERS,
       weights: 'open',
@@ -128,6 +128,10 @@ describe('filterMethods', () => {
       'gemini-robotics-2',
       'helix-02',
       'skild',
+      'act',
+      'diffusion-policy',
+      'rt-1',
+      'rt-2',
     ]) {
       expect(openIds.has(hidden), `${hidden} must hide under open filter`).toBe(
         false,
@@ -138,8 +142,6 @@ describe('filterMethods', () => {
       'pi05',
       'openvla',
       'octo',
-      'act',
-      'diffusion-policy',
       'gr00t-n1-7',
     ]) {
       expect(openIds.has(kept), `${kept} must stay under open filter`).toBe(
@@ -151,7 +153,12 @@ describe('filterMethods', () => {
       ...DEFAULT_FILTERS,
       weights: 'closed',
     });
-    expect(closed.every((m) => !m.openWeights)).toBe(true);
+    expect(closed.every((m) => m.openWeights === false)).toBe(true);
+    const unknown = filterMethods(METHODS, { ...DEFAULT_FILTERS, weights: 'undisclosed' });
+    for (const id of ['act', 'diffusion-policy', 'rt-1', 'rt-2']) {
+      expect(unknown.some((m) => m.id === id)).toBe(true);
+      expect(closed.some((m) => m.id === id)).toBe(false);
+    }
   });
 
   it('filters by action representation', () => {

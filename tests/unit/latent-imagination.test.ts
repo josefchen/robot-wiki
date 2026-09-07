@@ -11,8 +11,8 @@ import {
 } from '@/lib/latent-imagination';
 
 describe('latent-imagination model', () => {
-  it('anchors the imagination range to the published 3-15 step horizons', () => {
-    // TD-MPC2 plans 3 steps ahead; DreamerV3 imagines 15-step rollouts.
+  it('preserves illustrative band endpoints without claiming a published range', () => {
+    // Toy endpoints; not a reconciliation of source horizon labels.
     expect(TYPICAL_HORIZON).toEqual([3, 15]);
     expect(MAX_HORIZON).toBeGreaterThanOrEqual(TYPICAL_HORIZON[1]);
   });

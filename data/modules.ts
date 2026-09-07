@@ -110,7 +110,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'manipulation',
     'pi-line',
     'The Pi Line',
-    'pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and where open weights stop.',
+    'pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and source-scoped checkpoint availability.',
   ],
   [
     'manipulation',

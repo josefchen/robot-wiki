@@ -1,11 +1,12 @@
 /**
- * Structured data for the Physical Intelligence generation timeline, from
- * research/01-learned-manipulation-lineage.md. Unit-tested in
- * tests/unit/pi-generations.test.ts.
+ * Structured data for the Physical Intelligence generation timeline.
+ * Tests: tests/unit/pi-generations.test.ts.
  *
- * Release months come from the primary sources (arXiv submission months,
- * the dated pi0.6 model card, the MEM and pi0.7 PDFs). Where only a month
- * is verifiable, `released` stays month-precision; no invented days.
+ * Dated entries use source publication months, not checkpoint release dates.
+ * The retained MEM report does not establish its publication month: null is
+ * deliberately unplotted. Weight availability is bounded to the inspected
+ * openpi README at 215abfb217dbac7d5f1273282331b9b1866c0479. Non-listing is
+ * not evidence of closed licensing or unavailable weights.
  */
 
 export interface PiGeneration {
@@ -13,12 +14,12 @@ export interface PiGeneration {
   id: string;
   /** Display name (pi0 renders as π0). */
   name: string;
-  /** Release date, YYYY-MM (month precision: no invented days). */
-  released: string;
+  /** Source publication month, YYYY-MM, or null when not established. */
+  released: string | null;
   /** Human-readable release date for labels. */
   dateLabel: string;
-  /** Whether weights are downloadable (openpi on GitHub). */
-  openWeights: boolean;
+  /** Downloadable checkpoint established by the pinned catalogue; null is unknown. */
+  openWeights: boolean | null;
   /** Backbone + action expert, one line. */
   backbone: string;
   /** The generation's one-line contribution. */
@@ -66,7 +67,7 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     name: 'π0.6',
     released: '2025-11',
     dateLabel: 'Nov 2025',
-    openWeights: false,
+    openWeights: null,
     backbone: 'Gemma3 4B + SigLIP 400M + 860M expert',
     contribution:
       'Knowledge Insulation at scale; laundry folding and box assembly without task-specific fine-tuning.',
@@ -77,7 +78,7 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     name: 'π*0.6',
     released: '2025-11',
     dateLabel: 'Nov 2025',
-    openWeights: false,
+    openWeights: null,
     backbone: 'π0.6 + advantage-conditioned Recap',
     contribution:
       'RL from demonstrations, coaching, and practice; espresso throughput more than doubled.',
@@ -86,9 +87,9 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
   {
     id: 'pi06-mem',
     name: 'π0.6-MEM',
-    released: '2026-03',
-    dateLabel: 'Mar 2026',
-    openWeights: false,
+    released: null,
+    dateLabel: 'Date unverified',
+    openWeights: null,
     backbone: 'π0.6 + two-scale memory',
     contribution:
       'Short-term video history plus long-term model-authored notes; 15-minute tasks.',
@@ -99,7 +100,7 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
     name: 'π0.7',
     released: '2026-04',
     dateLabel: 'Apr 2026',
-    openWeights: false,
+    openWeights: null,
     backbone: 'Gemma3 4B + 860M expert',
     contribution:
       'Diverse multimodal prompting (metadata, control mode, generated subgoals); compositional generalization.',
@@ -107,16 +108,17 @@ export const PI_GENERATIONS: readonly PiGeneration[] = [
   },
 ];
 
-/** The newest generation with downloadable weights: π0.5. */
+/** Last listed generation with downloadable checkpoints in the pinned README. */
 export function openWeightsFrontier(): PiGeneration {
   const open = PI_GENERATIONS.filter((g) => g.openWeights);
   return open[open.length - 1];
 }
 
-/** Closed generations released after the open-weights frontier. */
+/** Model entries after the catalogue frontier, not a measured chronology gap. */
 export function generationsBehind(): number {
   const frontier = openWeightsFrontier();
+  const frontierIndex = PI_GENERATIONS.indexOf(frontier);
   return PI_GENERATIONS.filter(
-    (g) => !g.openWeights && g.released > frontier.released,
+    (g, index) => index > frontierIndex && g.openWeights !== true,
   ).length;
 }

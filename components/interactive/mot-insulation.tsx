@@ -267,7 +267,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           fontSize={12}
           fontFamily="var(--font-mono)"
         >
-          VLM backbone (3B)
+          language model (2B)
         </text>
         <text
           x={f(EXPERT.x + EXPERT.w / 2)}
@@ -564,7 +564,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
           {TRAINING_STEP_SPEEDUP}x fewer training steps
         </span>{' '}
         <span className="text-text-dim">
-          to the same bussing-task performance vs pi0
+          π0.5 + KI generalist vs π0, to similar table-bussing performance
         </span>
       </p>
 
@@ -573,7 +573,7 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
         className="mt-3"
         form="state"
         summary="Current MoT pass"
-        description={`${pass === 'forward' ? 'Forward' : 'Backward'} pass at depth ${step} of ${LAYER_COUNT} keeps backbone supervision on ${SUPERVISION_LABEL[supervision]}, language following at ${score} of 100, and the measured ${TRAINING_STEP_SPEEDUP}x fewer training steps vs pi0; the stop-gradient is ${stopGradient ? 'on' : 'off'} so expert gradients ${stopGradient ? 'stay inside the action expert' : 'cross into the backbone'}.`}
+        description={`${pass === 'forward' ? 'Forward' : 'Backward'} pass at depth ${step} of ${LAYER_COUNT} keeps backbone supervision on ${SUPERVISION_LABEL[supervision]}, language following at ${score} of 100, and the separately reported ${TRAINING_STEP_SPEEDUP}x fewer training steps for the π0.5 + KI generalist versus π0 at similar table-bussing performance; the stop-gradient is ${stopGradient ? 'on' : 'off'} so expert gradients ${stopGradient ? 'stay inside the action expert' : 'cross into the backbone'}.`}
         states={[
           { label: 'pass', value: pass },
           { label: 'depth', value: `${step} / ${LAYER_COUNT}` },
@@ -603,10 +603,11 @@ export function MotInsulation({ defaultStep = LAYER_COUNT, className }: MotInsul
       <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
         Schematic: {LAYER_COUNT} layers drawn per stack for legibility, and
         the 0-100 language-following score is an illustrative rendering of
-        the paper&apos;s qualitative finding (an uninsulated model told to
-        put a spoon in the dish container grabs the trash instead), not a
-        published curve. The sourced figures are the parameter counts and
-        the {TRAINING_STEP_SPEEDUP}x training-step ratio.
+        the paper&apos;s qualitative example (π0 is told to bus a spoon into
+        a bin but grasps trash), not a published curve. Appendix B specifies
+        the 2B language model and 300M expert. The {TRAINING_STEP_SPEEDUP}x
+        training-step comparison is for the π0.5 + KI generalist versus π0
+        at similar table-bussing performance.
         {citation && (
           <>
             {' '}

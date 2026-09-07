@@ -130,18 +130,24 @@ describe('ComparisonMatrix', () => {
     expect(rowNamed('π0.7')).toBeUndefined();
     expect(rowNamed('Gemini Robotics 1.5')).toBeUndefined();
     expect(rowNamed('Helix 02')).toBeUndefined();
+    expect(rowNamed('ACT')).toBeUndefined();
+    expect(rowNamed('Diffusion Policy')).toBeUndefined();
     for (const kept of [
       'π0',
       'π0.5',
       'OpenVLA',
       'Octo',
-      'ACT',
-      'Diffusion Policy',
       'GR00T N1.7',
     ]) {
       expect(rowNamed(kept), `${kept} must stay visible`).toBeDefined();
     }
 
+    await user.click(within(screen.getByRole('group', { name: 'Filter by weights' })).getByRole('button', { name: /^not disclosed$/i }));
+    expect(rowNamed('ACT')).toBeDefined();
+    expect(rowNamed('Diffusion Policy')).toBeDefined();
+    await user.click(screen.getByRole('button', { name: /^not released$/i }));
+    expect(rowNamed('ACT')).toBeUndefined();
+    expect(rowNamed('Diffusion Policy')).toBeUndefined();
     await user.click(screen.getByRole('button', { name: /all weights/i }));
     expect(bodyRows()).toHaveLength(METHODS.length);
   });

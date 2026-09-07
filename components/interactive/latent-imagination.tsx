@@ -13,21 +13,13 @@ import {
 import { cx } from '@/lib/utils';
 
 /**
- * LatentImagination: why imagination horizons stay short.
+ * LatentImagination: an illustrative compounding-error toy.
  *
- * An imagined rollout starts from a real encoded state and every step feeds
- * the model's own prediction back in, so one-step errors compound. The top
- * chart draws the imagined latent trajectory peeling away from the true one;
- * the bottom chart plots latent deviation against step with the published
- * 3-15 step range shaded (TD-MPC2 plans 3 steps, DreamerV3 imagines 15).
- * The horizon slider extends the rollout
- * and the deviation readout grows monotonically with it.
- *
- * The mode toggle is the Dreamer versus TD-MPC distinction: with a decoder,
- * the drift shows up as decoded frames dissolving into noise; decoder-free,
- * there is no image to inspect at all and the readout switches to reward
- * prediction error, the only quantity the model was trained to keep
- * calibrated.
+ * The recurrence deliberately amplifies off-state error. The two plots and
+ * the shaded 3-15 step band are generated teaching examples, not measured
+ * model predictions, published horizon bounds, or reliability estimates.
+ * The model-name toggles illustrate reconstruction versus no reconstruction;
+ * the reward-error readout is a chosen multiple of the toy latent deviation.
  *
  * Interactive contract: typed props, deterministic render, monospace
  * numeric readouts, reset control, native keyboard-accessible inputs, fixed
@@ -37,7 +29,7 @@ import { cx } from '@/lib/utils';
 type ImaginationMode = 'decoder' | 'decoder-free';
 
 type LatentImaginationProps = {
-  /** Initial imagination horizon in steps. Default 15 (low end of the published range). */
+  /** Initial toy horizon in steps. Default 15; not a published reliability bound. */
   defaultHorizon?: number;
   /** Initial one-step model error. Default 0.02 (2%). */
   defaultEpsilon?: number;
@@ -223,16 +215,16 @@ export function LatentImagination({
       values: [
         formatUnits(series[t]),
         t >= TYPICAL_HORIZON[0] && t <= TYPICAL_HORIZON[1]
-          ? 'inside published range'
+          ? 'inside illustrative band'
           : t < TYPICAL_HORIZON[0]
-            ? 'before published range'
-            : 'past published range',
+            ? 'before illustrative band'
+            : 'past illustrative band',
         t === horizon ? 'playhead' : 'off',
       ],
     }));
   }, [epsilon, horizon]);
 
-  const descriptionText = `Latent deviation grows from 0 at step 0 to ${formatUnits(deviationNow)} units at the current ${horizon}-step horizon under ${epsilonPercent.toFixed(1)}% one-step error, compounding rather than staying flat; the shaded band marks the published ${TYPICAL_HORIZON[0]} to ${TYPICAL_HORIZON[1]} step range used by TD-MPC2 and DreamerV3, a practice bracket rather than a measured confidence interval.`;
+  const descriptionText = `In this deterministic toy, latent deviation grows from 0 at step 0 to ${formatUnits(deviationNow)} units at the current ${horizon}-step horizon under the ${epsilonPercent.toFixed(1)}% one-step-error input. The shaded band is illustrative, from ${TYPICAL_HORIZON[0]} to ${TYPICAL_HORIZON[1]} steps; it is not a published range, confidence interval, or reliability bound.`;
 
   // Decoded frames at quarter, half, and full horizon (decoder mode only).
   const frameSteps = [
@@ -343,6 +335,12 @@ export function LatentImagination({
         </div>
       </div>
 
+      <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
+        Illustrative toy, not measured model performance. The 3–15-step band,
+        error inputs, curves, and frames are teaching choices, not published
+        reliability bounds. Source horizon settings are discussed in the article.
+      </p>
+
       <svg
         viewBox={`0 0 ${ROLLOUT_W} ${ROLLOUT_H}`}
         role="img"
@@ -398,7 +396,7 @@ export function LatentImagination({
       <svg
         viewBox={`0 0 ${DEV_W} ${DEV_H}`}
         role="img"
-        aria-label={`Latent deviation versus imagination step. Deviation compounds superlinearly and reaches ${formatUnits(deviationNow)} units at step ${horizon}. The shaded band marks the published horizons of 3 to 15 steps.`}
+        aria-label={`Latent deviation versus imagination step in a deterministic toy. Deviation reaches ${formatUnits(deviationNow)} units at step ${horizon}. The shaded 3 to 15 step band is illustrative, not a published reliability bound.`}
         aria-describedby={descriptionId}
         className="mt-2 block w-full"
       >
@@ -422,7 +420,7 @@ export function LatentImagination({
           fontSize={8}
           fontFamily={MONO}
         >
-          published 3-15
+          illustrative 3-15
         </text>
         {[0.25, 0.5, 0.75, 1].map((f) => {
           const y = DEV_PAD.top + (1 - f) * deviationChart.plotH;
@@ -529,10 +527,9 @@ export function LatentImagination({
               <CrossedFrame label="no image" />
             </svg>
             <p className="font-sans text-xs leading-relaxed text-text-dim">
-              No image reconstruction is ever produced. The latent is trained
-              only for reward and value prediction, so the quantity to watch
-              is not frame quality but how far the scalar heads drift over the
-              imagination horizon.
+              No image reconstruction is produced in this illustrative mode.
+              The reward-error readout is a fixed multiple of the toy latent
+              deviation, not a measured loss or a reliability estimate for TD-MPC2.
             </p>
           </div>
         </div>
@@ -560,7 +557,7 @@ export function LatentImagination({
         className="mt-3"
         form="state"
         summary="Current imagined rollout"
-        description={`In the latent rollout view the solid imagined path leaves the dashed true trajectory after the first few steps and finishes ${formatUnits(deviationNow)} units away at t = ${horizon} of ${MAX_HORIZON}; that peel is the visual form of one-step error compounding, not a second plot of the same deviation series.`}
+        description={`In this deterministic toy latent rollout view the solid imagined path leaves the dashed true trajectory after the first few steps and has accumulated ${formatUnits(deviationNow)} units of toy deviation at t = ${horizon} of ${MAX_HORIZON}; that peel illustrates the assumed error recurrence, not measured model drift or a second plot of the same deviation series.`}
         states={[
           { label: 'horizon', value: `${horizon} steps` },
           { label: 'one-step error', value: `${epsilonPercent.toFixed(1)}%` },

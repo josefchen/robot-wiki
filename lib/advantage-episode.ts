@@ -1,18 +1,11 @@
 /**
- * Episode data and advantage math for the advantage-conditioning scrubber
- * in the rl-finetuning module. The episode is the espresso portafilter
- * example from the Recap (pi*0.6) report: a grasp at a bad angle around
- * t=12 s only becomes visible as a failure when the insertion fails around
- * t=32 s, twenty seconds later. A value function is what attributes the
- * failure back to the grasp; advantage conditioning is what Recap does
- * with that attribution.
- *
- * The value trace here is illustrative, not measured: it encodes the
- * shape of the story (value rises on progress, falls on the bad grasp and
- * the failed insertion) so the scrubber can show how Recap binarizes
- * advantage per segment. The component labels it as illustrative.
- *
- * Unit-tested in tests/unit/advantage-episode.test.ts.
+ * Deterministic teaching toy inspired by the Recap companion blog's
+ * portafilter illustration. The forty-second episode, twenty-second arc,
+ * positive arbitrary score and stage-difference tags are invented here.
+ * They are not recorded measurements or the paper's reward-inclusive
+ * n-step estimator, task threshold, negative value scale or failure penalty.
+ * Conditioning illustrates a requested distribution, not guaranteed removal
+ * of a failure. Numeric calculations and interaction controls are unchanged.
  */
 
 /** Episode length in seconds. */
@@ -67,7 +60,7 @@ export const EPISODE_SEGMENTS: readonly EpisodeSegment[] = [
     label: 'Grasp',
     start: 8,
     end: 16,
-    note: 'The portafilter is grasped at a bad angle. Nothing looks wrong yet; the value function is the only signal that the episode just got worse.',
+    note: 'In this toy, the portafilter is grasped at a bad angle and the arbitrary score falls. This is not evidence that a value function is the only possible signal.',
   },
   {
     id: 'tamp',
@@ -137,9 +130,9 @@ export function segmentAt(t: number): EpisodeSegment {
 }
 
 /**
- * Every segment with its n-step advantage (the change in value across it)
- * and the binarized tag Recap feeds back to the VLA as a conditioning
- * input. All segments are kept; nothing is filtered out.
+ * Toy stage score changes and sign tags, not Recap's n-step estimator.
+ * The paper includes accumulated rewards and a task-dependent threshold.
+ * All toy stages are kept; numeric calculations are unchanged.
  */
 export function taggedSegments(): TaggedSegment[] {
   return EPISODE_SEGMENTS.map((segment) => {

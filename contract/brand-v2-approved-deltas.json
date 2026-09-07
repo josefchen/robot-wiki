@@ -3355,6 +3355,552 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "6f904461f73d886bae381a9ebfb0172892a483066c75c270c0e365afabb7a322",
+      "newHash": "68252073ac4303f7e82c827d52e76c9cb96af474a6c77bc77ef42ec4fd61706d",
+      "reason": "Comparison2/3/4/5/7/9: distinguish checkpoint transfer from mixed training, task-specific ACT/CNN Push-T/model-specific RT2/OpenVLA rates and pi0 predicted/executed settings. Replace unsupported checkpoint availability booleans with source-scoped unknowns. Immediate-before hash 2bdec91dc91ac4757aa0a430f991a055a0e89d69d6f0ce9ae8023cfaea392b59. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-2",
+      "manifest": "prose",
+      "memberId": "article:manipulation/knowledge-insulation",
+      "oldHash": "39f6a1b5787df41b1c085b5e04bd2682a607817c7623eaf75f08a4bb19727732",
+      "newHash": "7efd6598a99001347bff46a0783a3c0a00581d396a4e18b5e96f9eb194248bdf",
+      "reason": "KI1/10: attribute 256-bin discretization, separate 2B language component/3B complete VLM and the independent pi06 model, and qualify eight layers, 0–100 score and 7.5x training-step context. Immediate-before hash 3befaa871ea8c95eba29b6506c8a46fa97a440634e55d881f254c6e0f1bd9656. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-3",
+      "manifest": "prose",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "3910469cc8ac7ac69cb70bc8936b8092dc1bc5fdd5c8df17c2eb8e6ac120b20d",
+      "newHash": "abb285d0234427287dfb5867d8518d48a9c0d611377365fab7d66e8f4b52b351",
+      "reason": "Pi16/17/22/24: bound Recap estimator/results and MEM memory/adaptation, remove unsupported March/closed-license claims, retain a pinned checkpoint catalogue rather than a global release claim. Preserve old heading anchor while correcting its closed-line wording. Immediate-before hash da47414576bdae16b3339e15c62395d46cb0feb0181a08643029ac8885ed6746. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-4",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "4483c83f0ab4302e38386b794c017a09a8ecdcf63fecb006c13bef8966e01b1b",
+      "reason": "RL4/5: restore reward-inclusive N50 estimator, task thresholds and forced-positive corrections, distinguish KL/CFG constructions and continuous expert gradients, preserve source precision/task/duration differences and qualify the fictional scrubber. Immediate-before hash 8a0f433c78e6aedaa4b5e0c2729fd6f36cf4141af498cb19042a663b41ebdb87. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-5",
+      "manifest": "prose",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41",
+      "newHash": "59842f6154fea8dc45c3d364c490e9655d2cf9eaee4669051d2adc3fcfd49341",
+      "reason": "Latent2/3/4/11/12/13/14/15/16/17/21: add latent consistency/joint embedding, distinguish policy candidates and plan warm start, offline317M/80-task/545M/240-agent scope, single-run DayDreamer controls, unreconciled source horizon labels and a wholly illustrative widget. Remove unsupported broad limits. Immediate-before hash 9f8bf1875ae0c91900b0b921bf8a25ab985a2a43b9a7517f90d4a781d3c9b59b. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-6",
+      "manifest": "prose",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+      "newHash": "8953f81082953a60956823f2e575e2a969716392038283041694caa1923f500d",
+      "reason": "Taxonomy6/10/11: separate TD-MPC2 offline scale from the104-task online benchmark, include joint embedding and warm-start distinction, and attribute DayDreamer to DreamerV2 with intervention/control context. Immediate-before hash 5d492c5d698299d92d3f511337411061d7becc1db61b8a09977e2d6fc027b049. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-7",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/latent-imagination.tsx:aria-label:4",
+      "oldHash": "1ddc031d6d180c64bfb8f1be090534e2d0d2ae5cd5a1012624c0332fbfc65026",
+      "newHash": "d5d4358ab2602a7ea24ef62934c64166dd0245a26bfbab9285d5e6a7c2b52346",
+      "reason": "Latent17: describe the shaded band as illustrative, not a published reliability bound, in the chart accessible name. Immediate-before hash 1ddc031d6d180c64bfb8f1be090534e2d0d2ae5cd5a1012624c0332fbfc65026. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-8",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/pi-generation-timeline.tsx:aria-label:1",
+      "oldHash": "10da0a2f586e71b2d877aea7b18ad38da283d1367e9adca40af837fcbbad1b4e",
+      "newHash": "0fae35ab6525bf34f9fb9800d94ebaf4ea1a261295eea8ecf54b29d277517774",
+      "reason": "Pi17/22: accessible timeline describes pinned-catalogue membership, unverified availability and unplotted undated MEM, not closed licensing or invented March chronology. Immediate-before hash 10da0a2f586e71b2d877aea7b18ad38da283d1367e9adca40af837fcbbad1b4e. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-9",
+      "manifest": "accessible-names",
+      "memberId": "literal:content/manipulation/pi-line.mdx:title:2",
+      "oldHash": "747133c442757e653fcbf37e0098c89c3224ed18c5507dd28e77e8bfbebdf2e6",
+      "newHash": "0055a578d13209bd9eae02d20b57ffe833f4e185de5e8509238cdf6d6dbf9906",
+      "reason": "Pi22: replace four-generations-stale callout with Check the named checkpoint, maintaining the existing callout component. Immediate-before hash 747133c442757e653fcbf37e0098c89c3224ed18c5507dd28e77e8bfbebdf2e6. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-10",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "daf82ad971c917dec8683163a19760758a3670473d01621746f75dc4a92ba955",
+      "newHash": "fbfb0671de87556c14d662b17a5c6cd476cdbb4b19245fa9918e8b20ae63e9eb",
+      "reason": "Mount exact per-setting source notes for six selected methods; retain the21-source union and keep whole-article P1 red. Immediate-before hash 120f8b1d7ef708b9838ba5006cf911143ecf9b211b081e4ed5a58ecc99909f15. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-11",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/knowledge-insulation",
+      "oldHash": "5f4c3eee9f885172df2d143ea0bb3837506325cee7f97fc7ac49a1c1758e8656",
+      "newHash": "9ca110f14f1decec6c48eece980ed480c04240687b79476b64142420e6e20edf",
+      "reason": "Bind the corrected discretization and illustrative widget scope to their specific sources; retain all seven canonical citation identities. Immediate-before hash 2b416ba3130cba56ff89da15d88a2c649a8816cafe11a3f43a786847720db1c1. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-12",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "ad2cdb0b5a2940a89e72f90b06bc49790651ca4567378951f996e747369ac27a",
+      "newHash": "de99bbcfe92d6de805964a22852543bad482146a48708b9cc14fa76118ea834c",
+      "reason": "Bind Recap/MEM task and estimator context and the pinned catalogue; preserve thirteen canonical citations and the old corrected-heading anchor. Immediate-before hash fee8f264e34aaba39d451b5c74427586c4c0ecbb7f6f51a58d4cfc1879881bd1. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-13",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+      "newHash": "0b61e313d835e95eac8a7dfc47273d2c3d3f0173f3db0da5b2abd40dec67b8f8",
+      "reason": "Mount source chips for extraction, data protocols and contradictory result/duration accounts; retain existing canonical citation union. Immediate-before hash 0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-14",
+      "manifest": "relationships",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "e601d03966332e6dd3894932da7c91251596f85fdfa152db2cef57ca96a61042",
+      "newHash": "bc976ffac75e92ab32d1eae7f0d91f482d6dae25ff27db871c89a5d902698ab5",
+      "reason": "Reconcile mounted-use union from nine to eight by removing unused RT1 after unsupported control-ceiling prose is cut. Retain Dreamer, DreamerV3,TD-MPC,TD-MPC2,DayDreamer,RWM,Dream-MPC andFast-WAM identities without certifying held RWM18. Immediate-before hash 414471ea7322da563fe8a9482685c0ac2a03695e67478d06eea3f1c6aaec6f9b. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-15",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/advantage-scrubber.tsx",
+      "oldHash": "6938b2bceca6a17137e74fd35105e238ce81228cce1a02ea65ce5791e13998de",
+      "newHash": "a9e7453a08efe88e317a50374d07329aa37a69cc87712ef404dee4d787cc683c",
+      "reason": "RL4: qualify the fictional40-second timeline,20-second example, scores and tags; preserve numerical episode dynamics and controls. Immediate-before hash 53aaf8747000cd86fb1fdefe018df1666399c91f2d814850a0548f7947f9ce56. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-16",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/latent-imagination.tsx",
+      "oldHash": "f4e0dbfda2c71a6085c9a153185cedd5cbd43426ed3aac859a7a1bac717c7315",
+      "newHash": "4e75ea5e0d5148db46c052b3b1e36de74d78cb2a3d346e2570467144b724924a",
+      "reason": "Latent17: qualify band, curves, frames, readouts and descriptions as illustrative while preserving all recurrence constants, defaults, sliders, modes and reset. Immediate-before hash 6d4deba2f9457afc435bd6ec87c963f0f71274e01813d7a860aa8a80e820c2ea. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-17",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/mot-insulation.tsx",
+      "oldHash": "ffb4a018a29feae7eea473c37be0880bc424b80ea79d6ed4d80185eae801f8ad",
+      "newHash": "955f2b0e34baefda1da3c611835bed4bec283195e0f52818147e08fbd14fb0f8",
+      "reason": "KI10: qualify layer count and scores as toy choices and training speedup as the generalist table-bussing comparison; preserve interaction mechanics. Immediate-before hash c39877289a0b23fa815c61a0c9a827bda8c0769b14b0eb44fb93277c6e386c17. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-18",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/pi-generation-timeline.tsx",
+      "oldHash": "5546224b565702acb5eb665f61cc5e39e675bd16b83963d5b9b422c755deedf7",
+      "newHash": "453d6052606d3147c077f5a012413cd0d1d94fbdaf0f1912d41561a69fa31be6",
+      "reason": "Pi17/22: represent unknown release month and availability explicitly. Keep MEM keyboard-selectable but off the date axis; preserve controls, reset and source links without licensing inference. Immediate-before hash 1868dcbbc9d619e6c69f959733ed92a2fae0b5d8276d8c5ae74de1495309064c. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-19",
+      "manifest": "value-states",
+      "memberId": "state-site:content/manipulation/comparison-matrix.mdx:not-disclosed:2",
+      "oldHash": "c89d7feb00ae630030939ee780304ea140675caaa175eb2ed9e444244a905c8e",
+      "newHash": "c89d7feb00ae630030939ee780304ea140675caaa175eb2ed9e444244a905c8e",
+      "reason": "Comparison setting notes explicitly distinguish source-unestablished availability from n/a. This is a newly present literal source-site relative to the immediate predecessor, not a numeric-value invention. Immediate-before hash null. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-20",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:world-models/latent-dynamics",
+      "oldHash": "2691bcb2a4d18719d3399bb03338cdbb9fe406cc4aac2c61c04d63f25d07ffaa",
+      "newHash": "18649ed6a8752dc49c4d823ec36fe22762723b78d47c09ea9be264be93b2ce0f",
+      "reason": "Mounted-use reconciliation removes unused RT1 from nine to eight sources. Title, route, article identity and lastReviewed remain unchanged; the factual reference count propagates to its social card. Immediate-before hash 2691bcb2a4d18719d3399bb03338cdbb9fe406cc4aac2c61c04d63f25d07ffaa. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-21",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/pi-line",
+      "oldHash": "9cdace87302666bb9c68af48855cffde227f78c86d877a4130c7047e40d83fc8",
+      "newHash": "95860f15f6b9804496404e9b996e71f9a17e559e2e3b92c07cb308d667d76358",
+      "reason": "Pi22 collateral: replace a global open-weights-stop description with source-scoped checkpoint availability. No title, lastReviewed, route or citation count changes. Immediate-before hash 9cdace87302666bb9c68af48855cffde227f78c86d877a4130c7047e40d83fc8. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-22",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/modules.ts",
+      "oldHash": "ee8deb0734c9849d5df3823b235a877cdfa45191c3e606ecaf4b6073be9c5098",
+      "newHash": "f06529e5e40aa43849559b7b34b678f94cd2941a6e4c0e198866860d0d573cac",
+      "reason": "Pi22 collateral: synchronize the sole Pi summary in the canonical module registry with its source-scoped MDX description; no other module fields or values change. Immediate-before hash 9ace4930fefab50a2592f927669083fcba021105adfdf3ee1778e398d6d08fd4. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-23",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "287633b834b110f8f96446c84f22efac91fa05ddb6abef8b4d23643d320535bf",
+      "reason": "Derived citation label/meta fingerprint changes only through removing unproved KI/FAST venue labels and correcting MEM author Allen Z. Ren. Citation rendering code, IDs and URL safety remain unchanged. Immediate-before hash 2adadd231e996bb34f0c5974dfa1b80ff276ffb83e75bdabd6849748a84975b2. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-24",
+      "manifest": "article-metadata",
+      "memberId": "citation:knowledge-insulation-paper-2025",
+      "oldHash": "ed6e5738e3054361e99b5ab191a6af0da19e1aa96ec0957e3583b2440da13e14",
+      "newHash": "c26b7fec6944bf2efc2ae0034542cc2c46897cebefde6a4ed6d46a9e795696f2",
+      "reason": "Remove optional NeurIPS2025 venue unsupported by retained evidence while keeping proved title, complete byline, year and document identity. Immediate-before hash ed6e5738e3054361e99b5ab191a6af0da19e1aa96ec0957e3583b2440da13e14. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-25",
+      "manifest": "article-metadata",
+      "memberId": "citation:mem-2026",
+      "oldHash": "e40f3766aab07b3c29c30f5b34e98cc2b57208d70537730b6c9e015ae02e0002",
+      "newHash": "309ac6478a93b1c1e8bdb2419c19c213d5268a61c9f8e702b13d0b501a80b4b1",
+      "reason": "Correct the retained report title-page spelling Allen Z. Ren. No broader MEM P1 or publication-month certification is asserted. Immediate-before hash e40f3766aab07b3c29c30f5b34e98cc2b57208d70537730b6c9e015ae02e0002. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cross-article-closeouts-20260907-26",
+      "manifest": "article-metadata",
+      "memberId": "citation:pi0-fast-2025",
+      "oldHash": "9290b741c05abc4ac58f91f16f26f9e312f462faaae95f1aa23c7e561bb3774c",
+      "newHash": "b884b5ce9b3d3136169626bb5948a2e204eb2ca2becf7656b072dfbf6459248d",
+      "reason": "Remove optional RSS2025 venue unsupported by the retained evidence, preserving title, complete byline, year and document identity. Immediate-before hash 9290b741c05abc4ac58f91f16f26f9e312f462faaae95f1aa23c7e561bb3774c. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cross-article-closeouts-integration-20260907/source-proof.json. Sources: https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://arxiv.org/abs/2501.09747 ; https://arxiv.org/abs/2410.24164 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/blog/pi07 ; https://arxiv.org/abs/2307.15818 ; https://arxiv.org/abs/2212.06817 ; https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/pdf/2212.06817v2 ; https://arxiv.org/abs/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2303.04137 ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/abs/2406.09246 ; https://arxiv.org/html/2406.09246v3 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/pdf/2310.16828v2 ; https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/2301.04104v1 ; https://arxiv.org/html/2301.04104v2 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://www.pi.website/download/pistar06.pdf ; https://www.pi.website/blog/pistar06 ; https://www.pi.website/download/Mem.pdf ; https://arxiv.org/pdf/2203.04955. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

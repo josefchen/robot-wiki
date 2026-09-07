@@ -15,23 +15,24 @@ describe('PiGenerationTimeline', () => {
     }
   });
 
-  it('marks where open weights stop', () => {
+  it('marks the pinned catalogue boundary', () => {
     render(<PiGenerationTimeline />);
-    expect(screen.getByText(/open weights stop at π0\.5/i)).toBeInTheDocument();
+    expect(screen.getByText(/pinned catalogue ends at π0\.5/i)).toBeInTheDocument();
   });
 
-  it('shows how far the closed line has run past the open weights', () => {
+  it('reports non-listing without inferring closed licensing', () => {
     render(<PiGenerationTimeline />);
     expect(
-      screen.getByText(/4 closed generations/i),
+      screen.getByText(/4 model entries not in the pinned catalogue/i),
     ).toBeInTheDocument();
   });
 
-  it('labels each generation open or closed', () => {
+  it('distinguishes downloadable and unknown availability', () => {
     render(<PiGenerationTimeline />);
     const list = screen.getByTestId('generation-track');
     expect(list.querySelectorAll('[data-status="open"]').length).toBe(3);
-    expect(list.querySelectorAll('[data-status="closed"]').length).toBe(4);
+    expect(list.querySelectorAll('[data-status="unknown"]').length).toBe(4);
+    expect(list.querySelectorAll('[data-status="closed"]').length).toBe(0);
   });
 
   it('selecting a generation shows its detail readout with the lab PDF source', async () => {
@@ -41,12 +42,23 @@ describe('PiGenerationTimeline', () => {
     const detail = screen.getByTestId('generation-detail');
     expect(detail).toHaveTextContent('π0.7');
     expect(detail).toHaveTextContent('Apr 2026');
-    expect(detail).toHaveTextContent(/closed/i);
+    expect(detail).toHaveTextContent(/weights unverified/i);
     const source = screen.getByRole('link', { name: /source/i });
     expect(source).toHaveAttribute(
       'href',
       'https://www.pi.website/download/pi07.pdf',
     );
+  });
+
+  it('keeps undated MEM selectable without placing it on the time axis', async () => {
+    const user = userEvent.setup();
+    render(<PiGenerationTimeline />);
+    expect(screen.getByRole('img').querySelector('text')?.parentElement?.textContent)
+      .not.toContain('π0.6-MEM');
+    await user.click(screen.getByRole('button', { name: 'π0.6-MEM' }));
+    expect(screen.getByTestId('generation-detail')).toHaveTextContent('Date unverified');
+    expect(screen.getByRole('img')).toHaveAccessibleDescription(/MEM has no established month and is not plotted/);
+    expect(screen.queryByText('Mar 2026')).not.toBeInTheDocument();
   });
 
   it('arrow keys move the selection between generations', async () => {

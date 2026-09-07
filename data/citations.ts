@@ -504,7 +504,7 @@ export const CITATIONS: Citation[] = [
   {
     id: 'knowledge-insulation-2025',
     title: 'VLAs that Train Fast, Run Fast, and Generalize Better',
-    // Eleven named authors as printed in the research-note byline.
+    // Eleven named authors printed on the separate research note.
     authors: [
       'Danny Driess',
       'Jost Tobias Springenberg',
@@ -540,7 +540,6 @@ export const CITATIONS: Citation[] = [
       'Sergey Levine',
     ],
     year: 2025,
-    venue: 'RSS 2025',
     arxiv: '2501.09747',
     url: 'https://arxiv.org/abs/2501.09747',
     type: 'paper',
@@ -782,7 +781,6 @@ export const CITATIONS: Citation[] = [
       'Sergey Levine',
     ],
     year: 2025,
-    venue: 'NeurIPS 2025',
     arxiv: '2505.23705',
     url: 'https://arxiv.org/abs/2505.23705',
     type: 'paper',
@@ -878,7 +876,7 @@ export const CITATIONS: Citation[] = [
       'Kyle Vedder',
       'Suraj Nair',
       'Brian Ichter',
-      'Allen Ren',
+      'Allen Z. Ren',
       'Haohuan Wang',
       'Jiaming Tang',
       'Kyle Stachowicz',

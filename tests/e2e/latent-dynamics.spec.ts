@@ -30,8 +30,8 @@ test.describe('world-models latent-dynamics module', () => {
       /more than 150 tasks/,
       /collect diamonds in Minecraft/,
       /MPPI/,
-      /317M-parameter agent performing 80 tasks/,
-      /roll over, stand up, and walk from scratch in about one hour/,
+      /545M/,
+      /240 single-task agents/,
     ]) {
       await expect(
         main.getByText(name).filter({ visible: true }).first(),
@@ -70,6 +70,10 @@ test.describe('world-models latent-dynamics module', () => {
   }) => {
     await page.goto(ROUTE);
 
+    // Both chart and visible copy identify an illustrative toy, not a paper result.
+    await expect(page.getByText(/Illustrative toy, not measured model performance/)).toBeVisible();
+    await expect(page.getByRole('img', { name: /latent deviation versus/i }))
+      .toHaveAttribute('aria-label', /illustrative, not a published reliability bound/);
     // Default: Dreamer mode with decoded frames and a finite deviation.
     await expect(
       page.getByRole('button', { name: /with decoder/ }),
@@ -136,7 +140,9 @@ test.describe('world-models latent-dynamics module', () => {
       viewport: { width: 375, height: 812 },
     });
     const page = await context.newPage();
-    await page.goto(ROUTE);
+    const response = await page.goto(ROUTE);
+    expect(response?.status()).toBe(200);
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - window.innerWidth,
     );

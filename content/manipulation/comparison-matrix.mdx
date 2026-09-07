@@ -54,6 +54,16 @@ Set the weights filter to Downloadable to select records with a reported downloa
 
 **Hierarchy** distinguishes an internal high-level stage from a separately paired system. <Cite id="pi05-2025" /> π0.5 predicts a semantic subtask before generating low-level actions. <Cite id="isaac-gr00t-repo-2026" /> In the N1.7 SONIC workflow, a separate whole-body controller decodes the VLA's latent action tokens into joint commands. Here, external does not mean that the controller is a reasoning layer above the policy. **Weights** records download availability, not license openness; the notes identify the checked source scope.
 
+<Cite id="rt1-2022" /> RT-1’s “limited” cross-embodiment label refers to mixing Kuka IIWA data with Everyday Robots data, then evaluating on Everyday Robots. It does not mean that one checkpoint was demonstrated controlling both robot bodies.
+
+<Cite id="act-aloha-2023" /> ACT’s 100-step entry names the paper’s k=100 chunk-ablation reference; temporal ensembling queries the policy every timestep. The paper trains a roughly 80M-parameter model from scratch for each task and announces software and hardware. That does not establish pretrained-checkpoint downloads or one checkpoint transferring across embodiments; those cells are source-scoped as not disclosed.
+
+<Cite id="diffusion-policy-2023" /> Diffusion Policy’s CNN Push-T reference uses observation/prediction/execution horizons of 2/16/8. Its real-world UR5 Push-T experiment predicts commands at 10 Hz and interpolates them to 125 Hz. These are named settings, not defaults for every task or backbone. The checked paper announces code, data and training details, not a pretrained-checkpoint catalogue; no shared-checkpoint cross-embodiment result is established here.
+
+<Cite id="rt2-2023" /> RT-2’s multi-TPU cloud service runs PaLI-X-55B at 1 to 3 Hz and the 5B version at around 5 Hz. The paper also studies PaLM-E-12B and a separate Language-Table model. “Limited” denotes these separate setup-specific models, not demonstrated cross-body use of one checkpoint. The action-only table entry excludes the separately evaluated chain-of-thought prompting variant. The inspected paper does not establish model-specific weight-release terms.
+
+<Cite id="openvla-2024" /> OpenVLA v3 reports approximately 6 Hz inference on one RTX 4090 in bfloat16, without compilation, speculative decoding or other speed-up tricks. Its Franka-Tabletop and Franka-DROID fine-tuning setups separately use 5 Hz and 15 Hz non-blocking controllers. The paper describes single-step action prediction, multi-robot pretrained use and fine-tuning for new setups, and explicitly releases downloadable checkpoints. Its 7B label names the language-model scale; the visual encoder is separately reported as 600M parameters.
+
 ## What the matrix can establish
 
 <Cite id="act-aloha-2023" /> ACT fixes its CVAE latent to the prior mean, zero, to decode deterministically at test time. <Cite id="pi0-2024" /> π0 instead uses an action expert trained with flow matching to generate continuous action chunks. These are concrete differences between output mechanisms, not evidence that every later policy abandoned regression.

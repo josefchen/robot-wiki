@@ -40,7 +40,7 @@ Six of those paradigms are laid out below, each panel drawing what that paradigm
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="paradigms" value="6" note="sharing one name" accent />
   <Stat label="DreamerV3 tasks" value="150+" note="one fixed hyperparameter set" />
-  <Stat label="TD-MPC2 params" value="317M" note="one agent, 80 tasks" />
+  <Stat label="TD-MPC2 params" value="317M" note="one offline agent, 80 tasks" />
   <Stat label="V-JEPA 2 video" value="1M+" note="hours of action-free pretraining" />
 </div>
 
@@ -60,11 +60,11 @@ The oldest learned lineage and the only one with a decade of evidence on sample-
 
 DreamerV3 was evaluated on more than 150 tasks across eight domains with fixed hyperparameters. Its robustness techniques include symlog transforms for vector observations, free bits with KL balancing, and percentile-based return normalization. The detailed distribution section describes two-hot targets for reward and value prediction; an earlier world-model paragraph instead says the reward predictor uses symlog squared loss. These two descriptions are not reconciled here <Cite id="dreamerv3-2023" />.
 
-In their 2025 Nature article, Hafner, Pasukonis, Ba, and Lillicrap describe DreamerV3 as, to their knowledge, the first algorithm to collect diamonds in Minecraft from scratch without human data or adaptive curricula. The experiment used a MineRL-based environment with abstract crafting actions, accelerated block breaking, and sparse intermediate rewards <Cite id="dreamerv3-2023" />. DayDreamer took the same algorithm onto physical hardware: a quadruped learned to roll over, stand, and walk from scratch in about one hour of real-world experience <Cite id="daydreamer-2022" />.
+In their 2025 Nature article, Hafner, Pasukonis, Ba, and Lillicrap describe DreamerV3 as, to their knowledge, the first algorithm to collect diamonds in Minecraft from scratch without human data or adaptive curricula. The experiment used a MineRL-based environment with abstract crafting actions, accelerated block breaking, and sparse intermediate rewards <Cite id="dreamerv3-2023" />. DayDreamer used the DreamerV2 implementation, not DreamerV3. In one Unitree A1 run, it learned to roll off its back, stand, and walk forward with a pronking gait after about one hour of real-world training, without a simulator or reset policy. The experiment still used a PD controller and manual repositioning at the training-area boundary <Cite id="daydreamer-2022" />.
 
 ### Decoder-free latent: no image, just value
 
-TD-MPC2 drops the reconstruction. Its latent is trained only to support reward and value prediction, so the model never spends capacity on visually irrelevant detail, and at every control step it runs trajectory optimization (MPPI) in latent space, warm-started from a learned policy prior. The headline result is a single 317M-parameter agent across 80 tasks spanning multiple task domains, embodiments, and action spaces <Cite id="tdmpc2-2023" />. The difference from Dreamer is not cosmetic: with no decoder there is no image to inspect, and planning replaces the learned actor as the source of action selection.
+TD-MPC2 learns joint-embedding, reward, and value predictions without reconstructing observations. At each decision step, MPPI evaluates sampled action sequences through latent rollouts and combines predicted rewards with a learned terminal value. The policy prior supplies some candidate sequences; the shifted previous planning solution provides the warm start, and the first planned action is executed. Its reported 317M-parameter multitask configuration was trained offline on 545M transitions from 240 single-task agents, covering 50 Meta-World and 30 DMControl tasks across different embodiments and action spaces. That 80-task experiment is distinct from the 104-task online benchmark <Cite id="tdmpc2-2023" />.
 
 ### Generative video: predict the pixels
 

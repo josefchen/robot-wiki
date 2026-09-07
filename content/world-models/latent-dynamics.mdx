@@ -15,7 +15,6 @@ citations:
   - robotic-world-model-2025
   - dream-mpc-2026
   - fast-wam-2026
-  - world-model-survey-2026
 seeAlso:
   - "world-models/taxonomy"
   - "world-models/generative-video"
@@ -26,14 +25,14 @@ import { LatentImagination } from '@/components/interactive/latent-imagination';
 
 Of the six paradigms the [taxonomy module](/world-models/taxonomy) separates, <Term id="latent-dynamics">latent dynamics</Term> is the oldest and the only one with a decade of evidence that it improves sample efficiency on control. The idea is one sentence: learn a compact recurrent latent state, predict how that state and the reward evolve under the agent's actions, and do the learning or the planning entirely inside that imagination, without touching the real environment. Everything else, the decoder versus no-decoder split, the actor versus planner split, is a design choice on top of that sentence.
 
-Imagination has a catch, and it bounds everything below. Drag the horizon slider out and the deviation readout climbs faster than the horizon does, because each imagined step conditions on the model's own previous prediction. Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. These differently labelled quantities are not reconciled here <Cite id="dreamerv3-2023" />.
+The interactive is a deterministic toy of compounding error, not a measured rollout from any of the papers. Drag the horizon slider to explore its assumed recurrence; the 3 to 15-step shaded band is illustrative, not a published reliable-horizon range. Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. These differently labelled quantities are not reconciled here <Cite id="dreamerv3-2023" />.
 
 <LatentImagination className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DreamerV3 tasks" value="150+" note="one fixed hyperparameter set" accent />
-  <Stat label="TD-MPC2 agent" value="317M" note="one agent, 80 tasks" />
-  <Stat label="DayDreamer" value="1 h" note="to walk from scratch" />
+  <Stat label="TD-MPC2 agent" value="317M" note="one offline agent, 80 tasks" />
+  <Stat label="DayDreamer A1" value="~1 h" note="one real-world training run" />
   <Stat label="DreamerV3 labels" value="H=15 / T=16" note="2023 preprint; not reconciled" />
 </div>
 
@@ -51,28 +50,27 @@ The headline result is Minecraft. In their 2025 Nature article, Hafner, Pasukoni
 
 ## TD-MPC and TD-MPC2: drop the decoder, plan at every step
 
-The TD-MPC line takes the opposite position on the decoder. TD-MPC learns a task-oriented latent dynamics model trained only to support reward and value prediction, then plans at every control step by local trajectory optimization over a short horizon, with a learned terminal value function estimating the return beyond it <Cite id="tdmpc-2022" />. TD-MPC2 scales the recipe: still no decoder anywhere, so the model never spends capacity on visually irrelevant detail, and at every step it runs MPPI, sampling candidate action sequences in latent space, scoring them under the learned model, and warm-starting the sampling from a learned policy prior <Cite id="tdmpc2-2023" />.
+The TD-MPC line takes the opposite position on the decoder. TD-MPC jointly trains reward prediction, TD value prediction, and latent-state consistency without reconstructing observations. At each control step it uses short-horizon MPPI trajectory optimization and a learned terminal value to estimate return beyond the rollout <Cite id="tdmpc-2022" />. TD-MPC2 learns joint-embedding, reward, and value predictions without reconstructing observations. At each decision step, MPPI evaluates sampled action sequences through latent rollouts, combining predicted rewards with a learned terminal value. Some candidate sequences come from the learned policy prior; planning is warm-started from the previous decision step's solution shifted by one step. The first planned action is executed <Cite id="tdmpc2-2023" />.
 
-The reported result is a single 317M-parameter agent performing 80 tasks across multiple task domains, embodiments, and action spaces, with consistent scaling behavior as model size grows <Cite id="tdmpc2-2023" />. Two contrasts with Dreamer matter more than the numbers. First, with no decoder there is no image to inspect: the model's beliefs are only visible through its scalar predictions. Second, action selection comes from per-step planning, not from the learned actor; the policy network is a prior that makes the planner faster, and the planner typically outperforms it.
+The multitask experiment trained a single reported 317M-parameter configuration on 545M replay-buffer transitions from 240 single-task agents: 50 Meta-World tasks and 30 DMControl tasks, spanning different embodiments and action spaces. This offline 80-task experiment is separate from the 104-task online benchmark. Across five tested model sizes, the authors report increasing aggregate normalized scores, averaging Meta-World success rates and normalized DMControl episode returns; this is not a claim of perfect success on every task <Cite id="tdmpc2-2023" />. Unlike a reconstruction-based world model, TD-MPC2 does not produce predicted observation images. It selects actions by planning, with its policy network supplying a fraction of candidate trajectories <Cite id="tdmpc2-2023" />.
 
 ## DayDreamer: imagination on physical hardware
 
-The persistent criticism of this lineage is that it dreams in simulators. DayDreamer is the existence proof otherwise. It applies Dreamer online to four physical robots with no simulator at all, and the flagship result is a quadruped that learned to roll over, stand up, and walk from scratch in about one hour of real-world experience <Cite id="daydreamer-2022" />. One hour is the number to hold onto when comparing against the days of real-world data that model-free methods would need for the same behavior; it is the latent-imagination dividend paid in wall-clock time on hardware.
+DayDreamer builds on the DreamerV2 implementation and learns online on four physical robots without a simulator: Unitree A1, UR5, XArm, and Sphero Ollie. The experiments use the same learning hyperparameters, not identical sensor inputs, action spaces, or control rates <Cite id="daydreamer-2022" />. In one A1 training run, the robot learned to roll off its back, stand, and walk forward with a pronking gait after about one hour of real-world training. The setup used 20 Hz joint-angle commands realized by a PD controller, filtered motor commands, and manual repositioning at the training-area boundary without changing the robot's joint configuration or orientation. SAC learned to roll over but did not stand or walk within that experiment's small data budget; the paper does not measure how many days SAC would need. The one-hour result is training time, not inference latency or the duration of one rollout <Cite id="daydreamer-2022" />.
 
 ## The horizon problem
 
-Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. These differently labelled quantities are not reconciled here <Cite id="dreamerv3-2023" />. TD-MPC2 plans only 3 steps ahead <Cite id="tdmpc2-2023" />.
+Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. These differently labelled quantities are not reconciled here <Cite id="dreamerv3-2023" />. In TD-MPC2 v2, Table 8 lists planning horizon H = 3; the planner bootstraps beyond the rollout with a learned terminal value <Cite id="tdmpc2-2023" />. DayDreamer v1 likewise gives two labels: its actor-critic methods state a planning horizon H = 16, while Appendix D lists imagination horizon H = 15. That difference is not reconciled here <Cite id="daydreamer-2022" />. These source settings are step counts, not control frequencies or universal bounds on reliable prediction.
 
-The figure at the top of this module has both cases. Its Dreamer mode shows what the drift does to decoded frames. Its TD-MPC2 mode shows the decoder-free situation: there is no frame to degrade, and the quantity that matters is reward prediction error, the scalar the planner actually optimizes.
+Both display modes in the figure are schematic. The Dreamer-labelled mode draws illustrative frames; the TD-MPC2-labelled mode omits reconstruction and shows a toy reward-error readout equal to 0.35 times the toy latent deviation. The curves, frames, and shaded band are not measured model predictions, published losses, or reliability estimates.
 
 ## Successors and open limits
 
 The lineage is still moving. The Robotic World Model work retargets latent imagination at robust robot control rather than benchmark RL, using a dual-autoregressive mechanism for long-horizon prediction under partial observability <Cite id="robotic-world-model-2025" />. Dream-MPC attacks the specific seam inside TD-MPC-style hybrids, the observation that the planner consistently outperforms the policy prior, by replacing population-based MPPI with gradient-based trajectory optimization through the learned model, improving on both the policy and gradient-free <Term id="mpc">MPC</Term> across 24 tasks <Cite id="dream-mpc-2026" />. And from the video-model side, Fast-WAM argues the imagination may only be needed at training time: it keeps world modeling as a training objective, drops future prediction at test time, and stays competitive while running over four times faster <Cite id="fast-wam-2026" />.
 
-The honest limits, per the survey and the primary papers <Cite id="world-model-survey-2026" />:
+The primary papers describe narrower limits than a verdict on the whole paradigm:
 
-- **Own-data training.** These models are fitted to the agent's own experience. They do not inherit internet-scale priors, so they generalize poorly to genuinely novel scenes.
-- **Planning cost.** TD-MPC2's per-step MPPI is expensive relative to a single policy forward pass, which caps the control rate.
-- **No language story.** Nothing in this paradigm conditions on instructions or generalizes semantically. That gap, more than any benchmark, is why the field's attention moved to the generative-video paradigm covered in the next module.
+- **Generalization remains open.** TD-MPC2's authors describe transfer to new embodiments and integration with vision-language models as future opportunities, and say that this level of generalization will likely require several orders of magnitude more tasks. Extending their method to discrete action spaces is also an open problem <Cite id="tdmpc2-2023" />.
+- **Hardware learning has costs.** DayDreamer's authors note that many hours of learning can cause wear requiring human intervention or repair. They also call for longer training to establish the limits of both Dreamer and its baselines <Cite id="daydreamer-2022" />.
 
-What the paradigm does have, and nothing else in this domain matches, is receipts: a decade of sample-efficiency results, one algorithm that walks a real quadruped in an hour, and one hyperparameter set that plays 150 games. If the question is control, latent dynamics is still the paradigm to beat.
+The one-hour A1 run and TD-MPC2's offline 80-task experiment address different questions. Neither establishes a universal horizon, a control-rate ceiling, or a field-wide advantage over every other world-model paradigm.
