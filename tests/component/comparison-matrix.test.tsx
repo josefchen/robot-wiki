@@ -124,7 +124,7 @@ describe('ComparisonMatrix', () => {
   it('filters to open weights and restores on clear (VAL-MAN-034)', async () => {
     const user = userEvent.setup();
     render(<ComparisonMatrix />);
-    await user.click(screen.getByRole('button', { name: /^open$/i }));
+    await user.click(screen.getByRole('button', { name: /^downloadable$/i }));
 
     expect(rowNamed('π0.6')).toBeUndefined();
     expect(rowNamed('π0.7')).toBeUndefined();
@@ -168,7 +168,7 @@ describe('ComparisonMatrix', () => {
     const user = userEvent.setup();
     render(<ComparisonMatrix />);
     // No closed method ships a diffusion head.
-    await user.click(screen.getByRole('button', { name: /^closed$/i }));
+    await user.click(screen.getByRole('button', { name: /^not released$/i }));
     await user.click(screen.getByRole('button', { name: /^diffusion$/i }));
 
     expect(screen.queryByRole('table')).toBeNull();
@@ -186,7 +186,7 @@ describe('ComparisonMatrix', () => {
     expect(
       screen.getByText(`${METHODS.length} of ${METHODS.length} methods`),
     ).toBeInTheDocument();
-    await user.click(screen.getByRole('button', { name: /^open$/i }));
+    await user.click(screen.getByRole('button', { name: /^downloadable$/i }));
     const openCount = METHODS.filter((m) => m.openWeights).length;
     expect(
       screen.getByText(`${openCount} of ${METHODS.length} methods`),
@@ -196,7 +196,7 @@ describe('ComparisonMatrix', () => {
   it('reset restores filters and the initial sort', async () => {
     const user = userEvent.setup();
     render(<ComparisonMatrix />);
-    await user.click(screen.getByRole('button', { name: /^closed$/i }));
+    await user.click(screen.getByRole('button', { name: /^not released$/i }));
     await user.click(screen.getByRole('button', { name: /sort by method/i }));
 
     await user.click(screen.getByRole('button', { name: /^reset$/i }));

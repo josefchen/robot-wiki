@@ -789,6 +789,29 @@ describe('compound evidence on one original claim (synthetic fixtures, never fet
     const duplicate = fixture(); duplicate.parts[5] = { ...duplicate.parts[0] };
     failed(review(duplicate), /duplicate.*part/i);
   });
+  it('pairs distinct primary URLs for one required identity without duplicating the row', () => {
+    const plan = fixture();
+    plan.evidence.push({ ...plan.evidence[0], sourceUrl: 'https://source.example/proceedings',
+      supportingPassage: 'SYNTHETIC FIXTURE ONLY: independent publication identity passage.' });
+    const [section] = parse(markdown(), [review(plan)]);
+    expect(section.claimRows).toBe(1);
+    expect(section.claimRecords[0].evidenceFailures).toEqual([]);
+  });
+  it('rejects repeated source URLs for the same part and citation even with different text', () => {
+    const plan = fixture();
+    plan.evidence.push({ ...plan.evidence[0], supportingPassage: 'SYNTHETIC different text, same source.' });
+    failed(review(plan), /compound.*(?:item|coverage|duplicate)/i);
+  });
+  it('requires fresh source adjudication after another primary response is added', () => {
+    const plan = fixture();
+    plan.evidence.push({ ...plan.evidence[0], sourceUrl: 'https://source.example/proceedings' });
+    failed(plan, /stale.*adjudication/i);
+  });
+  it('validates the URL of every additional source response', () => {
+    const plan = fixture();
+    plan.evidence.push({ ...plan.evidence[0], sourceUrl: 'not a URL' });
+    failed(review(plan), /compound.*item/i);
+  });
   it('never promotes legacy quoted notes into compound items', () => {
     const plan = fixture(); plan.evidence = [];
     failed(plan, /compound.*coverage/i);

@@ -180,10 +180,11 @@ test.describe('data-hardware teleop-rigs module', () => {
     const costCells = table.locator('tbody tr td:nth-child(2)');
     expect(await costCells.filter({ hasText: '$300' }).count()).toBe(1);
     expect(await costCells.filter({ hasText: '$371' }).count()).toBe(1);
-    expect(await costCells.filter({ hasText: '$17,000' }).count()).toBe(1);
+    expect(await costCells.filter({ hasText: '$17,000' }).count()).toBe(0);
+    await expect(costCells.filter({ hasText: 'Community issue' })).toContainText('not a vendor quote');
     expect(
       await costCells.getByText('not disclosed', { exact: true }).count(),
-    ).toBe(1);
+    ).toBe(2);
     await expect(costCells.last()).toContainText('not disclosed');
 
     // Reset restores the initial cost sort and clears the highlight.

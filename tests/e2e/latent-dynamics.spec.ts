@@ -22,11 +22,11 @@ test.describe('world-models latent-dynamics module', () => {
     ).toBeVisible();
     const main = page.locator('#main-content');
     for (const name of [
-      /deterministic recurrent state/,
-      /stochastic latent/,
+      /recurrent state that carries memory/,
+      /stochastic categorical representation/,
       /trained purely on imagined latent rollouts/,
       /symlog/,
-      /two-hot reward encoding/,
+      /two-hot targets for reward and value prediction/,
       /more than 150 tasks/,
       /collect diamonds in Minecraft/,
       /MPPI/,

@@ -23,7 +23,7 @@ export const teleopRigSchema = z.object({
   representatives: z.array(z.string().min(1)).min(1),
   /** Representative rig cost in USD; null when no source publishes one. */
   costUsd: z.number().positive().nullable(),
-  /** Qualifier rendered under a known cost; must stay absent on null costs. */
+  /** Price context; may explain why a numeric USD cost is not established. */
   costNote: z.string().min(1).optional(),
   /** How faithfully the recorded demonstrations map onto robot execution. */
   dataQuality: rigRatingSchema,

@@ -28,14 +28,15 @@ describe('PolicyChunkingTable', () => {
       within(row).queryByText(/Helix/),
     );
     expect(helixRow).toBeDefined();
-    expect(within(helixRow as HTMLElement).getAllByText('n/a').length)
+    expect(within(helixRow as HTMLElement).getAllByText('not disclosed').length)
       .toBeGreaterThan(0);
   });
 
-  it('renders open and closed badges', () => {
+  it('renders download availability separately from licensing', () => {
     render(<PolicyChunkingTable />);
-    expect(screen.getAllByText('open').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('closed').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('downloadable').length).toBeGreaterThan(0);
+    expect(screen.queryByText('not released')).toBeNull();
+    expect(screen.getAllByText('not disclosed').length).toBeGreaterThan(0);
   });
 
   it('sorts by year in both directions with aria-sort', async () => {

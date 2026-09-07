@@ -103,13 +103,13 @@ describe('CompoundingError', () => {
     );
   });
 
-  it('renders the rollout trace and both theoretical bound curves', () => {
+  it('renders the rollout trace and both illustrative reference curves', () => {
     render(<CompoundingError />);
     expect(
       screen.getByRole('img', { name: /rollout trace/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('img', { name: /regret bounds/i }),
+      screen.getByRole('img', { name: /illustrative reference curves/i }),
     ).toBeInTheDocument();
     expect(screen.getByTestId('bc-bound-curve')).toBeInTheDocument();
     expect(screen.getByTestId('dagger-bound-curve')).toBeInTheDocument();
@@ -128,7 +128,7 @@ describe('CompoundingError', () => {
     );
     expect(details).toBeTruthy();
     expect(details?.querySelectorAll('tbody tr').length).toBe(6);
-    const boundsImg = screen.getByRole('img', { name: /regret bounds/i });
+    const boundsImg = screen.getByRole('img', { name: /illustrative reference curves/i });
     expect(boundsImg).toHaveAttribute('aria-describedby');
     const rolloutImg = screen.getByRole('img', { name: /rollout trace/i });
     expect(rolloutImg).toHaveAttribute('aria-describedby');
@@ -149,6 +149,6 @@ describe('CompoundingError', () => {
     expect(labText.length).toBeGreaterThan(60);
     expect(predText.length).toBeGreaterThan(60);
     expect(norm(labText)).not.toBe(norm(predText));
-    expect(predText).toMatch(/prediction-step bounds panel/i);
+    expect(predText).toMatch(/prediction-step reference panel/i);
   });
 });

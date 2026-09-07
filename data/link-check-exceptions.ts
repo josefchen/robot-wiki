@@ -108,15 +108,6 @@ export const LINK_CHECK_EXCEPTIONS: LinkCheckException[] = [
     verifiedOn: '2026-08-18',
   },
   {
-    id: 'knowledge-insulation-2025',
-    covers: ['title-mismatch'],
-    reason:
-      'pi.website research pages carry the note\'s tagline as <title> ("VLAs that Train Fast, Run Fast, and Generalize Better"), not the research-note name the registry cites; the page has no DOI, so Crossref cannot stand in.',
-    verifiedBy:
-      'Fetched page body (2026-08-18, live): the page names "Knowledge Insulation" repeatedly, carries the ten-author byline at its foot, and lives at the research/knowledge_insulation slug; the companion paper is registry id knowledge-insulation-paper-2025 with the same tagline subtitle.',
-    verifiedOn: '2026-08-18',
-  },
-  {
     id: 'gtsam-2026',
     covers: ['title-mismatch'],
     reason:

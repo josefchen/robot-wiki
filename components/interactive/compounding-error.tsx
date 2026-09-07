@@ -18,14 +18,9 @@ import { cx } from '@/lib/utils';
 /**
  * CompoundingError: why behavior cloning drifts off the expert distribution.
  *
- * Panel 1 draws the demonstrated path against the policy rollout; panel 2
- * plots accumulated deviation against the O(epsilon * T^2) and O(epsilon * T)
- * regret bounds from the DAgger analysis. Controls: per-step error epsilon,
- * episode horizon T, per-timestep vs chunked prediction, and a DAgger
- * relabeling toggle. Honors the interactive contract: typed props,
- * deterministic render, monospace numeric readout, reset control, native
- * keyboard-accessible inputs, fixed-height charts (no layout shift), no
- * auto-playing motion.
+ * Deterministic illustration of persistent drift, with quadratic and linear
+ * reference scalings. These are not task-cost or regret bounds. Controls,
+ * calculations, defaults and reset semantics are intentionally unchanged.
  */
 type CompoundingErrorProps = {
   /** Initial per-step error epsilon. Default 0.05 (5%). */
@@ -197,8 +192,8 @@ export function CompoundingError({
     : '';
   const descriptionText =
     defaultSteps === 120
-      ? `With per-step error ${epsilonPercent.toFixed(1)}% over a ${steps}-step horizon${daggerClause}, the simulated accumulated deviation reaches ${formatUnits(rollout.cost)} units against the quadratic epsilon T(T+1)/2 bound of ${formatUnits(bounds.bcAtT)} and the linear epsilon T bound of ${formatUnits(bounds.daggerAtT)}; the two dashed curves are the analytic regret bounds from the DAgger analysis and the solid curve is a simulated rollout, not measured robot data.`
-      : `The prediction-step bounds panel is seeded at a ${steps}-step horizon so the prompt can be answered before the slider moves. Per-step error ${epsilonPercent.toFixed(1)}%${dagger ? `, with expert relabeling every ${DAGGER_INTERVAL} steps,` : ''} yields a simulated accumulated deviation of ${formatUnits(rollout.cost)} units, under the quadratic epsilon T(T+1)/2 bound of ${formatUnits(bounds.bcAtT)} and the linear epsilon T bound of ${formatUnits(bounds.daggerAtT)}. The dashed pair is the DAgger analytic regret bounds; the solid trace is a simulated rollout, not measured robot data.`;
+      ? `With toy error ${epsilonPercent.toFixed(1)}% over ${steps} steps${daggerClause}, summed deviation is ${formatUnits(rollout.cost)} units. The two dashed curves are illustrative reference curves: epsilon T(T+1)/2 = ${formatUnits(bounds.bcAtT)} and epsilon T = ${formatUnits(bounds.daggerAtT)}. They are not bounds on the solid trace or measured robot data. Linear task-cost scaling in DAgger requires a horizon-independent recovery factor u and the paper's learning assumptions.`
+      : `The prediction-step reference panel starts at ${steps} steps. Its deterministic recurrence with toy error ${epsilonPercent.toFixed(1)}% gives ${formatUnits(rollout.cost)} units of summed deviation${daggerClause}. Dashed curves show illustrative reference curves, epsilon T(T+1)/2 = ${formatUnits(bounds.bcAtT)} and epsilon T = ${formatUnits(bounds.daggerAtT)}, not bounds on this trace. This is not a task-cost theorem or a source benchmark.`;
 
   function reset() {
     setEpsilonPercent(defaultEpsilon * 100);
@@ -278,6 +273,15 @@ export function CompoundingError({
           Reset
         </button>
       </div>
+
+      <p className="mt-3 font-sans text-sm text-text-dim">
+        Deterministic illustration, not a task-cost theorem: the error slider
+        sets an additive magnitude, not a failure probability. Chunk mode adds
+        an error every {chunkSize} steps. The DAgger-labelled toggle removes 75%
+        of deviation every {DAGGER_INTERVAL} steps; it does not train a policy.
+        Dashed curves are reference scalings, not source benchmarks or bounds
+        on this toy. Linear DAgger cost scaling additionally requires constant u.
+      </p>
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <div
@@ -380,7 +384,7 @@ export function CompoundingError({
       <svg
         viewBox={`0 0 ${BOUNDS_W} ${BOUNDS_H}`}
         role="img"
-        aria-label={`Accumulated deviation and regret bounds over the episode horizon, on a logarithmic deviation axis; the simulated cost tracks the quadratic epsilon T squared bound and outgrows the linear epsilon T bound.`}
+        aria-label={`Accumulated toy deviation and illustrative reference curves over the episode horizon on a logarithmic deviation axis; neither dashed curve is a bound on the solid trace.`}
         aria-describedby={`${uid}-bounds-description`}
         className="mt-2 block w-full"
       >
@@ -495,7 +499,7 @@ export function CompoundingError({
             strokeDasharray="4 3"
           />
           <text x={BOUNDS_PAD.left + bounds.plotW - 190} y={36}>
-            eT (DAgger)
+            eT reference
           </text>
         </g>
       </svg>
@@ -513,7 +517,7 @@ export function CompoundingError({
         </span>
       </p>
       <p className="mt-1 font-mono text-xs text-text-dim">
-        bounds at T = {steps}: εT(T+1)/2 = {formatUnits(bounds.bcAtT)}, εT ={' '}
+        reference scalings at T = {steps}: εT(T+1)/2 = {formatUnits(bounds.bcAtT)}, εT ={' '}
         {formatUnits(bounds.daggerAtT)}
       </p>
 
@@ -525,7 +529,7 @@ export function CompoundingError({
         description={
           defaultSteps === 120
             ? `${mode === 'per-step' ? 'Per-timestep prediction' : `Chunked prediction of ${chunkSize} actions`} at ${epsilonPercent.toFixed(1)} percent per-step error over ${steps} steps, DAgger relabeling ${dagger ? 'on' : 'off'}, leaves the rollout drifting from the demonstrated path with accumulated deviation ${formatUnits(rollout.cost)} units.`
-            : `The doubled-horizon figure keeps ${mode === 'per-step' ? 'per-timestep prediction' : `chunked prediction of ${chunkSize} actions`} at ${epsilonPercent.toFixed(1)} percent error across ${steps} steps with DAgger ${dagger ? 'on' : 'off'}, so the rollout accumulated deviation is ${formatUnits(rollout.cost)} units before any expert correction.`
+            : `The doubled-horizon figure keeps ${mode === 'per-step' ? 'per-timestep prediction' : `chunked prediction of ${chunkSize} actions`} at ${epsilonPercent.toFixed(1)} percent error across ${steps} steps with DAgger ${dagger ? 'on' : 'off'}, so the rollout accumulated deviation is ${formatUnits(rollout.cost)} units under the selected toy correction setting.`
         }
         states={[
           {
@@ -545,7 +549,7 @@ export function CompoundingError({
         id={`${uid}-bounds-description`}
         className="mt-3"
         form="table"
-        summary="Sampled accumulated deviation against both bounds by horizon"
+        summary="Sampled toy deviation and reference scalings by horizon"
         rowHeader="horizon T"
         columns={[
           { header: 'simulated', numeric: true },

@@ -28,14 +28,17 @@ export const REPRESENTATION_LABELS: Record<string, string> = {
 export function methodRepresentationText(method: Method): string {
   return method.actionRepresentation === null
     ? NOT_DISCLOSED_TEXT
-    : REPRESENTATION_LABELS[method.actionRepresentation];
+    : [REPRESENTATION_LABELS[method.actionRepresentation], method.actionRepresentationNote].filter(Boolean).join('; ');
 }
 
 /** The "100 / 1" figure alone; the note renders on its own line beneath. */
 export function methodHorizonFigure(method: Method): string | null {
   const { planned, executed } = method.actionHorizon;
   if (planned === null && executed === null) return null;
-  return `${planned ?? 'n.d.'} / ${executed ?? 'n.d.'}`;
+  const execution = executed !== null && typeof executed === 'object'
+    ? `{${executed.choices.join(', ')}}`
+    : executed ?? 'n.d.';
+  return `${planned ?? 'n.d.'} / ${execution}`;
 }
 
 /** The "50 Hz" figure alone; the note renders on its own line beneath. */

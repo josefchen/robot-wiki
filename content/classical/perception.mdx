@@ -68,7 +68,9 @@ The rest of the module is the six stages, in order, and what each one contribute
 
 A camera is a device that discards a dimension. It maps a 3D point onto a 2D sensor, and the mapping it uses is described by the <Term id="camera-intrinsics">intrinsics</Term>: focal length in pixels on each axis, the principal point, and the lens distortion terms. Before those are known, a pixel coordinate is a number with no geometric meaning.
 
-Zhang's 2000 method is why calibration on a real robot is a printed checkerboard rather than a metrology fixture. Show the camera a planar target at several arbitrary orientations, none of them measured; each view constrains the intrinsics, and a closed-form solution followed by nonlinear refinement recovers them along with each view's pose and the radial distortion <Cite id="zhang-2000-calibration" />. The technique needs no knowledge of where you held the board, which is the whole reason it displaced the fixtures that came before it.
+Zhang's 2000 method uses a planar calibration target. Show the camera a planar target at several arbitrary orientations, none of them measured; each view constrains the intrinsics, and a closed-form solution followed by nonlinear refinement recovers them along with each view's pose and the radial distortion.
+
+Zhang <Cite id="zhang-2000-calibration" /> compares this setup with classical techniques that use expensive equipment such as two or three orthogonal planes.
 
 Extrinsics are the other half: where the camera sits relative to something else. Two cameras on a stereo rig need their relative pose. A camera and a robot need the harder version.
 

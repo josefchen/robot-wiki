@@ -26,7 +26,7 @@ import { LatentImagination } from '@/components/interactive/latent-imagination';
 
 Of the six paradigms the [taxonomy module](/world-models/taxonomy) separates, <Term id="latent-dynamics">latent dynamics</Term> is the oldest and the only one with a decade of evidence that it improves sample efficiency on control. The idea is one sentence: learn a compact recurrent latent state, predict how that state and the reward evolve under the agent's actions, and do the learning or the planning entirely inside that imagination, without touching the real environment. Everything else, the decoder versus no-decoder split, the actor versus planner split, is a design choice on top of that sentence.
 
-Imagination has a catch, and it bounds everything below. Drag the horizon slider out and the deviation readout climbs faster than the horizon does, because each imagined step conditions on the model's own previous prediction. That is why DreamerV3 dreams fifteen steps and TD-MPC2 plans three.
+Imagination has a catch, and it bounds everything below. Drag the horizon slider out and the deviation readout climbs faster than the horizon does, because each imagined step conditions on the model's own previous prediction. Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. These differently labelled quantities are not reconciled here <Cite id="dreamerv3-2023" />.
 
 <LatentImagination className="my-6" />
 
@@ -34,20 +34,20 @@ Imagination has a catch, and it bounds everything below. Drag the horizon slider
   <Stat label="DreamerV3 tasks" value="150+" note="one fixed hyperparameter set" accent />
   <Stat label="TD-MPC2 agent" value="317M" note="one agent, 80 tasks" />
   <Stat label="DayDreamer" value="1 h" note="to walk from scratch" />
-  <Stat label="horizon" value="15" note="imagined steps, DreamerV3" />
+  <Stat label="DreamerV3 labels" value="H=15 / T=16" note="2023 preprint; not reconciled" />
 </div>
 
 ## The RSSM: a state you can dream in
 
-Dreamer's core object is the Recurrent State-Space Model (RSSM). The agent's knowledge of the world lives in a state with two parts: a deterministic recurrent state that carries memory forward, and a stochastic latent (categorical in DreamerV3) that captures what the deterministic part cannot, the genuinely unpredictable content of each observation <Cite id="dreamer-2019" />. An encoder maps observations into the posterior over this state; during training a decoder reconstructs the observation, and separate heads predict reward and episode continuation.
+In DreamerV3, the Recurrent State-Space Model (RSSM) combines a recurrent state that carries memory with a stochastic categorical representation. An encoder infers the representation from the recurrent state and observation. From the combined state, the model reconstructs inputs during training and predicts reward and episode continuation <Cite id="dreamerv3-2023" />.
 
-The payoff is where learning happens. The actor and the critic are trained purely on imagined latent rollouts: start from a real encoded state, unroll the learned dynamics for a short horizon, and backpropagate value gradients through the learned model to improve the policy <Cite id="dreamer-2019" />. No environment steps are consumed during this phase, which is the entire source of the sample efficiency. The environment is only needed to collect the experience the model is fitted to.
+The payoff is where learning happens. The actor and the critic are trained purely on imagined latent rollouts: start from a real encoded state, unroll the learned dynamics for a short horizon, and backpropagate value gradients through the learned model to improve the policy <Cite id="dreamer-2019" />. This imagination phase reuses the learned world model without collecting new environment transitions <Cite id="dreamer-2019" />. The environment is only needed to collect the experience the model is fitted to.
 
 ## DreamerV3: one recipe across 150 tasks
 
-The original Dreamer worked, but each new domain meant retuning. DreamerV3's contribution is a set of normalization tricks that make one fixed hyperparameter set work across more than 150 tasks in 8 domains: symlog transforms of rewards, values, and returns to compress heavy-tailed magnitudes, two-hot reward encoding so the reward head regresses a distribution over discrete buckets instead of a raw scalar, free-bits KL balancing to keep the stochastic latent informative, and percentile return normalization <Cite id="dreamerv3-2023" />.
+DreamerV3 was evaluated on more than 150 tasks across eight domains with fixed hyperparameters. Its robustness techniques include symlog transforms for vector observations, free bits with KL balancing, and percentile-based return normalization. The detailed distribution section describes two-hot targets for reward and value prediction; an earlier world-model paragraph instead says the reward predictor uses symlog squared loss. These two descriptions are not reconciled here <Cite id="dreamerv3-2023" />.
 
-The headline result is Minecraft. DreamerV3 was the first agent to collect diamonds in Minecraft from scratch, without human data or curricula, a task that requires a long chain of intermediate achievements (wood, tools, furnaces, iron, diamond) discovered through exploration <Cite id="dreamerv3-2023" />. The paper was published in Nature in 2025, which says something about how the field rates the result.
+The headline result is Minecraft. In their 2025 Nature article, Hafner, Pasukonis, Ba, and Lillicrap describe DreamerV3 as, to their knowledge, the first algorithm to collect diamonds in Minecraft from scratch without human data or adaptive curricula. The experiment used a MineRL-based environment with abstract crafting actions, accelerated block breaking, and sparse intermediate rewards. Its 12 rewarded milestones are log, plank, stick, crafting table, wooden pickaxe, cobblestone, stone pickaxe, iron ore, furnace, iron ingot, iron pickaxe, and diamond <Cite id="dreamerv3-2023" />.
 
 ## TD-MPC and TD-MPC2: drop the decoder, plan at every step
 
@@ -61,7 +61,7 @@ The persistent criticism of this lineage is that it dreams in simulators. DayDre
 
 ## The horizon problem
 
-The catch is the same one that limits every paradigm in this domain: error compounds. A one-step error does not stay a one-step error. It becomes part of the state the next prediction is read from, and deviations grow superlinearly down the rollout, which is why DreamerV3 trains its actor and critic on 15-step imagined rollouts and TD-MPC2 plans only 3 steps ahead <Cite id="dreamerv3-2023" /><Cite id="tdmpc2-2023" />.
+Table W.1 of the 2023 DreamerV3 preprint lists imagination horizon H = 15, while the same document's actor-critic section uses prediction horizon T = 16. The 2024 revision and 2025 Nature article also use T = 16. These differently labelled quantities are not reconciled here <Cite id="dreamerv3-2023" />. TD-MPC2 plans only 3 steps ahead <Cite id="tdmpc2-2023" />.
 
 The figure at the top of this module has both cases. Its Dreamer mode shows what the drift does to decoded frames. Its TD-MPC2 mode shows the decoder-free situation: there is no frame to degrade, and the quantity that matters is reward prediction error, the scalar the planner actually optimizes.
 

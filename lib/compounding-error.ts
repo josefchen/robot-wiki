@@ -1,14 +1,12 @@
 /**
  * Compounding-error model for the behavior-cloning foundations module.
  *
- * Pedagogical model of the DAgger analysis (Ross, Gordon & Bagnell,
- * arXiv:1011.0686): a policy trained on the expert's state distribution makes
- * a per-decision error of magnitude epsilon. Each error persists (the robot
- * keeps the offset it drove itself into) and amplifies subsequent errors,
- * because the policy is now off the distribution it was trained on. Deviation
- * therefore grows superlinearly in the horizon, and the total cost of an
- * episode, the sum of per-step deviations, follows the quadratic bound
- * epsilon * T * (T + 1) / 2 rather than the linear epsilon * T.
+ * Original deterministic illustration, not an implementation of DAgger or
+ * a task-cost theorem. Epsilon is an additive deviation magnitude rather
+ * than imitation 0-1 loss. The curves epsilon*T*(T+1)/2 and epsilon*T are
+ * reference scalings, not bounds on this recurrence. The DAgger paper's
+ * conditional cost result uses u*T*epsilon_N; u can itself grow with T.
+ * Chunking and periodic correction are chosen illustration rules only.
  *
  * All functions are pure and deterministic; the interactive replays identical
  * traces on every render. Unit-tested in tests/unit/compounding-error.test.ts.
@@ -17,7 +15,7 @@
 export type PredictionMode = 'per-step' | 'chunk';
 
 export interface RolloutParams {
-  /** Per-decision error magnitude on the expert distribution, in (0, 1]. */
+  /** Toy per-decision additive error magnitude, in (0, 1]. */
   epsilon: number;
   /** Episode horizon T in control steps. */
   steps: number;
@@ -87,27 +85,19 @@ export function simulateDeviation(params: RolloutParams): number[] {
   return deviation;
 }
 
-/** Total episode cost: the sum of per-step absolute deviations. */
+/** Toy accumulated deviation: sum of per-step absolute deviations, not task cost. */
 export function accumulatedCost(deviation: readonly number[]): number {
   let total = 0;
   for (const d of deviation) total += Math.abs(d);
   return total;
 }
 
-/**
- * The DAgger paper's worst-case bound for naive behavior cloning: a policy
- * with per-step error epsilon on the expert distribution can incur total
- * cost epsilon * T * (T + 1) / 2 over a T-step episode.
- */
+/** Quadratic reference scaling; not a bound on the simulated deviation. */
 export function bcBound(epsilon: number, t: number): number {
   return (epsilon * t * (t + 1)) / 2;
 }
 
-/**
- * The matching bound once the training distribution covers the states the
- * policy actually visits (DAgger's no-regret reduction): cost grows only
- * linearly, epsilon * T.
- */
+/** Linear reference scaling; not an unconditional DAgger task-cost bound. */
 export function daggerBound(epsilon: number, t: number): number {
   return epsilon * t;
 }

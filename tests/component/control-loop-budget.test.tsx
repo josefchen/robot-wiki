@@ -49,8 +49,8 @@ describe('ControlLoopBudget', () => {
   it('shows the sourced reference latencies', () => {
     render(<ControlLoopBudget />);
     expect(screen.getByTestId('ref-pi06-h100')).toHaveTextContent('63 ms');
-    expect(screen.getByTestId('ref-rtc-mobile')).toHaveTextContent('139 ms');
-    expect(screen.getByTestId('ref-rtc-static')).toHaveTextContent('108 ms');
+    expect(screen.getByTestId('ref-rtc-mobile')).toHaveTextContent('138.98 ms');
+    expect(screen.getByTestId('ref-rtc-static')).toHaveTextContent('108.76 ms');
     expect(screen.getByTestId('ref-pi07-tolerance')).toHaveTextContent(
       '240 ms',
     );

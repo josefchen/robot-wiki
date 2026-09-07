@@ -193,9 +193,9 @@ const ARTICLE_IMAGES: SiteImage[] = [
       'Diagram: Robot Wiki contributors / Robot Wiki (original diagram). Licence: CC BY 4.0.',
     preservationPolicy: 'first-party-restyled-semantics-preserved',
     file: '/images/temporal-ensembling.svg',
-    alt: 'Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and exponential weights favor the newest prediction.',
+    alt: 'Diagram of temporal ensembling: three overlapping action chunks each contain a prediction for the same action a_t, and oldest-to-newest unnormalized weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; the reference code uses m=0.01.',
     caption:
-      'Three chunks in flight at time t. Each contains a prediction for the current action; the ensemble averages the predictions with exponential weights that favor the newest chunk.',
+      'Three chunks issued at t-2, t-1, and t predict the current action. Oldest-to-newest raw weights are 1.00, 0.61, and 0.37 for illustrative m=0.5; divide by their sum before averaging. This emphasizes the reference convention: oldest gets the largest weight. The pinned ACT code uses m=0.01, not 0.5.',
     sourceName: 'Robot Wiki (original diagram)',
     creator: 'Robot Wiki contributors',
     licence: 'cc-by-4.0',

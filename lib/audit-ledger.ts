@@ -568,8 +568,14 @@ function compoundEvidence(
     return part.requiredCitationIds.map((id) => JSON.stringify([part.id, id]));
   });
   const supplied = plan.evidence.map((item) => JSON.stringify([item.partId, item.citationId]));
-  if (!exactSet(pairs, supplied)) {
-    structural.push('compound item coverage must equal every required (part, citation) pair; duplicates and extras fail');
+  // A work's arXiv metadata and official proceedings can establish different
+  // identity fields. Preserve each fetched URL/passage pair, while requiring
+  // the same exact set of required parts/citations and rejecting duplicate URLs.
+  const sourceItems = plan.evidence.map((item) =>
+    JSON.stringify([item.partId, item.citationId, item.sourceUrl]));
+  if (!exactSet(pairs, [...new Set(supplied)]) ||
+    new Set(sourceItems).size !== sourceItems.length) {
+    structural.push('compound item coverage must equal every required (part, citation) pair; duplicate source items and extras fail');
   }
   for (const item of plan.evidence) {
     for (const failure of claimEvidence(item, registryIds)) {

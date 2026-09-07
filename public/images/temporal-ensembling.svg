@@ -1,10 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 250" width="640" height="250" role="img" aria-label="Temporal ensembling diagram">
-  <!-- brand-v2 palette: ink ground, graphite chunk blocks, concrete linework
-       and labels, lime for the ensembled action and its weights. Only fill,
-       stroke, stroke-width and opacity move; the geometry and the label text
-       are pinned by the normalized semantic baseline (VAL-B2-VIZ-014). The
-       three weight opacities stay 0.45 / 0.65 / 0.95 because they encode the
-       reported weights beside them and are not styling. -->
+  <!-- Brand-v2 palette and chunk geometry preserved. The approved factual
+       correction reverses the meaning-carrying weight widths/opacities and
+       labels to oldest-first, and explicitly labels illustrative m=0.5.
+       Original migration semantics remain in history; exact source-backed
+       before/after asset and semantic deltas must accompany implementation. -->
   <rect width="640" height="250" fill="#0B0B0C"/>
 
   <!-- Section labels -->
@@ -49,12 +48,15 @@
   </g>
   <text x="50" y="196" font-family="ui-monospace, monospace" font-size="10" fill="#D9DADB">control steps</text>
 
-  <!-- Ensemble weight bars (aligned with chunk rows; newest dominates) -->
-  <rect x="490" y="58" width="44" height="12" rx="2" fill="#C6FF19" opacity="0.45"/>
-  <text x="540" y="68" font-family="ui-monospace, monospace" font-size="10" fill="#D9DADB">0.37</text>
+  <!-- Ensemble weight bars: oldest-to-newest; illustrative raw weights at m=0.5. -->
+  <rect x="490" y="58" width="120" height="12" rx="2" fill="#C6FF19" opacity="0.95"/>
+  <text x="614" y="68" font-family="ui-monospace, monospace" font-size="10" fill="#D9DADB">1.00</text>
   <rect x="490" y="86" width="73" height="12" rx="2" fill="#C6FF19" opacity="0.65"/>
   <text x="569" y="96" font-family="ui-monospace, monospace" font-size="10" fill="#D9DADB">0.61</text>
-  <rect x="490" y="114" width="120" height="12" rx="2" fill="#C6FF19" opacity="0.95"/>
-  <text x="614" y="124" font-family="ui-monospace, monospace" font-size="10" fill="#D9DADB">1.00</text>
-  <text x="490" y="150" font-family="ui-monospace, monospace" font-size="11" fill="#D9DADB">w_i = exp(-m i)</text>
+  <rect x="490" y="114" width="44" height="12" rx="2" fill="#C6FF19" opacity="0.45"/>
+  <text x="540" y="124" font-family="ui-monospace, monospace" font-size="10" fill="#D9DADB">0.37</text>
+  <text x="420" y="150" font-family="ui-monospace, monospace" font-size="10" fill="#D9DADB">raw w_i = exp(-m i)</text>
+  <text x="420" y="168" font-family="ui-monospace, monospace" font-size="10" fill="#D9DADB">oldest first; divide by sum</text>
+  <text x="420" y="186" font-family="ui-monospace, monospace" font-size="10" fill="#D9DADB">illustration m=0.5</text>
+  <text x="420" y="204" font-family="ui-monospace, monospace" font-size="10" fill="#D9DADB">reference m=0.01</text>
 </svg>

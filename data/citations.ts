@@ -57,11 +57,19 @@ export type { Citation } from './schemas/citation.ts';
 
 export const CITATIONS: Citation[] = [
   {
+    id: 'act-reference-2023',
+    title: 'ACT reference implementation: imitate_episodes.py (76cf30b)',
+    authors: ['tonyzhaozh'],
+    year: 2023,
+    url: 'https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py',
+    type: 'docs',
+  },
+  {
     id: 'alvinn-1988',
     title: 'ALVINN: An Autonomous Land Vehicle in a Neural Network',
     authors: ['Dean A. Pomerleau'],
     year: 1988,
-    venue: 'NeurIPS 1988',
+    venue: 'Advances in Neural Information Processing Systems 1',
     url: 'https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html',
     type: 'paper',
   },
@@ -111,9 +119,43 @@ export const CITATIONS: Citation[] = [
       'Shuran Song',
     ],
     year: 2023,
-    venue: 'RSS 2023',
+    // Landing metadata describes an extended journal version of the original RSS2023 paper.
+    // Keep this eight-author work distinct from the explicitly cited original v1.
     arxiv: '2303.04137',
     url: 'https://arxiv.org/abs/2303.04137',
+    type: 'paper',
+  },
+  {
+    id: 'diffusion-policy-2023-v1',
+    title: 'Diffusion Policy: Visuomotor Policy Learning via Action Diffusion',
+    authors: [
+      'Cheng Chi',
+      'Siyuan Feng',
+      'Yilun Du',
+      'Zhenjia Xu',
+      'Eric Cousineau',
+      'Benjamin Burchfiel',
+      'Shuran Song',
+    ],
+    year: 2023,
+    // Original arXiv v1, 7 March 2023; not the later eight-author edition.
+    arxiv: '2303.04137',
+    url: 'https://arxiv.org/abs/2303.04137v1',
+    type: 'paper',
+  },
+  {
+    id: 'diffuser-2022',
+    title: 'Planning with Diffusion for Flexible Behavior Synthesis',
+    authors: [
+      'Michael Janner',
+      'Yilun Du',
+      'Joshua B. Tenenbaum',
+      'Sergey Levine',
+    ],
+    year: 2022,
+    venue: 'ICML 2022',
+    arxiv: '2205.09991',
+    url: 'https://arxiv.org/abs/2205.09991',
     type: 'paper',
   },
   {
@@ -233,7 +275,8 @@ export const CITATIONS: Citation[] = [
       'Mykel J. Kochenderfer',
     ],
     year: 2019,
-    venue: 'ICRA 2019',
+    // Retained landing and PDF identify v2, 11 March 2019; no ICRA venue proof.
+    venue: 'arXiv v2 (11 March 2019)',
     arxiv: '1810.02890',
     url: 'https://arxiv.org/abs/1810.02890',
     type: 'paper',
@@ -299,7 +342,7 @@ export const CITATIONS: Citation[] = [
     ],
     year: 2022,
     arxiv: '2212.06817',
-    url: 'https://arxiv.org/abs/2212.06817',
+    url: 'https://arxiv.org/html/2212.06817v2',
     type: 'paper',
   },
   {
@@ -389,8 +432,8 @@ export const CITATIONS: Citation[] = [
   {
     id: 'octo-2024',
     title: 'Octo: An Open-Source Generalist Robot Policy',
-    // Full 19-entry author list from the arXiv abs page (completed
-    // 2026-08-17 during the manipulation-ii audit).
+    // Twenty byline entries, including Octo Model Team, in explicit arXiv v2.
+    // The landing metadata omits Ria Doshi; this entry cites the v2 body.
     authors: [
       'Octo Model Team',
       'Dibya Ghosh',
@@ -401,6 +444,7 @@ export const CITATIONS: Citation[] = [
       'Sudeep Dasari',
       'Joey Hejna',
       'Tobias Kreiman',
+      'Ria Doshi',
       'Charles Xu',
       'Jianlan Luo',
       'You Liang Tan',
@@ -414,7 +458,7 @@ export const CITATIONS: Citation[] = [
     ],
     year: 2024,
     arxiv: '2405.12213',
-    url: 'https://arxiv.org/abs/2405.12213',
+    url: 'https://arxiv.org/html/2405.12213v2',
     type: 'paper',
   },
   {
@@ -459,8 +503,8 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'knowledge-insulation-2025',
-    title: 'Knowledge Insulation',
-    // Ten named authors as printed at the foot of the research note.
+    title: 'VLAs that Train Fast, Run Fast, and Generalize Better',
+    // Eleven named authors as printed in the research-note byline.
     authors: [
       'Danny Driess',
       'Jost Tobias Springenberg',
@@ -477,9 +521,8 @@ export const CITATIONS: Citation[] = [
     year: 2025,
     url: 'https://www.pi.website/research/knowledge_insulation',
     type: 'blog',
-    // The research page serves its tagline ("VLAs that Train Fast, Run Fast,
-    // and Generalize Better") as <title>, not the note's name; documented as
-    // a title-mismatch exception in data/link-check-exceptions.ts.
+    // The displayed heading and page title match this research-note title.
+    // Distinct from the separately registered Knowledge Insulation paper.
   },
   {
     id: 'pi0-fast-2025',
@@ -716,9 +759,9 @@ export const CITATIONS: Citation[] = [
       'Ury Zhilinsky',
     ],
     year: 2025,
-    venue: 'CoRL 2025',
+    // Explicit v1 source; the retained packet does not establish CoRL 2025.
     arxiv: '2504.16054',
-    url: 'https://arxiv.org/abs/2504.16054',
+    url: 'https://arxiv.org/html/2504.16054v1',
     type: 'paper',
   },
   {
@@ -745,7 +788,7 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Closed model; the dated model-card PDF is the primary source (no arXiv).
+    // Dated official model card; it does not establish model-specific licensing.
     id: 'pi06-model-card-2025',
     title: 'π0.6 Model Card',
     authors: ['Physical Intelligence'],
@@ -1057,8 +1100,10 @@ export const CITATIONS: Citation[] = [
     id: 'openpi-repo-2024',
     title: 'openpi',
     authors: ['Physical Intelligence'],
-    year: 2024,
-    url: 'https://github.com/Physical-Intelligence/openpi',
+    // Stable ID retained. Year identifies the 24 August 2026 repository snapshot,
+    // not first publication; README itself was last edited 21 November 2025.
+    year: 2026,
+    url: 'https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md',
     type: 'docs',
   },
   {
@@ -1073,7 +1118,7 @@ export const CITATIONS: Citation[] = [
     id: 'pistar06-blog-2025',
     title: 'π*0.6: a VLA that Learns from Experience',
     // 55 named authors as printed on the blog page itself; see the
-    // pistar06-2025 entry for the same list on the PDF side.
+    // pistar06-2025 entry for the separate PDF byline. The blog prints Gashon, not Gashun, Hussein.
     authors: [
       'Ali Amin',
       'Raichelle Aniceto',
@@ -1095,7 +1140,7 @@ export const CITATIONS: Citation[] = [
       'Lachy Groom',
       'Hunter Hancock',
       'Karol Hausman',
-      'Gashun Hussein',
+      'Gashon Hussein',
       'Brian Ichter',
       'Szymon Jakubczak',
       'Rowan Jen',
@@ -1146,8 +1191,8 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'pi-real-time-chunking-blog-2025',
-    title: 'Real-Time Chunking',
-    authors: ['Physical Intelligence'],
+    title: 'Real-Time Action Chunking with Large Models',
+    authors: ['Kevin Black', 'Manuel Y. Galliker', 'Sergey Levine'],
     year: 2025,
     url: 'https://www.pi.website/research/real_time_chunking',
     type: 'blog',
@@ -1236,7 +1281,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'isaac-gr00t-repo-2026',
-    title: 'Isaac GR00T (N1.7 release notes and code)',
+    title: 'NVIDIA Isaac GR00T',
     authors: ['NVIDIA'],
     year: 2026,
     url: 'https://github.com/NVIDIA/Isaac-GR00T',
@@ -3400,9 +3445,11 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // Community-compiled pricing table (June 2026), researched with sources
-    // listed at the bottom. Secondary compilation; used only for figures
-    // with no first-party page (Koch BOM, ALOHA 2, Reachy 2).
+    // Secondary community issue, self-described as researched June 2026.
+    // ALOHA / ALOHA 2 is one approximate dollar range, not a vendor quote.
+    // Currency code, configurations and itemized contents are not established.
+    // Retrieved issue body does not identify its author; repository ownership
+    // alone does not independently verify the existing authors field.
     id: 'lerobot-pricing-2026',
     title: 'LeRobot ecosystem and hardware pricing (June 2026)',
     authors: ['alpibrusl'],

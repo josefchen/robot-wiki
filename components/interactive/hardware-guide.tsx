@@ -64,7 +64,26 @@ function nameCell(entry: HardwareEntry): ReactNode {
 
 function priceCell(entry: HardwareEntry): ReactNode {
   const price = formatPrice(entry);
-  if (price === null) return NOT_DISCLOSED;
+  if (price === null) {
+    if (entry.id !== 'aloha-2' || !entry.priceNote) return NOT_DISCLOSED;
+    return (
+      <span>
+        {NOT_DISCLOSED}
+        <span className="block font-sans text-xs text-text-dim">
+          {entry.priceNote}
+        </span>
+        <a
+          data-brand-control-id="control:link-focus"
+          href="https://github.com/alpibrusl/lex-robot/issues/3"
+          target="_blank"
+          rel="noopener"
+          className="block font-mono text-xs text-accent underline underline-offset-2"
+        >
+          Community estimate (Jun 2026)
+        </a>
+      </span>
+    );
+  }
   return (
     <span className="font-mono tabular-nums">
       {price}
