@@ -51,7 +51,7 @@ describe('HardwareGuide', () => {
     render(<HardwareGuide />);
     for (const row of bodyRows()) {
       const priceCell = within(row).getAllByRole('cell')[2];
-      if (priceCell.textContent === 'not disclosed') continue;
+      if (within(priceCell).queryByText('not disclosed', { exact: true })) continue;
       expect(
         priceCell.textContent,
         `price without as-of note: ${priceCell.textContent}`,
@@ -60,7 +60,7 @@ describe('HardwareGuide', () => {
     // Sanity: the guide actually renders priced rows.
     const priced = bodyRows().filter(
       (row) =>
-        within(row).getAllByRole('cell')[2].textContent !== 'not disclosed',
+        !within(within(row).getAllByRole('cell')[2]).queryByText('not disclosed', { exact: true }),
     );
     expect(priced.length).toBeGreaterThan(10);
   });
@@ -120,7 +120,7 @@ describe('HardwareGuide', () => {
     expect(
       bodyRows().every(
         (row) =>
-          within(row).getAllByRole('cell')[2].textContent === 'not disclosed',
+          within(within(row).getAllByRole('cell')[2]).queryByText('not disclosed', { exact: true }) !== null,
       ),
     ).toBe(true);
 
@@ -221,4 +221,17 @@ describe('HardwareGuide', () => {
     const groups = screen.getAllByRole('group');
     expect(groups.length).toBe(4);
   });
+});
+
+
+it('keeps the ALOHA community estimate beside an undisclosed USD cell with its own source', () => {
+  render(<HardwareGuide />);
+  const row = rowNamed('ALOHA 2')!;
+  const price = within(row).getAllByRole('cell')[2];
+  expect(within(price).getByText('not disclosed', { exact: true })).toBeInTheDocument();
+  expect(price).toHaveTextContent('researched Jun 2026');
+  expect(price).toHaveTextContent('inclusions/exclusions not itemized');
+  expect(price).toHaveTextContent('not a vendor quote');
+  expect(within(price).getByRole('link', { name: 'Community estimate (Jun 2026)' })).toHaveAttribute('href', 'https://github.com/alpibrusl/lex-robot/issues/3');
+  expect(price).not.toHaveTextContent('as of');
 });

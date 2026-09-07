@@ -63,7 +63,7 @@ function formatMs(ms: number): string {
 
 /** Reference figures: whole ms when the source value is whole. */
 function formatRefMs(ms: number): string {
-  return Number.isInteger(ms) ? `${ms} ms` : formatMs(ms);
+  return Number.isInteger(ms) ? `${ms} ms` : `${ms.toFixed(2)} ms`;
 }
 
 export function ControlLoopBudget({
@@ -364,7 +364,7 @@ export function ControlLoopBudget({
               </span>
               <span className="ml-auto">
                 {ref.absorbed ? (
-                  <Badge variant="warn">tolerated by design</Badge>
+                  <Badge variant="warn">training-delay setting</Badge>
                 ) : refCloses ? (
                   <Badge variant="ok">closes at 50 Hz</Badge>
                 ) : (

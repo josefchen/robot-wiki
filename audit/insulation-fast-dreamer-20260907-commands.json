@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 1,
+  "scope": "Exactly 17 original Knowledge Insulation, FAST and Dreamer records; local implementation, no independent acceptance",
+  "evidenceDirectory": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907",
+  "runtimeModel": "custom:droidproxy:gpt-6-astra",
+  "reasoningEffort": "max",
+  "fixedOriginalRecords": 17,
+  "complete": 187,
+  "incomplete": 807,
+  "totalOriginalRecords": 994,
+  "plans": 95,
+  "approvals": 172,
+  "focusedDistinctTests": 231,
+  "overlappingFinalProseTests": 24,
+  "initialBrowser": {
+    "passed": 14,
+    "failed": 2
+  },
+  "affectedMobileRetry": {
+    "passed": 2,
+    "failed": 0
+  },
+  "contentFindings": 814,
+  "contentBreakdown": {
+    "incomplete": 807,
+    "unresolvedOutcomes": 4,
+    "aggregates": 3
+  },
+  "separateCitationGaps": 9,
+  "baselineFailures": 59,
+  "commands": [
+    {
+      "command": [
+        "npm",
+        "test",
+        "--",
+        "tests/unit/insulation-fast-dreamer-integration.test.ts"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:20:36.462402+00:00",
+      "finished": "2026-09-07T20:20:38.098049+00:00",
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/red-first.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/red-first.receipt.json",
+      "receiptSha256": "1b3c2800826056aa08fc9d888bbc7bd77599f3866e50ff4050e04800cc9a4332",
+      "logSha256": "3cc7fdac9b2016ddeec84691fb52c10f53fdc0bbdeaa6eb767cbe672faf18a8c"
+    },
+    {
+      "command": [
+        "node",
+        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/integrate.mjs"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:23:39.064274+00:00",
+      "finished": "2026-09-07T20:23:39.587012+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/integrate.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/integrate.receipt.json",
+      "receiptSha256": "49ecfc70b0136ffb40255030be79709c0bd9e706b577e8127ff01009c35829e1",
+      "logSha256": "2838da47e3ad85855bdd7f12c248e1b144baec8d119694b40f8ce8f186ea07fa"
+    },
+    {
+      "command": [
+        "node",
+        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/deltas.mjs"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:41:46.742406+00:00",
+      "finished": "2026-09-07T20:41:47.118502+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/approvals.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/approvals.receipt.json",
+      "receiptSha256": "163c6d83dcf6de742095ae842cdea80f0d37bed16a4d5e49fa2a673e898ffb40",
+      "logSha256": "4cb5b4d308c5030f7c66b4fa5e9c3b7e9bdb791922fb880a6f50412c9d6fc0f1"
+    },
+    {
+      "command": [
+        "npm",
+        "test",
+        "--",
+        "tests/unit/insulation-fast-dreamer-integration.test.ts",
+        "tests/unit/audit-ledger.test.ts",
+        "tests/unit/audit-citation-coverage.test.ts",
+        "tests/unit/comparison-current-audit.test.ts",
+        "tests/unit/manipulation-rl-integration.test.ts",
+        "tests/unit/knowledge-insulation.test.ts",
+        "tests/unit/latent-imagination.test.ts",
+        "tests/unit/methods.test.ts",
+        "tests/component/comparison-current-claims.test.tsx",
+        "tests/component/comparison-matrix.test.tsx",
+        "tests/component/mot-insulation.test.tsx",
+        "tests/component/latent-imagination.test.tsx",
+        "tests/component/act-final-model-papers.test.tsx"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:42:06.748022+00:00",
+      "finished": "2026-09-07T20:42:12.395092+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/focused.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/focused.receipt.json",
+      "receiptSha256": "24f6504bbb2022a7f09b7a0754a900a7e571ef58c9df7e8fdb710d3e9cc32f0b",
+      "logSha256": "63a020667237fa261a9db2d03e45391bb345c6acafd79b9c4a29491e3493219c"
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit",
+        "--incremental",
+        "false"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:42:23.003053+00:00",
+      "finished": "2026-09-07T20:42:25.309451+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/typescript.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/typescript.receipt.json",
+      "receiptSha256": "b91b079c36a2ab8dafab7babd2fbb7145e5e3394802e2cafe0e3fb1804e7c8d2",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/eslint/bin/eslint.js",
+        "."
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:42:25.336237+00:00",
+      "finished": "2026-09-07T20:42:42.104283+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/lint.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/lint.receipt.json",
+      "receiptSha256": "610d78dd2c83a8f405cd734b82b9709281df249368f1faca681a1027c22cd2e2",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:content"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:42:42.130431+00:00",
+      "finished": "2026-09-07T20:42:42.578132+00:00",
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/content.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/content.receipt.json",
+      "receiptSha256": "e4c3c12291d55cddf8477cd9e4c691c6d9835b7168255422cf80521e7aff64c0",
+      "logSha256": "7f11020f70068fc8dbb6ad1e571a1dfafd15d060d47b4bd09c15218eb511de88"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/brand-v2-baseline.ts",
+        "--check"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:42:42.604873+00:00",
+      "finished": "2026-09-07T20:42:42.940698+00:00",
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/baseline.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/baseline.receipt.json",
+      "receiptSha256": "75978870aed887e77cafa38ac5c0f732b411258f51af0a83e767bfd50135afdd",
+      "logSha256": "14e09d4233a99a1f4691dfeeeccfff4f4372934c5e7f4a6b82b765267ca1d18c"
+    },
+    {
+      "command": [
+        "node",
+        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/snapshot.mjs",
+        "after"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:42:42.968308+00:00",
+      "finished": "2026-09-07T20:42:43.562925+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/after-snapshot.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/after-snapshot.receipt.json",
+      "receiptSha256": "3c7e34302662013696649f9ab27154e1ca3098637c4283c019d3d9e4b66fc362",
+      "logSha256": "fb05d918717dd18b4c4bac7f54b1b373fe0167592aaf1ec1232722a415a5949c"
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "tests/e2e/insulation-fast-dreamer-integration.spec.ts",
+        "tests/e2e/latent-dynamics.spec.ts",
+        "--config",
+        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/playwright.config.mjs"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:44:27.305336+00:00",
+      "finished": "2026-09-07T20:45:09.239432+00:00",
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/browser.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/browser.receipt.json",
+      "receiptSha256": "9981c9fc58c8de3ad4e4987dcaca5cc3936970a41dee6fb29c7c75ba405ce8f9",
+      "logSha256": "c70a8d925e76d6a8025a058a4968c76154f037c2055439c5070f5938ac6186c1"
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/@playwright/test/cli.js",
+        "test",
+        "tests/e2e/insulation-fast-dreamer-integration.spec.ts",
+        "--grep",
+        "fixed corrected surfaces: (knowledge-insulation|pi-line) at 375",
+        "--config",
+        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/playwright.config.mjs",
+        "--output",
+        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/captures-mobile-corrected"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:47:34.404482+00:00",
+      "finished": "2026-09-07T20:47:44.744753+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/browser-mobile.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/browser-mobile.receipt.json",
+      "receiptSha256": "d2df1b0820a8efae9cdb592ba64dc74127fd16eee574cf6d9c59c3202828df1f",
+      "logSha256": "fbcf4d45f9b1daf7c15064a63bad7a78502e4761c0c2abee16f151de6a54752f"
+    },
+    {
+      "command": [
+        "node",
+        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/finalize-bindings.mjs"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:50:09.336203+00:00",
+      "finished": "2026-09-07T20:50:09.709099+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/final-bindings.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/final-bindings.receipt.json",
+      "receiptSha256": "a2e035c8015fca3953bbfdf69d62408e71074cfafb895e6648882fa21f2ea65c",
+      "logSha256": "852d82d5f5fa67819a3aa224e6edc00ea76f2fac0bf3353d591b5a9b4d870395"
+    },
+    {
+      "command": [
+        "npm",
+        "test",
+        "--",
+        "tests/unit/insulation-fast-dreamer-integration.test.ts"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:50:09.744382+00:00",
+      "finished": "2026-09-07T20:50:13.750273+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/final-prose-regressions.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/final-prose-regressions.receipt.json",
+      "receiptSha256": "5dc4ad391e79ad94c1202ba7401d441ea7a56f16b3198747f5697d2113225ec4",
+      "logSha256": "06d05a00b51b59fa0cbbe11be42b146e5a70af9ce7a94fbfedf83879426c4f42"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:content"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:50:13.776509+00:00",
+      "finished": "2026-09-07T20:50:14.536682+00:00",
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/content-final.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/content-final.receipt.json",
+      "receiptSha256": "380677ff91732a86badc60aac3ee654a4ae24f01eecf481c7aff08b4ea7ba5cd",
+      "logSha256": "f72f485c7d20b8575e51b9e2d476789594c2474dc8eaef6c43499bf292f2cec9"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/brand-v2-baseline.ts",
+        "--check"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:50:14.563668+00:00",
+      "finished": "2026-09-07T20:50:14.894690+00:00",
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/baseline-final.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/baseline-final.receipt.json",
+      "receiptSha256": "6da11d9ebfdb5d5155cfef8cf0dbf03bc35a2e700b48eb3eac5a5bf27ed884c0",
+      "logSha256": "14e09d4233a99a1f4691dfeeeccfff4f4372934c5e7f4a6b82b765267ca1d18c"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "check:og-card-bytes"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:50:14.927983+00:00",
+      "finished": "2026-09-07T20:50:17.158445+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/cards.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/cards.receipt.json",
+      "receiptSha256": "9b9a40da3387057b6f64ee8d8859b3fca66fd7e9a9e9689576d1a5d4f01278f3",
+      "logSha256": "a0e1b5fed530799c528ef9b9343815009ab289b3dc83457159690369675b2844"
+    },
+    {
+      "command": [
+        "node",
+        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/snapshot.mjs",
+        "final"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:50:17.186037+00:00",
+      "finished": "2026-09-07T20:50:17.791673+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/final-snapshot.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/final-snapshot.receipt.json",
+      "receiptSha256": "0e7162ff469d9c2163fe8aec1d1a995c7f15134c4f8d3fd7f06fa52b362272ba",
+      "logSha256": "bb4a687dcd95b677b716638d6203503462bd35664ce4f6a30e7cda28c54a9263"
+    },
+    {
+      "command": [
+        "python3",
+        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/preservation.py"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:52:21.425542+00:00",
+      "finished": "2026-09-07T20:52:21.549237+00:00",
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/preservation.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/preservation.receipt.json",
+      "receiptSha256": "27a0441c8b6d774ab9da3fe0e22a6f96c7c068e4d3a49d8055266dd1b208ea7f",
+      "logSha256": "f11acb0df7246e8ff22992b1ed3083915e46785ba6b6210d91ae74e766f01aca"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "validate:content"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:54:05.009945+00:00",
+      "finished": "2026-09-07T20:54:05.760639+00:00",
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/content-accounting-final.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/content-accounting-final.receipt.json",
+      "receiptSha256": "11a4a2e36e9fba9ad5ebaa9d3db55e1982009fa92d0159d90abf9f973fd750c6",
+      "logSha256": "104162999ea0d6a3d7a71cb774882665e8a51c5cf4598ae375aa6693e1601a76"
+    },
+    {
+      "command": [
+        "python3",
+        "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/preservation.py"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:54:05.787488+00:00",
+      "finished": "2026-09-07T20:54:06.094607+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/preservation-final.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/preservation-final.receipt.json",
+      "receiptSha256": "b691f0c8f00b0840c50ae040a203fb35a5a680d8a6b0edbba2256eb2f9ec3cc0",
+      "logSha256": "3c8726063bbcd85b1e30a06abd67d5e72704daada0cbff30fd9390fae411f3ab"
+    },
+    {
+      "command": [
+        "npm",
+        "test",
+        "--",
+        "tests/unit/citation-links.test.ts",
+        "tests/unit/citation-audit.test.ts",
+        "tests/unit/citations.test.ts"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:59:31.825658+00:00",
+      "finished": "2026-09-07T20:59:33.173652+00:00",
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/citation-exception-tests.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/citation-exception-tests.receipt.json",
+      "receiptSha256": "13585206237c05643eab1c5a179e5f23bd22ca9e33a154186b2521dbc099d4b2",
+      "logSha256": "9ef872a347cab68a0252f5f97182e5b089ae3cb3b9143cdaf246c0d02a840546"
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/eslint/bin/eslint.js",
+        "data/link-check-exceptions.ts"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:59:33.200248+00:00",
+      "finished": "2026-09-07T20:59:34.396301+00:00",
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/citation-exception-lint.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/citation-exception-lint.receipt.json",
+      "receiptSha256": "70658fd984db6183b29dce4ffc4b93fdf535489e5397e71ae562b098057e1eff",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/brand-v2-baseline.ts",
+        "--check"
+      ],
+      "cwd": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation",
+      "NODE_DISABLE_COMPILE_CACHE": "1",
+      "started": "2026-09-07T20:59:34.422229+00:00",
+      "finished": "2026-09-07T20:59:34.751846+00:00",
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/citation-exception-baseline.log",
+      "receipt": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/citation-exception-baseline.receipt.json",
+      "receiptSha256": "6123047e1e330c63667a70164169d21a3c4d7fbf4eeb118641e571bf1139512c",
+      "logSha256": "14e09d4233a99a1f4691dfeeeccfff4f4372934c5e7f4a6b82b765267ca1d18c"
+    }
+  ],
+  "additionalOfflineCitationTests": {
+    "passed": 87,
+    "failed": 1,
+    "preexistingFailure": "Unchanged rt1-2022 and pi05-2025 versioned HTML URLs violate the existing abs-page test; no new allowance."
+  },
+  "totalDistinctUnitComponentCases": 319,
+  "totalDistinctPassingCases": 318,
+  "totalDistinctFailingCases": 1
+}

@@ -45,8 +45,8 @@
     },
     {
       "path": "images/temporal-ensembling.svg",
-      "sha256": "8f614edd4d3c99bc0a3e15c9b259b8b30a3d6475b87df8914693717e3bb55296",
-      "byteCount": 3875,
+      "sha256": "fc9e74e11fd90cd5f07883d796f89f8ce8554de807d74ac44242144cfe8f4645",
+      "byteCount": 4182,
       "owner": "robot-wiki-editorial",
       "purpose": "First-party explanatory diagram of temporal ensembling across overlapping action chunks, drawn for the action-chunking article."
     },

@@ -26,9 +26,8 @@ import { cx } from '@/lib/utils';
  * and Real-Time Chunking does not.
  *
  * One slider injects inference delay (0 to 240 ms). Two panels respond:
- * a throughput-vs-delay chart (temporal ensembling collapses inside the
- * documented 100 to 200 ms failure window; RTC holds flat, matching the
- * published result) and a hand-off action trace showing the ensemble's
+ * a toy throughput-vs-delay chart (its shape and percentages are assumptions,
+ * not a fitted or measured benchmark) and a hand-off action trace showing the ensemble's
  * averaged action leaving both valid modes. Curves are a qualitative model
  * of the published results (arXiv:2506.07339), labeled as such.
  *
@@ -165,23 +164,11 @@ export function LatencyComparison({
   }, [delayMs]);
 
   const throughputDescription =
-    defaultDelayMs === MIN_DELAY_MS
-      ? `At ${formatMs(
-          delayMs,
-        )} of injected delay temporal ensembling holds ${Math.round(
-          te * 100,
-        )}% of task throughput and real-time chunking holds ${Math.round(
-          rtc * 100,
-        )}%, and ensembling falls to zero across the shaded ${FAILURE_WINDOW.from} to ${
-          FAILURE_WINDOW.to
-        } ms failure window the paper documents; the two curves are a qualitative model of the published results and not a re-run of the experiment, so the shape carries the claim rather than the exact percentages.`
-      : `The action-chunking prediction panel opens inside the documented failure window: at ${formatMs(
-          delayMs,
-        )} of injected delay temporal ensembling has already dropped to ${Math.round(
-          te * 100,
-        )}% task throughput while real-time chunking still holds ${Math.round(
-          rtc * 100,
-        )}%, across the shaded ${FAILURE_WINDOW.from} to ${FAILURE_WINDOW.to} ms collapse the paper records.`;
+    `Deterministic toy, not measured throughput: at ${formatMs(delayMs)} of added delay, ` +
+    `the normalized toy scores are ${Math.round(te * 100)}% for temporal ensembling and ` +
+    `${Math.round(rtc * 100)}% for RTC. The shaded 100 to 200 ms failure window marks ` +
+    `the experiment's two failed TE settings, not a universal latency threshold. ` +
+    `The curve between settings and its continuation beyond +200 ms are illustrative assumptions.`;
 
   const traceDescription = `Across the ${TRACE_TICKS}-tick hand-off at ${formatMs(
     delayMs,
@@ -244,7 +231,7 @@ export function LatencyComparison({
       <svg
         viewBox={`0 0 ${CHART.width} ${CHART.height}`}
         role="img"
-        aria-label={`Chart of task throughput against injected inference delay. Temporal ensembling collapses to zero inside the 100 to 200 millisecond failure window while real-time chunking holds at 100 percent. Current delay ${formatMs(delayMs)}.`}
+        aria-label={`Toy normalized throughput scores against added inference delay, not measured task throughput. Temporal ensembling falls to zero while RTC is fixed at 100 percent by assumption. Current delay ${formatMs(delayMs)}.`}
         aria-describedby={`${delayId}-throughput-description`}
         className="mt-4 block w-full"
       >
@@ -412,7 +399,7 @@ export function LatencyComparison({
         id={`${delayId}-throughput-description`}
         className="mt-3"
         form="table"
-        summary="Sampled throughput for both schemes by injected delay"
+        summary="Sampled toy throughput scores by added delay"
         rowHeader="delay (ms)"
         columns={[
           { header: 'ensembling', numeric: true },
@@ -621,11 +608,11 @@ export function LatencyComparison({
         <span className="text-ok">holding</span>
       </p>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        The curves are a qualitative model of the published results
-        (arXiv:2506.07339): temporal ensembling fails outright at +100 ms and
-        +200 ms of injected delay because the weighted average of disagreeing
-        chunks lands between modes, while real-time chunking holds throughput
-        flat to +200 ms. They are not a re-run of the experiment.
+        Deterministic toy, not measured throughput. This qualitative model
+        illustrates a possible cross-mode hand-off; its percentages, transition
+        curve, and flat RTC line are assumptions. The π0.5 experiment reported
+        average task throughput across six tasks at +0, +100, and +200 ms of
+        added delay. The slider extends beyond those tested settings.
       </p>
     </div>
   );

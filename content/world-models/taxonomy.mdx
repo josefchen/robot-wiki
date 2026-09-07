@@ -56,7 +56,11 @@ This criterion does real work. A video model that produces a beautiful rollout r
 
 ### Latent dynamics: predict a compact state, dream in it
 
-The oldest learned lineage and the only one with a decade of evidence on sample-efficient control. Dreamer learns a recurrent state-space model with a deterministic recurrent state and a stochastic latent, reconstructs observations during training, and trains its actor and critic entirely on imagined latent rollouts. DreamerV3's contribution was a set of normalization tricks (symlog transforms, two-hot reward encoding) that let one fixed hyperparameter set work across more than 150 tasks, and it was the first agent to collect diamonds in Minecraft from scratch <Cite id="dreamerv3-2023" />. DayDreamer took the same algorithm onto physical hardware: a quadruped learned to roll over, stand, and walk from scratch in about one hour of real-world experience <Cite id="daydreamer-2022" />.
+The oldest learned lineage and the only one with a decade of evidence on sample-efficient control. DreamerV3 uses a recurrent state-space model with recurrent memory and stochastic latent representations, and reconstructs inputs during world-model learning. Its actor and critic learn from imagined trajectories; the critic also receives a loss on replay-buffer trajectories <Cite id="dreamerv3-2023" />.
+
+DreamerV3 was evaluated on more than 150 tasks across eight domains with fixed hyperparameters. Its robustness techniques include symlog transforms for vector observations, free bits with KL balancing, and percentile-based return normalization. The detailed distribution section describes two-hot targets for reward and value prediction; an earlier world-model paragraph instead says the reward predictor uses symlog squared loss. These two descriptions are not reconciled here <Cite id="dreamerv3-2023" />.
+
+In their 2025 Nature article, Hafner, Pasukonis, Ba, and Lillicrap describe DreamerV3 as, to their knowledge, the first algorithm to collect diamonds in Minecraft from scratch without human data or adaptive curricula. The experiment used a MineRL-based environment with abstract crafting actions, accelerated block breaking, and sparse intermediate rewards <Cite id="dreamerv3-2023" />. DayDreamer took the same algorithm onto physical hardware: a quadruped learned to roll over, stand, and walk from scratch in about one hour of real-world experience <Cite id="daydreamer-2022" />.
 
 ### Decoder-free latent: no image, just value
 

@@ -5,8 +5,8 @@
  *
  * Filters are conjunctive and null-honest: a row with an unpublished figure
  * (null) never matches a numeric bucket, only the explicit "not disclosed" /
- * "not listed" options. Price buckets use the row's quoted (low-end) price,
- * so a $17,000-$32,000 ALOHA 2 lands in the $10k-$25k bucket.
+ * "not listed" options. Price buckets classify the row's non-null priceUsd;
+ * priceMaxUsd does not affect bucket selection.
  */
 import type { HardwareEntry } from '@/data/schemas/hardware.ts';
 

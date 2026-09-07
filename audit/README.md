@@ -1,5 +1,292 @@
 # Content-integrity audit trail
 
+## Current Knowledge Insulation, FAST and Dreamer checkpoint - 2026-09-07
+
+**187 complete / 807 incomplete / 994 original identities / 47 articles. 95 compound plans; 172 exact approval entries.** Immediate predecessor `e581a84` was 170/824, with 78 plans and 161 approvals. This is a local implementation checkpoint, not publication, whole-article P1 acceptance or independent acceptance.
+
+Applied exactly **17 original records: 14 corrected and three recorded source inconsistencies (`S`)**. Knowledge Insulation 2-7; Pi Line 9/10/13/14; comparison 10; latent dynamics 5/7/9/10; taxonomy 8/9. Current article counts are KI **8/10**, Pi Line **20/24**, comparison **12/25**, latent dynamics **7/21**, and taxonomy **3/20**. All 994 IDs, 170 previous complete records, 977 unselected four-cell tuples, 78 prior plans and 161 prior approvals are preserved. The existing parser counts explicitly represented inconsistencies as complete evidence, not as resolved scientific agreement. Three new Dreamer inconsistencies remain visible.
+
+**12 retained source captures, 12 original retrieval-event bindings, 83 literal passages, zero new retrievals.** Original tool events and actual retained body hashes/passages were verified before reuse. FetchUrl-reported status is not origin HTTP evidence; original retrieval times are not current review times; PDF binary and extracted-text identities remain distinct. KI's paper and research note stay separate. Dreamer 2023 v1, 2024 v2 and 2025 Nature text retain their distinct protocol and population context.
+
+Corrections distinguish original two-stage pi0.5 from single-stage pi0.5 + KI, stopped backbone keys/values and attention masking, and the no-stop-gradient language co-training counterexample. The 7.5x training-step result is separate from specialist task-completion time and hardware inference latency. FAST+ uses approximately one million **one-second chunks**; five-times-fewer GPU hours is a compared training result. The FAST method now records DROID **15 / {8, 15} at 15 Hz**, with approximately 750 ms chunk latency separately scoped to an NVIDIA 4090. The research-note title is corrected with its existing eleven-author byline preserved. Its now-obsolete title-mismatch exception, including the stale ten-author claim, is removed rather than retained as an unnecessary allowance.
+
+Dreamer changes attribute categorical RSSM details to V3, include the critic replay-buffer loss, retain both reward-loss descriptions and the same-2023-v1 H=15/T=16 labels without inventing a reconciliation, and qualify the authors' Minecraft priority claim and MineRL protocol. The adjacent sample-efficiency exclusivity and redundant publication-prestige inference are removed with **zero extra original-record credit**.
+
+All checks ran sequentially with `NODE_DISABLE_COMPILE_CACHE=1`. Exact commands, timestamps, exits and log hashes are committed in `audit/insulation-fast-dreamer-20260907-commands.json`.
+
+| Check | Actual result |
+|---|---|
+| Red first | 23 failures / one pass before corrections |
+| Focused unit/component | 231 distinct cases pass, including unchanged 77-case strict audit; 24 overlapping affected cases also pass after final prose edits |
+| Additional offline citation tests | 87 pass / one pre-existing failure: the unchanged RT-1 and pi0.5 HTML URLs fail the existing abs-page oracle; exact predecessor comparison retained, no allowance broadened |
+| Nonincremental TypeScript / full lint | Both exit 0 |
+| Source no-slop / chart descriptions | Pass; three initial prose-dash findings corrected without weakening rules |
+| Final content | Exit 1: **814 = 807 incomplete + four unresolved outcomes + three aggregates**; nine separate citation gaps remain |
+| Baseline | Exit 1: 59 failures; eleven exact scoped approvals, no immutable-baseline change |
+| Bounded browser | Initial 14 pass / two mobile tooltip failures; both failures pass after local citation placement corrections. Six existing latent cases included |
+| Cards | Normal `npm run check:og-card-bytes` passes: 48 cards / 96 public-export files; all 48 public/export/committed triples identical, zero changed cards |
+
+Thirty-six selected captures were inspected directly, in full-resolution inspection sheets, or by exact byte identity; all 44 original captures, including failures, remain retained. The measured mobile KI-note and FAST tooltip overflows were 24 px and 103 px; final checked mobile tooltips are bounded, keyboard-focusable and hover/focus consistent. Final cases have zero Axe violations, page errors, KaTeX errors and document overflow. Table keyboard scrolling is positive; table sources are links, not tooltips. Desktop KI/Pi captures precede the final source-led paragraph placement; only the two measured mobile failures were rerun. This is bounded dev evidence, not final desktop recapture or full-corpus visual acceptance.
+
+Held packet rows remain held: KI 1/10; Pi Line 16/17/22/24; comparison 1/2/7/8/9/18/19; latent 2-4 and 11-21, including **18-20 NOTCHECKED**, not failed retrievals. Four previously complete Dreamer-packet records earn no new credit. Unproved RSS 2025 / NeurIPS 2025 metadata, whole-article P1, the latent interactive's held “published range”/causal wording, other citation tooltips, realtime/RL browser gaps and the prior citation Back-focus BODY finding remain open. Production export/reading times, full browser corpus, independent scrutiny and release acceptance remain deferred behind genuine corpus closure.
+
+No card fact inputs changed, so regeneration was unnecessary; the normal byte check re-rendered the full corpus. `next-env.d.ts` was restored after exactly two proven own Next-generated import substitutions. PRODUCT_QUALITY.md, qa/, owner work, d282a83/2cf7d6b and strict audit tools are preserved. No push, deployment, cleanup, model/credit fallback, controller, feature-state or security change occurred. No role-specific exhaustion was observed.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907`. Exact tuples, source provenance, held IDs, preservation, failures, final composition changes and file hashes are in `row-history.json`, `source-proof.json`, `applied-held.json`, `preservation.json`, `final-composition-history.json`, `handoff.json` and `artifact-index.json`.
+
+## Historical: manipulation and RL checkpoint - 2026-09-07
+
+**170 complete / 824 incomplete / 994 original identities / 47 articles. 78 compound plans; 161 exact approval entries.** This is a local implementation checkpoint, not publication or independent acceptance. Immediate predecessor `ec4ddde` was **135/859**, with 46 plans and 150 approvals. The older 128/866 comparison checkpoint below is historical, not current accounting.
+
+Applied **35 original records: 30 corrected, three verified and two cut**. Comparison ordinals 6/11/12; Knowledge Insulation 8/9; Pi Line 1-8, 11/12/15, 18-21/23; Real-Time Execution 1/2 and 9-14; RL for Robotics 9/12/13/14/39/40. Preserved all 135 previous complete records, 959 unaffected tuples, 43 unchanged prior plans and 150 previous approvals. Three replaced comparison plans are archived with exact original/current history. ACT 32/32, BC 14/14 and DP 25/25 remain complete. Lane A's 37 held rows and Lane B's 25 held rows remain held; unfinished worker packets were not consumed.
+
+Corrections distinguish policy checkpoints from pretrained language encoders, qualify pi architecture and execution setups, preserve the control-mode dropout exception and high-level coaching distinction, and correct ACT's oldest-prediction weighting. RTC means are **108.76 / 138.98 ms**, with source uncertainty and setup bounds; **240 ms** is simulated training delay, not measured tolerance. Rudin's derived average is **>122,880 steps/s**; Minitaur's is approximately **22 whole-training steps/s**. HIL-SERL's observed trial populations and six-hour timing-belt exception remain explicit. Unsupported adoption and universal algorithm claims are cut, not certified.
+
+**15 retained source streams, 83 literal passages, 23 original request/response events; zero new retrievals.** Actual retained bytes, passage membership and original provenance were verified before reuse. Two blog-passage lead labels are explicitly reconciled with the distinct canonical pi0.7 blog ID, preserving original labels and the paper-link use. No fetched text, fetch date or immutable edition is invented. KI citations are 7, realtime 6, comparison 21, pi-line 13 and RL 27. No review-date bump or P1 acceptance is asserted.
+
+Sequential checks used `NODE_DISABLE_COMPILE_CACHE=1`. Exact commands, times, exits and raw logs are indexed in `audit/manipulation-rl-20260907-commands.json` and `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907`.
+
+| Check | Actual result |
+|---|---|
+| Red-first regressions | 43 failed / 18 passed before implementation |
+| Final distinct focused unit/component cases | 180 pass, including unchanged 77-case strict audit and eleven-row comparison mutations |
+| Nonincremental TypeScript / full lint | Both exit 0; final comparison test also passes scoped lint |
+| Content | Exit 1: **831 = 824 incomplete + four unresolved outcomes + three aggregates**; nine separate citation gaps |
+| Baseline | Exit 1: 59 failures; immutable baseline unchanged; eleven exact authorized member endpoints added |
+| Isolated browser | Two passing cases, 375x812 and 1440x900, all five routes; zero page/KaTeX errors and document overflow; slider keyboard change checked |
+| Normal `npm run generate:og-cards` | Exit 0; prune prehook reported nothing to remove; 48 assets generated |
+| Normal `npm run check:og-card-bytes` | Exit 0; all 96 public/export files byte-identical to the rendering boundary |
+
+Twelve bounded captures and both changed cards were inspected against the locked references. Changed cards show 7 and 6 references. These captures are not a simultaneous full-table, tooltip clipping, Axe or full-brand release audit. Production HTML, reading times, full-browser coverage and independent scrutiny/user acceptance remain deferred behind the red prerequisite. `next-env.d.ts` was restored after exactly two verified Next dev import substitutions. Protected PRODUCT_QUALITY.md, qa/, local commits d282a83/2cf7d6b, immutable baselines and owner work are preserved. No push, deployment, cleanup, new Mission/controller, configuration/security change or model/credit fallback occurred; no role-specific exhaustion was observed.
+
+Exact evidence files in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907`: `source-proof.json`, `row-history.json`, `applied-held.json`, `preservation.json`, `handoff.json`, `artifact-index.json`. Preserved diagnostics include the unavailable tsx runtime, citation-label convention, empty cut-parts handling, quoted-claim header mapping, an old comparison-count oracle, redundant mutation parsing, canonical-citation summary refresh and unavailable Pillow; none was resolved by weakening the gate. Older checkpoint sections below are archived historical receipts.
+
+## Historical: Comparison matrix partial closeout — 2026-09-07
+
+**Comparison matrix: 8 complete / 17 incomplete / 25 original rows. Corpus: 128 complete / 866 incomplete / 994 original identities / 47 articles.** This is a local implementation checkpoint, not whole-article or independent acceptance. Ready and complete original ordinals are **13, 16, 20, 21, 22, 23, 24, 25**. All 120 previous complete records, 979 unaffected parsed records, 24 previous compound plans, 139 previous approvals, all 18 method records and the three completed articles (ACT 32/32, BC 14/14, DP 25/25) remain intact. Current catalog: 39 plans; 144 exact approvals. Reproducible counting/preservation: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/preservation.json`; unchanged `parseLedger` over canonical articles and compound data.
+
+Eight supported current records cover π0.7's full architecture/conditioning and discrete execution set; N1.7 GA architecture, download/license split and downstream SONIC controller; ACT/RT-1 setup-specific rates; CNN Push-T 16/8 versus π0.7's either-15-or-25 execution; π0.5's qualitative FAST-training/runtime distinction instead of an unsupported 2× latency claim; ACT deterministic decoding versus π0 flow matching instead of universal regression displacement; source-scoped release claims instead of a global generation ranking; and control-stack rates versus inference latency. π0.6's 63 ms claim stays tied to five denoising steps, three cameras and one H100. No model values, execution choices, source-scope notes or nullable semantics were changed.
+
+Correction/history IDs are `COMPARISON-CURRENT-{1,2,6,9,11,12,13,16,17,20,21,22,23,24,25}-20260907`. Eight records are corrected and complete; seven changed records are explicitly unresolved; ten original comparison tuples are untouched and still incomplete. Exact old/current tuples and prior plans are archived in this ledger and `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/row-history.json`. No legacy verified label was promoted from an article claim, registry value or partial supporting passage.
+
+The table now mounts its exact per-method source links, with visible source labels and safe external-link attributes. The article frontmatter is the actual **21-source union** of mounted `METHODS.sources` and its own inline citations, not ACT's sixteen-source list. Unused `gr00t-n1-2025` and `knowledge-insulation-paper-2025` were removed; already-registered `openpi-repo-2024` was added. Intro row 1 retains its census/absence claims and requires all 21 bibliographic identity parts through existing explicit compound data. **12 identity parts are supported; nine remain incomplete**: rt2-2023, open-x-embodiment-2023, openvla-2024, openvla-oft-2025, pi0-fast-2025, gemini-robotics-15-2025, gemini-robotics-2-2026, agibot-go2-2026, skild-series-c-2026. No P1 or whole-article pass is asserted.
+
+**Zero new network requests, new document groups, or PDF conversions.** 23 verified retained text streams at 22 distinct source URLs; 156 byte-indexed literal excerpts preserved in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json`. Source counts are not complete-claim counts. Actual retained response hashes and source text were checked before reuse; PDF binary hashes, layout-text hashes and reading-order-text hashes remain distinct. The original official PDF requests began at 2026-09-07T16:28:10.810822Z and 16:28:11.862371Z (observed HTTP 200/no redirects). FetchUrl 200s are tool-reported, not origin-header captures, and original request/result events are not this review's fetch times. Original conversion warnings remain retained. The ACT proceedings identity was verified from its original 11:32:22.922Z/11:32:26.552Z events and actual RSS title/byline/BibTeX, not a summary.
+
+All checks below ran sequentially with `NODE_DISABLE_COMPILE_CACHE=1`, regular-file logs and actual exit receipts under `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout`:
+
+| Gate | Actual command | Observed result |
+|---|---|---|
+| Red first | `node node_modules/vitest/vitest.mjs run tests/component/comparison-current-claims.test.tsx` | exit 1, six expected pre-implementation failures |
+| Focused unit/component | `node node_modules/vitest/vitest.mjs run tests/component/comparison-current-claims.test.tsx tests/component/comparison-matrix.test.tsx tests/component/act-final-model-papers.test.tsx tests/component/act-five-sources.test.tsx tests/unit/methods.test.ts tests/unit/audit-ledger.test.ts tests/unit/audit-citation-coverage.test.ts tests/unit/act-final-paper-audit.test.ts` | exit 0, 131 passed |
+| Audit mutations | `node node_modules/vitest/vitest.mjs run tests/unit/comparison-current-audit.test.ts` | exit 0, three passed; omitting any required part keeps its whole row red |
+| TypeScript | `node node_modules/typescript/bin/tsc --noEmit --incremental false` | exit 0 |
+| Lint | `node node_modules/eslint/bin/eslint.js .` | exit 0 |
+| Content | `npm run validate:content` | exit 1, 876 findings: 866 incomplete records + seven explicitly unresolved current outcomes + three aggregates; nine separate citation-check gaps |
+| Baseline | `node scripts/brand-v2-baseline.ts --check` | exit 1, exactly the same 60 prior failures, zero added |
+| Browser | `node node_modules/@playwright/test/cli.js test tests/e2e/comparison-current-claims.spec.ts --workers=1 --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/captures` | exit 0, two passing cases: 375×812 and 1440×900 |
+| Cards | `npm --ignore-scripts run generate:og-cards` then `npm --ignore-scripts run check:og-card-bytes` | both exit 0, 48 cards / 96 public-export files match; comparison references 22→21, 47 other card bytes unchanged |
+| Production/full corpus | not run | red prerequisite; production HTML and reading-time regeneration remain pending |
+
+All fourteen browser captures and the changed card were inspected against both approved references. Corrected prose, source links, source-specific unknown notes and the discrete execution set render without document overflow or KaTeX errors. Two checked source tooltips are internally unclipped and viewport bounded; both are x20–276 at 375px. Keyboard scrolling produces a positive offset; unknown weights are excluded by the strict Not released filter; reset restores all eighteen rows and ascending year order. Both cases have zero Axe violations and page errors. Table views are bounded scroll positions, not simultaneous all-column captures. Source links wrap in dense cells. Existing wider brand/control convergence is not certified by this scoped check, and the separately tracked citation Back-focus BODY finding is not erased.
+
+Five exact sealed-old / immediate-before / current member endpoints are appended with primary sources, reasons, affected assertions, `brand-v2-editorial` ownership and Josef's real September 7 “fix it all!” implementation authority. They cover comparison prose, relationships, fact frontmatter, the comparison interactive source and the removed second literal not-disclosed source-site occurrence. Actual disclosure values remain unchanged; no absence became n/a. Exact hashes: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/approved-deltas.json` and `member-changes.json`. No baseline recapture, wildcard allowance or gate change.
+
+Remaining whole-row gaps are explicit: RT-1's limited transfer label versus same-body evaluation; Octo initialization versus pretrained language tokenization; π0's rendered 3B backbone count versus the inspected extraction; π0.5's 2B technical-text versus 3B-class label; π0.6's unprinted approximate total; Helix's cross-body-transfer/continuous-head classification. Rows 3/4/5/7/8/10/14/15/18/19 still require complete original multi-field source bindings, not proof from their existing labels. The next finite batch should resolve those named method/source dimensions and the nine remaining P1 identities, not start another company/web sweep. No genuinely missing primary document was fetched in this batch.
+
+`lastReviewed` remains 2026-08-17; no human-review or freshness claim was added. No humanizer skill was available; rewritten prose received a manual precision/overstatement read and the content source checks. Only this task's two verified Next dev import substitutions were backed up and restored. Protected `PRODUCT_QUALITY.md`, `qa/findings.json`, `next-env.d.ts`, immutable baselines, old histories and commits d282a83/2cf7d6b are preserved. Diagnostic failures are retained: initial raw-event newline-basis mismatch, strict missing evidence-header checks, layout versus reading-order PDF text distinction, and the two-import Next generated-state guard. These checks were resolved using exact bytes, not by weakening the gate.
+
+No server remains. No build, full browser corpus, push, deployment, cleanup, feature/controller/model/security change or credit fallback occurred. No role-specific GPT exhaustion was observed. Independent Sol/high scrutiny and user testing remain required after actual corpus closure; 307/331 is not a runnable-feature count.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/`.
+
+
+## ACT final model-paper checkpoint — 2026-09-07
+
+**ACT 32/32; corpus 120 complete / 874 incomplete / 994 original identities / 47 articles.** Original rows 27 and 28 now have corrected current claims with complete source bindings. P1 ordinal 32 remains complete after expansion from fourteen to sixteen actual citations. This is evidence completeness, not independent article acceptance. Counting uses unchanged `parseLedger` with actual frontmatter and compound plans; `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/preservation.json` verifies all 118 prior complete records, 991 unaffected parsed records, 21 unchanged other plans, the exact archived prior P1, its fourteen unchanged parts/evidence and unchanged adjudication meaning. Only dependent digests were rebound. Catalog: 24 plans. BC remains 14/14; DP 25/25. Two method records changed; the other sixteen are unchanged.
+
+- **ACT-FINAL-PAPER-27-20260907:** π0.6 predicted/executed horizons and robot-control rate are null with notes limited to the November 17, 2025 model card. Its 63 ms action-chunk inference uses five denoising steps, three camera inputs and one H100; no Hz is inferred. The continuous-action flow expert is distinct from FAST backbone supervision during training. Model-specific weight-release/licensing terms remain unknown in this card; its openpi statement concerns the π0.5 comparator.
+- **ACT-FINAL-PAPER-28-20260907:** π0.7 predicts 50 and executes **either 15 or 25**, typed as `executed: { choices: [15, 25] }`. The schema rejects empty/singleton/duplicate/nonpositive/fractional/over-horizon choices, ranges and invented default fields. The numeric control reference is explicitly UR5e at 20 Hz; other tested robots run at 50 Hz. No execution choice is assigned to a robot. FAST training supervision is distinct from continuous runtime actions, and distillation from RL-trained π*0.6 is not erased by evaluation without task-specific post-training. Weight/license absence is scoped to the paper, not asserted worldwide.
+- **ACT-FINAL-PAPER-32-20260907:** the two existing IDs `pi06-model-card-2025` and `pi07-2026` extend the actual P1 union to sixteen, with source chips beside the corrected paragraphs. Registry title/author/year data already match: Physical Intelligence's dated card and the exact 87-author paper. The paper's 2026 year is supported by the official April 16, 2026 announcement linking this exact PDF; no printed PDF date, venue or numbered version is invented. Only the unsupported adjacent “Closed model” registry comment was corrected; no registry ID or metadata value was added or changed.
+
+**Zero new fetches or PDF conversions.** Eighteen literal excerpts across four retained documents were byte-checked; thirteen used excerpts bind the two papers and the dated π0.7 announcement. Original PDF HTTP200/no-redirect requests began at 2026-09-07T16:28:10.810822Z and 16:28:11.862371Z. Original binary hashes differ from derived-text hashes. The π0.7 conversion warnings remain recorded; no claim relies on garbled figure glyphs. The announcement's actual FetchUrl request/result events were 16:07:40.836Z / 16:07:46.166Z, with tool-reported 200, not captured origin headers. Raw record hashes and decoded retained blog bodies match. Full literal passages, byte ranges, hashes and original retrieval provenance: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/source-proof.json`; product evidence is retained in `audit/compound-evidence.json`, not an article claim used as its own proof.
+
+Sequential checks used `NODE_DISABLE_COMPILE_CACHE=1`:
+
+| Gate | Actual command | Observed result |
+|---|---|---|
+| Red first | `npm test -- tests/component/act-final-model-papers.test.tsx` | Six expected failures before implementation |
+| Focused unit/component | `npm test -- tests/component/act-final-model-papers.test.tsx tests/component/act-five-sources.test.tsx tests/component/policy-chunking-table.test.tsx tests/component/comparison-matrix.test.tsx tests/unit/methods.test.ts tests/unit/act-current-corrections.test.ts tests/unit/audit-ledger.test.ts tests/unit/audit-citation-coverage.test.ts` | 131 passed |
+| Final affected tests | `npm test -- tests/unit/act-final-paper-audit.test.ts tests/component/act-final-model-papers.test.tsx tests/unit/structured-search.test.ts` | 32 passed; six overlap the focused run, 157 distinct tests total |
+| Final ledger-only checks | `npm test -- tests/unit/act-final-paper-audit.test.ts tests/unit/audit-ledger.test.ts tests/unit/audit-citation-coverage.test.ts` | 91 passed, overlapping the above checks |
+| TypeScript | `node node_modules/typescript/bin/tsc --noEmit --incremental false` | Pass, including final new audit/browser tests |
+| Lint | `node node_modules/eslint/bin/eslint.js .` | Pass; later new audit/browser test files separately pass scoped lint |
+| Content | `npm run validate:content` | Exit 1, 877 findings: 874 incomplete rows plus three aggregates; nine separately owned citation checks remain unresolved |
+| Baseline | `npm run baseline:brand-v2` | Exit 1, exactly the same 60 prior failures, zero added or removed |
+| Browser | `node node_modules/@playwright/test/cli.js test tests/e2e/act-final-model-papers.spec.ts --workers=1 --output <mission captures>` | Two distinct cases pass, 375x812 and 1440x900, each covering ACT and comparison |
+| Mobile evidence correction | Same spec with `--grep 'at 375' --output <mission captures-mobile-corrected>` | One affected case passes; unchanged desktop result reused |
+| Cards | `npm --ignore-scripts run generate:og-cards` then `npm --ignore-scripts run check:og-card-bytes` | Pass, 48 cards / 96 public-export files; ACT references 14 to 16, 47 cards unchanged |
+
+Ten exact member endpoints append to all 129 prior approval entries: **139 total**. Each records sealed-old and current hashes, the immediate-before hash, primary sources, reason, affected assertions, brand-v2-editorial ownership and Josef's real September 7 implementation authority. No wildcard, baseline recapture or gate weakening. Exact members/hashes: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/approved-deltas.json` and `member-changes.json`.
+
+Browser results: zero Axe violations, page errors, KaTeX errors or document overflow on the checked routes. Pi0 and both new paper tooltips are internally unclipped and viewport-bounded; at 375px all three span x20–276. Tables remain keyboard-scrollable. The first mobile comparison screenshot cut the horizon cell at an arbitrary scroll offset; the corrected capture aligns that cell and asserts both horizontal bounds. Twenty-seven captures were produced; all eighteen final captures were inspected directly or by exact byte identity to inspected captures (22 distinct files directly inspected, five final files byte-identical). The changed ACT card was inspected against both locked references. These bounded source/render checks do not certify the full brand release corpus; existing broader control/brand convergence remains outstanding.
+
+Production HTML and reading-time regeneration remain pending the red content prerequisite. `lastReviewed` remains 2026-08-18; no human-review or freshness claim. No humanizer skill was available; changed prose received a manual precision/overstatement read, alongside source no-slop checks. Preserved diagnostic failures: two diagnostic shape/index assumptions (catalog is an array; the manually sliced table was not the parser population), and the intended six red-first regressions. No source was refetched or gate relaxed to resolve them.
+
+Protected `PRODUCT_QUALITY.md`, `qa/findings.json`, and `next-env.d.ts` are hash-preserved; only this session's verified Next dev import substitution was restored. ACT weighting/SVG, BC/DP prose, immutable baselines, old histories, owner work and local commits d282a83/2cf7d6b remain intact. No build, full browser corpus, push, deployment, cleanup, controller/feature/model change or credit fallback. No GPT-role exhaustion occurred. Independent Sol/high scrutiny and user testing remain required after corpus closure. The earlier citation Back-navigation BODY-focus gap stays tracked. Next finite article candidate is the existing comparison-matrix ledger: **0/25** complete, using retained source groups and current corrected method data, not a new audit or source sweep.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/`.
+
+
+## ACT five-source checkpoint — 2026-09-07
+
+**ACT 30/32; corpus 118 complete / 876 incomplete / 994 original identities / 47 articles.** Five newly evidence-complete original records: 20, 22, 26, 29, 30, all with corrected current claims and exact prior/current history. P1 ordinal 32 stays complete after expansion from nine to fourteen actual citations. All 113 previous complete records and 988 unaffected parsed records survive. All sixteen other old plans and all 107 prior approvals remain unchanged; current catalog: 22 plans, approvals: 129. Counting uses `parseLedger` with actual frontmatter and compound plans; independent preservation comparisons are recorded in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/preservation.json`. BC remains 14/14 and DP 25/25.
+
+- **ACT-FIVE-SOURCE-20-20260907:** openpi is a dated, pinned catalogue listing pi0, pi0-FAST and pi05 checkpoints/download locations, not a global latest-release or closed-license conclusion. The stable openpi-repo-2024 ID now explicitly identifies the 24 August 2026 snapshot (year 2026); README last change is 21 November 2025.
+- **22:** RT-1 v2 predicts one action per step, commands Everyday Robots at 3 Hz and discretizes each action variable into 256 bins. The six-frame observation history is not an action horizon. Its code-release statement does not establish pretrained weights; availability is null with a source-scoped note.
+- **26:** pi0.5 v1 predicts 50 entries (inclusive H=49); its mobile platforms receive targets at 50 Hz. Executed-before-replanning count is null, not 50. Paper FAST/flow training is distinguished from openpi flow-head-only support. The exact 36-entry byline is retained; unproven CoRL 2025 venue removed.
+- **29:** GR00T N1.7 GA README supports prediction horizon 40, flow-matching DiT, relative-EEF support and downloadable weights. SONIC is a separate interface. No inference Hz becomes robot-control Hz. The overview Apache claim and License section's Apache-code/NVIDIA-Open-Model-License-weights split remain explicit. The separately retained HF card is labelled EA; its benchmarks/version are not substituted into GA.
+- **30:** Helix 02 announcement reports S1 joint targets at 200 Hz and S0 actuator commands at 1 kHz. Chunk length and weight-release/licensing terms are not disclosed **in this announcement**. Neither absence means n/a or closed licensing.
+
+`openWeights` now permits boolean or null; null requires a nonempty canonical source-scope note. Filters use strict equality and a distinct Not disclosed option. Downloadable / Not released labels describe availability, not license openness. Four method records changed; fourteen, including Octo/pi0/pi06/pi07, retain their data values. Directly affected comparison prose no longer claims source silence establishes closed licensing. Unchanged pi06/pi07 flags and numeric values remain unverified, not certified by this renderer change.
+
+Source evidence: **55 exact retained excerpts, 10 original response captures, five cited work groups plus the auxiliary EA model-card limitation. Zero new source requests.** Packet hashes are unchanged: 7beff7dd5ddb48859a853dd8116572328e84b3cc023b918ecdc4e8ea3da913b5 and 15429685286a576e83ca715789421f42b928d308a1a2dc1ec87d03527c8efa2a. Full supporting text, byte ranges/hashes and original FetchUrl request/result times/status provenance remain in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json`. All 51 RT-1 and 36 pi05 names were compared with actual retained bylines. Prior nine P1 parts/evidence are byte-identical; only whole-plan-dependent adjudication digests were rebound, with the old plan archived. Source readiness is neither human certification nor independent acceptance.
+
+Sequential checks used `NODE_DISABLE_COMPILE_CACHE=1`: **153 focused unit/component tests pass**; nonincremental TypeScript and full lint pass. Content **exit 1, 879 findings** = 876 incomplete rows + three aggregates, with nine separate unresolved citation checks. Baseline **exit 1, 60 prior failures, zero added failure**; the exact current comparison-source endpoint accounts for one removed prior failure. Twenty-two exact approved member endpoints preserve sealed old, immediate-before and new hashes with source/reason/assertions and Josef's actual September 7 implementation authority. No baseline recapture or gate weakening.
+
+Two distinct Playwright viewport cases pass, each covering ACT and comparison: **375x812 and 1440x900**. All **24 final screenshots** and the changed ACT card were inspected against both locked references. Pi0 tooltip clipping was reproduced (right edge494 at375), then fixed by local source placement (x20–276); tooltip text is internally unclipped and viewport-bounded. Both routes have zero document overflow, zero Axe violations and zero page errors in these cases. Mobile table scrolling is keyboard-tested; a partial scroll capture is not simultaneous all-column visibility. Existing full brand/control convergence is not certified by this bounded correction.
+
+Sanctioned `npm --ignore-scripts run generate:og-cards` and `check:og-card-bytes` pass: **48 cards / 96 byte-identical public-export files**, only ACT's reference count changes from nine to fourteen; 47 cards unchanged. No cleanup hooks or production build were used. Production HTML/reading times remain pending the red prerequisite; neither article's lastReviewed changed. Changed prose received a manual precision/overstatement read; no humanizer skill was available. Source-only no-slop checks passed within content validation.
+
+Preserved failures: six intended red-first tests; initial GR00T shortened/full-capture basis mismatch; whitespace-only current-paragraph binding guard; stale prior P1 digests exposed by strict AND coverage after expansion; one legacy badge-label test; and an immediate-before-scroll-settled mobile assertion (fixed with polling, only failed375 rerun). Two read-only diagnostic parsers initially assumed raw JSON where a capture was text or a log had an npm preamble; no source or gate weakened to resolve them.
+
+Remaining ACT original ordinals: **27 (pi06), 28 (pi07)**, owned separately for source recovery; no wait or overlap with its directory. Keep the earlier BODY Back-focus defect under existing discovery work. No new owner decision, source fetch, full browser corpus, push, deployment, feature/controller/model switch, credit fallback or cleanup. Owner PRODUCT_QUALITY/qa, next-env, immutable baseline, ACT weighting SVG, BC/DP prose, old histories, and commits d282a83/2cf7d6b are preserved. Independent Sol/high scrutiny and user testing remain required after corpus closure.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/` (source-proof.json, metadata-check.json, row-history.json, p1-digest-rebinding.json, method-deltas.json, approved-deltas.json, preservation.json, baseline-comparison.json, visual-inspection.json and exact command receipts/logs).
+
+## ACT Octo/pi0 settings checkpoint — 2026-09-07
+
+**ACT 25/32; corpus 113 complete / 881 incomplete / 994 original identities / 47 articles.** Two newly complete original records (24/25), plus current P1 reconciliation (32). The 111 previous complete records remain complete; 991 unaffected parsed records are unchanged. The old seven-source P1 is archived exactly, with its seven parts/evidence preserved in the current nine-source plan. All fourteen other prior plans and all 97 prior approvals survive: catalog 17 plans; approvals 107. Counting uses `parseLedger` with actual frontmatter and compound plans; proof is `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-octo-pi0-settings-corrections/preservation.json`.
+
+- **ACT-SETTINGS-24-20260907:** Octo explicit v2 ALOHA finetuning predicts 64 actions and executes 12. Separate reported examples are Franka prediction at 15 Hz, coffee controller at 10 Hz, and ViperX control at 5 Hz. Neither a universal horizon nor a universal control rate is inferred. The model data and table label the ALOHA setting and keep the universal rate null with its explicit disclosure/qualifier.
+- **ACT-SETTINGS-25-20260907:** pi0 explicit v4 predicts 50; UR5e/Franka use 20 Hz and execute 16, while other evaluated robots use 50 Hz and execute 25. The numeric model reference is explicitly UR5e/Franka, not a new universal default. Continuous conditional-flow supervision stays distinct from execution settings. Existing typed numeric/null and qualifier fields suffice; no schema relaxation or padded numeric string.
+- **ACT-SETTINGS-32-20260907:** Octo and pi0 citations are placed beside the new source notes and added to current frontmatter. P1 now binds all nine current registered IDs; no registry metadata changed. The seven earlier parts were not recertified from summaries; their accepted evidence is preserved and only the expanded plan digests are rebound.
+
+The mixed-meaning table `n/a` override is removed: applicable unpublished values render exactly `not disclosed`. This mechanical P4 repair does not complete Helix/GR00T records or license claims. Remaining ACT original ordinals: **20, 22, 26, 27, 28, 29, 30**. The old out-of-scope note about Octo's n/a cells is historical and is superseded by this correction.
+
+Source proof: **three retained captures, 24 hash-checked literal excerpts across two works, zero new fetches**. URLs: https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/abs/2410.24164 . Original request/result times, tool-reported statuses, explicit editions, and PDF extraction defects remain in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-octo-pi0-settings-corrections/source-proof.json`. The metadata capture is the exact decoded original tool result, not the entire session file; its original hash was reproduced. No fresh-fetch date, human source review, or independent acceptance is invented.
+
+Sequential checks with `NODE_DISABLE_COMPILE_CACHE=1`: **124 unit/component tests pass**, nonincremental `tsc --noEmit --incremental false` and lint pass. Two distinct Playwright cases pass at **375x812 and 1440x900**, each checking ACT and the shared comparison route. Twelve final captures were inspected against both locked references: the corrected values, conditional notes and source chips render, Tektur/Newsreader roles remain, ACT Axe and page-error checks pass, and both routes have zero document overflow. **Visual gap retained:** the pi0 citation tooltip at 375px extends past the right viewport edge even though the document-overflow oracle passes; this is not an all-citation visual pass. Mobile model tables use bounded horizontal scrolling; the zero-scroll model capture does not display every column. The prior Back-focus gap remains open.
+
+Content: **exit 1, 884 findings** (881 incomplete rows plus three aggregates); nine separately owned citation-check gaps remain. Baseline: **exit 1, same 61 prior failures, no new failure**. Ten exact member endpoints record sealed old, immediate-before and current hashes, source/reason, affected assertions, brand-v2-editorial ownership and Josef's September 7 authority. Immutable baselines and gate logic are unchanged.
+
+Sanctioned `generate:og-cards` and `check:og-card-bytes` pass: **48 cards / 96 public-export files**, only ACT changed from seven to nine references; 47 unchanged cards. The new ACT card was inspected. The direct source pipeline was used without unnecessary build or cleanup hooks. Production HTML/reading times remain pending the red content prerequisite. `lastReviewed` remains 2026-08-18. Manual precision/overstatement review was applied to changed nonquoted prose; no humanizer skill was available. No independent acceptance or new freshness promise.
+
+Preserved failed attempts: six intended red-first assertions; source-proof failures for a missing metadata capture-path field, session-file versus decoded-result hash basis, and an incorrect compound excerpt separator; stale P1 digest/summary after expansion; and the first browser run's case-sensitive Tektur oracle. Each was resolved without relaxing source or audit criteria. No new retrieval, full-browser corpus, build, push, controller/feature/model change, destructive cleanup or credit fallback. Protected owner files, ACT weighting/SVG, BC/DP prose, old histories and commits d282a83/2cf7d6b remain. Independent Sol/high scrutiny and user testing remain required; 307/331 is not a ready-dispatch count.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-octo-pi0-settings-corrections/` (source-proof.json, row-history.json, approved-deltas.json, preservation.json, captures-final/ and command logs/receipts).
+
+
+## ACT current-claim checkpoint — 2026-09-07
+
+Five of the fourteen assigned incomplete original rows now have complete evidence: **ACT 23/32; corpus 111 complete / 883 incomplete / 994 original identities / 47 articles**. Manipulation is **62/225** complete; BC remains 14/14 and DP 25/25. Counting uses the unchanged `parseLedger` with actual canonical frontmatter and compound plans. `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/action-chunking-current-claims-closeout/preservation.json` proves all 106 prior complete records, all 18 previously complete ACT records and 989 unaffected full parsed records remain unchanged. No duplicate row or weakened audit rule.
+
+- **ACT-CURRENT-11-20260907 (S):** retains the already-correct six-DoF ViperX card and explicitly explains six arm joints plus one gripper coordinate per arm. Both ACT's six-DoF hardware text and its “7+7=14 DoF” notation are preserved, with Mobile ALOHA's explicit two-gripper account.
+- **ACT-CURRENT-12-20260907 (S):** represents ACT Section IV-C's L1 versus Algorithm 1's MSE, with weighted KL. The card follows the named IV-C description, not an asserted universal objective. The Watcher policy.py excerpt is not silently attributed to imitate_episodes.py or reused without its original retrieval context.
+- **ACT-CURRENT-15-20260907 (corrected):** names π0.5, five denoising steps, 76/97 ms model latency plus 10 to 20 ms LAN latency, and protective stops at **additional** 100/200 ms. Six tasks with ten episodes each support an aggregate throughput result, not every-task robustness or a universal threshold. The toy and prediction exercise now explicitly distinguish assumed percentages/interpolation from measured task throughput. Model calculations, slider limits and 0/100 ms mounted defaults are unchanged.
+- **ACT-CURRENT-19-20260907 (cut):** removes the unsupported causal claim that later pi generations adopted RTC because of that result. The current sentence limits its scope to the evaluated flow policy.
+- **ACT-CURRENT-32-20260907 (corrected):** all seven current canonical citation identities are separately bound. The RTC blog's actual title is “Real-Time Action Chunking with Large Models”, by Kevin Black, Manuel Y. Galliker and Sergey Levine, published June 9, 2025. ACT's official RSS record, pinned reference file, Mobile ALOHA metadata and existing DAgger/DP/RTC identities are preserved. The earlier empty seven-source plan and its original tuple are archived exactly; all ten other old plans are unchanged. Four new compound plans bring the catalog to 15. No new citation ID or reference-count change.
+
+Outcome unit: five completed original records = two corrected + one cut + two represented source inconsistencies; zero new plain-verified verdicts. The nine held original ordinals are **20, 22, 24, 25, 26, 27, 28, 29, 30**. Their legacy verdict labels do not confer current evidence. `held-lineage.json` records the exact gaps: openpi release cutoff, RT-1, Octo, pi0, pi0.5, pi0.6, pi0.7, GR00T N1.7 and Helix 02. Next eligible retained-source correction: Octo's setup-specific 64-predicted/12-executed ALOHA example and task-specific rates, then pi0's H=50 with up-to/setup-qualified control rates. No table field was guessed or silently certified.
+
+Binding proof uses **12 retained primary captures and 21 hash-checked literal excerpts across seven cited works**. Original request/result timestamps, tool-reported status, capture identity and extraction limitations remain in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/action-chunking-current-claims-closeout/source-proof.json`. No new retrieval requests or new primary-document groups. One current connector-catalog check listed 54 apps without GitHub; no shell network fallback occurred. Two additional already-retained lineage bodies were hash-checked only to locate the held Octo/pi0 corrections, not used as current row proof. Unversioned URLs remain unversioned; no invented fetch date, paper passage or freshness metadata.
+
+Sequential checks used `NODE_DISABLE_COMPILE_CACHE=1`: **137 focused unit/component tests pass**, including all-seven-part P1 omission mutations; the final 137-test check overlaps the earlier run, not 274 distinct tests. Current nonincremental no-emit TypeScript and full lint pass. **Two distinct affected Playwright cases pass** at 375x812 and 1440x900; the final rerun followed only the lint-required interval spelling change. Twenty-four final screenshots were produced; eighteen were visually inspected against both approved references, including text close-ups and full-page layout overviews. Zero Axe violations, page errors, KaTeX errors or document overflow. Tektur h1 is 36/52 px; Newsreader prose is 19 px with 32.3 px line height. The development-only Next indicator remains visible in local captures; these are not production release-corpus screenshots.
+
+Content remains **red: 886 findings** = 883 missing records + three aggregate failures; ACT P1 is no longer an unresolved outcome. Nine separate citation-check gaps remain named. Baseline remains **red: 61 prior failures**, all byte-identical to prior failure records, with no new failure. The exact latency-component source member is now covered by this correction. Nine new exact approval endpoints cover eight member IDs (including one composition follow-up), preserving all 88 prior approvals for **97 total**. Each names the sealed old, immediate-before and new hashes, source, reason, assertions and Josef's real September 7 instruction; neither sealed baselines nor audit logic changed.
+
+`npm run check:og-card-bytes` passes: all **48 current renders / 96 public-export files** are byte-identical; all 48 cards also match committed bytes. No generation was needed because the canonical seven-reference count and other card facts are unchanged. Production HTML and reading-time regeneration remain pending the red content prerequisite. The displayed eight-minute reading time is not a new measurement. `lastReviewed` remains 2026-08-18, not a human or independent-review assertion. The unavailable humanizer skill was replaced by a manual precision/overstatement read of nonquoted changed prose; source-only no-slop lint also passes.
+
+Retained initial failures: five red-first correction assertions, a source-proof header-locator error, the organization-label fixture after the real blog byline correction, and the source-prose en-dash violation. They were resolved without relaxing a gate. `PRODUCT_QUALITY.md`, `qa/findings.json` and `next-env.d.ts` are hash-preserved; only known dev-generated type imports were restored. The weighting SVG, image metadata, glossary, asset seal, toy calculations, 48 cards and commits d282a83/2cf7d6b are preserved. No full browser corpus, build, cleanup, push, deployment, feature/controller/model switch or independent acceptance. Required next: the nine held lineage records, production validation after corpus closure, independent Sol/high scrutiny and user testing. The previously recorded citation Back-focus gap remains open.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/action-chunking-current-claims-closeout/` (row-history.json, source-proof.json, held-lineage.json, approved-deltas.json, preservation.json, baseline-comparison.json, visual-inspection.json and exact command receipts/logs).
+
+
+## BC foundations authorized closeout — 2026-09-07
+
+Six original rows (1, 4, 8, 10, 12, 14/P1) are now corrected with complete evidence: **BC 14/14; corpus 106 complete / 888 incomplete / 994 original identities / 47 articles**. Manipulation is **57/225** complete. DP remains 25/25 and ACT 18/32. Counting uses the unchanged `parseLedger` with real canonical frontmatter and compound plans; `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections/preservation.json` confirms all 100 previously complete records, 988 unaffected rows, all eight previously complete BC rows, nine unchanged compound plans and all 79 prior approvals. The old empty BC P1 plan is archived; its current six-part replacement plus one new two-part ALVINN binding bring the catalog to 11 plans. No duplicated counted row.
+
+BC-1-20260907 preserves the introductory BC definition while distinguishing ALVINN's camera/laser-range inputs, simulated training, NAVLAB tests and proposed future human-driving training. BC-4/10-20260907 separates expert-distribution epsilon, true epsilon_N and empirical hatted epsilon_N; Theorem 3.2 is conditional and existential over the learned sequence, with excess cost u*T*epsilon_N + O(1), and u may be O(T). The theorem's learning/mixing, policy-selection and finite-sample qualifications remain explicit. The unchanged deterministic toy is now labelled as illustration, not task cost or a benchmark; defaults, controls and executable model are preserved. Its 120/240-step readouts still round to 370/1505.
+
+BC-8-20260907 narrows multimodality to Diffusion Policy's documented Push-T behavior and removes unsupported flow-matching-origin attribution. BC-12-20260907 states the actual HG-DAgger takeover/recovery-label/manual-release mechanism from the explicitly marked arXiv v2 PDF. BC-P1-20260907 verifies all six current source identities: ALVINN's official 1988/volume-1 venue; HG's arXiv v2 (11 March 2019), not unproved ICRA; blog-only Gashon Hussein spelling across all 55 printed authors; unchanged DAgger AISTATS identity, ACT official RSS identity and extended eight-author DP work. Existing unversioned URLs are not claimed immutable. Three registry metadata records changed; citation population and canonical six-reference BC card facts did not.
+
+Sources are reused, not newly fetched: 14 retained retrieval records across six works, comprising 13 successful text responses and one ALVINN reader/PDF-processing error whose origin HTTP status is unknown. The nine retained packet captures, four ALVINN requests and existing ACT RSS capture preserve original request/result times and exact hashes. Thirty-two literal excerpts were checked (27 packet bindings plus HG-v2 mechanism, two DAgger identity excerpts and two ACT RSS excerpts). No new network requests, invented passage or fresh-fetch date. Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections/source-proof.json`, `p1-proof.json`, `hg-v2-excerpt.json`, `corrections.json`.
+
+Sequential checks used `NODE_DISABLE_COMPILE_CACHE=1`: 172 focused unit/component tests pass; the final affected 91-test recheck is an overlapping subset, not an additional distinct population. Nonincremental `tsc --noEmit --incremental false`, full lint and final scoped lint pass. Eight distinct affected Playwright cases pass through retained receipts (four existing BC cases, two correction/interaction cases and two bounded-equation cases), at 375x812 and 1440x900 where specified. Zero Axe violations/page errors in the interaction cases and zero document overflow in all captures. Tektur h1 is 36/52px; Newsreader prose is 19px with 32.3px line height. The long true-loss/mixing equation was split into two gathered lines after inspecting mobile clipping inside its bounded math region; final close-ups show both lines. The 14 earlier full/interaction captures and six final equation captures were inspected against both approved references; earlier full-page captures predate this final equation composition and are not final-release corpus proof.
+
+The content gate remains **red: 892 findings** (888 incomplete records, unresolved ACT P1 outcome, three aggregate failures); nine citation-audit gaps remain separately named. Baseline is **red: 62 prior failures**, with nine exact scoped approval endpoints and no baseline recapture or gate changes. Existing `npm run check:og-card-bytes` passes: **48 current renders / 96 public-export files byte-identical**. No card generation was necessary, and no card bytes changed. Production HTML and reading-time regeneration remain pending the content prerequisite. `lastReviewed` stays 2026-08-17; no human-review/freshness assertion. The humanizer skill was not available; rewritten nonquoted prose received a manual precision/overstatement read plus the passing source prose lint.
+
+Initial failures are preserved: four red-first regressions; ALVINN serialized-versus-decoded offset verification; P1 literal batch-format binding; unescaped probability-dollar formatting; citation-wrapper focus locator; missing optional added-member seal lookup; and the two-import Next dev restoration check. Each was resolved without changing acceptance logic. `next-env.d.ts` was restored only after matching both generated dev import changes to the session backup. Owner `PRODUCT_QUALITY.md` and `qa/findings.json` are hash-preserved. No build, full browser corpus, cleanup, push, deployment, controller/model/feature-state change or independent acceptance. Required next: continue the remaining ACT original-row/source-identity batch, retain the separately tracked citation Back-focus gap, then corpus closure, independent Sol/high scrutiny and user testing.
+
+## Correction-artifact maintenance — 2026-09-07
+
+This checkpoint closes only the legacy hardware-comment and generated-card residuals named below. The older checkpoints retain their original history; their statements that these two residuals remain open are superseded here. No article claim, citation, price, review date, audit row, or approval entry changed: **100 complete / 894 incomplete / 994 original identities / 47 articles**, with all 100 complete records and all 79 approvals preserved.
+
+`lib/hardware.ts` now explains that price buckets classify non-null `priceUsd` and do not use `priceMaxUsd`, without an ALOHA price example. Everything after the opening comment is byte-identical; the corrected null prices remain unchanged. No article prose changed, so no review date or humanizer pass applies.
+
+The existing `npm run generate:og-cards` lifecycle reads current registry titles/domains and MDX reference counts/review years directly; it requires neither production HTML nor reading-time measurements. It generated the exact sealed 48-card population. Only ACT's **6 → 7 references** and Diffusion Policy's **6 → 9 references** changed PNG bytes, in both `public/og` and `out/og`; the other 46 cards stayed byte-identical. Titles, review years, fonts, palette, grid and renderer code are unchanged. Both updated cards and both prior cards were visually inspected; the new ACT bytes also match the retained candidate. This is a factual asset repair, not social-card milestone or release acceptance.
+
+New sequential checks, all with `NODE_DISABLE_COMPILE_CACHE=1`: generation exited 0 (47 article cards + one site card); `npm run check:og-card-bytes` exited 0 (48 current renders, 96 byte-identical public/export files); seven focused hardware/pricing/OG unit files passed 61 tests; two focused renderer-parity mutation tests passed (20 unrelated tests excluded by the name filter); scoped hardware lint, tuple/evidence preservation and whitespace checks exited 0. The normal baseline check exited 1 with the same **63 failures**, producing byte-identical output to the pricing checkpoint; no new sealed-member delta or approval was needed. Nonincremental no-emit TypeScript proof is reused from the unchanged-executable-code pricing checkpoint, not presented as a new run.
+
+The content gate remains **red, 898 findings** (894 incomplete records, one unresolved ACT P1 outcome, three aggregate failures), with nine citation-check gaps tracked separately. That content result is reused, not rerun. Cards contain no reading-time fact; production HTML and reading-time regeneration still await the content prerequisite. Only `out/og` was refreshed, not the rest of `out/`. The citation Back-focus gap, remaining source gaps, independent Sol/high scrutiny and user testing remain open. No network retrieval, build, browser corpus, baseline recapture, push, feature-state change or acceptance occurred.
+
+Exact source-derived card inputs, old/new hashes, before/after PNGs, command receipts and preservation proof: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/correction-artifact-reconciliation/`.
+
+## Pricing/source-strength checkpoint — 2026-09-07
+
+PRICE-TELEOP-20260907 corrects teleop ordinal 4; PRICE-HARDWARE-20260907 corrects only the ALOHA part of hardware-taxonomy ordinal 6. One additional complete row, not article acceptance: **100 complete / 894 incomplete / 994 original identities / 47 articles**. Data-hardware is **4/128** complete; teleop **1/13**, hardware-taxonomy **0/25**. All 99 previously complete records and 992 unaffected claim/source/verdict/note/evidence tuples survive. DP remains 25/25, ACT 18/32, with its P1 unresolved. All ten compound plans and all seventy prior exact approvals remain unchanged.
+
+The original community issue https://github.com/alpibrusl/lex-robot/issues/3 self-describes research in June 2026 and reports the combined “ALOHA / ALOHA 2” research-bimanual category at approximately ~$17k–32k. Its currency code, endpoint configurations and itemized inclusions/exclusions are not established. The USD-typed ALOHA amounts, price-as-of field and inferred workstation floor are removed; `not disclosed` renders beside the attributed community estimate and source. GELLO remains controller-only, not a complete robot purchase. Unrelated prices are not certified. The homepage retains the exact brand descriptor and lime mark while distinguishing cited evidence from completed verification.
+
+Source proof is reused, not newly fetched: original FetchUrl response **2026-09-07T12:15:17.844Z**, tool-reported HTTP 200; body SHA-256 `6d34debe7a74d97ee8c0f05be8639454ffbac8eceb268edda3102e3930ae8046`. Request/response event hashes and five exact excerpts were checked against the preserved response. No issue author or opening timestamp was inferred. Current citation metadata is unchanged and its byline remains unverified.
+
+Validation: 138 focused unit/component tests passed; a final affected source/audit recheck passed 80 tests (overlapping population, not 218 distinct tests). Six distinct affected Playwright cases pass through the retained run receipts: three existing pricing regressions, two final three-route viewport cases, and one internally scrolled mobile-price case. Fifteen final screenshots were inspected at 375×812 and 1440×900; all six final route/viewport inspections report zero Axe violations, zero document overflow and zero page errors. The initial 24px mobile pricing-tooltip overflow was fixed by placing only the pricing citations at the start of their own attributed paragraphs; shared tooltip code was not changed. Initial red-first/test-preparation/browser/prose-lint/receipt-parser failures remain recorded.
+
+Current nonincremental no-emit TypeScript and lint pass. Content remains **red, 898 findings**: 894 missing records, one unresolved ACT P1 outcome and three aggregate evidence failures. Baseline remains **red, 63 prior failures, no new failures**; exact scoped approvals account for the two price-renderer source failures previously among 65. Nine new exact delta entries cover six member identities, including three follow-up prose endpoints; total approvals 79. No sealed baseline, asset or gate logic was changed. The existing collector has no homepage-premise or hardware-per-record member; no fictitious member was introduced. Exact file/data changes and hashes are retained in the evidence packet.
+
+Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections
+
+Both article review dates remain 17 August 2026. Reading times, production export/build and any dependent release proof remain pending the red content prerequisite; no known-failing build or full browser corpus was run. Existing DP Back-focus-to-BODY debt and ACT stale six-reference generated OG/export versus seven current references remain open. Next eligible pricing slice requires primary support for the unchanged Koch/Reachy claims and verified community-issue bibliographic identity; no new retrieval is part of this checkpoint. An unrendered legacy ALOHA price-bucket example remains in `lib/hardware.ts:9`, outside the prepared helper-edit scope. No push, deployment, feature-state edit, model fallback or independent acceptance occurred.
+
+## ACT convention checkpoint — 2026-09-07
+
+ACT-CONVENTION-20260907 reconciles the pinned reference convention across the article, code comments, inline glossary definition, diagram, alt/caption and a new pinned code citation. Retained predictions are ordered oldest-to-newest; normalized exp(-0.01 × i) gives the oldest retained prediction the largest weight. The scalar [0, 10, 20] example is explicitly **after selection**, yielding 9.93333444; it does not exercise the raw-buffer nonzero occupancy filter. Diagram raw weights 1.00 / 0.61 / 0.37 are explicitly illustrative m=0.5, separate from reference m=0.01. Brand, layout, runtime behavior and CC BY 4.0 attribution are preserved.
+
+The exact current weighting row is ACT ordinal **14**, not the prepared packet's 15; current text binding exposed the packet ordinal error. That one row gains complete evidence. ACT-P1-SET-20260907 updates ordinal **32** to the actual seven-citation set but explicitly marks its bibliographic verdict unresolved. Both original tuples and the original six-part P1 plan are archived in audit/manipulation.md; the other nine compound plans are unchanged, with ten plans retained in total. No P1 or article acceptance is claimed.
+
+Parsed counts: **99 complete / 895 incomplete / 994 claim identities / 47 articles**; ACT **18/32**, manipulation **51/225**. All 98 previous complete records and 992 immediate-checkpoint unaffected claim/source/verdict/note/evidence tuples survive. Content stays at **899 findings**: 895 incomplete-row failures, one explicit unresolved ACT P1 outcome, and three aggregate evidence failures. The baseline retains the identical 65 existing failures, with eight exact current-member deltas under Josef's real September 7 correction authority; the sealed migration baseline is untouched.
+
+Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Original FetchUrl response: 2026-09-07T12:15:10.160Z, tool-reported HTTP 200; preserved identity and supporting text read on September 7, not newly fetched. Captured response SHA-256: 68f26593c083e155f8a5b8eb167cb867301466952244520a046f9dc23b8cb2c8. Its query-frequency, time-indexed buffer, nonzero selection and normalized weights support the scoped inference; no article sentence is used as source proof.
+
+Validation: 214 focused unit/component tests pass; two settled Playwright ACT-route tests pass at 375×812 and 1440×900, with twelve inspected screenshots, zero Axe violations, zero page errors, exact served/new-SVG byte equality, rendered math and seven references, tooltip bounds and no document overflow. Initial test-only failures (citation-table header, delta reason's multiplication asterisk, math-span count, font alias casing) were corrected without weakening the gates. Initial screenshot caret injection before hydration produced a warning; final captures wait for network idle and retain the initial caret, and the final run has no warning. Failed logs/captures remain in the evidence directory. Nonincremental no-emit TypeScript and full lint pass; changed-test lint also passes. Production build/full browser corpus were not run because the content prerequisite remains red; route compilation is not production-build evidence.
+
+Only the verified dev-generated next-env type-path changes were restored to the original backup. PRODUCT_QUALITY.md and qa/findings.json are byte-identical. lastReviewed remains 2026-08-18 because this is not a complete ACT audit; the rewritten prose received a manual source-fidelity/no-filler read. No pricing, joint/gripper/loss-source expansion, navigation, feature-state, controller, fallback, security or publication action occurred.
+
+Remaining generated-output gap: ACT's public/export OG card is stale after the citation count changes from six to seven. A single exact ACT candidate was rendered through the existing sealed boundary into mission evidence, not published into either generated tree. No full-card generation or out/HTML refresh occurred, and reading-time measurements were not regenerated. Release must refresh that exact affected generated card and the affected export through its existing gated mechanism. Remaining source gaps and independent Sol/high scrutiny/user testing are still required; next assigned batch is pricing provenance, not claimed complete here.
+
+Evidence directory: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-convention-authorized-corrections/` (source-proof.json, applied-spans.json, row-outcomes.json, exact-member-deltas.json, final-audit-counts.json, generated-staleness.json, protected-state.json; each executed gate has its exact command, timestamps, exit and log SHA-256 in a .receipt.json).
+
+
+## Current-claim and identity checkpoint — 2026-09-07
+
+The previous nine-held checkpoint below is historical. The same twelve DP identities now carry corrected claims (eleven) or the explicit unsupported-adoption cut (one), and the same TD3 identity now states reduction rather than elimination. Each exact original tuple is archived in its domain ledger; no claim row is added. DP is 25/25 complete. Derived corpus accounting: **98 complete / 896 incomplete / 994 identities / 47 articles**. All 85 previous complete records, 981 unaffected original tuples and six existing compound plans are preserved. Four new compound plans retain exact part/citation coverage and separately paired primary responses. New ACT proceedings proof and explicit Octo v2 support the nine-source identity record; original seven-author DP has a separate entry, and the extended entry is not mislabeled as that RSS edition. Exact source proof, current history, baseline deltas and fresh validation receipts are in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-current-claims-closeout`. The content gate remains red; no publication, independent scrutiny or release acceptance is claimed. Production build is not rerun while its content precheck remains red; normal trusted generated-file handling is not itself a cleanup blocker. Fresh results: 245 focused unit/component tests plus 11 citation-coverage tests passed; noemit/nonincremental TypeScript and lint passed. Content validation has 899 findings (896 incomplete rows plus three aggregate evidence findings), with 414/414 citation entries covered and the same nine separately unresolved citation checks. Baseline has the same 65 pre-existing failures, with nine exact composed member deltas approved and no added failures. Installed Playwright captured both required viewports on current content plus TD3. Stats/current text, safe citation links, keyboard tooltip/jump, zero page overflow, expanded twenty-author Octo byline and keyboard-scrollable mobile math were checked. Browser Back returns to the article but does not restore focus to the citation affordance; that navigation gap remains open. The initial collapsed-byline assertion was a probe error, resolved by exercising the existing Show all 20 authors control. No component, layout or security control was changed. Reading-time data was not regenerated; the displayed seven-minute DP value is not a fresh production measurement.
+
+
+## Current authorized wording checkpoint — 2026-09-07
+
+Seven source-backed Diffusion Policy correction packages (nine spans; ordinals 2, 3, 6, 7, 8, 16, 19, 22, 23) are now implemented under Josef’s September 7 authority. This supersedes the selected proposals’ historical approval hold, not their recorded source limitations. Exact current-versus-original correction history and supporting text are appended to `audit/manipulation.md`; command, baseline and rendering receipts are in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-authorized-corrections`. No original row has been promoted using evidence for different wording: **85 complete / 909 incomplete / 994 rows / 47 articles**, DP **13/25**, manipulation **38/225**. The content gate remains red; no publication or acceptance is claimed. Previous checkpoints below are historical, not validation of the new prose. Fresh checks: 131 unit tests passed; nonincremental/no-emit TypeScript, lint, source-only no-slop and chart descriptions passed. Content validation still exits 1 with the same 912 findings. The exact eleven-manifest comparison retains 65 pre-existing failures and adds none after the scoped DP prose approval. The corrected local development route returned HTTP 200 with the new text and no KaTeX error marker. Chromium failed before launch because no usable sandbox is available; no security workaround was used, so required screenshots, viewport inspection and citation focus/return remain unverified. Production build was not invoked: its content prerequisite is red and its normal prebuild includes prohibited pruning. This is a local correction checkpoint, not release-ready evidence.
+
+
 ## Current acceptance status
 
 The article audit is **not accepted**. Article-ID coverage did not establish
@@ -28,7 +315,207 @@ retained as historical audit claims, not current acceptance evidence.
 The original tooling/accounting repair re-fetched no source, changed no
 article prose, and moved no `lastReviewed` date.
 
-### Current structured-record counts (integration batch 2, 2026-09-06)
+### Current structured-record counts (pi0 finite closeout)
+
+Counting unit: original article claim rows, not source renditions or partial P1 items. **The audit remains incomplete and unaccepted.**
+
+| Domain | Articles with records | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|---:|
+| manipulation | 12 | 225 | 38 | 187 |
+| rl-sim2real | 7 | 167 | 23 | 144 |
+| world-models | 5 | 92 | 4 | 88 |
+| data-hardware | 6 | 128 | 3 | 125 |
+| classical | 7 | 187 | 12 | 175 |
+| frontier | 6 | 147 | 5 | 142 |
+| adjacent | 4 | 48 | 0 | 48 |
+| **Corpus** | **47** | **994** | **85** | **909** |
+
+Of two assigned pi0 claims, only DP ordinal 21 is supported unchanged. Ordinal 22 remains held for the no-schedule/fewer-DDPM-steps conjunction. Diffusion Policy is **13 complete / 12 incomplete / 25 rows**. All 84 prior complete rows, 994 original projections and the entire six-plan compound catalog survive; the original projection SHA-256 remains `ea9322cafaec5a09303d8b70803df2d69566bc902382831977e2159b56c72f5c`.
+
+The new scalar evidence uses the explicit v4 PDF-derived response, whose method prose prints A−epsilon. The contrary unversioned ar5iv sign, covariance-notation discrepancy, PDF extraction defects, beta cutoff/normalization details and inference-versus-execution quantities are preserved in the packet. No missing formula is fabricated. One pi0 P1 identity item is partial and unapplied; metadata's 2024 arXiv submission and RSS 2025 publication comment remain distinct. Three responses cover one paper, with one justified PDF fallback and no search.
+
+Exact source/row provenance, one new unapproved correction and the finite-list update:
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-pi0-closeout/
+
+No article, registry, relationship, date, catalog, schema, code, test, baseline or approval change. The four earlier DP proposals and finished TD3 determination are not repeated; ACT/pricing ownership remains separate. Reuse unchanged-code 117-test/nonincremental-TypeScript/lint proof from `0946948`; new scoped checks retain their actual exits and content findings. No duplicate completed-task gates, broad build/browser/full-unit run, push, Mission advancement or acceptance.
+
+### Historical two-document distillation structured-record counts
+
+Counting unit: original article claim rows, not documents, partial P1 items or historical verdicts. **The audit remains incomplete and unaccepted.**
+
+| Domain | Articles with records | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|---:|
+| manipulation | 12 | 225 | 37 | 188 |
+| rl-sim2real | 7 | 167 | 23 | 144 |
+| world-models | 5 | 92 | 4 | 88 |
+| data-hardware | 6 | 128 | 3 | 125 |
+| classical | 7 | 187 | 12 | 175 |
+| frontier | 6 | 147 | 5 | 142 |
+| adjacent | 4 | 48 | 0 | 48 |
+| **Corpus** | **47** | **994** | **84** | **910** |
+
+Of two assigned whole-row claims, only One-Step Diffusion Policy ordinal 20 is applied unchanged. Consistency Policy ordinal 19 remains held for the stronger untuned-teacher parenthetical. Diffusion Policy is **12 complete / 13 incomplete / 25 rows**. All 83 prior complete records, 994 original projections, other domain records and the entire six-plan compound catalog survive. The projection SHA-256 remains `ea9322cafaec5a09303d8b70803df2d69566bc902382831977e2159b56c72f5c`.
+
+The OneDP rate is prediction plus observation encoding on a V100: 100-step DDPM 9+660 ms versus one-step 9+7 ms. The 10-step-DDIM real-trial baseline and 20-Hz robot cap are distinct. The CP teacher-quality ablation covers three teacher settings on Robomimic Square, not arbitrary untuned teachers. Two prepared identity items remain partial and unapplied for six-source P1. New 2026-09-07 retrieval supplied **four responses across two documents**: one metadata response and one usable body per paper. Actual body revisions are not inferred from landing versions.
+
+Exact source provenance, row decisions, one new unapproved correction and the finite remaining-list update:
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-distillation-closeout/
+
+No article/registry/date/catalog/code/relationship/baseline/approval change. Existing three DP proposals and the finished TD3 authority determination are not redone; ACT/pricing retain separate ownership. The unchanged-code 117-test/nonincremental-TypeScript/lint evidence from `0946948` is reused, not newly run. New scoped checks and real content-gate exits/counts are retained in this packet. No broad build/browser/full-unit rerun, push, Mission advancement or acceptance.
+
+### Historical integration batch 4 structured-record counts
+
+Counting unit: parsed article claim rows, **not** source documents, evidence items or historical verdicts. **The audit remains incomplete and unaccepted.**
+
+| Domain | Articles with records | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|---:|
+| manipulation | 12 | 225 | 36 | 189 |
+| rl-sim2real | 7 | 167 | 23 | 144 |
+| world-models | 5 | 92 | 4 | 88 |
+| data-hardware | 6 | 128 | 3 | 125 |
+| classical | 7 | 187 | 12 | 175 |
+| frontier | 6 | 147 | 5 | 142 |
+| adjacent | 4 | 48 | 0 | 48 |
+| **Corpus** | **47** | **994** | **83** | **911** |
+
+Twenty prepared candidates qualify after current whole-claim/binding review: **18 scalar records and two existing-correction records**. Diffusion Policy adds eleven; perception adds four and scene-representation five. No compound record is added. All 63 prior complete rows and all 994 original claim/source/verdict/note projections survive, with original-tuple SHA-256 `ea9322cafaec5a09303d8b70803df2d69566bc902382831977e2159b56c72f5c`.
+
+| Article | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|
+| bc-foundations | 14 | 8 | 6 |
+| action-chunking | 32 | 17 | 15 |
+| diffusion-policy | 25 | 11 | 14 |
+| rl-for-robotics | 52 | 20 | 32 |
+| why-rl-locomotion | 12 | 1 | 11 |
+| parallel-sim-rl | 18 | 1 | 17 |
+| reward-design-mpc | 23 | 1 | 22 |
+| taxonomy | 20 | 1 | 19 |
+| latent-dynamics | 21 | 3 | 18 |
+| industrial-deployment | 52 | 3 | 49 |
+| perception | 59 | 5 | 54 |
+| scene-representation | 49 | 7 | 42 |
+| safety-and-assurance | 40 | 5 | 35 |
+
+Fourteen Diffusion Policy rows and three classical publication-bridge rows remain held. The finite ONE-article closeout identifies DP's remaining ordinals, actual source/version/implementation gaps, all three exact unapplied proposals and Josef's future precise approval requirement:
+
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/integration-batch4/diffusion-policy-closeout.md
+
+DP's landing 12-task/extended-body 15-task mismatch is distinct from the retained body's unresolved 100/10-versus-100/16 sampler conflict. Real reference settings, FiLM's Push-T exception, limited recommendation and extended/original/unpinned edition distinctions remain. Classical original 266/271 still lack publication-specific complete Zhang parameter-recovery proof; 333 lacks the KinectFusion publication/content bridge and whole two-source polarity support.
+
+Zhang uses actual publisher abstract/date evidence; ClearGrasp retains its claim-scoped byline/text bridge; DSO uses actual journal full text (2017 online/2018 issue), not silently inherited 2016 conclusions. Curless–Levoy uses the actual retained Stanford PDF URL, with substantial matching primary text and identities, never a pretend ACM PDF fetch. DP row 12 and classical original 356 support already-corrected prose rather than the historical erroneous claims.
+
+Completed proof is reused, not rerun for ownership: DP two response bindings/nine prior/thirty-seven packet excerpts/twenty-five row bindings; classical ten FetchUrl bindings/twenty-two publisher excerpts/seventy provider-field segments/four correspondences/ten retained captures/twenty-eight offsets. Integration verifies current packet/capture hashes, pairing and original/current wording. Preparation failures remain in the old packets. No new fetch, re-extraction, publication-year substitution or invented retrieval time occurs.
+
+The entire compound catalog is byte-identical: four supported plans and two empty incomplete P1 plans. Partial identity counts are not whole-row completion. Original 1,163 and integrated 1,167 table-line preservation guarantees remain. MDX, registry, code, tests, baseline, approval records and article dates are unchanged. TD3's finished authority determination is not reassessed; ACT direction and pricing closeout retain separate ownership.
+
+The full 73-case audit file, stable-tree preservation and regular-file content gate are recorded with real exits/counts in this batch's receipts. The unchanged 117-test/typecheck/lint evidence from `0946948` is **reused, not newly run**. No build/browser/full-unit rerun, push, feature advancement or acceptance. Independent Sol/high scrutiny, required user testing and complete release evidence remain outstanding.
+
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/integration-batch4/
+
+### Historical integration batch 3 structured-record counts (2026-09-06)
+
+Counting unit: parsed article claim rows, **not** source documents, evidence
+items or historical verdicts. **The audit remains incomplete and unaccepted.**
+
+| Domain | Articles with records | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|---:|
+| manipulation | 12 | 225 | 25 | 200 |
+| rl-sim2real | 7 | 167 | 23 | 144 |
+| world-models | 5 | 92 | 4 | 88 |
+| data-hardware | 6 | 128 | 3 | 125 |
+| classical | 7 | 187 | 3 | 184 |
+| frontier | 6 | 147 | 5 | 142 |
+| adjacent | 4 | 48 | 0 | 48 |
+| **Corpus** | **47** | **994** | **63** | **931** |
+
+Thirty-four of thirty-five prepared candidates qualify: **30 scalar or
+existing-correction records plus four compound claim rows**. Manipulation
+adds 21 (bc-foundations 5, action-chunking 16); classical adds 3 (perception 1,
+scene-representation 2); rl-for-robotics adds 10. All 29 previously complete
+records, all original claim/source/verdict/note cells and all populations
+survive. The compact ordered original-tuple SHA-256 remains
+`ea9322cafaec5a09303d8b70803df2d69566bc902382831977e2159b56c72f5c`.
+
+| Article | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|
+| bc-foundations | 14 | 8 | 6 |
+| action-chunking | 32 | 17 | 15 |
+| rl-for-robotics | 52 | 20 | 32 |
+| why-rl-locomotion | 12 | 1 | 11 |
+| parallel-sim-rl | 18 | 1 | 17 |
+| reward-design-mpc | 23 | 1 | 22 |
+| taxonomy | 20 | 1 | 19 |
+| latent-dynamics | 21 | 3 | 18 |
+| industrial-deployment | 52 | 3 | 49 |
+| perception | 59 | 1 | 58 |
+| scene-representation | 49 | 2 | 47 |
+| safety-and-assurance | 40 | 5 | 35 |
+
+The four new explicit compound plans bind manipulation original lines
+73, 77, 79 and 101. Their ten required parts have eleven exactly paired
+source items and ten supported, digest-bound adjudications. Required parts
+retain the full conjunction, causal pause attribution, human annotation
+burden and two-source date arithmetic as applicable; they were not reduced
+to available evidence. Reviews identify the implementation
+**agent/source-auditor**, not a human or independent validator.
+
+**Held candidate:** manipulation original line 100 remains unchanged and
+incomplete. Current prose states total 100–200 ms inference latency, but
+RTC tested **added +100/+200 ms**. The prepared plan also omits the blog
+named by the original source attribution. No qualifying prose is smuggled
+into an evidence note. The two existing six-document P1 plans remain
+byte-equivalent as objects, empty and incomplete: their six supported
+partial items remain unapplied in the packet, alongside the actual metadata
+gaps and contradictions. Enough items is not complete P1 coverage.
+
+**TD3 authority resolved: not authorized, not applied.** The inspected
+`VAL-B2-BASE-010` policy requires an exact approved old/new delta with owner
+approval. The content-audit contract requires unsupported claims to fail
+and corrections to be recorded; it does not explicitly delegate approval
+of a new prose-member hash. The current owner brief and Mission boundary
+forbid inferring that approval from older entries or this assignment.
+Consequently the sentence, Cite, relationships, original row 167 and
+approved-delta file remain unchanged. The already-returned precise
+old/new/source boundary remains in the Mission's
+`source-recovery-20260906/td3-correction-boundary.md`; no second approval
+request or source fetch was made. This does not certify “fixed it” as true.
+
+The completed source packets were reused after packet-hash and current
+article/row checks: manipulation 16 preserved source records / 53 exact
+excerpts, classical 16 capture hashes / 8 in-memory PDF derivations /
+56 excerpts, and RL 17 request/result bindings / 71 excerpts. These are
+reused source-worker checks, not new source reads. Actual supporting text
+and fetched URLs are in the ledgers/catalog; each domain's batch-3 notice
+points to the retained provenance and excerpt records. Source edition,
+metadata and HTTP-status limitations remain explicit. No new request,
+publication-year substitution or inferred fetch date was introduced.
+arXiv 1812.11103 is the registered **Learning to Walk via Deep Reinforcement
+Learning**, not the old supplied “SAC Applications” label.
+
+Original manipulation line 93 and RL ordinal 8 support their **already
+corrected** article accounts; they do not prove the historical erroneous
+quotations. ACT's numeric ablation remains simulated and disables temporal
+ensembling. Minitaur's approximate control-step/wall-time derivation and
+QT-Opt's grasp-attempt/total-robot-hour quantities retain distinct units.
+The other 22 classical and 8 RL prepared rows stay blocked; manipulation
+retains 11 applicable incomplete rows plus 10 outside its document scope.
+Known source conflicts, metadata problems, DAgger bounds, the held frontier
+850 mm qualifier and separately owned ACT temporal-ensembling direction
+are not resolved or reassigned by this checkpoint.
+
+Production MDX, citation registry, code, tests, article `lastReviewed`,
+immutable baseline and approval records are unchanged. Existing 117-test,
+typecheck and lint results at `0946948` remain reusable for unchanged code;
+they are not presented as new runs. No build, browser/export, full-unit
+corpus or citation-network check is duplicated at this known-red checkpoint.
+Independent Sol/high scrutiny, required user testing and complete release
+evidence remain outstanding. No push, feature advancement or acceptance.
+
+Batch-3 application, preservation and actual command/exit/log receipts:
+
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/integration-batch3/`
+
+### Historical integration batch 2 structured-record counts (2026-09-06)
 
 Counting unit: parsed article claim rows, **not** source documents, historical
 verdicts, datasets or citation-registry entries.

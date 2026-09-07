@@ -59,7 +59,13 @@ test.describe('data-hardware hardware-taxonomy module', () => {
     for (let i = 0; i < count; i += 1) {
       const priceCell = bodyRows.nth(i).locator('td:nth-child(3)');
       const text = (await priceCell.textContent()) ?? '';
-      if (text.trim() === 'not disclosed') continue;
+      if (await priceCell.getByText('not disclosed', { exact: true }).count()) {
+        if (text.includes('Community issue')) {
+          expect(text).toContain('not a vendor quote');
+          expect(text).toContain('researched Jun 2026');
+        }
+        continue;
+      }
       priced += 1;
       expect(text, `price cell without as-of note: ${text}`).toMatch(
         /as of (?:[A-Z][a-z]{2} \d{4}|\d{4})/,
