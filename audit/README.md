@@ -28,7 +28,31 @@ retained as historical audit claims, not current acceptance evidence.
 The original tooling/accounting repair re-fetched no source, changed no
 article prose, and moved no `lastReviewed` date.
 
-### Current structured-record counts (integration batch 4)
+### Current structured-record counts (two-document distillation closeout)
+
+Counting unit: original article claim rows, not documents, partial P1 items or historical verdicts. **The audit remains incomplete and unaccepted.**
+
+| Domain | Articles with records | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|---:|
+| manipulation | 12 | 225 | 37 | 188 |
+| rl-sim2real | 7 | 167 | 23 | 144 |
+| world-models | 5 | 92 | 4 | 88 |
+| data-hardware | 6 | 128 | 3 | 125 |
+| classical | 7 | 187 | 12 | 175 |
+| frontier | 6 | 147 | 5 | 142 |
+| adjacent | 4 | 48 | 0 | 48 |
+| **Corpus** | **47** | **994** | **84** | **910** |
+
+Of two assigned whole-row claims, only One-Step Diffusion Policy ordinal 20 is applied unchanged. Consistency Policy ordinal 19 remains held for the stronger untuned-teacher parenthetical. Diffusion Policy is **12 complete / 13 incomplete / 25 rows**. All 83 prior complete records, 994 original projections, other domain records and the entire six-plan compound catalog survive. The projection SHA-256 remains `ea9322cafaec5a09303d8b70803df2d69566bc902382831977e2159b56c72f5c`.
+
+The OneDP rate is prediction plus observation encoding on a V100: 100-step DDPM 9+660 ms versus one-step 9+7 ms. The 10-step-DDIM real-trial baseline and 20-Hz robot cap are distinct. The CP teacher-quality ablation covers three teacher settings on Robomimic Square, not arbitrary untuned teachers. Two prepared identity items remain partial and unapplied for six-source P1. New 2026-09-07 retrieval supplied **four responses across two documents**: one metadata response and one usable body per paper. Actual body revisions are not inferred from landing versions.
+
+Exact source provenance, row decisions, one new unapproved correction and the finite remaining-list update:
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-distillation-closeout/
+
+No article/registry/date/catalog/code/relationship/baseline/approval change. Existing three DP proposals and the finished TD3 authority determination are not redone; ACT/pricing retain separate ownership. The unchanged-code 117-test/nonincremental-TypeScript/lint evidence from `0946948` is reused, not newly run. New scoped checks and real content-gate exits/counts are retained in this packet. No broad build/browser/full-unit rerun, push, Mission advancement or acceptance.
+
+### Historical integration batch 4 structured-record counts
 
 Counting unit: parsed article claim rows, **not** source documents, evidence items or historical verdicts. **The audit remains incomplete and unaccepted.**
 
