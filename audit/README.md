@@ -28,7 +28,31 @@ retained as historical audit claims, not current acceptance evidence.
 The original tooling/accounting repair re-fetched no source, changed no
 article prose, and moved no `lastReviewed` date.
 
-### Current structured-record counts (two-document distillation closeout)
+### Current structured-record counts (pi0 finite closeout)
+
+Counting unit: original article claim rows, not source renditions or partial P1 items. **The audit remains incomplete and unaccepted.**
+
+| Domain | Articles with records | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|---:|
+| manipulation | 12 | 225 | 38 | 187 |
+| rl-sim2real | 7 | 167 | 23 | 144 |
+| world-models | 5 | 92 | 4 | 88 |
+| data-hardware | 6 | 128 | 3 | 125 |
+| classical | 7 | 187 | 12 | 175 |
+| frontier | 6 | 147 | 5 | 142 |
+| adjacent | 4 | 48 | 0 | 48 |
+| **Corpus** | **47** | **994** | **85** | **909** |
+
+Of two assigned pi0 claims, only DP ordinal 21 is supported unchanged. Ordinal 22 remains held for the no-schedule/fewer-DDPM-steps conjunction. Diffusion Policy is **13 complete / 12 incomplete / 25 rows**. All 84 prior complete rows, 994 original projections and the entire six-plan compound catalog survive; the original projection SHA-256 remains `ea9322cafaec5a09303d8b70803df2d69566bc902382831977e2159b56c72f5c`.
+
+The new scalar evidence uses the explicit v4 PDF-derived response, whose method prose prints A−epsilon. The contrary unversioned ar5iv sign, covariance-notation discrepancy, PDF extraction defects, beta cutoff/normalization details and inference-versus-execution quantities are preserved in the packet. No missing formula is fabricated. One pi0 P1 identity item is partial and unapplied; metadata's 2024 arXiv submission and RSS 2025 publication comment remain distinct. Three responses cover one paper, with one justified PDF fallback and no search.
+
+Exact source/row provenance, one new unapproved correction and the finite-list update:
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-pi0-closeout/
+
+No article, registry, relationship, date, catalog, schema, code, test, baseline or approval change. The four earlier DP proposals and finished TD3 determination are not repeated; ACT/pricing ownership remains separate. Reuse unchanged-code 117-test/nonincremental-TypeScript/lint proof from `0946948`; new scoped checks retain their actual exits and content findings. No duplicate completed-task gates, broad build/browser/full-unit run, push, Mission advancement or acceptance.
+
+### Historical two-document distillation structured-record counts
 
 Counting unit: original article claim rows, not documents, partial P1 items or historical verdicts. **The audit remains incomplete and unaccepted.**
 
