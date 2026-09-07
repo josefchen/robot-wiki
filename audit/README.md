@@ -1,5 +1,10 @@
 # Content-integrity audit trail
 
+## Current authorized wording checkpoint — 2026-09-07
+
+Seven source-backed Diffusion Policy correction packages (nine spans; ordinals 2, 3, 6, 7, 8, 16, 19, 22, 23) are now implemented under Josef’s September 7 authority. This supersedes the selected proposals’ historical approval hold, not their recorded source limitations. Exact current-versus-original correction history and supporting text are appended to `audit/manipulation.md`; command, baseline and rendering receipts are in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-authorized-corrections`. No original row has been promoted using evidence for different wording: **85 complete / 909 incomplete / 994 rows / 47 articles**, DP **13/25**, manipulation **38/225**. The content gate remains red; no publication or acceptance is claimed. Previous checkpoints below are historical, not validation of the new prose. Fresh checks: 131 unit tests passed; nonincremental/no-emit TypeScript, lint, source-only no-slop and chart descriptions passed. Content validation still exits 1 with the same 912 findings. The exact eleven-manifest comparison retains 65 pre-existing failures and adds none after the scoped DP prose approval. The corrected local development route returned HTTP 200 with the new text and no KaTeX error marker. Chromium failed before launch because no usable sandbox is available; no security workaround was used, so required screenshots, viewport inspection and citation focus/return remain unverified. Production build was not invoked: its content prerequisite is red and its normal prebuild includes prohibited pruning. This is a local correction checkpoint, not release-ready evidence.
+
+
 ## Current acceptance status
 
 The article audit is **not accepted**. Article-ID coverage did not establish

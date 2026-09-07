@@ -623,3 +623,794 @@ Lines 77, 80 and 117 remain incomplete compounds: human-teleoperator limitations
 The compact source responses, original failed responses, exact source-offset passage map, unresolved findings and deterministic verifier are preserved at `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/dagger-slice`. No article prose or lastReviewed date changed, so an article-prose humanizer pass does not apply. No unit, typecheck, build, browser or global summary writer ran in this worker slice. Evidence completeness is not corpus acceptance; the content gate remains red.
 
 Verification performed in this slice: `NODE_DISABLE_COMPILE_CACHE=1 node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/dagger-slice/verify.mjs` exited 0 at the recorded 2026-09-06T18:16:25.735Z check event: 12 sections, 225 claim rows, 4 complete / 221 incomplete, zero summary failures; all 225 parsed original claim/source/note/verdict cells and line identities matched the initial commit, all 277 original table lines matched byte-for-byte after removing the three added columns, two source-response hashes matched, and all 12 passage excerpts matched exact retained source offsets. This is parser/source-record validation, not a passing content or browser gate. The earlier pre-write source matcher also selected the HG-DAgger-only row 78; its exact-set assertion stopped the write, the matcher was corrected to exclude that other document, and the failed result is preserved in `first-recovery-attempt.json`. No ledger write occurred during that failed attempt.
+
+
+## Diffusion Policy authorized wording corrections — 2026-09-07
+
+Josef's September 7 “fix it all!” instruction (native Watcher thread `01a05ed5-026d-7931-89e9-16d54167dad5`, owner-correction-authority-2026-09-07.md) authorizes this seven-package implementation. It is not personal source verification, independent scrutiny, user testing or release acceptance. The retained source packets remain immutable historical proposals; their former approval holds are superseded only for these implemented spans.
+
+Current wording is distinguished below from the original ledger history. All 994 original claim rows and all 85 prior complete records are preserved byte-for-byte. No new original row is counted complete: affected DP ordinals 2, 3, 6, 7, 8, 16, 19, 22 and 23 remain held because the existing original-cell bindings still name superseded wording. This conservative accounting does not certify the old errors or prevent correcting the reader-facing article. DP remains 13/25, manipulation 38/225, corpus 85/994 complete; the content gate remains red. The six compound plans are unchanged. A future bounded correction-aware adjudication must reconcile each full original row with its current claim, rather than filling old evidence cells with proof of different prose.
+
+Machine-readable before/after text, exact passage offsets/hashes, retained retrieval timestamps and authority hashes: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-authorized-corrections/corrections.json`. Source timestamps below are original observed retrieval responses, not new fetch dates. Judgements are by this implementation/source-auditor worker, not an independent validator.
+
+### reported-result-scope-and-adoption
+
+Current wording, supported within the stated source scope; historical row status remains held:
+
+```mdx
+The extended journal version describes a 15-task evaluation. It reports a 46.9% average relative improvement for its simulation comparisons; Appendix B.2 selects the strongest baseline and diffusion backbone per reported column and excludes multi-human results
+```
+
+Superseded exact text and hashes: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-authorized-corrections/corrections.json` → this package. Supporting source text (not copied article claims):
+
+- `extended-edition`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+This work is an extended version of the conference paper \[ [8](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib8 "")\]. We expand the content of this paper in the following ways:
+
+- •
+
+
+Include a new discussion section on the connections between diffusion policy and control theory. See Sec. [4.5](https://ar5iv.labs.arxiv.org/html/2303.04137#S4.SS5 "4.5 Connections to Control Theory ‣ 4 Intriguing Properties of Diffusion Policy ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion").
+
+- •
+
+
+Include additional ablation studies in simulation on alternative network architecture design and different pretraining and finetuning paradigms, Sec. [5.4](https://ar5iv.labs.arxiv.org/html/2303.04137#S5.SS4 "5.4 Ablation Study ‣ 5 Evaluation ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion").
+
+- •
+
+
+Extend the real-world experimental results with three bimanual manipulation tasks including Egg Beater, Mat Unrolling, and Shirt Folding in Sec. [7](https://ar5iv.labs.arxiv.org/html/2303.04137#S7 "7 Realworld Bimanual Tasks ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion").
+```
+
+- `evaluation-scope`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+We systematically evaluate Diffusion Policy on 15 tasks from 4 benchmarks [Florence et al. 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib14 ""); [Gupta et al. 2019](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib17 ""); [Mandlekar et al. 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib33 ""); [Shafiullah et al. 2022](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib48 ""). This evaluation suite includes both simulated and real environments, single and multiple task benchmarks, fully actuated and under-actuated systems, and rigid and fluid objects. We found Diffusion Policy to consistently outperform the prior state-of-the-art on all of the tested benchmarks, with an average success-rate improvement of 46.9%. In the following sections, we provide an overview of each task, our evaluation methodology on that task, and our key takeaways.
+```
+
+- `simulation-improvement`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+Diffusion Policy outperforms alternative methods on all tasks and variants, with both state and vision observations, in our simulation benchmark study (Tabs [2](https://ar5iv.labs.arxiv.org/html/2303.04137#S4.T2 "Table 2 ‣ 4.5 Connections to Control Theory ‣ 4 Intriguing Properties of Diffusion Policy ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion"), [2](https://ar5iv.labs.arxiv.org/html/2303.04137#S4.T2 "Table 2 ‣ 4.5 Connections to Control Theory ‣ 4 Intriguing Properties of Diffusion Policy ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion") and [4](https://ar5iv.labs.arxiv.org/html/2303.04137#S5.T4 "Table 4 ‣ 5.1 Simulation Environments and datasets ‣ 5 Evaluation ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion")) with an average improvement of 46.9%. The following paragraphs summarize the key takeaways.
+```
+
+- `improvement-calculation`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+For each task ii (column) reported in Tab. [2](https://ar5iv.labs.arxiv.org/html/2303.04137#S4.T2 "Table 2 ‣ 4.5 Connections to Control Theory ‣ 4 Intriguing Properties of Diffusion Policy ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion"), Tab. [2](https://ar5iv.labs.arxiv.org/html/2303.04137#S4.T2 "Table 2 ‣ 4.5 Connections to Control Theory ‣ 4 Intriguing Properties of Diffusion Policy ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion") and Tab. [4](https://ar5iv.labs.arxiv.org/html/2303.04137#S5.T4 "Table 4 ‣ 5.1 Simulation Environments and datasets ‣ 5 Evaluation ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion") (mh results ignored), we find the maximum performance for baseline methods m​a​x​\_​b​a​s​e​l​i​n​eimax\\\_baseline\_{i} and the maximum performance for Diffusion Policy variant (CNN vs Transformer) m​a​x​\_​o​u​r​simax\\\_ours\_{i}. For each task, the performance improvement is calculated as i​m​p​r​o​v​e​m​e​n​ti=m​a​x​\_​o​u​r​si−m​a​x​\_​b​a​s​e​l​i​n​eim​a​x​\_​b​a​s​e​l​i​n​eiimprovement\_{i}=\\frac{max\\\_ours\_{i}-max\\\_baseline\_{i}}{max\\\_baseline\_{i}} (positive for all tasks). Finally, the average improvement is calculated as a​v​g​\_​i​m​p​r​o​v​e​m​e​n​t=1N​∑Nii​m​p​r​o​v​e​m​e​n​ti=0.46858≈46.9%avg\\\_improvement=\\frac{1}{N}\\sum^{i}\_{N}improvement\_{i}=0.46858\\approx 46.9\\%.
+```
+
+- `evaluation-protocol`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+We present the best-performing for each baseline method on each benchmark from all possible sources – our reproduced result (LSTM-GMM) or original number reported in the paper (BET, IBC). We report results from the average of the last 10 checkpoints (saved every 50 epochs) across 3 training seeds and 50 environment initializations
+111
+
+
+
+Due to a bug in our evaluation code, only 22 environment initializations are used for robomimic tasks. This does not change our conclusion since all baseline methods are evaluated in the same way.
+(an average of 1500 experiments in total). The metric for most tasks is success rate, except for the Push-T task, which uses target area coverage.
+In addition, we report the average of best-performing checkpoints for robomimic and Push-T tasks to be consistent with the evaluation methodology of their respective original papers [Mandlekar et al. 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib33 ""); [Florence et al. 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib14 ""). All state-based tasks are trained for 4500 epochs, and image-based tasks for 3000 epochs. Each method is evaluated with its best-performing action space: position control for Diffusion Policy and velocity control for baselines (the effect of action space will be discussed in detail in Sec [5.3](https://ar5iv.labs.arxiv.org/html/2303.04137#S5.SS3 "5.3 Key Findings ‣ 5 Evaluation ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion")).
+The results from these simulation benchmarks are summarized in Table [2](https://ar5iv.labs.arxiv.org/html/2303.04137#S4.T2 "Table 2 ‣ 4.5 Connections to Control Theory ‣ 4 Intriguing Properties of Diffusion Policy ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion") and Table [2](https://ar5iv.labs.arxiv.org/html/2303.04137#S4.T2 "Table 2 ‣ 4.5 Connections to Control Theory ‣ 4 Intriguing Properties of Diffusion Policy ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion").
+```
+
+
+### optional-warm-start
+
+Current wording, supported within the stated source scope; historical row status remains held:
+
+```mdx
+Diffusion Policy executes $T_a$ actions from a $T_p$-action prediction before observing again and replanning. The CNN configuration uses eight of sixteen actions for many of the reported tasks; the formulation also permits warm-starting the next inference from a previous prediction
+```
+
+Superseded exact text and hashes: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-authorized-corrections/corrections.json` → this package. Supporting source text (not copied article claims):
+
+- `horizons`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+Concretely, at time step tt the policy takes the latest ToT\_{o} steps of observation data 𝐎t\\mathbf{O}\_{t} as input and predicts TpT\_{p} steps of actions, of which TaT\_{a} steps of actions are executed on the robot without re-planning. Here, we define ToT\_{o} as the observation horizon, TpT\_{p} as the action prediction horizon and TaT\_{a} as the action execution horizon.
+```
+
+- `warm-start-option`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+Our formulation also allows receding horizon control \[ [34](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib34 "")\] to futher improve action smoothness by warm-starting the next inference setup with previous action sequence prediction.
+```
+
+- `cnn-parameters`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+> | H-Param | Ctrl | To | Ta | Tp | ImgRes | CropRes | #D-Params | #V-Params | Lr | WDecay | D-Iters Train | D-Iters Eval |
+> | Lift | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Can | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Square | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Transport | Pos | 2 | 8 | 16 | 4x84x85 | 4x76x76 | 264 | 45 | 1e-4 | 1e-6 | 100 | 100 |
+> | ToolHang | Pos | 2 | 8 | 16 | 2x240x240 | 2x216x216 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Push-T | Pos | 2 | 8 | 16 | 1x96x96 | 1x84x84 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Block Push | Pos | 3 | 1 | 12 | N/A | N/A | 256 | 0 | 1e-4 | 1e-6 | 100 | 100 |
+> | Kitchen | Pos | 2 | 8 | 16 | N/A | N/A | 256 | 0 | 1e-4 | 1e-6 | 100 | 100 |
+> | Real Push-T | Pos | 2 | 6 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |
+> | Real Pour | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |
+> | Real Spread | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |
+> | Real Mug Flip | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |
+```
+
+- `transformer-parameters`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+> | H-Param | Ctrl | To | Ta | Tp | #D-params | #V-params | #Layers | Emb Dim | Attn Drp | Lr | WDecay | D-Iters Train | D-Iters Eval |
+> | Lift | Pos | 2 | 8 | 10 | 9 | 22 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Can | Pos | 2 | 8 | 10 | 9 | 22 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Square | Pos | 2 | 8 | 10 | 9 | 22 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Transport | Pos | 2 | 8 | 10 | 9 | 45 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | ToolHang | Pos | 2 | 8 | 10 | 9 | 22 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Push-T | Pos | 2 | 8 | 16 | 9 | 22 | 8 | 256 | 0.01 | 1e-4 | 1e-1 | 100 | 100 |
+> | Block Push | Vel | 3 | 1 | 5 | 9 | 0 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Kitchen | Pos | 4 | 8 | 16 | 80 | 0 | 8 | 768 | 0.1 | 1e-4 | 1e-3 | 100 | 100 |
+> | Real Push-T | Pos | 2 | 6 | 16 | 80 | 22 | 8 | 768 | 0.3 | 1e-4 | 1e-3 | 100 | 16 |
+```
+
+
+### qualified-transformer-comparison
+
+Current wording, supported within the stated source scope; historical row status remains held:
+
+```mdx
+The authors report strong transformer results particularly in state-based experiments with rapid action changes. They suggest that the CNN’s preference for low-frequency signals likely contributes to its difficulty on such tasks, and recommend trying the transformer as a potential improvement at the cost of more tuning
+```
+
+Superseded exact text and hashes: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-authorized-corrections/corrections.json` → this package. Supporting source text (not copied article claims):
+
+- `cnn-empirical`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+In practice, we found the CNN-based backbone to work well on most tasks out of the box without the need for much hyperparameter tuning. However, it performs poorly when the desired action sequence changes quickly and sharply through time (such as velocity command action space), likely due to the inductive bias of temporal convolutions to prefer low-frequency signals [Tancik et al. 2020](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib57 "").
+```
+
+- `transformer-empirical`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+In our state-based experiments, most of the best-performing policies are achieved with the transformer backbone, especially when the task complexity and rate of action change are high. However, we found the transformer to be more sensitive to hyperparameters. The difficulty of transformer training [Liu et al. 2020](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib29 "") is not unique to Diffusion Policy and could potentially be resolved in the future with improved transformer training techniques or increased data scale.
+```
+
+- `recommendation`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+In general, we recommend starting with the CNN-based diffusion policy implementation as the first attempt at a new task. If performance is low due to task complexity or high-rate action changes, then the Time-series Diffusion Transformer formulation can be used to potentially improve performance at the cost of additional tuning.
+```
+
+
+### dp-row19-teacher-quality-scope
+
+Current wording, supported within the stated source scope; historical row status remains held:
+
+```mdx
+Consistency Policy distills an EDM-based Diffusion Policy teacher into a consistency model with one- or three-step action-sequence generation, targeting compute-constrained robots. In its Robomimic Square ablation, teachers with success rates of 0.92, 0.88 and 0.84 produced students with success rates of 0.92, 0.92 and 0.88, respectively; the authors report robustness over this tested range
+```
+
+Superseded exact text and hashes: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-authorized-corrections/corrections.json` → this package. Supporting source text (not copied article claims):
+
+- `cp-method-overview`; citation `consistency-policy-2024`; https://ar5iv.labs.arxiv.org/html/2405.07503; response 2026-09-07T00:20:27.709Z; retained text SHA-256 `e9ef3558fd28b9afb310fb513bb6a46a24d0afa265389f22c9d1c74a9fd81000`.
+
+```text
+## III Consistency Policy
+
+We formulate a visuomotor robot policy as a Consistency Trajectory Model\[ [14](https://ar5iv.labs.arxiv.org/html/2405.07503#bib.bib14 "")\], and denote this as a Consistency Policy.
+In this section, we begin with a short introduction to Diffusion Models. We then describe how to train a Consistency Policy, which requires training a teacher Diffusion Policy and then distilling this teacher model into a Consistency Policy. We then explain our inference procedures, which include a single-step process for the fastest inference time possible as well as a 3-step process that trades off some inference speed for greater accuracy. Finally, we cover some implementation details.
+
+```
+
+- `cp-edm-teacher`; citation `consistency-policy-2024`; https://ar5iv.labs.arxiv.org/html/2405.07503; response 2026-09-07T00:20:27.709Z; retained text SHA-256 `e9ef3558fd28b9afb310fb513bb6a46a24d0afa265389f22c9d1c74a9fd81000`.
+
+```text
+#### III-B1 Teacher Model (EDM)
+
+The teacher model, which we denote by sϕs\_{\\phi}, is trained as per the EDM framework \[ [13](https://ar5iv.labs.arxiv.org/html/2405.07503#bib.bib13 "")\]. A trained EDM model takes as input the current position 𝐱𝐭\\mathbf{x\_{t}} and time tt along a PFODE, as well as the conditioning oo, and is used to estimate the derivative of the PFODE’s trajectory:
+
+> |     |     |     |     |
+> | --- | --- | --- | --- |
+> |  | d​𝐱td​t=−(𝐱t−sϕ​(𝐱t,t,o))t\\frac{\\mathrm{d}\\mathbf{x}\_{t}}{\\mathrm{\\penalty\ d}t}=-\\frac{(\\mathbf{x}\_{t}-s\_{\\phi}\\left(\\mathbf{x}\_{t},t;o\\right))}{t} |  | (2) |
+
+An EDM model has to be used alongside a numerical integration method to actually compute positions 𝐱\\mathbf{x} along the PFODE’s trajectory. This repeated estimation of the derivative of the ODE followed by its numerical integration is what causes the slow inference speed of Diffusion Models.
+
+```
+
+- `cp-teacher-quality`; citation `consistency-policy-2024`; https://ar5iv.labs.arxiv.org/html/2405.07503; response 2026-09-07T00:20:27.709Z; retained text SHA-256 `e9ef3558fd28b9afb310fb513bb6a46a24d0afa265389f22c9d1c74a9fd81000`.
+
+```text
+Teacher Model Quality:
+Since Consistency Policy requires distilling a pretrained teacher model into a student network, it is relevant to understand how important the teacher model’s performance is to the eventual performance attained by the student model. We tested distillation using three different teacher models of varying quality against the Square task and report results in Table [VIII](https://ar5iv.labs.arxiv.org/html/2405.07503#S4.T8 "Table VIII ‣ IV-D Ablations ‣ IV Experiments ‣ Consistency Policy Accelerated Visuomotor Policies via Consistency Distillation").
+
+Table VIII: Robustness to Teacher Model Quality on Square Task
+
+> | Teacher Success Rate | Student Success Rate |
+> | --- | --- |
+> | .92 ±\\pm .02 | .92 ±\\pm .02 |
+> | .88 ±\\pm .03 | .92 ±\\pm .02 |
+> | .84 ±\\pm .03 | .88 ±\\pm .03 |
+
+While there was a slight correlation observed between teacher quality and student success rate, Consistency Policy maintains robustness against the teacher’s success rate over this range of teacher qualities. While the consistency objective ℒC​T​M\\mathcal{L}\_{CTM} (Eq. [5](https://ar5iv.labs.arxiv.org/html/2405.07503#S3.E5 "In III-B2 Student Model (Consistency Policy) ‣ III-B Training ‣ III Consistency Policy ‣ Consistency Policy Accelerated Visuomotor Policies via Consistency Distillation")) depends directly on the teacher, the DSM objective ℒD​S​M\\mathcal{L}\_{DSM} (Eq. [3](https://ar5iv.labs.arxiv.org/html/2405.07503#S3.E3 "In III-B1 Teacher Model (EDM) ‣ III-B Training ‣ III Consistency Policy ‣ Consistency Policy Accelerated Visuomotor Policies via Consistency Distillation")) is independent of the teacher and is likely able to maintain student performance even as the teacher gets worse. This bodes well for deployment in real world tasks where extensive testing of the teacher model might not be possible.
+
+```
+
+- `cp-ablation-protocol`; citation `consistency-policy-2024`; https://ar5iv.labs.arxiv.org/html/2405.07503; response 2026-09-07T00:20:27.709Z; retained text SHA-256 `e9ef3558fd28b9afb310fb513bb6a46a24d0afa265389f22c9d1c74a9fd81000`.
+
+```text
+We perform several ablations to validate and explore our design choices. Unless otherwise stated, we calculate success rates using the same evaluation methodology used in our simulation experiments (see Sec. [IV-B](https://ar5iv.labs.arxiv.org/html/2405.07503#S4.SS2 "IV-B Simulation Experiments ‣ IV Experiments ‣ Consistency Policy Accelerated Visuomotor Policies via Consistency Distillation")). We choose Robomimic Square and Toolhang for these experiments since these were the two hardest image-based tasks.
+```
+
+- `cp-simulation-protocol`; citation `consistency-policy-2024`; https://ar5iv.labs.arxiv.org/html/2405.07503; response 2026-09-07T00:20:27.709Z; retained text SHA-256 `e9ef3558fd28b9afb310fb513bb6a46a24d0afa265389f22c9d1c74a9fd81000`.
+
+```text
+Metrics: The key metric we report in the Robomimic experiments is the average success rate earned by a particular policy network on the given task, along with the standard error of this metric.
+We adopt the procedure from ParaDiGMS \[ [27](https://ar5iv.labs.arxiv.org/html/2405.07503#bib.bib27 "")\] and compute averages and standard errors using the best checkpoint evaluated 200 times in an online setting. Push-T reports the percentage of the target area which is covered, and is otherwise measured in the same way as the previous tasks.
+
+```
+
+- `cp-inference`; citation `consistency-policy-2024`; https://ar5iv.labs.arxiv.org/html/2405.07503; response 2026-09-07T00:20:27.709Z; retained text SHA-256 `e9ef3558fd28b9afb310fb513bb6a46a24d0afa265389f22c9d1c74a9fd81000`.
+
+```text
+### III-CInference
+
+An important property of Consistency Policy is the ability to trade speed for accuracy at inference time without further training of the model. We thus describe two procedures: single-step inference for when speed is paramount and 3-step inference for when more accuracy is desired. Both of these methods remain faster than prior works.
+
+Single-step inference from our trained Consistency Policy works as follows: sample the initial position 𝐳∼𝒩⁡(0,𝐈)\\mathbf{z}\\sim\\mathcal{N}(0,\\mathbf{I}), compute 𝐱=gθ​(z,T,0,o)\\mathbf{x}=g\_{\\theta}(z,T,0;o) where T is the max timestep we use during training and oo is the current observation, and deploy 𝐱\\mathbf{x} as our action to our environment. Note that we are sampling 𝐳∼𝒩⁡(0,𝐈)\\mathbf{z}\\sim\\mathcal{N}(0,\\mathbf{I}) as opposed to 𝐳∼𝒩⁡(0,T2​𝐈)\\mathbf{z}\\sim\\mathcal{N}(0,T^{2}\\mathbf{I}), which is the standard unnormalizing initial sample. This change pushes our initial point to start much closer to the mean of the normal distribution and empirically performed better than the standard sampling scheme, as we display in Table [VI](https://ar5iv.labs.arxiv.org/html/2405.07503#S4.T6 "Table VI ‣ IV-D Ablations ‣ IV Experiments ‣ Consistency Policy Accelerated Visuomotor Policies via Consistency Distillation"). An interpretation for this is that sampling closer to the mean ensures that the trajectory is more in-distribution and prevents outliers. This may be related to [Pearce et al. 2022](https://ar5iv.labs.arxiv.org/html/2405.07503#bib.bib20 "")’s hypothesis that in imitation learning tasks, it is detrimental to push outputs away from high-likelihood unconditional areas that lie at the center of the expert data distribution, even if such forces are useful in image generation tasks (in the authors’ case, with classifier free guidance).
+
+We perform 3-step generation by chaining generations together as in Consistency Models \[ [31](https://ar5iv.labs.arxiv.org/html/2405.07503#bib.bib31 "")\]. Given chaining timesteps {t1,t2}\\{t\_{1},t\_{2}\\}, we denoise from T→0T\\rightarrow 0 as usual, then noise to time t1t\_{1}, denoise back to time 0, and repeat the preceding 2 steps for the remaining chaining timestep. This back-and-forth process can be interpreted as refining the initial prediction.
+
+These chaining timesteps are hyperparameters. To our knowledge, the original Consistency Models work tuned these steps separately for every task and dataset. Such tuning can become complicated in the robotics setting when real world trials are required to gauge success rates and practitioners may want a strong recommendation that works out of the box.
+
+Prior works in the image diffusion domain \[ [7](https://ar5iv.labs.arxiv.org/html/2405.07503#bib.bib7 ""), [11](https://ar5iv.labs.arxiv.org/html/2405.07503#bib.bib11 "")\] found that different noise levels correspond to different tasks at training time. The very earliest time-levels were found to adjust imperceptible, unimportant features, while the larger time levels formed general attributes or just interpolated to the center of the target distribution \[ [13](https://ar5iv.labs.arxiv.org/html/2405.07503#bib.bib13 "")\]. Timesteps closer to the early-middle of the interval contributed the majority of the important features and details. Thus, we prioritize chaining from these early-middle timesteps.
+
+Our discretization scheme warps continuous time to contain far more timesteps at the start of the time interval. Thus, we use subdivision of discretized time for our timesteps. That is, for three-step generation, we chain at timesteps {t2​N3,tN3}\\{t\_{\\frac{2N}{3}},t\_{\\frac{N}{3}}\\} where NN is the total number of steps. This strategy achieves the desired focus on the early-middle timesteps and behaves differently from other simple strategies such as subdividing continuous time. We qualitatively validate this comparison in Section [IV-D](https://ar5iv.labs.arxiv.org/html/2405.07503#S4.SS4 "IV-D Ablations ‣ IV Experiments ‣ Consistency Policy Accelerated Visuomotor Policies via Consistency Distillation").
+
+```
+
+
+### dp-row22-flow-comparison-scope
+
+Current wording, supported within the stated source scope; historical row status remains held:
+
+```mdx
+π0 fixes a linear noise-to-action interpolant and chooses both the training-timestep distribution and the numerical integration settings.
+```
+
+Superseded exact text and hashes: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-authorized-corrections/corrections.json` → this package. Supporting source text (not copied article claims):
+
+- `pdf-interpolant-and-correct-sign`; citation `pi0-2024`; https://arxiv.org/pdf/2410.24164; response 2026-09-07T01:26:45.558Z; retained text SHA-256 `5684e2129ad1fecec57937b99d9e9e8fb40c0f368798a6fb1647e025f461054a`.
+
+```text
+where subscripts denote robot timesteps and superscripts
+denote flow matching timesteps, withτ∈[0,1]. Recent
+work in high-resolution image [14] and video [38] synthesis has shown that flow matching can achieve strong empirical performance when combined with a simple linear-
+Gaussian (or optimal transport) probability path [28], given
+τ
+byq(At|At) =N(τAt,(1−τ)I). In practice, the network
+is trained by sampling random noiseϵ∼N(0,I), computing
+τ
+the “noisy actions”At=τAt+ (1−τ)ϵ, and then training
+τ
+the network outputsvθ(At,ot)to match the denoising vector
+τ
+fieldu(At|At) =At−ϵ. The action expert uses a full
+bidirectional attention mask, so that all action tokens attend
+to each other. During training, we sample the flow matching
+timestepτfrom a beta distribution that emphasizes lower
+(noisier) timesteps. See AppendixBfor more details.
+```
+
+- `pdf-euler-initial-state-and-ten-steps`; citation `pi0-2024`; https://arxiv.org/pdf/2410.24164; response 2026-09-07T01:26:45.558Z; retained text SHA-256 `5684e2129ad1fecec57937b99d9e9e8fb40c0f368798a6fb1647e025f461054a`.
+
+```text
+whereδis the integration step size. We use 10 integration
+steps (corresponding toδ= 0.1) in our experiments. Note
+that inference can be implemented efficiently by caching
+the attention keys and values for the prefixotand only
+recomputing the suffix corresponding to the action tokens for
+each integration step. We provide more details regarding the
+inference procedure, including the inference time for each part
+of the model, in AppendixD.
+While in principle our model can be initialized from scratch
+
+\mathbf{A}_{t}^{0}\,\sim\,\mathcal{N}(\mathbf{0},\mathbf{I})
+
+\begin array}{r}{\mathbf{A}_{t}^{\tau+\delta}=\mathbf{A}_{t}^{\tau}+\delta\mathbf{v}_{\theta}\big(\mathbf{A}_{t}^{\tau},\mathbf{o}_{t}\big),}\end{array}
+
+{\bf o}_{t}
+
+\delta\,=0.1]
+
+\delta
+
+```
+
+- `pdf-beta-figure`; citation `pi0-2024`; https://arxiv.org/pdf/2410.24164; response 2026-09-07T01:26:45.558Z; retained text SHA-256 `5684e2129ad1fecec57937b99d9e9e8fb40c0f368798a6fb1647e025f461054a`.
+
+```text
+Fig. 14:Flow matching timestep sampling distribution.
+We sampleτfrom a shifted beta distribution that emphasizes
+lower timesteps (corresponding to noisier actions), and does
+not sample timesteps at all above a cutoff values. We use
+s= 0.999in our experiments.
+
+```
+
+- `pdf-beta-rationale-and-cutoff`; citation `pi0-2024`; https://arxiv.org/pdf/2410.24164; response 2026-09-07T01:26:45.558Z; retained text SHA-256 `5684e2129ad1fecec57937b99d9e9e8fb40c0f368798a6fb1647e025f461054a`.
+
+```text
+from a uniform distribution:τ∼ U(0,1). Esser et al. [14]
+instead propose sampling from a logit-normal distribution that
+emphasizes the middle timesteps; the authors posit that at high
+timesteps (low noise levels), the model needs only to learn the
+identity function, and at low timesteps (high noise levels), the
+model needs only to learn the mean of the data distribution.
+However, we hypothesize that the task of action prediction is
+subtly different from high-resolution image synthesis — while
+it may be relatively easy to predict the mean image conditioned
+on a text label, predicting the mean action conditioned on a
+robot observation (i.e., learningE[At|ot]) is a much harder
+problem; this is because the observationotis veryinformative
+in that it should constrain the distribution of possible actions
+much more than a text label constrains the distribution of
+possible images. As a result, we designed a timestep sampling
+distribution that emphasizes low timesteps (high noise levels);
+additionally, timesteps above a given thresholdsare not
+sampled at all, since they are not needed so long as the
+integration stepδis greater than1−s. The distribution is given
+s−
+byp(τ) =Beta(; 1.5,1)and is visualized in Figure14. We
+sτ
+1
+uses= 0.999in our experiments, which allows forδ >,
+1000
+or up to 1,000 integration steps.
+
+```
+
+- `pdf-beta-formula`; citation `pi0-2024`; https://arxiv.org/pdf/2410.24164; response 2026-09-07T01:26:45.558Z; retained text SHA-256 `5684e2129ad1fecec57937b99d9e9e8fb40c0f368798a6fb1647e025f461054a`.
+
+```text
+\begin{array}{r}{p(\tau)=\mathtt{B e t a}\big(\frac{s-\tau}{s};1.5,1\big)}\end{array}
+```
+
+
+### dp-rows6-7-sampler-configuration-conflict
+
+Current wording, supported within the stated source scope; historical row status remains held:
+
+```mdx
+the paper's main text reports DDIM with 100 training diffusion timesteps, 10 inference iterations and 0.1-second inference latency on a Nvidia 3080 GPU for real-world experiments. Its hyperparameter appendix and real-world table rows instead specify 16 inference iterations. Both the original v1 and the extended paper contain these settings; the cited passages do not identify a configuration or revision change that reconciles them <Cite id="diffusion-policy-2023" />.
+```
+
+```mdx
+  <Stat label="observations T_o" value="2" note="CNN Lift/Can/Square simulation rows" />
+  <Stat label="prediction T_p" value="16" note="predicted actions in those rows" />
+  <Stat label="execution T_a" value="8" note="executed actions in those rows" accent />
+  <Stat label="DDIM steps" value="10 / 16" note="real-world main text / appendix" />
+```
+
+```mdx
+  The first three cards show the CNN Lift/Can/Square simulation configuration, which uses 100 iDDPM inference iterations; the fourth reports the unresolved real-world DDIM discrepancy. These horizons are not universal: real-world Push-T executes 6 of 16 predicted actions, transformer Lift/Can/Square predicts 10 actions, and transformer Kitchen uses four observations. Training diffusion timesteps, optimizer updates, predicted actions and executed actions are different counts. The cited sampler and evaluation passages do not establish a matched 100-versus-10-step quality comparison <Cite id="diffusion-policy-2023" />.
+```
+
+Superseded exact text and hashes: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-authorized-corrections/corrections.json` → this package. Supporting source text (not copied article claims):
+
+- `v1-noise-training`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+## B. DDPM Training
+
+The training process starts by randomly drawing unmodified
+0
+examples, **x**, from the dataset. For each sample, we randomly
+select a denoising iteration *k* and then sample a random
+k
+noise *e* with appropriate variance for iteration *k*. The noise
+prediction network is asked to predict the noise from the data
+sample with noise added.
+
+$$
+\mathbf{x}^{0}
+$$
+
+$$
+\varepsilon^{k}
+$$
+
+$$
+\mathcal {L} = M S E \left(\varepsilon^ {k}, \varepsilon_ {\theta} \left(\mathbf {x} ^ {0} + \varepsilon^ {k}, k\right)\right)
+$$
+
+(3)
+```
+
+- `v1-square-cosine`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+## C. Noise Schedule
+
+The noise schedule, defined by *s*, *a*, *g* and the additive
+k
+Gaussian Noise *e* as functions of *k*, has been actively studied
+[16,29]. The underlying noise schedule controls the extent
+to which diffusion policy captures high and low-frequency
+characteristics of action signals. In our control tasks, we
+empirically found that the Square Cosine Schedule proposed
+in iDDPM [29] works best for our tasks.
+```
+
+- `v1-ddim-main`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+## D. Accelerating Inference for Real-time Control
+
+We use the diffusion process as the policy for robots; hence,
+it is critical to have a fast inference speed for closed-loop
+real-time control. The Denoising Diffusion Implicit Models
+(DDIM) approach [40] decouples the number of denoising
+iterations in training and inference, thereby allowing the
+algorithm to use fewer iterations for inference to speed up
+the process. In our real-world experiments, using DDIM with
+100 training iterations and 10 inference iterations enables 0.1s
+inference latency on an Nvidia 3080 GPU.
+```
+
+- `v1-horizon-definitions`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+**Closed-loop action-sequence prediction:** An effective action formulation should encourage temporal consistency and
+smoothness in long-horizon planning while allowing prompt
+reactions to unexpected observations. To accomplish this goal,
+we integrate the action-sequence prediction produced by a
+diffusion model with receding horizon control [26] to achieve
+robust action execution. Concretely, at time step *t* the policy
+takes the latest *T*<sub>o</sub>steps of observation data **O**<sub>t</sub>as input and
+predicts *T*<sub>p</sub>steps of actions, of which *T*<sub>a</sub>steps of actions are
+executed on the robot without re-planning. Here, we define *T*<sub>o</sub>
+as the observation horizon, *T*<sub>p</sub>as the action prediction horizon
+and *T*<sub>a</sub>as the action execution horizon. This encourages
+temporal action consistency while remaining responsive. More
+details about the effects of *T*<sub>a</sub>are discussed in SecIV-A.
+```
+
+- `v1-ddim-appendix`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+On simulation benchmarks, we used the iDDPM algorithm
+[29] with the same 100 denoising diffusion iterations for both
+training and inference. We used DDIM [40] on realworld
+benchmarks to reduce the inference denoising iterations to 16
+therefore reducing inference latency.
+```
+
+- `v1-training-optimization-context`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+We used batch size of 256 for all state-based experiments
+and 64 for all image-based experiments. For learning-rate
+scheduling, we used cosine schedule with linear warmup.
+CNN-based Diffusion Policy is warmed up for 500 steps while
+Transformer-based Diffusion Policy is warmed up for 1000
+steps.
+```
+
+- `v1-observation-ablation`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+We found state-based Diffusion Policy to be insensitive to
+observation horizon, as shown in Fig.12. However, visionbased Diffusion Policy, in particular the variant with CNN
+backbone, see performance decrease with increasing observation horizon. In practice, we found an observation horizon
+of 2 is good for most of the tasks for both state and image
+observations.
+```
+
+- `v1-cnn-table`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+> | H-Param | Ctrl | To | Ta | Tp | ImgRes | CropRes | #D-Params | #V-Params | Lr | WDecay | D-Iters Train | D-Iters Eval |
+> | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+> | Lift | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Can | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Square | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Transport | Pos | 2 | 8 | 16 | 4x84x85 | 4x76x76 | 264 | 45 | 1e-4 | 1e-6 | 100 | 100 |
+> | ToolHang | Pos | 2 | 8 | 16 | 2x240x240 | 2x216x216 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Push-T | Pos | 2 | 8 | 16 | 1x96x96 | 1x84x84 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Block Push | Pos | 3 | 1 | 12 | N/A | N/A | 256 | 0 | 1e-4 | 1e-6 | 100 | 100 |
+> | Kitchen | Pos | 2 | 8 | 16 | N/A | N/A | 256 | 0 | 1e-4 | 1e-6 | 100 | 100 |
+> | Real Push-T | Pos | 2 | 6 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |
+> | Real Pour | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |
+> | Real Spread | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |
+```
+
+- `v1-cnn-caption`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+TABLE VI: **Hyperparameters for CNN-based Diffusion Policy** Ctrl: position or velocity control To: observation horizon Ta: action horizon
+Tp: action prediction horizon ImgRes: environment observation resolution (Camera views x W x H) CropRes: random crop resolution #D-
+Params: diffusion network number of parameters in millions #V-Params: vision encoder number of parameters in millions Lr: learining rate
+WDecay: weight decay D-Iters Train: number of training diffusion iterations D-Iters Eval: number of inference diffusion iterations (enabled
+by DDIM [40])
+```
+
+- `v1-transformer-table`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+> | H-Param | Ctrl | To | Ta | Tp | #D-params | #V-params | #Layers | Emb Dim | Attn Dropout | Lr | WDecay | D-Iters Train | D-Iters Eval |
+> | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+> | Lift | Pos | 2 | 8 | 10 | 9 | 22 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Can | Pos | 2 | 8 | 10 | 9 | 22 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Square | Pos | 2 | 8 | 10 | 9 | 22 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Transport | Pos | 2 | 8 | 10 | 9 | 45 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | ToolHang | Pos | 2 | 8 | 10 | 9 | 22 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Push-T | Pos | 2 | 8 | 16 | 9 | 22 | 8 | 256 | 0.01 | 1e-4 | 1e-1 | 100 | 100 |
+> | Block Push | Vel | 3 | 1 | 5 | 9 | 0 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Kitchen | Pos | 4 | 8 | 16 | 80 | 0 | 8 | 768 | 0.1 | 1e-4 | 1e-3 | 100 | 100 |
+> | Real Push-T | Pos | 2 | 6 | 16 | 80 | 22 | 8 | 768 | 0.3 | 1e-4 | 1e-3 | 100 | 16 |
+```
+
+- `v1-transformer-caption`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+TABLE VII: **Hyperparameters for Transformer-based Diffusion Policy** Ctrl: position or velocity control To: observation horizon Ta: action
+horizon Tp: action prediction horizon #D-Params: diffusion network number of parameters in millions #V-Params: vision encoder number
+of parameters in millions Emb Dim: transformer token embedding dimension Attn Dropout: transformer attention dropout probability Lr:
+learining rate WDecay: weight decay (for transformer only) D-Iters Train: number of training diffusion iterations D-Iters Eval: number of
+inference diffusion iterations (enabled by DDIM [40])
+```
+
+- `v1-simulation-evaluation-protocol`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+## B. Evaluation Methodology
+
+We present the **best-performing for each baseline method**
+on each benchmark from all possible sources – our reproduced
+result (LSTM-GMM) or original number reported in the paper
+(BET, IBC). We report results from the average of the last
+10 checkpoints (saved every 50 epochs) across **3** training
+seeds and **50** environment initializations (an average of **1500**
+experiments in total). The metric for most tasks is success rate,
+except for the Push-T task, which uses target area coverage. In
+
+addition, we report the average of best-performing checkpoints
+for robomimic and Push-T tasks to be consistent with the
+evaluation methodology of their respective original papers
+[25,11]. All state-based tasks are trained for 4500 epochs, and
+image-based tasks for 3000 epochs. Each method is evaluated
+with its best-performing action space: position control for
+Diffusion Policy and velocity control for baselines (the effect
+of action space will be discussed in detail in SecV-C). The
+results from these simulation benchmarks are summarized in
+TableIand TableII.
+```
+
+- `v1-action-horizon-ablation`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+**The tradeoff in action horizon.** As discussed in SecIV-C,
+having an action horizon greater than 1 helps the policy predict
+consistent actions and compensate for idle portions of the
+demonstration, but too long a horizon reduces performance
+due to slow reaction time. Our experiment confirms this tradeoff (Fig.6left) and found the action horizon of 8 steps to be
+optimal for most tasks that we tested.
+```
+
+- `v1-ur5-command-rate`; citation `diffusion-policy-2023`; https://arxiv.org/pdf/2303.04137v1; response 2026-09-07T02:16:51.988Z; retained text SHA-256 `99fdfaf1e22c0f037458077287c4f75c5422f3ee0eefc15893d70fd63de22cbe`.
+
+```text
+*3) UR5 robot station:* Experiments for the **Push-T** task are
+performed on the UR5 robot station.
+
+The UR5 robot accepts end-effector space positional command at 125Hz, which is linearly interpolated from the 10Hz
+command from either human demonstration or the policy.
+```
+
+- `noise-prediction-training`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+The training process starts by randomly drawing unmodified examples, 𝐱0\\mathbf{x}^{0}, from the dataset. For each sample, we randomly select a denoising iteration kk and then sample a random noise ϵk\\mathbf{\\epsilon}^{k} with appropriate variance for iteration kk. The noise prediction network is asked to predict the noise from the data sample with noise added.
+```
+
+- `square-cosine`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+The noise schedule, defined by σ\\sigma, α\\alpha, γ\\gamma and the additive Gaussian Noise ϵk\\epsilon^{k} as functions of kk, has been actively studied [Ho et al. 2020](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib21 ""); [Nichol and Dhariwal 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib37 ""). The underlying noise schedule controls the extent to which diffusion policy captures high and low-frequency characteristics of action signals. In our control tasks, we empirically found that the Square Cosine Schedule proposed in iDDPM [Nichol and Dhariwal 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib37 "") works best for our tasks.
+```
+
+- `ddim-main-text`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+We use the diffusion process as the policy for robots; hence, it is critical to have a fast inference speed for closed-loop real-time control. The Denoising Diffusion Implicit Models (DDIM) approach [Song et al. 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib52 "") decouples the number of denoising iterations in training and inference, thereby allowing the algorithm to use fewer iterations for inference to speed up the process. In our real-world experiments, using DDIM with 100 training iterations and 10 inference iterations enables 0.1s inference latency on a Nvidia 3080 GPU.
+```
+
+- `ddim-appendix`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+On simulation benchmarks, we used the iDDPM algorithm [Nichol and Dhariwal 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib37 "") with the same 100 denoising diffusion iterations for both training and inference. We used DDIM [Song et al. 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib52 "") on realworld benchmarks to reduce the inference denoising iterations to 16 therefore reducing inference latency.
+```
+
+- `observation-ablation`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+We found state-based Diffusion Policy to be insensitive to observation horizon, as shown in Fig. [14](https://ar5iv.labs.arxiv.org/html/2303.04137#A1.F14 "Figure 14 ‣ A.4 Hyperparameters ‣ Appendix A Diffusion Policy Implementation Details ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion"). However, vision-based Diffusion Policy, in particular the variant with CNN backbone, see performance decrease with increasing observation horizon. In practice, we found an observation horizon of 2 is good for most of the tasks for both state and image observations.
+```
+
+- `horizons`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+Concretely, at time step tt the policy takes the latest ToT\_{o} steps of observation data 𝐎t\\mathbf{O}\_{t} as input and predicts TpT\_{p} steps of actions, of which TaT\_{a} steps of actions are executed on the robot without re-planning. Here, we define ToT\_{o} as the observation horizon, TpT\_{p} as the action prediction horizon and TaT\_{a} as the action execution horizon.
+```
+
+- `evaluation-protocol`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+We present the best-performing for each baseline method on each benchmark from all possible sources – our reproduced result (LSTM-GMM) or original number reported in the paper (BET, IBC). We report results from the average of the last 10 checkpoints (saved every 50 epochs) across 3 training seeds and 50 environment initializations
+111
+
+
+
+Due to a bug in our evaluation code, only 22 environment initializations are used for robomimic tasks. This does not change our conclusion since all baseline methods are evaluated in the same way.
+(an average of 1500 experiments in total). The metric for most tasks is success rate, except for the Push-T task, which uses target area coverage.
+In addition, we report the average of best-performing checkpoints for robomimic and Push-T tasks to be consistent with the evaluation methodology of their respective original papers [Mandlekar et al. 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib33 ""); [Florence et al. 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib14 ""). All state-based tasks are trained for 4500 epochs, and image-based tasks for 3000 epochs. Each method is evaluated with its best-performing action space: position control for Diffusion Policy and velocity control for baselines (the effect of action space will be discussed in detail in Sec [5.3](https://ar5iv.labs.arxiv.org/html/2303.04137#S5.SS3 "5.3 Key Findings ‣ 5 Evaluation ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion")).
+The results from these simulation benchmarks are summarized in Table [2](https://ar5iv.labs.arxiv.org/html/2303.04137#S4.T2 "Table 2 ‣ 4.5 Connections to Control Theory ‣ 4 Intriguing Properties of Diffusion Policy ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion") and Table [2](https://ar5iv.labs.arxiv.org/html/2303.04137#S4.T2 "Table 2 ‣ 4.5 Connections to Control Theory ‣ 4 Intriguing Properties of Diffusion Policy ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion").
+```
+
+- `cnn-parameters`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+> | H-Param | Ctrl | To | Ta | Tp | ImgRes | CropRes | #D-Params | #V-Params | Lr | WDecay | D-Iters Train | D-Iters Eval |
+> | Lift | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Can | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Square | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Transport | Pos | 2 | 8 | 16 | 4x84x85 | 4x76x76 | 264 | 45 | 1e-4 | 1e-6 | 100 | 100 |
+> | ToolHang | Pos | 2 | 8 | 16 | 2x240x240 | 2x216x216 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Push-T | Pos | 2 | 8 | 16 | 1x96x96 | 1x84x84 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |
+> | Block Push | Pos | 3 | 1 | 12 | N/A | N/A | 256 | 0 | 1e-4 | 1e-6 | 100 | 100 |
+> | Kitchen | Pos | 2 | 8 | 16 | N/A | N/A | 256 | 0 | 1e-4 | 1e-6 | 100 | 100 |
+> | Real Push-T | Pos | 2 | 6 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |
+> | Real Pour | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |
+> | Real Spread | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |
+> | Real Mug Flip | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |
+```
+
+- `transformer-parameters`; citation `diffusion-policy-2023`; https://ar5iv.labs.arxiv.org/html/2303.04137; response 2026-09-06T20:23:47.437Z; retained text SHA-256 `571d583f914a40a840d12a86ce0301e409908c3a72f4b6708beedf3155a8a9cc`.
+
+```text
+> | H-Param | Ctrl | To | Ta | Tp | #D-params | #V-params | #Layers | Emb Dim | Attn Drp | Lr | WDecay | D-Iters Train | D-Iters Eval |
+> | Lift | Pos | 2 | 8 | 10 | 9 | 22 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Can | Pos | 2 | 8 | 10 | 9 | 22 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Square | Pos | 2 | 8 | 10 | 9 | 22 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Transport | Pos | 2 | 8 | 10 | 9 | 45 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | ToolHang | Pos | 2 | 8 | 10 | 9 | 22 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Push-T | Pos | 2 | 8 | 16 | 9 | 22 | 8 | 256 | 0.01 | 1e-4 | 1e-1 | 100 | 100 |
+> | Block Push | Vel | 3 | 1 | 5 | 9 | 0 | 8 | 256 | 0.3 | 1e-4 | 1e-3 | 100 | 100 |
+> | Kitchen | Pos | 4 | 8 | 16 | 80 | 0 | 8 | 768 | 0.1 | 1e-4 | 1e-3 | 100 | 100 |
+> | Real Push-T | Pos | 2 | 6 | 16 | 80 | 22 | 8 | 768 | 0.3 | 1e-4 | 1e-3 | 100 | 16 |
+```
+
+
+### dp-row23-rtc-evidence-scope
+
+Current wording, supported within the stated source scope; historical row status remains held:
+
+```mdx
+  <Term id="real-time-chunking">Real-Time Chunking</Term> overlaps generation of the next action chunk with execution of the previous one, using inpainting to preserve the committed prefix and maintain continuity. The original RTC method operates at inference time without changing the policy's training recipe. In its six-task real-world evaluation with π0.5 and five denoising steps, the authors report no degradation in average task throughput at the tested additional delays, including +100 and +200 ms on top of model and LAN latency <Cite id="real-time-chunking-2025" />. This result concerns the tested policy and setup; it does not establish field-wide nonadoption of one-step distillation or an edge-versus-cloud deployment rule.
+```
+
+Superseded exact text and hashes: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-authorized-corrections/corrections.json` → this package. Supporting source text (not copied article claims):
+
+- `rtc-no-training`; citation `real-time-chunking-2025`; https://ar5iv.labs.arxiv.org/html/2506.07339; response 2026-09-06T20:25:30.819Z; retained text SHA-256 `1e46b3240dae97cec91e7c12b61c91c99fcffb19a717796142c7cee4c568f13d`.
+
+```text
+A good real-time system must produce a consistent and continuous control signal, incorporating the latest observations without perturbing the environment’s natural dynamics or the model’s ability to produce correct actions. In this work, we present real-time chunking (RTC), which poses asynchronous action chunking as an inpainting problem. Our algorithm generates the next action chunk while executing the previous one, freezing the actions that are guaranteed to be executed (due to inference delay) and “inpainting” the rest.
+It is applicable to any diffusion- \[ [21](https://ar5iv.labs.arxiv.org/html/2506.07339#bib.bib21 "")\] or flow-based \[ [35](https://ar5iv.labs.arxiv.org/html/2506.07339#bib.bib35 "")\] VLA, and operates purely at inference time, requiring no changes to existing training recipes.
+```
+
+- `rtc-inpainting`; citation `real-time-chunking-2025`; https://ar5iv.labs.arxiv.org/html/2506.07339; response 2026-09-06T20:25:30.819Z; retained text SHA-256 `1e46b3240dae97cec91e7c12b61c91c99fcffb19a717796142c7cee4c568f13d`.
+
+```text
+## 4 Real-Time Chunking via Inpainting\
+\
+Figure 3: A diagram illustrating how action generation attends to the previous action chunk in real-time chunking. If inference starts after the execution of a−1a\_{-1} and the inference delay is d=4d=4, then the newly generated chunk will not be available until after a3a\_{3} is consumed. Therefore, a0:3a\_{0:3} are “frozen” and are attended to with a full guidance weight of 1. In the intermediate region, a4:10a\_{4:10}, actions from the previous chunk are available but may be updated, since inference will have finished before a4a\_{4} is needed. This region is attended to with an exponentially decreasing guidance weight. Finally, the last s=5s=5 actions are beyond the end of the previous chunk, and need to be freshly generated. The execution horizon, ss, is a hyperparameter constrained by d≤s≤H−dd\\leq s\\leq H-d.\
+\
+The key challenge in real-time execution is to maintain continuity between chunks.\
+By the time a new chunk is available, the previous one has already been executed partway, and therefore the new chunk must be “compatible” with the previous one. At the same time, the new chunk should still incorporate new observations, so that the policy does not lose the ability to react and make corrections.\
+\
+Our key insight is to pose real-time chunking as an inpainting problem.\
+To make the new chunk “compatible”, we must use the overlapping timesteps where we have access to the remaining actions of the previous chunk.\
+The first dd actions from the new chunk cannot be used, since those timesteps will have already passed by the time the new chunk becomes available. Thus, it makes sense to “freeze” those actions to the values that we know will be executed; our goal is then to fill in the remainder of the new chunk in a way that is consistent with this frozen prefix (see Figure [3](https://ar5iv.labs.arxiv.org/html/2506.07339#S4.F3 "Figure 3 ‣ 4 Real-Time Chunking via Inpainting ‣ Real-Time Execution of Action Chunking Flow Policies")), much like inpainting a section of an image that has been removed.\
+We describe this basic inpainting principle in\
+Sec. [4.1](https://ar5iv.labs.arxiv.org/html/2506.07339#S4.SS1 "4.1 Inference-Time Inpainting with Flow Matching ‣ 4 Real-Time Chunking via Inpainting ‣ Real-Time Execution of Action Chunking Flow Policies").\
+In Sec. [4.2](https://ar5iv.labs.arxiv.org/html/2506.07339#S4.SS2 "4.2 Soft Masking for Improved Cross-Chunk Continuity ‣ 4 Real-Time Chunking via Inpainting ‣ Real-Time Execution of Action Chunking Flow Policies"), we introduce a soft masking extension that is critical for full cross-chunk continuity; finally, we describe our full real-time chunking system in Sec. [4.3](https://ar5iv.labs.arxiv.org/html/2506.07339#S4.SS3 "4.3 Real-Time Chunking ‣ 4 Real-Time Chunking via Inpainting ‣ Real-Time Execution of Action Chunking Flow Policies").\
+\
+```
+
+- `rtc-soft-mask`; citation `real-time-chunking-2025`; https://ar5iv.labs.arxiv.org/html/2506.07339; response 2026-09-06T20:25:30.819Z; retained text SHA-256 `1e46b3240dae97cec91e7c12b61c91c99fcffb19a717796142c7cee4c568f13d`.
+
+```text
+### 4.2 Soft Masking for Improved Cross-Chunk Continuity\
+\
+In practice, naively inpainting using only the first dd timesteps of the previous action chunk is often insufficient to ensure that the new chunk takes a consistent strategy, particularly when dd is small (e.g., see\
+Figure [4](https://ar5iv.labs.arxiv.org/html/2506.07339#S4.F4 "Figure 4 ‣ 4.1 Inference-Time Inpainting with Flow Matching ‣ 4 Real-Time Chunking via Inpainting ‣ Real-Time Execution of Action Chunking Flow Policies")).\
+The Π\\PiGDM correction is not perfect, and a small dd leads to a weak guidance signal, which can allow for the new chunk to still switch strategies and cause discontinuities.\
+Our solution, illustrated in Figure [3](https://ar5iv.labs.arxiv.org/html/2506.07339#S4.F3 "Figure 3 ‣ 4 Real-Time Chunking via Inpainting ‣ Real-Time Execution of Action Chunking Flow Policies"), is to give our policy more cross-chunk continuity by considering not just the first dd overlapping actions, but all H−sH-s overlapping actions. We do this via soft masking, setting 𝐖\\mathbf{W} to real-valued weights rather than 1s and 0s. The first dd actions get a weight of 1; the last ss actions of the new chunk do not overlap with the previous chunk, so they get a weight of 0; the actions in between get weights that exponentially decay from 1 to 0, accounting for the fact that actions further in the future should be treated with more uncertainty. The resulting expression for 𝐖\\mathbf{W} is given by\
+\
+> |     |     |     |     |\
+> | --- | --- | --- | --- |\
+> |  | 𝐖i={1if ​i<dci​eci−1e−1if ​d≤i<H−s0if ​i≥H−swhere​ci=H−s−iH−s−d+1,i∈{0,…,H−1}.\\displaystyle\\mathbf{W}\_{i}=\\begin{cases}1&\\text{if }i<d\\\<br>c\_{i}\\frac{e^{c\_{i}}-1}{e-1}&\\text{if }d\\leq i<H-s\\\<br>0&\\text{if }i\\geq H-s\\end{cases}\\quad\\text{where}\\;\\;c\_{i}=\\frac{H-s-i}{H-s-d+1},\\;\\;i\\in\\{0,\\ldots,H-1\\}. |  | (5) |\
+\
+Intuitively, 𝐖\\mathbf{W} modulates the “attention” paid to each corresponding action from the previous chunk.\
+\
+```
+
+- `rtc-real-setup`; citation `real-time-chunking-2025`; https://ar5iv.labs.arxiv.org/html/2506.07339; response 2026-09-06T20:25:30.819Z; retained text SHA-256 `1e46b3240dae97cec91e7c12b61c91c99fcffb19a717796142c7cee4c568f13d`.
+
+```text
+### 5.2 Real-World Results\
+\
+Next, we deploy our full real-time chunking system to the real world. We use the π0.5\\pi\_{0.5}VLA \[ [23](https://ar5iv.labs.arxiv.org/html/2506.07339#bib.bib23 "")\] as our base policy, and evaluate RTC on a bimanual system with two 6-DoF arms and parallel jaw grippers. Unlike our simulated benchmark, the robots use position control, and so synchronous inference—stopping between chunks—is a reasonable default strategy, used in many prior works \[ [5](https://ar5iv.labs.arxiv.org/html/2506.07339#bib.bib5 ""), [23](https://ar5iv.labs.arxiv.org/html/2506.07339#bib.bib23 ""), [30](https://ar5iv.labs.arxiv.org/html/2506.07339#bib.bib30 ""), [46](https://ar5iv.labs.arxiv.org/html/2506.07339#bib.bib46 "")\]. Our goal is to improve upon synchronous inference in a combination of both performance and speed.\
+\
+Setup. We use π0.5\\pi\_{0.5} (H=50H=50, Δ​t=20\\Delta t=20ms) with n=5n=5 denoising steps, giving a model latency of 76ms for the baselines and 97ms for RTC. We use remote inference over LAN, which adds 10-20ms of latency, giving a starting inference delay around d≈6d\\approx 6 for RTC. However, we would like to understand how the system behaves with higher inference latencies, simulating, e.g., scaling up the model size or running inference on a distant cloud server. Thus, we also evaluate all methods with +100ms and +200ms of injected latency, corresponding to d≈11d\\approx 11 and d≈16d\\approx 16, respectively.\
+\
+> |     |     |\
+> | --- | --- |\
+> | ![Refer to caption](https://ar5iv.labs.arxiv.org/html/2506.07339/assets/task_pictures/light_candle.jpg) | ![Refer to caption](https://ar5iv.labs.arxiv.org/html/2506.07339/assets/task_pictures/plug_ethernet.jpg) |\
+> | ![Refer to caption](https://ar5iv.labs.arxiv.org/html/2506.07339/assets/task_pictures/make_bed.jpg) | ![Refer to caption](https://ar5iv.labs.arxiv.org/html/2506.07339/assets/task_pictures/shirt_folding.jpg) |\
+> | ![Refer to caption](https://ar5iv.labs.arxiv.org/html/2506.07339/assets/task_pictures/batch_folding.jpg) | ![Refer to caption](https://ar5iv.labs.arxiv.org/html/2506.07339/assets/task_pictures/dishes_in_sink.jpg) |\
+\
+```
+
+- `rtc-scoring`; citation `real-time-chunking-2025`; https://ar5iv.labs.arxiv.org/html/2506.07339; response 2026-09-06T20:25:30.819Z; retained text SHA-256 `1e46b3240dae97cec91e7c12b61c91c99fcffb19a717796142c7cee4c568f13d`.
+
+```text
+Tasks and scoring. Each episode gets an integer score corresponding to how many substeps of the task it completed successfully. We evaluate the following tasks:\
+\
+- •\
+\
+\
+Light candle (5 steps, 40s cutoff). Pick up a match and matchbox, strike the match, use it to light a candle, and drop it in a bowl.\
+\
+- •\
+\
+\
+Plug ethernet (6 steps, 120s cutoff). Pick up the end of an ethernet cable, reorient it, plug it into a server rack, and repeat the process for the other end.\
+\
+- •\
+\
+\
+Make bed, mobile (3 steps, 200s cutoff). Move the corner of a blanket and 2 pillows from the foot to the head of a bed.\
+\
+- •\
+\
+\
+Shirt folding (1 step, 300s cutoff). Fold a shirt from a flattened position.\
+\
+- •\
+\
+\
+Batch folding (4 steps, 300s cutoff). Take a varied, crumpled clothing item out of a bin, flatten it, fold it, then place it neatly on a pile.\
+\
+- •\
+\
+\
+Dishes in sink, mobile (8 steps, 300s cutoff). Move 4 varied items from a counter into a sink.\
+\
+\
+See Figure [6](https://ar5iv.labs.arxiv.org/html/2506.07339#S5.F6 "Figure 6 ‣ 5.2 Real-World Results ‣ 5 Experiments ‣ Real-Time Execution of Action Chunking Flow Policies") for images of tasks, and the blog post for videos. We evaluate each task and method for 10 trials for a total of 480 episodes, adding up to 28 hours of pure robot execution time. We also post-hoc annotate the score for each episode and the timestamp at which each step is achieved.\
+\
+```
+
+- `rtc-real-results`; citation `real-time-chunking-2025`; https://ar5iv.labs.arxiv.org/html/2506.07339; response 2026-09-06T20:25:30.819Z; retained text SHA-256 `1e46b3240dae97cec91e7c12b61c91c99fcffb19a717796142c7cee4c568f13d`.
+
+```text
+Figure 7: Top: Controller steps (equivalent to elapsed time with inference pauses removed multiplied by 50Hz) vs. cumulative progress for each task, aggregated across all delays. Progress is measured in discrete steps corresponding to the subsections of each task.\
+Left: Time (including inference pauses) vs. cumulative progress aggregated across all tasks. The x-axis is log scale to better show progress during both short and long-horizon tasks.\
+Right: Inference delay vs. average throughput, defined as the proportion of task completed divided by duration of episode averaged over episodes. Error bars are ±1\\pm 1 SEM. Average throughput gives a balanced view of both speed and performance for each method. Neither TE variant can run at +100 or +200ms of injected latency, causing such high oscillations that the robot’s protective stop is triggered.\
+\
+Results. We present the results in Figure [7](https://ar5iv.labs.arxiv.org/html/2506.07339#S5.F7 "Figure 7 ‣ 5.2 Real-World Results ‣ 5 Experiments ‣ Real-Time Execution of Action Chunking Flow Policies"). In average task throughput, a measurement of both speed and performance, RTC achieves the best score at all inference delays with a statistically significant result at +100 and +200ms. RTC is completely robust to injected delay, showing no degradation, whereas synchronous degrades linearly and both TE variants do not run at all due to causing such high oscillations that the robot’s protective stop is triggered (see videos).\
+Inspecting the per-task results (Figure [5](https://ar5iv.labs.arxiv.org/html/2506.07339#S5.F5 "Figure 5 ‣ 5.1 Simulated Benchmark ‣ 5 Experiments ‣ Real-Time Execution of Action Chunking Flow Policies"), top), we can conclude that RTC helps with more than just execution speed: it completes tasks faster than synchronous inference even when inference pauses are removed.\
+All tasks, except for light candle, allow for retrying until the time limit (and π0.5\\pi\_{0.5} does, in general, exhibit robust retrying behavior). Even though synchronous inference often reaches a similar final score, RTC often completes more of the task earlier in the episode, reflecting fewer mistakes and less retrying. In light candle, the most precision-sensitive task—and also the only one without retrying—RTC shows a large advantage in final score, reflecting a higher overall success rate. Interestingly, the same is true in bed making, even though that task does elicit retrying. The policy particularly struggles to manipulate the pillows, and bed making is the hardest task overall, which may be why RTC has a strong effect.\
+\
+```

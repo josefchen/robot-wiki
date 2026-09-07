@@ -816,6 +816,21 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "dp-authorized-wording-20260907-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "e306e7bc393b1f46637b4eae6bd7e83b3f9eeff0174e4bbf658b83560a9ecba2",
+      "newHash": "c654b067e9ca4118a6a0cfdaaa021528961eb462a0bf1b38ea20e5be6d502a0f",
+      "reason": "Seven bounded Diffusion Policy wording packages correct extended simulation aggregation, optional warm-start, qualified transformer results, tested CP teacher range, chosen pi0 flow settings, the documented DDIM 10/16 conflict and original RTC experiment scope. Exact spans, provenance and supporting text: diffusion-authorized-corrections/corrections.json. Sources: https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://arxiv.org/pdf/2303.04137v1 ; https://ar5iv.labs.arxiv.org/html/2405.07503 ; https://arxiv.org/pdf/2410.24164 ; https://ar5iv.labs.arxiv.org/html/2506.07339 . Historical row bindings remain held; P2/P3 precision is corrected without asserting acceptance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Implementation authority, not personal source review.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-AUDIT-001"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
