@@ -1727,6 +1727,216 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "act-octo-pi0-settings-20260907-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db",
+      "newHash": "8e3bf5fe640aa60550893c06b86126873194a25feb289439ff8cbf7f13016210",
+      "reason": "ACT-SETTINGS-24/25/P1-20260907: Octo explicit v2 ALOHA finetuning predicts64/executes12; separate 15Hz prediction, 10Hz coffee-controller, 5Hz ViperX examples. pi0 explicit v4 predicts50; UR5e/Franka20Hz execute16, other evaluated robots50Hz execute25. No universal horizon/rate fabricated. P4 removes the mixed unknown-to-n/a override; current source notes add Octo/pi0 and nine-part P1. Sources: https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/abs/2410.24164 . Immediate-before hash 0e5363905273dd0821c751fd5b7431567f8b9078e764b5d7c327039bd28acf98. Exact endpoint only; no certification of remaining lineage/license claims.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-octo-pi0-settings-20260907-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "26ad6f467f5e22f419c3a67883ccdfa5669c26aef1f543143adecac1b756456f",
+      "newHash": "19112f7623746ef146fc39434ee8797afad4ea049da43c41d82ac3a815790d08",
+      "reason": "ACT-SETTINGS-24/25/P1-20260907: Octo explicit v2 ALOHA finetuning predicts64/executes12; separate 15Hz prediction, 10Hz coffee-controller, 5Hz ViperX examples. pi0 explicit v4 predicts50; UR5e/Franka20Hz execute16, other evaluated robots50Hz execute25. No universal horizon/rate fabricated. P4 removes the mixed unknown-to-n/a override; current source notes add Octo/pi0 and nine-part P1. Sources: https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/abs/2410.24164 . Immediate-before hash 9ae513b028d8a1f2c7dad8a6e7d85eb6b5aa3ae11bbb789ba29302c6e3edc659. Exact endpoint only; no certification of remaining lineage/license claims.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-octo-pi0-settings-20260907-3",
+      "manifest": "value-states",
+      "memberId": "state-site:components/mdx/policy-chunking-table.tsx:not-applicable:2",
+      "oldHash": "9e3bd1e617b94669279016af9f92b1a2e3b758ae53961ad28a6b8f9c4b40d434",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "ACT-SETTINGS-24/25/P1-20260907: Octo explicit v2 ALOHA finetuning predicts64/executes12; separate 15Hz prediction, 10Hz coffee-controller, 5Hz ViperX examples. pi0 explicit v4 predicts50; UR5e/Franka20Hz execute16, other evaluated robots50Hz execute25. No universal horizon/rate fabricated. P4 removes the mixed unknown-to-n/a override; current source notes add Octo/pi0 and nine-part P1. Sources: https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/abs/2410.24164 . Immediate-before hash 9e3bd1e617b94669279016af9f92b1a2e3b758ae53961ad28a6b8f9c4b40d434. Exact endpoint only; no certification of remaining lineage/license claims.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-octo-pi0-settings-20260907-4",
+      "manifest": "value-states",
+      "memberId": "state-site:components/mdx/policy-chunking-table.tsx:not-applicable:3",
+      "oldHash": "d5bbc81f574b033bc14c2fbc083c8207c82bbd907e3a2f552ef6d9540381f664",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "ACT-SETTINGS-24/25/P1-20260907: Octo explicit v2 ALOHA finetuning predicts64/executes12; separate 15Hz prediction, 10Hz coffee-controller, 5Hz ViperX examples. pi0 explicit v4 predicts50; UR5e/Franka20Hz execute16, other evaluated robots50Hz execute25. No universal horizon/rate fabricated. P4 removes the mixed unknown-to-n/a override; current source notes add Octo/pi0 and nine-part P1. Sources: https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/abs/2410.24164 . Immediate-before hash d5bbc81f574b033bc14c2fbc083c8207c82bbd907e3a2f552ef6d9540381f664. Exact endpoint only; no certification of remaining lineage/license claims.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-octo-pi0-settings-20260907-5",
+      "manifest": "value-states",
+      "memberId": "state-site:components/mdx/policy-chunking-table.tsx:not-applicable:4",
+      "oldHash": "036eaebc1b0bf740845feab3b530185b196d8b87e726aa6eae7bbe37cdc6aad9",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "ACT-SETTINGS-24/25/P1-20260907: Octo explicit v2 ALOHA finetuning predicts64/executes12; separate 15Hz prediction, 10Hz coffee-controller, 5Hz ViperX examples. pi0 explicit v4 predicts50; UR5e/Franka20Hz execute16, other evaluated robots50Hz execute25. No universal horizon/rate fabricated. P4 removes the mixed unknown-to-n/a override; current source notes add Octo/pi0 and nine-part P1. Sources: https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/abs/2410.24164 . Immediate-before hash 036eaebc1b0bf740845feab3b530185b196d8b87e726aa6eae7bbe37cdc6aad9. Exact endpoint only; no certification of remaining lineage/license claims.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-octo-pi0-settings-20260907-6",
+      "manifest": "value-states",
+      "memberId": "state-site:components/mdx/policy-chunking-table.tsx:not-applicable:5",
+      "oldHash": "75adf99220458df2000b153df28683d944bc92bd50d202277ebd5c2d00c8d520",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "ACT-SETTINGS-24/25/P1-20260907: Octo explicit v2 ALOHA finetuning predicts64/executes12; separate 15Hz prediction, 10Hz coffee-controller, 5Hz ViperX examples. pi0 explicit v4 predicts50; UR5e/Franka20Hz execute16, other evaluated robots50Hz execute25. No universal horizon/rate fabricated. P4 removes the mixed unknown-to-n/a override; current source notes add Octo/pi0 and nine-part P1. Sources: https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/abs/2410.24164 . Immediate-before hash 75adf99220458df2000b153df28683d944bc92bd50d202277ebd5c2d00c8d520. Exact endpoint only; no certification of remaining lineage/license claims.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-octo-pi0-settings-20260907-7",
+      "manifest": "value-states",
+      "memberId": "state-source:components/mdx/policy-chunking-table.tsx",
+      "oldHash": "cb201d7b1b91d6f8724d71b2b3d09d62c0f329d2933a38a98fa730ee3915fd2e",
+      "newHash": "9b293310f84b86d6525d5710f25ba8be2e20a8ae0ffc146dfa171f0d20df2b02",
+      "reason": "ACT-SETTINGS-24/25/P1-20260907: Octo explicit v2 ALOHA finetuning predicts64/executes12; separate 15Hz prediction, 10Hz coffee-controller, 5Hz ViperX examples. pi0 explicit v4 predicts50; UR5e/Franka20Hz execute16, other evaluated robots50Hz execute25. No universal horizon/rate fabricated. P4 removes the mixed unknown-to-n/a override; current source notes add Octo/pi0 and nine-part P1. Sources: https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/abs/2410.24164 . Immediate-before hash cb201d7b1b91d6f8724d71b2b3d09d62c0f329d2933a38a98fa730ee3915fd2e. Exact endpoint only; no certification of remaining lineage/license claims.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-octo-pi0-settings-20260907-8",
+      "manifest": "value-states",
+      "memberId": "state-site:components/mdx/policy-chunking-table.tsx:not-disclosed:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b8ce0651922fee12fb3665e9a1e427b6c87ff2c4c9bdb9f84befcb524a3a8b83",
+      "reason": "ACT-SETTINGS-24/25/P1-20260907: Octo explicit v2 ALOHA finetuning predicts64/executes12; separate 15Hz prediction, 10Hz coffee-controller, 5Hz ViperX examples. pi0 explicit v4 predicts50; UR5e/Franka20Hz execute16, other evaluated robots50Hz execute25. No universal horizon/rate fabricated. P4 removes the mixed unknown-to-n/a override; current source notes add Octo/pi0 and nine-part P1. Sources: https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/abs/2410.24164 . Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. Exact endpoint only; no certification of remaining lineage/license claims.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-octo-pi0-settings-20260907-9",
+      "manifest": "value-states",
+      "memberId": "state-site:content/manipulation/action-chunking.mdx:not-disclosed:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "63f4ca0d2d7f02aa658629053c281f72913ac38f2652bb543aa7a60bda56d390",
+      "reason": "ACT-SETTINGS-24/25/P1-20260907: Octo explicit v2 ALOHA finetuning predicts64/executes12; separate 15Hz prediction, 10Hz coffee-controller, 5Hz ViperX examples. pi0 explicit v4 predicts50; UR5e/Franka20Hz execute16, other evaluated robots50Hz execute25. No universal horizon/rate fabricated. P4 removes the mixed unknown-to-n/a override; current source notes add Octo/pi0 and nine-part P1. Sources: https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/abs/2410.24164 . Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. Exact endpoint only; no certification of remaining lineage/license claims.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-octo-pi0-settings-20260907-10",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/action-chunking",
+      "oldHash": "c128aea24d54f93eb8275fde4baa7102c1a07ac123565200935c835d7acf46cb",
+      "newHash": "2dc83f3c4cb5c0413285da06800215a0db0c733f7610ad5b61d373e66217004f",
+      "reason": "ACT-SETTINGS-24/25/P1-20260907: Octo explicit v2 ALOHA finetuning predicts64/executes12; separate 15Hz prediction, 10Hz coffee-controller, 5Hz ViperX examples. pi0 explicit v4 predicts50; UR5e/Franka20Hz execute16, other evaluated robots50Hz execute25. No universal horizon/rate fabricated. P4 removes the mixed unknown-to-n/a override; current source notes add Octo/pi0 and nine-part P1. Sources: https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/abs/2410.24164 . Immediate-before hash bb956ba4717d858be8fa2a643eaee63b6c83404c0ad181457a72cb322afbc092. Exact endpoint only; no certification of remaining lineage/license claims.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

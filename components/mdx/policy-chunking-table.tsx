@@ -1,30 +1,16 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import { METHODS } from '@/data/methods';
 import { Badge, Table, type Column } from '@/components/ui';
 
-/**
- * The chunking/horizon table embedded in the action-chunking sample module.
- *
- * Every value comes from the comparison matrix in
- * research/01-learned-manipulation-lineage.md. Undisclosed or
- * embodiment-dependent values are null (rendered as "n/a", dim) rather than
- * guessed; unverified figures are excluded instead of flagged here.
- *
- * The null cells in this table deliberately mix two absences: values the
- * vendor has not published (Octo's and Helix 02's horizons) and values
- * that have no single answer (Octo's control rate varies by deployment;
- * GR00T N1.7's is embodiment-dependent). Forcing one word on the column
- * would make half the cells lie, so the caption states the mixture and the
- * cells render "n/a" through explicit renders below — NOT through the
- * shared Table fallback, which means "not disclosed" everywhere else.
- *
- * 'use client' because the Table columns carry render functions, which
- * cannot cross the RSC boundary from the compiled MDX page.
+/** Reported examples, not universal deployment defaults. Source scope is visible
+ * beside each value; null means applicable but not disclosed, never n/a.
+ * Client boundary is required because Table columns contain render functions.
  */
-
-/** Placeholder for the mixed-meaning nulls documented above. */
-const NA: ReactNode = <span className="text-text-dim">n/a</span>;
+const NOT_DISCLOSED: ReactNode = <span className="text-text-dim">not disclosed</span>;
+const octo = METHODS.find((method) => method.id === 'octo')!;
+const pi0 = METHODS.find((method) => method.id === 'pi0')!;
 type PolicyRow = {
   policy: string;
   year: number;
@@ -32,6 +18,8 @@ type PolicyRow = {
   horizon: number | null;
   /** Control frequency in Hz (policy-side rate). */
   frequencyHz: number | null;
+  horizonNote?: string;
+  frequencyNote?: string;
   representation: string;
   open: boolean;
 };
@@ -64,16 +52,20 @@ const ROWS: PolicyRow[] = [
   {
     policy: 'Octo',
     year: 2024,
-    horizon: null,
-    frequencyHz: null,
+    horizon: octo.actionHorizon.planned,
+    horizonNote: 'ALOHA finetuning: executes 12 of 64; not universal',
+    frequencyHz: octo.controlFrequencyHz,
+    frequencyNote: octo.controlFrequencyNote,
     representation: 'diffusion action head (chunked)',
     open: true,
   },
   {
     policy: 'pi0',
     year: 2024,
-    horizon: 50,
-    frequencyHz: 50,
+    horizon: pi0.actionHorizon.planned,
+    horizonNote: 'Executes 16 on UR5e/Franka; 25 on other evaluated robots',
+    frequencyHz: pi0.controlFrequencyHz,
+    frequencyNote: pi0.controlFrequencyNote,
     representation: 'flow matching, continuous',
     open: true,
   },
@@ -127,16 +119,14 @@ const COLUMNS: Column<PolicyRow>[] = [
     header: 'Horizon H',
     sortable: true,
     numeric: true,
-    // Explicit render: keeps the mixed-meaning "n/a" instead of the shared
-    // fallback's "not disclosed" (see the file comment).
-    render: (row) => row.horizon ?? NA,
+    render: (row) => <>{row.horizon ?? NOT_DISCLOSED}{row.horizonNote ? <span className="block font-sans text-xs text-text-dim">{row.horizonNote}</span> : null}</>,
   },
   {
     key: 'frequencyHz',
     header: 'Control Hz',
     sortable: true,
     numeric: true,
-    render: (row) => row.frequencyHz ?? NA,
+    render: (row) => <>{row.frequencyHz ?? NOT_DISCLOSED}{row.frequencyNote ? <span className="block font-sans text-xs text-text-dim">{row.frequencyNote}</span> : null}</>,
   },
   { key: 'representation', header: 'Action representation' },
   {
@@ -150,7 +140,7 @@ const COLUMNS: Column<PolicyRow>[] = [
 export function PolicyChunkingTable() {
   return (
     <Table
-      caption="Action horizon and control frequency across the policy lineage. n/a marks undisclosed or embodiment-dependent values."
+      caption="Action horizon (predicted actions) and reported frequency (Hz). Setup-specific prediction, execution and controller rates are not interchangeable. Applicable unpublished values are not disclosed."
       columns={COLUMNS}
       rows={ROWS}
       initialSort={{ key: 'year', direction: 'asc' }}

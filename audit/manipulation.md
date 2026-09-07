@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 12
 - Claim rows: 225
-- Recorded verified: 191
-- Recorded corrected: 30
+- Recorded verified: 189
+- Recorded corrected: 32
 - Recorded cut: 2
 - Recorded source inconsistencies: 2
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 62
-- Incomplete evidence records: 163
+- Complete evidence records: 64
+- Incomplete evidence records: 161
 
 <!-- audit-summary:end -->
 
@@ -162,15 +162,15 @@ paragraph said all three were in `action-chunking.mdx` and that
 | PolicyChunkingTable: ACT horizon 100, 50 Hz | ACT paper Table III + Sec. III | verified | As above. | act-aloha-2023 | https://ar5iv.labs.arxiv.org/html/2304.13705 | The rest of the setup includes a robot cage with 20×\\times20mm aluminum extrusions, reinforced by crossing steel cables. There is a total of four Logitech C922x webcams, each streaming 480×\\times640 RGB images. Two of the webcams are mounted on the wrist of the follower robots, allowing for a close-up view of the grippers. The remaining two cameras are mounted on the front and at the top respectively (Fig [1](https://ar5iv.labs.arxiv.org/html/2304.13705#S2.F1 "Fig. 1 ‣ II Related Work ‣ Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware")). Both the teleoperation and data recording happen at 50Hz. [Separate excerpt from the same retrieved document] &#124; learning rate &#124; 1e-5 &#124; &#124; batch size &#124; 8 &#124; &#124; # encoder layers &#124; 4 &#124; &#124; # decoder layers &#124; 7 &#124; &#124; feedforward dimension &#124; 3200 &#124; &#124; hidden dimension &#124; 512 &#124; &#124; # heads &#124; 8 &#124; &#124; chunk size &#124; 100 &#124; &#124; beta &#124; 10 &#124; &#124; dropout &#124; 0.1 &#124; TABLE III: Hyperparameters of ACT. | |
 | PolicyChunkingTable: RT-1 horizon 1, 3 Hz, 256 discrete bins per dim | RT-1 paper, arXiv 2212.06817 HTML | verified | "it does this at 3 Hz"; actions discretized into 256 bins (11 dims, 7 arm + 3 base + 1 terminate/gripper mode per the paper; the table only asserts bins-per-dim and rate). | | | |
 | PolicyChunkingTable: Diffusion Policy horizon 16, 10 Hz, DDPM over action chunks | DP paper arXiv 2303.04137v5 App. A.4 + Sec. 6.1/D.0.1 | verified | CNN-vision configs To=2 Ta=8 Tp=16; "Diffusion Policy predicts robot commands at 10 Hz"; Franka station "Tele-op and learned policies run at 10Hz". | diffusion-policy-2023 | https://ar5iv.labs.arxiv.org/html/2303.04137 | ## 2 Diffusion Policy Formulation We formulate visuomotor robot policies as Denoising Diffusion Probabilistic Models (DDPMs) \[ [21](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib21 "")\]. Crucially, Diffusion policies are able to express complex multimodal action distributions and possess stable training behavior – requiring little task-specific hyperparameter tuning. The following sections describe DDPMs in more detail and explain how they may be adapted to represent visuomotor policies. [Separate excerpt from the same retrieved document] Closed-loop action-sequence prediction: An effective action formulation should encourage temporal consistency and smoothness in long-horizon planning while allowing prompt reactions to unexpected observations. To accomplish this goal, we commit to the action-sequence prediction produced by a diffusion model for a fixed duration before replanning. Concretely, at time step tt the policy takes the latest ToT\_{o} steps of observation data 𝐎t\\mathbf{O}\_{t} as input and predicts TpT\_{p} steps of actions, of which TaT\_{a} steps of actions are executed on the robot without re-planning. Here, we define ToT\_{o} as the observation horizon, TpT\_{p} as the action prediction horizon and TaT\_{a} as the action execution horizon. This encourages temporal action consistency while remaining responsive. More details about the effects of TaT\_{a} are discussed in Sec [4.3](https://ar5iv.labs.arxiv.org/html/2303.04137#S4.SS3 "4.3 Benefits of Action-Sequence Prediction ‣ 4 Intriguing Properties of Diffusion Policy ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion"). Our formulation also allows receding horizon control \[ [34](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib34 "")\] to futher improve action smoothness by warm-starting the next inference setup with previous action sequence prediction. [Separate excerpt from the same retrieved document] &#124; H-Param &#124; Ctrl &#124; To &#124; Ta &#124; Tp &#124; ImgRes &#124; CropRes &#124; #D-Params &#124; #V-Params &#124; Lr &#124; WDecay &#124; D-Iters Train &#124; D-Iters Eval &#124; &#124; Lift &#124; Pos &#124; 2 &#124; 8 &#124; 16 &#124; 2x84x84 &#124; 2x76x76 &#124; 256 &#124; 22 &#124; 1e-4 &#124; 1e-6 &#124; 100 &#124; 100 &#124; &#124; Can &#124; Pos &#124; 2 &#124; 8 &#124; 16 &#124; 2x84x84 &#124; 2x76x76 &#124; 256 &#124; 22 &#124; 1e-4 &#124; 1e-6 &#124; 100 &#124; 100 &#124; &#124; Square &#124; Pos &#124; 2 &#124; 8 &#124; 16 &#124; 2x84x84 &#124; 2x76x76 &#124; 256 &#124; 22 &#124; 1e-4 &#124; 1e-6 &#124; 100 &#124; 100 &#124; &#124; Transport &#124; Pos &#124; 2 &#124; 8 &#124; 16 &#124; 4x84x85 &#124; 4x76x76 &#124; 264 &#124; 45 &#124; 1e-4 &#124; 1e-6 &#124; 100 &#124; 100 &#124; &#124; ToolHang &#124; Pos &#124; 2 &#124; 8 &#124; 16 &#124; 2x240x240 &#124; 2x216x216 &#124; 256 &#124; 22 &#124; 1e-4 &#124; 1e-6 &#124; 100 &#124; 100 &#124; &#124; Push-T &#124; Pos &#124; 2 &#124; 8 &#124; 16 &#124; 1x96x96 &#124; 1x84x84 &#124; 256 &#124; 22 &#124; 1e-4 &#124; 1e-6 &#124; 100 &#124; 100 &#124; &#124; Block Push &#124; Pos &#124; 3 &#124; 1 &#124; 12 &#124; N/A &#124; N/A &#124; 256 &#124; 0 &#124; 1e-4 &#124; 1e-6 &#124; 100 &#124; 100 &#124; &#124; Kitchen &#124; Pos &#124; 2 &#124; 8 &#124; 16 &#124; N/A &#124; N/A &#124; 256 &#124; 0 &#124; 1e-4 &#124; 1e-6 &#124; 100 &#124; 100 &#124; &#124; Real Push-T &#124; Pos &#124; 2 &#124; 6 &#124; 16 &#124; 2x320x240 &#124; 2x288x216 &#124; 67 &#124; 22 &#124; 1e-4 &#124; 1e-6 &#124; 100 &#124; 16 &#124; &#124; Real Pour &#124; Pos &#124; 2 &#124; 8 &#124; 16 &#124; 2x320x240 &#124; 2x288x216 &#124; 67 &#124; 22 &#124; 1e-4 &#124; 1e-6 &#124; 100 &#124; 16 &#124; &#124; Real Spread &#124; Pos &#124; 2 &#124; 8 &#124; 16 &#124; 2x320x240 &#124; 2x288x216 &#124; 67 &#124; 22 &#124; 1e-4 &#124; 1e-6 &#124; 100 &#124; 16 &#124; &#124; Real Mug Flip &#124; Pos &#124; 2 &#124; 8 &#124; 16 &#124; 2x320x240 &#124; 2x288x216 &#124; 67 &#124; 22 &#124; 1e-4 &#124; 1e-6 &#124; 100 &#124; 16 &#124; Table 7: Hyperparameters for CNN-based Diffusion Policy [Separate excerpt from the same retrieved document] Real-world Push-T is significantly harder than the simulated version due to 3 modifications: 1. The real-world Push-T task is multi-stage. It requires the robot to \\raisebox{-0.9pt}{1}⃝ push the T block into the target and then \\raisebox{-0.9pt}{2}⃝ move its end-effector into a designated end-zone to avoid occlusion. 2. The policy needs to make fine adjustments to make sure the T is fully in the goal region before heading to the end-zone, creating additional short-term multimodality. 3. The IoU metric is measured at the last step instead of taking the maximum over all steps. We threshold success rate by the minimum achieved IoU metric from the human demonstration dataset. Our UR5-based experiment setup is shown in Fig [6](https://ar5iv.labs.arxiv.org/html/2303.04137#S6.T6 "Table 6 ‣ 6 Realworld Evaluation ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion"). Diffusion Policy predicts robot commands at 10 Hz and these commands then linearly interpolated to 125 Hz for robot execution. | |
-| PolicyChunkingTable: Octo horizon/frequency n/a | (honest unknown, deliberate mixed-meaning null per file comment) | verified | No single published horizon/rate for Octo across embodiments; rendered "n/a" with the caption explaining the mixture — P4-conformant. | | | |
-| PolicyChunkingTable: pi0 horizon 50, 50 Hz, flow matching | π0 paper, arXiv 2410.24164 HTML | verified | "an action chunk of future actions (we use H=50 for our tasks)"; "control robots at frequencies of up to 50 Hz". | | | |
+| Octo v2's ALOHA finetuning example predicts 64 actions and executes 12 before replanning. Its other reported setups include Franka action prediction at 15 Hz, a coffee-task controller at 10 Hz, and ViperX end-effector control at 5 Hz. These are separate examples, not one universal Octo control rate or horizon. The action head uses diffusion <Cite id="octo-2024" />. | Octo explicit arXiv v2 / pi0 explicit v4 PDF-derived retained text | corrected | ACT-SETTINGS-24-20260907. Exact prior/current tuple and prior P1 archived below. Retained primary proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-octo-pi0-settings-corrections/source-proof.json; zero new fetches. Prediction and execution horizons remain distinct; rates travel with named setups. P4: applicable unknown universal values are not disclosed, never n/a. Other lineage/weights claims are not certified. |  |  |  | act-settings-24-20260907 |
+| π0 v4 predicts 50 actions. In its reported execution setup, UR5e and Franka run at 20 Hz and execute 16 actions before replanning; the other evaluated robots run at 50 Hz and execute 25. The table's 20 Hz entry names the UR5e/Franka reference, while the paper describes operation at up to 50 Hz. Its continuous action outputs are trained with conditional flow matching <Cite id="pi0-2024" />. | Octo explicit arXiv v2 / pi0 explicit v4 PDF-derived retained text | corrected | ACT-SETTINGS-25-20260907. Exact prior/current tuple and prior P1 archived below. Retained primary proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-octo-pi0-settings-corrections/source-proof.json; zero new fetches. Prediction and execution horizons remain distinct; rates travel with named setups. P4: applicable unknown universal values are not disclosed, never n/a. Other lineage/weights claims are not certified. |  |  |  | act-settings-25-20260907 |
 | PolicyChunkingTable: pi0.5 horizon 50, 50 Hz, "flow matching + FAST supervision" | π0.5 paper, arXiv 2504.16054 HTML, Sec. IV-A/IV-B | verified | "an action horizon of 50, i.e. H=49"; "commands ... at 50 Hz (with action chunking)"; trained to predict actions "both through autoregressive sampling of tokens (using the FAST tokenizer) and iterative integration" of the flow field. | | | |
 | PolicyChunkingTable: pi0.6 2025, horizon 50, 50 Hz, "flow matching + FAST tokens", closed | π0.6 model card PDF (website.pi-asset.com/pi06star/PI06_model_card.pdf, Nov 17 2025) | verified | Card: flow matching + tokenized discrete outputs, knowledge insulation with FAST tokens, action expert ~860M on a Gemma3-4B backbone; no open release (openpi stops at π0.5). Horizon 50 inherits the π0.5 architecture it "builds on top of"; the card states the chunk-generation design is shared with π0/π0.5. | | | |
 | PolicyChunkingTable: pi0.7 2026, horizon 50, 50 Hz, "executes 15-25 of 50", closed | π0.7 paper PDF (pi.website/download/pi07.pdf) | verified | "we use 5 denoising steps to generate the 50-step action chunks and execute Ĥ ∈ {15, 25} steps out of the chunk"; "a maximum inference latency of 240ms on a 50Hz robot"; "all other robots run at 50 Hz". Not in openpi ⇒ closed. | | | |
 | PolicyChunkingTable: GR00T N1.7 2026, horizon 40, "flow-matching DiT head, relative EEF", open | Isaac-GR00T repo README (github.com/NVIDIA/Isaac-GR00T, fetched 2026-08-17) | verified | "action_horizon expanded from 16 to 40"; "Action head remains flow-matching DiT"; N1.7 relative-EEF action space per release notes; repo is public. Frequency rendered "n/a" (embodiment-dependent). | | | |
 | PolicyChunkingTable: Helix 02 2026, frequency 200 Hz, "S1 (200 Hz) into S0 (1 kHz) commands", closed; horizon n/a | Figure AI, figure.ai/news/helix-02 (fetched 2026-08-17) | verified | "S1 thinks fast, translating perception into full-body joint targets at 200 Hz. S0 executes at 1 kHz"; no action-chunk horizon published ⇒ "n/a" is the honest render. Weights not released ⇒ closed. | | | |
 | "Mobile ALOHA extends the same recipe to a wheeled whole-body platform and shows that co-training on static ALOHA data lifts mobile manipulation success substantially" | Mobile ALOHA paper, arXiv 2401.02117 HTML, abstract + Sec. 4 | verified | "It augments the ALOHA system with a mobile base" (wheeled base, backdriven by the operator); "co-training with existing static ALOHA datasets boosts performance on mobile manipulation tasks ... can increase success rates by up to 90%." | mobile-aloha-2024 | https://ar5iv.labs.arxiv.org/html/2401.02117 | We seek to tackle the challenges of applying imitation learning to bimanual mobile manipulation in this paper. On the hardware front, we present Mobile ALOHA, a low-cost and whole-body teleoperation system for collecting bimanual mobile manipulation data. Mobile ALOHA extends the capabilities of the original ALOHA , the low-cost and dexterous bimanual puppeteering setup \[ [104](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib104 "")\], by mounting it on a wheeled base. The user is then physically tethered to the system and backdrives the wheels to enable base movement. This allows for independent movement of the base while the user has both hands controlling ALOHA . We record the base velocity data and the arm puppeteering data at the same time, forming a whole-body teleoperation system. [Separate excerpt from the same retrieved document] ## 4 Co-training with Static ALOHA Data The typical approach for using imitation learning to solve real-world robotics tasks relies on using the datasets that are collected on a specific robot hardware platform for a targeted task. This straightforward approach, however, suffers from lengthy data collection processes where human operators collect demonstration data from scratch for every task on the a specific robot hardware platform. The policies trained on these specialized datasets are often not robust to the perceptual perturbations (e.g. distractors and lighting changes) due to the limited visual diversity in these datasets \[ [95](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib95 "")\]. Recently, co-training on diverse real-world datasets collected from different but similar types of robots have shown promising results on single-arm manipulation \[ [20](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib20 ""), [61](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib61 ""), [11](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib11 ""), [31](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib31 "")\], and on navigation \[ [79](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib79 "")\]. In this work, we use a co-training pipeline that leverages the existing static ALOHA datasets to improve the performance of imitation learning for mobile manipulation, specifically for the bimanual arm actions. The static ALOHA datasets \[ [104](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib104 ""), [81](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib81 "")\] have 825 demonstrations in total for tasks including Ziploc sealing, picking up a fork, candy wrapping, tearing a paper towel, opening a plastic portion cup with a lid, playing with a ping pong, tape dispensing, using a coffee machine, pencil hand-overs, fastening a velcro cable, slotting a battery, and handling over a screw driver. Notice that the static ALOHA data is all collected on a black table-top with the two arms fixed to face towards each other. This setup is different from Mobile ALOHA where the background changes with the moving base and the two arms are placed in parallel facing the front. We do not use any special data processing techniques on either the RGB observations or the bimanual actions of the static ALOHA data for our co-training. Denote the aggregated static ALOHA data as as DstaticD\_{\\text{static}}, and the Mobile ALOHA dataset for a task mm as DmobilemD\_{\\text{mobile}}^{m}. The bimanual actions are formulated as target joint positions aarms∈ℝ14a\_{\\text{arms}}\\in\\mathbb{R}^{14} which includes two continuous gripper actions, and the base actions are formulated as target base linear and angular velocities abase∈ℝ2a\_{\\text{base}}\\in\\mathbb{R}^{2}. The training objective for a mobile manipulation policy πm\\pi^{m} for a task mm is &#124; &#124; &#124; &#124; &#124; &#124; --- &#124; --- &#124; --- &#124; --- &#124; &#124; &#124; &#124; 𝔼(oi,aarmsi,abasei)∼Dmobilem​\[L⁡(aarmsi,abasei,πm​(oi))\]+\\displaystyle\\mathbb{E}\_{(o^{i},a\_{\\text{arms}}^{i},a\_{\\text{base}}^{i})\\sim D\_{\\text{mobile}}^{m}}\\left\[L(a\_{\\text{arms}}^{i},a\_{\\text{base}}^{i},\\pi^{m}(o^{i}))\\right\]\\;+ &#124; &#124; &#124; &#124; &#124; 𝔼(oi,aarmsi)∼Dstatic​\[L⁡(aarmsi,\[0,0\],πm​(oi))\],\\displaystyle\\mathbb{E}\_{(o^{i},a\_{\\text{arms}}^{i})\\sim D\_{\\text{static}}}\\left\[L(a\_{\\text{arms}}^{i},\[0,0\],\\pi^{m}(o^{i}))\\right\], &#124; &#124; where oio^{i} is the observation consisting of two wrist camera RGB observations, one egocentric top camera RGB observation mounted between the arms, and joint positions of the arms, and LL is the imitation loss function. We sample with equal probability from the static ALOHA data DstaticD\_{\\text{static}} and the Mobile ALOHA data DmobilemD\_{\\text{mobile}}^{m}. We set the batch size to be 16. Since static ALOHA datapoints have no mobile base actions, we zero-pad the action labels so actions from both datasets have the same dimension. We also ignore the front camera in the static ALOHA data so that both datasets have 3 cameras. We normalize every action based on the statistics of the Mobile ALOHA dataset DmobilemD\_{\\text{mobile}}^{m} alone. In our experiments, we combine this co-training recipe with multiple base imitation learning approaches, including ACT \[ [104](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib104 "")\], Diffusion Policy \[ [18](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib18 "")\], and VINN \[ [63](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib63 "")\]. [Separate excerpt from the same retrieved document] ### 6.1 Co-training Improves Performance We start with ACT \[ [104](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib104 "")\], the method introduced with ALOHA, and train it on all 7 tasks with and without co-training. We then evaluate each policy in the real-world, with randomization of robot and objects configurations as described in Figure [2](https://ar5iv.labs.arxiv.org/html/2401.02117#S4.F2 "Figure 2 ‣ 4 Co-training withStatic ALOHA Data ‣ Mobile ALOHA:Learning Bimanual Mobile Manipulation withLow-Cost Whole-Body Teleoperation"). To calculate the success rate for a sub-task, we divide #​S​u​c​c​e​s​s\\#Success by #​A​t​t​e​m​p​t​s\\#Attempts. For example in the case of Lift Glass and Wipe sub-task, the #​A​t​t​e​m​p​t​s\\#Attempts equals the number of success from the previous sub-task Grasp Towel, as the robot could fail and stop at any sub-task. This also means the final success rate equals the product of all sub-task success rates. We report all success rates in Table [1](https://ar5iv.labs.arxiv.org/html/2401.02117#S4.T1 "Table 1 ‣ 4 Co-training withStatic ALOHA Data ‣ Mobile ALOHA:Learning Bimanual Mobile Manipulation withLow-Cost Whole-Body Teleoperation"). Each success rate is computed from 20 trials of evaluation, except Cook Shrimp which has 5. With the help of co-training, the robot obtains 95% success for Wipe Wine, 95% success for Call Elevator, 85% success for Use Cabinet, 85% success for High Five, 80% success for Rinse Pan, and 80% success for Push Chairs. Each of these tasks only requires 50 in-domain demonstrations, or 20 in the case of High Five. The only task that falls below 80% success is Cook Shrimp (40%), which is a 75-second long-horizon task for which we only collected 20 demonstrations. We found the policy to struggle with flipping the shrimp with the spatula and pouring the shrimp inside the white bowl, which has low contrast with the white table. We hypothesize that the lower success is likely due to the limited demonstration data. Co-training improves the whole-task success rate in 5 out of the 7 tasks, with a boost of 45%, 20%, 80%, 95% and 80% respectively. For the remaining two tasks, the success rate is comparable between co-training and no co-training. We find co-training to be more helpful for sub-tasks where precise manipulation is the bottleneck, for example Press Button, Flip Shrimp, and Turn On Faucet. In all of these cases, compounding errors appear to be the main source of failure, either from the stochasticity of robot base velocity control or from rich contacts such as grasping of the spatula and making contact with the pan during Flip Shrimp. We hypothesize that the “motion prior” of grasping and approaching objects in the static ALOHA dataset still benefits Mobile ALOHA, especially given the invariances introduced by the wrist camera \[ [41](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib41 "")\]. We also find the co-trained policy to generalize better in the case of Push Chairs and Wipe Wine. For Push Chairs, both co-training and no co-training achieve perfect success for the first 3 chairs, which are seen in the demonstrations. However, co-training performs much better when extrapolating to the 4th and 5th chair, by 15% and 89% respectively. For Wipe Wine, we observe that the co-trained policy performs better at the boundary of the wine glass randomization region. We thus hypothesize that co-training can also help prevent overfitting, given the low-data regime of 20-50 demonstrations and the expressive transformer-based policy used. | |
-| Frontmatter citations resolve to the intended documents (dagger-2011, act-aloha-2023, act-reference-2023, mobile-aloha-2024, diffusion-policy-2023, real-time-chunking-2025, pi-real-time-chunking-blog-2025) | Retained primary responses: https://arxiv.org/abs/1011.0686; https://ar5iv.labs.arxiv.org/html/1011.0686; https://arxiv.org/abs/2304.13705; https://roboticsproceedings.org/rss19/p016.html; https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py; https://arxiv.org/abs/2401.02117; https://arxiv.org/abs/2303.04137; https://arxiv.org/abs/2506.07339; https://www.pi.website/research/real_time_chunking | corrected | ACT-CURRENT-32-20260907. Original tuple and prior plan archived below. Retained primary text verified against original captures; provenance and literal excerpts: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/action-chunking-current-claims-closeout/source-proof.json. No new fetch or human acceptance. All seven current canonical IDs separately bound; blog identity corrected from organization/title shorthand to actual byline/title. Unversioned source URLs remain unversioned. |  |  |  | action-chunking-frontmatter-p1 |
+| Frontmatter citations resolve to the intended documents (dagger-2011, act-aloha-2023, act-reference-2023, mobile-aloha-2024, diffusion-policy-2023, real-time-chunking-2025, pi-real-time-chunking-blog-2025, octo-2024, pi0-2024) | Retained primary identities for all nine current citations | corrected | ACT-SETTINGS-32-20260907. Exact prior/current tuple and prior P1 archived below. Retained primary proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-octo-pi0-settings-corrections/source-proof.json; zero new fetches. Nine current canonical citation IDs; previous seven parts/evidence preserved, two verified identity parts added. |  |  |  | action-chunking-frontmatter-p1 |
 
 ## diffusion-policy.mdx
 
@@ -2434,3 +2434,264 @@ Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-5489
 | card-parity | `npm run check:og-card-bytes` | exit 0; 48 renders and 96 public/export files identical; log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/action-chunking-current-claims-closeout/card-parity.log` |
 
 Production build and full browser corpus were not run while content remains red; no precheck bypass. Prior gates below/above remain historical, not substitutes for these receipts.
+
+
+## ACT Octo/pi0 settings correction history — 2026-09-07
+
+Two corrected settings records plus current P1 reconciliation; same original row identities. No release-status or unrelated lineage certification. Original histories remain above.
+
+```json
+[
+  {
+    "id": "ACT-SETTINGS-24-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 24,
+    "originalTuple": [
+      "PolicyChunkingTable: Octo horizon/frequency n/a",
+      "(honest unknown, deliberate mixed-meaning null per file comment)",
+      "verified",
+      "No single published horizon/rate for Octo across embodiments; rendered \"n/a\" with the caption explaining the mixture — P4-conformant."
+    ],
+    "originalCellsDigest": "4443b76f966c2b39be6066ab8db2d2f3f0b7631a8601e7f617847b11b49455a7",
+    "originalLedgerLine": "| PolicyChunkingTable: Octo horizon/frequency n/a | (honest unknown, deliberate mixed-meaning null per file comment) | verified | No single published horizon/rate for Octo across embodiments; rendered \"n/a\" with the caption explaining the mixture — P4-conformant. | | | |",
+    "originalPlan": null,
+    "currentTuple": [
+      "Octo v2's ALOHA finetuning example predicts 64 actions and executes 12 before replanning. Its other reported setups include Franka action prediction at 15 Hz, a coffee-task controller at 10 Hz, and ViperX end-effector control at 5 Hz. These are separate examples, not one universal Octo control rate or horizon. The action head uses diffusion <Cite id=\"octo-2024\" />.",
+      "Octo explicit arXiv v2 / pi0 explicit v4 PDF-derived retained text",
+      "corrected",
+      "ACT-SETTINGS-24-20260907. Exact prior/current tuple and prior P1 archived below. Retained primary proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-octo-pi0-settings-corrections/source-proof.json; zero new fetches. Prediction and execution horizons remain distinct; rates travel with named setups. P4: applicable unknown universal values are not disclosed, never n/a. Other lineage/weights claims are not certified."
+    ],
+    "currentCellsDigest": "9c1803e89d653c293f5b2a51bd7a0bbe5d6034cb3e0dced6311879b76c31bb98"
+  },
+  {
+    "id": "ACT-SETTINGS-25-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 25,
+    "originalTuple": [
+      "PolicyChunkingTable: pi0 horizon 50, 50 Hz, flow matching",
+      "π0 paper, arXiv 2410.24164 HTML",
+      "verified",
+      "\"an action chunk of future actions (we use H=50 for our tasks)\"; \"control robots at frequencies of up to 50 Hz\"."
+    ],
+    "originalCellsDigest": "3ec9d144f91ac892cc8bfb61eeba70870fd9d276f950f83890ded604d61adf4a",
+    "originalLedgerLine": "| PolicyChunkingTable: pi0 horizon 50, 50 Hz, flow matching | π0 paper, arXiv 2410.24164 HTML | verified | \"an action chunk of future actions (we use H=50 for our tasks)\"; \"control robots at frequencies of up to 50 Hz\". | | | |",
+    "originalPlan": null,
+    "currentTuple": [
+      "π0 v4 predicts 50 actions. In its reported execution setup, UR5e and Franka run at 20 Hz and execute 16 actions before replanning; the other evaluated robots run at 50 Hz and execute 25. The table's 20 Hz entry names the UR5e/Franka reference, while the paper describes operation at up to 50 Hz. Its continuous action outputs are trained with conditional flow matching <Cite id=\"pi0-2024\" />.",
+      "Octo explicit arXiv v2 / pi0 explicit v4 PDF-derived retained text",
+      "corrected",
+      "ACT-SETTINGS-25-20260907. Exact prior/current tuple and prior P1 archived below. Retained primary proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-octo-pi0-settings-corrections/source-proof.json; zero new fetches. Prediction and execution horizons remain distinct; rates travel with named setups. P4: applicable unknown universal values are not disclosed, never n/a. Other lineage/weights claims are not certified."
+    ],
+    "currentCellsDigest": "47d450b003c5f558c91e431c46387663ba47707eeb7f79ebb0404562f94a3154"
+  },
+  {
+    "id": "ACT-SETTINGS-32-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 32,
+    "originalTuple": [
+      "Frontmatter citations resolve to the intended documents (dagger-2011, act-aloha-2023, act-reference-2023, mobile-aloha-2024, diffusion-policy-2023, real-time-chunking-2025, pi-real-time-chunking-blog-2025)",
+      "Retained primary responses: https://arxiv.org/abs/1011.0686; https://ar5iv.labs.arxiv.org/html/1011.0686; https://arxiv.org/abs/2304.13705; https://roboticsproceedings.org/rss19/p016.html; https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py; https://arxiv.org/abs/2401.02117; https://arxiv.org/abs/2303.04137; https://arxiv.org/abs/2506.07339; https://www.pi.website/research/real_time_chunking",
+      "corrected",
+      "ACT-CURRENT-32-20260907. Original tuple and prior plan archived below. Retained primary text verified against original captures; provenance and literal excerpts: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/action-chunking-current-claims-closeout/source-proof.json. No new fetch or human acceptance. All seven current canonical IDs separately bound; blog identity corrected from organization/title shorthand to actual byline/title. Unversioned source URLs remain unversioned."
+    ],
+    "originalCellsDigest": "a22005006b2a4e273fad4517c792d11e9485d814ef7aa1a6afb3c0c5a9828caa",
+    "originalLedgerLine": "| Frontmatter citations resolve to the intended documents (dagger-2011, act-aloha-2023, act-reference-2023, mobile-aloha-2024, diffusion-policy-2023, real-time-chunking-2025, pi-real-time-chunking-blog-2025) | Retained primary responses: https://arxiv.org/abs/1011.0686; https://ar5iv.labs.arxiv.org/html/1011.0686; https://arxiv.org/abs/2304.13705; https://roboticsproceedings.org/rss19/p016.html; https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py; https://arxiv.org/abs/2401.02117; https://arxiv.org/abs/2303.04137; https://arxiv.org/abs/2506.07339; https://www.pi.website/research/real_time_chunking | corrected | ACT-CURRENT-32-20260907. Original tuple and prior plan archived below. Retained primary text verified against original captures; provenance and literal excerpts: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/action-chunking-current-claims-closeout/source-proof.json. No new fetch or human acceptance. All seven current canonical IDs separately bound; blog identity corrected from organization/title shorthand to actual byline/title. Unversioned source URLs remain unversioned. |  |  |  | action-chunking-frontmatter-p1 |",
+    "originalPlan": {
+      "id": "action-chunking-frontmatter-p1",
+      "ledgerPath": "audit/manipulation.md",
+      "articleSlug": "action-chunking",
+      "rowOrdinal": 32,
+      "originalCellsDigest": "a22005006b2a4e273fad4517c792d11e9485d814ef7aa1a6afb3c0c5a9828caa",
+      "kind": "frontmatter-p1",
+      "parts": [
+        {
+          "id": "dagger-2011",
+          "text": "DAgger title, accented byline, AISTATS 2011; 2010 submission distinct.",
+          "requiredCitationIds": [
+            "dagger-2011"
+          ]
+        },
+        {
+          "id": "act-aloha-2023",
+          "text": "ACT four-author title and RSS 2023 publication.",
+          "requiredCitationIds": [
+            "act-aloha-2023"
+          ]
+        },
+        {
+          "id": "act-reference-2023",
+          "text": "Pinned imitate_episodes.py file, repository handle and displayed commit date.",
+          "requiredCitationIds": [
+            "act-reference-2023"
+          ]
+        },
+        {
+          "id": "mobile-aloha-2024",
+          "text": "Mobile ALOHA title, three named authors, 2024 submission; no invented venue.",
+          "requiredCitationIds": [
+            "mobile-aloha-2024"
+          ]
+        },
+        {
+          "id": "diffusion-policy-2023",
+          "text": "Extended eight-author DP identity, 2023 introduction and 2024 v5 revision; not original seven-author RSS edition.",
+          "requiredCitationIds": [
+            "diffusion-policy-2023"
+          ]
+        },
+        {
+          "id": "real-time-chunking-2025",
+          "text": "RTC paper title, all three authors, 2025 submission; unversioned body not silently labelled v2.",
+          "requiredCitationIds": [
+            "real-time-chunking-2025"
+          ]
+        },
+        {
+          "id": "pi-real-time-chunking-blog-2025",
+          "text": "Actual blog title, named three-author byline, June 9 2025.",
+          "requiredCitationIds": [
+            "pi-real-time-chunking-blog-2025"
+          ]
+        }
+      ],
+      "planReview": {
+        "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+        "rationale": "Current whole claim decomposed before attaching evidence; each required document is distinct, every literal excerpt was hash-checked against its actual primary retrieval.",
+        "planDigest": "7dac20762d2d450275c06daad276c44830bb691195d228d99828c051a4fcdeb4"
+      },
+      "evidence": [
+        {
+          "partId": "dagger-2011",
+          "citationId": "dagger-2011",
+          "sourceUrl": "https://arxiv.org/abs/1011.0686",
+          "supportingPassage": "\\[Submitted on 2 Nov 2010 ( [v1](https://arxiv.org/abs/1011.0686v1)), last revised 16 Mar 2011 (this version, v3)\\]\n\n# Title:A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning\n\nAuthors: [Stephane Ross](https://arxiv.org/search/cs?searchtype=author&query=Ross,+S), [Geoffrey J. Gordon](https://arxiv.org/search/cs?searchtype=author&query=Gordon,+G+J), [J. Andrew Bagnell](https://arxiv.org/search/cs?searchtype=author&query=Bagnell,+J+A)\n\nView a PDF of the paper titled A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning, by Stephane Ross and 2 other authors\n\n[View PDF](https://arxiv.org/pdf/1011.0686) [HTML (experimental)](https://arxiv.org/html/1011.0686v3)\n\n> Abstract:Sequential prediction problems such as imitation learning, where future observations depend on previous predictions (actions), violate the common i.i.d. assumptions made in statistical learning. This leads to poor performance in theory and often in practice. Some recent approaches provide stronger guarantees in this setting, but remain somewhat unsatisfactory as they train either non-stationary or stochastic policies and require a large number of iterations. In this paper, we propose a new iterative algorithm, which trains a stationary deterministic policy, that can be seen as a no regret algorithm in an online learning setting. We show that any such no regret algorithm, combined with additional reduction assumptions, must find a policy with good performance under the distribution of observations it induces in such sequential settings. We demonstrate that this new approach outperforms previous approaches on two challenging imitation learning problems and a benchmark sequence labeling problem.\n\n|     |     |\n| --- | --- |\n| Comments: | Appearing in the 14th International Conference on Artificial Intelligence and Statistics (AISTATS 2011) |\n| Subjects: | Machine Learning (cs.LG); Artificial Intelligence (cs.AI); Machine Learning (stat.ML) |\n| Cite as: | [arXiv:1011.0686](https://arxiv.org/abs/1011.0686) \\[cs.LG\\] |\n|  | (or [arXiv:1011.0686v3](https://arxiv.org/abs/1011.0686v3) \\[cs.LG\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.1011.0686](https://doi.org/10.48550/arXiv.1011.0686)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+        },
+        {
+          "partId": "dagger-2011",
+          "citationId": "dagger-2011",
+          "sourceUrl": "https://ar5iv.labs.arxiv.org/html/1011.0686",
+          "supportingPassage": "\nA Reduction of Imitation Learning and Structured Prediction\n\nto No-Regret Online Learning\n\nStéphane RossGeoffrey J. GordonJ. Andrew Bagnell"
+        },
+        {
+          "partId": "act-aloha-2023",
+          "citationId": "act-aloha-2023",
+          "sourceUrl": "https://arxiv.org/abs/2304.13705",
+          "supportingPassage": "\\[Submitted on 23 Apr 2023\\]\n\n# Title:Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware\n\nAuthors: [Tony Z. Zhao](https://arxiv.org/search/cs?searchtype=author&query=Zhao,+T+Z), [Vikash Kumar](https://arxiv.org/search/cs?searchtype=author&query=Kumar,+V), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C)\n\nView a PDF of the paper titled Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware, by Tony Z. Zhao and 3 other authors\n\n[View PDF](https://arxiv.org/pdf/2304.13705) [HTML (experimental)](https://arxiv.org/html/2304.13705v1)\n\n> Abstract:Fine manipulation tasks, such as threading cable ties or slotting a battery, are notoriously difficult for robots because they require precision, careful coordination of contact forces, and closed-loop visual feedback. Performing these tasks typically requires high-end robots, accurate sensors, or careful calibration, which can be expensive and difficult to set up. Can learning enable low-cost and imprecise hardware to perform these fine manipulation tasks? We present a low-cost system that performs end-to-end imitation learning directly from real demonstrations, collected with a custom teleoperation interface. Imitation learning, however, presents its own challenges, particularly in high-precision domains: errors in the policy can compound over time, and human demonstrations can be non-stationary. To address these challenges, we develop a simple yet novel algorithm, Action Chunking with Transformers (ACT), which learns a generative model over action sequences. ACT allows the robot to learn 6 difficult tasks in the real world, such as opening a translucent condiment cup and slotting a battery with 80-90% success, with only 10 minutes worth of demonstrations. Project website: [this https URL](https://tonyzhaozh.github.io/aloha/)\n\n|     |     |\n| --- | --- |\n| Subjects: | Robotics (cs.RO); Machine Learning (cs.LG) |\n| Cite as: | [arXiv:2304.13705](https://arxiv.org/abs/2304.13705) \\[cs.RO\\] |\n|  | (or [arXiv:2304.13705v1](https://arxiv.org/abs/2304.13705v1) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2304.13705](https://doi.org/10.48550/arXiv.2304.13705)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+        },
+        {
+          "partId": "act-aloha-2023",
+          "citationId": "act-aloha-2023",
+          "sourceUrl": "https://roboticsproceedings.org/rss19/p016.html",
+          "supportingPassage": "@INPROCEEDINGS{Zhao-RSS-23,\n    AUTHOR    = {Tony Z. Zhao AND Vikash Kumar AND Sergey Levine AND Chelsea Finn},\n    TITLE     = {{Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware}},\n    BOOKTITLE = {Proceedings of Robotics: Science and Systems},\n    YEAR      = {2023},\n    ADDRESS   = {Daegu, Republic of Korea},\n    MONTH     = {July},\n    DOI       = {10.15607/RSS.2023.XIX.016}\n}"
+        },
+        {
+          "partId": "act-reference-2023",
+          "citationId": "act-reference-2023",
+          "sourceUrl": "https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py",
+          "supportingPassage": "# imitate\\_episodes.py\n[Separate literal excerpt from the same retained response]\n## Latest commit\n\n[![tonyzhaozh](https://avatars.githubusercontent.com/u/46111210?v=4&size=40)](https://github.com/tonyzhaozh)[tonyzhaozh](https://github.com/tonyzhaozh/act/commits?author=tonyzhaozh)\n\n[small](https://github.com/tonyzhaozh/act/commit/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf)\n\n3 years agoMar 14, 2023"
+        },
+        {
+          "partId": "mobile-aloha-2024",
+          "citationId": "mobile-aloha-2024",
+          "sourceUrl": "https://arxiv.org/abs/2401.02117",
+          "supportingPassage": "\\[Submitted on 4 Jan 2024\\]\n\n# Title:Mobile ALOHA: Learning Bimanual Mobile Manipulation with Low-Cost Whole-Body Teleoperation\n\nAuthors: [Zipeng Fu](https://arxiv.org/search/cs?searchtype=author&query=Fu,+Z), [Tony Z. Zhao](https://arxiv.org/search/cs?searchtype=author&query=Zhao,+T+Z), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C)\n\nView a PDF of the paper titled Mobile ALOHA: Learning Bimanual Mobile Manipulation with Low-Cost Whole-Body Teleoperation, by Zipeng Fu and 2 other authors\n\n[View PDF](https://arxiv.org/pdf/2401.02117) [HTML (experimental)](https://arxiv.org/html/2401.02117v1)\n\n> Abstract:Imitation learning from human demonstrations has shown impressive performance in robotics. However, most results focus on table-top manipulation, lacking the mobility and dexterity necessary for generally useful tasks. In this work, we develop a system for imitating mobile manipulation tasks that are bimanual and require whole-body control. We first present Mobile ALOHA, a low-cost and whole-body teleoperation system for data collection. It augments the ALOHA system with a mobile base, and a whole-body teleoperation interface. Using data collected with Mobile ALOHA, we then perform supervised behavior cloning and find that co-training with existing static ALOHA datasets boosts performance on mobile manipulation tasks. With 50 demonstrations for each task, co-training can increase success rates by up to 90%, allowing Mobile ALOHA to autonomously complete complex mobile manipulation tasks such as sauteing and serving a piece of shrimp, opening a two-door wall cabinet to store heavy cooking pots, calling and entering an elevator, and lightly rinsing a used pan using a kitchen faucet. Project website: [this https URL](https://mobile-aloha.github.io/)\n\n|     |     |\n| --- | --- |\n| Comments: | Project website: [this https URL](https://mobile-aloha.github.io/) (Zipeng Fu and Tony Z. Zhao are project co-leads, Chelsea Finn is the advisor) |\n| Subjects: | Robotics (cs.RO); Artificial Intelligence (cs.AI); Computer Vision and Pattern Recognition (cs.CV); Machine Learning (cs.LG); Systems and Control (eess.SY) |\n| Cite as: | [arXiv:2401.02117](https://arxiv.org/abs/2401.02117) \\[cs.RO\\] |\n|  | (or [arXiv:2401.02117v1](https://arxiv.org/abs/2401.02117v1) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2401.02117](https://doi.org/10.48550/arXiv.2401.02117)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+        },
+        {
+          "partId": "diffusion-policy-2023",
+          "citationId": "diffusion-policy-2023",
+          "sourceUrl": "https://arxiv.org/abs/2303.04137",
+          "supportingPassage": "\\[Submitted on 7 Mar 2023 ( [v1](https://arxiv.org/abs/2303.04137v1)), last revised 14 Mar 2024 (this version, v5)\\]\n\n# Title:Diffusion Policy: Visuomotor Policy Learning via Action Diffusion\n\nAuthors: [Cheng Chi](https://arxiv.org/search/cs?searchtype=author&query=Chi,+C), [Zhenjia Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+Z), [Siyuan Feng](https://arxiv.org/search/cs?searchtype=author&query=Feng,+S), [Eric Cousineau](https://arxiv.org/search/cs?searchtype=author&query=Cousineau,+E), [Yilun Du](https://arxiv.org/search/cs?searchtype=author&query=Du,+Y), [Benjamin Burchfiel](https://arxiv.org/search/cs?searchtype=author&query=Burchfiel,+B), [Russ Tedrake](https://arxiv.org/search/cs?searchtype=author&query=Tedrake,+R), [Shuran Song](https://arxiv.org/search/cs?searchtype=author&query=Song,+S)\n\nView a PDF of the paper titled Diffusion Policy: Visuomotor Policy Learning via Action Diffusion, by Cheng Chi and 7 other authors\n\n[View PDF](https://arxiv.org/pdf/2303.04137) [HTML (experimental)](https://arxiv.org/html/2303.04137v5)\n\n> Abstract:This paper introduces Diffusion Policy, a new way of generating robot behavior by representing a robot's visuomotor policy as a conditional denoising diffusion process. We benchmark Diffusion Policy across 12 different tasks from 4 different robot manipulation benchmarks and find that it consistently outperforms existing state-of-the-art robot learning methods with an average improvement of 46.9%. Diffusion Policy learns the gradient of the action-distribution score function and iteratively optimizes with respect to this gradient field during inference via a series of stochastic Langevin dynamics steps. We find that the diffusion formulation yields powerful advantages when used for robot policies, including gracefully handling multimodal action distributions, being suitable for high-dimensional action spaces, and exhibiting impressive training stability. To fully unlock the potential of diffusion models for visuomotor policy learning on physical robots, this paper presents a set of key technical contributions including the incorporation of receding horizon control, visual conditioning, and the time-series diffusion transformer. We hope this work will help motivate a new generation of policy learning techniques that are able to leverage the powerful generative modeling capabilities of diffusion models. Code, data, and training details is publicly available [this http URL](http://diffusion-policy.cs.columbia.edu/)\n\n|     |     |\n| --- | --- |\n| Comments: | An extended journal version of the original RSS2023 paper |\n| Subjects: | Robotics (cs.RO) |\n| Cite as: | [arXiv:2303.04137](https://arxiv.org/abs/2303.04137) \\[cs.RO\\] |\n|  | (or [arXiv:2303.04137v5](https://arxiv.org/abs/2303.04137v5) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2303.04137](https://doi.org/10.48550/arXiv.2303.04137)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+        },
+        {
+          "partId": "real-time-chunking-2025",
+          "citationId": "real-time-chunking-2025",
+          "sourceUrl": "https://arxiv.org/abs/2506.07339",
+          "supportingPassage": "\\[Submitted on 9 Jun 2025 ( [v1](https://arxiv.org/abs/2506.07339v1)), last revised 5 Dec 2025 (this version, v2)\\]\n\n# Title:Real-Time Execution of Action Chunking Flow Policies\n\nAuthors: [Kevin Black](https://arxiv.org/search/cs?searchtype=author&query=Black,+K), [Manuel Y. Galliker](https://arxiv.org/search/cs?searchtype=author&query=Galliker,+M+Y), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S)\n\nView a PDF of the paper titled Real-Time Execution of Action Chunking Flow Policies, by Kevin Black and 2 other authors\n\n[View PDF](https://arxiv.org/pdf/2506.07339) [HTML (experimental)](https://arxiv.org/html/2506.07339v2)\n\n> Abstract:Modern AI systems, especially those interacting with the physical world, increasingly require real-time performance. However, the high latency of state-of-the-art generalist models, including recent vision-language action models (VLAs), poses a significant challenge. While action chunking has enabled temporal consistency in high-frequency control tasks, it does not fully address the latency problem, leading to pauses or out-of-distribution jerky movements at chunk boundaries. This paper presents a novel inference-time algorithm that enables smooth asynchronous execution of action chunking policies. Our method, real-time chunking (RTC), is applicable to any diffusion- or flow-based VLA out of the box with no re-training. It generates the next action chunk while executing the current one, \"freezing\" actions guaranteed to execute and \"inpainting\" the rest. To test RTC, we introduce a new benchmark of 12 highly dynamic tasks in the Kinetix simulator, as well as evaluate 6 challenging real-world bimanual manipulation tasks. Results demonstrate that RTC is fast, performant, and uniquely robust to inference delay, significantly improving task throughput and enabling high success rates in precise tasks – such as lighting a match – even in the presence of significant latency. See [this https URL](https://pi.website/research/real_time_chunking) for videos.\n\n|     |     |\n| --- | --- |\n| Comments: | published in NeurIPS 2025 |\n| Subjects: | Robotics (cs.RO); Artificial Intelligence (cs.AI); Machine Learning (cs.LG) |\n| Cite as: | [arXiv:2506.07339](https://arxiv.org/abs/2506.07339) \\[cs.RO\\] |\n|  | (or [arXiv:2506.07339v2](https://arxiv.org/abs/2506.07339v2) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2506.07339](https://doi.org/10.48550/arXiv.2506.07339)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+        },
+        {
+          "partId": "pi-real-time-chunking-blog-2025",
+          "citationId": "pi-real-time-chunking-blog-2025",
+          "sourceUrl": "https://www.pi.website/research/real_time_chunking",
+          "supportingPassage": "# Real-Time Action Chunking with Large Models\n\nPublished\n\nJune 9, 2025\n\nEmail\n\nresearch@physicalintelligence.companyKevin Black, Manuel Y. Galliker, Sergey Levine"
+        }
+      ],
+      "adjudications": [
+        {
+          "partId": "dagger-2011",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "DAgger title, accented byline, AISTATS 2011; 2010 submission distinct. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
+          "evidenceDigest": "6c07f7f111d9b851fab60c7865d4b87a617c32ff45e2faff6dea6d68afa9bc0d"
+        },
+        {
+          "partId": "act-aloha-2023",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "ACT four-author title and RSS 2023 publication. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
+          "evidenceDigest": "fdb05f904d22577ded131fdfdbc8169c8ba9854d7db8f0634415fc30c9c2ab9b"
+        },
+        {
+          "partId": "act-reference-2023",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "Pinned imitate_episodes.py file, repository handle and displayed commit date. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
+          "evidenceDigest": "3c77a37a9558948364bff55ff8fbeeabf0e7a597f3be4864d1da8b05d7df84e2"
+        },
+        {
+          "partId": "mobile-aloha-2024",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "Mobile ALOHA title, three named authors, 2024 submission; no invented venue. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
+          "evidenceDigest": "9ca5862d00c524d38a3331f48e24f1e749f56433f5564c3838c4805bcf730503"
+        },
+        {
+          "partId": "diffusion-policy-2023",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "Extended eight-author DP identity, 2023 introduction and 2024 v5 revision; not original seven-author RSS edition. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
+          "evidenceDigest": "8c0191bc55c5f7c5336934e5a8a726435d2765a27ab163d3a721603dfd8b936c"
+        },
+        {
+          "partId": "real-time-chunking-2025",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "RTC paper title, all three authors, 2025 submission; unversioned body not silently labelled v2. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
+          "evidenceDigest": "33345caab577fac1f9fdc184557b4cd4c01fc9db7df2c4acefc05e0697761aae"
+        },
+        {
+          "partId": "pi-real-time-chunking-blog-2025",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "Actual blog title, named three-author byline, June 9 2025. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
+          "evidenceDigest": "cfeffd041d1d1ff6965a37cd47832efcc785eac4f14d7703117c1a9ff2bef615"
+        }
+      ]
+    },
+    "currentTuple": [
+      "Frontmatter citations resolve to the intended documents (dagger-2011, act-aloha-2023, act-reference-2023, mobile-aloha-2024, diffusion-policy-2023, real-time-chunking-2025, pi-real-time-chunking-blog-2025, octo-2024, pi0-2024)",
+      "Retained primary identities for all nine current citations",
+      "corrected",
+      "ACT-SETTINGS-32-20260907. Exact prior/current tuple and prior P1 archived below. Retained primary proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-octo-pi0-settings-corrections/source-proof.json; zero new fetches. Nine current canonical citation IDs; previous seven parts/evidence preserved, two verified identity parts added."
+    ],
+    "currentCellsDigest": "562b9611fd672fd4c87e6ab89cfb33a4ae919694a99e3351a2a3f0a978f678dd"
+  }
+]
+```
+
+## ACT Octo/pi0 settings verification — 2026-09-07
+
+| Gate | Actual command | Result |
+|---|---|---|
+| Focused | `npm test -- tests/component/octo-pi0-settings.test.tsx tests/component/policy-chunking-table.test.tsx tests/component/comparison-matrix.test.tsx tests/unit/methods.test.ts tests/unit/audit-ledger.test.ts tests/unit/audit-citation-coverage.test.ts tests/unit/act-current-corrections.test.ts` | 124 passed |
+| TypeScript | `node node_modules/typescript/bin/tsc --noEmit --incremental false` | exit 0 |
+| Lint | `npm run lint --ignore-scripts` | exit 0 |
+| Content | `npm run validate:content` | exit 1; 884 findings, 113/994 complete |
+| Baseline | `npm run baseline:brand-v2` | exit 1; 61 existing failures, zero new |
+| Browser | `node node_modules/@playwright/test/cli.js test tests/e2e/octo-pi0-settings.spec.ts --workers=1` with Mission output path | 2 passed; 375x812 / 1440x900, ACT and comparison route |
+| Cards | `npm run generate:og-cards --ignore-scripts` then `npm run check:og-card-bytes` | exit 0; 48 cards, 96 matching public/export files; ACT references 7 to 9 |
+| Production/full corpus | not run | known-red content prerequisite; production HTML and reading times pending |
+
+All checks used `NODE_DISABLE_COMPILE_CACHE=1`. Twelve final browser screenshots inspected; mobile pi0 tooltip is right-clipped despite zero document overflow. This newly observed visual issue and the prior citation Back-focus gap remain unresolved; shared citation UI was not changed in this settings batch. No whole-article or independent acceptance, source freshness or lastReviewed change. Remaining ACT rows: 20, 22, 26, 27, 28, 29, 30.

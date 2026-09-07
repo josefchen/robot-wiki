@@ -28,7 +28,7 @@ describe('PolicyChunkingTable', () => {
       within(row).queryByText(/Helix/),
     );
     expect(helixRow).toBeDefined();
-    expect(within(helixRow as HTMLElement).getAllByText('n/a').length)
+    expect(within(helixRow as HTMLElement).getAllByText('not disclosed').length)
       .toBeGreaterThan(0);
   });
 

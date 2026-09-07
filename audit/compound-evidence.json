@@ -1097,11 +1097,169 @@
     ]
   },
   {
+    "id": "act-settings-24-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 24,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "aloha",
+        "text": "Octo v2 ALOHA finetuning predicts 64 and executes 12; not universal.",
+        "requiredCitationIds": [
+          "octo-2024"
+        ]
+      },
+      {
+        "id": "rates",
+        "text": "Separate setups: Franka prediction 15Hz, coffee controller 10Hz, ViperX control 5Hz; no universal rate.",
+        "requiredCitationIds": [
+          "octo-2024"
+        ]
+      },
+      {
+        "id": "representation",
+        "text": "Diffusion action head.",
+        "requiredCitationIds": [
+          "octo-2024"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "aloha",
+        "citationId": "octo-2024",
+        "sourceUrl": "https://arxiv.org/html/2405.12213v2",
+        "supportingPassage": "The task requires an ALOHA bimanual robot \\[ [98](https://arxiv.org/html/2405.12213v2#bib.bib98 \"\")\\], consisting of two ViperX robot arms, to pick up a sharpie marker with the right hand from the workbench and remove its cap with the left hand. Since Octo was only pre-trained with single-arm robot data, we re-initialize a new action head that maps to the 14-dimensional action space of ALOHA (2x 6 joint positions + 2x gripper position). A successful policy needs to use image observations from the left and right wrist cameras to predict precise manipulation behaviors. Best performance for both our methods and baselines was achieved by predicting an action chunk of 64 during training, and then during test-time executing 12 actions with receding horizon control before re-planning. We evaluated the uncapping task using 10 trials, where the pen was placed in a different location for each trial."
+      },
+      {
+        "partId": "rates",
+        "citationId": "octo-2024",
+        "sourceUrl": "https://arxiv.org/html/2405.12213v2",
+        "supportingPassage": "The robot must pick up the toy bread object, place it in the toaster, and shut the toaster. This task requires generalization across initial positions (of both the toaster and object) and the shape of the target toy bread object. We use an end-effector delta action space (Cartesian position + rotation delta). Observations come from the 3rd-person front-facing Zed camera. Actions are predicted at 15 Hz, and executed on the robot using the [R2D2 Franka controller](https://github.com/AlexanderKhazatsky/R2D2 \"\"). The finetuning dataset consists of 120 demos collected via expert VR tele-operation, and every policy was evaluated using 20 trials (4 novel test objects with 5 positions each).\n[Separate literal excerpt from the same retained response]\nThe robot is tasked with picking up one of four different Keurig Coffee Pods and placing it inside of a Keurig machine. This task requires both generalization across initial positions and colors of the coffee pod, as well as precise placement in the Keurig machine. We use an end effector delta action space with an open source controller running at 10 Hz based on Polymetis \\[ [49](https://arxiv.org/html/2405.12213v2#bib.bib49 \"\")\\] (found [here](https://github.com/jhejna/robot-lightning \"\")). We use only a single 3rd-person wrist observation. Our training dataset contained 118 expert demonstrations from varied coffee pods and positions collected via VR tele-operation. We evaluated policies for 20 episodes, five episodes for each of four different color coffee pods.\n[Separate literal excerpt from the same retained response]\nA Trossen Robotics ViperX robot is tasked with picking up a coke can from a table. The ViperX is completely unseen in the training mixture, thus this task tests the model’s capabilities to generalize to a new robot embodiment. The task also requires generalization across different positions of the coke can with the ViperX robot using end-effector delta control at 5Hz.\nThe policy uses image observations from a third person and a wrist camera. Our training dataset contained 115 expert demonstrations collected via VR tele-operation from varied positions."
+      },
+      {
+        "partId": "representation",
+        "citationId": "octo-2024",
+        "sourceUrl": "https://arxiv.org/html/2405.12213v2",
+        "supportingPassage": "We use a conditional diffusion decoding head to predict continuous, multi-modal action distributions \\[ [34](https://arxiv.org/html/2405.12213v2#bib.bib34 \"\"), [17](https://arxiv.org/html/2405.12213v2#bib.bib17 \"\")\\]. Importantly, only one forward pass of the transformer backbone is performed per action prediction, after which the multi-step denoising process is carried out entirely within the small diffusion head.\n[Separate literal excerpt from the same retained response]\nWe train the diffusion head using the standard DDPM objective first proposed in \\[ [34](https://arxiv.org/html/2405.12213v2#bib.bib34 \"\")\\], where we add Gaussian noise to the dataset actions and train the denoising network ϵθ​(xk,e,k)\\\\epsilon\\_{\\\\theta}(x^{k},e,k) to reconstruct the original action."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "aloha",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+        "rationale": "Octo v2 ALOHA finetuning predicts 64 and executes 12; not universal. Actual retained passages verified; named setup and source edition preserved.",
+        "evidenceDigest": "9fff7687bff8cc3743305889f100ae8891d13abaa024df7382ca386e975cbd90"
+      },
+      {
+        "partId": "rates",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+        "rationale": "Separate setups: Franka prediction 15Hz, coffee controller 10Hz, ViperX control 5Hz; no universal rate. Actual retained passages verified; named setup and source edition preserved.",
+        "evidenceDigest": "6cdfae6815362cf86576c6ee77b48d41a13200979c10b2dc99a158916addd8cb"
+      },
+      {
+        "partId": "representation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+        "rationale": "Diffusion action head. Actual retained passages verified; named setup and source edition preserved.",
+        "evidenceDigest": "7e4e2727d3250a1ee6f62b22af4b9951c1d899deed24ea95d2cb6836650274cc"
+      }
+    ],
+    "originalCellsDigest": "9c1803e89d653c293f5b2a51bd7a0bbe5d6034cb3e0dced6311879b76c31bb98",
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+      "rationale": "Complete corrected claim decomposed into independently required source parts; original seven P1 bindings retained, new identity passages checked against original captures.",
+      "planDigest": "2f889fa902f3e6a5f43e89620f3fdf2b3b9d857ca64e1c4e2dd5bb138a58a447"
+    }
+  },
+  {
+    "id": "act-settings-25-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 25,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "horizon",
+        "text": "pi0 v4 uses H=50 for its tasks.",
+        "requiredCitationIds": [
+          "pi0-2024"
+        ]
+      },
+      {
+        "id": "execution",
+        "text": "UR5e/Franka 20Hz execute16; other robots 50Hz execute25; reference not universal.",
+        "requiredCitationIds": [
+          "pi0-2024"
+        ]
+      },
+      {
+        "id": "representation",
+        "text": "Continuous flow-matching action expert and up-to-50Hz bound.",
+        "requiredCitationIds": [
+          "pi0-2024"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "horizon",
+        "citationId": "pi0-2024",
+        "sourceUrl": "https://arxiv.org/pdf/2410.24164",
+        "supportingPassage": "H=50\n[Separate literal excerpt from the same retained response]\nFormally, we want to model the data distributionp(At|ot),\nwhereAt= [at,at+1,...,at+H−1]corresponds to anaction\nchunkof future actions (we useH= 50for our tasks), andot\nis an observation. The observation consists of multiple RGB\nimages, a language command, and the robot’s proprioceptive\nn it th\nstate, such thatot= [I1t,...,It,ℓt,qt], whereI isi image\n(with 2 or 3 images per robot),ℓtis a sequence of language\nit\ntokens, andqtis a vector of joint angles. The imagesI\nand stateqtare encoded via corresponding encoders and then\nprojected via a linear projection layer into the same embedding\nspace as the language tokens."
+      },
+      {
+        "partId": "execution",
+        "citationId": "pi0-2024",
+        "sourceUrl": "https://arxiv.org/pdf/2410.24164",
+        "supportingPassage": "times.\nSince the model generates an entireH-step action chunk\nat once, we can execute up toHactions before we need to\nrun inference again. However, we may run inference more\noften than that, as well as combine actions from different\ninference calls using various aggregation strategies. We tried\ntemporal ensembling [57] early on and found that it hurt\npolicy performance, so we opted not to aggregate actions and\ninstead execute action chunks open-loop. For the 20Hz UR5e\nand Franka robots, we run inference every 0.8 seconds (after\nexecuting 16 actions), and for all other robots, which run at\n50Hz, we run inference every 0.5 seconds (after executing 25\nactions)."
+      },
+      {
+        "partId": "representation",
+        "citationId": "pi0-2024",
+        "sourceUrl": "https://arxiv.org/pdf/2410.24164",
+        "supportingPassage": "framework, which we callπ0, that illustrates how each of\nthese three bottlenecks could be tackled. We illustrate our\nmodel and system in Figure1. To incorporate diverse data\nsources, we begin by utilizing a pre-trained vision-language\nmodel (VLM) to import Internet-scale experience. By basing\nour model on a VLM, we inherit the general knowledge,\nsemantic reasoning, and problem-solving abilities of languageand vision-language models. We then further train our model\nto incorporate robot actions, turning it into a vision-language-\n\n\\pi_{0} action (VLA) model [7]. In order to make it feasible to utilize\na variety of diverse robot data sources, we employcrossembodiment training[10], where data from many robot types\nis combined into the same model. These different robot types\nhave different configuration spaces and action representations,\nincluding single and dual-arm systems, as well as mobile\nmanipulators. Additionally, in order to make it possible to\nperform highly dexterous and intricate physical tasks, we use\nan action chunking architecture [57] with flow matching (a\nvariant of diffusion) to represent complex continuous action\ndistributions [28,32]. This enables our model to control robots\nat frequencies of up to 50 Hz for dexterous tasks such as\nlaundry folding (see Figure1). To combine flow matching\nwith VLMs, we use a novelaction expertthat augments the\n[Separate literal excerpt from the same retained response]\n\\pi_{0} action (VLA) model [7]. In order to make it feasible to utilize\na variety of diverse robot data sources, we employcrossembodiment training[10], where data from many robot types\nis combined into the same model. These different robot types\nhave different configuration spaces and action representations,\nincluding single and dual-arm systems, as well as mobile\nmanipulators. Additionally, in order to make it possible to\nperform highly dexterous and intricate physical tasks, we use\nan action chunking architecture [57] with flow matching (a\nvariant of diffusion) to represent complex continuous action\ndistributions [28,32]. This enables our model to control robots\nat frequencies of up to 50 Hz for dexterous tasks such as\nlaundry folding (see Figure1). To combine flow matching\nwith VLMs, we use a novelaction expertthat augments the\nstandard VLM with flow-based outputs.\nAs with language models, the architecture of our model is"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "horizon",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+        "rationale": "pi0 v4 uses H=50 for its tasks. Actual retained passages verified; named setup and source edition preserved.",
+        "evidenceDigest": "12585b3968d3996bec3ecd2ddadcd7fd78accac3d22d90c854316f7dd2caf46a"
+      },
+      {
+        "partId": "execution",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+        "rationale": "UR5e/Franka 20Hz execute16; other robots 50Hz execute25; reference not universal. Actual retained passages verified; named setup and source edition preserved.",
+        "evidenceDigest": "6a1ecd561d6ca505b1e746652b82f0438023f6da50382a15623cd096036e561a"
+      },
+      {
+        "partId": "representation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+        "rationale": "Continuous flow-matching action expert and up-to-50Hz bound. Actual retained passages verified; named setup and source edition preserved.",
+        "evidenceDigest": "9860293b70cdb2590691cd36e9437a47d354e61b3e7cd16ee49c424659b69944"
+      }
+    ],
+    "originalCellsDigest": "47d450b003c5f558c91e431c46387663ba47707eeb7f79ebb0404562f94a3154",
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+      "rationale": "Complete corrected claim decomposed into independently required source parts; original seven P1 bindings retained, new identity passages checked against original captures.",
+      "planDigest": "df6a098f84bcd4f54d223e87ebc8c6be59e249850637f1ee0e62dd76f53ff23f"
+    }
+  },
+  {
     "id": "action-chunking-frontmatter-p1",
     "ledgerPath": "audit/manipulation.md",
     "articleSlug": "action-chunking",
     "rowOrdinal": 32,
-    "originalCellsDigest": "a22005006b2a4e273fad4517c792d11e9485d814ef7aa1a6afb3c0c5a9828caa",
+    "originalCellsDigest": "562b9611fd672fd4c87e6ab89cfb33a4ae919694a99e3351a2a3f0a978f678dd",
     "kind": "frontmatter-p1",
     "parts": [
       {
@@ -1152,12 +1310,26 @@
         "requiredCitationIds": [
           "pi-real-time-chunking-blog-2025"
         ]
+      },
+      {
+        "id": "octo-2024",
+        "text": "octo 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for octo-2024.",
+        "requiredCitationIds": [
+          "octo-2024"
+        ]
+      },
+      {
+        "id": "pi0-2024",
+        "text": "pi0 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for pi0-2024.",
+        "requiredCitationIds": [
+          "pi0-2024"
+        ]
       }
     ],
     "planReview": {
-      "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
-      "rationale": "Current whole claim decomposed before attaching evidence; each required document is distinct, every literal excerpt was hash-checked against its actual primary retrieval.",
-      "planDigest": "7dac20762d2d450275c06daad276c44830bb691195d228d99828c051a4fcdeb4"
+      "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+      "rationale": "Complete corrected claim decomposed into independently required source parts; original seven P1 bindings retained, new identity passages checked against original captures.",
+      "planDigest": "59954306150b851abb84450f3f70c53653f3a3e7d8c5fb896c6006c3e77f7eb9"
     },
     "evidence": [
       {
@@ -1213,6 +1385,18 @@
         "citationId": "pi-real-time-chunking-blog-2025",
         "sourceUrl": "https://www.pi.website/research/real_time_chunking",
         "supportingPassage": "# Real-Time Action Chunking with Large Models\n\nPublished\n\nJune 9, 2025\n\nEmail\n\nresearch@physicalintelligence.companyKevin Black, Manuel Y. Galliker, Sergey Levine"
+      },
+      {
+        "partId": "octo-2024",
+        "citationId": "octo-2024",
+        "sourceUrl": "https://arxiv.org/html/2405.12213v2",
+        "supportingPassage": "arXiv:2405.12213v2 \\[cs.RO\\] 26 May 2024\n\n[Separate excerpt from this same retained response]\n\n# Octo: An Open-Source Generalist Robot Policy\n\nOcto Model Team\nDibya Ghosh\nAffiliation: UC Berkeley\nHomer Walke\nAffiliation: UC Berkeley\nKarl Pertsch\nAffiliation: UC Berkeley\nAffiliation: Stanford\nKevin Black\nAffiliation: UC Berkeley\nOier Mees\nAffiliation: UC Berkeley\nSudeep Dasari\nJoey Hejna\nAffiliation: Stanford\nTobias Kreiman Ria Doshi\nAffiliation: UC Berkeley\nCharles Xu\nAffiliation: UC Berkeley\nJianlan Luo\nAffiliation: UC Berkeley\nYou Liang Tan\nAffiliation: UC Berkeley\nLawrence Yunliang Chen\nAffiliation: UC Berkeley\nPannag Sanketi\nAffiliation: Carnegie Mellon University Google Deepmind [https://octo-models.github.io](https://octo-models.github.io/ \"\")Quan Vuong\nAffiliation: Carnegie Mellon University Google Deepmind [https://octo-models.github.io](https://octo-models.github.io/ \"\")Ted Xiao\nAffiliation: Carnegie Mellon University Google Deepmind [https://octo-models.github.io](https://octo-models.github.io/ \"\")Dorsa Sadigh\nAffiliation: Stanford\nChelsea Finn\nAffiliation: Stanford\nSergey Levine\nAffiliation: UC Berkeley"
+      },
+      {
+        "partId": "pi0-2024",
+        "citationId": "pi0-2024",
+        "sourceUrl": "https://arxiv.org/abs/2410.24164",
+        "supportingPassage": "# Title:π0: A Vision-Language-Action Flow Model for General Robot Control\n\n[Separate excerpt from this same retained response]\n\nAuthors: [Kevin Black](https://arxiv.org/search/cs?searchtype=author&query=Black,+K), [Noah Brown](https://arxiv.org/search/cs?searchtype=author&query=Brown,+N), [Danny Driess](https://arxiv.org/search/cs?searchtype=author&query=Driess,+D), [Adnan Esmail](https://arxiv.org/search/cs?searchtype=author&query=Esmail,+A), [Michael Equi](https://arxiv.org/search/cs?searchtype=author&query=Equi,+M), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C), [Niccolo Fusai](https://arxiv.org/search/cs?searchtype=author&query=Fusai,+N), [Lachy Groom](https://arxiv.org/search/cs?searchtype=author&query=Groom,+L), [Karol Hausman](https://arxiv.org/search/cs?searchtype=author&query=Hausman,+K), [Brian Ichter](https://arxiv.org/search/cs?searchtype=author&query=Ichter,+B), [Szymon Jakubczak](https://arxiv.org/search/cs?searchtype=author&query=Jakubczak,+S), [Tim Jones](https://arxiv.org/search/cs?searchtype=author&query=Jones,+T), [Liyiming Ke](https://arxiv.org/search/cs?searchtype=author&query=Ke,+L), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Adrian Li-Bell](https://arxiv.org/search/cs?searchtype=author&query=Li-Bell,+A), [Mohith Mothukuri](https://arxiv.org/search/cs?searchtype=author&query=Mothukuri,+M), [Suraj Nair](https://arxiv.org/search/cs?searchtype=author&query=Nair,+S), [Karl Pertsch](https://arxiv.org/search/cs?searchtype=author&query=Pertsch,+K), [Lucy Xiaoyang Shi](https://arxiv.org/search/cs?searchtype=author&query=Shi,+L+X), [James Tanner](https://arxiv.org/search/cs?searchtype=author&query=Tanner,+J), [Quan Vuong](https://arxiv.org/search/cs?searchtype=author&query=Vuong,+Q), [Anna Walling](https://arxiv.org/search/cs?searchtype=author&query=Walling,+A), [Haohuan Wang](https://arxiv.org/search/cs?searchtype=author&query=Wang,+H), [Ury Zhilinsky](https://arxiv.org/search/cs?searchtype=author&query=Zhilinsky,+U)\n\n[Separate excerpt from this same retained response]\n\n| Comments: | See project website for videos: [this https URL](https://physicalintelligence.company/blog/pi0) Published in RSS 2025 |\n\n[Separate excerpt from this same retained response]\n\n## Submission history\n\nFrom: Sergey Levine \\[ [view email](https://arxiv.org/show-email/6a8355e6/2410.24164)\\]\n\n**[\\[v1\\]](https://arxiv.org/abs/2410.24164v1)**\nThu, 31 Oct 2024 17:22:30 UTC (7,531 KB)\n\n**[\\[v2\\]](https://arxiv.org/abs/2410.24164v2)**\nSat, 2 Nov 2024 04:00:56 UTC (22,073 KB)\n\n**[\\[v3\\]](https://arxiv.org/abs/2410.24164v3)**\nWed, 13 Nov 2024 17:30:10 UTC (22,075 KB)\n\n**\\[v4\\]**\nThu, 8 Jan 2026 17:01:05 UTC (7,128 KB)\n"
       }
     ],
     "adjudications": [
@@ -1221,49 +1405,63 @@
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "DAgger title, accented byline, AISTATS 2011; 2010 submission distinct. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "6c07f7f111d9b851fab60c7865d4b87a617c32ff45e2faff6dea6d68afa9bc0d"
+        "evidenceDigest": "54e3568b20ce1a17bb584d857dbeebcac4e4c3d1a1d4523887b863c9c2442b87"
       },
       {
         "partId": "act-aloha-2023",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "ACT four-author title and RSS 2023 publication. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "fdb05f904d22577ded131fdfdbc8169c8ba9854d7db8f0634415fc30c9c2ab9b"
+        "evidenceDigest": "ee2cc39c5b84a92567b61d1e57dc7b0fd7c104e84bcd9d6e9aace1be44c8be11"
       },
       {
         "partId": "act-reference-2023",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "Pinned imitate_episodes.py file, repository handle and displayed commit date. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "3c77a37a9558948364bff55ff8fbeeabf0e7a597f3be4864d1da8b05d7df84e2"
+        "evidenceDigest": "ebabbe961a2325b0b137cef1d6cce779fec52526dffdeda7369dbe77f9bc0b67"
       },
       {
         "partId": "mobile-aloha-2024",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "Mobile ALOHA title, three named authors, 2024 submission; no invented venue. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "9ca5862d00c524d38a3331f48e24f1e749f56433f5564c3838c4805bcf730503"
+        "evidenceDigest": "a8bcc6a5ec4b2f08468e26eb618e9eadb08ed37a3a03d8ba81c543236137b71c"
       },
       {
         "partId": "diffusion-policy-2023",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "Extended eight-author DP identity, 2023 introduction and 2024 v5 revision; not original seven-author RSS edition. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "8c0191bc55c5f7c5336934e5a8a726435d2765a27ab163d3a721603dfd8b936c"
+        "evidenceDigest": "d941bca7c58ae4650080f74eaa5f9e51e92aba7cebaf8e180a359223bfb18b70"
       },
       {
         "partId": "real-time-chunking-2025",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "RTC paper title, all three authors, 2025 submission; unversioned body not silently labelled v2. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "33345caab577fac1f9fdc184557b4cd4c01fc9db7df2c4acefc05e0697761aae"
+        "evidenceDigest": "6e45470cd2f87fe1b5dd597a4b00ba0a9a49e2bac46486216dc5ce4aa8ee2d28"
       },
       {
         "partId": "pi-real-time-chunking-blog-2025",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "Actual blog title, named three-author byline, June 9 2025. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "cfeffd041d1d1ff6965a37cd47832efcc785eac4f14d7703117c1a9ff2bef615"
+        "evidenceDigest": "aece86085ec79413f1ddd5a1a6b84f7aacd6db339b3c1442a0aafdb9247ccb92"
+      },
+      {
+        "partId": "octo-2024",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+        "rationale": "octo 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for octo-2024. Actual retained passages verified; named setup and source edition preserved.",
+        "evidenceDigest": "5f6b187a61f29161c4cb8ab7a99094b6cace8032bcdeb2d6a10910fe02568dfc"
+      },
+      {
+        "partId": "pi0-2024",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+        "rationale": "pi0 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for pi0-2024. Actual retained passages verified; named setup and source edition preserved.",
+        "evidenceDigest": "0c39a21199f5285e2611a0756657c656b1c237d1edc154d0de2890fc45a99286"
       }
     ]
   }
