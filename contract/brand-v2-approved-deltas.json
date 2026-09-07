@@ -1556,6 +1556,177 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "act-current-claims-20260907-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db",
+      "newHash": "99a1603d75619dd1ec84dd5f81cb19b7ac20084889e2aca24f7ec2af1c401241",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 0ad96349ed2369e950e62e991d1432ce1d0d56bc33fd49fa09c9bbb3dd51a41e. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-VIZ-013",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-current-claims-20260907-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/latency-comparison.tsx:aria-label:2",
+      "oldHash": "b1e892324a37ef7e5ffa9e557dad37f05b37d87f295ad6e242edcb955084da34",
+      "newHash": "cfa149922acd4d7664d2f5c377a09df2d772ec90627f7431509be86bd06b52b8",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: b1e892324a37ef7e5ffa9e557dad37f05b37d87f295ad6e242edcb955084da34. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-VIZ-013",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-current-claims-20260907-3",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "26ad6f467f5e22f419c3a67883ccdfa5669c26aef1f543143adecac1b756456f",
+      "newHash": "9ae513b028d8a1f2c7dad8a6e7d85eb6b5aa3ae11bbb789ba29302c6e3edc659",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 2cb24b1fb0a24fecfcca3ad70657d3369f6f08e903ba31051212dd7fbc9eb2e6. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-VIZ-013",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-current-claims-20260907-4",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/latency-comparison.tsx",
+      "oldHash": "e1e6d8e822f56d8a9c7b10d3daba5998307f4a61e9a7dc21c7d7a2cd565e7ac1",
+      "newHash": "c14f9227490227d6a1b046aa02146098e9afb9e8637d6e6de86a451a625bdd0b",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 96285ad810b9dc2b9114dc81d1eaf1bdf30c8c02f7b06e0e4ee134527540a399. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-VIZ-013",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-current-claims-20260907-5",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/latency-comparison.tsx:4",
+      "oldHash": "df85afdaac6835cc015da711caba6f7a36e8a407821818d18d6ca4b064400617",
+      "newHash": "b5c53645b3e584023fe4a2d561bdc92e1697acc5e0b2b24b82986f8f4236a415",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: df85afdaac6835cc015da711caba6f7a36e8a407821818d18d6ca4b064400617. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-VIZ-013",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-current-claims-20260907-6",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/latency-comparison.tsx:5",
+      "oldHash": "b5c53645b3e584023fe4a2d561bdc92e1697acc5e0b2b24b82986f8f4236a415",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: b5c53645b3e584023fe4a2d561bdc92e1697acc5e0b2b24b82986f8f4236a415. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-VIZ-013",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-current-claims-20260907-7",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9ccd4c34ab44d2d927394888ee44ef170ef1fa2d42a37cd4c4da9d2e1aecc571",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 3ec80be198832290602b14ecb3ee7375dbd096af9e8f2f536cc1d0f60fadab33. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-VIZ-013",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-current-claims-20260907-8",
+      "manifest": "article-metadata",
+      "memberId": "citation:pi-real-time-chunking-blog-2025",
+      "oldHash": "d41a492a66db6cef35424e6d2ec0003983770bdd85754adbc0122cf887fe4d6a",
+      "newHash": "0406f911148c1aca1d31ef3151fcf35181586836bfba9e25c7859fd405fcc5f0",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: d41a492a66db6cef35424e6d2ec0003983770bdd85754adbc0122cf887fe4d6a. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-VIZ-013",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-current-claims-20260907-prose-range-composition",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db",
+      "newHash": "0e5363905273dd0821c751fd5b7431567f8b9078e764b5d7c327039bd28acf98",
+      "reason": "ACT-CURRENT-15 composition-only follow-up: replace the forbidden prose en dash in 10–20 ms with 10 to 20 ms. Same RTC source and numeric interval; no new fact, citation, source or style. Immediate-before member hash: 99a1603d75619dd1ec84dd5f81cb19b7ac20084889e2aca24f7ec2af1c401241. ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 0ad96349ed2369e950e62e991d1432ce1d0d56bc33fd49fa09c9bbb3dd51a41e. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-VIZ-013",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

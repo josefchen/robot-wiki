@@ -1190,8 +1190,8 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'pi-real-time-chunking-blog-2025',
-    title: 'Real-Time Chunking',
-    authors: ['Physical Intelligence'],
+    title: 'Real-Time Action Chunking with Large Models',
+    authors: ['Kevin Black', 'Manuel Y. Galliker', 'Sergey Levine'],
     year: 2025,
     url: 'https://www.pi.website/research/real_time_chunking',
     type: 'blog',

@@ -75,7 +75,7 @@ test('illustrative SVG geometry follows independently calculated raw weights', (
   expect(bars.map(b => Number(b[3]))).toEqual([0.95, 0.65, 0.45]);
 });
 
-test('ACT preserves original row histories and fails closed on seven-source P1', async () => {
+test('ACT preserves original row histories and requires all seven P1 identities', async () => {
   const { parseLedger, originalClaimDigest } = await import('@/lib/audit-ledger');
   const { CITATIONS } = await import('@/data/citations');
   const { default: matter } = await import('gray-matter');
@@ -86,19 +86,34 @@ test('ACT preserves original row histories and fails closed on seven-source P1',
     compoundPlans: plans, articleCitations: { 'action-chunking': matter(source).data.citations },
   }).find(s => s.slug === 'action-chunking')!;
   expect(act.claimRows).toBe(32);
-  expect(act.claimRecords.filter(r => !r.evidenceFailures.length)).toHaveLength(18);
+  expect(act.claimRecords.filter(r => !r.evidenceFailures.length)).toHaveLength(23);
   expect(act.claimRecords[13].citationId).toBe('act-reference-2023');
   expect(act.claimRecords[13].verdict).toBe('corrected');
-  expect(act.claimRecords[31].verdict).toBe('unresolved');
-  expect(act.claimRecords[31].evidenceFailures.length).toBeGreaterThan(0);
+  expect(act.claimRecords[31].verdict).toBe('corrected');
+  expect(act.claimRecords[31].evidenceFailures).toEqual([]);
   const history = JSON.parse(/<!-- act-current-claim-history-20260907\n([\s\S]*?)\n-->/.exec(ledger)![1]);
+  const closeout = JSON.parse(/## ACT current-claim correction history[\s\S]*?```json\n([\s\S]*?)\n```/.exec(ledger)![1]);
   expect(history).toHaveLength(2);
   for (const h of history) {
     expect(originalClaimDigest(h.original)).toBe(h.originalCellsDigest);
-    expect(originalClaimDigest(act.claimRecords[h.rowOrdinal - 1])).toBe(h.currentCellsDigest);
+    if (h.rowOrdinal === 32) {
+      expect(closeout.find((r: { rowOrdinal: number }) => r.rowOrdinal === 32).originalCellsDigest).toBe(h.currentCellsDigest);
+    } else {
+      expect(originalClaimDigest(act.claimRecords[h.rowOrdinal - 1])).toBe(h.currentCellsDigest);
+    }
   }
   const p1 = plans.find((p: { id: string }) => p.id === 'action-chunking-frontmatter-p1');
   expect(p1.parts.flatMap((p: { requiredCitationIds: string[] }) => p.requiredCitationIds)).toEqual(matter(source).data.citations);
-  expect(p1.planReview).toBeNull();
-  expect(p1.evidence).toEqual([]);
+  expect(p1.planReview).not.toBeNull();
+  expect(p1.adjudications).toHaveLength(7);
+  expect(closeout.find((r: { rowOrdinal: number }) => r.rowOrdinal === 32).originalPlan.evidence).toEqual([]);
+  for (const part of p1.parts) {
+    const mutated = structuredClone(plans);
+    const target = mutated.find((p: { id: string }) => p.id === p1.id);
+    target.evidence = target.evidence.filter((e: { partId: string }) => e.partId !== part.id);
+    const broken = parseLedger('audit/manipulation.md', ledger, new Set(CITATIONS.map(c => c.id)), {
+      compoundPlans: mutated, articleCitations: { 'action-chunking': matter(source).data.citations },
+    }).find(s => s.slug === 'action-chunking')!;
+    expect(broken.claimRecords[31].evidenceFailures.length).toBeGreaterThan(0);
+  }
 });

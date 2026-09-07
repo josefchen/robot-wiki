@@ -49,9 +49,17 @@ describe('citation registry', () => {
   });
 
   it('citationLabel keeps organization names whole', () => {
-    const org = getCitation('pi-real-time-chunking-blog-2025');
-    expect(org).toBeDefined();
-    expect(citationLabel(org!)).toBe('Physical Intelligence 2025');
+    const org: Citation = {
+      id: 'test-organization',
+      title: 'Organization-authored fixture',
+      authors: ['Physical Intelligence'],
+      year: 2025,
+      url: 'https://example.com/',
+      type: 'blog',
+    };
+    expect(citationLabel(org)).toBe('Physical Intelligence 2025');
+    // The real RTC blog has a named byline, not organization authorship.
+    expect(citationLabel(getCitation('pi-real-time-chunking-blog-2025')!)).toBe('Black 2025');
   });
 
   it('citationLabel keeps multi-word surnames via override, without breaking lookalikes', () => {

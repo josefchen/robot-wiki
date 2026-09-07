@@ -272,7 +272,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | oxe-quality-critique-2026 | https://mbreuss.github.io/blog_post_iclr_26_vla.html | ok | match | none (verified as cited) |  |
 | pistar06-blog-2025 | https://www.pi.website/blog/pistar06 | ok (retained primary identity) | corrected metadata | BC-P1-20260907: all 55 blog authors checked; source spells Gashon Hussein, distinct paper unchanged | Original retrieval and exact bytes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections/source-proof.json and p1-proof.json; no fresh fetch. |
 | pi-human-to-robot-2025 | https://www.pi.website/research/human_to_robot | ok | match | none (verified as cited) |  |
-| pi-real-time-chunking-blog-2025 | https://www.pi.website/research/real_time_chunking | ok | match | none (verified as cited) |  |
+| pi-real-time-chunking-blog-2025 | https://www.pi.website/research/real_time_chunking | ok | match | Corrected title to Real-Time Action Chunking with Large Models and authors to Kevin Black, Manuel Y. Galliker, Sergey Levine from the retained primary blog; June 9, 2025. Retrieval result recorded 2026-09-06T20:26:20.093Z; not a new probe. Exact source proof in ACT current-claim closeout. |  |
 | gemini-robotics-2025 | https://arxiv.org/abs/2503.20020 | ok | match | none (verified as cited) |  |
 | gemini-robotics-15-2025 | https://arxiv.org/abs/2510.03342 | ok | match | none (verified as cited) |  |
 | gemini-robotics-2-2026 | https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/ | ok | match | none (verified as cited) |  |
@@ -709,3 +709,14 @@ Three metadata corrections, no URL or citation-population change. Historical row
 | hg-dagger-2019 | https://arxiv.org/abs/1810.02890 | ok | match | none (verified as cited) |  |
 | pistar06-blog-2025 | https://www.pi.website/blog/pistar06 | ok | match | none (verified as cited) |  |
 ```
+
+
+## ACT blog identity correction — 2026-09-07
+
+The old row below is historical, not a second current check. Its organization byline and abbreviated title were wrong. Current metadata matches the actual retained blog heading/byline/date. The original FetchUrl response reported HTTP 200 at its own retrieval event; no fresh liveness claim is made. No URL or citation ID changed. Source response SHA-256: `92091d9f2e6066dfde2030c7e4487c2b5eff4ca170094ee94930a8b3b00de47d`; literal identity excerpt SHA-256: `a26efba97759aefc092b38522d139e132d64f545518c6fc0b545d03f70d394b4`. Full observed provenance and excerpt: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/action-chunking-current-claims-closeout/source-proof.json`.
+
+```text
+| pi-real-time-chunking-blog-2025 | https://www.pi.website/research/real_time_chunking | ok | match | none (verified as cited) |  |
+```
+
+Original RTC blog registry values were exactly `title: Real-Time Chunking`, `authors: [Physical Intelligence]`, `year: 2025`; corrected title/byline above retain year and URL. The current ACT row binds the actual retained publication heading, all three names and June 9, 2025.
