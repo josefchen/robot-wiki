@@ -391,5 +391,413 @@
         "evidenceDigest": "2e60d57a49d558e20c31f6a6f8a9c6b19284a5855399602db31583d1bb05ee11"
       }
     ]
+  },
+  {
+    "id": "dp-current-6-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "diffusion-policy",
+    "rowOrdinal": 6,
+    "originalCellsDigest": "be1e18f1e4bf883c2849f91911aa78a083468d5104780684c9764370a6a6b1f4",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "original-sampler",
+        "text": "original sampler: Original v1 main text reports 100 training diffusion timesteps, DDIM 10 inference iterations and 0.1-second Nvidia 3080 latency; its appendix says 16.",
+        "requiredCitationIds": [
+          "diffusion-policy-2023-v1"
+        ]
+      },
+      {
+        "id": "extended-sampler",
+        "text": "extended sampler: The extended paper also prints main-text DDIM 10 and appendix 16; these passages do not give a reconciling configuration/revision change.",
+        "requiredCitationIds": [
+          "diffusion-policy-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+      "rationale": "Current whole-claim requirements fixed independently of available excerpts; exact original tuple archived. Owner authorizes implementation, not source certification. Each paired passage was checked against retained fetched text. No independent validation claimed.",
+      "planDigest": "504a610180384b3eabdf077a03689e0ee28c5939ede4a8c3e2f9b35c5e0bbf24"
+    },
+    "evidence": [
+      {
+        "partId": "original-sampler",
+        "citationId": "diffusion-policy-2023-v1",
+        "sourceUrl": "https://arxiv.org/pdf/2303.04137v1",
+        "supportingPassage": "## D. Accelerating Inference for Real-time Control\n\nWe use the diffusion process as the policy for robots; hence,\nit is critical to have a fast inference speed for closed-loop\nreal-time control. The Denoising Diffusion Implicit Models\n(DDIM) approach [40] decouples the number of denoising\niterations in training and inference, thereby allowing the\nalgorithm to use fewer iterations for inference to speed up\nthe process. In our real-world experiments, using DDIM with\n100 training iterations and 10 inference iterations enables 0.1s\ninference latency on an Nvidia 3080 GPU.\n\n[Separate excerpt from this same retained response]\n\nOn simulation benchmarks, we used the iDDPM algorithm\n[29] with the same 100 denoising diffusion iterations for both\ntraining and inference. We used DDIM [40] on realworld\nbenchmarks to reduce the inference denoising iterations to 16\ntherefore reducing inference latency.\n\n[Separate excerpt from this same retained response]\n\n| H-Param | Ctrl | To | Ta | Tp | ImgRes | CropRes | #D-Params | #V-Params | Lr | WDecay | D-Iters Train | D-Iters Eval |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| Lift | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |\n| Can | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |\n| Square | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |\n| Transport | Pos | 2 | 8 | 16 | 4x84x85 | 4x76x76 | 264 | 45 | 1e-4 | 1e-6 | 100 | 100 |\n| ToolHang | Pos | 2 | 8 | 16 | 2x240x240 | 2x216x216 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |\n| Push-T | Pos | 2 | 8 | 16 | 1x96x96 | 1x84x84 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |\n| Block Push | Pos | 3 | 1 | 12 | N/A | N/A | 256 | 0 | 1e-4 | 1e-6 | 100 | 100 |\n| Kitchen | Pos | 2 | 8 | 16 | N/A | N/A | 256 | 0 | 1e-4 | 1e-6 | 100 | 100 |\n| Real Push-T | Pos | 2 | 6 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |\n| Real Pour | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |\n| Real Spread | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |"
+      },
+      {
+        "partId": "extended-sampler",
+        "citationId": "diffusion-policy-2023",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2303.04137",
+        "supportingPassage": "We use the diffusion process as the policy for robots; hence, it is critical to have a fast inference speed for closed-loop real-time control. The Denoising Diffusion Implicit Models (DDIM) approach [Song et al. 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib52 \"\") decouples the number of denoising iterations in training and inference, thereby allowing the algorithm to use fewer iterations for inference to speed up the process. In our real-world experiments, using DDIM with 100 training iterations and 10 inference iterations enables 0.1s inference latency on a Nvidia 3080 GPU.\n\n[Separate excerpt from this same retained response]\n\nOn simulation benchmarks, we used the iDDPM algorithm [Nichol and Dhariwal 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib37 \"\") with the same 100 denoising diffusion iterations for both training and inference. We used DDIM [Song et al. 2021](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib52 \"\") on realworld benchmarks to reduce the inference denoising iterations to 16 therefore reducing inference latency.\n\n[Separate excerpt from this same retained response]\n\n| H-Param | Ctrl | To | Ta | Tp | ImgRes | CropRes | #D-Params | #V-Params | Lr | WDecay | D-Iters Train | D-Iters Eval |\n| Lift | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |\n| Can | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |\n| Square | Pos | 2 | 8 | 16 | 2x84x84 | 2x76x76 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |\n| Transport | Pos | 2 | 8 | 16 | 4x84x85 | 4x76x76 | 264 | 45 | 1e-4 | 1e-6 | 100 | 100 |\n| ToolHang | Pos | 2 | 8 | 16 | 2x240x240 | 2x216x216 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |\n| Push-T | Pos | 2 | 8 | 16 | 1x96x96 | 1x84x84 | 256 | 22 | 1e-4 | 1e-6 | 100 | 100 |\n| Block Push | Pos | 3 | 1 | 12 | N/A | N/A | 256 | 0 | 1e-4 | 1e-6 | 100 | 100 |\n| Kitchen | Pos | 2 | 8 | 16 | N/A | N/A | 256 | 0 | 1e-4 | 1e-6 | 100 | 100 |\n| Real Push-T | Pos | 2 | 6 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |\n| Real Pour | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |\n| Real Spread | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |\n| Real Mug Flip | Pos | 2 | 8 | 16 | 2x320x240 | 2x288x216 | 67 | 22 | 1e-4 | 1e-6 | 100 | 16 |"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "original-sampler",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "Original v1 main text reports 100 training diffusion timesteps, DDIM 10 inference iterations and 0.1-second Nvidia 3080 latency; its appendix says 16. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "304546e9a691d6cd22d791d1d2dbde38a84c52f85814ecaae9cd50a47f2cbae9"
+      },
+      {
+        "partId": "extended-sampler",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "The extended paper also prints main-text DDIM 10 and appendix 16; these passages do not give a reconciling configuration/revision change. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "d26f8e87a17480d37f51ec23d517033e0e911fe59b3f330a3fc209ba8b0c82e9"
+      }
+    ]
+  },
+  {
+    "id": "dp-current-10-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "diffusion-policy",
+    "rowOrdinal": 10,
+    "originalCellsDigest": "f9e7cc5a3cd28f9db18ef34743323ddb1a0d13ce755027338a67ec5104fe0455",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "dp-backbone",
+        "text": "dp backbone: DP recommends starting with its CNN, adopts Diffuser temporal convolutions with modifications, and predicts observation-conditioned actions rather than concatenated state-action trajectories.",
+        "requiredCitationIds": [
+          "diffusion-policy-2023"
+        ]
+      },
+      {
+        "id": "diffuser-backbone",
+        "text": "diffuser backbone: Diffuser uses a one-dimensional temporal U-Net over jointly represented state-action trajectories.",
+        "requiredCitationIds": [
+          "diffuser-2022"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+      "rationale": "Current whole-claim requirements fixed independently of available excerpts; exact original tuple archived. Owner authorizes implementation, not source certification. Each paired passage was checked against retained fetched text. No independent validation claimed.",
+      "planDigest": "1adc355f971a8fd38261603bab6d459f5ec471c5d4c6f957fa4aac9c8cd1882d"
+    },
+    "evidence": [
+      {
+        "partId": "dp-backbone",
+        "citationId": "diffusion-policy-2023",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2303.04137",
+        "supportingPassage": "We adopt the 1D temporal CNN from [Janner et al. 2022b](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib24 \"\") with a few modifications:\nFirst, we only model the conditional distribution p⁡(𝐀t\\|𝐎t)p(\\\\mathbf{A}\\_{t}\\|\\\\mathbf{O}\\_{t}) by conditioning the action generation process on observation features 𝐎t\\\\mathbf{O}\\_{t} with Feature-wise Linear Modulation (FiLM) [Perez et al. 2018](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib39 \"\") as well as denoising iteration kk, shown in Fig [2](https://ar5iv.labs.arxiv.org/html/2303.04137#S1.F2 \"Figure 2 ‣ 1 Introduction ‣ Diffusion Policy: Visuomotor Policy Learning via Action Diffusion\") (b).\nSecond, we only predict the action trajectory instead of the concatenated observation action trajectory.\nThird, we removed inpainting-based goal state conditioning due to incompatibility with our framework utilizing a receding prediction horizon. However, goal conditioning is still possible with the same FiLM conditioning method used for observations.\n\n[Separate excerpt from this same retained response]\n\nIn general, we recommend starting with the CNN-based diffusion policy implementation as the first attempt at a new task. If performance is low due to task complexity or high-rate action changes, then the Time-series Diffusion Transformer formulation can be used to potentially improve performance at the cost of additional tuning.\n\n[Separate excerpt from this same retained response]\n\nTo reduce the over-smoothing effect in CNN models [Tancik et al. 2020](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib57 \"\"), we introduce a novel transformer-based DDPM which adopts the transformer architecture from minGPT [Shafiullah et al. 2022](https://ar5iv.labs.arxiv.org/html/2303.04137#bib.bib48 \"\") for action prediction.\nActions with noise AtkA\\_{t}^{k} are passed in as input tokens for the transformer decoder blocks, with the sinusoidal embedding for diffusion iteration kk prepended as the first token.\nThe observation 𝐎t\\\\mathbf{O}\\_{t} is transformed into observation embedding sequence by a shared MLP, which is then passed into the transformer decoder stack as input features.\nThe “gradient” ϵθ​(𝐎𝐭,𝐀𝐭k,k)\\\\epsilon\\_{\\\\theta}(\\\\mathbf{O\\_{t}},\\\\mathbf{A\\_{t}}^{k},k) is predicted by each corresponding output token of the decoder stack."
+      },
+      {
+        "partId": "diffuser-backbone",
+        "citationId": "diffuser-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2205.09991",
+        "supportingPassage": "and (3) the trajectory representation should allow for\nequivariance along one dimension (the planning horizon)\nbut not the other (the state and action features). We\nsatisfy these criteria with a model consisting of repeated\n(temporal) convolutional residual blocks. The overall\narchitecture resembles the types of U-Nets that have\nfound success in image-based diffusion models, but with\ntwo-dimensional spatial convolutions replaced by onedimensional temporal convolutions (FigureA1). Because\nthe model is fully convolutional, the horizon of the\npredictions is determined not by the model architecture,\nbut by the input dimensionality; it can change dynamically\nduring planning if desired.\n\n[Separate excerpt from this same retained response]\n\nTrajectory representation. Diffuser is a model of\ntrajectories designed for planning, meaning that the\neffectiveness of the controller derived from the model is\njust as important as the quality of the state predictions.\nAs a result, states and actions in a trajectory are predicted\njointly; for the purposes of prediction the actions are simply\nadditional dimensions of the state. Specifically, we represent\ninputs (and outputs) of Diffuser as a two-dimensional array:\n\n[Separate excerpt from this same retained response]\n\n1. The architecture of Diffuser (FigureA1) consists of a U-Net structure with 6 repeated residual blocks. Each block consisted of two temporal convolutions, each followed by group norm (Wu & He,2018), and a final Mish nonlinearity (Misra,2019). Timestep embeddings are produced by a single fully-connected layer and added to the activations of the first temporal convolution within each block."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "dp-backbone",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "DP recommends starting with its CNN, adopts Diffuser temporal convolutions with modifications, and predicts observation-conditioned actions rather than concatenated state-action trajectories. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "14d44e1a9644eb52c40528ed4efc03565e9436a5875e55a94898725dda28ed1d"
+      },
+      {
+        "partId": "diffuser-backbone",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "Diffuser uses a one-dimensional temporal U-Net over jointly represented state-action trajectories. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "74e26854cdc7e5367335f8f9dda0d22897fa3cbee5dbeac127399cb8f4d71b61"
+      }
+    ]
+  },
+  {
+    "id": "dp-current-24-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "diffusion-policy",
+    "rowOrdinal": 24,
+    "originalCellsDigest": "d9e4111560ec79d146b7f80a1a36219676f2c3b0d4327c35ad32753cc567361f",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "original-dp",
+        "text": "original dp: The original 2023 DP paper uses observation conditioning, single-/multi-task benchmarks and separate UR5/Franka setups; its reference encoder is unpretrained, with ImageNet/R3M pretrained experiments also reported.",
+        "requiredCitationIds": [
+          "diffusion-policy-2023-v1"
+        ]
+      },
+      {
+        "id": "octo-generalist",
+        "text": "octo generalist: Explicit Octo v2 combines language/goal-image conditioning, a DDPM action head, and multi-task/multi-embodiment demonstration pretraining.",
+        "requiredCitationIds": [
+          "octo-2024"
+        ]
+      },
+      {
+        "id": "pi0-generalist",
+        "text": "pi0 generalist: pi0 combines a pretrained VLM, flow-matching action expert and cross-embodiment training; flow matching is described as a diffusion variant, not an exactly identical architecture.",
+        "requiredCitationIds": [
+          "pi0-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+      "rationale": "Current whole-claim requirements fixed independently of available excerpts; exact original tuple archived. Owner authorizes implementation, not source certification. Each paired passage was checked against retained fetched text. No independent validation claimed.",
+      "planDigest": "ededfc67cd0f968d2d401a36ea95a62e4502afb896f6d7268da6c42a4d14ccbe"
+    },
+    "evidence": [
+      {
+        "partId": "original-dp",
+        "citationId": "diffusion-policy-2023-v1",
+        "sourceUrl": "https://arxiv.org/pdf/2303.04137v1",
+        "supportingPassage": "## C. Diffusion for Visuomotor Policy Learning\n\nWhile DDPMs are typically used for image generation (**x** is\nan image), we use a DDPM to learn robot visuomotor policies.\nThis requires two major modifications in the formulation: 1.\nchanging the output **x** to represent robot actions. 2. making\nthe denoising processes *conditioned* on input observation **O**<sub>t</sub>.\nThe following paragraphs discuss each of the modifications,\nand Fig.3shows an overview.\n\n[Separate excerpt from this same retained response]\n\nThe visual encoder maps the raw image sequence into\na latent embedding *O*<sub>t</sub>and is trained end-to-end with the\ndiffusion policy. Different camera views use separate encoders,\nand images in each timestep are encoded independently and\nthen concatenated to form *O*<sub>t</sub>. We used a standard ResNet-\n18 (without pretraining) as the encoder with the following\nmodifications: 1) Replace the global average pooling with\na spatial softmax pooling to maintain spatial information\n[25]. 2) Replace BatchNorm with GroupNorm [49] for stable\ntraining. This is important when the normalization layer is\nused in conjunction with Exponential Moving Average [15]\n(commonly used in DDPMs).\n\n[Separate excerpt from this same retained response]\n\nincludes both simulated and real environments, single and\nmultiple task benchmarks, fully actuated and under-actuated\nsystems, and rigid and fluid objects. We found Diffusion\nPolicy to consistently outperform the prior state-of-the-art on\nall of the tested benchmarks, with an average success-rate\nimprovement of 46.9%. In the following sections, we provide\nan overview of each task, our evaluation methodology on that\ntask, and our key takeaways.\n\n[Separate excerpt from this same retained response]\n\n*4) Franka Kitchen:* is a popular environment for evaluating\nthe ability of IL and Offline-RL methods to learn multiple\nlong-horizon tasks. Proposed in Relay Policy Learning [14],\nthe Franka Kitchen environment contains 7 objects for interaction and comes with a human demonstration dataset of 566\ndemonstrations, each completing 4 tasks in arbitrary order. The\ngoal is to execute as many demonstrated tasks as possible,\nregardless of order, showcasing both short-horizon and longhorizon multimodality.\n\n[Separate excerpt from this same retained response]\n\nmetric from the human demonstration dataset. Our UR5-based\nexperiment setup is shown in FigV. Diffusion Policy predicts\nrobot commands at 10 Hz and these commands then linearly\ninterpolated to 125 Hz for robot execution.\n[Image: Image1]\n\n**Result Analysis.** Diffusion Policy performed close to human level with 95% success rate and 0.8 **v.s.** 0.84 average\nIoU, compared with the 0% and 20% success rate of bestperforming IBC and LSTM-GMM variants. Fig8qualitatively\n\n[Separate excerpt from this same retained response]\n\n**End-to-end v.s. pre-trained vision encoders** We tested\nDiffusion Policy with pre-trained vision encoders (ImageNet\n[8] and R3M[27]), as seen in Tab.V. Diffusion Policy with\nR3M achieves an 80% success rate but predicts jittery actions\nand is more likely to get stuck compared to the end-to-end\ntrained version. Diffusion Policy with ImageNet showed less\npromising results with abrupt actions and poor performance.\nWe found that end-to-end training is still the most effective\nway to incorporate visual observation into Diffusion Policy,\nand our best-performing models were all end-to-end trained.\n\n[Separate excerpt from this same retained response]\n\n## I. Franka robot station\n\nExperiments for **Sauce Pouring and Spreading** tasks are\nperformed on the Franka robot station."
+      },
+      {
+        "partId": "octo-generalist",
+        "citationId": "octo-2024",
+        "sourceUrl": "https://arxiv.org/html/2405.12213v2",
+        "supportingPassage": "It also supports natural language instructions, goal images, observation histories, and multi-modal, chunked action prediction via diffusion decoding \\[ [17](https://arxiv.org/html/2405.12213v2#bib.bib17 \"\")\\]. Furthermore, we designed Octo specifically to enable efficient finetuning to new robot setups, including robots with different action spaces and different combinations of cameras and proprioceptive information.\n\n[Separate excerpt from this same retained response]\n\nWe train Octo on a mixture of 25 datasets from the Open X-Embodiment Dataset \\[ [67](https://arxiv.org/html/2405.12213v2#bib.bib67 \"\")\\], a diverse collection of robot learning datasets. Our training mixture includes demonstration data of a variety of tasks from several robot embodiments and scenes. These datasets are heterogeneous not just in terms of the robot type, but also in the sensors (e.g., including or not including wrist cameras) and labels (e.g., including or not including language instructions).\n\n[Separate excerpt from this same retained response]\n\nWe use a conditional diffusion decoding head to predict continuous, multi-modal action distributions \\[ [34](https://arxiv.org/html/2405.12213v2#bib.bib34 \"\"), [17](https://arxiv.org/html/2405.12213v2#bib.bib17 \"\")\\]. Importantly, only one forward pass of the transformer backbone is performed per action prediction, after which the multi-step denoising process is carried out entirely within the small diffusion head.\n\n[Separate excerpt from this same retained response]\n\nWe train the diffusion head using the standard DDPM objective first proposed in \\[ [34](https://arxiv.org/html/2405.12213v2#bib.bib34 \"\")\\], where we add Gaussian noise to the dataset actions and train the denoising network ϵθ​(xk,e,k)\\\\epsilon\\_{\\\\theta}(x^{k},e,k) to reconstruct the original action."
+      },
+      {
+        "partId": "pi0-generalist",
+        "citationId": "pi0-2024",
+        "sourceUrl": "https://arxiv.org/pdf/2410.24164",
+        "supportingPassage": "framework, which we callπ0, that illustrates how each of\nthese three bottlenecks could be tackled. We illustrate our\nmodel and system in Figure1. To incorporate diverse data\nsources, we begin by utilizing a pre-trained vision-language\nmodel (VLM) to import Internet-scale experience. By basing\nour model on a VLM, we inherit the general knowledge,\nsemantic reasoning, and problem-solving abilities of languageand vision-language models. We then further train our model\nto incorporate robot actions, turning it into a vision-language-\n\n\\pi_{0} action (VLA) model [7]. In order to make it feasible to utilize\na variety of diverse robot data sources, we employcrossembodiment training[10], where data from many robot types\nis combined into the same model. These different robot types\nhave different configuration spaces and action representations,\nincluding single and dual-arm systems, as well as mobile\nmanipulators. Additionally, in order to make it possible to\nperform highly dexterous and intricate physical tasks, we use\nan action chunking architecture [57] with flow matching (a\nvariant of diffusion) to represent complex continuous action\ndistributions [28,32]. This enables our model to control robots\nat frequencies of up to 50 Hz for dexterous tasks such as\nlaundry folding (see Figure1). To combine flow matching\nwith VLMs, we use a novelaction expertthat augments the\n\n[Separate excerpt from this same retained response]\n\nFormally, we want to model the data distributionp(At|ot),\nwhereAt= [at,at+1,...,at+H−1]corresponds to anaction\nchunkof future actions (we useH= 50for our tasks), andot\nis an observation. The observation consists of multiple RGB\nimages, a language command, and the robot’s proprioceptive\nn it th\nstate, such thatot= [I1t,...,It,ℓt,qt], whereI isi image\n(with 2 or 3 images per robot),ℓtis a sequence of language\nit\ntokens, andqtis a vector of joint angles. The imagesI\nand stateqtare encoded via corresponding encoders and then\nprojected via a linear projection layer into the same embedding\nspace as the language tokens."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "original-dp",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "The original 2023 DP paper uses observation conditioning, single-/multi-task benchmarks and separate UR5/Franka setups; its reference encoder is unpretrained, with ImageNet/R3M pretrained experiments also reported. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "e3e3ae21d0d18496a455483e945b22f24dc7af1ad8d81d048292c3d25a664f5d"
+      },
+      {
+        "partId": "octo-generalist",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "Explicit Octo v2 combines language/goal-image conditioning, a DDPM action head, and multi-task/multi-embodiment demonstration pretraining. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "cd047153584499ac4bd8202d467dc619502867681cafc674bdca63d9754d6cec"
+      },
+      {
+        "partId": "pi0-generalist",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "pi0 combines a pretrained VLM, flow-matching action expert and cross-embodiment training; flow matching is described as a diffusion variant, not an exactly identical architecture. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "f287604e48da3029cf0838e1225c8a3c0a40485557aae6effbff8ccd13bf51da"
+      }
+    ]
+  },
+  {
+    "id": "dp-current-25-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "diffusion-policy",
+    "rowOrdinal": 25,
+    "originalCellsDigest": "371c73629f5b3caae3384cf4a8fcfa122de3d65084e75aff08e683b8daef8fbc",
+    "kind": "frontmatter-p1",
+    "parts": [
+      {
+        "id": "diffusion-policy-2023",
+        "text": "diffusion policy 2023: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for diffusion-policy-2023.",
+        "requiredCitationIds": [
+          "diffusion-policy-2023"
+        ]
+      },
+      {
+        "id": "diffusion-policy-2023-v1",
+        "text": "diffusion policy 2023 v1: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for diffusion-policy-2023-v1.",
+        "requiredCitationIds": [
+          "diffusion-policy-2023-v1"
+        ]
+      },
+      {
+        "id": "diffuser-2022",
+        "text": "diffuser 2022: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for diffuser-2022.",
+        "requiredCitationIds": [
+          "diffuser-2022"
+        ]
+      },
+      {
+        "id": "act-aloha-2023",
+        "text": "act aloha 2023: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for act-aloha-2023.",
+        "requiredCitationIds": [
+          "act-aloha-2023"
+        ]
+      },
+      {
+        "id": "consistency-policy-2024",
+        "text": "consistency policy 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for consistency-policy-2024.",
+        "requiredCitationIds": [
+          "consistency-policy-2024"
+        ]
+      },
+      {
+        "id": "one-step-diffusion-2024",
+        "text": "one step diffusion 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for one-step-diffusion-2024.",
+        "requiredCitationIds": [
+          "one-step-diffusion-2024"
+        ]
+      },
+      {
+        "id": "octo-2024",
+        "text": "octo 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for octo-2024.",
+        "requiredCitationIds": [
+          "octo-2024"
+        ]
+      },
+      {
+        "id": "pi0-2024",
+        "text": "pi0 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for pi0-2024.",
+        "requiredCitationIds": [
+          "pi0-2024"
+        ]
+      },
+      {
+        "id": "real-time-chunking-2025",
+        "text": "real time chunking 2025: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for real-time-chunking-2025.",
+        "requiredCitationIds": [
+          "real-time-chunking-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+      "rationale": "Current whole-claim requirements fixed independently of available excerpts; exact original tuple archived. Owner authorizes implementation, not source certification. Each paired passage was checked against retained fetched text. No independent validation claimed.",
+      "planDigest": "fc307f2511e747d648e565a0599fc0812f863bae6e3024eeb6dc58cee2f285b6"
+    },
+    "evidence": [
+      {
+        "partId": "diffusion-policy-2023",
+        "citationId": "diffusion-policy-2023",
+        "sourceUrl": "https://arxiv.org/abs/2303.04137",
+        "supportingPassage": "\\[Submitted on 7 Mar 2023 ( [v1](https://arxiv.org/abs/2303.04137v1)), last revised 14 Mar 2024 (this version, v5)\\]\n\n# Title:Diffusion Policy: Visuomotor Policy Learning via Action Diffusion\n\n[Separate excerpt from this same retained response]\n\nAuthors: [Cheng Chi](https://arxiv.org/search/cs?searchtype=author&query=Chi,+C), [Zhenjia Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+Z), [Siyuan Feng](https://arxiv.org/search/cs?searchtype=author&query=Feng,+S), [Eric Cousineau](https://arxiv.org/search/cs?searchtype=author&query=Cousineau,+E), [Yilun Du](https://arxiv.org/search/cs?searchtype=author&query=Du,+Y), [Benjamin Burchfiel](https://arxiv.org/search/cs?searchtype=author&query=Burchfiel,+B), [Russ Tedrake](https://arxiv.org/search/cs?searchtype=author&query=Tedrake,+R), [Shuran Song](https://arxiv.org/search/cs?searchtype=author&query=Song,+S)\n\n[Separate excerpt from this same retained response]\n\n| Comments: | An extended journal version of the original RSS2023 paper |"
+      },
+      {
+        "partId": "diffusion-policy-2023-v1",
+        "citationId": "diffusion-policy-2023-v1",
+        "sourceUrl": "https://arxiv.org/pdf/2303.04137v1",
+        "supportingPassage": "# Diffusion Policy:\n\n# Visuomotor Policy Learning via Action Diffusion\n\nCheng Chi¹, Siyuan Feng², Yilun Du³, Zhenjia Xu¹, Eric Cousineau², Benjamin Burchfiel², Shuran Song¹\n<sup>1</sup> 2 3\nColumbia University Toyota Research Institute MIT\nhttps://diffusion-policy.cs.columbia.edu\n\n[Separate excerpt from this same retained response]\n\narXiv:2303.04137v1  [cs.RO]  7 Mar 2023**the powerful generative modeling capabilities of diffusion models.**"
+      },
+      {
+        "partId": "diffusion-policy-2023-v1",
+        "citationId": "diffusion-policy-2023-v1",
+        "sourceUrl": "https://arxiv.org/abs/2303.04137v1",
+        "supportingPassage": "# Title:Diffusion Policy: Visuomotor Policy Learning via Action Diffusion\n\n[Separate excerpt from this same retained response]\n\nAuthors: [Cheng Chi](https://arxiv.org/search/cs?searchtype=author&query=Chi,+C), [Siyuan Feng](https://arxiv.org/search/cs?searchtype=author&query=Feng,+S), [Yilun Du](https://arxiv.org/search/cs?searchtype=author&query=Du,+Y), [Zhenjia Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+Z), [Eric Cousineau](https://arxiv.org/search/cs?searchtype=author&query=Cousineau,+E), [Benjamin Burchfiel](https://arxiv.org/search/cs?searchtype=author&query=Burchfiel,+B), [Shuran Song](https://arxiv.org/search/cs?searchtype=author&query=Song,+S)\n\n[Separate excerpt from this same retained response]\n\n**arXiv:2303.04137v1** (cs)\n\n\n\\[Submitted on 7 Mar 2023 (this version), _latest version 14 Mar 2024_ ( [v5](https://arxiv.org/abs/2303.04137v5))\\]"
+      },
+      {
+        "partId": "diffuser-2022",
+        "citationId": "diffuser-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2205.09991",
+        "supportingPassage": "arXiv:2205.09991v2  [cs.LG]  21 Dec 2022\n\nPlanning with Diffusion for Flexible Behavior Synthesis\n\n* 1 * 2\nMichael Janner Yilun Du Joshua B. Tenenbaum2 Sergey Levine1\n\n[Separate excerpt from this same retained response]\n\nProceedings of the 39 International Conference on Machine\nLearning, Baltimore, Maryland, USA, PMLR 162, 2022.\nCopyright 2022 by the author(s)."
+      },
+      {
+        "partId": "act-aloha-2023",
+        "citationId": "act-aloha-2023",
+        "sourceUrl": "https://arxiv.org/abs/2304.13705",
+        "supportingPassage": "\\[Submitted on 23 Apr 2023\\]\n\n# Title:Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware\n\nAuthors: [Tony Z. Zhao](https://arxiv.org/search/cs?searchtype=author&query=Zhao,+T+Z), [Vikash Kumar](https://arxiv.org/search/cs?searchtype=author&query=Kumar,+V), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C)\n\nView a PDF of the paper titled Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware, by Tony Z. Zhao and 3 other authors\n\n[View PDF](https://arxiv.org/pdf/2304.13705) [HTML (experimental)](https://arxiv.org/html/2304.13705v1)\n\n> Abstract:Fine manipulation tasks, such as threading cable ties or slotting a battery, are notoriously difficult for robots because they require precision, careful coordination of contact forces, and closed-loop visual feedback. Performing these tasks typically requires high-end robots, accurate sensors, or careful calibration, which can be expensive and difficult to set up. Can learning enable low-cost and imprecise hardware to perform these fine manipulation tasks? We present a low-cost system that performs end-to-end imitation learning directly from real demonstrations, collected with a custom teleoperation interface. Imitation learning, however, presents its own challenges, particularly in high-precision domains: errors in the policy can compound over time, and human demonstrations can be non-stationary. To address these challenges, we develop a simple yet novel algorithm, Action Chunking with Transformers (ACT), which learns a generative model over action sequences. ACT allows the robot to learn 6 difficult tasks in the real world, such as opening a translucent condiment cup and slotting a battery with 80-90% success, with only 10 minutes worth of demonstrations. Project website: [this https URL](https://tonyzhaozh.github.io/aloha/)\n\n|     |     |\n| --- | --- |\n| Subjects: | Robotics (cs.RO); Machine Learning (cs.LG) |\n| Cite as: | [arXiv:2304.13705](https://arxiv.org/abs/2304.13705) \\[cs.RO\\] |\n|  | (or [arXiv:2304.13705v1](https://arxiv.org/abs/2304.13705v1) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2304.13705](https://doi.org/10.48550/arXiv.2304.13705)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+      },
+      {
+        "partId": "act-aloha-2023",
+        "citationId": "act-aloha-2023",
+        "sourceUrl": "https://roboticsproceedings.org/rss19/p016.html",
+        "supportingPassage": "### Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware\n\n[Separate excerpt from this same retained response]\n\n@INPROCEEDINGS{Zhao-RSS-23,\n    AUTHOR    = {Tony Z. Zhao AND Vikash Kumar AND Sergey Levine AND Chelsea Finn},\n    TITLE     = {{Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware}},\n    BOOKTITLE = {Proceedings of Robotics: Science and Systems},\n    YEAR      = {2023},\n    ADDRESS   = {Daegu, Republic of Korea},\n    MONTH     = {July},\n    DOI       = {10.15607/RSS.2023.XIX.016}\n}"
+      },
+      {
+        "partId": "consistency-policy-2024",
+        "citationId": "consistency-policy-2024",
+        "sourceUrl": "https://arxiv.org/abs/2405.07503",
+        "supportingPassage": "# Title:Consistency Policy: Accelerated Visuomotor Policies via Consistency Distillation\n\n[Separate excerpt from this same retained response]\n\nAuthors: [Aaditya Prasad](https://arxiv.org/search/cs?searchtype=author&query=Prasad,+A), [Kevin Lin](https://arxiv.org/search/cs?searchtype=author&query=Lin,+K), [Jimmy Wu](https://arxiv.org/search/cs?searchtype=author&query=Wu,+J), [Linqi Zhou](https://arxiv.org/search/cs?searchtype=author&query=Zhou,+L), [Jeannette Bohg](https://arxiv.org/search/cs?searchtype=author&query=Bohg,+J)\n\n[Separate excerpt from this same retained response]\n\n## Submission history\n\nFrom: Aaditya Prasad \\[ [view email](https://arxiv.org/show-email/f941d858/2405.07503)\\]\n\n**[\\[v1\\]](https://arxiv.org/abs/2405.07503v1)**\nMon, 13 May 2024 06:53:42 UTC (5,304 KB)\n\n**\\[v2\\]**\nFri, 28 Jun 2024 21:56:25 UTC (7,988 KB)\n"
+      },
+      {
+        "partId": "one-step-diffusion-2024",
+        "citationId": "one-step-diffusion-2024",
+        "sourceUrl": "https://arxiv.org/abs/2410.21257",
+        "supportingPassage": "# Title:One-Step Diffusion Policy: Fast Visuomotor Policies via Diffusion Distillation\n\n[Separate excerpt from this same retained response]\n\nAuthors: [Zhendong Wang](https://arxiv.org/search/cs?searchtype=author&query=Wang,+Z), [Zhaoshuo Li](https://arxiv.org/search/cs?searchtype=author&query=Li,+Z), [Ajay Mandlekar](https://arxiv.org/search/cs?searchtype=author&query=Mandlekar,+A), [Zhenjia Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+Z), [Jiaojiao Fan](https://arxiv.org/search/cs?searchtype=author&query=Fan,+J), [Yashraj Narang](https://arxiv.org/search/cs?searchtype=author&query=Narang,+Y), [Linxi Fan](https://arxiv.org/search/cs?searchtype=author&query=Fan,+L), [Yuke Zhu](https://arxiv.org/search/cs?searchtype=author&query=Zhu,+Y), [Yogesh Balaji](https://arxiv.org/search/cs?searchtype=author&query=Balaji,+Y), [Mingyuan Zhou](https://arxiv.org/search/cs?searchtype=author&query=Zhou,+M), [Ming-Yu Liu](https://arxiv.org/search/cs?searchtype=author&query=Liu,+M), [Yu Zeng](https://arxiv.org/search/cs?searchtype=author&query=Zeng,+Y)\n\n[Separate excerpt from this same retained response]\n\n## Submission history\n\nFrom: Zhendong Wang \\[ [view email](https://arxiv.org/show-email/be9bdaa0/2410.21257)\\]\n\n**\\[v1\\]**\nMon, 28 Oct 2024 17:54:31 UTC (9,125 KB)\n"
+      },
+      {
+        "partId": "octo-2024",
+        "citationId": "octo-2024",
+        "sourceUrl": "https://arxiv.org/html/2405.12213v2",
+        "supportingPassage": "arXiv:2405.12213v2 \\[cs.RO\\] 26 May 2024\n\n[Separate excerpt from this same retained response]\n\n# Octo: An Open-Source Generalist Robot Policy\n\nOcto Model Team\nDibya Ghosh\nAffiliation: UC Berkeley\nHomer Walke\nAffiliation: UC Berkeley\nKarl Pertsch\nAffiliation: UC Berkeley\nAffiliation: Stanford\nKevin Black\nAffiliation: UC Berkeley\nOier Mees\nAffiliation: UC Berkeley\nSudeep Dasari\nJoey Hejna\nAffiliation: Stanford\nTobias Kreiman Ria Doshi\nAffiliation: UC Berkeley\nCharles Xu\nAffiliation: UC Berkeley\nJianlan Luo\nAffiliation: UC Berkeley\nYou Liang Tan\nAffiliation: UC Berkeley\nLawrence Yunliang Chen\nAffiliation: UC Berkeley\nPannag Sanketi\nAffiliation: Carnegie Mellon University Google Deepmind [https://octo-models.github.io](https://octo-models.github.io/ \"\")Quan Vuong\nAffiliation: Carnegie Mellon University Google Deepmind [https://octo-models.github.io](https://octo-models.github.io/ \"\")Ted Xiao\nAffiliation: Carnegie Mellon University Google Deepmind [https://octo-models.github.io](https://octo-models.github.io/ \"\")Dorsa Sadigh\nAffiliation: Stanford\nChelsea Finn\nAffiliation: Stanford\nSergey Levine\nAffiliation: UC Berkeley"
+      },
+      {
+        "partId": "pi0-2024",
+        "citationId": "pi0-2024",
+        "sourceUrl": "https://arxiv.org/abs/2410.24164",
+        "supportingPassage": "# Title:π0: A Vision-Language-Action Flow Model for General Robot Control\n\n[Separate excerpt from this same retained response]\n\nAuthors: [Kevin Black](https://arxiv.org/search/cs?searchtype=author&query=Black,+K), [Noah Brown](https://arxiv.org/search/cs?searchtype=author&query=Brown,+N), [Danny Driess](https://arxiv.org/search/cs?searchtype=author&query=Driess,+D), [Adnan Esmail](https://arxiv.org/search/cs?searchtype=author&query=Esmail,+A), [Michael Equi](https://arxiv.org/search/cs?searchtype=author&query=Equi,+M), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C), [Niccolo Fusai](https://arxiv.org/search/cs?searchtype=author&query=Fusai,+N), [Lachy Groom](https://arxiv.org/search/cs?searchtype=author&query=Groom,+L), [Karol Hausman](https://arxiv.org/search/cs?searchtype=author&query=Hausman,+K), [Brian Ichter](https://arxiv.org/search/cs?searchtype=author&query=Ichter,+B), [Szymon Jakubczak](https://arxiv.org/search/cs?searchtype=author&query=Jakubczak,+S), [Tim Jones](https://arxiv.org/search/cs?searchtype=author&query=Jones,+T), [Liyiming Ke](https://arxiv.org/search/cs?searchtype=author&query=Ke,+L), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Adrian Li-Bell](https://arxiv.org/search/cs?searchtype=author&query=Li-Bell,+A), [Mohith Mothukuri](https://arxiv.org/search/cs?searchtype=author&query=Mothukuri,+M), [Suraj Nair](https://arxiv.org/search/cs?searchtype=author&query=Nair,+S), [Karl Pertsch](https://arxiv.org/search/cs?searchtype=author&query=Pertsch,+K), [Lucy Xiaoyang Shi](https://arxiv.org/search/cs?searchtype=author&query=Shi,+L+X), [James Tanner](https://arxiv.org/search/cs?searchtype=author&query=Tanner,+J), [Quan Vuong](https://arxiv.org/search/cs?searchtype=author&query=Vuong,+Q), [Anna Walling](https://arxiv.org/search/cs?searchtype=author&query=Walling,+A), [Haohuan Wang](https://arxiv.org/search/cs?searchtype=author&query=Wang,+H), [Ury Zhilinsky](https://arxiv.org/search/cs?searchtype=author&query=Zhilinsky,+U)\n\n[Separate excerpt from this same retained response]\n\n| Comments: | See project website for videos: [this https URL](https://physicalintelligence.company/blog/pi0) Published in RSS 2025 |\n\n[Separate excerpt from this same retained response]\n\n## Submission history\n\nFrom: Sergey Levine \\[ [view email](https://arxiv.org/show-email/6a8355e6/2410.24164)\\]\n\n**[\\[v1\\]](https://arxiv.org/abs/2410.24164v1)**\nThu, 31 Oct 2024 17:22:30 UTC (7,531 KB)\n\n**[\\[v2\\]](https://arxiv.org/abs/2410.24164v2)**\nSat, 2 Nov 2024 04:00:56 UTC (22,073 KB)\n\n**[\\[v3\\]](https://arxiv.org/abs/2410.24164v3)**\nWed, 13 Nov 2024 17:30:10 UTC (22,075 KB)\n\n**\\[v4\\]**\nThu, 8 Jan 2026 17:01:05 UTC (7,128 KB)\n"
+      },
+      {
+        "partId": "real-time-chunking-2025",
+        "citationId": "real-time-chunking-2025",
+        "sourceUrl": "https://arxiv.org/abs/2506.07339",
+        "supportingPassage": "\\[Submitted on 9 Jun 2025 ( [v1](https://arxiv.org/abs/2506.07339v1)), last revised 5 Dec 2025 (this version, v2)\\]\n\n# Title:Real-Time Execution of Action Chunking Flow Policies\n\nAuthors: [Kevin Black](https://arxiv.org/search/cs?searchtype=author&query=Black,+K), [Manuel Y. Galliker](https://arxiv.org/search/cs?searchtype=author&query=Galliker,+M+Y), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S)\n\nView a PDF of the paper titled Real-Time Execution of Action Chunking Flow Policies, by Kevin Black and 2 other authors\n\n[View PDF](https://arxiv.org/pdf/2506.07339) [HTML (experimental)](https://arxiv.org/html/2506.07339v2)\n\n> Abstract:Modern AI systems, especially those interacting with the physical world, increasingly require real-time performance. However, the high latency of state-of-the-art generalist models, including recent vision-language action models (VLAs), poses a significant challenge. While action chunking has enabled temporal consistency in high-frequency control tasks, it does not fully address the latency problem, leading to pauses or out-of-distribution jerky movements at chunk boundaries. This paper presents a novel inference-time algorithm that enables smooth asynchronous execution of action chunking policies. Our method, real-time chunking (RTC), is applicable to any diffusion- or flow-based VLA out of the box with no re-training. It generates the next action chunk while executing the current one, \"freezing\" actions guaranteed to execute and \"inpainting\" the rest. To test RTC, we introduce a new benchmark of 12 highly dynamic tasks in the Kinetix simulator, as well as evaluate 6 challenging real-world bimanual manipulation tasks. Results demonstrate that RTC is fast, performant, and uniquely robust to inference delay, significantly improving task throughput and enabling high success rates in precise tasks – such as lighting a match – even in the presence of significant latency. See [this https URL](https://pi.website/research/real_time_chunking) for videos.\n\n|     |     |\n| --- | --- |\n| Comments: | published in NeurIPS 2025 |\n| Subjects: | Robotics (cs.RO); Artificial Intelligence (cs.AI); Machine Learning (cs.LG) |\n| Cite as: | [arXiv:2506.07339](https://arxiv.org/abs/2506.07339) \\[cs.RO\\] |\n|  | (or [arXiv:2506.07339v2](https://arxiv.org/abs/2506.07339v2) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2506.07339](https://doi.org/10.48550/arXiv.2506.07339)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "diffusion-policy-2023",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "Eight-author landing metadata identifies the extended work; original RSS venue removed rather than transferred from the seven-author edition. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "03ba7c91d9eb6d2b0f05232d2194363a48546f1a7ad03283fa6dc3e799b4210f"
+      },
+      {
+        "partId": "diffusion-policy-2023-v1",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for diffusion-policy-2023-v1. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "324fc463ae6c785dd08414b024126ebdefe23b0d164ef71c3348ce89ed108443"
+      },
+      {
+        "partId": "diffuser-2022",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for diffuser-2022. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "9ed6703aad8570a0436250706f3cf0d778473efe30fe4fa7aa488a394dd88e32"
+      },
+      {
+        "partId": "act-aloha-2023",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "Matching title and four-author order join arXiv identity to the official RSS XIX July 2023 proceedings/DOI; both retained responses are separately paired. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "8c60dd0b43f57234fa2b17591786639ea7b8f0782b3cb60a553f6f7749db9b92"
+      },
+      {
+        "partId": "consistency-policy-2024",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for consistency-policy-2024. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "4536781751c18f1a63e3b0018b54b6513e33992a8f9456e9f2eed9f0d2224771"
+      },
+      {
+        "partId": "one-step-diffusion-2024",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for one-step-diffusion-2024. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "2980ca4d3339c096166c91c21b5fa344290d628fc731d2bf0b252f0ad55775ee"
+      },
+      {
+        "partId": "octo-2024",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "Explicit v2 marker and twenty-entry byline establish the body-specific registry, including Ria Doshi after Tobias Kreiman. Metadata omission is retained as a discrepancy, not silently repaired. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "009285dba6ca06eb88d15a23397904b5fd2c76077beb05f32c91169fc476fddc"
+      },
+      {
+        "partId": "pi0-2024",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "Title/full byline/submission year/arXiv identity are in metadata; RSS 2025 is the metadata publication comment, not an assertion about the v4 first page. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "d803fca2db6a09e16090804aa916b3579fd7bd373a277b785bf802131d116fd5"
+      },
+      {
+        "partId": "real-time-chunking-2025",
+        "outcome": "supported",
+        "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
+        "rationale": "The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for real-time-chunking-2025. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
+        "evidenceDigest": "d98e06ec523daac6eeb66b72672bce6c1fd12d799b957d8c39b6d79cbf8a10eb"
+      }
+    ]
   }
 ]

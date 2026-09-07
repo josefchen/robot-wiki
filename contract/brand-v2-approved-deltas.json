@@ -831,6 +831,150 @@
         "VAL-AUDIT-001"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "current-dp-td3-20260907-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "e306e7bc393b1f46637b4eae6bd7e83b3f9eeff0174e4bbf658b83560a9ecba2",
+      "newHash": "172ade1c80e0a5bfb70490e92aa40c0a1e1a50e3c6e7f87ca7d43c5864e10ba8",
+      "reason": "Composed source-backed current-claim correction: original DP v1 is distinct from extended DP; Diffuser is registered with verified ICML identity; explicit Octo v2 preserves its twenty-entry byline; nine canonical DP citations and corrected generalist/architecture wording; TD3 says reduction, not elimination. Exact before/current member hashes, thirteen original/current tuples and paired response proof are retained in diffusion-current-claims-closeout. Sources: https://arxiv.org/abs/2303.04137v1 ; https://arxiv.org/pdf/2205.09991 ; https://roboticsproceedings.org/rss19/p016.html ; https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://ar5iv.labs.arxiv.org/html/1802.09477 . This exact member incorporates earlier approved endpoint changes where present; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus the bounded current-row/identity/TD3 follow-up. Implementation authority, not personal source verification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "current-dp-td3-20260907-2",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c",
+      "newHash": "6ed9f76a057faf75e2c06ca47d04a3ca04c6afe1d6c71c306d09451dad8a4366",
+      "reason": "Composed source-backed current-claim correction: original DP v1 is distinct from extended DP; Diffuser is registered with verified ICML identity; explicit Octo v2 preserves its twenty-entry byline; nine canonical DP citations and corrected generalist/architecture wording; TD3 says reduction, not elimination. Exact before/current member hashes, thirteen original/current tuples and paired response proof are retained in diffusion-current-claims-closeout. Sources: https://arxiv.org/abs/2303.04137v1 ; https://arxiv.org/pdf/2205.09991 ; https://roboticsproceedings.org/rss19/p016.html ; https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://ar5iv.labs.arxiv.org/html/1802.09477 . This exact member incorporates earlier approved endpoint changes where present; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus the bounded current-row/identity/TD3 follow-up. Implementation authority, not personal source verification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "current-dp-td3-20260907-3",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/diffusion-policy",
+      "oldHash": "dc2922e2923241d221d611448969905f729b82a606de9fb020c085429a3c4fe1",
+      "newHash": "40571d8e74fb6f9147b8788e7a4c66010957797672e89748d11cc073ba67195a",
+      "reason": "Composed source-backed current-claim correction: original DP v1 is distinct from extended DP; Diffuser is registered with verified ICML identity; explicit Octo v2 preserves its twenty-entry byline; nine canonical DP citations and corrected generalist/architecture wording; TD3 says reduction, not elimination. Exact before/current member hashes, thirteen original/current tuples and paired response proof are retained in diffusion-current-claims-closeout. Sources: https://arxiv.org/abs/2303.04137v1 ; https://arxiv.org/pdf/2205.09991 ; https://roboticsproceedings.org/rss19/p016.html ; https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://ar5iv.labs.arxiv.org/html/1802.09477 . This exact member incorporates earlier approved endpoint changes where present; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus the bounded current-row/identity/TD3 follow-up. Implementation authority, not personal source verification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "current-dp-td3-20260907-4",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/diffusion-policy",
+      "oldHash": "7bfb76aa4d0bd672f23c08366bf0f562568ca2110d7e6eba5284008791fab4fb",
+      "newHash": "097c019ec70b9ab39c1a35cf49b5eb255d9b7b487d57811b2064f5294f9232b3",
+      "reason": "Composed source-backed current-claim correction: original DP v1 is distinct from extended DP; Diffuser is registered with verified ICML identity; explicit Octo v2 preserves its twenty-entry byline; nine canonical DP citations and corrected generalist/architecture wording; TD3 says reduction, not elimination. Exact before/current member hashes, thirteen original/current tuples and paired response proof are retained in diffusion-current-claims-closeout. Sources: https://arxiv.org/abs/2303.04137v1 ; https://arxiv.org/pdf/2205.09991 ; https://roboticsproceedings.org/rss19/p016.html ; https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://ar5iv.labs.arxiv.org/html/1802.09477 . This exact member incorporates earlier approved endpoint changes where present; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus the bounded current-row/identity/TD3 follow-up. Implementation authority, not personal source verification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "current-dp-td3-20260907-5",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "04049261ce9dd32c29a001de30b8a74fc76e8c891d25bd18a20116a2b0dfe259",
+      "reason": "Composed source-backed current-claim correction: original DP v1 is distinct from extended DP; Diffuser is registered with verified ICML identity; explicit Octo v2 preserves its twenty-entry byline; nine canonical DP citations and corrected generalist/architecture wording; TD3 says reduction, not elimination. Exact before/current member hashes, thirteen original/current tuples and paired response proof are retained in diffusion-current-claims-closeout. Sources: https://arxiv.org/abs/2303.04137v1 ; https://arxiv.org/pdf/2205.09991 ; https://roboticsproceedings.org/rss19/p016.html ; https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://ar5iv.labs.arxiv.org/html/1802.09477 . This exact member incorporates earlier approved endpoint changes where present; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus the bounded current-row/identity/TD3 follow-up. Implementation authority, not personal source verification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "current-dp-td3-20260907-6",
+      "manifest": "article-metadata",
+      "memberId": "citation:diffusion-policy-2023",
+      "oldHash": "e201d4b512cfb1d6dcb3e451d2a4185860a8ba5278f244cacb4beb77852ee287",
+      "newHash": "fb5398f7e23025c6cfd929e354eae72dfcc88c55cf2ec584e55499e6f0112a02",
+      "reason": "Composed source-backed current-claim correction: original DP v1 is distinct from extended DP; Diffuser is registered with verified ICML identity; explicit Octo v2 preserves its twenty-entry byline; nine canonical DP citations and corrected generalist/architecture wording; TD3 says reduction, not elimination. Exact before/current member hashes, thirteen original/current tuples and paired response proof are retained in diffusion-current-claims-closeout. Sources: https://arxiv.org/abs/2303.04137v1 ; https://arxiv.org/pdf/2205.09991 ; https://roboticsproceedings.org/rss19/p016.html ; https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://ar5iv.labs.arxiv.org/html/1802.09477 . This exact member incorporates earlier approved endpoint changes where present; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus the bounded current-row/identity/TD3 follow-up. Implementation authority, not personal source verification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "current-dp-td3-20260907-7",
+      "manifest": "article-metadata",
+      "memberId": "citation:octo-2024",
+      "oldHash": "985e025fca0b0eb11884d62ef7931ba367f312bb371098bfa1408343c67830e2",
+      "newHash": "e80f1916f2e8f89e3c370f04095e3f77c37055d0fb63b17a9e74fc508e239f34",
+      "reason": "Composed source-backed current-claim correction: original DP v1 is distinct from extended DP; Diffuser is registered with verified ICML identity; explicit Octo v2 preserves its twenty-entry byline; nine canonical DP citations and corrected generalist/architecture wording; TD3 says reduction, not elimination. Exact before/current member hashes, thirteen original/current tuples and paired response proof are retained in diffusion-current-claims-closeout. Sources: https://arxiv.org/abs/2303.04137v1 ; https://arxiv.org/pdf/2205.09991 ; https://roboticsproceedings.org/rss19/p016.html ; https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://ar5iv.labs.arxiv.org/html/1802.09477 . This exact member incorporates earlier approved endpoint changes where present; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus the bounded current-row/identity/TD3 follow-up. Implementation authority, not personal source verification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "current-dp-td3-20260907-8",
+      "manifest": "article-metadata",
+      "memberId": "citation:diffuser-2022",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6390c53af56a0ed2272121ebd9eef58429a704602b2bb4aebf710336519895cd",
+      "reason": "Composed source-backed current-claim correction: original DP v1 is distinct from extended DP; Diffuser is registered with verified ICML identity; explicit Octo v2 preserves its twenty-entry byline; nine canonical DP citations and corrected generalist/architecture wording; TD3 says reduction, not elimination. Exact before/current member hashes, thirteen original/current tuples and paired response proof are retained in diffusion-current-claims-closeout. Sources: https://arxiv.org/abs/2303.04137v1 ; https://arxiv.org/pdf/2205.09991 ; https://roboticsproceedings.org/rss19/p016.html ; https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://ar5iv.labs.arxiv.org/html/1802.09477 . This exact member incorporates earlier approved endpoint changes where present; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus the bounded current-row/identity/TD3 follow-up. Implementation authority, not personal source verification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "current-dp-td3-20260907-9",
+      "manifest": "article-metadata",
+      "memberId": "citation:diffusion-policy-2023-v1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "965017c59d32c9a37e26e0fa945fb4bd0382cc888cc6e18053078089d6f14d79",
+      "reason": "Composed source-backed current-claim correction: original DP v1 is distinct from extended DP; Diffuser is registered with verified ICML identity; explicit Octo v2 preserves its twenty-entry byline; nine canonical DP citations and corrected generalist/architecture wording; TD3 says reduction, not elimination. Exact before/current member hashes, thirteen original/current tuples and paired response proof are retained in diffusion-current-claims-closeout. Sources: https://arxiv.org/abs/2303.04137v1 ; https://arxiv.org/pdf/2205.09991 ; https://roboticsproceedings.org/rss19/p016.html ; https://arxiv.org/html/2405.12213v2 ; https://arxiv.org/pdf/2410.24164 ; https://ar5iv.labs.arxiv.org/html/1802.09477 . This exact member incorporates earlier approved endpoint changes where present; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus the bounded current-row/identity/TD3 follow-up. Implementation authority, not personal source verification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

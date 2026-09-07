@@ -8,9 +8,12 @@ status: published
 lastReviewed: "2026-08-17"
 citations:
   - diffusion-policy-2023
+  - diffusion-policy-2023-v1
+  - diffuser-2022
   - act-aloha-2023
   - consistency-policy-2024
   - one-step-diffusion-2024
+  - octo-2024
   - pi0-2024
   - real-time-chunking-2025
 seeAlso:
@@ -61,7 +64,7 @@ $T_a$ is the same dial as ACT's chunk size, named differently: large $T_a$ gives
 
 ## CNN and transformer variants
 
-The paper ships two denoiser backbones <Cite id="diffusion-policy-2023" />:
+The paper ships two denoiser backbones <Cite id="diffusion-policy-2023" />. Its CNN adopts a temporal backbone from Diffuser with modifications: it denoises action sequences conditioned on observations instead of a concatenated state-action trajectory <Cite id="diffusion-policy-2023" />. Diffuser's backbone is a one-dimensional temporal U-Net over state-action trajectories <Cite id="diffuser-2022" />:
 
 <Card title="Backbone variants" className="my-6">
   <KeyValue
@@ -105,4 +108,4 @@ and train the network to predict the target vector field $u$, with the timestep 
 
 ## Limitations
 
-The 2023 design is single-task and single-embodiment, with no language conditioning and no web-scale pretraining; conditioning a diffusion head on language and scaling it up is exactly what Octo, pi0, and their successors later did <Cite id="pi0-2024" />. Reactivity is bounded by $T_a$: whatever happens inside a committed segment, the policy will not respond until the next inference. And the sampling cost, though tamed by DDIM and the successor methods above, never disappears entirely.
+The original 2023 paper evaluates observation-conditioned policies on single- and multi-task benchmarks and on separate UR5 and Franka setups. Its reference visual encoder is trained end-to-end without pretraining, but the paper also tests ImageNet- and R3M-pretrained encoders <Cite id="diffusion-policy-2023-v1" />. Octo combines language or goal-image conditioning with a DDPM diffusion action head and pretraining on demonstrations from multiple tasks and robot embodiments <Cite id="octo-2024" />. π0 combines a pretrained vision-language backbone with a flow-matching action expert and cross-embodiment robot training <Cite id="pi0-2024" />. Reactivity is bounded by $T_a$: whatever happens inside a committed segment, the policy will not respond until the next inference. And the sampling cost, though tamed by DDIM and the successor methods above, never disappears entirely.

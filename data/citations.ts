@@ -111,9 +111,43 @@ export const CITATIONS: Citation[] = [
       'Shuran Song',
     ],
     year: 2023,
-    venue: 'RSS 2023',
+    // Landing metadata describes an extended journal version of the original RSS2023 paper.
+    // Keep this eight-author work distinct from the explicitly cited original v1.
     arxiv: '2303.04137',
     url: 'https://arxiv.org/abs/2303.04137',
+    type: 'paper',
+  },
+  {
+    id: 'diffusion-policy-2023-v1',
+    title: 'Diffusion Policy: Visuomotor Policy Learning via Action Diffusion',
+    authors: [
+      'Cheng Chi',
+      'Siyuan Feng',
+      'Yilun Du',
+      'Zhenjia Xu',
+      'Eric Cousineau',
+      'Benjamin Burchfiel',
+      'Shuran Song',
+    ],
+    year: 2023,
+    // Original arXiv v1, 7 March 2023; not the later eight-author edition.
+    arxiv: '2303.04137',
+    url: 'https://arxiv.org/abs/2303.04137v1',
+    type: 'paper',
+  },
+  {
+    id: 'diffuser-2022',
+    title: 'Planning with Diffusion for Flexible Behavior Synthesis',
+    authors: [
+      'Michael Janner',
+      'Yilun Du',
+      'Joshua B. Tenenbaum',
+      'Sergey Levine',
+    ],
+    year: 2022,
+    venue: 'ICML 2022',
+    arxiv: '2205.09991',
+    url: 'https://arxiv.org/abs/2205.09991',
     type: 'paper',
   },
   {
@@ -389,8 +423,8 @@ export const CITATIONS: Citation[] = [
   {
     id: 'octo-2024',
     title: 'Octo: An Open-Source Generalist Robot Policy',
-    // Full 19-entry author list from the arXiv abs page (completed
-    // 2026-08-17 during the manipulation-ii audit).
+    // Twenty byline entries, including Octo Model Team, in explicit arXiv v2.
+    // The landing metadata omits Ria Doshi; this entry cites the v2 body.
     authors: [
       'Octo Model Team',
       'Dibya Ghosh',
@@ -401,6 +435,7 @@ export const CITATIONS: Citation[] = [
       'Sudeep Dasari',
       'Joey Hejna',
       'Tobias Kreiman',
+      'Ria Doshi',
       'Charles Xu',
       'Jianlan Luo',
       'You Liang Tan',
@@ -414,7 +449,7 @@ export const CITATIONS: Citation[] = [
     ],
     year: 2024,
     arxiv: '2405.12213',
-    url: 'https://arxiv.org/abs/2405.12213',
+    url: 'https://arxiv.org/html/2405.12213v2',
     type: 'paper',
   },
   {

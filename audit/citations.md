@@ -237,6 +237,8 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | act-aloha-2023 | https://arxiv.org/abs/2304.13705 | ok | match | none (verified as cited) |  |
 | mobile-aloha-2024 | https://arxiv.org/abs/2401.02117 | ok | match | none (verified as cited) |  |
 | diffusion-policy-2023 | https://arxiv.org/abs/2303.04137 | ok | match | none (verified as cited) |  |
+| diffusion-policy-2023-v1 | https://arxiv.org/abs/2303.04137v1 | ok (retained primary response) | match | Original v1 title and seven-author byline verified against retained version-specific metadata and PDF; no new fetch. |  |
+| diffuser-2022 | https://arxiv.org/abs/2205.09991 | ok (retained primary response) | match | Retained arXiv metadata title/byline correspond to explicit PDF v2; ICML 2022/PMLR 162 identity verified separately. |  |
 | pi0-2024 | https://arxiv.org/abs/2410.24164 | ok | match | none (verified as cited) |  |
 | real-time-chunking-2025 | https://arxiv.org/abs/2506.07339 | ok | match | none (verified as cited) |  |
 | training-time-rtc-2025 | https://arxiv.org/abs/2512.05964 | ok | match | none (verified as cited) |  |
@@ -247,7 +249,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | rt1-2022 | https://arxiv.org/abs/2212.06817 | ok | match | none (verified as cited) |  |
 | rt2-2023 | https://arxiv.org/abs/2307.15818 | ok | match | none (verified as cited) |  |
 | open-x-embodiment-2023 | https://arxiv.org/abs/2310.08864 | ok | match | none (verified as cited) |  |
-| octo-2024 | https://arxiv.org/abs/2405.12213 | ok | match | none (verified as cited) |  |
+| octo-2024 | https://arxiv.org/html/2405.12213v2 | ok (retained primary response) | match | Explicit v2 title and twenty-entry byline verified; original metadata omission of Ria Doshi retained in September 7 history. |  |
 | openvla-2024 | https://arxiv.org/abs/2406.09246 | ok | match | none (verified as cited) |  |
 | openvla-oft-2025 | https://arxiv.org/abs/2502.19645 | ok | match | none (verified as cited) |  |
 | knowledge-insulation-2025 | https://www.pi.website/research/knowledge_insulation | ok (exception) | MISMATCH: "VLAs that Train Fast, Run Fast, and Generalize Better" | documented exception added (page title is the note tagline) | pi.website research pages carry the note's tagline as <title> ("VLAs that Train Fast, Run Fast, and Generalize Better"), not the research-note name the registry cites; the page has no DOI, so Crossref cannot stand in. Verified 2026-08-18: Fetched page body (2026-08-18, live): the page names "Knowledge Insulation" repeatedly, carries the ten-author byline at its foot, and lives at the research/knowledge_insulation slug; the companion paper is registry id knowledge-insulation-paper-2025 with the same tagline subtitle. |
@@ -678,3 +680,13 @@ kept as history, not as current scope.
 The original session's test/typecheck/build runs are not recorded here
 because their output was not preserved in the ledger and no handoff for
 that session exists.
+
+## September 7 scoped edition additions and URL reconciliation
+
+Three entries were reconciled from preserved fetched primary responses, not a new full-registry network run: original DP v1 added, Diffuser added, and Octo bound to its explicit v2 title/byline. Original observed retrieval times and response hashes are preserved in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-current-claims-closeout/citation-reconciliation.json` and `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/diffusion-current-claims-closeout/source-proof.json`. The older registry-wide audit and nine unresolved network verdicts remain historical/unchanged.
+
+Original Octo row (history, not a second active row):
+
+```text
+> | octo-2024 | https://arxiv.org/abs/2405.12213 | ok | match | none (verified as cited) |  |
+```

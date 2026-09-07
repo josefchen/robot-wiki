@@ -27,7 +27,11 @@ describe('citation registry', () => {
         // Default: the unversioned abs page. A versioned URL (…vN) is the
         // sanctioned exception for quotes that exist only in a superseded
         // arXiv version (audit/README.md quote policy).
-        expect(c.url === `https://arxiv.org/abs/${c.arxiv}` || /^https:\/\/arxiv\.org\/abs\/\d{4}\.\d{4,5}v\d+$/.test(c.url)).toBe(true);
+        // Exact primary-body exception: Octo's explicit v2 byline includes
+        // Ria Doshi, omitted by its landing metadata. No general HTML allowance.
+        const octoV2 = c.id === 'octo-2024' && c.arxiv === '2405.12213' &&
+          c.url === 'https://arxiv.org/html/2405.12213v2';
+        expect(octoV2 || c.url === `https://arxiv.org/abs/${c.arxiv}` || /^https:\/\/arxiv\.org\/abs\/\d{4}\.\d{4,5}v\d+$/.test(c.url)).toBe(true);
       }
     }
   });
