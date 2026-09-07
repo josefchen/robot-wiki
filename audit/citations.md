@@ -246,7 +246,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | consistency-policy-2024 | https://arxiv.org/abs/2405.07503 | ok | match | none (verified as cited) |  |
 | one-step-diffusion-2024 | https://arxiv.org/abs/2410.21257 | ok | match | none (verified as cited) |  |
 | hg-dagger-2019 | https://arxiv.org/abs/1810.02890 | ok (retained primary identity) | corrected metadata | BC-P1-20260907: explicit arXiv v2, 11 March 2019; removed unproved ICRA venue | Original retrieval and exact bytes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections/source-proof.json and p1-proof.json; no fresh fetch. |
-| rt1-2022 | https://arxiv.org/abs/2212.06817 | ok | match | none (verified as cited) |  |
+| rt1-2022 | https://arxiv.org/html/2212.06817v2 | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:08:19.966Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |
 | rt2-2023 | https://arxiv.org/abs/2307.15818 | ok | match | none (verified as cited) |  |
 | open-x-embodiment-2023 | https://arxiv.org/abs/2310.08864 | ok | match | none (verified as cited) |  |
 | octo-2024 | https://arxiv.org/html/2405.12213v2 | ok (retained primary response) | match | Explicit v2 title and twenty-entry byline verified; original metadata omission of Ria Doshi retained in September 7 history. |  |
@@ -261,14 +261,14 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | rekep-2024 | https://arxiv.org/abs/2409.01652 | ok | match | none (verified as cited) |  |
 | ecot-2024 | https://arxiv.org/abs/2407.08693 | ok | match | none (verified as cited) |  |
 | hi-robot-2025 | https://arxiv.org/abs/2502.19417 | ok | match | none (verified as cited) |  |
-| pi05-2025 | https://arxiv.org/abs/2504.16054 | ok | match | none (verified as cited) |  |
+| pi05-2025 | https://arxiv.org/html/2504.16054v1 | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:08:29.437Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |
 | knowledge-insulation-paper-2025 | https://arxiv.org/abs/2505.23705 | ok | match | none (verified as cited) |  |
 | pi06-model-card-2025 | https://website.pi-asset.com/pi06star/PI06_model_card.pdf | ok | match (pdf) | none (verified as cited) |  |
 | pistar06-2025 | https://www.pi.website/download/pistar06.pdf | ok | match (pdf) | none (verified as cited) |  |
 | mem-2026 | https://www.pi.website/download/Mem.pdf | ok | match (pdf) | fixed: registry title corrected to the PDF title page (was a paraphrase) |  |
 | pi07-2026 | https://www.pi.website/download/pi07.pdf | ok | match (pdf) | none (verified as cited) |  |
 | pi07-blog-2026 | https://www.pi.website/blog/pi07 | ok | match | none (verified as cited) |  |
-| openpi-repo-2024 | https://github.com/Physical-Intelligence/openpi | ok | match | none (verified as cited) |  |
+| openpi-repo-2024 | https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:10:07.199Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |
 | oxe-quality-critique-2026 | https://mbreuss.github.io/blog_post_iclr_26_vla.html | ok | match | none (verified as cited) |  |
 | pistar06-blog-2025 | https://www.pi.website/blog/pistar06 | ok (retained primary identity) | corrected metadata | BC-P1-20260907: all 55 blog authors checked; source spells Gashon Hussein, distinct paper unchanged | Original retrieval and exact bytes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections/source-proof.json and p1-proof.json; no fresh fetch. |
 | pi-human-to-robot-2025 | https://www.pi.website/research/human_to_robot | ok | match | none (verified as cited) |  |
@@ -277,9 +277,9 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | gemini-robotics-15-2025 | https://arxiv.org/abs/2510.03342 | ok | match | none (verified as cited) |  |
 | gemini-robotics-2-2026 | https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/ | ok | match | none (verified as cited) |  |
 | gr00t-n1-2025 | https://arxiv.org/abs/2503.14734 | ok | match | none (verified as cited) |  |
-| isaac-gr00t-repo-2026 | https://github.com/NVIDIA/Isaac-GR00T | ok | match | none (verified as cited) |  |
+| isaac-gr00t-repo-2026 | https://github.com/NVIDIA/Isaac-GR00T | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:07:28.926Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |
 | helix-2025 | https://www.figure.ai/news/helix | ok | match | none (verified as cited) |  |
-| helix-02-2026 | https://www.figure.ai/news/helix-02 | ok | match | none (verified as cited) |  |
+| helix-02-2026 | https://www.figure.ai/news/helix-02 | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:07:28.926Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |
 | agibot-world-2025 | https://arxiv.org/abs/2503.06669 | ok | match | none (verified as cited) |  |
 | agibot-go2-2026 | https://www.agibot.com/article/231/detail/56.html | ok (exception) | unavailable | none (verified as cited) | www.agibot.com answers HTTP 500 to node fetch on every probe (7 of 7, HEAD and GET, 2026-08-11) while curl and Chromium get HTTP 200: a client-fingerprint wall, not link rot. The page has no DOI, so Crossref cannot stand in for the fetch. Verified 2026-08-11: curl GET with the sweep's browser user agent: HTTP 200, 135,961 bytes; headless Chromium (Playwright): HTTP 200, page title "The Unity of Reasoning and Action: AGIBOT Unveils Genie Operator" (the GO-2 announcement). |
 | agibot-go2-robotreport-2026 | https://www.therobotreport.com/agibot-releases-go-2-foundation-model-embodied-ai/ | ok | match | none (verified as cited) |  |
@@ -720,3 +720,37 @@ The old row below is historical, not a second current check. Its organization by
 ```
 
 Original RTC blog registry values were exactly `title: Real-Time Chunking`, `authors: [Physical Intelligence]`, `year: 2025`; corrected title/byline above retain year and URL. The current ACT row binds the actual retained publication heading, all three names and June 9, 2025.
+
+## Five ACT source identities — retained-response reconciliation, 2026-09-07
+
+No new URL sweep or retrieval was run. RT-1 is explicitly v2; pi0.5 explicitly v1 with 36 byline entries and no unproven CoRL venue. The stable openpi-repo-2024 ID now names the 24 August 2026 repository snapshot (year 2026), not first publication; README last change is 21 November 2025. NVIDIA corporate repository identity is distinct from the 2025 N1 paper. The README describes GA; the separately retained model card says EA, so its inference benchmarks and version were not substituted into the GA row. Figure is the announcement publisher, not an independent performance validator. Existing unresolved citation verdicts remain unresolved.
+
+```json
+[
+  {
+    "citationId": "rt1-2022",
+    "before": "| rt1-2022 | https://arxiv.org/abs/2212.06817 | ok | match | none (verified as cited) |  |",
+    "current": "| rt1-2022 | https://arxiv.org/html/2212.06817v2 | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:08:19.966Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |"
+  },
+  {
+    "citationId": "pi05-2025",
+    "before": "| pi05-2025 | https://arxiv.org/abs/2504.16054 | ok | match | none (verified as cited) |  |",
+    "current": "| pi05-2025 | https://arxiv.org/html/2504.16054v1 | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:08:29.437Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |"
+  },
+  {
+    "citationId": "openpi-repo-2024",
+    "before": "| openpi-repo-2024 | https://github.com/Physical-Intelligence/openpi | ok | match | none (verified as cited) |  |",
+    "current": "| openpi-repo-2024 | https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:10:07.199Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |"
+  },
+  {
+    "citationId": "isaac-gr00t-repo-2026",
+    "before": "| isaac-gr00t-repo-2026 | https://github.com/NVIDIA/Isaac-GR00T | ok | match | none (verified as cited) |  |",
+    "current": "| isaac-gr00t-repo-2026 | https://github.com/NVIDIA/Isaac-GR00T | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:07:28.926Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |"
+  },
+  {
+    "citationId": "helix-02-2026",
+    "before": "| helix-02-2026 | https://www.figure.ai/news/helix-02 | ok | match | none (verified as cited) |  |",
+    "current": "| helix-02-2026 | https://www.figure.ai/news/helix-02 | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:07:28.926Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |"
+  }
+]
+```

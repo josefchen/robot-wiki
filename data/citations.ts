@@ -342,7 +342,7 @@ export const CITATIONS: Citation[] = [
     ],
     year: 2022,
     arxiv: '2212.06817',
-    url: 'https://arxiv.org/abs/2212.06817',
+    url: 'https://arxiv.org/html/2212.06817v2',
     type: 'paper',
   },
   {
@@ -760,9 +760,9 @@ export const CITATIONS: Citation[] = [
       'Ury Zhilinsky',
     ],
     year: 2025,
-    venue: 'CoRL 2025',
+    // Explicit v1 source; the retained packet does not establish CoRL 2025.
     arxiv: '2504.16054',
-    url: 'https://arxiv.org/abs/2504.16054',
+    url: 'https://arxiv.org/html/2504.16054v1',
     type: 'paper',
   },
   {
@@ -1101,8 +1101,10 @@ export const CITATIONS: Citation[] = [
     id: 'openpi-repo-2024',
     title: 'openpi',
     authors: ['Physical Intelligence'],
-    year: 2024,
-    url: 'https://github.com/Physical-Intelligence/openpi',
+    // Stable ID retained. Year identifies the 24 August 2026 repository snapshot,
+    // not first publication; README itself was last edited 21 November 2025.
+    year: 2026,
+    url: 'https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md',
     type: 'docs',
   },
   {
@@ -1280,7 +1282,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'isaac-gr00t-repo-2026',
-    title: 'Isaac GR00T (N1.7 release notes and code)',
+    title: 'NVIDIA Isaac GR00T',
     authors: ['NVIDIA'],
     year: 2026,
     url: 'https://github.com/NVIDIA/Isaac-GR00T',

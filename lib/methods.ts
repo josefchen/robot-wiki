@@ -7,7 +7,7 @@ import type {
   Method,
 } from '@/data/schemas/method.ts';
 
-export type WeightsFilter = 'all' | 'open' | 'closed';
+export type WeightsFilter = 'all' | 'open' | 'closed' | 'undisclosed';
 
 export type RepresentationFilter =
   | 'all'
@@ -42,7 +42,8 @@ function matchesQuery(method: Method, query: string): boolean {
 
 function matchesWeights(method: Method, weights: WeightsFilter): boolean {
   if (weights === 'all') return true;
-  return weights === 'open' ? method.openWeights : !method.openWeights;
+  if (weights === 'undisclosed') return method.openWeights === null;
+  return weights === 'open' ? method.openWeights === true : method.openWeights === false;
 }
 
 function matchesRepresentation(

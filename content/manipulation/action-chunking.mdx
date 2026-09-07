@@ -16,6 +16,11 @@ citations:
   - pi-real-time-chunking-blog-2025
   - octo-2024
   - pi0-2024
+  - openpi-repo-2024
+  - rt1-2022
+  - pi05-2025
+  - isaac-gr00t-repo-2026
+  - helix-02-2026
 seeAlso:
   - "manipulation/bc-foundations"
   - "manipulation/diffusion-policy"
@@ -139,13 +144,24 @@ The dial below is a deterministic toy of a cross-mode hand-off, not a reproducti
 
 ## The lineage in numbers
 
-Chunking started as a fix for compounding error and became standard infrastructure. The table sorts the major policies by how far ahead they predict and how fast they run; weights marked <Badge variant="ok">open</Badge> can be downloaded, and the open releases stop at pi0.5. Reported settings belong to the named setups, not universal defaults. Applicable unpublished values read `not disclosed`, never `n/a` or zero.
+The table compares reported prediction horizons and control settings, not universal deployment defaults. Weights describe download availability, not license openness; an unverified release is `not disclosed`, not evidence of a closed license. Applicable unpublished horizons and rates also read `not disclosed`, never `n/a` or zero.
+
+<Cite id="openpi-repo-2024" /> Physical Intelligence’s openpi README lists base checkpoints for π0, π0-FAST, and π0.5 with download locations, as observed on 7 September 2026. The cited repository snapshot is dated 24 August 2026; the README was last edited 21 November 2025. This catalogue is not a global latest-release claim, and absence from it does not establish another model’s license.
 
 <PolicyChunkingTable className="my-6" />
 
 Octo v2's ALOHA finetuning example predicts 64 actions and executes 12 before replanning. Its other reported setups include Franka action prediction at 15 Hz, a coffee-task controller at 10 Hz, and ViperX end-effector control at 5 Hz. These are separate examples, not one universal Octo control rate or horizon. The action head uses diffusion <Cite id="octo-2024" />.
 
-π0 v4 predicts 50 actions. In its reported execution setup, UR5e and Franka run at 20 Hz and execute 16 actions before replanning; the other evaluated robots run at 50 Hz and execute 25. The table's 20 Hz entry names the UR5e/Franka reference, while the paper describes operation at up to 50 Hz. Its continuous action outputs are trained with conditional flow matching <Cite id="pi0-2024" />.
+<Cite id="pi0-2024" /> π0 v4 predicts 50 actions. In its reported execution setup, UR5e and Franka run at 20 Hz and execute 16 actions before replanning; the other evaluated robots run at 50 Hz and execute 25. The table's 20 Hz entry names the UR5e/Franka reference, while the paper describes operation at up to 50 Hz. Its continuous action outputs are trained with conditional flow matching.
+
+
+<Cite id="rt1-2022" /> RT-1 predicts one robot action per timestep and commands the Everyday Robots mobile manipulator at 3 Hz. Each action dimension is mapped to one of 256 uniformly distributed bins within that variable’s bounds. Six input frames are observation history, not a six-action horizon. The paper announces open code; pretrained-weight availability is not disclosed in that statement.
+
+<Cite id="pi05-2025" /> The π0.5 v1 paper predicts 50 action entries (inclusive indexing, H=49) and sends targets at 50 Hz in its two-mobile-platform setup. That does not establish how many actions execute before replanning. The paper combines FAST-token prediction with flow matching; the cited openpi README supports only the flow-matching head for π0.5 training and inference.
+
+<Cite id="isaac-gr00t-repo-2026" /> The NVIDIA Isaac GR00T README describes the N1.7 GA release: a predicted horizon of 40, a flow-matching DiT head, relative-end-effector support, and downloadable weights. Relative EEF is not its only embodiment interface; it also describes SONIC latent-action output. No single robot-control frequency is disclosed there; inference throughput is a different quantity. Its overview says Apache 2.0, but its License section distinguishes Apache 2.0 code from weights under the NVIDIA Open Model License. Download availability does not resolve that licensing discrepancy.
+
+<Cite id="helix-02-2026" /> Figure’s January 27, 2026 Helix 02 announcement reports S1 full-body joint targets at 200 Hz, tracked by S0 actuator commands at 1 kHz. These are separate layers, not interchangeable control rates. Chunk length and weight-release/licensing terms are not disclosed in this announcement; neither absence establishes inapplicability or closed licensing.
 
 
 ## Where the idea travels next

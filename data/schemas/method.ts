@@ -50,9 +50,14 @@ export const methodSchema = z.object({
   conditioning: z.array(z.string().min(1)),
   crossEmbodiment: triStateSchema.nullable(),
   hierarchy: hierarchySchema.nullable(),
-  openWeights: z.boolean(),
+  /** Download availability, not license openness; null requires source scope. */
+  openWeights: z.boolean().nullable(),
+  weightsNote: z.string().min(1).optional(),
   /** Citation registry IDs backing this row. */
   sources: z.array(slugSchema).min(1),
+}).refine((method) => method.openWeights !== null || Boolean(method.weightsNote), {
+  message: 'Unknown weight availability requires a source-scoped note',
+  path: ['weightsNote'],
 });
 
 export type ActionRepresentation = z.infer<typeof actionRepresentationSchema>;

@@ -1255,11 +1255,471 @@
     }
   },
   {
+    "id": "act-five-source-20-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 20,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "catalogue",
+        "text": "Named pinned catalogue and base checkpoint download locations, not an exhaustive release endpoint.",
+        "requiredCitationIds": [
+          "openpi-repo-2024"
+        ]
+      },
+      {
+        "id": "edition",
+        "text": "Observed repository snapshot is 24 August 2026; README last change is 21 November 2025. Current review reuses the 7 September response, not a new retrieval.",
+        "requiredCitationIds": [
+          "openpi-repo-2024"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "catalogue",
+        "citationId": "openpi-repo-2024",
+        "sourceUrl": "https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md",
+        "supportingPassage": "Currently, this repo contains three types of models:\n\n- the [π₀ model](https://www.physicalintelligence.company/blog/pi0), a flow-based vision-language-action model (VLA).\n- the [π₀-FAST model](https://www.physicalintelligence.company/research/fast), an autoregressive VLA, based on the FAST action tokenizer.\n- the [π₀.₅ model](https://www.physicalintelligence.company/blog/pi05), an upgraded version of π₀ with better open-world generalization trained with [knowledge insulation](https://www.physicalintelligence.company/research/knowledge_insulation). Note that, in this repository, we currently only support the flow matching head for both π0.5 training and inference.\n\nFor all models, we provide _base model_ checkpoints, pre-trained on 10k+ hours of robot data, and examples for using them out of the box or fine-tuning them to your own datasets.\n\n\n[Separate literal excerpt from the same retained response]\n## Model Checkpoints\n\n[Permalink: Model Checkpoints](https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md#model-checkpoints)\n\n### Base Models\n\n[Permalink: Base Models](https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md#base-models)\n\nWe provide multiple base VLA model checkpoints. These checkpoints have been pre-trained on 10k+ hours of robot data, and can be used for fine-tuning.\n\n| Model | Use Case | Description | Checkpoint Path |\n| --- | --- | --- | --- |\n| π0 | Fine-Tuning | Base [π₀ model](https://www.physicalintelligence.company/blog/pi0) for fine-tuning | `gs://openpi-assets/checkpoints/pi0_base` |\n| π0-FAST | Fine-Tuning | Base autoregressive [π₀-FAST model](https://www.physicalintelligence.company/research/fast) for fine-tuning | `gs://openpi-assets/checkpoints/pi0_fast_base` |\n| π0.5 | Fine-Tuning | Base [π₀.₅ model](https://www.physicalintelligence.company/blog/pi05) for fine-tuning | `gs://openpi-assets/checkpoints/pi05_base` |\n\n### Fine-Tuned Models\n\n[Permalink: Fine-Tuned Models](https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md#fine-tuned-models)\n\nWe also provide \"expert\" checkpoints for various robot platforms and tasks. These models are fine-tuned from the base models above and intended to run directly on the target robot. These may or may not work on your particular robot. Since these checkpoints were fine-tuned on relatively small datasets collected with more widely available robots, such as ALOHA and the DROID Franka setup, they might not generalize to your particular setup, though we found some of these, especially the DROID checkpoint, to generalize quite broadly in practice.\n\n| Model | Use Case | Description | Checkpoint Path |\n| --- | --- | --- | --- |\n| π0-FAST-DROID | Inference | π0-FAST model fine-tuned on the [DROID dataset](https://droid-dataset.github.io/): can perform a wide range of simple table-top manipulation tasks 0-shot in new scenes on the DROID robot platform | `gs://openpi-assets/checkpoints/pi0_fast_droid` |\n| π0-DROID | Fine-Tuning | π0 model fine-tuned on the [DROID dataset](https://droid-dataset.github.io/): faster inference than π0-FAST-DROID, but may not follow language commands as well | `gs://openpi-assets/checkpoints/pi0_droid` |\n| π0-ALOHA-towel | Inference | π0 model fine-tuned on internal [ALOHA](https://tonyzhaozh.github.io/aloha/) data: can fold diverse towels 0-shot on ALOHA robot platforms | `gs://openpi-assets/checkpoints/pi0_aloha_towel` |\n| π0-ALOHA-tupperware | Inference | π0 model fine-tuned on internal [ALOHA](https://tonyzhaozh.github.io/aloha/) data: can unpack food from a tupperware container | `gs://openpi-assets/checkpoints/pi0_aloha_tupperware` |\n| π0-ALOHA-pen-uncap | Inference | π0 model fine-tuned on public [ALOHA](https://dit-policy.github.io/) data: can uncap a pen | `gs://openpi-assets/checkpoints/pi0_aloha_pen_uncap` |\n| π0.5-LIBERO | Inference | π0.5 model fine-tuned for the [LIBERO](https://libero-project.github.io/datasets) benchmark: gets state-of-the-art performance (see [LIBERO README](https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/examples/libero/README.md)) | `gs://openpi-assets/checkpoints/pi05_libero` |\n| π0.5-DROID | Inference / Fine-Tuning | π0.5 model fine-tuned on the [DROID dataset](https://droid-dataset.github.io/) with [knowledge insulation](https://www.physicalintelligence.company/research/knowledge_insulation): fast inference and good language-following | `gs://openpi-assets/checkpoints/pi05_droid` |\n\nBy default, checkpoints are automatically downloaded from `gs://openpi-assets` and are cached in `~/.cache/openpi` when needed. You can overwrite the download path by setting the `OPENPI_DATA_HOME` environment variable.\n\n"
+      },
+      {
+        "partId": "edition",
+        "citationId": "openpi-repo-2024",
+        "sourceUrl": "https://github.com/Physical-Intelligence/openpi",
+        "supportingPassage": "## Latest commit\n\n[![POPOXR](https://avatars.githubusercontent.com/u/193373702?v=4&size=40)](https://github.com/POPOXR)[POPOXR](https://github.com/Physical-Intelligence/openpi/commits?author=POPOXR)\n\n[docs(droid): fix config search instruction (](https://github.com/Physical-Intelligence/openpi/commit/215abfb217dbac7d5f1273282331b9b1866c0479) [#1023](https://github.com/Physical-Intelligence/openpi/pull/1023) [)](https://github.com/Physical-Intelligence/openpi/commit/215abfb217dbac7d5f1273282331b9b1866c0479)\n\nsuccess\n\n2 weeks agoAug 24, 2026\n\n[215abfb](https://github.com/Physical-Intelligence/openpi/commit/215abfb217dbac7d5f1273282331b9b1866c0479) · 2 weeks agoAug 24, 2026\n\n"
+      },
+      {
+        "partId": "edition",
+        "citationId": "openpi-repo-2024",
+        "sourceUrl": "https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md",
+        "supportingPassage": "## Latest commit\n\n[![hotcholula](https://avatars.githubusercontent.com/u/30572125?v=4&size=40)](https://github.com/hotcholula)[hotcholula](https://github.com/Physical-Intelligence/openpi/commits?author=hotcholula)\n\n[Fixed a typo in README](https://github.com/Physical-Intelligence/openpi/commit/76d1c8aed4fdd429f8f7addaf3a49159b7a9ad6f)\n\nsuccess\n\n10 months agoNov 21, 2025\n\n[76d1c8a](https://github.com/Physical-Intelligence/openpi/commit/76d1c8aed4fdd429f8f7addaf3a49159b7a9ad6f) · 10 months agoNov 21, 2025\n\n\n[Separate literal excerpt from the same retained response]\nopenpi holds open-source models and packages for robotics, published by the [Physical Intelligence team](https://www.physicalintelligence.company/).\n\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "catalogue",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Named pinned catalogue and base checkpoint download locations, not an exhaustive release endpoint. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "e3fd247bea9ced3d08037cf06c183445db2e365f913c51f9b65a7a76e28291f3"
+      },
+      {
+        "partId": "edition",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Observed repository snapshot is 24 August 2026; README last change is 21 November 2025. Current review reuses the 7 September response, not a new retrieval. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "310e490edb9ea3dfe9d7cb38e6c470fe4bf4b8b071dd715ac8060a5c1f669dd2"
+      }
+    ],
+    "originalCellsDigest": "0a0c98cbbce6cdbfda677b29def63144f687d750c1465f9f56d376fd75969c25",
+    "planReview": {
+      "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+      "rationale": "Whole current claim requires every listed part. Prior nine-source P1 preserved; exact full metadata for each new source checked against retained original text. Authority permits correction, not human source certification.",
+      "planDigest": "558907afbc97e549322725b8a3d8a32261a2dc55bf87dc73b1e0f9cf79253651"
+    }
+  },
+  {
+    "id": "act-five-source-22-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 22,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "control",
+        "text": "RT-1 predicts one action per step and commands control at 3 Hz; PDF resolves duplicated HTML digits.",
+        "requiredCitationIds": [
+          "rt1-2022"
+        ]
+      },
+      {
+        "id": "tokens",
+        "text": "256 uniformly spaced bins per variable; six images are observation history, not action horizon.",
+        "requiredCitationIds": [
+          "rt1-2022"
+        ]
+      },
+      {
+        "id": "availability",
+        "text": "Paper announces code, not pretrained weights; unknown availability remains source-scoped.",
+        "requiredCitationIds": [
+          "rt1-2022"
+        ]
+      },
+      {
+        "id": "identity",
+        "text": "2022 first submission, explicit v2 used for technical claims.",
+        "requiredCitationIds": [
+          "rt1-2022"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "control",
+        "citationId": "rt1-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2212.06817v2",
+        "supportingPassage": "One of the main contributions of our system is the network architecture, Robotics Transformer 1\n(RT-1), an efficient model that can absorb large amounts of data, effectively generalize, and output\nactions at real-time rates for practical robotic control. RT-1 takes a short sequence of images and\na natural language instruction as input and outputs an action for the robot at each time step. To\nthis end, the architecture (shown in Figure 1a) leverages several elements: first the images and\ntext are processed via an ImageNet pretrained convolutional network (Tan & Le, 2019) conditioned\non a pretrained embedding of the instruction via FiLM (Perez et al., 2018), followed by a Token\nLearner (Ryoo et al., 2021) to compute a compact set of tokens, and finally a Transformer (Vaswani\net al., 2017) to attend over these tokens and produce discretized action tokens. The actions consist\nof seven dimensions for the arm movement (x, y, z, roll, pitch, yaw, opening of the gripper), three\ndimensions for base movement (x, y, yaw) and a discrete dimension to switch between three modes:\ncontrolling the arm, the base, or terminating the episode. RT-1 performs closed-loop control and\ncommands actions at 3 Hz until it either yields a “terminate” action or hits a pre-set time step limit.\n\n\n[Separate literal excerpt from the same retained response]\nInference speed. In contrast to many applications of large models, such as natural language or image generation, one of the unique requirements for a model that needs to run on real robots in real time is fast and consistent inference speed. Given the human speeds of executing the instructions considered in this work (which we measured to be in the 2 − 4 secs range), we want the model to be\nnot significantly slower than that. Based on our experiments this requirement corresponds to at least\n3Hz control frequency and the resulting inference time budget for the model, given other latencies\nin the system, to be less than 100ms.\n\nThis requirement limits the size of the model that we can use. We further explore the impact of\nmodel size on inference speed in the experiments. We employ two techniques to speed up inference:\n(i) reduce the number of tokens generated by a pre-trained EfficientNet model by using Token-\nLearner (Ryoo et al., 2021), (ii) compute these tokens only once and reuse them for the following\nwindows that overlap for the future inferences. Both of these allow us to speed up the model inference by 2.4 and 1.7 times, respectively. Additional details on model inference are in Appendix C.1.\n\n"
+      },
+      {
+        "partId": "tokens",
+        "citationId": "rt1-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2212.06817v2",
+        "supportingPassage": "Action tokenization. To tokenize𝜸 · 𝜷 + actions, each … action dimension in RT-1 is discretized into 256 bins. As mentioned previously, the action dimensions we consider include seven variables for the arm movement (x, y, z, roll, pitch, yaw, opening of the gripper), three variables for base movement (x, y, yaw) and a discrete variable to switch between three modes: controlling arm, base or terminating the episode. For each variable, we map the target to one of the 256 bins, where the bins are uniformly distributed within the bounds of each variable.\n\n"
+      },
+      {
+        "partId": "tokens",
+        "citationId": "rt1-2022",
+        "sourceUrl": "https://arxiv.org/html/2212.06817v2",
+        "supportingPassage": "Instruction and image tokenization. The RT-1 architecture relies on a data-efficient and compact tokenization of images and language instruction.\nRT-1 tokenizes a history of 6 images by passing images through an ImageNet pretrained EfficientNet-B3 ( [Tan & Le, 2019](https://arxiv.org/html/2212.06817v2#bib.bib52 \"\")) model, which takes 6 images of resolution 300×300300\\\\times 300 as input and outputs a spatial feature map of shape 9×9×5129\\\\times 9\\\\times 512 from the final convolutional layer.\nUnlike [Reed et al. (2022)](https://arxiv.org/html/2212.06817v2#bib.bib42 \"\"), we do not patchify the images into visual tokens prior to feeding them to our Transformer backbone.\nWe instead flatten the output feature map from the EfficientNet into 8181 visual tokens which are passed on to the later layers of the network.\n\n"
+      },
+      {
+        "partId": "availability",
+        "citationId": "rt1-2022",
+        "sourceUrl": "https://arxiv.org/html/2212.06817v2",
+        "supportingPassage": "To allow the research community to build on top of this work, we have open-sourced the code for RT-1 444 [http://github.com/google-research/robotics\\_transformer](http://github.com/google-research/robotics_transformer \"\"), which we hope will provide researchers with a valuable resource for future research for scaling up robot learning.\n\n"
+      },
+      {
+        "partId": "identity",
+        "citationId": "rt1-2022",
+        "sourceUrl": "https://arxiv.org/abs/2212.06817",
+        "supportingPassage": "\\[Submitted on 13 Dec 2022 ( [v1](https://arxiv.org/abs/2212.06817v1)), last revised 11 Aug 2023 (this version, v2)\\]\n\n# Title:RT-1: Robotics Transformer for Real-World Control at Scale\n\nAuthors: [Anthony Brohan](https://arxiv.org/search/cs?searchtype=author&query=Brohan,+A), [Noah Brown](https://arxiv.org/search/cs?searchtype=author&query=Brown,+N), [Justice Carbajal](https://arxiv.org/search/cs?searchtype=author&query=Carbajal,+J), [Yevgen Chebotar](https://arxiv.org/search/cs?searchtype=author&query=Chebotar,+Y), [Joseph Dabis](https://arxiv.org/search/cs?searchtype=author&query=Dabis,+J), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C), [Keerthana Gopalakrishnan](https://arxiv.org/search/cs?searchtype=author&query=Gopalakrishnan,+K), [Karol Hausman](https://arxiv.org/search/cs?searchtype=author&query=Hausman,+K), [Alex Herzog](https://arxiv.org/search/cs?searchtype=author&query=Herzog,+A), [Jasmine Hsu](https://arxiv.org/search/cs?searchtype=author&query=Hsu,+J), [Julian Ibarz](https://arxiv.org/search/cs?searchtype=author&query=Ibarz,+J), [Brian Ichter](https://arxiv.org/search/cs?searchtype=author&query=Ichter,+B), [Alex Irpan](https://arxiv.org/search/cs?searchtype=author&query=Irpan,+A), [Tomas Jackson](https://arxiv.org/search/cs?searchtype=author&query=Jackson,+T), [Sally Jesmonth](https://arxiv.org/search/cs?searchtype=author&query=Jesmonth,+S), [Nikhil J Joshi](https://arxiv.org/search/cs?searchtype=author&query=Joshi,+N+J), [Ryan Julian](https://arxiv.org/search/cs?searchtype=author&query=Julian,+R), [Dmitry Kalashnikov](https://arxiv.org/search/cs?searchtype=author&query=Kalashnikov,+D), [Yuheng Kuang](https://arxiv.org/search/cs?searchtype=author&query=Kuang,+Y), [Isabel Leal](https://arxiv.org/search/cs?searchtype=author&query=Leal,+I), [Kuang-Huei Lee](https://arxiv.org/search/cs?searchtype=author&query=Lee,+K), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Yao Lu](https://arxiv.org/search/cs?searchtype=author&query=Lu,+Y), [Utsav Malla](https://arxiv.org/search/cs?searchtype=author&query=Malla,+U), [Deeksha Manjunath](https://arxiv.org/search/cs?searchtype=author&query=Manjunath,+D), [Igor Mordatch](https://arxiv.org/search/cs?searchtype=author&query=Mordatch,+I), [Ofir Nachum](https://arxiv.org/search/cs?searchtype=author&query=Nachum,+O), [Carolina Parada](https://arxiv.org/search/cs?searchtype=author&query=Parada,+C), [Jodilyn Peralta](https://arxiv.org/search/cs?searchtype=author&query=Peralta,+J), [Emily Perez](https://arxiv.org/search/cs?searchtype=author&query=Perez,+E), [Karl Pertsch](https://arxiv.org/search/cs?searchtype=author&query=Pertsch,+K), [Jornell Quiambao](https://arxiv.org/search/cs?searchtype=author&query=Quiambao,+J), [Kanishka Rao](https://arxiv.org/search/cs?searchtype=author&query=Rao,+K), [Michael Ryoo](https://arxiv.org/search/cs?searchtype=author&query=Ryoo,+M), [Grecia Salazar](https://arxiv.org/search/cs?searchtype=author&query=Salazar,+G), [Pannag Sanketi](https://arxiv.org/search/cs?searchtype=author&query=Sanketi,+P), [Kevin Sayed](https://arxiv.org/search/cs?searchtype=author&query=Sayed,+K), [Jaspiar Singh](https://arxiv.org/search/cs?searchtype=author&query=Singh,+J), [Sumedh Sontakke](https://arxiv.org/search/cs?searchtype=author&query=Sontakke,+S), [Austin Stone](https://arxiv.org/search/cs?searchtype=author&query=Stone,+A), [Clayton Tan](https://arxiv.org/search/cs?searchtype=author&query=Tan,+C), [Huong Tran](https://arxiv.org/search/cs?searchtype=author&query=Tran,+H), [Vincent Vanhoucke](https://arxiv.org/search/cs?searchtype=author&query=Vanhoucke,+V), [Steve Vega](https://arxiv.org/search/cs?searchtype=author&query=Vega,+S), [Quan Vuong](https://arxiv.org/search/cs?searchtype=author&query=Vuong,+Q), [Fei Xia](https://arxiv.org/search/cs?searchtype=author&query=Xia,+F), [Ted Xiao](https://arxiv.org/search/cs?searchtype=author&query=Xiao,+T), [Peng Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+P), [Sichun Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+S), [Tianhe Yu](https://arxiv.org/search/cs?searchtype=author&query=Yu,+T), [Brianna Zitkovich](https://arxiv.org/search/cs?searchtype=author&query=Zitkovich,+B)\n\n"
+      },
+      {
+        "partId": "identity",
+        "citationId": "rt1-2022",
+        "sourceUrl": "https://arxiv.org/html/2212.06817v2",
+        "supportingPassage": "arXiv:2212.06817v2 \\[cs.RO\\] 11 Aug 2023"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "control",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "RT-1 predicts one action per step and commands control at 3 Hz; PDF resolves duplicated HTML digits. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "2fa49ea0a79910bc321c1423931744c26093a7852f0c78595b1f19328e73e5cc"
+      },
+      {
+        "partId": "tokens",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "256 uniformly spaced bins per variable; six images are observation history, not action horizon. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "add27285b0af27f05c06966b5ba9d25fd457545230c4c1c86893c00e0de4a2ba"
+      },
+      {
+        "partId": "availability",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Paper announces code, not pretrained weights; unknown availability remains source-scoped. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "131b3ff6c1a472264b941ac5ee419e48c69635d81d5cf89b0d7a7d3882db120c"
+      },
+      {
+        "partId": "identity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "2022 first submission, explicit v2 used for technical claims. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "e01ec53ebc4f857849a797294ddd97f4b01fe28d3b07cf21b161e0bce17b8ca9"
+      }
+    ],
+    "originalCellsDigest": "823649a41bceaa07e2ca66a8554071279679126554e7ad455018d11919b6b795",
+    "planReview": {
+      "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+      "rationale": "Whole current claim requires every listed part. Prior nine-source P1 preserved; exact full metadata for each new source checked against retained original text. Authority permits correction, not human source certification.",
+      "planDigest": "dc903c6c3d3136a5ad9d5062a228256306ab8dcb3844ee2849f72ba024183d88"
+    }
+  },
+  {
+    "id": "act-five-source-26-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 26,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "prediction",
+        "text": "50 predicted entries with inclusive H=49; no executed-before-replanning count is inferred.",
+        "requiredCitationIds": [
+          "pi05-2025"
+        ]
+      },
+      {
+        "id": "mobile-rate",
+        "text": "50 Hz commands in the paper two-mobile-platform setup, not generic inference throughput.",
+        "requiredCitationIds": [
+          "pi05-2025"
+        ]
+      },
+      {
+        "id": "training",
+        "text": "Paper combines FAST-token prediction and flow matching; final flow inference is separate from the openpi flow-head-only implementation.",
+        "requiredCitationIds": [
+          "pi05-2025",
+          "openpi-repo-2024"
+        ]
+      },
+      {
+        "id": "availability",
+        "text": "The pinned openpi catalogue positively lists pi05_base download; not a licensing assertion.",
+        "requiredCitationIds": [
+          "openpi-repo-2024"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "prediction",
+        "citationId": "pi05-2025",
+        "sourceUrl": "https://arxiv.org/html/2504.16054v1",
+        "supportingPassage": "### A-EModel technical details\n\nThe π0.5\\\\pi\\_{0.5} model builds upon π0\\\\pi\\_{0} and adopts the PaliGemma VLM \\[ [5](https://arxiv.org/html/2504.16054v1#bib.bib5 \"\")\\] as the backbone for visual-language understanding as well as an “action expert” for fast action generation.\nThe VLM backbone takes in a sequence of images \\[𝐈t1,…,𝐈tn\\]\\[\\\\mathbf{I}^{1}\\_{t},\\\\dots,\\\\mathbf{I}^{n}\\_{t}\\] and a language prompt ℓ\\\\ell as in π0\\\\pi\\_{0}, but also the robot’s proprioceptive state qtq\\_{t} in tokenized form and tokenized actions \\[ [64](https://arxiv.org/html/2504.16054v1#bib.bib64 \"\")\\], which will be auto-regressively predicted.\nThe action expert is a smaller transformer that takes in a sequence of noisy action tokens 𝐚t:t+Hτ,ω\\\\mathbf{a}\\_{t:t+H}^{\\\\tau,\\\\omega} for an action horizon of 50, i.e. H=49H=49, and is trained with the flow matching objective. The noisy action chunk (with action dimension dd) is first projected to the transformer embedding dimension using a single linear layer. Unlike π0\\\\pi\\_{0} that fuses the flow-matching timestep τ\\\\tau with the noisy action before being fed into the transformer, π0.5\\\\pi\\_{0.5} uses a separate MLP for projecting τ\\\\tau only and then applies adaptive RMSNorm to inject the timestep information to each layer of the action expert.\n"
+      },
+      {
+        "partId": "mobile-rate",
+        "citationId": "pi05-2025",
+        "sourceUrl": "https://arxiv.org/html/2504.16054v1",
+        "supportingPassage": "### IV-DPost-training\n\nAfter pre-training the model with discrete tokens for 280k gradient steps, we perform a second stage of training that we refer to as post-training.\nThe purpose of this stage is to both specialize the model to our use-case (mobile manipulation in homes), and to add an action expert that can produce continuous action chunks via flow matching. This stage jointly trains with next-token prediction, to preserve text prediction capabilities, and flow matching for the action expert (which is initialized with random weights at the beginning of post-training).\nWe optimize the objective in Equation ( [1](https://arxiv.org/html/2504.16054v1#S4.E1 \"Equation 1 ‣ IV-B Combining discrete & continuous action representations ‣ IV The                                                       π               0.5                                  Model and Training Recipe ‣ π           0.5                     : a Vision-Language-Action Model with Open-World Generalization\")), with α=10.0\\\\alpha=10.0 for 80k additional steps. The post-training action dataset consists of the MM and ME robot data, filtered down to successful episodes that are below a fixed length threshold. We include web data (WD) to preserve the model’s semantic and visual capabilities, and the slice of HL data corresponding to the multi-environment datasets. Additionally, to improve the model’s ability to predict appropriate high-level subtasks, we collect _verbal instruction_ demonstrations (VI), which are constructed by expert users providing “language demonstrations,” selecting appropriate sub-task commands to command the robot to perform mobile manipulation tasks step by step. These examples are collected by “teleoperating” the robot in real time with language to perform tasks with the learned low level policy, essentially providing demonstrations of good high-level subtask outputs for a trained policy.\n\n![Refer to caption](https://arxiv.org/html/2504.16054v1/robot_system_overview.png)Fig. 5: Robot system overview. We use two mobile manipulator platforms – each has four cameras (forward, backward, and both wrists), two 6 DoF arms with parallel jaw grippers, a mobile base, and a torso lift mechanism. The π0.5\\\\pi\\_{0.5} model controls the joints and grippers of each arm, base velocity, and the lift position, resulting in 18-19 DoF state and action spaces.\n\n### IV-ERobot system details\n\nThe robot systems used in our mobile manipulation experiments are illustrated in Figure [5](https://arxiv.org/html/2504.16054v1#S4.F5 \"Figure 5 ‣ IV-D Post-training ‣ IV The                                                       π               0.5                                  Model and Training Recipe ‣ π           0.5                     : a Vision-Language-Action Model with Open-World Generalization\"). We conducted all of our experiments using two types of mobile manipulators. Both platforms are equipped with two 6 DoF arms with parallel jaw grippers and wrist-mounted monocular RGB cameras, a wheeled holonomic base, and a torso lift mechanism. The state and action spaces for the base correspond to linear (2D) and angular (1D) velocity, and the torso lift mechanism is either 1D (up/down) or 2D (up/down and forward/backward). In addition to the two wrist cameras, the robots have a forward and backward facing camera mounted between the arms. We use all four cameras for high-level inference, and the wrist and forward cameras for the low-level inference process. The total dimensionality of the state and action spaces is 18 or 19, depending on the platform.\n\nThe control system is very simple: the π0.5\\\\pi\\_{0.5} model directly commands target poses for the arms, gripper, and torso lift, and the target base velocities at 50 Hz (with action chunking). These targets are tracked with simple PD controllers, without any additional trajectory planning or collision detection. All manipulation and navigation control is fully end-to-end.\n\n"
+      },
+      {
+        "partId": "training",
+        "citationId": "pi05-2025",
+        "sourceUrl": "https://arxiv.org/html/2504.16054v1",
+        "supportingPassage": "Similarly to π0\\\\pi\\_{0}, we use flow-matching \\[ [50](https://arxiv.org/html/2504.16054v1#bib.bib50 \"\")\\] to predict continuous actions in the final model. Given 𝐚t:t+Hτ,ω=τ𝐚t:t+H+(1−τ)ω\\\\mathbf{a}\\_{t:t+H}^{\\\\tau,\\\\omega}=\\\\tau\\\\mathbf{a}\\_{t:t+H}+(1-\\\\tau)\\\\omega, ω∼𝒩⁡(0,𝐈)\\\\omega\\\\sim\\\\mathcal{N}(0,\\\\mathbf{I}), where τ∈\\[0,1\\]\\\\tau\\\\in\\[0,1\\] is the flow matching time index, the model is trained to predict the flow vector field ω−𝐚t\\\\omega-\\\\mathbf{a}\\_{t}. However, as shown in \\[ [64](https://arxiv.org/html/2504.16054v1#bib.bib64 \"\")\\], VLA training can be much faster when actions are represented by discrete tokens, particularly when using a tokenization scheme that is efficient for compressing the action chunks (e.g., FAST). Unfortunately, such discrete representations are less well-suited for real-time inference, because they require expensive autoregressive decoding for inference \\[ [64](https://arxiv.org/html/2504.16054v1#bib.bib64 \"\")\\]. Therefore, an ideal model design would train on discretized actions but still allow for use of flow matching to produce continuous actions at inference time.\n\nOur model is therefore trained to predict actions _both_ through autoregressive sampling of tokens (using the FAST tokenizer) and iterative integration of the flow field, combining the best of both worlds.\nWe use the attention matrix to ensure that the different action representations do not attend to each other.\nOur model is optimized to minimize the combined loss\n\n|     |     |     |     |     |\n| --- | --- | --- | --- | --- |\n|  | 𝔼𝒟,τ,ω\\[\\\\displaystyle\\\\mathbb{E}\\_{\\\\mathcal{D},\\\\tau,\\\\omega}\\\\Big\\[ | H(x1:M,fθℓ(𝐨t,ℓ))\\\\displaystyle\\ \\\\!H\\\\big(x\\_{1:M},f^{\\\\ell}\\_{\\\\theta}(\\\\mathbf{o}\\_{t},\\\\ell)\\\\big) |  |\\\n|  |  | +α‖ω−𝐚t:t+H−fθa(𝐚t:t+Hτ,ω,𝐨t,ℓ)‖2\\],\\\\displaystyle+\\\\alpha\\\\left\\\\\\|\\\\omega-\\\\mathbf{a}\\_{t:t+H}-f^{a}\\_{\\\\theta}(\\\\mathbf{a}^{\\\\tau,\\\\omega}\\_{t:t+H},\\\\mathbf{o}\\_{t},\\\\ell)\\\\right\\\\\\|^{2}\\\\Big\\], |  | (1) |\n\nwhere H(x1:M,y1:Mℓ)H(x\\_{1:M},y^{\\\\ell}\\_{1:M}) is the cross entropy loss between the text tokens and predicted logits (including the FAST encoded action tokens), y1:Ha=fθa(𝐚t:t+Hτ,ω,𝐨t,ℓ)y^{a}\\_{1:H}=f^{a}\\_{\\\\theta}(\\\\mathbf{a}^{\\\\tau,\\\\omega}\\_{t:t+H},\\\\mathbf{o}\\_{t},\\\\ell) is the output from the (smaller) action expert, and α∈ℝ\\\\alpha\\\\in\\\\mathbb{R} is a trade-off parameter.\nThis scheme enables us to first pre-train our model as a standard VLM transformer model by mapping actions to text tokens (α=0\\\\alpha=0), and then add additional action expert weights predicting continuous action tokens in a non-autoregressive fashion for fast inference in a post-training stage.\nWe find that following this procedure, which is further explained below, leads to stable pre-training and excellent language following abilities of the VLA model. At inference time we then use standard autoregressive decoding for text tokens ℓ^\\\\hat{\\\\ell} followed by 1010 denoising steps, conditioned on text tokens, to produce actions 𝐚t:t+H\\\\mathbf{a}\\_{t:t+H}.\n\n\n[Separate literal excerpt from the same retained response]\nEmbeddings from the VLM and action expert interact only through self-attention. A full prefix mask is used on images, prompt tokens, and proprioceptive state; FAST action tokens attend to this prefix and auto-regressively on previous action tokens. Embeddings from the action expert embeddings attend to the prefix and to one another, but do not attend to FAST action tokens to avoid information leakage between the two representations of actions. In effect, information flows unidirectionally from the VLM to the action expert; no VLM embedding attends to the action expert. An example of the attention mask at each layer is visualized in Figure [18](https://arxiv.org/html/2504.16054v1#A1.F18 \"Figure 18 ‣ A-E Model technical details ‣ Appendix A ‣ π           0.5                     : a Vision-Language-Action Model with Open-World Generalization\").\n\n"
+      },
+      {
+        "partId": "training",
+        "citationId": "openpi-repo-2024",
+        "sourceUrl": "https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md",
+        "supportingPassage": "Currently, this repo contains three types of models:\n\n- the [π₀ model](https://www.physicalintelligence.company/blog/pi0), a flow-based vision-language-action model (VLA).\n- the [π₀-FAST model](https://www.physicalintelligence.company/research/fast), an autoregressive VLA, based on the FAST action tokenizer.\n- the [π₀.₅ model](https://www.physicalintelligence.company/blog/pi05), an upgraded version of π₀ with better open-world generalization trained with [knowledge insulation](https://www.physicalintelligence.company/research/knowledge_insulation). Note that, in this repository, we currently only support the flow matching head for both π0.5 training and inference.\n\nFor all models, we provide _base model_ checkpoints, pre-trained on 10k+ hours of robot data, and examples for using them out of the box or fine-tuning them to your own datasets.\n\n"
+      },
+      {
+        "partId": "availability",
+        "citationId": "openpi-repo-2024",
+        "sourceUrl": "https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md",
+        "supportingPassage": "## Model Checkpoints\n\n[Permalink: Model Checkpoints](https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md#model-checkpoints)\n\n### Base Models\n\n[Permalink: Base Models](https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md#base-models)\n\nWe provide multiple base VLA model checkpoints. These checkpoints have been pre-trained on 10k+ hours of robot data, and can be used for fine-tuning.\n\n| Model | Use Case | Description | Checkpoint Path |\n| --- | --- | --- | --- |\n| π0 | Fine-Tuning | Base [π₀ model](https://www.physicalintelligence.company/blog/pi0) for fine-tuning | `gs://openpi-assets/checkpoints/pi0_base` |\n| π0-FAST | Fine-Tuning | Base autoregressive [π₀-FAST model](https://www.physicalintelligence.company/research/fast) for fine-tuning | `gs://openpi-assets/checkpoints/pi0_fast_base` |\n| π0.5 | Fine-Tuning | Base [π₀.₅ model](https://www.physicalintelligence.company/blog/pi05) for fine-tuning | `gs://openpi-assets/checkpoints/pi05_base` |\n\n### Fine-Tuned Models\n\n[Permalink: Fine-Tuned Models](https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md#fine-tuned-models)\n\nWe also provide \"expert\" checkpoints for various robot platforms and tasks. These models are fine-tuned from the base models above and intended to run directly on the target robot. These may or may not work on your particular robot. Since these checkpoints were fine-tuned on relatively small datasets collected with more widely available robots, such as ALOHA and the DROID Franka setup, they might not generalize to your particular setup, though we found some of these, especially the DROID checkpoint, to generalize quite broadly in practice.\n\n| Model | Use Case | Description | Checkpoint Path |\n| --- | --- | --- | --- |\n| π0-FAST-DROID | Inference | π0-FAST model fine-tuned on the [DROID dataset](https://droid-dataset.github.io/): can perform a wide range of simple table-top manipulation tasks 0-shot in new scenes on the DROID robot platform | `gs://openpi-assets/checkpoints/pi0_fast_droid` |\n| π0-DROID | Fine-Tuning | π0 model fine-tuned on the [DROID dataset](https://droid-dataset.github.io/): faster inference than π0-FAST-DROID, but may not follow language commands as well | `gs://openpi-assets/checkpoints/pi0_droid` |\n| π0-ALOHA-towel | Inference | π0 model fine-tuned on internal [ALOHA](https://tonyzhaozh.github.io/aloha/) data: can fold diverse towels 0-shot on ALOHA robot platforms | `gs://openpi-assets/checkpoints/pi0_aloha_towel` |\n| π0-ALOHA-tupperware | Inference | π0 model fine-tuned on internal [ALOHA](https://tonyzhaozh.github.io/aloha/) data: can unpack food from a tupperware container | `gs://openpi-assets/checkpoints/pi0_aloha_tupperware` |\n| π0-ALOHA-pen-uncap | Inference | π0 model fine-tuned on public [ALOHA](https://dit-policy.github.io/) data: can uncap a pen | `gs://openpi-assets/checkpoints/pi0_aloha_pen_uncap` |\n| π0.5-LIBERO | Inference | π0.5 model fine-tuned for the [LIBERO](https://libero-project.github.io/datasets) benchmark: gets state-of-the-art performance (see [LIBERO README](https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/examples/libero/README.md)) | `gs://openpi-assets/checkpoints/pi05_libero` |\n| π0.5-DROID | Inference / Fine-Tuning | π0.5 model fine-tuned on the [DROID dataset](https://droid-dataset.github.io/) with [knowledge insulation](https://www.physicalintelligence.company/research/knowledge_insulation): fast inference and good language-following | `gs://openpi-assets/checkpoints/pi05_droid` |\n\nBy default, checkpoints are automatically downloaded from `gs://openpi-assets` and are cached in `~/.cache/openpi` when needed. You can overwrite the download path by setting the `OPENPI_DATA_HOME` environment variable.\n\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "prediction",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "50 predicted entries with inclusive H=49; no executed-before-replanning count is inferred. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "9727be27edf6b62eb6917fa41c9dfa046516de5820b07b5aa1c694edef9ed6b1"
+      },
+      {
+        "partId": "mobile-rate",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "50 Hz commands in the paper two-mobile-platform setup, not generic inference throughput. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "8e603fc5df00e76e86278f8e93c4a56ad8d9e71d889c30b9c92fb27ff345f333"
+      },
+      {
+        "partId": "training",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Paper combines FAST-token prediction and flow matching; final flow inference is separate from the openpi flow-head-only implementation. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "10e387d1570bee9f87acb097a08f25ab3a38e66061d83ec96ca7e88792d3aaf2"
+      },
+      {
+        "partId": "availability",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "The pinned openpi catalogue positively lists pi05_base download; not a licensing assertion. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "056962d21048c6f45af155942a2b2235f0d42d94ed750729c1ce436b0e4ce255"
+      }
+    ],
+    "originalCellsDigest": "6a077bbb4b9f0519d19cb3529aab2d9ca6b232c0b530934e8e4e68f894479229",
+    "planReview": {
+      "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+      "rationale": "Whole current claim requires every listed part. Prior nine-source P1 preserved; exact full metadata for each new source checked against retained original text. Authority permits correction, not human source certification.",
+      "planDigest": "bc0063cea282ca473becb63a0abe4c810ef9e64175407a96c05efa24c0d0f5e6"
+    }
+  },
+  {
+    "id": "act-five-source-29-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 29,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "release",
+        "text": "2026 N1.7 GA release explicitly provides downloadable pretrained weights, not merely a public repository.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "horizon",
+        "text": "Model prediction horizon 40 is distinct from rollout execution options; no universal robot-control frequency is inferred.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "representation",
+        "text": "Flow-matching DiT and relative EEF support; SONIC latent actions are a separate supported interface.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "license",
+        "text": "Preserve the blanket Apache overview and code-versus-weights License section disagreement; no legal interpretation.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "release",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "5 months agoApr 18, 2026](https://github.com/NVIDIA/Isaac-GR00T/releases/tag/n1.7-release)\n[Separate literal excerpt from the same retained response]\n| 2 months agoJul 7, 2026 |\n[Separate literal excerpt from the same retained response]\n> **This is a General Availability (GA) release.** You are welcome to download the model, explore the codebase, and build on the stack, with full support and stability guarantees.\n>\n> **What's available:**\n>\n> - Pre-trained GR00T N1.7 model weights and reference code\n> - Fine-tuning and inference with custom robot data or demonstrations\n> - Experimentation, prototyping, and research use cases\n> - Production deployment with commercial support\n> - Complete benchmarks and a fully validated, stable feature set\n> - Pull request contributions\n>\n> We welcome feedback - please feel free to raise issues and pull requests in this repository.\n[Separate literal excerpt from the same retained response]\nThis runs open-loop inference on 2 DROID episodes, comparing predicted actions against ground truth. The base model downloads automatically from HuggingFace on first run (~6 GB)."
+      },
+      {
+        "partId": "horizon",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "- State and action dimensions expanded from `29` to `132`, and `action_horizon` expanded from `16` to `40`.\n[Separate literal excerpt from the same retained response]\n- The rollout CLI flag was renamed from `--action-horizon` to `--execution-horizon` to clarify how many predicted actions are executed per policy call."
+      },
+      {
+        "partId": "representation",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "- Action head remains flow-matching DiT, but changes from `32` to `16` diffusion layers and adds newer N1.7 behavior options.\n[Separate literal excerpt from the same retained response]\n1. **Relative EEF Action Space** — N1.7 adopts a relative end-effector action space shared across robot and human embodiments. Representing actions as deltas from the current pose (rather than absolute targets) improves generalization and is a key factor in the model's cross-embodiment performance. See [`getting_started/finetune_new_embodiment.md`](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/finetune_new_embodiment.md) for guidance on configuring relative EEF for your own robot.\n[Separate literal excerpt from the same retained response]\nGR00T N1.7 supports whole-body humanoid control via the `UNITREE_G1_SONIC` embodiment tag and the [GEAR-SONIC](https://github.com/NVlabs/GR00T-WholeBodyControl) controller. In this workflow, the VLA predicts compact latent action tokens that a learned whole-body controller decodes into full-body joint commands — including legs, arms, and hands. A single policy produces language-conditioned, coordinated manipulation and locomotion end-to-end. SONIC supports whole-body coordination with precise hand and foot placements."
+      },
+      {
+        "partId": "license",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "GR00T N1.7 is fully commercially licensable under Apache 2.0. It delivers comparable performance to N1.6, with improved generalization and language-following capabilities driven by the inclusion of 20K hours of EgoScale human video data in pretraining.\n[Separate literal excerpt from the same retained response]\n- **Code:** Apache 2.0 — see [LICENSE](https://github.com/NVIDIA/Isaac-GR00T/blob/main/LICENSE)\n- **Model weights:** [NVIDIA Open Model License](https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-open-model-license/)"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "release",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "2026 N1.7 GA release explicitly provides downloadable pretrained weights, not merely a public repository. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "81a8f7110166fde7b1b77a20ab768a1f70ee5e66e633eb2c2eecf6f00d922b27"
+      },
+      {
+        "partId": "horizon",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Model prediction horizon 40 is distinct from rollout execution options; no universal robot-control frequency is inferred. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "ff5d9fe3bee80abf2f5d39925bedbdc2b7fafb80c50afe69e92f75390bedfc44"
+      },
+      {
+        "partId": "representation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Flow-matching DiT and relative EEF support; SONIC latent actions are a separate supported interface. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "b440be8ce21f121c432f6164ac8002c5ec95058c17e2161b644849f9abcbaa0a"
+      },
+      {
+        "partId": "license",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Preserve the blanket Apache overview and code-versus-weights License section disagreement; no legal interpretation. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "9cf214345fffbc10d6b7d677d1914aa6457d3294f7deb323cc3fc19d788d30af"
+      }
+    ],
+    "originalCellsDigest": "a8c6721fd2a17f8ca4e52633188f04151070e7a8baba3474c36e7bb5c22bbeff",
+    "planReview": {
+      "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+      "rationale": "Whole current claim requires every listed part. Prior nine-source P1 preserved; exact full metadata for each new source checked against retained original text. Authority permits correction, not human source certification.",
+      "planDigest": "e7a5fd3d0cd1832f6da28e93d63a4f05eab59e0ac7cf21d255ce96838f21cacc"
+    }
+  },
+  {
+    "id": "act-five-source-30-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 30,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "identity",
+        "text": "Helix 02 January 27, 2026 announcement; Figure corporate publisher.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "rates",
+        "text": "S1 full-body joint targets 200 Hz tracked by S0 actuator commands 1 kHz; not interchangeable rates.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "absence",
+        "text": "The announcement provides no chunk step count or weight-release/licensing terms. Task duration is not a prediction horizon and silence is not inapplicability or closed licensing.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "identity",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "# Introducing Helix 02: Full-Body Autonomy\n[Separate literal excerpt from the same retained response]\nJanuary 27, 2026"
+      },
+      {
+        "partId": "rates",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "Each system operates at its natural timescale. **System 2 (S2)** reasons slowly about goals: interpreting scenes, understanding language, and sequencing behaviors. **System 1 (S1)** thinks fast, translating perception into full‑body joint targets at 200 Hz. **System 0 (S0)** executes at 1 kHz, handling balance, contact, and coordination across the entire body. Together, they form a tightly integrated hierarchy from pixels to torque.\n[Separate literal excerpt from the same retained response]\n**Architecture:** A 10M‑parameter neural network that takes full‑body joint state and base motion as input and outputs joint‑level actuator commands at 1 kHz.\n[Separate literal excerpt from the same retained response]\nS1 remains a transformer conditioned on System 2 latents, but now produces full‑body joint targets that S0 tracks at kHz rates."
+      },
+      {
+        "partId": "absence",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "Video 1: A Figure robot executes a continuous 4-minute task: walking to a dishwasher, unloading dishes, navigating across a room, stacking items in cabinets, loading and starting the dishwasher - entirely from onboard sensors with no human intervention.\n[Separate literal excerpt from the same retained response]\n- **Outputs**: Complete joint-level control of the entire robot - legs, torso, head, arms, wrists, and individual fingers."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "identity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Helix 02 January 27, 2026 announcement; Figure corporate publisher. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "6beaf29accd65def21b49a8c3b15895960ea55f69e6311ea66aa10eb2492f851"
+      },
+      {
+        "partId": "rates",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "S1 full-body joint targets 200 Hz tracked by S0 actuator commands 1 kHz; not interchangeable rates. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "97f4933bd30b221db574ce951206739257dfc401be938d7397e24c81ac821042"
+      },
+      {
+        "partId": "absence",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "The announcement provides no chunk step count or weight-release/licensing terms. Task duration is not a prediction horizon and silence is not inapplicability or closed licensing. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "59f3d1530f2c21e80286167e249ac7277fe6ae681954c75762a5540fd4503daf"
+      }
+    ],
+    "originalCellsDigest": "8605df3618b34f546261415369e4f8db6aa2e6859dc368d2fcc6661f5d244615",
+    "planReview": {
+      "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+      "rationale": "Whole current claim requires every listed part. Prior nine-source P1 preserved; exact full metadata for each new source checked against retained original text. Authority permits correction, not human source certification.",
+      "planDigest": "cf41a671fa5ced2c1a962ae49f7f009f5c42c477f1a1320cd12181ba6001a5d0"
+    }
+  },
+  {
     "id": "action-chunking-frontmatter-p1",
     "ledgerPath": "audit/manipulation.md",
     "articleSlug": "action-chunking",
     "rowOrdinal": 32,
-    "originalCellsDigest": "562b9611fd672fd4c87e6ab89cfb33a4ae919694a99e3351a2a3f0a978f678dd",
+    "originalCellsDigest": "49c70db41e43b959460408f6183976dd0582b34e695511935eb0045f55a56834",
     "kind": "frontmatter-p1",
     "parts": [
       {
@@ -1324,12 +1784,47 @@
         "requiredCitationIds": [
           "pi0-2024"
         ]
+      },
+      {
+        "id": "openpi-repo-2024",
+        "text": "Exact current registry metadata: {\"id\":\"openpi-repo-2024\",\"title\":\"openpi\",\"authors\":[\"Physical Intelligence\"],\"year\":2026,\"url\":\"https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md\",\"type\":\"docs\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit.",
+        "requiredCitationIds": [
+          "openpi-repo-2024"
+        ]
+      },
+      {
+        "id": "rt1-2022",
+        "text": "Exact current registry metadata: {\"id\":\"rt1-2022\",\"title\":\"RT-1: Robotics Transformer for Real-World Control at Scale\",\"authors\":[\"Anthony Brohan\",\"Noah Brown\",\"Justice Carbajal\",\"Yevgen Chebotar\",\"Joseph Dabis\",\"Chelsea Finn\",\"Keerthana Gopalakrishnan\",\"Karol Hausman\",\"Alex Herzog\",\"Jasmine Hsu\",\"Julian Ibarz\",\"Brian Ichter\",\"Alex Irpan\",\"Tomas Jackson\",\"Sally Jesmonth\",\"Nikhil J Joshi\",\"Ryan Julian\",\"Dmitry Kalashnikov\",\"Yuheng Kuang\",\"Isabel Leal\",\"Kuang-Huei Lee\",\"Sergey Levine\",\"Yao Lu\",\"Utsav Malla\",\"Deeksha Manjunath\",\"Igor Mordatch\",\"Ofir Nachum\",\"Carolina Parada\",\"Jodilyn Peralta\",\"Emily Perez\",\"Karl Pertsch\",\"Jornell Quiambao\",\"Kanishka Rao\",\"Michael Ryoo\",\"Grecia Salazar\",\"Pannag Sanketi\",\"Kevin Sayed\",\"Jaspiar Singh\",\"Sumedh Sontakke\",\"Austin Stone\",\"Clayton Tan\",\"Huong Tran\",\"Vincent Vanhoucke\",\"Steve Vega\",\"Quan Vuong\",\"Fei Xia\",\"Ted Xiao\",\"Peng Xu\",\"Sichun Xu\",\"Tianhe Yu\",\"Brianna Zitkovich\"],\"year\":2022,\"arxiv\":\"2212.06817\",\"url\":\"https://arxiv.org/html/2212.06817v2\",\"type\":\"paper\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit.",
+        "requiredCitationIds": [
+          "rt1-2022"
+        ]
+      },
+      {
+        "id": "pi05-2025",
+        "text": "Exact current registry metadata: {\"id\":\"pi05-2025\",\"title\":\"π0.5: a Vision-Language-Action Model with Open-World Generalization\",\"authors\":[\"Physical Intelligence\",\"Kevin Black\",\"Noah Brown\",\"James Darpinian\",\"Karan Dhabalia\",\"Danny Driess\",\"Adnan Esmail\",\"Michael Equi\",\"Chelsea Finn\",\"Niccolo Fusai\",\"Manuel Y. Galliker\",\"Dibya Ghosh\",\"Lachy Groom\",\"Karol Hausman\",\"Brian Ichter\",\"Szymon Jakubczak\",\"Tim Jones\",\"Liyiming Ke\",\"Devin LeBlanc\",\"Sergey Levine\",\"Adrian Li-Bell\",\"Mohith Mothukuri\",\"Suraj Nair\",\"Karl Pertsch\",\"Allen Z. Ren\",\"Lucy Xiaoyang Shi\",\"Laura Smith\",\"Jost Tobias Springenberg\",\"Kyle Stachowicz\",\"James Tanner\",\"Quan Vuong\",\"Homer Walke\",\"Anna Walling\",\"Haohuan Wang\",\"Lili Yu\",\"Ury Zhilinsky\"],\"year\":2025,\"arxiv\":\"2504.16054\",\"url\":\"https://arxiv.org/html/2504.16054v1\",\"type\":\"paper\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit.",
+        "requiredCitationIds": [
+          "pi05-2025"
+        ]
+      },
+      {
+        "id": "isaac-gr00t-repo-2026",
+        "text": "Exact current registry metadata: {\"id\":\"isaac-gr00t-repo-2026\",\"title\":\"NVIDIA Isaac GR00T\",\"authors\":[\"NVIDIA\"],\"year\":2026,\"url\":\"https://github.com/NVIDIA/Isaac-GR00T\",\"type\":\"docs\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "helix-02-2026",
+        "text": "Exact current registry metadata: {\"id\":\"helix-02-2026\",\"title\":\"Introducing Helix 02: Full-Body Autonomy\",\"authors\":[\"Figure AI\"],\"year\":2026,\"url\":\"https://www.figure.ai/news/helix-02\",\"type\":\"blog\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
       }
     ],
     "planReview": {
-      "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
-      "rationale": "Complete corrected claim decomposed into independently required source parts; original seven P1 bindings retained, new identity passages checked against original captures.",
-      "planDigest": "59954306150b851abb84450f3f70c53653f3a3e7d8c5fb896c6006c3e77f7eb9"
+      "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+      "rationale": "Whole current claim requires every listed part. Prior nine-source P1 preserved; exact full metadata for each new source checked against retained original text. Authority permits correction, not human source certification.",
+      "planDigest": "5a2baa2ed192c72f5ae8a48ec151be761e9389f2d36fb3217ea000fb9daa4426"
     },
     "evidence": [
       {
@@ -1397,6 +1892,54 @@
         "citationId": "pi0-2024",
         "sourceUrl": "https://arxiv.org/abs/2410.24164",
         "supportingPassage": "# Title:π0: A Vision-Language-Action Flow Model for General Robot Control\n\n[Separate excerpt from this same retained response]\n\nAuthors: [Kevin Black](https://arxiv.org/search/cs?searchtype=author&query=Black,+K), [Noah Brown](https://arxiv.org/search/cs?searchtype=author&query=Brown,+N), [Danny Driess](https://arxiv.org/search/cs?searchtype=author&query=Driess,+D), [Adnan Esmail](https://arxiv.org/search/cs?searchtype=author&query=Esmail,+A), [Michael Equi](https://arxiv.org/search/cs?searchtype=author&query=Equi,+M), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C), [Niccolo Fusai](https://arxiv.org/search/cs?searchtype=author&query=Fusai,+N), [Lachy Groom](https://arxiv.org/search/cs?searchtype=author&query=Groom,+L), [Karol Hausman](https://arxiv.org/search/cs?searchtype=author&query=Hausman,+K), [Brian Ichter](https://arxiv.org/search/cs?searchtype=author&query=Ichter,+B), [Szymon Jakubczak](https://arxiv.org/search/cs?searchtype=author&query=Jakubczak,+S), [Tim Jones](https://arxiv.org/search/cs?searchtype=author&query=Jones,+T), [Liyiming Ke](https://arxiv.org/search/cs?searchtype=author&query=Ke,+L), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Adrian Li-Bell](https://arxiv.org/search/cs?searchtype=author&query=Li-Bell,+A), [Mohith Mothukuri](https://arxiv.org/search/cs?searchtype=author&query=Mothukuri,+M), [Suraj Nair](https://arxiv.org/search/cs?searchtype=author&query=Nair,+S), [Karl Pertsch](https://arxiv.org/search/cs?searchtype=author&query=Pertsch,+K), [Lucy Xiaoyang Shi](https://arxiv.org/search/cs?searchtype=author&query=Shi,+L+X), [James Tanner](https://arxiv.org/search/cs?searchtype=author&query=Tanner,+J), [Quan Vuong](https://arxiv.org/search/cs?searchtype=author&query=Vuong,+Q), [Anna Walling](https://arxiv.org/search/cs?searchtype=author&query=Walling,+A), [Haohuan Wang](https://arxiv.org/search/cs?searchtype=author&query=Wang,+H), [Ury Zhilinsky](https://arxiv.org/search/cs?searchtype=author&query=Zhilinsky,+U)\n\n[Separate excerpt from this same retained response]\n\n| Comments: | See project website for videos: [this https URL](https://physicalintelligence.company/blog/pi0) Published in RSS 2025 |\n\n[Separate excerpt from this same retained response]\n\n## Submission history\n\nFrom: Sergey Levine \\[ [view email](https://arxiv.org/show-email/6a8355e6/2410.24164)\\]\n\n**[\\[v1\\]](https://arxiv.org/abs/2410.24164v1)**\nThu, 31 Oct 2024 17:22:30 UTC (7,531 KB)\n\n**[\\[v2\\]](https://arxiv.org/abs/2410.24164v2)**\nSat, 2 Nov 2024 04:00:56 UTC (22,073 KB)\n\n**[\\[v3\\]](https://arxiv.org/abs/2410.24164v3)**\nWed, 13 Nov 2024 17:30:10 UTC (22,075 KB)\n\n**\\[v4\\]**\nThu, 8 Jan 2026 17:01:05 UTC (7,128 KB)\n"
+      },
+      {
+        "partId": "openpi-repo-2024",
+        "citationId": "openpi-repo-2024",
+        "sourceUrl": "https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md",
+        "supportingPassage": "openpi holds open-source models and packages for robotics, published by the [Physical Intelligence team](https://www.physicalintelligence.company/).\n\n\n[Separate literal excerpt from the same retained response]\n## Latest commit\n\n[![hotcholula](https://avatars.githubusercontent.com/u/30572125?v=4&size=40)](https://github.com/hotcholula)[hotcholula](https://github.com/Physical-Intelligence/openpi/commits?author=hotcholula)\n\n[Fixed a typo in README](https://github.com/Physical-Intelligence/openpi/commit/76d1c8aed4fdd429f8f7addaf3a49159b7a9ad6f)\n\nsuccess\n\n10 months agoNov 21, 2025\n\n[76d1c8a](https://github.com/Physical-Intelligence/openpi/commit/76d1c8aed4fdd429f8f7addaf3a49159b7a9ad6f) · 10 months agoNov 21, 2025\n\n\n[Separate literal excerpt from the same retained response]\nCurrently, this repo contains three types of models:\n\n- the [π₀ model](https://www.physicalintelligence.company/blog/pi0), a flow-based vision-language-action model (VLA).\n- the [π₀-FAST model](https://www.physicalintelligence.company/research/fast), an autoregressive VLA, based on the FAST action tokenizer.\n- the [π₀.₅ model](https://www.physicalintelligence.company/blog/pi05), an upgraded version of π₀ with better open-world generalization trained with [knowledge insulation](https://www.physicalintelligence.company/research/knowledge_insulation). Note that, in this repository, we currently only support the flow matching head for both π0.5 training and inference.\n\nFor all models, we provide _base model_ checkpoints, pre-trained on 10k+ hours of robot data, and examples for using them out of the box or fine-tuning them to your own datasets.\n\n"
+      },
+      {
+        "partId": "openpi-repo-2024",
+        "citationId": "openpi-repo-2024",
+        "sourceUrl": "https://github.com/Physical-Intelligence/openpi",
+        "supportingPassage": "## Latest commit\n\n[![POPOXR](https://avatars.githubusercontent.com/u/193373702?v=4&size=40)](https://github.com/POPOXR)[POPOXR](https://github.com/Physical-Intelligence/openpi/commits?author=POPOXR)\n\n[docs(droid): fix config search instruction (](https://github.com/Physical-Intelligence/openpi/commit/215abfb217dbac7d5f1273282331b9b1866c0479) [#1023](https://github.com/Physical-Intelligence/openpi/pull/1023) [)](https://github.com/Physical-Intelligence/openpi/commit/215abfb217dbac7d5f1273282331b9b1866c0479)\n\nsuccess\n\n2 weeks agoAug 24, 2026\n\n[215abfb](https://github.com/Physical-Intelligence/openpi/commit/215abfb217dbac7d5f1273282331b9b1866c0479) · 2 weeks agoAug 24, 2026\n\n"
+      },
+      {
+        "partId": "rt1-2022",
+        "citationId": "rt1-2022",
+        "sourceUrl": "https://arxiv.org/abs/2212.06817",
+        "supportingPassage": "\\[Submitted on 13 Dec 2022 ( [v1](https://arxiv.org/abs/2212.06817v1)), last revised 11 Aug 2023 (this version, v2)\\]\n\n# Title:RT-1: Robotics Transformer for Real-World Control at Scale\n\nAuthors: [Anthony Brohan](https://arxiv.org/search/cs?searchtype=author&query=Brohan,+A), [Noah Brown](https://arxiv.org/search/cs?searchtype=author&query=Brown,+N), [Justice Carbajal](https://arxiv.org/search/cs?searchtype=author&query=Carbajal,+J), [Yevgen Chebotar](https://arxiv.org/search/cs?searchtype=author&query=Chebotar,+Y), [Joseph Dabis](https://arxiv.org/search/cs?searchtype=author&query=Dabis,+J), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C), [Keerthana Gopalakrishnan](https://arxiv.org/search/cs?searchtype=author&query=Gopalakrishnan,+K), [Karol Hausman](https://arxiv.org/search/cs?searchtype=author&query=Hausman,+K), [Alex Herzog](https://arxiv.org/search/cs?searchtype=author&query=Herzog,+A), [Jasmine Hsu](https://arxiv.org/search/cs?searchtype=author&query=Hsu,+J), [Julian Ibarz](https://arxiv.org/search/cs?searchtype=author&query=Ibarz,+J), [Brian Ichter](https://arxiv.org/search/cs?searchtype=author&query=Ichter,+B), [Alex Irpan](https://arxiv.org/search/cs?searchtype=author&query=Irpan,+A), [Tomas Jackson](https://arxiv.org/search/cs?searchtype=author&query=Jackson,+T), [Sally Jesmonth](https://arxiv.org/search/cs?searchtype=author&query=Jesmonth,+S), [Nikhil J Joshi](https://arxiv.org/search/cs?searchtype=author&query=Joshi,+N+J), [Ryan Julian](https://arxiv.org/search/cs?searchtype=author&query=Julian,+R), [Dmitry Kalashnikov](https://arxiv.org/search/cs?searchtype=author&query=Kalashnikov,+D), [Yuheng Kuang](https://arxiv.org/search/cs?searchtype=author&query=Kuang,+Y), [Isabel Leal](https://arxiv.org/search/cs?searchtype=author&query=Leal,+I), [Kuang-Huei Lee](https://arxiv.org/search/cs?searchtype=author&query=Lee,+K), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Yao Lu](https://arxiv.org/search/cs?searchtype=author&query=Lu,+Y), [Utsav Malla](https://arxiv.org/search/cs?searchtype=author&query=Malla,+U), [Deeksha Manjunath](https://arxiv.org/search/cs?searchtype=author&query=Manjunath,+D), [Igor Mordatch](https://arxiv.org/search/cs?searchtype=author&query=Mordatch,+I), [Ofir Nachum](https://arxiv.org/search/cs?searchtype=author&query=Nachum,+O), [Carolina Parada](https://arxiv.org/search/cs?searchtype=author&query=Parada,+C), [Jodilyn Peralta](https://arxiv.org/search/cs?searchtype=author&query=Peralta,+J), [Emily Perez](https://arxiv.org/search/cs?searchtype=author&query=Perez,+E), [Karl Pertsch](https://arxiv.org/search/cs?searchtype=author&query=Pertsch,+K), [Jornell Quiambao](https://arxiv.org/search/cs?searchtype=author&query=Quiambao,+J), [Kanishka Rao](https://arxiv.org/search/cs?searchtype=author&query=Rao,+K), [Michael Ryoo](https://arxiv.org/search/cs?searchtype=author&query=Ryoo,+M), [Grecia Salazar](https://arxiv.org/search/cs?searchtype=author&query=Salazar,+G), [Pannag Sanketi](https://arxiv.org/search/cs?searchtype=author&query=Sanketi,+P), [Kevin Sayed](https://arxiv.org/search/cs?searchtype=author&query=Sayed,+K), [Jaspiar Singh](https://arxiv.org/search/cs?searchtype=author&query=Singh,+J), [Sumedh Sontakke](https://arxiv.org/search/cs?searchtype=author&query=Sontakke,+S), [Austin Stone](https://arxiv.org/search/cs?searchtype=author&query=Stone,+A), [Clayton Tan](https://arxiv.org/search/cs?searchtype=author&query=Tan,+C), [Huong Tran](https://arxiv.org/search/cs?searchtype=author&query=Tran,+H), [Vincent Vanhoucke](https://arxiv.org/search/cs?searchtype=author&query=Vanhoucke,+V), [Steve Vega](https://arxiv.org/search/cs?searchtype=author&query=Vega,+S), [Quan Vuong](https://arxiv.org/search/cs?searchtype=author&query=Vuong,+Q), [Fei Xia](https://arxiv.org/search/cs?searchtype=author&query=Xia,+F), [Ted Xiao](https://arxiv.org/search/cs?searchtype=author&query=Xiao,+T), [Peng Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+P), [Sichun Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+S), [Tianhe Yu](https://arxiv.org/search/cs?searchtype=author&query=Yu,+T), [Brianna Zitkovich](https://arxiv.org/search/cs?searchtype=author&query=Zitkovich,+B)\n\n"
+      },
+      {
+        "partId": "rt1-2022",
+        "citationId": "rt1-2022",
+        "sourceUrl": "https://arxiv.org/html/2212.06817v2",
+        "supportingPassage": "arXiv:2212.06817v2 \\[cs.RO\\] 11 Aug 2023"
+      },
+      {
+        "partId": "pi05-2025",
+        "citationId": "pi05-2025",
+        "sourceUrl": "https://arxiv.org/abs/2504.16054",
+        "supportingPassage": "\\[Submitted on 22 Apr 2025\\]\n\n# Title:π0.5: a Vision-Language-Action Model with Open-World Generalization\n\nAuthors: [Physical Intelligence](https://arxiv.org/search/cs?searchtype=author&query=Intelligence,+P), [Kevin Black](https://arxiv.org/search/cs?searchtype=author&query=Black,+K), [Noah Brown](https://arxiv.org/search/cs?searchtype=author&query=Brown,+N), [James Darpinian](https://arxiv.org/search/cs?searchtype=author&query=Darpinian,+J), [Karan Dhabalia](https://arxiv.org/search/cs?searchtype=author&query=Dhabalia,+K), [Danny Driess](https://arxiv.org/search/cs?searchtype=author&query=Driess,+D), [Adnan Esmail](https://arxiv.org/search/cs?searchtype=author&query=Esmail,+A), [Michael Equi](https://arxiv.org/search/cs?searchtype=author&query=Equi,+M), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C), [Niccolo Fusai](https://arxiv.org/search/cs?searchtype=author&query=Fusai,+N), [Manuel Y. Galliker](https://arxiv.org/search/cs?searchtype=author&query=Galliker,+M+Y), [Dibya Ghosh](https://arxiv.org/search/cs?searchtype=author&query=Ghosh,+D), [Lachy Groom](https://arxiv.org/search/cs?searchtype=author&query=Groom,+L), [Karol Hausman](https://arxiv.org/search/cs?searchtype=author&query=Hausman,+K), [Brian Ichter](https://arxiv.org/search/cs?searchtype=author&query=Ichter,+B), [Szymon Jakubczak](https://arxiv.org/search/cs?searchtype=author&query=Jakubczak,+S), [Tim Jones](https://arxiv.org/search/cs?searchtype=author&query=Jones,+T), [Liyiming Ke](https://arxiv.org/search/cs?searchtype=author&query=Ke,+L), [Devin LeBlanc](https://arxiv.org/search/cs?searchtype=author&query=LeBlanc,+D), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Adrian Li-Bell](https://arxiv.org/search/cs?searchtype=author&query=Li-Bell,+A), [Mohith Mothukuri](https://arxiv.org/search/cs?searchtype=author&query=Mothukuri,+M), [Suraj Nair](https://arxiv.org/search/cs?searchtype=author&query=Nair,+S), [Karl Pertsch](https://arxiv.org/search/cs?searchtype=author&query=Pertsch,+K), [Allen Z. Ren](https://arxiv.org/search/cs?searchtype=author&query=Ren,+A+Z), [Lucy Xiaoyang Shi](https://arxiv.org/search/cs?searchtype=author&query=Shi,+L+X), [Laura Smith](https://arxiv.org/search/cs?searchtype=author&query=Smith,+L), [Jost Tobias Springenberg](https://arxiv.org/search/cs?searchtype=author&query=Springenberg,+J+T), [Kyle Stachowicz](https://arxiv.org/search/cs?searchtype=author&query=Stachowicz,+K), [James Tanner](https://arxiv.org/search/cs?searchtype=author&query=Tanner,+J), [Quan Vuong](https://arxiv.org/search/cs?searchtype=author&query=Vuong,+Q), [Homer Walke](https://arxiv.org/search/cs?searchtype=author&query=Walke,+H), [Anna Walling](https://arxiv.org/search/cs?searchtype=author&query=Walling,+A), [Haohuan Wang](https://arxiv.org/search/cs?searchtype=author&query=Wang,+H), [Lili Yu](https://arxiv.org/search/cs?searchtype=author&query=Yu,+L), [Ury Zhilinsky](https://arxiv.org/search/cs?searchtype=author&query=Zhilinsky,+U)\n\n"
+      },
+      {
+        "partId": "pi05-2025",
+        "citationId": "pi05-2025",
+        "sourceUrl": "https://arxiv.org/html/2504.16054v1",
+        "supportingPassage": "arXiv:2504.16054v1 \\[cs.LG\\] 22 Apr 2025\n\n# π0.5\\\\pi\\_{0.5}: a Vision-Language-Action Model with Open-World Generalization\n\nPhysical IntelligenceAffiliation: Kevin Black, Noah Brown, James Darpinian, Karan Dhabalia, Danny Driess, Adnan Esmail, Michael Equi,Affiliation: Chelsea Finn, Niccolo Fusai, Manuel Y. Galliker, Dibya Ghosh, Lachy Groom, Karol Hausman, Brian Ichter,Affiliation: Szymon Jakubczak, Tim Jones, Liyiming Ke, Devin LeBlanc, Sergey Levine, Adrian Li-Bell, Mohith Mothukuri,Affiliation: Suraj Nair, Karl Pertsch, Allen Z. Ren, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle StachowiczAffiliation: James Tanner, Quan Vuong, Homer Walke, Anna Walling, Haohuan Wang, Lili Yu, Ury ZhilinskyAffiliation: [https://pi.website/blog/pi05](https://pi.website/blog/pi05 \"\")\n\n"
+      },
+      {
+        "partId": "isaac-gr00t-repo-2026",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "URL Content from: \"https://github.com/NVIDIA/Isaac-GR00T\"\nTitle: GitHub - NVIDIA/Isaac-GR00T: NVIDIA Isaac GR00T N1.7 -  A Foundation Model for Generalist Robots. · GitHub\nStatus: 200\n\n[Separate literal excerpt from the same retained response]\n5 months agoApr 18, 2026](https://github.com/NVIDIA/Isaac-GR00T/releases/tag/n1.7-release)\n[Separate literal excerpt from the same retained response]\n| 2 months agoJul 7, 2026 |"
+      },
+      {
+        "partId": "helix-02-2026",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "# Introducing Helix 02: Full-Body Autonomy\n[Separate literal excerpt from the same retained response]\nJanuary 27, 2026"
       }
     ],
     "adjudications": [
@@ -1404,64 +1947,99 @@
         "partId": "dagger-2011",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
-        "rationale": "DAgger title, accented byline, AISTATS 2011; 2010 submission distinct. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "54e3568b20ce1a17bb584d857dbeebcac4e4c3d1a1d4523887b863c9c2442b87"
+        "rationale": "DAgger title, accented byline, AISTATS 2011; 2010 submission distinct. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+        "evidenceDigest": "da105e1c9c170f191c6423e383cb9f802f59f9ccf3e78e328e5a90d74a9dee25"
       },
       {
         "partId": "act-aloha-2023",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
-        "rationale": "ACT four-author title and RSS 2023 publication. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "ee2cc39c5b84a92567b61d1e57dc7b0fd7c104e84bcd9d6e9aace1be44c8be11"
+        "rationale": "ACT four-author title and RSS 2023 publication. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+        "evidenceDigest": "b8f78d63c80bcd2e70d582d6a5008f4d44dda72a8e261134303b3a6cef445bf1"
       },
       {
         "partId": "act-reference-2023",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
-        "rationale": "Pinned imitate_episodes.py file, repository handle and displayed commit date. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "ebabbe961a2325b0b137cef1d6cce779fec52526dffdeda7369dbe77f9bc0b67"
+        "rationale": "Pinned imitate_episodes.py file, repository handle and displayed commit date. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+        "evidenceDigest": "ddf38ea2e90157bdc5a0766d1ebe4e8b619d4cd134c14088c1dab8776c8b9529"
       },
       {
         "partId": "mobile-aloha-2024",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
-        "rationale": "Mobile ALOHA title, three named authors, 2024 submission; no invented venue. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "a8bcc6a5ec4b2f08468e26eb618e9eadb08ed37a3a03d8ba81c543236137b71c"
+        "rationale": "Mobile ALOHA title, three named authors, 2024 submission; no invented venue. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+        "evidenceDigest": "8eb1490f333dd8bd57e105307f74d09ba09b06cdd383b0c0ddfd9362a78a7df4"
       },
       {
         "partId": "diffusion-policy-2023",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
-        "rationale": "Extended eight-author DP identity, 2023 introduction and 2024 v5 revision; not original seven-author RSS edition. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "d941bca7c58ae4650080f74eaa5f9e51e92aba7cebaf8e180a359223bfb18b70"
+        "rationale": "Extended eight-author DP identity, 2023 introduction and 2024 v5 revision; not original seven-author RSS edition. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+        "evidenceDigest": "22a4fa45a1fc68ee8d235ac3f8168a134f5c77e248e7205d26f9c9bbba7f027b"
       },
       {
         "partId": "real-time-chunking-2025",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
-        "rationale": "RTC paper title, all three authors, 2025 submission; unversioned body not silently labelled v2. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "6e45470cd2f87fe1b5dd597a4b00ba0a9a49e2bac46486216dc5ce4aa8ee2d28"
+        "rationale": "RTC paper title, all three authors, 2025 submission; unversioned body not silently labelled v2. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+        "evidenceDigest": "ac88c2087f449ef11bf4b371a6a64bcae17f6ff189b8c6ec214e303940fbfa65"
       },
       {
         "partId": "pi-real-time-chunking-blog-2025",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
-        "rationale": "Actual blog title, named three-author byline, June 9 2025. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved.",
-        "evidenceDigest": "aece86085ec79413f1ddd5a1a6b84f7aacd6db339b3c1442a0aafdb9247ccb92"
+        "rationale": "Actual blog title, named three-author byline, June 9 2025. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+        "evidenceDigest": "551889bf22b7a69c33b96cadd0a82e65def50a60eaabcaa9e4a5bad42949f8a6"
       },
       {
         "partId": "octo-2024",
         "outcome": "supported",
         "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
-        "rationale": "octo 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for octo-2024. Actual retained passages verified; named setup and source edition preserved.",
-        "evidenceDigest": "5f6b187a61f29161c4cb8ab7a99094b6cace8032bcdeb2d6a10910fe02568dfc"
+        "rationale": "octo 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for octo-2024. Actual retained passages verified; named setup and source edition preserved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+        "evidenceDigest": "153e8966c11eaf131be1621bb8fada6ebc6e38e64f3c62da80ee2d4627e89728"
       },
       {
         "partId": "pi0-2024",
         "outcome": "supported",
         "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
-        "rationale": "pi0 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for pi0-2024. Actual retained passages verified; named setup and source edition preserved.",
-        "evidenceDigest": "0c39a21199f5285e2611a0756657c656b1c237d1edc154d0de2890fc45a99286"
+        "rationale": "pi0 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for pi0-2024. Actual retained passages verified; named setup and source edition preserved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+        "evidenceDigest": "3a1e00a7c91a4654558a97d790fb3393548482e935e4cbc2793e0c6dc9fd80bc"
+      },
+      {
+        "partId": "openpi-repo-2024",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Exact current registry metadata: {\"id\":\"openpi-repo-2024\",\"title\":\"openpi\",\"authors\":[\"Physical Intelligence\"],\"year\":2026,\"url\":\"https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md\",\"type\":\"docs\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "3a3545ffa8466c1972358185efee1c5e48c8e820440a2dfc215ea0f80d73165e"
+      },
+      {
+        "partId": "rt1-2022",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Exact current registry metadata: {\"id\":\"rt1-2022\",\"title\":\"RT-1: Robotics Transformer for Real-World Control at Scale\",\"authors\":[\"Anthony Brohan\",\"Noah Brown\",\"Justice Carbajal\",\"Yevgen Chebotar\",\"Joseph Dabis\",\"Chelsea Finn\",\"Keerthana Gopalakrishnan\",\"Karol Hausman\",\"Alex Herzog\",\"Jasmine Hsu\",\"Julian Ibarz\",\"Brian Ichter\",\"Alex Irpan\",\"Tomas Jackson\",\"Sally Jesmonth\",\"Nikhil J Joshi\",\"Ryan Julian\",\"Dmitry Kalashnikov\",\"Yuheng Kuang\",\"Isabel Leal\",\"Kuang-Huei Lee\",\"Sergey Levine\",\"Yao Lu\",\"Utsav Malla\",\"Deeksha Manjunath\",\"Igor Mordatch\",\"Ofir Nachum\",\"Carolina Parada\",\"Jodilyn Peralta\",\"Emily Perez\",\"Karl Pertsch\",\"Jornell Quiambao\",\"Kanishka Rao\",\"Michael Ryoo\",\"Grecia Salazar\",\"Pannag Sanketi\",\"Kevin Sayed\",\"Jaspiar Singh\",\"Sumedh Sontakke\",\"Austin Stone\",\"Clayton Tan\",\"Huong Tran\",\"Vincent Vanhoucke\",\"Steve Vega\",\"Quan Vuong\",\"Fei Xia\",\"Ted Xiao\",\"Peng Xu\",\"Sichun Xu\",\"Tianhe Yu\",\"Brianna Zitkovich\"],\"year\":2022,\"arxiv\":\"2212.06817\",\"url\":\"https://arxiv.org/html/2212.06817v2\",\"type\":\"paper\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "0897ce5f67b83b958197fca2e9917e8b9aeb0a0945f5eeec0a29aac4e8b7c921"
+      },
+      {
+        "partId": "pi05-2025",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Exact current registry metadata: {\"id\":\"pi05-2025\",\"title\":\"π0.5: a Vision-Language-Action Model with Open-World Generalization\",\"authors\":[\"Physical Intelligence\",\"Kevin Black\",\"Noah Brown\",\"James Darpinian\",\"Karan Dhabalia\",\"Danny Driess\",\"Adnan Esmail\",\"Michael Equi\",\"Chelsea Finn\",\"Niccolo Fusai\",\"Manuel Y. Galliker\",\"Dibya Ghosh\",\"Lachy Groom\",\"Karol Hausman\",\"Brian Ichter\",\"Szymon Jakubczak\",\"Tim Jones\",\"Liyiming Ke\",\"Devin LeBlanc\",\"Sergey Levine\",\"Adrian Li-Bell\",\"Mohith Mothukuri\",\"Suraj Nair\",\"Karl Pertsch\",\"Allen Z. Ren\",\"Lucy Xiaoyang Shi\",\"Laura Smith\",\"Jost Tobias Springenberg\",\"Kyle Stachowicz\",\"James Tanner\",\"Quan Vuong\",\"Homer Walke\",\"Anna Walling\",\"Haohuan Wang\",\"Lili Yu\",\"Ury Zhilinsky\"],\"year\":2025,\"arxiv\":\"2504.16054\",\"url\":\"https://arxiv.org/html/2504.16054v1\",\"type\":\"paper\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "44c56d0c85bcf22877428124689b7c7855bb8638d559c5a66ce3f8bfd33da407"
+      },
+      {
+        "partId": "isaac-gr00t-repo-2026",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Exact current registry metadata: {\"id\":\"isaac-gr00t-repo-2026\",\"title\":\"NVIDIA Isaac GR00T\",\"authors\":[\"NVIDIA\"],\"year\":2026,\"url\":\"https://github.com/NVIDIA/Isaac-GR00T\",\"type\":\"docs\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "3d58829ef646d0342c434a2b8677dc4e64d3987b2eade2aed26515a4852d9bf8"
+      },
+      {
+        "partId": "helix-02-2026",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Exact current registry metadata: {\"id\":\"helix-02-2026\",\"title\":\"Introducing Helix 02: Full-Body Autonomy\",\"authors\":[\"Figure AI\"],\"year\":2026,\"url\":\"https://www.figure.ai/news/helix-02\",\"type\":\"blog\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+        "evidenceDigest": "a4dc149456f2e216c05054bf8b8f5eb466423526f066096638d6340b947f1d6d"
       }
     ]
   }

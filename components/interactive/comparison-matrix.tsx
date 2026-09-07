@@ -47,7 +47,7 @@ const HIERARCHY_RANK = { none: 0, external: 1, internal: 2 } as const;
 function horizonCell(method: Method): ReactNode {
   const figure = methodHorizonFigure(method);
   const note = method.actionHorizon.note;
-  if (figure === null) return NOT_DISCLOSED;
+  if (figure === null) return <>{NOT_DISCLOSED}{note ? <span className="block font-sans text-xs text-text-dim">{note}</span> : null}</>;
   return (
     <span className="font-mono tabular-nums">
       {figure}
@@ -144,20 +144,19 @@ const COLUMNS: Column<Method>[] = [
     key: 'openWeights',
     header: 'Weights',
     sortable: true,
-    sortValue: (row) => (row.openWeights ? 1 : 0),
-    render: (row) =>
-      row.openWeights ? (
-        <Badge variant="ok">open</Badge>
-      ) : (
-        <Badge>closed</Badge>
-      ),
+    sortValue: (row) => row.openWeights === null ? null : (row.openWeights ? 1 : 0),
+    render: (row) => <>
+      {row.openWeights === null ? NOT_DISCLOSED : row.openWeights ? <Badge variant="ok">downloadable</Badge> : <Badge>not released</Badge>}
+      {row.weightsNote ? <span className="block font-sans text-xs text-text-dim">{row.weightsNote}</span> : null}
+    </>,
   },
 ];
 
 const WEIGHT_OPTIONS: Array<{ value: WeightsFilter; label: string }> = [
   { value: 'all', label: 'All weights' },
-  { value: 'open', label: 'Open' },
-  { value: 'closed', label: 'Closed' },
+  { value: 'open', label: 'Downloadable' },
+  { value: 'closed', label: 'Not released' },
+  { value: 'undisclosed', label: 'Not disclosed' },
 ];
 
 const REPRESENTATION_OPTIONS: Array<{
@@ -325,7 +324,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
         <Table
           key={resetCount}
           className="mt-4"
-          caption={`${METHODS.length} policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Rates the sources do not verify, such as the RT-2 and OpenVLA control rates, are omitted rather than guessed.`}
+          caption={`${METHODS.length} policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Rates the sources do not verify, such as the RT-2 and OpenVLA control rates, are omitted rather than guessed.`}
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'year', direction: 'asc' }}

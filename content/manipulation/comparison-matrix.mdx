@@ -39,7 +39,7 @@ import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
 
 The preceding modules in this domain each followed one lineage at a time. This one lays them side by side. The table below covers 18 policies, from RT-1 in 2022 to the current frontier, across the eight axes that determine how a learned policy behaves in a control loop. Every value comes from a primary source: a paper, a model card, or the vendor's own documentation, and the row carries that source. Two honesty rules apply throughout. Cells the vendor has not published read "not disclosed" instead of a guessed value, and figures that circulate without verification, such as the RT-2 and OpenVLA control rates, are omitted rather than repeated <Cite id="rt2-2023" /> <Cite id="openvla-2024" />.
 
-The matrix is below. Set the weights filter to Open and the eighteen rows collapse to the handful you can actually download today, then sort by control Hz to see what that costs you.
+The matrix is below. Set the weights filter to Downloadable to select records with a reported download. Not disclosed is a separate availability state, not a closed-license claim. Read the source-specific rate notes before comparing rows.
 
 <ComparisonMatrix className="my-6 wide-measure" />
 
@@ -53,7 +53,7 @@ The matrix is below. Set the weights filter to Open and the eighteen rows collap
 
 **Backbone**, **conditioning**, and **cross-embodiment** describe what the model is built on, what signals it consumes, and whether one checkpoint serves multiple robot bodies. <Term id="cross-embodiment">Cross-embodiment</Term> "yes" hides three different mechanisms, padded joint vectors in the π line, a shared relative <Term id="end-effector">end-effector</Term> frame in GR00T N1.7, and DeepMind's unnamed Motion Transfer recipe <Cite id="pi0-2024" /> <Cite id="isaac-gr00t-repo-2026" /> <Cite id="gemini-robotics-15-2025" />.
 
-**Hierarchy** marks whether a slow reasoning layer sits above the fast policy, and whether that layer lives inside one model (internal, as in π0.5's subtask prediction) or in a separate system (external, as when GR00T pairs with a whole-body controller) <Cite id="pi05-2025" />. **Weights** records whether you can download the model today.
+**Hierarchy** marks whether a slow reasoning layer sits above the fast policy, and whether that layer lives inside one model (internal, as in π0.5's subtask prediction) or in a separate system (external, as when GR00T pairs with a whole-body controller) <Cite id="pi05-2025" />. **Weights** records reported download availability, not license openness. Unknown availability is separate from a recorded non-release; the notes name the checked source scope.
 
 ## What the matrix shows
 
@@ -65,15 +65,6 @@ Fifty hertz became the standard claim, and the note column shows what it costs. 
 
 Hierarchy moved inside the model. From π0.5 onward the frontier rows all carry an internal high-level layer: subtask prediction in the π line, the ER orchestrator in Gemini Robotics, the S0/S1/S2 stack in Helix <Cite id="pi05-2025" /> <Cite id="gemini-robotics-2-2026" />.
 
-Finally, the weights column tells the access story in one glance. Everything downloadable, ACT through OpenVLA-OFT, π0 through π0.5, GR00T N1.7, sits at least one generation behind the closed frontier, and the closed rows are exactly the ones with the most "not disclosed" cells <Cite id="pi05-2025" /> <Cite id="gr00t-n1-2025" />.
-
-<Callout variant="warn" title="Read the closed rows with care">
-  Gemini Robotics 1.5 and 2, Helix 02, AgiBot GO-2, and Skild disclose
-  little or nothing about action representation, chunking, or control rate.
-  Their cells are marked "not disclosed" because that is the honest state of
-  the public record, and vendor demonstrations are not architecture
-  documentation. Where a claim is unverifiable, this wiki says so instead
-  of filling the gap with a plausible number <Cite id="skild-series-c-2026" />.
-</Callout>
+The RT-1 paper announces code, which does not establish pretrained-weight availability <Cite id="rt1-2022" />. Figure’s Helix 02 announcement supplies the S1/S0 rates but does not state a chunk horizon or weight-release terms <Cite id="helix-02-2026" />. Both availability cells therefore read "not disclosed" for these checked sources. The N1.7 README explicitly lists downloadable weights; its License section distinguishes Apache 2.0 code from the NVIDIA Open Model License for weights <Cite id="isaac-gr00t-repo-2026" />. No inference from repository absence establishes closed licensing.
 
 One comparison the table cannot make is frequency against frequency. ACT's 50 Hz, Helix's 200 Hz S1, and π0.7's 50 Hz with training-time latency compensation are three different measurement setups, not three points on one scale. Treat the Control Hz column as "the rate the source reports for the policy" and read the cell notes before ranking two rows against each other.

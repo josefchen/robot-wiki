@@ -11,6 +11,7 @@ import { Badge, Table, type Column } from '@/components/ui';
 const NOT_DISCLOSED: ReactNode = <span className="text-text-dim">not disclosed</span>;
 const octo = METHODS.find((method) => method.id === 'octo')!;
 const pi0 = METHODS.find((method) => method.id === 'pi0')!;
+const model = (id: string) => METHODS.find(method => method.id === id)!;
 type PolicyRow = {
   policy: string;
   year: number;
@@ -21,7 +22,8 @@ type PolicyRow = {
   horizonNote?: string;
   frequencyNote?: string;
   representation: string;
-  open: boolean;
+  open: boolean | null;
+  weightsNote?: string;
 };
 
 const ROWS: PolicyRow[] = [
@@ -30,8 +32,10 @@ const ROWS: PolicyRow[] = [
     year: 2022,
     horizon: 1,
     frequencyHz: 3,
+    frequencyNote: 'Everyday Robots commanded control',
     representation: '256 discrete bins per dim',
-    open: true,
+    open: model('rt-1').openWeights,
+    weightsNote: model('rt-1').weightsNote,
   },
   {
     policy: 'ACT',
@@ -73,9 +77,12 @@ const ROWS: PolicyRow[] = [
     policy: 'pi0.5',
     year: 2025,
     horizon: 50,
+    horizonNote: model('pi05').actionHorizon.note,
     frequencyHz: 50,
-    representation: 'flow matching + FAST supervision',
+    frequencyNote: model('pi05').controlFrequencyNote,
+    representation: 'paper: flow matching + FAST supervision; openpi: flow head only',
     open: true,
+    weightsNote: model('pi05').weightsNote,
   },
   {
     policy: 'pi0.6',
@@ -98,16 +105,21 @@ const ROWS: PolicyRow[] = [
     year: 2026,
     horizon: 40,
     frequencyHz: null,
+    frequencyNote: model('gr00t-n1-7').controlFrequencyNote,
+    horizonNote: model('gr00t-n1-7').actionHorizon.note,
     representation: 'flow-matching DiT head, relative EEF',
     open: true,
+    weightsNote: model('gr00t-n1-7').weightsNote,
   },
   {
     policy: 'Helix 02',
     year: 2026,
     horizon: null,
+    horizonNote: model('helix-02').actionHorizon.note,
     frequencyHz: 200,
-    representation: 'S1 (200 Hz) into S0 (1 kHz) commands',
-    open: false,
+    representation: 'S1 joint targets (200 Hz), tracked by S0 actuator commands (1 kHz)',
+    open: model('helix-02').openWeights,
+    weightsNote: model('helix-02').weightsNote,
   },
 ];
 
@@ -133,14 +145,14 @@ const COLUMNS: Column<PolicyRow>[] = [
     key: 'open',
     header: 'Weights',
     render: (row) =>
-      row.open ? <Badge variant="ok">open</Badge> : <Badge>closed</Badge>,
+      <>{row.open === null ? NOT_DISCLOSED : row.open ? <Badge variant="ok">downloadable</Badge> : <Badge>not released</Badge>}{row.weightsNote ? <span className="block font-sans text-xs text-text-dim">{row.weightsNote}</span> : null}</>,
   },
 ];
 
 export function PolicyChunkingTable() {
   return (
     <Table
-      caption="Action horizon (predicted actions) and reported frequency (Hz). Setup-specific prediction, execution and controller rates are not interchangeable. Applicable unpublished values are not disclosed."
+      caption="Action horizon (predicted actions) and reported frequency (Hz). Setup-specific prediction, execution and controller rates are not interchangeable. Applicable unpublished values are not disclosed. Weights mean download availability, not license openness."
       columns={COLUMNS}
       rows={ROWS}
       initialSort={{ key: 'year', direction: 'asc' }}
