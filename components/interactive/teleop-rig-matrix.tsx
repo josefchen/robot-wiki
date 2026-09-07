@@ -20,7 +20,7 @@ import { cx } from '@/lib/utils';
  * Honesty rules: figures no source publishes render as "not disclosed"
  * (dim) and never as invented numbers (the VR family carries no published
  * system cost), null cells always sort last in both directions, and every
- * row links out to its primary sources.
+ * row links out to its named sources; community estimates are labelled.
  *
  * Interactive contract: deterministic render, keyboard-operable dimension
  * highlight buttons (aria-pressed) and sort headers (aria-sort), a visible
@@ -98,7 +98,14 @@ export function TeleopRigMatrix({ className }: TeleopRigMatrixProps) {
         cellWrap(
           highlight === 'cost',
           rig.costUsd === null ? (
-            NOT_DISCLOSED
+            <span>
+              {NOT_DISCLOSED}
+              {rig.costNote ? (
+                <span className="block font-sans text-xs text-text-dim">
+                  {rig.costNote}
+                </span>
+              ) : null}
+            </span>
           ) : (
             <span className="font-mono tabular-nums">
               {formatUsd(rig.costUsd)}

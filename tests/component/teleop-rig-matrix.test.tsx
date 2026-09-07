@@ -65,8 +65,9 @@ describe('TeleopRigMatrix', () => {
     const costs = bodyRows().map(
       (row) => within(row).getAllByRole('cell')[1].textContent ?? '',
     );
-    // GELLO ($300) < UMI ($371) < ALOHA ($17,000) < not disclosed.
-    expect(costs.at(-1)).toBe('not disclosed');
+    // Known GELLO/UMI costs precede the two undisclosed numeric totals.
+    expect(costs.slice(-2).every((value) => value.includes('not disclosed'))).toBe(true);
+    expect(costs.some((value) => value.includes('Community issue'))).toBe(true);
     expect(costs[0]).toContain('$300');
   });
 

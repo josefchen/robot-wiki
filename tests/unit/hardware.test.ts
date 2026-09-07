@@ -205,7 +205,6 @@ describe('filterHardware', () => {
     });
     expect(research.map((e) => e.id).sort()).toEqual([
       '1x-neo',
-      'aloha-2',
       'engineai-se01',
       'limx-oli',
       'solo-ai',
@@ -229,7 +228,8 @@ describe('filterHardware', () => {
       ...DEFAULT_HARDWARE_FILTERS,
       price: 'unlisted',
     });
-    expect(unlisted).toHaveLength(19);
+    expect(unlisted).toHaveLength(20);
+    expect(unlisted.map((entry) => entry.id)).toContain('aloha-2');
     expect(unlisted.every((e) => e.priceUsd === null)).toBe(true);
     for (const price of ['under-1k', '1k-10k', '10k-25k', '25k-plus'] as const) {
       const bucket = filterHardware(HARDWARE, {
@@ -378,7 +378,7 @@ describe('formatPrice', () => {
     expect(formatPrice(solo as never)).toBe('$11,385');
 
     const aloha = HARDWARE.find((e) => e.id === 'aloha-2');
-    expect(formatPrice(aloha as never)).toBe('$17,000-$32,000');
+    expect(formatPrice(aloha as never)).toBeNull();
 
     const franka = HARDWARE.find((e) => e.id === 'franka-panda');
     expect(formatPrice(franka as never)).toBeNull();

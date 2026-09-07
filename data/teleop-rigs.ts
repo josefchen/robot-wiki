@@ -6,11 +6,10 @@
  * verification of the underlying primary sources (2026-08-17). Rules:
  *   - Figures no source publishes are null and render as "not disclosed";
  *     nothing is guessed (the VR family's total system cost).
- *   - Costs are representative USD figures from cited first-party sources:
- *     GELLO's sub-$300 BOM (project site), UMI's $73 gripper + $298 GoPro
- *     (paper, Sec. III), ALOHA 2's $17,000-$32,000 range low end (LeRobot
- *     ecosystem pricing table). research/03's "~$100" UMI figure is wrong;
- *     the paper's own BOM totals $371.
+ *   - Numeric costs require a supported USD value and purchase scope. GELLO
+ *     and UMI retain their cited primary BOMs. The ALOHA / ALOHA 2 community
+ *     dollar estimate is labelled in cost context, not converted into a
+ *     configuration-specific USD sorting value. No other cost was re-audited.
  *   - Ratings are ordered low < medium < high; each note states what the
  *     rating means for that dimension and row.
  *
@@ -29,8 +28,8 @@ const ROWS: TeleopRig[] = [
     name: 'ALOHA-class workstation',
     family: 'Bimanual leader-follower workstation',
     representatives: ['ALOHA 2 (Stanford)', 'Trossen AI Stationary and Mobile AI'],
-    costUsd: 17000,
-    costNote: 'ALOHA 2 runs $17,000-$32,000; Trossen AI bimanual rigs $23,995-$33,695',
+    costUsd: null,
+    costNote: 'Community issue, researched Jun 2026: ALOHA / ALOHA 2 ~ $17k–32k; currency code, configurations and inclusions/exclusions not itemized; not a vendor quote',
     dataQuality: 'high',
     dataQualityNote:
       'Leader and follower arms share kinematics; demonstrations land directly in the robot joint space at 500 Hz',
@@ -42,17 +41,18 @@ const ROWS: TeleopRig[] = [
       'The operator drives a kinematically identical arm, so recorded motion is the robot motion',
     details: {
       cost:
-        'ALOHA 2 lists at $17,000-$32,000 depending on configuration in the LeRobot ecosystem pricing table. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, lists the bimanual Stationary AI at $23,995.95 and Mobile AI at $33,695.95, with the single-arm WidowX AI entry point at $4,545.95.',
+        'A June 2026 community compilation in alpibrusl/lex-robot estimates the combined ALOHA / ALOHA 2 category at about $17k–32k. It does not identify the currency code, endpoint configurations, or itemized inclusions/exclusions; this is not a current vendor quote. Trossen Robotics, which rebranded the ALOHA line as Trossen AI in 2025-2026, lists the bimanual Stationary AI at $23,995.95 and Mobile AI at $33,695.95, with the single-arm WidowX AI entry point at $4,545.95.',
       dataQuality:
         'The leader arm is a twin of the follower arm, so demonstrations are recorded directly in the robot joint space with no retargeting step. The Trossen AI line runs a 500 Hz CAN FD control loop with the iNerve board and integrates LeRobot and OpenPI. ACT learned six difficult bimanual tasks to 80-90% success from only 10 minutes of demonstrations on the original low-cost ALOHA hardware.',
       throughput:
-        'Scaling an ALOHA-class fleet means buying and staffing another workstation at $17,000-$32,000 each. Mobile ALOHA collected 50 demonstrations per task for its whole-body mobile skills. No fleet-scale collection numbers are published for the family; the throughput story here is per-rig quality, not volume.',
+        'Scaling an ALOHA-class fleet requires another workstation and operator; the community estimate does not establish a complete per-station budget. Mobile ALOHA collected 50 demonstrations per task for its whole-body mobile skills. No fleet-scale collection numbers are published for the family; the throughput story here is per-rig quality, not volume.',
       embodimentGap:
         'Effectively zero by construction: the operator moves the same kinematic chain the policy will run on, so the only gap is between the operator skill and the task, not between two different bodies.',
     },
     links: [
       { label: 'ACT paper', url: 'https://arxiv.org/abs/2304.13705' },
       { label: 'Trossen AI', url: 'https://www.trossenrobotics.com/ai' },
+      { label: 'Community estimate (Jun 2026)', url: 'https://github.com/alpibrusl/lex-robot/issues/3' },
     ],
     sources: [
       'act-aloha-2023',

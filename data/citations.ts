@@ -3443,9 +3443,11 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // Community-compiled pricing table (June 2026), researched with sources
-    // listed at the bottom. Secondary compilation; used only for figures
-    // with no first-party page (Koch BOM, ALOHA 2, Reachy 2).
+    // Secondary community issue, self-described as researched June 2026.
+    // ALOHA / ALOHA 2 is one approximate dollar range, not a vendor quote.
+    // Currency code, configurations and itemized contents are not established.
+    // Retrieved issue body does not identify its author; repository ownership
+    // alone does not independently verify the existing authors field.
     id: 'lerobot-pricing-2026',
     title: 'LeRobot ecosystem and hardware pricing (June 2026)',
     authors: ['alpibrusl'],

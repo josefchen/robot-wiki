@@ -176,7 +176,7 @@ export default function Home() {
           already know machine learning. It covers learned manipulation
           policies, sim-to-real reinforcement learning, world models,
           teleoperation data pipelines, and the classical control stack
-          underneath them. Every technical claim is{' '}
+          underneath them. Technical claims should be{' '}
           {/* The board's editorial-structure panel highlights the one phrase
               a zone is about; here that is the site's premise. <mark> is the
               non-colour carrier: the highlight is announced as marked text
@@ -186,10 +186,12 @@ export default function Home() {
             data-brand-highlight="home-premise"
             className="whitespace-nowrap bg-selection px-1 text-ink"
           >
-            cited to a primary source
+            traceable to cited evidence
           </mark>
-          . The centre of gravity is robot learning, and the site is not a
-          catalogue of the industry.
+          . Sources include research papers, first-party documentation, and
+          explicitly labelled community estimates; a citation is not a guarantee
+          that a claim has been verified. The centre of gravity is robot learning,
+          and the site is not a catalogue of the industry.
         </p>
         <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
           <Action variant="primary" href="/manipulation/action-chunking">
@@ -499,8 +501,8 @@ export default function Home() {
             .
           </p>
           <p>
-            Every non-obvious claim carries a citation chip that links to the
-            paper, lab writeup, or official documentation behind it, and the
+            Citation chips link claims to their named sources, including
+            explicitly labelled community estimates where used, and the
             full bibliography sits at the end of each module. Where serious
             researchers disagree, the text names who holds which position.
           </p>

@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 6
 - Claim rows: 128
-- Recorded verified: 86
-- Recorded corrected: 40
+- Recorded verified: 84
+- Recorded corrected: 42
 - Recorded cut: 2
 - Recorded source inconsistencies: 0
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 3
-- Incomplete evidence records: 125
+- Complete evidence records: 4
+- Incomplete evidence records: 124
 
 <!-- audit-summary:end -->
 
@@ -268,14 +268,14 @@ Int = checked against repo code/data rather than an external source.
 
 ### hardware-taxonomy.mdx
 
-| Claim | Source checked | Verdict |
-| --- | --- | --- |
+| Claim | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage |
+| --- | --- | --- | --- | --- | --- | --- |
 | Trossen AI prices: WidowX AI \$4,545.95, Solo AI \$11,385.95, Stationary AI \$23,995.95, Mobile AI \$33,695.95 | trossenrobotics.com/ai (live, fetched 2026-08-17: "\$4,545.95", "\$11,385.95", "\$23,995.95", "\$33,695.95") + trossenrobotics.com/widowx-ai product page | C (the article claimed a 30-34% rebrand price cut to \$2,995/\$15,995/\$22,995; no live Trossen page states any cut or any of the lower figures; research/03 error) |
 | Trossen AI line runs 500 Hz CAN FD on the iNerve board; LeRobot and OpenPI integration; ALOHA rebranded as Trossen AI | trossenrobotics.com/ai ("CAN FD delivers over 500Hz data transfers"; "500Hz CONTROL FREQUENCY"; "Ultra-High Performance iNerve® Controller"; "fully integrated into the OpenPI framework"; "ALOHA IS NOW TROSSEN AI"; "Native support for Hugging Face LeRobot") | V |
 | WidowX AI: 1.5 kg payload, 700 mm reach, 6 DoF, 1 mm repeatability | trossenrobotics.com/widowx-ai spec table (PAYLOAD 1.5kg / REACH 700mm / DoF 6 / REPEATABILITY 1mm / SPAN 1400mm / WEIGHT 4kg) | V (banked addition; the dof field in data/hardware.ts moved from null to 6 with this source) |
 | SO-101: 6 DoF (5 joints + gripper), STS3215 servos, ~\$100 core / \$122 US BOM for one follower arm | github.com/TheRobotStudio/SO-ARM100 README (fetched 2026-08-17; follower-arm table Total \$121.94 in the US column; STS3215 servo rows) | V |
 | Seeed SO-ARM101 Pro: \$295 unassembled, \$299 assembled, 12-bit magnetic encoders, 500 g payload | seeedstudio.com product pages (fetched 2026-08-17: "\$295.00"/"\$299.00" in the comparison table; "12-bit magnetic encoder"; "500g" payload; six STS3215 servos) | V |
-| Koch v1.1 \$250-\$300; ALOHA 2 \$17,000-\$32,000; Reachy 2 ~\$70,000 | lerobot-pricing-2026 (HuggingFace LeRobot pricing tables, verified 2026-08-09; unchanged since) | V |
+| Koch v1.1 \$250-\$300; the June 2026 community issue estimates the combined ALOHA / ALOHA 2 category at about $17k–32k, not a configuration-specific USD quote; Reachy 2 ~\$70,000 | ALOHA subclaim only: https://github.com/alpibrusl/lex-robot/issues/3. FetchUrl response 2026-09-07T12:15:17.844Z; secondary community research issue, not a vendor quote. Retained response SHA-256 6d34debe7a74d97ee8c0f05be8639454ffbac8eceb268edda3102e3930ae8046; reused after event/body/excerpt verification on 2026-09-07, no new retrieval. | corrected | PRICE-HARDWARE-20260907 corrects only ALOHA attribution, currency and purchase scope. Koch and Reachy claims remain unchanged and unverified in this batch; the whole row remains incomplete. No partial source passage is promoted to whole-row evidence. Original three cells are preserved in pricing-current-claim-history-20260907. |  |  |  |
 | Omdia: ~13,000 humanoids shipped 2025; AgiBot first at 5,168 units / 39% share; Unitree self-reports 5,500+ and disputes the ranking | robozaps-humanoids-2026 (blog.robozaps.com, fetched 2026-08-17: "Roughly 13,000 humanoid robots shipped in 2025 (Omdia)"; "Omdia credits it with 5,168 units and a 39% global share"; "Unitree self-reports 5,500+... though analyst firm Omdia counts ~4,200 and ranks AgiBot first, a dispute worth knowing") | V |
 | Unitree G1: \$13,500 base, 23 DoF, EDU 23-43 DoF by quote | unitree.com/g1 (fetched 2026-08-17: "Price from \$13.5K"; "23~43 joint motors") | V |
 | Unitree H2: \$29,900, 31 DoF, 360 N·m leg joints, 2070 TOPS onboard | unitree.com/H2 (fetched 2026-08-17: "\$29,900"; "31 degrees of freedom, 360N·m joint torque"; "Powered by a 2070 TOPS chip") | V |
@@ -298,12 +298,12 @@ Int = checked against repo code/data rather than an external source.
 
 ### teleop-rigs.mdx
 
-| Claim | Source checked | Verdict |
-| --- | --- | --- |
+| Claim | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage |
+| --- | --- | --- | --- | --- | --- | --- |
 | ACT learned six difficult bimanual tasks to 80-90% success from ~10 minutes of demonstrations | act-aloha-2023 (arXiv 2304.13705 abstract: "learn 6 difficult tasks in the real world... with 80-90% success, with only 10 minutes worth of demonstrations") | V |
 | Mobile ALOHA: 50 demonstrations per task with co-training raised success by up to 90% (shrimp, two-door cabinet) | mobile-aloha-2024 (arXiv 2401.02117 abstract: "With 50 demonstrations for each task, co-training can increase success rates by up to 90%... sauteing and serving a piece of shrimp, opening a two-door wall cabinet") | V |
 | Trossen AI prices and 500 Hz CAN FD / iNerve / LeRobot / OpenPI | trossenrobotics.com/ai (as above) | C (same price-cut correction as hardware-taxonomy) |
-| ALOHA 2 lists \$17,000-\$32,000 by configuration; bimanual workstation tier starts at \$17,000 | lerobot-pricing-2026; Int: low end of that range | V |
+| The community issue in alpibrusl/lex-robot self-describes research in June 2026 and estimates the combined ALOHA / ALOHA 2 research-bimanual category at about $17k–32k. It does not specify the currency code, endpoint configurations or itemized inclusions/exclusions, and does not establish a current vendor quote or minimum workstation budget. | https://github.com/alpibrusl/lex-robot/issues/3. FetchUrl response 2026-09-07T12:15:17.844Z; secondary community research issue, not a vendor quote. Retained response SHA-256 6d34debe7a74d97ee8c0f05be8639454ffbac8eceb268edda3102e3930ae8046; reused after event/body/excerpt verification on 2026-09-07, no new retrieval. | corrected | PRICE-TELEOP-20260907. Evidence supports what this community issue reports, not an independently verified hardware price. USD-typed fields and inferred budget floor removed; raw dollar estimate retained with scope/date/source beside the unknown cell. June 2026 is the issue’s stated research month, not a retrieval or current-price date. The full retained body was checked for the absent qualifications. No issue author or opening timestamp is inferred from the closing commenter or repository owner. Original cells are preserved in pricing-current-claim-history-20260907. | lerobot-pricing-2026 | https://github.com/alpibrusl/lex-robot/issues/3 | Title: LeRobot ecosystem & hardware pricing (June 2026) + software-impact review<br>URL: https://github.com/alpibrusl/lex-robot/issues/3<br>Description: Body: Researched June 2026 (sources at bottom). Captured for hardware-purchase + roadmap decisions.<br>## Pricing (approx — DIY BOM vs assembled, tariffs cause big spreads)<br>\| ALOHA / ALOHA 2 \| research bimanual \| ~$17k–32k \| |
 | GELLO: parts under \$300; assembly "straightforward, requiring minimal technical expertise"; designs cover Franka, UR5, xArm | gello-2023 (arXiv 2309.13037 HTML: Table I "\$300"; "construct a teleoperation solution for under \$300"; "The assembly process is also straightforward, requiring minimal technical expertise"; "3 commonly used robotic arms: Franka, UR5, and xArm") | V (banked edit removed the "~30 minute assembly" figure, which appears in neither the paper (grep-confirmed) nor the project site, whose BOM link is dead) |
 | GELLO user study: 12 participants, five bimanual UR5 tasks, vs VR controller and 3D spacemouse; GELLO more reliable and faster | gello-2023 ("a user study involving 12 participants, focusing on bi-manual robot teleoperation using two UR robots... GELLO, 3D mouses, and VR controllers"; "more reliable and efficient demonstration collection") | V |
 | GELLO is a small-scale kinematic twin; operator feels joint limits; no published build time or scaling factor | gello-2023 ("a small-scale version of the target arm which possesses a kinematically equivalent structure"; "feel resistance... when the joints are close to kinematic singularities or joint limits") | C (data/teleop-rigs.ts claimed "scaling factor alpha = 0.5" and that the paper "frames this as reducing the embodiment gap"; neither appears anywhere in the paper (grep-confirmed), and the paper never uses the phrase "embodiment gap"; note rewritten to the paper's own account) |
@@ -480,3 +480,87 @@ outside research/ itself (read-only) and this ledger's history.
 Three prepared EVST records are normalized, original ledger lines 353, 354 and 368. Evidence supports the already-corrected single sourced integration multiple, the vendor-guidance origin of the illustrative 24-month horizon, and the approximate cell/arm cost relationship. These are first-party vendor estimates, not independent market measurements, arm-only list prices, a guaranteed payback, or a measured buyer rejection threshold. Historical component-correction notes and all other rows are preserved.
 
 Counting unit: 6 article sections, 128 original claim rows, 3 complete evidence records and 125 incomplete records. This is not article or domain acceptance. Completed source-packet identity, passage-offset and hash checks were reused; current row bindings and article context were checked on 2026-09-06. Historical retrieval events in the added evidence remain separate from this review. No new source fetch, production prose, citation registry, data, code, tests or article lastReviewed change occurred. All original claim/source/verdict/note cells and previously complete records are retained. No prose-humanizer pass applies; audit accounting received manual review. Shared checkpoint checks are recorded in audit/README.md; the content gate remains red and publication is not authorized.
+
+
+## Pricing provenance correction history — 2026-09-07
+
+One supported corrected teleop row and one corrected ALOHA subclaim in an incomplete mixed hardware row. These retain the original row identities; they do not certify the other prices, either article, or the domain. Josef’s September 7 instruction authorizes implementation, not personal source certification or independent acceptance. The cited issue’s author remains unverified; the existing citation metadata is not silently certified. GELLO’s controller-only caveat and unrelated prices remain unchanged.
+
+<!-- pricing-current-claim-history-20260907
+[
+  {
+    "id": "PRICE-HARDWARE-20260907",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "hardware-taxonomy",
+    "rowOrdinal": 6,
+    "lineAtCheckpoint": 278,
+    "original": {
+      "claim": "Koch v1.1 \\$250-\\$300; ALOHA 2 \\$17,000-\\$32,000; Reachy 2 ~\\$70,000",
+      "sourceChecked": "lerobot-pricing-2026 (HuggingFace LeRobot pricing tables, verified 2026-08-09; unchanged since)",
+      "verdict": "V",
+      "note": ""
+    },
+    "originalCellsDigest": "aad2499f95d2db348cb27a0e8c16a8882797c31290041109cf48b554cd857c69",
+    "exactOriginalRow": "| Koch v1.1 \\$250-\\$300; ALOHA 2 \\$17,000-\\$32,000; Reachy 2 ~\\$70,000 | lerobot-pricing-2026 (HuggingFace LeRobot pricing tables, verified 2026-08-09; unchanged since) | V |",
+    "current": {
+      "claim": "Koch v1.1 \\$250-\\$300; the June 2026 community issue estimates the combined ALOHA / ALOHA 2 category at about $17k–32k, not a configuration-specific USD quote; Reachy 2 ~\\$70,000",
+      "sourceChecked": "ALOHA subclaim only: https://github.com/alpibrusl/lex-robot/issues/3. FetchUrl response 2026-09-07T12:15:17.844Z; secondary community research issue, not a vendor quote. Retained response SHA-256 6d34debe7a74d97ee8c0f05be8639454ffbac8eceb268edda3102e3930ae8046; reused after event/body/excerpt verification on 2026-09-07, no new retrieval.",
+      "verdict": "corrected",
+      "note": "PRICE-HARDWARE-20260907 corrects only ALOHA attribution, currency and purchase scope. Koch and Reachy claims remain unchanged and unverified in this batch; the whole row remains incomplete. No partial source passage is promoted to whole-row evidence. Original three cells are preserved in pricing-current-claim-history-20260907."
+    },
+    "currentCellsDigest": "c14fc2f89914fbd0f1f5e867fc0dc27dd6298f3a7ddd7f58903eb9da0c90aa41",
+    "authority": "/home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md"
+  },
+  {
+    "id": "PRICE-TELEOP-20260907",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "teleop-rigs",
+    "rowOrdinal": 4,
+    "lineAtCheckpoint": 306,
+    "original": {
+      "claim": "ALOHA 2 lists \\$17,000-\\$32,000 by configuration; bimanual workstation tier starts at \\$17,000",
+      "sourceChecked": "lerobot-pricing-2026; Int: low end of that range",
+      "verdict": "V",
+      "note": ""
+    },
+    "originalCellsDigest": "c52a36ee162eca977f8e94b4b34e19eba9028407c00c7261e1754fff6d871f35",
+    "exactOriginalRow": "| ALOHA 2 lists \\$17,000-\\$32,000 by configuration; bimanual workstation tier starts at \\$17,000 | lerobot-pricing-2026; Int: low end of that range | V |",
+    "current": {
+      "claim": "The community issue in alpibrusl/lex-robot self-describes research in June 2026 and estimates the combined ALOHA / ALOHA 2 research-bimanual category at about $17k–32k. It does not specify the currency code, endpoint configurations or itemized inclusions/exclusions, and does not establish a current vendor quote or minimum workstation budget.",
+      "sourceChecked": "https://github.com/alpibrusl/lex-robot/issues/3. FetchUrl response 2026-09-07T12:15:17.844Z; secondary community research issue, not a vendor quote. Retained response SHA-256 6d34debe7a74d97ee8c0f05be8639454ffbac8eceb268edda3102e3930ae8046; reused after event/body/excerpt verification on 2026-09-07, no new retrieval.",
+      "verdict": "corrected",
+      "note": "PRICE-TELEOP-20260907. Evidence supports what this community issue reports, not an independently verified hardware price. USD-typed fields and inferred budget floor removed; raw dollar estimate retained with scope/date/source beside the unknown cell. June 2026 is the issue’s stated research month, not a retrieval or current-price date. The full retained body was checked for the absent qualifications. No issue author or opening timestamp is inferred from the closing commenter or repository owner. Original cells are preserved in pricing-current-claim-history-20260907."
+    },
+    "currentCellsDigest": "98c9765c7d6b6e882bdf8018998c71ab821ef9f78ae574f6c6b304436088d654",
+    "authority": "/home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md"
+  }
+]
+-->
+
+Source proof: FetchUrl response 2026-09-07T12:15:17.844Z; secondary community research issue, not a vendor quote. Retained response SHA-256 6d34debe7a74d97ee8c0f05be8639454ffbac8eceb268edda3102e3930ae8046; reused after event/body/excerpt verification on 2026-09-07, no new retrieval. Original request/response events are preserved at /home/remy-simpc4/.factory/sessions/-home-remy-simpc4-Projects-robot-wiki-droid-continuation/7d2a5229-55b6-4958-bbc2-a6499f9ec343.jsonl, lines 434/435. The five exact pricing excerpts and their event/body hashes are indexed in the unchanged preparation packet at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/../act-pricing-correction-plan/plan.json. No new source request, source date, byline, vendor quote or primary verification is claimed.
+
+No article lastReviewed date moved: both articles remain incompletely audited. Changed non-quoted prose was manually reviewed for attribution and scope; source quotations were kept literal. Reading-time regeneration and production export remain pending the red content prerequisite.
+
+Notes for later slices: Koch and Reachy price support is not complete; citation author identity is not established by this response. Existing DP browser-Back focus-to-BODY debt and ACT six-reference generated OG/export versus seven current references remain open outside this batch.
+
+
+## Verification of this pricing checkpoint
+
+All commands below used `NODE_DISABLE_COMPILE_CACHE=1`. Counts are actual invocations, not a claimed whole-corpus pass.
+
+| Gate | Command | Actual result |
+|---|---|---|
+| Red-first pricing | `node node_modules/vitest/vitest.mjs run tests/unit/pricing-provenance.test.ts tests/unit/teleop-rigs.test.ts tests/unit/hardware.test.ts tests/component/teleop-rig-matrix.test.tsx` | exit 1; 7 failed, 30 passed; log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/red-pricing.log` |
+| Focused pricing/audit | `node node_modules/vitest/vitest.mjs run tests/unit/pricing-provenance.test.ts tests/unit/teleop-rigs.test.ts tests/unit/hardware.test.ts tests/component/teleop-rig-matrix.test.tsx tests/component/hardware-guide.test.tsx tests/unit/audit-ledger.test.ts tests/unit/audit-citation-coverage.test.ts` | exit 0; 138 passed; log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/pricing-focused-corrected.log` |
+| Final affected source/audit | `node node_modules/vitest/vitest.mjs run tests/unit/pricing-provenance.test.ts tests/unit/audit-ledger.test.ts` | exit 0; 80 passed, overlapping prior tests; log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/final-source-and-audit-tests.log` |
+| Nonincremental no-emit TS | `node node_modules/typescript/bin/tsc --noEmit --incremental false` | exit 0; log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/typescript-final.log` |
+| Lint | `node node_modules/eslint/bin/eslint.js .` | exit 0; log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/lint.log` |
+| Final browser-test lint | `node node_modules/eslint/bin/eslint.js tests/e2e/pricing-provenance.spec.ts` | exit 0; log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/lint-new-browser-test.log` |
+| Content | `npm run validate:content` | exit 1; 898 findings; log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/content-final.log` |
+| Baseline | `node scripts/brand-v2-baseline.ts --check` | exit 1; 63 prior failures, zero new; log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/baseline-final.log` |
+| Initial browser | `env PRICING_EVIDENCE_DIR=/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/screenshots node node_modules/@playwright/test/cli.js test tests/e2e/pricing-provenance.spec.ts tests/e2e/teleop-rigs.spec.ts tests/e2e/hardware-taxonomy.spec.ts --grep pricing provenance\|matrix is interactive and honest\|every listed price carries\|unpublished figures render --workers=1` | exit 1; 4 passed, 1 failed (24px mobile citation overflow); log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/pricing-browser.log` |
+| Final viewport rendering | `env PRICING_EVIDENCE_DIR=/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/screenshots-final node node_modules/@playwright/test/cli.js test tests/e2e/pricing-provenance.spec.ts --workers=1` | exit 0; 2 passed; log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/pricing-browser-final.log` |
+| Mobile internal-scroll capture | `env PRICING_EVIDENCE_DIR=/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/screenshots-final node node_modules/@playwright/test/cli.js test tests/e2e/pricing-provenance.spec.ts --grep mobile price provenance --workers=1` | exit 0; 1 passed; log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/mobile-price-scroll.log` |
+| Identity/protected-state preservation | `node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/preservation.mjs` | exit 0; 994 identities, 99 prior complete rows, ten compound plans, seventy prior approvals preserved; log `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections/preservation-corrected.log` |
+
+Production build and reading-time regeneration: not run, content prerequisite remains red. Current data-hardware totals are 4 complete / 124 incomplete / 128 rows, and the corpus is 100 complete / 894 incomplete / 994 rows. Nine exact pricing delta entries preserve all earlier approvals. Screenshot/source proof and real command exits are in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/pricing-provenance-authorized-corrections. No publication or independent acceptance. The existing unrendered price-bucket comment in `lib/hardware.ts:9` still names the old ALOHA example; no helper algorithm was changed in this prepared slice.

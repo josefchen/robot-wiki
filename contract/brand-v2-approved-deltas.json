@@ -1151,6 +1151,213 @@
         "VAL-GLOSS-002"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "pricing-provenance-20260907-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+      "newHash": "e3b64b8c4cff51a0b9c577fd501a95e6ef67bc82ea1723cdd2390cfae13fa4c9",
+      "reason": "PRICE-TELEOP-20260907 / PRICE-HARDWARE-20260907: the retained community issue reports only an approximate dollar estimate for combined ALOHA / ALOHA 2, not a configuration-specific USD price, itemized vendor quote or workstation floor. Null unsupported typed amounts and expose attributed estimate, research month, limitations and its source. Source: https://github.com/alpibrusl/lex-robot/issues/3 . Immediate-before member hash: c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0. Existing exact approvals remain preserved; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed pricing/source-strength implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009",
+        "VAL-DATA-015",
+        "VAL-DATA-020"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pricing-provenance-20260907-2",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/teleop-rigs",
+      "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+      "newHash": "c7f5ed81362bb02abcd2374d81b8e26a2019a091a19ba65ef68e13675338bc3c",
+      "reason": "PRICE-TELEOP-20260907 / PRICE-HARDWARE-20260907: the retained community issue reports only an approximate dollar estimate for combined ALOHA / ALOHA 2, not a configuration-specific USD price, itemized vendor quote or workstation floor. Null unsupported typed amounts and expose attributed estimate, research month, limitations and its source. Source: https://github.com/alpibrusl/lex-robot/issues/3 . Immediate-before member hash: 09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29. Existing exact approvals remain preserved; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed pricing/source-strength implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009",
+        "VAL-DATA-015",
+        "VAL-DATA-020"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pricing-provenance-20260907-3",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hardware-guide.tsx",
+      "oldHash": "1803be55f63f0fd641d2825dfb6da09c8556da33a813ee37cf7f2a1c5e86ea9e",
+      "newHash": "ff10857492a46ea1851a6e38221406c3b6e2746a342509aaa3aa243df5027b5d",
+      "reason": "PRICE-TELEOP-20260907 / PRICE-HARDWARE-20260907: the retained community issue reports only an approximate dollar estimate for combined ALOHA / ALOHA 2, not a configuration-specific USD price, itemized vendor quote or workstation floor. Null unsupported typed amounts and expose attributed estimate, research month, limitations and its source. Source: https://github.com/alpibrusl/lex-robot/issues/3 . Immediate-before member hash: 8153fe3c25a940394ee74a1ccac17e5aab7144b566479093dfe5186617c15851. Existing exact approvals remain preserved; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed pricing/source-strength implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009",
+        "VAL-DATA-015",
+        "VAL-DATA-020"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pricing-provenance-20260907-4",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/teleop-rig-matrix.tsx",
+      "oldHash": "abed70dab4521ac2a7bb02ddd18126d5dc85c3087751126951a16ea6231da004",
+      "newHash": "eb0f2127cdf8074aad464e0dfb551e1816ff5383d6cfff39a74a7e58d81ade2a",
+      "reason": "PRICE-TELEOP-20260907 / PRICE-HARDWARE-20260907: the retained community issue reports only an approximate dollar estimate for combined ALOHA / ALOHA 2, not a configuration-specific USD price, itemized vendor quote or workstation floor. Null unsupported typed amounts and expose attributed estimate, research month, limitations and its source. Source: https://github.com/alpibrusl/lex-robot/issues/3 . Immediate-before member hash: 9430615905ebca8aab5972a95e647127b425ba4a25db4da46e0a369345b3dae4. Existing exact approvals remain preserved; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed pricing/source-strength implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009",
+        "VAL-DATA-015",
+        "VAL-DATA-020"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pricing-provenance-20260907-5",
+      "manifest": "value-states",
+      "memberId": "state-site:content/data-hardware/hardware-taxonomy.mdx:not-disclosed:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e3fe1bdc4cd777b327b4e4263af91349fdf1b5e65854fcb3cd575ddeaaa6246a",
+      "reason": "PRICE-TELEOP-20260907 / PRICE-HARDWARE-20260907: the retained community issue reports only an approximate dollar estimate for combined ALOHA / ALOHA 2, not a configuration-specific USD price, itemized vendor quote or workstation floor. Null unsupported typed amounts and expose attributed estimate, research month, limitations and its source. Source: https://github.com/alpibrusl/lex-robot/issues/3 . Immediate-before member hash: ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. Existing exact approvals remain preserved; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed pricing/source-strength implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009",
+        "VAL-DATA-015",
+        "VAL-DATA-020"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pricing-provenance-20260907-6",
+      "manifest": "value-states",
+      "memberId": "state-site:content/data-hardware/teleop-rigs.mdx:not-disclosed:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2aae2bfb687e3139c6db8bd6a632ba0b15dca8051718930548110265d533c5ae",
+      "reason": "PRICE-TELEOP-20260907 / PRICE-HARDWARE-20260907: the retained community issue reports only an approximate dollar estimate for combined ALOHA / ALOHA 2, not a configuration-specific USD price, itemized vendor quote or workstation floor. Null unsupported typed amounts and expose attributed estimate, research month, limitations and its source. Source: https://github.com/alpibrusl/lex-robot/issues/3 . Immediate-before member hash: ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. Existing exact approvals remain preserved; no unrelated change is allowed.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed pricing/source-strength implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009",
+        "VAL-DATA-015",
+        "VAL-DATA-020"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pricing-provenance-20260907-7",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/teleop-rigs",
+      "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+      "newHash": "9eb059ec3ac376ca34210418538187aa2e29e50773116da0d55a59a47cba8caa",
+      "reason": "PRICE-TELEOP-20260907 / PRICE-HARDWARE-20260907: the retained community issue reports only an approximate dollar estimate for combined ALOHA / ALOHA 2, not a configuration-specific USD price, itemized vendor quote or workstation floor. Null unsupported typed amounts and expose attributed estimate, research month, limitations and its source. Source: https://github.com/alpibrusl/lex-robot/issues/3 . Immediate-before member hash: 09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29. Existing exact approvals remain preserved; no unrelated change is allowed. Follow-up exact citation composition: two pricing sources begin their own attributed paragraphs after a measured 24px focused-tooltip document overflow at 375px. Shared tooltip code is unchanged. Immediate-before composition member hash: c7f5ed81362bb02abcd2374d81b8e26a2019a091a19ba65ef68e13675338bc3c.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed pricing/source-strength implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009",
+        "VAL-DATA-015",
+        "VAL-DATA-020"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pricing-provenance-20260907-8",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/teleop-rigs",
+      "oldHash": "09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29",
+      "newHash": "30092516140f1d588ac1c64d567a62719e8857d02ff7f7e9586f020c998b639c",
+      "reason": "PRICE-TELEOP-20260907 / PRICE-HARDWARE-20260907: the retained community issue reports only an approximate dollar estimate for combined ALOHA / ALOHA 2, not a configuration-specific USD price, itemized vendor quote or workstation floor. Null unsupported typed amounts and expose attributed estimate, research month, limitations and its source. Source: https://github.com/alpibrusl/lex-robot/issues/3 . Immediate-before member hash: 09003dd05f8adef78d7b4fe2553f682f9708afa553bbb76dc23f6d9a6bcc6d29. Existing exact approvals remain preserved; no unrelated change is allowed. Follow-up exact citation composition: two pricing sources begin their own attributed paragraphs after a measured 24px focused-tooltip document overflow at 375px. Shared tooltip code is unchanged. Immediate-before composition member hash: c7f5ed81362bb02abcd2374d81b8e26a2019a091a19ba65ef68e13675338bc3c. Final non-quoted MDX price-range punctuation uses ASCII hyphen under the unchanged prose lint, preserving numeric meaning, original dollar symbol, source excerpts and near-cell raw range. Immediate-before typography member hash: 9eb059ec3ac376ca34210418538187aa2e29e50773116da0d55a59a47cba8caa.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed pricing/source-strength implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009",
+        "VAL-DATA-015",
+        "VAL-DATA-020"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pricing-provenance-20260907-9",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+      "newHash": "a1637546f18dfb48550d5cef0d0a68f17367192f788fdf5fa56012c79cd75c20",
+      "reason": "PRICE-TELEOP-20260907 / PRICE-HARDWARE-20260907: the retained community issue reports only an approximate dollar estimate for combined ALOHA / ALOHA 2, not a configuration-specific USD price, itemized vendor quote or workstation floor. Null unsupported typed amounts and expose attributed estimate, research month, limitations and its source. Source: https://github.com/alpibrusl/lex-robot/issues/3 . Immediate-before member hash: c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0. Existing exact approvals remain preserved; no unrelated change is allowed. Final non-quoted MDX price-range punctuation uses ASCII hyphen under the unchanged prose lint, preserving numeric meaning, original dollar symbol, source excerpts and near-cell raw range. Immediate-before typography member hash: e3b64b8c4cff51a0b9c577fd501a95e6ef67bc82ea1723cdd2390cfae13fa4c9.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed pricing/source-strength implementation authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009",
+        "VAL-DATA-015",
+        "VAL-DATA-020"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
