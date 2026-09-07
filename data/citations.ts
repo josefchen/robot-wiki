@@ -503,8 +503,8 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'knowledge-insulation-2025',
-    title: 'Knowledge Insulation',
-    // Ten named authors as printed at the foot of the research note.
+    title: 'VLAs that Train Fast, Run Fast, and Generalize Better',
+    // Eleven named authors as printed in the research-note byline.
     authors: [
       'Danny Driess',
       'Jost Tobias Springenberg',
@@ -521,9 +521,8 @@ export const CITATIONS: Citation[] = [
     year: 2025,
     url: 'https://www.pi.website/research/knowledge_insulation',
     type: 'blog',
-    // The research page serves its tagline ("VLAs that Train Fast, Run Fast,
-    // and Generalize Better") as <title>, not the note's name; documented as
-    // a title-mismatch exception in data/link-check-exceptions.ts.
+    // The displayed heading and page title match this research-note title.
+    // Distinct from the separately registered Knowledge Insulation paper.
   },
   {
     id: 'pi0-fast-2025',

@@ -1,6 +1,40 @@
 # Content-integrity audit trail
 
-## Current manipulation and RL checkpoint - 2026-09-07
+## Current Knowledge Insulation, FAST and Dreamer checkpoint - 2026-09-07
+
+**187 complete / 807 incomplete / 994 original identities / 47 articles. 95 compound plans; 172 exact approval entries.** Immediate predecessor `e581a84` was 170/824, with 78 plans and 161 approvals. This is a local implementation checkpoint, not publication, whole-article P1 acceptance or independent acceptance.
+
+Applied exactly **17 original records: 14 corrected and three recorded source inconsistencies (`S`)**. Knowledge Insulation 2-7; Pi Line 9/10/13/14; comparison 10; latent dynamics 5/7/9/10; taxonomy 8/9. Current article counts are KI **8/10**, Pi Line **20/24**, comparison **12/25**, latent dynamics **7/21**, and taxonomy **3/20**. All 994 IDs, 170 previous complete records, 977 unselected four-cell tuples, 78 prior plans and 161 prior approvals are preserved. The existing parser counts explicitly represented inconsistencies as complete evidence, not as resolved scientific agreement. Three new Dreamer inconsistencies remain visible.
+
+**12 retained source captures, 12 original retrieval-event bindings, 83 literal passages, zero new retrievals.** Original tool events and actual retained body hashes/passages were verified before reuse. FetchUrl-reported status is not origin HTTP evidence; original retrieval times are not current review times; PDF binary and extracted-text identities remain distinct. KI's paper and research note stay separate. Dreamer 2023 v1, 2024 v2 and 2025 Nature text retain their distinct protocol and population context.
+
+Corrections distinguish original two-stage pi0.5 from single-stage pi0.5 + KI, stopped backbone keys/values and attention masking, and the no-stop-gradient language co-training counterexample. The 7.5x training-step result is separate from specialist task-completion time and hardware inference latency. FAST+ uses approximately one million **one-second chunks**; five-times-fewer GPU hours is a compared training result. The FAST method now records DROID **15 / {8, 15} at 15 Hz**, with approximately 750 ms chunk latency separately scoped to an NVIDIA 4090. The research-note title is corrected with its existing eleven-author byline preserved. Its now-obsolete title-mismatch exception, including the stale ten-author claim, is removed rather than retained as an unnecessary allowance.
+
+Dreamer changes attribute categorical RSSM details to V3, include the critic replay-buffer loss, retain both reward-loss descriptions and the same-2023-v1 H=15/T=16 labels without inventing a reconciliation, and qualify the authors' Minecraft priority claim and MineRL protocol. The adjacent sample-efficiency exclusivity and redundant publication-prestige inference are removed with **zero extra original-record credit**.
+
+All checks ran sequentially with `NODE_DISABLE_COMPILE_CACHE=1`. Exact commands, timestamps, exits and log hashes are committed in `audit/insulation-fast-dreamer-20260907-commands.json`.
+
+| Check | Actual result |
+|---|---|
+| Red first | 23 failures / one pass before corrections |
+| Focused unit/component | 231 distinct cases pass, including unchanged 77-case strict audit; 24 overlapping affected cases also pass after final prose edits |
+| Additional offline citation tests | 87 pass / one pre-existing failure: the unchanged RT-1 and pi0.5 HTML URLs fail the existing abs-page oracle; exact predecessor comparison retained, no allowance broadened |
+| Nonincremental TypeScript / full lint | Both exit 0 |
+| Source no-slop / chart descriptions | Pass; three initial prose-dash findings corrected without weakening rules |
+| Final content | Exit 1: **814 = 807 incomplete + four unresolved outcomes + three aggregates**; nine separate citation gaps remain |
+| Baseline | Exit 1: 59 failures; eleven exact scoped approvals, no immutable-baseline change |
+| Bounded browser | Initial 14 pass / two mobile tooltip failures; both failures pass after local citation placement corrections. Six existing latent cases included |
+| Cards | Normal `npm run check:og-card-bytes` passes: 48 cards / 96 public-export files; all 48 public/export/committed triples identical, zero changed cards |
+
+Thirty-six selected captures were inspected directly, in full-resolution inspection sheets, or by exact byte identity; all 44 original captures, including failures, remain retained. The measured mobile KI-note and FAST tooltip overflows were 24 px and 103 px; final checked mobile tooltips are bounded, keyboard-focusable and hover/focus consistent. Final cases have zero Axe violations, page errors, KaTeX errors and document overflow. Table keyboard scrolling is positive; table sources are links, not tooltips. Desktop KI/Pi captures precede the final source-led paragraph placement; only the two measured mobile failures were rerun. This is bounded dev evidence, not final desktop recapture or full-corpus visual acceptance.
+
+Held packet rows remain held: KI 1/10; Pi Line 16/17/22/24; comparison 1/2/7/8/9/18/19; latent 2-4 and 11-21, including **18-20 NOTCHECKED**, not failed retrievals. Four previously complete Dreamer-packet records earn no new credit. Unproved RSS 2025 / NeurIPS 2025 metadata, whole-article P1, the latent interactive's held “published range”/causal wording, other citation tooltips, realtime/RL browser gaps and the prior citation Back-focus BODY finding remain open. Production export/reading times, full browser corpus, independent scrutiny and release acceptance remain deferred behind genuine corpus closure.
+
+No card fact inputs changed, so regeneration was unnecessary; the normal byte check re-rendered the full corpus. `next-env.d.ts` was restored after exactly two proven own Next-generated import substitutions. PRODUCT_QUALITY.md, qa/, owner work, d282a83/2cf7d6b and strict audit tools are preserved. No push, deployment, cleanup, model/credit fallback, controller, feature-state or security change occurred. No role-specific exhaustion was observed.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907`. Exact tuples, source provenance, held IDs, preservation, failures, final composition changes and file hashes are in `row-history.json`, `source-proof.json`, `applied-held.json`, `preservation.json`, `final-composition-history.json`, `handoff.json` and `artifact-index.json`.
+
+## Historical: manipulation and RL checkpoint - 2026-09-07
 
 **170 complete / 824 incomplete / 994 original identities / 47 articles. 78 compound plans; 161 exact approval entries.** This is a local implementation checkpoint, not publication or independent acceptance. Immediate predecessor `ec4ddde` was **135/859**, with 46 plans and 150 approvals. The older 128/866 comparison checkpoint below is historical, not current accounting.
 

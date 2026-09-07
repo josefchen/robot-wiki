@@ -10,6 +10,15 @@ const article = readFileSync('content/manipulation/comparison-matrix.mdx', 'utf8
 const parsed = matter(article);
 
 describe('comparison current claim corrections', () => {
+  it('renders FAST DROID execution as a discrete set with its measured setting', () => {
+    render(<ComparisonMatrix />);
+    const row = screen.getByRole('row', { name: /^π0-FAST / });
+    expect(row).toHaveTextContent('15 / {8, 15}');
+    expect(row).toHaveTextContent('15 Hz');
+    expect(row).toHaveTextContent('DROID setup');
+    expect(row).toHaveTextContent('750 ms');
+    expect(within(row).getAllByRole('link')).toHaveLength(2);
+  });
   it('mounts the exact registered sources for every method without substituting another model', () => {
     render(<ComparisonMatrix />);
     expect(screen.getByRole('columnheader', { name: 'Sources' })).toBeInTheDocument();

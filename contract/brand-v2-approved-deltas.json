@@ -3124,6 +3124,237 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "insulation-fast-dreamer-20260907-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/knowledge-insulation",
+      "oldHash": "39f6a1b5787df41b1c085b5e04bd2682a607817c7623eaf75f08a4bb19727732",
+      "newHash": "3befaa871ea8c95eba29b6506c8a46fa97a440634e55d881f254c6e0f1bd9656",
+      "reason": "KI2–7: replace universal adoption and permanent gradient-damage claims with the original two-stage/single-stage distinction, stopped keys/values and mask, tested frozen-backbone outcome, no-stop-gradient co-training counterexample, scoped parameter counts and separate generalist training/specialist task-time populations. Immediate-before hash 4fc73c199ea90f580ec279363129b38f98f6f4e47a8b1cb47c90d58d750fd35d. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/source-proof.json. Sources: https://arxiv.org/abs/2501.09747 ; https://arxiv.org/html/2501.09747v1 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://arxiv.org/html/2301.04104v2 ; https://arxiv.org/pdf/2301.04104v1. No full-article/P1 or independent acceptance; held claims remain failures. Final composition correction: replace prohibited prose dashes without changing quantities; keep the initial KI paper/note and FAST citations in source-led paragraphs so the measured mobile tooltip overflow is removed. No shared CSS/component change and no additional original-record credit.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "insulation-fast-dreamer-20260907-2",
+      "manifest": "prose",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "3910469cc8ac7ac69cb70bc8936b8092dc1bc5fdd5c8df17c2eb8e6ac120b20d",
+      "newHash": "da47414576bdae16b3339e15c62395d46cb0feb0181a08643029ac8885ed6746",
+      "reason": "Pi9/10/13/14: correct FAST+ unit to approximately one million one-second chunks, training efficiency to compared GPU hours, preserve 4090 latency versus specialist task completion, and qualify the KI mechanism, ablation and language-following result. Immediate-before hash 2de5f20708c2a31ffa398bc7af3ce968b3e96a89dc250b097c9bfa231df7113b. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/source-proof.json. Sources: https://arxiv.org/abs/2501.09747 ; https://arxiv.org/html/2501.09747v1 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://arxiv.org/html/2301.04104v2 ; https://arxiv.org/pdf/2301.04104v1. No full-article/P1 or independent acceptance; held claims remain failures. Final composition correction: replace prohibited prose dashes without changing quantities; keep the initial KI paper/note and FAST citations in source-led paragraphs so the measured mobile tooltip overflow is removed. No shared CSS/component change and no additional original-record credit.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "insulation-fast-dreamer-20260907-3",
+      "manifest": "prose",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41",
+      "newHash": "9f8bf1875ae0c91900b0b921bf8a25ab985a2a43b9a7517f90d4a781d3c9b59b",
+      "reason": "Latent5/7/9/10: attribute categorical RSSM to V3, qualify Minecraft priority and protocol, represent both reward-loss descriptions and same-v1 H15/T16 labels. Remove the adjacent unsupported sample-efficiency exclusivity and redundant Nature-prestige inference with zero additional original-row credit. Immediate-before hash ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/source-proof.json. Sources: https://arxiv.org/abs/2501.09747 ; https://arxiv.org/html/2501.09747v1 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://arxiv.org/html/2301.04104v2 ; https://arxiv.org/pdf/2301.04104v1. No full-article/P1 or independent acceptance; held claims remain failures. Final composition correction: replace prohibited prose dashes without changing quantities; keep the initial KI paper/note and FAST citations in source-led paragraphs so the measured mobile tooltip overflow is removed. No shared CSS/component change and no additional original-record credit.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "insulation-fast-dreamer-20260907-4",
+      "manifest": "prose",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+      "newHash": "5d492c5d698299d92d3f511337411061d7becc1db61b8a09977e2d6fc027b049",
+      "reason": "Taxonomy8/9: explicitly state V3 critic replay loss, qualified task scope, both reward-loss descriptions and author-qualified MineRL result, without reopening held DayDreamer or lineage claims. Immediate-before hash 122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/source-proof.json. Sources: https://arxiv.org/abs/2501.09747 ; https://arxiv.org/html/2501.09747v1 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://arxiv.org/html/2301.04104v2 ; https://arxiv.org/pdf/2301.04104v1. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "insulation-fast-dreamer-20260907-5",
+      "manifest": "accessible-names",
+      "memberId": "literal:content/manipulation/pi-line.mdx:title:1",
+      "oldHash": "b039a5e4fc94f5baae5a20e9500a10b6a627a2bcf1c551c638d38bb03c929b9f",
+      "newHash": "bbbe62ce16c81eb9e860d5af96745657db301df66b7ad018a38488a46506f839",
+      "reason": "Rename the existing Aside title to Separate training tokens from runtime actions; replace its unsupported universal frontier-model implication without changing interaction behavior. Immediate-before hash b039a5e4fc94f5baae5a20e9500a10b6a627a2bcf1c551c638d38bb03c929b9f. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/source-proof.json. Sources: https://arxiv.org/abs/2501.09747 ; https://arxiv.org/html/2501.09747v1 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://arxiv.org/html/2301.04104v2 ; https://arxiv.org/pdf/2301.04104v1. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "insulation-fast-dreamer-20260907-6",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/knowledge-insulation",
+      "oldHash": "5f4c3eee9f885172df2d143ea0bb3837506325cee7f97fc7ac49a1c1758e8656",
+      "newHash": "2b416ba3130cba56ff89da15d88a2c649a8816cafe11a3f43a786847720db1c1",
+      "reason": "Only citation and heading occurrence changes caused by KI2–7; seven canonical sources and all curated relationship targets remain unchanged. Immediate-before hash 50fee975877076b6e281f7710d140c31d27945937fb9024b9b6ac919e6cd7db8. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/source-proof.json. Sources: https://arxiv.org/abs/2501.09747 ; https://arxiv.org/html/2501.09747v1 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://arxiv.org/html/2301.04104v2 ; https://arxiv.org/pdf/2301.04104v1. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "insulation-fast-dreamer-20260907-7",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/pi-line",
+      "oldHash": "ad2cdb0b5a2940a89e72f90b06bc49790651ca4567378951f996e747369ac27a",
+      "newHash": "fee8f264e34aaba39d451b5c74427586c4c0ecbb7f6f51a58d4cfc1879881bd1",
+      "reason": "Only citation occurrence changes caused by Pi9/10/13/14; thirteen canonical sources and all curated relationship targets remain unchanged. Immediate-before hash f7018fc60a84222e3d86656e1891e0ab4eef463df484407244ea8f5eea2e97be. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/source-proof.json. Sources: https://arxiv.org/abs/2501.09747 ; https://arxiv.org/html/2501.09747v1 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://arxiv.org/html/2301.04104v2 ; https://arxiv.org/pdf/2301.04104v1. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "insulation-fast-dreamer-20260907-8",
+      "manifest": "relationships",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "e601d03966332e6dd3894932da7c91251596f85fdfa152db2cef57ca96a61042",
+      "newHash": "414471ea7322da563fe8a9482685c0ac2a03695e67478d06eea3f1c6aaec6f9b",
+      "reason": "Move the V3 RSSM attribution from original Dreamer to DreamerV3 and bind corrected version/protocol/robustness claims; retain original Dreamer for the already-complete imagination row. Nine canonical sources remain. Immediate-before hash e601d03966332e6dd3894932da7c91251596f85fdfa152db2cef57ca96a61042. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/source-proof.json. Sources: https://arxiv.org/abs/2501.09747 ; https://arxiv.org/html/2501.09747v1 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://arxiv.org/html/2301.04104v2 ; https://arxiv.org/pdf/2301.04104v1. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "insulation-fast-dreamer-20260907-9",
+      "manifest": "relationships",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "3d62f5c1794e774673d2b73a12ee07e9a1e19d35867e6926d10c5e5320ffd081",
+      "newHash": "5e3b119a2ec7b5b9273004a69c9d4ef7d6492b405e8cef19d2ff0004b1804f65",
+      "reason": "Bind V3 RSSM, critic replay, robustness conflict and qualified Minecraft statements at their own paragraphs; twelve canonical sources and curated links remain. Immediate-before hash 3d62f5c1794e774673d2b73a12ee07e9a1e19d35867e6926d10c5e5320ffd081. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/source-proof.json. Sources: https://arxiv.org/abs/2501.09747 ; https://arxiv.org/html/2501.09747v1 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://arxiv.org/html/2301.04104v2 ; https://arxiv.org/pdf/2301.04104v1. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "insulation-fast-dreamer-20260907-10",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/knowledge-insulation",
+      "oldHash": "09a7d69efcc54fdb5d2287f51407e1f01fd41f1faaf28b11bf0aeef4f5a278f3",
+      "newHash": "371d4e042dd402c98c88ffae7c97ea7be525bff723b98525748de47128b9a91d",
+      "reason": "Replace description claiming a default since pi0.5 and symmetrical damage prevention with the exact one-directional expert-gradient mechanism. No title, lastReviewed, article identity or citation count changes. Immediate-before hash 09a7d69efcc54fdb5d2287f51407e1f01fd41f1faaf28b11bf0aeef4f5a278f3. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/source-proof.json. Sources: https://arxiv.org/abs/2501.09747 ; https://arxiv.org/html/2501.09747v1 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://arxiv.org/html/2301.04104v2 ; https://arxiv.org/pdf/2301.04104v1. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "insulation-fast-dreamer-20260907-11",
+      "manifest": "article-metadata",
+      "memberId": "citation:knowledge-insulation-2025",
+      "oldHash": "966f07a22ac99bcaa007a6204141d497fe93382d0d779c23c172f30c079ea373",
+      "newHash": "03d7e0c86324bb9612ce0cf223f8830f0b15193de677659aa17f058100fd74a5",
+      "reason": "Correct the separate research-note title to VLAs that Train Fast, Run Fast, and Generalize Better from its retained May 28, 2025 heading/byline. Preserve all eleven names, year, URL and blog type; do not merge with the paper or infer conference venue. Immediate-before hash 966f07a22ac99bcaa007a6204141d497fe93382d0d779c23c172f30c079ea373. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-insulation-fast-dreamer-integration-20260907/source-proof.json. Sources: https://arxiv.org/abs/2501.09747 ; https://arxiv.org/html/2501.09747v1 ; https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md ; https://arxiv.org/html/2505.23705v1 ; https://www.pi.website/research/knowledge_insulation ; https://arxiv.org/abs/2505.23705 ; https://www.nature.com/articles/s41586-025-08744-2 ; https://arxiv.org/html/2301.04104v2 ; https://arxiv.org/pdf/2301.04104v1. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
