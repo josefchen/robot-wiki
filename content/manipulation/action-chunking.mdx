@@ -21,6 +21,8 @@ citations:
   - pi05-2025
   - isaac-gr00t-repo-2026
   - helix-02-2026
+  - pi06-model-card-2025
+  - pi07-2026
 seeAlso:
   - "manipulation/bc-foundations"
   - "manipulation/diffusion-policy"
@@ -158,6 +160,10 @@ Octo v2's ALOHA finetuning example predicts 64 actions and executes 12 before re
 <Cite id="rt1-2022" /> RT-1 predicts one robot action per timestep and commands the Everyday Robots mobile manipulator at 3 Hz. Each action dimension is mapped to one of 256 uniformly distributed bins within that variable’s bounds. Six input frames are observation history, not a six-action horizon. The paper announces open code; pretrained-weight availability is not disclosed in that statement.
 
 <Cite id="pi05-2025" /> The π0.5 v1 paper predicts 50 action entries (inclusive indexing, H=49) and sends targets at 50 Hz in its two-mobile-platform setup. That does not establish how many actions execute before replanning. The paper combines FAST-token prediction with flow matching; the cited openpi README supports only the flow-matching head for π0.5 training and inference.
+
+<Cite id="pi06-model-card-2025" /> The November 17, 2025 π0.6 model card describes a continuous-action flow-matching expert; FAST tokens supervise the VLM backbone during training. The card does not specify predicted or executed chunk length, robot-control rate, or model-specific weight-release and licensing terms. Its 63 ms action-chunk latency uses five denoising steps and three camera inputs on one H100; this is inference latency, not a control frequency. The card’s openpi release statement concerns the π0.5 comparator, not π0.6.
+
+<Cite id="pi07-2026" /> In the π0.7 paper’s experiments, the continuous-action flow-matching expert predicts 50-step chunks with five denoising steps and executes either 15 or 25 steps. UR5e robots run at 20 Hz; the other tested robots run at 50 Hz. The paper does not assign either execution choice to a particular robot. FAST tokens supervise the backbone during training, not the runtime action output. The model distills experience from RL-trained π*0.6; evaluation without task-specific post-training does not mean training without RL-derived data. Model-specific weight-release and licensing terms are not disclosed in this paper.
 
 <Cite id="isaac-gr00t-repo-2026" /> The NVIDIA Isaac GR00T README describes the N1.7 GA release: a predicted horizon of 40, a flow-matching DiT head, relative-end-effector support, and downloadable weights. Relative EEF is not its only embodiment interface; it also describes SONIC latent-action output. No single robot-control frequency is disclosed there; inference throughput is a different quantity. Its overview says Apache 2.0, but its License section distinguishes Apache 2.0 code from weights under the NVIDIA Open Model License. Download availability does not resolve that licensing discrepancy.
 

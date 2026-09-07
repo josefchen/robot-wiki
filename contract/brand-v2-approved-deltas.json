@@ -2443,6 +2443,226 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "act-final-model-papers-20260907-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db",
+      "newHash": "d80a18f74ec13b3296ea2102470726cf4446d3b70757ccf654487c5906cf4ac3",
+      "reason": "ACT-FINAL-PAPER-27/28/P1: pi0.6 card does not disclose predicted/executed horizon, control rate or model-specific weight/license terms; its 63 ms H100 inference is not control Hz. Pi0.7 predicts50, executes discrete {15,25} with five denoising steps; UR5e20Hz/other tested robots50Hz, no robot-to-execution-choice assignment. Continuous expert runtime is distinct from FAST backbone training, and RL-derived experience is retained. Exact sixteen-source union uses both existing official paper IDs. Sources: https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; exact-paper-linked year: https://www.pi.website/blog/pi07 . Immediate-before hash f9d72766a94f792f09d76a284f11f6f9ec8bfc496a4fb9dbeff3b09763c9c402. This endpoint only; no global absence, invented number, baseline recapture or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-008",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-final-model-papers-20260907-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/action-chunking",
+      "oldHash": "26ad6f467f5e22f419c3a67883ccdfa5669c26aef1f543143adecac1b756456f",
+      "newHash": "3c9158e668b17592940bb0ccbe556d75e37c897b4fc4690d1e900593a7930e6f",
+      "reason": "ACT-FINAL-PAPER-27/28/P1: pi0.6 card does not disclose predicted/executed horizon, control rate or model-specific weight/license terms; its 63 ms H100 inference is not control Hz. Pi0.7 predicts50, executes discrete {15,25} with five denoising steps; UR5e20Hz/other tested robots50Hz, no robot-to-execution-choice assignment. Continuous expert runtime is distinct from FAST backbone training, and RL-derived experience is retained. Exact sixteen-source union uses both existing official paper IDs. Sources: https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; exact-paper-linked year: https://www.pi.website/blog/pi07 . Immediate-before hash 80820bb617fb42234bd828c134765dcef8742235a9feab167723ec134678392e. This endpoint only; no global absence, invented number, baseline recapture or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-008",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-final-model-papers-20260907-3",
+      "manifest": "value-states",
+      "memberId": "state-site:content/manipulation/action-chunking.mdx:not-disclosed:5",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "fcf3b2e9edf797c4d1250782e2d588f527c0fb57a75f2e0c5ff608b1fa714c41",
+      "reason": "ACT-FINAL-PAPER-27/28/P1: pi0.6 card does not disclose predicted/executed horizon, control rate or model-specific weight/license terms; its 63 ms H100 inference is not control Hz. Pi0.7 predicts50, executes discrete {15,25} with five denoising steps; UR5e20Hz/other tested robots50Hz, no robot-to-execution-choice assignment. Continuous expert runtime is distinct from FAST backbone training, and RL-derived experience is retained. Exact sixteen-source union uses both existing official paper IDs. Sources: https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; exact-paper-linked year: https://www.pi.website/blog/pi07 . Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. This endpoint only; no global absence, invented number, baseline recapture or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-008",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-final-model-papers-20260907-4",
+      "manifest": "value-states",
+      "memberId": "state-site:data/methods.ts:not-disclosed:10",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8865bb3742443d43ac9de7dc3c2b4a1d46dd2af17973e48ae479172fd2e75737",
+      "reason": "ACT-FINAL-PAPER-27/28/P1: pi0.6 card does not disclose predicted/executed horizon, control rate or model-specific weight/license terms; its 63 ms H100 inference is not control Hz. Pi0.7 predicts50, executes discrete {15,25} with five denoising steps; UR5e20Hz/other tested robots50Hz, no robot-to-execution-choice assignment. Continuous expert runtime is distinct from FAST backbone training, and RL-derived experience is retained. Exact sixteen-source union uses both existing official paper IDs. Sources: https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; exact-paper-linked year: https://www.pi.website/blog/pi07 . Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. This endpoint only; no global absence, invented number, baseline recapture or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-008",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-final-model-papers-20260907-5",
+      "manifest": "value-states",
+      "memberId": "state-site:data/methods.ts:not-disclosed:11",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9744ec719ed8ba961db7e1ec71ee16723534000407755a2bb43e7c9336749170",
+      "reason": "ACT-FINAL-PAPER-27/28/P1: pi0.6 card does not disclose predicted/executed horizon, control rate or model-specific weight/license terms; its 63 ms H100 inference is not control Hz. Pi0.7 predicts50, executes discrete {15,25} with five denoising steps; UR5e20Hz/other tested robots50Hz, no robot-to-execution-choice assignment. Continuous expert runtime is distinct from FAST backbone training, and RL-derived experience is retained. Exact sixteen-source union uses both existing official paper IDs. Sources: https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; exact-paper-linked year: https://www.pi.website/blog/pi07 . Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. This endpoint only; no global absence, invented number, baseline recapture or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-008",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-final-model-papers-20260907-6",
+      "manifest": "value-states",
+      "memberId": "state-site:data/methods.ts:not-disclosed:8",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4193027ea750fc7a34d818a4911e37f074f7705134e802e312ec3d6ffa4df2c8",
+      "reason": "ACT-FINAL-PAPER-27/28/P1: pi0.6 card does not disclose predicted/executed horizon, control rate or model-specific weight/license terms; its 63 ms H100 inference is not control Hz. Pi0.7 predicts50, executes discrete {15,25} with five denoising steps; UR5e20Hz/other tested robots50Hz, no robot-to-execution-choice assignment. Continuous expert runtime is distinct from FAST backbone training, and RL-derived experience is retained. Exact sixteen-source union uses both existing official paper IDs. Sources: https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; exact-paper-linked year: https://www.pi.website/blog/pi07 . Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. This endpoint only; no global absence, invented number, baseline recapture or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-008",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-final-model-papers-20260907-7",
+      "manifest": "value-states",
+      "memberId": "state-site:data/methods.ts:not-disclosed:9",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "c2d3027144e32dc3d83255e61587f1fd0cd62c2a07ebb9ab6d0bc884829d64df",
+      "reason": "ACT-FINAL-PAPER-27/28/P1: pi0.6 card does not disclose predicted/executed horizon, control rate or model-specific weight/license terms; its 63 ms H100 inference is not control Hz. Pi0.7 predicts50, executes discrete {15,25} with five denoising steps; UR5e20Hz/other tested robots50Hz, no robot-to-execution-choice assignment. Continuous expert runtime is distinct from FAST backbone training, and RL-derived experience is retained. Exact sixteen-source union uses both existing official paper IDs. Sources: https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; exact-paper-linked year: https://www.pi.website/blog/pi07 . Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. This endpoint only; no global absence, invented number, baseline recapture or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-008",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-final-model-papers-20260907-8",
+      "manifest": "value-states",
+      "memberId": "state-source:components/mdx/policy-chunking-table.tsx",
+      "oldHash": "cb201d7b1b91d6f8724d71b2b3d09d62c0f329d2933a38a98fa730ee3915fd2e",
+      "newHash": "24e645ac857f9bd103bb1c7f5af40f0924d4926d83ed9c554f4210b7dda787e7",
+      "reason": "ACT-FINAL-PAPER-27/28/P1: pi0.6 card does not disclose predicted/executed horizon, control rate or model-specific weight/license terms; its 63 ms H100 inference is not control Hz. Pi0.7 predicts50, executes discrete {15,25} with five denoising steps; UR5e20Hz/other tested robots50Hz, no robot-to-execution-choice assignment. Continuous expert runtime is distinct from FAST backbone training, and RL-derived experience is retained. Exact sixteen-source union uses both existing official paper IDs. Sources: https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; exact-paper-linked year: https://www.pi.website/blog/pi07 . Immediate-before hash e74491de3633d119abee465f92153cc2b5a1d3e88ea29d7a73e8a423f87c228d. This endpoint only; no global absence, invented number, baseline recapture or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-008",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-final-model-papers-20260907-9",
+      "manifest": "value-states",
+      "memberId": "state-source:lib/entity-cells.ts",
+      "oldHash": "250ee6a8200b21e6c6f88e284d798a71bb060b958fea76b3f3c406b6c8fc0390",
+      "newHash": "2b3fc4aa427ca37e77bccc8b491ffe1acf539307301fb4003cf50d646b5bd56a",
+      "reason": "ACT-FINAL-PAPER-27/28/P1: pi0.6 card does not disclose predicted/executed horizon, control rate or model-specific weight/license terms; its 63 ms H100 inference is not control Hz. Pi0.7 predicts50, executes discrete {15,25} with five denoising steps; UR5e20Hz/other tested robots50Hz, no robot-to-execution-choice assignment. Continuous expert runtime is distinct from FAST backbone training, and RL-derived experience is retained. Exact sixteen-source union uses both existing official paper IDs. Sources: https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; exact-paper-linked year: https://www.pi.website/blog/pi07 . Immediate-before hash 250ee6a8200b21e6c6f88e284d798a71bb060b958fea76b3f3c406b6c8fc0390. This endpoint only; no global absence, invented number, baseline recapture or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-008",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "act-final-model-papers-20260907-10",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/action-chunking",
+      "oldHash": "c128aea24d54f93eb8275fde4baa7102c1a07ac123565200935c835d7acf46cb",
+      "newHash": "befbec24627e7700f31c167f261cff328bc535df3f1fc8d6940c9c57b4e30ade",
+      "reason": "ACT-FINAL-PAPER-27/28/P1: pi0.6 card does not disclose predicted/executed horizon, control rate or model-specific weight/license terms; its 63 ms H100 inference is not control Hz. Pi0.7 predicts50, executes discrete {15,25} with five denoising steps; UR5e20Hz/other tested robots50Hz, no robot-to-execution-choice assignment. Continuous expert runtime is distinct from FAST backbone training, and RL-derived experience is retained. Exact sixteen-source union uses both existing official paper IDs. Sources: https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; exact-paper-linked year: https://www.pi.website/blog/pi07 . Immediate-before hash 6712e5b1345e5cd106488eb77da26e1313a451c1477e1cede4b38572ab3b0bf7. This endpoint only; no global absence, invented number, baseline recapture or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-005",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-013",
+        "VAL-B2-COMP-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-008",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -32,13 +32,25 @@ export const methodSchema = z.object({
   year: z.number().int().min(1980).max(2100).nullable(),
   /** Null when the vendor has not disclosed the representation. */
   actionRepresentation: actionRepresentationSchema.nullable(),
+  /** Source-scoped training/runtime distinction, not a second action category. */
+  actionRepresentationNote: z.string().min(1).optional(),
   /** Planned chunk length vs. steps actually executed before re-inference. */
   actionHorizon: z.object({
     planned: z.number().int().positive().nullable(),
-    executed: z.number().int().positive().nullable(),
-    /** Range or qualifier a single integer cannot carry, e.g. "15-25". */
+    executed: z.union([
+      z.number().int().positive(),
+      z.object({
+        choices: z.array(z.number().int().positive()).min(2)
+          .refine(values => new Set(values).size === values.length, 'Execution choices must be distinct'),
+      }).strict(),
+    ]).nullable(),
+    /** Source setting or qualifier; discrete choices are typed above, not a range. */
     note: z.string().min(1).optional(),
-  }),
+  }).refine(horizon => horizon.planned === null || horizon.executed === null ||
+    (typeof horizon.executed === 'number'
+      ? horizon.executed <= horizon.planned
+      : horizon.executed.choices.every(value => value <= horizon.planned!)),
+  'Executed steps cannot exceed the predicted horizon'),
   controlFrequencyHz: z.number().positive().nullable(),
   /**
    * Rate qualifier a single number cannot carry: dual-rate stacks

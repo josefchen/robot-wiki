@@ -754,3 +754,10 @@ No new URL sweep or retrieval was run. RT-1 is explicitly v2; pi0.5 explicitly v
   }
 ]
 ```
+
+
+## ACT final paper identity reuse — 2026-09-07
+
+Existing `pi06-model-card-2025` and `pi07-2026` identities match retained official PDFs. The former is “π0.6 Model Card”, Physical Intelligence, November 17, 2025. The latter is “π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities”, with all 87 registered authors matching its first page; 2026 is established by the official April 16, 2026 announcement linking https://www.pi.website/download/pi07.pdf. No blog headline is substituted for the paper title and no version/venue is invented. No registry metadata values or IDs changed. The unsupported adjacent “Closed model” comment was removed; absence of model-specific licensing terms in a card is not closed licensing.
+
+No new retrieval occurred. Official PDF requests started 2026-09-07T16:28:10.810822Z at https://website.pi-asset.com/pi06star/PI06_model_card.pdf and 16:28:11.862371Z at https://www.pi.website/download/pi07.pdf, each actual HTTP200 with zero redirects. Binary/text identities, literal excerpts, conversion warnings and original announcement retrieval events are preserved in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/source-proof.json`. ACT P1 now requires all sixteen actual citations; prior fourteen parts/evidence and exact plan history survive. Nine unrelated unresolved citation checks remain open. This is source-auditor reuse, not a fresh liveness sweep, personal human review or independent acceptance.

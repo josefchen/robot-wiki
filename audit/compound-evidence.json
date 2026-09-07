@@ -1715,11 +1715,235 @@
     }
   },
   {
+    "id": "act-final-paper-27-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 27,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "identity",
+        "text": "Dated November 17, 2025 base pi0.6 card, by Physical Intelligence; not the pi-star paper.",
+        "requiredCitationIds": [
+          "pi06-model-card-2025"
+        ]
+      },
+      {
+        "id": "runtime-training",
+        "text": "Continuous-action flow matching; FAST backbone supervision is a training role.",
+        "requiredCitationIds": [
+          "pi06-model-card-2025"
+        ]
+      },
+      {
+        "id": "inference-and-unknown-settings",
+        "text": "63 ms action chunk with five denoising steps, three cameras, one H100. The complete four-page card describes applicable chunks but does not disclose predicted/executed length or robot-control Hz. No inherited H50/50Hz or inverted latency.",
+        "requiredCitationIds": [
+          "pi06-model-card-2025"
+        ]
+      },
+      {
+        "id": "source-scoped-availability",
+        "text": "Only the pi0.5 comparator is described as open-sourced. The checked card gives no model-specific pi0.6 release/license terms; typed unknown is limited to that card, not global absence or proprietary licensing.",
+        "requiredCitationIds": [
+          "pi06-model-card-2025"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "identity",
+        "citationId": "pi06-model-card-2025",
+        "sourceUrl": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
+        "supportingPassage": "π0.6 Model Card\n                                       Physical Intelligence\n\n                                        November 17, 2025\n[Separate literal excerpt from the same retained source]\nWe introduce π0.6 , our newest vision-language-action (VLA) model that builds on top of π0.5 [2]\nand achieves stronger performance across tasks. π0.6 preserves the hierarchical design of π0.5 , pro-\nviding high-level subtask prediction and low-level action generation. It incorporates a few changes\ninvolving the pre-trained VLM backbone and prompt design (Section 2), as well as the training\ndatasets (Section 3). Section 4 analyzes the improvement in performance of π0.6 compared to π0.5\non a range of tasks that require dexterity and generalization. These experiments evaluate each\nmodel out of the box, without finetuning. This model has also been adopted as the base model for\n  ∗ [7] where it is further improved through real-world reinforcement learning.\nπ0.6\n\n"
+      },
+      {
+        "partId": "runtime-training",
+        "citationId": "pi06-model-card-2025",
+        "sourceUrl": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
+        "supportingPassage": "Similar to π0 [1] and π0.5 , the π0.6 architecture (Figure 1) generates action chunks based on both\nflow matching and tokenized discrete outputs. The vision-language backbone is initialized from the\nGemma3 4B model [6], and the “action expert” has the same number of layers as the backbone and\nconsists of about 860M parameters. During pre-training, the model receives up to four images as\ninput, each having resolution 448×448, corresponding to a base camera, up to two wrist cameras,\nand an optional backward camera for mobile manipulators. The image tokens after the vision\nencoder are concatenated with the tokenized language prompt and tokenized proprioceptive states.\nWe keep bidirectional attention among all of the image tokens (as in π0.5 ) but use causal attention\namong the text tokens. Action tokens fed into the action expert use bidirectional attention. The\nmodel is trained with Knowledge Insulation [3]: the vision-language backbone predicts FAST action\ntokens [5] and co-training examples, such as multi-modal web data. The action expert predicts\ncontinuous actions, and the gradient from the action expert does not flow back to the main VLM\nbackbone. In addition to the language command, π0.6 can optionally take in conditioning metadata\nin the prompt that further modulates how the task is performed. With 5 denoising steps and 3\ncamera inputs, π0.6 takes 63ms to produce an action chunk on a single H100 GPU."
+      },
+      {
+        "partId": "inference-and-unknown-settings",
+        "citationId": "pi06-model-card-2025",
+        "sourceUrl": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
+        "supportingPassage": "Similar to π0 [1] and π0.5 , the π0.6 architecture (Figure 1) generates action chunks based on both\nflow matching and tokenized discrete outputs. The vision-language backbone is initialized from the\nGemma3 4B model [6], and the “action expert” has the same number of layers as the backbone and\nconsists of about 860M parameters. During pre-training, the model receives up to four images as\ninput, each having resolution 448×448, corresponding to a base camera, up to two wrist cameras,\nand an optional backward camera for mobile manipulators. The image tokens after the vision\nencoder are concatenated with the tokenized language prompt and tokenized proprioceptive states.\nWe keep bidirectional attention among all of the image tokens (as in π0.5 ) but use causal attention\namong the text tokens. Action tokens fed into the action expert use bidirectional attention. The\nmodel is trained with Knowledge Insulation [3]: the vision-language backbone predicts FAST action\ntokens [5] and co-training examples, such as multi-modal web data. The action expert predicts\ncontinuous actions, and the gradient from the action expert does not flow back to the main VLM\nbackbone. In addition to the language command, π0.6 can optionally take in conditioning metadata\nin the prompt that further modulates how the task is performed. With 5 denoising steps and 3\ncamera inputs, π0.6 takes 63ms to produce an action chunk on a single H100 GPU.\n[Separate literal excerpt from the same retained source]\nπ0.6 largely inherits the training data composition used in π0.5 , which consists of cross-embodiment\ndata collected in-house and external data sources, diverse mobile and non-mobile data collected\nin home environments, high-level subtask prediction, and multi-modal web datasets, including\nbounding box and keypoint prediction.\nIn previous models, we found additional task-specific fine-tuning using curated high-quality data,\nreferred to as post-training, to be highly effective and sometimes necessary to achieve good per-\nformance. π0.6 achieves significantly stronger performance across tasks without task-specific fine-\ntuning thanks to the diverse training data and rich metadata conditioning (Section 4)."
+      },
+      {
+        "partId": "source-scoped-availability",
+        "citationId": "pi06-model-card-2025",
+        "sourceUrl": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
+        "supportingPassage": "We present evaluation results comparing π0.6 with the improved version of π0.5 trained with Knowl-\nedge Insulation (open-sourced at openpi [4]). Neither models underwent task-specific fine-tuning.\n[Separate literal excerpt from the same retained source]\nWe introduce π0.6 , our newest vision-language-action (VLA) model that builds on top of π0.5 [2]\nand achieves stronger performance across tasks. π0.6 preserves the hierarchical design of π0.5 , pro-\nviding high-level subtask prediction and low-level action generation. It incorporates a few changes\ninvolving the pre-trained VLM backbone and prompt design (Section 2), as well as the training\ndatasets (Section 3). Section 4 analyzes the improvement in performance of π0.6 compared to π0.5\non a range of tasks that require dexterity and generalization. These experiments evaluate each\nmodel out of the box, without finetuning. This model has also been adopted as the base model for\n  ∗ [7] where it is further improved through real-world reinforcement learning.\nπ0.6\n\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "identity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+        "rationale": "Dated November 17, 2025 base pi0.6 card, by Physical Intelligence; not the pi-star paper. Literal primary text checked; source-scoped negative claims are based on the retained document, not worldwide release evidence.",
+        "evidenceDigest": "0ea2cda95b15808d71fa126d1e0eca618718004774f8ecb9362afb06a5060762"
+      },
+      {
+        "partId": "runtime-training",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+        "rationale": "Continuous-action flow matching; FAST backbone supervision is a training role. Literal primary text checked; source-scoped negative claims are based on the retained document, not worldwide release evidence.",
+        "evidenceDigest": "f404cd389a88d22b7563efc939609904ef969fbe41988446c1334cc0c960e042"
+      },
+      {
+        "partId": "inference-and-unknown-settings",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+        "rationale": "63 ms action chunk with five denoising steps, three cameras, one H100. The complete four-page card describes applicable chunks but does not disclose predicted/executed length or robot-control Hz. No inherited H50/50Hz or inverted latency. Literal primary text checked; source-scoped negative claims are based on the retained document, not worldwide release evidence.",
+        "evidenceDigest": "0aefffa5f7fed04a69f772d0f6ac56d01535f26851f7088598633d7b72d9e58b"
+      },
+      {
+        "partId": "source-scoped-availability",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+        "rationale": "Only the pi0.5 comparator is described as open-sourced. The checked card gives no model-specific pi0.6 release/license terms; typed unknown is limited to that card, not global absence or proprietary licensing. Literal primary text checked; source-scoped negative claims are based on the retained document, not worldwide release evidence.",
+        "evidenceDigest": "f421a3d868f800c0246db147f8a09722acec50f92e55481315d36a369c59a70e"
+      }
+    ],
+    "originalCellsDigest": "c1305f419aa531ad2a426228f49762e3e3bf0581e2b1c67a7231e67ef4cd552e",
+    "planReview": {
+      "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+      "rationale": "Every part of the actual corrected row is required. No prior P1 part or evidence item removed. Source identity and literal byte offsets are verified; implementation authority does not certify source meaning or independent acceptance.",
+      "planDigest": "a6d4581701665337b1a9eff1e088306e7ca891da810f36386b662dc655f2fa02"
+    }
+  },
+  {
+    "id": "act-final-paper-28-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 28,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "identity",
+        "text": "Exact paper title and 87-name byline; year 2026 established by April 16, 2026 official announcement linking this exact PDF, not an invented printed PDF date.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      },
+      {
+        "id": "prediction-execution",
+        "text": "50-step prediction with five denoising steps; executes either 15 or 25, a discrete set not a continuous interval. The execution paragraph does not map those choices to robots.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      },
+      {
+        "id": "robot-rates",
+        "text": "UR5e 20 Hz; other tested robots 50 Hz. The numeric table reference is explicitly UR5e, not universal and not an execution-choice assignment.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      },
+      {
+        "id": "training-runtime",
+        "text": "Continuous runtime action expert and FAST supervision of backbone during training; distillation of RL-trained pi-star0.6 experience is consistent with evaluation without task-specific post-training.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      },
+      {
+        "id": "source-scoped-availability",
+        "text": "Inspected paper does not establish model-specific weight-release/licensing terms. Unknown is scoped to this paper; RL-specialist references are not a release statement for pi0.7.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "identity",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "π0.7: a Steerable Generalist Robotic Foundation\n                 Model with Emergent Capabilities\n                                                                                                    Physical Intelligence\n        Bo Ai, Ali Amin, Raichelle Aniceto, Ashwin Balakrishna, Greg Balke, Kevin Black, George Bokinsky, Shihao Cao, Thomas Charbonnier,\n    Vedant Choudhary, Foster Collins, Ken Conley, Grace Connors, James Darpinian, Karan Dhabalia, Maitrayee Dhaka, Jared DiCarlo, Danny Driess,\n    Michael Equi, Adnan Esmail, Yunhao Fang, Chelsea Finn, Catherine Glossop, Thomas Godden, Ivan Goryachev, Lachlan Groom, Haroun Habeeb,\n      Hunter Hancock, Karol Hausman, Gashon Hussein, Victor Hwang, Brian Ichter, Connor Jacobsen, Szymon Jakubczak, Rowan Jen, Tim Jones,\n    Gregg Kammerer, Ben Katz, Liyiming Ke, Mairbek Khadikov, Chandra Kuchi, Marinda Lamb, Devin LeBlanc, Brendon LeCount, Sergey Levine,\n     Xinyu Li, Adrian Li-Bell, Vladislav Lialin, Zhonglin Liang, Wallace Lim, Yao Lu, Enyu Luo, Vishnu Mano, Nandan Marwaha, Aikys Mongush,\n        Liam Murphy, Suraj Nair, Tyler Patterson, Karl Pertsch, Allen Z. Ren, Gavin Schelske, Charvi Sharma, Baifeng Shi, Lucy Xiaoyang Shi,\n         Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, Will Stoeckle, Jiaming Tang, Jimmy Tanner, Shalom Tekeste, Marcel Torne,\n       Kyle Vedder, Quan Vuong, Anna Walling, Haohuan Wang, Jason Wang, XuDong Wang, Chris Whalen, Samuel Whitmore, Blake Williams,\n                                  Charles Xu, Sukwon Yoo, Lili Yu, Wuming Zhang, Zhuoyang Zhang, Ury Zhilinsky\n                                                                                                    https://pi.website/pi07"
+      },
+      {
+        "partId": "identity",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/blog/pi07",
+        "supportingPassage": "Published\n\nApril 16, 2026\n\nEmail\n\nresearch@physicalintelligence.companyBo Ai, Ali Amin, Raichelle Aniceto, Ashwin Balakrishna, Greg Balke, Kevin Black, George Bokinsky, Shihao Cao, Thomas Charbonnier, Vedant Choudhary, Foster Collins, Ken Conley, Grace Connors, James Darpinian, Karan Dhabalia, Maitrayee Dhaka, Jared DiCarlo, Danny Driess, Michael Equi, Adnan Esmail, Yunhao Fang, Chelsea Finn, Catherine Glossop, Thomas Godden, Ivan Goryachev, Lachlan Groom, Haroun Habeeb, Hunter Hancock, Karol Hausman, Gashon Hussein, Victor Hwang, Brian Ichter, Connor Jacobsen, Szymon Jakubczak, Rowan Jen, Tim Jones, Gregg Kammerer, Ben Katz, Liyiming Ke, Mairbek Khadikov, Chandra Kuchi, Marinda Lamb, Devin LeBlanc, Brendon LeCount, Sergey Levine, Xinyu Li, Adrian Li-Bell, Vladislav Lialin, Zhonglin Liang, Wallace Lim, Yao Lu, Enyu Luo, Vishnu Mano, Nandan Marwaha, Aikys Mongush, Liam Murphy, Suraj Nair, Tyler Patterson, Karl Pertsch, Allen Z. Ren, Gavin Schelske, Charvi Sharma, Baifeng Shi, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, Will Stoeckle, Jiaming Tang, Jimmy Tanner, Shalom Tekeste, Marcel Torne, Kyle Vedder, Quan Vuong, Anna Walling, Haohuan Wang, Jason Wang, XuDong Wang, Chris Whalen, Samuel Whitmore, Blake Williams, Charles Xu, Sukwon Yoo, Lili Yu, Wuming Zhang, Zhuoyang Zhang, Ury Zhilinsky\n\nPaper\n\n[π0.7.pdf](https://www.pi.website/download/pi07.pdf)"
+      },
+      {
+        "partId": "prediction-execution",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "transformer that is trained to predict continuous actions using flow matching objective. We use adaptive RMSNorm to\ninject timestep information for flow matching. The number\nof action tokens processed by the action expert is fixed at 50,\nrepresenting an action chunk of 50 steps. The 50 tokens attend\nbidirectionally to each other and can also attend to the VLM\nbackbone activations.\n[Separate literal excerpt from the same retained source]\nFor all experiments we use 5 denoising steps to generate\nthe 50-step action chunks and execute Ĥ ∈ {15, 25} steps out\nof the chunk."
+      },
+      {
+        "partId": "robot-rates",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "All manipulators use parallel-jaw grippers. The UR5e robots\nrun at 20 Hz, while all other robots run at 50 Hz. Each robot\nhas a front-facing camera as well as wrist camera on each\narm, and the mobile robots also have a rear-facing camera.\nThe action output of the π0.7 model is applied on each robot\nusing a simple PD controller. For commanding end-effector\nmovement, we apply numerical inverse kinematics to convert\ntarget end-effector poses into target joint positions."
+      },
+      {
+        "partId": "training-runtime",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "transformer that is trained to predict continuous actions using flow matching objective. We use adaptive RMSNorm to\ninject timestep information for flow matching. The number\nof action tokens processed by the action expert is fixed at 50,\nrepresenting an action chunk of 50 steps. The 50 tokens attend\nbidirectionally to each other and can also attend to the VLM\nbackbone activations.\n[Separate literal excerpt from the same retained source]\nTo learn effective\nrepresentations, our model also uses the knowledge insulation\n(KI) training recipe [103]: the VLM backbone is supervised\nwith FAST tokens [104], and while the action expert attends\nto all of the activations in the VLM backbone, gradients from\nthe action expert do not flow into the VLM backbone, such\nthat the VLM is trained via the comparatively stable discrete\ncross-entropy loss.\n[Separate literal excerpt from the same retained source]\nIn a significant departure from classic VLA training\npipelines, we make heavy use of suboptimal robot data in\ntraining. This includes both lower quality demonstrations\n(failure episodes or success episodes with a substantial amount\nof mistakes) and data collected by prior versions of our\nmodels during model evaluation experiments1 . For example,\n∗\nwe use data collected by the π0.6\nmodel during RL training as\nadditional examples, effectively allowing π0.7 to distill their\nbehavior. Incorporating the episode metadata into the context\nallows our model to effectively use all of this evaluation data\nand, as we will see in Sec. IX-A, enables it to attain similar\nperformance as models that are specialized for high performance on individual tasks with RL. This corresponds to a kind\nof “distillation” process, where the generalist π0.7 model can\ninherit the capabilities of RL-trained specialists. Suboptimal\ndata also diversifies the possible states and scenarios in a given\ntask and leads to stronger robustness, enabling the model to\neven sometimes outperform RL-trained or generally, singletask post-trained policies, in highly dexterous tasks.\n\n[Separate literal excerpt from the same retained source]\nAt runtime, we configure π0.7 to run with different forms\nof context depending on the desired behavior without any\ntask-specific post-training."
+      },
+      {
+        "partId": "source-scoped-availability",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "π0.7: a Steerable Generalist Robotic Foundation\n                 Model with Emergent Capabilities\n                                                                                                    Physical Intelligence\n        Bo Ai, Ali Amin, Raichelle Aniceto, Ashwin Balakrishna, Greg Balke, Kevin Black, George Bokinsky, Shihao Cao, Thomas Charbonnier,\n    Vedant Choudhary, Foster Collins, Ken Conley, Grace Connors, James Darpinian, Karan Dhabalia, Maitrayee Dhaka, Jared DiCarlo, Danny Driess,\n    Michael Equi, Adnan Esmail, Yunhao Fang, Chelsea Finn, Catherine Glossop, Thomas Godden, Ivan Goryachev, Lachlan Groom, Haroun Habeeb,\n      Hunter Hancock, Karol Hausman, Gashon Hussein, Victor Hwang, Brian Ichter, Connor Jacobsen, Szymon Jakubczak, Rowan Jen, Tim Jones,\n    Gregg Kammerer, Ben Katz, Liyiming Ke, Mairbek Khadikov, Chandra Kuchi, Marinda Lamb, Devin LeBlanc, Brendon LeCount, Sergey Levine,\n     Xinyu Li, Adrian Li-Bell, Vladislav Lialin, Zhonglin Liang, Wallace Lim, Yao Lu, Enyu Luo, Vishnu Mano, Nandan Marwaha, Aikys Mongush,\n        Liam Murphy, Suraj Nair, Tyler Patterson, Karl Pertsch, Allen Z. Ren, Gavin Schelske, Charvi Sharma, Baifeng Shi, Lucy Xiaoyang Shi,\n         Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, Will Stoeckle, Jiaming Tang, Jimmy Tanner, Shalom Tekeste, Marcel Torne,\n       Kyle Vedder, Quan Vuong, Anna Walling, Haohuan Wang, Jason Wang, XuDong Wang, Chris Whalen, Samuel Whitmore, Blake Williams,\n                                  Charles Xu, Sukwon Yoo, Lili Yu, Wuming Zhang, Zhuoyang Zhang, Ury Zhilinsky\n                                                                                                    https://pi.website/pi07\n[Separate literal excerpt from the same retained source]\nIn a significant departure from classic VLA training\npipelines, we make heavy use of suboptimal robot data in\ntraining. This includes both lower quality demonstrations\n(failure episodes or success episodes with a substantial amount\nof mistakes) and data collected by prior versions of our\nmodels during model evaluation experiments1 . For example,\n∗\nwe use data collected by the π0.6\nmodel during RL training as\nadditional examples, effectively allowing π0.7 to distill their\nbehavior. Incorporating the episode metadata into the context\nallows our model to effectively use all of this evaluation data\nand, as we will see in Sec. IX-A, enables it to attain similar\nperformance as models that are specialized for high performance on individual tasks with RL. This corresponds to a kind\nof “distillation” process, where the generalist π0.7 model can\ninherit the capabilities of RL-trained specialists. Suboptimal\ndata also diversifies the possible states and scenarios in a given\ntask and leads to stronger robustness, enabling the model to\neven sometimes outperform RL-trained or generally, singletask post-trained policies, in highly dexterous tasks.\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "identity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+        "rationale": "Exact paper title and 87-name byline; year 2026 established by April 16, 2026 official announcement linking this exact PDF, not an invented printed PDF date. Literal primary text checked; source-scoped negative claims are based on the retained document, not worldwide release evidence.",
+        "evidenceDigest": "2dd9d9263b151d746c22dbc138c1ed61ac6d4c2f201c8c86a5b1a9fa412dd40f"
+      },
+      {
+        "partId": "prediction-execution",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+        "rationale": "50-step prediction with five denoising steps; executes either 15 or 25, a discrete set not a continuous interval. The execution paragraph does not map those choices to robots. Literal primary text checked; source-scoped negative claims are based on the retained document, not worldwide release evidence.",
+        "evidenceDigest": "b167ed77d0faa08f6d1641730bdf7ae4ef2625034c31d6f0ada12a71ddb409bb"
+      },
+      {
+        "partId": "robot-rates",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+        "rationale": "UR5e 20 Hz; other tested robots 50 Hz. The numeric table reference is explicitly UR5e, not universal and not an execution-choice assignment. Literal primary text checked; source-scoped negative claims are based on the retained document, not worldwide release evidence.",
+        "evidenceDigest": "efd7e83e8874a03c9ff3fabf8a1c8607e042e0e1df603a8f13739755c9733c5b"
+      },
+      {
+        "partId": "training-runtime",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+        "rationale": "Continuous runtime action expert and FAST supervision of backbone during training; distillation of RL-trained pi-star0.6 experience is consistent with evaluation without task-specific post-training. Literal primary text checked; source-scoped negative claims are based on the retained document, not worldwide release evidence.",
+        "evidenceDigest": "c6b83af2760e3df80135a9dd55efbfe3d235062bdd19eb7ef0472ca36195f0b7"
+      },
+      {
+        "partId": "source-scoped-availability",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+        "rationale": "Inspected paper does not establish model-specific weight-release/licensing terms. Unknown is scoped to this paper; RL-specialist references are not a release statement for pi0.7. Literal primary text checked; source-scoped negative claims are based on the retained document, not worldwide release evidence.",
+        "evidenceDigest": "067418a752077253b31dde109587b44f0708505d6db8345748f0130a6696bb13"
+      }
+    ],
+    "originalCellsDigest": "71976f4313111d7a18efd5df16499b2fcbca8809876d0a190bb44db4127ec0ea",
+    "planReview": {
+      "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+      "rationale": "Every part of the actual corrected row is required. No prior P1 part or evidence item removed. Source identity and literal byte offsets are verified; implementation authority does not certify source meaning or independent acceptance.",
+      "planDigest": "8c53bb4aa1ed5b13484bc1ec09ce5d253acb48511a782744b2ca85b9c621df74"
+    }
+  },
+  {
     "id": "action-chunking-frontmatter-p1",
     "ledgerPath": "audit/manipulation.md",
     "articleSlug": "action-chunking",
     "rowOrdinal": 32,
-    "originalCellsDigest": "49c70db41e43b959460408f6183976dd0582b34e695511935eb0045f55a56834",
+    "originalCellsDigest": "bf7f6384e8c92bec86a3765d6a2442a93ae2286a826460409e3db8998ba1fde6",
     "kind": "frontmatter-p1",
     "parts": [
       {
@@ -1819,12 +2043,26 @@
         "requiredCitationIds": [
           "helix-02-2026"
         ]
+      },
+      {
+        "id": "pi06-model-card-2025",
+        "text": "Exact registered title, full author array and year: {\"id\":\"pi06-model-card-2025\",\"title\":\"π0.6 Model Card\",\"authors\":[\"Physical Intelligence\"],\"year\":2025,\"url\":\"https://website.pi-asset.com/pi06star/PI06_model_card.pdf\",\"type\":\"docs\"}. Dated model card at unversioned official URL; no explicit numbered revision observed. This is the base π0.6 card, not the π*0.6 report or its 55-author blog.",
+        "requiredCitationIds": [
+          "pi06-model-card-2025"
+        ]
+      },
+      {
+        "id": "pi07-2026",
+        "text": "Exact registered title, full author array and year: {\"id\":\"pi07-2026\",\"title\":\"π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities\",\"authors\":[\"Bo Ai\",\"Ali Amin\",\"Raichelle Aniceto\",\"Ashwin Balakrishna\",\"Greg Balke\",\"Kevin Black\",\"George Bokinsky\",\"Shihao Cao\",\"Thomas Charbonnier\",\"Vedant Choudhary\",\"Foster Collins\",\"Ken Conley\",\"Grace Connors\",\"James Darpinian\",\"Karan Dhabalia\",\"Maitrayee Dhaka\",\"Jared DiCarlo\",\"Danny Driess\",\"Michael Equi\",\"Adnan Esmail\",\"Yunhao Fang\",\"Chelsea Finn\",\"Catherine Glossop\",\"Thomas Godden\",\"Ivan Goryachev\",\"Lachlan Groom\",\"Haroun Habeeb\",\"Hunter Hancock\",\"Karol Hausman\",\"Gashon Hussein\",\"Victor Hwang\",\"Brian Ichter\",\"Connor Jacobsen\",\"Szymon Jakubczak\",\"Rowan Jen\",\"Tim Jones\",\"Gregg Kammerer\",\"Ben Katz\",\"Liyiming Ke\",\"Mairbek Khadikov\",\"Chandra Kuchi\",\"Marinda Lamb\",\"Devin LeBlanc\",\"Brendon LeCount\",\"Sergey Levine\",\"Xinyu Li\",\"Adrian Li-Bell\",\"Vladislav Lialin\",\"Zhonglin Liang\",\"Wallace Lim\",\"Yao Lu\",\"Enyu Luo\",\"Vishnu Mano\",\"Nandan Marwaha\",\"Aikys Mongush\",\"Liam Murphy\",\"Suraj Nair\",\"Tyler Patterson\",\"Karl Pertsch\",\"Allen Z. Ren\",\"Gavin Schelske\",\"Charvi Sharma\",\"Baifeng Shi\",\"Lucy Xiaoyang Shi\",\"Laura Smith\",\"Jost Tobias Springenberg\",\"Kyle Stachowicz\",\"Will Stoeckle\",\"Jiaming Tang\",\"Jimmy Tanner\",\"Shalom Tekeste\",\"Marcel Torne\",\"Kyle Vedder\",\"Quan Vuong\",\"Anna Walling\",\"Haohuan Wang\",\"Jason Wang\",\"XuDong Wang\",\"Chris Whalen\",\"Samuel Whitmore\",\"Blake Williams\",\"Charles Xu\",\"Sukwon Yoo\",\"Lili Yu\",\"Wuming Zhang\",\"Zhuoyang Zhang\",\"Ury Zhilinsky\"],\"year\":2026,\"url\":\"https://www.pi.website/download/pi07.pdf\",\"type\":\"docs\"}. Unversioned official PDF URL; no numbered paper revision established; binary SHA-256 pins the observed edition. Do not invent v1, arXiv id, or venue.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
       }
     ],
     "planReview": {
-      "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
-      "rationale": "Whole current claim requires every listed part. Prior nine-source P1 preserved; exact full metadata for each new source checked against retained original text. Authority permits correction, not human source certification.",
-      "planDigest": "5a2baa2ed192c72f5ae8a48ec151be761e9389f2d36fb3217ea000fb9daa4426"
+      "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+      "rationale": "Every part of the actual corrected row is required. No prior P1 part or evidence item removed. Source identity and literal byte offsets are verified; implementation authority does not certify source meaning or independent acceptance.",
+      "planDigest": "542b237d59f73ac9debefe4a2eef23e1c124f7a2cdd3a1f3af903884ebec80b5"
     },
     "evidence": [
       {
@@ -1940,6 +2178,24 @@
         "citationId": "helix-02-2026",
         "sourceUrl": "https://www.figure.ai/news/helix-02",
         "supportingPassage": "# Introducing Helix 02: Full-Body Autonomy\n[Separate literal excerpt from the same retained response]\nJanuary 27, 2026"
+      },
+      {
+        "partId": "pi06-model-card-2025",
+        "citationId": "pi06-model-card-2025",
+        "sourceUrl": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
+        "supportingPassage": "π0.6 Model Card\n                                       Physical Intelligence\n\n                                        November 17, 2025\n[Separate literal excerpt from the same retained source]\nWe introduce π0.6 , our newest vision-language-action (VLA) model that builds on top of π0.5 [2]\nand achieves stronger performance across tasks. π0.6 preserves the hierarchical design of π0.5 , pro-\nviding high-level subtask prediction and low-level action generation. It incorporates a few changes\ninvolving the pre-trained VLM backbone and prompt design (Section 2), as well as the training\ndatasets (Section 3). Section 4 analyzes the improvement in performance of π0.6 compared to π0.5\non a range of tasks that require dexterity and generalization. These experiments evaluate each\nmodel out of the box, without finetuning. This model has also been adopted as the base model for\n  ∗ [7] where it is further improved through real-world reinforcement learning.\nπ0.6\n\n"
+      },
+      {
+        "partId": "pi07-2026",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "π0.7: a Steerable Generalist Robotic Foundation\n                 Model with Emergent Capabilities\n                                                                                                    Physical Intelligence\n        Bo Ai, Ali Amin, Raichelle Aniceto, Ashwin Balakrishna, Greg Balke, Kevin Black, George Bokinsky, Shihao Cao, Thomas Charbonnier,\n    Vedant Choudhary, Foster Collins, Ken Conley, Grace Connors, James Darpinian, Karan Dhabalia, Maitrayee Dhaka, Jared DiCarlo, Danny Driess,\n    Michael Equi, Adnan Esmail, Yunhao Fang, Chelsea Finn, Catherine Glossop, Thomas Godden, Ivan Goryachev, Lachlan Groom, Haroun Habeeb,\n      Hunter Hancock, Karol Hausman, Gashon Hussein, Victor Hwang, Brian Ichter, Connor Jacobsen, Szymon Jakubczak, Rowan Jen, Tim Jones,\n    Gregg Kammerer, Ben Katz, Liyiming Ke, Mairbek Khadikov, Chandra Kuchi, Marinda Lamb, Devin LeBlanc, Brendon LeCount, Sergey Levine,\n     Xinyu Li, Adrian Li-Bell, Vladislav Lialin, Zhonglin Liang, Wallace Lim, Yao Lu, Enyu Luo, Vishnu Mano, Nandan Marwaha, Aikys Mongush,\n        Liam Murphy, Suraj Nair, Tyler Patterson, Karl Pertsch, Allen Z. Ren, Gavin Schelske, Charvi Sharma, Baifeng Shi, Lucy Xiaoyang Shi,\n         Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, Will Stoeckle, Jiaming Tang, Jimmy Tanner, Shalom Tekeste, Marcel Torne,\n       Kyle Vedder, Quan Vuong, Anna Walling, Haohuan Wang, Jason Wang, XuDong Wang, Chris Whalen, Samuel Whitmore, Blake Williams,\n                                  Charles Xu, Sukwon Yoo, Lili Yu, Wuming Zhang, Zhuoyang Zhang, Ury Zhilinsky\n                                                                                                    https://pi.website/pi07"
+      },
+      {
+        "partId": "pi07-2026",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/blog/pi07",
+        "supportingPassage": "Published\n\nApril 16, 2026\n\nEmail\n\nresearch@physicalintelligence.companyBo Ai, Ali Amin, Raichelle Aniceto, Ashwin Balakrishna, Greg Balke, Kevin Black, George Bokinsky, Shihao Cao, Thomas Charbonnier, Vedant Choudhary, Foster Collins, Ken Conley, Grace Connors, James Darpinian, Karan Dhabalia, Maitrayee Dhaka, Jared DiCarlo, Danny Driess, Michael Equi, Adnan Esmail, Yunhao Fang, Chelsea Finn, Catherine Glossop, Thomas Godden, Ivan Goryachev, Lachlan Groom, Haroun Habeeb, Hunter Hancock, Karol Hausman, Gashon Hussein, Victor Hwang, Brian Ichter, Connor Jacobsen, Szymon Jakubczak, Rowan Jen, Tim Jones, Gregg Kammerer, Ben Katz, Liyiming Ke, Mairbek Khadikov, Chandra Kuchi, Marinda Lamb, Devin LeBlanc, Brendon LeCount, Sergey Levine, Xinyu Li, Adrian Li-Bell, Vladislav Lialin, Zhonglin Liang, Wallace Lim, Yao Lu, Enyu Luo, Vishnu Mano, Nandan Marwaha, Aikys Mongush, Liam Murphy, Suraj Nair, Tyler Patterson, Karl Pertsch, Allen Z. Ren, Gavin Schelske, Charvi Sharma, Baifeng Shi, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, Will Stoeckle, Jiaming Tang, Jimmy Tanner, Shalom Tekeste, Marcel Torne, Kyle Vedder, Quan Vuong, Anna Walling, Haohuan Wang, Jason Wang, XuDong Wang, Chris Whalen, Samuel Whitmore, Blake Williams, Charles Xu, Sukwon Yoo, Lili Yu, Wuming Zhang, Zhuoyang Zhang, Ury Zhilinsky\n\nPaper\n\n[π0.7.pdf](https://www.pi.website/download/pi07.pdf)"
       }
     ],
     "adjudications": [
@@ -1948,98 +2204,112 @@
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "DAgger title, accented byline, AISTATS 2011; 2010 submission distinct. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
-        "evidenceDigest": "da105e1c9c170f191c6423e383cb9f802f59f9ccf3e78e328e5a90d74a9dee25"
+        "evidenceDigest": "7d00626308f74f4c76b7f6dc8b628539fdf24971d4e89764041c2d84c8427800"
       },
       {
         "partId": "act-aloha-2023",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "ACT four-author title and RSS 2023 publication. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
-        "evidenceDigest": "b8f78d63c80bcd2e70d582d6a5008f4d44dda72a8e261134303b3a6cef445bf1"
+        "evidenceDigest": "e861c23e092b1374af07bf7d7c71590745d4fa7f0324ca577142d950c0765459"
       },
       {
         "partId": "act-reference-2023",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "Pinned imitate_episodes.py file, repository handle and displayed commit date. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
-        "evidenceDigest": "ddf38ea2e90157bdc5a0766d1ebe4e8b619d4cd134c14088c1dab8776c8b9529"
+        "evidenceDigest": "124977833cdbf7ce948d5e8f8d96f0db23ef6bb19542515c67058057571d8794"
       },
       {
         "partId": "mobile-aloha-2024",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "Mobile ALOHA title, three named authors, 2024 submission; no invented venue. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
-        "evidenceDigest": "8eb1490f333dd8bd57e105307f74d09ba09b06cdd383b0c0ddfd9362a78a7df4"
+        "evidenceDigest": "423f5a08a4d8baf302f937694cfc2e0fd5db9c7af795f06929a5bf48b2885a1a"
       },
       {
         "partId": "diffusion-policy-2023",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "Extended eight-author DP identity, 2023 introduction and 2024 v5 revision; not original seven-author RSS edition. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
-        "evidenceDigest": "22a4fa45a1fc68ee8d235ac3f8168a134f5c77e248e7205d26f9c9bbba7f027b"
+        "evidenceDigest": "23382081ca77b9e9b935faa9391a161e3c1842882425e48cb124d04378738636"
       },
       {
         "partId": "real-time-chunking-2025",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "RTC paper title, all three authors, 2025 submission; unversioned body not silently labelled v2. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
-        "evidenceDigest": "ac88c2087f449ef11bf4b371a6a64bcae17f6ff189b8c6ec214e303940fbfa65"
+        "evidenceDigest": "6cb80258dcdfd774a3aceac838af80f1f6193d8e9e3eb8c59210003a059f07a1"
       },
       {
         "partId": "pi-real-time-chunking-blog-2025",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
         "rationale": "Actual blog title, named three-author byline, June 9 2025. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
-        "evidenceDigest": "551889bf22b7a69c33b96cadd0a82e65def50a60eaabcaa9e4a5bad42949f8a6"
+        "evidenceDigest": "d2626ca8d6f2bd2a3e6ffe0ce7b97a3990e883355d037d063aea7eaa8caae04f"
       },
       {
         "partId": "octo-2024",
         "outcome": "supported",
         "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
         "rationale": "octo 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for octo-2024. Actual retained passages verified; named setup and source edition preserved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
-        "evidenceDigest": "153e8966c11eaf131be1621bb8fada6ebc6e38e64f3c62da80ee2d4627e89728"
+        "evidenceDigest": "f47d8f4b6fa485ef3a6e77d8781b3c355418e121b4aab9c21a2ca6de27ed30d7"
       },
       {
         "partId": "pi0-2024",
         "outcome": "supported",
         "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
         "rationale": "pi0 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for pi0-2024. Actual retained passages verified; named setup and source edition preserved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
-        "evidenceDigest": "3a1e00a7c91a4654558a97d790fb3393548482e935e4cbc2793e0c6dc9fd80bc"
+        "evidenceDigest": "c495f0b075fcf41348bdaa754b1333cf1189928a101ab9e6a1be8d45662838e5"
       },
       {
         "partId": "openpi-repo-2024",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
         "rationale": "Exact current registry metadata: {\"id\":\"openpi-repo-2024\",\"title\":\"openpi\",\"authors\":[\"Physical Intelligence\"],\"year\":2026,\"url\":\"https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md\",\"type\":\"docs\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
-        "evidenceDigest": "3a3545ffa8466c1972358185efee1c5e48c8e820440a2dfc215ea0f80d73165e"
+        "evidenceDigest": "e206d93bf1870c50034093c2200dc17a870aa95aefc4012be16f4c60b80c69f7"
       },
       {
         "partId": "rt1-2022",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
         "rationale": "Exact current registry metadata: {\"id\":\"rt1-2022\",\"title\":\"RT-1: Robotics Transformer for Real-World Control at Scale\",\"authors\":[\"Anthony Brohan\",\"Noah Brown\",\"Justice Carbajal\",\"Yevgen Chebotar\",\"Joseph Dabis\",\"Chelsea Finn\",\"Keerthana Gopalakrishnan\",\"Karol Hausman\",\"Alex Herzog\",\"Jasmine Hsu\",\"Julian Ibarz\",\"Brian Ichter\",\"Alex Irpan\",\"Tomas Jackson\",\"Sally Jesmonth\",\"Nikhil J Joshi\",\"Ryan Julian\",\"Dmitry Kalashnikov\",\"Yuheng Kuang\",\"Isabel Leal\",\"Kuang-Huei Lee\",\"Sergey Levine\",\"Yao Lu\",\"Utsav Malla\",\"Deeksha Manjunath\",\"Igor Mordatch\",\"Ofir Nachum\",\"Carolina Parada\",\"Jodilyn Peralta\",\"Emily Perez\",\"Karl Pertsch\",\"Jornell Quiambao\",\"Kanishka Rao\",\"Michael Ryoo\",\"Grecia Salazar\",\"Pannag Sanketi\",\"Kevin Sayed\",\"Jaspiar Singh\",\"Sumedh Sontakke\",\"Austin Stone\",\"Clayton Tan\",\"Huong Tran\",\"Vincent Vanhoucke\",\"Steve Vega\",\"Quan Vuong\",\"Fei Xia\",\"Ted Xiao\",\"Peng Xu\",\"Sichun Xu\",\"Tianhe Yu\",\"Brianna Zitkovich\"],\"year\":2022,\"arxiv\":\"2212.06817\",\"url\":\"https://arxiv.org/html/2212.06817v2\",\"type\":\"paper\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
-        "evidenceDigest": "0897ce5f67b83b958197fca2e9917e8b9aeb0a0945f5eeec0a29aac4e8b7c921"
+        "evidenceDigest": "308af0c78f448de2c15a67fca01bb709a13e1c29cd15c0b3360a778f624a437f"
       },
       {
         "partId": "pi05-2025",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
         "rationale": "Exact current registry metadata: {\"id\":\"pi05-2025\",\"title\":\"π0.5: a Vision-Language-Action Model with Open-World Generalization\",\"authors\":[\"Physical Intelligence\",\"Kevin Black\",\"Noah Brown\",\"James Darpinian\",\"Karan Dhabalia\",\"Danny Driess\",\"Adnan Esmail\",\"Michael Equi\",\"Chelsea Finn\",\"Niccolo Fusai\",\"Manuel Y. Galliker\",\"Dibya Ghosh\",\"Lachy Groom\",\"Karol Hausman\",\"Brian Ichter\",\"Szymon Jakubczak\",\"Tim Jones\",\"Liyiming Ke\",\"Devin LeBlanc\",\"Sergey Levine\",\"Adrian Li-Bell\",\"Mohith Mothukuri\",\"Suraj Nair\",\"Karl Pertsch\",\"Allen Z. Ren\",\"Lucy Xiaoyang Shi\",\"Laura Smith\",\"Jost Tobias Springenberg\",\"Kyle Stachowicz\",\"James Tanner\",\"Quan Vuong\",\"Homer Walke\",\"Anna Walling\",\"Haohuan Wang\",\"Lili Yu\",\"Ury Zhilinsky\"],\"year\":2025,\"arxiv\":\"2504.16054\",\"url\":\"https://arxiv.org/html/2504.16054v1\",\"type\":\"paper\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
-        "evidenceDigest": "44c56d0c85bcf22877428124689b7c7855bb8638d559c5a66ce3f8bfd33da407"
+        "evidenceDigest": "f17c0719e358ef57bf3750c2d760fddab40ab18897206c55712573061bb4a704"
       },
       {
         "partId": "isaac-gr00t-repo-2026",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
         "rationale": "Exact current registry metadata: {\"id\":\"isaac-gr00t-repo-2026\",\"title\":\"NVIDIA Isaac GR00T\",\"authors\":[\"NVIDIA\"],\"year\":2026,\"url\":\"https://github.com/NVIDIA/Isaac-GR00T\",\"type\":\"docs\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
-        "evidenceDigest": "3d58829ef646d0342c434a2b8677dc4e64d3987b2eade2aed26515a4852d9bf8"
+        "evidenceDigest": "127a70a9db2cfdd3038a51463f602cc44c2438ba6e07822b9061f32a0412607b"
       },
       {
         "partId": "helix-02-2026",
         "outcome": "supported",
         "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
         "rationale": "Exact current registry metadata: {\"id\":\"helix-02-2026\",\"title\":\"Introducing Helix 02: Full-Body Autonomy\",\"authors\":[\"Figure AI\"],\"year\":2026,\"url\":\"https://www.figure.ai/news/helix-02\",\"type\":\"blog\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
-        "evidenceDigest": "a4dc149456f2e216c05054bf8b8f5eb466423526f066096638d6340b947f1d6d"
+        "evidenceDigest": "52036fae34b7d5bde2ce3549ef45db4f7e6b1144fd98f75317645f1d76554c2e"
+      },
+      {
+        "partId": "pi06-model-card-2025",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+        "rationale": "Exact registered title, full author array and year: {\"id\":\"pi06-model-card-2025\",\"title\":\"π0.6 Model Card\",\"authors\":[\"Physical Intelligence\"],\"year\":2025,\"url\":\"https://website.pi-asset.com/pi06star/PI06_model_card.pdf\",\"type\":\"docs\"}. Dated model card at unversioned official URL; no explicit numbered revision observed. This is the base π0.6 card, not the π*0.6 report or its 55-author blog. Literal primary text checked; source-scoped negative claims are based on the retained document, not worldwide release evidence.",
+        "evidenceDigest": "2a1b877154d4b0c0626aec48fb9112260c9ab071e10be48847dc5de003c420d1"
+      },
+      {
+        "partId": "pi07-2026",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation/source-auditor session 3648fe16-bc8c-4d64-8578-42a44c682841; not human or independent acceptance",
+        "rationale": "Exact registered title, full author array and year: {\"id\":\"pi07-2026\",\"title\":\"π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities\",\"authors\":[\"Bo Ai\",\"Ali Amin\",\"Raichelle Aniceto\",\"Ashwin Balakrishna\",\"Greg Balke\",\"Kevin Black\",\"George Bokinsky\",\"Shihao Cao\",\"Thomas Charbonnier\",\"Vedant Choudhary\",\"Foster Collins\",\"Ken Conley\",\"Grace Connors\",\"James Darpinian\",\"Karan Dhabalia\",\"Maitrayee Dhaka\",\"Jared DiCarlo\",\"Danny Driess\",\"Michael Equi\",\"Adnan Esmail\",\"Yunhao Fang\",\"Chelsea Finn\",\"Catherine Glossop\",\"Thomas Godden\",\"Ivan Goryachev\",\"Lachlan Groom\",\"Haroun Habeeb\",\"Hunter Hancock\",\"Karol Hausman\",\"Gashon Hussein\",\"Victor Hwang\",\"Brian Ichter\",\"Connor Jacobsen\",\"Szymon Jakubczak\",\"Rowan Jen\",\"Tim Jones\",\"Gregg Kammerer\",\"Ben Katz\",\"Liyiming Ke\",\"Mairbek Khadikov\",\"Chandra Kuchi\",\"Marinda Lamb\",\"Devin LeBlanc\",\"Brendon LeCount\",\"Sergey Levine\",\"Xinyu Li\",\"Adrian Li-Bell\",\"Vladislav Lialin\",\"Zhonglin Liang\",\"Wallace Lim\",\"Yao Lu\",\"Enyu Luo\",\"Vishnu Mano\",\"Nandan Marwaha\",\"Aikys Mongush\",\"Liam Murphy\",\"Suraj Nair\",\"Tyler Patterson\",\"Karl Pertsch\",\"Allen Z. Ren\",\"Gavin Schelske\",\"Charvi Sharma\",\"Baifeng Shi\",\"Lucy Xiaoyang Shi\",\"Laura Smith\",\"Jost Tobias Springenberg\",\"Kyle Stachowicz\",\"Will Stoeckle\",\"Jiaming Tang\",\"Jimmy Tanner\",\"Shalom Tekeste\",\"Marcel Torne\",\"Kyle Vedder\",\"Quan Vuong\",\"Anna Walling\",\"Haohuan Wang\",\"Jason Wang\",\"XuDong Wang\",\"Chris Whalen\",\"Samuel Whitmore\",\"Blake Williams\",\"Charles Xu\",\"Sukwon Yoo\",\"Lili Yu\",\"Wuming Zhang\",\"Zhuoyang Zhang\",\"Ury Zhilinsky\"],\"year\":2026,\"url\":\"https://www.pi.website/download/pi07.pdf\",\"type\":\"docs\"}. Unversioned official PDF URL; no numbered paper revision established; binary SHA-256 pins the observed edition. Do not invent v1, arXiv id, or venue. Literal primary text checked; source-scoped negative claims are based on the retained document, not worldwide release evidence.",
+        "evidenceDigest": "3d38efe012cb6e851f72dd0593cadd004d0305a31205eca1ca2d544d3610f090"
       }
     ]
   }

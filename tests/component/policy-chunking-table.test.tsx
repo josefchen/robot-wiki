@@ -35,7 +35,8 @@ describe('PolicyChunkingTable', () => {
   it('renders download availability separately from licensing', () => {
     render(<PolicyChunkingTable />);
     expect(screen.getAllByText('downloadable').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('not released').length).toBeGreaterThan(0);
+    expect(screen.queryByText('not released')).toBeNull();
+    expect(screen.getAllByText('not disclosed').length).toBeGreaterThan(0);
   });
 
   it('sorts by year in both directions with aria-sort', async () => {

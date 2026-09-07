@@ -789,7 +789,7 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Closed model; the dated model-card PDF is the primary source (no arXiv).
+    // Dated official model card; it does not establish model-specific licensing.
     id: 'pi06-model-card-2025',
     title: 'π0.6 Model Card',
     authors: ['Physical Intelligence'],

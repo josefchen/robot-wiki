@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 12
 - Claim rows: 225
-- Recorded verified: 184
-- Recorded corrected: 37
+- Recorded verified: 182
+- Recorded corrected: 39
 - Recorded cut: 2
 - Recorded source inconsistencies: 2
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 69
-- Incomplete evidence records: 156
+- Complete evidence records: 71
+- Incomplete evidence records: 154
 
 <!-- audit-summary:end -->
 
@@ -165,12 +165,12 @@ paragraph said all three were in `action-chunking.mdx` and that
 | Octo v2's ALOHA finetuning example predicts 64 actions and executes 12 before replanning. Its other reported setups include Franka action prediction at 15 Hz, a coffee-task controller at 10 Hz, and ViperX end-effector control at 5 Hz. These are separate examples, not one universal Octo control rate or horizon. The action head uses diffusion <Cite id="octo-2024" />. | Octo explicit arXiv v2 / pi0 explicit v4 PDF-derived retained text | corrected | ACT-SETTINGS-24-20260907. Exact prior/current tuple and prior P1 archived below. Retained primary proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-octo-pi0-settings-corrections/source-proof.json; zero new fetches. Prediction and execution horizons remain distinct; rates travel with named setups. P4: applicable unknown universal values are not disclosed, never n/a. Other lineage/weights claims are not certified. |  |  |  | act-settings-24-20260907 |
 | π0 v4 predicts 50 actions. In its reported execution setup, UR5e and Franka run at 20 Hz and execute 16 actions before replanning; the other evaluated robots run at 50 Hz and execute 25. The table's 20 Hz entry names the UR5e/Franka reference, while the paper describes operation at up to 50 Hz. Its continuous action outputs are trained with conditional flow matching <Cite id="pi0-2024" />. | Octo explicit arXiv v2 / pi0 explicit v4 PDF-derived retained text | corrected | ACT-SETTINGS-25-20260907. Exact prior/current tuple and prior P1 archived below. Retained primary proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-octo-pi0-settings-corrections/source-proof.json; zero new fetches. Prediction and execution horizons remain distinct; rates travel with named setups. P4: applicable unknown universal values are not disclosed, never n/a. Other lineage/weights claims are not certified. |  |  |  | act-settings-25-20260907 |
 | <Cite id="pi05-2025" /> The π0.5 v1 paper predicts 50 action entries (inclusive indexing, H=49) and sends targets at 50 Hz in its two-mobile-platform setup. That does not establish how many actions execute before replanning. The paper combines FAST-token prediction with flow matching; the cited openpi README supports only the flow-matching head for π0.5 training and inference. | Retained primary source text; explicit paper editions / named repository and announcement snapshots | corrected | ACT-FIVE-SOURCE-26-20260907. Exact old/current tuple and prior P1 archived below. Zero new source requests; original FetchUrl response events on 7 September 2026 are retained in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json. Source-specific settings, editions and availability limitations travel with the current claim. No source-ready part is independent acceptance. |  |  |  | act-five-source-26-20260907 |
-| PolicyChunkingTable: pi0.6 2025, horizon 50, 50 Hz, "flow matching + FAST tokens", closed | π0.6 model card PDF (website.pi-asset.com/pi06star/PI06_model_card.pdf, Nov 17 2025) | verified | Card: flow matching + tokenized discrete outputs, knowledge insulation with FAST tokens, action expert ~860M on a Gemma3-4B backbone; no open release (openpi stops at π0.5). Horizon 50 inherits the π0.5 architecture it "builds on top of"; the card states the chunk-generation design is shared with π0/π0.5. | | | |
-| PolicyChunkingTable: pi0.7 2026, horizon 50, 50 Hz, "executes 15-25 of 50", closed | π0.7 paper PDF (pi.website/download/pi07.pdf) | verified | "we use 5 denoising steps to generate the 50-step action chunks and execute Ĥ ∈ {15, 25} steps out of the chunk"; "a maximum inference latency of 240ms on a 50Hz robot"; "all other robots run at 50 Hz". Not in openpi ⇒ closed. | | | |
+| <Cite id="pi06-model-card-2025" /> The November 17, 2025 π0.6 model card describes a continuous-action flow-matching expert; FAST tokens supervise the VLM backbone during training. The card does not specify predicted or executed chunk length, robot-control rate, or model-specific weight-release and licensing terms. Its 63 ms action-chunk latency uses five denoising steps and three camera inputs on one H100; this is inference latency, not a control frequency. The card’s openpi release statement concerns the π0.5 comparator, not π0.6. | Preserved official PDFs and exact-paper-linked dated announcement; retrieval provenance retained | corrected | ACT-FINAL-PAPER-27-20260907. Original/current tuple and prior P1 archived below. Zero new fetches. Reused original official PDF HTTP200/no-redirect retrievals begun 2026-09-07T16:28:10.810822Z (pi06) and 16:28:11.862371Z (pi07), with separate binary and derived-text hashes and conversion warnings. Literal byte-verified source text and provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/source-proof.json. Whole corrected claim is source-scoped; unknown availability is not closed licensing, inference latency is not control Hz, and discrete execution choices do not imply a robot assignment. |  |  |  | act-final-paper-27-20260907 |
+| <Cite id="pi07-2026" /> In the π0.7 paper’s experiments, the continuous-action flow-matching expert predicts 50-step chunks with five denoising steps and executes either 15 or 25 steps. UR5e robots run at 20 Hz; the other tested robots run at 50 Hz. The paper does not assign either execution choice to a particular robot. FAST tokens supervise the backbone during training, not the runtime action output. The model distills experience from RL-trained π*0.6; evaluation without task-specific post-training does not mean training without RL-derived data. Model-specific weight-release and licensing terms are not disclosed in this paper. | Preserved official PDFs and exact-paper-linked dated announcement; retrieval provenance retained | corrected | ACT-FINAL-PAPER-28-20260907. Original/current tuple and prior P1 archived below. Zero new fetches. Reused original official PDF HTTP200/no-redirect retrievals begun 2026-09-07T16:28:10.810822Z (pi06) and 16:28:11.862371Z (pi07), with separate binary and derived-text hashes and conversion warnings. Literal byte-verified source text and provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/source-proof.json. Whole corrected claim is source-scoped; unknown availability is not closed licensing, inference latency is not control Hz, and discrete execution choices do not imply a robot assignment. |  |  |  | act-final-paper-28-20260907 |
 | <Cite id="isaac-gr00t-repo-2026" /> The NVIDIA Isaac GR00T README describes the N1.7 GA release: a predicted horizon of 40, a flow-matching DiT head, relative-end-effector support, and downloadable weights. Relative EEF is not its only embodiment interface; it also describes SONIC latent-action output. No single robot-control frequency is disclosed there; inference throughput is a different quantity. Its overview says Apache 2.0, but its License section distinguishes Apache 2.0 code from weights under the NVIDIA Open Model License. Download availability does not resolve that licensing discrepancy. | Retained primary source text; explicit paper editions / named repository and announcement snapshots | corrected | ACT-FIVE-SOURCE-29-20260907. Exact old/current tuple and prior P1 archived below. Zero new source requests; original FetchUrl response events on 7 September 2026 are retained in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json. GA README and separately retained EA card are not silently combined. Inference-throughput Hz is not robot-control Hz; linked license contents are not independently interpreted. |  |  |  | act-five-source-29-20260907 |
 | <Cite id="helix-02-2026" /> Figure’s January 27, 2026 Helix 02 announcement reports S1 full-body joint targets at 200 Hz, tracked by S0 actuator commands at 1 kHz. These are separate layers, not interchangeable control rates. Chunk length and weight-release/licensing terms are not disclosed in this announcement; neither absence establishes inapplicability or closed licensing. | Retained primary source text; explicit paper editions / named repository and announcement snapshots | corrected | ACT-FIVE-SOURCE-30-20260907. Exact old/current tuple and prior P1 archived below. Zero new source requests; original FetchUrl response events on 7 September 2026 are retained in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json. Absence is scoped to the checked announcement, not the worldwide public record; no generic null-to-n/a or false-to-closed inference. |  |  |  | act-five-source-30-20260907 |
 | "Mobile ALOHA extends the same recipe to a wheeled whole-body platform and shows that co-training on static ALOHA data lifts mobile manipulation success substantially" | Mobile ALOHA paper, arXiv 2401.02117 HTML, abstract + Sec. 4 | verified | "It augments the ALOHA system with a mobile base" (wheeled base, backdriven by the operator); "co-training with existing static ALOHA datasets boosts performance on mobile manipulation tasks ... can increase success rates by up to 90%." | mobile-aloha-2024 | https://ar5iv.labs.arxiv.org/html/2401.02117 | We seek to tackle the challenges of applying imitation learning to bimanual mobile manipulation in this paper. On the hardware front, we present Mobile ALOHA, a low-cost and whole-body teleoperation system for collecting bimanual mobile manipulation data. Mobile ALOHA extends the capabilities of the original ALOHA , the low-cost and dexterous bimanual puppeteering setup \[ [104](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib104 "")\], by mounting it on a wheeled base. The user is then physically tethered to the system and backdrives the wheels to enable base movement. This allows for independent movement of the base while the user has both hands controlling ALOHA . We record the base velocity data and the arm puppeteering data at the same time, forming a whole-body teleoperation system. [Separate excerpt from the same retrieved document] ## 4 Co-training with Static ALOHA Data The typical approach for using imitation learning to solve real-world robotics tasks relies on using the datasets that are collected on a specific robot hardware platform for a targeted task. This straightforward approach, however, suffers from lengthy data collection processes where human operators collect demonstration data from scratch for every task on the a specific robot hardware platform. The policies trained on these specialized datasets are often not robust to the perceptual perturbations (e.g. distractors and lighting changes) due to the limited visual diversity in these datasets \[ [95](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib95 "")\]. Recently, co-training on diverse real-world datasets collected from different but similar types of robots have shown promising results on single-arm manipulation \[ [20](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib20 ""), [61](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib61 ""), [11](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib11 ""), [31](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib31 "")\], and on navigation \[ [79](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib79 "")\]. In this work, we use a co-training pipeline that leverages the existing static ALOHA datasets to improve the performance of imitation learning for mobile manipulation, specifically for the bimanual arm actions. The static ALOHA datasets \[ [104](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib104 ""), [81](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib81 "")\] have 825 demonstrations in total for tasks including Ziploc sealing, picking up a fork, candy wrapping, tearing a paper towel, opening a plastic portion cup with a lid, playing with a ping pong, tape dispensing, using a coffee machine, pencil hand-overs, fastening a velcro cable, slotting a battery, and handling over a screw driver. Notice that the static ALOHA data is all collected on a black table-top with the two arms fixed to face towards each other. This setup is different from Mobile ALOHA where the background changes with the moving base and the two arms are placed in parallel facing the front. We do not use any special data processing techniques on either the RGB observations or the bimanual actions of the static ALOHA data for our co-training. Denote the aggregated static ALOHA data as as DstaticD\_{\\text{static}}, and the Mobile ALOHA dataset for a task mm as DmobilemD\_{\\text{mobile}}^{m}. The bimanual actions are formulated as target joint positions aarms∈ℝ14a\_{\\text{arms}}\\in\\mathbb{R}^{14} which includes two continuous gripper actions, and the base actions are formulated as target base linear and angular velocities abase∈ℝ2a\_{\\text{base}}\\in\\mathbb{R}^{2}. The training objective for a mobile manipulation policy πm\\pi^{m} for a task mm is &#124; &#124; &#124; &#124; &#124; &#124; --- &#124; --- &#124; --- &#124; --- &#124; &#124; &#124; &#124; 𝔼(oi,aarmsi,abasei)∼Dmobilem​\[L⁡(aarmsi,abasei,πm​(oi))\]+\\displaystyle\\mathbb{E}\_{(o^{i},a\_{\\text{arms}}^{i},a\_{\\text{base}}^{i})\\sim D\_{\\text{mobile}}^{m}}\\left\[L(a\_{\\text{arms}}^{i},a\_{\\text{base}}^{i},\\pi^{m}(o^{i}))\\right\]\\;+ &#124; &#124; &#124; &#124; &#124; 𝔼(oi,aarmsi)∼Dstatic​\[L⁡(aarmsi,\[0,0\],πm​(oi))\],\\displaystyle\\mathbb{E}\_{(o^{i},a\_{\\text{arms}}^{i})\\sim D\_{\\text{static}}}\\left\[L(a\_{\\text{arms}}^{i},\[0,0\],\\pi^{m}(o^{i}))\\right\], &#124; &#124; where oio^{i} is the observation consisting of two wrist camera RGB observations, one egocentric top camera RGB observation mounted between the arms, and joint positions of the arms, and LL is the imitation loss function. We sample with equal probability from the static ALOHA data DstaticD\_{\\text{static}} and the Mobile ALOHA data DmobilemD\_{\\text{mobile}}^{m}. We set the batch size to be 16. Since static ALOHA datapoints have no mobile base actions, we zero-pad the action labels so actions from both datasets have the same dimension. We also ignore the front camera in the static ALOHA data so that both datasets have 3 cameras. We normalize every action based on the statistics of the Mobile ALOHA dataset DmobilemD\_{\\text{mobile}}^{m} alone. In our experiments, we combine this co-training recipe with multiple base imitation learning approaches, including ACT \[ [104](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib104 "")\], Diffusion Policy \[ [18](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib18 "")\], and VINN \[ [63](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib63 "")\]. [Separate excerpt from the same retrieved document] ### 6.1 Co-training Improves Performance We start with ACT \[ [104](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib104 "")\], the method introduced with ALOHA, and train it on all 7 tasks with and without co-training. We then evaluate each policy in the real-world, with randomization of robot and objects configurations as described in Figure [2](https://ar5iv.labs.arxiv.org/html/2401.02117#S4.F2 "Figure 2 ‣ 4 Co-training withStatic ALOHA Data ‣ Mobile ALOHA:Learning Bimanual Mobile Manipulation withLow-Cost Whole-Body Teleoperation"). To calculate the success rate for a sub-task, we divide #​S​u​c​c​e​s​s\\#Success by #​A​t​t​e​m​p​t​s\\#Attempts. For example in the case of Lift Glass and Wipe sub-task, the #​A​t​t​e​m​p​t​s\\#Attempts equals the number of success from the previous sub-task Grasp Towel, as the robot could fail and stop at any sub-task. This also means the final success rate equals the product of all sub-task success rates. We report all success rates in Table [1](https://ar5iv.labs.arxiv.org/html/2401.02117#S4.T1 "Table 1 ‣ 4 Co-training withStatic ALOHA Data ‣ Mobile ALOHA:Learning Bimanual Mobile Manipulation withLow-Cost Whole-Body Teleoperation"). Each success rate is computed from 20 trials of evaluation, except Cook Shrimp which has 5. With the help of co-training, the robot obtains 95% success for Wipe Wine, 95% success for Call Elevator, 85% success for Use Cabinet, 85% success for High Five, 80% success for Rinse Pan, and 80% success for Push Chairs. Each of these tasks only requires 50 in-domain demonstrations, or 20 in the case of High Five. The only task that falls below 80% success is Cook Shrimp (40%), which is a 75-second long-horizon task for which we only collected 20 demonstrations. We found the policy to struggle with flipping the shrimp with the spatula and pouring the shrimp inside the white bowl, which has low contrast with the white table. We hypothesize that the lower success is likely due to the limited demonstration data. Co-training improves the whole-task success rate in 5 out of the 7 tasks, with a boost of 45%, 20%, 80%, 95% and 80% respectively. For the remaining two tasks, the success rate is comparable between co-training and no co-training. We find co-training to be more helpful for sub-tasks where precise manipulation is the bottleneck, for example Press Button, Flip Shrimp, and Turn On Faucet. In all of these cases, compounding errors appear to be the main source of failure, either from the stochasticity of robot base velocity control or from rich contacts such as grasping of the spatula and making contact with the pan during Flip Shrimp. We hypothesize that the “motion prior” of grasping and approaching objects in the static ALOHA dataset still benefits Mobile ALOHA, especially given the invariances introduced by the wrist camera \[ [41](https://ar5iv.labs.arxiv.org/html/2401.02117#bib.bib41 "")\]. We also find the co-trained policy to generalize better in the case of Push Chairs and Wipe Wine. For Push Chairs, both co-training and no co-training achieve perfect success for the first 3 chairs, which are seen in the demonstrations. However, co-training performs much better when extrapolating to the 4th and 5th chair, by 15% and 89% respectively. For Wipe Wine, we observe that the co-trained policy performs better at the boundary of the wine glass randomization region. We thus hypothesize that co-training can also help prevent overfitting, given the low-data regime of 20-50 demonstrations and the expressive transformer-based policy used. | |
-| Frontmatter citations resolve to the intended documents (dagger-2011, act-aloha-2023, act-reference-2023, mobile-aloha-2024, diffusion-policy-2023, real-time-chunking-2025, pi-real-time-chunking-blog-2025, octo-2024, pi0-2024, openpi-repo-2024, rt1-2022, pi05-2025, isaac-gr00t-repo-2026, helix-02-2026) | Retained primary source text; explicit paper editions / named repository and announcement snapshots | corrected | ACT-FIVE-SOURCE-32-20260907. Exact old/current tuple and prior P1 archived below. Zero new source requests; original FetchUrl response events on 7 September 2026 are retained in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json. All fourteen actual canonical citations; prior nine parts/evidence/adjudications preserved, five actual metadata/source bindings added. |  |  |  | action-chunking-frontmatter-p1 |
+| Frontmatter citations resolve to the intended documents (dagger-2011, act-aloha-2023, act-reference-2023, mobile-aloha-2024, diffusion-policy-2023, real-time-chunking-2025, pi-real-time-chunking-blog-2025, octo-2024, pi0-2024, openpi-repo-2024, rt1-2022, pi05-2025, isaac-gr00t-repo-2026, helix-02-2026, pi06-model-card-2025, pi07-2026) | Preserved official PDFs and exact-paper-linked dated announcement; retrieval provenance retained | corrected | ACT-FINAL-PAPER-32-20260907. Original/current tuple and prior P1 archived below. Zero new fetches. Reused original official PDF HTTP200/no-redirect retrievals begun 2026-09-07T16:28:10.810822Z (pi06) and 16:28:11.862371Z (pi07), with separate binary and derived-text hashes and conversion warnings. Literal byte-verified source text and provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/source-proof.json. All sixteen current citations required. Prior fourteen parts/evidence retained; dependent adjudication hashes freshly rebound without claiming new independent review. |  |  |  | action-chunking-frontmatter-p1 |
 
 ## diffusion-policy.mdx
 
@@ -3068,3 +3068,444 @@ Outcome: five corrected/evidence-complete original rows (20,22,26,29,30), P1 exp
 | Production/full corpus | not run | prerequisite content red; production HTML/reading times and independent Sol/high stages remain pending |
 
 All commands above ran sequentially with NODE_DISABLE_COMPILE_CACHE=1 and regular-file logs/actual exit receipts. Twenty-four passing-case screenshots and the current fourteen-reference ACT card were inspected. No browser or build claim covers the production release corpus. Pi06/pi07 source work is separate and not read or modified; their unchanged data flags remain held. Prior Back-navigation focus BODY issue remains with discovery ownership. No new owner decision is required. Full retained provenance, exact deltas, failure receipts and count/preservation proof are in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/. No source request, publish, controller/feature change, security change or cleanup occurred.
+
+
+## ACT final model-paper correction history — 2026-09-07
+
+Original ordinals 27/28 corrected; actual sixteen-source P1 expanded without reducing requirements. Original tuple and complete prior plan remain exact history. No lastReviewed update or independent acceptance.
+
+```json
+[
+  {
+    "id": "ACT-FINAL-PAPER-27-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 27,
+    "originalTuple": [
+      "PolicyChunkingTable: pi0.6 2025, horizon 50, 50 Hz, \"flow matching + FAST tokens\", closed",
+      "π0.6 model card PDF (website.pi-asset.com/pi06star/PI06_model_card.pdf, Nov 17 2025)",
+      "verified",
+      "Card: flow matching + tokenized discrete outputs, knowledge insulation with FAST tokens, action expert ~860M on a Gemma3-4B backbone; no open release (openpi stops at π0.5). Horizon 50 inherits the π0.5 architecture it \"builds on top of\"; the card states the chunk-generation design is shared with π0/π0.5."
+    ],
+    "originalCellsDigest": "64d41f589b085b327269d178c78232edd9b491cbc0020cc3a6b13b6792d4bce2",
+    "originalLedgerLine": "| PolicyChunkingTable: pi0.6 2025, horizon 50, 50 Hz, \"flow matching + FAST tokens\", closed | π0.6 model card PDF (website.pi-asset.com/pi06star/PI06_model_card.pdf, Nov 17 2025) | verified | Card: flow matching + tokenized discrete outputs, knowledge insulation with FAST tokens, action expert ~860M on a Gemma3-4B backbone; no open release (openpi stops at π0.5). Horizon 50 inherits the π0.5 architecture it \"builds on top of\"; the card states the chunk-generation design is shared with π0/π0.5. | | | |",
+    "originalPlan": null,
+    "currentTuple": [
+      "<Cite id=\"pi06-model-card-2025\" /> The November 17, 2025 π0.6 model card describes a continuous-action flow-matching expert; FAST tokens supervise the VLM backbone during training. The card does not specify predicted or executed chunk length, robot-control rate, or model-specific weight-release and licensing terms. Its 63 ms action-chunk latency uses five denoising steps and three camera inputs on one H100; this is inference latency, not a control frequency. The card’s openpi release statement concerns the π0.5 comparator, not π0.6.",
+      "Preserved official PDFs and exact-paper-linked dated announcement; retrieval provenance retained",
+      "corrected",
+      "ACT-FINAL-PAPER-27-20260907. Original/current tuple and prior P1 archived below. Zero new fetches. Reused original official PDF HTTP200/no-redirect retrievals begun 2026-09-07T16:28:10.810822Z (pi06) and 16:28:11.862371Z (pi07), with separate binary and derived-text hashes and conversion warnings. Literal byte-verified source text and provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/source-proof.json. Whole corrected claim is source-scoped; unknown availability is not closed licensing, inference latency is not control Hz, and discrete execution choices do not imply a robot assignment."
+    ],
+    "currentCellsDigest": "c1305f419aa531ad2a426228f49762e3e3bf0581e2b1c67a7231e67ef4cd552e"
+  },
+  {
+    "id": "ACT-FINAL-PAPER-28-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 28,
+    "originalTuple": [
+      "PolicyChunkingTable: pi0.7 2026, horizon 50, 50 Hz, \"executes 15-25 of 50\", closed",
+      "π0.7 paper PDF (pi.website/download/pi07.pdf)",
+      "verified",
+      "\"we use 5 denoising steps to generate the 50-step action chunks and execute Ĥ ∈ {15, 25} steps out of the chunk\"; \"a maximum inference latency of 240ms on a 50Hz robot\"; \"all other robots run at 50 Hz\". Not in openpi ⇒ closed."
+    ],
+    "originalCellsDigest": "bfa5293d3c0233d4337670678d9fcc6358f8bf13c22315085853a98eb93f2d96",
+    "originalLedgerLine": "| PolicyChunkingTable: pi0.7 2026, horizon 50, 50 Hz, \"executes 15-25 of 50\", closed | π0.7 paper PDF (pi.website/download/pi07.pdf) | verified | \"we use 5 denoising steps to generate the 50-step action chunks and execute Ĥ ∈ {15, 25} steps out of the chunk\"; \"a maximum inference latency of 240ms on a 50Hz robot\"; \"all other robots run at 50 Hz\". Not in openpi ⇒ closed. | | | |",
+    "originalPlan": null,
+    "currentTuple": [
+      "<Cite id=\"pi07-2026\" /> In the π0.7 paper’s experiments, the continuous-action flow-matching expert predicts 50-step chunks with five denoising steps and executes either 15 or 25 steps. UR5e robots run at 20 Hz; the other tested robots run at 50 Hz. The paper does not assign either execution choice to a particular robot. FAST tokens supervise the backbone during training, not the runtime action output. The model distills experience from RL-trained π*0.6; evaluation without task-specific post-training does not mean training without RL-derived data. Model-specific weight-release and licensing terms are not disclosed in this paper.",
+      "Preserved official PDFs and exact-paper-linked dated announcement; retrieval provenance retained",
+      "corrected",
+      "ACT-FINAL-PAPER-28-20260907. Original/current tuple and prior P1 archived below. Zero new fetches. Reused original official PDF HTTP200/no-redirect retrievals begun 2026-09-07T16:28:10.810822Z (pi06) and 16:28:11.862371Z (pi07), with separate binary and derived-text hashes and conversion warnings. Literal byte-verified source text and provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/source-proof.json. Whole corrected claim is source-scoped; unknown availability is not closed licensing, inference latency is not control Hz, and discrete execution choices do not imply a robot assignment."
+    ],
+    "currentCellsDigest": "71976f4313111d7a18efd5df16499b2fcbca8809876d0a190bb44db4127ec0ea"
+  },
+  {
+    "id": "ACT-FINAL-PAPER-32-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "action-chunking",
+    "rowOrdinal": 32,
+    "originalTuple": [
+      "Frontmatter citations resolve to the intended documents (dagger-2011, act-aloha-2023, act-reference-2023, mobile-aloha-2024, diffusion-policy-2023, real-time-chunking-2025, pi-real-time-chunking-blog-2025, octo-2024, pi0-2024, openpi-repo-2024, rt1-2022, pi05-2025, isaac-gr00t-repo-2026, helix-02-2026)",
+      "Retained primary source text; explicit paper editions / named repository and announcement snapshots",
+      "corrected",
+      "ACT-FIVE-SOURCE-32-20260907. Exact old/current tuple and prior P1 archived below. Zero new source requests; original FetchUrl response events on 7 September 2026 are retained in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json. All fourteen actual canonical citations; prior nine parts/evidence/adjudications preserved, five actual metadata/source bindings added."
+    ],
+    "originalCellsDigest": "49c70db41e43b959460408f6183976dd0582b34e695511935eb0045f55a56834",
+    "originalLedgerLine": "| Frontmatter citations resolve to the intended documents (dagger-2011, act-aloha-2023, act-reference-2023, mobile-aloha-2024, diffusion-policy-2023, real-time-chunking-2025, pi-real-time-chunking-blog-2025, octo-2024, pi0-2024, openpi-repo-2024, rt1-2022, pi05-2025, isaac-gr00t-repo-2026, helix-02-2026) | Retained primary source text; explicit paper editions / named repository and announcement snapshots | corrected | ACT-FIVE-SOURCE-32-20260907. Exact old/current tuple and prior P1 archived below. Zero new source requests; original FetchUrl response events on 7 September 2026 are retained in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json. All fourteen actual canonical citations; prior nine parts/evidence/adjudications preserved, five actual metadata/source bindings added. |  |  |  | action-chunking-frontmatter-p1 |",
+    "originalPlan": {
+      "id": "action-chunking-frontmatter-p1",
+      "ledgerPath": "audit/manipulation.md",
+      "articleSlug": "action-chunking",
+      "rowOrdinal": 32,
+      "originalCellsDigest": "49c70db41e43b959460408f6183976dd0582b34e695511935eb0045f55a56834",
+      "kind": "frontmatter-p1",
+      "parts": [
+        {
+          "id": "dagger-2011",
+          "text": "DAgger title, accented byline, AISTATS 2011; 2010 submission distinct.",
+          "requiredCitationIds": [
+            "dagger-2011"
+          ]
+        },
+        {
+          "id": "act-aloha-2023",
+          "text": "ACT four-author title and RSS 2023 publication.",
+          "requiredCitationIds": [
+            "act-aloha-2023"
+          ]
+        },
+        {
+          "id": "act-reference-2023",
+          "text": "Pinned imitate_episodes.py file, repository handle and displayed commit date.",
+          "requiredCitationIds": [
+            "act-reference-2023"
+          ]
+        },
+        {
+          "id": "mobile-aloha-2024",
+          "text": "Mobile ALOHA title, three named authors, 2024 submission; no invented venue.",
+          "requiredCitationIds": [
+            "mobile-aloha-2024"
+          ]
+        },
+        {
+          "id": "diffusion-policy-2023",
+          "text": "Extended eight-author DP identity, 2023 introduction and 2024 v5 revision; not original seven-author RSS edition.",
+          "requiredCitationIds": [
+            "diffusion-policy-2023"
+          ]
+        },
+        {
+          "id": "real-time-chunking-2025",
+          "text": "RTC paper title, all three authors, 2025 submission; unversioned body not silently labelled v2.",
+          "requiredCitationIds": [
+            "real-time-chunking-2025"
+          ]
+        },
+        {
+          "id": "pi-real-time-chunking-blog-2025",
+          "text": "Actual blog title, named three-author byline, June 9 2025.",
+          "requiredCitationIds": [
+            "pi-real-time-chunking-blog-2025"
+          ]
+        },
+        {
+          "id": "octo-2024",
+          "text": "octo 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for octo-2024.",
+          "requiredCitationIds": [
+            "octo-2024"
+          ]
+        },
+        {
+          "id": "pi0-2024",
+          "text": "pi0 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for pi0-2024.",
+          "requiredCitationIds": [
+            "pi0-2024"
+          ]
+        },
+        {
+          "id": "openpi-repo-2024",
+          "text": "Exact current registry metadata: {\"id\":\"openpi-repo-2024\",\"title\":\"openpi\",\"authors\":[\"Physical Intelligence\"],\"year\":2026,\"url\":\"https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md\",\"type\":\"docs\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit.",
+          "requiredCitationIds": [
+            "openpi-repo-2024"
+          ]
+        },
+        {
+          "id": "rt1-2022",
+          "text": "Exact current registry metadata: {\"id\":\"rt1-2022\",\"title\":\"RT-1: Robotics Transformer for Real-World Control at Scale\",\"authors\":[\"Anthony Brohan\",\"Noah Brown\",\"Justice Carbajal\",\"Yevgen Chebotar\",\"Joseph Dabis\",\"Chelsea Finn\",\"Keerthana Gopalakrishnan\",\"Karol Hausman\",\"Alex Herzog\",\"Jasmine Hsu\",\"Julian Ibarz\",\"Brian Ichter\",\"Alex Irpan\",\"Tomas Jackson\",\"Sally Jesmonth\",\"Nikhil J Joshi\",\"Ryan Julian\",\"Dmitry Kalashnikov\",\"Yuheng Kuang\",\"Isabel Leal\",\"Kuang-Huei Lee\",\"Sergey Levine\",\"Yao Lu\",\"Utsav Malla\",\"Deeksha Manjunath\",\"Igor Mordatch\",\"Ofir Nachum\",\"Carolina Parada\",\"Jodilyn Peralta\",\"Emily Perez\",\"Karl Pertsch\",\"Jornell Quiambao\",\"Kanishka Rao\",\"Michael Ryoo\",\"Grecia Salazar\",\"Pannag Sanketi\",\"Kevin Sayed\",\"Jaspiar Singh\",\"Sumedh Sontakke\",\"Austin Stone\",\"Clayton Tan\",\"Huong Tran\",\"Vincent Vanhoucke\",\"Steve Vega\",\"Quan Vuong\",\"Fei Xia\",\"Ted Xiao\",\"Peng Xu\",\"Sichun Xu\",\"Tianhe Yu\",\"Brianna Zitkovich\"],\"year\":2022,\"arxiv\":\"2212.06817\",\"url\":\"https://arxiv.org/html/2212.06817v2\",\"type\":\"paper\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit.",
+          "requiredCitationIds": [
+            "rt1-2022"
+          ]
+        },
+        {
+          "id": "pi05-2025",
+          "text": "Exact current registry metadata: {\"id\":\"pi05-2025\",\"title\":\"π0.5: a Vision-Language-Action Model with Open-World Generalization\",\"authors\":[\"Physical Intelligence\",\"Kevin Black\",\"Noah Brown\",\"James Darpinian\",\"Karan Dhabalia\",\"Danny Driess\",\"Adnan Esmail\",\"Michael Equi\",\"Chelsea Finn\",\"Niccolo Fusai\",\"Manuel Y. Galliker\",\"Dibya Ghosh\",\"Lachy Groom\",\"Karol Hausman\",\"Brian Ichter\",\"Szymon Jakubczak\",\"Tim Jones\",\"Liyiming Ke\",\"Devin LeBlanc\",\"Sergey Levine\",\"Adrian Li-Bell\",\"Mohith Mothukuri\",\"Suraj Nair\",\"Karl Pertsch\",\"Allen Z. Ren\",\"Lucy Xiaoyang Shi\",\"Laura Smith\",\"Jost Tobias Springenberg\",\"Kyle Stachowicz\",\"James Tanner\",\"Quan Vuong\",\"Homer Walke\",\"Anna Walling\",\"Haohuan Wang\",\"Lili Yu\",\"Ury Zhilinsky\"],\"year\":2025,\"arxiv\":\"2504.16054\",\"url\":\"https://arxiv.org/html/2504.16054v1\",\"type\":\"paper\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit.",
+          "requiredCitationIds": [
+            "pi05-2025"
+          ]
+        },
+        {
+          "id": "isaac-gr00t-repo-2026",
+          "text": "Exact current registry metadata: {\"id\":\"isaac-gr00t-repo-2026\",\"title\":\"NVIDIA Isaac GR00T\",\"authors\":[\"NVIDIA\"],\"year\":2026,\"url\":\"https://github.com/NVIDIA/Isaac-GR00T\",\"type\":\"docs\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit.",
+          "requiredCitationIds": [
+            "isaac-gr00t-repo-2026"
+          ]
+        },
+        {
+          "id": "helix-02-2026",
+          "text": "Exact current registry metadata: {\"id\":\"helix-02-2026\",\"title\":\"Introducing Helix 02: Full-Body Autonomy\",\"authors\":[\"Figure AI\"],\"year\":2026,\"url\":\"https://www.figure.ai/news/helix-02\",\"type\":\"blog\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit.",
+          "requiredCitationIds": [
+            "helix-02-2026"
+          ]
+        }
+      ],
+      "planReview": {
+        "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+        "rationale": "Whole current claim requires every listed part. Prior nine-source P1 preserved; exact full metadata for each new source checked against retained original text. Authority permits correction, not human source certification.",
+        "planDigest": "5a2baa2ed192c72f5ae8a48ec151be761e9389f2d36fb3217ea000fb9daa4426"
+      },
+      "evidence": [
+        {
+          "partId": "dagger-2011",
+          "citationId": "dagger-2011",
+          "sourceUrl": "https://arxiv.org/abs/1011.0686",
+          "supportingPassage": "\\[Submitted on 2 Nov 2010 ( [v1](https://arxiv.org/abs/1011.0686v1)), last revised 16 Mar 2011 (this version, v3)\\]\n\n# Title:A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning\n\nAuthors: [Stephane Ross](https://arxiv.org/search/cs?searchtype=author&query=Ross,+S), [Geoffrey J. Gordon](https://arxiv.org/search/cs?searchtype=author&query=Gordon,+G+J), [J. Andrew Bagnell](https://arxiv.org/search/cs?searchtype=author&query=Bagnell,+J+A)\n\nView a PDF of the paper titled A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning, by Stephane Ross and 2 other authors\n\n[View PDF](https://arxiv.org/pdf/1011.0686) [HTML (experimental)](https://arxiv.org/html/1011.0686v3)\n\n> Abstract:Sequential prediction problems such as imitation learning, where future observations depend on previous predictions (actions), violate the common i.i.d. assumptions made in statistical learning. This leads to poor performance in theory and often in practice. Some recent approaches provide stronger guarantees in this setting, but remain somewhat unsatisfactory as they train either non-stationary or stochastic policies and require a large number of iterations. In this paper, we propose a new iterative algorithm, which trains a stationary deterministic policy, that can be seen as a no regret algorithm in an online learning setting. We show that any such no regret algorithm, combined with additional reduction assumptions, must find a policy with good performance under the distribution of observations it induces in such sequential settings. We demonstrate that this new approach outperforms previous approaches on two challenging imitation learning problems and a benchmark sequence labeling problem.\n\n|     |     |\n| --- | --- |\n| Comments: | Appearing in the 14th International Conference on Artificial Intelligence and Statistics (AISTATS 2011) |\n| Subjects: | Machine Learning (cs.LG); Artificial Intelligence (cs.AI); Machine Learning (stat.ML) |\n| Cite as: | [arXiv:1011.0686](https://arxiv.org/abs/1011.0686) \\[cs.LG\\] |\n|  | (or [arXiv:1011.0686v3](https://arxiv.org/abs/1011.0686v3) \\[cs.LG\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.1011.0686](https://doi.org/10.48550/arXiv.1011.0686)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+        },
+        {
+          "partId": "dagger-2011",
+          "citationId": "dagger-2011",
+          "sourceUrl": "https://ar5iv.labs.arxiv.org/html/1011.0686",
+          "supportingPassage": "\nA Reduction of Imitation Learning and Structured Prediction\n\nto No-Regret Online Learning\n\nStéphane RossGeoffrey J. GordonJ. Andrew Bagnell"
+        },
+        {
+          "partId": "act-aloha-2023",
+          "citationId": "act-aloha-2023",
+          "sourceUrl": "https://arxiv.org/abs/2304.13705",
+          "supportingPassage": "\\[Submitted on 23 Apr 2023\\]\n\n# Title:Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware\n\nAuthors: [Tony Z. Zhao](https://arxiv.org/search/cs?searchtype=author&query=Zhao,+T+Z), [Vikash Kumar](https://arxiv.org/search/cs?searchtype=author&query=Kumar,+V), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C)\n\nView a PDF of the paper titled Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware, by Tony Z. Zhao and 3 other authors\n\n[View PDF](https://arxiv.org/pdf/2304.13705) [HTML (experimental)](https://arxiv.org/html/2304.13705v1)\n\n> Abstract:Fine manipulation tasks, such as threading cable ties or slotting a battery, are notoriously difficult for robots because they require precision, careful coordination of contact forces, and closed-loop visual feedback. Performing these tasks typically requires high-end robots, accurate sensors, or careful calibration, which can be expensive and difficult to set up. Can learning enable low-cost and imprecise hardware to perform these fine manipulation tasks? We present a low-cost system that performs end-to-end imitation learning directly from real demonstrations, collected with a custom teleoperation interface. Imitation learning, however, presents its own challenges, particularly in high-precision domains: errors in the policy can compound over time, and human demonstrations can be non-stationary. To address these challenges, we develop a simple yet novel algorithm, Action Chunking with Transformers (ACT), which learns a generative model over action sequences. ACT allows the robot to learn 6 difficult tasks in the real world, such as opening a translucent condiment cup and slotting a battery with 80-90% success, with only 10 minutes worth of demonstrations. Project website: [this https URL](https://tonyzhaozh.github.io/aloha/)\n\n|     |     |\n| --- | --- |\n| Subjects: | Robotics (cs.RO); Machine Learning (cs.LG) |\n| Cite as: | [arXiv:2304.13705](https://arxiv.org/abs/2304.13705) \\[cs.RO\\] |\n|  | (or [arXiv:2304.13705v1](https://arxiv.org/abs/2304.13705v1) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2304.13705](https://doi.org/10.48550/arXiv.2304.13705)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+        },
+        {
+          "partId": "act-aloha-2023",
+          "citationId": "act-aloha-2023",
+          "sourceUrl": "https://roboticsproceedings.org/rss19/p016.html",
+          "supportingPassage": "@INPROCEEDINGS{Zhao-RSS-23,\n    AUTHOR    = {Tony Z. Zhao AND Vikash Kumar AND Sergey Levine AND Chelsea Finn},\n    TITLE     = {{Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware}},\n    BOOKTITLE = {Proceedings of Robotics: Science and Systems},\n    YEAR      = {2023},\n    ADDRESS   = {Daegu, Republic of Korea},\n    MONTH     = {July},\n    DOI       = {10.15607/RSS.2023.XIX.016}\n}"
+        },
+        {
+          "partId": "act-reference-2023",
+          "citationId": "act-reference-2023",
+          "sourceUrl": "https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py",
+          "supportingPassage": "# imitate\\_episodes.py\n[Separate literal excerpt from the same retained response]\n## Latest commit\n\n[![tonyzhaozh](https://avatars.githubusercontent.com/u/46111210?v=4&size=40)](https://github.com/tonyzhaozh)[tonyzhaozh](https://github.com/tonyzhaozh/act/commits?author=tonyzhaozh)\n\n[small](https://github.com/tonyzhaozh/act/commit/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf)\n\n3 years agoMar 14, 2023"
+        },
+        {
+          "partId": "mobile-aloha-2024",
+          "citationId": "mobile-aloha-2024",
+          "sourceUrl": "https://arxiv.org/abs/2401.02117",
+          "supportingPassage": "\\[Submitted on 4 Jan 2024\\]\n\n# Title:Mobile ALOHA: Learning Bimanual Mobile Manipulation with Low-Cost Whole-Body Teleoperation\n\nAuthors: [Zipeng Fu](https://arxiv.org/search/cs?searchtype=author&query=Fu,+Z), [Tony Z. Zhao](https://arxiv.org/search/cs?searchtype=author&query=Zhao,+T+Z), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C)\n\nView a PDF of the paper titled Mobile ALOHA: Learning Bimanual Mobile Manipulation with Low-Cost Whole-Body Teleoperation, by Zipeng Fu and 2 other authors\n\n[View PDF](https://arxiv.org/pdf/2401.02117) [HTML (experimental)](https://arxiv.org/html/2401.02117v1)\n\n> Abstract:Imitation learning from human demonstrations has shown impressive performance in robotics. However, most results focus on table-top manipulation, lacking the mobility and dexterity necessary for generally useful tasks. In this work, we develop a system for imitating mobile manipulation tasks that are bimanual and require whole-body control. We first present Mobile ALOHA, a low-cost and whole-body teleoperation system for data collection. It augments the ALOHA system with a mobile base, and a whole-body teleoperation interface. Using data collected with Mobile ALOHA, we then perform supervised behavior cloning and find that co-training with existing static ALOHA datasets boosts performance on mobile manipulation tasks. With 50 demonstrations for each task, co-training can increase success rates by up to 90%, allowing Mobile ALOHA to autonomously complete complex mobile manipulation tasks such as sauteing and serving a piece of shrimp, opening a two-door wall cabinet to store heavy cooking pots, calling and entering an elevator, and lightly rinsing a used pan using a kitchen faucet. Project website: [this https URL](https://mobile-aloha.github.io/)\n\n|     |     |\n| --- | --- |\n| Comments: | Project website: [this https URL](https://mobile-aloha.github.io/) (Zipeng Fu and Tony Z. Zhao are project co-leads, Chelsea Finn is the advisor) |\n| Subjects: | Robotics (cs.RO); Artificial Intelligence (cs.AI); Computer Vision and Pattern Recognition (cs.CV); Machine Learning (cs.LG); Systems and Control (eess.SY) |\n| Cite as: | [arXiv:2401.02117](https://arxiv.org/abs/2401.02117) \\[cs.RO\\] |\n|  | (or [arXiv:2401.02117v1](https://arxiv.org/abs/2401.02117v1) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2401.02117](https://doi.org/10.48550/arXiv.2401.02117)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+        },
+        {
+          "partId": "diffusion-policy-2023",
+          "citationId": "diffusion-policy-2023",
+          "sourceUrl": "https://arxiv.org/abs/2303.04137",
+          "supportingPassage": "\\[Submitted on 7 Mar 2023 ( [v1](https://arxiv.org/abs/2303.04137v1)), last revised 14 Mar 2024 (this version, v5)\\]\n\n# Title:Diffusion Policy: Visuomotor Policy Learning via Action Diffusion\n\nAuthors: [Cheng Chi](https://arxiv.org/search/cs?searchtype=author&query=Chi,+C), [Zhenjia Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+Z), [Siyuan Feng](https://arxiv.org/search/cs?searchtype=author&query=Feng,+S), [Eric Cousineau](https://arxiv.org/search/cs?searchtype=author&query=Cousineau,+E), [Yilun Du](https://arxiv.org/search/cs?searchtype=author&query=Du,+Y), [Benjamin Burchfiel](https://arxiv.org/search/cs?searchtype=author&query=Burchfiel,+B), [Russ Tedrake](https://arxiv.org/search/cs?searchtype=author&query=Tedrake,+R), [Shuran Song](https://arxiv.org/search/cs?searchtype=author&query=Song,+S)\n\nView a PDF of the paper titled Diffusion Policy: Visuomotor Policy Learning via Action Diffusion, by Cheng Chi and 7 other authors\n\n[View PDF](https://arxiv.org/pdf/2303.04137) [HTML (experimental)](https://arxiv.org/html/2303.04137v5)\n\n> Abstract:This paper introduces Diffusion Policy, a new way of generating robot behavior by representing a robot's visuomotor policy as a conditional denoising diffusion process. We benchmark Diffusion Policy across 12 different tasks from 4 different robot manipulation benchmarks and find that it consistently outperforms existing state-of-the-art robot learning methods with an average improvement of 46.9%. Diffusion Policy learns the gradient of the action-distribution score function and iteratively optimizes with respect to this gradient field during inference via a series of stochastic Langevin dynamics steps. We find that the diffusion formulation yields powerful advantages when used for robot policies, including gracefully handling multimodal action distributions, being suitable for high-dimensional action spaces, and exhibiting impressive training stability. To fully unlock the potential of diffusion models for visuomotor policy learning on physical robots, this paper presents a set of key technical contributions including the incorporation of receding horizon control, visual conditioning, and the time-series diffusion transformer. We hope this work will help motivate a new generation of policy learning techniques that are able to leverage the powerful generative modeling capabilities of diffusion models. Code, data, and training details is publicly available [this http URL](http://diffusion-policy.cs.columbia.edu/)\n\n|     |     |\n| --- | --- |\n| Comments: | An extended journal version of the original RSS2023 paper |\n| Subjects: | Robotics (cs.RO) |\n| Cite as: | [arXiv:2303.04137](https://arxiv.org/abs/2303.04137) \\[cs.RO\\] |\n|  | (or [arXiv:2303.04137v5](https://arxiv.org/abs/2303.04137v5) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2303.04137](https://doi.org/10.48550/arXiv.2303.04137)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+        },
+        {
+          "partId": "real-time-chunking-2025",
+          "citationId": "real-time-chunking-2025",
+          "sourceUrl": "https://arxiv.org/abs/2506.07339",
+          "supportingPassage": "\\[Submitted on 9 Jun 2025 ( [v1](https://arxiv.org/abs/2506.07339v1)), last revised 5 Dec 2025 (this version, v2)\\]\n\n# Title:Real-Time Execution of Action Chunking Flow Policies\n\nAuthors: [Kevin Black](https://arxiv.org/search/cs?searchtype=author&query=Black,+K), [Manuel Y. Galliker](https://arxiv.org/search/cs?searchtype=author&query=Galliker,+M+Y), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S)\n\nView a PDF of the paper titled Real-Time Execution of Action Chunking Flow Policies, by Kevin Black and 2 other authors\n\n[View PDF](https://arxiv.org/pdf/2506.07339) [HTML (experimental)](https://arxiv.org/html/2506.07339v2)\n\n> Abstract:Modern AI systems, especially those interacting with the physical world, increasingly require real-time performance. However, the high latency of state-of-the-art generalist models, including recent vision-language action models (VLAs), poses a significant challenge. While action chunking has enabled temporal consistency in high-frequency control tasks, it does not fully address the latency problem, leading to pauses or out-of-distribution jerky movements at chunk boundaries. This paper presents a novel inference-time algorithm that enables smooth asynchronous execution of action chunking policies. Our method, real-time chunking (RTC), is applicable to any diffusion- or flow-based VLA out of the box with no re-training. It generates the next action chunk while executing the current one, \"freezing\" actions guaranteed to execute and \"inpainting\" the rest. To test RTC, we introduce a new benchmark of 12 highly dynamic tasks in the Kinetix simulator, as well as evaluate 6 challenging real-world bimanual manipulation tasks. Results demonstrate that RTC is fast, performant, and uniquely robust to inference delay, significantly improving task throughput and enabling high success rates in precise tasks – such as lighting a match – even in the presence of significant latency. See [this https URL](https://pi.website/research/real_time_chunking) for videos.\n\n|     |     |\n| --- | --- |\n| Comments: | published in NeurIPS 2025 |\n| Subjects: | Robotics (cs.RO); Artificial Intelligence (cs.AI); Machine Learning (cs.LG) |\n| Cite as: | [arXiv:2506.07339](https://arxiv.org/abs/2506.07339) \\[cs.RO\\] |\n|  | (or [arXiv:2506.07339v2](https://arxiv.org/abs/2506.07339v2) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2506.07339](https://doi.org/10.48550/arXiv.2506.07339)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+        },
+        {
+          "partId": "pi-real-time-chunking-blog-2025",
+          "citationId": "pi-real-time-chunking-blog-2025",
+          "sourceUrl": "https://www.pi.website/research/real_time_chunking",
+          "supportingPassage": "# Real-Time Action Chunking with Large Models\n\nPublished\n\nJune 9, 2025\n\nEmail\n\nresearch@physicalintelligence.companyKevin Black, Manuel Y. Galliker, Sergey Levine"
+        },
+        {
+          "partId": "octo-2024",
+          "citationId": "octo-2024",
+          "sourceUrl": "https://arxiv.org/html/2405.12213v2",
+          "supportingPassage": "arXiv:2405.12213v2 \\[cs.RO\\] 26 May 2024\n\n[Separate excerpt from this same retained response]\n\n# Octo: An Open-Source Generalist Robot Policy\n\nOcto Model Team\nDibya Ghosh\nAffiliation: UC Berkeley\nHomer Walke\nAffiliation: UC Berkeley\nKarl Pertsch\nAffiliation: UC Berkeley\nAffiliation: Stanford\nKevin Black\nAffiliation: UC Berkeley\nOier Mees\nAffiliation: UC Berkeley\nSudeep Dasari\nJoey Hejna\nAffiliation: Stanford\nTobias Kreiman Ria Doshi\nAffiliation: UC Berkeley\nCharles Xu\nAffiliation: UC Berkeley\nJianlan Luo\nAffiliation: UC Berkeley\nYou Liang Tan\nAffiliation: UC Berkeley\nLawrence Yunliang Chen\nAffiliation: UC Berkeley\nPannag Sanketi\nAffiliation: Carnegie Mellon University Google Deepmind [https://octo-models.github.io](https://octo-models.github.io/ \"\")Quan Vuong\nAffiliation: Carnegie Mellon University Google Deepmind [https://octo-models.github.io](https://octo-models.github.io/ \"\")Ted Xiao\nAffiliation: Carnegie Mellon University Google Deepmind [https://octo-models.github.io](https://octo-models.github.io/ \"\")Dorsa Sadigh\nAffiliation: Stanford\nChelsea Finn\nAffiliation: Stanford\nSergey Levine\nAffiliation: UC Berkeley"
+        },
+        {
+          "partId": "pi0-2024",
+          "citationId": "pi0-2024",
+          "sourceUrl": "https://arxiv.org/abs/2410.24164",
+          "supportingPassage": "# Title:π0: A Vision-Language-Action Flow Model for General Robot Control\n\n[Separate excerpt from this same retained response]\n\nAuthors: [Kevin Black](https://arxiv.org/search/cs?searchtype=author&query=Black,+K), [Noah Brown](https://arxiv.org/search/cs?searchtype=author&query=Brown,+N), [Danny Driess](https://arxiv.org/search/cs?searchtype=author&query=Driess,+D), [Adnan Esmail](https://arxiv.org/search/cs?searchtype=author&query=Esmail,+A), [Michael Equi](https://arxiv.org/search/cs?searchtype=author&query=Equi,+M), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C), [Niccolo Fusai](https://arxiv.org/search/cs?searchtype=author&query=Fusai,+N), [Lachy Groom](https://arxiv.org/search/cs?searchtype=author&query=Groom,+L), [Karol Hausman](https://arxiv.org/search/cs?searchtype=author&query=Hausman,+K), [Brian Ichter](https://arxiv.org/search/cs?searchtype=author&query=Ichter,+B), [Szymon Jakubczak](https://arxiv.org/search/cs?searchtype=author&query=Jakubczak,+S), [Tim Jones](https://arxiv.org/search/cs?searchtype=author&query=Jones,+T), [Liyiming Ke](https://arxiv.org/search/cs?searchtype=author&query=Ke,+L), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Adrian Li-Bell](https://arxiv.org/search/cs?searchtype=author&query=Li-Bell,+A), [Mohith Mothukuri](https://arxiv.org/search/cs?searchtype=author&query=Mothukuri,+M), [Suraj Nair](https://arxiv.org/search/cs?searchtype=author&query=Nair,+S), [Karl Pertsch](https://arxiv.org/search/cs?searchtype=author&query=Pertsch,+K), [Lucy Xiaoyang Shi](https://arxiv.org/search/cs?searchtype=author&query=Shi,+L+X), [James Tanner](https://arxiv.org/search/cs?searchtype=author&query=Tanner,+J), [Quan Vuong](https://arxiv.org/search/cs?searchtype=author&query=Vuong,+Q), [Anna Walling](https://arxiv.org/search/cs?searchtype=author&query=Walling,+A), [Haohuan Wang](https://arxiv.org/search/cs?searchtype=author&query=Wang,+H), [Ury Zhilinsky](https://arxiv.org/search/cs?searchtype=author&query=Zhilinsky,+U)\n\n[Separate excerpt from this same retained response]\n\n| Comments: | See project website for videos: [this https URL](https://physicalintelligence.company/blog/pi0) Published in RSS 2025 |\n\n[Separate excerpt from this same retained response]\n\n## Submission history\n\nFrom: Sergey Levine \\[ [view email](https://arxiv.org/show-email/6a8355e6/2410.24164)\\]\n\n**[\\[v1\\]](https://arxiv.org/abs/2410.24164v1)**\nThu, 31 Oct 2024 17:22:30 UTC (7,531 KB)\n\n**[\\[v2\\]](https://arxiv.org/abs/2410.24164v2)**\nSat, 2 Nov 2024 04:00:56 UTC (22,073 KB)\n\n**[\\[v3\\]](https://arxiv.org/abs/2410.24164v3)**\nWed, 13 Nov 2024 17:30:10 UTC (22,075 KB)\n\n**\\[v4\\]**\nThu, 8 Jan 2026 17:01:05 UTC (7,128 KB)\n"
+        },
+        {
+          "partId": "openpi-repo-2024",
+          "citationId": "openpi-repo-2024",
+          "sourceUrl": "https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md",
+          "supportingPassage": "openpi holds open-source models and packages for robotics, published by the [Physical Intelligence team](https://www.physicalintelligence.company/).\n\n\n[Separate literal excerpt from the same retained response]\n## Latest commit\n\n[![hotcholula](https://avatars.githubusercontent.com/u/30572125?v=4&size=40)](https://github.com/hotcholula)[hotcholula](https://github.com/Physical-Intelligence/openpi/commits?author=hotcholula)\n\n[Fixed a typo in README](https://github.com/Physical-Intelligence/openpi/commit/76d1c8aed4fdd429f8f7addaf3a49159b7a9ad6f)\n\nsuccess\n\n10 months agoNov 21, 2025\n\n[76d1c8a](https://github.com/Physical-Intelligence/openpi/commit/76d1c8aed4fdd429f8f7addaf3a49159b7a9ad6f) · 10 months agoNov 21, 2025\n\n\n[Separate literal excerpt from the same retained response]\nCurrently, this repo contains three types of models:\n\n- the [π₀ model](https://www.physicalintelligence.company/blog/pi0), a flow-based vision-language-action model (VLA).\n- the [π₀-FAST model](https://www.physicalintelligence.company/research/fast), an autoregressive VLA, based on the FAST action tokenizer.\n- the [π₀.₅ model](https://www.physicalintelligence.company/blog/pi05), an upgraded version of π₀ with better open-world generalization trained with [knowledge insulation](https://www.physicalintelligence.company/research/knowledge_insulation). Note that, in this repository, we currently only support the flow matching head for both π0.5 training and inference.\n\nFor all models, we provide _base model_ checkpoints, pre-trained on 10k+ hours of robot data, and examples for using them out of the box or fine-tuning them to your own datasets.\n\n"
+        },
+        {
+          "partId": "openpi-repo-2024",
+          "citationId": "openpi-repo-2024",
+          "sourceUrl": "https://github.com/Physical-Intelligence/openpi",
+          "supportingPassage": "## Latest commit\n\n[![POPOXR](https://avatars.githubusercontent.com/u/193373702?v=4&size=40)](https://github.com/POPOXR)[POPOXR](https://github.com/Physical-Intelligence/openpi/commits?author=POPOXR)\n\n[docs(droid): fix config search instruction (](https://github.com/Physical-Intelligence/openpi/commit/215abfb217dbac7d5f1273282331b9b1866c0479) [#1023](https://github.com/Physical-Intelligence/openpi/pull/1023) [)](https://github.com/Physical-Intelligence/openpi/commit/215abfb217dbac7d5f1273282331b9b1866c0479)\n\nsuccess\n\n2 weeks agoAug 24, 2026\n\n[215abfb](https://github.com/Physical-Intelligence/openpi/commit/215abfb217dbac7d5f1273282331b9b1866c0479) · 2 weeks agoAug 24, 2026\n\n"
+        },
+        {
+          "partId": "rt1-2022",
+          "citationId": "rt1-2022",
+          "sourceUrl": "https://arxiv.org/abs/2212.06817",
+          "supportingPassage": "\\[Submitted on 13 Dec 2022 ( [v1](https://arxiv.org/abs/2212.06817v1)), last revised 11 Aug 2023 (this version, v2)\\]\n\n# Title:RT-1: Robotics Transformer for Real-World Control at Scale\n\nAuthors: [Anthony Brohan](https://arxiv.org/search/cs?searchtype=author&query=Brohan,+A), [Noah Brown](https://arxiv.org/search/cs?searchtype=author&query=Brown,+N), [Justice Carbajal](https://arxiv.org/search/cs?searchtype=author&query=Carbajal,+J), [Yevgen Chebotar](https://arxiv.org/search/cs?searchtype=author&query=Chebotar,+Y), [Joseph Dabis](https://arxiv.org/search/cs?searchtype=author&query=Dabis,+J), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C), [Keerthana Gopalakrishnan](https://arxiv.org/search/cs?searchtype=author&query=Gopalakrishnan,+K), [Karol Hausman](https://arxiv.org/search/cs?searchtype=author&query=Hausman,+K), [Alex Herzog](https://arxiv.org/search/cs?searchtype=author&query=Herzog,+A), [Jasmine Hsu](https://arxiv.org/search/cs?searchtype=author&query=Hsu,+J), [Julian Ibarz](https://arxiv.org/search/cs?searchtype=author&query=Ibarz,+J), [Brian Ichter](https://arxiv.org/search/cs?searchtype=author&query=Ichter,+B), [Alex Irpan](https://arxiv.org/search/cs?searchtype=author&query=Irpan,+A), [Tomas Jackson](https://arxiv.org/search/cs?searchtype=author&query=Jackson,+T), [Sally Jesmonth](https://arxiv.org/search/cs?searchtype=author&query=Jesmonth,+S), [Nikhil J Joshi](https://arxiv.org/search/cs?searchtype=author&query=Joshi,+N+J), [Ryan Julian](https://arxiv.org/search/cs?searchtype=author&query=Julian,+R), [Dmitry Kalashnikov](https://arxiv.org/search/cs?searchtype=author&query=Kalashnikov,+D), [Yuheng Kuang](https://arxiv.org/search/cs?searchtype=author&query=Kuang,+Y), [Isabel Leal](https://arxiv.org/search/cs?searchtype=author&query=Leal,+I), [Kuang-Huei Lee](https://arxiv.org/search/cs?searchtype=author&query=Lee,+K), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Yao Lu](https://arxiv.org/search/cs?searchtype=author&query=Lu,+Y), [Utsav Malla](https://arxiv.org/search/cs?searchtype=author&query=Malla,+U), [Deeksha Manjunath](https://arxiv.org/search/cs?searchtype=author&query=Manjunath,+D), [Igor Mordatch](https://arxiv.org/search/cs?searchtype=author&query=Mordatch,+I), [Ofir Nachum](https://arxiv.org/search/cs?searchtype=author&query=Nachum,+O), [Carolina Parada](https://arxiv.org/search/cs?searchtype=author&query=Parada,+C), [Jodilyn Peralta](https://arxiv.org/search/cs?searchtype=author&query=Peralta,+J), [Emily Perez](https://arxiv.org/search/cs?searchtype=author&query=Perez,+E), [Karl Pertsch](https://arxiv.org/search/cs?searchtype=author&query=Pertsch,+K), [Jornell Quiambao](https://arxiv.org/search/cs?searchtype=author&query=Quiambao,+J), [Kanishka Rao](https://arxiv.org/search/cs?searchtype=author&query=Rao,+K), [Michael Ryoo](https://arxiv.org/search/cs?searchtype=author&query=Ryoo,+M), [Grecia Salazar](https://arxiv.org/search/cs?searchtype=author&query=Salazar,+G), [Pannag Sanketi](https://arxiv.org/search/cs?searchtype=author&query=Sanketi,+P), [Kevin Sayed](https://arxiv.org/search/cs?searchtype=author&query=Sayed,+K), [Jaspiar Singh](https://arxiv.org/search/cs?searchtype=author&query=Singh,+J), [Sumedh Sontakke](https://arxiv.org/search/cs?searchtype=author&query=Sontakke,+S), [Austin Stone](https://arxiv.org/search/cs?searchtype=author&query=Stone,+A), [Clayton Tan](https://arxiv.org/search/cs?searchtype=author&query=Tan,+C), [Huong Tran](https://arxiv.org/search/cs?searchtype=author&query=Tran,+H), [Vincent Vanhoucke](https://arxiv.org/search/cs?searchtype=author&query=Vanhoucke,+V), [Steve Vega](https://arxiv.org/search/cs?searchtype=author&query=Vega,+S), [Quan Vuong](https://arxiv.org/search/cs?searchtype=author&query=Vuong,+Q), [Fei Xia](https://arxiv.org/search/cs?searchtype=author&query=Xia,+F), [Ted Xiao](https://arxiv.org/search/cs?searchtype=author&query=Xiao,+T), [Peng Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+P), [Sichun Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+S), [Tianhe Yu](https://arxiv.org/search/cs?searchtype=author&query=Yu,+T), [Brianna Zitkovich](https://arxiv.org/search/cs?searchtype=author&query=Zitkovich,+B)\n\n"
+        },
+        {
+          "partId": "rt1-2022",
+          "citationId": "rt1-2022",
+          "sourceUrl": "https://arxiv.org/html/2212.06817v2",
+          "supportingPassage": "arXiv:2212.06817v2 \\[cs.RO\\] 11 Aug 2023"
+        },
+        {
+          "partId": "pi05-2025",
+          "citationId": "pi05-2025",
+          "sourceUrl": "https://arxiv.org/abs/2504.16054",
+          "supportingPassage": "\\[Submitted on 22 Apr 2025\\]\n\n# Title:π0.5: a Vision-Language-Action Model with Open-World Generalization\n\nAuthors: [Physical Intelligence](https://arxiv.org/search/cs?searchtype=author&query=Intelligence,+P), [Kevin Black](https://arxiv.org/search/cs?searchtype=author&query=Black,+K), [Noah Brown](https://arxiv.org/search/cs?searchtype=author&query=Brown,+N), [James Darpinian](https://arxiv.org/search/cs?searchtype=author&query=Darpinian,+J), [Karan Dhabalia](https://arxiv.org/search/cs?searchtype=author&query=Dhabalia,+K), [Danny Driess](https://arxiv.org/search/cs?searchtype=author&query=Driess,+D), [Adnan Esmail](https://arxiv.org/search/cs?searchtype=author&query=Esmail,+A), [Michael Equi](https://arxiv.org/search/cs?searchtype=author&query=Equi,+M), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C), [Niccolo Fusai](https://arxiv.org/search/cs?searchtype=author&query=Fusai,+N), [Manuel Y. Galliker](https://arxiv.org/search/cs?searchtype=author&query=Galliker,+M+Y), [Dibya Ghosh](https://arxiv.org/search/cs?searchtype=author&query=Ghosh,+D), [Lachy Groom](https://arxiv.org/search/cs?searchtype=author&query=Groom,+L), [Karol Hausman](https://arxiv.org/search/cs?searchtype=author&query=Hausman,+K), [Brian Ichter](https://arxiv.org/search/cs?searchtype=author&query=Ichter,+B), [Szymon Jakubczak](https://arxiv.org/search/cs?searchtype=author&query=Jakubczak,+S), [Tim Jones](https://arxiv.org/search/cs?searchtype=author&query=Jones,+T), [Liyiming Ke](https://arxiv.org/search/cs?searchtype=author&query=Ke,+L), [Devin LeBlanc](https://arxiv.org/search/cs?searchtype=author&query=LeBlanc,+D), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Adrian Li-Bell](https://arxiv.org/search/cs?searchtype=author&query=Li-Bell,+A), [Mohith Mothukuri](https://arxiv.org/search/cs?searchtype=author&query=Mothukuri,+M), [Suraj Nair](https://arxiv.org/search/cs?searchtype=author&query=Nair,+S), [Karl Pertsch](https://arxiv.org/search/cs?searchtype=author&query=Pertsch,+K), [Allen Z. Ren](https://arxiv.org/search/cs?searchtype=author&query=Ren,+A+Z), [Lucy Xiaoyang Shi](https://arxiv.org/search/cs?searchtype=author&query=Shi,+L+X), [Laura Smith](https://arxiv.org/search/cs?searchtype=author&query=Smith,+L), [Jost Tobias Springenberg](https://arxiv.org/search/cs?searchtype=author&query=Springenberg,+J+T), [Kyle Stachowicz](https://arxiv.org/search/cs?searchtype=author&query=Stachowicz,+K), [James Tanner](https://arxiv.org/search/cs?searchtype=author&query=Tanner,+J), [Quan Vuong](https://arxiv.org/search/cs?searchtype=author&query=Vuong,+Q), [Homer Walke](https://arxiv.org/search/cs?searchtype=author&query=Walke,+H), [Anna Walling](https://arxiv.org/search/cs?searchtype=author&query=Walling,+A), [Haohuan Wang](https://arxiv.org/search/cs?searchtype=author&query=Wang,+H), [Lili Yu](https://arxiv.org/search/cs?searchtype=author&query=Yu,+L), [Ury Zhilinsky](https://arxiv.org/search/cs?searchtype=author&query=Zhilinsky,+U)\n\n"
+        },
+        {
+          "partId": "pi05-2025",
+          "citationId": "pi05-2025",
+          "sourceUrl": "https://arxiv.org/html/2504.16054v1",
+          "supportingPassage": "arXiv:2504.16054v1 \\[cs.LG\\] 22 Apr 2025\n\n# π0.5\\\\pi\\_{0.5}: a Vision-Language-Action Model with Open-World Generalization\n\nPhysical IntelligenceAffiliation: Kevin Black, Noah Brown, James Darpinian, Karan Dhabalia, Danny Driess, Adnan Esmail, Michael Equi,Affiliation: Chelsea Finn, Niccolo Fusai, Manuel Y. Galliker, Dibya Ghosh, Lachy Groom, Karol Hausman, Brian Ichter,Affiliation: Szymon Jakubczak, Tim Jones, Liyiming Ke, Devin LeBlanc, Sergey Levine, Adrian Li-Bell, Mohith Mothukuri,Affiliation: Suraj Nair, Karl Pertsch, Allen Z. Ren, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle StachowiczAffiliation: James Tanner, Quan Vuong, Homer Walke, Anna Walling, Haohuan Wang, Lili Yu, Ury ZhilinskyAffiliation: [https://pi.website/blog/pi05](https://pi.website/blog/pi05 \"\")\n\n"
+        },
+        {
+          "partId": "isaac-gr00t-repo-2026",
+          "citationId": "isaac-gr00t-repo-2026",
+          "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+          "supportingPassage": "URL Content from: \"https://github.com/NVIDIA/Isaac-GR00T\"\nTitle: GitHub - NVIDIA/Isaac-GR00T: NVIDIA Isaac GR00T N1.7 -  A Foundation Model for Generalist Robots. · GitHub\nStatus: 200\n\n[Separate literal excerpt from the same retained response]\n5 months agoApr 18, 2026](https://github.com/NVIDIA/Isaac-GR00T/releases/tag/n1.7-release)\n[Separate literal excerpt from the same retained response]\n| 2 months agoJul 7, 2026 |"
+        },
+        {
+          "partId": "helix-02-2026",
+          "citationId": "helix-02-2026",
+          "sourceUrl": "https://www.figure.ai/news/helix-02",
+          "supportingPassage": "# Introducing Helix 02: Full-Body Autonomy\n[Separate literal excerpt from the same retained response]\nJanuary 27, 2026"
+        }
+      ],
+      "adjudications": [
+        {
+          "partId": "dagger-2011",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "DAgger title, accented byline, AISTATS 2011; 2010 submission distinct. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+          "evidenceDigest": "da105e1c9c170f191c6423e383cb9f802f59f9ccf3e78e328e5a90d74a9dee25"
+        },
+        {
+          "partId": "act-aloha-2023",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "ACT four-author title and RSS 2023 publication. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+          "evidenceDigest": "b8f78d63c80bcd2e70d582d6a5008f4d44dda72a8e261134303b3a6cef445bf1"
+        },
+        {
+          "partId": "act-reference-2023",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "Pinned imitate_episodes.py file, repository handle and displayed commit date. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+          "evidenceDigest": "ddf38ea2e90157bdc5a0766d1ebe4e8b619d4cd134c14088c1dab8776c8b9529"
+        },
+        {
+          "partId": "mobile-aloha-2024",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "Mobile ALOHA title, three named authors, 2024 submission; no invented venue. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+          "evidenceDigest": "8eb1490f333dd8bd57e105307f74d09ba09b06cdd383b0c0ddfd9362a78a7df4"
+        },
+        {
+          "partId": "diffusion-policy-2023",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "Extended eight-author DP identity, 2023 introduction and 2024 v5 revision; not original seven-author RSS edition. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+          "evidenceDigest": "22a4fa45a1fc68ee8d235ac3f8168a134f5c77e248e7205d26f9c9bbba7f027b"
+        },
+        {
+          "partId": "real-time-chunking-2025",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "RTC paper title, all three authors, 2025 submission; unversioned body not silently labelled v2. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+          "evidenceDigest": "ac88c2087f449ef11bf4b371a6a64bcae17f6ff189b8c6ec214e303940fbfa65"
+        },
+        {
+          "partId": "pi-real-time-chunking-blog-2025",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation source auditor, session 9a03211b; not independent acceptance",
+          "rationale": "Actual blog title, named three-author byline, June 9 2025. Verified against the actual retained source text. Source inconsistency is explicitly represented, not silently resolved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+          "evidenceDigest": "551889bf22b7a69c33b96cadd0a82e65def50a60eaabcaa9e4a5bad42949f8a6"
+        },
+        {
+          "partId": "octo-2024",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+          "rationale": "octo 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for octo-2024. Actual retained passages verified; named setup and source edition preserved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+          "evidenceDigest": "153e8966c11eaf131be1621bb8fada6ebc6e38e64f3c62da80ee2d4627e89728"
+        },
+        {
+          "partId": "pi0-2024",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max source-auditor implementation session 89ea2cc1; not independent acceptance",
+          "rationale": "pi0 2024: The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for pi0-2024. Actual retained passages verified; named setup and source edition preserved. Current whole-plan digest rebound for five-source expansion on 7 September 2026; this prior part and all its evidence remain byte-identical. Prior adjudication archived, no new source audit or independent acceptance claimed.",
+          "evidenceDigest": "3a1e00a7c91a4654558a97d790fb3393548482e935e4cbc2793e0c6dc9fd80bc"
+        },
+        {
+          "partId": "openpi-repo-2024",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+          "rationale": "Exact current registry metadata: {\"id\":\"openpi-repo-2024\",\"title\":\"openpi\",\"authors\":[\"Physical Intelligence\"],\"year\":2026,\"url\":\"https://github.com/Physical-Intelligence/openpi/blob/215abfb217dbac7d5f1273282331b9b1866c0479/README.md\",\"type\":\"docs\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+          "evidenceDigest": "3a3545ffa8466c1972358185efee1c5e48c8e820440a2dfc215ea0f80d73165e"
+        },
+        {
+          "partId": "rt1-2022",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+          "rationale": "Exact current registry metadata: {\"id\":\"rt1-2022\",\"title\":\"RT-1: Robotics Transformer for Real-World Control at Scale\",\"authors\":[\"Anthony Brohan\",\"Noah Brown\",\"Justice Carbajal\",\"Yevgen Chebotar\",\"Joseph Dabis\",\"Chelsea Finn\",\"Keerthana Gopalakrishnan\",\"Karol Hausman\",\"Alex Herzog\",\"Jasmine Hsu\",\"Julian Ibarz\",\"Brian Ichter\",\"Alex Irpan\",\"Tomas Jackson\",\"Sally Jesmonth\",\"Nikhil J Joshi\",\"Ryan Julian\",\"Dmitry Kalashnikov\",\"Yuheng Kuang\",\"Isabel Leal\",\"Kuang-Huei Lee\",\"Sergey Levine\",\"Yao Lu\",\"Utsav Malla\",\"Deeksha Manjunath\",\"Igor Mordatch\",\"Ofir Nachum\",\"Carolina Parada\",\"Jodilyn Peralta\",\"Emily Perez\",\"Karl Pertsch\",\"Jornell Quiambao\",\"Kanishka Rao\",\"Michael Ryoo\",\"Grecia Salazar\",\"Pannag Sanketi\",\"Kevin Sayed\",\"Jaspiar Singh\",\"Sumedh Sontakke\",\"Austin Stone\",\"Clayton Tan\",\"Huong Tran\",\"Vincent Vanhoucke\",\"Steve Vega\",\"Quan Vuong\",\"Fei Xia\",\"Ted Xiao\",\"Peng Xu\",\"Sichun Xu\",\"Tianhe Yu\",\"Brianna Zitkovich\"],\"year\":2022,\"arxiv\":\"2212.06817\",\"url\":\"https://arxiv.org/html/2212.06817v2\",\"type\":\"paper\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+          "evidenceDigest": "0897ce5f67b83b958197fca2e9917e8b9aeb0a0945f5eeec0a29aac4e8b7c921"
+        },
+        {
+          "partId": "pi05-2025",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+          "rationale": "Exact current registry metadata: {\"id\":\"pi05-2025\",\"title\":\"π0.5: a Vision-Language-Action Model with Open-World Generalization\",\"authors\":[\"Physical Intelligence\",\"Kevin Black\",\"Noah Brown\",\"James Darpinian\",\"Karan Dhabalia\",\"Danny Driess\",\"Adnan Esmail\",\"Michael Equi\",\"Chelsea Finn\",\"Niccolo Fusai\",\"Manuel Y. Galliker\",\"Dibya Ghosh\",\"Lachy Groom\",\"Karol Hausman\",\"Brian Ichter\",\"Szymon Jakubczak\",\"Tim Jones\",\"Liyiming Ke\",\"Devin LeBlanc\",\"Sergey Levine\",\"Adrian Li-Bell\",\"Mohith Mothukuri\",\"Suraj Nair\",\"Karl Pertsch\",\"Allen Z. Ren\",\"Lucy Xiaoyang Shi\",\"Laura Smith\",\"Jost Tobias Springenberg\",\"Kyle Stachowicz\",\"James Tanner\",\"Quan Vuong\",\"Homer Walke\",\"Anna Walling\",\"Haohuan Wang\",\"Lili Yu\",\"Ury Zhilinsky\"],\"year\":2025,\"arxiv\":\"2504.16054\",\"url\":\"https://arxiv.org/html/2504.16054v1\",\"type\":\"paper\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+          "evidenceDigest": "44c56d0c85bcf22877428124689b7c7855bb8638d559c5a66ce3f8bfd33da407"
+        },
+        {
+          "partId": "isaac-gr00t-repo-2026",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+          "rationale": "Exact current registry metadata: {\"id\":\"isaac-gr00t-repo-2026\",\"title\":\"NVIDIA Isaac GR00T\",\"authors\":[\"NVIDIA\"],\"year\":2026,\"url\":\"https://github.com/NVIDIA/Isaac-GR00T\",\"type\":\"docs\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+          "evidenceDigest": "3d58829ef646d0342c434a2b8677dc4e64d3987b2eade2aed26515a4852d9bf8"
+        },
+        {
+          "partId": "helix-02-2026",
+          "outcome": "supported",
+          "reviewedBy": "Astra/max implementation/source-auditor session 4ff0a08d; not independent acceptance",
+          "rationale": "Exact current registry metadata: {\"id\":\"helix-02-2026\",\"title\":\"Introducing Helix 02: Full-Body Autonomy\",\"authors\":[\"Figure AI\"],\"year\":2026,\"url\":\"https://www.figure.ai/news/helix-02\",\"type\":\"blog\"}. Corporate repository/announcement publisher is not a paper byline; year and version scope remain explicit. Literal source bindings are verified; absence is only source-scoped, not a positive licensing conclusion.",
+          "evidenceDigest": "a4dc149456f2e216c05054bf8b8f5eb466423526f066096638d6340b947f1d6d"
+        }
+      ]
+    },
+    "currentTuple": [
+      "Frontmatter citations resolve to the intended documents (dagger-2011, act-aloha-2023, act-reference-2023, mobile-aloha-2024, diffusion-policy-2023, real-time-chunking-2025, pi-real-time-chunking-blog-2025, octo-2024, pi0-2024, openpi-repo-2024, rt1-2022, pi05-2025, isaac-gr00t-repo-2026, helix-02-2026, pi06-model-card-2025, pi07-2026)",
+      "Preserved official PDFs and exact-paper-linked dated announcement; retrieval provenance retained",
+      "corrected",
+      "ACT-FINAL-PAPER-32-20260907. Original/current tuple and prior P1 archived below. Zero new fetches. Reused original official PDF HTTP200/no-redirect retrievals begun 2026-09-07T16:28:10.810822Z (pi06) and 16:28:11.862371Z (pi07), with separate binary and derived-text hashes and conversion warnings. Literal byte-verified source text and provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/source-proof.json. All sixteen current citations required. Prior fourteen parts/evidence retained; dependent adjudication hashes freshly rebound without claiming new independent review."
+    ],
+    "currentCellsDigest": "bf7f6384e8c92bec86a3765d6a2442a93ae2286a826460409e3db8998ba1fde6"
+  }
+]
+```
+
+
+## ACT final model-paper checkpoint — 2026-09-07
+
+**ACT 32/32; corpus 120 complete / 874 incomplete / 994 original identities / 47 articles.** Original rows 27 and 28 now have corrected current claims with complete source bindings. P1 ordinal 32 remains complete after expansion from fourteen to sixteen actual citations. This is evidence completeness, not independent article acceptance. Counting uses unchanged `parseLedger` with actual frontmatter and compound plans; `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/preservation.json` verifies all 118 prior complete records, 991 unaffected parsed records, 21 unchanged other plans, the exact archived prior P1, its fourteen unchanged parts/evidence and unchanged adjudication meaning. Only dependent digests were rebound. Catalog: 24 plans. BC remains 14/14; DP 25/25. Two method records changed; the other sixteen are unchanged.
+
+- **ACT-FINAL-PAPER-27-20260907:** π0.6 predicted/executed horizons and robot-control rate are null with notes limited to the November 17, 2025 model card. Its 63 ms action-chunk inference uses five denoising steps, three camera inputs and one H100; no Hz is inferred. The continuous-action flow expert is distinct from FAST backbone supervision during training. Model-specific weight-release/licensing terms remain unknown in this card; its openpi statement concerns the π0.5 comparator.
+- **ACT-FINAL-PAPER-28-20260907:** π0.7 predicts 50 and executes **either 15 or 25**, typed as `executed: { choices: [15, 25] }`. The schema rejects empty/singleton/duplicate/nonpositive/fractional/over-horizon choices, ranges and invented default fields. The numeric control reference is explicitly UR5e at 20 Hz; other tested robots run at 50 Hz. No execution choice is assigned to a robot. FAST training supervision is distinct from continuous runtime actions, and distillation from RL-trained π*0.6 is not erased by evaluation without task-specific post-training. Weight/license absence is scoped to the paper, not asserted worldwide.
+- **ACT-FINAL-PAPER-32-20260907:** the two existing IDs `pi06-model-card-2025` and `pi07-2026` extend the actual P1 union to sixteen, with source chips beside the corrected paragraphs. Registry title/author/year data already match: Physical Intelligence's dated card and the exact 87-author paper. The paper's 2026 year is supported by the official April 16, 2026 announcement linking this exact PDF; no printed PDF date, venue or numbered version is invented. Only the unsupported adjacent “Closed model” registry comment was corrected; no registry ID or metadata value was added or changed.
+
+**Zero new fetches or PDF conversions.** Eighteen literal excerpts across four retained documents were byte-checked; thirteen used excerpts bind the two papers and the dated π0.7 announcement. Original PDF HTTP200/no-redirect requests began at 2026-09-07T16:28:10.810822Z and 16:28:11.862371Z. Original binary hashes differ from derived-text hashes. The π0.7 conversion warnings remain recorded; no claim relies on garbled figure glyphs. The announcement's actual FetchUrl request/result events were 16:07:40.836Z / 16:07:46.166Z, with tool-reported 200, not captured origin headers. Raw record hashes and decoded retained blog bodies match. Full literal passages, byte ranges, hashes and original retrieval provenance: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/source-proof.json`; product evidence is retained in `audit/compound-evidence.json`, not an article claim used as its own proof.
+
+Sequential checks used `NODE_DISABLE_COMPILE_CACHE=1`:
+
+| Gate | Actual command | Observed result |
+|---|---|---|
+| Red first | `npm test -- tests/component/act-final-model-papers.test.tsx` | Six expected failures before implementation |
+| Focused unit/component | `npm test -- tests/component/act-final-model-papers.test.tsx tests/component/act-five-sources.test.tsx tests/component/policy-chunking-table.test.tsx tests/component/comparison-matrix.test.tsx tests/unit/methods.test.ts tests/unit/act-current-corrections.test.ts tests/unit/audit-ledger.test.ts tests/unit/audit-citation-coverage.test.ts` | 131 passed |
+| Final affected tests | `npm test -- tests/unit/act-final-paper-audit.test.ts tests/component/act-final-model-papers.test.tsx tests/unit/structured-search.test.ts` | 32 passed; six overlap the focused run, 157 distinct tests total |
+| Final ledger-only checks | `npm test -- tests/unit/act-final-paper-audit.test.ts tests/unit/audit-ledger.test.ts tests/unit/audit-citation-coverage.test.ts` | 91 passed, overlapping the above checks |
+| TypeScript | `node node_modules/typescript/bin/tsc --noEmit --incremental false` | Pass, including final new audit/browser tests |
+| Lint | `node node_modules/eslint/bin/eslint.js .` | Pass; later new audit/browser test files separately pass scoped lint |
+| Content | `npm run validate:content` | Exit 1, 877 findings: 874 incomplete rows plus three aggregates; nine separately owned citation checks remain unresolved |
+| Baseline | `npm run baseline:brand-v2` | Exit 1, exactly the same 60 prior failures, zero added or removed |
+| Browser | `node node_modules/@playwright/test/cli.js test tests/e2e/act-final-model-papers.spec.ts --workers=1 --output <mission captures>` | Two distinct cases pass, 375x812 and 1440x900, each covering ACT and comparison |
+| Mobile evidence correction | Same spec with `--grep 'at 375' --output <mission captures-mobile-corrected>` | One affected case passes; unchanged desktop result reused |
+| Cards | `npm --ignore-scripts run generate:og-cards` then `npm --ignore-scripts run check:og-card-bytes` | Pass, 48 cards / 96 public-export files; ACT references 14 to 16, 47 cards unchanged |
+
+Ten exact member endpoints append to all 129 prior approval entries: **139 total**. Each records sealed-old and current hashes, the immediate-before hash, primary sources, reason, affected assertions, brand-v2-editorial ownership and Josef's real September 7 implementation authority. No wildcard, baseline recapture or gate weakening. Exact members/hashes: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/approved-deltas.json` and `member-changes.json`.
+
+Browser results: zero Axe violations, page errors, KaTeX errors or document overflow on the checked routes. Pi0 and both new paper tooltips are internally unclipped and viewport-bounded; at 375px all three span x20–276. Tables remain keyboard-scrollable. The first mobile comparison screenshot cut the horizon cell at an arbitrary scroll offset; the corrected capture aligns that cell and asserts both horizontal bounds. Twenty-seven captures were produced; all eighteen final captures were inspected directly or by exact byte identity to inspected captures (22 distinct files directly inspected, five final files byte-identical). The changed ACT card was inspected against both locked references. These bounded source/render checks do not certify the full brand release corpus; existing broader control/brand convergence remains outstanding.
+
+Production HTML and reading-time regeneration remain pending the red content prerequisite. `lastReviewed` remains 2026-08-18; no human-review or freshness claim. No humanizer skill was available; changed prose received a manual precision/overstatement read, alongside source no-slop checks. Preserved diagnostic failures: two diagnostic shape/index assumptions (catalog is an array; the manually sliced table was not the parser population), and the intended six red-first regressions. No source was refetched or gate relaxed to resolve them.
+
+Protected `PRODUCT_QUALITY.md`, `qa/findings.json`, and `next-env.d.ts` are hash-preserved; only this session's verified Next dev import substitution was restored. ACT weighting/SVG, BC/DP prose, immutable baselines, old histories, owner work and local commits d282a83/2cf7d6b remain intact. No build, full browser corpus, push, deployment, cleanup, controller/feature/model change or credit fallback. No GPT-role exhaustion occurred. Independent Sol/high scrutiny and user testing remain required after corpus closure. The earlier citation Back-navigation BODY-focus gap stays tracked. Next finite article candidate is the existing comparison-matrix ledger: **0/25** complete, using retained source groups and current corrected method data, not a new audit or source sweep.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/`.

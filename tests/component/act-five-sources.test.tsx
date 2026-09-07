@@ -44,8 +44,8 @@ describe('ACT five source-scoped records', () => {
     render(<ComparisonMatrix />);
     await user.click(within(screen.getByRole('group', { name: 'Filter by weights' })).getByRole('button', { name: 'Not disclosed' }));
     const rows = within(screen.getByRole('table')).getAllByRole('row').slice(1);
-    expect(rows).toHaveLength(2);
-    expect(rows.map(r => r.textContent).join(' ')).toMatch(/RT-1.*Helix 02/);
+    expect(rows).toHaveLength(4);
+    expect(rows.map(r => r.textContent).join(' ')).toMatch(/RT-1.*π0.6.*π0.7.*Helix 02/);
   });
   it('places actual citations and replaces the unqualified release cutoff', () => {
     const article = readFileSync('content/manipulation/action-chunking.mdx', 'utf8');
