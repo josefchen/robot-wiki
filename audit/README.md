@@ -1,5 +1,19 @@
 # Content-integrity audit trail
 
+## Correction-artifact maintenance — 2026-09-07
+
+This checkpoint closes only the legacy hardware-comment and generated-card residuals named below. The older checkpoints retain their original history; their statements that these two residuals remain open are superseded here. No article claim, citation, price, review date, audit row, or approval entry changed: **100 complete / 894 incomplete / 994 original identities / 47 articles**, with all 100 complete records and all 79 approvals preserved.
+
+`lib/hardware.ts` now explains that price buckets classify non-null `priceUsd` and do not use `priceMaxUsd`, without an ALOHA price example. Everything after the opening comment is byte-identical; the corrected null prices remain unchanged. No article prose changed, so no review date or humanizer pass applies.
+
+The existing `npm run generate:og-cards` lifecycle reads current registry titles/domains and MDX reference counts/review years directly; it requires neither production HTML nor reading-time measurements. It generated the exact sealed 48-card population. Only ACT's **6 → 7 references** and Diffusion Policy's **6 → 9 references** changed PNG bytes, in both `public/og` and `out/og`; the other 46 cards stayed byte-identical. Titles, review years, fonts, palette, grid and renderer code are unchanged. Both updated cards and both prior cards were visually inspected; the new ACT bytes also match the retained candidate. This is a factual asset repair, not social-card milestone or release acceptance.
+
+New sequential checks, all with `NODE_DISABLE_COMPILE_CACHE=1`: generation exited 0 (47 article cards + one site card); `npm run check:og-card-bytes` exited 0 (48 current renders, 96 byte-identical public/export files); seven focused hardware/pricing/OG unit files passed 61 tests; two focused renderer-parity mutation tests passed (20 unrelated tests excluded by the name filter); scoped hardware lint, tuple/evidence preservation and whitespace checks exited 0. The normal baseline check exited 1 with the same **63 failures**, producing byte-identical output to the pricing checkpoint; no new sealed-member delta or approval was needed. Nonincremental no-emit TypeScript proof is reused from the unchanged-executable-code pricing checkpoint, not presented as a new run.
+
+The content gate remains **red, 898 findings** (894 incomplete records, one unresolved ACT P1 outcome, three aggregate failures), with nine citation-check gaps tracked separately. That content result is reused, not rerun. Cards contain no reading-time fact; production HTML and reading-time regeneration still await the content prerequisite. Only `out/og` was refreshed, not the rest of `out/`. The citation Back-focus gap, remaining source gaps, independent Sol/high scrutiny and user testing remain open. No network retrieval, build, browser corpus, baseline recapture, push, feature-state change or acceptance occurred.
+
+Exact source-derived card inputs, old/new hashes, before/after PNGs, command receipts and preservation proof: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/correction-artifact-reconciliation/`.
+
 ## Pricing/source-strength checkpoint — 2026-09-07
 
 PRICE-TELEOP-20260907 corrects teleop ordinal 4; PRICE-HARDWARE-20260907 corrects only the ALOHA part of hardware-taxonomy ordinal 6. One additional complete row, not article acceptance: **100 complete / 894 incomplete / 994 original identities / 47 articles**. Data-hardware is **4/128** complete; teleop **1/13**, hardware-taxonomy **0/25**. All 99 previously complete records and 992 unaffected claim/source/verdict/note/evidence tuples survive. DP remains 25/25, ACT 18/32, with its P1 unresolved. All ten compound plans and all seventy prior exact approvals remain unchanged.
