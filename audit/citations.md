@@ -690,3 +690,11 @@ Original Octo row (history, not a second active row):
 ```text
 > | octo-2024 | https://arxiv.org/abs/2405.12213 | ok | match | none (verified as cited) |  |
 ```
+
+## September 7 pinned ACT code addition
+
+One code source added using the retained FetchUrl response, not a fresh liveness sweep. Original retrieval: 2026-09-07T12:15:10.160Z; source-text review: 2026-09-07. The display title describes the actual imitate_episodes.py file and commit; tonyzhaozh is the repository/commit handle shown, not an invented paper-author list. The page explicitly displays March 14, 2023. The original response SHA-256 is 68f26593c083e155f8a5b8eb167cb867301466952244520a046f9dc23b8cb2c8. This does not complete ACT article P1 or clear existing unresolved network verdicts.
+
+| ID | URL | Verdict | Identity | Correction | Note |
+|---|---|---|---|---|---|
+| act-reference-2023 | https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py | ok | match | pinned code addition (preserved FetchUrl response, 2026-09-07) | Tool-reported HTTP 200 at original retrieval, not a current probe. Exact source and passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-convention-authorized-corrections/source-proof.json |

@@ -114,8 +114,8 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'temporal-ensembling',
     term: 'temporal ensembling',
     definition:
-      'ACT\'s execution scheme for overlapping action chunks: the policy is queried at every timestep, and the predictions that each in-flight chunk made for the current step are averaged with exponential weights that favor the most recent prediction. This smooths the handoff between chunks at the cost of one inference per step instead of one per chunk.',
-    citations: ['act-aloha-2023'],
+      'ACT\'s execution scheme for overlapping action chunks: the policy is queried at every timestep, and the predictions that each in-flight chunk made for the current step are averaged with exponential weights. In the pinned ACT reference implementation, retained predictions are ordered oldest-to-newest and weighted by exp(-0.01 * i), so the oldest retained prediction has the largest weight. This smooths the handoff between chunks at the cost of one inference per step instead of one per chunk.',
+    citations: ['act-aloha-2023', 'act-reference-2023'],
   },
   {
     id: 'knowledge-insulation',

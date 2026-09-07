@@ -57,6 +57,14 @@ export type { Citation } from './schemas/citation.ts';
 
 export const CITATIONS: Citation[] = [
   {
+    id: 'act-reference-2023',
+    title: 'ACT reference implementation: imitate_episodes.py (76cf30b)',
+    authors: ['tonyzhaozh'],
+    year: 2023,
+    url: 'https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py',
+    type: 'docs',
+  },
+  {
     id: 'alvinn-1988',
     title: 'ALVINN: An Autonomous Land Vehicle in a Neural Network',
     authors: ['Dean A. Pomerleau'],

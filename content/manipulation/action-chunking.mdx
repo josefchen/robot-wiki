@@ -9,6 +9,7 @@ lastReviewed: "2026-08-18"
 citations:
   - dagger-2011
   - act-aloha-2023
+  - act-reference-2023
   - mobile-aloha-2024
   - diffusion-policy-2023
   - real-time-chunking-2025
@@ -68,19 +69,22 @@ Chunk size is a real bias/variance dial, not a hyperparameter footnote. The curv
 
 ## Temporal ensembling and its limits
 
-ACT executes chunks with <Term id="temporal-ensembling">temporal ensembling</Term>: at each timestep, the actions predicted for that step by overlapping chunks are averaged with exponential weights $w_i = \exp(-m \cdot i)$, where $i = 0$ indexes the oldest prediction and $m$ (0.01 in the reference implementation) sets how quickly older predictions are discounted. This smooths chunk boundaries at the cost of one inference per step instead of one per chunk.
+The pinned ACT reference implementation uses <Term id="temporal-ensembling">temporal ensembling</Term>: it queries the policy at every timestep and averages the retained predictions for the current action in oldest-to-newest order <Cite id="act-reference-2023" />. Its weights are $w_i = \exp(-m \cdot i)$, where $i = 0$ is the earliest retained prediction and $m = 0.01$. Thus the oldest retained prediction has the largest weight; increasing $m$ reduces the relative weight of newer predictions. The example below starts with already-selected predictions: it illustrates the weighted average, not the reference code's nonzero-buffer selection rule.
 
 <Image id="temporal-ensembling" />
 
 ```python title="temporal_ensembling.py"
-# Temporal ensembling (ACT, arXiv:2304.13705). preds[i] is the prediction
-# for the current action made by the chunk issued i chunks ago, so index 0
-# is the oldest prediction (the largest weight, per the paper's w_0).
+# ACT reference convention: preds contains current-step predictions already
+# selected and ordered oldest-to-newest. Index 0 is the oldest retained
+# prediction, not "zero chunks ago". Reference m=0.01. This helper does not
+# reproduce ACT's raw-buffer nonzero occupancy filter.
 def temporal_ensemble(preds: list[np.ndarray], m: float = 0.01) -> np.ndarray:
     weights = np.exp(-m * np.arange(len(preds)))   # w_i = exp(-m * i)
     weights /= weights.sum()
     return np.tensordot(weights, np.stack(preds), axes=1)
 ```
+
+For an illustrative scalar example **after selection**, oldest-to-newest predictions `[0, 10, 20]` at $m = 0.01$ receive normalized weights approximately `[0.33667217, 0.33332222, 0.33000561]` and yield `9.93333444`. This does not exercise the reference occupancy filter, which would discard a literal zero scalar in the raw buffer.
 
 <Callout variant="warn">
   Temporal ensembling assumes inference is nearly free in wall-clock time. Once inference latency reaches 100 to 200 ms, the newest chunk in the average is always stale by a full round trip, and Physical Intelligence documents the scheme failing outright <Cite id="pi-real-time-chunking-blog-2025" />.

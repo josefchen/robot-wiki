@@ -59,7 +59,7 @@
     "ledgerPath": "audit/manipulation.md",
     "articleSlug": "action-chunking",
     "rowOrdinal": 32,
-    "originalCellsDigest": "d12ec111c616d10359c59efaadd67c849eb6223798408e57facb1e246745dba4",
+    "originalCellsDigest": "fd02e3f863072ef83ae4f81d1ffd4084fbceeea48b7c4803ee6d87216d9df2e3",
     "kind": "frontmatter-p1",
     "parts": [
       {
@@ -74,6 +74,13 @@
         "text": "For act-aloha-2023, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
         "requiredCitationIds": [
           "act-aloha-2023"
+        ]
+      },
+      {
+        "id": "act-reference-2023",
+        "text": "For act-reference-2023, the pinned file identity, repository handle, displayed date and URL match the registered code source.",
+        "requiredCitationIds": [
+          "act-reference-2023"
         ]
       },
       {
