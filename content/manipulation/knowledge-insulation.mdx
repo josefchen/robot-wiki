@@ -11,7 +11,6 @@ citations:
   - knowledge-insulation-2025
   - pi0-fast-2025
   - pi0-2024
-  - pi05-2025
   - pi06-model-card-2025
   - pi07-2026
   - rt2-2023
@@ -68,7 +67,7 @@ The taxonomy consequence is worth stating flatly, because comparison tables keep
 
 ## The default recipe from pi0.5 onward
 
-Subsequent generations treat the recipe as settled infrastructure. pi0.5's open-world generalization results rest on it <Cite id="pi05-2025" />. pi0.6 scales it: a Gemma3 4B backbone with a SigLIP vision encoder, an 860M expert with the same layer count as the backbone, Knowledge Insulation end to end, and 5 denoising steps at inference <Cite id="pi06-model-card-2025" />. pi0.7 keeps the same structure and spends its training budget on richer conditioning context instead <Cite id="pi07-2026" />. When a new <Term id="vision-language-action-model">VLA</Term> paper reports that its backbone retains its VQA accuracy after action training, this is the mechanism doing the work.
+The π0.6 model card describes a Gemma3 4B backbone and an approximately 860M action expert with the same number of layers; its architecture figure also labels a SigLIP 400M vision encoder. The backbone predicts FAST tokens, while the expert predicts continuous actions without sending its gradients back into the backbone. With five denoising steps and three camera inputs, producing a chunk takes 63 ms on one H100 <Cite id="pi06-model-card-2025" />. π0.7 retains a Gemma3-based VLM, a MEM-style video-history encoder and a flow-matching expert. Its prompt adds language, episode metadata and subgoal images; it also uses FAST supervision with action-expert gradients stopped at the backbone <Cite id="pi07-2026" />.
 
 <Callout variant="warn" title="How to read this module">
   The mechanism, ablations, and the 7.5x figure come from the Knowledge Insulation paper (NeurIPS 2025) and Physical Intelligence's research note. The interactive's 8-layer stacks and 0-100 language meter are illustrative renderings of a qualitative finding, not published measurements. The sourced numbers are the parameter counts (3B backbone, 300M expert in the paper's configuration; 4B and 860M in pi0.6) and the training-step ratio.

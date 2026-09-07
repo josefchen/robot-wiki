@@ -1,6 +1,33 @@
 # Content-integrity audit trail
 
-## Comparison matrix partial closeout — 2026-09-07
+## Current manipulation and RL checkpoint - 2026-09-07
+
+**170 complete / 824 incomplete / 994 original identities / 47 articles. 78 compound plans; 161 exact approval entries.** This is a local implementation checkpoint, not publication or independent acceptance. Immediate predecessor `ec4ddde` was **135/859**, with 46 plans and 150 approvals. The older 128/866 comparison checkpoint below is historical, not current accounting.
+
+Applied **35 original records: 30 corrected, three verified and two cut**. Comparison ordinals 6/11/12; Knowledge Insulation 8/9; Pi Line 1-8, 11/12/15, 18-21/23; Real-Time Execution 1/2 and 9-14; RL for Robotics 9/12/13/14/39/40. Preserved all 135 previous complete records, 959 unaffected tuples, 43 unchanged prior plans and 150 previous approvals. Three replaced comparison plans are archived with exact original/current history. ACT 32/32, BC 14/14 and DP 25/25 remain complete. Lane A's 37 held rows and Lane B's 25 held rows remain held; unfinished worker packets were not consumed.
+
+Corrections distinguish policy checkpoints from pretrained language encoders, qualify pi architecture and execution setups, preserve the control-mode dropout exception and high-level coaching distinction, and correct ACT's oldest-prediction weighting. RTC means are **108.76 / 138.98 ms**, with source uncertainty and setup bounds; **240 ms** is simulated training delay, not measured tolerance. Rudin's derived average is **>122,880 steps/s**; Minitaur's is approximately **22 whole-training steps/s**. HIL-SERL's observed trial populations and six-hour timing-belt exception remain explicit. Unsupported adoption and universal algorithm claims are cut, not certified.
+
+**15 retained source streams, 83 literal passages, 23 original request/response events; zero new retrievals.** Actual retained bytes, passage membership and original provenance were verified before reuse. Two blog-passage lead labels are explicitly reconciled with the distinct canonical pi0.7 blog ID, preserving original labels and the paper-link use. No fetched text, fetch date or immutable edition is invented. KI citations are 7, realtime 6, comparison 21, pi-line 13 and RL 27. No review-date bump or P1 acceptance is asserted.
+
+Sequential checks used `NODE_DISABLE_COMPILE_CACHE=1`. Exact commands, times, exits and raw logs are indexed in `audit/manipulation-rl-20260907-commands.json` and `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907`.
+
+| Check | Actual result |
+|---|---|
+| Red-first regressions | 43 failed / 18 passed before implementation |
+| Final distinct focused unit/component cases | 180 pass, including unchanged 77-case strict audit and eleven-row comparison mutations |
+| Nonincremental TypeScript / full lint | Both exit 0; final comparison test also passes scoped lint |
+| Content | Exit 1: **831 = 824 incomplete + four unresolved outcomes + three aggregates**; nine separate citation gaps |
+| Baseline | Exit 1: 59 failures; immutable baseline unchanged; eleven exact authorized member endpoints added |
+| Isolated browser | Two passing cases, 375x812 and 1440x900, all five routes; zero page/KaTeX errors and document overflow; slider keyboard change checked |
+| Normal `npm run generate:og-cards` | Exit 0; prune prehook reported nothing to remove; 48 assets generated |
+| Normal `npm run check:og-card-bytes` | Exit 0; all 96 public/export files byte-identical to the rendering boundary |
+
+Twelve bounded captures and both changed cards were inspected against the locked references. Changed cards show 7 and 6 references. These captures are not a simultaneous full-table, tooltip clipping, Axe or full-brand release audit. Production HTML, reading times, full-browser coverage and independent scrutiny/user acceptance remain deferred behind the red prerequisite. `next-env.d.ts` was restored after exactly two verified Next dev import substitutions. Protected PRODUCT_QUALITY.md, qa/, local commits d282a83/2cf7d6b, immutable baselines and owner work are preserved. No push, deployment, cleanup, new Mission/controller, configuration/security change or model/credit fallback occurred; no role-specific exhaustion was observed.
+
+Exact evidence files in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-manipulation-rl-integration-20260907`: `source-proof.json`, `row-history.json`, `applied-held.json`, `preservation.json`, `handoff.json`, `artifact-index.json`. Preserved diagnostics include the unavailable tsx runtime, citation-label convention, empty cut-parts handling, quoted-claim header mapping, an old comparison-count oracle, redundant mutation parsing, canonical-citation summary refresh and unavailable Pillow; none was resolved by weakening the gate. Older checkpoint sections below are archived historical receipts.
+
+## Historical: Comparison matrix partial closeout — 2026-09-07
 
 **Comparison matrix: 8 complete / 17 incomplete / 25 original rows. Corpus: 128 complete / 866 incomplete / 994 original identities / 47 articles.** This is a local implementation checkpoint, not whole-article or independent acceptance. Ready and complete original ordinals are **13, 16, 20, 21, 22, 23, 24, 25**. All 120 previous complete records, 979 unaffected parsed records, 24 previous compound plans, 139 previous approvals, all 18 method records and the three completed articles (ACT 32/32, BC 14/14, DP 25/25) remain intact. Current catalog: 39 plans; 144 exact approvals. Reproducible counting/preservation: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/preservation.json`; unchanged `parseLedger` over canonical articles and compound data.
 

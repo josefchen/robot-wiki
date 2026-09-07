@@ -7,20 +7,21 @@ import { compoundPartDigest, parseCompoundPlans, parseLedger } from '@/lib/audit
 const ledger = readFileSync('audit/manipulation.md', 'utf8');
 const plans = parseCompoundPlans(JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')));
 const ids = new Set(CITATIONS.map(c => c.id));
-const ready = [13, 16, 20, 21, 22, 23, 24, 25];
+const ready = [6, 11, 12, 13, 16, 20, 21, 22, 23, 24, 25];
 const rows = (compoundPlans = plans) => parseLedger('audit/manipulation.md', ledger, ids, {
   compoundPlans,
 }).find(section => section.slug === 'comparison-matrix')!.claimRecords;
 
 describe('comparison fixed original audit population', () => {
-  it('completes only the eight fully bound claims, retaining all 25 original identities', () => {
+  it('completes only the eleven fully bound claims, retaining all 25 original identities', () => {
     expect(rows()).toHaveLength(25);
     expect(rows().flatMap((row, i) => row.evidenceFailures.length ? [] : [i + 1])).toEqual(ready);
   });
 
   it('fails each whole ready row when any one required part loses its passage', () => {
     for (const ordinal of ready) {
-      const original = plans.find(p => p.id === `comparison-current-${ordinal}-20260907`)!;
+      const planId = rows()[ordinal - 1].compound!.planId;
+      const original = plans.find(p => p.id === planId)!;
       for (const part of original.parts) {
         const changed = structuredClone(plans);
         const plan = changed.find(p => p.id === original.id)!;

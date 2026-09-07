@@ -72,8 +72,8 @@ describe('LATENCY_REFERENCES', () => {
     const byId = Object.fromEntries(LATENCY_REFERENCES.map((r) => [r.id, r]));
     expect(byId['pi0-thor'].ms).toBe(52.57);
     expect(byId['pi06-h100'].ms).toBe(63);
-    expect(byId['rtc-static'].ms).toBe(108);
-    expect(byId['rtc-mobile'].ms).toBe(139);
+    expect(byId['rtc-static'].ms).toBe(108.76);
+    expect(byId['rtc-mobile'].ms).toBe(138.98);
     expect(byId['pi07-tolerance'].ms).toBe(240);
   });
 
