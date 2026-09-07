@@ -28,7 +28,56 @@ retained as historical audit claims, not current acceptance evidence.
 The original tooling/accounting repair re-fetched no source, changed no
 article prose, and moved no `lastReviewed` date.
 
-### Current structured-record counts (integration batch 3, 2026-09-06)
+### Current structured-record counts (integration batch 4)
+
+Counting unit: parsed article claim rows, **not** source documents, evidence items or historical verdicts. **The audit remains incomplete and unaccepted.**
+
+| Domain | Articles with records | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|---:|
+| manipulation | 12 | 225 | 36 | 189 |
+| rl-sim2real | 7 | 167 | 23 | 144 |
+| world-models | 5 | 92 | 4 | 88 |
+| data-hardware | 6 | 128 | 3 | 125 |
+| classical | 7 | 187 | 12 | 175 |
+| frontier | 6 | 147 | 5 | 142 |
+| adjacent | 4 | 48 | 0 | 48 |
+| **Corpus** | **47** | **994** | **83** | **911** |
+
+Twenty prepared candidates qualify after current whole-claim/binding review: **18 scalar records and two existing-correction records**. Diffusion Policy adds eleven; perception adds four and scene-representation five. No compound record is added. All 63 prior complete rows and all 994 original claim/source/verdict/note projections survive, with original-tuple SHA-256 `ea9322cafaec5a09303d8b70803df2d69566bc902382831977e2159b56c72f5c`.
+
+| Article | Claim rows | Complete records | Missing records |
+|---|---:|---:|---:|
+| bc-foundations | 14 | 8 | 6 |
+| action-chunking | 32 | 17 | 15 |
+| diffusion-policy | 25 | 11 | 14 |
+| rl-for-robotics | 52 | 20 | 32 |
+| why-rl-locomotion | 12 | 1 | 11 |
+| parallel-sim-rl | 18 | 1 | 17 |
+| reward-design-mpc | 23 | 1 | 22 |
+| taxonomy | 20 | 1 | 19 |
+| latent-dynamics | 21 | 3 | 18 |
+| industrial-deployment | 52 | 3 | 49 |
+| perception | 59 | 5 | 54 |
+| scene-representation | 49 | 7 | 42 |
+| safety-and-assurance | 40 | 5 | 35 |
+
+Fourteen Diffusion Policy rows and three classical publication-bridge rows remain held. The finite ONE-article closeout identifies DP's remaining ordinals, actual source/version/implementation gaps, all three exact unapplied proposals and Josef's future precise approval requirement:
+
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/integration-batch4/diffusion-policy-closeout.md
+
+DP's landing 12-task/extended-body 15-task mismatch is distinct from the retained body's unresolved 100/10-versus-100/16 sampler conflict. Real reference settings, FiLM's Push-T exception, limited recommendation and extended/original/unpinned edition distinctions remain. Classical original 266/271 still lack publication-specific complete Zhang parameter-recovery proof; 333 lacks the KinectFusion publication/content bridge and whole two-source polarity support.
+
+Zhang uses actual publisher abstract/date evidence; ClearGrasp retains its claim-scoped byline/text bridge; DSO uses actual journal full text (2017 online/2018 issue), not silently inherited 2016 conclusions. Curless–Levoy uses the actual retained Stanford PDF URL, with substantial matching primary text and identities, never a pretend ACM PDF fetch. DP row 12 and classical original 356 support already-corrected prose rather than the historical erroneous claims.
+
+Completed proof is reused, not rerun for ownership: DP two response bindings/nine prior/thirty-seven packet excerpts/twenty-five row bindings; classical ten FetchUrl bindings/twenty-two publisher excerpts/seventy provider-field segments/four correspondences/ten retained captures/twenty-eight offsets. Integration verifies current packet/capture hashes, pairing and original/current wording. Preparation failures remain in the old packets. No new fetch, re-extraction, publication-year substitution or invented retrieval time occurs.
+
+The entire compound catalog is byte-identical: four supported plans and two empty incomplete P1 plans. Partial identity counts are not whole-row completion. Original 1,163 and integrated 1,167 table-line preservation guarantees remain. MDX, registry, code, tests, baseline, approval records and article dates are unchanged. TD3's finished authority determination is not reassessed; ACT direction and pricing closeout retain separate ownership.
+
+The full 73-case audit file, stable-tree preservation and regular-file content gate are recorded with real exits/counts in this batch's receipts. The unchanged 117-test/typecheck/lint evidence from `0946948` is **reused, not newly run**. No build/browser/full-unit rerun, push, feature advancement or acceptance. Independent Sol/high scrutiny, required user testing and complete release evidence remain outstanding.
+
+/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/integration-batch4/
+
+### Historical integration batch 3 structured-record counts (2026-09-06)
 
 Counting unit: parsed article claim rows, **not** source documents, evidence
 items or historical verdicts. **The audit remains incomplete and unaccepted.**
