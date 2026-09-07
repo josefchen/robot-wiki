@@ -36,7 +36,7 @@
       "oldHash": "d9477b6b2816906b99c326775d2ce6abab6924e71a6b2b9ba709fb7469ad2c06",
       "newHash": "94c9545b91eea390660bbb6e1b04370b2477e4da6fd5408ff247456a2dbc0f23",
       "reason": "Supersedes the brand-v2-shell-home credit-line delta for this member, which is folded in here because a member carries one delta: the registered credit for the covariate-shift diagram still reads Robot Wiki (original diagram) rather than the v1 lowercase name. On top of that, the registry record now carries figureKind original-schematic, the legal basis owned, its derived attribution sentence, and the preservation policy first-party-restyled-semantics-preserved, and the shipped SVG bytes were repainted from the v1 amber-on-slate palette to the brand-v2 ink, graphite, concrete, and lime foundation. Only fill, stroke, stroke-width, and opacity values changed: the normalized semantic hash under the VAL-B2-VIZ-014 allowlist is byte-identical before and after, so every path, coordinate, dash pattern, font-family, font-size, label string, and the role/aria-label textual alternative are the same drawing.",
-      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the \u00a71.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
         "VAL-B2-ID-001",
@@ -53,7 +53,7 @@
       "oldHash": "b4aaadf5230707565cc34e6d474bf05e71213dc1ea66c19ea42feff9a271fa2b",
       "newHash": "782ba1e09b3e3f808dd5bc61115c719747ef0b98154ec1faf92dd4f3a063117d",
       "reason": "Supersedes the brand-v2-shell-home credit-line delta for this member, which is folded in here because a member carries one delta: the registered credit for the temporal-ensembling diagram still reads Robot Wiki (original diagram) rather than the v1 lowercase name. On top of that, the registry record now carries figureKind original-schematic, the legal basis owned, its derived attribution sentence, and the preservation policy first-party-restyled-semantics-preserved, and the shipped SVG bytes were repainted from the v1 amber-on-slate palette to the brand-v2 ink, graphite, concrete, and lime foundation. Only fill, stroke, stroke-width, and opacity values changed: the normalized semantic hash under the VAL-B2-VIZ-014 allowlist is byte-identical before and after, so every path, coordinate, dash pattern, font-family, font-size, label string, and the role/aria-label textual alternative are the same drawing.",
-      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the \u00a71.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
         "VAL-B2-ID-001",
@@ -155,8 +155,8 @@
       "memberId": "registered-image:anymal-anybotics-2022",
       "oldHash": "cf34f07eb37564df4a5ae84c5edc1d8058c5bc823eee93be52638896ba5e52a5",
       "newHash": "5eca65ed55e262cc2d3d150060bb656641653917cdeb88796bf38260c2029b06",
-      "reason": "The registry record for the ANYmal C photograph now carries its \u00a71.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
-      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the \u00a71.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "reason": "The registry record for the ANYmal C photograph now carries its §1.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
         "VAL-B2-IMG-002",
@@ -170,8 +170,8 @@
       "memberId": "registered-image:atlas-darpa-frontview-2013",
       "oldHash": "ae819fbc7f4f852a0dbd7af34c86e0216951b346cc75a8e81da9d3e74ec4f7fa",
       "newHash": "f2e576dd6b6dec88408ba8bd9209e1043a517cb8a555127acb4c30b23d42afca",
-      "reason": "The registry record for the 2013 Atlas photograph now carries its \u00a71.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
-      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the \u00a71.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "reason": "The registry record for the 2013 Atlas photograph now carries its §1.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
         "VAL-B2-IMG-002",
@@ -185,8 +185,8 @@
       "memberId": "registered-image:franka-emika-panda-cebit-2017",
       "oldHash": "c3a8fc1ed7fb36545ca8b74bee329ede0340ceb6b85ece0f9006a29dda8894ae",
       "newHash": "58afc08ce70d049581e1b0448536807d5ab8d83cb35b62034b2c676e931f502d",
-      "reason": "The registry record for the Panda at CeBIT photograph now carries its \u00a71.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
-      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the \u00a71.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "reason": "The registry record for the Panda at CeBIT photograph now carries its §1.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
         "VAL-B2-IMG-002",
@@ -200,8 +200,8 @@
       "memberId": "registered-image:puma-560-nasa-ames",
       "oldHash": "8b04a521e3c49dc4d14b7c0eb9921444ce16c70e4b19b968f1b202877bb822d1",
       "newHash": "b657d164d01ce2bd6304947ec6fcae5f86298d79c0d20735df80111ad700b93c",
-      "reason": "The registry record for the PUMA 560 photograph now carries its \u00a71.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
-      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the \u00a71.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "reason": "The registry record for the PUMA 560 photograph now carries its §1.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
         "VAL-B2-IMG-002",
@@ -215,8 +215,8 @@
       "memberId": "registered-image:spot-raf-agile-liberty-2021",
       "oldHash": "757149d9ab2f923e184527ba1699a6e94ed58f9472ac5d613390a07cec68e423",
       "newHash": "f1c63995d8ca06f8bc1a584b3852531fe72f79aabd04baca9672a66b54e3b761",
-      "reason": "The registry record for the Spot at Agile Liberty photograph now carries its \u00a71.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
-      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the \u00a71.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
+      "reason": "The registry record for the Spot at Agile Liberty photograph now carries its §1.13 legal basis, its derived attribution sentence, and the preservation policy external-bytes-preserved. The image file, its bytes, alt text, caption, creator, source name, source URL, licence, licence URL, retrieval date, and pixel dimensions are unchanged, and the manifest's byteHash for the file is identical on both sides of this delta.",
+      "ownerApproval": "contract/design-integrity.md VAL-B2-IMG-002 requires the §1.13 legal basis, attribution text, and preservation policy to live in canonical metadata; VAL-B2-VIZ-014 admits restyling of a first-party SVG whose normalized semantic geometry and label text are unchanged.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
         "VAL-B2-IMG-002",
@@ -982,7 +982,7 @@
       "memberId": "article:manipulation/action-chunking",
       "oldHash": "9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db",
       "newHash": "0ad96349ed2369e950e62e991d1432ce1d0d56bc33fd49fa09c9bbb3dd51a41e",
-      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 \u00d7 i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: 9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
+      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 × i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: 9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed ACT correction authority, not personal source verification or acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1004,7 +1004,7 @@
       "memberId": "article:manipulation/action-chunking",
       "oldHash": "26ad6f467f5e22f419c3a67883ccdfa5669c26aef1f543143adecac1b756456f",
       "newHash": "2cb24b1fb0a24fecfcca3ad70657d3369f6f08e903ba31051212dd7fbc9eb2e6",
-      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 \u00d7 i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: 26ad6f467f5e22f419c3a67883ccdfa5669c26aef1f543143adecac1b756456f. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
+      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 × i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: 26ad6f467f5e22f419c3a67883ccdfa5669c26aef1f543143adecac1b756456f. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed ACT correction authority, not personal source verification or acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1026,7 +1026,7 @@
       "memberId": "public-svg:images/temporal-ensembling.svg",
       "oldHash": "6bdb6bf448e69ee57d8906ce901ae0fbdcde8f26598746fd5743440ce0d9d429",
       "newHash": "e3d1c802193ed221d7f7c143c781bcdac1fe9ff79ef791ba7c8c991d8cb7b718",
-      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 \u00d7 i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: 6bdb6bf448e69ee57d8906ce901ae0fbdcde8f26598746fd5743440ce0d9d429. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
+      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 × i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: 6bdb6bf448e69ee57d8906ce901ae0fbdcde8f26598746fd5743440ce0d9d429. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed ACT correction authority, not personal source verification or acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1048,7 +1048,7 @@
       "memberId": "registered-image:temporal-ensembling",
       "oldHash": "b4aaadf5230707565cc34e6d474bf05e71213dc1ea66c19ea42feff9a271fa2b",
       "newHash": "97291cc7610061b4f038a0498840ada124b91ba77ab4a9d36318434814c45981",
-      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 \u00d7 i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: 782ba1e09b3e3f808dd5bc61115c719747ef0b98154ec1faf92dd4f3a063117d. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
+      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 × i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: 782ba1e09b3e3f808dd5bc61115c719747ef0b98154ec1faf92dd4f3a063117d. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed ACT correction authority, not personal source verification or acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1070,7 +1070,7 @@
       "memberId": "article-fact-frontmatter:manipulation/action-chunking",
       "oldHash": "c128aea24d54f93eb8275fde4baa7102c1a07ac123565200935c835d7acf46cb",
       "newHash": "bb956ba4717d858be8fa2a643eaee63b6c83404c0ad181457a72cb322afbc092",
-      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 \u00d7 i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: c128aea24d54f93eb8275fde4baa7102c1a07ac123565200935c835d7acf46cb. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
+      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 × i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: c128aea24d54f93eb8275fde4baa7102c1a07ac123565200935c835d7acf46cb. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed ACT correction authority, not personal source verification or acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1092,7 +1092,7 @@
       "memberId": "canonical-metadata-source:data/glossary.ts",
       "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
       "newHash": "19d552e44dbc558f75aef732f7631a5e9f4b9d62ee2d11bb501538f8d20d1323",
-      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 \u00d7 i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: 5249db7c6a0745fa1476476baa774f348b144c987a9c52a4e56ef58f97d09783. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
+      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 × i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: 5249db7c6a0745fa1476476baa774f348b144c987a9c52a4e56ef58f97d09783. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed ACT correction authority, not personal source verification or acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1114,7 +1114,7 @@
       "memberId": "citation-rendering:label-and-meta",
       "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
       "newHash": "ca93d000ecfc779c557d142061c72267ec25d28ca44213758c76ec4b87a22ad8",
-      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 \u00d7 i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: 04049261ce9dd32c29a001de30b8a74fc76e8c891d25bd18a20116a2b0dfe259. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
+      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 × i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: 04049261ce9dd32c29a001de30b8a74fc76e8c891d25bd18a20116a2b0dfe259. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed ACT correction authority, not personal source verification or acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1136,7 +1136,7 @@
       "memberId": "citation:act-reference-2023",
       "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
       "newHash": "233e66d29bf522ee93a37c82cde40f867f545d6e925a9574842fcd8b168ede95",
-      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 \u00d7 i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
+      "reason": "ACT-CONVENTION-20260907: pinned ACT code orders retained current-step predictions oldest-to-newest, then normalizes exp(-0.01 × i). Correct inconsistent prose/comments/glossary/figure/caption/alt and register the exact code citation. Figure raw weights 1.00, 0.61, 0.37 are illustrative m=0.5, not reference m=0.01. Source: https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py . Immediate before member hash: ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. Existing approved endpoint changes for this exact member are retained; no unrelated change is allowed.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed ACT correction authority, not personal source verification or acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1563,7 +1563,7 @@
       "memberId": "article:manipulation/action-chunking",
       "oldHash": "9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db",
       "newHash": "99a1603d75619dd1ec84dd5f81cb19b7ac20084889e2aca24f7ec2af1c401241",
-      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10\u201320ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 0ad96349ed2369e950e62e991d1432ce1d0d56bc33fd49fa09c9bbb3dd51a41e. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 0ad96349ed2369e950e62e991d1432ce1d0d56bc33fd49fa09c9bbb3dd51a41e. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1582,7 +1582,7 @@
       "memberId": "expression:components/interactive/latency-comparison.tsx:aria-label:2",
       "oldHash": "b1e892324a37ef7e5ffa9e557dad37f05b37d87f295ad6e242edcb955084da34",
       "newHash": "cfa149922acd4d7664d2f5c377a09df2d772ec90627f7431509be86bd06b52b8",
-      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10\u201320ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: b1e892324a37ef7e5ffa9e557dad37f05b37d87f295ad6e242edcb955084da34. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: b1e892324a37ef7e5ffa9e557dad37f05b37d87f295ad6e242edcb955084da34. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1601,7 +1601,7 @@
       "memberId": "article:manipulation/action-chunking",
       "oldHash": "26ad6f467f5e22f419c3a67883ccdfa5669c26aef1f543143adecac1b756456f",
       "newHash": "9ae513b028d8a1f2c7dad8a6e7d85eb6b5aa3ae11bbb789ba29302c6e3edc659",
-      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10\u201320ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 2cb24b1fb0a24fecfcca3ad70657d3369f6f08e903ba31051212dd7fbc9eb2e6. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 2cb24b1fb0a24fecfcca3ad70657d3369f6f08e903ba31051212dd7fbc9eb2e6. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1620,7 +1620,7 @@
       "memberId": "source:components/interactive/latency-comparison.tsx",
       "oldHash": "e1e6d8e822f56d8a9c7b10d3daba5998307f4a61e9a7dc21c7d7a2cd565e7ac1",
       "newHash": "c14f9227490227d6a1b046aa02146098e9afb9e8637d6e6de86a451a625bdd0b",
-      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10\u201320ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 96285ad810b9dc2b9114dc81d1eaf1bdf30c8c02f7b06e0e4ee134527540a399. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 96285ad810b9dc2b9114dc81d1eaf1bdf30c8c02f7b06e0e4ee134527540a399. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1639,7 +1639,7 @@
       "memberId": "default:components/interactive/latency-comparison.tsx:4",
       "oldHash": "df85afdaac6835cc015da711caba6f7a36e8a407821818d18d6ca4b064400617",
       "newHash": "b5c53645b3e584023fe4a2d561bdc92e1697acc5e0b2b24b82986f8f4236a415",
-      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10\u201320ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: df85afdaac6835cc015da711caba6f7a36e8a407821818d18d6ca4b064400617. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: df85afdaac6835cc015da711caba6f7a36e8a407821818d18d6ca4b064400617. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1658,7 +1658,7 @@
       "memberId": "default:components/interactive/latency-comparison.tsx:5",
       "oldHash": "b5c53645b3e584023fe4a2d561bdc92e1697acc5e0b2b24b82986f8f4236a415",
       "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
-      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10\u201320ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: b5c53645b3e584023fe4a2d561bdc92e1697acc5e0b2b24b82986f8f4236a415. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: b5c53645b3e584023fe4a2d561bdc92e1697acc5e0b2b24b82986f8f4236a415. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1677,7 +1677,7 @@
       "memberId": "citation-rendering:label-and-meta",
       "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
       "newHash": "9ccd4c34ab44d2d927394888ee44ef170ef1fa2d42a37cd4c4da9d2e1aecc571",
-      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10\u201320ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 3ec80be198832290602b14ecb3ee7375dbd096af9e8f2f536cc1d0f60fadab33. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 3ec80be198832290602b14ecb3ee7375dbd096af9e8f2f536cc1d0f60fadab33. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1696,7 +1696,7 @@
       "memberId": "citation:pi-real-time-chunking-blog-2025",
       "oldHash": "d41a492a66db6cef35424e6d2ec0003983770bdd85754adbc0122cf887fe4d6a",
       "newHash": "0406f911148c1aca1d31ef3151fcf35181586836bfba9e25c7859fd405fcc5f0",
-      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10\u201320ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: d41a492a66db6cef35424e6d2ec0003983770bdd85754adbc0122cf887fe4d6a. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "reason": "ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: d41a492a66db6cef35424e6d2ec0003983770bdd85754adbc0122cf887fe4d6a. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -1715,7 +1715,7 @@
       "memberId": "article:manipulation/action-chunking",
       "oldHash": "9fac1c749a4c2690fce47604d856938472e6154f696e92670de0d83368ee74db",
       "newHash": "0e5363905273dd0821c751fd5b7431567f8b9078e764b5d7c327039bd28acf98",
-      "reason": "ACT-CURRENT-15 composition-only follow-up: replace the forbidden prose en dash in 10\u201320 ms with 10 to 20 ms. Same RTC source and numeric interval; no new fact, citation, source or style. Immediate-before member hash: 99a1603d75619dd1ec84dd5f81cb19b7ac20084889e2aca24f7ec2af1c401241. ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10\u201320ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 0ad96349ed2369e950e62e991d1432ce1d0d56bc33fd49fa09c9bbb3dd51a41e. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
+      "reason": "ACT-CURRENT-15 composition-only follow-up: replace the forbidden prose en dash in 10–20 ms with 10 to 20 ms. Same RTC source and numeric interval; no new fact, citation, source or style. Immediate-before member hash: 99a1603d75619dd1ec84dd5f81cb19b7ac20084889e2aca24f7ec2af1c401241. ACT-CURRENT-20260907: preserve six-joint-plus-gripper hardware and disclose ACT IV-C L1 versus Algorithm 1 MSE; distinguish RTC pi0.5 five-step model 76/97ms plus LAN 10–20ms from ADDED 100/200ms, six-task ten-episode average; cut unsupported causal adoption. Correct the blog title and three-person byline, and label the unchanged deterministic interactive as a toy rather than measured throughput. Primary sources: https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://ar5iv.labs.arxiv.org/html/2401.02117 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://www.pi.website/research/real_time_chunking . Immediate-before member hash: 0ad96349ed2369e950e62e991d1432ce1d0d56bc33fd49fa09c9bbb3dd51a41e. The behavioral-default ordinal shift reflects removal of a prose-description conditional, not a slider/default/calculation change; 0/100ms mounted defaults and reset remain tested. Exact composed endpoint only; no unrelated source, visual or interaction allowance.",
       "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed correction authority, not personal source verification or independent acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -2770,6 +2770,126 @@
         "VAL-B2-ART-010",
         "VAL-AUDIT-001",
         "VAL-AUDIT-008",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "retained-cross-20260907-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "3883156aa8959c5de8f24b39c13ebd6001ae67f36e00c215070a462a5ec79053",
+      "reason": "Seven source-backed original-row corrections across three articles: remove unsupported Zhang adoption history; define PointNet input without universal sensor-ray provenance; scope Dex-NeRF camera failure to the tested RealSense scenes; scope layered costmaps and asynchronous planner/controller roles to Navigation2 rather than field-wide or timing authority; attribute EVST payback estimates to vendor and operating setting without inferred buyer rejection. The scene relationship change is exactly one added nav2-2020 inline citation occurrence beside its costmap claim; unique source union, internal links, seeAlso and terms are unchanged. Exact member only. Immediate-before hash 899550dced0889b7b848a2bad16feb7416bc43f5ceca244bd59b759855f5986e. Literal source bodies/original events and exact original/current row history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-retained-cross-article-integration-20260907/source-proof.json and row-history.json. Sources: https://arxiv.org/pdf/1612.00593 ; https://arxiv.org/pdf/2110.14217v1 ; https://arxiv.org/pdf/2003.00368v2 ; https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/ ; https://doi.org/10.1109/34.888718. No dates, citation identities/frontmatter, datasets, controls or completed records changed; other incomplete claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-COMP-008",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "retained-cross-20260907-2",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "7071ace1f9094617c6cca55f6ea0a2910fbe6441271d14cc02868f1a369678c5",
+      "reason": "Seven source-backed original-row corrections across three articles: remove unsupported Zhang adoption history; define PointNet input without universal sensor-ray provenance; scope Dex-NeRF camera failure to the tested RealSense scenes; scope layered costmaps and asynchronous planner/controller roles to Navigation2 rather than field-wide or timing authority; attribute EVST payback estimates to vendor and operating setting without inferred buyer rejection. The scene relationship change is exactly one added nav2-2020 inline citation occurrence beside its costmap claim; unique source union, internal links, seeAlso and terms are unchanged. Exact member only. Immediate-before hash f47db4a00911792f59a384ec06bac53f4e64cf8ccde54e63ac17835f59c80071. Literal source bodies/original events and exact original/current row history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-retained-cross-article-integration-20260907/source-proof.json and row-history.json. Sources: https://arxiv.org/pdf/1612.00593 ; https://arxiv.org/pdf/2110.14217v1 ; https://arxiv.org/pdf/2003.00368v2 ; https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/ ; https://doi.org/10.1109/34.888718. No dates, citation identities/frontmatter, datasets, controls or completed records changed; other incomplete claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-COMP-008",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "retained-cross-20260907-3",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "750d2a819dc0093fef156ec7664555225ef2ab527b2b5c477832859034aea589",
+      "reason": "Seven source-backed original-row corrections across three articles: remove unsupported Zhang adoption history; define PointNet input without universal sensor-ray provenance; scope Dex-NeRF camera failure to the tested RealSense scenes; scope layered costmaps and asynchronous planner/controller roles to Navigation2 rather than field-wide or timing authority; attribute EVST payback estimates to vendor and operating setting without inferred buyer rejection. The scene relationship change is exactly one added nav2-2020 inline citation occurrence beside its costmap claim; unique source union, internal links, seeAlso and terms are unchanged. Exact member only. Immediate-before hash a7ae31d224104e331b62665cad4264c944f258ab4bf05f6038894be78fefe9ba. Literal source bodies/original events and exact original/current row history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-retained-cross-article-integration-20260907/source-proof.json and row-history.json. Sources: https://arxiv.org/pdf/1612.00593 ; https://arxiv.org/pdf/2110.14217v1 ; https://arxiv.org/pdf/2003.00368v2 ; https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/ ; https://doi.org/10.1109/34.888718. No dates, citation identities/frontmatter, datasets, controls or completed records changed; other incomplete claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-COMP-008",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "retained-cross-20260907-4",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31",
+      "newHash": "50c4e3a598976bd95f29a11886de887153597ba9ec3bb0d4ec8c2741bad97cd0",
+      "reason": "Seven source-backed original-row corrections across three articles: remove unsupported Zhang adoption history; define PointNet input without universal sensor-ray provenance; scope Dex-NeRF camera failure to the tested RealSense scenes; scope layered costmaps and asynchronous planner/controller roles to Navigation2 rather than field-wide or timing authority; attribute EVST payback estimates to vendor and operating setting without inferred buyer rejection. The scene relationship change is exactly one added nav2-2020 inline citation occurrence beside its costmap claim; unique source union, internal links, seeAlso and terms are unchanged. Exact member only. Immediate-before hash 7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31. Literal source bodies/original events and exact original/current row history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-retained-cross-article-integration-20260907/source-proof.json and row-history.json. Sources: https://arxiv.org/pdf/1612.00593 ; https://arxiv.org/pdf/2110.14217v1 ; https://arxiv.org/pdf/2003.00368v2 ; https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/ ; https://doi.org/10.1109/34.888718. No dates, citation identities/frontmatter, datasets, controls or completed records changed; other incomplete claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-COMP-008",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "retained-cross-20260907-5",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "81a9dfe28dda779c0365f8c81b56604374588c99616c9b438eac53d9161cc6f4",
+      "reason": "Exact follow-up to the retained source-backed correction: move Zhang's unchanged source citation to the start of the comparison paragraph after an observed 37px mobile overflow, and/or split the unchanged payback wording into its own paragraph after the inspected long crop included fixed UI overlays. No factual words, source IDs/counts, dates or component code altered by this follow-up. Immediate-before hash 3883156aa8959c5de8f24b39c13ebd6001ae67f36e00c215070a462a5ec79053; exact final hash 81a9dfe28dda779c0365f8c81b56604374588c99616c9b438eac53d9161cc6f4. Original source evidence and failed/final browser captures: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-retained-cross-article-integration-20260907. September 7 routine correction authority is implementation permission, not independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-B2-A11Y-008",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "retained-cross-20260907-6",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "25f89d2b66a3c7cba5c35145cefaa828a445b6dccf6f55f0bb73f01932e3a9e4",
+      "reason": "Exact follow-up to the retained source-backed correction: move Zhang's unchanged source citation to the start of the comparison paragraph after an observed 37px mobile overflow, and/or split the unchanged payback wording into its own paragraph after the inspected long crop included fixed UI overlays. No factual words, source IDs/counts, dates or component code altered by this follow-up. Immediate-before hash 750d2a819dc0093fef156ec7664555225ef2ab527b2b5c477832859034aea589; exact final hash 25f89d2b66a3c7cba5c35145cefaa828a445b6dccf6f55f0bb73f01932e3a9e4. Original source evidence and failed/final browser captures: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-retained-cross-article-integration-20260907. September 7 routine correction authority is implementation permission, not independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine source-backed implementation authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-B2-A11Y-008",
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"

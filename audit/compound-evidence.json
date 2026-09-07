@@ -3755,5 +3755,278 @@
         "evidenceDigest": "c5c5b5954650f2850b84db47af382012ef8b87dd2720553c8e747ee073c97e56"
       }
     ]
+  },
+  {
+    "id": "retained-cross-perception-14-20260907",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "6a73ab1cde0957266585b1db939e492d42480e73eda592ed374c129f32e85e2c",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "current-claim",
+        "text": "Zhang compares planar-target calibration with classical techniques that use expensive equipment such as two or three orthogonal planes.",
+        "requiredCitationIds": [
+          "zhang-2000-calibration"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+      "rationale": "Cut the unsupported historical displacement and real-robot adoption claims; the journal abstract supports a comparison, not adoption history. Exact current sentence and original tuple/history preserved. All listed contexts required; no partial-source certification.",
+      "planDigest": "00662e46a069ae67f91248e42accd82a92dcf5edadd0e387da52147d5f75feab"
+    },
+    "evidence": [
+      {
+        "partId": "current-claim",
+        "citationId": "zhang-2000-calibration",
+        "sourceUrl": "https://doi.org/10.1109/34.888718",
+        "supportingPassage": "We propose a flexible technique to easily calibrate a camera. It only requires the camera to observe a planar pattern shown at a few (at least two) different orientations. Either the camera or the planar pattern can be freely moved. The motion need not be known. Radial lens distortion is modeled. The proposed procedure consists of a closed-form solution, followed by a nonlinear refinement based on the maximum likelihood criterion. Both computer simulation and real data have been used to test the proposed technique and very good results have been obtained. Compared with classical techniques which use expensive equipment such as two or three orthogonal planes, the proposed technique is easy to use and flexible. It advances 3D computer vision one more step from laboratory environments to real world use."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "current-claim",
+        "outcome": "supported",
+        "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+        "rationale": "Cut the unsupported historical displacement and real-robot adoption claims; the journal abstract supports a comparison, not adoption history. Verified actual retained document bytes and named original retrieval before reuse; source-provenance caveats remain in the ledger.",
+        "evidenceDigest": "3d70cde1df410e93ac397ea4eda493065e8b5c97e73704328b72eba0437f483d"
+      }
+    ]
+  },
+  {
+    "id": "retained-cross-scene-representation-2-20260907",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "7d4107f1baebb195efbf048aa50b14a793f91a9c920bf9aabe5fdfa50b7d8d81",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "current-claim",
+        "text": "A point cloud is an unordered set of 3D points; PointNet requires invariance to the order in which those points are supplied.",
+        "requiredCitationIds": [
+          "pointnet-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+      "rationale": "Cut the universal one-sample-per-returned-ray and no-connectivity definition; the paper defines a point set and its permutation property without requiring that sensor origin. Exact current sentence and original tuple/history preserved. All listed contexts required; no partial-source certification.",
+      "planDigest": "f91b1d4ea7c8c16f04fd9a0b55e690f2c13e0e5940aafb9d986cc6a1e4cd06f3"
+    },
+    "evidence": [
+      {
+        "partId": "current-claim",
+        "citationId": "pointnet-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1612.00593",
+        "supportingPassage": "Our input is a subset of points from an Euclidean space. It has three main properties: • Unordered. Unlike pixel arrays in images or voxel arrays in volumetric grids, point cloud is a set of points without specific order. In other words, a network that consumes N 3D point sets needs to be invariant to N ! permutations of the input set in data feeding order.\n\nOur PointNet is a unified architecture that directly takes point clouds as input and outputs either class labels for the entire input or per point segment/part labels for each point of the input. The basic architecture of our network is surprisingly simple as in the initial stages each point is processed identically and independently. In the basic setting each point is represented by just its three coordinates (x, y, z). Additional dimensions may be added by computing normals and other local or global features. Key to our approach is the use of a single symmetric function, max pooling. Effectively the network learns a set of optimization functions/criteria that select interesting or informative points of the point cloud and encode the reason for their selection. The final fully connected layers of the network aggregate these learnt optimal values into the global descriptor for the entire shape as mentioned above (shape classification) or are used to predict per point labels (shape segmentation)."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "current-claim",
+        "outcome": "supported",
+        "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+        "rationale": "Cut the universal one-sample-per-returned-ray and no-connectivity definition; the paper defines a point set and its permutation property without requiring that sensor origin. Verified actual retained document bytes and named original retrieval before reuse; source-provenance caveats remain in the ledger.",
+        "evidenceDigest": "7f63e3b9b500cb4d7e2cb7b6549817127bd0dd27d9e07ab6003c40ceffd693fd"
+      }
+    ]
+  },
+  {
+    "id": "retained-cross-scene-representation-23-20260907",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 23,
+    "originalCellsDigest": "f19161deac5f9aabae1a9b2f67e8763fabab272078f2ef8165ceb7ac5b59f508",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "current-claim",
+        "text": "In the Dex-NeRF RealSense comparison, the camera failed to compute depth for most transparent objects in the tested scenes.",
+        "requiredCitationIds": [
+          "dex-nerf-2021"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+      "rationale": "Replace absolute camera blindness with the exact camera, experimental scope and most-objects qualification; adjacent already-complete method evidence is unchanged. Exact current sentence and original tuple/history preserved. All listed contexts required; no partial-source certification.",
+      "planDigest": "4cb0d246cbc494fb1e3c699abe5801cafc3a87a456f6c1c50c958cf34ceb5ad1"
+    },
+    "evidence": [
+      {
+        "partId": "current-claim",
+        "citationId": "dex-nerf-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2110.14217v1",
+        "supportingPassage": "We qualitatively compare the the rendered depth map of the proposed pipeline against a readilyavailable depth sensor on scenes with transparent objects in real-world settings. We select the Intel RealSense as it is common to robotics applications, readily available, and high-performance. The RealSense, like most stereo depth cameras, struggles with transparent objects as they are unable to compute a stereo disparity between pixels from different cameras when the pixels are specular reflections or the color of the object behind the transparent object. The RealSense optionally projects a structured light pattern on the the scene to aid in computing depth from textureless surfaces, however, in experiments we observed no qualitative difference with and without the light pattern emitter enabled. To run this experiment, we use a Canon EOS as described in the main text, and use a RealSense to take a depth picture of the scene. In this experiment, we observe that the RealSense is unable to compute the depth of most transparent objects, and often produces regions of unknown depth (shown in black) where transparent objects are. On the other hand, the proposed pipeline produces high-quality depth maps with only a few areas of noise. The results of these experiments is shown in Fig. 2."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "current-claim",
+        "outcome": "supported",
+        "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+        "rationale": "Replace absolute camera blindness with the exact camera, experimental scope and most-objects qualification; adjacent already-complete method evidence is unchanged. Verified actual retained document bytes and named original retrieval before reuse; source-provenance caveats remain in the ledger.",
+        "evidenceDigest": "74339abf6585232e8638ad6a7b140504cb1ebb9c0d8f56a706ce42b137e01f78"
+      }
+    ]
+  },
+  {
+    "id": "retained-cross-scene-representation-42-20260907",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 42,
+    "originalCellsDigest": "b0fa8fb6e1c1f3be13599257d4e9a377237bd5b31789654237a5380e899dbfba",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "current-claim",
+        "text": "Navigation2 uses a layered costmap.",
+        "requiredCitationIds": [
+          "nav2-2020"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+      "rationale": "Replace unsupported field-wide standard status with the implementation actually described; keep Lu et al. attribution distinct and unrecertified. Exact current sentence and original tuple/history preserved. All listed contexts required; no partial-source certification.",
+      "planDigest": "0cc96d79c58c98bf63f6d9db370f316ef7bcc66233027832e32ce33f4bd3bfee"
+    },
+    "evidence": [
+      {
+        "partId": "current-claim",
+        "citationId": "nav2-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2003.00368v2",
+        "supportingPassage": "C. Perception As range and resolution of depth sensing technologies have improved, so too have world representations for modeling a robot’s environment. To leverage these improvements, a layered costmap approach is used, allowing the user to customize the hierarchy of layers from various sensor modalities, resolutions, and rate limits. A layered costmap allows for a single costmap to be coherently updated by a number of data sources and algorithms. Each layer can extend or modify the costmap it inherits, then forward the new information to planners and controllers. While the costmap is two dimensional, STVL maintains"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "current-claim",
+        "outcome": "supported",
+        "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+        "rationale": "Replace unsupported field-wide standard status with the implementation actually described; keep Lu et al. attribution distinct and unrecertified. Verified actual retained document bytes and named original retrieval before reuse; source-provenance caveats remain in the ledger.",
+        "evidenceDigest": "0030e91ded259526c0d8b929a8d103e750acde22752de7290c1ace187d11a1e8"
+      }
+    ]
+  },
+  {
+    "id": "retained-cross-scene-representation-43-20260907",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 43,
+    "originalCellsDigest": "26c5aa0f46aa0435748d5f32f0e8a9b48fcf2a30615c218cdef0986bdf401877",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "current-claim",
+        "text": "In Navigation2, the global planner computes a shortest route to a goal, while the controller uses local information to compute a local path and control signals; both are plugins delegated to task-specific asynchronous servers.",
+        "requiredCitationIds": [
+          "nav2-2020"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+      "rationale": "Remove universal whole-map search and timing claims; preserve the source-specific planner/controller roles and server allocation. Exact current sentence and original tuple/history preserved. All listed contexts required; no partial-source certification.",
+      "planDigest": "1ec006d6e786ea7fc3fd122a553b8edaffc05dbd4032dc901d6bbcf9bab5cdce"
+    },
+    "evidence": [
+      {
+        "partId": "current-claim",
+        "citationId": "nav2-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2003.00368v2",
+        "supportingPassage": "D. Global Planner and Controller The task of the global planner is to compute the shortest route to a goal and the controller uses local information to compute the best local path and control signals. The global planner and controller are plugins delegated to task-specific asynchronous servers. For performance, relevant global and local costmaps are co-located in their respective server. New algorithms are employed for smoothly navigating in highly dynamic environments by combining the TEB Local Planners with the STVL for dynamic 3D perception. The TEB controller is capable of taking in object detections and tracks to inform the controller of additional constraints on the environment. It is also suitable for use on differential, omnidirectional, F. Utilities"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "current-claim",
+        "outcome": "supported",
+        "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+        "rationale": "Remove universal whole-map search and timing claims; preserve the source-specific planner/controller roles and server allocation. Verified actual retained document bytes and named original retrieval before reuse; source-provenance caveats remain in the ledger.",
+        "evidenceDigest": "5536c95fa2453369eee7e92f37b05b8d7aefd0ea0816e150942d41143cf58a9d"
+      }
+    ]
+  },
+  {
+    "id": "retained-cross-scene-representation-44-20260907",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 44,
+    "originalCellsDigest": "ca4a1d770301986063315b6f5a012c051e3367454fb302fecf5cff3b2f27947f",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "current-claim",
+        "text": "Navigation2, built on ROS 2, is the implementation used as the example here.",
+        "requiredCitationIds": [
+          "nav2-2020"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+      "rationale": "Choose an explicit editorial example instead of attributing externally authoritative reference-implementation status to the paper. Exact current sentence and original tuple/history preserved. All listed contexts required; no partial-source certification.",
+      "planDigest": "30a39427df510bb6500ec5edc9eaa8d5eaf7e566b1a33ff5b6004cfd05661dc1"
+    },
+    "evidence": [
+      {
+        "partId": "current-claim",
+        "citationId": "nav2-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2003.00368v2",
+        "supportingPassage": "A. Reliable For professional mobile robots moving in excess of 2 m/s near humans, there are many safety and reliability concerns that must be addressed. Navigation2 is designed on top of a real-time capable meta-operating system, ROS2, to address functional safety standards and determinism. ROS2 is the second generation of ROS, the popular robot middleware, built on Data Distribution Service (DDS) communication standard [7]. DDS is used in critical infrastructure including aircraft, missile systems, and financial systems. It exposes the\n\nIII. NAVIGATION 2 D ESIGN The Navigation2 system was designed for a high-degree of configurability and future expansion. While the marathon experiments display one such configuration of Navigation2, the intent of our work is to support a large variety of robot types (differential, holonomic, ackermann, legged) for a large variety of environments and applications. Further, this support is not only targeted for research and education, but for production robots as well. The design took into account the requirements for robotics products needs including safety,\n\nD. Global Planner and Controller The task of the global planner is to compute the shortest route to a goal and the controller uses local information to compute the best local path and control signals. The global planner and controller are plugins delegated to task-specific asynchronous servers. For performance, relevant global and local costmaps are co-located in their respective server. New algorithms are employed for smoothly navigating in highly dynamic environments by combining the TEB Local Planners with the STVL for dynamic 3D perception. The TEB controller is capable of taking in object detections and tracks to inform the controller of additional constraints on the environment. It is also suitable for use on differential, omnidirectional, F. Utilities"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "current-claim",
+        "outcome": "supported",
+        "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+        "rationale": "Choose an explicit editorial example instead of attributing externally authoritative reference-implementation status to the paper. Verified actual retained document bytes and named original retrieval before reuse; source-provenance caveats remain in the ledger.",
+        "evidenceDigest": "fccf568933dc29c03ffb027f4dc99a670e57a0ed079ca1f84791a88c407a72d4"
+      }
+    ]
+  },
+  {
+    "id": "retained-cross-industrial-deployment-29-20260907",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 29,
+    "originalCellsDigest": "75c9ac3292c23a696c224ca94ce308e322d789983d238040f5eb6fdfe73beac4",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "current-claim",
+        "text": "EVST's guide estimates 12 to 24 months for multi-shift palletising cells and says single-shift or lower-throughput operations typically stretch closer to 24 to 36 months; its payback formula divides total system capital cost by monthly labour, reduced-damage and throughput value.",
+        "requiredCitationIds": [
+          "evst-cell-cost-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+      "rationale": "Preserve vendor attribution, bounds and operating settings; remove the unsupported buyer-rejection rule rather than moving the citation before it. Exact current sentence and original tuple/history preserved. All listed contexts required; no partial-source certification.",
+      "planDigest": "6473970f9ddd692edeb93d201ad36ff34ec0c0eea3c5bcbd6817e0de6206cc33"
+    },
+    "evidence": [
+      {
+        "partId": "current-claim",
+        "citationId": "evst-cell-cost-2026",
+        "sourceUrl": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+        "supportingPassage": "According to industry observations, most palletizing robot cells pay back within 12–24 months in multi-shift operations, driven primarily by labor cost avoided and secondarily by reduced product damage and more consistent stacking. Single-shift or lower-throughput operations typically see payback stretch closer to 24–36 months. The payback formula is total system capex divided by monthly labor, waste-reduction, and throughput value combined.\n\nFor illustration, consider a mid-segment cell. A facility running two shifts of manual palletizing might, according to industry observations, avoid roughly $3,500–$5,000 per month in fully loaded labor cost by reassigning that headcount, plus another $500–$1,500 per month in reduced product damage from more consistent stacking. Against a mid-segment complete-cell budget, that combination commonly lands the payback period in the 12–24 month range cited earlier, though single-shift operations with lower labor rates or lighter throughput will see the calculation stretch closer to 24–36 months.\n\nPayback period (months) = Total system capex ÷ (Monthly labor cost avoided + Monthly value of reduced damage/waste + Monthly value of throughput gained)"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "current-claim",
+        "outcome": "supported",
+        "reviewedBy": "Droid implementation source review, ef39a3db-4fb5-4fe2-a117-98a4f31fd54c, verified Astra/max, 2026-09-07; not independent acceptance",
+        "rationale": "Preserve vendor attribution, bounds and operating settings; remove the unsupported buyer-rejection rule rather than moving the citation before it. Verified actual retained document bytes and named original retrieval before reuse; source-provenance caveats remain in the ledger.",
+        "evidenceDigest": "9f9e6d31848bad2e8249e232fcae23dd756b0e1ce3fa744a249d1f516a13d782"
+      }
+    ]
   }
 ]
