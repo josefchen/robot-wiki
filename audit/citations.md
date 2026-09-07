@@ -232,7 +232,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 
 | id | url checked | verdict | title check | action taken | note |
 |---|---|---|---|---|---|
-| alvinn-1988 | https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html | ok | match | none (verified as cited) |  |
+| alvinn-1988 | https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html | ok (retained primary identity) | corrected metadata | BC-P1-20260907: official BibTeX names Advances in Neural Information Processing Systems volume 1, 1988 | Original retrieval and exact bytes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections/source-proof.json and p1-proof.json; no fresh fetch. |
 | dagger-2011 | https://arxiv.org/abs/1011.0686 | ok | match | none (verified as cited) |  |
 | act-aloha-2023 | https://arxiv.org/abs/2304.13705 | ok | match | none (verified as cited) |  |
 | mobile-aloha-2024 | https://arxiv.org/abs/2401.02117 | ok | match | none (verified as cited) |  |
@@ -245,7 +245,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | vla-perf-2026 | https://arxiv.org/abs/2602.18397 | ok | match | fixed: registry title and authors corrected against the arXiv abs page (was a descriptive label plus NVIDIA Research) |  |
 | consistency-policy-2024 | https://arxiv.org/abs/2405.07503 | ok | match | none (verified as cited) |  |
 | one-step-diffusion-2024 | https://arxiv.org/abs/2410.21257 | ok | match | none (verified as cited) |  |
-| hg-dagger-2019 | https://arxiv.org/abs/1810.02890 | ok | match | none (verified as cited) |  |
+| hg-dagger-2019 | https://arxiv.org/abs/1810.02890 | ok (retained primary identity) | corrected metadata | BC-P1-20260907: explicit arXiv v2, 11 March 2019; removed unproved ICRA venue | Original retrieval and exact bytes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections/source-proof.json and p1-proof.json; no fresh fetch. |
 | rt1-2022 | https://arxiv.org/abs/2212.06817 | ok | match | none (verified as cited) |  |
 | rt2-2023 | https://arxiv.org/abs/2307.15818 | ok | match | none (verified as cited) |  |
 | open-x-embodiment-2023 | https://arxiv.org/abs/2310.08864 | ok | match | none (verified as cited) |  |
@@ -270,7 +270,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | pi07-blog-2026 | https://www.pi.website/blog/pi07 | ok | match | none (verified as cited) |  |
 | openpi-repo-2024 | https://github.com/Physical-Intelligence/openpi | ok | match | none (verified as cited) |  |
 | oxe-quality-critique-2026 | https://mbreuss.github.io/blog_post_iclr_26_vla.html | ok | match | none (verified as cited) |  |
-| pistar06-blog-2025 | https://www.pi.website/blog/pistar06 | ok | match | none (verified as cited) |  |
+| pistar06-blog-2025 | https://www.pi.website/blog/pistar06 | ok (retained primary identity) | corrected metadata | BC-P1-20260907: all 55 blog authors checked; source spells Gashon Hussein, distinct paper unchanged | Original retrieval and exact bytes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections/source-proof.json and p1-proof.json; no fresh fetch. |
 | pi-human-to-robot-2025 | https://www.pi.website/research/human_to_robot | ok | match | none (verified as cited) |  |
 | pi-real-time-chunking-blog-2025 | https://www.pi.website/research/real_time_chunking | ok | match | none (verified as cited) |  |
 | gemini-robotics-2025 | https://arxiv.org/abs/2503.20020 | ok | match | none (verified as cited) |  |
@@ -698,3 +698,14 @@ One code source added using the retained FetchUrl response, not a fresh liveness
 | ID | URL | Verdict | Identity | Correction | Note |
 |---|---|---|---|---|---|
 | act-reference-2023 | https://github.com/tonyzhaozh/act/blob/76cf30b4fed1d72dafbc3e1c270c0839d57e8bcf/imitate_episodes.py | ok | match | pinned code addition (preserved FetchUrl response, 2026-09-07) | Tool-reported HTTP 200 at original retrieval, not a current probe. Exact source and passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-convention-authorized-corrections/source-proof.json |
+
+
+## BC identity correction provenance — 2026-09-07
+
+Three metadata corrections, no URL or citation-population change. Historical rows preserved verbatim (not additional current rows):
+
+```text
+| alvinn-1988 | https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html | ok | match | none (verified as cited) |  |
+| hg-dagger-2019 | https://arxiv.org/abs/1810.02890 | ok | match | none (verified as cited) |  |
+| pistar06-blog-2025 | https://www.pi.website/blog/pistar06 | ok | match | none (verified as cited) |  |
+```

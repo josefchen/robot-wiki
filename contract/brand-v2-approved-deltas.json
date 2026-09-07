@@ -1358,6 +1358,204 @@
         "VAL-DATA-020"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "bc-foundations-20260907-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "30edbd706c59eb1a521d39a5d6e8f6118ff2eb108b2d0fb364933d4797475a20",
+      "newHash": "2d2afb9c36c6b530992d9b59e4a223efb7fa0b157659745b86820ccede90add8",
+      "reason": "BC-1/4/8/10/12/P1-20260907: ALVINN simulation training, conditional DAgger theorem and toy disclosure, documented DP multimodality and HG intervention mechanism, and exact bibliographic corrections. Sources: https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Metadata.json ; https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Bibtex.bib ; https://ar5iv.labs.arxiv.org/html/1011.0686 ; https://arxiv.org/pdf/1810.02890 (explicit v2) ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://www.pi.website/blog/pistar06 ; https://roboticsproceedings.org/rss19/p016.html . Immediate-before member hash: 30edbd706c59eb1a521d39a5d6e8f6118ff2eb108b2d0fb364933d4797475a20. Compose with existing exact approvals without changing toy calculations/defaults or unrelated records. Source provenance and original/current histories: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections. Mathematical probability formatting repair: parenthesize 1-delta so the unchanged currency linter recognizes math, with no numeric or theorem change. Prior uncommitted endpoint: cd8adc33383ce901ca178065cd53047ad29a7c9189cf46c23839e6704ef50559. Mobile equation composition: split the true-loss definition and mixed-policy identity into two gathered lines after inspecting bounded 375px capture, preserving all notation. Immediate-before composition hash: 626daaf363b97ed6e6cf9fcfdfceea3855f984087c36e2402452f1870d64f3fe.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-VIZ-005",
+        "VAL-B2-VIZ-006",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "bc-foundations-20260907-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/compounding-error.tsx:aria-label:4",
+      "oldHash": "a7354f5f7d221fe30d1eb576a1776147887c1c728975ff47c82db128af2fd407",
+      "newHash": "b5c297d499c203cda98c1852b93a61f9a95d12d0e47156bc51d46a4a8ad24d90",
+      "reason": "BC-1/4/8/10/12/P1-20260907: ALVINN simulation training, conditional DAgger theorem and toy disclosure, documented DP multimodality and HG intervention mechanism, and exact bibliographic corrections. Sources: https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Metadata.json ; https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Bibtex.bib ; https://ar5iv.labs.arxiv.org/html/1011.0686 ; https://arxiv.org/pdf/1810.02890 (explicit v2) ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://www.pi.website/blog/pistar06 ; https://roboticsproceedings.org/rss19/p016.html . Immediate-before member hash: a7354f5f7d221fe30d1eb576a1776147887c1c728975ff47c82db128af2fd407. Compose with existing exact approvals without changing toy calculations/defaults or unrelated records. Source provenance and original/current histories: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-VIZ-005",
+        "VAL-B2-VIZ-006",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "bc-foundations-20260907-3",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/bc-foundations",
+      "oldHash": "01c76b354975892e4357948a8d92a7361de872bf42b8270fb9fc8c054acd4a07",
+      "newHash": "cc384b49327d4c8034894f614c0f23e0610167403e98487f56838a2d7d2be65c",
+      "reason": "BC-1/4/8/10/12/P1-20260907: ALVINN simulation training, conditional DAgger theorem and toy disclosure, documented DP multimodality and HG intervention mechanism, and exact bibliographic corrections. Sources: https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Metadata.json ; https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Bibtex.bib ; https://ar5iv.labs.arxiv.org/html/1011.0686 ; https://arxiv.org/pdf/1810.02890 (explicit v2) ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://www.pi.website/blog/pistar06 ; https://roboticsproceedings.org/rss19/p016.html . Immediate-before member hash: 01c76b354975892e4357948a8d92a7361de872bf42b8270fb9fc8c054acd4a07. Compose with existing exact approvals without changing toy calculations/defaults or unrelated records. Source provenance and original/current histories: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-VIZ-005",
+        "VAL-B2-VIZ-006",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "bc-foundations-20260907-4",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/compounding-error.tsx",
+      "oldHash": "116effe98da60333740c646535a97d9e53e0da1cab14006f5ebd50144d3e47d1",
+      "newHash": "9a067aef49f283600c63f2be2da791a31425f204dddadab14481cf52f5781acc",
+      "reason": "BC-1/4/8/10/12/P1-20260907: ALVINN simulation training, conditional DAgger theorem and toy disclosure, documented DP multimodality and HG intervention mechanism, and exact bibliographic corrections. Sources: https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Metadata.json ; https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Bibtex.bib ; https://ar5iv.labs.arxiv.org/html/1011.0686 ; https://arxiv.org/pdf/1810.02890 (explicit v2) ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://www.pi.website/blog/pistar06 ; https://roboticsproceedings.org/rss19/p016.html . Immediate-before member hash: 5a6b6cb96cc2fb4cc08358c6327f84dd1f0ba69ee6f71fe0e0e69f6a4c4a437b. Compose with existing exact approvals without changing toy calculations/defaults or unrelated records. Source provenance and original/current histories: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-VIZ-005",
+        "VAL-B2-VIZ-006",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "bc-foundations-20260907-5",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "903c86c1741dff258d369946b200b87efc631e5c33982180829039349968e127",
+      "reason": "BC-1/4/8/10/12/P1-20260907: ALVINN simulation training, conditional DAgger theorem and toy disclosure, documented DP multimodality and HG intervention mechanism, and exact bibliographic corrections. Sources: https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Metadata.json ; https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Bibtex.bib ; https://ar5iv.labs.arxiv.org/html/1011.0686 ; https://arxiv.org/pdf/1810.02890 (explicit v2) ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://www.pi.website/blog/pistar06 ; https://roboticsproceedings.org/rss19/p016.html . Immediate-before member hash: 19d552e44dbc558f75aef732f7631a5e9f4b9d62ee2d11bb501538f8d20d1323. Compose with existing exact approvals without changing toy calculations/defaults or unrelated records. Source provenance and original/current histories: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-VIZ-005",
+        "VAL-B2-VIZ-006",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "bc-foundations-20260907-6",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3ec80be198832290602b14ecb3ee7375dbd096af9e8f2f536cc1d0f60fadab33",
+      "reason": "BC-1/4/8/10/12/P1-20260907: ALVINN simulation training, conditional DAgger theorem and toy disclosure, documented DP multimodality and HG intervention mechanism, and exact bibliographic corrections. Sources: https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Metadata.json ; https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Bibtex.bib ; https://ar5iv.labs.arxiv.org/html/1011.0686 ; https://arxiv.org/pdf/1810.02890 (explicit v2) ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://www.pi.website/blog/pistar06 ; https://roboticsproceedings.org/rss19/p016.html . Immediate-before member hash: ca93d000ecfc779c557d142061c72267ec25d28ca44213758c76ec4b87a22ad8. Compose with existing exact approvals without changing toy calculations/defaults or unrelated records. Source provenance and original/current histories: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-VIZ-005",
+        "VAL-B2-VIZ-006",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "bc-foundations-20260907-7",
+      "manifest": "article-metadata",
+      "memberId": "citation:alvinn-1988",
+      "oldHash": "5ec2a02834c9fddd2f588e63e3e8c8652abcdd341b9ffbfefb758d7b0a3b1ff1",
+      "newHash": "8fa80f64983f0f9d40ec946dca0e410091adda2f5bab958a0c6d4734c891bf84",
+      "reason": "BC-1/4/8/10/12/P1-20260907: ALVINN simulation training, conditional DAgger theorem and toy disclosure, documented DP multimodality and HG intervention mechanism, and exact bibliographic corrections. Sources: https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Metadata.json ; https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Bibtex.bib ; https://ar5iv.labs.arxiv.org/html/1011.0686 ; https://arxiv.org/pdf/1810.02890 (explicit v2) ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://www.pi.website/blog/pistar06 ; https://roboticsproceedings.org/rss19/p016.html . Immediate-before member hash: 5ec2a02834c9fddd2f588e63e3e8c8652abcdd341b9ffbfefb758d7b0a3b1ff1. Compose with existing exact approvals without changing toy calculations/defaults or unrelated records. Source provenance and original/current histories: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-VIZ-005",
+        "VAL-B2-VIZ-006",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "bc-foundations-20260907-8",
+      "manifest": "article-metadata",
+      "memberId": "citation:hg-dagger-2019",
+      "oldHash": "57bf09925a1882f8aad9b71b4f960340fad0fb7e1ebd54d32af41e9d91013e65",
+      "newHash": "fef27fa44e19ff57407c140c920574057939177540442b51e8b79f2c3f69b6a7",
+      "reason": "BC-1/4/8/10/12/P1-20260907: ALVINN simulation training, conditional DAgger theorem and toy disclosure, documented DP multimodality and HG intervention mechanism, and exact bibliographic corrections. Sources: https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Metadata.json ; https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Bibtex.bib ; https://ar5iv.labs.arxiv.org/html/1011.0686 ; https://arxiv.org/pdf/1810.02890 (explicit v2) ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://www.pi.website/blog/pistar06 ; https://roboticsproceedings.org/rss19/p016.html . Immediate-before member hash: 57bf09925a1882f8aad9b71b4f960340fad0fb7e1ebd54d32af41e9d91013e65. Compose with existing exact approvals without changing toy calculations/defaults or unrelated records. Source provenance and original/current histories: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-VIZ-005",
+        "VAL-B2-VIZ-006",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "bc-foundations-20260907-9",
+      "manifest": "article-metadata",
+      "memberId": "citation:pistar06-blog-2025",
+      "oldHash": "7e70e8d48d68ffd2f28c4321b78144cd7da0d4eb1c315e62cfb0440c23b068ea",
+      "newHash": "534d722a0ac58a00d36ca638b427f42838201ca4215ba88ce1b67e52aa5bf772",
+      "reason": "BC-1/4/8/10/12/P1-20260907: ALVINN simulation training, conditional DAgger theorem and toy disclosure, documented DP multimodality and HG intervention mechanism, and exact bibliographic corrections. Sources: https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Metadata.json ; https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Bibtex.bib ; https://ar5iv.labs.arxiv.org/html/1011.0686 ; https://arxiv.org/pdf/1810.02890 (explicit v2) ; https://ar5iv.labs.arxiv.org/html/2303.04137 ; https://www.pi.website/blog/pistar06 ; https://roboticsproceedings.org/rss19/p016.html . Immediate-before member hash: 7e70e8d48d68ffd2f28c4321b78144cd7da0d4eb1c315e62cfb0440c23b068ea. Compose with existing exact approvals without changing toy calculations/defaults or unrelated records. Source provenance and original/current histories: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/bc-foundations-authorized-corrections.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Routine reversible source-backed correction authority, not personal source verification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-VIZ-005",
+        "VAL-B2-VIZ-006",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

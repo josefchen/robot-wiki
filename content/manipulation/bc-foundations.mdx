@@ -21,18 +21,18 @@ seeAlso:
 
 import { CompoundingError } from '@/components/interactive/compounding-error';
 
-<Term id="behavior-cloning">Behavior cloning</Term> is the oldest way to make a robot imitate a person: record what an expert did, treat each observation as an input and the expert's action as the label, and fit a policy $\pi(a \mid s)$ by supervised learning. The idea predates deep learning. In 1988, ALVINN trained a three-layer network to steer a van from camera images <Cite id="alvinn-1988" />, and the same recipe, scaled up, still sits underneath most modern manipulation policies.
+<Term id="behavior-cloning">Behavior cloning</Term> is the oldest way to make a robot imitate a person: record what an expert did, treat each observation as an input and the expert's action as the label, and fit a policy $\pi(a \mid s)$ by supervised learning. The idea predates deep learning. ALVINN (1988) used a three-layer back-propagation network with camera and laser-range inputs. It was trained on simulated road images and tested on NAVLAB, a modified Chevy van; training on real images while a human drives was proposed future work, not the reported training procedure <Cite id="alvinn-1988" />.
 
 The appeal is obvious: no reward function to design, no exploration to manage, just regression onto demonstrations. The failure mode is equally specific, and nearly every architectural innovation in learned manipulation since 2023 is a partial answer to it. Supervised learning assumes that test inputs come from the same distribution as training inputs. A robot running in closed loop violates that assumption with its own actions.
 
 ## Watch the error compound
 
-Here is the mechanism before the algebra. A policy with per-step error $\varepsilon$ rolls out along a demonstrated path, each error persists and slightly amplifies the next one, and the accumulated deviation is what the readout tracks. Drag the episode horizon slider and watch that number grow faster than the horizon does. Then use the three mode buttons: committing to a chunk of 25 actions cuts the number of closed-loop decisions by 25x and the deviation drops with it, which is the trick the next module's ACT exploits <Cite id="act-aloha-2023" />, while DAgger relabeling, where an expert corrects the states the policy actually visits, keeps the deviation bounded.
+This deterministic toy illustrates persistent drift, not a source benchmark or a task-cost theorem. Its error slider sets an additive error magnitude, not a measured failure probability. Per-timestep mode adds an error at every step; chunked mode adds one every 25 steps. The DAgger-labelled toggle removes 75% of the current deviation every 20 steps. These are illustration rules, not implementations or measured effects of ACT or DAgger. The readout sums absolute deviation; the dashed curves are reference scalings, not bounds on that sum.
 
 <CompoundingError className="my-6" />
 
 <Callout variant="info">
-  Read the readout, not just the trace. At 5% per-step error over 120 steps, per-timestep prediction accumulates an order of magnitude more deviation than the chunked rollout, and DAgger corrections cut it further. The quadratic term shows up in an ordinary rollout, not only in adversarial worst cases.
+  At the toy defaults, the accumulated-deviation readout rounds to 370 units over 120 steps. At 240 steps it rounds to 1505 units. That approximately fourfold change describes this recurrence over this range, not a measured robot result or proof of the paper’s worst-case bound.
 </Callout>
 
 <PredictThenReveal
@@ -40,24 +40,23 @@ Here is the mechanism before the algebra. A policy with per-step error $\varepsi
   options={[
     {
       value: 'quadruples',
-      label: 'It roughly quadruples, because the bound grows with the square of the horizon',
-      why: 'The i.i.d. cloning bound is O(εT²): Ross, Gordon, and Bagnell show total cost growing quadratically in episode length, with a matching lower bound. Doubling T multiplies the quadratic term by about four; the figure’s own readout moves from 370 to 1,505 units across that doubling.',
-      cite: 'dagger-2011'
+      label: 'It roughly quadruples in this toy over the displayed range',
+      why: 'The deterministic recurrence gives about 370 units at 120 steps and 1505 at 240 steps. Persistent additive drift produces roughly quadratic accumulated deviation over this range. This numerical illustration does not establish a task-cost guarantee.',
     },
     {
       value: 'doubles',
       label: 'It about doubles, since deviations typically accumulate in proportion to how long the episode runs',
-      why: 'Proportional accumulation is the linear story, and it is the DAgger bound O(εT), not the cloning one. Uncorrected per-timestep prediction pays the quadratic term because each mistake also widens the gap the next mistake starts from; only supervision on visited states restores the linear rate.'
+      why: 'That would describe a fixed deviation added to the readout each step. Here the deviation itself grows before it is summed, so doubling the horizon more than doubles the accumulated value. The linear dashed curve is only a reference scaling.'
     },
     {
       value: 'e-folds',
       label: 'It grows explosively, on the order of a hundred times or more, because each error amplifies the next one multiplicatively',
-      why: 'The compounding mechanism sounds exponential and is not, in the bound: the quadratic term is the worst case i.i.d. training guarantees, not a lower bound on catastrophe. Averaging effects keep the realized growth near quadratic, which is already bad enough at four times per doubling.'
+      why: 'The recurrence does include multiplicative amplification, but its gain is small at these settings: the observed ratio is about four, not one hundred. This finite-range illustration does not assert an asymptotic rate or rely on averaging effects.'
     }
   ]}
   answer="quadruples"
   revealHint="The figure is mounted at 5.0% per-step error over 240 steps with per-timestep prediction on: the accumulated-deviation readout shows 1505 units. Drag the horizon back to 120 steps and watch it quarter."
-  takeaway="Doubling the horizon roughly quadruples the accumulated deviation: uncorrected behavior cloning pays the quadratic term, and only on-policy supervision brings the growth back toward linear."
+  takeaway="In this toy, doubling the horizon roughly quadruples summed deviation. The paper’s cost guarantees concern different quantities and require the assumptions below."
 >
   <CompoundingError defaultEpsilon={0.05} defaultSteps={240} className="mt-3" />
 </PredictThenReveal>
@@ -66,11 +65,17 @@ Here is the mechanism before the algebra. A policy with per-step error $\varepsi
 
 Training data is drawn from the expert's state distribution $d_{\pi^*}$. At deployment the robot visits its own distribution $d_\pi$, and the two diverge the moment the policy makes its first mistake. A small error moves the robot into a state slightly outside the demonstrations; from that unfamiliar state the policy is more likely to err again; each error pushes it further out. Ross, Gordon, and Bagnell made this precise: a policy with per-step error $\varepsilon$ on the expert distribution can incur total cost growing quadratically in the episode length $T$, and they gave a matching lower bound showing the quadratic term is unavoidable under i.i.d. training <Cite id="dagger-2011" />.
 
+For a task cost bounded in $[0,1]$ and a surrogate loss that upper-bounds imitation 0-1 loss, the two relevant statements are:
+
 $$
-\underbrace{O(\varepsilon T^2)}_{\text{i.i.d. behavior cloning}} \qquad \underbrace{O(\varepsilon T)}_{\text{on-policy supervision}}
+J(\pi) \leq J(\pi^*) + T^2\varepsilon
 $$
 
-The second bound is what becomes available when the training distribution covers the states the policy actually visits, which is the <Term id="dagger">DAgger</Term> result discussed below <Cite id="dagger-2011" />. The gap between the two is the difference between a policy that demos well and one that survives long episodes. Physical Intelligence restated the same point in operational terms in 2025: it is relatively easy to get a learned policy to succeed at a task some of the time, and much harder to make it succeed reliably <Cite id="pistar06-blog-2025" />.
+$$
+J(\hat{\pi}) \leq J(\pi^*) + uT\varepsilon_N + O(1).
+$$
+
+The first uses error $\varepsilon$ on the expert distribution. The second is DAgger’s conditional, infinite-sample Theorem 3.2: after $N=\tilde{O}(uT)$ iterations there exists a policy $\hat{\pi}$ in the learned sequence satisfying the bound. Here $\varepsilon_N$ is the true loss of the best policy in hindsight across the collected mixed-policy state distributions, not the expert-distribution error above. The factor $u$ bounds the increase in expert cost-to-go after one action. Linear-in-$T$ excess cost requires $u$ independent of $T$; in the worst case $u$ can be $O(T)$. The loss and mixing assumptions are stated in the <Term id="dagger">DAgger</Term> section below <Cite id="dagger-2011" />. Physical Intelligence restated the same point in operational terms in 2025: it is relatively easy to get a learned policy to succeed at a task some of the time, and much harder to make it succeed reliably <Cite id="pistar06-blog-2025" />.
 
 <Image id="covariate-shift" />
 
@@ -78,7 +83,7 @@ The second bound is what becomes available when the training distribution covers
 
 <Term id="compounding-error">Compounding error</Term> is the deployment problem. Three training-side problems compound it:
 
-**Multimodality.** Human demonstrations rarely contain one strategy. If half the demonstrators pass left of an obstacle and half pass right, a unimodal policy trained by mean-squared error regresses toward the mean of the two modes, which is a path straight into the obstacle. Representing the demonstration *distribution* faithfully, rather than its average, is the problem <Term id="diffusion-policy">diffusion policies</Term> and <Term id="flow-matching">flow-matching</Term> heads were built to solve <Cite id="diffusion-policy-2023" />.
+**Multimodality.** Human demonstrations can contain several valid action strategies. <Term id="diffusion-policy">Diffusion Policy</Term> models multimodal action distributions: in its Push-T example it learns both modes, left-going and right-going, and commits to one mode within a rollout <Cite id="diffusion-policy-2023" />.
 
 **Temporally correlated confounders.** Demonstrations contain pauses and idle segments that are unpredictable from a single Markovian state. A single-step policy cannot tell "waiting" from "acting," and both ACT and Diffusion Policy document robots freezing in place because of it <Cite id="act-aloha-2023" /> <Cite id="diffusion-policy-2023" />. The fix is temporal context, not a larger backbone.
 
@@ -99,17 +104,26 @@ DAgger (Dataset Aggregation) attacks the quadratic bound directly <Cite id="dagg
   />
 </Card>
 
-Because the training set grows to cover the distribution of states the learned policy induces, the mismatch that drives compounding error shrinks each iteration. Formally, DAgger reduces <Term id="imitation-learning">imitation learning</Term> to no-regret online learning, which is where the $O(\varepsilon T)$ bound comes from <Cite id="dagger-2011" />.
+DAgger reduces <Term id="imitation-learning">imitation learning</Term> to no-regret online learning. Its guarantee is existential over the learned sequence, not a promise that every iterate improves. Theorem 3.2 assumes a bounded, strongly convex surrogate loss that upper-bounds imitation 0-1 loss, with expert mixing $\beta_i \leq (1-\alpha)^{i-1}$ for a constant $\alpha$ independent of $T$. It uses the true best-policy-in-hindsight loss
 
-The catch is the expert. Classic DAgger needs a supervisor who can look at an arbitrary mid-failure robot state and name the correct action, which is unnatural and slow for a human teleoperator. The variant that survives in practice is intervention-based: the operator watches the rollout and takes over only when the robot starts failing, as in HG-DAgger <Cite id="hg-dagger-2019" />. Fourteen years later, the same pattern shows up as the "coaching" stage of Physical Intelligence's Recap, where human corrections on visited states fine-tune a vision-language-action policy <Cite id="pistar06-blog-2025" />.
+$$
+\begin{gathered}
+\varepsilon_N = \min_{\pi\in\Pi}\frac{1}{N}\sum_{i=1}^{N}\mathbb{E}_{s\sim d_{\pi_i}}[\ell(s,\pi)]\\
+\pi_i = \beta_i\pi^*+(1-\beta_i)\hat{\pi}_i.
+\end{gathered}
+$$
+
+The analysis allows selection of the sequence policy with the lowest true loss under its own state distribution, or uniformly choosing a sequence policy once for an entire episode. Algorithm 3.1 returns the best policy on validation; it does not guarantee that the last iterate is best. Finite-sample Theorem 3.4 instead uses empirical training loss $\hat{\varepsilon}_N$: with $m=O(1)$ trajectories per iteration and $N=O(u^2T^2\log(1/\delta))$, the analogous bound holds for some sequence policy with probability at least $\left(1-\delta\right)$. On-policy coverage alone neither makes $u$ constant nor guarantees linear task cost <Cite id="dagger-2011" />.
+
+The catch is the expert. Classic DAgger needs a supervisor who can look at an arbitrary mid-failure robot state and name the correct action, which is unnatural and slow for a human teleoperator. HG-DAgger (the retained arXiv v2 text) gives the human expert uninterrupted control when they judge intervention necessary. The expert guides the system back to a safe, stable region; action labels are collected during these recovery trajectories, and the expert manually returns control to the novice <Cite id="hg-dagger-2019" />. Fourteen years later, the same pattern shows up as the "coaching" stage of Physical Intelligence's Recap, where human corrections on visited states fine-tune a vision-language-action policy <Cite id="pistar06-blog-2025" />.
 
 <Aside title="Why not just collect more demonstrations?">
-  More i.i.d. data shrinks $\varepsilon$ but leaves the $T^2$ untouched. On long-horizon tasks the horizon term dominates, which is why the field's progress since 2023 has come from attacking the structure of the rollout: fewer closed-loop decisions (chunking), better action distributions (diffusion and flow), and supervision on visited states (corrections and RL).
+  More i.i.d. data can reduce imitation error, but the worst-case guarantee still contains $T^2$. That does not predict quadratic realized cost for every task. DAgger changes where labels are collected; whether its excess-cost bound is linear also depends on the expert’s recovery cost $u$ and the learning assumptions.
 </Aside>
 
 ## Where this leads
 
-Every module in this section is, in part, a different answer to the bound above. [Action chunking](/manipulation/action-chunking) shrinks the effective horizon by predicting sequences instead of single steps. Diffusion policies fix the multimodality that MSE regression destroys. RL fine-tuning and Recap-style coaching put DAgger's on-policy supervision into a form that scales to frontier VLAs. The terminology changed over fifteen years; the quadratic term never went away.
+These results separate three questions: can a policy fit demonstrations, will it visit states covered by training, and can the expert recover after a mistake? [Action chunking](/manipulation/action-chunking) addresses temporal action structure. [Diffusion Policy](/manipulation/diffusion-policy) represents multiple action modes. DAgger collects expert labels on visited states. None of those mechanisms alone establishes an unconditional long-horizon task-cost guarantee.
 
 <SelfCheck
   prompt="A behavior-cloned pick-and-place policy demos perfectly on 20-second trials but drifts off the object within two minutes on the line. Where does the fix have to come from?"
@@ -117,17 +131,17 @@ Every module in this section is, in part, a different answer to the bound above.
     {
       value: 'more-data',
       label: 'Collect ten times more demonstrations of the same task',
-      why: 'More i.i.d. data shrinks the per-step error but leaves the horizon term untouched: Ross, Gordon, and Bagnell’s bound grows quadratically in episode length under i.i.d. training, and on long episodes the horizon term dominates. This is the exact belief the DAgger paper was written against.'
+      why: 'More demonstrations may reduce imitation error, but more samples from the same expert distribution need not cover the states the learner visits after a mistake. The worst-case bound still contains a quadratic horizon factor; it does not predict every rollout.'
     },
     {
       value: 'chunking',
       label: 'Commit to a chunk of 25 predicted actions per inference',
-      why: 'This one is real but only partial: chunking cuts the number of closed-loop decisions by the chunk size, which is why ACT’s accumulated deviation drops over 120 steps. It stretches the horizon the policy can survive; it does not change the quadratic structure, so a two-minute episode can still outrun it.'
+      why: 'Chunking changes the prediction schedule. The toy’s lower readout follows its chosen one-error-per-chunk rule, not an ACT benchmark or a theorem about deployed robot lifetime. It does not by itself supply labels for unfamiliar states.'
     },
     {
       value: 'visited-states',
       label: 'Supervision on the states the policy itself visits',
-      why: 'This is the structural fix. The bound’s quadratic term comes from testing on the expert’s state distribution while deploying on the policy’s own; DAgger-style relabeling trains on visited states, keeps deviation bounded, and brings the cost down to near-linear in the horizon.'
+      why: 'This directly addresses the training/deployment distribution mismatch. DAgger collects labels on visited states; its task-cost guarantee additionally requires the stated learning and mixing assumptions and a bounded recovery-cost factor. It is not a promise of bounded physical deviation.'
     }
   ]}
   answer="visited-states"

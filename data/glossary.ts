@@ -16,14 +16,14 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'behavior-cloning',
     term: 'behavior cloning',
     definition:
-      'Training a policy by supervised learning on expert demonstrations: each recorded observation is an input, the action the expert took at that moment is the label, and the fitted mapping from state to action is the policy. The recipe predates deep learning; in 1988 ALVINN trained a three-layer network to steer a van from camera images, and the same approach, scaled to modern networks and datasets, still underlies most learned manipulation policies. Its known failure mode in closed loop is covariate shift.',
+      'Training a policy by supervised learning on expert demonstrations: each recorded observation is an input, the action the expert took at that moment is the label, and the fitted mapping from state to action is the policy. The recipe predates deep learning; ALVINN (1988) used camera and laser-range inputs and trained on simulated road images before NAVLAB tests, and the same approach, scaled to modern networks and datasets, still underlies most learned manipulation policies. Its known failure mode in closed loop is covariate shift.',
     citations: ['alvinn-1988', 'dagger-2011'],
   },
   {
     id: 'dagger',
     term: 'DAgger',
     definition:
-      'Dataset Aggregation, the iterative fix for behavior cloning\'s distribution mismatch: roll out the current policy, have the expert label the states the policy actually visits, add those labeled states to the training set, and retrain. Ross, Gordon, and Bagnell framed the procedure as a reduction of imitation learning to no-regret online learning, which replaces the quadratic dependence of total cost on episode length with a linear one.',
+      'Dataset Aggregation, the iterative fix for behavior cloning\'s distribution mismatch: roll out the current policy, have the expert label the states the policy actually visits, add those labeled states to the training set, and retrain. Ross, Gordon, and Bagnell framed the procedure as a reduction of imitation learning to no-regret online learning, whose task-cost guarantee is existential over the learned sequence and requires learning and expert-mixing assumptions. Linear excess-cost scaling also requires the expert recovery-cost factor u to be independent of the horizon; u can be O(T) in the worst case.',
     citations: ['dagger-2011'],
   },
   {
@@ -254,7 +254,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'imitation-learning',
     term: 'imitation learning',
     definition:
-      'Learning a policy from expert demonstrations rather than from a reward signal: the expert\'s recorded state-action pairs become a supervised training set, and the fitted mapping from observed state to action is the policy. Pomerleau\'s ALVINN steered a van this way in 1988, and the recipe still underlies most learned manipulation. Its structural weakness is that the training distribution comes from the expert while deployment visits the states the learner itself induces, the mismatch DAgger was designed to repair.',
+      'Learning a policy from expert demonstrations rather than from a reward signal: the expert\'s recorded state-action pairs become a supervised training set, and the fitted mapping from observed state to action is the policy. Pomerleau\'s ALVINN (1988) instead trained on simulated road images before steering NAVLAB, and the recipe still underlies most learned manipulation. Its structural weakness is that the training distribution comes from the expert while deployment visits the states the learner itself induces, the mismatch DAgger was designed to repair.',
     citations: ['dagger-2011', 'alvinn-1988'],
   },
   {

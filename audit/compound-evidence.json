@@ -4,55 +4,151 @@
     "ledgerPath": "audit/manipulation.md",
     "articleSlug": "bc-foundations",
     "rowOrdinal": 14,
-    "originalCellsDigest": "45402fec2cd8d9d466f1ce3f761bea306b3ecee9c776cb680557690f5f981222",
+    "originalCellsDigest": "149763f8ad98eb69a6ce69423bf2c5dc392df369d0b761c7ca0136bc5da7c829",
     "kind": "frontmatter-p1",
     "parts": [
       {
         "id": "alvinn-1988",
-        "text": "For alvinn-1988, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "text": "For alvinn-1988, the current registry title, full author list, source-specific year and any publication/edition descriptor match the intended document at the observed retained retrieval; no unobserved immutable edition or fresh fetch is asserted.",
         "requiredCitationIds": [
           "alvinn-1988"
         ]
       },
       {
         "id": "dagger-2011",
-        "text": "For dagger-2011, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "text": "For dagger-2011, the current registry title, full author list, source-specific year and any publication/edition descriptor match the intended document at the observed retained retrieval; no unobserved immutable edition or fresh fetch is asserted.",
         "requiredCitationIds": [
           "dagger-2011"
         ]
       },
       {
         "id": "hg-dagger-2019",
-        "text": "For hg-dagger-2019, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "text": "For hg-dagger-2019, the current registry title, full author list, source-specific year and any publication/edition descriptor match the intended document at the observed retained retrieval; no unobserved immutable edition or fresh fetch is asserted.",
         "requiredCitationIds": [
           "hg-dagger-2019"
         ]
       },
       {
         "id": "pistar06-blog-2025",
-        "text": "For pistar06-blog-2025, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "text": "For pistar06-blog-2025, the current registry title, full author list, source-specific year and any publication/edition descriptor match the intended document at the observed retained retrieval; no unobserved immutable edition or fresh fetch is asserted.",
         "requiredCitationIds": [
           "pistar06-blog-2025"
         ]
       },
       {
         "id": "act-aloha-2023",
-        "text": "For act-aloha-2023, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "text": "For act-aloha-2023, the current registry title, full author list, source-specific year and any publication/edition descriptor match the intended document at the observed retained retrieval; no unobserved immutable edition or fresh fetch is asserted.",
         "requiredCitationIds": [
           "act-aloha-2023"
         ]
       },
       {
         "id": "diffusion-policy-2023",
-        "text": "For diffusion-policy-2023, the citation resolves to the intended document, and its registered title, authors, year and venue match that document.",
+        "text": "For diffusion-policy-2023, the current registry title, full author list, source-specific year and any publication/edition descriptor match the intended document at the observed retained retrieval; no unobserved immutable edition or fresh fetch is asserted.",
         "requiredCitationIds": [
           "diffusion-policy-2023"
         ]
       }
     ],
-    "planReview": null,
-    "evidence": [],
-    "adjudications": []
+    "planReview": {
+      "reviewedBy": "Astra/max implementation source auditor, session 016d16c3; not human verification or independent acceptance",
+      "rationale": "BC-P1-20260907. ALVINN official BibTeX: 1988, Advances in Neural Information Processing Systems volume 1. HG-DAgger: explicitly displayed arXiv v2, 11 March 2019, not an unproved ICRA attribution; its observed unversioned URL is not claimed immutable. Blog-only Gashon Hussein spelling matches all 55 printed names, distinct from the paper. DAgger accented byline comes from body and AISTATS 2011 from landing publication comment; body is not independently pinned v3. ACT official RSS 2023 identity checked. DP remains the eight-author extended work with 2023 submission year, not the distinct original v1. Retained retrievals, not fresh liveness or independent acceptance.",
+      "planDigest": "0d21d475fd9c1df3c1f8e477dab750aeb5987e86dfe4693987122a3e94b1d22c"
+    },
+    "evidence": [
+      {
+        "partId": "alvinn-1988",
+        "citationId": "alvinn-1988",
+        "sourceUrl": "https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Bibtex.bib",
+        "supportingPassage": "@inproceedings{NIPS1988\\_812b4ba2,\n author = {Pomerleau, Dean A.},\n booktitle = {Advances in Neural Information Processing Systems},\n editor = {D. Touretzky},\n pages = {},\n publisher = {Morgan-Kaufmann},\n title = {ALVINN: An Autonomous Land Vehicle in a Neural Network},\n url = {https://proceedings.neurips.cc/paper\\_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Paper.pdf},\n volume = {1},\n year = {1988}\n}"
+      },
+      {
+        "partId": "dagger-2011",
+        "citationId": "dagger-2011",
+        "sourceUrl": "https://arxiv.org/abs/1011.0686",
+        "supportingPassage": "\\[Submitted on 2 Nov 2010 ( [v1](https://arxiv.org/abs/1011.0686v1)), last revised 16 Mar 2011 (this version, v3)\\]\n\n# Title:A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning\n\nAuthors: [Stephane Ross](https://arxiv.org/search/cs?searchtype=author&query=Ross,+S), [Geoffrey J. Gordon](https://arxiv.org/search/cs?searchtype=author&query=Gordon,+G+J), [J. Andrew Bagnell](https://arxiv.org/search/cs?searchtype=author&query=Bagnell,+J+A)\n\nView a PDF of the paper titled A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning, by Stephane Ross and 2 other authors\n\n[View PDF](https://arxiv.org/pdf/1011.0686) [HTML (experimental)](https://arxiv.org/html/1011.0686v3)\n\n> Abstract:Sequential prediction problems such as imitation learning, where future observations depend on previous predictions (actions), violate the common i.i.d. assumptions made in statistical learning. This leads to poor performance in theory and often in practice. Some recent approaches provide stronger guarantees in this setting, but remain somewhat unsatisfactory as they train either non-stationary or stochastic policies and require a large number of iterations. In this paper, we propose a new iterative algorithm, which trains a stationary deterministic policy, that can be seen as a no regret algorithm in an online learning setting. We show that any such no regret algorithm, combined with additional reduction assumptions, must find a policy with good performance under the distribution of observations it induces in such sequential settings. We demonstrate that this new approach outperforms previous approaches on two challenging imitation learning problems and a benchmark sequence labeling problem.\n\n|     |     |\n| --- | --- |\n| Comments: | Appearing in the 14th International Conference on Artificial Intelligence and Statistics (AISTATS 2011) |\n| Subjects: | Machine Learning (cs.LG); Artificial Intelligence (cs.AI); Machine Learning (stat.ML) |\n| Cite as: | [arXiv:1011.0686](https://arxiv.org/abs/1011.0686) \\[cs.LG\\] |\n|  | (or [arXiv:1011.0686v3](https://arxiv.org/abs/1011.0686v3) \\[cs.LG\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.1011.0686](https://doi.org/10.48550/arXiv.1011.0686)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |\n"
+      },
+      {
+        "partId": "dagger-2011",
+        "citationId": "dagger-2011",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/1011.0686",
+        "supportingPassage": "A Reduction of Imitation Learning and Structured Prediction\n\nto No-Regret Online Learning\n\nStéphane RossGeoffrey J. GordonJ. Andrew Bagnell"
+      },
+      {
+        "partId": "hg-dagger-2019",
+        "citationId": "hg-dagger-2019",
+        "sourceUrl": "https://arxiv.org/pdf/1810.02890",
+        "supportingPassage": "arXiv:1810.02890v2  [cs.RO]  11 Mar 2019\n\nHG-DAgger: Interactive Imitation Learning with Human Experts\n\nMichael Kelly, Chelsea Sidrane, Katherine Driggs-Campbell, and Mykel J. Kochenderfer"
+      },
+      {
+        "partId": "hg-dagger-2019",
+        "citationId": "hg-dagger-2019",
+        "sourceUrl": "https://arxiv.org/abs/1810.02890",
+        "supportingPassage": "\\[Submitted on 5 Oct 2018 ( [v1](https://arxiv.org/abs/1810.02890v1)), last revised 11 Mar 2019 (this version, v2)\\]\n\n# Title:HG-DAgger: Interactive Imitation Learning with Human Experts\n\nAuthors: [Michael Kelly](https://arxiv.org/search/cs?searchtype=author&query=Kelly,+M), [Chelsea Sidrane](https://arxiv.org/search/cs?searchtype=author&query=Sidrane,+C), [Katherine Driggs-Campbell](https://arxiv.org/search/cs?searchtype=author&query=Driggs-Campbell,+K), [Mykel J. Kochenderfer](https://arxiv.org/search/cs?searchtype=author&query=Kochenderfer,+M+J)\n\nView a PDF of the paper titled HG-DAgger: Interactive Imitation Learning with Human Experts, by Michael Kelly and 3 other authors\n\n[View PDF](https://arxiv.org/pdf/1810.02890) [HTML (experimental)](https://arxiv.org/html/1810.02890v2)\n\n> Abstract:Imitation learning has proven to be useful for many real-world problems, but approaches such as behavioral cloning suffer from data mismatch and compounding error issues. One attempt to address these limitations is the DAgger algorithm, which uses the state distribution induced by the novice to sample corrective actions from the expert. Such sampling schemes, however, require the expert to provide action labels without being fully in control of the system. This can decrease safety and, when using humans as experts, is likely to degrade the quality of the collected labels due to perceived actuator lag. In this work, we propose HG-DAgger, a variant of DAgger that is more suitable for interactive imitation learning from human experts in real-world systems. In addition to training a novice policy, HG-DAgger also learns a safety threshold for a model-uncertainty-based risk metric that can be used to predict the performance of the fully trained novice in different regions of the state space. We evaluate our method on both a simulated and real-world autonomous driving task, and demonstrate improved performance over both DAgger and behavioral cloning.\n\n|     |     |\n| --- | --- |\n| Subjects: | Robotics (cs.RO) |\n| Cite as: | [arXiv:1810.02890](https://arxiv.org/abs/1810.02890) \\[cs.RO\\] |\n|  | (or [arXiv:1810.02890v2](https://arxiv.org/abs/1810.02890v2) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.1810.02890](https://doi.org/10.48550/arXiv.1810.02890)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+      },
+      {
+        "partId": "pistar06-blog-2025",
+        "citationId": "pistar06-blog-2025",
+        "sourceUrl": "https://www.pi.website/blog/pistar06",
+        "supportingPassage": "# π\\*0.6: a VLA that Learns from Experience\n\nPublished\n\nNovember 17, 2025\n\nEmail\n\nresearch@physicalintelligence.companyAli Amin, Raichelle Aniceto, Ashwin Balakrishna, Kevin Black, Ken Conley, Grace Connors, James Darpinian, Karan Dhabalia, Jared DiCarlo, Danny Driess, Michael Equi, Adnan Esmail, Yunhao Fang, Chelsea Finn, Catherine Glossop, Thomas Godden, Ivan Goryachev, Lachy Groom, Hunter Hancock, Karol Hausman, Gashon Hussein, Brian Ichter, Szymon Jakubczak, Rowan Jen, Tim Jones, Ben Katz, Liyiming Ke, Chandra Kuchi, Marinda Lamb, Devin LeBlanc, Sergey Levine, Adrian Li-Bell, Yao Lu, Vishnu Mano, Mohith Mothukuri, Suraj Nair, Karl Pertsch, Allen Z. Ren, Charvi Sharma, Lucy Xiaoyang Shi, Laura Smith, Jost Tobias Springenberg, Kyle Stachowicz, Will Stoeckle, Alex Swerdlow, James Tanner, Marcel Torne, Quan Vuong, Anna Walling, Haohuan Wang, Blake Williams, Sukwon Yoo, Lili Yu, Ury Zhilinsky, Zhiyuan Zhou"
+      },
+      {
+        "partId": "act-aloha-2023",
+        "citationId": "act-aloha-2023",
+        "sourceUrl": "https://roboticsproceedings.org/rss19/p016.html",
+        "supportingPassage": "### Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware\n[Separate literal excerpt from the same retained response]\n@INPROCEEDINGS{Zhao-RSS-23,\n    AUTHOR    = {Tony Z. Zhao AND Vikash Kumar AND Sergey Levine AND Chelsea Finn},\n    TITLE     = {{Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware}},\n    BOOKTITLE = {Proceedings of Robotics: Science and Systems},\n    YEAR      = {2023},\n    ADDRESS   = {Daegu, Republic of Korea},\n    MONTH     = {July},\n    DOI       = {10.15607/RSS.2023.XIX.016}\n}"
+      },
+      {
+        "partId": "diffusion-policy-2023",
+        "citationId": "diffusion-policy-2023",
+        "sourceUrl": "https://arxiv.org/abs/2303.04137",
+        "supportingPassage": "\\[Submitted on 7 Mar 2023 ( [v1](https://arxiv.org/abs/2303.04137v1)), last revised 14 Mar 2024 (this version, v5)\\]\n\n# Title:Diffusion Policy: Visuomotor Policy Learning via Action Diffusion\n\nAuthors: [Cheng Chi](https://arxiv.org/search/cs?searchtype=author&query=Chi,+C), [Zhenjia Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+Z), [Siyuan Feng](https://arxiv.org/search/cs?searchtype=author&query=Feng,+S), [Eric Cousineau](https://arxiv.org/search/cs?searchtype=author&query=Cousineau,+E), [Yilun Du](https://arxiv.org/search/cs?searchtype=author&query=Du,+Y), [Benjamin Burchfiel](https://arxiv.org/search/cs?searchtype=author&query=Burchfiel,+B), [Russ Tedrake](https://arxiv.org/search/cs?searchtype=author&query=Tedrake,+R), [Shuran Song](https://arxiv.org/search/cs?searchtype=author&query=Song,+S)\n\nView a PDF of the paper titled Diffusion Policy: Visuomotor Policy Learning via Action Diffusion, by Cheng Chi and 7 other authors\n\n[View PDF](https://arxiv.org/pdf/2303.04137) [HTML (experimental)](https://arxiv.org/html/2303.04137v5)\n\n> Abstract:This paper introduces Diffusion Policy, a new way of generating robot behavior by representing a robot's visuomotor policy as a conditional denoising diffusion process. We benchmark Diffusion Policy across 12 different tasks from 4 different robot manipulation benchmarks and find that it consistently outperforms existing state-of-the-art robot learning methods with an average improvement of 46.9%. Diffusion Policy learns the gradient of the action-distribution score function and iteratively optimizes with respect to this gradient field during inference via a series of stochastic Langevin dynamics steps. We find that the diffusion formulation yields powerful advantages when used for robot policies, including gracefully handling multimodal action distributions, being suitable for high-dimensional action spaces, and exhibiting impressive training stability. To fully unlock the potential of diffusion models for visuomotor policy learning on physical robots, this paper presents a set of key technical contributions including the incorporation of receding horizon control, visual conditioning, and the time-series diffusion transformer. We hope this work will help motivate a new generation of policy learning techniques that are able to leverage the powerful generative modeling capabilities of diffusion models. Code, data, and training details is publicly available [this http URL](http://diffusion-policy.cs.columbia.edu/)\n\n|     |     |\n| --- | --- |\n| Comments: | An extended journal version of the original RSS2023 paper |\n| Subjects: | Robotics (cs.RO) |\n| Cite as: | [arXiv:2303.04137](https://arxiv.org/abs/2303.04137) \\[cs.RO\\] |\n|  | (or [arXiv:2303.04137v5](https://arxiv.org/abs/2303.04137v5) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2303.04137](https://doi.org/10.48550/arXiv.2303.04137)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "alvinn-1988",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session 016d16c3; not human verification or independent acceptance",
+        "rationale": "Complete current alvinn-1988 identity checked against its literal primary metadata/byline, including documented edition and spelling distinctions.",
+        "evidenceDigest": "786302e63e2c0f30f1061abf9a1e276a499fc8fefbcb33a3801d2e89ec713596"
+      },
+      {
+        "partId": "dagger-2011",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session 016d16c3; not human verification or independent acceptance",
+        "rationale": "Complete current dagger-2011 identity checked against its literal primary metadata/byline, including documented edition and spelling distinctions.",
+        "evidenceDigest": "81b56251ba784937f313045f3defa0d366f12beec3a7027d44ad3962a184a519"
+      },
+      {
+        "partId": "hg-dagger-2019",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session 016d16c3; not human verification or independent acceptance",
+        "rationale": "Complete current hg-dagger-2019 identity checked against its literal primary metadata/byline, including documented edition and spelling distinctions.",
+        "evidenceDigest": "2d8cfe52e0678077f60967d4a9f53e3c983606098165973b94e3b798e9909778"
+      },
+      {
+        "partId": "pistar06-blog-2025",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session 016d16c3; not human verification or independent acceptance",
+        "rationale": "Complete current pistar06-blog-2025 identity checked against its literal primary metadata/byline, including documented edition and spelling distinctions.",
+        "evidenceDigest": "295f1c7df7830df5be0ac6fcf910ce51229052c97c2253adfc4231cfab05c2e2"
+      },
+      {
+        "partId": "act-aloha-2023",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session 016d16c3; not human verification or independent acceptance",
+        "rationale": "Complete current act-aloha-2023 identity checked against its literal primary metadata/byline, including documented edition and spelling distinctions.",
+        "evidenceDigest": "445eb6a7cd86d09e5593821180c3722283afec255d76e5f8f222a16401e53486"
+      },
+      {
+        "partId": "diffusion-policy-2023",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session 016d16c3; not human verification or independent acceptance",
+        "rationale": "Complete current diffusion-policy-2023 identity checked against its literal primary metadata/byline, including documented edition and spelling distinctions.",
+        "evidenceDigest": "3990c340c3b5ebbeddca5b6d7c8419c188d4c4f93cdb8c65c4e4f0a1189dadf8"
+      }
+    ]
   },
   {
     "id": "action-chunking-frontmatter-p1",
@@ -804,6 +900,65 @@
         "reviewedBy": "8683abf4-26f3-4a7f-94dc-1469ce93be89 / source-auditor",
         "rationale": "The registered title, ordered byline, submission year, arXiv work identifier and any asserted venue match the explicitly represented work/edition for real-time-chunking-2025. Actual paired passages support this scoped statement; no absence, universal adoption, or unpinned edition equivalence inferred.",
         "evidenceDigest": "d98e06ec523daac6eeb66b72672bce6c1fd12d799b957d8c39b6d79cbf8a10eb"
+      }
+    ]
+  },
+  {
+    "id": "bc-alvinn-current-1-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "bc-foundations",
+    "rowOrdinal": 1,
+    "originalCellsDigest": "f4ef42bf3ccadb5121ec6a3444f96410eb5f012e0385595c5233b103f5dcde2a",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "identity",
+        "text": "ALVINN is the named 1988 work by Dean A. Pomerleau.",
+        "requiredCitationIds": [
+          "alvinn-1988"
+        ]
+      },
+      {
+        "id": "mechanism",
+        "text": "Three-layer network, camera and laser-range inputs, simulated training, modified Chevy NAVLAB tests, human-driving training proposed as future work.",
+        "requiredCitationIds": [
+          "alvinn-1988"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation source auditor, session 016d16c3; not independent acceptance",
+      "rationale": "Both same-work primary responses checked against retained events and actual supporting text; no claim-as-passage substitution.",
+      "planDigest": "8b54b463f8e1f8eee5c0fb3a9d82268b114b6c2720cdc2e3d96e6cc06aaa205e"
+    },
+    "evidence": [
+      {
+        "partId": "identity",
+        "citationId": "alvinn-1988",
+        "sourceUrl": "https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Bibtex.bib",
+        "supportingPassage": "@inproceedings{NIPS1988\\_812b4ba2,\n author = {Pomerleau, Dean A.},\n booktitle = {Advances in Neural Information Processing Systems},\n editor = {D. Touretzky},\n pages = {},\n publisher = {Morgan-Kaufmann},\n title = {ALVINN: An Autonomous Land Vehicle in a Neural Network},\n url = {https://proceedings.neurips.cc/paper\\_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Paper.pdf},\n volume = {1},\n year = {1988}\n}"
+      },
+      {
+        "partId": "mechanism",
+        "citationId": "alvinn-1988",
+        "sourceUrl": "https://proceedings.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Metadata.json",
+        "supportingPassage": "\nAN AUTONOMOUS LAND VEHICLE IN A \n\nNEURAL NETWORK \n\n305 \n\nDean A. Pomerleau \n\nComputer Science Department \nCarnegie Mellon University \n\nPittsburgh, PA 15213 \n\nABSTRACT \n\nALVINN (Autonomous Land Vehicle In a Neural Network) is a 3-layer \nback-propagation network designed for the task of road following. Cur(cid:173)\nrently ALVINN takes images from a camera and a laser range finder as input \nand produces as output the direction the vehicle should travel in order to \nfollow the road. Training has been conducted using simulated road images. \nSuccessful tests on the Carnegie Mellon autonomous navigation test vehicle \nindicate that the network can effectively follow real roads under certain field \nconditions. The representation developed to perfOIm the task differs dra(cid:173)\n[Separate literal excerpt from the same decoded full_text]\n\ndictates a tum curvature within two units of the correct answer approximately 90% \nof the time on novel simulated road images. The primary testing of the ALVINN's \nperformance has been conducted on the NAVLAB (See Figure 3). The NAVLAB is \na modified Chevy van equipped with 3 Sun computers, a Warp, a video camera, and \na laser range finder, which serves as a testbed for the CMU autonomous land vehicle \nproject [Thorpe et al., 1987]. Performance of the network to date is comparable to that \nachieved by the best traditional vision-based autonomous navigation algorithm at CMU \nunder the limited conditions tested. Specifically, the network can accurately drive the \nNAVLAB at a speed of 1/2 meter per second along a 400 meter path through a wooded \n[Separate literal excerpt from the same decoded full_text]\n\nsibility of a very different type of autonomous navigation system in which the salient \nsensory features are determined for specific driving conditions. By interactively training \nthe network on real road images taken as a human drives the NAVLAB, we hope to \ndevelop a system that adapts its processing to accommodate current circumstances. This \nis in contrast with other autonomous navigation systems at CMU [Thorpe et al., 1987] \nand elsewhere [Dunlay & Seida, 1988] [Dickmanns & Zapp, 1986] [Kuan et al., 1988]. \nEach of these implementations has relied on a fixed, highly structured and therefore rela(cid:173)\ntively inflexible algorithm for finding and following the road, regardless of the conditions \nat hand. \n\nThere are difficulties involved with training \"on-the-fly\" with real images. If the network "
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "identity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session 016d16c3; not independent acceptance",
+        "rationale": "Literal verified source supports this whole named part; original dates and extraction limitations preserved.",
+        "evidenceDigest": "3debdae279c093809a9b4f08fd666c58da48a3de1a2777c2683cd677350050f1"
+      },
+      {
+        "partId": "mechanism",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session 016d16c3; not independent acceptance",
+        "rationale": "Literal verified source supports this whole named part; original dates and extraction limitations preserved.",
+        "evidenceDigest": "24a7a26cf1dc1c6538f138067e73f34deb264f3ca9fbd913af82044e6a39c3ba"
       }
     ]
   }

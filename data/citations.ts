@@ -69,7 +69,7 @@ export const CITATIONS: Citation[] = [
     title: 'ALVINN: An Autonomous Land Vehicle in a Neural Network',
     authors: ['Dean A. Pomerleau'],
     year: 1988,
-    venue: 'NeurIPS 1988',
+    venue: 'Advances in Neural Information Processing Systems 1',
     url: 'https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html',
     type: 'paper',
   },
@@ -275,7 +275,8 @@ export const CITATIONS: Citation[] = [
       'Mykel J. Kochenderfer',
     ],
     year: 2019,
-    venue: 'ICRA 2019',
+    // Retained landing and PDF identify v2, 11 March 2019; no ICRA venue proof.
+    venue: 'arXiv v2 (11 March 2019)',
     arxiv: '1810.02890',
     url: 'https://arxiv.org/abs/1810.02890',
     type: 'paper',
@@ -1116,7 +1117,7 @@ export const CITATIONS: Citation[] = [
     id: 'pistar06-blog-2025',
     title: 'π*0.6: a VLA that Learns from Experience',
     // 55 named authors as printed on the blog page itself; see the
-    // pistar06-2025 entry for the same list on the PDF side.
+    // pistar06-2025 entry for the separate PDF byline. The blog prints Gashon, not Gashun, Hussein.
     authors: [
       'Ali Amin',
       'Raichelle Aniceto',
@@ -1138,7 +1139,7 @@ export const CITATIONS: Citation[] = [
       'Lachy Groom',
       'Hunter Hancock',
       'Karol Hausman',
-      'Gashun Hussein',
+      'Gashon Hussein',
       'Brian Ichter',
       'Szymon Jakubczak',
       'Rowan Jen',
