@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 12
 - Claim rows: 225
-- Recorded verified: 182
-- Recorded corrected: 39
+- Recorded verified: 167
+- Recorded corrected: 47
 - Recorded cut: 2
 - Recorded source inconsistencies: 2
-- Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 71
-- Incomplete evidence records: 154
+- Unresolved or unrecognised verdicts: 7
+- Complete evidence records: 79
+- Incomplete evidence records: 146
 
 <!-- audit-summary:end -->
 
@@ -397,33 +397,33 @@ paraphrase.
 
 ## comparison-matrix.mdx (per-cell audit of data/methods.ts, 18 rows)
 
-| Row/cell claim | Source checked | Verdict | Note |
-|---|---|---|---|
-| Intro: 18 policies, 8 axes, "not disclosed" convention, RT-2/OpenVLA rates omitted as unverifiable-circulating | data/methods.ts + rt2-2023/openvla-2024 papers | verified | 18 rows confirmed; RT-2 and OpenVLA control-frequency cells are null with an explicit comment; the omission matches the papers (neither states a single policy-side rate cleanly) and the article says so. P4-conformant. |
-| RT-1: 2022, discrete, horizon 1/1, 3 Hz, FiLM-EfficientNet + TokenLearner + 19M transformer, 6-frame history, limited cross-embodiment, open | RT-1 paper arXiv 2212.06817 (part-2 verification) | verified | All cells verified in part 2 (3 Hz, 19M transformer, 6-image history, 256 bins). |
+| Row/cell claim | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
+|---|---|---|---| --- | --- | --- | --- |
+| The preceding modules followed one lineage at a time. This table places 18 policies side by side across eight architectural axes. Each row links to its registered sources. Read the setting and release notes with the values: a paper, a model card, and a repository snapshot can describe different versions of the same system. Set the weights filter to Downloadable to select records with a reported download. Not disclosed is a separate availability state, not a closed-license claim. An unset scalar rate does not establish that no setup-specific rate appears in a paper. In particular, the RT-2 and OpenVLA rate cells remain unset here; they are not evidence that those papers disclose no rates. | Verified retained primary source text; original retrieval events preserved | unresolved | COMPARISON-CURRENT-1-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Intro/schema claims remain incomplete alongside the actual21-source P1 union. Canonical union is mounted METHODS.sources plus own inline citations, not ACT16. Identity proofs are tracked individually; missing metadata is not inferred from source IDs. |  |  |  | comparison-current-1-20260907 |
+| RT-1: 2022, discrete, horizon1/1, commanded3Hz, FiLM-EfficientNet + TokenLearner +19M transformer, six-frame image history; cross-embodiment limited. Pretrained weights not disclosed in the checked paper; code is not a weight release. | Verified retained primary source text; original retrieval events preserved | unresolved | COMPARISON-CURRENT-2-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. The six-image history, one-action output, commanded rate and transformer count are supported. The limited cross-embodiment cell still needs an explicit interpretation distinguishing Kuka-data transfer from a checkpoint operating on multiple bodies. Do not certify the entire row from the rate alone. |  |  |  | comparison-current-2-20260907 |
 | ACT: 2023, continuous, planned 100 / executed 1 with temporal ensembling, 50 Hz, ResNet-18 x4 + transformer ~80M, 4 cameras + joints, no cross-embodiment, open | ACT paper arXiv 2304.13705 (part-1 verification) | verified | k=100, 50 Hz, ~80M, 4 RGB cameras + joints all verified in part 1. Executed=1 with TE is the per-timestep re-query scheme verified in part 1. |
 | Diffusion Policy: 2023, diffusion, planned 16 / executed 8, 10 Hz (note: interpolated to 125 Hz at execution), ResNet-18 + 1D CNN-UNet or transformer, 2 observation frames, open | DP paper arXiv 2303.04137v5 (part-1 verification) | verified | To=2/Tp=16/Ta=8 and 10 Hz verified in part 1. The 125 Hz note matches the paper's Franka station low-level control rate (App. D). Backbone cell says "DiT"; part 1 established the paper's own name is "time-series diffusion transformer" — the data cell uses the acronym as an architecture label, not a quotation, and the same file's article prose no longer glosses it as the paper's term. No action. |
 | RT-2: 2023, discrete, 1/1, frequency null, PaLI-X/PaLM-E up to 55B, closed | RT-2 paper arXiv 2307.15818 (part-2 verification) | verified | 55B and closed weights verified; frequency null is the honest render. |
-| Octo: 2024, diffusion, horizon/frequency null ("varies by deployment"), 27M/93M from scratch, language or goal image, cross-embodiment yes, open | Octo paper arXiv 2405.12213 (part-2 verification) | verified | Null horizon/rate is the P4 honest-unknown render; 27M/93M, from-scratch, goal-or-language conditioning verified. |
+| Octo: 2024 diffusion policy; ALOHA finetuning predicts64/executes12. No universal rate; separate Franka prediction15Hz, coffee controller10Hz and ViperX5Hz settings. Transformer27M/93M labelled trained from scratch, language or goal image, cross-embodiment yes, downloadable. | Verified retained primary source text; original retrieval events preserved | unresolved | COMPARISON-CURRENT-6-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Settings and checkpoints are supported; the from-scratch label must distinguish pretrained language tokenization from policy/backbone initialization before full row completion. |  |  |  | comparison-current-6-20260907 |
 | OpenVLA: 2024, discrete, 1/1, frequency null, Prismatic-7B (LLaMA-2 + DINOv2 + SigLIP), open | OpenVLA paper arXiv 2406.09246 (part-2 verification) | verified | Backbone composition verified; frequency null matches part 2's note that the ~6 Hz figure is qualified ("without compilation, speculative decoding, or other inference speed-up tricks") and the cell comment records why it is omitted. |
 | OpenVLA-OFT: 2025, continuous, horizon/freq null ("25-50 Hz class"), Prismatic-7B + parallel L1 head, proprioception added, open | OFT paper arXiv 2502.19645 (part-2 verification) | verified | Continuous L1 head, parallel decoding, proprioception inputs verified; 25 Hz on the bimanual ALOHA verified in part 2, "25-50 Hz class" is consistent with the paper's reported rates. |
-| π0: 2024, flow, 50/50, 50 Hz, PaliGemma 3B + 300M expert, 2-3 cameras + language + proprio, open | π0 paper arXiv 2410.24164 (part-1/2 verification) | verified | H=50, 50 Hz, PaliGemma 3B + 300M, 2-3 images all verified. |
+| π0: 2024 flow policy, predicts50; UR5e/Franka execute16 at20Hz, other tested robots execute25 at50Hz. PaliGemma3B +300M expert, 2–3 images/language/proprioception, cross-embodiment yes, downloadable. | Verified retained primary source text; original retrieval events preserved | unresolved | COMPARISON-CURRENT-9-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Execution and input passages are present, and openpi lists checkpoints. The exact rendered3B backbone label is not stated by the inspected v4 extraction; complete identity/parameter context is still required. |  |  |  | comparison-current-9-20260907 |
 | π0-FAST: 2025, discrete, 50/50, 50 Hz nominal ("slower in practice"), FAST DCT tokenizer, open | FAST paper arXiv 2501.09747 + KI blog (part-2 verification) | verified | DCT tokenizer verified; "slower in practice" matches the verified ~2x slower task-completion head-to-head. |
-| π0.5: 2025, flow, 50/50, 50 Hz, "PaliGemma-class 3B + 300M expert", web VQA + subtask prediction conditioning, hierarchy internal, open | π0.5 paper arXiv 2504.16054 (part-1/2 verification) | verified | H=49/50, 50 Hz, subtask-then-action inference, hybrid co-training verified. "PaliGemma-class" is the paper's framing (π0.5 uses the π0 architecture). |
-| π0.6: 2025, flow, 50/50, 50 Hz, SigLIP 400M + Gemma3 4B + 860M expert ~5B, up to 4 images, closed | π0.6 model card PDF (part-2 verification) | verified | Every number matches the card; closed weights verified via openpi. |
-| π0.7: 2026, flow, planned 50 / executed 25 ("executes 15-25 of 50"), 50 Hz ("20 Hz on some deployments"), Gemma3 4B + 860M ~5B, subgoal images + memory conditioning, closed | π0.7 paper PDF (part-1/2 verification) | verified | Ĥ ∈ {15, 25} of 50 verified; 20 Hz deployments per the π0.7 paper's robot table; conditioning list matches the paper's context components. |
+| π0.5: 2025 flow runtime, predicts50 (inclusiveH49), executed count not disclosed in v1; mobile-control targets50Hz, PaliGemma-class3B +300M expert, webVQA and subtask conditioning, internal hierarchy; pi05_base downloadable in pinned openpi. | Verified retained primary source text; original retrieval events preserved | unresolved | COMPARISON-CURRENT-11-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. The v1 technical text calls the initialized VLM2B, while the table says PaliGemma-class3B. Do not choose an interpretation or promote full support without reconciling text-model versus complete-VLM scope. |  |  |  | comparison-current-11-20260907 |
+| π0.6: 2025 model card; flow runtime and FAST backbone training. Predicted/executed horizons and robot-controlHz not disclosed in this card; chunk inference63ms, five denoising steps, three cameras, oneH100. SigLIP400M +Gemma3 4B +860M expert, table approximate total5B, up to four images and metadata, internal hierarchy. Model-specific release/license terms not disclosed in this card. | Verified retained primary source text; original retrieval events preserved | unresolved | COMPARISON-CURRENT-12-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Source supports component sizes and execution-scope correction, but does not print the approximate5B total carried by this broad table row. No component sum is used to manufacture a withheld total. |  |  |  | comparison-current-12-20260907 |
+| π0.7 (2026 paper): continuous-action flow expert, FAST backbone supervision during training; predicts 50 and executes either 15 or 25, five denoising steps, no robot-to-choice mapping; UR5e 20 Hz, other tested robots 50 Hz. Gemma3 4B backbone, 860M expert, about 5B total, memory/subgoal images/language/subtask/metadata conditioning and internal semantic policy. Model-specific release/licensing terms not disclosed in this checked paper. | Verified retained primary source text; original retrieval events preserved | corrected | COMPARISON-CURRENT-13-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance. |  |  |  | comparison-current-13-20260907 |
 | Gemini Robotics 1.5: 2025, representation/horizon/frequency null, Gemini backbone, thinking traces, cross-embodiment yes, hierarchy internal, closed | GR1.5 report arXiv 2510.03342 HTML (this session) | verified | The report discloses no action representation, chunk length, or control rate; MT + interleaved thinking verified. Nulls are P4-conformant. |
 | Gemini Robotics 2: 2026, same null pattern, "ER 2 tool calls" conditioning, closed | GR2 blog (this session) | verified | Blog discloses no architecture numbers; ER 2 orchestration verified. |
-| GR00T N1.7: 2026, flow, planned 40 / executed null, frequency null ("embodiment-dependent"), Cosmos-Reason2-2B (Qwen3-VL) 3B, state dim 132, hierarchy external, open | Isaac-GR00T repo README (this session + part 2) | verified | Horizon 16→40, dims 29→132, Cosmos-Reason2-2B, open weights all match the README. "External" hierarchy = pairing with a whole-body controller per the article's axis definition. |
-| Helix 02: 2026, continuous, horizon null, 200 Hz (S1; S0 1 kHz note), S2+S1+S0 10M stack, tactile/proprio conditioning, limited cross-embodiment, closed | Helix 02 blog (this session + part 2) | verified | 200 Hz S1, 1 kHz S0, 10M S0, sensor list all vendor-verbatim; horizon null is honest. |
+| GR00T N1.7 GA README (2026): flow-matching DiT, predicted horizon 40, executed count and universal robot-control Hz not disclosed; Cosmos-Reason2-2B/Qwen3-VL backbone, 3B base model, state/action dimensions 132, image and language inputs, cross-embodiment base model. SONIC is a separate downstream controller (external hierarchy). Downloadable weights; License section distinguishes Apache 2.0 code and NVIDIA Open Model License weights, despite the broader overview Apache wording. | Verified retained primary source text; original retrieval events preserved | corrected | COMPARISON-CURRENT-16-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance. |  |  |  | comparison-current-16-20260907 |
+| Helix02: 2026 announcement, continuous-representation table label; chunk length not disclosed in announcement; S1joint targets200Hz/S0actuator commands1kHz; S2+S1transformer+S0 10M, head/palm cameras/tactile/proprioception, limited cross-embodiment; release/license terms not disclosed in announcement. | Verified retained primary source text; original retrieval events preserved | unresolved | COMPARISON-CURRENT-17-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. The announcement supports sensor lists, S1/S0 rates and10M S0, but fleet generalization does not establish transfer of a checkpoint across different robot bodies or the complete continuous-regression classification. Keep the broad row incomplete. |  |  |  | comparison-current-17-20260907 |
 | AgiBot GO-2: 2026, representation/backbone null, frequency null ("asynchronous dual-rate"), hierarchy internal, closed | GO-2 announcement (this session + part 2) | verified | Announcement discloses no backbone or rate; the asynchronous planner/follower split is verbatim. |
 | Skild: 2026, everything null, closed | Skild Series C blog (part-2 verification) | verified | Nothing technical published; all-null row is the P4 honest render. No cell reads as zero. |
-| Prose: "ACT queries its transformer at 50 Hz and smooths with temporal ensembling; RT-1 managed 3 Hz" | ACT + RT-1 papers (part 1/2) | verified | As above. |
-| Prose: "Diffusion Policy predicts 16 steps but commits 8, and π0.7 predicts 50 but commits only 15 to 25" | DP paper + π0.7 paper (part 1/2) | verified | As above. |
-| Prose: "π0-FAST ... at roughly twice the end-to-end latency of the flow head" | KI blog (part 2) | verified | "Twice the amount of time to solve the task" (task-level, which is the end-to-end latency the reader cares about); verified in part 2. |
-| Prose: "ACT's deterministic CVAE decoder is the last entry in the continuous-regression column; from late 2023 onward every row samples" | data/methods.ts row order | verified | Of the 18 rows, ACT (2023) is the last 'continuous'-regression row; everything later is diffusion/discrete/flow except OpenVLA-OFT's L1 head, which the article's own aside acknowledges as continuous regression — the sentence's "every row samples" is imprecise for OFT. Judged verified-with-context: the OFT row is continuous *regression* but sits inside the parallel-decoding discussion the article makes explicitly; the sentence's claim is about the generative-head displacement trend and names "diffusion, discrete tokens, or flow matching" as the sampling columns. Borderline, kept as verified because the very next paragraph and the matrix itself present OFT accurately. |
-| Prose: "Everything downloadable ... sits at least one generation behind the closed frontier" | openpi + Isaac-GR00T repos | verified | Open rows end at π0.5 / OpenVLA-OFT / N1.7; π0.6/π0.7, GR 1.5/2, Helix 02, GO-2 closed. N1.7 is current-generation and open, but it is NVIDIA's frontier and the sentence's "the closed frontier" names π0.6+/GR2/Helix-class systems; the claim is the access story, which holds. |
-| Closing caution: three frequency regimes are not one scale | RTC + π0.7 papers, Helix 02 blog | verified | ACT 50 Hz (control rate), Helix S1 200 Hz (visuomotor policy rate), π0.7 50 Hz with training-time latency tolerance are indeed different measurement setups; the caution is accurate and matches the cell notes. |
+| **Control frequency** needs a named measurement setting. <Cite id="act-aloha-2023" /> ACT's ALOHA setup runs at 50 Hz; with <Term id="temporal-ensembling">temporal ensembling</Term>, the policy is queried at every timestep. <Cite id="rt1-2022" /> RT-1 commands the Everyday Robots platform at 3 Hz. Neither statement is a standalone transformer-throughput benchmark. | Verified retained primary source text; original retrieval events preserved | corrected | COMPARISON-CURRENT-20-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance. |  |  |  | comparison-current-20-20260907 |
+| **Horizon** separates the planned chunk length $H$ from the steps executed $\hat{H}$ before re-planning: the <Term id="predicted-horizon">predicted horizon</Term> and the <Term id="committed-horizon">committed horizon</Term>. <Cite id="diffusion-policy-2023" /> The Diffusion Policy CNN Push-T configuration predicts 16 steps and executes 8; these are not universal settings for every architecture or task. <Cite id="pi07-2026" /> π0.7 predicts 50 and executes either 15 or 25, not every integer between them. Its paper does not map those two execution choices to particular robots. <Cite id="pi07-2026" /> π0.7 uses five denoising steps to generate 50 actions, then executes either 15 or 25. Its UR5e robots run at 20 Hz; the other tested robots run at 50 Hz. <Cite id="real-time-chunking-2025" /> Real-time chunking addresses inference delay by guiding generation of the next chunk while the current one is executing. These execution details matter more than ranking methods by predicted horizon alone. | Verified retained primary source text; original retrieval events preserved | corrected | COMPARISON-CURRENT-21-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance. |  |  |  | comparison-current-21-20260907 |
+| <Cite id="pi05-2025" /> The π0.5 paper distinguishes FAST-token training from continuous-action generation with flow matching. It describes autoregressive action decoding as expensive at inference time. That qualitative comparison is not a measured factor-of-two task-completion or inference-latency result for π0-FAST. | Verified retained primary source text; original retrieval events preserved | corrected | COMPARISON-CURRENT-22-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance. |  |  |  | comparison-current-22-20260907 |
+| <Cite id="act-aloha-2023" /> ACT fixes its CVAE latent to the prior mean, zero, to decode deterministically at test time. <Cite id="pi0-2024" /> π0 instead uses an action expert trained with flow matching to generate continuous action chunks. These are concrete differences between output mechanisms, not evidence that every later policy abandoned regression. | Verified retained primary source text; original retrieval events preserved | corrected | COMPARISON-CURRENT-23-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance. |  |  |  | comparison-current-23-20260907 |
+| <Cite id="rt1-2022" /> The RT-1 paper announces code, which does not establish pretrained-weight availability. <Cite id="helix-02-2026" /> Figure's Helix 02 announcement does not state a chunk horizon or weight-release terms. Their availability cells therefore read "not disclosed" for these checked sources. <Cite id="openpi-repo-2024" /> The pinned openpi README lists π0, π0-FAST, and π0.5 checkpoints. <Cite id="isaac-gr00t-repo-2026" /> The N1.7 README lists downloadable weights, while its License section distinguishes Apache 2.0 code from the NVIDIA Open Model License for weights. These release statements do not establish a global generation ranking or closed licensing for an unlisted model. | Verified retained primary source text; original retrieval events preserved | corrected | COMPARISON-CURRENT-24-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance. |  |  |  | comparison-current-24-20260907 |
+| The Control Hz column is not an inference-throughput comparison. <Cite id="act-aloha-2023" /> ACT's 50 Hz ALOHA loop, <Cite id="helix-02-2026" /> Helix's 200 Hz S1/1 kHz S0 stack, and <Cite id="pi07-2026" /> π0.7's 20 Hz UR5e/50 Hz other-robot settings describe different systems. π0.7 also trains with simulated inference delays; that does not turn these rates into a shared benchmark. Read the setting notes before comparing two cells. <Cite id="pi06-model-card-2025" /> The π0.6 card reports 63 ms to produce an action chunk with five denoising steps, three camera inputs, and one H100. It does not disclose a robot-control rate or a predicted/executed chunk length. <Cite id="helix-02-2026" /> Figure reports Helix 02 S1 joint targets at 200 Hz and S0 actuator commands at 1 kHz. The latter are different stages of a control stack, not two alternative speeds for one model call. | Verified retained primary source text; original retrieval events preserved | corrected | COMPARISON-CURRENT-25-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance. |  |  |  | comparison-current-25-20260907 |
 
 ## hierarchical.mdx
 
@@ -3509,3 +3509,383 @@ Production HTML and reading-time regeneration remain pending the red content pre
 Protected `PRODUCT_QUALITY.md`, `qa/findings.json`, and `next-env.d.ts` are hash-preserved; only this session's verified Next dev import substitution was restored. ACT weighting/SVG, BC/DP prose, immutable baselines, old histories, owner work and local commits d282a83/2cf7d6b remain intact. No build, full browser corpus, push, deployment, cleanup, controller/feature/model change or credit fallback. No GPT-role exhaustion occurred. Independent Sol/high scrutiny and user testing remain required after corpus closure. The earlier citation Back-navigation BODY-focus gap stays tracked. Next finite article candidate is the existing comparison-matrix ledger: **0/25** complete, using retained source groups and current corrected method data, not a new audit or source sweep.
 
 Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-final-model-paper-corrections/`.
+
+
+## Comparison current-claim correction history — 2026-09-07
+
+Fixed25 original rows. Complete records are not independent acceptance. Original claims/verdicts/source notes remain exact history; held compound portions remain failures.
+
+```json
+[
+  {
+    "id": "COMPARISON-CURRENT-1-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 1,
+    "originalTuple": [
+      "Intro: 18 policies, 8 axes, \"not disclosed\" convention, RT-2/OpenVLA rates omitted as unverifiable-circulating",
+      "data/methods.ts + rt2-2023/openvla-2024 papers",
+      "verified",
+      "18 rows confirmed; RT-2 and OpenVLA control-frequency cells are null with an explicit comment; the omission matches the papers (neither states a single policy-side rate cleanly) and the article says so. P4-conformant."
+    ],
+    "originalCellsDigest": "75bec9202d2191d333c49fb4de5ec723c596e8ad02f3db7d3e00d97403193ca2",
+    "originalLedgerLine": "| Intro: 18 policies, 8 axes, \"not disclosed\" convention, RT-2/OpenVLA rates omitted as unverifiable-circulating | data/methods.ts + rt2-2023/openvla-2024 papers | verified | 18 rows confirmed; RT-2 and OpenVLA control-frequency cells are null with an explicit comment; the omission matches the papers (neither states a single policy-side rate cleanly) and the article says so. P4-conformant. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "The preceding modules followed one lineage at a time. This table places 18 policies side by side across eight architectural axes. Each row links to its registered sources. Read the setting and release notes with the values: a paper, a model card, and a repository snapshot can describe different versions of the same system. Set the weights filter to Downloadable to select records with a reported download. Not disclosed is a separate availability state, not a closed-license claim. An unset scalar rate does not establish that no setup-specific rate appears in a paper. In particular, the RT-2 and OpenVLA rate cells remain unset here; they are not evidence that those papers disclose no rates.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "unresolved",
+      "COMPARISON-CURRENT-1-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Intro/schema claims remain incomplete alongside the actual21-source P1 union. Canonical union is mounted METHODS.sources plus own inline citations, not ACT16. Identity proofs are tracked individually; missing metadata is not inferred from source IDs."
+    ],
+    "currentCellsDigest": "01c87f918bd63f2d20965dd14b489441b0fd274905611b08bef19971876f65a4"
+  },
+  {
+    "id": "COMPARISON-CURRENT-2-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 2,
+    "originalTuple": [
+      "RT-1: 2022, discrete, horizon 1/1, 3 Hz, FiLM-EfficientNet + TokenLearner + 19M transformer, 6-frame history, limited cross-embodiment, open",
+      "RT-1 paper arXiv 2212.06817 (part-2 verification)",
+      "verified",
+      "All cells verified in part 2 (3 Hz, 19M transformer, 6-image history, 256 bins)."
+    ],
+    "originalCellsDigest": "6080ee5b53641b2d04f8f1b65bae020b5df299e9c2761a8fba5c81715f9f1953",
+    "originalLedgerLine": "| RT-1: 2022, discrete, horizon 1/1, 3 Hz, FiLM-EfficientNet + TokenLearner + 19M transformer, 6-frame history, limited cross-embodiment, open | RT-1 paper arXiv 2212.06817 (part-2 verification) | verified | All cells verified in part 2 (3 Hz, 19M transformer, 6-image history, 256 bins). |",
+    "originalPlan": null,
+    "currentTuple": [
+      "RT-1: 2022, discrete, horizon1/1, commanded3Hz, FiLM-EfficientNet + TokenLearner +19M transformer, six-frame image history; cross-embodiment limited. Pretrained weights not disclosed in the checked paper; code is not a weight release.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "unresolved",
+      "COMPARISON-CURRENT-2-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. The six-image history, one-action output, commanded rate and transformer count are supported. The limited cross-embodiment cell still needs an explicit interpretation distinguishing Kuka-data transfer from a checkpoint operating on multiple bodies. Do not certify the entire row from the rate alone."
+    ],
+    "currentCellsDigest": "b20c25e1f2b8d5a867ab8c6c27d31743c482c68aac74f387802c594a0c5eafca"
+  },
+  {
+    "id": "COMPARISON-CURRENT-6-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 6,
+    "originalTuple": [
+      "Octo: 2024, diffusion, horizon/frequency null (\"varies by deployment\"), 27M/93M from scratch, language or goal image, cross-embodiment yes, open",
+      "Octo paper arXiv 2405.12213 (part-2 verification)",
+      "verified",
+      "Null horizon/rate is the P4 honest-unknown render; 27M/93M, from-scratch, goal-or-language conditioning verified."
+    ],
+    "originalCellsDigest": "16b3c7ae6dd18dad716fbbc72a7851ea7ade0d7b6348014a446c6632871e409b",
+    "originalLedgerLine": "| Octo: 2024, diffusion, horizon/frequency null (\"varies by deployment\"), 27M/93M from scratch, language or goal image, cross-embodiment yes, open | Octo paper arXiv 2405.12213 (part-2 verification) | verified | Null horizon/rate is the P4 honest-unknown render; 27M/93M, from-scratch, goal-or-language conditioning verified. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "Octo: 2024 diffusion policy; ALOHA finetuning predicts64/executes12. No universal rate; separate Franka prediction15Hz, coffee controller10Hz and ViperX5Hz settings. Transformer27M/93M labelled trained from scratch, language or goal image, cross-embodiment yes, downloadable.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "unresolved",
+      "COMPARISON-CURRENT-6-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Settings and checkpoints are supported; the from-scratch label must distinguish pretrained language tokenization from policy/backbone initialization before full row completion."
+    ],
+    "currentCellsDigest": "5b4c6fc323426ecedaa8fd2a3742909400f575533b4c059dcd12f3b722fa60a0"
+  },
+  {
+    "id": "COMPARISON-CURRENT-9-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 9,
+    "originalTuple": [
+      "π0: 2024, flow, 50/50, 50 Hz, PaliGemma 3B + 300M expert, 2-3 cameras + language + proprio, open",
+      "π0 paper arXiv 2410.24164 (part-1/2 verification)",
+      "verified",
+      "H=50, 50 Hz, PaliGemma 3B + 300M, 2-3 images all verified."
+    ],
+    "originalCellsDigest": "0a76d2a9fb06465199d79a4908df5f2d16df9fa711fac9387dc116021a448a05",
+    "originalLedgerLine": "| π0: 2024, flow, 50/50, 50 Hz, PaliGemma 3B + 300M expert, 2-3 cameras + language + proprio, open | π0 paper arXiv 2410.24164 (part-1/2 verification) | verified | H=50, 50 Hz, PaliGemma 3B + 300M, 2-3 images all verified. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "π0: 2024 flow policy, predicts50; UR5e/Franka execute16 at20Hz, other tested robots execute25 at50Hz. PaliGemma3B +300M expert, 2–3 images/language/proprioception, cross-embodiment yes, downloadable.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "unresolved",
+      "COMPARISON-CURRENT-9-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Execution and input passages are present, and openpi lists checkpoints. The exact rendered3B backbone label is not stated by the inspected v4 extraction; complete identity/parameter context is still required."
+    ],
+    "currentCellsDigest": "f6d3858db5414ad4fc7ba7cd12e387f80e2fd237996125d34985b6a844afe4d8"
+  },
+  {
+    "id": "COMPARISON-CURRENT-11-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 11,
+    "originalTuple": [
+      "π0.5: 2025, flow, 50/50, 50 Hz, \"PaliGemma-class 3B + 300M expert\", web VQA + subtask prediction conditioning, hierarchy internal, open",
+      "π0.5 paper arXiv 2504.16054 (part-1/2 verification)",
+      "verified",
+      "H=49/50, 50 Hz, subtask-then-action inference, hybrid co-training verified. \"PaliGemma-class\" is the paper's framing (π0.5 uses the π0 architecture)."
+    ],
+    "originalCellsDigest": "b23106783a5af5cf8f6dff355aa587dc6a490b140d53f18e2d0dd5cba15164c2",
+    "originalLedgerLine": "| π0.5: 2025, flow, 50/50, 50 Hz, \"PaliGemma-class 3B + 300M expert\", web VQA + subtask prediction conditioning, hierarchy internal, open | π0.5 paper arXiv 2504.16054 (part-1/2 verification) | verified | H=49/50, 50 Hz, subtask-then-action inference, hybrid co-training verified. \"PaliGemma-class\" is the paper's framing (π0.5 uses the π0 architecture). |",
+    "originalPlan": null,
+    "currentTuple": [
+      "π0.5: 2025 flow runtime, predicts50 (inclusiveH49), executed count not disclosed in v1; mobile-control targets50Hz, PaliGemma-class3B +300M expert, webVQA and subtask conditioning, internal hierarchy; pi05_base downloadable in pinned openpi.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "unresolved",
+      "COMPARISON-CURRENT-11-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. The v1 technical text calls the initialized VLM2B, while the table says PaliGemma-class3B. Do not choose an interpretation or promote full support without reconciling text-model versus complete-VLM scope."
+    ],
+    "currentCellsDigest": "bd544961a811066afbc29b9360ee4c33c08565a67398a35a1070dc01d2458ce4"
+  },
+  {
+    "id": "COMPARISON-CURRENT-12-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 12,
+    "originalTuple": [
+      "π0.6: 2025, flow, 50/50, 50 Hz, SigLIP 400M + Gemma3 4B + 860M expert ~5B, up to 4 images, closed",
+      "π0.6 model card PDF (part-2 verification)",
+      "verified",
+      "Every number matches the card; closed weights verified via openpi."
+    ],
+    "originalCellsDigest": "7b7b562f48a699ba2e96472724bdd44d024049eae18f46353336d7486e21b8e4",
+    "originalLedgerLine": "| π0.6: 2025, flow, 50/50, 50 Hz, SigLIP 400M + Gemma3 4B + 860M expert ~5B, up to 4 images, closed | π0.6 model card PDF (part-2 verification) | verified | Every number matches the card; closed weights verified via openpi. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "π0.6: 2025 model card; flow runtime and FAST backbone training. Predicted/executed horizons and robot-controlHz not disclosed in this card; chunk inference63ms, five denoising steps, three cameras, oneH100. SigLIP400M +Gemma3 4B +860M expert, table approximate total5B, up to four images and metadata, internal hierarchy. Model-specific release/license terms not disclosed in this card.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "unresolved",
+      "COMPARISON-CURRENT-12-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Source supports component sizes and execution-scope correction, but does not print the approximate5B total carried by this broad table row. No component sum is used to manufacture a withheld total."
+    ],
+    "currentCellsDigest": "ed6b99e166e599508661e01386944263bdb8959a8b89549166a7f4b5f01fdc50"
+  },
+  {
+    "id": "COMPARISON-CURRENT-13-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 13,
+    "originalTuple": [
+      "π0.7: 2026, flow, planned 50 / executed 25 (\"executes 15-25 of 50\"), 50 Hz (\"20 Hz on some deployments\"), Gemma3 4B + 860M ~5B, subgoal images + memory conditioning, closed",
+      "π0.7 paper PDF (part-1/2 verification)",
+      "verified",
+      "Ĥ ∈ {15, 25} of 50 verified; 20 Hz deployments per the π0.7 paper's robot table; conditioning list matches the paper's context components."
+    ],
+    "originalCellsDigest": "5ae9673c71fb8f3c8e19bf60f526b3fa98820f29a85ec1462decf67cc633ca83",
+    "originalLedgerLine": "| π0.7: 2026, flow, planned 50 / executed 25 (\"executes 15-25 of 50\"), 50 Hz (\"20 Hz on some deployments\"), Gemma3 4B + 860M ~5B, subgoal images + memory conditioning, closed | π0.7 paper PDF (part-1/2 verification) | verified | Ĥ ∈ {15, 25} of 50 verified; 20 Hz deployments per the π0.7 paper's robot table; conditioning list matches the paper's context components. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "π0.7 (2026 paper): continuous-action flow expert, FAST backbone supervision during training; predicts 50 and executes either 15 or 25, five denoising steps, no robot-to-choice mapping; UR5e 20 Hz, other tested robots 50 Hz. Gemma3 4B backbone, 860M expert, about 5B total, memory/subgoal images/language/subtask/metadata conditioning and internal semantic policy. Model-specific release/licensing terms not disclosed in this checked paper.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "corrected",
+      "COMPARISON-CURRENT-13-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance."
+    ],
+    "currentCellsDigest": "79c9b82a2ceb2f285d387c7cc92d40278ee3f1a960cbf61417399cd748beb97c"
+  },
+  {
+    "id": "COMPARISON-CURRENT-16-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 16,
+    "originalTuple": [
+      "GR00T N1.7: 2026, flow, planned 40 / executed null, frequency null (\"embodiment-dependent\"), Cosmos-Reason2-2B (Qwen3-VL) 3B, state dim 132, hierarchy external, open",
+      "Isaac-GR00T repo README (this session + part 2)",
+      "verified",
+      "Horizon 16→40, dims 29→132, Cosmos-Reason2-2B, open weights all match the README. \"External\" hierarchy = pairing with a whole-body controller per the article's axis definition."
+    ],
+    "originalCellsDigest": "29299f1f4640050eb46d05e7154a0cfa3c3cc2823a7118800cec2313b3b3881c",
+    "originalLedgerLine": "| GR00T N1.7: 2026, flow, planned 40 / executed null, frequency null (\"embodiment-dependent\"), Cosmos-Reason2-2B (Qwen3-VL) 3B, state dim 132, hierarchy external, open | Isaac-GR00T repo README (this session + part 2) | verified | Horizon 16→40, dims 29→132, Cosmos-Reason2-2B, open weights all match the README. \"External\" hierarchy = pairing with a whole-body controller per the article's axis definition. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "GR00T N1.7 GA README (2026): flow-matching DiT, predicted horizon 40, executed count and universal robot-control Hz not disclosed; Cosmos-Reason2-2B/Qwen3-VL backbone, 3B base model, state/action dimensions 132, image and language inputs, cross-embodiment base model. SONIC is a separate downstream controller (external hierarchy). Downloadable weights; License section distinguishes Apache 2.0 code and NVIDIA Open Model License weights, despite the broader overview Apache wording.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "corrected",
+      "COMPARISON-CURRENT-16-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance."
+    ],
+    "currentCellsDigest": "588d289994313baa2bfb7fc424902d68f7b0d52e2444a9ff9e35425ce32d0438"
+  },
+  {
+    "id": "COMPARISON-CURRENT-17-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 17,
+    "originalTuple": [
+      "Helix 02: 2026, continuous, horizon null, 200 Hz (S1; S0 1 kHz note), S2+S1+S0 10M stack, tactile/proprio conditioning, limited cross-embodiment, closed",
+      "Helix 02 blog (this session + part 2)",
+      "verified",
+      "200 Hz S1, 1 kHz S0, 10M S0, sensor list all vendor-verbatim; horizon null is honest."
+    ],
+    "originalCellsDigest": "db5718e6a59dbcbcfaf8171d71fde5b89751685ebba21a57a00e24b064deaba9",
+    "originalLedgerLine": "| Helix 02: 2026, continuous, horizon null, 200 Hz (S1; S0 1 kHz note), S2+S1+S0 10M stack, tactile/proprio conditioning, limited cross-embodiment, closed | Helix 02 blog (this session + part 2) | verified | 200 Hz S1, 1 kHz S0, 10M S0, sensor list all vendor-verbatim; horizon null is honest. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "Helix02: 2026 announcement, continuous-representation table label; chunk length not disclosed in announcement; S1joint targets200Hz/S0actuator commands1kHz; S2+S1transformer+S0 10M, head/palm cameras/tactile/proprioception, limited cross-embodiment; release/license terms not disclosed in announcement.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "unresolved",
+      "COMPARISON-CURRENT-17-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. The announcement supports sensor lists, S1/S0 rates and10M S0, but fleet generalization does not establish transfer of a checkpoint across different robot bodies or the complete continuous-regression classification. Keep the broad row incomplete."
+    ],
+    "currentCellsDigest": "1cb37c876b842059dbd38fcfd2658927a88f8a9eb08cf7ee2e3df31d23fe96b5"
+  },
+  {
+    "id": "COMPARISON-CURRENT-20-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 20,
+    "originalTuple": [
+      "Prose: \"ACT queries its transformer at 50 Hz and smooths with temporal ensembling; RT-1 managed 3 Hz\"",
+      "ACT + RT-1 papers (part 1/2)",
+      "verified",
+      "As above."
+    ],
+    "originalCellsDigest": "603d731e6be60a62e6588741d855b0e32d3cd9e31efbc3d1a272a1a9438205dc",
+    "originalLedgerLine": "| Prose: \"ACT queries its transformer at 50 Hz and smooths with temporal ensembling; RT-1 managed 3 Hz\" | ACT + RT-1 papers (part 1/2) | verified | As above. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "**Control frequency** needs a named measurement setting. <Cite id=\"act-aloha-2023\" /> ACT's ALOHA setup runs at 50 Hz; with <Term id=\"temporal-ensembling\">temporal ensembling</Term>, the policy is queried at every timestep. <Cite id=\"rt1-2022\" /> RT-1 commands the Everyday Robots platform at 3 Hz. Neither statement is a standalone transformer-throughput benchmark.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "corrected",
+      "COMPARISON-CURRENT-20-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance."
+    ],
+    "currentCellsDigest": "f726274358d7af5352628619bbd4d8184ca9117283cdfadf3682e0afac13c097"
+  },
+  {
+    "id": "COMPARISON-CURRENT-21-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 21,
+    "originalTuple": [
+      "Prose: \"Diffusion Policy predicts 16 steps but commits 8, and π0.7 predicts 50 but commits only 15 to 25\"",
+      "DP paper + π0.7 paper (part 1/2)",
+      "verified",
+      "As above."
+    ],
+    "originalCellsDigest": "8a4ab6db02a16eb4a3ea759d8a89d8fa1c2fbb1615abbcb27456ba6f11e9c2e8",
+    "originalLedgerLine": "| Prose: \"Diffusion Policy predicts 16 steps but commits 8, and π0.7 predicts 50 but commits only 15 to 25\" | DP paper + π0.7 paper (part 1/2) | verified | As above. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "**Horizon** separates the planned chunk length $H$ from the steps executed $\\hat{H}$ before re-planning: the <Term id=\"predicted-horizon\">predicted horizon</Term> and the <Term id=\"committed-horizon\">committed horizon</Term>. <Cite id=\"diffusion-policy-2023\" /> The Diffusion Policy CNN Push-T configuration predicts 16 steps and executes 8; these are not universal settings for every architecture or task. <Cite id=\"pi07-2026\" /> π0.7 predicts 50 and executes either 15 or 25, not every integer between them. Its paper does not map those two execution choices to particular robots. <Cite id=\"pi07-2026\" /> π0.7 uses five denoising steps to generate 50 actions, then executes either 15 or 25. Its UR5e robots run at 20 Hz; the other tested robots run at 50 Hz. <Cite id=\"real-time-chunking-2025\" /> Real-time chunking addresses inference delay by guiding generation of the next chunk while the current one is executing. These execution details matter more than ranking methods by predicted horizon alone.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "corrected",
+      "COMPARISON-CURRENT-21-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance."
+    ],
+    "currentCellsDigest": "d40e4119212436662823173d2cc774afcbbc40edc5fc70a07f002a1ab7f5368c"
+  },
+  {
+    "id": "COMPARISON-CURRENT-22-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 22,
+    "originalTuple": [
+      "Prose: \"π0-FAST ... at roughly twice the end-to-end latency of the flow head\"",
+      "KI blog (part 2)",
+      "verified",
+      "\"Twice the amount of time to solve the task\" (task-level, which is the end-to-end latency the reader cares about); verified in part 2."
+    ],
+    "originalCellsDigest": "c929124117969225a8ee892a4c3d7009f8f9e2275e935bb626a91bebbcb6b347",
+    "originalLedgerLine": "| Prose: \"π0-FAST ... at roughly twice the end-to-end latency of the flow head\" | KI blog (part 2) | verified | \"Twice the amount of time to solve the task\" (task-level, which is the end-to-end latency the reader cares about); verified in part 2. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "<Cite id=\"pi05-2025\" /> The π0.5 paper distinguishes FAST-token training from continuous-action generation with flow matching. It describes autoregressive action decoding as expensive at inference time. That qualitative comparison is not a measured factor-of-two task-completion or inference-latency result for π0-FAST.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "corrected",
+      "COMPARISON-CURRENT-22-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance."
+    ],
+    "currentCellsDigest": "822067edc5084b2b10e7bdd913d4ab96001f91e932747306b92cffc315d5e65e"
+  },
+  {
+    "id": "COMPARISON-CURRENT-23-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 23,
+    "originalTuple": [
+      "Prose: \"ACT's deterministic CVAE decoder is the last entry in the continuous-regression column; from late 2023 onward every row samples\"",
+      "data/methods.ts row order",
+      "verified",
+      "Of the 18 rows, ACT (2023) is the last 'continuous'-regression row; everything later is diffusion/discrete/flow except OpenVLA-OFT's L1 head, which the article's own aside acknowledges as continuous regression — the sentence's \"every row samples\" is imprecise for OFT. Judged verified-with-context: the OFT row is continuous *regression* but sits inside the parallel-decoding discussion the article makes explicitly; the sentence's claim is about the generative-head displacement trend and names \"diffusion, discrete tokens, or flow matching\" as the sampling columns. Borderline, kept as verified because the very next paragraph and the matrix itself present OFT accurately."
+    ],
+    "originalCellsDigest": "5d63b085d3ed767752ded3c05349b7278a34dd7f8c62d885e55f1b66d4d2347d",
+    "originalLedgerLine": "| Prose: \"ACT's deterministic CVAE decoder is the last entry in the continuous-regression column; from late 2023 onward every row samples\" | data/methods.ts row order | verified | Of the 18 rows, ACT (2023) is the last 'continuous'-regression row; everything later is diffusion/discrete/flow except OpenVLA-OFT's L1 head, which the article's own aside acknowledges as continuous regression — the sentence's \"every row samples\" is imprecise for OFT. Judged verified-with-context: the OFT row is continuous *regression* but sits inside the parallel-decoding discussion the article makes explicitly; the sentence's claim is about the generative-head displacement trend and names \"diffusion, discrete tokens, or flow matching\" as the sampling columns. Borderline, kept as verified because the very next paragraph and the matrix itself present OFT accurately. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "<Cite id=\"act-aloha-2023\" /> ACT fixes its CVAE latent to the prior mean, zero, to decode deterministically at test time. <Cite id=\"pi0-2024\" /> π0 instead uses an action expert trained with flow matching to generate continuous action chunks. These are concrete differences between output mechanisms, not evidence that every later policy abandoned regression.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "corrected",
+      "COMPARISON-CURRENT-23-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance."
+    ],
+    "currentCellsDigest": "a3a5c9ac108e778a5067f3f9e8ec5f4a4c471b42b7c1fb3199ad2376f1cbcd15"
+  },
+  {
+    "id": "COMPARISON-CURRENT-24-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 24,
+    "originalTuple": [
+      "Prose: \"Everything downloadable ... sits at least one generation behind the closed frontier\"",
+      "openpi + Isaac-GR00T repos",
+      "verified",
+      "Open rows end at π0.5 / OpenVLA-OFT / N1.7; π0.6/π0.7, GR 1.5/2, Helix 02, GO-2 closed. N1.7 is current-generation and open, but it is NVIDIA's frontier and the sentence's \"the closed frontier\" names π0.6+/GR2/Helix-class systems; the claim is the access story, which holds."
+    ],
+    "originalCellsDigest": "b7fc0e1df14e48f0ca29d3f9f96fb7f6b71894fed31ec56e582b5d49924181a2",
+    "originalLedgerLine": "| Prose: \"Everything downloadable ... sits at least one generation behind the closed frontier\" | openpi + Isaac-GR00T repos | verified | Open rows end at π0.5 / OpenVLA-OFT / N1.7; π0.6/π0.7, GR 1.5/2, Helix 02, GO-2 closed. N1.7 is current-generation and open, but it is NVIDIA's frontier and the sentence's \"the closed frontier\" names π0.6+/GR2/Helix-class systems; the claim is the access story, which holds. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "<Cite id=\"rt1-2022\" /> The RT-1 paper announces code, which does not establish pretrained-weight availability. <Cite id=\"helix-02-2026\" /> Figure's Helix 02 announcement does not state a chunk horizon or weight-release terms. Their availability cells therefore read \"not disclosed\" for these checked sources. <Cite id=\"openpi-repo-2024\" /> The pinned openpi README lists π0, π0-FAST, and π0.5 checkpoints. <Cite id=\"isaac-gr00t-repo-2026\" /> The N1.7 README lists downloadable weights, while its License section distinguishes Apache 2.0 code from the NVIDIA Open Model License for weights. These release statements do not establish a global generation ranking or closed licensing for an unlisted model.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "corrected",
+      "COMPARISON-CURRENT-24-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance."
+    ],
+    "currentCellsDigest": "e199a933c7dc4d9a9bc0e04565837059ddec6414a7b430bb2ba4352dcdf6dc01"
+  },
+  {
+    "id": "COMPARISON-CURRENT-25-20260907",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "comparison-matrix",
+    "rowOrdinal": 25,
+    "originalTuple": [
+      "Closing caution: three frequency regimes are not one scale",
+      "RTC + π0.7 papers, Helix 02 blog",
+      "verified",
+      "ACT 50 Hz (control rate), Helix S1 200 Hz (visuomotor policy rate), π0.7 50 Hz with training-time latency tolerance are indeed different measurement setups; the caution is accurate and matches the cell notes."
+    ],
+    "originalCellsDigest": "6877a09c299b1bda337a4ade0c023876c6dacdea35cc1a1028353dab3fb7d71b",
+    "originalLedgerLine": "| Closing caution: three frequency regimes are not one scale | RTC + π0.7 papers, Helix 02 blog | verified | ACT 50 Hz (control rate), Helix S1 200 Hz (visuomotor policy rate), π0.7 50 Hz with training-time latency tolerance are indeed different measurement setups; the caution is accurate and matches the cell notes. |",
+    "originalPlan": null,
+    "currentTuple": [
+      "The Control Hz column is not an inference-throughput comparison. <Cite id=\"act-aloha-2023\" /> ACT's 50 Hz ALOHA loop, <Cite id=\"helix-02-2026\" /> Helix's 200 Hz S1/1 kHz S0 stack, and <Cite id=\"pi07-2026\" /> π0.7's 20 Hz UR5e/50 Hz other-robot settings describe different systems. π0.7 also trains with simulated inference delays; that does not turn these rates into a shared benchmark. Read the setting notes before comparing two cells. <Cite id=\"pi06-model-card-2025\" /> The π0.6 card reports 63 ms to produce an action chunk with five denoising steps, three camera inputs, and one H100. It does not disclose a robot-control rate or a predicted/executed chunk length. <Cite id=\"helix-02-2026\" /> Figure reports Helix 02 S1 joint targets at 200 Hz and S0 actuator commands at 1 kHz. The latter are different stages of a control stack, not two alternative speeds for one model call.",
+      "Verified retained primary source text; original retrieval events preserved",
+      "corrected",
+      "COMPARISON-CURRENT-25-20260907. Original exact tuple/history retained below. Zero new fetches; verified primary response bytes and original events: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json. Complete corrected current claim; every listed part is required. Not independent acceptance."
+    ],
+    "currentCellsDigest": "2dda6d8fa421e0802cc31a8b411d1d29d01567dd169f0848015d90d29a5810f4"
+  }
+]
+```
+
+
+## Comparison matrix partial closeout — 2026-09-07
+
+**Comparison matrix: 8 complete / 17 incomplete / 25 original rows. Corpus: 128 complete / 866 incomplete / 994 original identities / 47 articles.** This is a local implementation checkpoint, not whole-article or independent acceptance. Ready and complete original ordinals are **13, 16, 20, 21, 22, 23, 24, 25**. All 120 previous complete records, 979 unaffected parsed records, 24 previous compound plans, 139 previous approvals, all 18 method records and the three completed articles (ACT 32/32, BC 14/14, DP 25/25) remain intact. Current catalog: 39 plans; 144 exact approvals. Reproducible counting/preservation: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/preservation.json`; unchanged `parseLedger` over canonical articles and compound data.
+
+Eight supported current records cover π0.7's full architecture/conditioning and discrete execution set; N1.7 GA architecture, download/license split and downstream SONIC controller; ACT/RT-1 setup-specific rates; CNN Push-T 16/8 versus π0.7's either-15-or-25 execution; π0.5's qualitative FAST-training/runtime distinction instead of an unsupported 2× latency claim; ACT deterministic decoding versus π0 flow matching instead of universal regression displacement; source-scoped release claims instead of a global generation ranking; and control-stack rates versus inference latency. π0.6's 63 ms claim stays tied to five denoising steps, three cameras and one H100. No model values, execution choices, source-scope notes or nullable semantics were changed.
+
+Correction/history IDs are `COMPARISON-CURRENT-{1,2,6,9,11,12,13,16,17,20,21,22,23,24,25}-20260907`. Eight records are corrected and complete; seven changed records are explicitly unresolved; ten original comparison tuples are untouched and still incomplete. Exact old/current tuples and prior plans are archived in this ledger and `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/row-history.json`. No legacy verified label was promoted from an article claim, registry value or partial supporting passage.
+
+The table now mounts its exact per-method source links, with visible source labels and safe external-link attributes. The article frontmatter is the actual **21-source union** of mounted `METHODS.sources` and its own inline citations, not ACT's sixteen-source list. Unused `gr00t-n1-2025` and `knowledge-insulation-paper-2025` were removed; already-registered `openpi-repo-2024` was added. Intro row 1 retains its census/absence claims and requires all 21 bibliographic identity parts through existing explicit compound data. **12 identity parts are supported; nine remain incomplete**: rt2-2023, open-x-embodiment-2023, openvla-2024, openvla-oft-2025, pi0-fast-2025, gemini-robotics-15-2025, gemini-robotics-2-2026, agibot-go2-2026, skild-series-c-2026. No P1 or whole-article pass is asserted.
+
+**Zero new network requests, new document groups, or PDF conversions.** 23 verified retained text streams at 22 distinct source URLs; 156 byte-indexed literal excerpts preserved in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/source-proof.json`. Source counts are not complete-claim counts. Actual retained response hashes and source text were checked before reuse; PDF binary hashes, layout-text hashes and reading-order-text hashes remain distinct. The original official PDF requests began at 2026-09-07T16:28:10.810822Z and 16:28:11.862371Z (observed HTTP 200/no redirects). FetchUrl 200s are tool-reported, not origin-header captures, and original request/result events are not this review's fetch times. Original conversion warnings remain retained. The ACT proceedings identity was verified from its original 11:32:22.922Z/11:32:26.552Z events and actual RSS title/byline/BibTeX, not a summary.
+
+All checks below ran sequentially with `NODE_DISABLE_COMPILE_CACHE=1`, regular-file logs and actual exit receipts under `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout`:
+
+| Gate | Actual command | Observed result |
+|---|---|---|
+| Red first | `node node_modules/vitest/vitest.mjs run tests/component/comparison-current-claims.test.tsx` | exit 1, six expected pre-implementation failures |
+| Focused unit/component | `node node_modules/vitest/vitest.mjs run tests/component/comparison-current-claims.test.tsx tests/component/comparison-matrix.test.tsx tests/component/act-final-model-papers.test.tsx tests/component/act-five-sources.test.tsx tests/unit/methods.test.ts tests/unit/audit-ledger.test.ts tests/unit/audit-citation-coverage.test.ts tests/unit/act-final-paper-audit.test.ts` | exit 0, 131 passed |
+| Audit mutations | `node node_modules/vitest/vitest.mjs run tests/unit/comparison-current-audit.test.ts` | exit 0, three passed; omitting any required part keeps its whole row red |
+| TypeScript | `node node_modules/typescript/bin/tsc --noEmit --incremental false` | exit 0 |
+| Lint | `node node_modules/eslint/bin/eslint.js .` | exit 0 |
+| Content | `npm run validate:content` | exit 1, 876 findings: 866 incomplete records + seven explicitly unresolved current outcomes + three aggregates; nine separate citation-check gaps |
+| Baseline | `node scripts/brand-v2-baseline.ts --check` | exit 1, exactly the same 60 prior failures, zero added |
+| Browser | `node node_modules/@playwright/test/cli.js test tests/e2e/comparison-current-claims.spec.ts --workers=1 --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/captures` | exit 0, two passing cases: 375×812 and 1440×900 |
+| Cards | `npm --ignore-scripts run generate:og-cards` then `npm --ignore-scripts run check:og-card-bytes` | both exit 0, 48 cards / 96 public-export files match; comparison references 22→21, 47 other card bytes unchanged |
+| Production/full corpus | not run | red prerequisite; production HTML and reading-time regeneration remain pending |
+
+All fourteen browser captures and the changed card were inspected against both approved references. Corrected prose, source links, source-specific unknown notes and the discrete execution set render without document overflow or KaTeX errors. Two checked source tooltips are internally unclipped and viewport bounded; both are x20–276 at 375px. Keyboard scrolling produces a positive offset; unknown weights are excluded by the strict Not released filter; reset restores all eighteen rows and ascending year order. Both cases have zero Axe violations and page errors. Table views are bounded scroll positions, not simultaneous all-column captures. Source links wrap in dense cells. Existing wider brand/control convergence is not certified by this scoped check, and the separately tracked citation Back-focus BODY finding is not erased.
+
+Five exact sealed-old / immediate-before / current member endpoints are appended with primary sources, reasons, affected assertions, `brand-v2-editorial` ownership and Josef's real September 7 “fix it all!” implementation authority. They cover comparison prose, relationships, fact frontmatter, the comparison interactive source and the removed second literal not-disclosed source-site occurrence. Actual disclosure values remain unchanged; no absence became n/a. Exact hashes: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/approved-deltas.json` and `member-changes.json`. No baseline recapture, wildcard allowance or gate change.
+
+Remaining whole-row gaps are explicit: RT-1's limited transfer label versus same-body evaluation; Octo initialization versus pretrained language tokenization; π0's rendered 3B backbone count versus the inspected extraction; π0.5's 2B technical-text versus 3B-class label; π0.6's unprinted approximate total; Helix's cross-body-transfer/continuous-head classification. Rows 3/4/5/7/8/10/14/15/18/19 still require complete original multi-field source bindings, not proof from their existing labels. The next finite batch should resolve those named method/source dimensions and the nine remaining P1 identities, not start another company/web sweep. No genuinely missing primary document was fetched in this batch.
+
+`lastReviewed` remains 2026-08-17; no human-review or freshness claim was added. No humanizer skill was available; rewritten prose received a manual precision/overstatement read and the content source checks. Only this task's two verified Next dev import substitutions were backed up and restored. Protected `PRODUCT_QUALITY.md`, `qa/findings.json`, `next-env.d.ts`, immutable baselines, old histories and commits d282a83/2cf7d6b are preserved. Diagnostic failures are retained: initial raw-event newline-basis mismatch, strict missing evidence-header checks, layout versus reading-order PDF text distinction, and the two-import Next generated-state guard. These checks were resolved using exact bytes, not by weakening the gate.
+
+No server remains. No build, full browser corpus, push, deployment, cleanup, feature/controller/model/security change or credit fallback occurred. No role-specific GPT exhaustion was observed. Independent Sol/high scrutiny and user testing remain required after actual corpus closure; 307/331 is not a runnable-feature count.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/comparison-matrix-current-claims-closeout/`.

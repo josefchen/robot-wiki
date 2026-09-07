@@ -3,6 +3,7 @@
 import { useMemo, useState, type ReactNode } from 'react';
 import { Badge, Table, type Column } from '@/components/ui';
 import { METHODS, type Method } from '@/data/methods';
+import { citationLabel, getCitation } from '@/data/citations';
 import {
   methodConditioningText,
   methodFrequencyFigure,
@@ -29,7 +30,7 @@ import { cx } from '@/lib/utils';
  * Honesty rules: cells the vendor has not
  * published render as "not disclosed", and null values always sort to the
  * end in both directions, never interleaved with numbers as if they were
- * zero. Rates the sources do not verify are omitted from the data entirely.
+ * zero. Unset scalar rates do not establish source-wide absence.
  *
  * Interactive contract: deterministic render, keyboard-operable filter
  * buttons and sort headers (aria-pressed / aria-sort), a visible row-count
@@ -149,6 +150,32 @@ const COLUMNS: Column<Method>[] = [
       {row.openWeights === null ? NOT_DISCLOSED : row.openWeights ? <Badge variant="ok">downloadable</Badge> : <Badge>not released</Badge>}
       {row.weightsNote ? <span className="block font-sans text-xs text-text-dim">{row.weightsNote}</span> : null}
     </>,
+  },
+  {
+    key: 'sources',
+    header: 'Sources',
+    render: (row) => (
+      <ul className="m-0 flex list-none flex-col gap-2 p-0">
+        {row.sources.map((id) => {
+          const citation = getCitation(id);
+          if (!citation) throw new Error(`Missing method source: ${id}`);
+          return (
+            <li key={id}>
+              <a
+                href={citation.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-brand-control-id="control:link-focus"
+                data-method-source-id={id}
+                className="font-sans text-xs text-signal underline underline-offset-2"
+              >
+                {citationLabel(citation)}: {citation.title}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    ),
   },
 ];
 
@@ -324,7 +351,7 @@ export function ComparisonMatrix({ className }: ComparisonMatrixProps) {
         <Table
           key={resetCount}
           className="mt-4"
-          caption={`${METHODS.length} policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Rates the sources do not verify, such as the RT-2 and OpenVLA control rates, are omitted rather than guessed.`}
+          caption={`${METHODS.length} policies across the eight architectural axes. Horizon shows planned / executed steps (n.d. = not disclosed). Weights describe download availability, not license openness. Unknown availability is separate from not released. Cells the vendor has not published are marked not disclosed and always sort last, in both directions. Unset scalar rates do not prove that a source reports no setup-specific rate. Read the setting notes and linked sources before comparing cells.`}
           columns={COLUMNS}
           rows={rows}
           initialSort={{ key: 'year', direction: 'asc' }}
