@@ -23548,5 +23548,933 @@
         "rationale": "Literal versioned primary context supports the proposed source-scoped part; only conditional source readiness, not product acceptance. Current implementation reread the primary context and complete required URL conjunction. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-simulation-remaining-reader-integration-20260908/source-proof.json retains original events and source bodies by identity. Current note and normalization wording bound separately; not independent acceptance."
       }
     ]
+  },
+  {
+    "id": "isaac-v1-world-models-generative-sim-10-20260908",
+    "ledgerPath": "audit/world-models.md",
+    "articleSlug": "generative-sim",
+    "rowOrdinal": 10,
+    "originalCellsDigest": "cc2ff0b84613e7cabbee348ba53820b37a7a0d5d4f5858cdc1d01b475f881379",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "pipeline",
+        "text": "pipeline: Object-centric segmentation, rigid transforms, recombination. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "interfaces-and-one-demo",
+        "text": "interfaces-and-one-demo: Compatible-environment requirement; as-little-as-one bound; parallel generation. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "parallel-generation",
+        "text": "parallel-generation: Compatible-environment requirement; as-little-as-one bound; parallel generation. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "limits",
+        "text": "limits: SkillGen controls trial count, environments and speed/success/quality tradeoffs; not unlimited successful output. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+      "planDigest": "fbd7402fd34cbd1078a90fe9523589865debda14400dbb86eca69846888ca5d5",
+      "rationale": "Reviewed the changed whole claim, all 4 parts and exact paired source set against the retained v1 body and adjacent context. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json preserves literal text, locators and original retrieval event. CPU/renderer, hardware/task scope, human demonstrations, RGB/depth embodiments, runtime/startup and approximate DexPBT timing remain distinct."
+    },
+    "evidence": [
+      {
+        "partId": "pipeline",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Isaac Lab Mimic focuses on synthetically generating a large number of robot demonstrations from a limited set of human demonstrations. The workflow segments a human demonstration into object-centric subtasks, applies rigid transformations to each segment, and recombines them into new demonstrations ( Mandlekar et al., 2023 ; Jiang et al., 2025 ) . By transforming and stitching trajectories, Mimic adapts these demonstrations so that the robot can successfully execute tasks even when the robot or objects occupy poses different from those in the original demonstration, significantly expanding the diversity and coverage of the training dataset."
+      },
+      {
+        "partId": "interfaces-and-one-demo",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "To make a manager-based environment design compatible with the Mimic workflow, users implement the required integration interfaces, including functions to convert robot poses to actions (and vice versa), retrieve the robot end-effector pose, and extract the gripper state from environment actions. Once an environment is Mimic-compatible, it can generate an effectively unbounded number of synthetic demonstrations from as little as a single human demonstration. Furthermore, Isaac Lab Mimic supports parallelized environment execution for data generation, substantially increasing throughput and reducing overall demonstration generation time."
+      },
+      {
+        "partId": "parallel-generation",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "To make a manager-based environment design compatible with the Mimic workflow, users implement the required integration interfaces, including functions to convert robot poses to actions (and vice versa), retrieve the robot end-effector pose, and extract the gripper state from environment actions. Once an environment is Mimic-compatible, it can generate an effectively unbounded number of synthetic demonstrations from as little as a single human demonstration. Furthermore, Isaac Lab Mimic supports parallelized environment execution for data generation, substantially increasing throughput and reducing overall demonstration generation time."
+      },
+      {
+        "partId": "limits",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "The Isaac Lab integration of SkillGen offers simple controls for scalable dataset creation. Users can select planner-backed generation with a single flag, configure the number of trials, number of parallel environments, and compute devices, and adjust the planner’s parameters to balance speed, success rates, and motion quality. The resulting datasets support IL workflows in Isaac Lab."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "pipeline",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "5fb8c492fe287cbfe6e1e3e59749e553010378a5920cec959e48dc8048378ffe",
+        "rationale": "Current implementation source review of mimic-pipeline supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 4afbf4d41a5c88a737973dc183df550f5bdd94f06c613adf535fae9a8586f6f8; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "interfaces-and-one-demo",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "6ded9a7577c9cef106c08875110ba493b696e0c1cebfb197ad9127f77c36cf66",
+        "rationale": "Current implementation source review of mimic-interfaces supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 4afbf4d41a5c88a737973dc183df550f5bdd94f06c613adf535fae9a8586f6f8; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "parallel-generation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "afc72095e5ef12fef571be37886030e76f47e36b8c51566afb6b9de7eeb19e94",
+        "rationale": "Current implementation source review of mimic-interfaces supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 4afbf4d41a5c88a737973dc183df550f5bdd94f06c613adf535fae9a8586f6f8; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "limits",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "fd6e02092d112f7f0e9c9e4f47933ab7ec7495f3dfb5f7704f380dd6d4d2e8a7",
+        "rationale": "Current implementation source review of mimic-trials supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 4afbf4d41a5c88a737973dc183df550f5bdd94f06c613adf535fae9a8586f6f8; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      }
+    ]
+  },
+  {
+    "id": "isaac-v1-rl-sim2real-why-rl-locomotion-3-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "why-rl-locomotion",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "b93933a4b52ff1c4898de31fcad5d11e58ba3585255aa49559dc6a4464f41b2f",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "challenge",
+        "text": "challenge: Dexterous versus parallel-jaw challenge and the actual framework response. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "framework-response",
+        "text": "framework-response: Dexterous versus parallel-jaw challenge and the actual framework response. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+      "planDigest": "88c4ddec18d0a4aab89b04ea12d6bed6fa9800e436ca4f2d333985f45eb27e33",
+      "rationale": "Reviewed the changed whole claim, all 2 parts and exact paired source set against the retained v1 body and adjacent context. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json preserves literal text, locators and original retrieval event. CPU/renderer, hardware/task scope, human demonstrations, RGB/depth embodiments, runtime/startup and approximate DexPBT timing remain distinct."
+    },
+    "evidence": [
+      {
+        "partId": "challenge",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Dexterous manipulation with multi-fingered hands remains challenging compared to standard parallel-jaw grasping due to the high-dimensional action space and fine-grained control required for coordinated finger movements and in-hand object manipulation. While most grasping systems operate open-loop and predict gripper poses for simple contact, they often fall short in dynamic tasks or tasks with high precision requirements. Isaac Lab enables the development of advanced dexterous manipulation policies by offering high-fidelity simulation of multi-DOF hands, accurate contact modeling, and support for rich sensory inputs, including vision and proprioception. It allows for scalable policy training and deployment of learned dexterous manipulation policies on real-world robotic platforms through features such as domain randomization and tiled rendering."
+      },
+      {
+        "partId": "framework-response",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Dexterous manipulation with multi-fingered hands remains challenging compared to standard parallel-jaw grasping due to the high-dimensional action space and fine-grained control required for coordinated finger movements and in-hand object manipulation. While most grasping systems operate open-loop and predict gripper poses for simple contact, they often fall short in dynamic tasks or tasks with high precision requirements. Isaac Lab enables the development of advanced dexterous manipulation policies by offering high-fidelity simulation of multi-DOF hands, accurate contact modeling, and support for rich sensory inputs, including vision and proprioception. It allows for scalable policy training and deployment of learned dexterous manipulation policies on real-world robotic platforms through features such as domain randomization and tiled rendering."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "challenge",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "65ad227c38c107747ec4bffcae2fc6cc08d3586451dda3a00571cebd6ea0c783",
+        "rationale": "Current implementation source review of dex-challenge supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal d4909e105a4855d4b3ecaa19a51463d24714808a7522d5db0f7b5e03acabb650; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "framework-response",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "766124eab51c11c3b50e64ca97e22cb1a046a43f26562cb370bb7e1bd5f91986",
+        "rationale": "Current implementation source review of dex-challenge supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal d4909e105a4855d4b3ecaa19a51463d24714808a7522d5db0f7b5e03acabb650; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      }
+    ]
+  },
+  {
+    "id": "isaac-v1-rl-sim2real-why-rl-locomotion-6-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "why-rl-locomotion",
+    "rowOrdinal": 6,
+    "originalCellsDigest": "de34a916e49072093467f148a38c303e059cb1390508f3a8e4ce4964bd66d603",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "attributed-mechanism",
+        "text": "attributed-mechanism: Attributed DextrAH-RGB teacher/student mechanism. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "teacher-student-context",
+        "text": "teacher-student-context: Privileged teacher, partial-observation student and online imitation. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+      "planDigest": "3976cfb5ebd4cc9060457856a9f42c0e365bd77d263612655274154cf416aefa",
+      "rationale": "Reviewed the changed whole claim, all 2 parts and exact paired source set against the retained v1 body and adjacent context. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json preserves literal text, locators and original retrieval event. CPU/renderer, hardware/task scope, human demonstrations, RGB/depth embodiments, runtime/startup and approximate DexPBT timing remain distinct."
+    },
+    "evidence": [
+      {
+        "partId": "attributed-mechanism",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "DextrAH-RGB ( Singh et al., 2024 ) trains an RL policy on the KUKA arm with an Allegro hand in simulation that uses privileged state information and then distills this into a network that takes stereo RGB pairs as input. This is the first system to have shown that an end-to-end network directly operating on raw RGB streams can control arm and multi-fingered hands, all leveraging the high-quality rendering from Isaac Lab ( Figure 29 ). More recently, Singh et al. (2025) leverages Isaac Lab to train depth-based end-to-end policies from scratch for the DextrAH ( Lum et al., 2024b ; Singh et al., 2024 ) task."
+      },
+      {
+        "partId": "teacher-student-context",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Training end-to-end pixels-to-action policies directly with RL presents unique challenges, as the agent must simultaneously learn perception and control. A widely adopted solution is the teacher-student distillation approach ( Chen et al., 2020 ; Lee et al., 2020 ) , in which a teacher policy, trained via RL on state-based (privileged) observations, guides a student policy that receives partial information (such as rendered RGB images) corresponding to the teacher’s states. The student is trained using an online imitation learning method, such as DAGGER ( Ross et al., 2011 ) , which is particularly effective as it incrementally aggregates data from the student’s own trajectories while leveraging the teacher for corrective actions."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "attributed-mechanism",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "c34217c9391f5ac32d7519a07f288a2838d8465989f1a4681146ba93322195b3",
+        "rationale": "Current implementation source review of dex-rgb supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 9b042f2a5b203686db336935853db8780f9e179931de536244d66cf8156f54a1; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "teacher-student-context",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "841c05e0d26bc7faab6b965e0a503e975bdb863e2a12e86c4b1851f81a7eb6d5",
+        "rationale": "Current implementation source review of teacher-pattern supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 9b042f2a5b203686db336935853db8780f9e179931de536244d66cf8156f54a1; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      }
+    ]
+  },
+  {
+    "id": "isaac-v1-rl-sim2real-parallel-sim-rl-8-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "3d2180848635f143764ecf4f1a3d34690a51f3caa8d42d2b486f16d7445067d3",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "scene",
+        "text": "scene: OpenUSD scene foundation. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "physics",
+        "text": "physics: PhysX state/control versus CPU parameter APIs; SDF context. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "rendering",
+        "text": "rendering: RTX renderer and camera tiling; active-sensor tiled integration still forthcoming. One tiled render product and its image-quality tradeoff. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "geometric-sensors",
+        "text": "geometric-sensors: Warp height-scanner/LiDAR patterns; no temporal distortion; RGB/semantic outputs under development. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "actuators",
+        "text": "actuators: Implicit/explicit actuators, nonlinear limits and learned actuator models. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "managers",
+        "text": "managers: Manager composition; reset and interval events are both present. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "algorithm-hooks",
+        "text": "algorithm-hooks: All five named learning-library integrations. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+      "planDigest": "275d80642b66b7148f4b758827d300d82aecba57e840f7a94271114be74f62ec",
+      "rationale": "Reviewed the changed whole claim, all 7 parts and exact paired source set against the retained v1 body and adjacent context. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json preserves literal text, locators and original retrieval event. CPU/renderer, hardware/task scope, human demonstrations, RGB/depth embodiments, runtime/startup and approximate DexPBT timing remain distinct."
+    },
+    "evidence": [
+      {
+        "partId": "scene",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "2.1 USD for Robotics The robotics simulation ecosystem remains highly fragmented, with developers managing diverse data sources that include CAD models, kinematic and dynamic descriptions, sensor parameters, and more. Additionally, simulators often rely on multiple specialized attributes for physics and rendering, which further increases the complexity of asset data. Existing tools illustrate these challenges. Gazebo ( Koenig and Howard, 2004 ) utilizes the flat and inflexible XML-based SDF ( SDF ). This format limits the ability to generate large, photorealistic worlds and collaborate on scene variations. It only defines descriptions at the component level, making complex subsystem behaviors, such as closed-loop kinematic chains, difficult to represent. Other widely used XML-based robotics formats, such as URDF and MJCF , face similar limitations. Modern game engines such as Unity and Unreal are increasingly used in robotics. They provide photorealistic rendering, integrated physics, and better scene authoring capabilities. However, these tools were originally designed for entertainment and use paradigms that differ from traditional robotics workflows. AirSim ( Shah et al., 2017 ) attempts to lower the barrier to entry for robotics researchers, but its approach of compiling simulations into a monolithic \"game\" introduces significant limitations: Any modifications to the simulation often require returning to the underlying game engine. These limitations highlight the need for a flexible unifying format that can integrate diverse data types, support complex subsystem modeling, and facilitate collaborative workflows for digital content creation. Figure 2 : Isaac Lab uses OpenUSD to define rich, complex simulation scenes for robotics. Robots, objects, and sensors are arranged in hierarchical scene graphs, where parent–child relationships manage spatial organization, coordinate frames, and groupings. Meanwhile, simulation-specific schemas capture visual appearance, collision geometry, physical properties, semantic IDs, and sensor configurations. Addressing these challenges, Open USD (OpenUSD) ( Pixar Animation Studios, 2016 ) is an open-source format for robust and scalable authoring of complex 3D scenes composed of numerous elements. It provides a comprehensive set of tools and Python/C++ APIs to define, organize, and edit 3D data. USD represents a 3D scene as a hierarchical scene graph (or stage ), with data arranged in namespaces of primitives (or prims ). Each prim can contain child prims and have attributes or properties, allowing transformations and properties to be inherited from parent prims. USD’s schema -based system helps define structured properties for geometry, materials, physics, and more, while layering and non-destructive composition facilitate multiple collaborators working on a scene simultaneously without overwriting changes. Additionally, references and instancing let users combine multiple USD files and reuse repeated elements efficiently. These features make USD a flexible, scalable, and collaborative foundation that naturally ties into robotics simulation workflows. An example of a USD scene leveraging referencing is demonstrated in Figure 2 . The AOUSD ( AOUSD ) is an open, non-profit organization that aims to advance 3D data interoperability through OpenUSD. Within this effort, a key development for robotics is the USDPhysics schema. The USDPhysics schema extends OpenUSD with a standardized way to describe physical properties such as rigid bodies, collisions, joints, and materials. By providing a common representation for physics simulation, it enables robotics and simulation tools to share and interpret scenes consistently across different engines and workflows. While these definitions are designed to generalize across multiple simulation backends, OpenUSD also allows a straightforward extension with engine-specific schemas. For example, the PhysxSchema provides parameters used in NVIDIA PhysX, while the MjcPhysics schema, currently under development in collaboration between NVIDIA and Google DeepMind, extends USD for MuJoCo. Beyond physics, OpenUSD also provides complementary schemas that enrich how scenes can be represented and exchanged across domains. The Semantics schema annotates prims with categorical labels, enabling tasks in perception and learning. Camera prims allow the description of virtual sensors directly within a scene, ensuring that viewpoints and sensor models are preserved consistently across tools. Similarly, Material schemas capture surface properties like textures, reflectance, and friction in a standardized way, bridging the needs of both rendering and physics. These schemas unify geometry, dynamics, semantics, sensing, and appearance within a single scene description. This integrated representation overcomes the limitations of existing robotics formats such as MJCF (physics-focused, limited scene richness) and URDF (kinematics/dynamics with Gazebo-specific tags for sensors). In Isaac Lab, USD serves as the foundation for robotics simulation. While USD’s domain-agnostic design provides flexibility, it necessitates domain-specific conventions to maintain structured scene graphs and develop reliable APIs. Robotics uses meters and a Z-up convention in the USD stage, where other domains, such as computer graphics, follow loosely defined conventions. Prims must follow specific hierarchy rules. For instance, two prims with rigid body properties cannot be nested under each other. Additional considerations, such as instancing, are necessary to ensure efficient stage creation for large-scale simulation scenes. To address these requirements, Isaac Lab provides USD converters for widely used formats, including URDF, MJCF, and meshes (e.g., OBJ, DAE). It also offers high-level wrappers around USD APIs, allowing users to configure attributes and create prims via simple configuration objects. These wrappers handle stage-modification nuances, such as cloning prims efficiently for large-scale scenes and altering USD properties for domain randomization. Additionally, thanks to ongoing SimReady asset creation efforts, Isaac Lab includes various photorealistic and physically accurate robot and object assets that are ready for use in simulation."
+      },
+      {
+        "partId": "physics",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "2.2 Physics Simulation Figure 3 : Integration of USD with PhysX in OmniPhysics. The USD stage provides a hierarchical representation of all objects and robots in the scene. This scene graph is parsed into PhysX, which allocates GPU tensors representing the internal simulation state. Unlike Isaac Gym, where users accessed raw buffers and manually indexed per simulation object, OmniPhysics exposes these states through the View APIs. These APIs allow read or write access to subsets of objects in the scene while simplifying data management and improving usability. The NVIDIA PhysX SDK is an open-source, multi-physics simulation engine designed to meet the demanding needs for robotics and industrial applications. With the release of PhysX 5, the engine incorporates capabilities from the former NVIDIA Flex library, including FEM ( FEM )–based soft-body dynamics, as well as PBD ( PBD ) for liquids and inflatable objects. It supports a wide range of simulation types, from rigid and articulated bodies to deformable bodies such as cloth, fluids, and soft bodies. These simulation objects can interact with each other through two-way coupling between specialized solvers. As an example, the FEM cloth solver exchanges impulses with the Featherstone-based articulation solver to support efficient and accurate mixed-physics interactions. Building on this foundation, PhysX has continued to evolve towards robotics use cases, collaborating with robotics engineers and researchers to develop domain-specific features, including emulation of force–torque load cells, advanced actuator and friction models for an articulation’s joints, and collision handling improvements such as Signed Distance Field (SDF) methods, which are particularly valuable for high-precision, non-convex geometries encountered in robotic assembly tasks. PhysX can run on both CPU and GPU, providing flexibility for different simulation scenarios. For high-performance, large-scale robot learning workflows, GPU execution delivers the parallelism and throughput necessary to scale efficiently. PhysX’s Direct-GPU API provides direct read and write access to simulation state and control data in GPU memory. The resulting CUDA tensors can then be processed efficiently using user-defined GPU kernels for downstream applications, such as computing observations for robotics learning workflows. This end-to-end GPU pipeline eliminates the performance bottlenecks from CPU–GPU data transfers seen in traditional simulators. The benefit of this GPU-first simulation approach was first demonstrated for RL in Isaac Gym ( Makoviychuk et al., 2021 ) , where training times for complex robotic tasks were reduced from days to hours. It is important to note that only the simulation state and control can currently be accessed directly on the GPU device. Simulation parameters, such as friction coefficients, rigid-body masses, and joint properties, must still be set via the PhysX CPU APIs due to current design constraints. NVIDIA Omniverse Physics (OmniPhysics) serves as the integration layer for the PhysX simulation engine within NVIDIA Omniverse. It extends the OpenUSD framework by introducing user-defined data types under PhysxSchema, which enables the representation and control of physics simulations. OmniPhysics parses these attributes from USD, maps them into PhysX, runs the simulation, and writes the simulation output back to USD. It also supports state updates by monitoring changes in USD and updating the active simulation accordingly. In Isaac Lab, where high-performance and large-scale simulation scenes are common, the USD read–write cycle during simulation is often a performance bottleneck and is therefore bypassed. Instead, the simulation data is accessed through OmniPhysics Tensor APIs, which internally rely on PhysX Direct GPU APIs. For workflows that require rendering, such as vision-in-the-loop training, OmniPhysics also maintains efficient synchronization between the simulation state and the renderer. Algorithm 1 OmniPhysics Workflow in Isaac Lab 1: Prepare USD stage ⊳ \\triangleright All modifications possible through USD APIs 2: Start simulation ⊳ \\triangleright Parse USD stage and initialize PhysX objects 3: Create physics simulation views ⊳ \\triangleright Define views via USD prim path patterns 4: Access simulation state using Tensor API views ⊳ \\triangleright Read/write simulation state efficiently 5: if direct GPU API disabled then 6: Use standard USD APIs with OmniPhysics monitoring ⊳ \\triangleright Fallback to standard USD workflow 7: else 8: Access PhysX exclusively via Tensor API views ⊳ \\triangleright USD read/write suppressed for performance 9: end if Algorithm 1 summarizes the OmniPhysics workflow in Isaac Lab. The user sets up the USD stage through USD APIs. Isaac Lab provides configurable interfaces and APIs to facilitate programmatic creation of prims. These interfaces support spawning prims of different types, modifying their USD attributes, and efficiently duplicating a prototype scene to multiple environment instances on the USD stage. Once the stage is ready for simulation and the simulation is played , OmniPhysics parses the USD stage to create a set of PhysX simulation objects ( \\eg robots, rigid objects, or static colliders) that mirror the USD scene. To efficiently scale a prototype environment to thousands of instances, OmniPhysics provides replication APIs that duplicate the prototype’s PhysX simulation objects across many parallel training environments. During this replication process, a mapping is also established between the PhysX objects and their USD prim paths, which is subsequently used to construct Tensor API views. The OmniPhysics Tensor API presents simulation data as batched, device - resident arrays organized into views, as shown in Figure 3 . Instead of operating each physics actor individually, users can interact with a collection of actors through a SimulationView , which links the chosen tensor framework ( \\ie NumPy, PyTorch, or NVIDIA Warp) to the physics simulation backend. A simulation view can then be used to create specialized views for different types of physics objects, including rigid bodies ( RigidBodyView ) and articulated systems ( ArticulationView ). Views are defined using USD prim path pattern matching. For instance, if a prototype scene contains a robot prim at \" /World/envs/env_0/Robot \", and this scene is cloned N N times, then all robots across the N N environments can be collected into a single articulation view using the pattern \" /World/envs/*/Robot \". The resulting view exposes simulation data as arrays with the first dimension corresponding to the number of robots N N . In Isaac Lab, the Tensor API-based view classes provide efficient access to underlying simulation data for user-facing asset classes, such as Articulation and RigidObject , as well as physics-based sensor classes like ContactSensor and IMU . These views enable GPU-accelerated batched operations and serve as the foundation for additional asset- and sensor-level functionalities. For example, the Articulation class extends the OmniPhysics ArticulationView to support user-defined actuator models, store default physical properties for domain randomization, and implement efficient buffering mechanisms to minimize redundant read-write operations. These API-level features are described in detail in Section 3 ."
+      },
+      {
+        "partId": "rendering",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "2.3 Rendering The Omniverse RTX renderer simulates RGB cameras and synthetic ground truth sensors, including depth, surface normals, and semantic segmentation, using physically based ray tracing. It supports real-time and offline path tracing, direct lighting, and denoising on top of hardware-accelerated ray tracing. To improve rendering efficiency, the RTX renderer leverages DLSS ( DLSS ) , which upscales images from a lower internal resolution using high-quality temporal super-resolution, making it well-suited for high-resolution perception tasks. The RTX renderer allows users to selectively disable DLSS in very low-resolution scenarios where there is insufficient visual data for the upscaler to make use of. DLSS only affects RGB outputs; other ground truth data, such as depth and segmentation, are always rendered at their native resolution. An important aspect of high-quality rendering is applying the right materials to USD prims. Material schemas for USD prims are authored using NVIDIA’s MDL ( MDL ) . MDL provides a flexible and powerful framework for describing complex, physically-based materials (e.g., OmniPBR, OmniGlass) with realistic details such as reflections, refractions, and surface patterns. These materials enable high-quality visual results in rendered scenes, as illustrated in Figure 4 . Additionally, to support semantic segmentation, USD prims can also be annotated with semantic information, such as object class or instance identifiers. This metadata allows per-pixel instance and class labels to be rendered alongside RGB images, which is fully compatible with tiled rendering in large-scale, multi-camera setups. Figure 4 : Photo-realistic rendering in Isaac Lab using the Omniverse RTX renderer, demonstrating high-quality ray tracing with complex physically-based materials authored using NVIDIA’s MDL. The rendering showcases realistic effects such as reflections and refractions, resulting in visually rich and high-quality scenes. To support thousands of cameras in parallel simulation environments, Isaac Lab uses the tiled rendering pipeline of the RTX renderer. This method batches multiple cameras into a single render pass by spatially arranging them as tiles within the GPU framebuffer. Each camera preserves its own intrinsics and pose, and the deterministic tiling layout enables efficient reconstruction of per-environment tensors without incurring costly host–device transfers. This design is essential for large-scale data generation workloads, such as vision-in-the-loop RL , as it scales sensor throughput linearly with GPU resources, minimizes latency, and synchronizes observations across environments for policy training (see Figure 5 ). Although active sensors such as LiDARs and radars are already supported by the Omniverse RTX renderer, their integration with tiled rendering is forthcoming. As an alternative, the RayCaster sensor uses NVIDIA Warp operations for ray-casting, as described in Section 3.3.3 . Figure 5 : Tiled rendering of multiple simulated environments. Each environment has a separate camera, and their outputs are spatially tiled into a single GPU frame-buffer. The deterministic layout allows efficient reconstruction of per-environment observations without costly host–device transfers. Figure 6 : 3D Gaussian rendering combined with mesh rendering, with shadows from the mesh affecting the Gaussian scene. The RTX renderer can also perform 3D Gaussian rendering via Omniverse NuRec , supporting realistic reconstructions of the real-world scenes using approaches such as 3D Gaussian Splats (3DGS) by Kerbl et al. (2023) and 3D Gaussian Unscented Transforms (3DGUT) by Wu et al. (2025) . These Gaussian primitives integrate seamlessly with ray-traced geometry in the RTX renderer, allowing robots and synthetic objects to operate within photorealistic, reconstructed environments. This approach improves visual realism and facilitates policy transfer without requiring hand-crafted assets. Figure 6 shows an early example of this integration from Liu et al. (2025) . Isaac Lab uses the RTX renderer to implement the TiledCamera sensor class, which batches the rendering output for learning pipelines. It supports specifying and retrieving camera poses in multiple conventions, such as those used in ROS and computer graphics. The class also ensures that sensor data is updated at a specified frequency to match real-world sensors. Since the RTX renderer settings affect performance, Isaac Lab provides users with presets that trade off between quality and speed, and exposes rendering parameters through configuration objects for further customization. Furthermore, Isaac Lab employs Replicator API to randomize MDL materials on prims and scene lighting. Together, these features enable scalable, high-fidelity rendering with multi-camera observations while supporting realistic variations in textures and illumination.\n\n3.3.2 Rendering-based Camera Rendering-based sensors emulate real-world cameras, which remain among the most informative sensors for robotic perception. Isaac Lab supports both Pinhole and Fisheye camera models, with outputs including RGB, depth, semantic labels, instance segmentation, surface normals, and motion vectors. Cameras can be configured using standard parameters (e.g., focal length, aperture) or intrinsic matrices. Since orientation conventions vary across frameworks, Isaac Lab supports multiple frame definitions: world (x-forward, z-up), ROS (z-forward, -y-up), and OpenGL (-z-forward, y-up). For photorealistic rendering, Isaac Lab relies on RTX-based pipeline, as described in Section 2.3 . Each camera sensor generates a render product , which first uses path-tracing to generate a rough image and then undergoes post-processing steps such as denoising and anti-aliasing to produce high-quality outputs. The USD-Camera implementation assigns one render product per environment, enabling highly accurate images that capture illumination, shadows, and reflections. This is well-suited for data generation tasks where photorealism is critical and parallelization is less of a concern. In contrast, learning tasks often require frequent image generation across thousands of environments, where individual render products become a computational bottleneck. To address this, the Tiled-Camera offers a parallelized implementation that aggregates all camera data into a single tiled render product. While this approach may slightly reduce photorealistic quality due to post-processing being optimized for single images rather than tiled layouts, it provides significant speedups. Ongoing improvements in tiled post-processing aim to further close this quality gap."
+      },
+      {
+        "partId": "geometric-sensors",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "3.3.3 Warp-based Ray-Caster Distance queries are a key component in many robotic tasks and policy learning pipelines. In real systems, such measurements are typically provided by LiDAR sensors or derived from environment height maps ( Miki et al., 2022 ) . In Isaac Lab, we implement these queries through the RayCaster sensor, which leverages NVIDIA Warp to achieve lightweight and highly parallelized geometric computations on the GPU. The RayCaster can be configured with flexible raycast patterns to emulate a variety of sensors, including height scanners, solid-state LiDARs, and rotating LiDARs. Rays can be cast against arbitrary dynamic meshes, enabling users to include or exclude specific actors in the scene. Internally, scene geometry is stored as Warp meshes, and their poses are synchronized through PhysX views to support dynamic environments. The ray origins and directions, defined by the chosen pattern, together with the current mesh transforms, are then passed to Warp kernels for efficient GPU-based raycasting. All raycast results are computed at a single time instance, eliminating temporal distortion effects that can occur in real-world rotating sensors where individual rays are captured at different timestamps. Providing a pinhole raycast pattern enables a RayCasterCamera , which integrates with the standard camera interface to provide depth images. RGB and semantic outputs are currently under development. Compared to USD- or Tiled-Cameras, raycast-based sensors prioritize efficiency over photorealism by omitting rendering effects, making them particularly well-suited for large-scale geometric training scenarios."
+      },
+      {
+        "partId": "actuators",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "3.2 Actuators In Isaac Lab, actuators are the interface between desired joint actions and articulation motion. Actuators provide a control loop over desired motion and joint intrinsic model definitions. All actuators provide interfaces for defining joint friction using two different models. The first model is a simple Coulomb friction model with a constant coefficient of friction. The second model provides a stiction model with a static slip threshold, dynamic friction, and viscous friction coefficients. Actuators also have an armature value that represents the motor inertia and is used to affect the dynamic response of the actuator. Limits for both velocity and effort can also be provided to better approximate real-world limitations. Actuators are separated into two different classes: implicit and explicit actuators. 3.2.1 Implicit Actuators Implicit actuators utilize the NVIDIA PhysX joint PD controllers. These controllers can be used to track both position and velocity by specifying the stiffness and damping terms of the PD controller. A feedforward effort can also be provided from the desired control action. Implicit actuators can utilize the velocity and effort limits to apply inequality constraints to the simulation solver. This can introduce issues with solvers if they become too restrictive. These joint-level controllers are typically more stable than explicit actuators, as they are iteratively solved in step with physics. They also tend to be more accurate at low sampling rates than explicit actuators. 3.2.2 Explicit Actuators Explicit actuators operate in a similar manner as the implicit actuators, but they better approximate the discrete implementation of joint controllers on hardware, especially at higher physics sampling rates. Given a desired joint action, explicit actuators compute the applied effort that is sent to the physics solver. This introduces the inherent numerical challenges of discrete-time control. Ways to mitigate this include traditional control stability analysis, as well as actuator armature. Explicit actuators can utilize the solver limits for velocity and effort, but can also apply limits that are used by the explicit effort calculations. A variety of different explicit actuators are available in Isaac Lab, including: • Ideal PD actuators are the simplest form of explicit actuators. Similar to the implicit actuator, the Ideal PD actuator implements a PD feedback controller with feedforward effort, using specified stiffness and damping parameters. However, the Ideal PD actuator operates in a discrete-time formulation. It can also apply an effort limit, clipping the computed torque before passing it to the solver. • DC Motor actuators utilize the same control and intrinsic parameters as the Ideal PD actuator, but provide an additional velocity-dependent effort limit model that approximates a four-quadrant DC motor torque speed curve. They do not simulate the electro-mechanical dynamics of a DC motor. • Delayed PD actuators build upon the Ideal PD actuator by providing a mechanism for simulating communication delay in the control system by buffering desired actions by a configurable number of simulation steps. These delays are important to simulate when approximating the communication delays on real distributed systems. The Spot application described in ( Section 6.1 ) is an example use case of the Delayed PD actuator. • Remotized PD actuators are used to simulate actuators with joint position-dependent effort limits. Some robots have remote actuators that utilize linkages to transfer power to distal joints. This type of actuation results in the nonlinear transformation ratios and position-dependent effort limits that are emulated by the Remotized Actuator. An example use of this actuator is the Spot knee actuator ( Section 6.1 ). • Neural Net actuators utilize a trained neural network for joint control rather than the PD control loop of the Ideal PD actuator. These models can be trained on hardware data to better emulate the dynamic response of the actuator in the real world. They are often coupled with the DC motor torque-speed curve effort limits. Isaac Lab has examples for both Long Short-Term Memory LSTM actuators ( Rudin et al., 2022 ) and Multi-layer Perceptron (MLP) actuators ( Hwangbo et al., 2019 ) models."
+      },
+      {
+        "partId": "managers",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "3.7.1 Manager-Based Workflow The manager-based workflow in Isaac Lab is a structured way to build environments by decomposing the MDP into reusable managers, such as for observations, actions, rewards, terminations, commands, curricula, events, and recording. Each unit has a single responsibility and a clear interface. This design targets ML/RL practitioners: you interact with MDP concepts directly while the framework handles simulation plumbing (scene updates, decimation), vectorization, per-env resets, and Gym-compatible spaces derived from the active terms. As a result, environments remain readable and extensible, and switching on/off terms or swapping configurations becomes a configuration change rather than a refactor. Beyond enabling flexible MDP definitions, Isaac Lab ships a catalog of tested, independent term functions with explicit inputs/outputs. Practitioners can add or ablate terms without touching unrelated code paths, accelerating idea testing, ablation studies, and continuous development. The manager API formalizes where each computation lives and exposes logging hooks to attribute signals at term-level granularity (e.g., reward contributions, termination causes), improving training analysis and reproducibility. While a manager layer can introduce modest overhead compared with a hand-tuned direct workflow, most of that overhead is CPU orchestration and kernel-launch latency rather than physics itself — precisely the kind of cost that CUDA Graphs are designed to reduce by bundling many GPU operations into a single launch. We foresee manager term graphed executions as a plausible roadmap to bootstrap the MDP calculation runtime, thus narrowing any remaining gap. Algorithm 2 Environment Step Function 1: input: action 2: output: observations, rewards, terminations, timeouts, extras 3: procedure Step (action) 4: // pre-physics step 5: Process actions ( \\eg clipping, affine transformation) 6: // physics step 7: for each substep in environment decimation do 8: Apply processed actions to simulation buffers (via actuator models) 9: Apply pre-simulation events (if any) 10: Advance simulation (without rendering) 11: if render interval reached and is_rendering then 12: Render simulation 13: end if 14: Update scene buffers 15: end for 16: // post-physics step 17: Update episode counters 18: Compute terminations and timeouts 19: Compute rewards 20: // environment reset 21: reset_env_ids ← \\leftarrow environments to reset 22: if reset_env_ids not empty then 23: Update curriculum 24: Apply reset events to reset the environments 25: Reset episode counter and internal buffers ( \\eg state history) 26: Update simulator kinematic state 27: if sensors present and rerender configured then 28: Render simulation 29: end if 30: end if 31: // command and observation update 32: Update commands 33: Apply interval events (if any) 34: Compute observations 35: return observations, rewards, terminations, timeouts, extras 36: end procedure"
+      },
+      {
+        "partId": "algorithm-hooks",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Isaac Lab adheres to the Gymnasium API ( Towers et al., 2024 ) , a widely adopted interface for defining RL environments. By conforming to the gymnasium.Env specification, Isaac Lab environments can be used directly with any library that supports Gym-compatible environments. At the same time, many RL frameworks implement custom specifications for handling batched data from parallelized environments. To address this, Isaac Lab is designed with extensibility in mind to integrate custom solutions with minimal engineering effort. Out-of-the-box, Isaac Lab provides built-in support for SKRL ( Serrano-Munoz et al., 2023 ) , RSL-RL ( Schwarke et al., 2025 ) , RL-Games ( Makoviichuk and Makoviychuk, 2022 ) , Stable-Baselines3 (SB3) ( Raffin et al., 2021 ) , and Ray ( Moritz et al., 2018 ) . These libraries complement different aspects of the RL workflow and highlight Isaac Lab’s interoperability."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "scene",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "2ae15c0c033b0c30c339cf66bb7c6888af4cdc43e3eb4c29b464cddc55fda777",
+        "rationale": "Current implementation source review of usd supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 13d4160dbd319498f287c20a417b521a18b0697f8de23bb0aff00f40bb40ba4b; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "physics",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "43a7eefb25a3b8e5f851f376ac314603b73fa838e2547372349af93248be2386",
+        "rationale": "Current implementation source review of physx supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 13d4160dbd319498f287c20a417b521a18b0697f8de23bb0aff00f40bb40ba4b; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "rendering",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "700dc78f4f1069d0afd0bf59fc1b60f2a0174b28d539b20f50897285b22e309f",
+        "rationale": "Current implementation source review of rtx-tiled, camera supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 13d4160dbd319498f287c20a417b521a18b0697f8de23bb0aff00f40bb40ba4b; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "geometric-sensors",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "610aa0409f23e8c5c95566f371508da6116c5e4291321a52ec2a316d51e58a78",
+        "rationale": "Current implementation source review of warp supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 13d4160dbd319498f287c20a417b521a18b0697f8de23bb0aff00f40bb40ba4b; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "actuators",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "6b396f74470ee0e46dcb5fc9909b83268c8f2787f7eb86d085cc0eebca4b8dbf",
+        "rationale": "Current implementation source review of actuators supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 13d4160dbd319498f287c20a417b521a18b0697f8de23bb0aff00f40bb40ba4b; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "managers",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "0a1063d77acb7fd4e8ea881d6a41ae7fd19d17dafbef830f56817ea4aa222535",
+        "rationale": "Current implementation source review of managers supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 13d4160dbd319498f287c20a417b521a18b0697f8de23bb0aff00f40bb40ba4b; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "algorithm-hooks",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "90e2ea5cb23d909d0910d122a3ca7e6c39972ed784402399108f54bd62e90646",
+        "rationale": "Current implementation source review of algorithm-hooks supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 13d4160dbd319498f287c20a417b521a18b0697f8de23bb0aff00f40bb40ba4b; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      }
+    ]
+  },
+  {
+    "id": "isaac-v1-rl-sim2real-parallel-sim-rl-9-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 9,
+    "originalCellsDigest": "e3c36de99c2546e8b2daedaf59585177bda4b37e7cd9f804a6c12722562a17dc",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "headless-and-hardware",
+        "text": "headless-and-hardware: Headless benchmark hardware and distributed-training scope. Exact L40/RTX PRO6000/5090 host CPU configurations. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "metric",
+        "text": "metric: Environment-learning FPS includes simulation and learning time, not robot control rate. Sensor-throughput evaluation is distinct from training throughput. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "two-task-bounds-and-setting",
+        "text": "two-task-bounds-and-setting: Reported >900,000 and >1.6million bounds, tasks, eight GPUs,16384 environments and near-linear scaling. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "scaling-scope",
+        "text": "scaling-scope: Reported >900,000 and >1.6million bounds, tasks, eight GPUs,16384 environments and near-linear scaling. Environment-count and VRAM qualifiers differ in perceptive tasks. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+      "planDigest": "130c48db0dc4471b600c51e6df004b10d5b8b5c56cce3640af7cc7a06300bc25",
+      "rationale": "Reviewed the changed whole claim, all 4 parts and exact paired source set against the retained v1 body and adjacent context. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json preserves literal text, locators and original retrieval event. CPU/renderer, hardware/task scope, human demonstrations, RGB/depth embodiments, runtime/startup and approximate DexPBT timing remain distinct."
+    },
+    "evidence": [
+      {
+        "partId": "headless-and-hardware",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "We evaluate throughput for complex learning tasks with different sensor setups. All benchmarks are executed in headless mode on three GPU platforms: L40 (48 GB), RTX Pro 6000 (96 GB), and GeForce 5090 (32 GB). These cover a range of numbers and generations of RTX cores and VRAM sizes. In addition, we study the scaling behavior under distributed training across multiple GPUs on the RTX Pro 6000 . As a performance metric, we report frames per second (FPS), defined for environment learning throughput as:\n\nApart from the GPU, environment throughput can also be dependent on single-core CPU performance due to bottlenecks in some parts of PhysX simulation and the main training loop. The L40 server uses two AMD EPYC 7763 64-Core Processors, the RTX Pro 6000 server uses two AMD EPYC 9554 64-Core Processors, and finally the GeForce 5090 workstation uses a single 8-core AMD 9800X3D processor with single-core performance more than double that of the L40 server. Configurations for all evaluations are provided in the IsaacLab repository."
+      },
+      {
+        "partId": "metric",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "F ​ P ​ S = # ​ of environment steps simulation time + learning time FPS=\\frac{\\#\\text{ of environment steps}}{\\text{simulation time}+\\text{learning time}} (1)\n\nWhile environment throughput benchmarks combine both simulation and learning time, here we isolate sensor performance to analyze simulation costs in detail. Specifically, we measure the update times of different sensor implementations. Consequently, FPS for this section can be simplified to:"
+      },
+      {
+        "partId": "two-task-bounds-and-setting",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "For state-based training relying on proprioceptive information only, we benchmark two manipulation tasks - the DextrAH ( Lum et al., 2024b ) task to grasp and lift an object with no perception, and the Franka robotic arm opening a cabinet drawer task. As shown in Figure 13 , the systems with newer Blackwell GPUs have improved performance across both environments compared to the previous generation L40 . Distributed training provides further gains, scaling almost perfectly linearly as the number of GPUs increases. With eight GPUs and 16384 environments, the DextrAH teacher task reaches over 900,000 frames per second in training, while the Franka cabinet task reaches over 1.6 million frames per second."
+      },
+      {
+        "partId": "scaling-scope",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "For state-based training relying on proprioceptive information only, we benchmark two manipulation tasks - the DextrAH ( Lum et al., 2024b ) task to grasp and lift an object with no perception, and the Franka robotic arm opening a cabinet drawer task. As shown in Figure 13 , the systems with newer Blackwell GPUs have improved performance across both environments compared to the previous generation L40 . Distributed training provides further gains, scaling almost perfectly linearly as the number of GPUs increases. With eight GPUs and 16384 environments, the DextrAH teacher task reaches over 900,000 frames per second in training, while the Franka cabinet task reaches over 1.6 million frames per second.\n\nThe GeForce 5090 system, with its high single-core performance CPU, achieves higher throughput at smaller environment counts, while the RTX Pro 6000 system narrows the gap as the number of environments increases. Owing to its larger VRAM capacity, the RTX Pro 6000 also supports a greater degree of parallelization, enabling more environments to be simulated concurrently. When comparing sensor implementations, the RayCasterCamera demonstrates superior performance on a single GPU. In contrast, with multiple GPUs and large environment counts, the Tiled-Camera achieves better parallelization, eventually surpassing the RayCasterCamera."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "headless-and-hardware",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "ad9c64c0e93da0a8525c1deedb8815447003be1be466c9a3686b5b72daf9b69e",
+        "rationale": "Current implementation source review of headless, cpus supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 299ed98c90dd69dfb006ac6de32fa60f5e30eea48aa013b880f1fe905a764793; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "metric",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "37b79e6a31b9e485b807609df36746f09366901057de2fff72e80bb1fddc298c",
+        "rationale": "Current implementation source review of fps-definition, sensor-fps supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 299ed98c90dd69dfb006ac6de32fa60f5e30eea48aa013b880f1fe905a764793; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "two-task-bounds-and-setting",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "8d00c1ec86d43aafb7877a4290d953505c66ad33efc3ee04d649c51f7ac570fc",
+        "rationale": "Current implementation source review of state-throughput supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 299ed98c90dd69dfb006ac6de32fa60f5e30eea48aa013b880f1fe905a764793; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "scaling-scope",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "d7fa89ed43edb8e40b862da2e9142ea8552a8f031f44a1201ec1056f69781031",
+        "rationale": "Current implementation source review of state-throughput, perceptive-limits supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 299ed98c90dd69dfb006ac6de32fa60f5e30eea48aa013b880f1fe905a764793; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      }
+    ]
+  },
+  {
+    "id": "isaac-v1-rl-sim2real-parallel-sim-rl-10-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 10,
+    "originalCellsDigest": "a64277f22345d84aa6fa2d613217de7521627ebdeebf7e80c68e814ea6684ad0",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "task-comparison",
+        "text": "task-comparison: Task-specific 5090/two-GPU comparison; retain ambiguous about25percent phrase without inventing its denominator. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "hardware-and-cpu-context",
+        "text": "hardware-and-cpu-context: Exact L40/RTX PRO6000/5090 host CPU configurations. Headless benchmark hardware and distributed-training scope. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "not-universal",
+        "text": "not-universal: Task-specific 5090/two-GPU comparison; retain ambiguous about25percent phrase without inventing its denominator. Environment-count and VRAM qualifiers differ in perceptive tasks. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+      "planDigest": "ed73e066cfd57df5a5deab17bd520d5043f0cb4118cc6805fef13e94b1bdad2d",
+      "rationale": "Reviewed the changed whole claim, all 3 parts and exact paired source set against the retained v1 body and adjacent context. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json preserves literal text, locators and original retrieval event. CPU/renderer, hardware/task scope, human demonstrations, RGB/depth embodiments, runtime/startup and approximate DexPBT timing remain distinct."
+    },
+    "evidence": [
+      {
+        "partId": "task-comparison",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "It is notable that the workstation GeForce 5090 system comes close in performance to the two GPU RTX Pro 6000 server in the Franka cabinet drawer task, but is only about 25% faster in the DextrAH task. These differences are primarily due to the combination of CPU bottlenecks and extremely fast single-core CPU performance in the 9800X3D CPU compared to the throughput-oriented server CPUs. Eliminating these bottlenecks is an important goal for future releases of Isaac Lab and the Newton physics engine."
+      },
+      {
+        "partId": "hardware-and-cpu-context",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Apart from the GPU, environment throughput can also be dependent on single-core CPU performance due to bottlenecks in some parts of PhysX simulation and the main training loop. The L40 server uses two AMD EPYC 7763 64-Core Processors, the RTX Pro 6000 server uses two AMD EPYC 9554 64-Core Processors, and finally the GeForce 5090 workstation uses a single 8-core AMD 9800X3D processor with single-core performance more than double that of the L40 server. Configurations for all evaluations are provided in the IsaacLab repository.\n\nWe evaluate throughput for complex learning tasks with different sensor setups. All benchmarks are executed in headless mode on three GPU platforms: L40 (48 GB), RTX Pro 6000 (96 GB), and GeForce 5090 (32 GB). These cover a range of numbers and generations of RTX cores and VRAM sizes. In addition, we study the scaling behavior under distributed training across multiple GPUs on the RTX Pro 6000 . As a performance metric, we report frames per second (FPS), defined for environment learning throughput as:"
+      },
+      {
+        "partId": "not-universal",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "It is notable that the workstation GeForce 5090 system comes close in performance to the two GPU RTX Pro 6000 server in the Franka cabinet drawer task, but is only about 25% faster in the DextrAH task. These differences are primarily due to the combination of CPU bottlenecks and extremely fast single-core CPU performance in the 9800X3D CPU compared to the throughput-oriented server CPUs. Eliminating these bottlenecks is an important goal for future releases of Isaac Lab and the Newton physics engine.\n\nThe GeForce 5090 system, with its high single-core performance CPU, achieves higher throughput at smaller environment counts, while the RTX Pro 6000 system narrows the gap as the number of environments increases. Owing to its larger VRAM capacity, the RTX Pro 6000 also supports a greater degree of parallelization, enabling more environments to be simulated concurrently. When comparing sensor implementations, the RayCasterCamera demonstrates superior performance on a single GPU. In contrast, with multiple GPUs and large environment counts, the Tiled-Camera achieves better parallelization, eventually surpassing the RayCasterCamera."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "task-comparison",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "670179c5aac26853088fb767ee5974f34e683fa0d8a934f5ae49aebd1e6fd815",
+        "rationale": "Current implementation source review of cpu-comparison supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal db23845b6312856012bb3f0ebdeca3bc38c204e40668e7047c57f653bc3bbae8; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "hardware-and-cpu-context",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "3b33a2c79073985ff8f672de88d32b88f798fd2c1a20503553406d781fd0c0ae",
+        "rationale": "Current implementation source review of cpus, headless supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal db23845b6312856012bb3f0ebdeca3bc38c204e40668e7047c57f653bc3bbae8; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "not-universal",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "90df329c79fcd8b323b198d83284d3b1fe9d727ca5add5ee5b7384919bb974e0",
+        "rationale": "Current implementation source review of cpu-comparison, perceptive-limits supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal db23845b6312856012bb3f0ebdeca3bc38c204e40668e7047c57f653bc3bbae8; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      }
+    ]
+  },
+  {
+    "id": "isaac-v1-rl-sim2real-parallel-sim-rl-16-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 16,
+    "originalCellsDigest": "85fbeb0f6a17270e79e811f7a0d65e043d6a00fd50a7b36bdcd7a8210790093e",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "parameter-api",
+        "text": "parameter-api: Startup-only mesh properties; most other physics and rendering parameters can change at runtime. PhysX state/control versus CPU parameter APIs; SDF context. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "runtime-and-startup",
+        "text": "runtime-and-startup: Startup-only mesh properties; most other physics and rendering parameters can change at runtime. Manager composition; reset and interval events are both present. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+      "planDigest": "6033d43ee610b54185ef49774e0ad1f6c262693b6ece69eb38a89d93a44c90a5",
+      "rationale": "Reviewed the changed whole claim, all 2 parts and exact paired source set against the retained v1 body and adjacent context. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json preserves literal text, locators and original retrieval event. CPU/renderer, hardware/task scope, human demonstrations, RGB/depth embodiments, runtime/startup and approximate DexPBT timing remain distinct."
+    },
+    "evidence": [
+      {
+        "partId": "parameter-api",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Isaac Lab supports randomization of both physics and rendering parameters. Mesh-related attributes, such as scale and collider type, can only be randomized before the simulation begins playing ( Algorithm 1 ). Most other physics parameters can be randomized at runtime. As discussed in Section 2.2 , due to current PhysX design limitations, only simulation state is accessible directly on the GPU, while simulation parameters ( \\eg masses, friction, contact offsets, and joint armature) must be modified through the CPU API. Rendering parameters such as visual materials, lighting intensities, light source locations, and background textures can also be randomized at runtime, though they currently rely on CPU-based USD APIs. Figure 21 illustrates RGB renderings in Isaac Lab with randomized textures and lighting, alongside standard computer vision augmentation techniques.\n\n2.2 Physics Simulation Figure 3 : Integration of USD with PhysX in OmniPhysics. The USD stage provides a hierarchical representation of all objects and robots in the scene. This scene graph is parsed into PhysX, which allocates GPU tensors representing the internal simulation state. Unlike Isaac Gym, where users accessed raw buffers and manually indexed per simulation object, OmniPhysics exposes these states through the View APIs. These APIs allow read or write access to subsets of objects in the scene while simplifying data management and improving usability. The NVIDIA PhysX SDK is an open-source, multi-physics simulation engine designed to meet the demanding needs for robotics and industrial applications. With the release of PhysX 5, the engine incorporates capabilities from the former NVIDIA Flex library, including FEM ( FEM )–based soft-body dynamics, as well as PBD ( PBD ) for liquids and inflatable objects. It supports a wide range of simulation types, from rigid and articulated bodies to deformable bodies such as cloth, fluids, and soft bodies. These simulation objects can interact with each other through two-way coupling between specialized solvers. As an example, the FEM cloth solver exchanges impulses with the Featherstone-based articulation solver to support efficient and accurate mixed-physics interactions. Building on this foundation, PhysX has continued to evolve towards robotics use cases, collaborating with robotics engineers and researchers to develop domain-specific features, including emulation of force–torque load cells, advanced actuator and friction models for an articulation’s joints, and collision handling improvements such as Signed Distance Field (SDF) methods, which are particularly valuable for high-precision, non-convex geometries encountered in robotic assembly tasks. PhysX can run on both CPU and GPU, providing flexibility for different simulation scenarios. For high-performance, large-scale robot learning workflows, GPU execution delivers the parallelism and throughput necessary to scale efficiently. PhysX’s Direct-GPU API provides direct read and write access to simulation state and control data in GPU memory. The resulting CUDA tensors can then be processed efficiently using user-defined GPU kernels for downstream applications, such as computing observations for robotics learning workflows. This end-to-end GPU pipeline eliminates the performance bottlenecks from CPU–GPU data transfers seen in traditional simulators. The benefit of this GPU-first simulation approach was first demonstrated for RL in Isaac Gym ( Makoviychuk et al., 2021 ) , where training times for complex robotic tasks were reduced from days to hours. It is important to note that only the simulation state and control can currently be accessed directly on the GPU device. Simulation parameters, such as friction coefficients, rigid-body masses, and joint properties, must still be set via the PhysX CPU APIs due to current design constraints. NVIDIA Omniverse Physics (OmniPhysics) serves as the integration layer for the PhysX simulation engine within NVIDIA Omniverse. It extends the OpenUSD framework by introducing user-defined data types under PhysxSchema, which enables the representation and control of physics simulations. OmniPhysics parses these attributes from USD, maps them into PhysX, runs the simulation, and writes the simulation output back to USD. It also supports state updates by monitoring changes in USD and updating the active simulation accordingly. In Isaac Lab, where high-performance and large-scale simulation scenes are common, the USD read–write cycle during simulation is often a performance bottleneck and is therefore bypassed. Instead, the simulation data is accessed through OmniPhysics Tensor APIs, which internally rely on PhysX Direct GPU APIs. For workflows that require rendering, such as vision-in-the-loop training, OmniPhysics also maintains efficient synchronization between the simulation state and the renderer. Algorithm 1 OmniPhysics Workflow in Isaac Lab 1: Prepare USD stage ⊳ \\triangleright All modifications possible through USD APIs 2: Start simulation ⊳ \\triangleright Parse USD stage and initialize PhysX objects 3: Create physics simulation views ⊳ \\triangleright Define views via USD prim path patterns 4: Access simulation state using Tensor API views ⊳ \\triangleright Read/write simulation state efficiently 5: if direct GPU API disabled then 6: Use standard USD APIs with OmniPhysics monitoring ⊳ \\triangleright Fallback to standard USD workflow 7: else 8: Access PhysX exclusively via Tensor API views ⊳ \\triangleright USD read/write suppressed for performance 9: end if Algorithm 1 summarizes the OmniPhysics workflow in Isaac Lab. The user sets up the USD stage through USD APIs. Isaac Lab provides configurable interfaces and APIs to facilitate programmatic creation of prims. These interfaces support spawning prims of different types, modifying their USD attributes, and efficiently duplicating a prototype scene to multiple environment instances on the USD stage. Once the stage is ready for simulation and the simulation is played , OmniPhysics parses the USD stage to create a set of PhysX simulation objects ( \\eg robots, rigid objects, or static colliders) that mirror the USD scene. To efficiently scale a prototype environment to thousands of instances, OmniPhysics provides replication APIs that duplicate the prototype’s PhysX simulation objects across many parallel training environments. During this replication process, a mapping is also established between the PhysX objects and their USD prim paths, which is subsequently used to construct Tensor API views. The OmniPhysics Tensor API presents simulation data as batched, device - resident arrays organized into views, as shown in Figure 3 . Instead of operating each physics actor individually, users can interact with a collection of actors through a SimulationView , which links the chosen tensor framework ( \\ie NumPy, PyTorch, or NVIDIA Warp) to the physics simulation backend. A simulation view can then be used to create specialized views for different types of physics objects, including rigid bodies ( RigidBodyView ) and articulated systems ( ArticulationView ). Views are defined using USD prim path pattern matching. For instance, if a prototype scene contains a robot prim at \" /World/envs/env_0/Robot \", and this scene is cloned N N times, then all robots across the N N environments can be collected into a single articulation view using the pattern \" /World/envs/*/Robot \". The resulting view exposes simulation data as arrays with the first dimension corresponding to the number of robots N N . In Isaac Lab, the Tensor API-based view classes provide efficient access to underlying simulation data for user-facing asset classes, such as Articulation and RigidObject , as well as physics-based sensor classes like ContactSensor and IMU . These views enable GPU-accelerated batched operations and serve as the foundation for additional asset- and sensor-level functionalities. For example, the Articulation class extends the OmniPhysics ArticulationView to support user-defined actuator models, store default physical properties for domain randomization, and implement efficient buffering mechanisms to minimize redundant read-write operations. These API-level features are described in detail in Section 3 ."
+      },
+      {
+        "partId": "runtime-and-startup",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Isaac Lab supports randomization of both physics and rendering parameters. Mesh-related attributes, such as scale and collider type, can only be randomized before the simulation begins playing ( Algorithm 1 ). Most other physics parameters can be randomized at runtime. As discussed in Section 2.2 , due to current PhysX design limitations, only simulation state is accessible directly on the GPU, while simulation parameters ( \\eg masses, friction, contact offsets, and joint armature) must be modified through the CPU API. Rendering parameters such as visual materials, lighting intensities, light source locations, and background textures can also be randomized at runtime, though they currently rely on CPU-based USD APIs. Figure 21 illustrates RGB renderings in Isaac Lab with randomized textures and lighting, alongside standard computer vision augmentation techniques.\n\n3.7.1 Manager-Based Workflow The manager-based workflow in Isaac Lab is a structured way to build environments by decomposing the MDP into reusable managers, such as for observations, actions, rewards, terminations, commands, curricula, events, and recording. Each unit has a single responsibility and a clear interface. This design targets ML/RL practitioners: you interact with MDP concepts directly while the framework handles simulation plumbing (scene updates, decimation), vectorization, per-env resets, and Gym-compatible spaces derived from the active terms. As a result, environments remain readable and extensible, and switching on/off terms or swapping configurations becomes a configuration change rather than a refactor. Beyond enabling flexible MDP definitions, Isaac Lab ships a catalog of tested, independent term functions with explicit inputs/outputs. Practitioners can add or ablate terms without touching unrelated code paths, accelerating idea testing, ablation studies, and continuous development. The manager API formalizes where each computation lives and exposes logging hooks to attribute signals at term-level granularity (e.g., reward contributions, termination causes), improving training analysis and reproducibility. While a manager layer can introduce modest overhead compared with a hand-tuned direct workflow, most of that overhead is CPU orchestration and kernel-launch latency rather than physics itself — precisely the kind of cost that CUDA Graphs are designed to reduce by bundling many GPU operations into a single launch. We foresee manager term graphed executions as a plausible roadmap to bootstrap the MDP calculation runtime, thus narrowing any remaining gap. Algorithm 2 Environment Step Function 1: input: action 2: output: observations, rewards, terminations, timeouts, extras 3: procedure Step (action) 4: // pre-physics step 5: Process actions ( \\eg clipping, affine transformation) 6: // physics step 7: for each substep in environment decimation do 8: Apply processed actions to simulation buffers (via actuator models) 9: Apply pre-simulation events (if any) 10: Advance simulation (without rendering) 11: if render interval reached and is_rendering then 12: Render simulation 13: end if 14: Update scene buffers 15: end for 16: // post-physics step 17: Update episode counters 18: Compute terminations and timeouts 19: Compute rewards 20: // environment reset 21: reset_env_ids ← \\leftarrow environments to reset 22: if reset_env_ids not empty then 23: Update curriculum 24: Apply reset events to reset the environments 25: Reset episode counter and internal buffers ( \\eg state history) 26: Update simulator kinematic state 27: if sensors present and rerender configured then 28: Render simulation 29: end if 30: end if 31: // command and observation update 32: Update commands 33: Apply interval events (if any) 34: Compute observations 35: return observations, rewards, terminations, timeouts, extras 36: end procedure"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "parameter-api",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "13c69e4f43cf0a73183df74e4e43b99334ac6d01533ebb98d50672b81bf8a5d3",
+        "rationale": "Current implementation source review of dr, physx supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal e977a4b4686ccc38c4c8eacb660e82964e36210c4b853fefa10f287a19f9e138; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "runtime-and-startup",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "7283802efc0f9391fa306520d16a603756c06534e6974e96d58dd53d3f79ed22",
+        "rationale": "Current implementation source review of dr, managers supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal e977a4b4686ccc38c4c8eacb660e82964e36210c4b853fefa10f287a19f9e138; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      }
+    ]
+  },
+  {
+    "id": "isaac-v1-rl-sim2real-sim2real-transfer-2-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "2599e181b24fdf33067237b2590652aa6b5133cabcb6228cc3c39f6aeb342f10",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "api-not-throughput-bottleneck",
+        "text": "api-not-throughput-bottleneck: Startup-only mesh properties; most other physics and rendering parameters can change at runtime. PhysX state/control versus CPU parameter APIs; SDF context. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "runtime",
+        "text": "runtime: Startup-only mesh properties; most other physics and rendering parameters can change at runtime. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+      "planDigest": "894ee9c95bf0cc8bfc59c82b1e1a09c91f045e03341d18dfb96fcbeb3b398e82",
+      "rationale": "Reviewed the changed whole claim, all 2 parts and exact paired source set against the retained v1 body and adjacent context. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json preserves literal text, locators and original retrieval event. CPU/renderer, hardware/task scope, human demonstrations, RGB/depth embodiments, runtime/startup and approximate DexPBT timing remain distinct."
+    },
+    "evidence": [
+      {
+        "partId": "api-not-throughput-bottleneck",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Isaac Lab supports randomization of both physics and rendering parameters. Mesh-related attributes, such as scale and collider type, can only be randomized before the simulation begins playing ( Algorithm 1 ). Most other physics parameters can be randomized at runtime. As discussed in Section 2.2 , due to current PhysX design limitations, only simulation state is accessible directly on the GPU, while simulation parameters ( \\eg masses, friction, contact offsets, and joint armature) must be modified through the CPU API. Rendering parameters such as visual materials, lighting intensities, light source locations, and background textures can also be randomized at runtime, though they currently rely on CPU-based USD APIs. Figure 21 illustrates RGB renderings in Isaac Lab with randomized textures and lighting, alongside standard computer vision augmentation techniques.\n\n2.2 Physics Simulation Figure 3 : Integration of USD with PhysX in OmniPhysics. The USD stage provides a hierarchical representation of all objects and robots in the scene. This scene graph is parsed into PhysX, which allocates GPU tensors representing the internal simulation state. Unlike Isaac Gym, where users accessed raw buffers and manually indexed per simulation object, OmniPhysics exposes these states through the View APIs. These APIs allow read or write access to subsets of objects in the scene while simplifying data management and improving usability. The NVIDIA PhysX SDK is an open-source, multi-physics simulation engine designed to meet the demanding needs for robotics and industrial applications. With the release of PhysX 5, the engine incorporates capabilities from the former NVIDIA Flex library, including FEM ( FEM )–based soft-body dynamics, as well as PBD ( PBD ) for liquids and inflatable objects. It supports a wide range of simulation types, from rigid and articulated bodies to deformable bodies such as cloth, fluids, and soft bodies. These simulation objects can interact with each other through two-way coupling between specialized solvers. As an example, the FEM cloth solver exchanges impulses with the Featherstone-based articulation solver to support efficient and accurate mixed-physics interactions. Building on this foundation, PhysX has continued to evolve towards robotics use cases, collaborating with robotics engineers and researchers to develop domain-specific features, including emulation of force–torque load cells, advanced actuator and friction models for an articulation’s joints, and collision handling improvements such as Signed Distance Field (SDF) methods, which are particularly valuable for high-precision, non-convex geometries encountered in robotic assembly tasks. PhysX can run on both CPU and GPU, providing flexibility for different simulation scenarios. For high-performance, large-scale robot learning workflows, GPU execution delivers the parallelism and throughput necessary to scale efficiently. PhysX’s Direct-GPU API provides direct read and write access to simulation state and control data in GPU memory. The resulting CUDA tensors can then be processed efficiently using user-defined GPU kernels for downstream applications, such as computing observations for robotics learning workflows. This end-to-end GPU pipeline eliminates the performance bottlenecks from CPU–GPU data transfers seen in traditional simulators. The benefit of this GPU-first simulation approach was first demonstrated for RL in Isaac Gym ( Makoviychuk et al., 2021 ) , where training times for complex robotic tasks were reduced from days to hours. It is important to note that only the simulation state and control can currently be accessed directly on the GPU device. Simulation parameters, such as friction coefficients, rigid-body masses, and joint properties, must still be set via the PhysX CPU APIs due to current design constraints. NVIDIA Omniverse Physics (OmniPhysics) serves as the integration layer for the PhysX simulation engine within NVIDIA Omniverse. It extends the OpenUSD framework by introducing user-defined data types under PhysxSchema, which enables the representation and control of physics simulations. OmniPhysics parses these attributes from USD, maps them into PhysX, runs the simulation, and writes the simulation output back to USD. It also supports state updates by monitoring changes in USD and updating the active simulation accordingly. In Isaac Lab, where high-performance and large-scale simulation scenes are common, the USD read–write cycle during simulation is often a performance bottleneck and is therefore bypassed. Instead, the simulation data is accessed through OmniPhysics Tensor APIs, which internally rely on PhysX Direct GPU APIs. For workflows that require rendering, such as vision-in-the-loop training, OmniPhysics also maintains efficient synchronization between the simulation state and the renderer. Algorithm 1 OmniPhysics Workflow in Isaac Lab 1: Prepare USD stage ⊳ \\triangleright All modifications possible through USD APIs 2: Start simulation ⊳ \\triangleright Parse USD stage and initialize PhysX objects 3: Create physics simulation views ⊳ \\triangleright Define views via USD prim path patterns 4: Access simulation state using Tensor API views ⊳ \\triangleright Read/write simulation state efficiently 5: if direct GPU API disabled then 6: Use standard USD APIs with OmniPhysics monitoring ⊳ \\triangleright Fallback to standard USD workflow 7: else 8: Access PhysX exclusively via Tensor API views ⊳ \\triangleright USD read/write suppressed for performance 9: end if Algorithm 1 summarizes the OmniPhysics workflow in Isaac Lab. The user sets up the USD stage through USD APIs. Isaac Lab provides configurable interfaces and APIs to facilitate programmatic creation of prims. These interfaces support spawning prims of different types, modifying their USD attributes, and efficiently duplicating a prototype scene to multiple environment instances on the USD stage. Once the stage is ready for simulation and the simulation is played , OmniPhysics parses the USD stage to create a set of PhysX simulation objects ( \\eg robots, rigid objects, or static colliders) that mirror the USD scene. To efficiently scale a prototype environment to thousands of instances, OmniPhysics provides replication APIs that duplicate the prototype’s PhysX simulation objects across many parallel training environments. During this replication process, a mapping is also established between the PhysX objects and their USD prim paths, which is subsequently used to construct Tensor API views. The OmniPhysics Tensor API presents simulation data as batched, device - resident arrays organized into views, as shown in Figure 3 . Instead of operating each physics actor individually, users can interact with a collection of actors through a SimulationView , which links the chosen tensor framework ( \\ie NumPy, PyTorch, or NVIDIA Warp) to the physics simulation backend. A simulation view can then be used to create specialized views for different types of physics objects, including rigid bodies ( RigidBodyView ) and articulated systems ( ArticulationView ). Views are defined using USD prim path pattern matching. For instance, if a prototype scene contains a robot prim at \" /World/envs/env_0/Robot \", and this scene is cloned N N times, then all robots across the N N environments can be collected into a single articulation view using the pattern \" /World/envs/*/Robot \". The resulting view exposes simulation data as arrays with the first dimension corresponding to the number of robots N N . In Isaac Lab, the Tensor API-based view classes provide efficient access to underlying simulation data for user-facing asset classes, such as Articulation and RigidObject , as well as physics-based sensor classes like ContactSensor and IMU . These views enable GPU-accelerated batched operations and serve as the foundation for additional asset- and sensor-level functionalities. For example, the Articulation class extends the OmniPhysics ArticulationView to support user-defined actuator models, store default physical properties for domain randomization, and implement efficient buffering mechanisms to minimize redundant read-write operations. These API-level features are described in detail in Section 3 ."
+      },
+      {
+        "partId": "runtime",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Isaac Lab supports randomization of both physics and rendering parameters. Mesh-related attributes, such as scale and collider type, can only be randomized before the simulation begins playing ( Algorithm 1 ). Most other physics parameters can be randomized at runtime. As discussed in Section 2.2 , due to current PhysX design limitations, only simulation state is accessible directly on the GPU, while simulation parameters ( \\eg masses, friction, contact offsets, and joint armature) must be modified through the CPU API. Rendering parameters such as visual materials, lighting intensities, light source locations, and background textures can also be randomized at runtime, though they currently rely on CPU-based USD APIs. Figure 21 illustrates RGB renderings in Isaac Lab with randomized textures and lighting, alongside standard computer vision augmentation techniques."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "api-not-throughput-bottleneck",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "27d66a07b35ec585844b85134362cf3c71eb95038fab6553bf6a6df1993185d7",
+        "rationale": "Current implementation source review of dr, physx supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 39cbd63ecaca4ed5cf8b25ba478290456e3d7a65fc3f81cd0b39906b711c3742; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "runtime",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "13f652439d744012b62c33a478b6a9a9f356e8fdc600fb8bc4cebc8f9769ad9a",
+        "rationale": "Current implementation source review of dr supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 39cbd63ecaca4ed5cf8b25ba478290456e3d7a65fc3f81cd0b39906b711c3742; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      }
+    ]
+  },
+  {
+    "id": "isaac-v1-rl-sim2real-sim2real-transfer-8-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "0c013270314baa80f223a70b2a13b4d27b4ef88c1a78930878d312b02492a3d0",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "state-versus-parameter",
+        "text": "state-versus-parameter: PhysX state/control versus CPU parameter APIs; SDF context. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "named-parameters-and-startup",
+        "text": "named-parameters-and-startup: Startup-only mesh properties; most other physics and rendering parameters can change at runtime. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "runtime",
+        "text": "runtime: Startup-only mesh properties; most other physics and rendering parameters can change at runtime. Manager composition; reset and interval events are both present. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+      "planDigest": "afece434f7aed28c9d8641dbe6de8aa540828b49212c84348e5a679212eab22f",
+      "rationale": "Reviewed the changed whole claim, all 3 parts and exact paired source set against the retained v1 body and adjacent context. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json preserves literal text, locators and original retrieval event. CPU/renderer, hardware/task scope, human demonstrations, RGB/depth embodiments, runtime/startup and approximate DexPBT timing remain distinct."
+    },
+    "evidence": [
+      {
+        "partId": "state-versus-parameter",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "2.2 Physics Simulation Figure 3 : Integration of USD with PhysX in OmniPhysics. The USD stage provides a hierarchical representation of all objects and robots in the scene. This scene graph is parsed into PhysX, which allocates GPU tensors representing the internal simulation state. Unlike Isaac Gym, where users accessed raw buffers and manually indexed per simulation object, OmniPhysics exposes these states through the View APIs. These APIs allow read or write access to subsets of objects in the scene while simplifying data management and improving usability. The NVIDIA PhysX SDK is an open-source, multi-physics simulation engine designed to meet the demanding needs for robotics and industrial applications. With the release of PhysX 5, the engine incorporates capabilities from the former NVIDIA Flex library, including FEM ( FEM )–based soft-body dynamics, as well as PBD ( PBD ) for liquids and inflatable objects. It supports a wide range of simulation types, from rigid and articulated bodies to deformable bodies such as cloth, fluids, and soft bodies. These simulation objects can interact with each other through two-way coupling between specialized solvers. As an example, the FEM cloth solver exchanges impulses with the Featherstone-based articulation solver to support efficient and accurate mixed-physics interactions. Building on this foundation, PhysX has continued to evolve towards robotics use cases, collaborating with robotics engineers and researchers to develop domain-specific features, including emulation of force–torque load cells, advanced actuator and friction models for an articulation’s joints, and collision handling improvements such as Signed Distance Field (SDF) methods, which are particularly valuable for high-precision, non-convex geometries encountered in robotic assembly tasks. PhysX can run on both CPU and GPU, providing flexibility for different simulation scenarios. For high-performance, large-scale robot learning workflows, GPU execution delivers the parallelism and throughput necessary to scale efficiently. PhysX’s Direct-GPU API provides direct read and write access to simulation state and control data in GPU memory. The resulting CUDA tensors can then be processed efficiently using user-defined GPU kernels for downstream applications, such as computing observations for robotics learning workflows. This end-to-end GPU pipeline eliminates the performance bottlenecks from CPU–GPU data transfers seen in traditional simulators. The benefit of this GPU-first simulation approach was first demonstrated for RL in Isaac Gym ( Makoviychuk et al., 2021 ) , where training times for complex robotic tasks were reduced from days to hours. It is important to note that only the simulation state and control can currently be accessed directly on the GPU device. Simulation parameters, such as friction coefficients, rigid-body masses, and joint properties, must still be set via the PhysX CPU APIs due to current design constraints. NVIDIA Omniverse Physics (OmniPhysics) serves as the integration layer for the PhysX simulation engine within NVIDIA Omniverse. It extends the OpenUSD framework by introducing user-defined data types under PhysxSchema, which enables the representation and control of physics simulations. OmniPhysics parses these attributes from USD, maps them into PhysX, runs the simulation, and writes the simulation output back to USD. It also supports state updates by monitoring changes in USD and updating the active simulation accordingly. In Isaac Lab, where high-performance and large-scale simulation scenes are common, the USD read–write cycle during simulation is often a performance bottleneck and is therefore bypassed. Instead, the simulation data is accessed through OmniPhysics Tensor APIs, which internally rely on PhysX Direct GPU APIs. For workflows that require rendering, such as vision-in-the-loop training, OmniPhysics also maintains efficient synchronization between the simulation state and the renderer. Algorithm 1 OmniPhysics Workflow in Isaac Lab 1: Prepare USD stage ⊳ \\triangleright All modifications possible through USD APIs 2: Start simulation ⊳ \\triangleright Parse USD stage and initialize PhysX objects 3: Create physics simulation views ⊳ \\triangleright Define views via USD prim path patterns 4: Access simulation state using Tensor API views ⊳ \\triangleright Read/write simulation state efficiently 5: if direct GPU API disabled then 6: Use standard USD APIs with OmniPhysics monitoring ⊳ \\triangleright Fallback to standard USD workflow 7: else 8: Access PhysX exclusively via Tensor API views ⊳ \\triangleright USD read/write suppressed for performance 9: end if Algorithm 1 summarizes the OmniPhysics workflow in Isaac Lab. The user sets up the USD stage through USD APIs. Isaac Lab provides configurable interfaces and APIs to facilitate programmatic creation of prims. These interfaces support spawning prims of different types, modifying their USD attributes, and efficiently duplicating a prototype scene to multiple environment instances on the USD stage. Once the stage is ready for simulation and the simulation is played , OmniPhysics parses the USD stage to create a set of PhysX simulation objects ( \\eg robots, rigid objects, or static colliders) that mirror the USD scene. To efficiently scale a prototype environment to thousands of instances, OmniPhysics provides replication APIs that duplicate the prototype’s PhysX simulation objects across many parallel training environments. During this replication process, a mapping is also established between the PhysX objects and their USD prim paths, which is subsequently used to construct Tensor API views. The OmniPhysics Tensor API presents simulation data as batched, device - resident arrays organized into views, as shown in Figure 3 . Instead of operating each physics actor individually, users can interact with a collection of actors through a SimulationView , which links the chosen tensor framework ( \\ie NumPy, PyTorch, or NVIDIA Warp) to the physics simulation backend. A simulation view can then be used to create specialized views for different types of physics objects, including rigid bodies ( RigidBodyView ) and articulated systems ( ArticulationView ). Views are defined using USD prim path pattern matching. For instance, if a prototype scene contains a robot prim at \" /World/envs/env_0/Robot \", and this scene is cloned N N times, then all robots across the N N environments can be collected into a single articulation view using the pattern \" /World/envs/*/Robot \". The resulting view exposes simulation data as arrays with the first dimension corresponding to the number of robots N N . In Isaac Lab, the Tensor API-based view classes provide efficient access to underlying simulation data for user-facing asset classes, such as Articulation and RigidObject , as well as physics-based sensor classes like ContactSensor and IMU . These views enable GPU-accelerated batched operations and serve as the foundation for additional asset- and sensor-level functionalities. For example, the Articulation class extends the OmniPhysics ArticulationView to support user-defined actuator models, store default physical properties for domain randomization, and implement efficient buffering mechanisms to minimize redundant read-write operations. These API-level features are described in detail in Section 3 ."
+      },
+      {
+        "partId": "named-parameters-and-startup",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Isaac Lab supports randomization of both physics and rendering parameters. Mesh-related attributes, such as scale and collider type, can only be randomized before the simulation begins playing ( Algorithm 1 ). Most other physics parameters can be randomized at runtime. As discussed in Section 2.2 , due to current PhysX design limitations, only simulation state is accessible directly on the GPU, while simulation parameters ( \\eg masses, friction, contact offsets, and joint armature) must be modified through the CPU API. Rendering parameters such as visual materials, lighting intensities, light source locations, and background textures can also be randomized at runtime, though they currently rely on CPU-based USD APIs. Figure 21 illustrates RGB renderings in Isaac Lab with randomized textures and lighting, alongside standard computer vision augmentation techniques."
+      },
+      {
+        "partId": "runtime",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Isaac Lab supports randomization of both physics and rendering parameters. Mesh-related attributes, such as scale and collider type, can only be randomized before the simulation begins playing ( Algorithm 1 ). Most other physics parameters can be randomized at runtime. As discussed in Section 2.2 , due to current PhysX design limitations, only simulation state is accessible directly on the GPU, while simulation parameters ( \\eg masses, friction, contact offsets, and joint armature) must be modified through the CPU API. Rendering parameters such as visual materials, lighting intensities, light source locations, and background textures can also be randomized at runtime, though they currently rely on CPU-based USD APIs. Figure 21 illustrates RGB renderings in Isaac Lab with randomized textures and lighting, alongside standard computer vision augmentation techniques.\n\n3.7.1 Manager-Based Workflow The manager-based workflow in Isaac Lab is a structured way to build environments by decomposing the MDP into reusable managers, such as for observations, actions, rewards, terminations, commands, curricula, events, and recording. Each unit has a single responsibility and a clear interface. This design targets ML/RL practitioners: you interact with MDP concepts directly while the framework handles simulation plumbing (scene updates, decimation), vectorization, per-env resets, and Gym-compatible spaces derived from the active terms. As a result, environments remain readable and extensible, and switching on/off terms or swapping configurations becomes a configuration change rather than a refactor. Beyond enabling flexible MDP definitions, Isaac Lab ships a catalog of tested, independent term functions with explicit inputs/outputs. Practitioners can add or ablate terms without touching unrelated code paths, accelerating idea testing, ablation studies, and continuous development. The manager API formalizes where each computation lives and exposes logging hooks to attribute signals at term-level granularity (e.g., reward contributions, termination causes), improving training analysis and reproducibility. While a manager layer can introduce modest overhead compared with a hand-tuned direct workflow, most of that overhead is CPU orchestration and kernel-launch latency rather than physics itself — precisely the kind of cost that CUDA Graphs are designed to reduce by bundling many GPU operations into a single launch. We foresee manager term graphed executions as a plausible roadmap to bootstrap the MDP calculation runtime, thus narrowing any remaining gap. Algorithm 2 Environment Step Function 1: input: action 2: output: observations, rewards, terminations, timeouts, extras 3: procedure Step (action) 4: // pre-physics step 5: Process actions ( \\eg clipping, affine transformation) 6: // physics step 7: for each substep in environment decimation do 8: Apply processed actions to simulation buffers (via actuator models) 9: Apply pre-simulation events (if any) 10: Advance simulation (without rendering) 11: if render interval reached and is_rendering then 12: Render simulation 13: end if 14: Update scene buffers 15: end for 16: // post-physics step 17: Update episode counters 18: Compute terminations and timeouts 19: Compute rewards 20: // environment reset 21: reset_env_ids ← \\leftarrow environments to reset 22: if reset_env_ids not empty then 23: Update curriculum 24: Apply reset events to reset the environments 25: Reset episode counter and internal buffers ( \\eg state history) 26: Update simulator kinematic state 27: if sensors present and rerender configured then 28: Render simulation 29: end if 30: end if 31: // command and observation update 32: Update commands 33: Apply interval events (if any) 34: Compute observations 35: return observations, rewards, terminations, timeouts, extras 36: end procedure"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "state-versus-parameter",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "fc681bb4c4ab8bb396c8bc7ba6c853cde8091d9989814db18c6eafacea980526",
+        "rationale": "Current implementation source review of physx supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 932a0686a2fb4c4b62547b337e9791812a423738787fbadee78ddaca17750c1e; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "named-parameters-and-startup",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "50e1580b385ea64196dba9cc46ce56a17cccbe3b1d2258eb58e68e7cee00b92e",
+        "rationale": "Current implementation source review of dr supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 932a0686a2fb4c4b62547b337e9791812a423738787fbadee78ddaca17750c1e; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "runtime",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "485205fb1c0e59a382fd35e1554313bd51cbc0c866adcaea28c91457c733955f",
+        "rationale": "Current implementation source review of dr, managers supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 932a0686a2fb4c4b62547b337e9791812a423738787fbadee78ddaca17750c1e; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      }
+    ]
+  },
+  {
+    "id": "isaac-v1-rl-sim2real-sim2real-transfer-12-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 12,
+    "originalCellsDigest": "83343272517eddebae2036e4d19d34438ad92b9019d8e75e06bd3b42a1d6b04d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "attributed-mechanism",
+        "text": "attributed-mechanism: Attributed DextrAH-RGB teacher/student mechanism. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "teacher-student-context",
+        "text": "teacher-student-context: Privileged teacher, partial-observation student and online imitation. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+      "planDigest": "15a4dc96e159419e513fc681c10d97a88fcf831eeef7e504067f7f539830e693",
+      "rationale": "Reviewed the changed whole claim, all 2 parts and exact paired source set against the retained v1 body and adjacent context. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json preserves literal text, locators and original retrieval event. CPU/renderer, hardware/task scope, human demonstrations, RGB/depth embodiments, runtime/startup and approximate DexPBT timing remain distinct."
+    },
+    "evidence": [
+      {
+        "partId": "attributed-mechanism",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "DextrAH-RGB ( Singh et al., 2024 ) trains an RL policy on the KUKA arm with an Allegro hand in simulation that uses privileged state information and then distills this into a network that takes stereo RGB pairs as input. This is the first system to have shown that an end-to-end network directly operating on raw RGB streams can control arm and multi-fingered hands, all leveraging the high-quality rendering from Isaac Lab ( Figure 29 ). More recently, Singh et al. (2025) leverages Isaac Lab to train depth-based end-to-end policies from scratch for the DextrAH ( Lum et al., 2024b ; Singh et al., 2024 ) task."
+      },
+      {
+        "partId": "teacher-student-context",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Training end-to-end pixels-to-action policies directly with RL presents unique challenges, as the agent must simultaneously learn perception and control. A widely adopted solution is the teacher-student distillation approach ( Chen et al., 2020 ; Lee et al., 2020 ) , in which a teacher policy, trained via RL on state-based (privileged) observations, guides a student policy that receives partial information (such as rendered RGB images) corresponding to the teacher’s states. The student is trained using an online imitation learning method, such as DAGGER ( Ross et al., 2011 ) , which is particularly effective as it incrementally aggregates data from the student’s own trajectories while leveraging the teacher for corrective actions."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "attributed-mechanism",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "22a5d9a63b1cbf7f3b2a2f07bc9e4bf5ab8253075eb09ea6546b544b16f9e047",
+        "rationale": "Current implementation source review of dex-rgb supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 07b9d38ee3e52c82bbf02cc4c9a5274c9122b643406c873460e9c4ccccb99887; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "teacher-student-context",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "4c9c3977ee3f20f8814590a51b1aee1b610006fecb181dfa84dacbe61b3116fa",
+        "rationale": "Current implementation source review of teacher-pattern supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 07b9d38ee3e52c82bbf02cc4c9a5274c9122b643406c873460e9c4ccccb99887; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      }
+    ]
+  },
+  {
+    "id": "isaac-v1-rl-sim2real-sim2real-transfer-13-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "def853e727ea1dba870e23d0a032ec2671a5d5cc112af1213e329faf35ecb578",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "exact-wording",
+        "text": "exact-wording: Exact information gap due to input mismatch wording and camera-occlusion qualifier. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "partial-observation-and-occlusion",
+        "text": "partial-observation-and-occlusion: Exact information gap due to input mismatch wording and camera-occlusion qualifier. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+      "planDigest": "2081667cf5306a31320068f96ca9257c0b57032de7613e67d8cf4ec500b6b48f",
+      "rationale": "Reviewed the changed whole claim, all 2 parts and exact paired source set against the retained v1 body and adjacent context. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json preserves literal text, locators and original retrieval event. CPU/renderer, hardware/task scope, human demonstrations, RGB/depth embodiments, runtime/startup and approximate DexPBT timing remain distinct."
+    },
+    "evidence": [
+      {
+        "partId": "exact-wording",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "While distillation enables training an RGB-driven student policy by imitating a state-based teacher, there are compelling reasons to also train policies end-to-end directly from images. First, end-to-end training can exploit rich spatial and shape cues that low-dimensional state vectors cannot capture. Second, imitation-based distillation introduces an information gap due to input mismatch: the teacher observes privileged state information, while the student sees only partial observations. This can lead to a performance drop, as the student must reconstruct unobserved states from images, a challenge that becomes particularly pronounced under high camera occlusions."
+      },
+      {
+        "partId": "partial-observation-and-occlusion",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "While distillation enables training an RGB-driven student policy by imitating a state-based teacher, there are compelling reasons to also train policies end-to-end directly from images. First, end-to-end training can exploit rich spatial and shape cues that low-dimensional state vectors cannot capture. Second, imitation-based distillation introduces an information gap due to input mismatch: the teacher observes privileged state information, while the student sees only partial observations. This can lead to a performance drop, as the student must reconstruct unobserved states from images, a challenge that becomes particularly pronounced under high camera occlusions."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "exact-wording",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "200867bf03dd2e53df2c0c7401fcb66c9bed4e541c99221608e106bc488c2039",
+        "rationale": "Current implementation source review of information-gap supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal fd30d836ada913007fb2478e04e41b84ce655c268bb391e2d00e532aced8fada; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "partial-observation-and-occlusion",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "d105bff77274cda57decf74b30996430a54d787c14433f53f2b9df4ccc89c018",
+        "rationale": "Current implementation source review of information-gap supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal fd30d836ada913007fb2478e04e41b84ce655c268bb391e2d00e532aced8fada; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      }
+    ]
+  },
+  {
+    "id": "isaac-v1-rl-sim2real-reward-design-mpc-15-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "6db4bfa39089eac676b15db592d911f4727d6d91f93cefcd199f3d9e2017c74d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "worker-mechanism",
+        "text": "worker-mechanism: Independent workers, hyperparameter mutation and replacement. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      },
+      {
+        "id": "reproduction-and-resources",
+        "text": "reproduction-and-resources: Isaac Lab RL-Games reproduction,6D reposing,eight workers,1–2GPUs each,approximately16hours,OVXL40. Required source URL (AND): https://arxiv.org/html/2511.04831v1.",
+        "requiredCitationIds": [
+          "isaac-lab-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+      "planDigest": "583430edff16fd4cb1ec61e28be4e165c2b7686ebfa8a418b01f0ffb5207b3ea",
+      "rationale": "Reviewed the changed whole claim, all 2 parts and exact paired source set against the retained v1 body and adjacent context. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json preserves literal text, locators and original retrieval event. CPU/renderer, hardware/task scope, human demonstrations, RGB/depth embodiments, runtime/startup and approximate DexPBT timing remain distinct."
+    },
+    "evidence": [
+      {
+        "partId": "worker-mechanism",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "While RL remains the predominant approach for training policies in simulation, the stochastic nature of the training process and the large hyperparameter space collectively introduce high variance in training results, particularly for systems with high DoF ( DoF ) systems and tasks with sparse rewards. As a result, some runs may progress rapidly, while others stagnate with little or no improvement. Petrenko et al. (2023) addresses this problem by using genetic algorithms to mutate the hyperparameter space, promoting diversity and exploration in the learning agent. Built on top of PBT ( PBT ) ( Jaderberg et al., 2017 ) , DexPBT assigns each worker an independent RL training process with its own set of hyperparameters. Periodically, the best-performing workers, with their weights and hyperparameters, replace the worst-performing ones, as illustrated in Figure 20 ."
+      },
+      {
+        "partId": "reproduction-and-resources",
+        "citationId": "isaac-lab-2025",
+        "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+        "supportingPassage": "Isaac Lab includes an implementation of DexPBT with RL-Games for the dexterous manipulation environments in DextrAH ( Lum et al., 2024b ; Singh et al., 2024 ) .It reproduces the 6D reposing task from the original DexPBT work using 8 workers, each with 1–2 GPUs, and converges in approximately 16 hours on NVIDIA OVX L40 hardware. The PBT framework in Isaac Lab is configurable and generalizable to other environments, enabling scalable multi-node RL training."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "worker-mechanism",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "5d0dc9f320ad090c6f459a82a3ceeb5ed43f6eec6bf9ae689f7f20afc4c519d1",
+        "rationale": "Current implementation source review of pbt-mechanism supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 221e03952c1209c9bc200d057b798348d1d3dfb57fa11865930f44887c65c30c; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      },
+      {
+        "partId": "reproduction-and-resources",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance",
+        "evidenceDigest": "5ee42df266e4de7dedf8c12eff078ffc13e0d22aeae1fad056f5b0176e3b8785",
+        "rationale": "Current implementation source review of pbt-setting supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 221e03952c1209c9bc200d057b798348d1d3dfb57fa11865930f44887c65c30c; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
+      }
+    ]
   }
 ]

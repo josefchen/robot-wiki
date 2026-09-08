@@ -6647,6 +6647,139 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "isaac-v1-twelve-originals-1-20260908",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+      "newHash": "03922c2d4ac019087ce635755701f7f6fb1c70c582880393a7b3cb46586a4831",
+      "reason": "Exact source-local Isaac Lab v1 correction for article:rl-sim2real/parallel-sim-rl. Retained https://arxiv.org/html/2511.04831v1 body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39; 30 literal contexts and 35 required part/source pairs for twelve originals reviewed. Changes distinguish human-seeded Mimic, hardware/task-scoped training FPS, runtime parameter writes, RGB embodiment and approximate DexPBT timing. NVIDIA plus 105 unique Appendix A credits replaces the incomplete two-name byline; source spelling/order retained. Inline source placement preserves citations, glossary links, routes and review dates. Native oldHash d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb is the immutable member or native sha256('missing') sentinel, never immediate predecessor d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb. Actual endpoints and whole-claim adjudications: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json, applied-product-endpoints.json, row-integration.json. This does not approve the separately failing full TrainingTimeChart source member, its preceding visual drift, whole articles, independent acceptance or publication.",
+      "ownerApproval": "Josef’s actual “fix it all!” routine reversible source-backed correction authority, owner-correction-authority-2026-09-07.md and the fixed twelve-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-009",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "isaac-v1-twelve-originals-2-20260908",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "8e8c37b7988f1083b86578c6decea5eb3fa742292f49aa6cd5ac1a753a3a3dba",
+      "reason": "Exact source-local Isaac Lab v1 correction for article:rl-sim2real/reward-design-mpc. Retained https://arxiv.org/html/2511.04831v1 body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39; 30 literal contexts and 35 required part/source pairs for twelve originals reviewed. Changes distinguish human-seeded Mimic, hardware/task-scoped training FPS, runtime parameter writes, RGB embodiment and approximate DexPBT timing. NVIDIA plus 105 unique Appendix A credits replaces the incomplete two-name byline; source spelling/order retained. Inline source placement preserves citations, glossary links, routes and review dates. Native oldHash aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699 is the immutable member or native sha256('missing') sentinel, never immediate predecessor 3cc02c9876910ad0d7d014a115979ae85b6a704d83138961e13cea26e1a0d3d1. Actual endpoints and whole-claim adjudications: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json, applied-product-endpoints.json, row-integration.json. This does not approve the separately failing full TrainingTimeChart source member, its preceding visual drift, whole articles, independent acceptance or publication.",
+      "ownerApproval": "Josef’s actual “fix it all!” routine reversible source-backed correction authority, owner-correction-authority-2026-09-07.md and the fixed twelve-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-009",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "isaac-v1-twelve-originals-3-20260908",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "b61ad004390917d5f117905e6d08747b16b21b7d1ce0d5fdfb87ca3a5340ec36",
+      "reason": "Exact source-local Isaac Lab v1 correction for article:rl-sim2real/sim2real-transfer. Retained https://arxiv.org/html/2511.04831v1 body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39; 30 literal contexts and 35 required part/source pairs for twelve originals reviewed. Changes distinguish human-seeded Mimic, hardware/task-scoped training FPS, runtime parameter writes, RGB embodiment and approximate DexPBT timing. NVIDIA plus 105 unique Appendix A credits replaces the incomplete two-name byline; source spelling/order retained. Inline source placement preserves citations, glossary links, routes and review dates. Native oldHash e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b is the immutable member or native sha256('missing') sentinel, never immediate predecessor e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b. Actual endpoints and whole-claim adjudications: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json, applied-product-endpoints.json, row-integration.json. This does not approve the separately failing full TrainingTimeChart source member, its preceding visual drift, whole articles, independent acceptance or publication.",
+      "ownerApproval": "Josef’s actual “fix it all!” routine reversible source-backed correction authority, owner-correction-authority-2026-09-07.md and the fixed twelve-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-009",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "isaac-v1-twelve-originals-4-20260908",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/why-rl-locomotion",
+      "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+      "newHash": "e3021d9e898e14975dad869d49e4fc12df28947848e9bdd973dd44c177e0083d",
+      "reason": "Exact source-local Isaac Lab v1 correction for article:rl-sim2real/why-rl-locomotion. Retained https://arxiv.org/html/2511.04831v1 body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39; 30 literal contexts and 35 required part/source pairs for twelve originals reviewed. Changes distinguish human-seeded Mimic, hardware/task-scoped training FPS, runtime parameter writes, RGB embodiment and approximate DexPBT timing. NVIDIA plus 105 unique Appendix A credits replaces the incomplete two-name byline; source spelling/order retained. Inline source placement preserves citations, glossary links, routes and review dates. Native oldHash 25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b is the immutable member or native sha256('missing') sentinel, never immediate predecessor 25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b. Actual endpoints and whole-claim adjudications: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json, applied-product-endpoints.json, row-integration.json. This does not approve the separately failing full TrainingTimeChart source member, its preceding visual drift, whole articles, independent acceptance or publication.",
+      "ownerApproval": "Josef’s actual “fix it all!” routine reversible source-backed correction authority, owner-correction-authority-2026-09-07.md and the fixed twelve-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-009",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "isaac-v1-twelve-originals-5-20260908",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3",
+      "newHash": "5833199cef1b9b3e2dbb501e7a0e5074829781e8ff5c022d5eab7fe21b433b90",
+      "reason": "Exact source-local Isaac Lab v1 correction for article:world-models/generative-sim. Retained https://arxiv.org/html/2511.04831v1 body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39; 30 literal contexts and 35 required part/source pairs for twelve originals reviewed. Changes distinguish human-seeded Mimic, hardware/task-scoped training FPS, runtime parameter writes, RGB embodiment and approximate DexPBT timing. NVIDIA plus 105 unique Appendix A credits replaces the incomplete two-name byline; source spelling/order retained. Inline source placement preserves citations, glossary links, routes and review dates. Native oldHash 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 is the immutable member or native sha256('missing') sentinel, never immediate predecessor 341695730cb6f14cefe7359cb09959b180a021bd448f19401383fb60f0f9e628. Actual endpoints and whole-claim adjudications: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json, applied-product-endpoints.json, row-integration.json. This does not approve the separately failing full TrainingTimeChart source member, its preceding visual drift, whole articles, independent acceptance or publication.",
+      "ownerApproval": "Josef’s actual “fix it all!” routine reversible source-backed correction authority, owner-correction-authority-2026-09-07.md and the fixed twelve-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-009",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "isaac-v1-twelve-originals-7-20260908",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "38a5fafd03466fe1f774197a0f7a3108fa45d985f1aa5ec20c8894e9a16e7ca5",
+      "reason": "Exact source-local Isaac Lab v1 correction for citation-rendering:label-and-meta. Retained https://arxiv.org/html/2511.04831v1 body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39; 30 literal contexts and 35 required part/source pairs for twelve originals reviewed. Changes distinguish human-seeded Mimic, hardware/task-scoped training FPS, runtime parameter writes, RGB embodiment and approximate DexPBT timing. NVIDIA plus 105 unique Appendix A credits replaces the incomplete two-name byline; source spelling/order retained. Inline source placement preserves citations, glossary links, routes and review dates. Native oldHash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d is the immutable member or native sha256('missing') sentinel, never immediate predecessor ce936431e57110acb81dfb9ffe53777f9113b270a134d499642441ccb24a967e. Actual endpoints and whole-claim adjudications: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json, applied-product-endpoints.json, row-integration.json. This does not approve the separately failing full TrainingTimeChart source member, its preceding visual drift, whole articles, independent acceptance or publication.",
+      "ownerApproval": "Josef’s actual “fix it all!” routine reversible source-backed correction authority, owner-correction-authority-2026-09-07.md and the fixed twelve-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-009",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "isaac-v1-twelve-originals-8-20260908",
+      "manifest": "article-metadata",
+      "memberId": "citation:isaac-lab-2025",
+      "oldHash": "ad6a1922d8ad5f625a24e78f7400ce563beedc8bfd628aa235b55e46aa64a57e",
+      "newHash": "17f79e0fa25a0b2d75f023fcb7e1e0de9f2a847d08016f85fde463491c08cb9b",
+      "reason": "Exact source-local Isaac Lab v1 correction for citation:isaac-lab-2025. Retained https://arxiv.org/html/2511.04831v1 body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39; 30 literal contexts and 35 required part/source pairs for twelve originals reviewed. Changes distinguish human-seeded Mimic, hardware/task-scoped training FPS, runtime parameter writes, RGB embodiment and approximate DexPBT timing. NVIDIA plus 105 unique Appendix A credits replaces the incomplete two-name byline; source spelling/order retained. Inline source placement preserves citations, glossary links, routes and review dates. Native oldHash ad6a1922d8ad5f625a24e78f7400ce563beedc8bfd628aa235b55e46aa64a57e is the immutable member or native sha256('missing') sentinel, never immediate predecessor ad6a1922d8ad5f625a24e78f7400ce563beedc8bfd628aa235b55e46aa64a57e. Actual endpoints and whole-claim adjudications: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json, applied-product-endpoints.json, row-integration.json. This does not approve the separately failing full TrainingTimeChart source member, its preceding visual drift, whole articles, independent acceptance or publication.",
+      "ownerApproval": "Josef’s actual “fix it all!” routine reversible source-backed correction authority, owner-correction-authority-2026-09-07.md and the fixed twelve-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-009",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-003"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

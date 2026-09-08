@@ -30,9 +30,9 @@ import { cx } from '@/lib/utils';
  * (flat < 4 min, uneven 20 min) are drawn as labeled diamonds. A stacked bar
  * splits one training iteration into simulation, learning update, and
  * CPU + transfer work, recomposing as the env count moves. The CPU
- * single-core bottleneck toggle adds a per-environment CPU cost (the Isaac
- * Lab finding behind a single 5090 workstation approaching a 2x RTX PRO 6000
- * server) and overlays the GPU-scaling curve as a dashed reference.
+ * single-core bottleneck toggle adds an assumed per-environment CPU cost,
+ * motivated by the task-specific Isaac Lab v1 CPU comparison, and overlays
+ * the toy GPU-scaling curve as a dashed reference; neither curve is measured.
  *
  * Interactive contract: deterministic initial render, native range input and
  * aria-pressed toggle (keyboard-accessible), visible monospace readouts,
@@ -459,7 +459,7 @@ export function TrainingTimeChart({
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
       >
         {cpuBound
-          ? 'With the PhysX CPU APIs and the main training loop bound to a single core, every added environment carries a CPU cost the GPU cannot absorb, and the dash-dot CPU-bound curve flattens. The fine evenly dashed curve behind it is the same run without the bottleneck. This is the Isaac Lab finding behind a single 5090 workstation approaching a 2x RTX PRO 6000 server on the Franka task.'
+          ? 'This toy adds an assumed per-environment CPU cost, so the dash-dot curve flattens; the fine evenly dashed curve is the same toy without that cost. Isaac Lab v1 motivates the comparison with a specific benchmark: a 5090 / AMD 9800X3D workstation approaches a 2x RTX PRO 6000 server on the Franka cabinet task. Neither this curve nor its CPU-cost constant is measured by that benchmark.'
           : 'At low env counts the fixed per-iteration costs (learning update, host-device transfer, the Python loop) dominate and the GPU idles; at high counts simulation takes over and wall-clock falls from hours to minutes. Diamonds are measured wall-clock from Rudin et al. 2021 at 4,096 envs on one workstation GPU.'}
       </p>
 

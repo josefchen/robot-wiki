@@ -85,7 +85,11 @@ The limitations are structural, and the 2026 literature treats them as open. Eur
 
 <Term id="reward-shaping">Reward shaping</Term> decides what to optimize; <Term id="curriculum-learning">curriculum</Term> decides in what order the policy is allowed to see difficulty. Three mechanisms dominate, and they are different enough to keep separate.
 
-Terrain curriculum is the game-inspired scheme from the massively parallel walking work: robots that succeed on a terrain tile get promoted to a harder one, robots that fail get demoted, and thousands of parallel robots make the difficulty frontier measurable rather than guessed <Cite id="rudin-2021" />. Automatic Domain Randomization widens the randomization distribution itself as success crosses a threshold, an idea from OpenAI's dexterous hand work that now ships in Isaac Lab as a configurable curriculum <Cite id="openai-rubiks-cube-2019" /> <Cite id="isaac-lab-2025" />. Population-based training goes furthest: DexPBT evolves hyperparameters and reward weights across a population of learners, and Isaac Lab reproduces its 6D reposing result with 8 workers on one to two GPUs each, converging in about 16 hours on NVIDIA OVX L40 hardware <Cite id="isaac-lab-2025" />.
+Terrain curriculum is the game-inspired scheme from the massively parallel walking work: robots that succeed on a terrain tile get promoted to a harder one, robots that fail get demoted, and thousands of parallel robots make the difficulty frontier measurable rather than guessed <Cite id="rudin-2021" />. Automatic Domain Randomization widens the randomization distribution itself as success crosses a threshold, an idea from OpenAI's dexterous hand work that now ships in Isaac Lab as a configurable curriculum <Cite id="openai-rubiks-cube-2019" /> <Cite id="isaac-lab-2025" />.
+
+For population-based training, Isaac Lab v1 describes DexPBT workers running independent RL processes with their own hyperparameters; strong workers replace weak workers’ weights and hyperparameters. Its RL-Games implementation reproduces a 6D reposing task using eight workers with one to two GPUs each, converging in approximately 16 hours on NVIDIA OVX L40 hardware<br />Source: <Cite id="isaac-lab-2025" />.
+
+
 
 Notice what all three assume: cheap, dense, parallel evaluation. Curriculum is a dividend of the throughput covered in the parallel-sim module, and it is one more reason the same machinery does not transfer to manipulation, where the [MDP is not cheaply simulatable](/rl-sim2real/why-rl-locomotion).
 

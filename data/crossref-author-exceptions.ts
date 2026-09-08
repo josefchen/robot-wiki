@@ -450,23 +450,6 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
       'arXiv feed for 2308.12952 (14 authors: Homer Walke, Kevin Black, Abraham Lee, ...) read 2026-08-20.',
   },
   {
-    id: 'isaac-lab-2025',
-    skip: 'author-count',
-    reason:
-      'The arXiv feed prints 107 author elements because it splits the org credit into "NVIDIA" and a stray ":"; DBLP transcribes the byline as two credited authors, NVIDIA and Mayank Mittal, exactly the registry.',
-    verified:
-      'DBLP publication record for Isaac Lab (journals/corr/abs-2511-04831; 1 named record plus the org: "NVIDIA") and the arXiv abs citation_author list (107 entries including ":") compared 2026-08-20.',
-  },
-  {
-    id: 'isaac-lab-2025',
-    skip: 'author',
-    authorIndex: 2,
-    reason:
-      'Registry "NVIDIA" vs the feed\'s stray ":" at position 2: the feed splits the org credit into "NVIDIA" and ":"; the byline credit is the org alone.',
-    verified:
-      'DBLP publication record for Isaac Lab read 2026-08-20; arXiv abs citation_author list for 2511.04831 read 2026-08-20.',
-  },
-  {
     id: 'agibot-world-2025',
     skip: 'author-count',
     reason:
