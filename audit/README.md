@@ -1,6 +1,44 @@
 # Content-integrity audit trail
 
-## Current partial world-model continuation checkpoint — 2026-09-08
+## Current partial Cosmos and reader checkpoint — 2026-09-08
+
+**337 complete / 657 incomplete / 994 original identities / 47 articles. 243 compound plans; 325 exact approval entries.** Immediate predecessor `b059e35` was 330/664 with 236 plans and 317 approvals. This is a bounded local implementation checkpoint, not whole-article, brand, publication or independent acceptance. Formal Mission progress remains **307/331**.
+
+Exactly seven original IDs are newly complete: **`audit/world-models.md:taxonomy:12`** and **`audit/world-models.md:generative-video:1`, `:5`, `:7`, `:8`, `:9`, `:10`**. All **330 previously complete full records**, **987 unselected full records**, **236 prior plans** and **317 prior approval objects** are preserved; only derived source line numbers are excluded from record comparison. No selected original remains unapplied. No other JEPA, Genie, IWS, RoboWorld, launch-date, taxonomy4, JEPA14 or whole-P1 original receives credit. World-model completeness is taxonomy **14/20**, generative-video **13/22**, JEPA **9/14**, latent-dynamics **21/21**, generative-sim **0/15**. Partial article review dates remain unchanged.
+
+**Zero new source retrievals.** The worker verified **31 literal passages** against retained bodies and source hashes. The official NVIDIA report PDF is **29,331,015 bytes**, SHA-256 `d8f554d76b37d8c2ba504c628d7814176d7b0383c6c3bfa9f8389decda228d6e`, with original retrieval completed **2026-09-07T23:46:37.563364+00:00**. The arXiv v4 HTML is **2,967,240 bytes**, SHA-256 `ecae7761d8a0b31ac63b639f7146512581a3918d8e370e9997190223e2e28489`, originally completed **2026-09-07T23:46:36.492421+00:00**. Their identities and visible June 22 / June 23 version dates remain distinct; the official PDF is not claimed byte-equivalent to arXiv v4. Current review is not a fetch date.
+
+Cosmos now distinguishes separate AR/DM parameters and asymmetric attention, ViT understanding from VAE generation, common architecture from specialized checkpoints, and freshly initialized DROID action interfaces. Forward/inverse/policy conditioning modes remain distinct. Nano is **16B on a dense 8B basis**; Super is **64B on a dense 32B basis**, without inferred memory, precision or launch availability. Section 4.2 rectified flow and Section 5.2 “EDM loss” are not silently reconciled. GPU prose/table disagreement remains counterevidence, not a new product compute claim. The citation credits **NVIDIA plus 294 named contributors, 295 total**.
+
+Ten inherited detached-punctuation occurrences were repaired inside existing local spans. Five additional measured Cosmos prose placements and the two source-specific `ThesisExplorer` evidence placements were repaired without changing shared `Cite`, thesis facts, or JEPA arithmetic. The JEPA toy retains step fraction **0.42**, wobble **0.05**, candidates **4–64/default 24**, max **12** steps and tolerance **0.03**. A manual source-fidelity/humanizer-style read covers the scoped replacements and inherited carryover prose; no invokable humanizer skill was exposed, and no-slop lint is not substituted for that read.
+
+| Check | Actual outcome |
+|---|---|
+| Cosmos red first | **12 failed** before application |
+| Focused unit checks | **107 passes in four actual files** across two non-overlapping runs: Cosmos 12, inherited video 12, strict audit 77, inherited JEPA 6. Two nonexistent filters in the first invocation earned no test credit |
+| Checked-in E2E | Direct execution of `tests/e2e/generative-video.spec.ts`: **10 passed** |
+| TypeScript / ESLint | Nonincremental TypeScript exit 0; `npm run lint --ignore-scripts` exit 0. This did **not** execute prelint |
+| Offline content | Exit 1: **662 findings**, down seven; nine separate citation gaps remain. Exact prefixed-message comparison removes 11 and adds 4, including changed aggregate/final-count messages |
+| Baseline | Exit 1: **47 exact predecessor failure objects survive**, zero added. Only `VAL-B2-BASE-011 / interactive-sources-mounts / source:components/interactive/thesis-explorer.tsx` is removed by the exact member approval; immutable baseline unchanged |
+| Bounded reader | **8 distinct route/viewport cases have passing final-relevant functional results across bounded runs**, not one all-green or full-corpus run. Initial popup/hydration failures remain archived |
+| Visual inspection | **212 raw PNGs; 105 directly inspected, of which 102 are final-relevant and 3 superseded.** Both complete Genie lists, full affected bylines, table positions, changed prose and mounted Cosmos focus/hover are visible |
+| Complete applicable reference rubric | All eight anchors evaluated at four routes × two widths: **four anchors fail in every case**, exit 1. No averaging, waiver or independent acceptance |
+| Cards | All **48 public/export/b059 committed byte triples match**; 47 article-fact objects and 17 artwork/registry/font input paths unchanged. No new generation lifecycle was run |
+| Production / full corpus / independent | Not run; genuine content closure remains prerequisite |
+
+The failed reference anchors are **identity, purposeful-devices, palette-type, material-treatment**. Exact predicates include the collector's case-sensitive Tektur role mismatch against computed lowercase `tektur`; three devices missing purpose and owner annotations; **6/7** exact colours; **0/0** registered type roles; and zero registered material representatives. Hierarchy, grid alignment, light/dark balance and repetition/frames pass where measured. These are current measured failures, not waived as inherited or mistaken for a shared-design repair within this assignment.
+
+The initial capture run had five failing cases; the seven-case replacement retained one mobile mounted-consumer failure. The tail check repaired and passed both competing-theses widths. Direct image inspection additionally found a missing JEPA chip label and an incomplete desktop Genie list despite green DOM checks. A fresh JEPA diagnostic shows the label; a bounded, paint-settled list capture shows all five items at both widths. The earlier three affected images are superseded, not silently certified. Development UI was hidden by disclosed test-only CSS; motion was disabled before paint; `caret: 'initial'` avoided screenshot-induced hydration mutations. No product DOM content was replaced or masked.
+
+The nine separate citation gaps remain: `ng-reward-shaping-1999`, `seeed-so-arm101-pro-2026`, `astrom-murray-2008`, `mcgee-schmidt-1985`, `technology-org-deployed-2026`, `hinterstoisser-2012`, `gsn-standard-v3`, `symbotic-10k-2025`, `kroger-ocado-closures-2025`. Unassigned source/synthesis and reader debt, the full brand gate, production export/reading times, full-corpus checks, and independent **Sol/high** scrutiny and user testing remain open with **skipScrutiny=false / skipUserTesting=false**. **Do not push or publish this known-red checkpoint.**
+
+Actual emitted assistant metadata establishes **custom:droidproxy:gpt-6-astra / max**, session `50af60c2-c43d-4877-9fdd-d8f4f0824d7a`, including the **2026-09-08T07:07:51.012Z** recheck. Content-auditor was loaded from the existing Mission's exact skill file before audit work. No role-specific exhaustion, model switch or credit fallback occurred. The 35-minute target from **06:29:09.804Z** was exceeded; the checkpoint records actual wall time, not invented active time.
+
+Owned server PIDs **1949671 / 1949706** are stopped. Only their two byte-proven generated `next-env.d.ts` imports were restored. PRODUCT_QUALITY.md, qa/, next-env.d.ts, owner work, prior commits including **d282a83 / 2cf7d6b**, strict audit machinery and immutable baselines are preserved. No push, deployment, source hunt, new Mission/controller/worktree, features.json edit, security/dependency change or disk cleanup occurred.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cosmos-reader-closeout-20260908`. `source-proof.json`, `row-integration.json`, `manual-review.json`, `preservation.json`, `final-reconciliation.json`, `visual-inspection.json`, `reference-measurements.json`, `card-reuse.json`, `command-ledger.json`, `checkpoint.json` and the closed `artifact-index.json` retain exact identities, original provenance, current hashes, command receipts, inspection status and unresolved boundaries.
+
+## Historical: partial world-model continuation checkpoint — 2026-09-08
 
 **330 complete / 664 incomplete / 994 original identities / 47 articles. 236 compound plans; 317 exact approval entries.** The immediate source checkpoint `f14428e` was 322/672 with 228 plans and 313 approvals. Its nine JEPA originals are predecessor work, not this worker's credit. The separate oracle repair is `0b26116`; the accompanying content commit is a local partial implementation checkpoint, not reader, whole-article, publication or independent acceptance.
 

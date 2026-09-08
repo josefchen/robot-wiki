@@ -3,6 +3,27 @@ import AxeBuilder from '@axe-core/playwright';
 
 const ROUTE = '/world-models/generative-video/';
 
+async function prepareContext(context: import('@playwright/test').BrowserContext) {
+  await context.addInitScript(() => {
+    const install = () => {
+      if (!document.documentElement || document.getElementById('cosmos-reader-no-motion')) return;
+      const style = document.createElement('style');
+      style.id = 'cosmos-reader-no-motion';
+      style.textContent = '*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}nextjs-portal{display:none!important}';
+      document.documentElement.append(style);
+    };
+    install();
+    new MutationObserver(install).observe(document, { childList: true, subtree: true });
+  });
+  await context.route('**/*', route => {
+    const host = new URL(route.request().url()).hostname;
+    return ['127.0.0.1', 'localhost'].includes(host) ? route.continue() : route.abort();
+  });
+}
+
+test.beforeEach(async ({ context }) => { await prepareContext(context); });
+
+
 async function sensitivity(page: Page) {
   const text = await page.getByTestId('sensitivity-readout').textContent();
   const value = Number.parseFloat(text ?? '');
@@ -37,7 +58,7 @@ test.describe('world-models generative-video module', () => {
     for (const name of [
       // Cosmos 3 as one omni-model.
       /Mixture-of-Transformers/,
-      /autoregressive subsequence for reasoning and a diffusion subsequence/,
+      /autoregressive subsequence handles language tokens/,
       /Nano at 16B/,
       /Super at 64B/,
       // Genie 2/3 with the honest limitations and the 60-second cap.
@@ -123,6 +144,39 @@ test.describe('world-models generative-video module', () => {
       .locator('div.prose[data-pagefind-body]')
       .locator('a[href^="http"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(10);
+  });
+
+  test('Cosmos report scopes towers, modes, and model scales', async ({ page }) => {
+    await page.goto(ROUTE);
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    await expect(prose).toContainText('dense 8B basis; dual-tower MoT');
+    await expect(prose).toContainText('the reasoning stream is not updated from diffusion tokens');
+    await expect(prose).toContainText('one unchanged checkpoint');
+    await expect(prose).toContainText('freshly initializes the action encoder');
+    await expect(prose).toContainText('Policy mode jointly denoises future video and actions');
+    await expect(prose).toContainText('Section 2.5 reports Cosmos 3 Nano at 16B');
+    await expect(prose).toContainText('Cosmos 3 Super at 64B');
+    await expect(prose).toContainText('rectified flow matching');
+    await expect(prose).toContainText('EDM loss');
+    await expect(prose).not.toContainText('Two sizes are public at launch');
+    const source = prose.getByRole('link', { name: 'NVIDIA 2026', exact: true }).first();
+    await expect(source).toHaveAttribute(
+      'href',
+      'https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf',
+    );
+    await source.focus();
+    await expect(source).toBeFocused();
+    const reference = page.locator('[data-reference-id="cosmos-3-2026"]');
+    await expect(reference).toContainText('and 287 more');
+    const expand = reference.getByRole('button', { name: 'Show all 295 authors', exact: true });
+    await expand.focus();
+    await page.keyboard.press('Enter');
+    await expect(reference.locator('[data-author-names]')).toContainText('Artur Zolkowski');
+    const collapse = reference.getByRole('button', { name: 'Show 8 authors', exact: true });
+    await expect(collapse).toHaveAttribute('aria-expanded', 'true');
+    await collapse.press('Enter');
+    await expect(reference).toContainText('and 287 more');
+    await expect(reference.getByRole('button', { name: 'Show all 295 authors', exact: true })).toBeFocused();
   });
 
   test('interactive: two rollouts from one frame with a sensitivity score', async ({
@@ -213,6 +267,7 @@ test.describe('world-models generative-video module', () => {
     const context = await browser.newContext({
       viewport: { width: 375, height: 812 },
     });
+    await prepareContext(context);
     const page = await context.newPage();
     await page.goto(ROUTE);
     const overflow = await page.evaluate(

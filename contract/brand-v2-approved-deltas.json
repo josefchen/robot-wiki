@@ -6366,6 +6366,166 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "cosmos-reader-closeout-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/competing-theses",
+      "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+      "newHash": "503e83d1c6a6a04167a7a00aaef3abd3b24e09a9fa7e2de4eda6468e65a82adf",
+      "reason": "Exact Cosmos source correction and measured local source-placement repair only. Immediate-before 27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895; final 503e83d1c6a6a04167a7a00aaef3abd3b24e09a9fa7e2de4eda6468e65a82adf. Seven source originals,31 literal retained passages; no new retrieval. Punctuation is bound inside existing local spans. The competing-theses component change applies only to vjepa2-2025/cosmos-3-2026 source placement after measured375px popup clipping; no thesis facts, behavior, shared Cite or JEPA constants change. Exact endpoint/source history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cosmos-reader-closeout-20260908/applied-product-endpoints.json, cosmos-placement-repairs.json, reader-tail-proof.json and manual-review.json. Not source certification by Josef, independent acceptance or a wildcard.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or altered criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cosmos-reader-closeout-20260908-2",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8",
+      "newHash": "974a21a3de666d759806a101a170b9af74821223362ca35057b84aee041ced3a",
+      "reason": "Exact Cosmos source correction and measured local source-placement repair only. Immediate-before ca3967deb0103b24b16be802913ccb2ade49881ade8b406d4d581b84fb694953; final 974a21a3de666d759806a101a170b9af74821223362ca35057b84aee041ced3a. Seven source originals,31 literal retained passages; no new retrieval. Punctuation is bound inside existing local spans. The competing-theses component change applies only to vjepa2-2025/cosmos-3-2026 source placement after measured375px popup clipping; no thesis facts, behavior, shared Cite or JEPA constants change. Exact endpoint/source history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cosmos-reader-closeout-20260908/applied-product-endpoints.json, cosmos-placement-repairs.json, reader-tail-proof.json and manual-review.json. Not source certification by Josef, independent acceptance or a wildcard.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or altered criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cosmos-reader-closeout-20260908-3",
+      "manifest": "prose",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1",
+      "newHash": "2b8c03f4a6711f39672eba6347da88e8ecde0d280d719514d8db4853c4a9e809",
+      "reason": "Exact Cosmos source correction and measured local source-placement repair only. Immediate-before 579198692c07a4098380cf9412872b70d760ad35bd3f6e26cb22ad5df5e5b53b; final 2b8c03f4a6711f39672eba6347da88e8ecde0d280d719514d8db4853c4a9e809. Seven source originals,31 literal retained passages; no new retrieval. Punctuation is bound inside existing local spans. The competing-theses component change applies only to vjepa2-2025/cosmos-3-2026 source placement after measured375px popup clipping; no thesis facts, behavior, shared Cite or JEPA constants change. Exact endpoint/source history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cosmos-reader-closeout-20260908/applied-product-endpoints.json, cosmos-placement-repairs.json, reader-tail-proof.json and manual-review.json. Not source certification by Josef, independent acceptance or a wildcard.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or altered criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cosmos-reader-closeout-20260908-4",
+      "manifest": "prose",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+      "newHash": "b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1",
+      "reason": "Exact Cosmos source correction and measured local source-placement repair only. Immediate-before eb8ef715b160f90b5e6d9d3a62e87d7f614b4f3b93ba5988a3428ec292d9e900; final b9e56d87059af3096551cae3e9d7e35ed5613122cdb8d27030a632f16b5c9aa1. Seven source originals,31 literal retained passages; no new retrieval. Punctuation is bound inside existing local spans. The competing-theses component change applies only to vjepa2-2025/cosmos-3-2026 source placement after measured375px popup clipping; no thesis facts, behavior, shared Cite or JEPA constants change. Exact endpoint/source history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cosmos-reader-closeout-20260908/applied-product-endpoints.json, cosmos-placement-repairs.json, reader-tail-proof.json and manual-review.json. Not source certification by Josef, independent acceptance or a wildcard.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or altered criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cosmos-reader-closeout-20260908-5",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "d01756dd06c2d1f9f091d13f0272eafb22d23b8cd158456af1e4c25fd3a852dd",
+      "newHash": "95351a78bd617cb989b9dbfa608db6a94ecffe4b50652af0f65dfbc39e29f4c9",
+      "reason": "Exact Cosmos source correction and measured local source-placement repair only. Immediate-before 0425e06263845024d8b058ff6fd9520150c787239a2d0692e0b6a46cf64589b5; final 95351a78bd617cb989b9dbfa608db6a94ecffe4b50652af0f65dfbc39e29f4c9. Seven source originals,31 literal retained passages; no new retrieval. Punctuation is bound inside existing local spans. The competing-theses component change applies only to vjepa2-2025/cosmos-3-2026 source placement after measured375px popup clipping; no thesis facts, behavior, shared Cite or JEPA constants change. Exact endpoint/source history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cosmos-reader-closeout-20260908/applied-product-endpoints.json, cosmos-placement-repairs.json, reader-tail-proof.json and manual-review.json. Not source certification by Josef, independent acceptance or a wildcard.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or altered criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cosmos-reader-closeout-20260908-6",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/thesis-explorer.tsx",
+      "oldHash": "ac766da8159315ecd1c0497c547f8b2b2cec41509ebf78a30bd416eed8f20213",
+      "newHash": "f6ee1c0722bae2089c7533b19c8c23a63d3edf5c1803b3bb862b659f7a1a2c26",
+      "reason": "Exact Cosmos source correction and measured local source-placement repair only. Immediate-before 5dd0c81bb7ed4801d391782f7eeb6a38a3eee2cf70f321f172f5ad5a50d3bb42; final f6ee1c0722bae2089c7533b19c8c23a63d3edf5c1803b3bb862b659f7a1a2c26. Seven source originals,31 literal retained passages; no new retrieval. Punctuation is bound inside existing local spans. The competing-theses component change applies only to vjepa2-2025/cosmos-3-2026 source placement after measured375px popup clipping; no thesis facts, behavior, shared Cite or JEPA constants change. Exact endpoint/source history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cosmos-reader-closeout-20260908/applied-product-endpoints.json, cosmos-placement-repairs.json, reader-tail-proof.json and manual-review.json. Not source certification by Josef, independent acceptance or a wildcard.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or altered criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cosmos-reader-closeout-20260908-7",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ce936431e57110acb81dfb9ffe53777f9113b270a134d499642441ccb24a967e",
+      "reason": "Exact Cosmos source correction and measured local source-placement repair only. Immediate-before a903ea05e32dc5baa6c30c6accda84cf8b8d736d7cabe2d12e2bcc68d0f81dc6; final ce936431e57110acb81dfb9ffe53777f9113b270a134d499642441ccb24a967e. Seven source originals,31 literal retained passages; no new retrieval. Punctuation is bound inside existing local spans. The competing-theses component change applies only to vjepa2-2025/cosmos-3-2026 source placement after measured375px popup clipping; no thesis facts, behavior, shared Cite or JEPA constants change. Exact endpoint/source history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cosmos-reader-closeout-20260908/applied-product-endpoints.json, cosmos-placement-repairs.json, reader-tail-proof.json and manual-review.json. Not source certification by Josef, independent acceptance or a wildcard.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or altered criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "cosmos-reader-closeout-20260908-8",
+      "manifest": "article-metadata",
+      "memberId": "citation:cosmos-3-2026",
+      "oldHash": "994ba3e0820518fbb2cbb29c9aa4fb84b2df5d3328befe894185365bc8d4a5f5",
+      "newHash": "d8af6b5f286c9bd149443911da8614504050f37061faaa64de331f3f1e9360a9",
+      "reason": "Exact Cosmos source correction and measured local source-placement repair only. Immediate-before 994ba3e0820518fbb2cbb29c9aa4fb84b2df5d3328befe894185365bc8d4a5f5; final d8af6b5f286c9bd149443911da8614504050f37061faaa64de331f3f1e9360a9. Seven source originals,31 literal retained passages; no new retrieval. Punctuation is bound inside existing local spans. The competing-theses component change applies only to vjepa2-2025/cosmos-3-2026 source placement after measured375px popup clipping; no thesis facts, behavior, shared Cite or JEPA constants change. Exact endpoint/source history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-cosmos-reader-closeout-20260908/applied-product-endpoints.json, cosmos-placement-repairs.json, reader-tail-proof.json and manual-review.json. Not source certification by Josef, independent acceptance or a wildcard.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or altered criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
