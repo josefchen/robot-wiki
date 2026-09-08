@@ -1,6 +1,18 @@
 # Content-integrity audit trail
 
-## Current partial Isaac Lab checkpoint — 2026-09-08
+<!-- rl-reader-current:start -->
+## Current partial RL reader/accounting checkpoint — 2026-09-08
+
+**363 complete / 631 incomplete / 994 original identities / 47 articles. 269 compound plans.** The source-record state remains the DPPO/ConRFT checkpoint at `203b85d`, not the earlier Isaac checkpoint below. These parser-derived evidence counts are separate from recorded verdicts and content-gate findings. This is a carried reader/accounting repair, **not acceptance** of an article, source group, feature, visual system or publication.
+
+**Zero source originals completed here.** The assignment's fixed ordinals 3/6/7/8 conflict with its source names: actual 3 is π_RL, 6 HIL-SERL, 7 PLD and 8 RLDG; Liu and PAIR are 9 and 10. All four named integrations remain held pending parent reconciliation of immutable IDs. No row, plan, citation entry, review date or source claim is promoted. Retained-source verification is preparation only: four works, 46 literal passages, 29 source pairs; zero new retrievals and no whole-P1 credit.
+
+The manipulation summary is regenerated with canonical frontmatter citation context. Mobile navigation proof exercises the real drawer, including keyboard opening, current-page state, Escape and restored focus. DPPO/ConRFT citations use article-local source-line placement; shared navigation, citation components and method facts are unchanged. Existing checks and failed attempts are retained in the packet; passing focused checks do not make the content gate green. The 631 incomplete originals, separately tracked citation gaps, broader source/reader debt, production export/reading times, full reference/card corpus and independent Sol/high scrutiny/user testing remain open. **Do not publish this known-red checkpoint.**
+
+Evidence and exact final command/preservation receipts: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-hil-generalization-integration-20260908/`. Historical checkpoints below retain their original observations, not current accounting. No model switch, credit fallback, new Mission/controller, feature-state edit, source sweep, cleanup, push or deployment is authorized by this checkpoint.
+<!-- rl-reader-current:end -->
+
+## Historical: partial Isaac Lab checkpoint — 2026-09-08
 
 **361 complete / 633 incomplete / 994 original identities / 47 articles. 267 compound plans; 338 exact approval entries.** Immediate predecessor `7a3d9f4` was 349/645 with 255 plans and 331 approvals. This is twelve source-record corrections, not whole-article, visual, feature or publication acceptance. Formal Mission progress remains **307/331**.
 
@@ -65,7 +77,7 @@ Evidence directory: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1
 
 ## Historical predecessor checkpoints
 
-## Current partial simulation-source checkpoint — 2026-09-08
+## Historical: partial simulation-source checkpoint — 2026-09-08
 
 **345 complete / 649 incomplete / 994 original identities / 47 articles. 251 compound plans; 327 exact approval entries.** Immediate committed predecessor `bd576bb` was 337/657, with 243 plans and 325 approvals. This is an eight-record source-integration checkpoint, not completion of the assigned 24, whole-article acceptance, visual acceptance or publication. Formal Mission progress remains **307/331**.
 

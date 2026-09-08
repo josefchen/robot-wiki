@@ -13,8 +13,8 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 - Recorded cut: 4
 - Recorded source inconsistencies: 3
 - Unresolved or unrecognised verdicts: 1
-- Complete evidence records: 201
-- Incomplete evidence records: 24
+- Complete evidence records: 204
+- Incomplete evidence records: 21
 
 <!-- audit-summary:end -->
 

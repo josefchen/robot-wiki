@@ -6822,6 +6822,20 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "brand-v2-rl-reader-citation-placement-20260908",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "120deb06728a78d1969b84b131812bb5d8c78e152a1df1589ec6b7b0b3dbe834",
+      "reason": "Article-local line breaks and Source labels place all four DPPO and five ConRFT citation tooltips within the narrow reading rail. No scientific wording, source identity, author, date, method facts, shared Cite component or navigation implementation changes. This exact raw-prose delta retains the predecessor DPPO/ConRFT source corrections; it does not complete any held HIL/RLDG/Liu/PAIR original.",
+      "ownerApproval": "The bounded parent integration assignment separately and explicitly requires repair of carried DPPO tooltip clipping and real mobile-navigation proof. Existing owner correction authority permits routine local repairs, not a source/visual acceptance seal or baseline relaxation.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

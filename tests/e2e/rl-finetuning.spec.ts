@@ -30,11 +30,29 @@ test.describe('rl-finetuning module', () => {
         page.locator('#main-content').getByText(name, { exact: false }).first(),
       ).toBeVisible();
     }
-    // Sidebar marks this module active.
-    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
-    await expect(
-      nav.getByRole('link', { name: 'RL Fine-Tuning of Policies' }),
-    ).toHaveAttribute('aria-current', 'page');
+    // Exercise the actual responsive taxonomy, not a hidden mobile sidebar.
+    const menu = page.getByRole('button', { name: 'Open navigation menu' });
+    const mobile = await menu.isVisible();
+    if (mobile) {
+      await menu.focus();
+      await page.keyboard.press('Enter');
+      await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();
+      await expect(page.getByRole('button', { name: 'Close navigation menu' })).toBeFocused();
+      await expect(page.locator('#main-content')).toHaveAttribute('inert', '');
+    }
+    const nav = page.getByRole('navigation', {
+      name: mobile ? 'Robot Wiki taxonomy drawer' : 'Robot Wiki taxonomy', exact: true,
+    });
+    const current = nav.getByRole('link', { name: 'RL Fine-Tuning of Policies', exact: true });
+    await expect(current).toBeVisible();
+    await expect(current).toHaveAttribute('aria-current', 'page');
+    await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
+    if (mobile) {
+      await page.keyboard.press('Escape');
+      await expect(page.getByRole('dialog', { name: 'Site navigation' })).toHaveCount(0);
+      await expect(menu).toBeFocused();
+      await expect(page.locator('#main-content')).not.toHaveAttribute('inert', '');
+    }
   });
 
   test('citation chips link to external primary sources', async ({ page }) => {
@@ -119,10 +137,18 @@ test.describe('rl-finetuning module', () => {
       ['dppo-2024', 'https://arxiv.org/abs/2409.00588'],
       ['conrft-2025', 'https://arxiv.org/abs/2502.05450'],
     ]) {
-      const chip = prose.locator(`[data-cite-id="${id}"] a[target="_blank"]`).first();
-      await expect(chip).toHaveAttribute('href', href);
-      await chip.focus();
-      await expect(chip.locator('xpath=../..').getByRole('tooltip')).toBeVisible();
+      const chips = prose.locator(`[data-cite-id="${id}"] a[target="_blank"]`);
+      expect(await chips.count()).toBeGreaterThan(0);
+      for (const chip of await chips.all()) {
+        await expect(chip).toHaveAttribute('href', href);
+        await chip.focus();
+        const tooltip = chip.locator('xpath=../..').getByRole('tooltip');
+        await expect(tooltip).toBeVisible();
+        const bounds = await tooltip.boundingBox();
+        expect(bounds).not.toBeNull();
+        expect(bounds!.x).toBeGreaterThanOrEqual(0);
+        expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
+      }
       await expect(page.locator(`#ref-${id} [data-reference-source-link]`)).toHaveAttribute('href', href);
     }
     const dppoReference = page.locator('#ref-dppo-2024');
