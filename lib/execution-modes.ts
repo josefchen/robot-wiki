@@ -1,16 +1,11 @@
 /**
- * Chunk hand-off model for the three-mode execution comparison
- * (synchronous pause vs. naive switch vs. Real-Time Chunking). Pure
- * functions, unit-tested in tests/unit/execution-modes.test.ts.
- *
- * Data honesty: the published results (Real-Time Chunking,
- * arXiv:2506.07339; the Physical Intelligence RTC blog) are qualitative:
- * synchronous execution introduces off-distribution pauses, naive switching
- * at inference delay produces command discontinuities, temporal ensembling
- * fails outright at +100 ms and +200 ms, and RTC holds throughput flat to
- * +200 ms. The traces below are a model of those behaviors, not measured
- * robot data; the UI says so. The jerk limit is an illustrative threshold
- * the interactive states explicitly.
+ * Deterministic hand-off teaching model inspired by RTC's qualitative
+ * motivation, not its diffusion/flow inpainting implementation or a robot
+ * measurement. Arbitrary velocity units, a 20 ms tick, a sine-shaped old
+ * plan, delay/200 offset, four-tick synchronous ramps and five-tick linear
+ * blending are internal assumptions. JERK_LIMIT is a per-tick delta-v
+ * discontinuity proxy, not physical jerk (change in acceleration/time).
+ * See the registered real-time-chunking-2025 primary paper for the method.
  */
 
 export const TICK_MS = 20;
@@ -25,7 +20,7 @@ export const MAX_DELAY_MS = 200;
  */
 export const JERK_LIMIT = 0.3;
 
-/** Ticks the naive spike is spread over by RTC's partial-attention blend. */
+/** Teaching blend width; linear interpolation, not RTC attention/inpainting. */
 const RTC_BLEND_TICKS = 5;
 /** Ticks the synchronous mode takes to decelerate to rest and back. */
 const SYNC_RAMP_TICKS = 4;
@@ -74,8 +69,8 @@ export function pauseTicks(delayMs: number): number {
  * - naive: execution switches to the new chunk the instant it arrives,
  *   mid-motion, so the full staleness disagreement lands in one tick.
  * - rtc: the first d ticks of the new chunk are frozen to the in-flight
- *   values (that time has already passed), then partial attention blends
- *   toward the new plan over a few ticks. No pause, no spike.
+ *   values (that time has already passed), then this toy linearly blends
+ *   toward the new plan over five ticks. This is not the RTC solver.
  */
 export function executedTrace(
   mode: ExecutionMode,

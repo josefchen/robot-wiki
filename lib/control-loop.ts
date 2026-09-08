@@ -1,26 +1,24 @@
 /**
- * Latency model for the control-loop budget interactive. Pure functions,
- * unit-tested in tests/unit/control-loop.test.ts.
- *
- * Data honesty: the two anchors are measured values from VLA-Perf
- * (arXiv:2602.18397, NVIDIA Research): pi0 (~3B) runs end-to-end at
- * 52.57 ms (19.0 Hz) on Jetson Thor, pi0-L (9.1B) at 3.9 Hz. VLA-Perf
- * reports Jetson Thor as memory-bound across the whole model (takeaway 11),
- * so below the pi0 anchor the model scales linearly in parameter count and
- * between the anchors it interpolates as a power law. Everything off the
- * two anchors is an illustrative scaling model, not a measurement; the UI
- * labels it as such. See research/03-data-hardware-evaluation.md.
+ * Deterministic teaching curve, not the VLA-Perf performance model.
+ * VLA-Perf v1 predicts 52.57 ms for 2.7B pi0 and 3.9 Hz for hypothetical
+ * 9.1B pi0-L on its Thor configuration (BF16/FP16, three cameras, ten
+ * steps, chunk 50, batch one, network excluded). The curve deliberately
+ * assigns the first latency to a 3.0B TOY coordinate to preserve existing
+ * defaults. Below it the curve is linear; above it a power law connects
+ * to 1000/3.9 ms. Neither rule is a hardware measurement or size limit.
+ * Reciprocal inference Hz is not a robot/controller frequency. No sensor,
+ * execution or network overhead is added by this teaching calculation.
  */
 
 /** The control loop the budget is measured against. */
 export const CONTROL_HZ = 50;
 export const CONTROL_PERIOD_MS = 1000 / CONTROL_HZ;
 
-/** Slider range, in billions of parameters, bracketed by the measurements. */
+/** Teaching-coordinate range in billions; neither endpoint is a measurement. */
 export const MIN_PARAMS_B = 0.5;
 export const MAX_PARAMS_B = 9.1;
 
-/** VLA-Perf Jetson Thor anchors. */
+/** Teaching coordinates using VLA-Perf predicted latencies; pi0 is 2.7B in the paper, not 3.0B. */
 export const PI0_ANCHOR = { paramsB: 3.0, inferenceMs: 52.57 } as const;
 export const PI0L_ANCHOR = { paramsB: 9.1, inferenceMs: 1000 / 3.9 } as const;
 
@@ -30,10 +28,9 @@ export function clampParamsB(paramsB: number): number {
 }
 
 /**
- * Modeled end-to-end inference latency on Jetson Thor for a VLA of the
- * given size. Linear below the pi0 anchor (memory-bound: latency tracks
- * bytes read, which tracks parameters), power-law between the two measured
- * anchors. Continuous at both anchors.
+ * Internal teaching latency: linear below the chosen 3.0B coordinate,
+ * power-law above it. Continuous at both coordinates; not a hardware
+ * predictor or the paper roofline implementation.
  */
 export function inferenceMsOnThor(paramsB: number): number {
   const b = clampParamsB(paramsB);
@@ -57,7 +54,7 @@ export function missedTicks(inferenceMs: number): number {
   return Math.ceil(inferenceMs / CONTROL_PERIOD_MS) - 1;
 }
 
-/** The rate the loop actually runs at when inference is the bottleneck. */
+/** Reciprocal toy inference latency; not an observed controller rate. */
 export function effectiveHz(inferenceMs: number): number {
   return 1000 / inferenceMs;
 }
@@ -65,13 +62,13 @@ export function effectiveHz(inferenceMs: number): number {
 export type LatencyReference = {
   id: string;
   label: string;
-  /** Measured (or, for pi0.7, tolerated) latency in ms. */
+  /** Reference duration in ms; its provenance and interpretation are in detail. */
   ms: number;
   /** Where the number comes from and what it includes. */
   detail: string;
   /** Citation registry id backing the number. */
   citationId: string;
-  /** When true, the latency is tolerated by design, not a loop failure. */
+  /** When true, the reference is a training-delay setting, not measured latency. */
   absorbed?: boolean;
 };
 
@@ -84,14 +81,14 @@ export const LATENCY_REFERENCES: LatencyReference[] = [
     id: 'pi0-h100',
     label: 'pi0, H100 server',
     ms: 1000 / 162.5,
-    detail: '162.5 Hz end-to-end, VLA-Perf',
+    detail: 'VLA-Perf roofline: 1000/162.5 ms; BF16/FP16, 3 cameras, 10 steps, chunk 50, no network',
     citationId: 'vla-perf-2026',
   },
   {
     id: 'pi0-thor',
     label: 'pi0, Jetson Thor',
     ms: 52.57,
-    detail: '19.0 Hz end-to-end, VLA-Perf',
+    detail: 'VLA-Perf roofline: 19.0 inference Hz; BF16/FP16, 3 cameras, 10 steps, chunk 50, no network',
     citationId: 'vla-perf-2026',
   },
   {

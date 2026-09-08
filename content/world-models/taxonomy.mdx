@@ -1,6 +1,6 @@
 ---
 title: "What Is a World Model?"
-description: "The term 'world model' names at least six architecturally distinct paradigms. They differ in what is predicted, in what space, and for what purpose. This module disambiguates them and sets the vocabulary for the rest of the domain."
+description: "An editorial comparison of six world-model example groups: what they predict, in what representation, and for what purpose. The survey-defined functional criterion is decision-relevant prediction, not visual plausibility alone."
 domain: world-models
 slug: taxonomy
 order: 1
@@ -29,16 +29,16 @@ seeAlso:
 import { WmTaxonomyTable } from '@/components/mdx/wm-taxonomy-table';
 import { WmDisambiguator } from '@/components/interactive/wm-disambiguator';
 
-Ask three labs what their <Term id="world-model">world model</Term> is and you will get three different objects. One means a compact <Term id="latent-dynamics">latent dynamics</Term> model trained on its own robot's experience, used to train a policy in imagination. One means a video generator conditioned on actions, used as a stand-in for the environment. One means an embedding-space predictor that never produces an image at all. All three are called world models in their papers, and they share almost nothing architecturally.
+A <Term id="world-model">world model</Term> predicts how an environment evolves in a form useful for a robot's decisions. Hou and colleagues' 2026 survey uses this functional definition for visual, <Term id="latent-dynamics">latent</Term>, structured, and symbolic predictions; it does not require one architecture. <span className="block" data-taxonomy-source-placement="line-start"><Cite id="world-model-survey-2026" /></span>
 
-The term denotes multiple architecturally distinct paradigms, and they differ along three axes: what is predicted, in what space the prediction lives, and what the prediction is for. Conflating them is the single most common source of sloppy writing in this area, and it is not harmless. A claim that is true of one paradigm ("world models are too slow for closed-loop control") is false of another, and benchmark results do not transfer across the boundary.
+This article uses three questions as its organizing lens: what is predicted, in what representation, and for what purpose? The questions are an editorial comparison, not the survey's own three-axis taxonomy. The survey instead organizes its main sections around policy-coupling architectures, simulator applications, and video-world-model capabilities <Cite id="world-model-survey-2026" />.
 
-Six of those paradigms are laid out below, each panel drawing what that paradigm actually predicts. Switch the panel from latent dynamics to generative video and then to JEPA, and read the use row that changes underneath: the three are answering different questions under one name.
+The six example groups below are this article's selection, not an exhaustive or universally agreed scientific taxonomy. Their panels compare different prediction targets and uses; selecting a panel is not a benchmark comparison between the named systems.
 
 <WmDisambiguator className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="paradigms" value="6" note="sharing one name" accent />
+  <Stat label="example groups" value="6" note="selected in this article" accent />
   <Stat label="DreamerV3 tasks" value="150+" note="one fixed hyperparameter set" />
   <Stat label="TD-MPC2 params" value="317M" note="one offline agent, 80 tasks" />
   <Stat label="V-JEPA 2 video" value="1M+" note="hours of action-free pretraining" />
@@ -46,11 +46,13 @@ Six of those paradigms are laid out below, each panel drawing what that paradigm
 
 ## The functional cut
 
-The 2026 world-model survey draws the line that matters. A model is a world model only if its predictions change under the agent's action in a way that is useful for decision-making: "a model does not qualify as a world model in our sense simply because it generates plausible future images or videos" <Cite id="world-model-survey-2026" />.
+Hou and colleagues define a world model by whether it predicts how the future changes under robot-relevant actions in a way that supports embodied decision-making. They write: "a model does not qualify as a world model in our sense simply because it generates plausible future images or videos". Their action definition includes both low-level motor commands and high-level language or task instructions; this is the survey's functional scope, not a universal naming rule <Cite id="world-model-survey-2026" />.
 
-This criterion does real work. A video model that produces a beautiful rollout regardless of the action you feed it is a movie generator, not a world model, and it cannot be used to choose between actions. The survey's named top open challenge, weak action conditioning, is exactly this failure: many models are trained mostly on observation history and task intent, so their futures are semantically plausible but not faithful to the physical consequences of a candidate action <Cite id="world-model-survey-2026" />. Every paradigm below passes the functional cut in principle. They differ in how, and in what you can do with the prediction once you have it.
+In Section 8.1, "Causal Conditioning Gaps," the survey identifies weak action conditioning as a technical bottleneck. The authors say many predictive objectives are trained mainly from observation history and task intent, allowing semantically plausible futures that are not causally tied to the pending robot action. This is their diagnosis, not a ranking of the field's challenges or a finding that every model below already satisfies the criterion <Cite id="world-model-survey-2026" />.
 
-## The six paradigms
+<span id="the-six-paradigms" />
+
+## Six example groups
 
 <WmTaxonomyTable className="my-6 wide-measure" />
 
@@ -68,7 +70,7 @@ TD-MPC2 learns joint-embedding, reward, and value predictions without reconstruc
 
 ### Generative video: predict the pixels
 
-These models predict future pixels from current frames plus an action or text condition, and they are where the money is. NVIDIA's Cosmos 3 folds understanding, generation, forward dynamics, inverse dynamics, and policy into one omni-model with separate autoregressive and diffusion subsequences sharing joint attention <Cite id="cosmos-3-2026" />. DeepMind's Genie 3 generates navigable worlds in real time at 24 fps and 720p, consistent for a few minutes, and its own published limitation list (constrained agent action space, few-minute interaction duration) is the most honest accounting in this area <Cite id="genie-3-2025" />. What these models are actually used for today is data generation, policy evaluation, and RL post-training in narrow task families, not general replacement of physics engines.
+These models predict future pixels from current frames plus an action or text condition, and they are where the money is. NVIDIA's Cosmos 3 folds understanding, generation, forward dynamics, inverse dynamics, and policy into one omni-model with separate autoregressive and diffusion subsequences sharing joint attention <Cite id="cosmos-3-2026" />. DeepMind's Genie 3 generates navigable worlds in real time at 24 fps and 720p, consistent for a few minutes, and its own published limitation list (constrained agent action space, few-minute interaction duration) is the most honest accounting in this area <Cite id="genie-3-2025" />. For the broader research literature, Hou and colleagues distinguish learned simulation for reinforcement learning, rollout-based evaluation, and video generation for supervision. They also identify action faithfulness, rollout reliability, and functional evaluation as open problems. This is a map of research uses, not a deployment census for Cosmos 3 or Genie 3, nor evidence that either replaces a general-purpose physics engine <Cite id="world-model-survey-2026" />.
 
 ### JEPA: predict the representation, never the pixels
 
@@ -96,11 +98,11 @@ A 3DGS reconstruction of a real scene is a learned renderer: it predicts what th
 
 ## What each paradigm is actually for
 
-Worth returning to the panel grid above with the six paradigms now described. The pattern to internalize: the paradigm with the loudest name recognition, generative video, earns its keep in evaluation and data generation, while the two paradigms that plan (decoder-free latent, JEPA) never show you an image.
+Return to the panel grid above to compare this article's six example groups. The pattern to internalize: the paradigm with the loudest name recognition, generative video, earns its keep in evaluation and data generation, while the two paradigms that plan (decoder-free latent, JEPA) never show you an image.
 
 ## Reading world-model claims
 
-When a paper or a vendor says "world model," three questions disambiguate it: what is predicted (latent, pixels, embedding, predicates), in what space, and for what purpose (policy learning, planning, evaluation, data generation). If the predictions do not change under the agent's action, the system fails the functional cut no matter how good the video looks.
+When a paper or a vendor says "world model," use this article’s three comparison questions: what is predicted (latent, pixels, embedding, predicates), in what space, and for what purpose (policy learning, planning, evaluation, data generation). If the predictions do not change under the agent's action, the system fails the functional cut no matter how good the video looks.
 
 <SelfCheck
   prompt="A vendor pitches a photorealistic 3D Gaussian Splatting reconstruction of your workcell as a world model for training a manipulation policy. What is the honest engineering verdict?"

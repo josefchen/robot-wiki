@@ -1,6 +1,45 @@
 # Content-integrity audit trail
 
-## Current cross-article source closeout checkpoint - 2026-09-07
+## Current performance and world-model checkpoint - 2026-09-08
+
+**235 complete / 759 incomplete / 994 original identities / 47 articles. 142 compound plans; 214 exact approval entries.** Immediate predecessor `89a31e5` was 215/779, with 121 plans and 198 approvals. This is a bounded local implementation checkpoint, not publication, whole-article certification or independent acceptance.
+
+Exactly **21 original records are represented: 20 newly complete and one explicitly unresolved**. Realtime Execution 3-8/15; Hardware Taxonomy 21-24; Latent Dynamics 18-20; Taxonomy 1-4/14; JEPA 12/13. Taxonomy 4 remains held: the retained survey supports its functional definition and organization, not the count of six locally selected examples. The reader framing is corrected, but local data or article prose is not substituted for the missing primary-source conjunction. Article counts are realtime **15/15**, hardware **4/25**, latent **21/21**, taxonomy **10/20**, and JEPA **2/14**.
+
+Preservation checks retain all **994 identities, 973 unselected four-cell tuples, 215 previously complete records, 121 prior plans and 198 prior approvals**. No prior plan was replaced. Twenty-one plans and sixteen exact sealed-old/current approval endpoints were added. Original/current tuples, reviewed plan digests, per-part adjudications and the unresolved count part remain explicit. Strict audit code and immutable baselines are unchanged.
+
+**Zero new retrievals.** Three retained packet indexes were verified: **146 payloads / 25,194,052 bytes**. **63 literal passages across nine retained text streams and nine document URLs** were checked against actual body text and source/passage hashes before reuse; composition rechecked **99 literal passage occurrences**. Nine streams include both RWM paper text and its separate arXiv identity page, not nine independent papers. Original retrieval provenance remains distinct from current review time. VLA-Perf's original PDF request began at 2026-09-07T21:07:45.935052+00:00; the survey's retained FetchUrl request/result events are 21:42:42.863Z / 21:42:48.245Z. The exact emitted survey response is 40,891 bytes and truncated; it is not represented as the full separately retained source body. Two lane-B references share one original request event. RWM's current-v5 link binding is metadata-based: no local binary-v5 verification or body version stamp is claimed.
+
+VLA-Perf is an analytical roofline study, not a five-GPU empirical profiling campaign. Its baseline is 2.7B, three 224x224 cameras, 32 language tokens, 14 action dimensions, chunk 50, ten steps, batch one and BF16/FP16. The five predicted no-network rates remain **19.0 / 32.2 / 61.7 / 162.5 / 314.4 Hz**; 9.1B pi0-L is hypothetical. Expert and total latency effects, network exceptions, GB/s units and source-scoped unknown prices remain separate. Unsupported quantization-speed/accuracy attribution is removed.
+
+RWM distinguishes GRU prediction, simulation policy training, zero-shot hardware transfer and the limitation of safe online hardware learning. Fast-WAM retains the current-frame backbone and iterative action denoising while omitting future-video generation at inference; **190/810 ms** is the towel-folding Fast-WAM/IDM comparison on one **RTX 5090D V2 32GB**, not control frequency. JEPA's shared point-six replacement is applied once and does not inherit those latency numbers. Dream-MPC's **26.7% IQM / 20.5% mean** gains are scoped to BMPC-based planning pooled across 24 simulated tasks, with the TD-MPC2 exception and separate study populations retained.
+
+Teaching formulas, ranges, defaults, traces and reset behavior remain unchanged: the control-loop coordinates are deliberately **3.0B / 1.1B**, not VLA-Perf model sizes. Execution uses **20-ms ticks, four-tick ramps, five-tick linear blending and a 0.30 per-tick velocity-step proxy**, not physical jerk, an RTC solver or a safety guarantee. Captions, SVG accessible names and visible status labels now agree on that scope. Taxonomy's canonical module summary matches its editorial-example MDX description, and the old `the-six-paradigms` anchor is preserved. No review date or canonical citation count changed.
+
+All check commands ran sequentially with `NODE_DISABLE_COMPILE_CACHE=1`. Exact commands, UTC timestamps, exits and retained-log hashes are committed in `audit/performance-worldmodels-20260908-commands.json`; overlapping invocations are not summed as unique cases.
+
+| Check | Actual result |
+|---|---|
+| Red first | Eight source regressions failed; both latent edge cases failed, including the exact inherited mobile top of -93.09375px |
+| Focused unit/component | **183 distinct logical cases have passing final-relevant results across invocations**, including 77 unchanged strict-audit cases; the first combined run was 182 passed / one new-oracle failure |
+| Final full lint / nonincremental TypeScript | Both exit 0 |
+| Final content | Exit 1: **766 findings**, 235/994 complete; the nine separately owned citation-check gaps remain |
+| Final baseline | Exit 1: **54 failures**, 54 exact predecessor objects unchanged, one execution-component source failure removed, zero added |
+| Bounded browser | **18 distinct cases have passing relevant results across two specs**, not a full-corpus run. Final-current realtime/taxonomy recapture: four pass at 375x812 and 1440x900, with zero console/page errors, Axe violations, KaTeX errors or document overflow |
+| Cards | Normal `check:og-card-bytes` exits 0: 48 re-rendered cards / 96 identical public-export files. All 48 public/export/committed triples remain identical; no fact inputs required regeneration |
+| Production/full-corpus/independent | Not run; the genuine content gate remains a prerequisite |
+
+**74 final-relevant captures were inspected through image sheets**, including GPU left/right cells, source focus/hover, both control-loop mounts, execution controls and all six latent edge captures. The latent defect is fixed by article-local below placement for its first TD-MPC2 tooltip. Measured mobile taxonomy and JEPA horizontal overflows were fixed by local line-start source placement. Shared citation infrastructure is unchanged. All checked final source tooltips are internally unclipped and viewport bounded; this is not a guarantee about every citation or scroll position. Table and tall-widget screenshots remain bounded scroll positions, not simultaneous all-column/full-widget visual certification.
+
+Retained diagnostics include the unavailable tsx invocation, packet-schema assumptions, incorrect new JEPA latency/reveal locators, prose-range dash findings, and screenshot caret-style hydration warnings. The last warning was eliminated in the final affected recapture using `caret: 'initial'` and explicit console-error assertions. No checker rule was weakened. Earlier screenshots and failures remain evidence, not passing final results.
+
+**Limits and ownership remain explicit:** taxonomy 4 is unresolved; whole-article P1/P5 and DayDreamer venue are not independently accepted. Pi January-2025 label crowding remains with the next Pi/layout owner; citation Back focus returning to BODY remains with `brand-v2-discovery-route-flows-history-and-404`. Nine citation gaps, other source placements, production HTML/reading times, qualifying full-browser coverage, independent Sol/high scrutiny and user testing remain open. Formal Mission completion is still 307/331. This worker grants no release acceptance.
+
+PRODUCT_QUALITY.md, qa/, next-env.d.ts, owner work and ancestor commits d282a83/2cf7d6b are preserved. Both owned loopback server trees were stopped; only their two proven Next-generated import substitutions were restored each time. No push, deployment, cleanup, dependency/security/configuration change, controller/new Mission, model switch or credit fallback occurred. Actual emitted assistant metadata establishes `custom:droidproxy:gpt-6-astra` with effort `max`; no role-specific exhaustion was observed. The 35-minute target was exceeded; actual wall-clock timing is sealed in the handoff, and no active-time meter is invented.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908`. Source text/provenance, exact tuples and plans, preservation, failure-object differences, final capture identities and commit-matched accounting are in `source-proof.json`, `row-history.json`, `event-bindings-final.json`, `survey-event-content-proof.json`, `preservation.json`, `content-failure-difference.json`, `baseline-difference-final.json`, `visual-inspection.json`, `card-triples.json`, `handoff.json` and `artifact-index.json`.
+
+## Historical: cross-article source closeout checkpoint - 2026-09-07
 
 **215 complete / 779 incomplete / 994 original identities / 47 articles. 121 compound plans; 198 exact approval entries.** Immediate predecessor `f1cf5aa` was 187/807, with 95 plans and 172 approvals. This is a local implementation checkpoint, not publication, whole-article certification or independent acceptance.
 

@@ -3901,6 +3901,342 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+      "newHash": "754695d09e014226b660fab2d3f30997506f223495a06157a752f6306d4c260d",
+      "reason": "Hardware21-24: analytical roofline setup, five predicted no-network rates, expert-versus-total scaling and source-scoped unavailable prices; preserve GPU numbers, GB/s units and nullable semantics. Immediate-before hash a1637546f18dfb48550d5cef0d0a68f17367192f788fdf5fa56012c79cd75c20. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-2",
+      "manifest": "prose",
+      "memberId": "article:manipulation/realtime-execution",
+      "oldHash": "1c859d0de1372b72e6e12ac99d03ddba155faa41a8b02ede298488e6995c2902",
+      "newHash": "15a401d4e5d93d48b2e0febf70deb9f49c98357064717861ec4ba29501fe0516",
+      "reason": "Realtime3-8/15: analytical versus empirical setup, hypothetical pi0-L, quantified network exceptions and deterministic teaching assumptions; remove unproved quantization/accuracy attribution, preserve formulas and defaults. Immediate-before hash a2cd1683516b285de0618c4f36384d8951cf784d25f8d8539df8f65dd5b65198. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-3",
+      "manifest": "prose",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1",
+      "newHash": "56d567de8eb8997e8dbf6601c710970312d44e519eef5eadaa6b2b7668ccc15e",
+      "reason": "JEPA12/13 shared point6: retain current-frame video backbone and iterative action denoising; distinguish video co-training from generation, scope ablations and remove unsupported LeWorldModel purpose/camp-wide concession. Local source placement fixes measured mobile overflow without changing the scientific endpoint. Immediate-before hash f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-4",
+      "manifest": "prose",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41",
+      "newHash": "2a1692435f01f148345f3c0e3d9e8e7a52e0463372cd9300f9633f72b65f5473",
+      "reason": "Latent18-20: RWM simulation-training/zero-shot-transfer/online-learning distinction; Dream-MPC BMPC pooled simulation context and TD-MPC2 exception; Fast-WAM generation-versus-denoising distinction and exact towel-folding GPU comparison. Article-local first TD-MPC2 tooltip below placement fixes the inherited scroll-edge defect. Immediate-before hash 59842f6154fea8dc45c3d364c490e9655d2cf9eaee4669051d2adc3fcfd49341. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-5",
+      "manifest": "prose",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+      "newHash": "7f7fa05f992d3494afdba01a44809ccba0fe5e4c19500ed92cd5488d1f9cbdad",
+      "reason": "Taxonomy1-4/14: local example inventory versus scientific taxonomy, broad robot-relevant actions and unranked causal-conditioning challenge. Count conjunction in original4 remains unresolved. Local first survey-source placement repairs measured mobile overflow. Immediate-before hash 8953f81082953a60956823f2e575e2a969716392038283041694caa1923f500d. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-6",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/execution-modes.tsx:aria-label:1",
+      "oldHash": "b2fca5c6e9846c2a79d3b7c86e0b977e92bd33afb0f563f012bb252fc796d451",
+      "newHash": "1cbcd5cf0fb71ac245aa8a340a7ff40685836a28a3585a58132e89c7f87093f6",
+      "reason": "Realtime15: the SVG accessible name explicitly identifies illustrative traces and a discontinuity proxy rather than a physical jerk limit. Numerical behavior remains unchanged. Immediate-before hash b2fca5c6e9846c2a79d3b7c86e0b977e92bd33afb0f563f012bb252fc796d451. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-7",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/hardware-taxonomy",
+      "oldHash": "1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9",
+      "newHash": "6f63a5c9e94c2a3022935b80097cd092cb61f31e2785d05657ceb9be7bae320b",
+      "reason": "Source chips bind the analytical setup and qualified performance/pricing statements; retain the existing canonical citation identity union and route. Immediate-before hash 1aa90195f40d41cdf443bd5e2e004dc4930b180d6579dca3121cbb9eae2401d9. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-8",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/realtime-execution",
+      "oldHash": "946358639983795bd77687e77e762cba7de07d62ea894d2a63b058893c7de9f3",
+      "newHash": "f77e444daff61978acdf1824d1490a97ed8a86deb03d5dc858fb02034dab32dd",
+      "reason": "Rebind retained source chips to qualified setup/network/toy statements and update the prediction exercise; retain all six citations and teaching mounts. Immediate-before hash e2336caa9c12cdc7ff33c0bbd395ae869d554d3544098424baf96f0a4a62463b. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-9",
+      "manifest": "relationships",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "a84815cba742879e9e4aef655591040e26f1420e013ac56b3048f08f09883b77",
+      "newHash": "8f8b430037684365d58c5f0dabffedbb482d84edcd44f3975c833cea1ff88a40",
+      "reason": "Replace the shared point6 exactly once and place its unchanged Fast-WAM source at the list-item line start for bounded mobile tooltip geometry; preserve ten citation identities. Immediate-before hash a84815cba742879e9e4aef655591040e26f1420e013ac56b3048f08f09883b77. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-10",
+      "manifest": "relationships",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "e601d03966332e6dd3894932da7c91251596f85fdfa152db2cef57ca96a61042",
+      "newHash": "bdcbc8876860a863e3925ff47e603157fef289203ce59284cf110c7a79d4a8c1",
+      "reason": "Retain eight canonical citations and widget mounts; bind RWM, Dream-MPC and Fast-WAM scope, and place only the first TD-MPC2 tooltip below its anchor. Immediate-before hash bc976ffac75e92ab32d1eae7f0d91f482d6dae25ff27db871c89a5d902698ab5. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-11",
+      "manifest": "relationships",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "3d62f5c1794e774673d2b73a12ee07e9a1e19d35867e6926d10c5e5320ffd081",
+      "newHash": "8cbc4580edb815ba1f876924759f3bff8695354428d6edd07a88a6e2a8946168",
+      "reason": "Change the local six-example heading/Stat note and first survey-source placement; preserve twelve canonical citations, six inventory members and existing interactive behavior. Immediate-before hash 5e3b119a2ec7b5b9273004a69c9d4ef7d6492b405e8cef19d2ff0004b1804f65. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-12",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/control-loop-budget.tsx",
+      "oldHash": "b8f9be2c6ec2bba689f94829073d3be1fe3c8e73f31839dad2e1f1786ad95b77",
+      "newHash": "13bf3e368998a7886072e458284bd9b34bd5951e5aa2302ac56c2329c12f0e7f",
+      "reason": "Realtime3/4: disclose deliberately chosen 3.0B/1.1B coordinates, analytical reference and hypothetical 9.1B pi0-L. Preserve formulas, ranges, reciprocal inference-rate outputs and reset; do not imply robot frequencies. Immediate-before hash 30d7e6cde56dca84657814e5e43ce5e5917033bdae68d2dc6e90e512dea7172f. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-13",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/execution-modes.tsx",
+      "oldHash": "80ee345fa09314f7009460cd524573315093f77d7c19568e428672eb110a2071",
+      "newHash": "368d946b3f907d2d090850e014dab708406a243750b2401a21a4a68fc96c451e",
+      "reason": "Realtime15: explicitly disclose deterministic 20-ms tick traces, five-tick blend, arbitrary velocity units and 0.30 per-tick discontinuity proxy, not physical jerk, RTC implementation or a safety guarantee. Numeric behavior unchanged. Immediate-before hash d7fd017aec9713c7a779930d7751724b20b4b38346607c7b3f95e2f65231acd3. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-14",
+      "manifest": "value-states",
+      "memberId": "state-site:content/data-hardware/hardware-taxonomy.mdx:not-disclosed:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bf2754e9b405019eea485b35e7aadf1c6d74fe3dac319145dd8caf2eca8e6e74",
+      "reason": "Hardware21-24: add a source-scoped price-not-established disclosure, not universal seller absence or n/a; nullable prices remain null. Immediate-before hash null. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-15",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:world-models/taxonomy",
+      "oldHash": "4248092203c13e88f70b1a1bd07c2b06f4de98a1fe7f34c3e112e93d85ff7971",
+      "newHash": "4e12b547a06b9062f0f455222a5e7f117aacac5beabe67b4c21e4ff190ea76f9",
+      "reason": "Taxonomy1-4: description identifies six selected editorial example groups rather than a universal taxonomy; title, lastReviewed, route, source union and social-card fact inputs unchanged. Immediate-before hash 4248092203c13e88f70b1a1bd07c2b06f4de98a1fe7f34c3e112e93d85ff7971. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "performance-worldmodels-20260908-16",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/modules.ts",
+      "oldHash": "ee8deb0734c9849d5df3823b235a877cdfa45191c3e606ecaf4b6073be9c5098",
+      "newHash": "ccbe52680dbf6edd567e87420c6d90168683deb511a600742d9022a370dccedd",
+      "reason": "Taxonomy1-4 collateral: synchronize only the canonical taxonomy summary with its MDX editorial-example description, removing the stale visible six-paradigm framing. No other module values, card facts, review date or route change. Immediate-before hash f06529e5e40aa43849559b7b34b678f94cd2941a6e4c0e198866860d0d573cac. Original/current tuples and exact source conjunctions: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json. Retained text identity, original retrieval provenance and supporting passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Sources: https://arxiv.org/pdf/2602.18397 ; https://ar5iv.labs.arxiv.org/html/2506.07339 ; https://website.pi-asset.com/pi06star/PI06_model_card.pdf ; https://www.pi.website/download/pi07.pdf ; https://arxiv.org/pdf/2501.10100 ; https://arxiv.org/pdf/2603.16666 ; https://arxiv.org/html/2605.00080 ; https://arxiv.org/pdf/2605.04568. No full-article/P1 or independent acceptance; held claims remain failures.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

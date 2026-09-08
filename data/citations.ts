@@ -2727,9 +2727,11 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the arXiv abs page (2026-08-08): 4 authors; keeps
-    // world modeling during training but skips future prediction at test
-    // time (190 ms latency, over 4x faster than imagine-then-execute).
+    // Prior arXiv abs-page identity check recorded 2026-08-08; title and
+    // four-author byline also match the retained paper v2 (23 Mar 2026).
+    // Video co-training is retained; explicit future-video inference is
+    // omitted, not action denoising. Sec. 4.3.3 reports 190 ms versus
+    // Fast-WAM-IDM's 810 ms on one RTX 5090D V2 32GB GPU, not control Hz.
     id: 'fast-wam-2026',
     title: 'Fast-WAM: Do World Action Models Need Test-time Future Imagination?',
     authors: ['Tianyuan Yuan', 'Zibin Dong', 'Yicheng Liu', 'Hang Zhao'],

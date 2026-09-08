@@ -8,6 +8,19 @@ function slider() {
 }
 
 describe('ExecutionModes', () => {
+  it('separates teaching traces from the RTC solver and physical jerk', () => {
+    render(<ExecutionModes />);
+    const note = screen.getByTestId('execution-assumption-note');
+    expect(note).toHaveTextContent(/not an RTC solver or measured robot data/i);
+    expect(note).toHaveTextContent(/arbitrary units/i);
+    expect(note).toHaveTextContent(/discontinuity proxy, not physical jerk/i);
+    expect(note).toHaveTextContent(/five-tick linear blend/i);
+    expect(note).toHaveTextContent(/do not reproduce its experiments or guarantee safety/i);
+    for (const image of screen.getAllByRole('img')) {
+      expect(image).toHaveAccessibleName(/discontinuity-proxy limit, not physical jerk/i);
+    }
+  });
+
   it('renders the three execution modes, the delay slider, readouts, and reset', () => {
     render(<ExecutionModes />);
     expect(screen.getByTestId('panel-synchronous')).toBeInTheDocument();
@@ -28,7 +41,7 @@ describe('ExecutionModes', () => {
     expect(slider()).toHaveAttribute('max', '200');
   });
 
-  it('at zero delay all three modes stay within the jerk limit', () => {
+  it('at zero delay all three toy modes stay within the proxy limit', () => {
     render(<ExecutionModes />);
     expect(slider()).toHaveValue('0');
     expect(screen.getByTestId('verdict-synchronous')).toHaveTextContent(
@@ -39,7 +52,7 @@ describe('ExecutionModes', () => {
     expect(screen.getByTestId('pause-readout')).toHaveTextContent('0 ms');
   });
 
-  it('at 100 ms the naive switch exceeds the jerk limit while rtc holds', () => {
+  it('at 100 ms the naive switch exceeds the proxy limit while the blended toy holds', () => {
     render(<ExecutionModes />);
     fireEvent.change(slider(), { target: { value: '100' } });
     const naiveDv = Number(
