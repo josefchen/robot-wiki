@@ -7025,6 +7025,120 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rl-autonomy-three-originals-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c",
+      "newHash": "b90977e736caaa5faf479aa7491a758d4d00266817b29b4c5e3e2fe8b567e568",
+      "reason": "Replace only the Zhu/Sharma/Gupta autonomy spans with full-source-scoped capabilities, evaluation, intervention and engineered-reset-free qualifications; preserve all unselected reader text. Five source-line breaks in these same spans repair an observed mobile tooltip overflow without modifying shared styles.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact 2026-09-08 dispatch. Implementation permission, not personal source certification, a local-proof waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-autonomy-three-originals-20260908-2",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "4dc209aac54602011b461a31b52f2e99afe61c49ba4984ba5f437535c0eecb6f",
+      "newHash": "8ccd29d5209628b512f333f54f66f75007c0d1945021d880f1a4dac40f386132",
+      "reason": "Repeat the already-registered Sharma and Gupta citations beside their separate protocol/setup qualifications. No canonical citation, article route, source identity or relationship target is removed.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact 2026-09-08 dispatch. Implementation permission, not personal source certification, a local-proof waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-autonomy-three-originals-20260908-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "54b359bab5e47d0ffb5ffbb7931ca37f612bf71f9d7af322dab1f97eded1c850",
+      "reason": "Correct only the separately guarded Sharma and Gupta sentences in reset-free-learning; preserve the entry ID, term and exact two-source citation union and all other glossary entries.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact 2026-09-08 dispatch. Implementation permission, not personal source certification, a local-proof waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-autonomy-three-originals-20260908-4",
+      "manifest": "article-metadata",
+      "memberId": "citation:autonomous-rl-2022",
+      "oldHash": "1abdd212392b2aa70b7a742c14b2b100a4ecf166093cd39f8152b08595633f28",
+      "newHash": "76fb086cd3758d7053694454c4e1a1718fe3c1d56336834da4dfe062afaee6b5",
+      "reason": "Expand the four-author truncation to all seven source-ordered authors in the retained ICLR 2022 v2 paper; preserve title, year, venue, ID and canonical URL.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact 2026-09-08 dispatch. Implementation permission, not personal source certification, a local-proof waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-autonomy-three-originals-20260908-5",
+      "manifest": "article-metadata",
+      "memberId": "citation:real-world-rl-ingredients-2020",
+      "oldHash": "aa0ce09fb1eb5bdea684b57ccc863f8c16404ad7a128c3dfe5ce7169646637fd",
+      "newHash": "947965b3080eae6615627cbadafe8439676c6f9f55ee5a4bab78909a98cb08ad",
+      "reason": "Expand the four-author truncation to all eight source-ordered authors in the retained ICLR 2020 v1 paper; preserve title, year, venue, ID and canonical URL.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact 2026-09-08 dispatch. Implementation permission, not personal source certification, a local-proof waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-autonomy-three-originals-20260908-6",
+      "manifest": "article-metadata",
+      "memberId": "citation:reset-free-rl-2021",
+      "oldHash": "3db3d37b316b6ba05f6191209bf0bfb55b346db8ec69d6986149c1919cb80073",
+      "newHash": "fac7f1bd0f2d1bb5bf6622df57acf581353cee6bdbfb3ed982d2ce718c501ab2",
+      "reason": "Expand the four-author truncation to all eight source-ordered authors in the retained v1 body and original ICRA 2021 landing metadata; preserve title, year, venue, ID and canonical URL.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact 2026-09-08 dispatch. Implementation permission, not personal source certification, a local-proof waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

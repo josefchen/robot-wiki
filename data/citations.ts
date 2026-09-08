@@ -2403,7 +2403,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // ICLR 2022 per DBLP and the OpenReview record; the preprint is 2021.
+    // Full ordered byline and ICLR 2022 header verified in arXiv 2112.09605v2.
+    // First preprint: 17 December 2021; conference edition: 2022.
     id: 'autonomous-rl-2022',
     title: 'Autonomous Reinforcement Learning: Formalism and Benchmarking',
     authors: [
@@ -2411,6 +2412,9 @@ export const CITATIONS: Citation[] = [
       'Kelvin Xu',
       'Nikhil Sardana',
       'Abhishek Gupta',
+      'Karol Hausman',
+      'Sergey Levine',
+      'Chelsea Finn',
     ],
     year: 2022,
     venue: 'ICLR 2022',
@@ -2419,8 +2423,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // ICRA 2021 per DBLP and the arXiv comment field. 8 authors; first four
-    // listed.
+    // ICRA 2021 per the arXiv comment field. All eight authors in source order;
+    // the first four authors contributed equally.
     id: 'reset-free-rl-2021',
     title:
       'Reset-Free Reinforcement Learning via Multi-Task Learning: Learning Dexterous Manipulation Behaviors without Human Intervention',
@@ -2429,6 +2433,10 @@ export const CITATIONS: Citation[] = [
       'Justin Yu',
       'Tony Z. Zhao',
       'Vikash Kumar',
+      'Aaron Rovinsky',
+      'Kelvin Xu',
+      'Thomas Devlin',
+      'Sergey Levine',
     ],
     year: 2021,
     venue: 'ICRA 2021',
@@ -2437,8 +2445,7 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // ICLR 2020 per DBLP; the arXiv comment names it a spotlight. 8 authors;
-    // first four listed.
+    // Full ordered byline and ICLR 2020 header verified in arXiv 2004.12570v1.
     id: 'real-world-rl-ingredients-2020',
     title: 'The Ingredients of Real-World Robotic Reinforcement Learning',
     authors: [
@@ -2446,6 +2453,10 @@ export const CITATIONS: Citation[] = [
       'Justin Yu',
       'Abhishek Gupta',
       'Dhruv Shah',
+      'Kristian Hartikainen',
+      'Avi Singh',
+      'Vikash Kumar',
+      'Sergey Levine',
     ],
     year: 2020,
     venue: 'ICLR 2020',

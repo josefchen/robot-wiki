@@ -26116,5 +26116,480 @@
         "evidenceDigest": "772eb6722fb2d77521654130e8724a5bf20a352531ba2c03bcf1cc872e49b945"
       }
     ]
+  },
+  {
+    "id": "rl-autonomy-applied-44-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "rl-for-robotics",
+    "rowOrdinal": 44,
+    "originalCellsDigest": "cdce1ddec592e731a4eecfe5554a662622e5558a7214c402264112f5dd5748b4",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "identity",
+        "text": "Full title, ordered eight-author byline, 2020 edition and explicit ICLR 2020 header.",
+        "requiredCitationIds": [
+          "real-world-rl-ingredients-2020"
+        ]
+      },
+      {
+        "id": "three-capabilities",
+        "text": "All three requirements: own raw sensory learning, self-assigned rewards without hand-designed perception/instrumentation, and non-episodic learning without human training resets.",
+        "requiredCitationIds": [
+          "real-world-rl-ingredients-2020"
+        ]
+      },
+      {
+        "id": "combined-system-scope",
+        "text": "The investigation concerns difficulties combining these requirements; it does not license a universal mostly-not-the-algorithm conclusion.",
+        "requiredCitationIds": [
+          "real-world-rl-ingredients-2020"
+        ]
+      },
+      {
+        "id": "goal-supervision",
+        "text": "Goal examples are human input before learning; unattended training is not zero human effort for setup.",
+        "requiredCitationIds": [
+          "real-world-rl-ingredients-2020"
+        ]
+      },
+      {
+        "id": "real-world-protocol",
+        "text": "D'Claw RGB valve/bead tasks, unattended learning after goal examples, post-training evaluation with manual bead resets; no transfer of simulation-only free-object results.",
+        "requiredCitationIds": [
+          "real-world-rl-ingredients-2020"
+        ]
+      },
+      {
+        "id": "limits",
+        "text": "Sample complexity, harder-task exploration and safe operation remain future-work limitations rather than solved requirements for arbitrary robots.",
+        "requiredCitationIds": [
+          "real-world-rl-ingredients-2020"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+      "rationale": "All 6 parts and 7 paired items are conjunctively necessary for this applied current tuple. The exact reader, glossary and full-byline endpoints have been reviewed against the preserved full-source text. All three capabilities, combined-system failure and component scope checked against the complete retained text. Goal collection is human supplied; unattended training is not unattended evaluation. Bead evaluation includes manual resets. No timing reconciliation or universal VAE deployment claim is made.",
+      "planDigest": "11b725742377582cf91fecb18cab0c99b4de0fde5946ab2804bf8042eda1e59c"
+    },
+    "evidence": [
+      {
+        "partId": "identity",
+        "citationId": "real-world-rl-ingredients-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2004.12570v1",
+        "supportingPassage": "Published as a conference paper at ICLR 2020\n\n\n\n\n                                         T HE I NGREDIENTS OF R EAL -W ORLD\n                                         ROBOTIC R EINFORCEMENT L EARNING\n                                          Henry Zhu∗1 , Justin Yu∗1 , Abhishek Gupta∗1 , Dhruv Shah1 ,\n                                          Kristian Hartikainen2 , Avi Singh1 , Vikash Kumar3 , Sergey Levine1\n                                          1\n                                            University of California, Berkeley 2 University of Oxford 3 University of Washington\n\n\n\n                                                                                      A BSTRACT\narXiv:2004.12570v1 [cs.LG] 27 Apr 2020"
+      },
+      {
+        "partId": "identity",
+        "citationId": "real-world-rl-ingredients-2020",
+        "sourceUrl": "https://arxiv.org/abs/2004.12570",
+        "supportingPassage": "# Title:The Ingredients of Real-World Robotic Reinforcement Learning\n\nAuthors: [Henry Zhu](https://arxiv.org/search/cs?searchtype=author&query=Zhu,+H), [Justin Yu](https://arxiv.org/search/cs?searchtype=author&query=Yu,+J), [Abhishek Gupta](https://arxiv.org/search/cs?searchtype=author&query=Gupta,+A), [Dhruv Shah](https://arxiv.org/search/cs?searchtype=author&query=Shah,+D), [Kristian Hartikainen](https://arxiv.org/search/cs?searchtype=author&query=Hartikainen,+K), [Avi Singh](https://arxiv.org/search/cs?searchtype=author&query=Singh,+A), [Vikash Kumar](https://arxiv.org/search/cs?searchtype=author&query=Kumar,+V), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S)\n\nView a PDF of the paper titled The Ingredients of Real-World Robotic Reinforcement Learning, by Henry Zhu and 7 other authors"
+      },
+      {
+        "partId": "three-capabilities",
+        "citationId": "real-world-rl-ingredients-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2004.12570v1",
+        "supportingPassage": "We propose that overcoming these challenges in a scalable way requires designing robotic systems\n                                         that possess three capabilities: they are able to (1) learn from their own raw sensory inputs, (2)\n                                         assign rewards to their own trials without hand-designed perception systems or instrumentation, and\n                                         (3) learn continuously in non-episodic settings without requiring human intervention to manually\n                                         reset the environment. A system with these capabilities can autonomously collect large amounts of\n                                         real world data – typically crucial for effective generalization – without significant instrumentation\n                                         in each training environment, an example of which is shown in Figure 1. If successful, this would\n                                         lift a major constraint that stands between current reinforcement learning algorithms and the ability\n                                         to learn scalable, generalizable, and robust real-world behaviors. Such a system would also bring\n                                         us significantly closer to the goal of embodied learning-based systems that improve continuously\n                                         through their own real-world experience.\n\n[Separate literal excerpt from the same fetched document]\n\nWhile this list may not exhaustively\nenumerate all the components necessary for an effective real-world learning system, we posit that\nthe properties listed here are fundamental to building such systems."
+      },
+      {
+        "partId": "combined-system-scope",
+        "citationId": "real-world-rl-ingredients-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2004.12570v1",
+        "supportingPassage": "The system design outlined in Section 2 in principle gives us a com-\nplete system to perform real world reinforcement learning with-\nout instrumentation. However, when utilized for robotic learning\nproblems, we find this basic design to be largely ineffective. To\nstudy this, we present results for a simulated robotic manipulation\ntask that requires repositioning a free-floating objects with a three-\nfingered robotic hand, shown in Fig 3. We use this task for our\ninvestigative analysis and show that the same insights extend to sev-\neral other tasks, including real world tasks, in Section 6. The goal\nin this task is to reposition the object to a target pose from any ini-\ntial pose in the arena. When the system is instantiated with vision-\nbased soft actor-critic, rewards from goal images using VICE, and\nrun without episodic resets, we see that the algorithm fails to make\nprogress (Fig 4). Although it might appear that this setup fits within    Figure 3: Our object reposition-\nthe assumptions of all of the components that are used, the complete      ing task. The goal is to move the\nsystem is ineffective. Which particular components of this problem\n\n[Separate literal excerpt from the same fetched document]\n\nTo address the challenges identified in Section 3, we present two improvements, which we found\nto be essential for uninstrumented real-world training: randomized perturbation controllers and un-\nsupervised representation learning. Incorporating these components into the system in Section 2\nresults in a system that can learn successfully in uninstrumented environments, as we will show in\nSection 6, and attains good performance both at training time and at test time.\n\n[Separate literal excerpt from the same fetched document]\n\nWhile this list may not exhaustively\nenumerate all the components necessary for an effective real-world learning system, we posit that\nthe properties listed here are fundamental to building such systems."
+      },
+      {
+        "partId": "goal-supervision",
+        "citationId": "real-world-rl-ingredients-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2004.12570v1",
+        "supportingPassage": "Figure 1: Illustration of our proposed instrumentation-free system requiring minimal human engineering.\nHuman intervention is only required in the goal collection phase (1). The robot is left to train unattended (2)\nduring the learning phase and can be evaluated from arbitrary initial states at the end of training (3). We show\nsample goal and intermediate images from the training process of a real hardware system\n\n[Separate literal excerpt from the same fetched document]\n\nWe use a variant of VICE which defines the reward as the logits of the classifier, notably omitting\nthe −log(π(a|s)) term. We also regularize our classifier with mixup (Zhang et al., 2018). We train\nall of our experiments using 200 goal images, which takes under an hour to collect in the real world\nfor each task."
+      },
+      {
+        "partId": "real-world-protocol",
+        "citationId": "real-world-rl-ingredients-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2004.12570v1",
+        "supportingPassage": "Since the aim of R3L is to enable uninstrumented training in the real world, we next evaluate our\nmethod on a real-world robotic system, providing evidence that our insights generalize to the real\nworld without any instrumentation. After providing the initial outcome examples for learning the\nreward function with VICE, we leave the robot unattended, and the algorithm learns the desired\nbehavior through interaction. The experiments are performed on the D’Claw robotic hand with an\nRGB camera as the only sensory input. Intermediate policies are saved at regular intervals, and\nevaluations of all policies is performed after training has completed. For valve rotation, we declare\nan evaluation rollout a success if the final orientation is within within 15◦ of the goal. For bead\nmanipulation, we declare success if all the beads are within 2cm of the goal state. Fig 8 compares\nthe performance of our method without supervised learning (“R3L w/o VAE”) in the real world\nagainst a baseline that uses SAC for vision-based RL from raw pixels, VICE for providing rewards,\nand running reset-free (denoted as “VICE”). We see that our method learns policies that succeed\nfrom nearly all the initial configurations, whereas VICE alone fails from most initial configurations.\nFig 9 depicts sample evaluation rollouts of the policies learned using our method. For further details\nabout real world experiments see Appendix C.2.\n\n[Separate literal excerpt from the same fetched document]\n\nC.2     R EAL W ORLD TASKS\n\nFor each setup we use an RGB camera to get images. We execute actions on the DClaw at 10Hz.\nIn order to operate at such a high frequency while also training from images we sample and train\nasynchronously, but limit training to not exceed two gradient steps per transition sampled in the\nreal world. Since direct performance metrics cannot be measured during training due to the lack of\nobject instrumentation, evaluations of performance are done post-training.\n\nC.2.1    VALVE ROTATION\nThe task is identical to the one in simulation. Evaluations were done post-training. An evaluation\ntrajectory was defined as a success if at the last step, the valve was within 15 degrees of the goal.\nEach policy was evaluated over 8 rollouts, with initial configurations evenly spaced out between at\nincrements of 45 degrees. Results are reported in Figures 13, 14.\n\nC.2.2    B EAD M ANIPULATION\nThe rod is 22cm in length, and each bead measures 3.5cm in diameter. Evaluations were done\npost-training, using the following procedure: the environment was manually reset to each of the 8\nspecified configurations shown in Figures 15 and 16 (which cover a full range of the state space) at\nthe start of each evaluation rollout. An evaluation trajectory was defined as a success if at the last\ntime step, all beads were within 2cm of their goal positions. Performance was evaluated at around\n20 hours, at which point the policy achieved greater than 80% success on the 10 evaluation rollouts\n(a random policy achieved a success rate of 10%). Results are reported in Figs 15, 16."
+      },
+      {
+        "partId": "limits",
+        "citationId": "real-world-rl-ingredients-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2004.12570v1",
+        "supportingPassage": "The ability to train robots directly in the real world with minimal instrumentation opens a number\nof exciting avenues for future research. Robots that can learn unattended, without resets or hand-\ndesigned reward functions, can in principle collect very large amounts of experience autonomously,\nwhich may enable very broad generalization in the future. However, there are also a number of ad-\nditional challenges, including sample complexity, optimization and exploration difficulties on more\ncomplex tasks, safe operation, communication latency, sensing and actuation noise, and so forth,\nall of which would need to be addressed in future work in order to enable truly scalable real-world\nrobotic learning."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "identity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: Full title, ordered eight-author byline, 2020 edition and explicit ICLR 2020 header. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. All three capabilities, combined-system failure and component scope checked against the complete retained text. Goal collection is human supplied; unattended training is not unattended evaluation. Bead evaluation includes manual resets. No timing reconciliation or universal VAE deployment claim is made.",
+        "evidenceDigest": "2f796b65d676fe37fba6c1bd70d4f1c1b2184bf6b2260c4e907cc36ac11442f6"
+      },
+      {
+        "partId": "three-capabilities",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: All three requirements: own raw sensory learning, self-assigned rewards without hand-designed perception/instrumentation, and non-episodic learning without human training resets. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. All three capabilities, combined-system failure and component scope checked against the complete retained text. Goal collection is human supplied; unattended training is not unattended evaluation. Bead evaluation includes manual resets. No timing reconciliation or universal VAE deployment claim is made.",
+        "evidenceDigest": "249218faad6e87d3fd52af628384e1287aab97d8cf3f87a4251fa5eb2961b7bb"
+      },
+      {
+        "partId": "combined-system-scope",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: The investigation concerns difficulties combining these requirements; it does not license a universal mostly-not-the-algorithm conclusion. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. All three capabilities, combined-system failure and component scope checked against the complete retained text. Goal collection is human supplied; unattended training is not unattended evaluation. Bead evaluation includes manual resets. No timing reconciliation or universal VAE deployment claim is made.",
+        "evidenceDigest": "c1f71ca571cd1835c91f3738117e47bf723d33e3f40bbb7a0dfdd9ca6ed4716f"
+      },
+      {
+        "partId": "goal-supervision",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: Goal examples are human input before learning; unattended training is not zero human effort for setup. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. All three capabilities, combined-system failure and component scope checked against the complete retained text. Goal collection is human supplied; unattended training is not unattended evaluation. Bead evaluation includes manual resets. No timing reconciliation or universal VAE deployment claim is made.",
+        "evidenceDigest": "2cafe1d5a20e3d1e021044e68fc4af087d0717ac0957e58a73661ca6138a2696"
+      },
+      {
+        "partId": "real-world-protocol",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: D'Claw RGB valve/bead tasks, unattended learning after goal examples, post-training evaluation with manual bead resets; no transfer of simulation-only free-object results. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. All three capabilities, combined-system failure and component scope checked against the complete retained text. Goal collection is human supplied; unattended training is not unattended evaluation. Bead evaluation includes manual resets. No timing reconciliation or universal VAE deployment claim is made.",
+        "evidenceDigest": "a659bf40c107b42bb040bc9772fb74f94dae84ad2c111930ddc4cc8ac4d7b507"
+      },
+      {
+        "partId": "limits",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: Sample complexity, harder-task exploration and safe operation remain future-work limitations rather than solved requirements for arbitrary robots. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. All three capabilities, combined-system failure and component scope checked against the complete retained text. Goal collection is human supplied; unattended training is not unattended evaluation. Bead evaluation includes manual resets. No timing reconciliation or universal VAE deployment claim is made.",
+        "evidenceDigest": "7df1bcb1be41ea9e9616ac0b944e1456a5991fa59463d185c851152b76086b3f"
+      }
+    ]
+  },
+  {
+    "id": "rl-autonomy-applied-45-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "rl-for-robotics",
+    "rowOrdinal": 45,
+    "originalCellsDigest": "6cd086963cf79dc35dbccdceebc766253c303a1d136d9249a63176dbc1aa8e98",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "identity",
+        "text": "Full title, ordered seven-author byline, first preprint in 2021, v2 in 2022 and explicit ICLR 2022 header.",
+        "requiredCitationIds": [
+          "autonomous-rl-2022"
+        ]
+      },
+      {
+        "id": "base-setting",
+        "text": "The base training MDP samples its initial state once; exploratory actions and the policy produced for evaluation need not coincide.",
+        "requiredCitationIds": [
+          "autonomous-rl-2022"
+        ]
+      },
+      {
+        "id": "deployment-evaluation",
+        "text": "Def.1 sums deployment-return regret across training; Eq.1 uses expected discounted return, with hypothetical initial-distribution evaluation rollouts not fed into learning.",
+        "requiredCitationIds": [
+          "autonomous-rl-2022"
+        ]
+      },
+      {
+        "id": "continuing-evaluation",
+        "text": "Def.2 uses limiting average reward from actual training actions, not the evaluation policy or a separate deployment phase.",
+        "requiredCitationIds": [
+          "autonomous-rl-2022"
+        ]
+      },
+      {
+        "id": "budget-extension",
+        "text": "App.A.2 is a non-ergodic extension, not the whole ARL definition: requested/enforced help decrements h by c(s,a), with absorbing termination at h-c <= 0; the help action is training-only.",
+        "requiredCitationIds": [
+          "autonomous-rl-2022"
+        ]
+      },
+      {
+        "id": "benchmark-protocol",
+        "text": "EARL instantiates intermittent intervention through scheduled resets and fixed Hmax, not the App.A.2 budget; finite-horizon undiscounted deployment evaluations restart outside training, and continuing scores average collected rewards so far.",
+        "requiredCitationIds": [
+          "autonomous-rl-2022"
+        ]
+      },
+      {
+        "id": "reported-score-scope",
+        "text": "Reported learning curves cover both objectives; Table 1 also reports final deployed-policy performance, so not every reported score is a lifetime score.",
+        "requiredCitationIds": [
+          "autonomous-rl-2022"
+        ]
+      },
+      {
+        "id": "different-objectives-and-limits",
+        "text": "The two protocols favor different behaviors; continuing performance need not transfer to deployment, and some supervision may trade human cost for shorter learning.",
+        "requiredCitationIds": [
+          "autonomous-rl-2022"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+      "rationale": "All 8 parts and 9 paired items are conjunctively necessary for this applied current tuple. The exact reader, glossary and full-byline endpoints have been reviewed against the preserved full-source text. Base non-episodic formalism, deployment regret across training, continuing limiting reward and Appendix A.2 intervention cost are distinct. Printed h-c(s,a)<=0 retained without replacing it by the prose exceeds condition. EARL finite budgets, scheduled resets and final-policy reporting remain explicit.",
+      "planDigest": "3128dae70da1a255eba4fbad0c4ef6b18e2efab7ff3fa006fdb73e1565ef757c"
+    },
+    "evidence": [
+      {
+        "partId": "identity",
+        "citationId": "autonomous-rl-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.09605v2",
+        "supportingPassage": "Published as a conference paper at ICLR 2022\n\n\n\n\n                                        AUTONOMOUS R EINFORCEMENT L EARNING :\n                                        F ORMALISM AND B ENCHMARKING\n                                        Archit Sharma∗1           Kelvin Xu∗2                      Nikhil Sardana1\n                                        Abhishek Gupta3           Karol Hausman4                   Sergey Levine2        Chelsea Finn1\n                                         1\n                                           Stanford University\n                                         2\n                                           University of California, Berkeley\n                                         3\n                                           MIT\n                                         4\n                                           Google Brain\narXiv:2112.09605v2 [cs.LG] 8 Aug 2022"
+      },
+      {
+        "partId": "identity",
+        "citationId": "autonomous-rl-2022",
+        "sourceUrl": "https://arxiv.org/abs/2112.09605",
+        "supportingPassage": "\\[Submitted on 17 Dec 2021 ( [v1](https://arxiv.org/abs/2112.09605v1)), last revised 8 Aug 2022 (this version, v2)\\]\n\n# Title:Autonomous Reinforcement Learning: Formalism and Benchmarking\n\nAuthors: [Archit Sharma](https://arxiv.org/search/cs?searchtype=author&query=Sharma,+A), [Kelvin Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+K), [Nikhil Sardana](https://arxiv.org/search/cs?searchtype=author&query=Sardana,+N), [Abhishek Gupta](https://arxiv.org/search/cs?searchtype=author&query=Gupta,+A), [Karol Hausman](https://arxiv.org/search/cs?searchtype=author&query=Hausman,+K), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S), [Chelsea Finn](https://arxiv.org/search/cs?searchtype=author&query=Finn,+C)\n\nView a PDF of the paper titled Autonomous Reinforcement Learning: Formalism and Benchmarking, by Archit Sharma and 6 other authors"
+      },
+      {
+        "partId": "base-setting",
+        "citationId": "autonomous-rl-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.09605v2",
+        "supportingPassage": "Our goal is to formalize a problem setting for autonomous reinforcement learning that encapsu-\nlates realistic autonomous learning scenarios. We define the setup in terms of a training MDP\nMT ≡ (S, A, p, r, ρ), where the environment initializes to s0 ∼ ρ, and then the agent interacts\nwith the environment autonomously from then on. Note, this lack of episodic resets in our setup\ndeparts not only from the standard RL setting, but from other continual reinforcement learning set-\ntings e.g. Wołczyk et al. (2021), where resets are provided between tasks. Symbols retain their\nmeaning from Section 3. In this setting, a learning algorithm A can be defined as a function\nA : {si , ai , si+1 , ri }t−1\n                          i=0 7→ (at , πt ), which maps the transitions collected in the environment until\nthe time t (e.g., a replay buffer), to a (potentially exploratory) action at ∈ A applied in the en-\nvironment and its best guess at the optimal policy πt : S × A 7→ R≥0 used for evaluation at time\nt. We note that the assumption of a reward function implicitly requires human engineering, but in\nprinciple could be relaxed by methods that learn reward functions from data. In addition, we note\nthat at does not need to come from πt , which is already implicit in most reinforcement learning\nalgorithms: Q-learning (Sutton & Barto, 2018) methods such as DQN (Mnih et al., 2015), DDPG\n(Lillicrap et al., 2015) use an \u000f-greedy policy as an exploration policy on top of the greedy policy\nfor evaluation. However, our setting necessitates more concerted exploration, and the exploratory\naction may come from an entirely different policy. Note that the initial state distribution is sampled\n(s0 ∼ ρ) exactly once to begin training, and then the algorithm A is run until t → ∞, generating\nthe sequence s0 , a0 , s1 , a1 , . . . in the MDP MT . This is the primary difference compared to the\nepisodic setting described in Section 3, which can sample the initial state distribution repeatedly."
+      },
+      {
+        "partId": "deployment-evaluation",
+        "citationId": "autonomous-rl-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.09605v2",
+        "supportingPassage": "4.1.1    ARL D EPLOYMENT S ETTING\nConsider the problem where a robot has to learn how to close a door. Traditional reinforcement\nlearning algorithms require several trials, repeatedly requiring interventions to open the door be-\ntween trials. The desire is that the robot autonomously interacts with the door, learning to open it if\nit is required to practice closing the door. The output policy of the training procedure is evaluated in\nits deployment setting, in this case on its ability to close the door. Formally, the evaluation objective\nJD for a policy π in the deployment setting can be written as:\n                                                                       ∞\n                                                                      \u0002X\n                                                                         γ j r(sj , aj ) .\n                                                                                        \u0003\n                      JD (π) = Es0 ∼ρ,aj ∼π(·|sj ),sj+1 ∼p(·|sj ,aj )                                 (1)\n                                                                  j=0\n                                                                              t−1\n                                                     P∞ A : {s∗i , ai , si+1 }i=0 7→ (at , πt ), de-\nDefinition 1 (Deployed Policy Evaluation). For an algorithm\nployed policy evaluation D(A) is given by D(A) =       t=0 (JD (π ) − JD (πt )), where JD (π) is\ndefined in Eq 1 and π ∗ ∈ arg maxπ JD (π).\n\nThe evaluation objective JD (π) is identical to the one defined in Section 3 on MDP M (deployment\nenvironment). The policy evaluation is “hypothetical”, the environment rollouts used for evaluating\npolicies are not used in training. Even though the evaluation trajectories are rolled out from the\ninitial state, there are no interventions in training. Concretely, the algorithmic goal in this setting\ncan be stated as minA D(A). In essence, the policy outputs πt from the autonomous algorithm A\nshould match the oracle deployment performance, i.e. JD (π ∗ ), as quickly as possible. Note that\nJD (π ∗ ) is a constant that can be ignored when comparing two algorithms, i.e. we only need to\nknow JD (πt ) for a given algorithm in practice."
+      },
+      {
+        "partId": "continuing-evaluation",
+        "citationId": "autonomous-rl-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.09605v2",
+        "supportingPassage": "4.1.2    ARL C ONTINUING S ETTING\nFor some applications, the agent’s experience cannot be separated into training and deployment\nphases. Agents may have to learn and improve in the environment that they are “deployed” into,\nand thus these algorithms need to be evaluated on their performance during the agent’s lifetime. For\nexample, a robot tasked with keeping the home clean learns and improves on the job as it adapts to\nthe home in which it is deployed. To this end, consider the following definition:\n\n\n                                                    4\n\fPublished as a conference paper at ICLR 2022\n\n\n\n\n                                                                                           t−1\nDefinition 2 (Continuing Policy Evaluation). For an algorithm A : {si , ai , st+1 }i=0         7→ (at , πt ),\ncontinuing policy evaluation C(A) can be defined as:\n                                                                               h\n                            1                                                \u0002X              \u0003\n             C(A) = lim Es0 ∼ρ,at ∼A({si ,ai ,si+1 }t−1 ),st+1 ∼p(·|st ,at )      r(st , at )            (2)\n                      h→∞ h                         i=0\n                                                                              t=0\n\nHere, at is the action taken by the algorithm A based on the transitions collected in the environment\nuntil time t, measuring the performance under reward r. The optimization objective can be stated\nas maxA C(A). Note that πt is not used in computing C(A). In practice, this amounts to measuring\nthe reward collected by the agent in the MDP MT during its lifetime2 ."
+      },
+      {
+        "partId": "budget-extension",
+        "citationId": "autonomous-rl-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.09605v2",
+        "supportingPassage": "A.2    R EVERSIBILITY AND N ON -E RGODIC MDPS\nWe expand on the discussion of reversibility in 4.2. We also discuss how we can deal with non-\nergodic MDPs by augmenting the action space in MDP MT with calls for extrinsic interventions.\nDefinition 3 (Ergodic MDPs). A MDP     Pis   considered ergodic if for all states sa , sb ∈ S, ∃π such\n                                          ∞\nthat π(sb ) > 0, where π(s) = (1 − γ) t=0 γ t p(st = s | s0 = sa , π) denotes discounted state dis-\ntribution induced by the policy π starting from the state s0 = sa (Moldovan & Abbeel, 2012). A\npolicy that assigns a non-zero probability to all actions on its support A ensures that all states in S\nare visited in the limit for ergodic MDPs, satisfying the condition above.\nWe adapt the ARL framework to develop learning algorithms for non-ergodic MDPs. In particular,\nwe introduce a mechanism below for the agent to call for an intervention in the MDP MT . Our\ngoal here is to show that our described ARL framework is general enough to include cases where a\nhuman is asked for help in irreversible states. Consider an augmented state space S + = S ∪ R≥0\nand an augmented action space A+ = A ∪ Ah , where Ah denotes the action of asking for help via\nhuman intervention. A state s+ ∈ S + can be written as a state s ∈ S, and h ∈ R≥0 which denotes\nthe remaining budget for interventions into the training. The budget h is initialized to hmax when\nthe training begins. The intervention can be requested by the agent itself using an action a ∈ Ah or\nit can enforced by the environment (for example, if the agent reaches certain detectable irreversible\nstates in the environment and requests a human to bring it back into the reversible set of states). For\nan action a ∈ Ah , the environment transitions from (s, h) → (s0 , h−c(s, a)), where the next state s0\ndepends on the nature of the requested intervention a and c(s, a) : S × Ah 7→ R≥0 denotes the cost\nof intervention. A similar transition occurs when the environment enforces the human intervention.\nWhen the cost exceeds the remaining budget, that is h − c(s, a) ≤ 0, the environment transitions\ninto an absorbing state s∅ , and the training is terminated. We retain the definitions introduced in\nSec 4.1.1 and 4.1.2 for evaluation protocols.3 In this way, we see that we can actually encompass\nthe setting of non-ergodic MDPs as well, with some reparameterization of the MDP.\n\n[Separate literal excerpt from the same fetched document]\n\nThe action space Ah is not available in M, only in MT . This discrepancy should be considered when\nparameterizing π."
+      },
+      {
+        "partId": "benchmark-protocol",
+        "citationId": "autonomous-rl-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.09605v2",
+        "supportingPassage": "Intermittent interventions. By default, the agent collects experience in the environment with fully\nautonomous interaction in the MDP MT . However, we can model the occasional intervention with\ntransition dynamics defined as p̃(· | s, a) = (1 − \u000f)p(· | s, a) + \u000fρ(·), where the next state is sam-\npled with 1 − \u000f probability from the environment dynamics or with \u000f probability from the initial\nstate distribution via intervention for some \u000f ∈ [0, 1]. A low \u000f represents very occasional interven-\ntions through the training in MDP MT . In fact, the framework described in Section 3, which is\npredominantly assumed by reinforcement learning algorithms, can be understood to have a large \u000f.\nTo contextualize \u000f, the agent should expect to get an intervention after 1/\u000f steps in the environment.\nCurrent episodic settings typically provide an environment reset every 100 to 1000 steps, corre-\nsponding to \u000f ∈ (1e-3, 1e-2) and an autonomous operation time of typically a few seconds to few\nminutes depending on the environment. While full autonomy would be desirable (that is, \u000f = 0),\nintervening every few hours to few days may be reasonable to arrange, which corresponds to envi-\nronment resets every 100,000 to 1,000,000 steps or \u000f ∈ (1e-6, 1e-5). We evaluate the dependence\nof algorithms designed for episodic reinforcement learning on the reset frequency in Section 6.1.\n\n[Separate literal excerpt from the same fetched document]\n\nTraining Setup. Every algorithm A receives a set of initial states s0 ∼ ρ, and a set of goals from the\ngoal-distribution g ∼ p(g). Demonstrations, if available, are also provided to A. We consider the\nintermittent interventions scenario described in Section 4.2 for the benchmark. In practice, we reset\nthe agent after a fixed number of steps HT . The value of HT is fixed for every environment, ranging\nbetween 100, 000 - 400, 000 steps. Every algorithm A is run for a fixed number of steps Hmax after\nwhich the training is terminated. Environment-specific details are in Appendix A.4.\n                                                                                        PHmax\nEvaluation Metrics. For deployed policy evaluation, we compute D(A) = − t=0                     JD (πt ),\n                ∗\nignoring JD (π ) as it is a constant for all algorithms. Policy evaluation JD (πt ) is carried out every\n                                           PHE\n10000 training steps, where JD (πt ) = t=0        r(st , at ) is the average return accumulated over an\nepisode of HE steps by running the policy πt 10 times, starting from s0 ∼ ρ for every trial. These\nroll-outs are only used for evaluation, and are not provided to the algorithm. In practice, we plot\nJD (πt ) versus time t, such that minimizing D(A) can be understood as maximizing the area under\nthe learning curve, which we find more interpretable. Given a finite training budget Hmax , the\npolicy πt may be quite suboptimal compared to π ∗ . Thus, we also report the performance of the\nfinal policy, that is JD (πHmax ) in Table 1. For continuing policy evaluation C(A), we compute the\n                             Ph\naverage reward as r(h) = t=0 r(st , at )/h. We plot r(h) versus h, while we report r(Hmax ) in\nTable 2. The evaluation curves corresponding to continuing and deployed policy evaluation are in\nAppendix A.6.\n\n[Separate literal excerpt from the same fetched document]\n\nEnvironment              Training Horizon (HT )       Evaluation Horizon (HE )     Replay Buffer Capacity\nTabletop-Organization    200,000                      200                          20,000,000\nSawyer-Door              200,000                      300                          20,000,000\nSawyer-Peg               100,000                      200                          20,000,000\nFranka-Kitchen           100,000                      400                          10,000,000\nDHand-Lightbulb          400,000                      400                          10,000,000\nMinitaur-Pen             100,000                      1000                         10,000,000\n\n\nTable 4: Environment specific parameters, including the training horizon (i.e. how frequently an\nintervention is provided), the evaluation horizon, and the replay buffer capacity."
+      },
+      {
+        "partId": "reported-score-scope",
+        "citationId": "autonomous-rl-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.09605v2",
+        "supportingPassage": "Training Setup. Every algorithm A receives a set of initial states s0 ∼ ρ, and a set of goals from the\ngoal-distribution g ∼ p(g). Demonstrations, if available, are also provided to A. We consider the\nintermittent interventions scenario described in Section 4.2 for the benchmark. In practice, we reset\nthe agent after a fixed number of steps HT . The value of HT is fixed for every environment, ranging\nbetween 100, 000 - 400, 000 steps. Every algorithm A is run for a fixed number of steps Hmax after\nwhich the training is terminated. Environment-specific details are in Appendix A.4.\n                                                                                        PHmax\nEvaluation Metrics. For deployed policy evaluation, we compute D(A) = − t=0                     JD (πt ),\n                ∗\nignoring JD (π ) as it is a constant for all algorithms. Policy evaluation JD (πt ) is carried out every\n                                           PHE\n10000 training steps, where JD (πt ) = t=0        r(st , at ) is the average return accumulated over an\nepisode of HE steps by running the policy πt 10 times, starting from s0 ∼ ρ for every trial. These\nroll-outs are only used for evaluation, and are not provided to the algorithm. In practice, we plot\nJD (πt ) versus time t, such that minimizing D(A) can be understood as maximizing the area under\nthe learning curve, which we find more interpretable. Given a finite training budget Hmax , the\npolicy πt may be quite suboptimal compared to π ∗ . Thus, we also report the performance of the\nfinal policy, that is JD (πHmax ) in Table 1. For continuing policy evaluation C(A), we compute the\n                             Ph\naverage reward as r(h) = t=0 r(st , at )/h. We plot r(h) versus h, while we report r(Hmax ) in\nTable 2. The evaluation curves corresponding to continuing and deployed policy evaluation are in\nAppendix A.6."
+      },
+      {
+        "partId": "different-objectives-and-limits",
+        "citationId": "autonomous-rl-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.09605v2",
+        "supportingPassage": "The ARL framework provides two evaluation protocols for autonomous RL algorithms. Algorithms\ncan typically optimize only one of the two evaluation metrics. Which evaluation protocol should\nthe designer optimize for? In a sense, the need for two evaluation protocols arises from task spe-\ncific constraints, which themselves can be sometimes relaxed depending on the specific trade-off\nbetween the cost of real world training and the cost of intervention. The continuing policy evalua-\ntion represents the oracle metric one should strive to optimize when continually operational agents\nare deployed into dynamic environments. The need for deployment policy evaluation arises from\ntwo implicit practical constraints: (a) requirement of a large number of trials to solve desired tasks\nand (b) absence of interventions to enable those trials. If either of these can be easily relaxed, then\none could consider optimizing for continuing policy evaluation. For example, if the agent can learn\nin a few trials because it was meta-trained for quick adaptation (Finn et al., 2017), providing a few\ninterventions for those trials may be reasonable. Similarly, if the interventions are easy to obtain\nduring deployment without incurring significant human cost, perhaps through scripted behaviors or\nenabled by the deployment setting (for example, sorting trash in a facility), the agent can repeatedly\ntry the task and learn while deployed. However, if these constraints cannot be relaxed at deploy-\nment, one should consider optimizing for the deployment policy evaluation since this incentivizes\nthe agents to learn targeted behaviors by setting up its own practice problems.\n\n[Separate literal excerpt from the same fetched document]\n\nOverall, we find that performance in the continuing setting does not necessarily translate to im-\nproved performance in the deployed policy evaluation, emphasizing the differences between these\ntwo evaluation schemes.\n\n[Separate literal excerpt from the same fetched document]\n\nWhile our work focuses on predominantly autonomous settings, there may be task-specific trade-\noffs between learning speed and the cost of human interventions, and it may indeed be beneficial\nto provide some human supervision to curtail total training time. How to best provide this supervi-\nsion (rewards and goal setting, demonstrations, resets etc) while minimizing human cost provides a\nnumber of interesting directions for future work. However, we believe that there is a lot of room to\nimprove the autonomous learning algorithms and our work attempts to highlight the importance and\nchallenge of doing so."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "identity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: Full title, ordered seven-author byline, first preprint in 2021, v2 in 2022 and explicit ICLR 2022 header. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Base non-episodic formalism, deployment regret across training, continuing limiting reward and Appendix A.2 intervention cost are distinct. Printed h-c(s,a)<=0 retained without replacing it by the prose exceeds condition. EARL finite budgets, scheduled resets and final-policy reporting remain explicit.",
+        "evidenceDigest": "18ed945ecb67b7cca53ea7449f27b66084566ff9a78e364240bcf6db1019d260"
+      },
+      {
+        "partId": "base-setting",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: The base training MDP samples its initial state once; exploratory actions and the policy produced for evaluation need not coincide. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Base non-episodic formalism, deployment regret across training, continuing limiting reward and Appendix A.2 intervention cost are distinct. Printed h-c(s,a)<=0 retained without replacing it by the prose exceeds condition. EARL finite budgets, scheduled resets and final-policy reporting remain explicit.",
+        "evidenceDigest": "addfc49964a32d068e70fdd0f1e16eeaef904d904b75ff8ae758bd7d0269ae7d"
+      },
+      {
+        "partId": "deployment-evaluation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: Def.1 sums deployment-return regret across training; Eq.1 uses expected discounted return, with hypothetical initial-distribution evaluation rollouts not fed into learning. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Base non-episodic formalism, deployment regret across training, continuing limiting reward and Appendix A.2 intervention cost are distinct. Printed h-c(s,a)<=0 retained without replacing it by the prose exceeds condition. EARL finite budgets, scheduled resets and final-policy reporting remain explicit.",
+        "evidenceDigest": "7ae95c53442d2f6b312ba70a59c18bb42c39f4083c6a44af01c3aa3cbaf25601"
+      },
+      {
+        "partId": "continuing-evaluation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: Def.2 uses limiting average reward from actual training actions, not the evaluation policy or a separate deployment phase. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Base non-episodic formalism, deployment regret across training, continuing limiting reward and Appendix A.2 intervention cost are distinct. Printed h-c(s,a)<=0 retained without replacing it by the prose exceeds condition. EARL finite budgets, scheduled resets and final-policy reporting remain explicit.",
+        "evidenceDigest": "6b1d9bc388cd62fe7e2d4596d203c7c9a73b82ad60eb6d61dcb10210aa6d474a"
+      },
+      {
+        "partId": "budget-extension",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: App.A.2 is a non-ergodic extension, not the whole ARL definition: requested/enforced help decrements h by c(s,a), with absorbing termination at h-c <= 0; the help action is training-only. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Base non-episodic formalism, deployment regret across training, continuing limiting reward and Appendix A.2 intervention cost are distinct. Printed h-c(s,a)<=0 retained without replacing it by the prose exceeds condition. EARL finite budgets, scheduled resets and final-policy reporting remain explicit.",
+        "evidenceDigest": "9cb2558d89c65f4d0f771259b191bbb5dc406313c45d715e1854f069fbaafac4"
+      },
+      {
+        "partId": "benchmark-protocol",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: EARL instantiates intermittent intervention through scheduled resets and fixed Hmax, not the App.A.2 budget; finite-horizon undiscounted deployment evaluations restart outside training, and continuing scores average collected rewards so far. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Base non-episodic formalism, deployment regret across training, continuing limiting reward and Appendix A.2 intervention cost are distinct. Printed h-c(s,a)<=0 retained without replacing it by the prose exceeds condition. EARL finite budgets, scheduled resets and final-policy reporting remain explicit.",
+        "evidenceDigest": "a8c0d9b160c49a485e915a1581baac67926286d83dd17872d86ddeb2c62dc767"
+      },
+      {
+        "partId": "reported-score-scope",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: Reported learning curves cover both objectives; Table 1 also reports final deployed-policy performance, so not every reported score is a lifetime score. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Base non-episodic formalism, deployment regret across training, continuing limiting reward and Appendix A.2 intervention cost are distinct. Printed h-c(s,a)<=0 retained without replacing it by the prose exceeds condition. EARL finite budgets, scheduled resets and final-policy reporting remain explicit.",
+        "evidenceDigest": "28b6f774bd3ee60efe4c959a84239db2f34784aee4514010aaa1c3418877a50c"
+      },
+      {
+        "partId": "different-objectives-and-limits",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: The two protocols favor different behaviors; continuing performance need not transfer to deployment, and some supervision may trade human cost for shorter learning. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Base non-episodic formalism, deployment regret across training, continuing limiting reward and Appendix A.2 intervention cost are distinct. Printed h-c(s,a)<=0 retained without replacing it by the prose exceeds condition. EARL finite budgets, scheduled resets and final-policy reporting remain explicit.",
+        "evidenceDigest": "8e048b2c91a47e7209011b7d3ec8232518faee679b6958f8d5e4cfc417db1e23"
+      }
+    ]
+  },
+  {
+    "id": "rl-autonomy-applied-46-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "rl-for-robotics",
+    "rowOrdinal": 46,
+    "originalCellsDigest": "0fc62b7a02b6788ce22542802f2c3cf6a96080abce32515292a2e3952788e4c9",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "bibliographic-identity",
+        "text": "Exact title, all eight authors in order, 2021 submission, ICRA 2021 attribution and first-four equal contribution; registry truncation corrected.",
+        "requiredCitationIds": [
+          "reset-free-rl-2021"
+        ]
+      },
+      {
+        "id": "mechanism",
+        "text": "Task-specific policies are sequenced by a supplied task graph; learned re-centering, pickup and flip-up permit retries after dropping the object.",
+        "requiredCitationIds": [
+          "reset-free-rl-2021"
+        ]
+      },
+      {
+        "id": "robot-and-tasks",
+        "text": "The reported hardware is a D’Hand mounted on Sawyer; hardware families are valve in-hand reorientation and pipe insertion, not simulation lightbulb/basketball tasks.",
+        "requiredCitationIds": [
+          "reset-free-rl-2021"
+        ]
+      },
+      {
+        "id": "designed-setup",
+        "text": "Supplied rewards/task graph, initial placement, in-hand motion capture, scripted pickup-arm motion, frozen insertion fingers and separate approach/insertion collision reduction are explicit, not waived by autonomy language.",
+        "requiredCitationIds": [
+          "reset-free-rl-2021"
+        ]
+      },
+      {
+        "id": "reported-training-scope",
+        "text": "Authors report reset-free real-world training for those hardware tasks; this is not a categorical guarantee of no human setup or safety involvement. Conflicting duration/success phrasings are preserved and not published as a synthesized number.",
+        "requiredCitationIds": [
+          "reset-free-rl-2021"
+        ]
+      },
+      {
+        "id": "task-graph-assumptions",
+        "text": "Successful incoming tasks must reach valid starting states for the next task; downstream initial-state coverage is not guaranteed and the graph is designer supplied.",
+        "requiredCitationIds": [
+          "reset-free-rl-2021"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+      "rationale": "All 6 parts and 7 paired items are conjunctively necessary for this applied current tuple. The exact reader, glossary and full-byline endpoints have been reviewed against the preserved full-source text. Task graph, valid downstream starts without full coverage, D’Hand/Sawyer valve and pipe setup, supplied rewards, initial placement, motion capture, scripted arm and insertion restrictions checked. Conflicting intervention, success and duration language does not become a synthesized number or safety guarantee.",
+      "planDigest": "96d3378ea069e60de66d818bde24912f7eae5fdff00955e95b6c1363e6f1416f"
+    },
+    "evidence": [
+      {
+        "partId": "bibliographic-identity",
+        "citationId": "reset-free-rl-2021",
+        "sourceUrl": "https://arxiv.org/html/2104.11203v1",
+        "supportingPassage": "[article h1] \"Reset-Free Reinforcement Learning via Multi-Task Learning: Learning Dexterous Manipulation Behaviors without Human Intervention\"\n\n[article .ltx_authors] \"Abhishek Gupta ∗ 1 Justin Yu ∗ 1 Tony Z. Zhao ∗ 1 Vikash Kumar ∗ 2 Aaron Rovinsky 1 Kelvin Xu 1 Thomas Devlin 1 Sergey Levine 1 1 UC Berkeley 2 University of Washington † † thanks: $ˆ*$Authors contributed equally to this work. † † thanks: ˜ https://sites.google.com/view/mtrf\""
+      },
+      {
+        "partId": "bibliographic-identity",
+        "citationId": "reset-free-rl-2021",
+        "sourceUrl": "https://arxiv.org/abs/2104.11203",
+        "supportingPassage": "[arXiv landing metadata] \"# Title:Reset-Free Reinforcement Learning via Multi-Task Learning: Learning Dexterous Manipulation Behaviors without Human Intervention\n\nAuthors: [Abhishek Gupta](https://arxiv.org/search/cs?searchtype=author&query=Gupta,+A), [Justin Yu](https://arxiv.org/search/cs?searchtype=author&query=Yu,+J), [Tony Z. Zhao](https://arxiv.org/search/cs?searchtype=author&query=Zhao,+T+Z), [Vikash Kumar](https://arxiv.org/search/cs?searchtype=author&query=Kumar,+V), [Aaron Rovinsky](https://arxiv.org/search/cs?searchtype=author&query=Rovinsky,+A), [Kelvin Xu](https://arxiv.org/search/cs?searchtype=author&query=Xu,+K), [Thomas Devlin](https://arxiv.org/search/cs?searchtype=author&query=Devlin,+T), [Sergey Levine](https://arxiv.org/search/cs?searchtype=author&query=Levine,+S)\n\nView a PDF\"\n\n[arXiv landing metadata] \"Comments: | Published at ICRA 2021. First four authors contributed equally\"\n\n[arXiv landing metadata] \"Submitted on 22 Apr 2021\\]\n\n# Title:\""
+      },
+      {
+        "partId": "mechanism",
+        "citationId": "reset-free-rl-2021",
+        "sourceUrl": "https://arxiv.org/html/2104.11203v1",
+        "supportingPassage": "[S4.p1.1] \"When a large number of diverse tasks are being learned simultaneously, some tasks can naturally serve as resets for other tasks during learning. Learning each of the tasks individually without resets is made easier by appropriately learning and sequencing together other tasks in the right order. By doing so, we can replace the simple forward, reset behavior dichotomy with a more natural “network” of multiple tasks that can perform complex reset behaviors between each other.\"\n\n[S3.F2] \"Reset-free training uses the task graph to choose which policy to execute and train at every step. For executions that are not successful (e.g., the pickup in step 1), other tasks (recenter in step 2) serve to provide a reset so that pickup can be attempted again. Once pickup is successful, the next task (flip up) can be attempted. If the flip-up policy is successful, then the in-hand reorientation task can be attempted and if this drops the object then the re-centering task is activated to continue training.\"\n\n[S4.SS1.p4.1] \"In this work, we assume that a task-graph defining the various tasks and the associated transitions is provided to the agent by the algorithm designer. In practice, providing such a graph is simple for a human user, although it could in principle be learned from experiential data. We leave this extension for future work.\""
+      },
+      {
+        "partId": "robot-and-tasks",
+        "citationId": "reset-free-rl-2021",
+        "sourceUrl": "https://arxiv.org/html/2104.11203v1",
+        "supportingPassage": "[S5.p1.1] \"Our system (Fig 5 ) consists of a 22-DoF anthropomorphic hand-arm system. We use a self-designed and manufactured four-fingered, 16 DoF robot hand called the D’Hand , mounted on a 6 DoF Sawyer robotic arm to allow it to operate in an extended workspace in a table-top setting.\"\n\n[S5.SS2.p1.1] \"We also evaluate MTRF on the real-world hand-arm robotic system, training a set of tasks in the real world, without any simulation or special instrumentation. We considered 2 different task families - in hand manipulation of a 3 pronged valve object, as well as pipe insertion of a cylindrical pipe into a hose attachment mounted on the wall. We describe each of these setups in detail below:\""
+      },
+      {
+        "partId": "designed-setup",
+        "citationId": "reset-free-rl-2021",
+        "sourceUrl": "https://arxiv.org/html/2104.11203v1",
+        "supportingPassage": "[S4.SS1.p1.1] \"In this work, we directly leverage this insight to build a dexterous robotic system that learns in the absence of resets. We assume that we are provided with K K different tasks that need to be learned together. These tasks each represent some distinct capability of the agent. As described above, in the dexterous manipulation domain the tasks might involve re-centering, picking up the object, and reorienting an object in-hand. Each of these K K different tasks is provided with its own reward function R i ​ ( s t , a t ) R_{i}(s_{t},a_{t}) , and at test-time is evaluated against its distinct initial state distribution μ 0 i \\mu_{0}^{i} .\"\n\n[S4.SS1.p4.1] \"In this work, we assume that a task-graph defining the various tasks and the associated transitions is provided to the agent by the algorithm designer. In practice, providing such a graph is simple for a human user, although it could in principle be learned from experiential data. We leave this extension for future work.\"\n\n[S5.SS2.p2.1] \"In-Hand Manipulation: For the first task on hardware, we use a variant of the in-hand reorienting task, where the goal is to pick up an object and reorient it in the palm into a desired configuration, as shown in Fig 6 . This task not only requires mastering the contacts required for a successful pickup, but also fine-grained finger movements to reorient the object in the palm, while at the same time balancing it so as to avoid dropping. The task graph corresponding to this domain is shown in Fig 6 . A frequent challenge in this domain stems from dropping the object during the in-hand reorientation, which ordinarily would require some sort of reset mechanism (as seen in prior work [ 7 ] ). However, MTRF enables the robot to utilize such ‘‘failures’’ as an opportunity to practice the tabletop re-centering, pickup, and flip-up tasks, which serve to ‘‘reset’’ the object into a pose where the reorientation can be attempted again. 1 1 1 For the pickup task, the position of the arm’s end-effector is scripted and only D’Hand controls are learned to reduce training time. The configuration of the 22-DoF hand-arm system mirrors that in simulation. The object is tracked using a motion capture system. Our policy directly controls each joint of the hand and the position of the end-effector. The system is set up to allow for extended uninterrupted operation, allowing for over 60 hours of training without any human intervention. We show how our proposed technique allows the robot to learn this task in the following section.\"\n\n[S5.SS2.p3.1] \"Pipe insertion: For the second task on hardware, we set up a pipe insertion task, where the goal is to pick up a cylindrical pipe object and insert it into a hose attachment on the wall, as shown in Fig 7 . This task not only requires mastering the contacts required for a successful pickup, but also accurate and fine-grained arm motion to insert the pipe into the attachment in the wall. The task graph corresponding to this domain is shown in Fig 7 . In this domain, the agent learns to pickup the object and then insert it into the attachment in the wall. If the object is dropped, it is then re-centered and picked up again to allow for another attempt at insertion. 2 2 2 For the pickup task, the position of the arm’s end-effector is scripted and only D’Hand controls are learned to reduce training time. For the insertion task, the fingers are frozen since it is largely involving accurate motion of the arm. As in the previous domain, our policy directly controls each joint of the hand and the position of the end-effector. The system is set up to allow for extended uninterrupted operation, allowing for over 30 hours of training without any human intervention.\"\n\n[Sx1.SS2.p1.1] \"To reduce collision in real world experiments, we have two tasks for insertion. One approaches the peg and the other attempts insertion.\"\n\n[S6.SS3.SSS0.Px1.p1.1] \"Let us start by considering the in-hand manipulation tasks shown in Fig 6 . This task is challenging because it requires delicate handling of finger-object contacts during training, the object is easy to drop during the flip-up and in-hand manipulation, and the reorientation requires a coordinated finger gait to rotate the object. In fact, most prior work that aims to learn similar in-hand manipulation behaviors either utilizes simulation or employs a hand-designed reset procedure, potentially involving human interventions [ 7 , 12 , 10 ] . To the best of our knowledge, our work is the first to show a real-world robotic system learning such a task entirely in the real world and without any manually provided or hand-designed reset mechanism. We visualize a sequential execution of the tasks (after training) in Fig 10 , and encourage the reader to watch a video of this task, as well as the training process, on the project website: [ https://sites.google.com/view/mtrf ] . Over the course of training, the robot must first learn to recenter the object on the table, then learn to pick it up (which requires learning an appropriate grasp and delicate control of the fingers to maintain grip), then learn to flip up the object so that it rests in the palm, and finally learn to perform the orientation. Dropping the object at any point in this process requires going back to the beginning of the sequence, and initially most of the training time is spent on re-centering, which provides resets for the pickup. The entire training process takes about 60 hours of real time, learning all of the tasks simultaneously. Although this time requirement is considerable, it is entirely autonomous, making this approach scalable even without any simulation or manual instrumentation. The user only needs to position the objects for training, and switch on the robot.\""
+      },
+      {
+        "partId": "reported-training-scope",
+        "citationId": "reset-free-rl-2021",
+        "sourceUrl": "https://arxiv.org/html/2104.11203v1",
+        "supportingPassage": "[S7.p1.1] \"In this work, we introduced a technique for learning dexterous manipulation behaviors reset-free, without the need for any human intervention during training. This was done by leveraging the multi-task RL setting for reset-free learning. When learning multiple tasks simultaneously, different tasks serve to reset each other and assist in uninterrupted learning. This algorithm allows a dexterous manipulation system to learn manipulation behaviors uninterrupted, and also learn behavior that allows it to continue practicing. Our experiments show that this approach can enable a real-world hand-arm robotic system to learn an in-hand reorientation task, including pickup and repositioning, in about 60 hours of training, as well as a pipe insertion task in around 25 hours of training without human intervention or special instrumentation.\"\n\n[S1.p4.1] \"To our knowledge, these results demonstrate the first instance of a combined hand-arm system learning dexterous in-hand manipulation with deep RL entirely in the real world with minimal human intervention during training, simultaneously acquiring both the in-hand manipulation skill and the skills needed to retry the task.\"\n\n[S5.SS2.p2.1] \"In-Hand Manipulation: For the first task on hardware, we use a variant of the in-hand reorienting task, where the goal is to pick up an object and reorient it in the palm into a desired configuration, as shown in Fig 6 . This task not only requires mastering the contacts required for a successful pickup, but also fine-grained finger movements to reorient the object in the palm, while at the same time balancing it so as to avoid dropping. The task graph corresponding to this domain is shown in Fig 6 . A frequent challenge in this domain stems from dropping the object during the in-hand reorientation, which ordinarily would require some sort of reset mechanism (as seen in prior work [ 7 ] ). However, MTRF enables the robot to utilize such ‘‘failures’’ as an opportunity to practice the tabletop re-centering, pickup, and flip-up tasks, which serve to ‘‘reset’’ the object into a pose where the reorientation can be attempted again. 1 1 1 For the pickup task, the position of the arm’s end-effector is scripted and only D’Hand controls are learned to reduce training time. The configuration of the 22-DoF hand-arm system mirrors that in simulation. The object is tracked using a motion capture system. Our policy directly controls each joint of the hand and the position of the end-effector. The system is set up to allow for extended uninterrupted operation, allowing for over 60 hours of training without any human intervention. We show how our proposed technique allows the robot to learn this task in the following section.\"\n\n[S5.SS2.p3.1] \"Pipe insertion: For the second task on hardware, we set up a pipe insertion task, where the goal is to pick up a cylindrical pipe object and insert it into a hose attachment on the wall, as shown in Fig 7 . This task not only requires mastering the contacts required for a successful pickup, but also accurate and fine-grained arm motion to insert the pipe into the attachment in the wall. The task graph corresponding to this domain is shown in Fig 7 . In this domain, the agent learns to pickup the object and then insert it into the attachment in the wall. If the object is dropped, it is then re-centered and picked up again to allow for another attempt at insertion. 2 2 2 For the pickup task, the position of the arm’s end-effector is scripted and only D’Hand controls are learned to reduce training time. For the insertion task, the fingers are frozen since it is largely involving accurate motion of the arm. As in the previous domain, our policy directly controls each joint of the hand and the position of the end-effector. The system is set up to allow for extended uninterrupted operation, allowing for over 30 hours of training without any human intervention.\"\n\n[S6.SS3.SSS0.Px1.p1.1] \"Let us start by considering the in-hand manipulation tasks shown in Fig 6 . This task is challenging because it requires delicate handling of finger-object contacts during training, the object is easy to drop during the flip-up and in-hand manipulation, and the reorientation requires a coordinated finger gait to rotate the object. In fact, most prior work that aims to learn similar in-hand manipulation behaviors either utilizes simulation or employs a hand-designed reset procedure, potentially involving human interventions [ 7 , 12 , 10 ] . To the best of our knowledge, our work is the first to show a real-world robotic system learning such a task entirely in the real world and without any manually provided or hand-designed reset mechanism. We visualize a sequential execution of the tasks (after training) in Fig 10 , and encourage the reader to watch a video of this task, as well as the training process, on the project website: [ https://sites.google.com/view/mtrf ] . Over the course of training, the robot must first learn to recenter the object on the table, then learn to pick it up (which requires learning an appropriate grasp and delicate control of the fingers to maintain grip), then learn to flip up the object so that it rests in the palm, and finally learn to perform the orientation. Dropping the object at any point in this process requires going back to the beginning of the sequence, and initially most of the training time is spent on re-centering, which provides resets for the pickup. The entire training process takes about 60 hours of real time, learning all of the tasks simultaneously. Although this time requirement is considerable, it is entirely autonomous, making this approach scalable even without any simulation or manual instrumentation. The user only needs to position the objects for training, and switch on the robot.\"\n\n[S6.SS3.SSS0.Px1.p2.1] \"For a quantitative evaluation, we plot the success rate of sub-tasks including re-centering, lifting, flipping over, and in-hand reorientation. For lifting and flipping over, success is defined as lifting the object to a particular height above the table, and for reorient success is defined by the difference between the current object orientation and the target orientation of the object. As shown in Fig 12 , MTRF is able to autonomously learn all tasks in the task graph in 60 hours, and achieves an 70% success rate for the in-hand reorient task. This experiment illustrates how MTRF can enable a complex real-world robotic system to learn an in-hand manipulation behavior while at the same time autonomously retrying the task during a lengthy unattended training run, without any simulation, special instrumentation, or manual interventions. This experiment suggests that, when MTRF is provided with an appropriate set of tasks, learning of complex manipulation skills can be carried out entirely autonomously in the real world, even for highly complex robotic manipulators such as multi-fingered hands.\"\n\n[S6.SS3.SSS0.Px2.p1.1] \"We also considered the second task variant which involves manipulating a cylindrical pipe to insert it into a hose attachment on the wall as shown in Fig 7 . This task is challenging because it requires accurate grasping and repositioning of the object during training in order to accurately insert it into the hose attachment, requiring coordination of both the arm and the hand. Training this task without resets requires a combination of repositioning, lifting, insertion and removal to continually keep training and improving. We visualize a sequential execution of the tasks (after training) in Fig 11 , and encourage the reader to watch a video of this task, as well as the training process, on the project website: [ https://sites.google.com/view/mtrf ] . Over the course of training, the robot must first learn to recenter the object on the table, then learn to pick it up (which requires learning an appropriate grasp), then learn to actually move the arm accurately to insert the pipe to the attachment, and finally learn to remove it to continue training and practicing. Initially most of the training time is spent on re-centering, which provides resets for the pickup, which then provides resets for the insertion and removal. The entire training process takes about 25 hours of real time, learning all of the tasks simultaneously.\"\n\n[S6.F12] \"Fig. 12 : Success rate of various tasks on dexterous manipulation task families on hardware. Left: In-hand manipulation We can see that all of the tasks are able to successfully learn with more than 70 % 70\\% success rate. Right: Pipe insertion We can see that the final pipe insertion task is able to successfully learn with more than 60 % 60\\% success rate.\""
+      },
+      {
+        "partId": "task-graph-assumptions",
+        "citationId": "reset-free-rl-2021",
+        "sourceUrl": "https://arxiv.org/html/2104.11203v1",
+        "supportingPassage": "[S4.SS1.p3.1] \"We assume that, for each task, successful outcomes for tasks that lead into that task according to the task graph (i.e., all incoming edges) will result in valid initial states for that task. This assumption is reasonable: intuitively, it states that an edge from task A to task B implies that successful outcomes of task A are valid initial states for task B. This means that, if task B is triggered after task A, it will learn to succeed from these valid initial states under μ 0 B \\mu_{0}^{B} . While this does not always guarantee that the downstream controller for task B will see all of the initial states from μ 0 B \\mu_{0}^{B} , since the upstream controller is not explicitly optimizing for coverage, in practice we find that this still performs very well. However, we expect that it would also be straightforward to introduce coverage into this method by utilizing state marginal matching methods [ 62 ] . We leave this for future work.\"\n\n[S4.SS1.p4.1] \"In this work, we assume that a task-graph defining the various tasks and the associated transitions is provided to the agent by the algorithm designer. In practice, providing such a graph is simple for a human user, although it could in principle be learned from experiential data. We leave this extension for future work.\""
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "bibliographic-identity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: Exact title, all eight authors in order, 2021 submission, ICRA 2021 attribution and first-four equal contribution; registry truncation corrected. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Task graph, valid downstream starts without full coverage, D’Hand/Sawyer valve and pipe setup, supplied rewards, initial placement, motion capture, scripted arm and insertion restrictions checked. Conflicting intervention, success and duration language does not become a synthesized number or safety guarantee.",
+        "evidenceDigest": "44562600e7896536356d528c16b02ff5373a6babd450a98bbbc0b65fc162d913"
+      },
+      {
+        "partId": "mechanism",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: Task-specific policies are sequenced by a supplied task graph; learned re-centering, pickup and flip-up permit retries after dropping the object. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Task graph, valid downstream starts without full coverage, D’Hand/Sawyer valve and pipe setup, supplied rewards, initial placement, motion capture, scripted arm and insertion restrictions checked. Conflicting intervention, success and duration language does not become a synthesized number or safety guarantee.",
+        "evidenceDigest": "74e5984ec636cebd6d89a324d643c5990c97c3dbce7e09086c35aab0ca26a4b3"
+      },
+      {
+        "partId": "robot-and-tasks",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: The reported hardware is a D’Hand mounted on Sawyer; hardware families are valve in-hand reorientation and pipe insertion, not simulation lightbulb/basketball tasks. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Task graph, valid downstream starts without full coverage, D’Hand/Sawyer valve and pipe setup, supplied rewards, initial placement, motion capture, scripted arm and insertion restrictions checked. Conflicting intervention, success and duration language does not become a synthesized number or safety guarantee.",
+        "evidenceDigest": "09f23fa1df0c15cc88a04f55964b67de4fd918bfefc9c8809b6571c21558b209"
+      },
+      {
+        "partId": "designed-setup",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: Supplied rewards/task graph, initial placement, in-hand motion capture, scripted pickup-arm motion, frozen insertion fingers and separate approach/insertion collision reduction are explicit, not waived by autonomy language. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Task graph, valid downstream starts without full coverage, D’Hand/Sawyer valve and pipe setup, supplied rewards, initial placement, motion capture, scripted arm and insertion restrictions checked. Conflicting intervention, success and duration language does not become a synthesized number or safety guarantee.",
+        "evidenceDigest": "d5041e2841cbcd57c8454be1f88eed8552c9ac3c505df124d7fab78504475387"
+      },
+      {
+        "partId": "reported-training-scope",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: Authors report reset-free real-world training for those hardware tasks; this is not a categorical guarantee of no human setup or safety involvement. Conflicting duration/success phrasings are preserved and not published as a synthesized number. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Task graph, valid downstream starts without full coverage, D’Hand/Sawyer valve and pipe setup, supplied rewards, initial placement, motion capture, scripted arm and insertion restrictions checked. Conflicting intervention, success and duration language does not become a synthesized number or safety guarantee.",
+        "evidenceDigest": "85765e705acd9c40019017b24a0a055e8b00d42adad83e25c2eebdace6f5ce3e"
+      },
+      {
+        "partId": "task-graph-assumptions",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation auditor 4fc5feea-32b4-48d0-aba3-5605fe375314; not independent validator",
+        "rationale": "Applied-source review supports this bounded part: Successful incoming tasks must reach valid starting states for the next task; downstream initial-state coverage is not guaranteed and the graph is designer supplied. Literal passages remain attached to their original document URL and citation identity; body/derivative and original-event verification is recorded in source-proof.json. Task graph, valid downstream starts without full coverage, D’Hand/Sawyer valve and pipe setup, supplied rewards, initial placement, motion capture, scripted arm and insertion restrictions checked. Conflicting intervention, success and duration language does not become a synthesized number or safety guarantee.",
+        "evidenceDigest": "b07870018e6f53b1697b7e5f803fb2ed6a2e97a3a4be3f533dcb1e8a789533ba"
+      }
+    ]
   }
 ]
