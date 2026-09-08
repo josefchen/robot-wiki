@@ -5906,6 +5906,226 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rl-source-closeouts-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c",
+      "newHash": "9d8c4744a78a43ddf4019277ac3e66f729671780baa3fcb8ffe5bc988afcf9ec",
+      "reason": "Sixteen source-bound RL corrections: scoped campaign units/interventions, offline training/coverage, conditional Kumar comparison, qualified HER protocol and literal bylines. Immediate-before hash 68384086194b71e4bfb1a5c68bb2dd62d56e5c63edb8d869b2e97c8d8e07ac5c; current hash 8314a3bf7f83ec93b5ecd236b89d0b7d092786ec566f666401c53d007e2caeba. Exact source and endpoint bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/row-integration.json and applied-product-endpoints.json. Sources: https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/1603.02199v4 ; https://ar5iv.labs.arxiv.org/html/2109.11978 ; https://ar5iv.labs.arxiv.org/html/1812.11103 ; https://ar5iv.labs.arxiv.org/html/1806.10293 ; https://arxiv.org/pdf/2204.05618 ; https://arxiv.org/pdf/1707.01495 ; https://arxiv.org/pdf/2005.01643 ; https://arxiv.org/pdf/2309.10150. Illustrative toy arithmetic is unchanged; no whole-article/P1 or independent acceptance. Subsequent source-preserving HER chip relocation fixes measured mobile overflow; previous endpoint 8314a3bf7f83ec93b5ecd236b89d0b7d092786ec566f666401c53d007e2caeba; exact span history /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/her-tooltip-placement.json.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-source-closeouts-20260908-2",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/sample-efficiency-ledger.tsx:aria-label:4",
+      "oldHash": "1a237ab15d8401741712b12e9dfabf7d45bae861c5332ddadb9148b9ba25e8bd",
+      "newHash": "a3ef3e8f881d684b5832c56f807b2611d3200310c42d672183eb0d4acb683729",
+      "reason": "Sixteen source-bound RL corrections: scoped campaign units/interventions, offline training/coverage, conditional Kumar comparison, qualified HER protocol and literal bylines. Immediate-before hash 1a237ab15d8401741712b12e9dfabf7d45bae861c5332ddadb9148b9ba25e8bd; current hash a3ef3e8f881d684b5832c56f807b2611d3200310c42d672183eb0d4acb683729. Exact source and endpoint bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/row-integration.json and applied-product-endpoints.json. Sources: https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/1603.02199v4 ; https://ar5iv.labs.arxiv.org/html/2109.11978 ; https://ar5iv.labs.arxiv.org/html/1812.11103 ; https://ar5iv.labs.arxiv.org/html/1806.10293 ; https://arxiv.org/pdf/2204.05618 ; https://arxiv.org/pdf/1707.01495 ; https://arxiv.org/pdf/2005.01643 ; https://arxiv.org/pdf/2309.10150. Illustrative toy arithmetic is unchanged; no whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-source-closeouts-20260908-3",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "4dc209aac54602011b461a31b52f2e99afe61c49ba4984ba5f437535c0eecb6f",
+      "newHash": "cbbdcb3e5b830a2369f2d5eee5b96163bcfd5ad880ebd59cb49cb03f454c66cd",
+      "reason": "Sixteen source-bound RL corrections: scoped campaign units/interventions, offline training/coverage, conditional Kumar comparison, qualified HER protocol and literal bylines. Immediate-before hash b517fbc0cb186ba8210bb5c3baa7e716d4a82349079f5af8f53d54ef2e0e8d93; current hash cbbdcb3e5b830a2369f2d5eee5b96163bcfd5ad880ebd59cb49cb03f454c66cd. Exact source and endpoint bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/row-integration.json and applied-product-endpoints.json. Sources: https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/1603.02199v4 ; https://ar5iv.labs.arxiv.org/html/2109.11978 ; https://ar5iv.labs.arxiv.org/html/1812.11103 ; https://ar5iv.labs.arxiv.org/html/1806.10293 ; https://arxiv.org/pdf/2204.05618 ; https://arxiv.org/pdf/1707.01495 ; https://arxiv.org/pdf/2005.01643 ; https://arxiv.org/pdf/2309.10150. Illustrative toy arithmetic is unchanged; no whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-source-closeouts-20260908-4",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/sample-efficiency-ledger.tsx",
+      "oldHash": "eddd7049da0ec062f54dfe030fbf1daa1a937d3a1f49f8d24c91ac17334dcfd7",
+      "newHash": "3fad4aab42ddc10948f7332e637e1cb6d759b6c6057af6ad5a6bfd93e66a788b",
+      "reason": "Sixteen source-bound RL corrections: scoped campaign units/interventions, offline training/coverage, conditional Kumar comparison, qualified HER protocol and literal bylines. Immediate-before hash b298c4ce1ca0f286532971ed515f0b110cee49af827bdf7451d7a04aeb5dd481; current hash 3fad4aab42ddc10948f7332e637e1cb6d759b6c6057af6ad5a6bfd93e66a788b. Exact source and endpoint bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/row-integration.json and applied-product-endpoints.json. Sources: https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/1603.02199v4 ; https://ar5iv.labs.arxiv.org/html/2109.11978 ; https://ar5iv.labs.arxiv.org/html/1812.11103 ; https://ar5iv.labs.arxiv.org/html/1806.10293 ; https://arxiv.org/pdf/2204.05618 ; https://arxiv.org/pdf/1707.01495 ; https://arxiv.org/pdf/2005.01643 ; https://arxiv.org/pdf/2309.10150. Illustrative toy arithmetic is unchanged; no whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-source-closeouts-20260908-5",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:rl-sim2real/rl-for-robotics",
+      "oldHash": "da109f78835e8de1df7f25e0e9c3039c0e1085859e8360067c0ebc9b4f5eb897",
+      "newHash": "97d70155438aa9e8b088e9c979a8a6aca2b66acd4533eaa27ce1e7e6b6238446",
+      "reason": "Sixteen source-bound RL corrections: scoped campaign units/interventions, offline training/coverage, conditional Kumar comparison, qualified HER protocol and literal bylines. Immediate-before hash da109f78835e8de1df7f25e0e9c3039c0e1085859e8360067c0ebc9b4f5eb897; current hash 97d70155438aa9e8b088e9c979a8a6aca2b66acd4533eaa27ce1e7e6b6238446. Exact source and endpoint bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/row-integration.json and applied-product-endpoints.json. Sources: https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/1603.02199v4 ; https://ar5iv.labs.arxiv.org/html/2109.11978 ; https://ar5iv.labs.arxiv.org/html/1812.11103 ; https://ar5iv.labs.arxiv.org/html/1806.10293 ; https://arxiv.org/pdf/2204.05618 ; https://arxiv.org/pdf/1707.01495 ; https://arxiv.org/pdf/2005.01643 ; https://arxiv.org/pdf/2309.10150. Illustrative toy arithmetic is unchanged; no whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-source-closeouts-20260908-6",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:rl-sim2real/rl-for-robotics",
+      "oldHash": "5069c5d1f6791ddf8c73a0cd56f80de2e0eb12ff6bf16fbefc3d9d1ff4191c32",
+      "newHash": "e1b8c251826ae2d139adc35a41d94c00c140e27a74d7dc22ac63a0ac85782ed6",
+      "reason": "Sixteen source-bound RL corrections: scoped campaign units/interventions, offline training/coverage, conditional Kumar comparison, qualified HER protocol and literal bylines. Immediate-before hash 5069c5d1f6791ddf8c73a0cd56f80de2e0eb12ff6bf16fbefc3d9d1ff4191c32; current hash e1b8c251826ae2d139adc35a41d94c00c140e27a74d7dc22ac63a0ac85782ed6. Exact source and endpoint bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/row-integration.json and applied-product-endpoints.json. Sources: https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/1603.02199v4 ; https://ar5iv.labs.arxiv.org/html/2109.11978 ; https://ar5iv.labs.arxiv.org/html/1812.11103 ; https://ar5iv.labs.arxiv.org/html/1806.10293 ; https://arxiv.org/pdf/2204.05618 ; https://arxiv.org/pdf/1707.01495 ; https://arxiv.org/pdf/2005.01643 ; https://arxiv.org/pdf/2309.10150. Illustrative toy arithmetic is unchanged; no whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-source-closeouts-20260908-7",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "31131fdea3f2edd57e6849c2076506510645724575b8112347c5f7a0fe0258f5",
+      "reason": "Sixteen source-bound RL corrections: scoped campaign units/interventions, offline training/coverage, conditional Kumar comparison, qualified HER protocol and literal bylines. Immediate-before hash 903c86c1741dff258d369946b200b87efc631e5c33982180829039349968e127; current hash 31131fdea3f2edd57e6849c2076506510645724575b8112347c5f7a0fe0258f5. Exact source and endpoint bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/row-integration.json and applied-product-endpoints.json. Sources: https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/1603.02199v4 ; https://ar5iv.labs.arxiv.org/html/2109.11978 ; https://ar5iv.labs.arxiv.org/html/1812.11103 ; https://ar5iv.labs.arxiv.org/html/1806.10293 ; https://arxiv.org/pdf/2204.05618 ; https://arxiv.org/pdf/1707.01495 ; https://arxiv.org/pdf/2005.01643 ; https://arxiv.org/pdf/2309.10150. Illustrative toy arithmetic is unchanged; no whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-source-closeouts-20260908-8",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9c9644600fe3193ec9e21a7511fcb5293e60894aab91d0f6f5a1aaafe69ba9b8",
+      "reason": "Sixteen source-bound RL corrections: scoped campaign units/interventions, offline training/coverage, conditional Kumar comparison, qualified HER protocol and literal bylines. Immediate-before hash 1e7e287ed05943c558a08a22c5435ac2b4415080f7b90431b199cbd6b9f08d19; current hash 9c9644600fe3193ec9e21a7511fcb5293e60894aab91d0f6f5a1aaafe69ba9b8. Exact source and endpoint bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/row-integration.json and applied-product-endpoints.json. Sources: https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/1603.02199v4 ; https://ar5iv.labs.arxiv.org/html/2109.11978 ; https://ar5iv.labs.arxiv.org/html/1812.11103 ; https://ar5iv.labs.arxiv.org/html/1806.10293 ; https://arxiv.org/pdf/2204.05618 ; https://arxiv.org/pdf/1707.01495 ; https://arxiv.org/pdf/2005.01643 ; https://arxiv.org/pdf/2309.10150. Illustrative toy arithmetic is unchanged; no whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-source-closeouts-20260908-9",
+      "manifest": "article-metadata",
+      "memberId": "citation:her-2017",
+      "oldHash": "ce5abecf3aaa481c8494b0b3d34ef904b8e5b038aab031637df862a23bd75dec",
+      "newHash": "a754b46746fece4de7fbac85078b63a10e4b7614118929fafb6e331c30bdfda1",
+      "reason": "Sixteen source-bound RL corrections: scoped campaign units/interventions, offline training/coverage, conditional Kumar comparison, qualified HER protocol and literal bylines. Immediate-before hash ce5abecf3aaa481c8494b0b3d34ef904b8e5b038aab031637df862a23bd75dec; current hash a754b46746fece4de7fbac85078b63a10e4b7614118929fafb6e331c30bdfda1. Exact source and endpoint bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/row-integration.json and applied-product-endpoints.json. Sources: https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/1603.02199v4 ; https://ar5iv.labs.arxiv.org/html/2109.11978 ; https://ar5iv.labs.arxiv.org/html/1812.11103 ; https://ar5iv.labs.arxiv.org/html/1806.10293 ; https://arxiv.org/pdf/2204.05618 ; https://arxiv.org/pdf/1707.01495 ; https://arxiv.org/pdf/2005.01643 ; https://arxiv.org/pdf/2309.10150. Illustrative toy arithmetic is unchanged; no whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-source-closeouts-20260908-10",
+      "manifest": "article-metadata",
+      "memberId": "citation:levine-hand-eye-2016",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8e1d33f7c1f8ffc8e0446f00e45c2305cd670aa7566c27e1750e27c7eb8cfd5f",
+      "reason": "Sixteen source-bound RL corrections: scoped campaign units/interventions, offline training/coverage, conditional Kumar comparison, qualified HER protocol and literal bylines. Immediate-before hash absent; current hash 8e1d33f7c1f8ffc8e0446f00e45c2305cd670aa7566c27e1750e27c7eb8cfd5f. Exact source and endpoint bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/row-integration.json and applied-product-endpoints.json. Sources: https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/1603.02199v4 ; https://ar5iv.labs.arxiv.org/html/2109.11978 ; https://ar5iv.labs.arxiv.org/html/1812.11103 ; https://ar5iv.labs.arxiv.org/html/1806.10293 ; https://arxiv.org/pdf/2204.05618 ; https://arxiv.org/pdf/1707.01495 ; https://arxiv.org/pdf/2005.01643 ; https://arxiv.org/pdf/2309.10150. Illustrative toy arithmetic is unchanged; no whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-source-closeouts-20260908-11",
+      "manifest": "article-metadata",
+      "memberId": "citation:q-transformer-2023",
+      "oldHash": "4953d37e15172afae4d02b81c11b6cf1d63dc4c3704290859b0871eef53e8285",
+      "newHash": "2f23c492252279df8103d8e2a7299f5644b844bf759239b6e5efe2f3a95adf9b",
+      "reason": "Sixteen source-bound RL corrections: scoped campaign units/interventions, offline training/coverage, conditional Kumar comparison, qualified HER protocol and literal bylines. Immediate-before hash 4953d37e15172afae4d02b81c11b6cf1d63dc4c3704290859b0871eef53e8285; current hash 2f23c492252279df8103d8e2a7299f5644b844bf759239b6e5efe2f3a95adf9b. Exact source and endpoint bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-campaign-offline-her-integration-20260908/row-integration.json and applied-product-endpoints.json. Sources: https://arxiv.org/pdf/2206.14176v1 ; https://arxiv.org/pdf/1603.02199v4 ; https://ar5iv.labs.arxiv.org/html/2109.11978 ; https://ar5iv.labs.arxiv.org/html/1812.11103 ; https://ar5iv.labs.arxiv.org/html/1806.10293 ; https://arxiv.org/pdf/2204.05618 ; https://arxiv.org/pdf/1707.01495 ; https://arxiv.org/pdf/2005.01643 ; https://arxiv.org/pdf/2309.10150. Illustrative toy arithmetic is unchanged; no whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

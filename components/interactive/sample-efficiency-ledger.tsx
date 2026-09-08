@@ -9,7 +9,6 @@ import {
   FLEET_SPEC,
   OFFLINE_ONLY_ABOVE_HOURS,
   ON_POLICY_MAX_HOURS,
-  QT_OPT_STEPS_PER_ROBOT_SECOND,
   ROBOT_STEPS_PER_SECOND,
   SIM_STEPS_PER_SECOND,
   computeLedger,
@@ -25,22 +24,9 @@ import { CiteRef } from '@/components/mdx/cite-ref';
 import { cx } from '@/lib/utils';
 
 /**
- * SampleEfficiencyLedger: one environment-step budget, converted into
- * wall-clock time under three samplers, on one shared log timeline.
- *
- * The teaching move is the source selector rather than the budget slider.
- * A budget that is minutes of GPU simulation is months or years of a real
- * robot's life, and the verdict readout names what that costs: below the
- * feasibility line the on-policy family is simply unavailable, whatever
- * its other merits. Sample efficiency is a constraint on which algorithms
- * exist for you, and the reader derives that by switching sources.
- *
- * Honesty of the drawing, per the house precedent set by
- * training-time-chart and control-loop-budget: the anchor marks are
- * measured figures from papers, each with a visible label and a citation
- * chip in the caption. The three source lanes are MODELLED conversions of
- * one rate, labelled as such on the chart itself, because a constant rate
- * is an idealisation of every campaign in the anchor set.
+ * Constant-rate budget illustration. The lanes and family bands are toy
+ * outputs, not measured campaign times or algorithm-eligibility rules.
+ * Paper anchors retain their original units, bounds and setup qualifiers.
  */
 
 const WIDTH = 660;
@@ -223,7 +209,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Wall-clock time to spend ${formatSteps(ledger.budgetSteps)} environment steps under each data source, on a shared logarithmic timeline against measured anchor runs. Selected source: ${ledger.selected.label} at ${formatDuration(ledger.selected.seconds)}.`}
+        aria-label={`Modelled wall-clock time for ${formatSteps(ledger.budgetSteps)} environment steps under constant-rate assumptions. Paper anchors include different units, bounds and approximate durations, not matched benchmark runs. Selected model: ${ledger.selected.label} at ${formatDuration(ledger.selected.seconds)}.`}
         aria-describedby={descriptionId}
         data-testid="sample-chart"
         className="mt-4 block w-full"
@@ -256,10 +242,10 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
           fontSize={10}
           fontFamily="var(--font-mono)"
         >
-          offline only
+          toy offline band
         </text>
 
-        {/* Measured anchors: a tick down from the top plus a visible label. */}
+        {/* Paper anchors: numeric placement with original units and bounds in labels/caption. */}
         {anchorsByTime.map((anchor, i) => {
           const markX = x(anchor.seconds);
           const placement = labelPlacement(markX, anchor.label);
@@ -303,7 +289,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
           fontSize={9.5}
           fontFamily="var(--font-mono)"
         >
-          measured runs, from the papers
+          paper-reported durations and bounds
         </text>
 
         {/* One lane per source: a bar from 1 s to the converted wall-clock. */}
@@ -402,7 +388,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
       </div>
 
       <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
-        <span className="text-text-dim">wall clock</span>{' '}
+        <span className="text-text-dim">model wall clock</span>{' '}
         <span data-testid="sample-wallclock-readout" className="text-text">
           {formatDuration(ledger.selected.seconds)}
         </span>{' '}
@@ -412,7 +398,7 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
             ? `${ledger.slowdownVsSim.toFixed(1)}x`
             : `${Math.round(ledger.slowdownVsSim).toLocaleString('en-US')}x`}
         </span>{' '}
-        <span className="text-text-dim">verdict</span>{' '}
+        <span className="text-text-dim">toy band</span>{' '}
         <span data-testid="sample-verdict-readout" className={verdictTone}>
           {ledger.selected.verdict.label}
         </span>
@@ -420,10 +406,10 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
         <span data-testid="sample-provenance-note">
-          Spending {formatSteps(ledger.budgetSteps)} steps through{' '}
+          In this toy, {formatSteps(ledger.budgetSteps)} steps through{' '}
           {ledger.selected.label} at{' '}
           {formatRate(ledger.selected.stepsPerSecond)} takes{' '}
-          {formatDuration(ledger.selected.seconds)}, which admits{' '}
+          {formatDuration(ledger.selected.seconds)}. Illustration: {' '}
           {ledger.selected.verdict.exemplars}.
         </span>
       </p>
@@ -432,33 +418,33 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
         data-testid="sample-simplification-label"
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
       >
-        What is modelled rather than measured, stated rather than hidden:
-        the anchor marks along the top are wall-clock figures the papers
-        report, but the three lanes are conversions of one constant
-        collection rate per source, so anything between two anchors is the
-        model talking, not a measurement. Fleet scaling is the most
-        optimistic part of it. Multiplying one robot&apos;s rate by N assumes
-        perfect parallelism, and the largest real campaign in the anchor
-        set ran at about {QT_OPT_STEPS_PER_ROBOT_SECOND.toFixed(1)} steps
-        per robot-second against the{' '}
-        {Math.round(ROBOT_STEPS_PER_SECOND)} steps per second the
-        single-robot lane uses, because episodic grasping carries reset and
-        handling overhead that continuous walking does not. The two verdict
-        boundaries, one hour and{' '}
-        {OFFLINE_ONLY_ABOVE_HOURS} hours, are editorial thresholds drawn
-        from what the literature actually attempted, not results.
+        What is modelled rather than measured: the three lanes use constant
+        illustrative rates. The simulation constant is 122,880 steps/s,
+        computed at Rudin&apos;s 1,200-second boundary; the reported run
+        implies a strictly greater end-to-end average, not an exact measured
+        rate of 122,880. The single-robot constant is approximately 22.2
+        steps/s from Minitaur&apos;s whole training process, not its rollout
+        control rate. Neither constant predicts arbitrary tasks or robots.
+        Fleet scaling assumes perfect parallelism. QT-Opt&apos;s evaluation
+        protocol allows up to 20 steps per grasp attempt; that cap is not a
+        measured mean and does not establish a campaign step rate from
+        grasp totals and robot-hours. No QT-Opt steps-per-robot-second value
+        is presented here as measured. Robot-hours are not parallel wall time.
+        The one-hour and {OFFLINE_ONLY_ABOVE_HOURS}-hour boundaries are
+        editorial thresholds for this toy, not scientific algorithm-eligibility
+        limits. The bands do not rule algorithms in or out.
       </p>
 
       <ChartDescription
         id={descriptionId}
         className="mt-3"
         form="table"
-        summary="Wall-clock cost of this budget under each source"
+        summary="Modelled wall-clock cost of this budget under each source"
         rowHeader="data source"
         columns={[
-          { header: 'steps/s', numeric: true },
-          { header: 'wall clock', numeric: true },
-          { header: 'admits' },
+          { header: 'model steps/s', numeric: true },
+          { header: 'model wall clock', numeric: true },
+          { header: 'toy band' },
         ]}
         rows={ledger.rows.map((row) => ({
           label: row.label,
@@ -468,25 +454,34 @@ export function SampleEfficiencyLedger({ className }: { className?: string }) {
             row.verdict.label,
           ],
         }))}
-        description={`A budget of ${formatSteps(ledger.budgetSteps)} environment steps costs ${formatDuration(ledger.rows[0]!.seconds)} of wall clock in massively parallel simulation and ${formatDuration(ledger.rows[1]!.seconds)} on a single real robot, a factor of ${Math.round(SIM_STEPS_PER_SECOND / ROBOT_STEPS_PER_SECOND).toLocaleString('en-US')} apart at every budget, so the experiment the simulator runs in the ${ledger.rows[0]!.verdict.family} regime leaves the hardware in the ${ledger.rows[1]!.verdict.family} regime instead; a fleet of ${params.fleetSize} robots lands at ${formatDuration(ledger.rows[2]!.seconds)}, still ${ledger.rows[2]!.verdict.family}.`}
+        description={`In the constant-rate toy, ${formatSteps(ledger.budgetSteps)} environment steps take ${formatDuration(ledger.rows[0]!.seconds)} of model wall clock in massively parallel simulation, ${formatDuration(ledger.rows[1]!.seconds)} on one robot and ${formatDuration(ledger.rows[2]!.seconds)} on a fleet of ${params.fleetSize}. The single-robot-to-simulation duration ratio is ${Math.round(SIM_STEPS_PER_SECOND / ROBOT_STEPS_PER_SECOND).toLocaleString('en-US')}. Their toy bands are ${ledger.rows[0]!.verdict.family}, ${ledger.rows[1]!.verdict.family} and ${ledger.rows[2]!.verdict.family}; these are editorial categories, not algorithm eligibility.`}
       />
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        Anchors, left to right: ANYmal flat terrain in under four minutes
-        and uneven terrain in twenty, both at 4,096 parallel environments on
-        one workstation GPU <CiteRef id="rudin-2021" />; an A1 quadruped
-        learning to roll over, stand and walk in one hour of real-world
-        training with no simulator and no resets{' '}
-        <CiteRef id="daydreamer-2022" />; a Minitaur learning to walk from
-        160,000 control steps, about two hours of real-world time{' '}
-        <CiteRef id="haarnoja-walk-2019" />; QT-Opt&apos;s 580,000 grasp
-        attempts across seven robots in about 800 robot hours{' '}
-        <CiteRef id="qt-opt-2018" />; and 800,000 grasps collected over two
-        months on between 6 and 14 arms{' '}
-        <CiteRef id="levine-hand-eye-2018" />. Worth trying: park the budget
-        where the simulation lane sits inside the first hour, then switch to
-        a single real robot and watch the same experiment cross into years.
-        Then raise the fleet to 100 and see how little of that it buys back.
+        Paper-reported durations, with different settings and units: Rudin
+        reports ANYmal flat-terrain training in under four minutes and uneven
+        terrain in twenty minutes on one workstation GPU. The separately
+        described simulation/deployment policy used 4,096 environments,
+        98,304 samples per update and 1,500 updates in under twenty minutes
+        on an i9-11900k CPU and RTX A6000 GPU <CiteRef id="rudin-2021" />;
+        DayDreamer reports one A1 run learning to roll over, stand and walk
+        in one hour without a simulator, with physical interventions at the
+        training-area boundary that preserved joint configuration and
+        orientation <CiteRef id="daydreamer-2022" />; Minitaur walking
+        required 160,000 control steps over about two hours of whole-process
+        training time <CiteRef id="haarnoja-walk-2019" />; QT-Opt reports
+        a 580,000-grasp off-policy dataset from seven robots over about
+        800 robot hours, separate from approximately 28,000 additional
+        on-policy fine-tuning grasps <CiteRef id="qt-opt-2018" />; and
+        section 5.2 of Levine&apos;s 2016 preprint reports about 800,000
+        grasp attempts over two months using 6–14 robots. Its abstract says
+        “over 800,000” and its introduction says “several months”
+        <CiteRef id="levine-hand-eye-2016" />. Robot-hours are not parallel
+        wall time. Bounds and approximate durations are plotted at their
+        stated numeric anchors; two months is drawn as 60 days for placement,
+        not as a measured elapsed-time conversion. These are not matched
+        benchmarks. Keep the modelled budget fixed while switching sources
+        or changing fleet size to inspect the toy assumptions.
       </p>
     </div>
   );

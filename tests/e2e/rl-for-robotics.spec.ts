@@ -260,6 +260,13 @@ test.describe('rl-for-robotics module', () => {
     expect(offline!.text).toMatch(/Kumar/);
     expect(offline!.citeIds).toContain('robomimic-2021');
     expect(offline!.citeIds).toContain('offline-rl-vs-bc-2022');
+    expect(offline!.text).toMatch(/coverage of the optimal policy/i);
+    expect(offline!.text).toMatch(/worst-case result/i);
+    expect(offline!.text).toMatch(/equal amount of expert data/i);
+    expect(offline!.text).toMatch(/simulated drawer-manipulation/i);
+    expect(offline!.text).toMatch(/offline tuning matters/i);
+    expect(offline!.text).toMatch(/editorial recommendation/i);
+    expect(offline!.text).toMatch(/not Kumar and colleagues' endorsement of BC/i);
 
     // And that comparison is signposted with its own subheading, so it is
     // a stated position rather than a clause buried mid-section.
@@ -286,6 +293,18 @@ test.describe('rl-for-robotics module', () => {
     expect(exploration, 'a section on exploration or relabelling').toBeDefined();
     expect(exploration!.text).toMatch(/hindsight/i);
     expect(exploration!.citeIds).toContain('her-2017');
+    expect(exploration!.text).toMatch(/recomputing the reward/i);
+    expect(exploration!.text).toMatch(/not restricted to failed episodes/i);
+    expect(exploration!.text).toMatch(/goals achieved later in the same episode/i);
+    expect(exploration!.text).toMatch(/Fetch arm simulated in MuJoCo/i);
+    expect(exploration!.text).toMatch(/squared-contact-penetration reward penalty/i);
+    expect(exploration!.text).toMatch(/half of its training episodes/i);
+    expect(exploration!.text).toMatch(/without real-robot fine-tuning/i);
+    expect(exploration!.text).toMatch(/achieved-goal mapping/i);
+    const herDefinition = page.locator(
+      '[data-term-id="hindsight-experience-replay"] [role="tooltip"]',
+    );
+    await expect(herDefinition).toContainText(/contact-penetration reward penalty/i);
   });
 
   test('switching from simulation to one robot changes the wall clock tenfold and the verdict family, at two budgets (VAL-RL-040)', async ({
@@ -345,7 +364,7 @@ test.describe('rl-for-robotics module', () => {
 
     // The measured region and the modelled region are labelled apart.
     await expect(page.getByTestId('sample-measured-label')).toHaveText(
-      /measured/i,
+      /paper-reported durations and bounds/i,
     );
     const modelled = page.getByTestId('sample-modelled-label');
     await expect(modelled).toHaveText(/modelled/i);

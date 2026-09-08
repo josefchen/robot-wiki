@@ -2283,8 +2283,7 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // 25 authors on the arXiv abs page; first four listed, house convention
-    // for large collaborations. CoRL 2023 per the paper's own listing.
+    // Full byline as printed in arXiv:2309.10150v2, including Jaspiar Singht.
     id: 'q-transformer-2023',
     title:
       'Q-Transformer: Scalable Offline Reinforcement Learning via Autoregressive Q-Functions',
@@ -2293,6 +2292,27 @@ export const CITATIONS: Citation[] = [
       'Quan Vuong',
       'Alex Irpan',
       'Karol Hausman',
+      'Fei Xia',
+      'Yao Lu',
+      'Aviral Kumar',
+      'Tianhe Yu',
+      'Alexander Herzog',
+      'Karl Pertsch',
+      'Keerthana Gopalakrishnan',
+      'Julian Ibarz',
+      'Ofir Nachum',
+      'Sumedh Sontakke',
+      'Grecia Salazar',
+      'Huong T Tran',
+      'Jodilyn Peralta',
+      'Clayton Tan',
+      'Deeksha Manjunath',
+      'Jaspiar Singht',
+      'Brianna Zitkovich',
+      'Tomas Jackson',
+      'Kanishka Rao',
+      'Chelsea Finn',
+      'Sergey Levine',
     ],
     year: 2023,
     venue: 'CoRL 2023',
@@ -2319,6 +2339,24 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Protocol source for the RL campaign claims: explicitly arXiv v4,
+    // 28 Aug 2016, four authors. This is not the five-author IJRR edition.
+    id: 'levine-hand-eye-2016',
+    title:
+      'Learning Hand-Eye Coordination for Robotic Grasping with Deep Learning and Large-Scale Data Collection',
+    authors: [
+      'Sergey Levine',
+      'Peter Pastor',
+      'Alex Krizhevsky',
+      'Deirdre Quillen',
+    ],
+    year: 2016,
+    venue: 'arXiv preprint (v4)',
+    arxiv: '1603.02199',
+    url: 'https://arxiv.org/pdf/1603.02199v4',
+    type: 'paper',
+  },
+  {
     // The journal version (IJRR 37(4-5), doi:10.1177/0278364917710318) whose
     // five-author byline adds Julian Ibarz to the four-author 2016 preprint;
     // cited by DOI because the journal record is the version being quoted.
@@ -2340,7 +2378,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // 10 authors on the arXiv abs page; first four listed. NIPS 2017 per DBLP.
+    // Full byline verified in arXiv 1707.01495v3 (23 February 2018).
+    // The first page identifies the conference publication as NIPS 2017.
     id: 'her-2017',
     title: 'Hindsight Experience Replay',
     authors: [
@@ -2348,6 +2387,12 @@ export const CITATIONS: Citation[] = [
       'Filip Wolski',
       'Alex Ray',
       'Jonas Schneider',
+      'Rachel Fong',
+      'Peter Welinder',
+      'Bob McGrew',
+      'Josh Tobin',
+      'Pieter Abbeel',
+      'Wojciech Zaremba',
     ],
     year: 2017,
     venue: 'NeurIPS 2017',

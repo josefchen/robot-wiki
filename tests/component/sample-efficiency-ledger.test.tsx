@@ -35,7 +35,7 @@ describe('SampleEfficiencyLedger', () => {
   it('labels the measured region and the modelled region separately', () => {
     render(<SampleEfficiencyLedger />);
     expect(screen.getByTestId('sample-measured-label')).toHaveTextContent(
-      /measured/i,
+      /paper-reported durations and bounds/i,
     );
     expect(screen.getByTestId('sample-modelled-label')).toHaveTextContent(
       /modelled/i,
@@ -45,11 +45,14 @@ describe('SampleEfficiencyLedger', () => {
     );
   });
 
-  it('discloses that fleet scaling is optimistic, with the measured counter-figure', () => {
+  it('separates model assumptions from paper measurements and an evaluation cap', () => {
     render(<SampleEfficiencyLedger />);
     const label = screen.getByTestId('sample-simplification-label');
     expect(label).toHaveTextContent(/perfect parallelism/i);
-    expect(label).toHaveTextContent(/per robot-second/i);
+    expect(label).toHaveTextContent(/not a measured mean/i);
+    expect(label).toHaveTextContent(/Robot-hours are not parallel wall time/i);
+    expect(label).toHaveTextContent(/bands do not rule algorithms in or out/i);
+    expect(label).not.toHaveTextContent(/ran at about 4\.0/i);
     expect(label).toHaveTextContent(/editorial thresholds/i);
   });
 

@@ -191,7 +191,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/sample-efficiency-ledger.tsx',
     route: '/rl-sim2real/rl-for-robotics/',
     quantityNames: ['wall clock', 'environment steps'],
-    text: 'A budget of 158M environment steps costs 21.5 min of wall clock in massively parallel simulation and 82.5 d on a single real robot, a factor of 5,530 apart at every budget, so the experiment the simulator runs in the on-policy regime leaves the hardware in the offline regime instead; a fleet of 7 robots lands at 11.8 d, still off-policy.',
+    text: 'In the constant-rate toy, 158M environment steps take 21.5 min of model wall clock in massively parallel simulation, 82.5 d on one robot and 11.8 d on a fleet of 7. The single-robot-to-simulation duration ratio is 5,530. Their toy bands are on-policy, offline and off-policy; these are editorial categories, not algorithm eligibility.',
   },
   {
     component: 'CollaborativeOperationModes',
