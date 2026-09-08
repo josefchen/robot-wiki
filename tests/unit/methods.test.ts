@@ -54,15 +54,32 @@ describe('METHODS data', () => {
     }
   });
 
-  it('keeps undisclosed Gemini cells null instead of guessed', () => {
+  it('keeps source-scoped unknown Gemini fields without hiding disclosed actions', () => {
+    const gr15 = METHODS.find((m) => m.id === 'gemini-robotics-15');
+    expect(gr15?.actionRepresentation).toBe('continuous');
+    expect(gr15?.actionRepresentationNote).toMatch(/v3 model card/);
+    expect(gr15?.openWeights).toBeNull();
+    expect(gr15?.weightsNote).toMatch(/inspected v3 technical report/);
+    expect(gr15?.backbone).toMatch(/separate GR-ER 1.5/);
+    expect(METHODS.find((m) => m.id === 'gemini-robotics-2')?.actionRepresentation).toBeNull();
     for (const id of ['gemini-robotics-15', 'gemini-robotics-2']) {
       const row = METHODS.find((m) => m.id === id);
       expect(row, `missing row ${id}`).toBeDefined();
-      expect(row?.actionRepresentation).toBeNull();
       expect(row?.controlFrequencyHz).toBeNull();
       expect(row?.actionHorizon.planned).toBeNull();
       expect(row?.actionHorizon.executed).toBeNull();
     }
+  });
+
+  it('scopes OFT horizons and command rate to the ALOHA experiment', () => {
+    const oft = METHODS.find((m) => m.id === 'openvla-oft');
+    expect(oft?.actionHorizon).toMatchObject({ planned: 25, executed: 25 });
+    expect(oft?.actionHorizon.note).toMatch(/LIBERO separately predicts and executes 8/);
+    expect(oft?.controlFrequencyHz).toBe(25);
+    expect(oft?.controlFrequencyNote).not.toMatch(/25-50 Hz class/);
+    expect(oft?.crossEmbodiment).toBe('limited');
+    expect(oft?.openWeights).toBe(true);
+    expect(oft?.weightsNote).toMatch(/license terms were not inspected/);
   });
 
   it('keeps Helix 02 horizon null and Skild fully undisclosed', () => {
@@ -78,7 +95,9 @@ describe('METHODS data', () => {
     expect(skild?.conditioning).toEqual([]);
     expect(skild?.crossEmbodiment).toBeNull();
     expect(skild?.hierarchy).toBeNull();
-    expect(skild?.openWeights).toBe(false);
+    expect(skild?.openWeights).toBeNull();
+    expect(skild?.weightsNote).toMatch(/January 14|Series C/);
+    expect(skild?.actionRepresentationNote).toMatch(/teleoperation data/);
   });
 
   it('excludes unverified control rates rather than stating them as fact', () => {
@@ -105,6 +124,22 @@ describe('METHODS data', () => {
     const groot = METHODS.find((m) => m.id === 'gr00t-n1-7');
     expect(groot?.actionHorizon.planned).toBe(40);
     expect(groot?.openWeights).toBe(true);
+  });
+});
+
+describe('Gemini 2 announcement scope', () => {
+  it('separates VLA inputs, external ER coordination and unpublished implementation fields', () => {
+    const row = METHODS.find((m) => m.id === 'gemini-robotics-2');
+    expect(row?.conditioning).toEqual(['vision', 'language']);
+    expect(row?.hierarchy).toBe('external');
+    expect(row?.backbone).toBeNull();
+    expect(row?.actionRepresentation).toBeNull();
+    expect(row?.controlFrequencyHz).toBeNull();
+    expect(row?.actionHorizon.planned).toBeNull();
+    expect(row?.actionHorizon.executed).toBeNull();
+    expect(row?.openWeights).toBeNull();
+    expect(row?.weightsNote).toMatch(/Apollo 2 with Inspire/);
+    expect(row?.weightsNote).toMatch(/licensing terms are not disclosed/);
   });
 });
 

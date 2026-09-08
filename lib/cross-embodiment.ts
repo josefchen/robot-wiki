@@ -7,14 +7,14 @@
  * Sources (research/01-learned-manipulation-lineage.md):
  * - Padded shared action/state vector with per-embodiment normalization:
  *   pi0 (arXiv:2410.24164), also Octo (arXiv:2405.12213).
- * - Motion Transfer: Gemini Robotics 1.5 (arXiv:2510.03342). Named but
- *   not specified publicly; the latent rendering here is schematic.
+ * - Motion Transfer: Gemini Robotics 1.5 v3 (arXiv:2510.03342) describes
+ *   alignment and shared knowledge, not this illustrative slot layout.
  * - Shared relative end-effector action space across robot and human
  *   data: GR00T N1.7 (Isaac-GR00T repo), the mechanism that lets 20K
  *   hours of EgoScale human video enter pretraining directly.
  *
  * Data honesty: the shared vector width (32 slots), the motion latent
- * width (8), and the shared-EEF width (8) are illustrative renderings,
+ * width (3), and the shared-EEF width (8) are illustrative renderings,
  * labeled as such in the UI. The only sourced dims on display are the
  * humanoid's 29 state/action dims (GR00T N1, per its paper) and the
  * 20K-hour EgoScale figure (N1.7 README).
@@ -25,7 +25,7 @@ export const SHARED_WIDTH = 32;
 /**
  * Illustrative width of the Gemini motion-transfer latent group. Sized so
  * the widest embodiment (29 dims) plus the latent fits the strip exactly;
- * a compact bottleneck is the right intuition for a shared motion latent.
+ * this display choice is not evidence for a model bottleneck or latent size.
  */
 export const LATENT_DIMS = 3;
 /** Illustrative width of the shared relative-EEF delta space. */
@@ -106,7 +106,7 @@ export interface Strategy {
   caveat: string;
   /** Citation registry id backing the mechanism. */
   citationId: string;
-  /** True when the published description does not specify the mechanism. */
+  /** True when the source does not specify the illustrated internal layout. */
   underSpecified: boolean;
   /**
    * Verdict line for the summary readout: can egocentric human video
@@ -133,12 +133,12 @@ export const STRATEGIES: Record<StrategyId, Strategy> = {
     label: 'Motion transfer',
     proponent: 'Gemini Robotics 1.5',
     mechanism:
-      'A named architecture and training recipe that transfers motion knowledge between very different robots. Published ablations beat both single-embodiment training and multi-embodiment training without the recipe. The shared motion latent shown here is a schematic: the representation itself is not disclosed.',
+      'The v3 report describes a training recipe that aligns embodiments and extracts shared knowledge. Its generalization ablation compares single- and multi-embodiment GR 1.5 variants without Motion Transfer. The hatched blocks are an illustrative link, not a disclosed latent architecture.',
     caveat:
-      'Publicly under-specified. The report names Motion Transfer but discloses neither the representation nor whether human video participates.',
+      'Internal alignment details are not specified. The model card discloses continuous actions; the discussion says the architecture can learn from human and synthetic video without action annotations, while broader use remains future work.',
     citationId: 'gemini-robotics-15-2025',
     underSpecified: true,
-    humanVideoVerdict: 'human-video path not disclosed',
+    humanVideoVerdict: 'human-hand mapping not specified in this illustration',
   },
   'relative-eef': {
     id: 'relative-eef',
@@ -186,8 +186,8 @@ function row(active: number, latent: number, rest: SlotState): Slot[] {
  * - padded: the embodiment's native dims lead, the tail is zero-padding.
  *   The human hand has no slot at all (all blocked).
  * - motion-transfer: native dims lead, then the shared motion-latent
- *   group (schematic), then unused. The human-video path is undisclosed,
- *   so the hand row is fully blocked.
+ *   group (illustrative link), then unused. The hand-to-action mapping is
+ *   not modelled here; empty slots do not establish an impossible input.
  * - relative-eef: every embodiment, hand included, occupies the same
  *   leading EEF_SPACE_DIMS shared dims; nothing is zero-padded.
  */
@@ -253,8 +253,8 @@ export function rowSummary(
       sharesSpace: embodiment !== 'human-hand',
       note:
         embodiment === 'human-hand'
-          ? 'human-video path not disclosed'
-          : `${active} embodiment dims + ${latent} shared latent dims (schematic)`,
+          ? 'human-hand mapping not specified in this illustration'
+          : `${active} illustrative embodiment slots + ${latent} hatched link slots (not model dimensions)`,
     };
   }
   return {

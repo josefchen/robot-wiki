@@ -11,7 +11,7 @@
  *   paper: a public arXiv report with methods and experiments
  *   docs:  repository release notes (code and weights exist, prose is thin)
  *   blog:  a detailed lab blog, vendor-reported, no external replication
- *   press: press release only, vendor-reported, no technical documentation
+ *   press: company announcement; technical disclosure varies by source
  */
 
 export type ProvenanceTier = 'paper' | 'docs' | 'blog' | 'press';
@@ -28,7 +28,9 @@ export interface GeneralistRelease {
   /** Human-readable release date for labels. */
   dateLabel: string;
   /** Whether weights are downloadable. */
-  openWeights: boolean;
+  openWeights: boolean | null;
+  /** Source-scoped note required for an unknown availability value. */
+  weightsNote?: string;
   /** How the release is documented. */
   provenance: ProvenanceTier;
   /** One-line capability annotation shown on selection. */
@@ -106,11 +108,12 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     name: 'Gemini Robotics 1.5',
     org: 'Google DeepMind',
     released: '2025-10',
-    dateLabel: 'Oct 2025',
-    openWeights: false,
+    dateLabel: 'Oct 2025 report',
+    openWeights: null,
+    weightsNote: "Weight downloads and licensing terms are not disclosed in the inspected v3 technical report; this is not a closed-license finding.",
     provenance: 'paper',
     capability:
-      'Motion Transfer across embodiments and interleaved language thinking before acting; ER 1.5 orchestrates with a tunable thinking budget.',
+      'Report first submitted October 2, 2025; this date does not establish the release date. Motion Transfer and interleaved thinking in the VLA; a separate ER 1.5 orchestrator with a variable thinking-token budget.',
     citationId: 'gemini-robotics-15-2025',
   },
   {
@@ -143,11 +146,12 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     name: 'Skild Brain',
     org: 'Skild AI',
     released: '2026-01',
-    dateLabel: 'Jan 2026',
-    openWeights: false,
+    dateLabel: 'Jan 2026 announcement',
+    openWeights: null,
+    weightsNote: "Weight-download and licensing terms are not disclosed in the January 14, 2026 Series C announcement.",
     provenance: 'press',
     capability:
-      'An "omni-bodied" brain claim publicized alongside a $1.4B Series C; no paper, no weights, no benchmark results.',
+      "January 14, 2026 Series C: $1.4 billion raised at over $14 billion valuation. Omni-bodied capability is a company assertion. The announcement describes four training-data sources, not a full runtime architecture.",
     citationId: 'skild-series-c-2026',
   },
   {
@@ -193,21 +197,28 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     org: 'Google DeepMind',
     released: '2026-07',
     dateLabel: 'Jul 2026',
-    openWeights: false,
+    openWeights: null,
+    weightsNote: "The July 30 announcement provides AI Studio/private-preview access for ER 2 and early-access partnerships for VLA/On-Device; weight downloads and licensing terms are not disclosed.",
     provenance: 'blog',
     capability:
-      'Whole-body humanoid control feet-to-fingertips with 22-DoF hands; one checkpoint across three embodiment pairs.',
+      "July 30, 2026 announcement: VLA whole-body control; one checkpoint on Apollo 2 with SharpaWave, Apollo 2 with Inspire, and Franka Duo with Robotiq. Separate ER 2 and On-Device 2 roles.",
     citationId: 'gemini-robotics-2-2026',
   },
 ];
 
-export type OpenFilter = 'all' | 'open' | 'closed';
+export type OpenFilter = 'all' | 'open' | 'closed' | 'undisclosed';
+
+export function releaseWeightState(release: GeneralistRelease): Exclude<OpenFilter, 'all'> {
+  return release.openWeights === null ? 'undisclosed' : release.openWeights ? 'open' : 'closed';
+}
+
+export function releaseWeightLabel(release: GeneralistRelease): string {
+  return release.openWeights === null ? 'not disclosed' : release.openWeights ? 'downloadable' : 'not downloadable';
+}
 
 export function filterReleases(filter: OpenFilter): GeneralistRelease[] {
   if (filter === 'all') return [...GENERALIST_RELEASES];
-  return GENERALIST_RELEASES.filter((r) =>
-    filter === 'open' ? r.openWeights : !r.openWeights,
-  );
+  return GENERALIST_RELEASES.filter((release) => releaseWeightState(release) === filter);
 }
 
 /** Blog and press tiers are company communications with no external check. */

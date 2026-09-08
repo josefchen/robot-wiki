@@ -51,10 +51,12 @@ describe('ComparisonMatrix', () => {
         `${name} must show explicit not-disclosed markers`,
       ).toBeGreaterThan(0);
     }
-    // Gemini Robotics 1.5 publishes no architecture numbers at all: its
-    // horizon and frequency cells must not invent values.
+    // GR1.5's robot-command rate stays unknown. Its source-scoped note
+    // distinguishes the separate 5 Hz GR-ER success detector from VLA control.
     const gemini = rowNamed('Gemini Robotics 1.5') as HTMLElement;
-    expect(within(gemini).queryByText(/Hz/)).toBeNull();
+    const frequency = within(gemini).getAllByRole('cell')[4];
+    expect(within(frequency).getByText('not disclosed')).toBeInTheDocument();
+    expect(frequency).toHaveTextContent('5 Hz success-detection evaluation concerns GR-ER, not the VLA control loop');
   });
 
   it('sorts a numeric column in both directions with aria-sort', async () => {

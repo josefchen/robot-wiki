@@ -26,10 +26,9 @@ import { cx } from '@/lib/utils';
  * - Padded shared vector (pi0 family, Octo): every robot fills the leading
  *   dims of one shared vector and zero-pads the tail; the human hand has
  *   no slot.
- * - Motion transfer (Gemini Robotics 1.5): each robot routes through a
- *   shared motion latent. The mechanism is named but not disclosed, so
- *   the latent is drawn schematic and the mode carries an explicit
- *   under-specified flag.
+ * - Motion transfer (Gemini Robotics 1.5): the source describes alignment
+ *   and shared knowledge. Hatched link slots are not its internal architecture;
+ *   the flag identifies missing layout detail, not absent mechanism disclosure.
  * - Shared relative end-effector space (GR00T N1.7): every embodiment,
  *   human hand included, acts in the same delta space, which is what lets
  *   20K hours of EgoScale egocentric video enter pretraining directly.
@@ -82,7 +81,7 @@ function slotAria(state: SlotState): string {
     case 'active':
       return 'driven dim';
     case 'latent':
-      return 'shared latent dim (schematic)';
+      return 'illustrative link slot (not a model dimension)';
     case 'zeroed':
       return 'zero-padded dim';
     case 'blocked':
@@ -271,7 +270,7 @@ export function CrossEmbodimentStrategies({
           dashed outline: zero-padding
         </span>
         <span className="font-mono text-[10px] text-text-dim">
-          hatched: shared latent (schematic)
+          hatched: illustrative link, not model dimensions
         </span>
         <span className="font-mono text-[10px] text-text-dim">
           faint outline: unused
@@ -287,7 +286,7 @@ export function CrossEmbodimentStrategies({
           strategyId === 'padded'
             ? `Padded shared vector leaves human video unable to enter this space directly: the ${SHARED_WIDTH}-slot strips zero-pad unused dims on each of the ${EMBODIMENT_ORDER.length} bodies and leave the human hand with no slot at all.`
             : strategyId === 'motion-transfer'
-              ? `Motion transfer routes every body through a ${LATENT_DIMS}-dim shared latent that is publicly under-specified; human-video path not disclosed, so the hatched slots on the ${SHARED_WIDTH}-slot strips are schematic rather than a published mapping.`
+              ? `Motion Transfer is described as alignment and shared knowledge across robots. These ${SHARED_WIDTH}-slot strips add ${LATENT_DIMS} hatched link slots as an illustration, not a model latent. The empty hand row leaves its mapping unspecified; it does not establish that human video is unusable.`
               : `Shared relative end-effector space lets human video enter directly: 20,000 hours of EgoScale, because every embodiment including the human hand acts in the same ${EEF_SPACE_DIMS}-dim delta space.`
         }
         states={[
@@ -311,7 +310,7 @@ export function CrossEmbodimentStrategies({
             data-testid="underspecified-flag"
             className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-warn"
           >
-            publicly under-specified
+            internal layout not specified
           </p>
         )}
         <p className="font-sans text-xs leading-relaxed text-text">
@@ -338,8 +337,9 @@ export function CrossEmbodimentStrategies({
       <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
         The strip widths are illustrative renderings, not published
         architectures: the pi0 report specifies the padding and
-        normalization scheme but not a slot width, and Gemini does not
-        disclose the motion-transfer representation at all. The sourced
+        normalization scheme but not a slot width. Gemini describes Motion
+        Transfer at a high level, but not these slots or an internal latent
+        size; its model card does disclose continuous robot actions. The sourced
         figures are the humanoid&apos;s 29 dims (GR00T N1) and the 20,000
         hours of EgoScale video (GR00T N1.7 README).
       </p>

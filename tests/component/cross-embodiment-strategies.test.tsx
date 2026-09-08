@@ -64,15 +64,15 @@ describe('CrossEmbodimentStrategies', () => {
     expect(screen.queryAllByText(/zero-padded/)).toHaveLength(0);
   });
 
-  it('motion-transfer mode is flagged as publicly under-specified', () => {
+  it('motion-transfer mode distinguishes partial disclosure from its illustration', () => {
     render(<CrossEmbodimentStrategies />);
     fireEvent.click(strategyButton(/motion transfer/i));
     expect(screen.getByTestId('underspecified-flag')).toBeInTheDocument();
     for (const id of ['arm', 'bimanual', 'humanoid']) {
-      expect(screen.getByTestId(`row-${id}`)).toHaveTextContent(/latent/);
+      expect(screen.getByTestId(`row-${id}`)).toHaveTextContent(/not model dimensions/);
     }
     expect(screen.getByTestId('row-human-hand')).toHaveTextContent(
-      /not disclosed/i,
+      /mapping not specified in this illustration/i,
     );
   });
 

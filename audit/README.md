@@ -1,6 +1,41 @@
 # Content-integrity audit trail
 
-## Current performance and world-model checkpoint - 2026-09-08
+## Current OFT, Gemini and OXE checkpoint - 2026-09-08
+
+**252 complete / 742 incomplete / 994 original identities / 47 articles. 159 compound plans; 257 exact approval entries.** Immediate predecessor `d469f1d` was 235/759 with 142 plans and 214 approvals. This is a bounded local implementation checkpoint, not publication, whole-article certification or independent acceptance.
+
+Exactly **17 original manipulation records** are newly complete: VLA Models 11/18/19; Comparison Matrix 8/14/15/19; Generalist Policies 2-7/18; Hierarchical9; Cross-Embodiment5/6. All 994 identities, 977 unselected four-cell tuples, 235 previously complete records, 142 prior plans and 214 prior approvals are preserved. No old plan was replaced. Exact original/current history, reviewed plan digests and per-part adjudications are retained. Current article counts: {"comparison-matrix": {"complete": 22, "total": 25}, "cross-embodiment": {"complete": 2, "total": 11}, "generalist-policies": {"complete": 7, "total": 21}, "hierarchical": {"complete": 1, "total": 16}, "vla-models": {"complete": 3, "total": 21}}. P1 remains held; no lastReviewed date changed.
+
+**Zero new retrievals.** The three completed packet plan/index hashes, 52 literal passage bindings across12 retained streams and the actual event/body identities were checked before reuse. Nine GR2 main-text passages were additionally re-parsed from its 179,578-byte original HTML; numeric chart alt text is literal HTML, not OCR. OXE FetchUrl PDF-derived text is not a downloaded binary or local conversion. Original source versions, request/result events, tool-reported versus origin statuses, capture times and current review times remain distinct. Eight unproved auxiliary OXE bindings and 82 held P1 prerequisites were excluded.
+
+OFT v2 keeps 97.1% LIBERO with added wrist/proprio inputs separate from the A100100-query one-image109.7/4.2 actions/s result and71.4 added-input throughput. ALOHA25Hz/predict-execute25 and partial scoring differ from LIBERO8 and binary success. L195.3% versus diffusion95.4% is setup-specific, not a universal explanation for diffusion. The source's Related Work ms labels conflict with TableII/III seconds; both literal contexts remain in `provenance-recheck.json`.
+
+GR1.5 v3 explicitly discloses continuous actions, internal thinking and high-level Motion Transfer while retaining a separate GR-ER orchestrator. Shared-checkpoint transfer differs from additional Franka post-training. The illustration's empty human-hand row is an unmodelled local mapping, not human-video impossibility. October2,2025 is report submission. GR2's July30,2026 announcement distinguishes three model roles and three named checkpoint configurations; Inspire category averages76.3/68.4/45.7 differ from Sharpa individual-task92/44/40/32. Adaptation-time/example qualifiers and unknown denominators remain. Skild's January14 announcement reports1.4B raised at **over14B**, attributes the omni-bodied claim, and names simulation/Internet video/teleoperation/deployments; torque data is not a runtime head disclosure.
+
+OXE v9 distinguishes22 full-pool embodiments from nine training embodiments,21 abstract institutions from60datasets/34labs, small-data gains from large-data underperformance, and emergent RT2X transfer from roughly-on-par generalization. Exact ordered bibliographic arrays match primary text: OXE collaboration+293individuals (**294**); GR1.5 team+172individuals (**173**). GR1.5's abstract omits Robert Baruch; both accounts remain explicit. GR2 byline is Carolina Parada; Skild is Announcing Series C / Skild AI Team. Existing eight-author truncation and keyboard expansion are reused.
+
+| Check | Actual result |
+|---|---|
+| Red first | 16 failed /45passed against unchanged production; all failed attempts retained |
+| Focused unit/component | **207 distinct cases have final-relevant passing results**, including77 unchanged strict-audit cases and22-row per-part evidence-removal mutations |
+| Full lint / nonincremental TypeScript | Exit0; final two test edits additionally pass scoped lint and nonincremental TypeScript |
+| Content | Exit1: **749 findings**, down17; nine separately owned citation-check gaps unchanged. Existing ledger-summary mismatch remains a failure, not suppressed |
+| Baseline | Exit1: **52 failures**, all52 predecessor objects unchanged; exactly two scoped interactive-source failures removed, zero added |
+| Browser | 16routes ×375x812/1440x900 =32distinct cases; **27 final-relevant passes /5remain red**, not one all-green run. Missing inline OXE chips on comparison/generalization at both widths; GR2 mobile tooltip overflow on generalization/reliability |
+| Cards | Sanctioned generator47article+1site; check48cards/96public-exportfiles identical. Only VLA reference-count card changes9→8; committed triple accounting is sealed after commit |
+| Production/full corpus/independent | Not run; red content prerequisite remains binding |
+
+All checks were sequential with `NODE_DISABLE_COMPILE_CACHE=1`; exact UTC command/exit/log hashes are in `audit/oft-gemini-oxe-20260908-commands.json`. Final-relevant browser coverage completes matrix values/unknown filters/keyboard scrolling/reset, three-way timeline availability and report-date labels, Motion Transfer selection/readout/reset, and full author expansion/collapse/focus on affected consumers. Page errors, KaTeX errors, document bounds and Axe assertions pass where reached; console-error events were not instrumented. Soft missing-chip assertions retain failing test exits while allowing remaining states to be inspected; no assertion was removed or weakened.
+
+**40 selected captures inspected** (32route tops in four sheets, eight direct detail/failure images), plus the changed card.158 final-relevant captures are retained;118 were not directly visually inspected. The first VLA/OFT tooltip's measured mobile right-edge394 was corrected to276 by moving only its unchanged chip to the same paragraph start. Two collateral GR2 tooltips remain outside375px: generalization406, reliability471. Dense table/byline screenshots are bounded scroll views, not whole-widget/full-list simultaneous certification. No shared citation primitive or unrelated article prose was changed.
+
+Comparison1/P1, cross11, taxonomy4, nine citation gaps, market-map exact14B oracles, Pi January crowding, citation Back-focus, current ledger-summary mismatch, broader source debt and full visual/production/independent checks remain open. No feature acceptance or Mission progress change;307/331 remains inherited. The35-minute target was exceeded; wall time is recorded without inventing active time.
+
+PRODUCT_QUALITY.md, qa/, next-env.d.ts, owner work, immutable baselines, strict audit code and ancestor commits d282a83/2cf7d6b are preserved. The owned loopback server was stopped and only its two proven generated declaration imports restored from before bytes. No push/deployment, new retrieval, dependency/security/configuration change, cleanup, controller/new Mission, model switch or credit fallback occurred. Actual emitted assistant metadata establishes custom:droidproxy:gpt-6-astra/max; no role-specific exhaustion was observed. Content-auditor instructions were read from the Mission because invocation was unavailable; no independent-validation role is claimed.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-oft-gemini-oxe-integration-20260908`. Source/provenance, full authors, original/current tuples, exact member hashes, preservation, failure differences, capture inspection, commit-matched owned hashes and local commit ID are retained in `source-proof.json`, `provenance-recheck.json`, `identity-proof.json`, `row-history.json`, `member-changes.json`, `preservation.json`, `content-failure-difference.json`, `baseline-difference.json`, `visual-inspection.json`, `card-triples.json`, `handoff.json` and `artifact-index.json`.
+
+## Historical: performance and world-model checkpoint - 2026-09-08
 
 **235 complete / 759 incomplete / 994 original identities / 47 articles. 142 compound plans; 214 exact approval entries.** Immediate predecessor `89a31e5` was 215/779, with 121 plans and 198 approvals. This is a bounded local implementation checkpoint, not publication, whole-article certification or independent acceptance.
 

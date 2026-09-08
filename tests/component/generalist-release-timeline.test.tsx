@@ -23,10 +23,10 @@ describe('GeneralistReleaseTimeline', () => {
     expect(legend).toHaveTextContent(/press release/i);
   });
 
-  it('the open filter hides closed entries and the closed filter hides open ones', async () => {
+  it('download and undisclosed filters preserve distinct availability states', async () => {
     const user = userEvent.setup();
     render(<GeneralistReleaseTimeline />);
-    await user.click(screen.getByRole('button', { name: /^open$/i }));
+    await user.click(screen.getByRole('button', { name: /^downloadable$/i }));
     expect(
       screen.queryByRole('button', { name: /^Gemini Robotics 1\.0$/i }),
     ).not.toBeInTheDocument();
@@ -39,7 +39,7 @@ describe('GeneralistReleaseTimeline', () => {
     expect(screen.getByTestId('release-track')).toHaveTextContent(
       `${GENERALIST_RELEASES.filter((r) => r.openWeights).length} of ${GENERALIST_RELEASES.length} shown`,
     );
-    await user.click(screen.getByRole('button', { name: /^closed$/i }));
+    await user.click(screen.getByRole('button', { name: /^not disclosed$/i }));
     expect(
       screen.queryByRole('button', { name: /^GR00T N1$/i }),
     ).not.toBeInTheDocument();
@@ -96,7 +96,7 @@ describe('GeneralistReleaseTimeline', () => {
     const user = userEvent.setup();
     render(<GeneralistReleaseTimeline />);
     await user.click(screen.getByRole('button', { name: /^Helix$/i }));
-    await user.click(screen.getByRole('button', { name: /^open$/i }));
+    await user.click(screen.getByRole('button', { name: /^downloadable$/i }));
     expect(screen.getByTestId('release-detail')).toHaveTextContent('GR00T N1');
   });
 
@@ -114,10 +114,22 @@ describe('GeneralistReleaseTimeline', () => {
     expect(moved).toMatch(/selected is GR00T N1/);
   });
 
+  it('renders an unknown as not disclosed rather than closed and exposes its source scope', async () => {
+    const user = userEvent.setup();
+    render(<GeneralistReleaseTimeline />);
+    await user.click(screen.getByRole('button', { name: /^not disclosed$/i }));
+    const skild = screen.getByRole('button', { name: /^Skild Brain$/i });
+    expect(skild).toHaveAttribute('data-status', 'undisclosed');
+    await user.click(skild);
+    expect(screen.getByTestId('release-detail')).toHaveTextContent('weights: not disclosed');
+    expect(screen.getByTestId('release-detail')).toHaveTextContent(/January 14, 2026/);
+    expect(screen.getByTestId('release-detail')).not.toHaveTextContent('closed weights');
+  });
+
   it('reset restores the default filter and selection', async () => {
     const user = userEvent.setup();
     render(<GeneralistReleaseTimeline />);
-    await user.click(screen.getByRole('button', { name: /^closed$/i }));
+    await user.click(screen.getByRole('button', { name: /^not disclosed$/i }));
     await user.click(screen.getByRole('button', { name: /^Skild Brain$/i }));
     await user.click(screen.getByRole('button', { name: /reset/i }));
     expect(screen.getByRole('button', { name: /^all$/i })).toHaveAttribute(

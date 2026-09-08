@@ -15,7 +15,6 @@ citations:
   - openvla-oft-2025
   - knowledge-insulation-2025
   - oxe-quality-critique-2026
-  - act-aloha-2023
 seeAlso:
   - "manipulation/pi-line"
   - "manipulation/cross-embodiment"
@@ -53,7 +52,7 @@ The payoff was emergent capability: generalization to objects never seen in robo
 
 ## Open X-Embodiment and RT-X: pooling the data
 
-By 2023 every robot lab had its own small dataset in its own format, and no one could test whether one model could serve many robots. The <Term id="open-x-embodiment">Open X-Embodiment</Term> collaboration pooled 22 embodiments from 21 institutions into a single standardized format: over 1M real robot trajectories covering 527 skills (160,266 tasks) <Cite id="open-x-embodiment-2023" />. Models trained on the pool (RT-1-X, RT-2-X) outperformed their single-embodiment counterparts, the first large-scale evidence of positive <Term id="cross-embodiment">cross-embodiment</Term> transfer <Cite id="open-x-embodiment-2023" />.
+<Term id="open-x-embodiment">Open X-Embodiment</Term> pooled more than one million real robot trajectories spanning **22 embodiments**, **527 skills**, and **160,266 tasks** <Cite id="open-x-embodiment-2023" />. The report’s abstract names **21 contributing institutions**; Section III-A separately describes 60 constituent datasets from 34 research labs. These differently labelled populations should not be treated as interchangeable counts. The RT-1-X and RT-2-X experiments used a **nine-embodiment training subset**, not all 22 embodiments. Transfer depended on the model and evaluation: RT-1-X improved over the original methods on four of five small-data domains but underperformed the domain-specific RT-1 baseline in the large-data setting. RT-2-X acquired additional Google Robot skills from WidowX Bridge data, while performing roughly on par with RT-2 on the tested unseen-object, background, and environment generalization. These results support <Term id="cross-embodiment">cross-embodiment</Term> transfer in the evaluated settings, not a claim that every pooled model outperformed every single-embodiment baseline.
 
 Treat the dataset as infrastructure, not ground truth. The constituent datasets vary widely in action spaces and control frequencies, and by 2026 a common critique holds that much of the pooled data is low quality, with no good method for quantifying data quality in imitation learning <Cite id="oxe-quality-critique-2026" />. Nearly every generalist policy below trains on it anyway, for lack of an alternative.
 
@@ -69,10 +68,16 @@ OpenVLA replicates the RT-2 recipe on public data <Cite id="openvla-2024" />. Th
 
 The cost structure is visible in the token stream of the figure at the top of this module: because the tokens are produced autoregressively, one 7-dim action costs 7 sequential decode passes through the full model. For OpenVLA that is 7 passes through a 7B network per control step, which puts practical control rates in the single-digit Hz. The measured numbers agree, and both are stated in the papers: the largest RT-2 model, the 55B PaLI-X variant served from a cloud TPU service, runs at 1 to 3 Hz, and its 5B version at around 5 Hz <Cite id="rt2-2023" />; OpenVLA runs at approximately 6 Hz on a single RTX 4090, without compilation or speculative decoding <Cite id="openvla-2024" />. Compare the 50 Hz loop of [ACT](/manipulation/action-chunking): a discrete-token VLA is an order of magnitude too slow for the control frequencies dexterous manipulation assumes.
 
-OpenVLA-OFT (2025) is the cleanest demonstration that the representation, not the model quality, was the bottleneck <Cite id="openvla-oft-2025" />. Its fine-tuning recipe changes three things at once: parallel decoding replaces autoregressive generation with a single forward pass that produces all action tokens at once under bidirectional attention; <Term id="action-chunking">action chunking</Term> predicts multiple future timesteps per call; and a continuous L1 regression head replaces the discrete tokens entirely (with FiLM language conditioning added for bimanual setups). The result on the LIBERO benchmark: average success rises from 76.5% to 97.1%, and action-generation throughput increases 26x, enough to run dexterous high-frequency tasks on a bimanual ALOHA <Cite id="openvla-oft-2025" />.
+<Cite id="openvla-oft-2025" /> OpenVLA-OFT (2025) studies how to adapt OpenVLA, rather than showing that representation alone determines policy quality. Its recipe combines bidirectional parallel decoding, <Term id="action-chunking">action chunking</Term>, continuous actions, and an L1-trained MLP action head. The ALOHA variant, OpenVLA-OFT+, also uses FiLM to strengthen language grounding.
 
-<Aside title="The L1 result cuts deeper than the speedup">
-  Once chunking and parallel decoding were in place, plain L1 regression was competitive with a diffusion head in the OFT ablations <Cite id="openvla-oft-2025" />. That suggests part of the advantage earlier attributed to diffusion heads came from the chunking those heads happened to ship with, not from the probabilistic modeling itself. ACT made the same point from the other direction in 2023: its regression baseline improves dramatically once it predicts chunks <Cite id="act-aloha-2023" />.
+The paper's LIBERO table reports 76.5% average success for the original fine-tuning recipe and 97.1% for OFT with an added wrist image and proprioceptive state. The average covers four ten-task suites; OFT is fine-tuned separately per suite, with 500 evaluation episodes per suite. The headline throughput result is a different input setting: on an A100, averaged over 100 one-image queries, L1 OFT generates 109.7 actions/s versus 4.2 for OpenVLA, about 26 times as many. With the added inputs used for the 97.1% result, throughput is 71.4 actions/s. These are action-generation rates, not robot-control frequencies. <Cite id="openvla-oft-2025" />
+
+The real ALOHA experiments use three images, robot state, and absolute joint targets at 25 Hz, reduced from the platform's original 50 Hz. OFT+ predicts and executes all 25 actions before replanning; LIBERO predicts and executes eight. The ALOHA tasks include folding clothes and language-directed scooping and object placement. They use partial-task-completion scoring, not the LIBERO binary-success protocol. <Cite id="openvla-oft-2025" />
+
+<Aside title="What the L1 ablation establishes">
+  In the one-image LIBERO comparison with parallel decoding and eight-step chunks, L1 OFT averages 95.3% success across the four suites, versus 95.4% for the diffusion variant. On LIBERO-Long the figures are 90.7% and 91.1%; the latter uses 50 denoising steps. The paper trains diffusion variants longer and reports slower convergence and inference. <Cite id="openvla-oft-2025" />
+
+  This is evidence about these fine-tuning experiments, not a general demonstration that diffusion's benefit comes from chunking. The authors use focused demonstrations with a consistent strategy per task and leave truly multimodal demonstrations and large-scale pretraining as open questions. <Cite id="openvla-oft-2025" />
 </Aside>
 
 ## Where this leaves the field
