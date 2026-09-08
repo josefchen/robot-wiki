@@ -6566,6 +6566,87 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "grs-eureka-reader-reward-design-mpc-prose-20260908",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "3cc02c9876910ad0d7d014a115979ae85b6a704d83138961e13cea26e1a0d3d1",
+      "reason": "Exact source-backed GRS/Eureka correction for originals generative-sim 11/12 and reward-design-mpc 9/10, with local paragraph/citation composition and two reproduced mobile-popup placement repairs. Two works, four URL representations; 25 required native source pairs and 27 used literal passages verified against retained bodies and original producer retrieval events. No new retrieval, citation union, review date, interactive fixture, shared renderer, or acceptance criterion changes. This exact prose member transition does not accept the full article, remaining Isaac records, visual foundations, or publication. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-simulation-remaining-reader-integration-20260908/source-proof.json; final-member-changes.json; popup-repair-endpoints.json; popup-green.receipt.json. Reader inspection remains partial and is separately disclosed.",
+      "ownerApproval": "Josef’s explicit “fix it all!” routine source-backed correction authority, as scoped by the existing mission owner brief and fixed sixteen-original integration assignment; not personal certification of these sources or independent acceptance.",
+      "responsibleMilestone": "brand-v2-social-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "grs-eureka-reader-generative-sim-prose-20260908",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3",
+      "newHash": "341695730cb6f14cefe7359cb09959b180a021bd448f19401383fb60f0f9e628",
+      "reason": "Exact source-backed GRS/Eureka correction for originals generative-sim 11/12 and reward-design-mpc 9/10, with local paragraph/citation composition and two reproduced mobile-popup placement repairs. Two works, four URL representations; 25 required native source pairs and 27 used literal passages verified against retained bodies and original producer retrieval events. No new retrieval, citation union, review date, interactive fixture, shared renderer, or acceptance criterion changes. This exact prose member transition does not accept the full article, remaining Isaac records, visual foundations, or publication. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-simulation-remaining-reader-integration-20260908/source-proof.json; final-member-changes.json; popup-repair-endpoints.json; popup-green.receipt.json. Reader inspection remains partial and is separately disclosed. Native approval binds the immutable baseline hash 0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3 to the final member; the separately guarded immediate pre-edit member was 8a6ebbedf15a219f873842492110efa85c89ff270a92d0c965e2e3fad791b844. The prior 327 approval objects remain unchanged.",
+      "ownerApproval": "Josef’s explicit “fix it all!” routine source-backed correction authority, as scoped by the existing mission owner brief and fixed sixteen-original integration assignment; not personal certification of these sources or independent acceptance.",
+      "responsibleMilestone": "brand-v2-social-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "grs-eureka-reader-reward-design-mpc-relationships-20260908",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "d76313aba3473a09012f12fef2c160ff8c6573549832150f316c0fa7cba5be88",
+      "newHash": "a3fab51e078f8e8e69ff14a2abfdd02969aedee42febf42cdfe9669507259193",
+      "reason": "Exact source-backed GRS/Eureka correction for originals generative-sim 11/12 and reward-design-mpc 9/10, with local paragraph/citation composition and two reproduced mobile-popup placement repairs. Two works, four URL representations; 25 required native source pairs and 27 used literal passages verified against retained bodies and original producer retrieval events. No new retrieval, citation union, review date, interactive fixture, shared renderer, or acceptance criterion changes. This exact relationships member transition does not accept the full article, remaining Isaac records, visual foundations, or publication. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-simulation-remaining-reader-integration-20260908/source-proof.json; final-member-changes.json; popup-repair-endpoints.json; popup-green.receipt.json. Reader inspection remains partial and is separately disclosed.",
+      "ownerApproval": "Josef’s explicit “fix it all!” routine source-backed correction authority, as scoped by the existing mission owner brief and fixed sixteen-original integration assignment; not personal certification of these sources or independent acceptance.",
+      "responsibleMilestone": "brand-v2-social-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "grs-eureka-reader-generative-sim-relationships-20260908",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "4205e6c9b9b4451ebe2f6743657ad89556d88721674996d40597559e6d4826d1",
+      "newHash": "4d2c6d20c58db938257fa7edc9bc95be13396dca48e10bb0bb759a8a9f25611b",
+      "reason": "Exact source-backed GRS/Eureka correction for originals generative-sim 11/12 and reward-design-mpc 9/10, with local paragraph/citation composition and two reproduced mobile-popup placement repairs. Two works, four URL representations; 25 required native source pairs and 27 used literal passages verified against retained bodies and original producer retrieval events. No new retrieval, citation union, review date, interactive fixture, shared renderer, or acceptance criterion changes. This exact relationships member transition does not accept the full article, remaining Isaac records, visual foundations, or publication. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-simulation-remaining-reader-integration-20260908/source-proof.json; final-member-changes.json; popup-repair-endpoints.json; popup-green.receipt.json. Reader inspection remains partial and is separately disclosed. Native approval binds the immutable baseline hash 4205e6c9b9b4451ebe2f6743657ad89556d88721674996d40597559e6d4826d1 to the final member; the separately guarded immediate pre-edit member was 2d6c88ef95c0a55126240079ba3d371f1f5d06193ddf9392d20e5b5f2c72bae9. The prior 327 approval objects remain unchanged.",
+      "ownerApproval": "Josef’s explicit “fix it all!” routine source-backed correction authority, as scoped by the existing mission owner brief and fixed sixteen-original integration assignment; not personal certification of these sources or independent acceptance.",
+      "responsibleMilestone": "brand-v2-social-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

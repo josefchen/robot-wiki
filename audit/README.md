@@ -1,5 +1,35 @@
 # Content-integrity audit trail
 
+## Current partial GRS/Eureka checkpoint — 2026-09-08
+
+**349 complete / 645 incomplete / 994 original identities / 47 articles. 255 compound plans; 331 exact approval entries.** Immediate predecessor `d050118` was 345/649 with 251 plans and 327 approvals. This is four applied originals from the fixed sixteen, not whole-article, visual, feature or publication acceptance. Formal Mission progress remains **307/331**.
+
+Applied originals are exactly **`audit/world-models.md:generative-sim:11/12` and `audit/rl-sim2real.md:reward-design-mpc:9/10`**. All 345 previously complete full records and all 990 unselected full records are preserved; only mechanically derived line numbers are excluded from comparison. All 251 prior plans, all 327 prior approval objects, protected owner files and commits `d282a83`/`2cf7d6b` are preserved. Four strict native AND plans and four exact prose/relationship approvals are appended. Two initially incorrect new approval bindings were corrected to immutable-baseline hashes; the failed run is retained and the baseline oracle is unchanged.
+
+**Twelve assigned Isaac originals remain unapplied, not missing-source-held:** generative-sim **10**; why-rl-locomotion **3/6**; parallel-sim-rl **8/9/10/16**; sim2real-transfer **2/8/12/13**; reward-design-mpc **15**. Held RoboCasa365 **4/9**, reward-design **11**, and whole-P1 gaps remain excluded.
+
+**Zero new retrievals.** The retained GRS/Eureka packet was verified offline: **15 embedded payloads, 34 verified literal passages, 27 used passages, 25 required source pairs, five source endpoints**. These are **two works with four URL representations**, not four independent works. GRS is inspected PDF `2410.15536v3`; Eureka is `2310.12931v2`. Original producer GET observations on 2026-09-08 were GRS **04:39:39.835618–04:39:40.466019 UTC** and Eureka **04:39:40.633359–04:39:41.697167 UTC**, not this worker's fetch dates. Landing-page HTTP status is tool-reported, not independently observed origin status. The registry and review dates are unchanged.
+
+GRS now distinguishes bounded RGB-D real-to-sim authoring, supplied assets, router/oracle repair, runtime-error exclusions and future transfer from guaranteed task solvability. Eureka distinguishes reward-code search from PPO, task fitness from human intent, interpretability from mandatory inspection, and headline statistics from detailed on-par results and the exact search/normalization protocol. A separate final manual source/prose read is recorded; no humanizer invocation or whole-article quality seal is claimed.
+
+| Check | Actual outcome |
+|---|---|
+| Source/tuple mutations | 20 missing/extra/duplicate/stale-URL/partial-only mutations rejected; real stale tuple digest failed before correction |
+| Focused unit | Initial 6 failed; final **6 passed**, after all prose/placement edits |
+| Normal lint / TypeScript | `npm run lint`, including prelint, exit 0; nonincremental TypeScript exit 0 |
+| Offline content | Exit 1: **650 findings**, down four; **nine separate citation gaps** unchanged. Exact message comparison removes 8 and adds 4, including aggregate/final-count messages |
+| Immutable baseline | Corrected run exit 1: **47 exact predecessor failure objects unchanged**, zero added or removed; initial 49-failure run retained |
+| Checked-in E2E | **4 distinct desktop/mobile cases passed** after two real mobile popup failures; repeated runs are not additional distinct coverage |
+| Reader evidence | **78 raw captures; 26 directly inspected; 52 uninspected. All 12 final local placement captures inspected. Partial, not accepted** |
+| Cards | **48 current public/export/d050118 PNG byte triples**, **47 native article-fact objects** and **17 renderer inputs** unchanged; no redundant generation |
+| Production / full corpus / independent | Not run; required at genuine closure, with both independent skip flags false |
+
+The initial 66 reader captures predate two local popup repairs and are not unqualified current whole-file proof. Remaining five-article reader debt, existing locked identity/device/palette/type/material failures and Back-focus BODY ownership are unchanged. Source-specific `<br />Source:` placement fixes do not modify shared citation components or interactive fixtures. The owned loopback server was stopped and exact original `next-env.d.ts` bytes restored. No push, deployment, source/network checker, baseline recapture, feature acceptance or credit fallback occurred.
+
+Evidence directory: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-simulation-remaining-reader-integration-20260908/`. Exact provenance, endpoints, receipts, reader inspection, preservation, final local commit and artifact closure are recorded there. The 35-minute target was exceeded; exact terminal wall time is in the checkpoint, active time unmeasured.
+
+## Historical predecessor checkpoints
+
 ## Current partial simulation-source checkpoint — 2026-09-08
 
 **345 complete / 649 incomplete / 994 original identities / 47 articles. 251 compound plans; 327 exact approval entries.** Immediate committed predecessor `bd576bb` was 337/657, with 243 plans and 325 approvals. This is an eight-record source-integration checkpoint, not completion of the assigned 24, whole-article acceptance, visual acceptance or publication. Formal Mission progress remains **307/331**.
