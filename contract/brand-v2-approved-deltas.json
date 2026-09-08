@@ -6836,6 +6836,48 @@
         "VAL-B2-BASE-002"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rl-correct-originals-20260908-prose",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "f3eeff488db5b1d89c05e6ac2348ed84d323d983546ebcd45966ea815032e03c",
+      "reason": "Retains prior Recap/DPPO/ConRFT and source-line repairs. Corrects only HIL-SERL6/RLDG8/Liu9/PAIR10 with retained source evidence: demo/comparator and evaluation denominators, six-hour exception, 18/28 dashboard conflict, mixed-stage data and40 percentage points, version-specific appendix counterexamples, and noncausal PAIR limits. Added article-local source lines preserve mobile chip geometry. Registry URLs are restored to their existing audited metadata endpoints; version-pinned PDF evidence remains in native plans. No aggregate11 or article acceptance credit.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, implemented under the parent's explicit 2026-09-08 corrected6/8/9/10 assignment. This is correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-correct-originals-20260908-relationships",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+      "newHash": "6f6e93db5e6b361cdf37d42f53e6484fb6e0b54e290f4fcc0d45b119f7a81d9f",
+      "reason": "Retains prior Recap/DPPO/ConRFT and source-line repairs. Corrects only HIL-SERL6/RLDG8/Liu9/PAIR10 with retained source evidence: demo/comparator and evaluation denominators, six-hour exception, 18/28 dashboard conflict, mixed-stage data and40 percentage points, version-specific appendix counterexamples, and noncausal PAIR limits. Added article-local source lines preserve mobile chip geometry. Registry URLs are restored to their existing audited metadata endpoints; version-pinned PDF evidence remains in native plans. No aggregate11 or article acceptance credit.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, implemented under the parent's explicit 2026-09-08 corrected6/8/9/10 assignment. This is correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

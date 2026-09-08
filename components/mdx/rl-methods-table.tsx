@@ -84,9 +84,9 @@ const ROWS: MethodRow[] = [
     method: 'HIL-SERL',
     year: 2024,
     mechanism:
-      'Sample-efficient off-policy RL with demonstrations in the replay buffer, plus human takeovers during failures',
+      'RLPD with demonstration and online buffers plus human corrections; Jenga whipping uses demonstrations without online corrections',
     result:
-      'Near-perfect success within 1-2.5 h of real-world training; average 2x success and 1.8x faster execution than imitation baselines',
+      'Table 1a: 100% observed success (100 trials/task; IKEA whole assembly 10 trials); 1-2.5 h for nearly all tasks, 6 h for timing belt. Imitation comparison: 49.7% vs 100%, 9.6 s vs 5.4 s',
     evidence: 'preprint',
     open: true,
   },

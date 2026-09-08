@@ -1,7 +1,24 @@
 # Content-integrity audit trail
 
 <!-- rl-reader-current:start -->
-## Current partial RL reader/accounting checkpoint — 2026-09-08
+## Current correctly bound RL source checkpoint — 2026-09-08
+
+**367 complete / 627 incomplete / 994 original identities / 47 articles. 273 compound plans.** Exactly `audit/manipulation.md:rl-finetuning:6/8/9/10` (HIL-SERL, RLDG, Liu, PAIR) are corrected and supported. The parent's corrected binding resolves the predecessor's ordinal/name hold; pi_RL3, PLD7 and aggregate11 remain excluded. RL fine-tuning is 8/11 evidence-complete, not article acceptance. Manipulation is 208 complete / 17 incomplete / 225 originals.
+
+Four works, 46 retained literal passages, 29 required source pairs and 26 separately reviewed AND parts; zero new retrievals or whole-P1 credit. HIL retains 20–30 seed demos versus200 comparator demos, Jenga's no-takeover exception, six-hour timing belt, trial/subpolicy denominators, human-assisted training curves and the18/28 dashboard-DP source conflict. RLDG's20/20 versus12/20 is40 percentage points, with mixed RL insertion/human grasp-and-transport data and setup-specific control rates. Liu retains v4 appendix extensions and SFT wins; PAIR adds auxiliary objectives to PPO and does not establish newly acquired causal fragility.
+
+All363 prior complete records,990 unselected records,269 prior plan objects and341 prior approval objects must remain unchanged. DPPO/ConRFT source-line and mobile-navigation repairs are retained. The content gate,627 incomplete originals, nine separate citation gaps, production export/reading times, broader reader/reference debt and independent Sol/high scrutiny/user testing remain open; both skip flags stay false. No date bump, new source certification, formal progress change, push or deployment.
+
+Exact source, current/original history, semantic review, command receipts and preservation evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-correct-originals-integration-20260908/`. Gates are recorded after execution below, not pre-certified. This is a local partial checkpoint, not acceptance; **do not publish while red**.
+
+Executed checks: 179 unit tests across eight affected files passed with one worker; the final wording/accounting rerun passed 12 tests. Normal lint including prelint and nonincremental TypeScript passed. Offline content validation remains **red: 632 audit findings plus nine separately reported citation gaps**; source no-slop and chart checks passed after replacing two prose range dashes. The baseline remains **red: 47 failures** after two exact article-member approvals (343 total, with the prior 341 objects retained). Current full failure objects are saved; no full before/current failure-object continuity or 48-card reuse claim is made.
+
+Reader checks at 375×812 and 1440×900: ten checked-in E2E cases passed, including responsive navigation, DPPO/ConRFT preservation, math, scrubber and axe. Two additional four-source capture cases initially failed on a packet input-path typo, then passed after correcting only that path. All eight source-focus captures were actually opened and inspected: the source popovers stay in the viewport and source lines remain legible. Hover geometry and expanded bibliography text are captured as DOM evidence, not as additional image inspections. Development UI was not hidden. The owned loopback server was stopped and normal Next type generation restored the exact captured `next-env.d.ts` bytes.
+
+Failed attempts are retained: seven-test red baseline; one new mutation-test timeout, resolved by per-source cases and isolated selected-plan copies; a later existing DPPO/ConRFT timeout, resolved with one worker and unchanged timeout/assertions; two registry/citation-ledger URL mismatches, resolved by preserving the original audited registry URLs rather than editing excluded ledgers. Exact reviewed Liu v4 and PAIR v1 PDF editions remain in native evidence. No new retrieval, production export, full reference-rubric acceptance, card regeneration or independent release validation was performed.
+<!-- rl-reader-current:end -->
+
+## Historical: partial RL reader/accounting checkpoint — 2026-09-08
 
 **363 complete / 631 incomplete / 994 original identities / 47 articles. 269 compound plans.** The source-record state remains the DPPO/ConRFT checkpoint at `203b85d`, not the earlier Isaac checkpoint below. These parser-derived evidence counts are separate from recorded verdicts and content-gate findings. This is a carried reader/accounting repair, **not acceptance** of an article, source group, feature, visual system or publication.
 
@@ -10,7 +27,7 @@
 The manipulation summary is regenerated with canonical frontmatter citation context. Mobile navigation proof exercises the real drawer, including keyboard opening, current-page state, Escape and restored focus. DPPO/ConRFT citations use article-local source-line placement; shared navigation, citation components and method facts are unchanged. Existing checks and failed attempts are retained in the packet; passing focused checks do not make the content gate green. The 631 incomplete originals, separately tracked citation gaps, broader source/reader debt, production export/reading times, full reference/card corpus and independent Sol/high scrutiny/user testing remain open. **Do not publish this known-red checkpoint.**
 
 Evidence and exact final command/preservation receipts: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-hil-generalization-integration-20260908/`. Historical checkpoints below retain their original observations, not current accounting. No model switch, credit fallback, new Mission/controller, feature-state edit, source sweep, cleanup, push or deployment is authorized by this checkpoint.
-<!-- rl-reader-current:end -->
+
 
 ## Historical: partial Isaac Lab checkpoint — 2026-09-08
 
