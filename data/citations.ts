@@ -4147,7 +4147,7 @@ export const CITATIONS: Citation[] = [
       'George Drettakis',
     ],
     year: 2023,
-    venue: 'SIGGRAPH 2023',
+    venue: 'ACM Trans. Graph. 42(4), author manuscript (2023)',
     arxiv: '2308.04079',
     url: 'https://arxiv.org/abs/2308.04079',
     type: 'paper',

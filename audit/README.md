@@ -1,7 +1,22 @@
 # Content-integrity audit trail
 
+## Current neural-scene correction checkpoint — 2026-09-08
+
+**380 complete / 614 incomplete / 994 original identities / 47 articles. 286 compound plans; 363 exact approval objects.** Applied only `audit/classical.md:scene-representation:12/13/14/15/16`: NeRF, Instant NGP and original 3DGS, with 19 AND-parts, 19 exact source pairs and 30 retained literal passages. All five applied; none held or unattempted within this selected group. This is a source-scoped implementation checkpoint, not whole-article P1 or release acceptance. Formal progress remains 307/331; RL-finetuning remains 11/11 and main RL 48/52.
+
+Zero new source requests. NeRF retains static per-scene optimization and full camera/scene inputs; Instant NGP retains combined encoding/network/CUDA causes and separates the two Figure 12 rendering settings; 3DGS retains native-resolution/hardware qualifications and distinguishes alpha compositing and stored volumetric primitives from calibrated occupancy or an explicit contact mesh. Surface extraction is not declared impossible. Only the inspected 3DGS author-manuscript venue is narrowed; audited URLs, bylines and review dates stay unchanged. Current review is not an invented fetch date.
+
+All 989 unselected full records, 375 previously complete full records, 281 prior plans and their serialization, and 359 prior approvals and their serialization are preserved. Only derived ledger line positions are excluded from record comparison. Four exact member deltas preserve all 47 full inherited baseline failure objects, with zero added, removed or changed failure objects. Native OG facts (47), renderer inputs (24) and 48 public/export/starting-HEAD byte triples are unchanged-input reuse, not a new render or export.
+
+Executed checks: 45/45 focused unit/component cases pass in three files, including 45 mutation scenarios inside five reporter-visible tests. Normal lint including prelint and nonincremental TypeScript pass. Initial E2E: 23/24 passed; the mobile desktop-only taxonomy selector was repaired to exercise the visible drawer, and both targeted viewport cases passed. This covers 24 distinct checked-in browser cases, not 25 independent cases. Twelve captures at 375×812 and 1440×900 were directly inspected; source focus/hover, exact URLs, complete ordered bylines, drawer Escape/inert/focus restoration and coupled Gaussian disclosures were checked. The first mobile figure capture omitted its below-fold notes; a targeted capture records them. Development UI was not hidden; these are bounded reader checks, not full reference-rubric acceptance.
+
+Content remains **RED: 619 findings plus nine separately reported citation gaps**. The 614 incomplete originals, authored-local figure/confidence/footprint obligations including row 45, whole scene P1, queued source groups, 47 baseline failures, production export/reading times, full corpus/reference proof and independent Sol/high scrutiny/user testing remain open; both skip flags stay false. No publication, deployment, feature-state change, new source hunt or credit fallback. The owned loopback server is stopped.
+
+Exact source identities, original retrieval moments, final tuple reviews, command windows, retained failures, preservation and local checkpoint evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-neural-scene-integration-20260908/`. The initial red suite had 12 failures; an evidence-helper Git capture exceeded the default buffer before being retried with a bounded 32 MiB capture; the initial mobile selector failure is retained. The final handoff records commit and checkpoint timing. **Do not publish while the content gate is red.**
+
+
 <!-- rl-reader-current:start -->
-## Current six-method aggregate checkpoint — 2026-09-08
+## Historical: six-method aggregate checkpoint — 2026-09-08
 
 **375 complete / 619 incomplete / 994 original identities / 47 articles. 281 compound plans; 359 exact approval objects.** Only original `audit/manipulation.md:rl-finetuning:11` applied: 30 AND-parts, 41 paired items, eight citations. This is implementation, not acceptance. RL-finetuning is 11/11; main RL remains 48/52. Formal Mission progress remains 307/331.
 

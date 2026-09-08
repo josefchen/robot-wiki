@@ -7193,6 +7193,78 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "neural-scene-originals-12-16-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "1971518f4b19b21b566ab75ba135c3f7df6902f359800b7a5665b6972409f201",
+      "reason": "Source-backed originals 12–16: static calibrated NeRF, combined Instant NGP mechanism and separate Figure 12 settings, and original 3DGS rendering/geometry limitations; excluded authored-local claims and review dates are unchanged.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority and exact 2026-09-08 neural-scene dispatch; implementation permission, not source certification, gate waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "neural-scene-originals-12-16-20260908-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31",
+      "newHash": "67e8aab75b15823b4c7a5322b39ea14d9b862b1ba82921e538537042ed1b2528",
+      "reason": "Source-backed originals 12–16: static calibrated NeRF, combined Instant NGP mechanism and separate Figure 12 settings, and original 3DGS rendering/geometry limitations; excluded authored-local claims and review dates are unchanged.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority and exact 2026-09-08 neural-scene dispatch; implementation permission, not source certification, gate waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "neural-scene-originals-12-16-20260908-3",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b6e1d5997438ce5c7ede6b5987c92db4236a94d3252f816a0572307ed4f6c9c6",
+      "reason": "Original 3DGS venue is narrowed to the inspected ACM Trans. Graph. 42(4) author-manuscript identity; citation URLs and other members are preserved.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority and exact 2026-09-08 neural-scene dispatch; implementation permission, not source certification, gate waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "neural-scene-originals-12-16-20260908-4",
+      "manifest": "article-metadata",
+      "memberId": "citation:3dgs-2023",
+      "oldHash": "413c185524c9d20b898aae765f9ea64a40292fd46341a311e46f782edde028fd",
+      "newHash": "084f03719c036845ed814de1b22dd693d6e427403be2a94312ea6a34b57b15bf",
+      "reason": "Original 3DGS venue is narrowed to the inspected ACM Trans. Graph. 42(4) author-manuscript identity; citation URLs and other members are preserved.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority and exact 2026-09-08 neural-scene dispatch; implementation permission, not source certification, gate waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -27284,5 +27284,480 @@
         "evidenceDigest": "8353886a211edfb814bebf1bd448bcf42288d4514aa41ec36b279ba99d81f749"
       }
     ]
+  },
+  {
+    "id": "neural-scene-12-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 12,
+    "originalCellsDigest": "2656b0e1a160803e1abcb464be4872cbe9f90b99c6a7372c5144720a1bd3672f",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "12-static-mlp",
+        "text": "Static scene and MLP representation",
+        "requiredCitationIds": [
+          "nerf-2020"
+        ]
+      },
+      {
+        "id": "12-density-view-color",
+        "text": "Position-only density and position/direction-dependent color",
+        "requiredCitationIds": [
+          "nerf-2020"
+        ]
+      },
+      {
+        "id": "12-volume-rendering",
+        "text": "Camera-ray volume rendering and alpha compositing",
+        "requiredCitationIds": [
+          "nerf-2020"
+        ]
+      },
+      {
+        "id": "12-calibrated-inputs",
+        "text": "Per-scene RGB,knownposes,intrinsics and scene bounds",
+        "requiredCitationIds": [
+          "nerf-2020"
+        ]
+      },
+      {
+        "id": "12-optimization-not-guarantee",
+        "text": "Differentiability enables minimizing image error,not proof of geometry correctness",
+        "requiredCitationIds": [
+          "nerf-2020"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+      "rationale": "All five AND obligations jointly cover the final static-scene, asymmetric density/color, ray rendering, calibrated-input and optimization-limit tuple. The abstract is qualified by section 5.3, not used to erase its requirements.",
+      "planDigest": "96cdc4749deda21ce903a5077666f7944d092cff18d528c35128d6808b4e4c34"
+    },
+    "evidence": [
+      {
+        "partId": "12-static-mlp",
+        "citationId": "nerf-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2003.08934",
+        "supportingPassage": "\nIn this work, we address the long-standing problem of view synthesis in a new\nway by directly optimizing parameters of a continuous 5D scene representation\nto minimize the error of rendering a set of captured images.\nWe represent a static scene as a continuous 5D function that outputs the\nradiance emitted in each direction (θ, φ) at each point (x, y, z) in space, and a\ndensity at each point which acts like a differential opacity controlling how much\nradiance is accumulated by a ray passing through (x, y, z). Our method optimizes\na deep fully-connected neural network without any convolutional layers (often\nreferred to as a multilayer perceptron or MLP) to represent this function by\nregressing from a single 5D coordinate (x, y, z, θ, φ) to a single volume density\nand view-dependent RGB color. To render this neural radiance field (NeRF)"
+      },
+      {
+        "partId": "12-density-view-color",
+        "citationId": "nerf-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2003.08934",
+        "supportingPassage": "We encourage the representation to be multiview consistent by restricting\nthe network to predict the volume density σ as a function of only the location\nx, while allowing the RGB color c to be predicted as a function of both location\nand viewing direction. To accomplish this, the MLP FΘ first processes the input\n3D coordinate x with 8 fully-connected layers (using ReLU activations and 256\nchannels per layer), and outputs σ and a 256-dimensional feature vector. This\nfeature vector is then concatenated with the camera ray’s viewing direction and\npassed to one additional fully-connected layer (using a ReLU activation and 128\nchannels) that output the view-dependent RGB color."
+      },
+      {
+        "partId": "12-volume-rendering",
+        "citationId": "nerf-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2003.08934",
+        "supportingPassage": "N\nN\nAlthough we use a discrete set of samples to estimate the integral, stratified\nsampling enables us to represent a continuous scene representation because it\nresults in the MLP being evaluated at continuous positions over the course of\noptimization. We use these samples to estimate C(r) with the quadrature rule\ndiscussed in the volume rendering review by Max [26]:\n\n\nN\ni−1\nX\nX\nĈ(r) =\nTi (1 − exp(−σi δi ))ci , where Ti = exp−\nσj δ j  ,\n(3)\ni=1\n\nj=1\n\nwhere δi = ti+1 − ti is the distance between adjacent samples. This function\nfor calculating Ĉ(r) from the set of (ci , σi ) values is trivially differentiable and\nreduces to traditional alpha compositing with alpha values αi = 1 − exp(−σi δi ).\n\n\fNeRF: Representing Scenes as Neural Radiance Fields for View Synthesis\n\nGround Truth\n\nComplete Model"
+      },
+      {
+        "partId": "12-calibrated-inputs",
+        "citationId": "nerf-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2003.08934",
+        "supportingPassage": "We optimize a separate neural continuous volume representation network for\neach scene. This requires only a dataset of captured RGB images of the scene,\n\n\fNeRF: Representing Scenes as Neural Radiance Fields for View Synthesis\n\n9\n\nthe corresponding camera poses and intrinsic parameters, and scene bounds\n(we use ground truth camera poses, intrinsics, and bounds for synthetic data,\nand use the COLMAP structure-from-motion package [39] to estimate these\nparameters for real data). At each optimization iteration, we randomly sample\na batch of camera rays from the set of all pixels in the dataset, and then follow\nthe hierarchical sampling described in Sec. 5.2 to query Nc samples from the\ncoarse network and Nc + Nf samples from the fine network. We then use the\nvolume rendering procedure described in Sec. 4 to render the color of each ray\nfrom both sets of samples. Our loss is simply the total squared error between\nthe rendered and true pixel colors for both the coarse and fine renderings:"
+      },
+      {
+        "partId": "12-optimization-not-guarantee",
+        "citationId": "nerf-2020",
+        "sourceUrl": "https://arxiv.org/pdf/2003.08934",
+        "supportingPassage": "naturally differentiable, we can use gradient descent to optimize this model by\nminimizing the error between each observed image and the corresponding views\nrendered from our representation. Minimizing this error across multiple views\nencourages the network to predict a coherent model of the scene by assigning\nhigh volume densities and accurate colors to the locations that contain the true\nunderlying scene content. Figure 2 visualizes this overall pipeline.\nWe find that the basic implementation of optimizing a neural radiance field\nrepresentation for a complex scene does not converge to a sufficiently highresolution representation and is inefficient in the required number of samples per\ncamera ray. We address these issues by transforming input 5D coordinates with\na positional encoding that enables the MLP to represent higher frequency functions, and we propose a hierarchical sampling procedure to reduce the number of\nqueries required to adequately sample this high-frequency scene representation.\nOur approach inherits the benefits of volumetric representations: both can\nrepresent complex real-world geometry and appearance and are well suited for\ngradient-based optimization using projected images. Crucially, our method overcomes the prohibitive storage costs of discretized voxel grids when modeling\ncomplex scenes at high-resolutions. In summary, our technical contributions are:\n– An approach for representing continuous scenes with complex geometry and"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "12-static-mlp",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "The introduction explicitly defines a static scene and a fully connected MLP; section 5.3 specifies separate optimization for each scene. This supports the final static per-scene claim, not a general feed-forward reconstructor.",
+        "evidenceDigest": "58c114a130eefe27141f491c41bba4116952840b5725b036aae6c015fbf06145"
+      },
+      {
+        "partId": "12-density-view-color",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Section 3 restricts density to spatial location and adds viewing direction only to the color head. The final claim preserves this asymmetry instead of making density view-dependent.",
+        "evidenceDigest": "b3ca436a627b565309bee5229ebcbe0c793dc38527cc2c667799fcb3f896c0b1"
+      },
+      {
+        "partId": "12-volume-rendering",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Section 4 equation 3 accumulates transmittance-weighted color along sampled camera rays and explicitly reduces to alpha compositing. The final wording describes rendering, not a surface-accuracy guarantee.",
+        "evidenceDigest": "4781e815e6919e0409df92c6e13ceea473fd8eb7c73f64171e5237bd770d3d4c"
+      },
+      {
+        "partId": "12-calibrated-inputs",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Section 5.3 enumerates RGB images, poses, intrinsics and scene bounds, with synthetic ground truth versus COLMAP estimates for real data. These extra inputs qualify the abstract’s shorter posed-image description.",
+        "evidenceDigest": "86d77f78dce2ebfbe14ba36f89275fcf2001e58df279f845e10d8c56c0df1f9a"
+      },
+      {
+        "partId": "12-optimization-not-guarantee",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "The introduction says image-error minimization encourages coherence and reports that a basic implementation is insufficient; it does not prove recovered geometry correct. The final sentence limits what differentiability establishes rather than asserting source-wide failure.",
+        "evidenceDigest": "2511a7782fa37f62b438851f40a66139c5cc23ef261377cc9bd0f3bd40300b8a"
+      }
+    ]
+  },
+  {
+    "id": "neural-scene-13-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "87f608f97ca87a692c65f724d54512c6814a4d0eb5ac99f733465a904bd1424e",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "13-encoding-implementation",
+        "text": "Multiresolution hash features,smaller network and fullyfusedCUDA are combined contributions",
+        "requiredCitationIds": [
+          "instant-ngp-2022"
+        ]
+      },
+      {
+        "id": "13-posed-raymarcher",
+        "text": "NeRF training uses posedRGB,differentiable raymarching,densityMLP and colorMLP",
+        "requiredCitationIds": [
+          "instant-ngp-2022"
+        ]
+      },
+      {
+        "id": "13-not-encoding-alone",
+        "text": "The paper separates efficient implementation,encoding and network-size effects",
+        "requiredCitationIds": [
+          "instant-ngp-2022"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+      "rationale": "All three obligations cover the final combined implementation/encoding mechanism and posed NeRF training. The original broad timing promise is corrected, not certified by a favorable benchmark subset.",
+      "planDigest": "684edf246a1385178bee65edb208092d47a49f4a56bab53710a5f4edf0f63012"
+    },
+    "evidence": [
+      {
+        "partId": "13-encoding-implementation",
+        "citationId": "instant-ngp-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2201.05989v2",
+        "supportingPassage": "hyperparameters across all tasks and only vary the hash table size which trades off quality and performance. Photograph ©Trevor Dobson (CC BY-NC-ND 2.0)\nNeural graphics primitives, parameterized by fully connected neural networks, can be costly to train and evaluate. We reduce this cost with a versatile\nnew input encoding that permits the use of a smaller network without sacrificing quality, thus significantly reducing the number of floating point\nand memory access operations: a small neural network is augmented by a\nmultiresolution hash table of trainable feature vectors whose values are optimized through stochastic gradient descent. The multiresolution structure\nallows the network to disambiguate hash collisions, making for a simple\n\narchitecture that is trivial to parallelize on modern GPUs. We leverage this\nparallelism by implementing the whole system using fully-fused CUDA kernels with a focus on minimizing wasted bandwidth and compute operations.\nWe achieve a combined speedup of several orders of magnitude, enabling\ntraining of high-quality neural graphics primitives in a matter of seconds,\nand rendering in tens of milliseconds at a resolution of 1920×1080."
+      },
+      {
+        "partId": "13-posed-raymarcher",
+        "citationId": "instant-ngp-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2201.05989v2",
+        "supportingPassage": "5.4\n\nNeural Radiance and Density Fields (NeRF)\n\nIn the NeRF setting, a volumetric shape is represented in terms of a\nspatial (3D) density function and a spatiodirectional (5D) emission\n\nFig. 11. Feeding the result of our encoding through a linear transformation\n(no neural network) versus an MLP when learning a NeRF. The models\nwere trained for 1 min. The MLP allows for resolving specular details and\nreduces the amount of background noise caused by hash collisions. Due to\nthe small size and efficient implementation of the MLP, it is only 15% more\nexpensive—well worth the significantly improved quality.\n\nfunction, which we represent by a similar neural network architecture as Mildenhall et al. [2020]. We train the model in the same ways\nas Mildenhall et al.: by backpropagating through a differentiable ray\nmarcher driven by 2D RGB images from known camera poses.\nModel Architecture. Unlike the other three applications, our NeRF\nmodel consists of two concatenated MLPs: a density MLP followed\nby a color MLP [Mildenhall et al. 2020]. The density MLP maps\nthe hash encoded position y = enc(x; 𝜃 ) to 16 output values, the\nfirst of which we treat as log-space density. The color MLP adds\nview-dependent color variation. Its input is the concatenation of\n• the 16 output values of the density MLP, and\n• the view direction projected onto the first 16 coefficients of the\nspherical harmonics basis (i.e. up to degree 4). This is a natural\nfrequency encoding over unit vectors.\nIts output is an RGB color triplet, for which we use either a sigmoid\nactivation when the training data has low dynamic-range (sRGB) or\nan exponential activation when it has high dynamic range (linear\nHDR). We prefer HDR training data due to the closer resemblance\nto physical light transport. This brings numerous advantages as has\nalso been noted in concurrent work [Mildenhall et al. 2021].\nInformed by the analysis in Figure 10, our results were generated\nwith a 1-hidden-layer density MLP and a 2-hidden-layer color MLP,\nboth 64 neurons wide."
+      },
+      {
+        "partId": "13-not-encoding-alone",
+        "citationId": "instant-ngp-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2201.05989v2",
+        "supportingPassage": "size and efficient implementation.\nComparison with high-quality offline NeRF. In Table 2, we compare\nthe peak signal to noise ratio (PSNR) our NeRF implementation\nwith multiresolution hash encoding (“Ours: Hash”) with that of\nNeRF [Mildenhall et al. 2020], mip-NeRF [Barron et al. 2021a], and\nNSVF [Liu et al. 2020], which all require on the order of hours to\ntrain. In contrast, we list results of our method after training for\n1 s to 5 min. Our PSNR is competitive with NeRF and NSVF after\nACM Trans. Graph., Vol. 41, No. 4, Article 102. Publication date: July 2022.\n\njust 15 s of training, and competitive with mip-NeRF after 1 min to\n5 min of training.\nOn one hand, our method performs best on scenes with high\ngeometric detail, such as Ficus, Drums, Ship and Lego, achieving the\nbest PSNR of all methods. On the other hand, mip-NeRF and NSVF\noutperform our method on scenes with complex, view-dependent\nreflections, such as Materials; we attribute this to the much smaller\nMLP that we necessarily employ to obtain our speedup of several\norders of magnitude over these competing implementations.\nNext, we analyze the degree to which our speedup originates\nfrom our efficient implementation versus from our encoding. To\nthis end, we additionally report PSNR for a nearly identical version of our implementation: we replace the hash encoding by the\nfrequency encoding and enlarge the MLP to approximately match\nthe architecture of Mildenhall et al. [2020] (“Ours: Frequency”); see\nAppendix D for details. This version of our algorithm approaches\nNeRF’s quality after training for just ∼ 5 min, yet is outperformed by\nour full method after training for a much shorter duration (5 s–15 s),\namounting to a 20–60× improvement caused by the hash encoding\nand smaller MLP.\nFor “Ours: Hash”, the cost of each training step is roughly constant\nat ∼6 ms per step. This amounts to 50 k steps after 5 min at which\npoint the model is well converged. We decay the learning rate after\n20 k steps by a factor of 0.33, which we repeat every further 10 k\nsteps. In contrast, the larger MLP used in “Ours: Frequency” requires\n∼30 ms per training step, meaning that the PSNR listed after 5 min\ncorresponds to about 10 k steps. It could thus keep improving slightly\nif trained for extended periods of time, as in the offline NeRF variants\nthat are often trained for several 100 k steps.\nWhile we isolated the performance and convergence impact of\nour hash encoding and its small MLP, we believe an additional study\nis required to quantify the impact of advanced ray marching schemes\n(such as ours, coarse-fine [Mildenhall et al. 2020], or DONeRF [Neff\net al. 2021]) independently from the encoding and network architecture. We report additional information in Section E.3 to aid in\nsuch an analysis."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "13-encoding-implementation",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "The abstract attributes the combined speedup to trainable multiresolution hash features, a smaller network and a fully fused CUDA implementation. The final claim retains all three causes.",
+        "evidenceDigest": "626caa3a6ea858a6610c286512650c0e2718337b7cfb5b01f751e469b3c39e50"
+      },
+      {
+        "partId": "13-posed-raymarcher",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Section 5.4 explicitly trains the two concatenated density/color MLPs using known camera poses and RGB images through a differentiable ray marcher. Lower optimization cost does not remove per-scene training.",
+        "evidenceDigest": "5e63d3a2309a90e03a5266796b27d723020b0859f07ab5c9febd6ed6df089f18"
+      },
+      {
+        "partId": "13-not-encoding-alone",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Section 5.4 compares optimized Frequency and Hash implementations, changes network size as well as encoding, and names scene-dependent failures on Materials. This rejects an encoding-only or universal hours-to-seconds promise.",
+        "evidenceDigest": "b8606b17e0f879ab0bc3f44e1b7cbfcc8f38a1cd99f8b3d100c3cd7a7de48ccf"
+      }
+    ]
+  },
+  {
+    "id": "neural-scene-14-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "b5a317dd17f1c7e85986208ab5a64589fe119b4d78a02377775319ee5a25c2e2",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "14-synthesizer-setup",
+        "text": "Fig12 left:modularsynthesizer,128accumulatedsamples,5s,1080p,oneRTX3090",
+        "requiredCitationIds": [
+          "instant-ngp-2022"
+        ]
+      },
+      {
+        "id": "14-separate-360-setting",
+        "text": "Fig12 right:large natural360scene,interactive10FPS,sameGPU;no right-panel resolution assigned",
+        "requiredCitationIds": [
+          "instant-ngp-2022"
+        ]
+      },
+      {
+        "id": "14-scope-not-control",
+        "text": "These captioned image-rendering settings are not an asserted robot reconstruction orcontrol rate",
+        "requiredCitationIds": [
+          "instant-ngp-2022"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+      "rationale": "All three obligations cover both Figure 12 setups and the interpretation of their rates. The two panels are deliberately not conflated into a matched-resolution or control benchmark.",
+      "planDigest": "29a67134aa1ec0e307e48f2b7eecf5cb9d4a920f1f5b6eca15c7a001ef2acb4f"
+    },
+    "evidence": [
+      {
+        "partId": "14-synthesizer-setup",
+        "citationId": "instant-ngp-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2201.05989v2",
+        "supportingPassage": "\nFig. 12. NeRF reconstruction of a modular synthesizer and large natural\n360 scene. The left image took 5 seconds to accumulate 128 samples at 1080p\non a single RTX 3090 GPU, allowing for brute force defocus effects. The\nright image was taken from an interactive session running at 10 frames per\nsecond on the same GPU."
+      },
+      {
+        "partId": "14-separate-360-setting",
+        "citationId": "instant-ngp-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2201.05989v2",
+        "supportingPassage": "\nFig. 12. NeRF reconstruction of a modular synthesizer and large natural\n360 scene. The left image took 5 seconds to accumulate 128 samples at 1080p\non a single RTX 3090 GPU, allowing for brute force defocus effects. The\nright image was taken from an interactive session running at 10 frames per\nsecond on the same GPU."
+      },
+      {
+        "partId": "14-scope-not-control",
+        "citationId": "instant-ngp-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2201.05989v2",
+        "supportingPassage": "\nFig. 12. NeRF reconstruction of a modular synthesizer and large natural\n360 scene. The left image took 5 seconds to accumulate 128 samples at 1080p\non a single RTX 3090 GPU, allowing for brute force defocus effects. The\nright image was taken from an interactive session running at 10 frames per\nsecond on the same GPU."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "14-synthesizer-setup",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Figure 12 assigns 128 accumulated image samples, five seconds, 1080p and one RTX 3090 specifically to the left modular-synthesizer image. The final claim keeps those units together.",
+        "evidenceDigest": "59e4caed3f1cf9ee1fc1a0c53958ac25d96f1d518b6a53125016124ebf4f266b"
+      },
+      {
+        "partId": "14-separate-360-setting",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Figure 12 assigns ten frames per second and the same GPU to a separate large natural 360 scene. It does not assign the left panel’s resolution or a matched PSNR to that session.",
+        "evidenceDigest": "3988344b62ab3eecbab66e6a278b5a1999b2f18f83db90627c672534ce0b3064"
+      },
+      {
+        "partId": "14-scope-not-control",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "The caption is about image accumulation and interactive rendering of NeRF scenes, not sensor acquisition, reconstruction updates or robot control. The final rate qualification prevents that denominator substitution.",
+        "evidenceDigest": "0b9502d5f0f9a23c868ea6d68056feb0f86d2df4414186f874c39ac5ba6041a8"
+      }
+    ]
+  },
+  {
+    "id": "neural-scene-15-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "56612054bddc269aa22e2a3202ad7e85e5230dc990ed33080ec47cdd614e042d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "15-static-input-optimization",
+        "text": "Staticphotos,calibratedcameras and optimization ofposition,covariance,opacity,SH",
+        "requiredCitationIds": [
+          "3dgs-2023"
+        ]
+      },
+      {
+        "id": "15-projection-rasterization",
+        "text": "Full3Dcovariance,2Dprojection and sortedalpha blending",
+        "requiredCitationIds": [
+          "3dgs-2023"
+        ]
+      },
+      {
+        "id": "15-no-render-network",
+        "text": "Original3DGS renderer uses explicitGPU-friendlyGaussians without neural components",
+        "requiredCitationIds": [
+          "3dgs-2023"
+        ]
+      },
+      {
+        "id": "15-evaluation-scope",
+        "text": "Evaluatednovel-viewquality,13realscenes,syntheticBlender,A6000 and held-outphotos",
+        "requiredCitationIds": [
+          "3dgs-2023"
+        ]
+      },
+      {
+        "id": "15-resolution-distinction",
+        "text": "Abstract≥30FPS1080p claim and separatelyvarying native dataset resolutions",
+        "requiredCitationIds": [
+          "3dgs-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+      "rationale": "All five obligations cover original 3DGS parameters, projection and renderer plus the evaluation’s hardware/resolution scope. No performance claim is extrapolated beyond the retained setup.",
+      "planDigest": "8cc2d4657fca582741bc9b36a45e60977c04eb25efc0339142b5b0d6b01fde61"
+    },
+    "evidence": [
+      {
+        "partId": "15-static-input-optimization",
+        "citationId": "3dgs-2023",
+        "sourceUrl": "https://arxiv.org/pdf/2308.04079",
+        "supportingPassage": "OVERVIEW\n\nThe input to our method is a set of images of a static scene, together\nwith the corresponding cameras calibrated by SfM [Schönberger\nand Frahm 2016] which produces a sparse point cloud as a sideeffect. From these points we create a set of 3D Gaussians (Sec. 4),\ndefined by a position (mean), covariance matrix and opacity 𝛼, that\nallows a very flexible optimization regime. This results in a reasonably compact representation of the 3D scene, in part because highly\nanisotropic volumetric splats can be used to represent fine structures\ncompactly. The directional appearance component (color) of the\nradiance field is represented via spherical harmonics (SH), following\nstandard practice [Fridovich-Keil and Yu et al. 2022; Müller et al.\n2022]. Our algorithm proceeds to create the radiance field representation (Sec. 5) via a sequence of optimization steps of 3D Gaussian\nparameters, i.e., position, covariance, 𝛼 and SH coefficients interleaved with operations for adaptive control of the Gaussian density.\nThe key to the efficiency of our method is our tile-based rasterizer\n(Sec. 6) that allows 𝛼-blending of anisotropic splats, respecting visibility order thanks to fast sorting. Out fast rasterizer also includes\na fast backward pass by tracking accumulated 𝛼 values, without a\nlimit on the number of Gaussians that can receive gradients. The"
+      },
+      {
+        "partId": "15-projection-rasterization",
+        "citationId": "3dgs-2023",
+        "sourceUrl": "https://arxiv.org/pdf/2308.04079",
+        "supportingPassage": "\nOur goal is to optimize a scene representation that allows highquality novel view synthesis, starting from a sparse set of (SfM)\npoints without normals. To do this, we need a primitive that inherits\nthe properties of differentiable volumetric representations, while\nat the same time being unstructured and explicit to allow very fast\nrendering. We choose 3D Gaussians, which are differentiable and\ncan be easily projected to 2D splats allowing fast 𝛼-blending for\nrendering.\nOur representation has similarities to previous methods that use\n2D points [Kopanas et al. 2021; Yifan et al. 2019] and assume each\npoint is a small planar circle with a normal. Given the extreme\nsparsity of SfM points it is very hard to estimate normals. Similarly,\nACM Trans. Graph., Vol. 42, No. 4, Article 1. Publication date: August 2023.\n\noptimizing very noisy normals from such an estimation would be\nvery challenging. Instead, we model the geometry as a set of 3D\nGaussians that do not require normals. Our Gaussians are defined\nby a full 3D covariance matrix Σ defined in world space [Zwicker\net al. 2001a] centered at point (mean) 𝜇:\n1\n𝑇 −1\n𝐺 (𝑥) = 𝑒 − 2 (𝑥 ) Σ (𝑥 )\n\n(4)\n\n. This Gaussian is multiplied by 𝛼 in our blending process.\nHowever, we need to project our 3D Gaussians to 2D for rendering.\nZwicker et al. [2001a] demonstrate how to do this projection to\nimage space. Given a viewing transformation 𝑊 the covariance\nmatrix Σ′ in camera coordinates is given as follows:\nΣ′ = 𝐽𝑊 Σ 𝑊 𝑇 𝐽 𝑇\n\n(5)\n\nwhere 𝐽 is the Jacobian of the affine approximation of the projective\ntransformation. Zwicker et al. [2001a] also show that if we skip the\nthird row and column of Σ′ , we obtain a 2×2 variance matrix with\nthe same structure and properties as if we would start from planar\npoints with normals, as in previous work [Kopanas et al. 2021].\nAn obvious approach would be to directly optimize the covariance\nmatrix Σ to obtain 3D Gaussians that represent the radiance field.\nHowever, covariance matrices have physical meaning only when\nthey are positive semi-definite. For our optimization of all our parameters, we use gradient descent that cannot be easily constrained\nto produce such valid matrices, and update steps and gradients can\nvery easily create invalid covariance matrices.\nAs a result, we opted for a more intuitive, yet equivalently expressive representation for optimization. The covariance matrix Σ\nof a 3D Gaussian is analogous to describing the configuration of an\nellipsoid. Given a scaling matrix 𝑆 and rotation matrix 𝑅, we can\nfind the corresponding Σ:\nΣ = 𝑅𝑆𝑆𝑇 𝑅𝑇\n\n(6)\n\nTo allow independent optimization of both factors, we store them\nseparately: a 3D vector 𝑠 for scaling and a quaternion 𝑞 to represent\nrotation. These can be trivially converted to their respective matrices\nand combined, making sure to normalize 𝑞 to obtain a valid unit\nquaternion.\n\nwith\n𝛼𝑖 = (1 − exp(−𝜎𝑖 𝛿𝑖 )) and 𝑇𝑖 =\n\n𝑖 −1\nÖ\n\n(1 − 𝛼𝑖 ).\n\n𝑗=1\n\nA typical neural point-based approach (e.g., [Kopanas et al. 2022,\n2021]) computes the color 𝐶 of a pixel by blending N ordered points\noverlapping the pixel:\n𝐶=\n\n∑︁\n𝑖∈N\n\n𝑐 𝑖 𝛼𝑖\n\n𝑖 −1\nÖ\n\n(1 − 𝛼 𝑗 ),\n\n(3)\n\n𝑗=1\n\nwhere c𝑖 is the color of each point and 𝛼𝑖 is given by evaluating a\n2D Gaussian with covariance Σ [Yifan et al. 2019] multiplied with a\nlearned per-point opacity.\nFrom Eq. 2 and Eq. 3, we can clearly see that the image formation\nmodel is the same. However, the rendering algorithm is very different. NeRFs are a continuous representation implicitly representing\nempty/occupied space; expensive random sampling is required to\nfind the samples in Eq. 2 with consequent noise and computational\nexpense. In contrast, points are an unstructured, discrete representation that is flexible enough to allow creation, destruction, and\ndisplacement of geometry similar to NeRF. This is achieved by optimizing opacity and positions, as shown by previous work [Kopanas\net al. 2021], while avoiding the shortcomings of a full volumetric\nrepresentation.\nPulsar [Lassner and Zollhofer 2021] achieves fast sphere rasterization which inspired our tile-based and sorting renderer. However,\ngiven the analysis above, we want to maintain (approximate) conventional 𝛼-blending on sorted splats to have the advantages of volumetric representations: Our rasterization respects visibility order\nin contrast to their order-independent method. In addition, we backpropagate gradients on all splats in a pixel and rasterize anisotropic\nsplats. These elements all contribute to the high visual quality of"
+      },
+      {
+        "partId": "15-no-render-network",
+        "citationId": "3dgs-2023",
+        "sourceUrl": "https://arxiv.org/pdf/2308.04079",
+        "supportingPassage": "image quality is limited in large part by the choice of the structured\ngrids used for acceleration, and rendering speed is hindered by the\nneed to query many samples for a given ray-marching step. The unstructured, explicit GPU-friendly 3D Gaussians we use achieve faster\nrendering speed and better quality without neural components."
+      },
+      {
+        "partId": "15-evaluation-scope",
+        "citationId": "3dgs-2023",
+        "sourceUrl": "https://arxiv.org/pdf/2308.04079",
+        "supportingPassage": "\nResults and Evaluation\n\nResults. We tested our algorithm on a total of 13 real scenes\ntaken from previously published datasets and the synthetic Blender\ndataset [Mildenhall et al. 2020]. In particular, we tested our approach on the full set of scenes presented in Mip-Nerf360 [Barron\net al. 2022], which is the current state of the art in NeRF rendering\nquality, two scenes from the Tanks&Temples dataset [2017] and\ntwo scenes provided by Hedman et al. [Hedman et al. 2018]. The\nscenes we chose have very different capture styles, and cover both\nbounded indoor scenes and large unbounded outdoor environments.\nWe use the same hyperparameter configuration for all experiments\nin our evaluation. All results are reported running on an A6000 GPU,\nexcept for the Mip-NeRF360 method (see below).\nIn supplemental, we show a rendered video path for a selection\nof scenes that contain views far from the input photos.\nReal-World Scenes. In terms of quality, the current state-of-theart is Mip-Nerf360 [Barron et al. 2021]. We compare against this\nmethod as a quality benchmark. We also compare against two of\nthe most recent fast NeRF methods: InstantNGP [Müller et al. 2022]\nand Plenoxels [Fridovich-Keil and Yu et al. 2022].\nWe use a train/test split for datasets, using the methodology\nsuggested by Mip-NeRF360, taking every 8th photo for test, for consistent and meaningful comparisons to generate the error metrics,\nusing the standard PSNR, L-PIPS, and SSIM metrics used most frequently in the literature; please see Table 1. All numbers in the table\nare from our own runs of the author’s code for all previous methods, except for those of Mip-NeRF360 on their dataset, in which we\ncopied the numbers from the original publication to avoid confusion\nabout the current SOTA. For the images in our figures, we used our\nown run of Mip-NeRF360: the numbers for these runs are in Appendix D. We also show the average training time, rendering speed, and\nmemory used to store optimized parameters. We report results for a"
+      },
+      {
+        "partId": "15-resolution-distinction",
+        "citationId": "3dgs-2023",
+        "sourceUrl": "https://arxiv.org/pdf/2308.04079",
+        "supportingPassage": "Radiance Field methods have recently revolutionized novel-view synthesis\nof scenes captured with multiple photos or videos. However, achieving high\nvisual quality still requires neural networks that are costly to train and render, while recent faster methods inevitably trade off speed for quality. For\nunbounded and complete scenes (rather than isolated objects) and 1080p\nresolution rendering, no current method can achieve real-time display rates.\nWe introduce three key elements that allow us to achieve state-of-the-art\nvisual quality while maintaining competitive training times and importantly\nallow high-quality real-time (≥ 30 fps) novel-view synthesis at 1080p resolution. First, starting from sparse points produced during camera calibration,\nwe represent the scene with 3D Gaussians that preserve desirable properties of continuous volumetric radiance fields for scene optimization while\navoiding unnecessary computation in empty space; Second, we perform\ninterleaved optimization/density control of the 3D Gaussians, notably optimizing anisotropic covariance to achieve an accurate representation of the\nscene; Third, we develop a fast visibility-aware rendering algorithm that\nsupports anisotropic splatting and both accelerates training and allows realtime rendering. We demonstrate state-of-the-art visual quality and real-time\nrendering on several established datasets.\n\nthe difference in visual quality for our two configurations in Fig. 6.\nIn many cases, quality at 7K iterations is already quite good.\nThe training times vary over datasets and we report them separately. Note that image resolutions also vary over datasets. In the\nproject website, we provide all the renders of test views we used to\ncompute the statistics for all the methods (ours and previous work)\non all scenes. Note that we kept the native input resolution for all\nrenders.\nThe table shows that our fully converged model achieves quality that is on par and sometimes slightly better than the SOTA\nMip-NeRF360 method; note that on the same hardware, their average training time was 48 hours2 , compared to our 35-45min, and\ntheir rendering time is 10s/frame. We achieve comparable quality\nto InstantNGP and Plenoxels after 5-10m of training, but additional\ntraining time allows us to achieve SOTA quality which is not the\ncase for the other fast methods. For Tanks & Temples, we achieve\nsimilar quality as the basic InstantNGP at a similar training time\n(∼7min in our case)."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "15-static-input-optimization",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Section 3 starts with static-scene photos and SfM-calibrated cameras, then optimizes positions, covariance, opacity and SH appearance. The final claim distinguishes learned representation parameters from rendering.",
+        "evidenceDigest": "a1d92336555bc822132590ce97a616cc1078b23e771f4329e8b4ab215a4d3e29"
+      },
+      {
+        "partId": "15-projection-rasterization",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Sections 2.3 and 4 give ordered alpha compositing and world-space covariance projected to 2D splats. The primitive need not carry surface normals; no universal surface-impossibility conclusion follows.",
+        "evidenceDigest": "9662b883542c86734a21384ee236e47f54ba51420d70be10c35724c277234f36"
+      },
+      {
+        "partId": "15-no-render-network",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Section 2.2 explicitly describes GPU-friendly unstructured Gaussians without neural components. The final statement is limited to the original rendering loop.",
+        "evidenceDigest": "f861f0c07a4e4a4dae4c2f88faf523ae2f4cf88a625f0cfeac04ac68c639af48"
+      },
+      {
+        "partId": "15-evaluation-scope",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Section 7.2 evaluates 13 real scenes plus Blender, uses every eighth photo for test and reports A6000 runs except Mip-NeRF360. The retained four-A100, twelve-hour footnote is not silently recast as matched A6000 timing.",
+        "evidenceDigest": "20b3e693401aca27b96eeabc72f722064652c24074f1c10d301a56ac4323ff7b"
+      },
+      {
+        "partId": "15-resolution-distinction",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "The abstract’s at-least-30-FPS/1080p statement is separate from section 7.2’s dataset-varying native image resolutions. No Table 1 average is paired with a universal 1080p denominator in the final claim.",
+        "evidenceDigest": "9e4e3dceb4ac00a6e8ed94e08610bea2f8781db1fc8b730bb17031697e38026c"
+      }
+    ]
+  },
+  {
+    "id": "neural-scene-16-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 16,
+    "originalCellsDigest": "4a4f26579d6364b5c6157ace0ab62e831ca74693603fe6e6a95eb6bc1396127c",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "16-opacity-semantics",
+        "text": "Learnedperpointopacity multiplies2DGaussian contribution inordered alphacompositing;not calibratedmap occupancy",
+        "requiredCitationIds": [
+          "3dgs-2023"
+        ]
+      },
+      {
+        "id": "16-primitive-not-contact-mesh",
+        "text": "Covariance-defined3DGaussian without requirednormals isnot an explicit trianglecontactsurface",
+        "requiredCitationIds": [
+          "3dgs-2023"
+        ]
+      },
+      {
+        "id": "16-extraction-not-impossible",
+        "text": "Meshreconstruction explicitlyleftasfuturework;no impossibility assertion",
+        "requiredCitationIds": [
+          "3dgs-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+      "rationale": "All three obligations cover alpha-compositing semantics, the stored volumetric primitive and possible subsequent mesh extraction. The coupled article/library/test correction does not certify the authored confidence illustration.",
+      "planDigest": "48cb1aa4eb72004fa253b3c66cb5b8f4bc815064f8b1d7badb2b96f8fc70fc40"
+    },
+    "evidence": [
+      {
+        "partId": "16-opacity-semantics",
+        "citationId": "3dgs-2023",
+        "sourceUrl": "https://arxiv.org/pdf/2308.04079",
+        "supportingPassage": "with\n𝛼𝑖 = (1 − exp(−𝜎𝑖 𝛿𝑖 )) and 𝑇𝑖 =\n\n𝑖 −1\nÖ\n\n(1 − 𝛼𝑖 ).\n\n𝑗=1\n\nA typical neural point-based approach (e.g., [Kopanas et al. 2022,\n2021]) computes the color 𝐶 of a pixel by blending N ordered points\noverlapping the pixel:\n𝐶=\n\n∑︁\n𝑖∈N\n\n𝑐 𝑖 𝛼𝑖\n\n𝑖 −1\nÖ\n\n(1 − 𝛼 𝑗 ),\n\n(3)\n\n𝑗=1\n\nwhere c𝑖 is the color of each point and 𝛼𝑖 is given by evaluating a\n2D Gaussian with covariance Σ [Yifan et al. 2019] multiplied with a\nlearned per-point opacity.\nFrom Eq. 2 and Eq. 3, we can clearly see that the image formation\nmodel is the same. However, the rendering algorithm is very different. NeRFs are a continuous representation implicitly representing\nempty/occupied space; expensive random sampling is required to\nfind the samples in Eq. 2 with consequent noise and computational\nexpense. In contrast, points are an unstructured, discrete representation that is flexible enough to allow creation, destruction, and\ndisplacement of geometry similar to NeRF. This is achieved by optimizing opacity and positions, as shown by previous work [Kopanas\net al. 2021], while avoiding the shortcomings of a full volumetric\nrepresentation.\nPulsar [Lassner and Zollhofer 2021] achieves fast sphere rasterization which inspired our tile-based and sorting renderer. However,\ngiven the analysis above, we want to maintain (approximate) conventional 𝛼-blending on sorted splats to have the advantages of volumetric representations: Our rasterization respects visibility order\nin contrast to their order-independent method. In addition, we backpropagate gradients on all splats in a pixel and rasterize anisotropic\nsplats. These elements all contribute to the high visual quality of"
+      },
+      {
+        "partId": "16-primitive-not-contact-mesh",
+        "citationId": "3dgs-2023",
+        "sourceUrl": "https://arxiv.org/pdf/2308.04079",
+        "supportingPassage": "\nOur goal is to optimize a scene representation that allows highquality novel view synthesis, starting from a sparse set of (SfM)\npoints without normals. To do this, we need a primitive that inherits\nthe properties of differentiable volumetric representations, while\nat the same time being unstructured and explicit to allow very fast\nrendering. We choose 3D Gaussians, which are differentiable and\ncan be easily projected to 2D splats allowing fast 𝛼-blending for\nrendering.\nOur representation has similarities to previous methods that use\n2D points [Kopanas et al. 2021; Yifan et al. 2019] and assume each\npoint is a small planar circle with a normal. Given the extreme\nsparsity of SfM points it is very hard to estimate normals. Similarly,\nACM Trans. Graph., Vol. 42, No. 4, Article 1. Publication date: August 2023.\n\noptimizing very noisy normals from such an estimation would be\nvery challenging. Instead, we model the geometry as a set of 3D\nGaussians that do not require normals. Our Gaussians are defined\nby a full 3D covariance matrix Σ defined in world space [Zwicker\net al. 2001a] centered at point (mean) 𝜇:\n1\n𝑇 −1\n𝐺 (𝑥) = 𝑒 − 2 (𝑥 ) Σ (𝑥 )\n\n(4)\n\n. This Gaussian is multiplied by 𝛼 in our blending process.\nHowever, we need to project our 3D Gaussians to 2D for rendering.\nZwicker et al. [2001a] demonstrate how to do this projection to\nimage space. Given a viewing transformation 𝑊 the covariance\nmatrix Σ′ in camera coordinates is given as follows:\nΣ′ = 𝐽𝑊 Σ 𝑊 𝑇 𝐽 𝑇\n\n(5)\n\nwhere 𝐽 is the Jacobian of the affine approximation of the projective\ntransformation. Zwicker et al. [2001a] also show that if we skip the\nthird row and column of Σ′ , we obtain a 2×2 variance matrix with\nthe same structure and properties as if we would start from planar\npoints with normals, as in previous work [Kopanas et al. 2021].\nAn obvious approach would be to directly optimize the covariance\nmatrix Σ to obtain 3D Gaussians that represent the radiance field.\nHowever, covariance matrices have physical meaning only when\nthey are positive semi-definite. For our optimization of all our parameters, we use gradient descent that cannot be easily constrained\nto produce such valid matrices, and update steps and gradients can\nvery easily create invalid covariance matrices.\nAs a result, we opted for a more intuitive, yet equivalently expressive representation for optimization. The covariance matrix Σ\nof a 3D Gaussian is analogous to describing the configuration of an\nellipsoid. Given a scaling matrix 𝑆 and rotation matrix 𝑅, we can\nfind the corresponding Σ:\nΣ = 𝑅𝑆𝑆𝑇 𝑅𝑇\n\n(6)\n\nTo allow independent optimization of both factors, we store them\nseparately: a 3D vector 𝑠 for scaling and a quaternion 𝑞 to represent\nrotation. These can be trivially converted to their respective matrices\nand combined, making sure to normalize 𝑞 to obtain a valid unit\nquaternion."
+      },
+      {
+        "partId": "16-extraction-not-impossible",
+        "citationId": "3dgs-2023",
+        "sourceUrl": "https://arxiv.org/pdf/2308.04079",
+        "supportingPassage": "We also demonstrated the importance of building on real-time\nrendering principles, exploiting the power of the GPU and speed of\nsoftware rasterization pipeline architecture. These design choices\nare the key to performance both for training and real-time rendering, providing a competitive edge in performance over previous\nvolumetric ray-marching.\nIt would be interesting to see if our Gaussians can be used to perform mesh reconstructions of the captured scene. Aside from practical implications given the widespread use of meshes, this would\nallow us to better understand where our method stands exactly in\nthe continuum between volumetric and surface representations.\nIn conclusion, we have presented the first real-time rendering\nsolution for radiance fields, with rendering quality that matches the"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "16-opacity-semantics",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Equation 3 multiplies a 2D Gaussian contribution by learned opacity for ordered color compositing. The text’s implicit empty/occupied-space discussion is not a calibrated free/occupied/unknown mapping distribution.",
+        "evidenceDigest": "5d38bdafe076569ad376fa012c3ea7899bf045a29e538a70a66a2d47c57bebe8"
+      },
+      {
+        "partId": "16-primitive-not-contact-mesh",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Section 4 chooses volumetric covariance-defined Gaussians that do not require normals, unlike oriented planar points. The final claim distinguishes stored primitive and explicit contact mesh without denying latent geometry.",
+        "evidenceDigest": "1e623ebb93f71ee6ad157c0dfa27feac1e0b7cce3ab2d96745fb12ca09b889bf"
+      },
+      {
+        "partId": "16-extraction-not-impossible",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor b37551e3-1260-4a87-9b95-4ef0d1de7079; 2026-09-08T16:38:37.788Z",
+        "rationale": "Section 8 explicitly proposes mesh reconstruction as future work. The final article and library disclosure remove the impossibility inference and keep contact conversion/modeling as separate work.",
+        "evidenceDigest": "035c629d86cd6980eac157c67392107ac6bd9647e50bf6f213cec2f90835adb0"
+      }
+    ]
   }
 ]

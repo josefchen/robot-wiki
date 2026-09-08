@@ -200,9 +200,10 @@ test.describe('classical scene-representation module', () => {
     // The verdict, as rendered article prose.
     expect(visible).toMatch(/radiance field is geometry for rendering/i);
     expect(visible).toMatch(
-      /rendering weight rather than an occupancy probability/i,
+      /not a calibrated free\/occupied\/unknown cell classification/i,
     );
-    expect(visible).toMatch(/no surface anywhere in the store/i);
+    expect(visible).toMatch(/not an explicit triangle surface carrying contact normals/i);
+    expect(visible).toMatch(/does not make surface extraction impossible/i);
 
     // An inline internal link to a published world-models module.
     const prose = page.locator('div.prose[data-pagefind-body]');
@@ -399,13 +400,29 @@ test.describe('classical scene-representation module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+    const menu = page.getByRole('button', { name: 'Open navigation menu' });
+    const mobile = await menu.isVisible();
+    if (mobile) {
+      await menu.focus();
+      await page.keyboard.press('Enter');
+    }
+    const nav = mobile
+      ? page.getByRole('dialog', { name: 'Site navigation' })
+      : page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+    await expect(nav).toBeVisible();
     await expect(
       nav.getByRole('link', {
         name: 'Scene Representation and Mapping',
         exact: true,
       }),
     ).toHaveAttribute('aria-current', 'page');
+    if (mobile) {
+      await expect(page.locator('#main-content').locator('xpath=ancestor-or-self::*[@inert]').first()).toBeAttached();
+      await page.keyboard.press('Escape');
+      await expect(nav).toHaveCount(0);
+      await expect(menu).toBeFocused();
+      await expect(page.locator('[inert]')).toHaveCount(0);
+    }
 
     await page.goto('/classical/');
     await expect(
