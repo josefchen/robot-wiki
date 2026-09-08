@@ -7358,6 +7358,24 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "place-slam-originals-32-34-35-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "7b185778f459eda211b053c935b260c2d22ee4cc80b08cef3b6cc516bd7c2463",
+      "reason": "Source-backed correction of scene originals32/34/35 only: visual-map recognition permits motion information and distinguishes perceptual aliasing; Square Root SAM separates nonlinear MAP and successive sparse linear solves, QR Jacobian/Cholesky information and ordering-dependent fill-in; iSAM2 includes affected ancestors, reattachment and threshold/batch-cost limits. Retained source verification and exact endpoints: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-place-slam-backends-integration-20260908/worker-source-proof.json and worker-application.json. Only the two assigned article spans and local Source-line placement change; ordered registry values, audited DOI URLs, article date and prior corrections remain unchanged. Manuscript/VOR and SAM pagination limitations remain explicit. Browser acceptance is not implied.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification, changed criteria or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

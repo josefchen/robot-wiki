@@ -164,6 +164,27 @@ test.describe('classical scene-representation module', () => {
     const visible = await visibleArticleText(page);
     expect(visible).toMatch(/loop closure/i);
     expect(visible).toMatch(/place recognition/i);
+    // Corrected source boundaries must survive MDX rendering, with each
+    // supporting chip attached to the paragraph carrying its claim.
+    const correctedSources = [
+      ['lowry-2016-place-recognition', /motion information can also inform this belief/, 'https://doi.org/10.1109/TRO.2015.2496823'],
+      ['dellaert-kaess-2006', /QR of the measurement Jacobian or Cholesky of the information matrix/, 'https://doi.org/10.1177/0278364906072768'],
+      ['kaess-2012', /large loop closures can cost as much as a batch solve/, 'https://doi.org/10.1177/0278364911430419'],
+    ] as const;
+    for (const [id, qualification, href] of correctedSources) {
+      const chip = page.locator(`.prose [data-cite-id="${id}"]`);
+      await expect(chip).toHaveCount(1);
+      await expect(chip.locator('a[target="_blank"]')).toHaveAttribute('href', href);
+      await expect(chip.locator('xpath=ancestor::p[1]')).toContainText(qualification);
+    }
+    const correctedProse = await page.locator('.prose').evaluate((prose) => {
+      const clone = prose.cloneNode(true) as HTMLElement;
+      // Glossary tooltip wording is an explicitly unselected obligation.
+      for (const tooltip of clone.querySelectorAll('[role="tooltip"]')) tooltip.remove();
+      return clone.textContent ?? '';
+    });
+    expect(correctedProse.includes('sensor data alone')).toBe(false);
+    expect(correctedProse.includes('can be factored once')).toBe(false);
 
     // Both front-end families named inside ONE section that distinguishes
     // them, not scattered across the article.

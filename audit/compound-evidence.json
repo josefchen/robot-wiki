@@ -28672,5 +28672,254 @@
         "evidenceDigest": "8213517ebb90e228600480d5b07da8a79b5e996c9834877d7f836f352360a2b4"
       }
     ]
+  },
+  {
+    "id": "scene-place-slam-32-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 32,
+    "originalCellsDigest": "83989bfa3cf62bace953066ad893e832c30263cd28c4e7d13d7cd74768239eae",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "visual-map-motion",
+        "text": "Visual recognition compares current images with a stored place map; motion information may inform belief.",
+        "requiredCitationIds": [
+          "lowry-2016-place-recognition"
+        ]
+      },
+      {
+        "id": "appearance-aliasing",
+        "text": "Viewpoint, illumination and seasonal change can alter appearance; distinct places can look alike.",
+        "requiredCitationIds": [
+          "lowry-2016-place-recognition"
+        ]
+      },
+      {
+        "id": "source-identity",
+        "text": "Lowry survey identity and actual author-manuscript/2016 issue bridge.",
+        "requiredCitationIds": [
+          "lowry-2016-place-recognition"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "source-auditor Droid worker 7355c3bc-c82f-4882-8462-d24fc6db242a, custom:droidproxy:gpt-6-astra/max",
+      "rationale": "Reviewed all three AND obligations against the final whole claim and original source bodies/countercontext at 2026-09-08T20:20:57.290Z. The introduction explicitly asks whether a current image depicts a mapped place; the three-module description allows motion or transition information to inform belief. This corrects the universal sensor-data-alone claim without defining every place recognizer or requiring an exact robot pose. The introduction separates appearance change from perceptual aliasing between distinct places and revisits at different viewpoints. Section IV/V describes illumination and seasonal-condition failures; these are not asserted to be identical mechanisms or universal failure rates. The QUT cover bridges this author manuscript to the 2016 IEEE T-RO issue and DOI while warning it may not be the Version of Record. Its ordered seven-person printed byline includes Sünderhauf and the full Leonard/Milford initials. The body says submitted for review on 18 March 2015; that is not the issue year.",
+      "planDigest": "d2bd4b2a910177d9c85c978c860775c26e8e7dc83758d4e6c03be85e1df022c3"
+    },
+    "evidence": [
+      {
+        "partId": "visual-map-motion",
+        "citationId": "lowry-2016-place-recognition",
+        "sourceUrl": "https://eprints.qut.edu.au/105651/1/visual_place_recognition_a_survey_revised_final.pdf",
+        "supportingPassage": "ISUAL place recognition is a well‐defined but extremely\nchallenging problem to solve in the general sense; given\nan image of a place, can a human, animal or robot decide\nwhether or not this image is of a place it has already seen?\nWhether referring to humans, animals, computers or robots,\nthere are some fundamental things a place recognition system\nmust have and must do. Firstly, a place recognition system\nmust have an internal representation – a map – of the\nenvironment to compare to the incoming visual data.\nSecondly, the place recognition must report a belief about\n\n[Separate literal excerpt from the same preserved source body]\n\nMany of the same concepts arise in robotics. Most robots\nhave access to external observation data as well as self-motion\nself\ninformation. Topological and metric relationships between\nplaces are used in combination\nmbination with sensory cues to determine\nthe most likely place, similar to the neuronal firing of the\nplace cells. Fig. 3 presents a schematic of a visual place\nrecognition system. Visual place recognition systems contain\nthree key components – an image processing module to\ninterpret the incoming visual data; a map that maintains a\nrepresentation of the robot’s knowledge of the world; and a\nbelief generation module, which uses the incoming sensor data\nin combination with the map to make a decision about whether\nthe robot is in a familiar or novel place. A place recognition\nsystem may also use motion or transition information to\ninform the belief generation process. Furthermore, most place\nrecognition systems are designed to operate\noperat online, and thus\nmust update the map accordingly."
+      },
+      {
+        "partId": "appearance-aliasing",
+        "citationId": "lowry-2016-place-recognition",
+        "sourceUrl": "https://eprints.qut.edu.au/105651/1/visual_place_recognition_a_survey_revised_final.pdf",
+        "supportingPassage": "whether or not the current visual information is from a place\nalready included in the map, and if so, which one. Performing\nvisual place recognition can be difficult due to a range of\nchallenges; the appearance of a place can change drastically\n(see Fig. 1), multiple places in an environment may look very\nsimilar, a problem known as perceptual aliasing, and places\nmay not always be revisited from the same viewpoint and\nposition as before.\n\n[Separate literal excerpt from the same preserved source body]\n\nThe difficulty of matching places in changing environments\nusing conventional local features is a significant one for\npersistent robot navigation: Furgale and Barfoot [117]\nobserved that the non-repeatability of SURF features due to\nchanging appearance, particularly lighting change, was a\nmajor cause of failure during visual-teach-and-repeat\nexperiments. Existing image description methods have been\ntested to determine their robustness to illumination and other\nchange. In [195], Valgren and Lilienthal tested SIFT features\nand a number of SURF variants across change in lighting,\ncloud cover, and seasonal conditions. The SURF variants all\noutperformed SIFT, but none of the tested features were found\nto be robust across all conditions."
+      },
+      {
+        "partId": "source-identity",
+        "citationId": "lowry-2016-place-recognition",
+        "sourceUrl": "https://eprints.qut.edu.au/105651/1/visual_place_recognition_a_survey_revised_final.pdf",
+        "supportingPassage": "This may be the author’s version of a work that was submitted/accepted\nfor publication in the following source:\nLowry, Stephanie, Suenderhauf, Niko, Newman, Paul, Leonard, John, Cox,\nDavid, Corke, Peter, & Milford, Michael\n(2016)\nVisual place recognition: A survey.\nIEEE Transactions on Robotics, 32(1), pp. 1-19.\nThis file was downloaded from: https://eprints.qut.edu.au/222264/\n\n© Consult author(s) regarding copyright matters\nThis work is covered by copyright. Unless the document is being made available under a\nCreative Commons Licence, you must assume that re-use is limited to personal use and\nthat permission from the copyright owner must be obtained for all other uses. If the document is available under a Creative Commons License (or other specified license) then refer\nto the Licence for details of permitted re-use. It is a condition of access that users recognise and abide by the legal requirements associated with these rights. If you believe that\nthis work infringes copyright please provide details by email to qut.copyright@qut.edu.au\n\nNotice: Please note that this document may not be the Version of Record\n(i.e. published version) of the work. Author manuscript versions (as Submitted for peer review or as Accepted for publication after peer review) can\nbe identified by an absence of publisher branding and/or typeset appearance. If there is any doubt, please refer to the published source.\nhttps://doi.org/10.1109/TRO.2015.2496823\n\n[Separate literal excerpt from the same preserved source body]\n\nVisual Place Recognition: A Survey\nStephanie Lowry, Niko Sünderhauf, Paul Newman, Fellow, IEEE, John J. Leonard, Fellow, IEEE,\nDavid Cox, Peter Corke, Fellow, IEEE, and Michael J. Milford, Member, IEEE"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "visual-map-motion",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid worker 7355c3bc-c82f-4882-8462-d24fc6db242a, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "The introduction explicitly asks whether a current image depicts a mapped place; the three-module description allows motion or transition information to inform belief. This corrects the universal sensor-data-alone claim without defining every place recognizer or requiring an exact robot pose.",
+        "evidenceDigest": "9a47ecf34daba22375650b7c42820a909521691c262f0080de6328d8b6854b7a"
+      },
+      {
+        "partId": "appearance-aliasing",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid worker 7355c3bc-c82f-4882-8462-d24fc6db242a, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "The introduction separates appearance change from perceptual aliasing between distinct places and revisits at different viewpoints. Section IV/V describes illumination and seasonal-condition failures; these are not asserted to be identical mechanisms or universal failure rates.",
+        "evidenceDigest": "81c3799b1802ce31078c22cfa42d963764e6daed6dac96cc9b228f11cc54c9a2"
+      },
+      {
+        "partId": "source-identity",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid worker 7355c3bc-c82f-4882-8462-d24fc6db242a, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "The QUT cover bridges this author manuscript to the 2016 IEEE T-RO issue and DOI while warning it may not be the Version of Record. Its ordered seven-person printed byline includes Sünderhauf and the full Leonard/Milford initials. The body says submitted for review on 18 March 2015; that is not the issue year.",
+        "evidenceDigest": "2a3750c74560d6e1746ec9433502362dc285ab64e3b6220cb5de919abedcef5e"
+      }
+    ]
+  },
+  {
+    "id": "scene-place-slam-34-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 34,
+    "originalCellsDigest": "61dd7229a1677e3869b9774e5df2bdca96893509af753cbf724b2c34559aa320",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "joint-map-assumptions",
+        "text": "Joint trajectory/landmark MAP reduces to nonlinear least squares with known associations and Gaussian process/measurement models.",
+        "requiredCitationIds": [
+          "dellaert-kaess-2006"
+        ]
+      },
+      {
+        "id": "sparse-linear-solves",
+        "text": "Linearised sparse systems; QR of Jacobian versus Cholesky of information matrix; ordering/fill-in matters.",
+        "requiredCitationIds": [
+          "dellaert-kaess-2006"
+        ]
+      },
+      {
+        "id": "source-identity",
+        "text": "Square Root SAM full title, ordered authors, 2006 IJRR publication and linked author manuscript.",
+        "requiredCitationIds": [
+          "dellaert-kaess-2006"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "source-auditor Droid worker 7355c3bc-c82f-4882-8462-d24fc6db242a, custom:droidproxy:gpt-6-astra/max",
+      "rationale": "Reviewed all three AND obligations against the final whole claim and original source bodies/countercontext at 2026-09-08T20:20:57.290Z. Sections 2/3 explicitly assume solved data association, Gaussian process/measurement models and a uniform landmark prior, then derive joint trajectory/landmark MAP as nonlinear least squares. The final prose does not invent priority: the historical section acknowledges bundle adjustment and earlier smoothing work. Section 3 fixes the initial frame and describes a succession of linear approximations, not a one-shot nonlinear solution. Sections 4/5 collect sparse Jacobian A, factor A by QR or information A-transpose-A by Cholesky, and explain ordering-dependent fill-in. Matrix roles and nonlinear/linear boundaries are kept distinct. The author manuscript prints the complete title and Dellaert/Kaess order with To appear in IJRR. The retained author page names December2006 volume25 issue12 and links Dellaert06ijrr.pdf. Historical1181–1203 versus page1181–1204 pagination remains unestablished; neither publisher pagination nor VOR/PDF-byte equivalence is certified.",
+      "planDigest": "0218ef0ec5f1405d4c0912b4af4dc169e8ab23264804d5906ca2c0683998185c"
+    },
+    "evidence": [
+      {
+        "partId": "joint-map-assumptions",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.pdf",
+        "supportingPassage": "While the previous section was concerned with modeling, we now discuss inference, i.e., obtaining\nan optimal estimate for the set of unknowns given all measurements available to us. We are concerned with smoothing rather than filtering, i.e., we would like to recover the maximum a posteriori\n∆\n∆\n(MAP) estimate for the entire trajectory X = {xi } and the map L = {lj }, given the measurements\n∆\n∆\nZ = {zk } and control inputs U = {ui }. Let us collect all unknowns in X and L in the vector\n∆\nΘ = (X, L). Under the assumptions made above, we obtain the maximum a posteriori (MAP)\nestimate by maximizing the joint probability P (X, L, Z) from Equation 1,\n∆\n\nΘ∗ = argmax P (X, L|Z) = argmax P (X, L, Z)\nΘ\n\nΘ\n\n= argmin − log P (X, L, Z)\nΘ\n\nwhich leads us via (2) and (3) to the following non-linear least-squares problem:\n\n[Separate literal excerpt from the same preserved source body]\n\nwhere P (x0 ) is a prior on the initial state, P (xi |xi−1 , ui ) is the motion model, parameterized by a\ncontrol input ui , and P (z|x, l) is the landmark measurement model. The above assumes a uniform\nprior over the landmarks l. Furthermore, it assumes that the data-association problem has been\nsolved, i.e., that the indices ik and jk corresponding to each measurement zk are known.\n\n[Separate literal excerpt from the same preserved source body]\n\nAs is standard in the SLAM literature [71, 51, 8, 21], we assume Gaussian process and measurement models [59], defined by\nxi = fi (xi−1 , ui ) + wi\n\n⇔\n\n1\nP (xi |xi−1 , ui ) ∝ exp − kfi (xi−1 , ui ) − xi k2Λi\n2\n\n(2)\n\nwhere fi (.) is a process model, and wi is normally distributed zero-mean process noise with covariance matrix Λi , and\nzk = hk (xik , ljk ) + vk\n\n⇔\n\n1\nP (zk |xik , ljk ) ∝ exp − khk (xik , ljk ) − zk k2Σk\n2\n\n(3)\n\nwhere hk (.) is a measurement equation, and vk is normally distributed zero-mean measurement\n∆\nnoise with covariance Σk . Above kek2Σ = eT Σ−1 e is defined as the squared Mahalanobis distance\ngiven a covariance matrix Σ. The equations above model the robot’s behavior in response to control\ninput, and its sensors, respectively."
+      },
+      {
+        "partId": "sparse-linear-solves",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.pdf",
+        "supportingPassage": "Regarding the prior P (x0 ), we will assume that x0 is given and hence it is treated as a constant\nbelow. This considerably simplifies the equations in the rest of this document. This is what is often\ndone in practice: the origin of the coordinate system is arbitrary, and we can then just as well fix\nx0 at the origin. The exposition is easily adapted to the case where this assumption is invalid.\nIn practice one always considers a linearized version of problem (5). If the process models\nfi and measurement equations hk are non-linear and a good linearization point is not available,\nnon-linear optimization methods such as Gauss-Newton iterations or the Levenberg-Marquardt\nalgorithm will solve a succession of linear approximations to (5) in order to approach the minimum\n[20]. This is similar to the extended Kalman filter approach to SLAM as pioneered by [70, 71, 52],\nbut allows for iterating multiple times to convergence while controlling in which region one is\nwilling to trust the linear assumption (hence, these methods are often called region-trust methods).\nWe now linearize all terms in the non-linear least-squares objective function (5). In what follows, we will assume that either a good linearization point is available or that we are working\non one iteration of a non-linear optimization method. In either case, we can linearize the process\nterms in (5) as follows:\n\n[Separate literal excerpt from the same preserved source body]\n\nFinally, after collecting the Jacobian matrices into a matrix A, and the vectors ai and ck into a\nright-hand side (RHS) vector b, we obtain the following standard least-squares problem,\nδ ∗ = argmin kAδ − bk22\n\n(9)\n\nδ\n\nwhich is our starting point below. A can grow to be very large, but is quite sparse, as illustrated in\nFigure 4. If dx , dl , and dz are the dimensions of the state, landmarks, and measurements, A’s size\nis (N dx + Kdz ) × (N dx + M dl ). In addition, A has a typical block structure\n\n[Separate literal excerpt from the same preserved source body]\n\nIn this section we briefly review Cholesky and QR factorization and their application to the full\nrank linear least-squares (LS) problem in (9). This material is well known and is given primarily\nfor review and to contrast the linear algebra algorithms with the graph-theoretic view of the next\nsection. The exposition closely follows [35], which can be consulted for a more in-depth treatment.\nFor a full-rank m × n matrix A, with m ≥ n, the unique LS solution to (9) can be found by\nsolving the normal equations:\nAT Aδ ∗ = AT b\n(10)\nThis is normally done by Cholesky factorization of the information matrix I, defined and factorized\nas follows:\n∆\nI = AT A = R T R\n(11)\nThe Cholesky triangle R is an upper-triangular n × n matrix1 and is computed using Cholesky\nfactorization, a variant of LU factorization for symmetric positive definite matrices. For dense\nmatrices Cholesky factorization requires n3 /3 flops. After this, δ ∗ can be found by solving\nfirst RT y = AT b and then Rδ ∗ = y\nby back-substitution. The entire algorithm, including computing half of the symmetric AT A, requires (m + n/3)n2 flops.\nFor the example of Figure 1, both I and its Cholesky triangle R are shown alongside A in\nFigure 4. Note the very typical block structure of I when the columns of A are ordered in the\nstandard way [79], e.g., trajectory X first and then map L (to which we refer below as the XL\nordering):\n\u0014 T\n\u0015\nAX AX IXL\nI=\nT\nIXL\nATL AL\n∆\n\nHere IXL = ATX AL encodes the correlation between robot states X and map L, and the diagonal\nblocks are band-diagonal.\nA variant of Cholesky factorization which avoids computing square roots is LDL factorization,\nwhich computes a lower triangular matrix L and a diagonal matrix D such that\nI = RT R = LDLT\nAn alternative to Cholesky factorization that is both more accurate and numerically stable is to\nproceed via QR-factorization without computing the information matrix I. Instead, we compute\nthe QR-factorization of A itself along with its corresponding RHS:\n\n[Separate literal excerpt from the same preserved source body]\n\nThe single most important factor to good performance is the order in which variables are eliminated. Different variable orderings can yield dramatically more or less fill-in, defined as the\namount of edges added into the graph during factorization. As each edge added corresponds to a\nnon-zero in the Cholesky triangle R, both the cost of computing R and back-substitution is heavily\ndependent on how much fill-in occurs. Unfortunately, finding an optimal ordering is NP-complete.\nDiscovering algorithms that approximate the optimal ordering is an active area of research in sparse\nlinear algebra. A popular method for medium-sized problems is colamd [1], which works on the\ncolumns of A. Another popular method, based on graph theory and often used to speed up finite\nelement methods, is generalized nested dissection [55, 54].\n"
+      },
+      {
+        "partId": "source-identity",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.pdf",
+        "supportingPassage": "Square Root SAM\nSimultaneous Localization and Mapping\nvia Square Root Information Smoothing\nFrank Dellaert and Michael Kaess\nCenter for Robotics and Intelligent Machines, College of Computing\nGeorgia Institute of Technology, Atlanta, GA 30332-0280\nTo appear in the Intl. Journal of Robotics Research"
+      },
+      {
+        "partId": "source-identity",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.html",
+        "supportingPassage": "“Square Root SAM: Simultaneous Localization and Mapping via Square\nRoot Information Smoothing”\nby\nF. Dellaert\nand\nM. Kaess.\nIntl. J. of Robotics Research, IJRR, vol. 25, no. 12, Dec. 2006, pp. 1181-1204."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "joint-map-assumptions",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid worker 7355c3bc-c82f-4882-8462-d24fc6db242a, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "Sections 2/3 explicitly assume solved data association, Gaussian process/measurement models and a uniform landmark prior, then derive joint trajectory/landmark MAP as nonlinear least squares. The final prose does not invent priority: the historical section acknowledges bundle adjustment and earlier smoothing work.",
+        "evidenceDigest": "60f0ee44891af951fd2b2b780a0b67cf5c5dc9ed6248dfe8199ab171264ab28d"
+      },
+      {
+        "partId": "sparse-linear-solves",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid worker 7355c3bc-c82f-4882-8462-d24fc6db242a, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "Section 3 fixes the initial frame and describes a succession of linear approximations, not a one-shot nonlinear solution. Sections 4/5 collect sparse Jacobian A, factor A by QR or information A-transpose-A by Cholesky, and explain ordering-dependent fill-in. Matrix roles and nonlinear/linear boundaries are kept distinct.",
+        "evidenceDigest": "370f3abce146ebfe6e4d230164b8a775b50ccd7b54132ef3080bd0af75f39e1a"
+      },
+      {
+        "partId": "source-identity",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid worker 7355c3bc-c82f-4882-8462-d24fc6db242a, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "The author manuscript prints the complete title and Dellaert/Kaess order with To appear in IJRR. The retained author page names December2006 volume25 issue12 and links Dellaert06ijrr.pdf. Historical1181–1203 versus page1181–1204 pagination remains unestablished; neither publisher pagination nor VOR/PDF-byte equivalence is certified.",
+        "evidenceDigest": "413f39f619e17932f3de314a409d9301de1d62d560c1c17b9a8c2b4b94682e83"
+      }
+    ]
+  },
+  {
+    "id": "scene-place-slam-35-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 35,
+    "originalCellsDigest": "84e9dba188be34785c4ff086b60a35975e6af26c60c12cc183ad16cf4ad75f0c",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "incremental-tree",
+        "text": "Bayes-tree incremental reordering/relinearisation; re-eliminate affected cliques and ancestors and reattach untouched subtrees.",
+        "requiredCitationIds": [
+          "kaess-2012"
+        ]
+      },
+      {
+        "id": "threshold-and-cost",
+        "text": "Thresholded state updates approximate the solve; changes can propagate beyond the refactored top; large loop closures can cost a batch solve.",
+        "requiredCitationIds": [
+          "kaess-2012"
+        ]
+      },
+      {
+        "id": "source-identity",
+        "text": "iSAM2 full title and six ordered authors; author page's 2012 IJRR issue linked to explicitly labelled April 2011 draft.",
+        "requiredCitationIds": [
+          "kaess-2012"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "source-auditor Droid worker 7355c3bc-c82f-4882-8462-d24fc6db242a, custom:droidproxy:gpt-6-astra/max",
+      "rationale": "Reviewed all three AND obligations against the final whole claim and original source bodies/countercontext at 2026-09-08T20:20:57.290Z. The abstract identifies incremental reordering and fluid relinearization. Algorithm4 removes affected cliques and all parents up to the root, reorders/re-eliminates, then reinserts orphan subtrees. This does not promise a constant-sized or purely local update. Algorithm7 thresholds changes in the delta vector and retains previous estimates for unreached variables. Section6 explains downstream estimate propagation beyond refactored tree structure, and the discussion explicitly says large loop closings can cost a batch solution. The final prose preserves the accuracy/speed tradeoff and worst-case limitation. The paper prints six ordered authors and the full iSAM2 title, explicitly labelled Draft manuscript, April6 2011. The author page names the February2012 IJRR issue and the same exact PDF filename; J.J.Leonard supports the registry initials alongside the full first name in the draft. No publisher-version or PDF-byte equivalence claim is made.",
+      "planDigest": "37a5ddba5636e90cc78d49a82c7525b4067971144db27eb2e21d5635dd262f3e"
+    },
+    "evidence": [
+      {
+        "partId": "incremental-tree",
+        "citationId": "kaess-2012",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Kaess12ijrr.pdf",
+        "supportingPassage": "We present a novel data structure, the Bayes tree, that provides an algorithmic foundation enabling a better understanding of\nexisting graphical model inference algorithms and their connection to sparse matrix factorization methods. Similar to a clique\ntree, a Bayes tree encodes a factored probability density, but unlike the clique tree it is directed and maps more naturally to the\nsquare root information matrix of the simultaneous localization and mapping (SLAM) problem. In this paper, we highlight three\ninsights provided by our new data structure. First, the Bayes tree provides a better understanding of the matrix factorization in\nterms of probability densities. Second, we show how the fairly abstract updates to a matrix factorization translate to a simple\nediting of the Bayes tree and its conditional densities. Third, we apply the Bayes tree to obtain a completely novel algorithm\nfor sparse nonlinear incremental optimization, named iSAM2, which achieves improvements in efficiency through incremental\nvariable re-ordering and fluid relinearization, eliminating the need for periodic batch steps. We analyze various properties of\niSAM2 in detail, and show on a range of real and simulated datasets that our algorithm compares favorably with other recent\nmapping algorithms in both quality and efficiency.\n\n[Separate literal excerpt from the same preserved source body]\n\nAlg. 4 Updating the Bayes tree with new factors F 0 .\nIn: Bayes tree T , new linear factors F 0\nOut: modified Bayes tree T ’\n1. Remove top of Bayes tree and re-interpret it as a factor graph:\n(a) For each variable affected by new factors, remove the corresponding clique and all parents up to the root.\n(b) Store orphaned sub-trees Torph of removed cliques.\n2. Add the new factors F 0 into the resulting factor graph.\n3. Re-order variables of factor graph.\n4. Eliminate the factor graph (Alg. 2) and create a new Bayes tree (Alg. 3).\n5. Insert the orphans Torph back into the new Bayes tree.\n\n[Separate literal excerpt from the same preserved source body]\n\nWhile performing incremental inference in the Bayes tree,\nvariables can be reordered at every incremental update, eliminating the need for periodic batch reordering. This was not\nunderstood in (Kaess et al., 2008), because this is only obvious within the graphical model framework, but not for matrices. The affected part of the Bayes tree, for which variables\nhave to be reordered, is typically small, as new measurements\nusually only affect a small subset of the overall state space\nrepresented by the variables of the estimation problem. Finding an optimal ordering for this subset of variables does not\nnecessarily provide an optimal overall ordering. However, we\nhave observed that some incremental orderings provide good\nsolutions, comparable to batch application of COLAMD."
+      },
+      {
+        "partId": "threshold-and-cost",
+        "citationId": "kaess-2012",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Kaess12ijrr.pdf",
+        "supportingPassage": "How do we update only variables that actually change,\ni.e. perform a partial state update? Full backsubstitution starts\nat the root and continues to all leaves, obtaining a delta vector\n∆ that is used to update the linearization point Θ. The partial\nstate update starts by solving for all variables contained in the\nmodified top of the tree. As shown in Alg. 7, we continue\nprocessing all sub-trees, stopping when a clique is encountered that does not refer to any variable for which ∆ changed\nby more than a small threshold α. The running intersection\nproperty guarantees that none of the variables that changed\n\nAlg. 7 Partial state update: Solving the Bayes tree in the nonlinear case\nreturns an update ∆ to the current linearization point Θ.\nIn: Bayes tree T\nOut: update ∆\nStarting from the root clique Cr = Fr :\n1. For current clique Ck = Fk : Sk\ncompute update ∆k of frontal variables Fk from the local conditional\ndensity P(Fk |Sk ).\n2. For all variables ∆k j in ∆k that change by more than threshold α:\nrecursively process each descendant containing such a variable.\n\nsignificantly can occur in any sub-tree of that clique. Note\nthat the threshold refers to a change in the delta vector ∆, not\nthe absolute value of the recovered delta ∆ itself. The absolute\nvalues of the entries in ∆ can be quite large, because, as described above, the linearization point is only updated when a\nlarger threshold β is reached. For simplicity we again use the\nsame threshold for all variables, though that could be refined.\nFor variables that are not reached by this process, the previous estimate ∆ is kept. A nearly exact solution is obtained\nwith significant savings in computation time, as can be seen\nfrom Fig. 10.\n\n[Separate literal excerpt from the same preserved source body]\n\nUpdates to the Bayes tree\nfrom new factors and from relinearization only affect the top\nof the tree, however, changes in variable estimates occurring\nhere can still propagate further down to all sub-trees. But\nthe effect of changes in the top is often limited, as new measurements have only a local effect if no large loops are being closed, leaving spatially remote parts of the estimate unchanged. Consider the example of mapping a large building\nwith many rooms: Measurements taken inside a room usually do not affect the estimates previously obtained for other\nrooms. Solving only for variables that actually change should\ntherefore significantly reduce computational cost.\n\n[Separate literal excerpt from the same preserved source body]\n\nRelative formulations have also been used on a different\nlevel, to split the problem into submaps, for example Atlas\n(Bosse et al., 2004) or Tectonic SAM (Ni et al., 2007; Ni and\nDellaert, 2010). In some way, iSAM2 provides a separation\ninto submaps represented by different sub-trees, even though\nthey are not completely separated in a way, as new measurements can change that topology at any time, so that the complexity is not explicitly bounded.\nSibley et al. (2009) couples the relative formulation with\nlocally restricted optimization, operating on a manifold similar to Howard et al. (2006). Restricting optimization to a\nlocal region allows updates in constant time. The produced\nmaps are locally accurate, but a globally metric map can only\nbe obtained offline. While such maps are sufficient for some\napplications, we argue that tasks such as planning require an\naccurate globally metric map to be available at every step: For\nexample, to detect/decide if an unexplored direct path (such as\na door) might exist between places A and B requires globally\nmetric information. In iSAM2 we therefore focus on making\nonline recovery of globally metric maps more efficient - however, our update steps are not constant time, and for large loop\nclosings can become as expensive as a batch solution."
+      },
+      {
+        "partId": "source-identity",
+        "citationId": "kaess-2012",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Kaess12ijrr.pdf",
+        "supportingPassage": "iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree\nMichael Kaess, Hordur Johannsson, Richard Roberts, Viorela Ila, John Leonard, and Frank Dellaert\nAbstract\n\n[Separate literal excerpt from the same preserved source body]\n\nDraft manuscript, April 6, 2011. Submitted to IJRR."
+      },
+      {
+        "partId": "source-identity",
+        "citationId": "kaess-2012",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Kaess12ijrr.html",
+        "supportingPassage": "“iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree”\nby\nM. Kaess,\nH. Johannsson,\nR. Roberts,\nV. Ila,\nJ.J. Leonard,\nand\nF. Dellaert.\nIntl. J. of Robotics Research, IJRR, vol. 31, no. 2, Feb. 2012, pp. 216-235."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "incremental-tree",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid worker 7355c3bc-c82f-4882-8462-d24fc6db242a, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "The abstract identifies incremental reordering and fluid relinearization. Algorithm4 removes affected cliques and all parents up to the root, reorders/re-eliminates, then reinserts orphan subtrees. This does not promise a constant-sized or purely local update.",
+        "evidenceDigest": "8f7959868baf80529ebfc97d1fec3dd072638a1b10e22477c964acad87bede36"
+      },
+      {
+        "partId": "threshold-and-cost",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid worker 7355c3bc-c82f-4882-8462-d24fc6db242a, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "Algorithm7 thresholds changes in the delta vector and retains previous estimates for unreached variables. Section6 explains downstream estimate propagation beyond refactored tree structure, and the discussion explicitly says large loop closings can cost a batch solution. The final prose preserves the accuracy/speed tradeoff and worst-case limitation.",
+        "evidenceDigest": "dba47bf75567352e98e70fd608b80467ba6f3fddabfa332d75c2c0a3109b4172"
+      },
+      {
+        "partId": "source-identity",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid worker 7355c3bc-c82f-4882-8462-d24fc6db242a, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "The paper prints six ordered authors and the full iSAM2 title, explicitly labelled Draft manuscript, April6 2011. The author page names the February2012 IJRR issue and the same exact PDF filename; J.J.Leonard supports the registry initials alongside the full first name in the draft. No publisher-version or PDF-byte equivalence claim is made.",
+        "evidenceDigest": "1d193a7c2fbb1a955925848ba4b1d95b0e895e4468c32ca2264b493c280d0dae"
+      }
+    ]
   }
 ]

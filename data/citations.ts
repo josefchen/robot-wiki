@@ -5450,10 +5450,11 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // IJRR 25(12):1181-1203; SAGE bot-walls curl (403) but the DOI is live
-    // in a browser (2026-08-11), same handling as the other SAGE entries.
-    // Reframes SLAM as smoothing: factor the information matrix once and
-    // the whole trajectory falls out.
+    // Historical SAGE note: bot-walls curl (403), DOI live in a browser
+    // on 2026-08-11. Pagination 1181-1203 versus author-page 1181-1204 remains unestablished.
+    // The retained author manuscript says To appear; its page names Dec. 2006.
+    // Nonlinear MAP uses successive linearised solves, not one factorisation:
+    // QR on the measurement Jacobian; Cholesky on information; ordering affects fill-in.
     id: 'dellaert-kaess-2006',
     title:
       'Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing',
@@ -5476,9 +5477,11 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // IJRR 31(2):216-235; SAGE bot-walls curl (403) but the DOI is live in
-    // a browser (2026-08-11). Organizes the factor graph into the Bayes
-    // tree so incremental updates stay local as the graph grows.
+    // IJRR 31(2):216-235; historical SAGE 403/browser-live note, 2026-08-11.
+    // Retained April 6, 2011 draft is linked by the February 2012 author page;
+    // this is not publisher-version or PDF-byte equivalence certification.
+    // Updates re-eliminate affected cliques and ancestors, then reattach subtrees.
+    // Thresholded propagation is approximate; large loops may cost a batch solve.
     id: 'kaess-2012',
     title: 'iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree',
     authors: [
@@ -5712,9 +5715,9 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // IEEE Trans. Robotics 32(1):1-19, Crossref read 2026-08-22. The
-    // survey of visual place recognition, which is the machinery a SLAM
-    // back end needs before it can propose a loop closure at all.
+    // IEEE Trans. Robotics 32(1):1-19, Crossref read 2026-08-22 (historical).
+    // Retained QUT author manuscript: submitted 18 March 2015, 2016 issue;
+    // not Version-of-Record certification. Visual-map recognition may use motion.
     id: 'lowry-2016-place-recognition',
     title: 'Visual Place Recognition: A Survey',
     authors: [
