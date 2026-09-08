@@ -52,7 +52,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     weightsNote: "The February 20, 2025 announcement identifies an open-weight VLM backbone, not a download or license for the trained Helix policy.",
     provenance: 'blog',
     capability:
-      "Figure reports a 7–9 Hz S2 VLM producing latent goals and a 200 Hz S1 visuomotor transformer producing upper-body control, including wrist poses, finger controls, and torso/head orientation targets.",
+      'Figure reports S2 latent task representations and S1 control of wrist poses, fingers, torso and head orientation, plus task completion; S1 also consumes images and robot state.',
     citationId: 'helix-2025',
   },
   {
@@ -64,7 +64,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     openWeights: false,
     provenance: 'paper',
     capability:
-      'Gemini 2.0-based VLA plus Gemini Robotics-ER, an embodied-reasoning model for spatial understanding, pointing, and grasp proposal.',
+      'March 2025 report: Gemini Robotics builds on Gemini Robotics-ER; the family extends Gemini 2.0 from embodied reasoning to robot actions.',
     citationId: 'gemini-robotics-2025',
   },
   {
@@ -76,7 +76,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     openWeights: true,
     provenance: 'paper',
     capability:
-      'Open humanoid foundation model: a VLM backbone with a flow-matching DiT action head, coupled by cross-attention.',
+      'The N1 v2 paper describes a VLM with a cross-attention-conditioned flow-matching DiT action head and links a public GR00T-N1-2B checkpoint.',
     citationId: 'gr00t-n1-2025',
   },
   {
@@ -165,7 +165,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     openWeights: true,
     provenance: 'docs',
     capability:
-      'Cosmos-Reason2-2B backbone and a shared relative-EEF action space that admits 20K hours of egocentric human video.',
+      'N1.7 README: Cosmos-Reason2-2B backbone, relative-EEF actions, and 20K hours of EgoScale human video in pretraining. Its license declarations require checkpoint-specific review.',
     citationId: 'isaac-gr00t-repo-2026',
   },
   {

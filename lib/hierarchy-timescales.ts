@@ -52,7 +52,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
     name: 'π0.5',
     org: 'Physical Intelligence',
     pattern:
-      'One network, hierarchy internalized: the same VLA predicts the next language subtask at low frequency and conditions the flow-matching action expert on it at high frequency. There is no separate planner model.',
+      'The same model performs high-level subtask inference and low-level action inference. High-level inference runs less frequently; the numerical inference periods shown here are schematic.',
     citationId: 'pi05-2025',
     lanes: [
       {

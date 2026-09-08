@@ -1,21 +1,16 @@
 /**
- * Action-tokenization math for the VLA interactive. Pure functions,
- * unit-tested in tests/unit/action-tokenization.test.ts.
- *
- * RT-1 and OpenVLA serialize continuous actions as discrete vocabulary
- * tokens: each action dimension is clamped to a normalized range and split
- * into 256 uniform bins, and each bin index is emitted as one token from a
- * shared 256-token vocabulary (OpenVLA reuses the 256 least-frequent tokens
- * of the LLaMA tokenizer; RT-2 does the same inside its VLM). Emitting a
- * 7-dim action therefore costs 7 sequential autoregressive decode passes,
- * which is the throughput problem the module covers (arXiv:2212.06817,
- * arXiv:2406.09246, arXiv:2502.19645).
+ * Action-tokenization math for a deterministic teaching example.
+ * The fixed [-1, 1] range, seven labelled coordinates, 16-step sequence and
+ * <aN> tokens are illustrative, not a recorded rollout or literal vocabulary.
+ * RT-1 bins each variable within its bounds; OpenVLA uses the 1st and 99th
+ * training-data quantiles. RT-2 PaLI-X uses existing number tokens, whereas
+ * PaLM-E overwrites least-used tokens. The toy preserves its existing math.
  */
 
 /** Uniform bins per action dimension (RT-1, RT-2, OpenVLA all use 256). */
 export const BIN_COUNT = 256;
 
-/** Normalized action range. Dimensions are min-max normalized to [-1, 1]. */
+/** Fixed illustrative range; not fitted OpenVLA quantile statistics. */
 export const VALUE_MIN = -1;
 export const VALUE_MAX = 1;
 
@@ -31,9 +26,9 @@ export interface ActionDim {
 }
 
 /**
- * The OpenVLA action vector: 6-DoF end-effector delta plus a gripper
- * command. RT-1 uses 11 dims (7 arm, 3 base, 1 mode switch); the 7-dim
- * arm-only form is the one the throughput discussion centers on.
+ * Illustrative seven-coordinate display for position, orientation and gripper.
+ * Delta symbols label this toy, not every source controller's exact contract.
+ * RT-1 separately describes 11 coordinates including base and mode variables.
  */
 export const ACTION_DIMS: ReadonlyArray<ActionDim> = [
   { id: 'x', label: 'Δx', description: 'end-effector translation' },

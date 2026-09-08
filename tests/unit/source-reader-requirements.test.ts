@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { expectedApparatusGraph } from '@/lib/brand-v2-apparatus-evidence';
 import { METHODS } from '@/data/methods';
+import { CITATIONS } from '@/data/citations';
 import { missingOccurrences } from '../e2e/source-reader-requirements';
 
 describe('source reader obligations, independently derived before navigation', () => {
@@ -40,5 +41,24 @@ describe('source reader obligations, independently derived before navigation', (
   it('does not let a single surviving duplicate satisfy two required chips', () => {
     expect(missingOccurrences(['source', 'source'], ['source'])).toEqual(['source']);
     expect(missingOccurrences(['source', 'source'], ['source', 'source'])).toEqual([]);
+  });
+
+  it('fails removal of a required bibliography entry even when its inline chip survives', () => {
+    const expected = graph.get('/manipulation/vla-models/')!;
+    const observed = [...expected.references];
+    expect(expected.citationMarkers).toContain('rt1-2022');
+    observed.splice(observed.indexOf('rt1-2022'), 1);
+    expect(missingOccurrences(expected.references, observed)).toEqual(['rt1-2022']);
+  });
+
+  it('fails an incomplete expanded author list even when the team byline survives', () => {
+    const required = CITATIONS.find(citation => citation.id === 'gemini-robotics-2025')!.authors;
+    const observed = required.filter(author => author !== 'Saminda Abeyruwan');
+    expect(required).toHaveLength(118);
+    expect(required[0]).toBe('Gemini Robotics Team');
+    expect(new Set(required).size).toBe(118);
+    expect(required.at(-1)).toBe('Yuxiang Zhou');
+    expect(observed).toContain('Gemini Robotics Team');
+    expect(missingOccurrences(required, observed)).toEqual(['Saminda Abeyruwan']);
   });
 });

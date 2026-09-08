@@ -1,7 +1,8 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
-import { expect, test } from '@playwright/test';
+import { expect, test, type Locator, type Page } from '@playwright/test';
+import sharp from 'sharp';
 import AxeBuilder from '@axe-core/playwright';
 import { getCitation } from '../../data/citations';
 import { METHODS } from '../../data/methods';
@@ -11,9 +12,10 @@ import { missingOccurrences } from './source-reader-requirements';
 
 // Current dev-render correction check, not static-export or release acceptance.
 const transferProof = process.env.GO_HELIX_TRANSFER_PROOF === '1';
+const closeoutProof = process.env.VLA_GENERALIST_CLOSEOUT_PROOF === '1';
 const graph = expectedApparatusGraph(process.cwd());
-const changedIds = transferProof ? ['helix-2025', 'agibot-go2-2026', 'pi-human-to-robot-2025'] : ['open-x-embodiment-2023', 'gemini-robotics-15-2025', 'gemini-robotics-2-2026', 'skild-series-c-2026'];
-const primary = transferProof ? ['generalist-policies', 'comparison-matrix', 'cross-embodiment', 'hierarchical', 'generalization', 'reliability-gap'] : ['vla-models', 'generalist-policies', 'comparison-matrix', 'cross-embodiment', 'hierarchical'];
+const changedIds = closeoutProof ? ['gemini-robotics-2025'] : transferProof ? ['helix-2025', 'agibot-go2-2026', 'pi-human-to-robot-2025'] : ['open-x-embodiment-2023', 'gemini-robotics-15-2025', 'gemini-robotics-2-2026', 'skild-series-c-2026'];
+const primary = closeoutProof ? ['vla-models', 'generalist-policies', 'cross-embodiment', 'hierarchical'] : transferProof ? ['generalist-policies', 'comparison-matrix', 'cross-embodiment', 'hierarchical', 'generalization', 'reliability-gap'] : ['vla-models', 'generalist-policies', 'comparison-matrix', 'cross-embodiment', 'hierarchical'];
 const targets = readdirSync('content').flatMap(domain => readdirSync(join('content', domain)).filter(f => f.endsWith('.mdx')).flatMap(f => {
   const slug = f.slice(0, -4);
   const { data } = matter(readFileSync(join('content', domain, f), 'utf8'));
@@ -21,6 +23,26 @@ const targets = readdirSync('content').flatMap(domain => readdirSync(join('conte
   const ids = (data.citations as string[]).filter(id => [...changedIds, ...carriedIds].includes(id));
   return ids.length || primary.includes(slug) ? [{ route: `/${domain}/${slug}/`, slug, ids }] : [];
 }));
+
+// A tall locator screenshot can paint sticky navigation through its middle.
+// Capture the real document at scroll zero, retain it, then crop exact bounds.
+// Do not hide UI, alter CSS, or discard the first diagnostic captures.
+async function captureWholeElement(page: Page, element: Locator, path: string) {
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  const box = await element.boundingBox();
+  expect(box).not.toBeNull();
+  const region = {
+    left: Math.floor(box!.x),
+    top: Math.floor(box!.y),
+    width: Math.ceil(box!.width),
+    height: Math.ceil(box!.height),
+  };
+  const documentPath = path.replace(/\.png$/, '-document.png');
+  const documentImage = await page.screenshot({ caret: 'initial', fullPage: true, path: documentPath });
+  await sharp(documentImage).extract(region).png().toFile(path);
+  writeFileSync(path.replace(/\.png$/, '-crop.json'), JSON.stringify({ documentPath, region }) + '\n');
+}
 
 for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
   for (const target of targets) {
@@ -88,6 +110,12 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
           await expect(button).toBeFocused();
           await expect(names).toHaveText(citation.authors.join(', '));
           await page.screenshot({ caret: 'initial', path: info.outputPath(`${id}-authors-expanded.png`) });
+          if (closeoutProof) {
+            // Keep the measured element capture here: experimental full-document
+            // crops of this lower-page entry did not bind the correct region.
+            // The mobile development badge remains a visual-evidence limitation.
+            await entry.screenshot({ caret: 'initial', path: info.outputPath(`${id}-full-expanded-entry.png`) });
+          }
           expect.soft((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
           await page.keyboard.press('Enter');
           await expect(button).toHaveAttribute('aria-expanded', 'false');
@@ -147,8 +175,45 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
         await page.screenshot({ caret: 'initial', path: info.outputPath('motion-transfer.png') });
         await page.getByRole('button', { name: 'Reset', exact: true }).click();
         await expect(page.getByRole('button', { name: 'Padded shared vector', exact: true })).toHaveAttribute('aria-pressed', 'true');
+        if (closeoutProof) {
+          const group = page.getByRole('group', { name: 'Select a cross-embodiment strategy' });
+          const panel = group.locator('..');
+          for (const mode of ['relative', 'padded']) {
+            const control = group.getByRole('button', { name: mode === 'relative' ? /relative/i : 'Padded shared vector', exact: mode === 'padded' });
+            await control.focus();
+            await page.keyboard.press('Enter');
+            await expect(control).toBeFocused();
+            await expect(control).toHaveAttribute('aria-pressed', 'true');
+            const rows = panel.locator('[data-testid^="row-"]');
+            await expect(rows).toHaveCount(4);
+            for (const row of await rows.all()) {
+              await expect(row.locator('svg rect')).toHaveCount(32);
+              const box = await row.boundingBox();
+              expect(box!.x).toBeGreaterThanOrEqual(0);
+              expect(box!.x + box!.width).toBeLessThanOrEqual(viewport.width);
+              expect(await row.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
+            }
+            if (mode === 'relative') {
+              for (const id of ['isaac-gr00t-repo-2026', 'egoscale-2026']) {
+                const source = panel.locator(`a[href="${getCitation(id)!.url}"]`).first();
+                await expect(source).toHaveAttribute('target', '_blank');
+                await expect(source).toHaveAttribute('rel', /noopener/);
+                await source.focus();
+                await expect(source).toBeFocused();
+              }
+              await expect(page.getByTestId('human-video-readout')).not.toBeEmpty();
+            }
+            await captureWholeElement(page, panel, info.outputPath(`full-${mode}-panel.png`));
+          }
+          await group.getByRole('button', { name: /relative/i }).click();
+          const reset = group.getByRole('button', { name: 'Reset', exact: true });
+          await reset.focus();
+          await page.keyboard.press('Enter');
+          await expect(reset).toBeFocused();
+          await expect(group.getByRole('button', { name: 'Padded shared vector', exact: true })).toHaveAttribute('aria-pressed', 'true');
+        }
       }
-      if (transferProof && target.slug === 'hierarchical') {
+      if ((transferProof || closeoutProof) && target.slug === 'hierarchical') {
         for (const system of HIERARCHY_SYSTEMS) {
           const button = page.getByRole('button', { name: system.name, exact: true });
           await button.focus();

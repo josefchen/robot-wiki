@@ -5686,6 +5686,226 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "vla-generalist-closeouts-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/cross-embodiment",
+      "oldHash": "4113ccb348552a70f33b0c159dd51f3179d07ec4d5cb5d5fcabf282ab5c59eef",
+      "newHash": "ab13c0b55f5742cdcb709765affb0585900454444ba973f96482862583d03e74",
+      "reason": "Attribute the October2025 OXE critique to Moritz Reuss, not normalization artifacts, community consensus or human-transfer impossibility; prior transfer claims and illustrative slot arithmetic unchanged. Immediate-before hash d7fbd2bf59f321bc55f08c9ab9a37eb4e87fe296cbae28c1bd7d59d792fc2995. Literal retained source proof and original retrieval provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json. Sources: https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/html/2406.09246v3 ; https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/html/2502.19645 ; https://arxiv.org/pdf/2212.06817v2 ; https://www.pi.website/research/knowledge_insulation ; https://mbreuss.github.io/blog_post_iclr_26_vla.html ; https://arxiv.org/html/2405.12213v2 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2503.20020 ; https://arxiv.org/html/2503.20020v1 ; https://arxiv.org/abs/2503.14734 ; https://arxiv.org/html/2503.14734v2 ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://www.figure.ai/news/helix ; https://www.pi.website/research/human_to_robot ; https://arxiv.org/html/2504.16054v1 ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/download/Mem.pdf. No P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-generalist-closeouts-20260908-2",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+      "newHash": "94cc9a639c8e66f97c327f9ff916f40f6bfc558a2177a6f8a9f42cdeed08bf8e",
+      "reason": "Gemini ER/action distinction, GR00T availability/license conflict and interface scope, original Helix latent conditioning/output targets, named human-transfer recipes rather than universal synthesis. Restore source apparatus for those scoped claims. Immediate-before hash 68840092b1fedab94737f684e08a280476ed11a1f7103453aa0766cc7bfb761f. Literal retained source proof and original retrieval provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json. Sources: https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/html/2406.09246v3 ; https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/html/2502.19645 ; https://arxiv.org/pdf/2212.06817v2 ; https://www.pi.website/research/knowledge_insulation ; https://mbreuss.github.io/blog_post_iclr_26_vla.html ; https://arxiv.org/html/2405.12213v2 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2503.20020 ; https://arxiv.org/html/2503.20020v1 ; https://arxiv.org/abs/2503.14734 ; https://arxiv.org/html/2503.14734v2 ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://www.figure.ai/news/helix ; https://www.pi.website/research/human_to_robot ; https://arxiv.org/html/2504.16054v1 ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/download/Mem.pdf. No P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-generalist-closeouts-20260908-3",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+      "newHash": "6653d1cddb175e5405614b0877b7847f059164ea06eb3205d17feeeafe271d4b",
+      "reason": "pi0.5 training versus same-model two-stage inference, optional BAGEL-based pi0.7 visual prompts, MEM-specific memory updates without invented cadence/month. Wider hierarchy14 synthesis remains held. Immediate-before hash f4d1b9e437d94d44d254a03d431af63d12c388f4514e15cba00a1f07f86a791e. Literal retained source proof and original retrieval provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json. Sources: https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/html/2406.09246v3 ; https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/html/2502.19645 ; https://arxiv.org/pdf/2212.06817v2 ; https://www.pi.website/research/knowledge_insulation ; https://mbreuss.github.io/blog_post_iclr_26_vla.html ; https://arxiv.org/html/2405.12213v2 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2503.20020 ; https://arxiv.org/html/2503.20020v1 ; https://arxiv.org/abs/2503.14734 ; https://arxiv.org/html/2503.14734v2 ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://www.figure.ai/news/helix ; https://www.pi.website/research/human_to_robot ; https://arxiv.org/html/2504.16054v1 ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/download/Mem.pdf. No P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-generalist-closeouts-20260908-4",
+      "manifest": "prose",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "a241dae507f15722c3cea4e84684f07d6773ff97fcb95c9eb6711616770b8290",
+      "newHash": "7ce7aa7d72193fe1c67c46077ac5da82a875660bd2d44bf9df00b5cbabe71b7a",
+      "reason": "Source-specific RT-1 architecture/training/timing, RT-2 variant and reasoning distinctions, Octo pretrained T5 and percentage wording, OpenVLA quantile/evaluation populations and ACT ablation counterexample; preserve OFT and restore ACT bibliography once. Immediate-before hash 5c40be7880fa7fef839ba3ddf68926064e8e567a6df5738944a39dc2215621e1. Literal retained source proof and original retrieval provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json. Sources: https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/html/2406.09246v3 ; https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/html/2502.19645 ; https://arxiv.org/pdf/2212.06817v2 ; https://www.pi.website/research/knowledge_insulation ; https://mbreuss.github.io/blog_post_iclr_26_vla.html ; https://arxiv.org/html/2405.12213v2 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2503.20020 ; https://arxiv.org/html/2503.20020v1 ; https://arxiv.org/abs/2503.14734 ; https://arxiv.org/html/2503.14734v2 ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://www.figure.ai/news/helix ; https://www.pi.website/research/human_to_robot ; https://arxiv.org/html/2504.16054v1 ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/download/Mem.pdf. No P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-generalist-closeouts-20260908-5",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "9c493d1e97ec4555db85d48c5c69eb6f97b062f1f79361a145cb431791fe481b",
+      "newHash": "175d565634723d9122f43bbf7a82f17a310b7fce5c85f36fdbc44620b25c0613",
+      "reason": "Gemini ER/action distinction, GR00T availability/license conflict and interface scope, original Helix latent conditioning/output targets, named human-transfer recipes rather than universal synthesis. Restore source apparatus for those scoped claims. Immediate-before hash d25a5f28ad57219ccc3254847e62fa154792b3762b9c04dcee6f1cd24b273e0a. Literal retained source proof and original retrieval provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json. Sources: https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/html/2406.09246v3 ; https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/html/2502.19645 ; https://arxiv.org/pdf/2212.06817v2 ; https://www.pi.website/research/knowledge_insulation ; https://mbreuss.github.io/blog_post_iclr_26_vla.html ; https://arxiv.org/html/2405.12213v2 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2503.20020 ; https://arxiv.org/html/2503.20020v1 ; https://arxiv.org/abs/2503.14734 ; https://arxiv.org/html/2503.14734v2 ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://www.figure.ai/news/helix ; https://www.pi.website/research/human_to_robot ; https://arxiv.org/html/2504.16054v1 ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/download/Mem.pdf. No P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-generalist-closeouts-20260908-6",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "a80df3bc116c0057d112985b648e43ff24be575907d1609174f5e7814adfd37e",
+      "newHash": "2ea4425b1885fdfb6e2fb8a752ee54ca9ca1ab62854a2a8523d3f9d8fda17021",
+      "reason": "Source-specific RT-1 architecture/training/timing, RT-2 variant and reasoning distinctions, Octo pretrained T5 and percentage wording, OpenVLA quantile/evaluation populations and ACT ablation counterexample; preserve OFT and restore ACT bibliography once. Immediate-before hash 53bf6e1842505ff5b3699a38233c6eeff50f19a657ae270f3b2fb4645725896a. Literal retained source proof and original retrieval provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json. Sources: https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/html/2406.09246v3 ; https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/html/2502.19645 ; https://arxiv.org/pdf/2212.06817v2 ; https://www.pi.website/research/knowledge_insulation ; https://mbreuss.github.io/blog_post_iclr_26_vla.html ; https://arxiv.org/html/2405.12213v2 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2503.20020 ; https://arxiv.org/html/2503.20020v1 ; https://arxiv.org/abs/2503.14734 ; https://arxiv.org/html/2503.14734v2 ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://www.figure.ai/news/helix ; https://www.pi.website/research/human_to_robot ; https://arxiv.org/html/2504.16054v1 ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/download/Mem.pdf. No P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-generalist-closeouts-20260908-7",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/action-tokenization.tsx",
+      "oldHash": "41a07d1d30b7bd5a12b38b0a235bd445dba41e7cda018cac4c1161e3c51c4db3",
+      "newHash": "80e96ea58431b27e742788f2d14db90d60d1fc8881714abbbb7a56e5c2530887",
+      "reason": "Explicitly label fixed[-1,1],256bins,seven coordinates,16steps and synthetic token display as illustrative; quantization formulas, defaults, ranges and resets unchanged. Immediate-before hash 3d52bb00adaf46b37988479e6b0b87ad5db8817f4ebed1e5193661369c712842. Literal retained source proof and original retrieval provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json. Sources: https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/html/2406.09246v3 ; https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/html/2502.19645 ; https://arxiv.org/pdf/2212.06817v2 ; https://www.pi.website/research/knowledge_insulation ; https://mbreuss.github.io/blog_post_iclr_26_vla.html ; https://arxiv.org/html/2405.12213v2 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2503.20020 ; https://arxiv.org/html/2503.20020v1 ; https://arxiv.org/abs/2503.14734 ; https://arxiv.org/html/2503.14734v2 ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://www.figure.ai/news/helix ; https://www.pi.website/research/human_to_robot ; https://arxiv.org/html/2504.16054v1 ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/download/Mem.pdf. No P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-generalist-closeouts-20260908-8",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/generalist-policies",
+      "oldHash": "828a1115b0abdbeb399def5a82b54a3308657cdaadd2615b9fb220c28dd22505",
+      "newHash": "b901cacef7c3b61c448efbb9c30edebd16800455628ba2158af6422297bb8c98",
+      "reason": "Required source bibliography for corrected GR00T and hierarchy distinctions; no review-date change or whole-article certification. Immediate-before hash 828a1115b0abdbeb399def5a82b54a3308657cdaadd2615b9fb220c28dd22505. Literal retained source proof and original retrieval provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json. Sources: https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/html/2406.09246v3 ; https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/html/2502.19645 ; https://arxiv.org/pdf/2212.06817v2 ; https://www.pi.website/research/knowledge_insulation ; https://mbreuss.github.io/blog_post_iclr_26_vla.html ; https://arxiv.org/html/2405.12213v2 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2503.20020 ; https://arxiv.org/html/2503.20020v1 ; https://arxiv.org/abs/2503.14734 ; https://arxiv.org/html/2503.14734v2 ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://www.figure.ai/news/helix ; https://www.pi.website/research/human_to_robot ; https://arxiv.org/html/2504.16054v1 ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/download/Mem.pdf. No P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-generalist-closeouts-20260908-9",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/vla-models",
+      "oldHash": "825b63ee0b45e3b6dd3d92bc62d821850fc3a8ff12264c8e9852c4b9728a167d",
+      "newHash": "825b63ee0b45e3b6dd3d92bc62d821850fc3a8ff12264c8e9852c4b9728a167d",
+      "reason": "Restore actual ACT source to eight current references, yielding nine; preserve OFT and do not replay stale net-zero packet accounting. Immediate-before hash b19a451347de97e21693afbf66649f8eafe58d9b2ae86c64e485cfa1c549c869. Literal retained source proof and original retrieval provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json. Sources: https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/html/2406.09246v3 ; https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/html/2502.19645 ; https://arxiv.org/pdf/2212.06817v2 ; https://www.pi.website/research/knowledge_insulation ; https://mbreuss.github.io/blog_post_iclr_26_vla.html ; https://arxiv.org/html/2405.12213v2 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2503.20020 ; https://arxiv.org/html/2503.20020v1 ; https://arxiv.org/abs/2503.14734 ; https://arxiv.org/html/2503.14734v2 ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://www.figure.ai/news/helix ; https://www.pi.website/research/human_to_robot ; https://arxiv.org/html/2504.16054v1 ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/download/Mem.pdf. No P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-generalist-closeouts-20260908-10",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "1e7e287ed05943c558a08a22c5435ac2b4415080f7b90431b199cbd6b9f08d19",
+      "reason": "Source-literal Gemini report collective byline plus117 named authors,118 total; existing eight-author disclosure logic unchanged. Immediate-before hash 905dc70516ada8e0838923ef2f5d1bedb989a32ebf63d9efe0f99e56fdc508b8. Literal retained source proof and original retrieval provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json. Sources: https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/html/2406.09246v3 ; https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/html/2502.19645 ; https://arxiv.org/pdf/2212.06817v2 ; https://www.pi.website/research/knowledge_insulation ; https://mbreuss.github.io/blog_post_iclr_26_vla.html ; https://arxiv.org/html/2405.12213v2 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2503.20020 ; https://arxiv.org/html/2503.20020v1 ; https://arxiv.org/abs/2503.14734 ; https://arxiv.org/html/2503.14734v2 ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://www.figure.ai/news/helix ; https://www.pi.website/research/human_to_robot ; https://arxiv.org/html/2504.16054v1 ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/download/Mem.pdf. No P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "vla-generalist-closeouts-20260908-11",
+      "manifest": "article-metadata",
+      "memberId": "citation:gemini-robotics-2025",
+      "oldHash": "1763899bac2a98acb2822d75a7f0424ce87bfffacda9fa6a435de79855a0d0c1",
+      "newHash": "81c73ef670c740c4d3c7e983ca02a4c8c178936b299633fde7f6c880d5a854ca",
+      "reason": "Source-literal ordered Gemini Robotics Team plus117 named authors from the retained v1 report; repeated headings and affiliations are not authors. Immediate-before hash 1763899bac2a98acb2822d75a7f0424ce87bfffacda9fa6a435de79855a0d0c1. Literal retained source proof and original retrieval provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/source-proof.json. Original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908/row-history.json. Sources: https://arxiv.org/html/2212.06817v2 ; https://arxiv.org/html/2406.09246v3 ; https://arxiv.org/html/2307.15818v1 ; https://arxiv.org/html/2502.19645 ; https://arxiv.org/pdf/2212.06817v2 ; https://www.pi.website/research/knowledge_insulation ; https://mbreuss.github.io/blog_post_iclr_26_vla.html ; https://arxiv.org/html/2405.12213v2 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/abs/2503.20020 ; https://arxiv.org/html/2503.20020v1 ; https://arxiv.org/abs/2503.14734 ; https://arxiv.org/html/2503.14734v2 ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://www.figure.ai/news/helix ; https://www.pi.website/research/human_to_robot ; https://arxiv.org/html/2504.16054v1 ; https://www.pi.website/download/pi07.pdf ; https://www.pi.website/download/Mem.pdf. No P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or changed criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

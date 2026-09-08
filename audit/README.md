@@ -1,6 +1,45 @@
 # Content-integrity audit trail
 
-## Current OFT, Gemini and OXE checkpoint - 2026-09-08
+## Current VLA and generalist closeout checkpoint - 2026-09-08
+
+**297 complete / 697 incomplete / 994 original identities / 47 articles. 203 compound plans; 294 exact approval entries.** Immediate predecessor `9764820` was **269/725**, with175 plans,283 approvals,730 content findings and51 baseline findings. The252-record OFT/Gemini/OXE checkpoint (`950c190`) below is historical, not current. This is a bounded local implementation checkpoint, not publication, whole-article certification or independent acceptance.
+
+Exactly **28 of29 assigned original identities** are newly complete: VLA1-10/12-17/20; Cross-Embodiment4; Generalist1/8-12/20; Hierarchical8/12/13. **Hierarchical14 stays held** because its wider synthesis prerequisite is absent and outside this writer's assignment. Whole VLA21/P1 stays excluded. No recredit for VLA11/18/19, Cross3, or earlier GO2/Helix work. Current article completeness: VLA20/21, Generalist18/21, Hierarchical7/16, Cross11/11. These are native-parser evidence counts, not independent article acceptance.
+
+All994 identities,966 unselected four-cell tuples and their evidence failures,269 previously complete records,175 prior plans and283 prior approvals are preserved. No prior plan was replaced. Exact previous/current cells, native reviewed digests, per-part adjudications, original supporting text and correction history remain in `audit/manipulation.md`, `audit/compound-evidence.json` and the Mission evidence. No lastReviewed date changed.
+
+**Zero new source retrievals by this worker.** Both frozen packet plan/index hashes and original source/event identities were checked before reuse: **86 literal passage bindings across20 retained capture records**, not20 distinct works or86 complete claims. Actual supporting text was matched to preserved fetched documents; local raw-text re-extraction of the retained pi0.7 and MEM PDFs matched existing conversion output. Original request/response times, tool-reported status, raw binary identity and derived text remain separate from current review times. No missing source date or origin status is invented. Source-ready previews were not applied wholesale:39 exact endpoints were composed against actual9764820, with the stale Helix title left unchanged and wider hierarchy14 synthesis omitted. Three later punctuation-only replacements are separately archived.
+
+Corrections separate RT-1 encoders/19M transformer/35M system, training versus3000 evaluation trials,3Hz control versus280ms latency; RT-2 variant tokenization and separately fine-tuned reasoning; Octo27M/93M versus T5-base111M and25% higher versus percentage points; OpenVLA1st-99th-quantile bins and17x10/12x5 evaluation populations; ACT1%-44% chunking versus35.3%-2% CVAE ablations; and Reuss's October2025 personal critique rather than consensus. The tokenizer remains a fixed[-1,1],256-bin,seven-coordinate,16-step synthetic example. Every exact bin center has zero reconstruction error.
+
+Gemini ER and direct action production are distinguished; its source-literal registry is the team plus117 named authors,118 total. N1.7 interface dimensions/horizon differ from hardware DoF/execution rate; README20K versus EgoScale20,854 hours and conflicting licensing declarations remain explicit. Helix latent conditioning and actual output targets are not full-policy release proof. Kareer/PI and Zheng/EgoScale are distinct transfer recipes, not a universal scale/alignment fork. pi0.5 training and runtime, optional BAGEL-based pi0.7 visual prompts, and MEM-specific memory updates remain distinct; unknown month/rate and all schematic control intervals are preserved.
+
+| Check | Actual outcome |
+|---|---|
+| Red first |5 expected failures /5 passes; first green attempt143 passes /2 new-oracle mistakes, repaired|
+| Focused final |**178 passes across10 files**, including77 unchanged strict-audit cases; no overlapping-run inflation|
+| Negative obligations |Required bibliography deletion fails despite a surviving chip; deleting Saminda Abeyruwan from the expanded author list fails despite surviving team byline|
+| Full lint / nonincremental TypeScript |Exit0; final test helper also passes scoped lint and nonincremental TypeScript|
+| Content |Exit1: **702 findings**, down28; nine separately owned citation gaps unchanged. Earlier3 punctuation findings are retained and repaired, not waived|
+| Baseline |Exit1: **50 findings**, all50 exact predecessor failure objects; one scoped tokenizer-source failure removed, zero added; immutable baseline unchanged|
+| Browser |**8 distinct cases pass**, four affected routes at375x812 and1440x900. Two mobile capture-diagnostic reruns add no distinct-case credit|
+| Cards |Normal47article+1site generation;48 rerenders/96public-export files byte-identical. VLA shows9 references; Generalist15. Commit/public/export triples sealed after commit|
+| Production / full corpus / independent |Not run; genuine content closure remains the prerequisite|
+
+The independent pre-navigation apparatus graph still enforces ordered bibliography and required inline/mounted-source multiplicity, not blanket chip requirements for further reading. Current source focus/hover,118-author expansion/collapse/focus, unknown timeline selection/reset, all four hierarchy overlays/playhead/reset, cross Motion Transfer, relative-EEF and full padded-panel keyboard/reset/bounds assertions pass. Pageerror and console.error listeners were installed before navigation; checked routes have zero captured errors, Axe violations, KaTeX errors or document overflow.
+
+**54 PNG captures retained. Five designated whole-element images are inspected and unobscured**: padded and relative panels at both widths, plus the desktop full author entry. One mobile author image is only partially creditable because of the development badge;48 other captures are not credited as a full visual seal. Both changed cards were directly inspected. Initial tall mobile locator captures contained sticky development UI; the inspected cross-panel recaptures retain full-document bytes and crop rectangles without hiding or changing UI. Two experimental mobile author crops bound the wrong region despite green DOM checks; both are rejected, the original element-capture implementation restored, and unobscured mobile full-author imagery remains a follow-up. No uninspected predecessor capture is retroactively credited.
+
+**Inherited command-audit correction:** predecessor9764820's full Mission command ledger is now included in committed `audit/vla-generalist-closeouts-20260908-commands.json`, alongside this writer's exact UTC commands, exits, environment, logs and hashes. The predecessor ran `npm run check:dataset-sources` despite its zero-retrieval bound:250 targets,233live,0dead,1blocked,5errors,11exceptions. Exact HTTP attempts were not instrumented. That sweep supports zero rows, is not presented as this worker's zero-retrieval work, and was not repeated.
+
+Nine separate citation gaps remain: ng-reward-shaping-1999, seeed-so-arm101-pro-2026, astrom-murray-2008, mcgee-schmidt-1985, technology-org-deployed-2026, hinterstoisser-2012, gsn-standard-v3, symbotic-10k-2025, kroger-ocado-closures-2025. Hierarchy14, VLA P1, unassigned synthesis/global claims, Pi January-label crowding, citation Back-focus, market-map debt, unobscured mobile full-author imagery, production HTML/reading times and full-corpus/independent scrutiny remain open. Independent Sol/high scrutiny and user testing with both skip flags false remain mandatory. Formal Mission count stays307/331.
+
+Actual assistant emissions establish `custom:droidproxy:gpt-6-astra` with effort `max`; no role-specific exhaustion or credit fallback occurred. Content-auditor was loaded from its exact Mission file because invocation was unavailable. No deployment, push, feature-state edit, controller/new Mission, dependency/security change, cleanup or model switch. PRODUCT_QUALITY.md,qa/,next-env.d.ts,owner work and ancestor commits d282a83/2cf7d6b are preserved. The owned loopback server was stopped; only its two byte-proven generated declaration imports were restored. The35-minute target was exceeded; timestamps are retained and no active-time claim is invented.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-vla-generalist-closeouts-integration-20260908`. Exact source provenance, composition, histories, preservation, final-member hashes, command receipts, capture credit and commit-matched handoff are in `source-proof.json`, `composition-preflight.json`, `composition-exclusions.json`, `row-history.json`, `punctuation-history.json`, `preservation.json`, `member-changes.json`, `command-ledger.json`, `visual-inspection.json`, `card-triples.json`, `handoff.json` and `artifact-index.json`.
+
+
+## Historical: OFT, Gemini and OXE checkpoint (950c190) - 2026-09-08
 
 **252 complete / 742 incomplete / 994 original identities / 47 articles. 159 compound plans; 257 exact approval entries.** Immediate predecessor `d469f1d` was 235/759 with 142 plans and 214 approvals. This is a bounded local implementation checkpoint, not publication, whole-article certification or independent acceptance.
 

@@ -483,23 +483,8 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
     verified:
       'arXiv feed for 2503.06669 read 2026-08-20.',
   },
-  {
-    id: 'gemini-robotics-2025',
-    skip: 'author-count',
-    reason:
-      'Registry cites the collective byline "Gemini Robotics Team, Google DeepMind"; the arXiv feed expands it to 118 named contributors. The collective credit is what the paper prints as its author line.',
-    verified:
-      'arXiv feed for 2503.20020 (118 elements, first "Gemini Robotics Team") read 2026-08-20.',
-  },
-  {
-    id: 'gemini-robotics-2025',
-    skip: 'author',
-    authorIndex: 2,
-    reason:
-      'Registry "Google DeepMind" vs the feed\'s first named contributor at position 2: the registry holds the two collective credits the byline prints, not the expanded contributor list.',
-    verified:
-      'arXiv feed for 2503.20020 read 2026-08-20.',
-  },
+
+
   {
     id: 'gemini-robotics-15-2025',
     skip: 'author-count',
