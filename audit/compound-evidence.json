@@ -28295,5 +28295,64 @@
         "evidenceDigest": "069b5092a55e33b07c43d5df0a8eb0742896e109b3d0e2a3c22d0f5e6f8bf06b"
       }
     ]
+  },
+  {
+    "id": "classical-slam-scene-25-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 25,
+    "originalCellsDigest": "4a06b139f5468a2861ac91f040b8bf8356ec8e4bbbd40eee1a7b46c2d8de7fe5",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "decomposition",
+        "text": "Sensor-dependent abstraction and inference are distinct, not a universal constraints-only pipeline.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "association-feedback",
+        "text": "Front end associates measurements/state variables; back-end feedback supports detection and validation.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation source-auditor, session 5bfe8e06-5ba7-4907-9959-467fb36dcf3b; not independent acceptance or personal certification",
+      "rationale": "Whole current claim and both AND parts reviewed against exact retained body and countercontext. Section II distinguishes sensor-dependent abstraction from back-end inference. Its front-end subsection explicitly assigns measurement/state data association and says the back end usually feeds information back for loop-closure detection and validation. The current wording removes the unsupported field-wide design-argument claim and does not assert a universal constraints-only or unidirectional architecture. MAP/noise assumptions and robust-loss countercontext remain recorded; this is not a universal architecture theorem.",
+      "planDigest": "6eb72a06b3bde8f40642caead38669e828d696889bef2b10b3a53d604f5772b2"
+    },
+    "evidence": [
+      {
+        "partId": "decomposition",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "II. A NATOMY OF A M ODERN SLAM S YSTEM\nThe architecture of a SLAM system includes two main\ncomponents: the front-end and the back-end. The front-end\nabstracts sensor data into models that are amenable for\nestimation, while the back-end performs inference on the\nabstracted data produced by the front-end. This architecture\nis summarized in Fig. 2. We review both components, starting\nfrom the back-end.\n\n[Separate literal excerpt from the same retained body]\nMaximum a posteriori (MAP) estimation and the SLAM\nback-end. The current de-facto standard formulation of SLAM\nhas its origins in the seminal paper of Lu and Milios [161],\nfollowed by the work of Gutmann and Konolige [101].\nSince then, numerous approaches have improved the efficiency\nand robustness of the optimization underlying the problem\n[63, 81, 100, 125, 192, 241]. All these approaches formulate\nSLAM as a maximum a posteriori estimation problem, and\noften use the formalism of factor graphs [143] to reason about\nthe interdependence among variables.\nAssume that we want to estimate an unknown variable X ; as\nmentioned before, in SLAM the variable X typically includes\nthe trajectory of the robot (as a discrete set of poses) and\nthe position of landmarks in the environment. We are given\na set of measurements Z = {zk : k = 1, . . . , m} such that\neach measurement can be expressed as a function of X , i.e.,\nzk = hk (Xk ) + \u000fk , where Xk ⊆ X is a subset of the variables,\nhk (·) is a known function (the measurement or observation\nmodel), and \u000fk is random measurement noise.\nIn MAP estimation, we estimate X by computing the\nassignment of variables X ? that attains the maximum of the\nposterior p(X |Z) (the belief over X given the measurements):\n.\nX ? = argmax p(X |Z) = argmax p(Z|X )p(X )\nX\n\n(1)\n\nX\n\nwhere the equality follows from the Bayes theorem. In (1),\np(Z|X ) is the likelihood of the measurements Z given the\nassignment X , and p(X ) is a prior probability over X . The\nprior probability includes any prior knowledge about X ; in\ncase no prior knowledge is available, p(X ) becomes a constant\n(uniform distribution) which is inconsequential and can be\ndropped from the optimization. In that case MAP estimation\nreduces to maximum likelihood estimation. Note that, unlike\nKalman filtering, MAP estimation does not require an explicit\ndistinction between motion and observation model: both models are treated as factors and are seamlessly incorporated in the\nestimation process. Moreover, it is worth noting that Kalman\nfiltering and MAP estimation return the same estimate in the\nlinear Gaussian case, while this is not the case in general.\n"
+      },
+      {
+        "partId": "association-feedback",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Sensor-dependent SLAM front-end. In practical robotics\napplications, it might be hard to write directly the sensor\nmeasurements as an analytic function of the state, as required\nin MAP estimation. For instance, if the raw sensor data is an\nimage, it might be hard to express the intensity of each pixel\nas a function of the SLAM state; the same difficulty arises\nwith simpler sensors (e.g., a laser with a single beam). In both\ncases the issue is connected with the fact that we are not able\nto design a sufficiently general, yet tractable representation\nof the environment; even in the presence of such a general\nrepresentation, it would be hard to write an analytic function\nthat connects the measurements to the parameters of such a\nrepresentation.\nFor this reason, before the SLAM back-end, it is common\nto have a module, the front-end, that extracts relevant features\nfrom the sensor data. For instance, in vision-based SLAM,\nthe front-end extracts the pixel location of few distinguishable\npoints in the environment; pixel observations of these points\nare now easy to model within the back-end. The front-end is\nalso in charge of associating each measurement to a specific\nlandmark (say, 3D point) in the environment: this is the so\ncalled data association. More abstractly, the data association\nmodule associates each measurement zk with a subset of\nunknown variables Xk such that zk = hk (Xk )+\u000fk . Finally, the\nfront-end might also provide an initial guess for the variables\nin the nonlinear optimization (4). For instance, in featurebased monocular SLAM the front-end usually takes care of\nthe landmark initialization, by triangulating the position of the\nlandmark from multiple views.\nA pictorial representation of a typical SLAM system is given\nin Fig. 2. The data association module in the front-end includes\na short-term data association block and a long-term one. Shortterm data association is responsible for associating corresponding features in consecutive sensor measurements; for instance,\nshort-term data association would track the fact that 2 pixel\nmeasurements in consecutive frames are picturing the same\n3D point. On the other hand, long-term data association (or\nloop closure) is in charge of associating new measurements to\nolder landmarks. We remark that the back-end usually feeds\nback information to the front-end, e.g., to support loop closure\ndetection and validation.\nThe pre-processing that happens in the front-end is sensor\ndependent, since the notion of feature changes depending on\nthe input data stream we consider.\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "decomposition",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 5bfe8e06-5ba7-4907-9959-467fb36dcf3b; not independent acceptance or personal certification",
+        "rationale": "The Section II opening explicitly defines sensor abstraction and inference. The MAP subsection describes estimation from models, not a universal raw-constraint feed. The claim is limited to the survey decomposition.",
+        "evidenceDigest": "609ee7a9bda7028b57801c22303500398e96a85dbb1caf7bd81747f733b0edf9"
+      },
+      {
+        "partId": "association-feedback",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 5bfe8e06-5ba7-4907-9959-467fb36dcf3b; not independent acceptance or personal certification",
+        "rationale": "The sensor-dependent front-end subsection explicitly links measurements to unknown state variables and says back-end feedback supports loop-closure detection/validation. This is a qualified feedback relation, not guaranteed detection.",
+        "evidenceDigest": "1768494b14f6b7496675ad5360de715e2b31f87451f549d52f52a7ca732597b0"
+      }
+    ]
   }
 ]

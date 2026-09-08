@@ -5495,24 +5495,24 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // IEEE Trans. Robotics 32(6):1309-1332; arXiv abs page verified
-    // 2026-08-11. The survey records the field's move from EKF-based SLAM
-    // to factor-graph smoothing and names the open problems.
+    // Title follows the retained abstract and v4 manuscript; byline follows v4.
+    // arXiv:1606.05830v4; printed 30 January 2017; journal citation year 2016; DOI 10.1109/TRO.2016.2624754.
+    // Audited abstract URL retained; it is not a pinned v4 URL or a new liveness check.
     id: 'cadena-2016',
     title:
-      'Past, Present, and Future of Simultaneous Localization and Mapping: Toward the Robust-Perception Age',
+      'Past, Present, and Future of Simultaneous Localization And Mapping: Towards the Robust-Perception Age',
     authors: [
       'Cesar Cadena',
       'Luca Carlone',
       'Henry Carrillo',
       'Yasir Latif',
       'Davide Scaramuzza',
-      'Jose Neira',
+      'José Neira',
       'Ian Reid',
       'John J. Leonard',
     ],
     year: 2016,
-    venue: 'IEEE Trans. Robotics',
+    venue: 'IEEE Transactions on Robotics',
     arxiv: '1606.05830',
     url: 'https://arxiv.org/abs/1606.05830',
     type: 'paper',

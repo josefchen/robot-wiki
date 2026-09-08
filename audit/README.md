@@ -1,6 +1,22 @@
 # Content-integrity audit trail
 
-## Current pointmap, simulation and costmap checkpoint — 2026-09-08
+## Current partial classical-SLAM checkpoint — 2026-09-08
+
+**385 complete / 609 incomplete / 994 original identities / 47 articles. 291 compound plans; 368 exact approval objects.** Applied only `audit/classical.md:scene-representation:25` (Cadena decomposition). **One applied; four held (atomic pairs 26/27 and 31/33); zero unattempted.** Scene representation is 22 complete originals. This is implementation, not whole-article P1, source certification or release acceptance. Formal progress remains 307/331.
+
+Zero new source requests. All 65 indexed retained payloads and 27 literal passages were verified. One genuinely reviewed two-part/two-item AND plan uses three literal supporting excerpts: sensor-dependent abstraction/data association, back-end inference and qualified feedback. Cadena's retained abstract/manuscript title, eight-author byline (including José Neira) and explicit 2016 journal citation support scoped metadata corrections; the audited abstract URL is unchanged. The v4 printing date, 30 January 2017, is not the journal year or a new fetch date. The actual retained GET was 2026-09-06T01:13:31.236Z–01:14:02.499Z, HTTP 200 then; source-auditor review was 2026-09-08T18:16:15.542Z.
+
+The proposed PDF-URL branch failed three native URL-binding checks **in memory**, not in the shipped registry. No fetched publisher metadata in this packet resolves the required ORB representation/venue branch, including ORB-SLAM3's cover typo. ORB paragraphs, both glossary definitions, the DSO tail and Lowry middle passage remain unchanged. Scientific preparation does not clear those metadata-dependent atomic holds. No new URL exception, citation-ledger edit, unsupported publisher assertion, numerical-result promotion or date bump was made.
+
+Final offline preservation proves all **993 unchanged full records**, **384 prior completions**, **290 old plans and 365 old approvals including serialization**, **1,205 protected file identities**, owner work, five parent preflight files and preserved ancestors. Three exact member approvals retain all **47 complete inherited baseline failure objects**, also compared against the actual baseline command output. Normal post-dev type generation returned next-env.d.ts and tsconfig.json to their exact before bytes; the owned loopback server is stopped.
+
+Executed checks: red-first four-case suite **3 failed / 1 passed**; final focused unit/component checks **75 passed in five files**, with eight mutation scenarios nested inside one reporter-visible case. Normal lint including prelint, route type generation and nonincremental TypeScript passed. Affected scene E2E selectors **6 passed** at 375×812 and 1440×900, including zero axe violations/console errors. Bounded local reader checks covered changed prose, citation hover/focus and full ordered bylines; the second Cadena consumer, state estimation, was also checked. Thirteen captures were directly opened, including the visible mobile drawer. Development UI remains visible. These are bounded reader checks, not full reference-rubric, production/export, OG regeneration or reading-time acceptance.
+
+Content remains **RED: 614 findings plus nine separately reported citation gaps**. Baseline remains **RED: 47 inherited failures**. The four selected holds, 609 incomplete originals, authored-local example45, whole scene P1, broader corpus/reference proof and independent Sol/high scrutiny/user testing remain open. `skipScrutiny=false`; `skipUserTesting=false`. No full build, full browser corpus, new source hunt, publication, feature-state change or credit fallback. **Do not publish while the content gate is red.**
+
+Exact source identities, native tuples, command argv/windows/exits/log hashes, captures, preservation and the local checkpoint seal are retained in `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-classical-slam-integration-20260908/`. The handoff records actual commit and timing; the original 18:39:00.277Z target is not reset by continuation.
+
+## Historical: pointmap, simulation and costmap checkpoint — 2026-09-08
 
 **384 complete / 610 incomplete / 994 original identities / 47 articles. 290 compound plans; 365 exact approval objects.** Only `audit/classical.md:scene-representation:17/20/21/41` applied: DUSt3R, atomic SplatSim/RoboGSim, and the coupled layered-costmap article/glossary correction. Four applied, zero held or unattempted in this assignment. This is implementation, not whole-article P1 or release acceptance. Formal progress stays 307/331.
 

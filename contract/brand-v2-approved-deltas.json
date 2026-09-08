@@ -7295,6 +7295,51 @@
         "VAL-AUDIT-005"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "classical-slam-cadena-25-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "cedbed22eb3dbdacb0874123b8cd4bb31368b1ba2b194b05105d8bae29e066ba",
+      "reason": "Exact original scene25 correction: sensor-dependent measurement abstraction/data association, back-end inference and feedback; retained abstract/manuscript title and eight-author byline, explicit 2016 journal citation. Preserve audited Cadena URL and earlier source corrections. ORB26/27 and drift/outlier31/33 are held, not certified. Source and precise original/current spans: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-classical-slam-integration-20260908/source-proof.json and application-endpoints.json.",
+      "ownerApproval": "Josef's September 7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "classical-slam-cadena-25-20260908-2",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e4d5ea650d814a12a217868b42e5230bbce2ae6b4316389526fed203fc2e24e9",
+      "reason": "Exact original scene25 correction: sensor-dependent measurement abstraction/data association, back-end inference and feedback; retained abstract/manuscript title and eight-author byline, explicit 2016 journal citation. Preserve audited Cadena URL and earlier source corrections. ORB26/27 and drift/outlier31/33 are held, not certified. Source and precise original/current spans: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-classical-slam-integration-20260908/source-proof.json and application-endpoints.json.",
+      "ownerApproval": "Josef's September 7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "classical-slam-cadena-25-20260908-3",
+      "manifest": "article-metadata",
+      "memberId": "citation:cadena-2016",
+      "oldHash": "6caede15f24fe822a2926ba4ad1bf68ae4d9a0f3808e584f4eff3f12b44bc225",
+      "newHash": "5e97604f95400d9597e42b75092c965c137716dd31b5463b30368360564e468d",
+      "reason": "Exact original scene25 correction: sensor-dependent measurement abstraction/data association, back-end inference and feedback; retained abstract/manuscript title and eight-author byline, explicit 2016 journal citation. Preserve audited Cadena URL and earlier source corrections. ORB26/27 and drift/outlier31/33 are held, not certified. Source and precise original/current spans: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-classical-slam-integration-20260908/source-proof.json and application-endpoints.json.",
+      "ownerApproval": "Josef's September 7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
