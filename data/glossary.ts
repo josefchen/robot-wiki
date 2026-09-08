@@ -630,7 +630,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'costmap',
     term: 'costmap',
     definition:
-      'The grid a mobile-robot navigation stack plans over: occupancy from the map and the live sensors, inflated by the robot\'s footprint and marked up with whatever else should influence the route, so a planner searching for a cheap path is also searching for a safe one. Lu, Hershberger and Smart introduced the layered form now standard, where each concern is a separate semantic layer that writes into the composed grid, rather than one grid that several subsystems overwrite in place.',
+      'The grid a mobile-robot navigation stack plans over: occupancy from the map and the live sensors, inflated by the robot\'s footprint and marked up with whatever else should influence the route, so a planner searching for a cheap path is also searching for a safe one. Lu, Hershberger and Smart proposed and implemented layered costmaps in ROS Navigation: ordered semantic layers update a master 2D costmap, bounds first, then values. Layers may keep private grids or write directly to the master. Sensed obstacles may overwrite static-map costs if configured.',
     citations: ['layered-costmaps-2014', 'nav2-2020'],
   },
   {

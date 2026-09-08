@@ -5636,9 +5636,10 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // CVPR 2024; arXiv abs page read 2026-08-22. Feed-forward pairwise
-    // pointmap regression with no camera intrinsics and no poses, which
-    // removes the per-scene optimisation a radiance field requires.
+    // Historical entry: CVPR 2024; abstract review recorded as 2026-08-22.
+    // The pairwise network predicts pointmaps without supplied camera parameters.
+    // Multiview reconstruction separately optimises their global alignment;
+    // training uses geometric supervision and pretrained CroCo weights.
     id: 'dust3r-2024',
     title: 'DUSt3R: Geometric 3D Vision Made Easy',
     authors: [

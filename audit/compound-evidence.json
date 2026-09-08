@@ -27759,5 +27759,541 @@
         "evidenceDigest": "035c629d86cd6980eac157c67392107ac6bd9647e50bf6f213cec2f90835adb0"
       }
     ]
+  },
+  {
+    "id": "scene-pointmaps-20260908-17",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 17,
+    "originalCellsDigest": "72d5a23fdfbadd5142ec30f527c77be7572648e5415adb99c187c9053780ba48",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "pair-input-and-regression",
+        "text": "Dense pointmaps are predicted from a pair of RGB images without supplied camera intrinsics or poses at network inference.",
+        "requiredCitationIds": [
+          "dust3r-2024"
+        ]
+      },
+      {
+        "id": "common-frame",
+        "text": "The two output pointmaps share the first image's coordinate frame.",
+        "requiredCitationIds": [
+          "dust3r-2024"
+        ]
+      },
+      {
+        "id": "unknown-scale",
+        "text": "The output pointmaps are regressed up to an unknown scale factor.",
+        "requiredCitationIds": [
+          "dust3r-2024"
+        ]
+      },
+      {
+        "id": "geometric-supervision",
+        "text": "DUSt3R training uses geometric ground-truth supervision, distinct from inference inputs.",
+        "requiredCitationIds": [
+          "dust3r-2024"
+        ]
+      },
+      {
+        "id": "pretrained-croco",
+        "text": "The network is initialised from off-the-shelf pretrained CroCo weights.",
+        "requiredCitationIds": [
+          "dust3r-2024"
+        ]
+      },
+      {
+        "id": "multiview-optimization",
+        "text": "Multiview reconstruction additionally optimises alignment of pairwise pointmaps in 3D; pair inference is not an optimisation-free full multiview pipeline.",
+        "requiredCitationIds": [
+          "dust3r-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+      "rationale": "Whole final conjunction reviewed: Network inputs are not training inputs. The inspected v3 describes geometric supervision, CroCo initialization, common first-camera coordinates and unknown scale. Multiview alignment is a separate optimization. Known-intrinsics localization and unknown-focal/database-geometry caveats remain; no CVPR venue certification is inferred. Every retained excerpt was checked against its body before application.",
+      "planDigest": "f8a9e8a290c1217e9ba427896b3706e58a29e79a8c23c7329e86e7eb010cd54b"
+    },
+    "evidence": [
+      {
+        "partId": "pair-input-and-regression",
+        "citationId": "dust3r-2024",
+        "sourceUrl": "https://arxiv.org/html/2312.14132v3",
+        "supportingPassage": "The main component is a network that can regress a dense and accurate scene representation solely from a pair of images, without prior information regarding the scene nor the cameras (not even the intrinsic parameters).\n[Separate literal excerpt from the same retained body]\nWe wish to build a network that solves the 3D reconstruction task for the generalized stereo case through direct regression.\nTo that aim, we train a network ℱ\\mathcal{F} that takes as input 2 RGB images I1,I2∈ℝW×H×3I^{1},I^{2}\\in\\mathbb{R}^{W\\times H\\times 3} and outputs 2 corresponding pointmaps X1,1,X2,1∈ℝW×H×3X^{1,1},X^{2,1}\\in\\mathbb{R}^{W\\times H\\times 3} with associated confidence maps C1,1,C2,1∈ℝW×HC^{1,1},C^{2,1}\\in\\mathbb{R}^{W\\times H}.\nNote that both pointmaps are expressed in the same coordinate frame of I1I^{1}, which radically differs from existing approaches but offers key advantages (see Secs. 1, 2, 3.3 and 3.4).\nFor the sake of clarity and without loss of generalization, we assume that both images have the same resolution W×HW\\times H, but naturally in practice their resolution can differ.\nNetwork architecture."
+      },
+      {
+        "partId": "common-frame",
+        "citationId": "dust3r-2024",
+        "sourceUrl": "https://arxiv.org/html/2312.14132v3",
+        "supportingPassage": "We wish to build a network that solves the 3D reconstruction task for the generalized stereo case through direct regression.\nTo that aim, we train a network ℱ\\mathcal{F} that takes as input 2 RGB images I1,I2∈ℝW×H×3I^{1},I^{2}\\in\\mathbb{R}^{W\\times H\\times 3} and outputs 2 corresponding pointmaps X1,1,X2,1∈ℝW×H×3X^{1,1},X^{2,1}\\in\\mathbb{R}^{W\\times H\\times 3} with associated confidence maps C1,1,C2,1∈ℝW×HC^{1,1},C^{2,1}\\in\\mathbb{R}^{W\\times H}.\nNote that both pointmaps are expressed in the same coordinate frame of I1I^{1}, which radically differs from existing approaches but offers key advantages (see Secs. 1, 2, 3.3 and 3.4).\nFor the sake of clarity and without loss of generalization, we assume that both images have the same resolution W×HW\\times H, but naturally in practice their resolution can differ.\nNetwork architecture."
+      },
+      {
+        "partId": "unknown-scale",
+        "citationId": "dust3r-2024",
+        "sourceUrl": "https://arxiv.org/html/2312.14132v3",
+        "supportingPassage": "Discussion.\nThe output pointmaps X1,1X^{1,1} and X2,1X^{2,1} are regressed up to an unknown scale factor.\nAlso, it should be noted that our generic architecture never explicitly enforces any geometrical constraints.\nHence, pointmaps do not necessarily correspond to any physically plausible camera model.\nRather, we let the network learn all relevant priors present from the train set, which only contains geometrically consistent pointmaps.\nUsing a generic architecture allows to leverage strong pretraining technique, ultimately surpassing what existing task-specific architectures can achieve.\nWe detail the learning process in the next section."
+      },
+      {
+        "partId": "geometric-supervision",
+        "citationId": "dust3r-2024",
+        "sourceUrl": "https://arxiv.org/html/2312.14132v3",
+        "supportingPassage": "Our model is trained in a fully-supervised manner using a simple regression loss, leveraging large public datasets for which ground-truth annotations are either synthetically generated [104, 69], reconstructed from SfM softwares [56, 162] or captured using dedicated sensors [94, 122, 166, 25]."
+      },
+      {
+        "partId": "pretrained-croco",
+        "citationId": "dust3r-2024",
+        "sourceUrl": "https://arxiv.org/html/2312.14132v3",
+        "supportingPassage": "Before training, we initialize our network with the weights of an off-the-shelf CroCo pretrained model [149]."
+      },
+      {
+        "partId": "multiview-optimization",
+        "citationId": "dust3r-2024",
+        "sourceUrl": "https://arxiv.org/html/2312.14132v3",
+        "supportingPassage": "The network ℱ\\mathcal{F} presented so far can only handle a pair of images.\nWe now present a fast and simple post-processing optimization for entire scenes that enables the alignment of pointmaps predicted from multiple images into a joint 3D space.\nThis is possible thanks to the rich content of our pointmaps, which encompasses by design two aligned point-clouds and their corresponding pixel-to-3D mapping.\n[Separate literal excerpt from the same retained body]\nTo fuse predictions from multiple images pairs, we revisit bundle adjustment (BA) for the case of pointmaps, hereby achieving full-scale MVS.\nWe introduce a global alignment procedure that, contrary to BA, does not involve minimizing reprojection errors.\nInstead, we optimize the camera pose and geometry alignment directly in 3D space, which is fast and shows excellent convergence in practice."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "pair-input-and-regression",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Dense pointmaps are predicted from a pair of RGB images without supplied camera intrinsics or poses at network inference. The paired literal excerpt(s) establish this bounded obligation in context. Network inputs are not training inputs. The inspected v3 describes geometric supervision, CroCo initialization, common first-camera coordinates and unknown scale. Multiview alignment is a separate optimization. Known-intrinsics localization and unknown-focal/database-geometry caveats remain; no CVPR venue certification is inferred.",
+        "evidenceDigest": "442e5b1878f23038a548b5b51bfe1763c69788ce335d67cac4c6e26278e5337b"
+      },
+      {
+        "partId": "common-frame",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "The two output pointmaps share the first image's coordinate frame. The paired literal excerpt(s) establish this bounded obligation in context. Network inputs are not training inputs. The inspected v3 describes geometric supervision, CroCo initialization, common first-camera coordinates and unknown scale. Multiview alignment is a separate optimization. Known-intrinsics localization and unknown-focal/database-geometry caveats remain; no CVPR venue certification is inferred.",
+        "evidenceDigest": "b268457f35d4f10a8a108a5e7d46431c440911a29a0462b4b679e2685af17b41"
+      },
+      {
+        "partId": "unknown-scale",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "The output pointmaps are regressed up to an unknown scale factor. The paired literal excerpt(s) establish this bounded obligation in context. Network inputs are not training inputs. The inspected v3 describes geometric supervision, CroCo initialization, common first-camera coordinates and unknown scale. Multiview alignment is a separate optimization. Known-intrinsics localization and unknown-focal/database-geometry caveats remain; no CVPR venue certification is inferred.",
+        "evidenceDigest": "0113b871ffaccbedc94ea660a0c6ac7a91ae50cdc301375aef0f5edcaebe5a3f"
+      },
+      {
+        "partId": "geometric-supervision",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "DUSt3R training uses geometric ground-truth supervision, distinct from inference inputs. The paired literal excerpt(s) establish this bounded obligation in context. Network inputs are not training inputs. The inspected v3 describes geometric supervision, CroCo initialization, common first-camera coordinates and unknown scale. Multiview alignment is a separate optimization. Known-intrinsics localization and unknown-focal/database-geometry caveats remain; no CVPR venue certification is inferred.",
+        "evidenceDigest": "ce307f82c60e27823d7f4271917e58d4941720125a2dd0075baac5282fa72b46"
+      },
+      {
+        "partId": "pretrained-croco",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "The network is initialised from off-the-shelf pretrained CroCo weights. The paired literal excerpt(s) establish this bounded obligation in context. Network inputs are not training inputs. The inspected v3 describes geometric supervision, CroCo initialization, common first-camera coordinates and unknown scale. Multiview alignment is a separate optimization. Known-intrinsics localization and unknown-focal/database-geometry caveats remain; no CVPR venue certification is inferred.",
+        "evidenceDigest": "a801dfead4313e355be70d77e5fd3b73061c2ef56b824e395c96776e65871e1d"
+      },
+      {
+        "partId": "multiview-optimization",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Multiview reconstruction additionally optimises alignment of pairwise pointmaps in 3D; pair inference is not an optimisation-free full multiview pipeline. The paired literal excerpt(s) establish this bounded obligation in context. Network inputs are not training inputs. The inspected v3 describes geometric supervision, CroCo initialization, common first-camera coordinates and unknown scale. Multiview alignment is a separate optimization. Known-intrinsics localization and unknown-focal/database-geometry caveats remain; no CVPR venue certification is inferred.",
+        "evidenceDigest": "56fc5e0c688f8ec9b2c2c342499cbf791c8ef098a9050b373ccf3a5ef8057836"
+      }
+    ]
+  },
+  {
+    "id": "scene-simulation-source-20-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 20,
+    "originalCellsDigest": "81dd998e6e249cea69fdfac4cc11341be87b8790019d8bfca02760fa427e1303",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "render-and-physics",
+        "text": "Mesh primitives in the simulator rendering pipeline are replaced with Gaussian splats.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "physics-and-demonstrations",
+        "text": "Figure 2 names PyBullet as the physics simulator for demonstrations used to train the diffusion policy.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "transfer-and-setup",
+        "text": "The paper reports zero-shot transfer across four real-world tasks using a UR5, Robotiq 2F-85, two D455 cameras and Diffusion Policy.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "scene-preparation",
+        "text": "Manual robot segmentation, ICP alignment and CAD-derived link bounds are part of preparation.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "pipeline-inputs",
+        "text": "Figure 2 lists RGB and end-effector position/orientation inputs.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "input-conflict-and-rigidity",
+        "text": "Figure 2 lists RGB plus end-effector position/orientation, whereas Section IV-A describes solely RGB at test time; neither description is silently selected. The demonstrated setting is rigid-body manipulation.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "evaluation-context",
+        "text": "Reported results are scoped to four tasks, 40 trials each, and 86.25% sim-trained versus 97.5% real-data policies. The Assembly Sim2Sim table/prose discrepancy (85% versus 95%) and augmentation dependence do not establish universal transfer.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+      "rationale": "Whole final conjunction reviewed: PyBullet supplies physics; Gaussian splats replace rendering. Calibration, supplied poses, segmentation, CAD bounds, ICP and kinematics are preparation, not learned physics. Figure 2 and IV-A inputs conflict; the article preserves both. Results are four UR5/Robotiq tasks, 40 trials each; 86.25% versus 97.5%, augmentation dependence and Assembly 85% table versus 95% prose remain scoped. Retained unversioned response explicitly shows v3, 7 October 2024. Every retained excerpt was checked against its body before application.",
+      "planDigest": "6f98d9ced6eb24ef45cd850d152849c058d21532af20ea276a218ae7851aa0a2"
+    },
+    "evidence": [
+      {
+        "partId": "render-and-physics",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "In this paper, we propose a systematic and novel method to reduce the Sim2Real gap for RGB images, by leveraging Gaussian Splatting [ 8 ] as a photorealistic render, using existing simulators as the physics backbone. We propose utilizing Gaussian Splatting [ 8 ] as the primary rendering primitive, replacing traditional mesh-based representations in existing simulators, to significantly improve the photo-realism of rendered scenes. By integrating these renderings of simulated demonstrations with state-of-the-art behavior cloning techniques, we introduce a framework for zero-shot transfer of manipulation policies trained entirely on simulation data, to the real world. Our key contributions are as follows:"
+      },
+      {
+        "partId": "physics-and-demonstrations",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "Fig. 2: Top: Our proposed SplatSim framework. Expert demonstrations are collected (a) in a physics simulator (PyBullet). In our case, these demonstrations come either from human experts (teleoperation via Gello [ 50 ] ) or through a privileged information-based motion planner. The trajectories from the simulator are then fed to the simulator-aligned splat models of the scene and the object (b). We transform the 3D Gaussians to manipulate the static Gaussian Splat models, as delineated in Sec. IV-C , to extract photorealistic renderings of the scene at novel joint and object poses, which serve as the RGB state observations for the diffusion policy. Along with these RGB observations, diffusion policy [ 51 ] also takes the end effector position and orientation as the input. We augment the end effector states as well. Bottom: Once trained with the sim data, we freeze the policy and directly deploy it to the real-world setting."
+      },
+      {
+        "partId": "transfer-and-setup",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "We evaluate the zero-shot deployment of our policies across four contact-rich real-world tasks, using task success rate as the primary metric. As shown in Table I , our method achieves an average success rate of 86.25% for zero-shot Sim2Real transfer, compared to 97.5% for policies trained directly on real-world data, highlighting the effectiveness of our approach. All experiments were conducted using a UR5 robot equipped with a Robotiq 2F-85 gripper and 2 Intel Realsense D455 cameras [ 54 ] with deployment on an NVIDIA RTX 3080Ti GPU for the Diffusion Policy [ 51 ] ."
+      },
+      {
+        "partId": "scene-preparation",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "In order to combine the Gaussian Splat representation 𝒮 r ​ e ​ a ​ l \\mathcal{S}_{real} with the simulator, we first manually segment out the 3D Gaussians associated with the robot. The means of these 3D Gaussians form a point cloud which is aligned with the ground truth point cloud obtained from the simulator. To achieve this, we use the Iterative Closest Point (ICP) algorithm, which produces the desired transformation T ℱ r ​ o ​ b ​ o ​ t ℱ s ​ p ​ l ​ a ​ t T^{\\mathcal{F}_{splat}}_{\\mathcal{F}_{robot}} . IV-C 2 Segmentation of the Robot Links To associate the 3D Gaussians with their respective links in 𝒮 r ​ e ​ a ​ l \\mathcal{S}_{real} , we leverage the ground truth bounding boxes of the robot’s links, provided by its CAD model. This method allows us to isolate the 3D Gaussians corresponding to each link in the real-world scene, denoted as 𝒮 r ​ e ​ a ​ l l \\mathcal{S}^{l}_{real} , where l l refers to the l l -th link of the robot."
+      },
+      {
+        "partId": "pipeline-inputs",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "Fig. 2: Top: Our proposed SplatSim framework. Expert demonstrations are collected (a) in a physics simulator (PyBullet). In our case, these demonstrations come either from human experts (teleoperation via Gello [ 50 ] ) or through a privileged information-based motion planner. The trajectories from the simulator are then fed to the simulator-aligned splat models of the scene and the object (b). We transform the 3D Gaussians to manipulate the static Gaussian Splat models, as delineated in Sec. IV-C , to extract photorealistic renderings of the scene at novel joint and object poses, which serve as the RGB state observations for the diffusion policy. Along with these RGB observations, diffusion policy [ 51 ] also takes the end effector position and orientation as the input. We augment the end effector states as well. Bottom: Once trained with the sim data, we freeze the policy and directly deploy it to the real-world setting."
+      },
+      {
+        "partId": "input-conflict-and-rigidity",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "The renderings I s ​ i ​ m {I}^{sim} , derived from these simulated states s t s_{t} , are used as inputs to train the policy π ℐ \\pi_{\\mathcal{I}} . The policy relies solely on real-world RGB images I r ​ e ​ a ​ l {I}^{real} at test time.\n[Separate literal excerpt from the same retained body]\nFor learning from the generated demonstrations τ 𝒢 \\tau_{\\mathcal{G}} in the simulator, we employ Diffusion Policy [ 51 , 52 ] , which is the state of the art for behavior cloning. Although our method significantly mitigates the vision Sim2Real gap, discrepancies between the simulated and real-world environments remain. For instance, simulated scenes lack shadows, and rigid body assumptions can lead to improper rendering of flexible components such as robot cables. To address these issues, we incorporate image augmentations similar to [ 53 ] during policy training, which includes adding gaussian noise, random erasing and adjusting brightness and contrast of the image. These augmentations notably enhance the robustness of the policy and improve its performance during real-world deployment.\n[Separate literal excerpt from the same retained body]\nThe Pick-Up-Apple task involves grasping and manipulating the full pose of an object (i.e., position and orientation) in 3D. This task was designed to evaluate the robot’s grasping capabilities when trained using our simulated renderings. A motion planner, leveraging privileged state information from the simulator (accurate position and orientation of each rigid body in the scene), generated 400 demonstrations with randomized end-effector positions and orientations. During real-world trials, our policy achieved a 95% success rate (38/40 trials) in zero-shot Sim2Real transfer, as shown in Table I .\n[Separate literal excerpt from the same retained body]\nIn this work, we tackled the challenge of reducing the Sim2Real gap for RGB-based manipulation policies by leveraging Gaussian Splatting as a photorealistic rendering technique, integrated with existing simulators for physics-based interactions. Our framework enables zero-shot transfer of RGB-based manipulation policies trained in simulation to real-world environments. While our framework advances the current state-of-the-art, it is still limited to rigid body manipulation and cannot handle complex objects such as cloth, liquids, or plants. In the future, our plan is to combine our framework with reinforcement learning-based methods to acquire more dynamic skills. We will also further improve our system to train and deploy robots in highly complex and contact-rich tasks in the real world. Specifically, agricultural tasks such as pruning and harvesting, which require data that is challenging to obtain under field conditions, could greatly benefit from our proposed method."
+      },
+      {
+        "partId": "evaluation-context",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "Sim2Real transfer, particularly for manipulation policies relying on RGB images, remains a critical challenge in robotics due to the significant domain shift between synthetic and real-world visual data. In this paper, we propose SplatSim , a novel framework that leverages Gaussian Splatting as the primary rendering primitive to reduce the Sim2Real gap for RGB-based manipulation policies. By replacing traditional mesh representations with Gaussian Splats in simulators, SplatSim produces highly photorealistic synthetic data while maintaining the scalability and cost-efficiency of simulation. We demonstrate the effectiveness of our framework by training manipulation policies within SplatSim and deploying them in the real world in a zero-shot manner, achieving an average success rate of 86.25%, compared to 97.5% for policies trained on real-world data. Videos can be found on our project page: https://splatsim.github.io\n[Separate literal excerpt from the same retained body]\nTask Successful Trials Human Effort to Collect Data (Out of 40 Trials) ( hours) Sim2Sim Real2Real Sim2Real (SplatSim) Simulator Real World T-Push 100% 100% 90% 3.0 3.5 Pick-Up-Apple 100% 100% 95% 0.0 ∗ 3.5 Orange-On-Plate 97.5% 95% 90% 0.0 ∗ 6.0 Assembly 85% 90% 70% 0.0 ∗ 7.5 Total 95.62% 97.5% 86.25 % 3.0 20.5 ∗ Automated process\n[Separate literal excerpt from the same retained body]\nWe evaluate the zero-shot deployment of our policies across four contact-rich real-world tasks, using task success rate as the primary metric. As shown in Table I , our method achieves an average success rate of 86.25% for zero-shot Sim2Real transfer, compared to 97.5% for policies trained directly on real-world data, highlighting the effectiveness of our approach. All experiments were conducted using a UR5 robot equipped with a Robotiq 2F-85 gripper and 2 Intel Realsense D455 cameras [ 54 ] with deployment on an NVIDIA RTX 3080Ti GPU for the Diffusion Policy [ 51 ] .\n[Separate literal excerpt from the same retained body]\nIn this task the robot has to put a cuboid block on top of another cuboid. The robot starts at the home position with the green cube already grasped and has to place it on top of the red cube. The task is particularly tough since the robot has to make a precise placement otherwise the cube will fall and will lead to a failure case. Our Sim2Real policy achieved a performance of 70% (28/40 trials) on this task, compared to 95% on Sim2Sim and 90% on Real2Real.\n[Separate literal excerpt from the same retained body]\nTo quantify the impact of data augmentations on the Sim2Real performance of our policy, we conducted experiments comparing policies trained with and without augmentations. While the Diffusion-Policy performs effectively without augmentations in consistent environments (e.g., Sim2Sim or Real2Real scenarios), transferring a policy trained in simulation to the real world introduces domain shifts that necessitate additional robustness as the renderings can’t capture dynamic details like changing reflections and shadows. We incorporated augmentations such as random noise addition, Color Jitter, and random erasing during training to address these shifts. These augmentations improve the performance of the policy from 21% to 86.25% across four tasks in Sec. V-B ."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "render-and-physics",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Mesh primitives in the simulator rendering pipeline are replaced with Gaussian splats. The paired literal excerpt(s) establish this bounded obligation in context. PyBullet supplies physics; Gaussian splats replace rendering. Calibration, supplied poses, segmentation, CAD bounds, ICP and kinematics are preparation, not learned physics. Figure 2 and IV-A inputs conflict; the article preserves both. Results are four UR5/Robotiq tasks, 40 trials each; 86.25% versus 97.5%, augmentation dependence and Assembly 85% table versus 95% prose remain scoped. Retained unversioned response explicitly shows v3, 7 October 2024.",
+        "evidenceDigest": "aeb052721c7d5ef67f2d04b319bdbfead9f24a78658c3f7fcc373a9bd2cdd187"
+      },
+      {
+        "partId": "physics-and-demonstrations",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Figure 2 names PyBullet as the physics simulator for demonstrations used to train the diffusion policy. The paired literal excerpt(s) establish this bounded obligation in context. PyBullet supplies physics; Gaussian splats replace rendering. Calibration, supplied poses, segmentation, CAD bounds, ICP and kinematics are preparation, not learned physics. Figure 2 and IV-A inputs conflict; the article preserves both. Results are four UR5/Robotiq tasks, 40 trials each; 86.25% versus 97.5%, augmentation dependence and Assembly 85% table versus 95% prose remain scoped. Retained unversioned response explicitly shows v3, 7 October 2024.",
+        "evidenceDigest": "9d7be0fd24cc52a57bc44940da237528b7a06ace617b34e3580610205519e288"
+      },
+      {
+        "partId": "transfer-and-setup",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "The paper reports zero-shot transfer across four real-world tasks using a UR5, Robotiq 2F-85, two D455 cameras and Diffusion Policy. The paired literal excerpt(s) establish this bounded obligation in context. PyBullet supplies physics; Gaussian splats replace rendering. Calibration, supplied poses, segmentation, CAD bounds, ICP and kinematics are preparation, not learned physics. Figure 2 and IV-A inputs conflict; the article preserves both. Results are four UR5/Robotiq tasks, 40 trials each; 86.25% versus 97.5%, augmentation dependence and Assembly 85% table versus 95% prose remain scoped. Retained unversioned response explicitly shows v3, 7 October 2024.",
+        "evidenceDigest": "a1a8d254317c09e4197e08872ab6454c4ea1d845ce1f33c91528de7cf9b85df4"
+      },
+      {
+        "partId": "scene-preparation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Manual robot segmentation, ICP alignment and CAD-derived link bounds are part of preparation. The paired literal excerpt(s) establish this bounded obligation in context. PyBullet supplies physics; Gaussian splats replace rendering. Calibration, supplied poses, segmentation, CAD bounds, ICP and kinematics are preparation, not learned physics. Figure 2 and IV-A inputs conflict; the article preserves both. Results are four UR5/Robotiq tasks, 40 trials each; 86.25% versus 97.5%, augmentation dependence and Assembly 85% table versus 95% prose remain scoped. Retained unversioned response explicitly shows v3, 7 October 2024.",
+        "evidenceDigest": "822f6cd18460a9d46834ecb9343e4d0125a9a3d33154f9f606b0c2a5f4cd0301"
+      },
+      {
+        "partId": "pipeline-inputs",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Figure 2 lists RGB and end-effector position/orientation inputs. The paired literal excerpt(s) establish this bounded obligation in context. PyBullet supplies physics; Gaussian splats replace rendering. Calibration, supplied poses, segmentation, CAD bounds, ICP and kinematics are preparation, not learned physics. Figure 2 and IV-A inputs conflict; the article preserves both. Results are four UR5/Robotiq tasks, 40 trials each; 86.25% versus 97.5%, augmentation dependence and Assembly 85% table versus 95% prose remain scoped. Retained unversioned response explicitly shows v3, 7 October 2024.",
+        "evidenceDigest": "f961eb8e85d4d56a9ac1054648cf7547a2e918af81e190efe1cc654735d2afba"
+      },
+      {
+        "partId": "input-conflict-and-rigidity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Figure 2 lists RGB plus end-effector position/orientation, whereas Section IV-A describes solely RGB at test time; neither description is silently selected. The demonstrated setting is rigid-body manipulation. The paired literal excerpt(s) establish this bounded obligation in context. PyBullet supplies physics; Gaussian splats replace rendering. Calibration, supplied poses, segmentation, CAD bounds, ICP and kinematics are preparation, not learned physics. Figure 2 and IV-A inputs conflict; the article preserves both. Results are four UR5/Robotiq tasks, 40 trials each; 86.25% versus 97.5%, augmentation dependence and Assembly 85% table versus 95% prose remain scoped. Retained unversioned response explicitly shows v3, 7 October 2024.",
+        "evidenceDigest": "b1151642c7127f7543e9852c24baee1037c5085a169c9e44b30d3f21952be7a9"
+      },
+      {
+        "partId": "evaluation-context",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Reported results are scoped to four tasks, 40 trials each, and 86.25% sim-trained versus 97.5% real-data policies. The Assembly Sim2Sim table/prose discrepancy (85% versus 95%) and augmentation dependence do not establish universal transfer. The paired literal excerpt(s) establish this bounded obligation in context. PyBullet supplies physics; Gaussian splats replace rendering. Calibration, supplied poses, segmentation, CAD bounds, ICP and kinematics are preparation, not learned physics. Figure 2 and IV-A inputs conflict; the article preserves both. Results are four UR5/Robotiq tasks, 40 trials each; 86.25% versus 97.5%, augmentation dependence and Assembly 85% table versus 95% prose remain scoped. Retained unversioned response explicitly shows v3, 7 October 2024.",
+        "evidenceDigest": "73231774472e7241738b44c1715cc209138993532592256052d71bf62c22e743"
+      }
+    ]
+  },
+  {
+    "id": "scene-simulation-source-21-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 21,
+    "originalCellsDigest": "ef0284cb02f3f9928f27faae21cfb6efdc46f9d2a2b9802b53b0fc6d7abdcb30",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "four-components-and-inputs",
+        "text": "Four named components use supplied multi-view images and robot MDH parameters.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "mesh-assets-and-alignment",
+        "text": "Mesh assets and measured scene layout alignment connect reconstruction to Isaac Sim.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "measured-alignment",
+        "text": "Real-world scene measurement and layout matching are required, not inferred physics from images alone.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "closed-loop-action-path",
+        "text": "The evaluator feeds rendered images to a policy, executes actions in Isaac Sim physics, then renders the resulting state.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "evaluation-context",
+        "text": "The ring-toss evaluation uses ten trials with up to three grasp attempts per trial, not thirty independent trials. Real-data-model placement differs between hardware (90%) and simulation (30%). Novel-scene table/prose results disagree; rendering and replay are not general physical-fidelity or safety guarantees.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+      "rationale": "Whole final conjunction reviewed: Four named components join multiview reconstruction and supplied MDH parameters with mesh assets and measured Isaac Sim alignment. Closed-loop action/physics/render feedback differs from replay and rendering quality. Ten trials allow three grasp attempts each. Preserve real-data placement 90% hardware versus 30% simulator and novel-scene table/prose disagreement. Retained unversioned body explicitly shows v2, 3 August 2025; 2024 remains initial-submission identity, not this revision date. Every retained excerpt was checked against its body before application.",
+      "planDigest": "88588b2ab2f12c29a951442062bc3bd51e35034c25ee175a3a5b5ea6bf51fe28"
+    },
+    "evidence": [
+      {
+        "partId": "four-components-and-inputs",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "As shown in Fig. 2 , RoboGSim mainly includes four parts: Gaussian Reconstructor, Digital Twins Builder, Scene Composer, and Interactive Engine. Given multi-view images and MDH parameters of the robotic arm, Gaussian Reconstructor (Sec. 3.2 ) reconstructs scenes and objects using 3DGS, segments the robotic arm, and builds an MDH kinematic drive graph structure to enable accurate motion modeling of the robotic arm. Digital Twin Builder (Sec. 3.3 ) involves mesh reconstruction of the scene and objects. Through layout alignment, the asset data flow can be interconnected, facilitating the subsequent evaluation in Interactive Engine. Scene Composer (Sec. 3.4 ) achieves the synthesis of novel objects, scenes, and views. Interactive Engine (Sec. 3.5 ) synthesizes novel view/scene/object images for policy learning. It can also evaluate the policy networks in a closed-loop manner. Moreover, we can collect the manipulated data in simulation using VR/Xbox equipment of the real world."
+      },
+      {
+        "partId": "mesh-assets-and-alignment",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "In this paper, we develop a Real2Sim2Real simulator, called RoboGSim, for both high-fidelity demonstration synthesis and physics-consistent closed-loop evaluation. It mainly includes four parts: Gaussian Reconstructor, Digital Twins Builder, Scene Composer and Interactive Engine.\nGiven the multi-view RGB image sequences and MDH [ 6 ] parameters of the robotic arm, Gaussian Reconstructor is built upon 3DGS [ 43 ] and reconstructs the scene and objects.\nThen, the Digital Twins Builder performs the mesh reconstruction and creates a digital twin in Isaac Sim. In Digital Twins Builder, we propose the layout alignment module to align the space between the simulation, real-world, and GS representation.\nAfter that, the Scene Composer combines the scene, robotic arm and objects in simulation, and renders the images from new perspective. Finally, in the Interactive Engine, RoboGSim works as the Synthesizer and Evaluator to performs the demonstration synthesis and closed-loop policy evaluation."
+      },
+      {
+        "partId": "measured-alignment",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "Layout Alignment : As shown in Fig. 2 , since we follow the local coordinate system of the robotic arm, the world coordinates and Isaac Sim are axis-aligned. We first measure the real-world scene to align the size of the imported table scene in Isaac Sim. In the GS scene, a downward-facing camera is placed 1.6 meters above the base joint to render a segmentation map. For coordinate alignment, we place a downward-facing camera 1.6 meters above the base joint in Isaac Sim. By comparing the rendered scene from the BEV, front and side view segmentation, with the views from Isaac Sim, we adjust the shift to achieve layout alignment."
+      },
+      {
+        "partId": "closed-loop-action-path",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "Evaluator : For trained models, testing directly on physical devices may pose safety risks or incur high costs for reproduction. Therefore, we convert the predicted trajectories into GS-rendered results to efficiently and rapidly evaluate the model’s prediction quality. Specifically, the Isaac Sim [ 28 ] outputs an initial state of the target object and robotic arm, and GS renders according to the status. The rendered images are then fed to the policy to predict the next frame’s action. The predicted action is passed to the simulation for kinematic inverse parsing, collision detection, and other physical interactions. Then, Isaac sim sends the parsed six-axis relative pose to the GS renderer, which then sends the rendered result as feedback to the policy network. This serves as visual feedback for predicting the next action, and the process iterates until the task is finished."
+      },
+      {
+        "partId": "evaluation-context",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "Grasp Suc. Place Suc. TV NV(MD) NS TV NV NS Real 100% 30% 40% 90% 0% 20% Real+2D AUG 80% 100% 60% 80% 0% 60% RoboGSim 100% 70% 100% 90% 0% 90%\n[Separate literal excerpt from the same retained body]\nMethod Grasp Suc. Place Suc. Real-to-Real 100% 90% Real-to-RoboGSim 100% 30% Sim-to-Real 80% 0% RoboGSim-to-Real 100% 90%\n[Separate literal excerpt from the same retained body]\nBy using the real machine distribution to guide the RoboGSim distribution, we aim to improve the model’s success rate. We perform the experiments on a challenging ring-toss task (see Fig. 7 ), which is divided into two subtasks: picking up the ring and tossing it onto the target. The accuracy requirement for the Z-axis when picking up the ring is within 5mm. For real data, 1,000 samples are collected manually. For a fair comparison, we used 1,000 synthetic samples generated by RoboGSim. During testing, each model was tested 10 times, with three attempts allowed per trial for grasping. If all three attempts failed, the trial was marked as unsuccessful.\n[Separate literal excerpt from the same retained body]\nAs shown in Tab. 1 , We compared three models: one trained with real machine data, one trained with real machine data plus 2D AUG, and one trained with RoboGSim. The comparison was made in terms of test view, novel view, and novel scene. The results show that in the test view, the generated data from RoboGSim can achieve zero-shot capability, with performance comparable to the real machine data (both at 90%). In the novel scene case, RoboGSim performed much better than real machine data, reaching 90% compared to the 60% of real machine data. In the novel view experiment, RoboGSim also had less bias compared to the real machine data model. We also compared the effect of adding 2D AUG to the real machine data. After adding AUG, the performance in the test view dropped (90% → \\rightarrow 80%), but in the novel scene, it improved (40% → \\rightarrow 60%). However, in the novel view, the bias increased. Pure 2D AUG lacks spatial awareness, and its performance is far worse than that of RoboGSim, which has spatial intelligence.\na\nIt should be noted that manual collection takes a total of 40 hours while RoboGSim only requires 4 hours for synthesis. It is promising to further scale up the data size of synthesis for further performance improvements. Fig. 7 shows the visualization of some success and failure cases. Moreover, we also illustrate some more qualitative analysis for novel scene synthesis. As shown in Fig. 5 , we display the results of the physical migration of the UR5 robot arm to new scenes, including a factory, a shelf, and two outdoor environments. The high-fidelity multi-view renderings demonstrate that RoboGSim enables the robot arm to operate\nseamlessly across diverse scenes."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "four-components-and-inputs",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Four named components use supplied multi-view images and robot MDH parameters. The paired literal excerpt(s) establish this bounded obligation in context. Four named components join multiview reconstruction and supplied MDH parameters with mesh assets and measured Isaac Sim alignment. Closed-loop action/physics/render feedback differs from replay and rendering quality. Ten trials allow three grasp attempts each. Preserve real-data placement 90% hardware versus 30% simulator and novel-scene table/prose disagreement. Retained unversioned body explicitly shows v2, 3 August 2025; 2024 remains initial-submission identity, not this revision date.",
+        "evidenceDigest": "a177aa76549ac91fc1c72c04910dde9cd4bc8fcf433b01963d8148318af4c19a"
+      },
+      {
+        "partId": "mesh-assets-and-alignment",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Mesh assets and measured scene layout alignment connect reconstruction to Isaac Sim. The paired literal excerpt(s) establish this bounded obligation in context. Four named components join multiview reconstruction and supplied MDH parameters with mesh assets and measured Isaac Sim alignment. Closed-loop action/physics/render feedback differs from replay and rendering quality. Ten trials allow three grasp attempts each. Preserve real-data placement 90% hardware versus 30% simulator and novel-scene table/prose disagreement. Retained unversioned body explicitly shows v2, 3 August 2025; 2024 remains initial-submission identity, not this revision date.",
+        "evidenceDigest": "c84c50f12050b641f9893850308bf01ca094507dd55cf72e4b6992d16161bb65"
+      },
+      {
+        "partId": "measured-alignment",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Real-world scene measurement and layout matching are required, not inferred physics from images alone. The paired literal excerpt(s) establish this bounded obligation in context. Four named components join multiview reconstruction and supplied MDH parameters with mesh assets and measured Isaac Sim alignment. Closed-loop action/physics/render feedback differs from replay and rendering quality. Ten trials allow three grasp attempts each. Preserve real-data placement 90% hardware versus 30% simulator and novel-scene table/prose disagreement. Retained unversioned body explicitly shows v2, 3 August 2025; 2024 remains initial-submission identity, not this revision date.",
+        "evidenceDigest": "836b06afcb762188a63f015a2b2e8596ae01155427e0209e7de93a578e35c2fd"
+      },
+      {
+        "partId": "closed-loop-action-path",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "The evaluator feeds rendered images to a policy, executes actions in Isaac Sim physics, then renders the resulting state. The paired literal excerpt(s) establish this bounded obligation in context. Four named components join multiview reconstruction and supplied MDH parameters with mesh assets and measured Isaac Sim alignment. Closed-loop action/physics/render feedback differs from replay and rendering quality. Ten trials allow three grasp attempts each. Preserve real-data placement 90% hardware versus 30% simulator and novel-scene table/prose disagreement. Retained unversioned body explicitly shows v2, 3 August 2025; 2024 remains initial-submission identity, not this revision date.",
+        "evidenceDigest": "cc0eef4e2278bc0199c6b9e17136c26d947d70e80d4cb93bcdfcf4fb87690351"
+      },
+      {
+        "partId": "evaluation-context",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "The ring-toss evaluation uses ten trials with up to three grasp attempts per trial, not thirty independent trials. Real-data-model placement differs between hardware (90%) and simulation (30%). Novel-scene table/prose results disagree; rendering and replay are not general physical-fidelity or safety guarantees. The paired literal excerpt(s) establish this bounded obligation in context. Four named components join multiview reconstruction and supplied MDH parameters with mesh assets and measured Isaac Sim alignment. Closed-loop action/physics/render feedback differs from replay and rendering quality. Ten trials allow three grasp attempts each. Preserve real-data placement 90% hardware versus 30% simulator and novel-scene table/prose disagreement. Retained unversioned body explicitly shows v2, 3 August 2025; 2024 remains initial-submission identity, not this revision date.",
+        "evidenceDigest": "73f7de74048ffd1dbde57d3f12ecee567b812361065419e1b043427652744e5a"
+      }
+    ]
+  },
+  {
+    "id": "layered-costmaps-scene-41-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 41,
+    "originalCellsDigest": "df223c557e136d2d14fbf650e1d38b27bd3f87ebb0e3b453e2ae1e730cacac15",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "proposal-implementation",
+        "text": "Lu, Hershberger and Smart proposed and implemented layered costmaps in the ROS Navigation stack.",
+        "requiredCitationIds": [
+          "layered-costmaps-2014"
+        ]
+      },
+      {
+        "id": "ordered-semantic-master",
+        "text": "The method keeps an ordered list of semantically separate layers and accumulates their data into a master 2D costmap for path planning.",
+        "requiredCitationIds": [
+          "layered-costmaps-2014"
+        ]
+      },
+      {
+        "id": "two-pass-update",
+        "text": "Each update first gathers the layers' update bounds, then lets each layer update the master grid within those bounds.",
+        "requiredCitationIds": [
+          "layered-costmaps-2014"
+        ]
+      },
+      {
+        "id": "private-versus-master",
+        "text": "Some layers keep private grids, while others operate directly on the master.",
+        "requiredCitationIds": [
+          "layered-costmaps-2014"
+        ]
+      },
+      {
+        "id": "configurable-static-overwrite",
+        "text": "Separating static-map and sensed-obstacle data does not prohibit overwriting static-map costs, which remains configurable.",
+        "requiredCitationIds": [
+          "layered-costmaps-2014"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+      "rationale": "Whole final conjunction reviewed: The paper proposes and implements layered costmaps in ROS Navigation, not universal priority or adoption. An ordered layer list updates a master 2D grid in bounds-then-values passes; private grids are optional and configured sensed obstacles may overwrite static-map costs. Algorithm updateValues and C++ updateCosts terminology remain distinct. No general safety claim or Nav2 recertification is made. Original successful retrieval was 2026-09-06T01:17:25.175Z, e4f16890 lines 78/79; no historical binary hash/redirect chain or fresh liveness is invented. Every retained excerpt was checked against its body before application.",
+      "planDigest": "1ae6694e9ebf3badb0e3c25bc3a2c7d73f6db016c37f48b1ad835404274c4940"
+    },
+    "evidence": [
+      {
+        "partId": "proposal-implementation",
+        "citationId": "layered-costmaps-2014",
+        "sourceUrl": "https://raw.githubusercontent.com/marc-hanheide/SIA-HRI-16/master/PDF/Lu,%20Hershberger,%20Smart%20-%202014%20-%20Layered%20costmaps%20for%20context-sensitive%20navigation.pdf",
+        "supportingPassage": "Layered Costmaps for Context-Sensitive Navigation\nDavid V. Lu, Dave Hershberger, and William D. Smart\n[Separate literal excerpt from the same retained body]\nIn this paper, we introduce our solution for incorporating\nthe additional semantic information into costmaps, with\na new approach called layered costmaps. Using the ROS\nNavigation framework as a starting point, we show that the\nlayered costmaps replicate the functionality of the previous\nnavigation algorithm, while adding the flexibility to handle\n[Separate literal excerpt from the same retained body]\n\fmore contexts.\n[Separate literal excerpt from the same retained body]\nAlthough the algorithm and data structure for layered\ncostmaps are system-agnostic, due to the ubiquity of the\nplatform, we focused on implementing the system to work\nwith the ROS Navigation stack in order to demonstrate the\ncapabilities of the approach. The layered costmap implementation keeps the costmap 2d API mostly in tact and like\nthe rest of the navigation code, is implemented in C++, as\nare each of the layers.\nImplementing a layer is quite easy. First, a new class\nmust be created which extends the costmap 2d::Layer\nclass. This means implementing the initialize function (where the layer can independently subscribe to any\ndata sources in the ROS ecosystem), the updateBounds\nfunction and the updateCosts function. Independently\ncompiled layers can be plugged in to the layered costmap\nwith simple run-time parameter changes.\nWhereas previously the costmap class had special cases to\ndeal with whether there was a static map or not, or whether\nto track the obstacles in three dimensions, these cases are\ninstead handled by configuring the global and local costmaps\nwith different layers."
+      },
+      {
+        "partId": "ordered-semantic-master",
+        "citationId": "layered-costmaps-2014",
+        "sourceUrl": "https://raw.githubusercontent.com/marc-hanheide/SIA-HRI-16/master/PDF/Lu,%20Hershberger,%20Smart%20-%202014%20-%20Layered%20costmaps%20for%20context-sensitive%20navigation.pdf",
+        "supportingPassage": "To counteract the limitations introduced in the previous\nsection, we devised the layered costmap. The data structure\nstill contains a two-dimensional grid of costs that is used\nfor path planning. The key difference is how the values of\nthis master costmap are populated. Instead of storing data\ndirectly in the grid, the layered costmap maintains an ordered\nlist of layers, each of which tracks the data related to a\nspecific functionality. The data for each of the layers is then\naccumulated into the master costmap, which takes two passes\nthrough the ordered list of layers.\n[Separate literal excerpt from the same retained body]\nSome layers will maintain their own version of the\ncostmap for caching results. This is one of the primary\nways the data structure maintains semantic information about\nthe data. For example, an obstacles layer keeps a private\ncostmap of the same size as the master costmap to store the\nresults of all previous ray-tracing and marking steps. Since\n[Separate literal excerpt from the same retained body]\nthe values in the private costmap are only accessible to the\nparticular layer, the information stored within cannot be lost\nby another data source writing over it. This in turn minimizes\nhow frequently the costmap must recalculate values that had\npreviously been overwritten.\nOther layers do not require that much data to be kept from\ncycle to cycle and will update the master costmap with their\ndata on each turn, or will simply operate on the data that\nother layers have already written into the master costmap.\n[Separate literal excerpt from the same retained body]\nEach of the layers can also have its own independent representations of the data, such that probabilistic occupancy grids\ncan exist in their own layers alongside cost-based layers."
+      },
+      {
+        "partId": "two-pass-update",
+        "citationId": "layered-costmaps-2014",
+        "sourceUrl": "https://raw.githubusercontent.com/marc-hanheide/SIA-HRI-16/master/PDF/Lu,%20Hershberger,%20Smart%20-%202014%20-%20Layered%20costmaps%20for%20context-sensitive%20navigation.pdf",
+        "supportingPassage": "In the first pass, the updateBounds method, each layer\nis polled to determine how much of the costmap it needs to\nupdate. The layers are iterated over, in order, providing each\nlayer with the bounding box that the previous layers need\nto update (initially an empty box). Each layer can expand\nthe bounding box as necessary. This first pass results in\na bounding box that determines how much of the master\ncostmap needs to be updated. During the second pass,\nthe updateValues method is called, during which each\nsuccessive layer will update the values within the bounding\nbox’s area of the master costmap. Fig. 2 illustrates the update\nalgorithm using a set of layers that replicate the behavior of\na basic monolithic costmap."
+      },
+      {
+        "partId": "private-versus-master",
+        "citationId": "layered-costmaps-2014",
+        "sourceUrl": "https://raw.githubusercontent.com/marc-hanheide/SIA-HRI-16/master/PDF/Lu,%20Hershberger,%20Smart%20-%202014%20-%20Layered%20costmaps%20for%20context-sensitive%20navigation.pdf",
+        "supportingPassage": "Some layers will maintain their own version of the\ncostmap for caching results. This is one of the primary\nways the data structure maintains semantic information about\nthe data. For example, an obstacles layer keeps a private\ncostmap of the same size as the master costmap to store the\nresults of all previous ray-tracing and marking steps. Since\n[Separate literal excerpt from the same retained body]\nthe values in the private costmap are only accessible to the\nparticular layer, the information stored within cannot be lost\nby another data source writing over it. This in turn minimizes\nhow frequently the costmap must recalculate values that had\npreviously been overwritten.\nOther layers do not require that much data to be kept from\ncycle to cycle and will update the master costmap with their\ndata on each turn, or will simply operate on the data that\nother layers have already written into the master costmap.\n[Separate literal excerpt from the same retained body]\nVoxels Layer: This layer has the same function as the Obstacles Layer, but tracks the sensor data in three-dimensions.\nThe three dimensional voxel grid, introduced in MarderEppstein et al. [12] allows for more intelligent clearing of\nobstacles to reflect the multiple heights at which they can be\nseen.\nInflation Layer: As discussed earlier, the inflation process\ninserts a buffer zone around each lethal obstacle. Locations\nwhere the robot would definitely be in collision are marked\nwith a lethal cost, and the immediately surrounding areas\nhave a small non-lethal cost. These values ensure the robot\ndoes not collide with lethal obstacles, and prefers not to\nget too close. The updateBounds step increases the previous\n[Separate literal excerpt from the same retained body]\n\fbounding box to ensure that new lethal obstacles will be\ninflated, and that old lethal obstacles outside the previous\nbounding box that could inflate into the bounding box are\ninflated as well. The updateValues step operates directly on\nthe master costmap, without storing a local copy."
+      },
+      {
+        "partId": "configurable-static-overwrite",
+        "citationId": "layered-costmaps-2014",
+        "sourceUrl": "https://raw.githubusercontent.com/marc-hanheide/SIA-HRI-16/master/PDF/Lu,%20Hershberger,%20Smart%20-%202014%20-%20Layered%20costmaps%20for%20context-sensitive%20navigation.pdf",
+        "supportingPassage": "Obstacles Layer: This layer collects data from high accuracy sensors such as lasers and RGB-D cameras and places it\nin a two dimensional grid. The space between the sensor and\nthe sensor reading is marked as free, and the sensor reading’s\nlocation is marked as occupied. During the updateBounds\nportion of each cycle, new sensor data is placed into the\nlayer’s costmap, and the bounding box expands to fit it.\nThe precise method that combines the obstacles layer’s\nvalues with those already in the costmap can vary, depending\non the desired level of trust for the sensor data. Previously,\nthe default behavior was to overwrite the static map data with\nthe sensor data. This was most effective in scenarios where\nthe static map may be inaccurate, and is still available in\nthe layered approach. However, if the static map is more\ntrustworthy, then the layer can be configured to only add\nlethal obstacles to the master costmap.\n[Separate literal excerpt from the same retained body]\nFirst, by separating the static and obstacle layers, we\ncontrolled whether the obstacle layer had the power to\noverwrite the static map. As mentioned in section III, the\nmonolithic costmap navigation could improperly clear parts\nof the static map, leading to the robot planning a path that\nmoved through a solid wall. By only allowing the obstacle\nlayer to ray-trace and clear the sensed obstacles (and not\nthose in the static map), the wall never was cleared from the\nmaster costmap, eliminating the embarrassing wall-charging\nbehavior."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "proposal-implementation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Lu, Hershberger and Smart proposed and implemented layered costmaps in the ROS Navigation stack. The paired literal excerpt(s) establish this bounded obligation in context. The paper proposes and implements layered costmaps in ROS Navigation, not universal priority or adoption. An ordered layer list updates a master 2D grid in bounds-then-values passes; private grids are optional and configured sensed obstacles may overwrite static-map costs. Algorithm updateValues and C++ updateCosts terminology remain distinct. No general safety claim or Nav2 recertification is made. Original successful retrieval was 2026-09-06T01:17:25.175Z, e4f16890 lines 78/79; no historical binary hash/redirect chain or fresh liveness is invented.",
+        "evidenceDigest": "72928fe51743a9aec0178162c84499d8921949bf2ac474bf574c44b08811e18f"
+      },
+      {
+        "partId": "ordered-semantic-master",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "The method keeps an ordered list of semantically separate layers and accumulates their data into a master 2D costmap for path planning. The paired literal excerpt(s) establish this bounded obligation in context. The paper proposes and implements layered costmaps in ROS Navigation, not universal priority or adoption. An ordered layer list updates a master 2D grid in bounds-then-values passes; private grids are optional and configured sensed obstacles may overwrite static-map costs. Algorithm updateValues and C++ updateCosts terminology remain distinct. No general safety claim or Nav2 recertification is made. Original successful retrieval was 2026-09-06T01:17:25.175Z, e4f16890 lines 78/79; no historical binary hash/redirect chain or fresh liveness is invented.",
+        "evidenceDigest": "020f40cf77176519f11aa4684b48d0052e8dd1ec1cd4f5801015b2e6448f62c0"
+      },
+      {
+        "partId": "two-pass-update",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Each update first gathers the layers' update bounds, then lets each layer update the master grid within those bounds. The paired literal excerpt(s) establish this bounded obligation in context. The paper proposes and implements layered costmaps in ROS Navigation, not universal priority or adoption. An ordered layer list updates a master 2D grid in bounds-then-values passes; private grids are optional and configured sensed obstacles may overwrite static-map costs. Algorithm updateValues and C++ updateCosts terminology remain distinct. No general safety claim or Nav2 recertification is made. Original successful retrieval was 2026-09-06T01:17:25.175Z, e4f16890 lines 78/79; no historical binary hash/redirect chain or fresh liveness is invented.",
+        "evidenceDigest": "90bb847812d0c85437fb2b922bfa045ed64815e8bfc3d96ae2479f8ddd11efd2"
+      },
+      {
+        "partId": "private-versus-master",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Some layers keep private grids, while others operate directly on the master. The paired literal excerpt(s) establish this bounded obligation in context. The paper proposes and implements layered costmaps in ROS Navigation, not universal priority or adoption. An ordered layer list updates a master 2D grid in bounds-then-values passes; private grids are optional and configured sensed obstacles may overwrite static-map costs. Algorithm updateValues and C++ updateCosts terminology remain distinct. No general safety claim or Nav2 recertification is made. Original successful retrieval was 2026-09-06T01:17:25.175Z, e4f16890 lines 78/79; no historical binary hash/redirect chain or fresh liveness is invented.",
+        "evidenceDigest": "6b138fe4b9704ff58b69228e65264ac3767c274a70de9393555a4d2b92401c09"
+      },
+      {
+        "partId": "configurable-static-overwrite",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 3ae044fc-fd7d-4fc1-89b1-e697bc21a9f7; not independent acceptance or human certification",
+        "rationale": "Separating static-map and sensed-obstacle data does not prohibit overwriting static-map costs, which remains configurable. The paired literal excerpt(s) establish this bounded obligation in context. The paper proposes and implements layered costmaps in ROS Navigation, not universal priority or adoption. An ordered layer list updates a master 2D grid in bounds-then-values passes; private grids are optional and configured sensed obstacles may overwrite static-map costs. Algorithm updateValues and C++ updateCosts terminology remain distinct. No general safety claim or Nav2 recertification is made. Original successful retrieval was 2026-09-06T01:17:25.175Z, e4f16890 lines 78/79; no historical binary hash/redirect chain or fresh liveness is invented.",
+        "evidenceDigest": "069b5092a55e33b07c43d5df0a8eb0742896e109b3d0e2a3c22d0f5e6f8bf06b"
+      }
+    ]
   }
 ]

@@ -7265,6 +7265,36 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "scene-pointmaps-simulation-costmaps-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "2cac8199e06ae3f9ee64e0c661d18f68391eaf7e4c1816ac5b1ef250b0dccd4b",
+      "reason": "Exact source-backed correction of scene originals 17/20/21/41 and the coupled costmap glossary span. Network inputs are not training inputs. The inspected v3 describes geometric supervision, CroCo initialization, common first-camera coordinates and unknown scale. Multiview alignment is a separate optimization. Known-intrinsics localization and unknown-focal/database-geometry caveats remain; no CVPR venue certification is inferred. PyBullet supplies physics; Gaussian splats replace rendering. Calibration, supplied poses, segmentation, CAD bounds, ICP and kinematics are preparation, not learned physics. Figure 2 and IV-A inputs conflict; the article preserves both. Results are four UR5/Robotiq tasks, 40 trials each; 86.25% versus 97.5%, augmentation dependence and Assembly 85% table versus 95% prose remain scoped. Retained unversioned response explicitly shows v3, 7 October 2024. Four named components join multiview reconstruction and supplied MDH parameters with mesh assets and measured Isaac Sim alignment. Closed-loop action/physics/render feedback differs from replay and rendering quality. Ten trials allow three grasp attempts each. Preserve real-data placement 90% hardware versus 30% simulator and novel-scene table/prose disagreement. Retained unversioned body explicitly shows v2, 3 August 2025; 2024 remains initial-submission identity, not this revision date. The paper proposes and implements layered costmaps in ROS Navigation, not universal priority or adoption. An ordered layer list updates a master 2D grid in bounds-then-values passes; private grids are optional and configured sensed obstacles may overwrite static-map costs. Algorithm updateValues and C++ updateCosts terminology remain distinct. No general safety claim or Nav2 recertification is made. Original successful retrieval was 2026-09-06T01:17:25.175Z, e4f16890 lines 78/79; no historical binary hash/redirect chain or fresh liveness is invented. Prior member repairs are retained; no wildcard, count-only acceptance or source-truth exemption.",
+      "ownerApproval": "Josef's September 7 'fix it all!' source-backed correction authority; not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "scene-pointmaps-simulation-costmaps-20260908-2",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "cd69e3ea47360f9d04dbd6d422a622579e6a84d6b039e441f88a59b619dfc261",
+      "reason": "Exact source-backed correction of scene originals 17/20/21/41 and the coupled costmap glossary span. Network inputs are not training inputs. The inspected v3 describes geometric supervision, CroCo initialization, common first-camera coordinates and unknown scale. Multiview alignment is a separate optimization. Known-intrinsics localization and unknown-focal/database-geometry caveats remain; no CVPR venue certification is inferred. PyBullet supplies physics; Gaussian splats replace rendering. Calibration, supplied poses, segmentation, CAD bounds, ICP and kinematics are preparation, not learned physics. Figure 2 and IV-A inputs conflict; the article preserves both. Results are four UR5/Robotiq tasks, 40 trials each; 86.25% versus 97.5%, augmentation dependence and Assembly 85% table versus 95% prose remain scoped. Retained unversioned response explicitly shows v3, 7 October 2024. Four named components join multiview reconstruction and supplied MDH parameters with mesh assets and measured Isaac Sim alignment. Closed-loop action/physics/render feedback differs from replay and rendering quality. Ten trials allow three grasp attempts each. Preserve real-data placement 90% hardware versus 30% simulator and novel-scene table/prose disagreement. Retained unversioned body explicitly shows v2, 3 August 2025; 2024 remains initial-submission identity, not this revision date. The paper proposes and implements layered costmaps in ROS Navigation, not universal priority or adoption. An ordered layer list updates a master 2D grid in bounds-then-values passes; private grids are optional and configured sensed obstacles may overwrite static-map costs. Algorithm updateValues and C++ updateCosts terminology remain distinct. No general safety claim or Nav2 recertification is made. Original successful retrieval was 2026-09-06T01:17:25.175Z, e4f16890 lines 78/79; no historical binary hash/redirect chain or fresh liveness is invented. Prior member repairs are retained; no wildcard, count-only acceptance or source-truth exemption.",
+      "ownerApproval": "Josef's September 7 'fix it all!' source-backed correction authority; not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
