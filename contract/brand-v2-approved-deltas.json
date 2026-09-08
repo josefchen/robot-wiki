@@ -7139,6 +7139,60 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rl-method-table-original-11-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "9698d653d74ac61fb0fb4973114c938fba4178245fcf140fb753728d6e22749f",
+      "reason": "Source-backed original 11: preserve all six method mechanisms and protocol qualifications, replace unsupported Recap closed status with source-scoped missingness, distinguish reported code from verified weights/licensing, and remove unsupported cross-paper rankings. Exact current member and original source bindings are retained in the bounded Mission packet.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority and exact 2026-09-08 aggregate dispatch; implementation permission, not personal source certification, gate waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-method-table-original-11-20260908-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+      "newHash": "cdab4c3ed1b14dfbfb4020d9841dafd0b3e70cc9745497e15484d5de254b6886",
+      "reason": "Source-backed original 11: preserve all six method mechanisms and protocol qualifications, replace unsupported Recap closed status with source-scoped missingness, distinguish reported code from verified weights/licensing, and remove unsupported cross-paper rankings. Exact current member and original source bindings are retained in the bounded Mission packet.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority and exact 2026-09-08 aggregate dispatch; implementation permission, not personal source certification, gate waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-method-table-original-11-20260908-3",
+      "manifest": "value-states",
+      "memberId": "state-site:components/mdx/rl-methods-table.tsx:not-disclosed:4",
+      "oldHash": "727f886babe73d52b08bceba8e02e5b2743ae1c4b77e254e46b6513399bcc893",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Source-backed original 11: preserve all six method mechanisms and protocol qualifications, replace unsupported Recap closed status with source-scoped missingness, distinguish reported code from verified weights/licensing, and remove unsupported cross-paper rankings. Exact current member and original source bindings are retained in the bounded Mission packet.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority and exact 2026-09-08 aggregate dispatch; implementation permission, not personal source certification, gate waiver or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

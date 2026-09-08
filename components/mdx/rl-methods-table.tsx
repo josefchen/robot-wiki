@@ -4,16 +4,10 @@ import type { ReactNode } from 'react';
 import { Badge, Table, type Column } from '@/components/ui';
 
 /**
- * The six-method RL fine-tuning table embedded in the rl-finetuning module.
- *
- * Every number comes from the cited primary source (see the module's Cite
- * chips and data/citations.ts): DPPO, ConRFT, pi_RL, HIL-SERL, PLD, and the
- * Recap / pi*0.6 lab report. Vendor-reported results (Recap) are flagged in
- * the evidence column; the rest are preprints or peer-reviewed papers.
- * Undisclosed openness renders as "not disclosed" (dim), never guessed.
- *
- * 'use client' because the Table columns carry render functions, which
- * cannot cross the RSC boundary from the compiled MDX page.
+ * Six RL fine-tuning rows; sourceIds and opennessNote bind each row to the
+ * retained primary-source scope. Results use source-specific protocols.
+ * Source publication type is not evidence of independent replication.
+ * 'use client' is required because the Table columns carry render functions.
  */
 type EvidenceClass = 'peer-reviewed' | 'preprint' | 'vendor-reported';
 
@@ -23,8 +17,11 @@ type MethodRow = {
   mechanism: string;
   result: string;
   evidence: EvidenceClass;
-  /** true: code or weights released; false: closed; null: not disclosed. */
+  /** true: the named source states a code release; null: source-scoped not disclosed. */
   open: boolean | null;
+  /** Canonical source scope for this row, not inferred from available evidence. */
+  sourceIds: readonly string[];
+  opennessNote: string;
 };
 
 const ROWS: MethodRow[] = [
@@ -38,6 +35,8 @@ const ROWS: MethodRow[] = [
     evidence: 'preprint',
     // Code is announced by the paper; weights, license and repository contents are not audited here.
     open: true,
+    sourceIds: ["dppo-2024"],
+    opennessNote: "DPPO v3 announces a website with code; repository contents, weights and license terms were not inspected.",
   },
   {
     method: 'ConRFT',
@@ -49,6 +48,8 @@ const ROWS: MethodRow[] = [
     evidence: 'preprint',
     // Code is announced by the paper; weights, license and repository contents are not audited here.
     open: true,
+    sourceIds: ["conrft-2025"],
+    opennessNote: "ConRFT v2 states that videos and code are available on its project site; weights and license terms are not established by the inspected paper.",
   },
   {
     method: 'Recap (pi*0.6)',
@@ -58,7 +59,9 @@ const ROWS: MethodRow[] = [
     result:
       'Double-espresso throughput >2x versus offline RL + SFT; the paper’s 90%+ summary excludes diverse laundry, and its box chart reports subtask success',
     evidence: 'vendor-reported',
-    open: false,
+    open: null,
+    sourceIds: ["pistar06-2025","pistar06-blog-2025","pi06-model-card-2025"],
+    opennessNote: "Inspected Physical Intelligence report, companion blog and model card: checkpoint availability and model-specific license terms are not established. This is not a claim that the model is closed.",
   },
   {
     method: 'pi_RL',
@@ -69,6 +72,8 @@ const ROWS: MethodRow[] = [
       'ID gains for pi0/pi0.5 across four simulation benchmarks; OOD gains do not consistently extend to unseen MetaWorld tasks. Separate Franka transfer test; paper-reported code release, not a weight/license claim',
     evidence: 'preprint',
     open: true,
+    sourceIds: ["pi-rl-2026"],
+    opennessNote: "The printed pi_RL v3 paper states a code release; a particular downloadable weight checkpoint and its license are not established.",
   },
   {
     method: 'Residual RL (PLD)',
@@ -79,6 +84,8 @@ const ROWS: MethodRow[] = [
       'OpenVLA-labelled model: 99.2% across 3 LIBERO suites, 50 trials/task; Octo: 96.6% across 4 Simpler tasks; Franka: 30/30 on each of 2 tasks; YAM: at least 1 h with recovery, not 100% one-shot success',
     evidence: 'preprint',
     open: null,
+    sourceIds: ["pld-2026"],
+    opennessNote: "The inspected PLD v1 preprint does not establish a PLD code or weight release; mentions of open-source code refer to baseline models, not PLD release terms.",
   },
   {
     method: 'HIL-SERL',
@@ -89,6 +96,8 @@ const ROWS: MethodRow[] = [
       'Table 1a: 100% observed success (100 trials/task; IKEA whole assembly 10 trials); 1-2.5 h for nearly all tasks, 6 h for timing belt. Imitation comparison: 49.7% vs 100%, 9.6 s vs 5.4 s',
     evidence: 'preprint',
     open: true,
+    sourceIds: ["hil-serl-2024"],
+    opennessNote: "The retained HIL-SERL body points to accompanying videos and code; its body revision, repository contents, weights and license terms are not independently established here.",
   },
 ];
 
@@ -112,14 +121,18 @@ const COLUMNS: Column<MethodRow>[] = [
   {
     key: 'open',
     header: 'Openness',
-    render: (row) =>
-      row.open === null ? (
-        <span className="text-text-dim">not disclosed</span>
-      ) : row.open ? (
-        <Badge variant="ok">code</Badge>
-      ) : (
-        <Badge>closed</Badge>
-      ),
+    render: (row) => (
+      <div>
+        {row.open === null ? (
+          <span className="text-text-dim">not disclosed</span>
+        ) : row.open ? (
+          <Badge variant="ok">code</Badge>
+        ) : (
+          <Badge>closed</Badge>
+        )}
+        <span className="mt-1 block text-sm text-text-dim">{row.opennessNote}</span>
+      </div>
+    ),
     sortValue: (row) =>
       row.open === null ? null : row.open ? 'code' : 'closed',
   },
@@ -129,7 +142,7 @@ export function RlMethodsTable({ className }: { className?: string }) {
   return (
     <Table
       className={className}
-      caption="The six RL fine-tuning recipes covered in this module, with the headline result as reported by each source. Vendor-reported results (Recap) come from the lab's own report and are flagged as such; the rest are preprints or peer-reviewed papers. Openness marks released code or weights; not disclosed means the source does not say."
+      caption="Six RL fine-tuning methods, with results reported by their own sources under different protocols, not a leaderboard. Evidence labels describe the inspected publication type, not independent replication. Code marks a source's code-release statement, not verified weights or licensing; not disclosed is limited to the named sources in that row."
       columns={COLUMNS}
       rows={ROWS}
       initialSort={{ key: 'year', direction: 'asc' }}

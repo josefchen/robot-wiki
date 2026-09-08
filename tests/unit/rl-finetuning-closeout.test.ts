@@ -8,7 +8,10 @@ import {
 } from '../../lib/audit-ledger';
 
 const text = (path: string) => readFileSync(path, 'utf8');
-const plans = () => parseCompoundPlans(JSON.parse(text('audit/compound-evidence.json')));
+const catalog = parseCompoundPlans(JSON.parse(text('audit/compound-evidence.json')));
+// Every mutation receives fresh selected plans; unrelated plans remain immutable.
+const plans = () => catalog.map(p => p.id.startsWith('rl-finetuning-closeout-')
+  ? structuredClone(p) : p);
 const rows = (compoundPlans = plans()) =>
   parseLedger('audit/manipulation.md', text('audit/manipulation.md'),
     new Set(CITATIONS.map(c => c.id)), { compoundPlans })

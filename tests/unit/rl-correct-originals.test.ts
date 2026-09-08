@@ -5,7 +5,7 @@ import { compoundPartDigest, parseCompoundPlans, parseLedger } from '../../lib/a
 
 const read = (path: string) => readFileSync(path, 'utf8');
 const parsedCatalog = parseCompoundPlans(JSON.parse(read('audit/compound-evidence.json')));
-// Mutations touch only the four selected plans; do not reparse all 273 plans
+// Mutations touch only the four selected plans; do not reparse the entire catalog
 // for every adversarial case or share mutable selected plans between cases.
 const catalog = () => parsedCatalog.map(plan => plan.id.startsWith('rl-correct-original-')
   ? structuredClone(plan) : plan);
@@ -34,7 +34,7 @@ const sources = [
 const planId = (ordinal: number) => `rl-correct-original-${ordinal}-20260908`;
 
 describe('correctly bound RL originals 6/8/9/10', () => {
-  it('completes the four named originals, not pi_RL or PLD', () => {
+  it('keeps the four named originals distinct from later completed originals', () => {
     const current = rows();
     expect(current).toHaveLength(11);
     for (const source of sources) {
@@ -46,7 +46,19 @@ describe('correctly bound RL originals 6/8/9/10', () => {
     }
     expect(current[2].claim).toContain('pi_RL');
     expect(current[6].claim).toContain('PLD');
-    for (const ordinal of [3, 7, 11]) expect(current[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
+    const laterPlans = [
+      [3, 'pirl-edition-20260908-rl-finetuning-3'],
+      [7, 'pirl-pld-20260908-rl-finetuning-7'],
+      [11, 'rl-method-table-original-11-20260908'],
+    ] as const;
+    for (const [ordinal, expectedPlan] of laterPlans) {
+      const record = current[ordinal - 1];
+      expect(record.evidenceFailures).toEqual([]);
+      expect(record.compound?.planId).toBe(expectedPlan);
+      expect(sources.map(s => planId(s.ordinal))).not.toContain(expectedPlan);
+    }
+    expect(new Set(current.filter(r => r.compound).map(r => r.compound!.planId)).size)
+      .toBe(current.filter(r => r.compound).length);
     expect(current[1].outcome).toBe('recorded-inconsistency');
   });
 
