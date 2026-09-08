@@ -28921,5 +28921,341 @@
         "evidenceDigest": "1d193a7c2fbb1a955925848ba4b1d95b0e895e4468c32ca2264b493c280d0dae"
       }
     ]
+  },
+  {
+    "id": "occupancy-map-tradeoff-scene-4-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 4,
+    "originalCellsDigest": "91a023e357bb28b6fe65c9723db1cf79ec38643e3187fea9e38f562f8c4d9717",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "projection",
+        "text": "Wide-angle sonar measurements are projected onto a two-dimensional horizontal grid and combined across sensors and robot positions.",
+        "requiredCitationIds": [
+          "moravec-elfes-1985"
+        ]
+      },
+      {
+        "id": "beam",
+        "text": "The reading models a probably empty beam interior and an uncertain reflecting point near the measured range, not proven empty space or an entirely occupied reflecting volume.",
+        "requiredCitationIds": [
+          "moravec-elfes-1985"
+        ]
+      },
+      {
+        "id": "updates",
+        "text": "Overlapping readings refine the occupancy constraints through the paper’s asymmetric empty/occupied update procedure.",
+        "requiredCitationIds": [
+          "moravec-elfes-1985"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+      "rationale": "Reviewed the complete 3-part AND claim against retained body and counterpassages at 2026-09-08T21:01:25.692Z. Section1.2 explicitly projects occupancy information onto a rasterized two-dimensional horizontal map and progressively incorporates different sensors and robot positions. The scan cover and first-page image establish Moravec/Elfes and1985; no deterministic three-dimensional map claim is retained. Section3.2 models confidence that beam points are empty and uncertainty about one echo-causing point near the range surface. The abstract describes probability profiles, not measured solid occupied volumes. Section3.1 rejects chronic specular/glitch readings; probably and uncertain remain essential qualifiers. Section3.4 combines empty distributions and narrows/normalizes occupied distributions asymmetrically before combination. This supports refined constraints, not certainty or a perfect reconstruction. Section5 describes noise and blurring for map matching; no accuracy guarantee or local slider validation is inferred.",
+      "planDigest": "4d218570925151b525f2022276d180db2a97c4d72cae94990482c53f04cb4762"
+    },
+    "evidence": [
+      {
+        "partId": "projection",
+        "citationId": "moravec-elfes-1985",
+        "sourceUrl": "https://www.ri.cmu.edu/pub_files/pub4/moravec_hans_1985_1/moravec_hans_1985_1.pdf",
+        "supportingPassage": "Our mcthod starts with a Lumber of range measurements obtained\nfrom sonar units whose position with respect to one another is known.\nEach mcasurcment provides information about cmpty and possibly\noccupied volumes in thc space subtcnded by the beam (a thirty dcgree\ncone for the prcsent scnsors). This occupancy information is projected\nonto a rasterizcd two-dimensional horizontal map. Sets of readings\ntaken both from different sensors and from different positions of the\nrobot are progressively incorporated into the sonar map. As more\nrcadings arc added the arm deduccd to be cmpty expands, and the\nexpanding empty area encroaches on and sharpens the possibly\noccupied region. The map becomes gradually morc detailed."
+      },
+      {
+        "partId": "beam",
+        "citationId": "moravec-elfes-1985",
+        "sourceUrl": "https://www.ri.cmu.edu/pub_files/pub4/moravec_hans_1985_1/moravec_hans_1985_1.pdf",
+        "supportingPassage": "A range reading is interpreted as providing information about space\nvolumes that are probably WPTY and somewhere OCCUPIED. we\nmodel the sonar beam by probability distribution functions. Informally,\nthese functions model our confidence that the various points inside the\ncone of the bcam arc empty and our uncertainty about the location of\nthe point, somewhere on the range surface of the cone, that caused the\nccho. The functions are based on the range reading and on thc spatial\nsensitivity pattern of the sonar.\n\nAbstract\nil‘e describe the use of multiple wide-angle sonar range measurements\nto map the surroundings of an autonomous mobile robot. A sonar range\nreading provides irfonnaiion concerning cmpty und occupied volumes in\na cone (subiending 30 degrees in our case) in front of the sensor. The\nreadingismodelled as probability profiles projecled onto a rasterized\nmap, wheresomewhereoccupied\nand everywhere empiy areas are\nrepresented Range measurements from multiple points of view (taken\nfi-om muliiple sensors on the robot, and from the same sensors aflcr robot\nmoves) are systemaiically iniegratedin the map. Overlapping empty\nvolumes re-inforce eachoiher,andserve\nto condense the range of\noccupiedvolumes. The lnup definition improves as more readingsare\nadded. Thefinal map showsregions\nprobably occupied probably\nurloccupied,and unknown areas. The method deals effeciively wiih\nclutter, and can be used for molion plnnning and for extended lundmark\nrecognition This system has been tested on the Neptune mobile robot at\nCMU."
+      },
+      {
+        "partId": "updates",
+        "citationId": "moravec-elfes-1985",
+        "sourceUrl": "https://www.ri.cmu.edu/pub_files/pub4/moravec_hans_1985_1/moravec_hans_1985_1.pdf",
+        "supportingPassage": "The operations performed on thc empty and occupied probabilities\nare not symmetrical. The probability distribution for empty areas\nrepresents a solid volume whosetotalityis\nprobably empty but the\noccupied probability distribution for a single reading represents a lack\nof knowledge we have about the location of a single reflecting point\nsomewhere in the range of the distribution. Empty regions are simply\naddcd using a probabilistic addition formula. The occupied probabilities\nfor a single reading, on the other hand, are reduced in thc areas that the\nother data suggests is empty, then normalizcd to make their sum unity.\nOnly aftcr this narrowing proccss are the occupied probabilities from\neach reading combined using the addition formula.\n\nOur mcthod starts with a Lumber of range measurements obtained\nfrom sonar units whose position with respect to one another is known.\nEach mcasurcment provides information about cmpty and possibly\noccupied volumes in thc space subtcnded by the beam (a thirty dcgree\ncone for the prcsent scnsors). This occupancy information is projected\nonto a rasterizcd two-dimensional horizontal map. Sets of readings\ntaken both from different sensors and from different positions of the\nrobot are progressively incorporated into the sonar map. As more\nrcadings arc added the arm deduccd to be cmpty expands, and the\nexpanding empty area encroaches on and sharpens the possibly\noccupied region. The map becomes gradually morc detailed."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "projection",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "Section1.2 explicitly projects occupancy information onto a rasterized two-dimensional horizontal map and progressively incorporates different sensors and robot positions. The scan cover and first-page image establish Moravec/Elfes and1985; no deterministic three-dimensional map claim is retained.",
+        "evidenceDigest": "5f17bb1e4415849611d83438268c88f96bb5c0276c1a1e4dca667fcc807ecd19"
+      },
+      {
+        "partId": "beam",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "Section3.2 models confidence that beam points are empty and uncertainty about one echo-causing point near the range surface. The abstract describes probability profiles, not measured solid occupied volumes. Section3.1 rejects chronic specular/glitch readings; probably and uncertain remain essential qualifiers.",
+        "evidenceDigest": "b2741bb6309fdccdbeb46fb48fd8eb454505bcbcc30f46725daacd5e242b5035"
+      },
+      {
+        "partId": "updates",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "Section3.4 combines empty distributions and narrows/normalizes occupied distributions asymmetrically before combination. This supports refined constraints, not certainty or a perfect reconstruction. Section5 describes noise and blurring for map matching; no accuracy guarantee or local slider validation is inferred.",
+        "evidenceDigest": "ca2bf229252bfc3c4bd4e659354721b87ee41bbd4c25c2c2ff711d327176ef72"
+      }
+    ]
+  },
+  {
+    "id": "occupancy-map-tradeoff-scene-5-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "efd5c6d8d55d6121196ae9a03aa3b773f3d3054496cceea4a78327939103c732",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "no-information",
+        "text": "The paper defines a cell without information as UNKNOWN.",
+        "requiredCitationIds": [
+          "moravec-elfes-1985"
+        ]
+      },
+      {
+        "id": "values",
+        "text": "Zero means unknown occupancy, negative values probably empty, and positive values probably occupied in this paper’s final map.",
+        "requiredCitationIds": [
+          "moravec-elfes-1985"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+      "rationale": "Reviewed the complete 2-part AND claim against retained body and counterpassages at 2026-09-08T21:01:25.692Z. Section3.3 says UNKNOWN when no information is available; the reset sets both confidence arrays to zero. This is the paper-specific unknown state, not a traversable/free label or evidence about a later planner. Section3.3 distinguishes final-map negative/zero/positive values from the two separate empty/occupied arrays. Zero is unknown, negative probably empty, positive probably occupied. Asymmetric updates and preprocessing errors do not license a universal later-stack convention.",
+      "planDigest": "aa365f5565e5e673f07b1461ddc76753d0cc5734a5ac3ee968f11165490c0fe6"
+    },
+    "evidence": [
+      {
+        "partId": "no-information",
+        "citationId": "moravec-elfes-1985",
+        "sourceUrl": "https://www.ri.cmu.edu/pub_files/pub4/moravec_hans_1985_1/moravec_hans_1985_1.pdf",
+        "supportingPassage": "A cell is considered UNKNOWN if no information concerning it is\navailable. Cells can be FMPTY with a dcgrce of certainty or confidence\nEmp(X,Y) and OCCUPlED with a dcgrce of certainty Occ(X,Y) both\nvalucs ranging from 0 to 1.\n\n1. RESET: The whole\nMap\nis set to UNKNOWN by making\nEmp(X,Y):= O and Occ(X,Y): = 0."
+      },
+      {
+        "partId": "values",
+        "citationId": "moravec-elfes-1985",
+        "sourceUrl": "https://www.ri.cmu.edu/pub_files/pub4/moravec_hans_1985_1/moravec_hans_1985_1.pdf",
+        "supportingPassage": "Sonar Maps arc two-dimensional arrays of cells corresponding to a\nhorizontal grid imposed on the area to be rnappcd. The grid has M x N\ncells, cach of size AxA. The final map has cellvalucsin the range\n(-1J), wherevalues less than 0 rcprescnt probably empty regions,\nexactly zero rcprescnts unknown occupancy, and grcatcr than 0 implies\na probably occupied space. This nlap is computed in a final step from\ntwo separate arrays analogous to the empty and occupied probability\ndistributions introduced above."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "no-information",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "Section3.3 says UNKNOWN when no information is available; the reset sets both confidence arrays to zero. This is the paper-specific unknown state, not a traversable/free label or evidence about a later planner.",
+        "evidenceDigest": "24cfaf338492606e45031f7161d86522e74a1523729a3d21f5501895e8f3a1e3"
+      },
+      {
+        "partId": "values",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "Section3.3 distinguishes final-map negative/zero/positive values from the two separate empty/occupied arrays. Zero is unknown, negative probably empty, positive probably occupied. Asymmetric updates and preprocessing errors do not license a universal later-stack convention.",
+        "evidenceDigest": "4e1612aa84f86a2a8e625a2428173d363de8a23b37537f5db12d6a3980e00475"
+      }
+    ]
+  },
+  {
+    "id": "occupancy-map-tradeoff-scene-36-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 36,
+    "originalCellsDigest": "a83f2184d1fa86d467459bbe7aac66f0026bc5cb1d6ca6aad0c8092bc658872d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "sparse",
+        "text": "Sparse landmark maps use discriminative features for SLAM.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "dense-tasks",
+        "text": "Dense geometric representations provide high-resolution geometry suited to obstacle avoidance; boundary and volumetric representations support planning and contact reasoning.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "dense-slam",
+        "text": "Dense geometric representations also occur in visual SLAM, so localisation and collision-related geometry are not mutually exclusive map roles.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "cost-scope",
+        "text": "Representation choice depends on storage, creation/inference cost and task efficacy, not a universal dense-versus-sparse cost ranking.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "storage-exceptions",
+        "text": "Octrees are more efficient partitioning schemes and voxel hashing can partly mitigate the memory burden of raw dense representations.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+      "rationale": "Reviewed the complete 5-part AND claim against retained body and counterpassages at 2026-09-08T21:01:25.692Z. SectionV describes sparse 3D landmarks corresponding to discriminative features and possibly uncertain associations. It does not prove sparse maps intrinsically cannot support collision-related tasks; the absolute prohibition is removed. SectionV distinguishes high-resolution raw geometry suited to obstacle avoidance from boundary/spatial-partitioning representations suited to planning, manipulation and contact reasoning. The replacement preserves this task utility without claiming all dense maps solve every task. The dense-model paragraph explicitly describes monocular direct SLAM estimating trajectory and geometry. The feature/direct counterpassage discusses texture, compute and joint-estimation caveats, so dense geometry is not the reverse of localisation. Optimal Representations compares domain, conciseness, ease of creation and efficacy for the task and leaves a general choice framework open. The robot/environment/performance discussion likewise demands scope. No dense-versus-sparse benchmark or universal cost ranking is invented. The spatial-partitioning paragraph names more efficient octrees, and the high-level-representation discussion says voxel hashing can partially mitigate raw point-cloud/TSDF memory burden. Semantic mapping addresses further task meaning; the final claim does not equate geometric density with semantic sufficiency.",
+      "planDigest": "ac32fe026dc164af904e064039124bd848f03a7d0aee2ab002e1156071c47664"
+    },
+    "evidence": [
+      {
+        "partId": "sparse",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Landmark-based sparse representations. Most SLAM\nmethods represent the scene as a set of sparse 3D landmarks corresponding to discriminative features in the environment (e.g., lines, corners) [179]; one example is\nshown in Fig. 4(left). These are commonly referred to as\nlandmark-based or feature-based representations, and have\nbeen widespread in mobile robotics since early work on localization and mapping, and in computer vision in the context\nof Structure from Motion [2, 244]. A common assumption\nunderlying these representations is that the landmarks are\ndistinguishable, i.e., sensor data measure some geometric\naspect of the landmark, but also provide a descriptor which establishes a (possibly uncertain) data association between each\nmeasurement and the corresponding landmark. Previous work\nalso investigates different 3D landmark parameterizations,\nincluding global and local Cartesian models, and inverse depth\nparametrization [174]. While a large body of work focuses on\nthe estimation of point features, the robotics literature includes\nextensions to more complex geometric landmarks, including\nlines, segments, or arcs [162]."
+      },
+      {
+        "partId": "dense-tasks",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Low-level raw dense representations. Contrary to\nlandmark-based representations, dense representations attempt\nto provide high-resolution models of the 3D geometry; these\nmodels are more suitable for obstacle avoidance, or for visualization and rendering, see Fig. 4(right). Among dense models,\nraw representations describe the 3D geometry by means of a\nlarge unstructured set of points (i.e., point clouds) or polygons\n(i.e., polygon soup [222]). Point clouds have been widely used\nin robotics, in conjunction with stereo and RGB-D cameras,\nas well as 3D laser scanners [190]. These representations have\nrecently gained popularity in monocular SLAM, in conjunction\nwith the use of direct methods [118, 184, 203], which estimate\nthe trajectory of the robot and a 3D model directly from the\nintensity values of all the image pixels. Slightly more complex\nrepresentations are surfel maps, which encode the geometry\nas a set of disks [104, 257]. While these representations are\nvisually pleasant, they are usually cumbersome as they require\nstoring a large amount of data. Moreover, they give a lowlevel description of the geometry, neglecting, for instance, the\ntopology of the obstacles.\n\nBoundary and spatial-partitioning dense representations. These representations go beyond unstructured sets of\nlow-level primitives (e.g., points) and attempt to explicitly\nrepresent surfaces (or boundaries) and volumes. These representations lend themselves better to tasks such as motion or\nfootstep planning, obstacle avoidance, manipulation, and other\nphysics-based reasoning, such as contact reasoning. Boundary\nrepresentations (b-reps) define 3D objects in terms of their\nsurface boundary. Particularly simple boundary representations\nare plane-based models, which have been used for mapping\nby Castle et al. [44] and Kaess [124, 162]. More general breps include curve-based representations (e.g., tensor product\nof NURBS or B-splines), surface mesh models (connected sets\n\n\f10\n\nof polygons), and implicit surface representations."
+      },
+      {
+        "partId": "dense-slam",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Low-level raw dense representations. Contrary to\nlandmark-based representations, dense representations attempt\nto provide high-resolution models of the 3D geometry; these\nmodels are more suitable for obstacle avoidance, or for visualization and rendering, see Fig. 4(right). Among dense models,\nraw representations describe the 3D geometry by means of a\nlarge unstructured set of points (i.e., point clouds) or polygons\n(i.e., polygon soup [222]). Point clouds have been widely used\nin robotics, in conjunction with stereo and RGB-D cameras,\nas well as 3D laser scanners [190]. These representations have\nrecently gained popularity in monocular SLAM, in conjunction\nwith the use of direct methods [118, 184, 203], which estimate\nthe trajectory of the robot and a 3D model directly from the\nintensity values of all the image pixels. Slightly more complex\nrepresentations are surfel maps, which encode the geometry\nas a set of disks [104, 257]. While these representations are\nvisually pleasant, they are usually cumbersome as they require\nstoring a large amount of data. Moreover, they give a lowlevel description of the geometry, neglecting, for instance, the\ntopology of the obstacles.\n\nWhich one is best: feature-based or direct methods?\nFeature-based approaches are quite mature, with a long history\nof success [59]. They allow to build accurate and robust SLAM\nsystems with automatic relocation and loop closing [179].\nHowever, such systems depend on the availability of features\nin the environment, the reliance on detection and matching\nthresholds, and on the fact that most feature detectors are\noptimized for speed rather than precision. On the other hand,\ndirect methods work with the raw pixel information and\ndense-direct methods exploit all the information in the image,\neven from areas where gradients are small; thus, they can\noutperform feature-based methods in scenes with poor texture,\ndefocus, and motion blur [184, 203]. However, they require\nhigh computing power (GPUs) for real-time performance.\nFurthermore, how to jointly estimate dense structure and\nmotion is still an open problem (currently they can be only be\nestimated subsequently to one another). To avoid the caveats\nof feature-based methods there are two alternatives. Semidense methods overcome the high-computation requirement of\ndense method by exploiting only pixels with strong gradients\n(i.e., edges) [72, 83]; semi-direct methods instead leverage\nboth sparse features (such as corners or edges) and direct\nmethods [83] and are proven to be the most efficient [83];\nadditionally, because they rely on sparse features, they allow\njoint estimation of structure and motion."
+      },
+      {
+        "partId": "cost-scope",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Optimal Representations: While there is a relatively large\nbody of literature on different representations for 3D geometry,\nfew works have focused on understanding which criteria\nshould guide the choice of a specific representation. Intuitively,\nin simple indoor environments one should prefer parametrized\nprimitives since few parameters can sufficiently describe the\n3D geometry; on the other hand, in complex outdoor environments, one might prefer mesh models. Therefore, how\nshould we compare different representations and how should\nwe choose the “optimal” representation? Requicha [209]\nidentifies few basic properties of solid representations that\nallow comparing different representation. Among these properties we find: domain (the set of real objects that can be\nrepresented), conciseness (the “size” of a representation for\nstorage and transmission), ease of creation (in robotics this\nis the “inference” time required for the construction of the\nrepresentation), and efficacy in the context of the application\n(this depends on the tasks for which the representation is\nused). Therefore, the “optimal” representation is the one that\nenables preforming a given task, while being concise and\neasy to create. Soatto and Chiuso [229] define the optimal\nrepresentation as a minimal sufficient statistics to perform a\ngiven task, and its maximal invariance to nuisance factors.\nFinding a general yet tractable framework to choose the best\nrepresentation for a task remains an open problem.\n\nThis question of “is SLAM solved?” is often asked\nwithin the robotics community, c.f. [87]. This question is\ndifficult to answer because SLAM has become such a\nbroad topic that the question is well posed only for a\ngiven robot/environment/performance combination. In particular, one can evaluate the maturity of the SLAM problem once\nthe following aspects are specified:\n• robot: type of motion (e.g., dynamics, maximum speed),\navailable sensors (e.g., resolution, sampling rate), avail-\n\n\f3\n\nFig. 1: Left: map built from odometry. The map is homotopic to a long corridor\nthat goes from the starting position A to the final position B. Points that are\nclose in reality (e.g., B and C) may be arbitrarily far in the odometric map.\nRight: map build from SLAM. By leveraging loop closures, SLAM estimates\nthe actual topology of the environment, and “discovers” shortcuts in the map.\n\nable computational resources;\nenvironment: planar or three-dimensional, presence of\nnatural or artificial landmarks, amount of dynamic elements, amount of symmetry and risk of perceptual aliasing. Note that many of these aspects actually depend on\nthe sensor-environment pair: for instance, two rooms may\nlook identical for a 2D laser scanner (perceptual aliasing),\nwhile a camera may discern them from appearance cues;\n• performance requirements: desired accuracy in the estimation of the state of the robot, accuracy and type of\nrepresentation of the environment (e.g., landmark-based\nor dense), success rate (percentage of tests in which the\naccuracy bounds are met), estimation latency, maximum\noperation time, maximum size of the mapped area."
+      },
+      {
+        "partId": "storage-exceptions",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Spatial-partitioning representations define 3D objects as a\ncollection of contiguous non-intersecting primitives. The most\npopular spatial-partitioning representation is the so called\nspatial-occupancy enumeration, which decomposes the 3D\nspace into identical cubes (voxels), arranged in a regular\n3D grid. More efficient partitioning schemes include octree,\nPolygonal Map octree, and Binary Space-Partitioning tree [80,\n§12.6]. In robotics, octree representations have been used\nfor 3D mapping [75], while commonly used occupancy grid\nmaps [71] can be considered as probabilistic variants of\nspatial-partitioning representations. In 3D environments without hanging obstacles, 2.5D elevation maps have been also\nused [23].\n\nHigh-level, expressive representations in SLAM: While most\nof the robotics community is currently focusing on point\nclouds or TSDF to model 3D geometry, these representations\nhave two main drawbacks. First, they are wasteful of memory.\nFor instance, both representations use many parameters (i.e.,\npoints, voxels) to encode even a simple environment, such\nas an empty room (this issue can be partially mitigated by\nthe so-called voxel hashing [188])."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "sparse",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "SectionV describes sparse 3D landmarks corresponding to discriminative features and possibly uncertain associations. It does not prove sparse maps intrinsically cannot support collision-related tasks; the absolute prohibition is removed.",
+        "evidenceDigest": "a7fb8c08e115a88f87c4539ac80b3d6b7de15652c7bb52560d9826d1df7b3e26"
+      },
+      {
+        "partId": "dense-tasks",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "SectionV distinguishes high-resolution raw geometry suited to obstacle avoidance from boundary/spatial-partitioning representations suited to planning, manipulation and contact reasoning. The replacement preserves this task utility without claiming all dense maps solve every task.",
+        "evidenceDigest": "314af286e1773db7dacf26684020526906ed171fe4c0f9f6fab438d3d84e88a6"
+      },
+      {
+        "partId": "dense-slam",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "The dense-model paragraph explicitly describes monocular direct SLAM estimating trajectory and geometry. The feature/direct counterpassage discusses texture, compute and joint-estimation caveats, so dense geometry is not the reverse of localisation.",
+        "evidenceDigest": "bc1de35fc7b07e97ab785e799bded1de2fa78d63e80793be05bfb67fa1564402"
+      },
+      {
+        "partId": "cost-scope",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "Optimal Representations compares domain, conciseness, ease of creation and efficacy for the task and leaves a general choice framework open. The robot/environment/performance discussion likewise demands scope. No dense-versus-sparse benchmark or universal cost ranking is invented.",
+        "evidenceDigest": "0d23bd84cb4a591c41cfeadfad045fa35598ed7d757aa77bab2e24a5231df592"
+      },
+      {
+        "partId": "storage-exceptions",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "The spatial-partitioning paragraph names more efficient octrees, and the high-level-representation discussion says voxel hashing can partially mitigate raw point-cloud/TSDF memory burden. Semantic mapping addresses further task meaning; the final claim does not equate geometric density with semantic sufficiency.",
+        "evidenceDigest": "f4b6586d25790d3219588de6fd6464d9cd317dc65a36033cf9138c42025cf06f"
+      }
+    ]
+  },
+  {
+    "id": "occupancy-map-tradeoff-scene-37-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 37,
+    "originalCellsDigest": "803f14f6b7e863e83cd261fd5c3dee96b76dd19a8aa61ef0cd8105a0308a4664",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "conditional-aliasing",
+        "text": "The example concerns two rooms that may alias for a 2D laser scanner yet be discernible to a camera; it is sensor–environment dependent, not a featureless-corridor theorem.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "vision-failure",
+        "text": "The review’s discussed bag-of-words methods cannot handle severe illumination variations; later approaches explicitly address those variations.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "active-range-exception",
+        "text": "Active range cameras carrying their own light source work in dark, untextured scenes but have maximum-range and external-light limitations.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+      "rationale": "Reviewed the complete 3-part AND claim against retained body and counterpassages at 2026-09-08T21:01:25.692Z. The introduction explicitly conditions perceptual aliasing on the sensor-environment pair and gives two rooms that may look identical to a2D laser yet differ in camera appearance. The nearby laser-success example contradicts a general failure ranking; no corridor theorem or generic information-density/price claim is retained. SectionIII says the discussed bag-of-words techniques cannot handle severe illumination variation, then names approaches designed to address it. The wording is restricted to those techniques, not every camera or later place-recognition method. SectionIX-A explains active range cameras carry their own light, allowing dark untextured scenes, and names maximum-range/external-light interference limitations. Event cameras are another modality-specific exception. The replacement does not conflate passive cameras, lidar and active range cameras.",
+      "planDigest": "f318a0dfbbeaa56bee7af4b7bed576003220c9b930a8902ac6242dc4fa931a94"
+    },
+    "evidence": [
+      {
+        "partId": "conditional-aliasing",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "This question of “is SLAM solved?” is often asked\nwithin the robotics community, c.f. [87]. This question is\ndifficult to answer because SLAM has become such a\nbroad topic that the question is well posed only for a\ngiven robot/environment/performance combination. In particular, one can evaluate the maturity of the SLAM problem once\nthe following aspects are specified:\n• robot: type of motion (e.g., dynamics, maximum speed),\navailable sensors (e.g., resolution, sampling rate), avail-\n\n\f3\n\nFig. 1: Left: map built from odometry. The map is homotopic to a long corridor\nthat goes from the starting position A to the final position B. Points that are\nclose in reality (e.g., B and C) may be arbitrarily far in the odometric map.\nRight: map build from SLAM. By leveraging loop closures, SLAM estimates\nthe actual topology of the environment, and “discovers” shortcuts in the map.\n\nable computational resources;\nenvironment: planar or three-dimensional, presence of\nnatural or artificial landmarks, amount of dynamic elements, amount of symmetry and risk of perceptual aliasing. Note that many of these aspects actually depend on\nthe sensor-environment pair: for instance, two rooms may\nlook identical for a 2D laser scanner (perceptual aliasing),\nwhile a camera may discern them from appearance cues;\n• performance requirements: desired accuracy in the estimation of the state of the robot, accuracy and type of\nrepresentation of the environment (e.g., landmark-based\nor dense), success rate (percentage of tests in which the\naccuracy bounds are met), estimation latency, maximum\noperation time, maximum size of the mapped area.\n\nable computational resources;\nenvironment: planar or three-dimensional, presence of\nnatural or artificial landmarks, amount of dynamic elements, amount of symmetry and risk of perceptual aliasing. Note that many of these aspects actually depend on\nthe sensor-environment pair: for instance, two rooms may\nlook identical for a 2D laser scanner (perceptual aliasing),\nwhile a camera may discern them from appearance cues;"
+      },
+      {
+        "partId": "vision-failure",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Bag-of-words-based techniques such as [53]\nhave shown reliable performance on the task of single session\nloop closure detection. However, these approaches are not\ncapable of handling severe illumination variations as visual\nwords can no longer be matched. This has led to develop\nnew methods that explicitly account for such variations by\nmatching sequences [173], gathering different visual appearances into a unified representation [48], or using spatial as well\nas appearance information [106]. A detailed survey on visual\nplace recognition can be found in Lowry et al. [160]."
+      },
+      {
+        "partId": "active-range-exception",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Since range cameras carry their\nown light source, they also work in dark and untextured\nscenes, which enabled the achievement of remarkable SLAM\nresults [183].\n\nOpen Problems. The main bottleneck of active range cameras is the maximum range and interference with other external\nlight sources (such as sun light); however, these weaknesses\ncan be improved by emitting more light power."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "conditional-aliasing",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "The introduction explicitly conditions perceptual aliasing on the sensor-environment pair and gives two rooms that may look identical to a2D laser yet differ in camera appearance. The nearby laser-success example contradicts a general failure ranking; no corridor theorem or generic information-density/price claim is retained.",
+        "evidenceDigest": "271aa214dad503b807228b89151f5e734a83fd9c5ec5a2d044490058f9a3137a"
+      },
+      {
+        "partId": "vision-failure",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "SectionIII says the discussed bag-of-words techniques cannot handle severe illumination variation, then names approaches designed to address it. The wording is restricted to those techniques, not every camera or later place-recognition method.",
+        "evidenceDigest": "4b387ed66c911da9f1d2b83e5b1fe44e71023493638a917109b21c421a76bcda"
+      },
+      {
+        "partId": "active-range-exception",
+        "outcome": "supported",
+        "reviewedBy": "source-auditor Droid 28989366-fcdc-4864-b318-cbbbad634034, custom:droidproxy:gpt-6-astra/max",
+        "rationale": "SectionIX-A explains active range cameras carry their own light, allowing dark untextured scenes, and names maximum-range/external-light interference limitations. Event cameras are another modality-specific exception. The replacement does not conflate passive cameras, lidar and active range cameras.",
+        "evidenceDigest": "a1fa959e526571bcba686bda489faa1a919cd085379057381e13e566fde2c583"
+      }
+    ]
   }
 ]

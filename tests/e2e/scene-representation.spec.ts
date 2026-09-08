@@ -111,6 +111,71 @@ function slider(page: Page): Locator {
 }
 
 test.describe('classical scene-representation module', () => {
+  test.beforeEach(async ({ context }) => {
+    // Affected-reader proof is offline and motion-free before the first paint.
+    await context.route('**/*', (route) => {
+      const url = new URL(route.request().url());
+      if (url.protocol.startsWith('http') && !['127.0.0.1', 'localhost'].includes(url.hostname)) return route.abort();
+      return route.continue();
+    });
+    await context.addInitScript(() => {
+      const install = () => {
+        if (!document.documentElement || document.getElementById('scene-reader-motion')) return;
+        const style = document.createElement('style');
+        style.id = 'scene-reader-motion';
+        style.textContent = '*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}';
+        document.documentElement.append(style);
+      };
+      new MutationObserver(install).observe(document, { childList: true, subtree: true });
+      install();
+    });
+  });
+
+  test('paper-scoped occupancy and map tradeoffs retain their local source chips', async ({ page }) => {
+    await page.goto(ROUTE);
+    const expectations = [
+      ['moravec-elfes-1985', 0, 'two-dimensional horizontal', 'https://doi.org/10.1109/ROBOT.1985.1087316'],
+      ['moravec-elfes-1985', 1, 'Zero represents unknown occupancy', 'https://doi.org/10.1109/ROBOT.1985.1087316'],
+      ['cadena-2016', 1, 'storage size, construction cost and usefulness for the task', 'https://arxiv.org/abs/1606.05830'],
+      ['cadena-2016', 2, 'range and external-light limitations', 'https://arxiv.org/abs/1606.05830'],
+    ] as const;
+    await expect(page.locator('.prose > p > span.block [data-cite-id="moravec-elfes-1985"]')).toHaveCount(2);
+    await expect(page.locator('.prose > p > span.block [data-cite-id="cadena-2016"]')).toHaveCount(3);
+    for (const [id, ordinal, text, href] of expectations) {
+      const chip = page.locator(`.prose > p > span.block [data-cite-id="${id}"]`).nth(ordinal);
+      await expect(chip.locator('xpath=ancestor::p[1]')).toContainText(text);
+      const link = chip.locator('a[target="_blank"]');
+      await expect(link).toHaveAttribute('href', href);
+      await link.evaluate((element) => element.scrollIntoView({ block: 'center' }));
+      await link.hover();
+      const tooltip = chip.getByRole('tooltip');
+      await expect(tooltip).toBeVisible();
+      const hoverText = await tooltip.innerText();
+      await page.mouse.move(0, 0);
+      await link.focus();
+      await expect(tooltip).toBeVisible();
+      expect(await tooltip.innerText()).toBe(hoverText);
+      const bounds = await tooltip.boundingBox();
+      const viewport = page.viewportSize()!;
+      expect(bounds).not.toBeNull();
+      expect(bounds!.x).toBeGreaterThanOrEqual(0);
+      expect(bounds!.y).toBeGreaterThanOrEqual(0);
+      expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(viewport.width);
+      expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(viewport.height);
+      await link.evaluate((element) => element.blur());
+    }
+    const proseText = await page.locator('.prose').evaluate((element) => {
+      const clone = element.cloneNode(true) as HTMLElement;
+      // The unselected glossary's tooltip is not owned by this paper repair.
+      for (const tooltip of clone.querySelectorAll('[role="tooltip"]')) tooltip.remove();
+      return clone.textContent ?? '';
+    });
+    for (const obsolete of ['Every later navigation stack inherits', 'cannot be used for collision checking',
+      'does the reverse at much greater cost', 'geometrically featureless corridors', 'cheap and information-dense']) {
+      expect(proseText.includes(obsolete), obsolete).toBe(false);
+    }
+  });
+
   test('the ladder names four representations, each cited inside its own section (VAL-CLASS-047)', async ({
     page,
   }) => {

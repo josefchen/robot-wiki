@@ -7376,6 +7376,42 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "occupancy-map-originals-4-5-36-37-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "3a341c744ab104a52c365f7ccc3711ed71599766dbbb2e04e4cd2a1caa2f9a66",
+      "reason": "Source-backed correction of scene originals4/5 and36/37 as two atomic pairs: 2D probabilistic sonar projection and paper-specific unknown confidence convention; task-dependent sparse/dense map roles, storage/construction utility and efficient storage; sensor-environment room aliasing and specific illumination/active-range limitations. No generic corridor, cost, collision-impossibility or later-stack inheritance claim. Retained source verification and exact current endpoints: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-occupancy-map-tradeoffs-integration-20260908/worker-source-proof.json and worker-application.json. Only the assigned paper-backed spans and local Source-line placement change; one additional Moravec and two additional Cadena in-prose citation occurrences bind the newly separated claims, without changing the declared citation set or References order. Moravec venue expansion remains unestablished; current Cadena title/eight authors/José Neira/2016 journal–2017v4 printing and registry URLs are preserved. Article date, glossary, interactive and preceding corrections remain unchanged; no P1, source-certification or release acceptance",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification, changed criteria or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "occupancy-map-originals-4-5-36-37-20260908-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31",
+      "newHash": "34ddf182a525725fb2b59b9dab189ce35939920e7675f81a21edf9f7ca1a0059",
+      "reason": "Source-backed correction of scene originals4/5 and36/37 as two atomic pairs: 2D probabilistic sonar projection and paper-specific unknown confidence convention; task-dependent sparse/dense map roles, storage/construction utility and efficient storage; sensor-environment room aliasing and specific illumination/active-range limitations. No generic corridor, cost, collision-impossibility or later-stack inheritance claim. Retained source verification and exact current endpoints: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-occupancy-map-tradeoffs-integration-20260908/worker-source-proof.json and worker-application.json. Only the assigned paper-backed spans and local Source-line placement change; one additional Moravec and two additional Cadena in-prose citation occurrences bind the newly separated claims, without changing the declared citation set or References order. Moravec venue expansion remains unestablished; current Cadena title/eight authors/José Neira/2016 journal–2017v4 printing and registry URLs are preserved. Article date, glossary, interactive and preceding corrections remain unchanged; no P1, source-certification or release acceptance",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification, changed criteria or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

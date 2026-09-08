@@ -5582,9 +5582,10 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // ICRA 1985 pp. 116-121, Crossref read 2026-08-22. The origin of the
-    // occupancy grid: sonar returns accumulated into a map of empty and
-    // occupied volumes, with unknown held as a third state. Crossref
+    // Historical ICRA 1985 pp. 116-121 Crossref note, 2026-08-22;
+    // venue expansion is not re-established by the retained CMU scan.
+    // The paper projects probabilistic sonar constraints onto a 2D grid,
+    // with unknown distinct from probably empty/occupied. Crossref
     // prints the byline as initials ("H. Moravec", "A. Elfes"); the CMU
     // Robotics Institute PDF prints the full given names, and that
     // expansion is documented in data/crossref-author-exceptions.ts.
