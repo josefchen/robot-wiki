@@ -1,7 +1,24 @@
 # Content-integrity audit trail
 
 <!-- rl-reader-current:start -->
-## Current correctly bound RL source checkpoint — 2026-09-08
+## Current pi_RL and PLD source checkpoint — 2026-09-08
+
+**371 complete / 623 incomplete / 994 original identities / 47 articles. 277 compound plans; 350 exact approval objects.** Exactly `audit/rl-sim2real.md:rl-for-robotics:47/48` and `audit/manipulation.md:rl-finetuning:3/7` are corrected and supported. RL fine-tuning is 10/11 evidence-complete; aggregate original11 remains excluded, with no whole-row or article acceptance. Manipulation is 210 complete / 15 incomplete / 225 originals. Formal progress remains 307/331.
+
+Two works, 52 verified retained literal passages, 31 native evidence items and 29 separately adjudicated AND parts; zero new source requests. pi_RL is the January 29, 2026 v3 edition with sixteen printed authors, joint-path/transition rather than exact final-action likelihood, one stochastic hybrid denoising step, source-internal state/CALVIN conflicts, unseen-task limits and a separate 40% physical transfer result without a stated trial denominator. Its code announcement does not certify weights or licensing. PLD is a 2025 v1 preprint, not verified ICLR acceptance: retain benchmark/task/trial populations, the Simpler printed arithmetic discrepancy, finite Franka success and YAM recovery rather than 100% one-shot success. Registered IDs and audited metadata URLs are unchanged; native evidence pins the inspected editions.
+
+All 990 unselected full native records, 367 previously complete records, 273 prior plan objects and 343 prior approval objects are preserved; only derived record line positions are excluded from equality. Original four-cell tuples are retained as history. Prior method, navigation and accounting repairs, owner files and commits d282a83/2cf7d6b remain intact. Both article review dates are unchanged. No P1, aggregate11, whole-article, visual-system or independent acceptance credit is claimed.
+
+Executed checks: the five new regression cases failed on old content; 209 unit cases in seven files passed with one worker, and the final placement rerun passed 17 existing cases in two files. Normal lint including prelint and nonincremental TypeScript passed. Offline content remains red: **628 findings plus nine separately reported citation gaps**. The baseline preserves all **47 exact inherited failure objects**, with seven narrowly bound new approvals and no baseline or oracle changes.
+
+Reader proof: twelve checked-in E2E cases passed at 375×812 and 1440×900, including existing DPPO/ConRFT, navigation, scrubber and axe checks. Four two-route source-reader cases passed with zero outbound attempts and page errors. Eight final source-focus screenshots were opened and inspected; full bylines, titles, years, bibliography targets and hover/focus geometry passed DOM checks. The first mobile pi_RL popover genuinely overflowed; a local source-line break fixed it, with the failed capture retained. This is not full reference-rubric acceptance. The visible development indicator was not hidden.
+
+Reuse proof: 48 exact current-public/export/starting-commit PNG triples, 47 unchanged native article-fact/frontmatter objects and 20 unchanged renderer input paths. No new rendering or production seal. The owned loopback server is stopped; normal Next type generation restored exact protected next-env.d.ts bytes. Failed preparation/approval attempts remain in receipts: escaped block storage, concatenated literal evidence, unavailable tsx executable, immutable-baseline versus current hashes, native missing-member sentinel and a Git output-buffer limit. None justified changing the audit gate.
+
+Evidence and receipts: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pirl-pld-integration-20260908`. The 35-minute target was exceeded; exact terminal elapsed wall time is recorded in the checkpoint, active time unmeasured. The 623 incomplete originals, nine citation gaps, production export/reading times, aggregate11, broader reader/reference work and independent Sol/high scrutiny/user testing remain open with both skip flags false. No new Mission/controller, feature-state change, model fallback, source retrieval, disk cleanup, push or deployment. **Do not publish while the content gate is red.**
+<!-- rl-reader-current:end -->
+
+## Historical: correctly bound RL source checkpoint — 2026-09-08
 
 **367 complete / 627 incomplete / 994 original identities / 47 articles. 273 compound plans.** Exactly `audit/manipulation.md:rl-finetuning:6/8/9/10` (HIL-SERL, RLDG, Liu, PAIR) are corrected and supported. The parent's corrected binding resolves the predecessor's ordinal/name hold; pi_RL3, PLD7 and aggregate11 remain excluded. RL fine-tuning is 8/11 evidence-complete, not article acceptance. Manipulation is 208 complete / 17 incomplete / 225 originals.
 
@@ -16,7 +33,6 @@ Executed checks: 179 unit tests across eight affected files passed with one work
 Reader checks at 375×812 and 1440×900: ten checked-in E2E cases passed, including responsive navigation, DPPO/ConRFT preservation, math, scrubber and axe. Two additional four-source capture cases initially failed on a packet input-path typo, then passed after correcting only that path. All eight source-focus captures were actually opened and inspected: the source popovers stay in the viewport and source lines remain legible. Hover geometry and expanded bibliography text are captured as DOM evidence, not as additional image inspections. Development UI was not hidden. The owned loopback server was stopped and normal Next type generation restored the exact captured `next-env.d.ts` bytes.
 
 Failed attempts are retained: seven-test red baseline; one new mutation-test timeout, resolved by per-source cases and isolated selected-plan copies; a later existing DPPO/ConRFT timeout, resolved with one worker and unchanged timeout/assertions; two registry/citation-ledger URL mismatches, resolved by preserving the original audited registry URLs rather than editing excluded ledgers. Exact reviewed Liu v4 and PAIR v1 PDF editions remain in native evidence. No new retrieval, production export, full reference-rubric acceptance, card regeneration or independent release validation was performed.
-<!-- rl-reader-current:end -->
 
 ## Historical: partial RL reader/accounting checkpoint — 2026-09-08
 

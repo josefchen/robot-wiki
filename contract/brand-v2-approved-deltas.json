@@ -6878,6 +6878,153 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "pirl-pld-four-originals-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "58266d3f46c78229772028ac412853551ca8252b6137772d21b40b27cbc809cf",
+      "reason": "Exactly four original source records and their coupled representations: pi_RL v3 path/transition likelihoods rather than exact endpoint likelihood, sixteen printed authors, setup/OOD/physical-transfer limits and announced-code-only scope; PLD v1/2025 preprint without unsupported acceptance, exact benchmark/trial denominators, Simpler arithmetic conflict and YAM recovery versus one-shot success. Article-local source lines retain mobile citation geometry. Registry metadata URLs and stable IDs remain unchanged. Aggregate table11 and whole-P1/article acceptance excluded.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact four-original 2026-09-08 dispatch. This is not personal source certification or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pirl-pld-four-originals-20260908-2",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/rl-for-robotics",
+      "oldHash": "18c47ccf5c0bb45d6bd151bab7596f60109606b8ff592a07f0db1c0697dfb05c",
+      "newHash": "09a09850efa83b06e7e950a177baf32405f6047795a7910039c87558255e429d",
+      "reason": "Exactly four original source records and their coupled representations: pi_RL v3 path/transition likelihoods rather than exact endpoint likelihood, sixteen printed authors, setup/OOD/physical-transfer limits and announced-code-only scope; PLD v1/2025 preprint without unsupported acceptance, exact benchmark/trial denominators, Simpler arithmetic conflict and YAM recovery versus one-shot success. Article-local source lines retain mobile citation geometry. Registry metadata URLs and stable IDs remain unchanged. Aggregate table11 and whole-P1/article acceptance excluded.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact four-original 2026-09-08 dispatch. This is not personal source certification or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pirl-pld-four-originals-20260908-3",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+      "newHash": "ee8e5ecb41721ad37d66394732c5f66028a71febf86046815145b3a6accfb609",
+      "reason": "Exactly four original source records and their coupled representations: pi_RL v3 path/transition likelihoods rather than exact endpoint likelihood, sixteen printed authors, setup/OOD/physical-transfer limits and announced-code-only scope; PLD v1/2025 preprint without unsupported acceptance, exact benchmark/trial denominators, Simpler arithmetic conflict and YAM recovery versus one-shot success. Article-local source lines retain mobile citation geometry. Registry metadata URLs and stable IDs remain unchanged. Aggregate table11 and whole-P1/article acceptance excluded.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact four-original 2026-09-08 dispatch. This is not personal source certification or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pirl-pld-four-originals-20260908-4",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bc758e2c141629a284dbe42110669da6a4a2c98dcaac76d37d1c0c0a1ab39e0e",
+      "reason": "Exactly four original source records and their coupled representations: pi_RL v3 path/transition likelihoods rather than exact endpoint likelihood, sixteen printed authors, setup/OOD/physical-transfer limits and announced-code-only scope; PLD v1/2025 preprint without unsupported acceptance, exact benchmark/trial denominators, Simpler arithmetic conflict and YAM recovery versus one-shot success. Article-local source lines retain mobile citation geometry. Registry metadata URLs and stable IDs remain unchanged. Aggregate table11 and whole-P1/article acceptance excluded.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact four-original 2026-09-08 dispatch. This is not personal source certification or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pirl-pld-four-originals-20260908-5",
+      "manifest": "article-metadata",
+      "memberId": "citation:pi-rl-2026",
+      "oldHash": "39070768fe28eb711c9633085a1912a0f636aa23b39ef68d9b9440e9b53138c5",
+      "newHash": "c498864534a5ea3664b65d709ce2378d5e572e20e9418c8aa73823ad33c415ec",
+      "reason": "Exactly four original source records and their coupled representations: pi_RL v3 path/transition likelihoods rather than exact endpoint likelihood, sixteen printed authors, setup/OOD/physical-transfer limits and announced-code-only scope; PLD v1/2025 preprint without unsupported acceptance, exact benchmark/trial denominators, Simpler arithmetic conflict and YAM recovery versus one-shot success. Article-local source lines retain mobile citation geometry. Registry metadata URLs and stable IDs remain unchanged. Aggregate table11 and whole-P1/article acceptance excluded.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact four-original 2026-09-08 dispatch. This is not personal source certification or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pirl-pld-four-originals-20260908-6",
+      "manifest": "article-metadata",
+      "memberId": "citation:pld-2026",
+      "oldHash": "fcc63426d5343d76bd9caf0f9eb51ffa334b46ee2c6711e0f068b185de0e739d",
+      "newHash": "f1b0abb972e1e1361b84b12d19d70e07ec9faac57a928b9a1ac22ce61767da40",
+      "reason": "Exactly four original source records and their coupled representations: pi_RL v3 path/transition likelihoods rather than exact endpoint likelihood, sixteen printed authors, setup/OOD/physical-transfer limits and announced-code-only scope; PLD v1/2025 preprint without unsupported acceptance, exact benchmark/trial denominators, Simpler arithmetic conflict and YAM recovery versus one-shot success. Article-local source lines retain mobile citation geometry. Registry metadata URLs and stable IDs remain unchanged. Aggregate table11 and whole-P1/article acceptance excluded.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact four-original 2026-09-08 dispatch. This is not personal source certification or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pirl-pld-four-originals-20260908-7",
+      "manifest": "value-states",
+      "memberId": "state-site:content/manipulation/rl-finetuning.mdx:not-disclosed:1",
+      "oldHash": "ef3d064044ab7cb21f68fb2c5409a73c8a2ae41039fb0c9af5ea354acf7f0f08",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Remove exactly the stale pi_RL prose assertion that its code or weights are not disclosed: the reviewed v3 paper announces code release. The replacement expressly does not establish a downloadable weight checkpoint or licensing. PLD retains source-specific non-establishment, and all unselected openness values remain unchanged.",
+      "ownerApproval": "Josef's 2026-09-07 'fix it all!' source-backed correction authority, bounded by the parent's exact four-original 2026-09-08 dispatch. This is not personal source certification or publication approval.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

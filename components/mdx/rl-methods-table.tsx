@@ -64,20 +64,20 @@ const ROWS: MethodRow[] = [
     method: 'pi_RL',
     year: 2026,
     mechanism:
-      'Flow-Noise (learnable noise net, exact log-likelihood) and Flow-SDE (ODE-to-SDE conversion, two-layer MDP)',
+      'Online PPO: Flow-Noise uses learned Gaussian transition noise and joint denoising-path likelihood; Flow-SDE uses transition likelihoods in a two-layer MDP',
     result:
-      'Significant gains over SFT in- and out-of-distribution on flow-based VLAs (pi0 class), simulation benchmarks',
+      'ID gains for pi0/pi0.5 across four simulation benchmarks; OOD gains do not consistently extend to unseen MetaWorld tasks. Separate Franka transfer test; paper-reported code release, not a weight/license claim',
     evidence: 'preprint',
-    open: null,
+    open: true,
   },
   {
     method: 'Residual RL (PLD)',
-    year: 2026,
+    year: 2025,
     mechanism:
-      'Freeze the generalist; small residual actors probe its failures, then the residual-generated successes are distilled back',
+      'Frozen VLA prior, off-policy residual specialists, hybrid recovery-data collection, then SFT of the generalist',
     result:
-      '99% on LIBERO, over 50% gains on SimplerEnv, 100% on the paper\'s real Franka and YAM tasks',
-    evidence: 'peer-reviewed',
+      'OpenVLA-labelled model: 99.2% across 3 LIBERO suites, 50 trials/task; Octo: 96.6% across 4 Simpler tasks; Franka: 30/30 on each of 2 tasks; YAM: at least 1 h with recovery, not 100% one-shot success',
+    evidence: 'preprint',
     open: null,
   },
   {

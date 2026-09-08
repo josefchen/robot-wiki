@@ -158,6 +158,24 @@ test.describe('rl-finetuning module', () => {
     await expect(page.locator('#ref-conrft-2025 [data-author-names]')).toContainText('Dongbin Zhao');
   });
 
+  test('PLD keeps benchmark populations and YAM recovery distinct', async ({ page }) => {
+    await page.goto(ROUTE);
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    const row = page.getByRole('row').filter({ hasText: 'Residual RL (PLD)' });
+    await expect(row).toHaveCount(1);
+    await expect(row).toContainText('2025');
+    await expect(row).toContainText('preprint');
+    await expect(row).not.toContainText('peer-reviewed');
+    await expect(row).toContainText('99.2% across 3 LIBERO suites');
+    await expect(row).toContainText('50 trials/task');
+    await expect(row).toContainText('not 100% one-shot success');
+    await expect(prose).toContainText('50.6-percentage-point gain');
+    await expect(prose).toContainText('displayed means differ by 24.8 points');
+    await expect(prose).toContainText('per-stage one-shot success is not 100%');
+    await expect(prose.getByRole('link', { name: /Xiao 2025/ }).first())
+      .toHaveAttribute('href', 'https://arxiv.org/abs/2511.00091');
+  });
+
   test('zero axe violations', async ({ page }) => {
     await page.goto(ROUTE);
     const results = await new AxeBuilder({ page }).analyze();

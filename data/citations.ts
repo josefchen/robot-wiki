@@ -1981,8 +1981,11 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // v3 (2026-01-29) is the version with the full Flow-Noise / Flow-SDE
-    // treatment; first submitted October 2025.
+    // Pin the printed v3 PDF (29 January 2026), whose byline has 16 authors.
+    // The retained v3 HTML also contains all 16; a prior extraction omitted Chao Yu.
+    // Landing and embedded PDF metadata list 14, omitting Wei and Zhou.
+    // These metadata disagreements remain history, not a claim of matching lists.
+    // First submission: 29 October 2025; printed preprint footer: 30 January 2026.
     id: 'pi-rl-2026',
     title:
       'π_RL: Online RL Fine-tuning for Flow-based Vision-Language-Action Models',
@@ -1995,6 +1998,8 @@ export const CITATIONS: Citation[] = [
       'Hao Lin',
       'Hongzhi Zang',
       'Xiang Li',
+      'Bingwen Wei',
+      'Jiakai Zhou',
       'Quanlu Zhang',
       'Zhaofei Yu',
       'Guoliang Fan',
@@ -2002,10 +2007,6 @@ export const CITATIONS: Citation[] = [
       'Yu Wang',
       'Chao Yu',
     ],
-    // Kept as 2026 (arXiv author sweep, 2026-08-20): arXiv prints the v1
-    // submission year 2025, but the entry cites v3 (2026-01-29) and the
-    // registry year deliberately names the cited version; see
-    // data/crossref-author-exceptions.ts.
     year: 2026,
     arxiv: '2510.25889',
     url: 'https://arxiv.org/abs/2510.25889',
@@ -2039,8 +2040,9 @@ export const CITATIONS: Citation[] = [
       'Guanya Shi',
       'Yuke Zhu',
     ],
-    year: 2026,
-    venue: 'ICLR 2026',
+    // Inspected arXiv v1: submitted 2025-10-30. The prior ICLR 2026
+    // attribution is not established by the retained primary captures.
+    year: 2025,
     arxiv: '2511.00091',
     url: 'https://arxiv.org/abs/2511.00091',
     type: 'paper',
