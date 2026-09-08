@@ -7340,6 +7340,24 @@
         "VAL-AUDIT-005"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "neural-slam-originals-38-39-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "ad90070b6ee0df97b9c1816fbd056f6a0cede40aec60dca72c3ee3dd72eab292",
+      "reason": "Atomic source-backed corrections to original scene38/39: iMAP map versus retained state and bounded online timing; NICE-SLAM fixed geometry versus online colour decoders, RGB-D/calibration inputs, static-scene local BA, global keyframes/no loop closure and sample-scoped apartment/runtime limits. Literal retained primary bodies, current semantic review and exact original/current endpoints: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-neural-slam-integration-20260908/source-proof.json, extraction-verification.json, application-review.json and application-endpoints.json. Audited registry URLs/values, article date and all prior corrections are unchanged.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification, changed criteria or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

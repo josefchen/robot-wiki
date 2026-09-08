@@ -5732,9 +5732,9 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // ICCV 2021; arXiv abs page read 2026-08-22. The first real-time SLAM
-    // system whose only scene representation is a single multilayer
-    // perceptron trained online from a live RGB-D stream.
+    // ICCV 2021. The scene-specific MLP is trained online from RGB-D;
+    // keyframes, poses and network snapshots remain part of system state.
+    // Paper v2 scopes the demonstration to room-scale scenes.
     id: 'imap-2021',
     title: 'iMAP: Implicit Mapping and Positioning in Real-Time',
     authors: [
@@ -5750,9 +5750,9 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // CVPR 2022; arXiv abs page read 2026-08-22. Hierarchical feature
-    // grids with a pretrained decoder, which is what let neural implicit
-    // SLAM scale past a single room.
+    // CVPR 2022. Three fixed pretrained geometry decoders plus a separate
+    // online-optimized colour decoder; hierarchical grids support local updates.
+    // The paper demonstrates a multi-room apartment, not unlimited scene scale.
     id: 'nice-slam-2022',
     title: 'NICE-SLAM: Neural Implicit Scalable Encoding for SLAM',
     authors: [

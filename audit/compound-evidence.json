@@ -28354,5 +28354,323 @@
         "evidenceDigest": "1768494b14f6b7496675ad5360de715e2b31f87451f549d52f52a7ca732597b0"
       }
     ]
+  },
+  {
+    "id": "scene-representation-38-neural-slam-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 38,
+    "originalCellsDigest": "1441c06d698dec4c9ee22b83d0812e01f29691bfde0eb249ca98e86b85fb9355",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "initialization",
+        "text": "Scene-specific MLP trained online from handheld RGB-D without prior training data.",
+        "requiredCitationIds": [
+          "imap-2021"
+        ]
+      },
+      {
+        "id": "network-and-calibration",
+        "text": "3D coordinate to colour/density map; rendering uses intrinsics, not calibration-free inference.",
+        "requiredCitationIds": [
+          "imap-2021"
+        ]
+      },
+      {
+        "id": "tracking-and-mapping",
+        "text": "Separate current-pose tracking against a fixed network and joint network/keyframe pose mapping.",
+        "requiredCitationIds": [
+          "imap-2021"
+        ]
+      },
+      {
+        "id": "map-versus-state",
+        "text": "Dense map is an MLP; the system also stores RGB-D keyframes and poses for replay plus network snapshots.",
+        "requiredCitationIds": [
+          "imap-2021"
+        ]
+      },
+      {
+        "id": "online-rates-and-hardware",
+        "text": "Reported online tracking 10 Hz and mapping 2 Hz, single desktop CPU/GPU, not sensor or robot control rates.",
+        "requiredCitationIds": [
+          "imap-2021"
+        ]
+      },
+      {
+        "id": "latency-and-drops",
+        "text": "Live frames between processed frames are dropped; coarse geometry takes seconds and fine detail minutes.",
+        "requiredCitationIds": [
+          "imap-2021"
+        ]
+      },
+      {
+        "id": "evaluation-scope",
+        "text": "Room-scale demonstrations, Replica/real RGB-D evaluation; visualization/evaluation meshing not SLAM state.",
+        "requiredCitationIds": [
+          "imap-2021"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+      "rationale": "Read the entire current article, whole corrected claim and all seven AND obligations against literal full-body passages and countercontext. Introduction and Section3 describe random initialization and live RGB-D fitting without prior training data; this does not exclude network architectural priors. Section3.2 maps position to colour and volume density without view direction; Section3.3 explicitly uses intrinsics K for rendering. No calibration-free or complete-geometry claim. Section3.4 separates current-pose optimization against a fixed scene network from joint network and selected-keyframe-pose mapping. Sections3.4–3.6 retain RGB-D keyframes, their poses and a copied network snapshot for information-gain selection and replay. The MLP is the dense map, not the entire memory state. Section4.4 and abstract report 10Hz tracking and 2Hz mapping on the stated desktop CPU/GPU; Table4 uses six/ten concurrent tracking/mapping iterations, 200 samples and window five. No exact hardware model, sensor rate or robot control rate is inferred. Section4.1 drops intermediate live frames but processes every captured frame in reported experiments; Section4.4 distinguishes seconds for coarse geometry from minutes for detail. Online operation is not instantaneous fine reconstruction. Conclusion and Replica/real-camera setup establish room-scale demonstrations; Section4.1 explicitly places mesh extraction outside SLAM. Neither claimed completeness nor a safety/collision guarantee is adopted.",
+      "planDigest": "b3d3494fbe47d7ae280255b910a4100415cb987852dcae0bb03f1bf75d81eff4"
+    },
+    "evidence": [
+      {
+        "partId": "initialization",
+        "citationId": "imap-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2103.12352v2",
+        "supportingPassage": "Our\nrandomly-initialised network is trained in live operation and\nwe do not require any prior training data. Our iMAP system\nis designed with a keyframe structure and multi-processing\ncomputation flow reminiscent of PTAM [11]. In a tracking\nprocess, running at over 10 Hz, we align live RGB-D observations with rendered depth and colour predictions from the\nMLP scene map. In parallel, a mapping process selects and\nmaintains a set of historic keyframes whose viewpoints span\nthe scene, and uses these to continually train and improve\nthe MLP, while jointly optimising the keyframe poses.\nIn both tracking and mapping, we dynamically sample\nthe most informative RGB-D pixels to reduce geometric\nuncertainty, achieving real-time speed. Our system runs\nin Python, and all optimisation is via a standard PyTorch\nframework [20] on a single desktop CPU/GPU system."
+      },
+      {
+        "partId": "network-and-calibration",
+        "citationId": "imap-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2103.12352v2",
+        "supportingPassage": "3.2. Implicit Scene Neural Network\nFollowing the network architecture in NeRF [15], we use\nan MLP with 4 hidden layers of feature size 256, and two\noutput heads that map a 3D coordinate p = (x, y, z) to a\ncolour and volume density value: Fθ (p) = (c, ρ). Unlike\nNeRF, we do not take into account viewing directions as we\nare not interested in modelling specularities.\nWe apply the Gaussian positional embedding proposed\nin Fourier Feature Networks [32] to lift the input 3D coordinate into n-dimensional space: sin(Bp), with B an [n × 3]\nmatrix sampled from a normal distribution with standard\ndeviation σ. This embedding serves as input to the MLP\nand is also concatenated to the second activation layer of\nthe network. Taking inspiration from SIREN [27], we allow optimisation of the embedding matrix B, implemented\nas a single fully-connected layer with sine activation.\n[Separate literal excerpt from the same retained body]\n3.3. Depth and Colour Rendering\nOur new differentiable rendering engine, inspired by\nNeRF [15] and NodeSLAM [31], queries the scene network\nto obtain depth and colour images from a given view.\nGiven a camera pose TW C and a pixel coordinate [u, v],\nwe first back-project a normalised viewing direction and\ntransform it into world coordinates: r = TW C K −1 [u, v],\nwith the camera intrinsics matrix K ."
+      },
+      {
+        "partId": "tracking-and-mapping",
+        "citationId": "imap-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2103.12352v2",
+        "supportingPassage": "Camera Tracking In online SLAM, close to frame-rate\ncamera tracking is important, as optimisation of smaller displacements is more robust. We run a parallel tracking process that continuously optimises the pose of the latest frame\nwith respect to the fixed scene network at a much higher\nframe rate than joint optimisation while using the same loss\nand optimiser. The tracked pose initialisation is refined in\nthe mapping process for selected keyframes.\n[Separate literal excerpt from the same retained body]\n3.4. Joint optimisation\nWe jointly optimise the implicit scene network parameters θ, and camera poses for a growing set of W keyframes,\neach of which has associated colour and depth measurements along with an initial pose estimate: {Ii , Di , Ti }.\nOur rendering function is differentiable with respect to\nthese variables, so we perform iterative optimisation to minimise the geometric and photometric errors for a selected\nnumber of rendered pixels si in each keyframe."
+      },
+      {
+        "partId": "map-versus-state",
+        "citationId": "imap-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2103.12352v2",
+        "supportingPassage": "3.4. Joint optimisation\nWe jointly optimise the implicit scene network parameters θ, and camera poses for a growing set of W keyframes,\neach of which has associated colour and depth measurements along with an initial pose estimate: {Ii , Di , Ti }.\nOur rendering function is differentiable with respect to\nthese variables, so we perform iterative optimisation to minimise the geometric and photometric errors for a selected\nnumber of rendered pixels si in each keyframe.\n[Separate literal excerpt from the same retained body]\n3.5. Keyframe Selection\nJointly optimising the network parameters and camera\nposes using all images from a video stream is not computationally feasible. However, since there is huge redundancy\nin video images, we may represent a scene with a sparse set\nof representative keyframes, incrementally selected based\non information gain. The first frame is always selected to\ninitialise the network and fix the world coordinate frame.\nEvery time a new keyframe is added, we lock a copy of our\nnetwork to represent a snapshot of our 3D map at that point\nin time. Subsequent frames are checked against this copy\nand are selected if they see a significantly new region.\n[Separate literal excerpt from the same retained body]\nKeyframe Active Sampling In iMAP, we continuously\noptimise our scene map with a set of selected keyframes,\nserving as a memory bank to avoid network forgetting. We\nwish to allocate more samples to keyframes with a higher\nloss, because they relate to regions which are newly explored, highly detailed, or that the network started to forget.\nWe follow a process analogous to image active sampling\nand allocate ni samples to each keyframe, proportional to\nthe loss distribution across keyframes, See Fig. 4.\n[Separate literal excerpt from the same retained body]\nBounded Keyframe Selection Our keyframe set keeps\ngrowing as the camera moves to new and unexplored regions. To bound joint optimisation computation, we choose\na fixed number (3 in the live system) of keyframes at each\niteration, randomly sampled according to the loss distribution. We always include the last keyframe and the current\nlive frame in joint optimisation, to compose a bounded window with W = 5 constantly changing frames. See Fig. 4."
+      },
+      {
+        "partId": "online-rates-and-hardware",
+        "citationId": "imap-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2103.12352v2",
+        "supportingPassage": "These design choices enable our online implicit SLAM\nsystem to run at 10 Hz for tracking and 2 Hz for mapping.\n[Separate literal excerpt from the same retained body]\nOur\nrandomly-initialised network is trained in live operation and\nwe do not require any prior training data. Our iMAP system\nis designed with a keyframe structure and multi-processing\ncomputation flow reminiscent of PTAM [11]. In a tracking\nprocess, running at over 10 Hz, we align live RGB-D observations with rendered depth and colour predictions from the\nMLP scene map. In parallel, a mapping process selects and\nmaintains a set of historic keyframes whose viewpoints span\nthe scene, and uses these to continually train and improve\nthe MLP, while jointly optimising the keyframe poses.\nIn both tracking and mapping, we dynamically sample\nthe most informative RGB-D pixels to reduce geometric\nuncertainty, achieving real-time speed. Our system runs\nin Python, and all optimisation is via a standard PyTorch\nframework [20] on a single desktop CPU/GPU system.\n[Separate literal excerpt from the same retained body]\nTable 4: Timing results for tracking (6 iterations) and mapping (10 iterations), running concurrently on the same GPU.\nDefault configuration: network width 256, window size 5,\nand 200 samples per keyframe. Last row: completion ratio\nfor Replica office-2."
+      },
+      {
+        "partId": "latency-and-drops",
+        "citationId": "imap-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2103.12352v2",
+        "supportingPassage": "In online operation from a hand-held camera, streamed\nimages which arrive between processed frames are dropped.\nFor the experiments presented here every captured frame is\nprocessed, running at 10 Hz. We recover mesh reconstructions if needed by querying occupancy values from the network in a uniform voxel grid and then running marching\ncubes. Meshing is for visualisation and evaluation purposes\nand does not form part of our SLAM system.\n[Separate literal excerpt from the same retained body]\nscene our system takes seconds to get a coarse reconstruction and minutes to add in fine details. In Fig. 14 we show\nhow the system starts with a rough reconstruction and adds\ndetail as the network trains and the camera moves closer to\nobjects. This is a useful property in SLAM as it enables live\ntracking to work even when moving to unexplored regions."
+      },
+      {
+        "partId": "evaluation-scope",
+        "citationId": "imap-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2103.12352v2",
+        "supportingPassage": "5. Conclusions\nWe pose dense SLAM as real-time continual learning\nand show that an MLP can be trained from scratch as the\nonly scene representation in a live system, thus enabling\nan RGB-D camera to construct and track against a complete and accurate volumetric model of room-scale scenes.\nThe keys to the real-time but long-term SLAM performance\nof our method are: parallel tracking and mapping, lossguided pixel sampling for rapid optimisation, and intelligent keyframe selection as replay to avoid network forgetting. Future directions for iMAP include how to make more\nstructured and compositional representations that reason explicitly about the self similarity in scenes.\n[Separate literal excerpt from the same retained body]\nDatasets We experiment on both simulated and real sequences. For reconstruction evaluation we use the Replica\ndataset [29], high quality 3D reconstructions of real roomscale environments, with 5 offices and 3 apartments. For\neach Replica scene, we render a random trajectory of 2000\nRGB-D frames. For raw camera recordings, we capture\nRGB-D videos using a hand-held Microsoft Azure Kinect\non a wide variety of environments, as well as test on the\nTUM RGB-D dataset [30] to evaluate camera tracking.\n[Separate literal excerpt from the same retained body]\nIn online operation from a hand-held camera, streamed\nimages which arrive between processed frames are dropped.\nFor the experiments presented here every captured frame is\nprocessed, running at 10 Hz. We recover mesh reconstructions if needed by querying occupancy values from the network in a uniform voxel grid and then running marching\ncubes. Meshing is for visualisation and evaluation purposes\nand does not form part of our SLAM system."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "initialization",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "Introduction and Section3 describe random initialization and live RGB-D fitting without prior training data; this does not exclude network architectural priors.",
+        "evidenceDigest": "dcb26884523201930ccb58e780828bea983fa09d3cfff157fcd19880d22e0392"
+      },
+      {
+        "partId": "network-and-calibration",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "Section3.2 maps position to colour and volume density without view direction; Section3.3 explicitly uses intrinsics K for rendering. No calibration-free or complete-geometry claim.",
+        "evidenceDigest": "b77a19d63ddc6adbc2faa5e68b760f5da96b4193a82902ea000e37f69138fef8"
+      },
+      {
+        "partId": "tracking-and-mapping",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "Section3.4 separates current-pose optimization against a fixed scene network from joint network and selected-keyframe-pose mapping.",
+        "evidenceDigest": "120dc6651b735e0fd6a78754e52b44f9abb81d2635317a6fd3ba2c9084ad26fc"
+      },
+      {
+        "partId": "map-versus-state",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "Sections3.4–3.6 retain RGB-D keyframes, their poses and a copied network snapshot for information-gain selection and replay. The MLP is the dense map, not the entire memory state.",
+        "evidenceDigest": "6ff06ee18e93588943c415491b55e19aff095ff131a8f8cf15f27275f7a1a8d9"
+      },
+      {
+        "partId": "online-rates-and-hardware",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "Section4.4 and abstract report 10Hz tracking and 2Hz mapping on the stated desktop CPU/GPU; Table4 uses six/ten concurrent tracking/mapping iterations, 200 samples and window five. No exact hardware model, sensor rate or robot control rate is inferred.",
+        "evidenceDigest": "8fad2b06f58f6fb8b292182f192b8b4300133acfee6211496f44ceddf1c5f8f3"
+      },
+      {
+        "partId": "latency-and-drops",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "Section4.1 drops intermediate live frames but processes every captured frame in reported experiments; Section4.4 distinguishes seconds for coarse geometry from minutes for detail. Online operation is not instantaneous fine reconstruction.",
+        "evidenceDigest": "2b5926558b9f433952e2e48f816a472ba80eb0f573ad8968931f75820e011999"
+      },
+      {
+        "partId": "evaluation-scope",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "Conclusion and Replica/real-camera setup establish room-scale demonstrations; Section4.1 explicitly places mesh extraction outside SLAM. Neither claimed completeness nor a safety/collision guarantee is adopted.",
+        "evidenceDigest": "d7bb2ec91921803647311d8b26e6064cb4274488561e9b7c1850ddb89a1004ec"
+      }
+    ]
+  },
+  {
+    "id": "scene-representation-39-neural-slam-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 39,
+    "originalCellsDigest": "9c5179cd430a454fc5cfc143941d7a582da3b5c17e3cb735cd083f0059a02d3e",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "decoder-structure",
+        "text": "Three fixed pretrained geometric decoders with coarse/mid/fine feature grids plus separate trainable colour grid/decoder.",
+        "requiredCitationIds": [
+          "nice-slam-2022"
+        ]
+      },
+      {
+        "id": "prior-and-input",
+        "text": "ConvONet Synthetic Indoor Scene Dataset geometry pretraining; RGB-D scene fitting uses camera intrinsics.",
+        "requiredCitationIds": [
+          "nice-slam-2022"
+        ]
+      },
+      {
+        "id": "tracking-mapping-scope",
+        "text": "Current-camera-pose tracking and static-scene local BA over grids, colour decoder and keyframe poses; dynamic exception retained.",
+        "requiredCitationIds": [
+          "nice-slam-2022"
+        ]
+      },
+      {
+        "id": "scene-scale",
+        "text": "Specific self-captured multi-room apartment demonstration, not unlimited-scale or universal superiority.",
+        "requiredCitationIds": [
+          "nice-slam-2022"
+        ]
+      },
+      {
+        "id": "local-and-global-state",
+        "text": "Local geometry updates do not eliminate global keyframe storage; colour forgetting and no loop closure remain.",
+        "requiredCitationIds": [
+          "nice-slam-2022"
+        ]
+      },
+      {
+        "id": "timing-setting",
+        "text": "Reported 47/130 ms with 200/1000 tracking/mapping pixel samples on Intel i7-10700K/RTX3090 desktop.",
+        "requiredCitationIds": [
+          "nice-slam-2022"
+        ]
+      },
+      {
+        "id": "latency-bound",
+        "text": "Large-scene settings use greater pixel counts and different iteration budgets; small-sample timings do not guarantee apartment latency.",
+        "requiredCitationIds": [
+          "nice-slam-2022"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+      "rationale": "Read the entire current article, whole corrected claim and all seven AND obligations against literal full-body passages and countercontext. Section3.1 names three fixed pretrained occupancy MLPs; fine occupancy uses a residual over mid-level. Appearance uses a separate colour grid and online-optimized decoder, not a fourth fixed pretrained geometry decoder. SupplementA5 names ConvONet Synthetic Indoor Scene Dataset; Section3.1 retains only geometry decoder MLPs at runtime while features are fitted; RGB-D observations and intrinsics remain required inputs. Section3.3 Eq10 and Section4.4 explicitly include local BA with keyframe extrinsics; Fig2 schematic presents scene-only mapping. The claim follows the static-scene formulation, retaining that discrepancy rather than inferring unchanged back-end equivalence. Dynamic Co-Fusion case disables pose optimization, confirmed by supplementA6 zero mapping pose learning rate. Section4.2 reports a self-captured multi-room apartment. This demonstrates one bounded scale, not unlimited scenes or universal superiority; Section4.2 still reports better traditional tracking baselines and conclusion limits predictive scale. SupplementA1 restricts geometry updates to fully inside-frustum features; Section3.4 retains a global keyframe list with local active selection. Colour can forget and is locally consistent, and conclusion explicitly excludes loop closure. Table4 gives NICE-SLAM47ms tracking/130ms mapping; Section4.3 specifies200/1000 sampled pixels, Section4.1 the Intel i7-10700K/RTX3090. Imported iMAP timings are not a newly matched-hardware comparison. Section4.1 uses1000/5000 tracking/mapping samples for ScanNet/apartment versus200/1000 for the timing comparison. SupplementA6 uses50 rather than10 tracking iterations and different mapping frequency for TUM. Apartment latency or a universal processing/control rate is not established.",
+      "planDigest": "371278a883edf32a2fb248a3f266796137f59d86966944765a1332673e3d13df"
+    },
+    "evidence": [
+      {
+        "partId": "decoder-structure",
+        "citationId": "nice-slam-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.12130v2",
+        "supportingPassage": "3.1. Hierarchical Scene Representation\nWe now introduce our hierarchical scene representation\nthat combines multi-level grid features with pre-trained decoders for occupancy predictions. The geometry is encoded\ninto three feature grids ϕlθ and their corresponding MLP decoders f l , where l ∈ {0, 1, 2} is referred to coarse, mid\nand fine-level scene details. In addition, we also have a single feature grid ψω and decoder gω to model the scene appearance. Here θ and ω indicate the optimizable parameters\nfor geometry and color, i.e., the features in the grid and the\nweights in the color decoder.\n[Separate literal excerpt from the same retained body]\nNote that we fix the pre-trained decoders f 1 and f 2 , and\nonly optimize the feature grids ϕ1θ and ϕ2θ throughout the\nentire optimization process. We demonstrate that this helps\nto stabilize the optimization and learn consistent geometry.\n[Separate literal excerpt from the same retained body]\nPre-training Feature Decoders. In our framework we use\nthree different fixed MLPs to decode the grid features into\noccupancy values. The coarse and mid-level decoders are\npre-trained as part of ConvONet [38] which consists of a\nCNN encoder and an MLP decoder. We train both the encoder/decoder using the binary cross-entropy loss between\nthe predicted and the ground-truth value, same as in [38].\nAfter training, we only use the decoder MLP, as we will directly optimize the features to fit the observations in our\nreconstruction pipeline. In this way the pre-trained decoder can leverage resolution-specific priors learned from\nthe training set, when decoding our optimized features.\nThe same strategy is used to pre-train the fine-level\ndecoder, except that we simply concatenate the feature\nϕ1θ (p) from the mid-level together with the fine-level feature ϕ2θ (p) before inputting to the decoder.\n[Separate literal excerpt from the same retained body]\nwhere ω indicates learnable parameters during optimization. Different from the geometry that has strong prior\nknowledge, we empirically found that jointly optimizing the\ncolor features ψω and decoder gω improves the tracking performance (c.f. Table 5). Note that, similarly to iMAP [47],\nthis can lead to forgetting problems and the color is only\nconsistent locally. If we want to visualize the color for\nthe entire scene, it can be optimized globally as a postprocessing step."
+      },
+      {
+        "partId": "prior-and-input",
+        "citationId": "nice-slam-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.12130v2",
+        "supportingPassage": "A.5. Decoder Pretraining\nWe use the Synthetic Indoor Scene Dataset provided in\nConvONet [38] to pre-train the encoder-decoder. Furthermore, we use the Point Cloud Encoder instead of the Voxel\nEncoder. All levels are trained with room grid64 setting in\nConvONet [38]. The feature dimension for all the feature\ngrids is 32. As for hyperparameters used for the pretraining\nprocess, we follow the same setting as ConvONet [38].\n[Separate literal excerpt from the same retained body]\nPre-training Feature Decoders. In our framework we use\nthree different fixed MLPs to decode the grid features into\noccupancy values. The coarse and mid-level decoders are\npre-trained as part of ConvONet [38] which consists of a\nCNN encoder and an MLP decoder. We train both the encoder/decoder using the binary cross-entropy loss between\nthe predicted and the ground-truth value, same as in [38].\nAfter training, we only use the decoder MLP, as we will directly optimize the features to fit the observations in our\nreconstruction pipeline. In this way the pre-trained decoder can leverage resolution-specific priors learned from\nthe training set, when decoding our optimized features.\nThe same strategy is used to pre-train the fine-level\ndecoder, except that we simply concatenate the feature\nϕ1θ (p) from the mid-level together with the fine-level feature ϕ2θ (p) before inputting to the decoder.\n[Separate literal excerpt from the same retained body]\nGiven camera intrinsic parameters and current camera\npose, we can calculate the viewing direction r of a pixel\ncoordinate. We first sample along this ray\n[Separate literal excerpt from the same retained body]\nDatasets. We consider 5 versatile datasets: Replica [45],\nScanNet [13], TUM RGB-D dataset [46], Co-Fusion\ndataset [40], as well as a self-captured large apartment with\nmultiple rooms. We follow the same pre-processing step for\nTUM RGB-D as in [54]."
+      },
+      {
+        "partId": "tracking-mapping-scope",
+        "citationId": "nice-slam-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.12130v2",
+        "supportingPassage": "Note that we parallelize our system in three threads to\nspeed up the optimization process: one thread for coarselevel mapping, one for mid-&fine-level geometric and color\noptimization, and another one for camera tracking.\nCamera Tracking. In addition to optimizing the scene\nrepresentation, we also run in parallel camera tracking to\noptimize the camera poses of the current frame, i.e., rotation\nand translation {R, t}. To this end, we sample Mt pixels\nin the current frame and apply the same photometric loss\nin Eq. (9) but use a modified geometric loss:\n[Separate literal excerpt from the same retained body]\nAt the first stage, we optimize only the mid-level feature\ngrid ϕ1θ using the geometric loss Lfg in Eq. (8). Next, we\njointly optimize both the mid and fine-level ϕ1θ , ϕ2θ features\nwith the same fine-level depth loss Lfg . Finally, we conduct\na local bundle adjustment (BA) to jointly optimize feature\ngrids at all levels, the color decoder, as well as the camera\nextrinsic parameters {Ri , ti } of K selected keyframes:\n[Separate literal excerpt from the same retained body]\nRobustness to Dynamic Objects. To make the optimization more robust to dynamic objects during tracking, we filter pixels with large depth/color re-rendering loss. In particular, we remove any pixel from the optimization where\nthe loss Eq. (12) is larger than 10× the median loss value\nof all pixels in the current frame. Fig. 6 shows an example where a dynamic object is ignored since it is not present\nin the rendered RGB and depth image. Note that for this\ntask, we only optimize the scene representation during the\nmapping. Jointly optimizing camera parameters and scene\nrepresentations under dynamic environments is non-trivial,\nand we consider it as an interesting future direction."
+      },
+      {
+        "partId": "scene-scale",
+        "citationId": "nice-slam-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.12130v2",
+        "supportingPassage": "Evaluation on a Larger Scene. To evaluate the scalability of our method we captured a sequence in a large apartment with multiple rooms. Fig. 1 and Fig. 5 show the reconstructions obtained using NICE-SLAM, DI-Fusion [16] and\niMAP∗ [47]. For reference we also show the 3D reconstruction using the offline tool Redwood [10] in Open3D [70].\nWe can see that NICE-SLAM has comparable results with\nthe offline method, while iMAP∗ and DI-Fusion fails to reconstruct the full sequence.\n[Separate literal excerpt from the same retained body]\nLimitations. The predictive ability of our method is restricted to the scale of the coarse representation. In addition, our method does not perform loop closures, which is\nan interesting future direction. Finally, although traditional\nmethods lack some of the features, there is still a performance gap to the learning-based approaches that needs to\nbe closed.\n[Separate literal excerpt from the same retained body]\nof-the-art approaches for tracking (e.g. BAD-SLAM [43],\nORB-SLAM2 [27]) still outperform the methods based on\nimplicit scene representations (iMAP [47] and ours). Nevertheless, our method significantly reduces the gap between\nthese two categories, while retaining the representational\nadvantages of implicit representations."
+      },
+      {
+        "partId": "local-and-global-state",
+        "citationId": "nice-slam-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.12130v2",
+        "supportingPassage": "A.1. Frustum Feature Selection\nThe grid-based representation allows us to only optimize the geometry within the current viewing frustum while\nkeeping the rest of the scene geometry fixed. However,\nnaive optimization for all voxels will affect features even\njust slightly outside the viewing frustum because of trilinear interpolation. This is illustrated in Fig. Aa. The rays\nA and B are viewing rays from the current frame and an\nactive keyframe, respectively. Including these rays in the\noptimization will update the feature at X (marked in the figure) due to trilinear interpolation. However, updating this\nfeature will also affect the ray C coming from an inactive\nkeyframe.\nTo solve the problem, we propose to only update features fully inside the current viewing frustum during the\noptimization, see Fig. Ab. In this way, it will not only preserve the previously reconstructed geometry, but also significantly reduce the number of parameters during optimization.\n[Separate literal excerpt from the same retained body]\n3.4. Keyframe Selection\nSimilar to other SLAM systems, we continuously optimize our hierarchical scene representation with a set of selected keyframes. We maintain a global keyframe list in\nthe same spirit of iMAP [47], where we incrementally add\nnew keyframes based on the information gain. However, in\ncontrast to iMAP [47], we only include keyframes which\n[Separate literal excerpt from the same retained body]\nwhere ω indicates learnable parameters during optimization. Different from the geometry that has strong prior\nknowledge, we empirically found that jointly optimizing the\ncolor features ψω and decoder gω improves the tracking performance (c.f. Table 5). Note that, similarly to iMAP [47],\nthis can lead to forgetting problems and the color is only\nconsistent locally. If we want to visualize the color for\nthe entire scene, it can be optimized globally as a postprocessing step.\n[Separate literal excerpt from the same retained body]\nLimitations. The predictive ability of our method is restricted to the scale of the coarse representation. In addition, our method does not perform loop closures, which is\nan interesting future direction. Finally, although traditional\nmethods lack some of the features, there is still a performance gap to the learning-based approaches that needs to\nbe closed."
+      },
+      {
+        "partId": "timing-setting",
+        "citationId": "nice-slam-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.12130v2",
+        "supportingPassage": "Implementation Details. We run our SLAM system on\na desktop PC with a 3.80GHz Intel i7-10700K CPU and\n[Separate literal excerpt from the same retained body]\nan NVIDIA RTX 3090 GPU. In all our experiments, we\nuse the number of sampling points on a ray Nstrat = 32\nand Nimp = 16, photometric loss weighting λp = 0.2\nand λpt = 0.5. For small-scale synthetic datasets (Replica\nand Co-Fusion), we select K = 5 keyframes and sample M = 1000 and Mt = 200 pixels. For large-scale\nreal datasets (ScanNet and our self-captured scene), we use\nK = 10, M = 5000, Mt = 1000. As for the challenging TUM RGB-D dataset, we use K = 10, M = 5000,\nMt = 5000. For our re-implementation iMAP∗ , we follow\nall the hyperparameters mentioned in [47] except that we\nset the number of sampling pixels to 5000 since it leads to\nbetter performance in both reconstruction and tracking.\n[Separate literal excerpt from the same retained body]\nRuntime. We also compare in Table 4 the runtime for\ntracking and mapping using the same number of pixel samples (Mt = 200 for tracking and M = 1000 for mapping).\nWe can notice that our method is over 2× and 3× faster\nthan iMAP in tracking and mapping. This indicates the advantage of using feature grids with shallow MLP decoders\nover a single heavy MLP.\n[Separate literal excerpt from the same retained body]\nComputation Complexity. First, we compare the num-                                     FLOPs [×103 ]↓ Tracking [ms]↓ Mapping [ms]↓\nber of floating point operations (FLOPs) needed for query-                    iMAP [47]     443.91          101             448\ning color and occupancy/volume density of one 3D point,                       NICE-SLAM     104.16          47              130\nsee Table 4. Our method requires only 1/4 FLOPs of iMAP.               Table 4. Computation & Runtime. Our scene representation\nIt is worth mentioning that FLOPs in our approach remain               does not only improve the reconstruction and tracking quality, but\nthe same even for very large scenes. In contrast, due to the           is also faster. The runtimes for iMAP are taken from [47].\nuse of a single MLP in iMAP, the capacity limit of the MLP\nmight require more parameters that result in more FLOPs."
+      },
+      {
+        "partId": "latency-bound",
+        "citationId": "nice-slam-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2112.12130v2",
+        "supportingPassage": "an NVIDIA RTX 3090 GPU. In all our experiments, we\nuse the number of sampling points on a ray Nstrat = 32\nand Nimp = 16, photometric loss weighting λp = 0.2\nand λpt = 0.5. For small-scale synthetic datasets (Replica\nand Co-Fusion), we select K = 5 keyframes and sample M = 1000 and Mt = 200 pixels. For large-scale\nreal datasets (ScanNet and our self-captured scene), we use\nK = 10, M = 5000, Mt = 1000. As for the challenging TUM RGB-D dataset, we use K = 10, M = 5000,\nMt = 5000. For our re-implementation iMAP∗ , we follow\nall the hyperparameters mentioned in [47] except that we\nset the number of sampling pixels to 5000 since it leads to\nbetter performance in both reconstruction and tracking.\n[Separate literal excerpt from the same retained body]\nRuntime. We also compare in Table 4 the runtime for\ntracking and mapping using the same number of pixel samples (Mt = 200 for tracking and M = 1000 for mapping).\nWe can notice that our method is over 2× and 3× faster\nthan iMAP in tracking and mapping. This indicates the advantage of using feature grids with shallow MLP decoders\nover a single heavy MLP.\n[Separate literal excerpt from the same retained body]\nHere we report detailed hyperparameters of online tracking and mapping used for both NICE-SLAM and iMAP∗ .\nWe perform tracking for every frame and optimize the geometry every fifth frame, except for TUM RGB-D where\nwe optimize the geometry every frame. All parameters are\ntuned to keep a good balance between the accuracy and the\nefficiency.\nNICE-SLAM. For scene geometry optimization, we use a\nmaximum of 60 iterations for all datasets. In terms of tracking, we use 10 iterations for small-scale synthetic datasets\n(Replica and Co-Fusion). For the large-scale real datasets\nincluding ScanNet and our self-captured scene, we use 50"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "decoder-structure",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "Section3.1 names three fixed pretrained occupancy MLPs; fine occupancy uses a residual over mid-level. Appearance uses a separate colour grid and online-optimized decoder, not a fourth fixed pretrained geometry decoder.",
+        "evidenceDigest": "e8abd8304d8141b5d172b45ac0e8de287ea90e2fd337a08efbd80d0f1c625858"
+      },
+      {
+        "partId": "prior-and-input",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "SupplementA5 names ConvONet Synthetic Indoor Scene Dataset; Section3.1 retains only geometry decoder MLPs at runtime while features are fitted; RGB-D observations and intrinsics remain required inputs.",
+        "evidenceDigest": "531ee1b9bcc87b7d9075a1667697f413a183e8358973f93c91a3916161cd7b3d"
+      },
+      {
+        "partId": "tracking-mapping-scope",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "Section3.3 Eq10 and Section4.4 explicitly include local BA with keyframe extrinsics; Fig2 schematic presents scene-only mapping. The claim follows the static-scene formulation, retaining that discrepancy rather than inferring unchanged back-end equivalence. Dynamic Co-Fusion case disables pose optimization, confirmed by supplementA6 zero mapping pose learning rate.",
+        "evidenceDigest": "fa81070ee4720ec16096cf36634addb4f8232f849a2aad9a4cd00c8481707bb1"
+      },
+      {
+        "partId": "scene-scale",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "Section4.2 reports a self-captured multi-room apartment. This demonstrates one bounded scale, not unlimited scenes or universal superiority; Section4.2 still reports better traditional tracking baselines and conclusion limits predictive scale.",
+        "evidenceDigest": "f0c3ed07110b822bfe9423f198b07a53e3b5b935631dff5bc4d01ae48aedffe0"
+      },
+      {
+        "partId": "local-and-global-state",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "SupplementA1 restricts geometry updates to fully inside-frustum features; Section3.4 retains a global keyframe list with local active selection. Colour can forget and is locally consistent, and conclusion explicitly excludes loop closure.",
+        "evidenceDigest": "8fcbd91933dbf9f23267ea866fcf6962346b47d028fdb4534abc1c3249b8c58d"
+      },
+      {
+        "partId": "timing-setting",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "Table4 gives NICE-SLAM47ms tracking/130ms mapping; Section4.3 specifies200/1000 sampled pixels, Section4.1 the Intel i7-10700K/RTX3090. Imported iMAP timings are not a newly matched-hardware comparison.",
+        "evidenceDigest": "0a979ec952ea1079be1773cac1e8176eb18edf2e580f217ee4c35ab8f507e182"
+      },
+      {
+        "partId": "latency-bound",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source-auditor, session 0a9a5dc1-825e-45f6-8459-407c0e4dec18; reviewed 2026-09-08T19:00:12.934Z; not independent acceptance",
+        "rationale": "Section4.1 uses1000/5000 tracking/mapping samples for ScanNet/apartment versus200/1000 for the timing comparison. SupplementA6 uses50 rather than10 tracking iterations and different mapping frequency for TUM. Apartment latency or a universal processing/control rate is not established.",
+        "evidenceDigest": "8213517ebb90e228600480d5b07da8a79b5e996c9834877d7f836f352360a2b4"
+      }
+    ]
   }
 ]
