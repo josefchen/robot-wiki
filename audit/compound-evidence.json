@@ -29604,5 +29604,521 @@
         "evidenceDigest": "b3e4634742df9a1cc14898b02deac398f1cac8cd8b12eecc16b79e81e1616275"
       }
     ]
+  },
+  {
+    "id": "pose-metrics-perception-51-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 51,
+    "originalCellsDigest": "20e0c53dcd6a45f9d61fa31785c6a01bf69a57c50a0d1a22d6e958dd4f8acb97",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "linemod-context",
+        "text": "The paper's detection pipeline is based on the recent LINEMOD approach; this is not field-wide metric-priority proof.",
+        "requiredCitationIds": [
+          "hinterstoisser-2012"
+        ]
+      },
+      {
+        "id": "model-poses",
+        "text": "M is the 3D object model; R,T are ground-truth rotation and translation and tilde R,tilde T are the estimated pose.",
+        "requiredCitationIds": [
+          "hinterstoisser-2012"
+        ]
+      },
+      {
+        "id": "average-corresponding",
+        "text": "Equation (1) averages unsquared distances between the same model point transformed by the two poses.",
+        "requiredCitationIds": [
+          "hinterstoisser-2012"
+        ]
+      },
+      {
+        "id": "inclusive-diameter",
+        "text": "The paper uses k_m*d >= m, with chosen coefficient k_m and diameter d of M, including equality.",
+        "requiredCitationIds": [
+          "hinterstoisser-2012"
+        ]
+      },
+      {
+        "id": "table-setting",
+        "text": "Table 1 reports k_m=0.1 in the paper’s evaluation; no universal threshold is inferred.",
+        "requiredCitationIds": [
+          "hinterstoisser-2012"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+      "planDigest": "d2a6825fc2d7450e5301721fb4c000dab36ed531781b14a990bb8ae0b1b7a2dc",
+      "rationale": "Reviewed every complete AND-part against retained source body, context and exact paired items at 2026-09-08T23:02:53.838Z. Manuscript equations visually read on pages 9–10: unsquared directed mean and inclusive coefficient rule; Table 1 setting and view-dependent ambiguity preserved. No universal metric-priority or VOR/liveness proof."
+    },
+    "evidence": [
+      {
+        "partId": "linemod-context",
+        "citationId": "hinterstoisser-2012",
+        "sourceUrl": "http://www.stefan-hinterstoisser.com/papers/hinterstoisser2012accv.pdf",
+        "supportingPassage": "\n      Abstract. We propose a framework for automatic modeling, detection,\n      and tracking of 3D objects with a Kinect. The detection part is mainly\n      based on the recent template-based LINEMOD approach [1] for object\n      detection. We show how to build the templates automatically from 3D\n      models, and how to estimate the 6 degrees-of-freedom pose accurately\n      and in real-time. The pose estimation and the color information allow\n      us to check the detection hypotheses and improves the correct detec-\n      tion rate by 13% with respect to the original LINEMOD. These many\n      improvements make our framework suitable for object manipulation in\n      Robotics applications. Moreover we propose a new dataset made of 15\n      registered, 1100+ frame video sequences of 15 various objects for the\n      evaluation of future competing methods.\n\n\n\n\nFig. 1. 15 different texture-less 3D objects are simultaneously detected with our ap-\nproach under different poses on heavy cluttered background with partial occlusion.\nEach detected object is augmented with its 3D model. We also show the corresponding\ncoordinate systems.\n\n1     Introduction\nMany current vision applications, such as pedestrian tracking, dense SLAM [2],\nor object detection [1], can be made more robust through the addition of depth\ninformation. In this work, we focus on object detection for Robotics and Ma-\nchine Vision, where it is important to efficiently and robustly detect objects and\n\f2       Stefan Hinterstoisser et al.\n\nestimate their 3D poses, for manipulation or inspection tasks. Our approach\nis based on LINEMOD [1], an efficient method that exploits both depth and\ncolor images to capture the appearance and 3D shape of the object in a set of\ntemplates covering different views of an object. Because the viewpoint of each\ntemplate is known, it provides a coarse estimate of the pose of the object when\nit is detected.\n     However, the initial version of LINEMOD [1] has some disadvantages. First,\ntemplates are learned online, which is difficult to control and results in spotty\ncoverage of viewpoints. Second, the pose output by LINEMOD is only approx-\nimately correct, since a template covers a range of views around its viewpoint.\nAnd finally, the performance of LINEMOD, while extremely good, still suffers\nfrom the presence of false positives.\n     In this paper, we show how to overcome these disadvantages, and create a\nsystem based on LINEMOD for the automatic modeling, detection, and tracking\nof 3D objects with RGBD sensors. Our main insight is that a 3D model of\nthe object can be exploited to remedy these deficiencies. Note that accurate\n3D models can now be created very quickly [2–5], and requiring a 3D model\nbeforehand is not a disadvantage anymore. For industrial applications, a detailed\n3D model often exists before the real object is even created.\n     Given a 3D model of an object, we show how to generate templates that\ncover a full view hemisphere by regularly sampling viewpoints of the 3D model.\nWe also show how the 3D model can be used to obtain a fine estimate of the\nobject pose, starting from the one provided by the templates. Together with a\nsimple test based on color, this allows us to remove false positives, by checking if\nthe object under the recovered pose aligns well with the depth map. Moreover,\nwe show how to define the templates only with the most useful appearance and\ndepth information, which allows us to speed up the template detection stage.\nThe end result is a system that significantly improves the original LINEMOD\nimplementation in performance, while providing accurate pose for applications.\n     In short, we propose a framework that is easy to deploy, reliable, and fast\nenough to run in real-time. We also provide a dataset made of 15 registered,\n1100+ frame video sequences of 15 various objects for the evaluation of future\ncompeting methods. In the remainder of this paper we first discuss related work,\nbriefly describe the approach of LINEMOD, introduce our method, represent our\ndataset and present an exhaustive evaluation.\n"
+      },
+      {
+        "partId": "model-poses",
+        "citationId": "hinterstoisser-2012",
+        "sourceUrl": "http://www.stefan-hinterstoisser.com/papers/hinterstoisser2012accv.pdf",
+        "supportingPassage": "4.1   Robustness\nIn order to evaluate our approach, we first have to define an appropriate matching\nscore for a 3D model M: having the ground truth rotation R and translation\n\f        Model Based Training, Detection and Pose Estimation of 3D Objects                                                                                                     9\n\n\n\n\n                              matching score [%]\n                                                   95\n                                                                                                                        15000\n\n\n\n\n                                                                                                       # of templates\n                                                   90\n                                                                                                                        10000\n                                                   85\n                                                                                                                         5000\n                                                   80\n                                                                                                                              0\n                                             rot      5                                       5\n                                                   atio 10                                                              rot   5\n                                                                                        10        m]                       atio 10                                   5   ]\n                                                       n s 15                      15         p [c                             ns                               10 p [cm\n                                                          am\n                                                             ple 20 25        20          ste                                     am 15 20                   15  ste\n                                                                ste                 m ple                                           ple                 20 mple\n                                                                                  sa                                                    ste 25              sa\n                                                                   p[          le                                                          p[            le\n                                                                     deg\n                                                                        ]   sca                                                               deg\n                                                                                                                                                  ]   sca\n\n\n\n               (a)                                                   (b)                                                                     (c)\nFig. 4. Quality of the detections for drilling machine data set with respect to the\nviewpoint sampling steps. (a) The matching scores for different numbers of vertices (see\nSec. 3.1). A good trade-off between speed and robustness are 162 vertices for the upper\nhemisphere. (b),(c): the matching score decreases if the sample steps increase. We also\ndisplay the number of templates with respect to the sampling steps: we made sure that\nall necessary poses were covered. A good trade-off between speed and robustness is a\nrotation sampling step of 15 degree and a scale sampling step of 10 cm.\n\nApproach         Our Appr. Drost[18] LINEMOD3 LINEMOD1 Our Appr. Drost[18]\nSequence (#pics)               Matching Score                Speed\nApe (1235)        95.8%     86.5%       86.3%    69.4%  127ms      22.7s\nBench Vise (1214) 98.7%     70.7%       98.0%    94.0%  115ms      2.94s\nDriller (1187)    93.6%     87.3%       91.8%    81.3%  121ms      2.65s\nCam (1200)        97.5%     78.6%       93.4%    79.5%  148ms      2.81s\nCan (1195)        95.4%     80.2%       91.3%    79.5%  122ms      1.60s\nIron (1151)       97.5%     84.9%       95.9%    88.8%  116ms      3.18s\nLamp (1226)       97.7%     93.3%       97.5%    89.8%  125ms      2.29s\nPhone (1224)      93.3%     80.7%       88.3%    77.8%  157ms      4.70s\nCat (1178)        99.3%     85.4%       97.9%    88.2%  111ms      7.52s\nHole punch (1236) 95.9%     77.4%       90.5%    78.4%  110ms      8.30s\nDuck (1253)       95.9%     46.0%       91.4%    75.9%  104ms      6.97s\nCup (1239)        97.1%     68.4%       87.9%    80.7%  105ms      16.7s\nBowl (1232)       99.9%     95.7%       99.7%    99.5%  97ms       5.18s\nBox (1252)        99.8%     97.0%       99.8%    99.1%  101ms      2.94s\nGlue (1219)       91.8%     57.2%       80.9%    64.3%  135ms      4.03s\nAverage (18241)   96.6%     79.3%       92.7%    83.0%  119ms       6.3s\n\nTable 1. Recognition rates for km = 0.1. The first column gives the results of our\nmethod using automatically generated templates (see Sec. 3.1). The second and third\ncolumns give recognition numbers if no postprocessing is performed. For the second\ncolumn, we use the best (with respect to the ground truth) out of the first n = 3\ndetections with the highest similarity score. For the third column, we only evaluate the\ndetection with the highest similarity score. In the fourth and fifth column, we give the\naverage runtime of our method and the one of Drost et al. [18] per frame.\n\n\nT and the estimated rotation R̃ and translation T̃, we compute the average\ndistance of all model points x from their transformed versions:\n\n                        m = avg k(Rx + T) − (R̃x + T̃)k .                                                                                                                    (1)\n                             x∈M\n"
+      },
+      {
+        "partId": "average-corresponding",
+        "citationId": "hinterstoisser-2012",
+        "sourceUrl": "http://www.stefan-hinterstoisser.com/papers/hinterstoisser2012accv.pdf",
+        "supportingPassage": "T and the estimated rotation R̃ and translation T̃, we compute the average\ndistance of all model points x from their transformed versions:\n\n                        m = avg k(Rx + T) − (R̃x + T̃)k .                                                                                                                    (1)\n                             x∈M\n"
+      },
+      {
+        "partId": "inclusive-diameter",
+        "citationId": "hinterstoisser-2012",
+        "sourceUrl": "http://www.stefan-hinterstoisser.com/papers/hinterstoisser2012accv.pdf",
+        "supportingPassage": "We say that the model was correctly detected and the pose correctly estimated\nif km d ≥ m where km is a chosen coefficient and d is the diameter of M. We\nstill have to define a matching score measure for objects that are ambiguous or\nhave a subset of views under which they appear to be ambiguous. Such objects\n(”cup”,”bowl”,”box” and ”glue”) are shown in Fig. 6. We define the correspond-\ning matching score as:\n\n                  m = avg min k(Rx1 + T) − (R̃x2 + T̃)k .                     (2)\n                        x1 ∈M x2 ∈M\n\n"
+      },
+      {
+        "partId": "table-setting",
+        "citationId": "hinterstoisser-2012",
+        "sourceUrl": "http://www.stefan-hinterstoisser.com/papers/hinterstoisser2012accv.pdf",
+        "supportingPassage": "\nApproach         Our Appr. Drost[18] LINEMOD3 LINEMOD1 Our Appr. Drost[18]\nSequence (#pics)               Matching Score                Speed\nApe (1235)        95.8%     86.5%       86.3%    69.4%  127ms      22.7s\nBench Vise (1214) 98.7%     70.7%       98.0%    94.0%  115ms      2.94s\nDriller (1187)    93.6%     87.3%       91.8%    81.3%  121ms      2.65s\nCam (1200)        97.5%     78.6%       93.4%    79.5%  148ms      2.81s\nCan (1195)        95.4%     80.2%       91.3%    79.5%  122ms      1.60s\nIron (1151)       97.5%     84.9%       95.9%    88.8%  116ms      3.18s\nLamp (1226)       97.7%     93.3%       97.5%    89.8%  125ms      2.29s\nPhone (1224)      93.3%     80.7%       88.3%    77.8%  157ms      4.70s\nCat (1178)        99.3%     85.4%       97.9%    88.2%  111ms      7.52s\nHole punch (1236) 95.9%     77.4%       90.5%    78.4%  110ms      8.30s\nDuck (1253)       95.9%     46.0%       91.4%    75.9%  104ms      6.97s\nCup (1239)        97.1%     68.4%       87.9%    80.7%  105ms      16.7s\nBowl (1232)       99.9%     95.7%       99.7%    99.5%  97ms       5.18s\nBox (1252)        99.8%     97.0%       99.8%    99.1%  101ms      2.94s\nGlue (1219)       91.8%     57.2%       80.9%    64.3%  135ms      4.03s\nAverage (18241)   96.6%     79.3%       92.7%    83.0%  119ms       6.3s\n\nTable 1. Recognition rates for km = 0.1. The first column gives the results of our\nmethod using automatically generated templates (see Sec. 3.1). The second and third\ncolumns give recognition numbers if no postprocessing is performed. For the second\ncolumn, we use the best (with respect to the ground truth) out of the first n = 3\ndetections with the highest similarity score. For the third column, we only evaluate the\ndetection with the highest similarity score. In the fourth and fifth column, we give the\naverage runtime of our method and the one of Drost et al. [18] per frame.\n\n\nT and the estimated rotation R̃ and translation T̃, we compute the average\ndistance of all model points x from their transformed versions:\n\n                        m = avg k(Rx + T) − (R̃x + T̃)k .                                                                                                                    (1)\n                             x∈M\n\f10     Stefan Hinterstoisser et al.\n\nWe say that the model was correctly detected and the pose correctly estimated\nif km d ≥ m where km is a chosen coefficient and d is the diameter of M. We\nstill have to define a matching score measure for objects that are ambiguous or\nhave a subset of views under which they appear to be ambiguous. Such objects\n(”cup”,”bowl”,”box” and ”glue”) are shown in Fig. 6. We define the correspond-\ning matching score as:\n\n                  m = avg min k(Rx1 + T) − (R̃x2 + T̃)k .                     (2)\n                        x1 ∈M x2 ∈M\n\n\nSince it was already shown in [29] that LINEMOD outperforms DOT [14],\nHOG [30], TLD [26] and the method of Steger et al. [13], we evaluate our new\npipeline with the approach of Drost et al. [18]. This approach – contrary to\nthe before mentioned ones – does not only perform detection but also pose es-\ntimation of general 3D objects. For our experiments, we set n = 3 and used\nthe optimal training parameters as described in Sec. 4.3. As one can see in the\ngraphs shown in Fig. 5 and 6, our new approach outperforms Drost et al. [18].\n    In addition, we compared the output of our new pipeline to the detection\nresults of LINEMOD. For the latter, we simply used the pose composed by the\nrotation under which the detected template was created and the translation\ncoming from the depth map. Here, we evaluated two strategies: for the first\none, we only took the pose of the detected template whose similarity score was\nlargest (LINEMOD1). Since our new pipeline evaluates several hypotheses, we\nalso added curves where we took the best pose with respect to the ground truth\none out of the three best detected templates (LINEMOD3). For both cases, we\ncan see that our new pipeline drastically increases the recognition performance.\n    We also show the matching results for km = 0.1 in Table 1. Matches with\nkm = 0.1 are also found visually correct. In this table, we see that our new\npipeline outperforms the approach of Drost et al. [18] by average 17.3% and\nimproves the recognition results by average 13% w.r.t. the original LINEMOD.\n    Furthermore, we also evaluated our new approach on the ape, duck and\ncup dataset of [1] where we compared our automatically trained LINEMOD\nagainst the manually learned LINEMOD.Our new pipeline obtains almost no\nfalse positves and a superior true positive rate of 98.7% for the cup sequence\n(compared to [1]: 96.8%), 98.2% for the ape sequence (compared to [1]: 97.9%)\nand 99.5% for the duck sequence (compared to [1]: 97.9).\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "linemod-context",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: The paper's detection pipeline is based on the recent LINEMOD approach; this is not field-wide metric-priority proof. Exact paired passages in the retained author manuscript support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "7b49eea8c82e654a57821a9719b27432d60e5bc5cd0b25e80e0bd5ec9853b69b"
+      },
+      {
+        "partId": "model-poses",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: M is the 3D object model; R,T are ground-truth rotation and translation and tilde R,tilde T are the estimated pose. Exact paired passages in the retained author manuscript support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "7ba80be90b01e41821b56a25738777784799ad12a42c38f9b26a5ffb170afbcd"
+      },
+      {
+        "partId": "average-corresponding",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: Equation (1) averages unsquared distances between the same model point transformed by the two poses. Exact paired passages in the retained author manuscript support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "11cf38a58bfe6986d8370cf4fd4ba4caabca9f9a3e39ec96a44799d2aefe6fff"
+      },
+      {
+        "partId": "inclusive-diameter",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: The paper uses k_m*d >= m, with chosen coefficient k_m and diameter d of M, including equality. Exact paired passages in the retained author manuscript support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "dcf30376ba0f75026eb376faccfe04a30d1ab112dd8a183fdf40e4af473606c1"
+      },
+      {
+        "partId": "table-setting",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: Table 1 reports k_m=0.1 in the paper’s evaluation; no universal threshold is inferred. Exact paired passages in the retained author manuscript support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "d011a89ae509af4eef477f01ea8f0ba29e30c262a1c55959d53d2be0f2bb218e"
+      }
+    ]
+  },
+  {
+    "id": "pose-metrics-perception-52-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 52,
+    "originalCellsDigest": "9a98dd8feba91f2b70abd6760819da6c8d1f6a9b70c63b5019ae006b8d30d375",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "nearest-neighbour",
+        "text": "Equation (2) averages over ground-truth-transformed x_1, minimizes over estimated-pose-transformed x_2, and uses model points from M.",
+        "requiredCitationIds": [
+          "hinterstoisser-2012"
+        ]
+      },
+      {
+        "id": "ambiguous-view-context",
+        "text": "The rule is introduced for ambiguous objects or objects ambiguous under a subset of views, not a universal camera-indistinguishability theorem.",
+        "requiredCitationIds": [
+          "hinterstoisser-2012"
+        ]
+      },
+      {
+        "id": "named-objects",
+        "text": "The paper names cup, bowl, box and glue; the point-set score and chosen threshold do not assert that all such rotations pass.",
+        "requiredCitationIds": [
+          "hinterstoisser-2012"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+      "planDigest": "f0199b07c634a0fc17a1f276b9094926c2cf4fb8543382b1fce6dcdb0ad3f231",
+      "rationale": "Reviewed every complete AND-part against retained source body, context and exact paired items at 2026-09-08T23:02:53.838Z. Manuscript equations visually read on pages 9–10: unsquared directed mean and inclusive coefficient rule; Table 1 setting and view-dependent ambiguity preserved. No universal metric-priority or VOR/liveness proof."
+    },
+    "evidence": [
+      {
+        "partId": "nearest-neighbour",
+        "citationId": "hinterstoisser-2012",
+        "sourceUrl": "http://www.stefan-hinterstoisser.com/papers/hinterstoisser2012accv.pdf",
+        "supportingPassage": "4.1   Robustness\nIn order to evaluate our approach, we first have to define an appropriate matching\nscore for a 3D model M: having the ground truth rotation R and translation\n\f        Model Based Training, Detection and Pose Estimation of 3D Objects                                                                                                     9\n\n\n\n\n                              matching score [%]\n                                                   95\n                                                                                                                        15000\n\n\n\n\n                                                                                                       # of templates\n                                                   90\n                                                                                                                        10000\n                                                   85\n                                                                                                                         5000\n                                                   80\n                                                                                                                              0\n                                             rot      5                                       5\n                                                   atio 10                                                              rot   5\n                                                                                        10        m]                       atio 10                                   5   ]\n                                                       n s 15                      15         p [c                             ns                               10 p [cm\n                                                          am\n                                                             ple 20 25        20          ste                                     am 15 20                   15  ste\n                                                                ste                 m ple                                           ple                 20 mple\n                                                                                  sa                                                    ste 25              sa\n                                                                   p[          le                                                          p[            le\n                                                                     deg\n                                                                        ]   sca                                                               deg\n                                                                                                                                                  ]   sca\n\n\n\n               (a)                                                   (b)                                                                     (c)\nFig. 4. Quality of the detections for drilling machine data set with respect to the\nviewpoint sampling steps. (a) The matching scores for different numbers of vertices (see\nSec. 3.1). A good trade-off between speed and robustness are 162 vertices for the upper\nhemisphere. (b),(c): the matching score decreases if the sample steps increase. We also\ndisplay the number of templates with respect to the sampling steps: we made sure that\nall necessary poses were covered. A good trade-off between speed and robustness is a\nrotation sampling step of 15 degree and a scale sampling step of 10 cm.\n\nApproach         Our Appr. Drost[18] LINEMOD3 LINEMOD1 Our Appr. Drost[18]\nSequence (#pics)               Matching Score                Speed\nApe (1235)        95.8%     86.5%       86.3%    69.4%  127ms      22.7s\nBench Vise (1214) 98.7%     70.7%       98.0%    94.0%  115ms      2.94s\nDriller (1187)    93.6%     87.3%       91.8%    81.3%  121ms      2.65s\nCam (1200)        97.5%     78.6%       93.4%    79.5%  148ms      2.81s\nCan (1195)        95.4%     80.2%       91.3%    79.5%  122ms      1.60s\nIron (1151)       97.5%     84.9%       95.9%    88.8%  116ms      3.18s\nLamp (1226)       97.7%     93.3%       97.5%    89.8%  125ms      2.29s\nPhone (1224)      93.3%     80.7%       88.3%    77.8%  157ms      4.70s\nCat (1178)        99.3%     85.4%       97.9%    88.2%  111ms      7.52s\nHole punch (1236) 95.9%     77.4%       90.5%    78.4%  110ms      8.30s\nDuck (1253)       95.9%     46.0%       91.4%    75.9%  104ms      6.97s\nCup (1239)        97.1%     68.4%       87.9%    80.7%  105ms      16.7s\nBowl (1232)       99.9%     95.7%       99.7%    99.5%  97ms       5.18s\nBox (1252)        99.8%     97.0%       99.8%    99.1%  101ms      2.94s\nGlue (1219)       91.8%     57.2%       80.9%    64.3%  135ms      4.03s\nAverage (18241)   96.6%     79.3%       92.7%    83.0%  119ms       6.3s\n\nTable 1. Recognition rates for km = 0.1. The first column gives the results of our\nmethod using automatically generated templates (see Sec. 3.1). The second and third\ncolumns give recognition numbers if no postprocessing is performed. For the second\ncolumn, we use the best (with respect to the ground truth) out of the first n = 3\ndetections with the highest similarity score. For the third column, we only evaluate the\ndetection with the highest similarity score. In the fourth and fifth column, we give the\naverage runtime of our method and the one of Drost et al. [18] per frame.\n\n\nT and the estimated rotation R̃ and translation T̃, we compute the average\ndistance of all model points x from their transformed versions:\n\n                        m = avg k(Rx + T) − (R̃x + T̃)k .                                                                                                                    (1)\n                             x∈M\n\f10     Stefan Hinterstoisser et al.\n\nWe say that the model was correctly detected and the pose correctly estimated\nif km d ≥ m where km is a chosen coefficient and d is the diameter of M. We\nstill have to define a matching score measure for objects that are ambiguous or\nhave a subset of views under which they appear to be ambiguous. Such objects\n(”cup”,”bowl”,”box” and ”glue”) are shown in Fig. 6. We define the correspond-\ning matching score as:\n\n                  m = avg min k(Rx1 + T) − (R̃x2 + T̃)k .                     (2)\n                        x1 ∈M x2 ∈M\n\n"
+      },
+      {
+        "partId": "ambiguous-view-context",
+        "citationId": "hinterstoisser-2012",
+        "sourceUrl": "http://www.stefan-hinterstoisser.com/papers/hinterstoisser2012accv.pdf",
+        "supportingPassage": "We say that the model was correctly detected and the pose correctly estimated\nif km d ≥ m where km is a chosen coefficient and d is the diameter of M. We\nstill have to define a matching score measure for objects that are ambiguous or\nhave a subset of views under which they appear to be ambiguous. Such objects\n(”cup”,”bowl”,”box” and ”glue”) are shown in Fig. 6. We define the correspond-\ning matching score as:\n\n                  m = avg min k(Rx1 + T) − (R̃x2 + T̃)k .                     (2)\n                        x1 ∈M x2 ∈M\n\n"
+      },
+      {
+        "partId": "named-objects",
+        "citationId": "hinterstoisser-2012",
+        "sourceUrl": "http://www.stefan-hinterstoisser.com/papers/hinterstoisser2012accv.pdf",
+        "supportingPassage": "We say that the model was correctly detected and the pose correctly estimated\nif km d ≥ m where km is a chosen coefficient and d is the diameter of M. We\nstill have to define a matching score measure for objects that are ambiguous or\nhave a subset of views under which they appear to be ambiguous. Such objects\n(”cup”,”bowl”,”box” and ”glue”) are shown in Fig. 6. We define the correspond-\ning matching score as:\n\n                  m = avg min k(Rx1 + T) − (R̃x2 + T̃)k .                     (2)\n                        x1 ∈M x2 ∈M\n\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "nearest-neighbour",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: Equation (2) averages over ground-truth-transformed x_1, minimizes over estimated-pose-transformed x_2, and uses model points from M. Exact paired passages in the retained author manuscript support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "5f5f28932b51ccbea0d2c827bf4e6be359711659933fcff94970d91c5d870812"
+      },
+      {
+        "partId": "ambiguous-view-context",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: The rule is introduced for ambiguous objects or objects ambiguous under a subset of views, not a universal camera-indistinguishability theorem. Exact paired passages in the retained author manuscript support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "ea32b79f83be21ffde3a46440df4d9c656116db09627193795e0b8c89aca15de"
+      },
+      {
+        "partId": "named-objects",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: The paper names cup, bowl, box and glue; the point-set score and chosen threshold do not assert that all such rotations pass. Exact paired passages in the retained author manuscript support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "bda14a8aef333dc325b332866969c026d77f56ff73a3258f00f189b57a03e036"
+      }
+    ]
+  },
+  {
+    "id": "classical-perception-bop-53-v1",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 53,
+    "originalCellsDigest": "33dde6d57e117c11504fac25fd38d11bf5e1de74b3e71ac51faf5c197a42b94e",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "aggregate",
+        "text": "AR_C combines threshold-averaged VSD, MSSD and MSPD recalls per dataset, then averages over seven core datasets.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      },
+      {
+        "id": "seen-protocol",
+        "text": "Seen-object localisation provides models and training images and known instance counts at test time.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      },
+      {
+        "id": "datasets",
+        "text": "The seven core datasets are LM-O, T-LESS, ITODD, HB, YCB-V, TUD-L and IC-BIN.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      },
+      {
+        "id": "retrospective",
+        "text": "The report describes a greater-than-50% relative improvement from 56.9 to 85.6, associating Vidal with 2017 and GPose with 2023.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      },
+      {
+        "id": "vidal-setting",
+        "text": "The Vidal-Sensors18 row reports 56.9 with a 2019 submission label and depth/PPF/ICP setting.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      },
+      {
+        "id": "gpose-setting",
+        "text": "The GPose2023 entry reports 85.6 using its distinct RGB-D DNN setting.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      },
+      {
+        "id": "year-and-unit",
+        "text": "Table 2 labels Year as submission year and its numerical scores as AR_C.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+      "planDigest": "15bdbd05eee8b56002afd77c0277458921b2eb01ce7e93de2f4d438bd680f0bf",
+      "rationale": "Reviewed every complete AND-part against retained source body, context and exact paired items at 2026-09-08T23:02:53.838Z. Full v1 protocol, AP_C counterfootnote, Figure 1 and exact Table 2/3 entry joins checked. Historical label distinctions, recall aggregation, training/onboarding and reported timing limits preserved; abstract shorthand does not establish identical scores."
+    },
+    "evidence": [
+      {
+        "partId": "aggregate",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "Evaluation methodology: The error of an estimated pose w.r.t. the ground-truth pose is calculated by three pose-error functions (see Section 2.2 of [26] for details): (1) VSD (Visible Surface Discrepancy) which treats indistinguishable poses as equivalent by considering only the visible object part, (2) MSSD (Maximum Symmetry-Aware Surface Distance) which considers a set of pre-identified global object symmetries and measures the surface deviation in 3D, (3) MSPD (Maximum Symmetry-Aware Projection Distance) which considers the object symmetries and measures the perceivable deviation.\nAn estimated pose is considered correct w.r.t. a pose-error function e, if e<\\theta_{e}, where e\\in\\{\\text{VSD},\\text{MSSD},\\text{MSPD}\\} and \\theta_{e} is the threshold of correctness. The fraction of annotated object instances for which a correct pose is estimated is referred to as Recall. The Average Recall w.r.t. a function e, denoted as \\text{AR}_{e}, is defined as the average of the Recall rates calculated for multiple settings of the threshold \\theta_{e} and also for multiple settings of a misalignment tolerance \\tau in the case of VSD. The accuracy of a method on a dataset D is measured by: \\text{AR}_{D}=(\\text{AR}_{\\text{VSD}}+\\text{AR}_{\\text{MSSD}}+\\text{AR}_{\\text{MSPD}})\\,/\\,3, which is calculated over estimated poses of all objects from D. The overall accuracy on the core datasets is measured by \\text{AR}_{C} defined as the average of the per-dataset \\text{AR}_{D} scores (see Section 2.4 of [26] for details).44 4 When calculating ARC, scores are not averaged over objects before averaging over datasets, which is done when calculating \\text{AP}_{C} (Sec. 2.2) to comply with the original COCO evaluation methodology [37]."
+      },
+      {
+        "partId": "seen-protocol",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "Training input: At training time, a method is provided a set of RGB-D training images showing objects annotated with ground-truth 6D poses, and 3D mesh models of the objects (typically with a color texture). A 6D pose is defined by a matrix \\textbf{P}=[\\mathbf{R}\\,|\\,\\mathbf{t}], where \\mathbf{R} is a 3D rotation matrix, and \\mathbf{t} is a 3D translation vector. The matrix P defines a rigid transformation from the 3D space of the object model to the 3D space of the camera.\nTest input: At test time, the method is given an RGB-D image unseen during training and a list L=[(o_{1},n_{1}), \\dots, (o_{m},n_{m})], where n_{i} is the number of instances of object o_{i} visible in the image. In 2023, methods could use provided default detections (results of GDRNPPDet_PBRReal, the best 2D detection method from 2022 for Task 2).\nTest output: The method produces a list E=[E_{1},\\dots,E_{m}], where E_{i} is a list of n_{i} pose estimates with confidences for instances of object o_{i}."
+      },
+      {
+        "partId": "datasets",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "BOP currently includes twelve datasets in a unified format. Sample test images are in Fig. 3 and dataset parameters in Tab. 1. Seven from the twelve were selected as core datasets: LM-O, T-LESS, ITODD, HB, YCB-V, TUD-L, IC-BIN. Since 2019, methods must be evaluated on all of these core datasets to be considered for the main challenge awards (Sec. 5)."
+      },
+      {
+        "partId": "retrospective",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "Figure 1: Progress in model-based 6D object localization (2017–2023). Shown is the accuracy and run-time of the top performing RGB-D methods on the seven core BOP datasets. The dominance of methods based on point-pair features [11], represented by Vidal et al. [61] in 2017, was ended by the learning-based CosyPose [33] in 2020 for the price of a significantly higher run-time. In 2022, GDRNPP [62, 40] dramatically improved both accuracy and run-time. Finally, in 2023, GPose [1] brought the run-time back to the 2017 level while further improving the accuracy. The field has come a long way since 2017 – the accuracy has improved by more than 50% (from 56.9 to 85.6 ARC). GenFlow [41], the best method for the newly introduced task of 6D localization of unseen objects (objects not seen during training), reaches the accuracy of CosyPose, the best 2020 method for seen objects, while its runtime awaits improvements."
+      },
+      {
+        "partId": "vidal-setting",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "45 | Vidal-Sensors18 [61] | 2019 | PPF | – | – | ICP | – | – | D | 58.2 | 53.8 | 87.6 | 39.3 | 43.5 | 70.6 | 45.0 | 56.9 | 3.22"
+      },
+      {
+        "partId": "gpose-setting",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "1 | GPose2023 [62, 40] | 2023 | DNN | Object | Custom | {\\tiny\\sim}Coord-guided | RGB-D | PBR+real | RGB-D | 79.4 | 91.4 | 96.4 | 73.7 | 70.4 | 95.0 | 92.8 | 85.6 | 2.67"
+      },
+      {
+        "partId": "year-and-unit",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "Table 2: 6D localization of seen objects (Task 1) on the seven core datasets. The methods are ranked by the \\text{AR}_{C} score which is the average of the per-dataset \\text{AR}_{D} scores defined in Sec. 2.1. The last column shows the average image processing time (in seconds). Column Year is the year of submission, Type indicates whether the method relies on deep neural networks (DNN’s) or point pair features (PPF’s), DNN per… shows how many DNN models were trained, Det./seg. is the object detection or segmentation method, Refinement is the pose refinement method, Train im. and Test im. show image channels used at training and test time respectively, and Train im. type is the domain of training images. All test images are real."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "aggregate",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: AR_C combines threshold-averaged VSD, MSSD and MSPD recalls per dataset, then averages over seven core datasets. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "31d2be60a7ed678eaa36b7ee21fe87513f4bfcec7a4569e8a1ea9e8e6b48e28f"
+      },
+      {
+        "partId": "seen-protocol",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: Seen-object localisation provides models and training images and known instance counts at test time. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "d48f110653d8daf5a9cb54f74c72bf5a684a280634b6ae1cc1b64e71fdbdf17f"
+      },
+      {
+        "partId": "datasets",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: The seven core datasets are LM-O, T-LESS, ITODD, HB, YCB-V, TUD-L and IC-BIN. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "0696a9e4f04a8d7687e5928d282a51d768828703201b911cd077c8a3b06c1ef8"
+      },
+      {
+        "partId": "retrospective",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: The report describes a greater-than-50% relative improvement from 56.9 to 85.6, associating Vidal with 2017 and GPose with 2023. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "30d1e9410a116cf99743255abbb3568a4f8f0c6b519875c7860c4a70511602fc"
+      },
+      {
+        "partId": "vidal-setting",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: The Vidal-Sensors18 row reports 56.9 with a 2019 submission label and depth/PPF/ICP setting. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "b267826a485a9af31556981b9c58288ffba25ac246ff6f0918528beda7859fdf"
+      },
+      {
+        "partId": "gpose-setting",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: The GPose2023 entry reports 85.6 using its distinct RGB-D DNN setting. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "3afc08ff26f69825b443b5d7c84460b430286e4de13719fab1d4aa2b87ef7f23"
+      },
+      {
+        "partId": "year-and-unit",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: Table 2 labels Year as submission year and its numerical scores as AR_C. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "7c6a40f0cc812a2762943d8bb506347f4323258a71469309f565fe0d6763b103"
+      }
+    ]
+  },
+  {
+    "id": "classical-perception-bop-54-v1",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 54,
+    "originalCellsDigest": "0420da93bcf9acec2281e37bec221b839b9d24168e304df27f270c41fd2737bb",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "unseen-onboarding",
+        "text": "Unseen test objects are provided as 3D mesh models for at most five minutes per object on one GPU, without real object images for onboarding.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      },
+      {
+        "id": "same-evaluation",
+        "text": "Unseen localisation uses the Task 1 output format and evaluation methodology.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      },
+      {
+        "id": "comparable",
+        "text": "Section 4.4 explicitly calls the best GenFlow result comparable to the best 2020 seen-object CosyPose.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      },
+      {
+        "id": "genflow-setting",
+        "text": "Task 4 GenFlow-MultiHypo16 reports 67.4 and 34.58 seconds with CNOS-fastSAM, PBR and RGB-D inputs.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      },
+      {
+        "id": "cosypose-setting",
+        "text": "Task 1 CosyPose-ECCV20-SYNT+REAL-ICP reports 69.8 and 13.74 seconds with its PBR+real, RGB/RGB-D and ICP setting.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      },
+      {
+        "id": "unseen-aggregation-time",
+        "text": "Table 3 compares seven-core-dataset AR_C and average image-processing time in seconds.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      },
+      {
+        "id": "seen-aggregation-time",
+        "text": "Table 2 states the aggregation, submission-year and average-image-processing-time units.",
+        "requiredCitationIds": [
+          "bop-challenge-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+      "planDigest": "612741fc88daf6c6649168f3603efde52c2d40a479d84214d5f2c17f2f775f35",
+      "rationale": "Reviewed every complete AND-part against retained source body, context and exact paired items at 2026-09-08T23:02:53.838Z. Full v1 protocol, AP_C counterfootnote, Figure 1 and exact Table 2/3 entry joins checked. Historical label distinctions, recall aggregation, training/onboarding and reported timing limits preserved; abstract shorthand does not establish identical scores."
+    },
+    "evidence": [
+      {
+        "partId": "unseen-onboarding",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "Object-onboarding input: The method is provided 3D mesh models of test objects that were not seen during training. To onboard each object (e.g. to render images/templates or fine-tune a neural network), the method can spend up to 5 minutes of the wall-clock time on a computer with a single GPU. The time is measured from the point right after the raw data (e.g. 3D mesh models) is loaded to the point when the object is onboarded. The method can render images of the 3D object models but cannot use any real images of the objects for onboarding. The object representation (which may be given by a set of templates, an machine-learning model, etc.) needs to be fixed after onboarding (it cannot be updated on test images)."
+      },
+      {
+        "partId": "same-evaluation",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "Test output: As in Task 1.\nEvaluation methodology: As in Task 1."
+      },
+      {
+        "partId": "comparable",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "GenFlow-MultiHypo16 (#1), the best method for 6D localization of unseen objects, reaches 67.4 ARC. This is a remarkable result since the performance is comparable to CosyPose [33], the best method in 6D localization of seen objects from 2020. GenFlow improves the coarse pose estimation stage of MegaPose by running the coarse network in a GMM-based hierarchical manner. For pose refinement, GenFlow adapts the recurrent flow network [14] to also estimate a visibility mask and replaces the pose regression network with a differentiable PnP solver."
+      },
+      {
+        "partId": "genflow-setting",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "1 | GenFlow-MultiHypo16 [41] | 2023 | DNN | All | CNOS-fastSAM | Recurrent Flow | RGB-D | PBR | RGB-D | 63.5 | 52.1 | 86.2 | 53.4 | 55.4 | 77.9 | 83.3 | 67.4 | 34.58"
+      },
+      {
+        "partId": "cosypose-setting",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "30 | CosyPose-ECCV20-SYNT+REAL-ICP [33] | 2020 | DNN | Dataset | Default (synt+real) | DeepIM+ICP | RGB | PBR+real | RGB-D | 71.4 | 70.1 | 93.9 | 64.7 | 31.3 | 71.2 | 86.1 | 69.8 | 13.74"
+      },
+      {
+        "partId": "unseen-aggregation-time",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "Table 3: 6D localization of unseen objects (Task 4) on the seven core datasets. The methods are ranked by the \\text{AR}_{C} score which is the average of the per-dataset \\text{AR}_{D} scores defined in Sec. 2.4. The last column shows the average image processing time (in seconds). Other columns as in Tab. 2."
+      },
+      {
+        "partId": "seen-aggregation-time",
+        "citationId": "bop-challenge-2023",
+        "sourceUrl": "https://arxiv.org/html/2403.09799v1",
+        "supportingPassage": "Table 2: 6D localization of seen objects (Task 1) on the seven core datasets. The methods are ranked by the \\text{AR}_{C} score which is the average of the per-dataset \\text{AR}_{D} scores defined in Sec. 2.1. The last column shows the average image processing time (in seconds). Column Year is the year of submission, Type indicates whether the method relies on deep neural networks (DNN’s) or point pair features (PPF’s), DNN per… shows how many DNN models were trained, Det./seg. is the object detection or segmentation method, Refinement is the pose refinement method, Train im. and Test im. show image channels used at training and test time respectively, and Train im. type is the domain of training images. All test images are real."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "unseen-onboarding",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: Unseen test objects are provided as 3D mesh models for at most five minutes per object on one GPU, without real object images for onboarding. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "e928ca7f38d73317971c73e927bed9ec3921737ee6169f4ecb34978d8439c628"
+      },
+      {
+        "partId": "same-evaluation",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: Unseen localisation uses the Task 1 output format and evaluation methodology. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "e3ab4e5d50f8d5df15ff85d5f0ea9d3aeaa467a94ec504e7a5b2509a01de0c82"
+      },
+      {
+        "partId": "comparable",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: Section 4.4 explicitly calls the best GenFlow result comparable to the best 2020 seen-object CosyPose. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "a7197674686c39473c5b44d1622a5ac81bc1c1c32c4fae7d81c269ea51f98e8b"
+      },
+      {
+        "partId": "genflow-setting",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: Task 4 GenFlow-MultiHypo16 reports 67.4 and 34.58 seconds with CNOS-fastSAM, PBR and RGB-D inputs. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "b843d5cc4f8cc245b5e1489df525cefa6c097293c19971c9eb206fe1c250b168"
+      },
+      {
+        "partId": "cosypose-setting",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: Task 1 CosyPose-ECCV20-SYNT+REAL-ICP reports 69.8 and 13.74 seconds with its PBR+real, RGB/RGB-D and ICP setting. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "be6cb756d40393b20c3358837fa3a0a53d3762f5b2bfa60c69140f0f48f00682"
+      },
+      {
+        "partId": "unseen-aggregation-time",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: Table 3 compares seven-core-dataset AR_C and average image-processing time in seconds. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "5fa61cb53e26f4f065dc285efea862ba39f1640c9db10a312dbd53fbe000e238"
+      },
+      {
+        "partId": "seen-aggregation-time",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z",
+        "rationale": "Reviewed this required part: Table 2 states the aggregation, submission-year and average-image-processing-time units. Exact paired passages in the retained BOP v1 full body support the current source-scoped correction; source and countercontext are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json. Review does not certify canonical liveness or independent acceptance.",
+        "evidenceDigest": "24f8140fd1c435e9407b9e048b5e1fcbb966a6c6a92a1aee141fb9a19fe6398b"
+      }
+    ]
   }
 ]

@@ -415,3 +415,80 @@ test.describe('classical perception module', () => {
     expect(pageErrors).toEqual([]);
   });
 });
+
+
+for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 }]) {
+  test(`pose source corrections render at ${viewport.width}px`, async ({ page }, testInfo) => {
+    const errors: string[] = [];
+    const denied: string[] = [];
+    page.on('pageerror', error => errors.push(error.message));
+    page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
+    await page.context().route('**/*', route => {
+      const url = new URL(route.request().url());
+      if (['localhost', '127.0.0.1', '[::1]'].includes(url.hostname)) return route.continue();
+      denied.push(url.href);
+      return route.abort();
+    });
+    await page.context().addInitScript(() => {
+      const install = () => {
+        if (!document.documentElement) return;
+        const style = document.createElement('style');
+        style.textContent = '*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}';
+        document.documentElement.appendChild(style);
+        observer.disconnect();
+      };
+      const observer = new MutationObserver(install);
+      observer.observe(document, { childList: true, subtree: true });
+      install();
+    });
+    await page.setViewportSize(viewport);
+    const response = await page.goto(ROUTE);
+    expect(response?.status()).toBe(200);
+    await page.evaluate(async () => { await document.fonts.ready; await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))); });
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    await expect(prose).toContainText('Equality counts as correct');
+    await expect(prose).toContainText('strict correctness test');
+    await expect(prose).toContainText('0 to 100 scale');
+    await expect(prose).toContainText('comparable, not identical');
+    await expect(prose).not.toContainText('Three years erased');
+    await expect(prose.locator('[data-cite-id="hinterstoisser-2012"]')).toHaveCount(4);
+    await expect(prose.locator('[data-cite-id="bop-challenge-2023"]')).toHaveCount(3);
+    const formulas = page.locator('.katex-display').filter({ hasText: /operatorname.*avg/ });
+    await expect(formulas).toHaveCount(2);
+    for (let i = 0; i < 2; i++) {
+      await formulas.nth(i).scrollIntoViewIfNeeded();
+      await expect(formulas.nth(i)).toBeVisible();
+      await page.screenshot({ path: testInfo.outputPath(`equation-${i + 1}.png`), animations: 'disabled' });
+    }
+    const tex = await prose.locator('annotation').allTextContents();
+    expect(tex.some(value => value.includes('m \\leq k_m d'))).toBe(true);
+    expect(tex.some(value => value.includes('e < \\theta_e'))).toBe(true);
+    const term = prose.locator('[data-term-id="add-s-metric"]');
+    await term.locator('a, button').first().focus();
+    await expect(term.locator('[role="tooltip"]')).toBeVisible();
+    await expect(term.locator('[role="tooltip"]')).not.toContainText('BOP');
+    await page.screenshot({ path: testInfo.outputPath('glossary.png'), animations: 'disabled' });
+    await page.keyboard.press('Tab');
+    const bop = prose.locator('p').filter({ hasText: 'The BOP Challenge 2023 report uses' });
+    await bop.scrollIntoViewIfNeeded();
+    await page.screenshot({ path: testInfo.outputPath('bop-protocol.png'), animations: 'disabled' });
+    for (const [id, authors] of [
+      ['hinterstoisser-2012', ['Stefan Hinterstoisser', 'Vincent Lepetit', 'Slobodan Ilic', 'Stefan Holzer', 'Gary Bradski', 'Kurt Konolige', 'Nassir Navab']],
+      ['bop-challenge-2023', ['Tomas Hodan', 'Martin Sundermeyer', 'Yann Labbé', 'Van Nguyen Nguyen', 'Gu Wang', 'Eric Brachmann', 'Bertram Drost', 'Vincent Lepetit', 'Carsten Rother', 'Jiri Matas']],
+    ] as const) {
+      const reference = page.locator(`ol [data-reference-id="${id}"]`);
+      const expand = reference.getByRole('button', { name: /Show all/ });
+      if (await expand.count()) await expand.click();
+      const text = await reference.innerText();
+      let previous = -1;
+      for (const author of authors) { const index = text.indexOf(author); expect(index).toBeGreaterThan(previous); previous = index; }
+      await reference.scrollIntoViewIfNeeded();
+      await page.screenshot({ path: testInfo.outputPath(`${id}-byline.png`), animations: 'disabled' });
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);
+    expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+    expect(errors).toEqual([]);
+    expect(denied).toEqual([]);
+    await testInfo.attach('reader-state', { body: JSON.stringify({ url: page.url(), viewport, errors, denied, tex, fonts: await page.evaluate(() => document.fonts.status) }), contentType: 'application/json' });
+  });
+}

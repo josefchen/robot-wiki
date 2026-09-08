@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 7
 - Claim rows: 187
-- Recorded verified: 144
-- Recorded corrected: 43
+- Recorded verified: 140
+- Recorded corrected: 47
 - Recorded cut: 0
 - Recorded source inconsistencies: 0
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 42
-- Incomplete evidence records: 145
+- Complete evidence records: 46
+- Incomplete evidence records: 141
 
 <!-- audit-summary:end -->
 
@@ -330,10 +330,10 @@ this ledger's conventions.
 | YCB-Video: 21 objects, 92 videos, 133,827 frames | posecnn-2018 (abs, verbatim: "accurate 6D poses of 21 objects from the YCB dataset observed in 92 videos with 133,827 frames") | V |
 | MegaPose estimates novel-object pose by render-and-compare against a CAD model supplied at test time | megapose-2022 (abs: "At inference time, the method only assumes knowledge of (i) a region of interest... and (ii) a CAD model of the observed object... a 6D pose refiner based on a render&compare strategy") | V |
 | FoundationPose unifies model-based and model-free operation: CAD model or a handful of reference images, comparable to instance-level methods despite assuming less | foundationpose-2024 (abs: "supporting both model-based and model-free setups... as long as its CAD model is given, or a small number of reference images are captured... achieves comparable results to instance-level methods despite the reduced assumptions") | V |
-| ADD comes from the LINEMOD work: average the distance between corresponding model points under the estimated and true pose, correct below a fraction of the object's diameter | hinterstoisser-2012 (ACCV 2012 PDF, eq. 1 `m = avg_x norm((Rx+T) - (R~x+T~))`; "we say that the model was correctly detected and the pose correctly estimated if k_m d >= m where k_m is a chosen coefficient and d is the diameter of M"; Table 1 uses k_m = 0.1) | V |
-| The symmetry-aware variant matches each point to its nearest neighbour instead of its counterpart, so a bowl is not scored wrong for an indistinguishable rotation | hinterstoisser-2012 (eq. 2 `m = avg_{x1} min_{x2} norm((Rx1+T) - (R~x2+T~))`, introduced for the ambiguous objects the paper names: "cup", "bowl", "box", "glue") | V |
-| BOP: accuracy on 6-DoF localisation of seen objects improved by more than 50% since 2017, from 56.9 to 85.6 AR_C | bop-challenge-2023 (arXiv 2403.09799 abs, verbatim: "Since 2017, the accuracy of 6D localization of seen objects has improved by more than 50% (from 56.9 to 85.6 AR_C)") | V |
-| The best 2023 unseen-object method, GenFlow, reached the accuracy of the best 2020 seen-object method, CosyPose, though noticeably slower | bop-challenge-2023 (abs, verbatim: "The best 2023 method for 6D localization of unseen objects (GenFlow) notably reached the accuracy of the best 2020 method for seen objects (CosyPose), although being noticeably slower") | V |
+| Hinterstoisser and colleagues' LINEMOD-based paper evaluates pose with the average distance between corresponding model points transformed by ground-truth and estimated poses; correctness is inclusive, m <= k_m d, with d the model diameter and chosen coefficient k_m = 0.1 for Table 1. | hinterstoisser-2012; retained author-hosted 14-page manuscript, Section 4.1, Equations (1)–(2) and Table 1. Original request 2026-09-06T01:19:40.383Z, result 2026-09-06T01:19:41.200Z; no new retrieval. | C |  |  |  | Source-backed correction reviewed 2026-09-08T23:02:53.838Z by agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z. Original four-cell tuple (JSON): {"claim":"ADD comes from the LINEMOD work: average the distance between corresponding model points under the estimated and true pose, correct below a fraction of the object's diameter","sourceChecked":"hinterstoisser-2012 (ACCV 2012 PDF, eq. 1 `m = avg_x norm((Rx+T) - (R~x+T~))`; \"we say that the model was correctly detected and the pose correctly estimated if k_m d >= m where k_m is a chosen coefficient and d is the diameter of M\"; Table 1 uses k_m = 0.1)","verdict":"V","note":""}. Unsquared model-point distances; ground-truth outer average and estimated-point nearest-neighbour minimum; inclusive threshold, with 0.1 confined to Table 1. Ambiguity can be view-dependent. ACCV 2012 event and 2013 issued/print metadata are distinct; canonical DOI and independent liveness gap retained. Routine authority: Josef’s 2026-09-07 “fix it all!”, not personal source certification. No whole P1, article/date, authored-local or independent acceptance credit. | pose-metrics-perception-51-20260908 |
+| For ambiguous objects, including objects ambiguous only from a subset of views, Hinterstoisser and colleagues' Equation (2) averages the distance from each ground-truth-transformed model point to the nearest estimated-pose-transformed model point; the paper names cup, bowl, box and glue, not a universal guarantee for every indistinguishable rotation. | hinterstoisser-2012; retained author-hosted 14-page manuscript, Section 4.1, Equations (1)–(2) and Table 1. Original request 2026-09-06T01:19:40.383Z, result 2026-09-06T01:19:41.200Z; no new retrieval. | C |  |  |  | Source-backed correction reviewed 2026-09-08T23:02:53.838Z by agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z. Original four-cell tuple (JSON): {"claim":"The symmetry-aware variant matches each point to its nearest neighbour instead of its counterpart, so a bowl is not scored wrong for an indistinguishable rotation","sourceChecked":"hinterstoisser-2012 (eq. 2 `m = avg_{x1} min_{x2} norm((Rx1+T) - (R~x2+T~))`, introduced for the ambiguous objects the paper names: \"cup\", \"bowl\", \"box\", \"glue\")","verdict":"V","note":""}. Unsquared model-point distances; ground-truth outer average and estimated-point nearest-neighbour minimum; inclusive threshold, with 0.1 confined to Table 1. Ambiguity can be view-dependent. ACCV 2012 event and 2013 issued/print metadata are distinct; canonical DOI and independent liveness gap retained. Routine authority: Josef’s 2026-09-07 “fix it all!”, not personal source certification. No whole P1, article/date, authored-local or independent acceptance credit. | pose-metrics-perception-52-20260908 |
+| The BOP Challenge 2023 report retrospectively compares seen-object localisation from 56.9 to 85.6 AR_C, more than 50% relative, across seven core datasets; Figure 1 associates Vidal with 2017, while Table 2 records Vidal-Sensors18 submission year 2019. | bop-challenge-2023; retained arXiv 2403.09799v1 full HTML, Sections 2.1/2.4/3.1/4.1/4.4, Figure 1 and Tables 2–3. Original GET completed 2026-09-08T15:38:08.612559+00:00; no new retrieval. | C |  |  |  | Source-backed correction reviewed 2026-09-08T23:02:53.838Z by agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z. Original four-cell tuple (JSON): {"claim":"BOP: accuracy on 6-DoF localisation of seen objects improved by more than 50% since 2017, from 56.9 to 85.6 AR_C","sourceChecked":"bop-challenge-2023 (arXiv 2403.09799 abs, verbatim: \"Since 2017, the accuracy of 6D localization of seen objects has improved by more than 50% (from 56.9 to 85.6 AR_C)\")","verdict":"V","note":""}. AR_C averages metric recalls within each dataset then equally seven datasets, displayed 0–100; strict e<theta_e differs from the adjacent inclusive pose metric. Figure 1 method-era 2017 and Table 2 Vidal submission 2019/depth label remain distinct. Exact entry scores and reported seconds do not prove equal accuracy, matched-hardware speed or control Hz. Supplied meshes/capped onboarding, training/channel differences and occlusion limits remain explicit. Routine authority: Josef’s 2026-09-07 “fix it all!”, not personal source certification. No whole P1, article/date, authored-local or independent acceptance credit. | classical-perception-bop-53-v1 |
+| The BOP Challenge 2023 report calls unseen-object GenFlow-MultiHypo16 (Task 4, 67.4 AR_C) comparable to the best 2020 seen-object CosyPose-ECCV20-SYNT+REAL-ICP (Task 1, 69.8 AR_C), not identical; reported average image-processing times are 34.58 and 13.74 seconds under different training and onboarding conditions. | bop-challenge-2023; retained arXiv 2403.09799v1 full HTML, Sections 2.1/2.4/3.1/4.1/4.4, Figure 1 and Tables 2–3. Original GET completed 2026-09-08T15:38:08.612559+00:00; no new retrieval. | C |  |  |  | Source-backed correction reviewed 2026-09-08T23:02:53.838Z by agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z. Original four-cell tuple (JSON): {"claim":"The best 2023 unseen-object method, GenFlow, reached the accuracy of the best 2020 seen-object method, CosyPose, though noticeably slower","sourceChecked":"bop-challenge-2023 (abs, verbatim: \"The best 2023 method for 6D localization of unseen objects (GenFlow) notably reached the accuracy of the best 2020 method for seen objects (CosyPose), although being noticeably slower\")","verdict":"V","note":""}. AR_C averages metric recalls within each dataset then equally seven datasets, displayed 0–100; strict e<theta_e differs from the adjacent inclusive pose metric. Figure 1 method-era 2017 and Table 2 Vidal submission 2019/depth label remain distinct. Exact entry scores and reported seconds do not prove equal accuracy, matched-hardware speed or control Hz. Supplied meshes/capped onboarding, training/channel differences and occlusion limits remain explicit. Routine authority: Josef’s 2026-09-07 “fix it all!”, not personal source certification. No whole P1, article/date, authored-local or independent acceptance credit. | classical-perception-bop-54-v1 |
 | Espiau, Chaumette and Rives formulated visual servoing as a task function with an interaction matrix relating feature velocity to camera velocity | espiau-1992 (HAL abstract: "The Interaction Screw is thus defined in a general way, and the application to images follows. Starting from the concept of task function, the general framework of the control is then described"); chaumette-hutchinson-2006 eq. 1 `s-dot = L_s v_c` | V |
 | A calibration error bends the path the camera takes while the final image error still converges | chaumette-hutchinson-2006 (verbatim: "this allows IBVS to be remarkably robust to errors in calibration and image noise. However... the camera motion may follow unpredictable, often suboptimal [trajectories]") | V |
 | The two-part tutorial separates basic image-based and position-based schemes from advanced stability treatment and known failure modes | chaumette-hutchinson-2006 (Part I: "the two archetypal visual servo control schemes: image-based and position-based visual servo control... motivating the second article"); chaumette-hutchinson-2007 (Part II: local minima, stability under calibration error, switching and planning schemes) | V |
@@ -647,3 +647,175 @@ Preserved: 989 unselected semantic records, 394 prior completions, 300 raw prior
 **Content and baseline remain RED. Do not publish.** Scene10 collision-margin/gradient/lookup, ORB26/27/31/33, authored confidence/footprint/planner/figure45/local-proof obligations and glossary debt remain excluded. Full build/export, production reading times, OG/card-input reuse certification, whole P1, complete reference corpus and independent Sol/high scrutiny/user testing remain pending. skipScrutiny=false; skipUserTesting=false. No deployment, publication, feature-state/controller change or credit fallback. The fixed first-emission clock is 22:05:19.791Z, checkpoint target 22:40:19.791Z; terminal artifacts record actual time without resetting it.
 
 Exact source identities, application tuples, tests and failures, capture bindings, preservation and local committed checkpoint: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/`.
+
+## Pose metrics and BOP four-original correction history, 2026-09-08
+
+Exactly perception51/52 and53/54 are corrected as two source groups. These are not whole-article or P1 acceptance. The article date remains 2026-08-22. A manual source-fidelity/precision read was performed on all rewritten prose; no unavailable humanizer skill invocation is claimed. Zero new source retrievals. Hinterstoisser’s September6 retained manuscript and metadata projection do not close its independently owned DOI liveness gap. BOP’s retained September8 v1 GET is historical, not a current request. Fourteen pose passages and21 BOP passages were checked;22 AND-parts and22 native items bind the four records; all27 packet excerpts are preserved, with13 pose excerpts consolidated into8 literal contiguous same-document spans. All original/current/packet-proposed/applied tuples and bibliography changes follow in non-counted history.
+
+```json
+{
+  "reviewedUTC": "2026-09-08T23:02:53.838Z",
+  "histories": [
+    {
+      "originalId": "audit/classical.md:perception:51",
+      "rowOrdinal": 51,
+      "originalCells": {
+        "claim": "ADD comes from the LINEMOD work: average the distance between corresponding model points under the estimated and true pose, correct below a fraction of the object's diameter",
+        "sourceChecked": "hinterstoisser-2012 (ACCV 2012 PDF, eq. 1 `m = avg_x norm((Rx+T) - (R~x+T~))`; \"we say that the model was correctly detected and the pose correctly estimated if k_m d >= m where k_m is a chosen coefficient and d is the diameter of M\"; Table 1 uses k_m = 0.1)",
+        "verdict": "V",
+        "note": ""
+      },
+      "beforeCells": {
+        "claim": "ADD comes from the LINEMOD work: average the distance between corresponding model points under the estimated and true pose, correct below a fraction of the object's diameter",
+        "sourceChecked": "hinterstoisser-2012 (ACCV 2012 PDF, eq. 1 `m = avg_x norm((Rx+T) - (R~x+T~))`; \"we say that the model was correctly detected and the pose correctly estimated if k_m d >= m where k_m is a chosen coefficient and d is the diameter of M\"; Table 1 uses k_m = 0.1)",
+        "verdict": "V",
+        "note": ""
+      },
+      "beforeDigest": "83819f7d9309e9627b9646169a397f27b90244b28f0c28423ac1de6ea20f3a16",
+      "packetProposedCells": {
+        "claim": "Hinterstoisser and colleagues' LINEMOD-based paper evaluates pose with the average distance between corresponding model points transformed by ground-truth and estimated poses; correctness is inclusive, m <= k_m d, with d the model diameter and chosen coefficient k_m = 0.1 for Table 1.",
+        "sourceChecked": "hinterstoisser-2012; retained author-hosted manuscript, Section 4.1, Equation (1), inclusive threshold and Table 1. Original source URL: http://www.stefan-hinterstoisser.com/papers/hinterstoisser2012accv.pdf",
+        "verdict": "C (POSE-METRICS-perception-51-20260908; source-backed current wording)",
+        "note": "POSE-METRICS-perception-51-20260908. Correction rationale: preserve original ID and the complete before/current tuple in non-counted history. Replace field-wide/ancestor wording with this LINEMOD-based paper and replace strict-below with its inclusive threshold; k_m=0.1 is Table 1 specific. Retained author-hosted 14-page manuscript, full text checked 2026-09-08; original request 2026-09-06T01:19:40.383Z, result 2026-09-06T01:19:41.200Z. No fresh fetch, whole P1, BOP/evaluation-53+ credit, authored-local-calculation source, or source certification by Josef. Ordinary correction authority: Josef’s 2026-09-07 “fix it all!” instruction; writer semantic review and exact member deltas remain required."
+      },
+      "appliedCells": {
+        "claim": "Hinterstoisser and colleagues' LINEMOD-based paper evaluates pose with the average distance between corresponding model points transformed by ground-truth and estimated poses; correctness is inclusive, m <= k_m d, with d the model diameter and chosen coefficient k_m = 0.1 for Table 1.",
+        "sourceChecked": "hinterstoisser-2012; retained author-hosted 14-page manuscript, Section 4.1, Equations (1)–(2) and Table 1. Original request 2026-09-06T01:19:40.383Z, result 2026-09-06T01:19:41.200Z; no new retrieval.",
+        "verdict": "C",
+        "note": "Source-backed correction reviewed 2026-09-08T23:02:53.838Z by agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z. Original four-cell tuple (JSON): {\"claim\":\"ADD comes from the LINEMOD work: average the distance between corresponding model points under the estimated and true pose, correct below a fraction of the object's diameter\",\"sourceChecked\":\"hinterstoisser-2012 (ACCV 2012 PDF, eq. 1 `m = avg_x norm((Rx+T) - (R~x+T~))`; \\\"we say that the model was correctly detected and the pose correctly estimated if k_m d >= m where k_m is a chosen coefficient and d is the diameter of M\\\"; Table 1 uses k_m = 0.1)\",\"verdict\":\"V\",\"note\":\"\"}. Unsquared model-point distances; ground-truth outer average and estimated-point nearest-neighbour minimum; inclusive threshold, with 0.1 confined to Table 1. Ambiguity can be view-dependent. ACCV 2012 event and 2013 issued/print metadata are distinct; canonical DOI and independent liveness gap retained. Routine authority: Josef’s 2026-09-07 “fix it all!”, not personal source certification. No whole P1, article/date, authored-local or independent acceptance credit."
+      },
+      "planId": "pose-metrics-perception-51-20260908"
+    },
+    {
+      "originalId": "audit/classical.md:perception:52",
+      "rowOrdinal": 52,
+      "originalCells": {
+        "claim": "The symmetry-aware variant matches each point to its nearest neighbour instead of its counterpart, so a bowl is not scored wrong for an indistinguishable rotation",
+        "sourceChecked": "hinterstoisser-2012 (eq. 2 `m = avg_{x1} min_{x2} norm((Rx1+T) - (R~x2+T~))`, introduced for the ambiguous objects the paper names: \"cup\", \"bowl\", \"box\", \"glue\")",
+        "verdict": "V",
+        "note": ""
+      },
+      "beforeCells": {
+        "claim": "The symmetry-aware variant matches each point to its nearest neighbour instead of its counterpart, so a bowl is not scored wrong for an indistinguishable rotation",
+        "sourceChecked": "hinterstoisser-2012 (eq. 2 `m = avg_{x1} min_{x2} norm((Rx1+T) - (R~x2+T~))`, introduced for the ambiguous objects the paper names: \"cup\", \"bowl\", \"box\", \"glue\")",
+        "verdict": "V",
+        "note": ""
+      },
+      "beforeDigest": "b94ab23b46649fe3ebd6f43b9ee243efeed557d0c370afbc2316acda9293f5db",
+      "packetProposedCells": {
+        "claim": "For ambiguous objects, including objects ambiguous only from a subset of views, Hinterstoisser and colleagues' Equation (2) averages the distance from each ground-truth-transformed model point to the nearest estimated-pose-transformed model point; the paper names cup, bowl, box and glue, not a universal guarantee for every indistinguishable rotation.",
+        "sourceChecked": "hinterstoisser-2012; retained author-hosted manuscript, Section 4.1, Equation (2), ambiguous/subset-of-views paragraph. Original source URL: http://www.stefan-hinterstoisser.com/papers/hinterstoisser2012accv.pdf",
+        "verdict": "C (POSE-METRICS-perception-52-20260908; source-backed current wording)",
+        "note": "POSE-METRICS-perception-52-20260908. Correction rationale: preserve original ID and the complete before/current tuple in non-counted history. Replace guaranteed bowl invariance with the actual nearest-neighbour rule and the paper’s ambiguous/subset-of-views context. Retained author-hosted 14-page manuscript, full text checked 2026-09-08; original request 2026-09-06T01:19:40.383Z, result 2026-09-06T01:19:41.200Z. No fresh fetch, whole P1, BOP/evaluation-53+ credit, authored-local-calculation source, or source certification by Josef. Ordinary correction authority: Josef’s 2026-09-07 “fix it all!” instruction; writer semantic review and exact member deltas remain required."
+      },
+      "appliedCells": {
+        "claim": "For ambiguous objects, including objects ambiguous only from a subset of views, Hinterstoisser and colleagues' Equation (2) averages the distance from each ground-truth-transformed model point to the nearest estimated-pose-transformed model point; the paper names cup, bowl, box and glue, not a universal guarantee for every indistinguishable rotation.",
+        "sourceChecked": "hinterstoisser-2012; retained author-hosted 14-page manuscript, Section 4.1, Equations (1)–(2) and Table 1. Original request 2026-09-06T01:19:40.383Z, result 2026-09-06T01:19:41.200Z; no new retrieval.",
+        "verdict": "C",
+        "note": "Source-backed correction reviewed 2026-09-08T23:02:53.838Z by agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z. Original four-cell tuple (JSON): {\"claim\":\"The symmetry-aware variant matches each point to its nearest neighbour instead of its counterpart, so a bowl is not scored wrong for an indistinguishable rotation\",\"sourceChecked\":\"hinterstoisser-2012 (eq. 2 `m = avg_{x1} min_{x2} norm((Rx1+T) - (R~x2+T~))`, introduced for the ambiguous objects the paper names: \\\"cup\\\", \\\"bowl\\\", \\\"box\\\", \\\"glue\\\")\",\"verdict\":\"V\",\"note\":\"\"}. Unsquared model-point distances; ground-truth outer average and estimated-point nearest-neighbour minimum; inclusive threshold, with 0.1 confined to Table 1. Ambiguity can be view-dependent. ACCV 2012 event and 2013 issued/print metadata are distinct; canonical DOI and independent liveness gap retained. Routine authority: Josef’s 2026-09-07 “fix it all!”, not personal source certification. No whole P1, article/date, authored-local or independent acceptance credit."
+      },
+      "planId": "pose-metrics-perception-52-20260908"
+    },
+    {
+      "originalId": "audit/classical.md:perception:53",
+      "rowOrdinal": 53,
+      "originalCells": {
+        "claim": "BOP: accuracy on 6-DoF localisation of seen objects improved by more than 50% since 2017, from 56.9 to 85.6 AR_C",
+        "sourceChecked": "bop-challenge-2023 (arXiv 2403.09799 abs, verbatim: \"Since 2017, the accuracy of 6D localization of seen objects has improved by more than 50% (from 56.9 to 85.6 AR_C)\")",
+        "verdict": "V",
+        "note": ""
+      },
+      "beforeCells": {
+        "claim": "BOP: accuracy on 6-DoF localisation of seen objects improved by more than 50% since 2017, from 56.9 to 85.6 AR_C",
+        "sourceChecked": "bop-challenge-2023 (arXiv 2403.09799 abs, verbatim: \"Since 2017, the accuracy of 6D localization of seen objects has improved by more than 50% (from 56.9 to 85.6 AR_C)\")",
+        "verdict": "V",
+        "note": ""
+      },
+      "beforeDigest": "1719e8a3d53cd8250471490663a12912140b0dcea1401a1681169a64ee8fbbd5",
+      "packetProposedCells": {
+        "claim": "The BOP Challenge 2023 report retrospectively compares seen-object localisation from 56.9 to 85.6 AR_C, more than 50% relative, across seven core datasets; Figure 1 associates Vidal with 2017, while Table 2 records Vidal-Sensors18 submission year 2019.",
+        "sourceChecked": "bop-challenge-2023; inspected arXiv 2403.09799v1 full HTML, Sections 2.1, 2.4, 3.1, 4.1, 4.4, Figure 1 and Tables 2–3; fetched 2026-09-08T15:38:08.612559+00:00.",
+        "verdict": "C",
+        "note": "Proposed source-scoped replacement; preserve the original abstract-backed V tuple in explicit history. Benchmark comparability is not equality of scores or universal robot performance."
+      },
+      "appliedCells": {
+        "claim": "The BOP Challenge 2023 report retrospectively compares seen-object localisation from 56.9 to 85.6 AR_C, more than 50% relative, across seven core datasets; Figure 1 associates Vidal with 2017, while Table 2 records Vidal-Sensors18 submission year 2019.",
+        "sourceChecked": "bop-challenge-2023; retained arXiv 2403.09799v1 full HTML, Sections 2.1/2.4/3.1/4.1/4.4, Figure 1 and Tables 2–3. Original GET completed 2026-09-08T15:38:08.612559+00:00; no new retrieval.",
+        "verdict": "C",
+        "note": "Source-backed correction reviewed 2026-09-08T23:02:53.838Z by agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z. Original four-cell tuple (JSON): {\"claim\":\"BOP: accuracy on 6-DoF localisation of seen objects improved by more than 50% since 2017, from 56.9 to 85.6 AR_C\",\"sourceChecked\":\"bop-challenge-2023 (arXiv 2403.09799 abs, verbatim: \\\"Since 2017, the accuracy of 6D localization of seen objects has improved by more than 50% (from 56.9 to 85.6 AR_C)\\\")\",\"verdict\":\"V\",\"note\":\"\"}. AR_C averages metric recalls within each dataset then equally seven datasets, displayed 0–100; strict e<theta_e differs from the adjacent inclusive pose metric. Figure 1 method-era 2017 and Table 2 Vidal submission 2019/depth label remain distinct. Exact entry scores and reported seconds do not prove equal accuracy, matched-hardware speed or control Hz. Supplied meshes/capped onboarding, training/channel differences and occlusion limits remain explicit. Routine authority: Josef’s 2026-09-07 “fix it all!”, not personal source certification. No whole P1, article/date, authored-local or independent acceptance credit."
+      },
+      "planId": "classical-perception-bop-53-v1"
+    },
+    {
+      "originalId": "audit/classical.md:perception:54",
+      "rowOrdinal": 54,
+      "originalCells": {
+        "claim": "The best 2023 unseen-object method, GenFlow, reached the accuracy of the best 2020 seen-object method, CosyPose, though noticeably slower",
+        "sourceChecked": "bop-challenge-2023 (abs, verbatim: \"The best 2023 method for 6D localization of unseen objects (GenFlow) notably reached the accuracy of the best 2020 method for seen objects (CosyPose), although being noticeably slower\")",
+        "verdict": "V",
+        "note": ""
+      },
+      "beforeCells": {
+        "claim": "The best 2023 unseen-object method, GenFlow, reached the accuracy of the best 2020 seen-object method, CosyPose, though noticeably slower",
+        "sourceChecked": "bop-challenge-2023 (abs, verbatim: \"The best 2023 method for 6D localization of unseen objects (GenFlow) notably reached the accuracy of the best 2020 method for seen objects (CosyPose), although being noticeably slower\")",
+        "verdict": "V",
+        "note": ""
+      },
+      "beforeDigest": "6d1e4aa831ca3546a6a390c037f1d8522e226be06c86593a8f9b55798dc4c9af",
+      "packetProposedCells": {
+        "claim": "The BOP Challenge 2023 report calls unseen-object GenFlow-MultiHypo16 (Task 4, 67.4 AR_C) comparable to the best 2020 seen-object CosyPose-ECCV20-SYNT+REAL-ICP (Task 1, 69.8 AR_C), not identical; reported average image-processing times are 34.58 and 13.74 seconds under different training and onboarding conditions.",
+        "sourceChecked": "bop-challenge-2023; inspected arXiv 2403.09799v1 full HTML, Sections 2.1, 2.4, 3.1, 4.1, 4.4, Figure 1 and Tables 2–3; fetched 2026-09-08T15:38:08.612559+00:00.",
+        "verdict": "C",
+        "note": "Proposed source-scoped replacement; preserve the original abstract-backed V tuple in explicit history. Benchmark comparability is not equality of scores or universal robot performance."
+      },
+      "appliedCells": {
+        "claim": "The BOP Challenge 2023 report calls unseen-object GenFlow-MultiHypo16 (Task 4, 67.4 AR_C) comparable to the best 2020 seen-object CosyPose-ECCV20-SYNT+REAL-ICP (Task 1, 69.8 AR_C), not identical; reported average image-processing times are 34.58 and 13.74 seconds under different training and onboarding conditions.",
+        "sourceChecked": "bop-challenge-2023; retained arXiv 2403.09799v1 full HTML, Sections 2.1/2.4/3.1/4.1/4.4, Figure 1 and Tables 2–3. Original GET completed 2026-09-08T15:38:08.612559+00:00; no new retrieval.",
+        "verdict": "C",
+        "note": "Source-backed correction reviewed 2026-09-08T23:02:53.838Z by agent:source-auditor:86fe459c-b924-4763-9ab1-c276f1fc66ce:2026-09-08T23:02:53.838Z. Original four-cell tuple (JSON): {\"claim\":\"The best 2023 unseen-object method, GenFlow, reached the accuracy of the best 2020 seen-object method, CosyPose, though noticeably slower\",\"sourceChecked\":\"bop-challenge-2023 (abs, verbatim: \\\"The best 2023 method for 6D localization of unseen objects (GenFlow) notably reached the accuracy of the best 2020 method for seen objects (CosyPose), although being noticeably slower\\\")\",\"verdict\":\"V\",\"note\":\"\"}. AR_C averages metric recalls within each dataset then equally seven datasets, displayed 0–100; strict e<theta_e differs from the adjacent inclusive pose metric. Figure 1 method-era 2017 and Table 2 Vidal submission 2019/depth label remain distinct. Exact entry scores and reported seconds do not prove equal accuracy, matched-hardware speed or control Hz. Supplied meshes/capped onboarding, training/channel differences and occlusion limits remain explicit. Routine authority: Josef’s 2026-09-07 “fix it all!”, not personal source certification. No whole P1, article/date, authored-local or independent acceptance credit."
+      },
+      "planId": "classical-perception-bop-54-v1"
+    }
+  ],
+  "bibliography": [
+    {
+      "label": "citation-publication-year",
+      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/data/citations.ts",
+      "before": "  {\n    // Crossref 10.1007/978-3-642-37331-2_42 read 2026-08-22: ACCV 2012,\n    // LNCS, pages 548-562, container dated 2013. The registry names 2012,\n    // the conference year the paper itself is known by and the year the\n    // ACCV volume title states; the ASME-style republication precedent for\n    // this split is documented in the year exceptions. The ADD metric this\n    // article cites originates here.\n    id: 'hinterstoisser-2012',\n    title:\n      'Model Based Training, Detection and Pose Estimation of Texture-Less 3D Objects in Heavily Cluttered Scenes',\n    authors: [\n      'Stefan Hinterstoisser',\n      'Vincent Lepetit',\n      'Slobodan Ilic',\n      'Stefan Holzer',\n      'Gary Bradski',\n      'Kurt Konolige',\n      'Nassir Navab',\n    ],\n    year: 2012,\n    venue: 'ACCV 2012',\n    url: 'https://doi.org/10.1007/978-3-642-37331-2_42',\n    type: 'paper',\n  },",
+      "after": "  {\n    // Retained Crossref field projection, requested 2026-09-06T01:11:32.621Z:\n    // title and seven authors match the retained author-hosted manuscript.\n    // Container: Computer Vision – ACCV 2012; issued/print year: 2013;\n    // chapter pages: 548–562. The manuscript has 14 pages and no explicit\n    // revision identifier; do not claim published-chapter byte identity.\n    // The DOI remains the canonical HTTPS pointer. Its current liveness\n    // is separately unverified; retained HTTP paper retrieval is not a\n    // current link-check pass or proof of field-wide metric priority.\n    id: 'hinterstoisser-2012',\n    title:\n      'Model Based Training, Detection and Pose Estimation of Texture-Less 3D Objects in Heavily Cluttered Scenes',\n    authors: [\n      'Stefan Hinterstoisser',\n      'Vincent Lepetit',\n      'Slobodan Ilic',\n      'Stefan Holzer',\n      'Gary Bradski',\n      'Kurt Konolige',\n      'Nassir Navab',\n    ],\n    year: 2013,\n    venue: 'Computer Vision – ACCV 2012 (LNCS, published 2013)',\n    url: 'https://doi.org/10.1007/978-3-642-37331-2_42',\n    type: 'paper',\n  },",
+      "beforeSha256": "1df678d85d1231c28ce3bedbe5fa7c3aef35165be6171ac77d63beb0e9719d09",
+      "afterSha256": "a998469be032331052c4060ff6b516c900d2f0044cf0766a86727cd6cffb70f7"
+    },
+    {
+      "label": "remove-obsolete-year-exception",
+      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/data/crossref-author-exceptions.ts",
+      "before": "  {\n    id: 'hinterstoisser-2012',\n    skip: 'year',\n    reason:\n      'Springer dates the LNCS volume 2013, the year the proceedings were printed; the registry cites 2012, the year of the conference the paper was presented at and the year the ADD metric is universally credited to. The Crossref record itself names the venue as ACCV 2012 in its container title, so the two figures are the same event described by different conventions.',\n    verified:\n      'Crossref 10.1007/978-3-642-37331-2_42 read 2026-08-22: container-title [\"Lecture Notes in Computer Science\", \"Computer Vision - ACCV 2012\"], issued 2013, published-print 2013.',\n  },",
+      "after": "",
+      "beforeSha256": "181e46db7800b71a4560a9076c1ba38daa09ccec7239522c61b1a1392191552f",
+      "afterSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "BOP exact v1 registry",
+      "path": "/home/remy-simpc4/Projects/robot-wiki-droid-continuation/data/citations.ts",
+      "before": "  {\n    // arXiv 2403.09799 read 2026-08-22: the BOP Challenge 2023 report, 10\n    // authors, submitted 2024-03-14; DBLP indexes it at CVPR Workshops\n    // 2024. This is the report the article's \"56.9 to 85.6 AR_C since\n    // 2017\" and GenFlow/GPose figures come from; the 2018 ECCV BOP paper\n    // (1808.08319) is a different document and is not what is cited here.\n    id: 'bop-challenge-2023',\n    title:\n      'BOP Challenge 2023 on Detection, Segmentation and Pose Estimation of Seen and Unseen Rigid Objects',\n    authors: [\n      'Tomas Hodan',\n      'Martin Sundermeyer',\n      'Yann Labbe',\n      'Van Nguyen Nguyen',\n      'Gu Wang',\n      'Eric Brachmann',\n      'Bertram Drost',\n      'Vincent Lepetit',\n      'Carsten Rother',\n      'Jiri Matas',\n    ],\n    year: 2024,\n    venue: 'CVPR Workshops 2024',\n    arxiv: '2403.09799',\n    url: 'https://arxiv.org/abs/2403.09799',\n    type: 'paper',\n  },",
+      "after": "  {\n    // Inspected primary edition: arXiv 2403.09799v1, printed 14 Mar 2024.\n    // Challenge year 2023 differs from this preprint's publication year.\n    // The full v1 byline prints Labbé; the prior unversioned abs used Labbe.\n    // Earlier CVPR Workshops 2024/DBLP metadata remains in audit history;\n    // this entry deliberately identifies the verified preprint, not a VOR.\n    id: 'bop-challenge-2023',\n    title:\n      'BOP Challenge 2023 on Detection, Segmentation and Pose Estimation of Seen and Unseen Rigid Objects',\n    authors: [\n      'Tomas Hodan',\n      'Martin Sundermeyer',\n      'Yann Labbé',\n      'Van Nguyen Nguyen',\n      'Gu Wang',\n      'Eric Brachmann',\n      'Bertram Drost',\n      'Vincent Lepetit',\n      'Carsten Rother',\n      'Jiri Matas',\n    ],\n    year: 2024,\n    venue: 'arXiv preprint',\n    arxiv: '2403.09799',\n    url: 'https://arxiv.org/html/2403.09799v1',\n    type: 'paper',\n  },",
+      "beforeSha256": "82e1e1b0c2845ed5e69019646752701635d1ec4bdc22e4b49805802551221164",
+      "afterSha256": "5ce6581781a359fe0b4df4a7a3bf96395d061f8d5e4453d59dccce9f7c601dc6"
+    }
+  ]
+}
+```
+
+## Pose-metrics/BOP checkpoint verification — 2026-09-08
+
+**403 complete / 591 incomplete / 994 originals / 47 articles; 309 plans and 382 exact approvals.** Four applied, zero held, zero unattempted at the original-record level: perception51/52, then53/54 with their shared glossary composed. Classical has46 complete /141 incomplete across187 originals; scene remains34 complete. Formal progress remains307/331. This is a bounded local implementation checkpoint, not whole-article P1 or release acceptance.
+
+Zero new external retrievals. Verified98 retained inventory entries,35 literal passages,22 AND-parts and27 original packet items. Thirteen pose excerpts were preserved within8 literal contiguous same-manuscript spans; native plans contain22 evidence items total. Manuscript equations are unsquared and directed, with inclusive correctness and Table1-specific0.1. BOP2403.09799v1 uses strict correctness, metric-then-equal-dataset AR_C, exact entry comparisons and explicit training/onboarding/timing limits. Hinterstoisser2013 publication metadata is distinguished from ACCV2012; canonical DOI retained. BOP is identified as the verified2024 preprint, with all10 ordered authors including Labbé.
+
+Validation:108 distinct passing unit/component cases across7 files, plus2 focused browser cases at375x812 and1440x900. Native prelint/lint, typegen and nonincremental TypeScript passed. Red-first13 failures, native duplicate-item and worker-verdict errors, missing-baseline-member lookup, two prose punctuation findings and two collapsed-byline test failures are retained with repaired runs. No native gate was weakened. Absent baseline members use the existing SHA256("missing") convention.
+
+**Content and baseline remain RED. Do not publish.** Content structure, source no-slop and chart descriptions pass; audit coverage exits1 with597 findings and9 separately tracked unresolved citation checks. One finding is the BOP citation-audit row still binding the old abs URL rather than the newly verified v1 body URL; this dependent citation re-audit is outstanding, not waived. All47 full baseline failure objects match the before snapshot after the six exact approvals. Prior399 completions,990 unselected semantic records,305 plan objects and376 approval objects/metadata are preserved.
+
+Two browser tests establish rendered formulas, both threshold conventions, glossary focus, full ordered bylines via the real expand control, no page-level horizontal overflow, zero axe/page/console errors and zero attempted external requests. Twelve captures exist, but only four were Read-reviewed at this checkpoint. The375px second equation extends beyond the initial local math viewport; complete keyboard-scroll proof is outstanding. Drawer/Escape/focus-return/inert, full reference comparison, production reading-time/export and48-card lifecycle obligations are NOT certified. No build/export or publication occurred. Independent Sol/high scrutiny and user testing remain required: skipScrutiny=false; skipUserTesting=false.
+
+Evidence directory: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908. scope-error.json records the accidental two-byte parent-directory placeholder and its immediate removal; it was an actual scope violation, not a permitted probe. The original35-minute intervention target remains2026-09-08T23:24:35.059Z.

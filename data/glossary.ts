@@ -574,8 +574,8 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'add-s-metric',
     term: 'symmetry-aware pose error (ADD-S)',
     definition:
-      'The standard accuracy measure for 6-DoF pose, in the variant that tolerates object symmetry. The base metric, ADD, averages the distance between corresponding model points under the estimated pose and the true pose, and a pose is counted correct when that average falls below a fraction of the object\'s diameter. The symmetry-aware variant matches each transformed point to its nearest neighbour rather than to its counterpart, so a rotationally symmetric object such as a bowl is not penalised for a rotation that is physically indistinguishable. The metric originates in the LINEMOD work of Hinterstoisser and colleagues; the BOP challenge is where methods are now compared on it and its successors.',
-    citations: ['hinterstoisser-2012', 'bop-challenge-2023'],
+      'A model-point pose-error rule that replaces fixed point correspondences with nearest-neighbour matches. In Hinterstoisser and colleagues\' LINEMOD-based paper, Equation (1) averages distances between corresponding model points transformed by the ground-truth and estimated poses. Equation (2) instead matches each ground-truth-transformed point to the nearest estimated-pose-transformed model point before averaging. The paper names cup, bowl, box and glue as ambiguous objects, including ambiguity from a subset of views. Its correctness rule is inclusive: the average distance must be at most a chosen coefficient times the model diameter; Table 1 uses 0.1. This is a point-set score and a chosen evaluation threshold, not a guarantee that every visually indistinguishable rotation has zero error.',
+    citations: ['hinterstoisser-2012'],
   },
   {
     id: 'visual-servoing',

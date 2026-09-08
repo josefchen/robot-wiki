@@ -7772,18 +7772,18 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // arXiv 2403.09799 read 2026-08-22: the BOP Challenge 2023 report, 10
-    // authors, submitted 2024-03-14; DBLP indexes it at CVPR Workshops
-    // 2024. This is the report the article's "56.9 to 85.6 AR_C since
-    // 2017" and GenFlow/GPose figures come from; the 2018 ECCV BOP paper
-    // (1808.08319) is a different document and is not what is cited here.
+    // Inspected primary edition: arXiv 2403.09799v1, printed 14 Mar 2024.
+    // Challenge year 2023 differs from this preprint's publication year.
+    // The full v1 byline prints Labbé; the prior unversioned abs used Labbe.
+    // Earlier CVPR Workshops 2024/DBLP metadata remains in audit history;
+    // this entry deliberately identifies the verified preprint, not a VOR.
     id: 'bop-challenge-2023',
     title:
       'BOP Challenge 2023 on Detection, Segmentation and Pose Estimation of Seen and Unseen Rigid Objects',
     authors: [
       'Tomas Hodan',
       'Martin Sundermeyer',
-      'Yann Labbe',
+      'Yann Labbé',
       'Van Nguyen Nguyen',
       'Gu Wang',
       'Eric Brachmann',
@@ -7793,18 +7793,20 @@ export const CITATIONS: Citation[] = [
       'Jiri Matas',
     ],
     year: 2024,
-    venue: 'CVPR Workshops 2024',
+    venue: 'arXiv preprint',
     arxiv: '2403.09799',
-    url: 'https://arxiv.org/abs/2403.09799',
+    url: 'https://arxiv.org/html/2403.09799v1',
     type: 'paper',
   },
   {
-    // Crossref 10.1007/978-3-642-37331-2_42 read 2026-08-22: ACCV 2012,
-    // LNCS, pages 548-562, container dated 2013. The registry names 2012,
-    // the conference year the paper itself is known by and the year the
-    // ACCV volume title states; the ASME-style republication precedent for
-    // this split is documented in the year exceptions. The ADD metric this
-    // article cites originates here.
+    // Retained Crossref field projection, requested 2026-09-06T01:11:32.621Z:
+    // title and seven authors match the retained author-hosted manuscript.
+    // Container: Computer Vision – ACCV 2012; issued/print year: 2013;
+    // chapter pages: 548–562. The manuscript has 14 pages and no explicit
+    // revision identifier; do not claim published-chapter byte identity.
+    // The DOI remains the canonical HTTPS pointer. Its current liveness
+    // is separately unverified; retained HTTP paper retrieval is not a
+    // current link-check pass or proof of field-wide metric priority.
     id: 'hinterstoisser-2012',
     title:
       'Model Based Training, Detection and Pose Estimation of Texture-Less 3D Objects in Heavily Cluttered Scenes',
@@ -7817,8 +7819,8 @@ export const CITATIONS: Citation[] = [
       'Kurt Konolige',
       'Nassir Navab',
     ],
-    year: 2012,
-    venue: 'ACCV 2012',
+    year: 2013,
+    venue: 'Computer Vision – ACCV 2012 (LNCS, published 2013)',
     url: 'https://doi.org/10.1007/978-3-642-37331-2_42',
     type: 'paper',
   },

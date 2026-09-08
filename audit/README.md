@@ -1,6 +1,20 @@
 # Content-integrity audit trail
 
-## Current partial calibration/TSDF checkpoint — 2026-09-08
+## Current partial pose-metrics/BOP checkpoint — 2026-09-08
+
+**403 complete / 591 incomplete / 994 originals / 47 articles; 309 plans and 382 exact approvals.** Four applied, zero held, zero unattempted at the original-record level: perception51/52, then53/54 with their shared glossary composed. Classical has46 complete /141 incomplete across187 originals; scene remains34 complete. Formal progress remains307/331. This is a bounded local implementation checkpoint, not whole-article P1 or release acceptance.
+
+Zero new external retrievals. Verified98 retained inventory entries,35 literal passages,22 AND-parts and27 original packet items. Thirteen pose excerpts were preserved within8 literal contiguous same-manuscript spans; native plans contain22 evidence items total. Manuscript equations are unsquared and directed, with inclusive correctness and Table1-specific0.1. BOP2403.09799v1 uses strict correctness, metric-then-equal-dataset AR_C, exact entry comparisons and explicit training/onboarding/timing limits. Hinterstoisser2013 publication metadata is distinguished from ACCV2012; canonical DOI retained. BOP is identified as the verified2024 preprint, with all10 ordered authors including Labbé.
+
+Validation:108 distinct passing unit/component cases across7 files, plus2 focused browser cases at375x812 and1440x900. Native prelint/lint, typegen and nonincremental TypeScript passed. Red-first13 failures, native duplicate-item and worker-verdict errors, missing-baseline-member lookup, two prose punctuation findings and two collapsed-byline test failures are retained with repaired runs. No native gate was weakened. Absent baseline members use the existing SHA256("missing") convention.
+
+**Content and baseline remain RED. Do not publish.** Content structure, source no-slop and chart descriptions pass; audit coverage exits1 with597 findings and9 separately tracked unresolved citation checks. One finding is the BOP citation-audit row still binding the old abs URL rather than the newly verified v1 body URL; this dependent citation re-audit is outstanding, not waived. All47 full baseline failure objects match the before snapshot after the six exact approvals. Prior399 completions,990 unselected semantic records,305 plan objects and376 approval objects/metadata are preserved.
+
+Two browser tests establish rendered formulas, both threshold conventions, glossary focus, full ordered bylines via the real expand control, no page-level horizontal overflow, zero axe/page/console errors and zero attempted external requests. Twelve captures exist, but only four were Read-reviewed at this checkpoint. The375px second equation extends beyond the initial local math viewport; complete keyboard-scroll proof is outstanding. Drawer/Escape/focus-return/inert, full reference comparison, production reading-time/export and48-card lifecycle obligations are NOT certified. No build/export or publication occurred. Independent Sol/high scrutiny and user testing remain required: skipScrutiny=false; skipUserTesting=false.
+
+Evidence directory: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908. scope-error.json records the accidental two-byte parent-directory placeholder and its immediate removal; it was an actual scope violation, not a permitted probe. The original35-minute intervention target remains2026-09-08T23:24:35.059Z.
+
+## Historical partial calibration/TSDF checkpoint — 2026-09-08
 
 **399 complete / 595 incomplete / 994 originals / 47 articles; 305 plans and 376 exact approvals.** Five applied, zero held, zero unattempted: perception originals 8/13 form one atomic group, scene-representation originals 7/8/9 the other. Classical now has 42 complete / 145 incomplete across 187 originals; scene has 34 complete. Formal progress remains 307/331. This is local implementation evidence, not whole-article P1 or release acceptance.
 
