@@ -3589,10 +3589,10 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the arXiv abs page (2026-08-08): 10 authors;
-    // consistency-model world simulator, >10 minutes of stable interaction
-    // at 15 FPS on one RTX 4090, policies trained only on generated
-    // demonstrations match real-data-trained ones.
+    // Retained v1 full-paper review: arXiv:2603.08546v1 (9 March 2026).
+    // Reports >10-minute video interaction and up to 15 FPS on one RTX 4090.
+    // Generated-demonstration policy results are task/policy-specific;
+    // the simulator itself uses real interaction data. Not control-rate proof.
     id: 'interactive-world-simulator-2026',
     title: 'Interactive World Simulator for Robot Policy Training and Evaluation',
     authors: [
@@ -3613,9 +3613,10 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the arXiv abs page (2026-08-08): 7 authors;
-    // evaluation pipeline with Step Forcing, Pearson r = 0.989 and
-    // Spearman rho = 0.970 against real-robot evaluation.
+    // Retained v4 full-paper review: arXiv:2607.01060v4 (15 July 2026).
+    // Pearson r=0.989 and Spearman rho=0.970 compare eight policy aggregates
+    // with the 26 February 2026 RoboArena leaderboard under GPT-4o scoring.
+    // Correlation is not success calibration, absolute agreement or safety proof.
     id: 'roboworld-2026',
     title:
       'RoboWorld: Fast and Reliable Neural Simulators for Generalist Robot Policy Evaluation',

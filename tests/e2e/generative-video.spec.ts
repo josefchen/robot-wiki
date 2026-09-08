@@ -53,8 +53,15 @@ test.describe('world-models generative-video module', () => {
       /World Model Lab, led by Sam Sinha/,
       /new frame every 50 ms/,
       // Evidence, both directions.
-      /more than 10 minutes of stable interaction at 15 FPS on a single RTX 4090/,
-      /Pearson r = 0\.989/,
+      /more than 10 minutes of visually stable generated-video interaction at up to 15 FPS on a single RTX 4090/,
+      /192 steps \(19\.2 seconds\), not the ten-minute horizon/,
+      /not robot-control frequencies/,
+      /87\.9% versus 90\.3% for DP and 76\.2% versus 73\.6% for ACT/,
+      /eight policy-level aggregate scores/,
+      /26 February 2026 RoboArena leaderboard/,
+      /Pearson r = 0\.989 and Spearman rho = 0\.970/,
+      /neither a per-task correlation nor 4,186 independent correlation points/,
+      /not calibrated success probability or absolute agreement/,
       /visual plausibility is only a weak proxy for control utility/,
       /top open challenge/,
     ]) {
@@ -66,6 +73,22 @@ test.describe('world-models generative-video module', () => {
     await expect(
       nav.getByRole('link', { name: 'Generative Video World Models' }),
     ).toHaveAttribute('aria-current', 'page');
+  });
+
+  test('Genie 3 claims retain announcement and limitation scope', async ({ page }) => {
+    await page.goto(ROUTE);
+    const main = page.locator('#main-content');
+    await expect(main).toContainText('August 5, 2025');
+    await expect(main).toContainText('limited research preview');
+    await expect(main).toContainText('DeepMind-reported: 720p, a few minutes');
+    await expect(main).toContainText('real time at 24 fps and 720p');
+    await expect(main).toContainText('not necessarily performed by the agent itself');
+    await expect(main).toContainText('perfect geographic accuracy');
+    await expect(main).toContainText('input world description');
+    await expect(main).toContainText('received no agent goal');
+    await expect(main).toContainText('does not establish manipulation performance');
+    await expect(main).not.toContainText('Generated places do not correspond to real ones');
+    await expect(main).not.toContainText('cannot score candidate grasps');
   });
 
   test('citation chips link to the required primary sources', async ({

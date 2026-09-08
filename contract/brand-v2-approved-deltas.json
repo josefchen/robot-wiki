@@ -6286,6 +6286,86 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "world-model-video-continuation-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8",
+      "newHash": "ca3967deb0103b24b16be802913ccb2ade49881ade8b406d4d581b84fb694953",
+      "reason": "Exact reader correction for eight retained-primary Genie/IWS/RoboWorld originals and measured local citation placement repairs; no source or behavior changes to JEPA's teaching model. Immediate-before hash 09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8; composed current hash ca3967deb0103b24b16be802913ccb2ade49881ade8b406d4d581b84fb694953. Native source/endpoint history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-world-model-continuation-integration-20260908/source-proof.json, row-integration.json, applied-product-endpoints.json, placement-repairs.json and taxonomy-genie-placement.json. First-party video claims, navigation scope, task-specific policy data and eight-policy aggregate correlations retain their qualifications. No whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or altered criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "world-model-video-continuation-20260908-2",
+      "manifest": "prose",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1",
+      "newHash": "579198692c07a4098380cf9412872b70d760ad35bd3f6e26cb22ad5df5e5b53b",
+      "reason": "Exact reader correction for eight retained-primary Genie/IWS/RoboWorld originals and measured local citation placement repairs; no source or behavior changes to JEPA's teaching model. Immediate-before hash c70262387cf0fd6da46fc991c3ebe35f68ebe722afbd69ce8b4f7f84e810310e; composed current hash 579198692c07a4098380cf9412872b70d760ad35bd3f6e26cb22ad5df5e5b53b. Native source/endpoint history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-world-model-continuation-integration-20260908/source-proof.json, row-integration.json, applied-product-endpoints.json, placement-repairs.json and taxonomy-genie-placement.json. First-party video claims, navigation scope, task-specific policy data and eight-policy aggregate correlations retain their qualifications. No whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or altered criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "world-model-video-continuation-20260908-3",
+      "manifest": "prose",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+      "newHash": "eb8ef715b160f90b5e6d9d3a62e87d7f614b4f3b93ba5988a3428ec292d9e900",
+      "reason": "Exact reader correction for eight retained-primary Genie/IWS/RoboWorld originals and measured local citation placement repairs; no source or behavior changes to JEPA's teaching model. Immediate-before hash a54fc46365387b7d831245c3c6af228446888e8bb82a9475f127784f45f44846; composed current hash eb8ef715b160f90b5e6d9d3a62e87d7f614b4f3b93ba5988a3428ec292d9e900. Native source/endpoint history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-world-model-continuation-integration-20260908/source-proof.json, row-integration.json, applied-product-endpoints.json, placement-repairs.json and taxonomy-genie-placement.json. First-party video claims, navigation scope, task-specific policy data and eight-policy aggregate correlations retain their qualifications. No whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or altered criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "world-model-video-continuation-20260908-4",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "d01756dd06c2d1f9f091d13f0272eafb22d23b8cd158456af1e4c25fd3a852dd",
+      "newHash": "0425e06263845024d8b058ff6fd9520150c787239a2d0692e0b6a46cf64589b5",
+      "reason": "Exact reader correction for eight retained-primary Genie/IWS/RoboWorld originals and measured local citation placement repairs; no source or behavior changes to JEPA's teaching model. Immediate-before hash d01756dd06c2d1f9f091d13f0272eafb22d23b8cd158456af1e4c25fd3a852dd; composed current hash 0425e06263845024d8b058ff6fd9520150c787239a2d0692e0b6a46cf64589b5. Native source/endpoint history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-world-model-continuation-integration-20260908/source-proof.json, row-integration.json, applied-product-endpoints.json, placement-repairs.json and taxonomy-genie-placement.json. First-party video claims, navigation scope, task-specific policy data and eight-policy aggregate correlations retain their qualifications. No whole-article/P1 or independent acceptance.",
+      "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or altered criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
