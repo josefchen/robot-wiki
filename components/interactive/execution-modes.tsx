@@ -18,24 +18,10 @@ import {
 import { cx } from '@/lib/utils';
 
 /**
- * ExecutionModes: the three ways to hand off from one action chunk to the
- * next while inference is in flight, and what each costs.
- *
- * One delay slider (0 to 200 ms) drives three velocity traces around a
- * chunk boundary: synchronous execution (smooth but paused), naive
- * switching (no pause, but a discontinuity spike that grows with delay),
- * and Real-Time Chunking (frozen prefix plus partial-attention blend: no
- * pause, no spike). Each panel reports its peak per-tick velocity step
- * against a stated jerk limit, so the comparison is a number, not only a
- * shape.
- *
- * The traces model the published behaviors (arXiv:2506.07339); they are
- * not measured robot data, and the jerk limit is illustrative. Both
- * caveats are stated in the caption.
- *
- * Interactive contract: deterministic render, native range slider
- * (keyboard arrows step the delay), visible monospace readouts, reset
- * control, fixed-height panels (no layout shift), no auto-playing motion.
+ * Three deterministic teaching traces, not measured robot data or an RTC
+ * solver. Velocity units, offsets, ramps and five-tick linear blending are
+ * internal assumptions. The 0.30 delta-v threshold is a discontinuity
+ * proxy, not physical jerk. Preserve all controls, defaults and traces.
  */
 
 /**
@@ -148,7 +134,7 @@ function ModePanel({
       <svg
         viewBox={`0 0 ${PANEL.width} ${PANEL.height}`}
         role="img"
-        aria-label={`Commanded velocity trace for ${meta.label} execution at ${delayMs} milliseconds of inference delay. Peak per-tick velocity step ${peak.toFixed(2)}, ${within ? 'within' : 'above'} the ${JERK_LIMIT.toFixed(2)} jerk limit.`}
+        aria-label={`Illustrative velocity trace for ${meta.label} execution at ${delayMs} milliseconds of inference delay. Peak per-tick velocity step ${peak.toFixed(2)}, ${within ? 'within' : 'above'} the ${JERK_LIMIT.toFixed(2)} discontinuity-proxy limit, not physical jerk.`}
         aria-describedby={descriptionId}
         className="mt-1 block w-full"
       >
@@ -237,8 +223,8 @@ function ModePanel({
         {/* Spike marker where the worst step lands. */}
         {!within && (
           <g data-testid={`spike-${mode}`}>
-            {/* Broken ring with a cross in it: the same marker the latency
-                comparison uses for a step the controller cannot execute. */}
+            {/* Broken ring with a cross marks a toy step above the proxy
+                threshold, not a physical controller's execution limit. */}
             <circle
               cx={x(spikeTick)}
               cy={y(trace[spikeTick].v)}
@@ -261,7 +247,7 @@ function ModePanel({
               fontSize={10}
               fontFamily="var(--font-mono)"
             >
-              jerk event
+              Δv spike
             </text>
           </g>
         )}
@@ -325,7 +311,7 @@ export function ExecutionModes({ className }: { className?: string }) {
     2,
   )}, both read against the illustrative ${JERK_LIMIT.toFixed(
     2,
-  )} limit; the three traces model the published behaviour and are not measured robot data, and the dashed guide is the uninterrupted old plan each executed trace departs from.`;
+  )} discontinuity-proxy limit; these constructed traces use arbitrary velocity units, not physical jerk or measured robot data. The five-tick linear blend is not RTC inpainting, and the dashed guide is the uninterrupted toy old plan.`;
 
   function reset() {
     setDelayMs(MIN_DELAY_MS);
@@ -379,13 +365,13 @@ export function ExecutionModes({ className }: { className?: string }) {
         <span className="text-text-dim">d = {delayMs} ms:</span>{' '}
         {naiveFails ? (
           <span className="text-err">
-            the naive switch jerks at {naivePeak.toFixed(2)} per tick
+            the toy naive switch steps by {naivePeak.toFixed(2)} per tick
           </span>
         ) : (
-          <span className="text-ok">all three modes track smoothly</span>
+          <span className="text-ok">all three toy traces stay below the proxy limit</span>
         )}
         <span className="text-text-dim">
-          ; jerk limit {JERK_LIMIT.toFixed(2)} per 20 ms tick
+          ; Δv proxy limit {JERK_LIMIT.toFixed(2)} per 20 ms tick
         </span>
       </p>
 
@@ -400,13 +386,14 @@ export function ExecutionModes({ className }: { className?: string }) {
         ))}
       </div>
 
-      <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
-        The traces model the published behaviors (arXiv:2506.07339):
-        synchronous execution pays dead time, naive switching pays a
-        discontinuity that grows with delay, and real-time chunking pays
-        neither. They are a model, not measured robot data; the 0.30 jerk
-        limit is an illustrative threshold, stated so the comparison is
-        numeric.
+      <p data-testid="execution-assumption-note" className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
+        Illustrative hand-off traces, not an RTC solver or measured robot
+        data. Velocity is in arbitrary units; the 0.30 per-20-ms-tick limit
+        is a discontinuity proxy, not physical jerk. The sine-shaped plan,
+        delay-dependent offset, four-tick ramps and five-tick linear blend
+        are teaching assumptions, not the paper’s inpainting algorithm.
+        RTC (arXiv:2506.07339) motivates overlapping inference and execution;
+        these curves do not reproduce its experiments or guarantee safety.
       </p>
 
       <ChartDescription

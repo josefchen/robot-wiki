@@ -19,30 +19,10 @@ import {
 import { cx } from '@/lib/utils';
 
 /**
- * CrossEmbodimentStrategies: one task, three robots plus a human-hand data
- * source, viewed through the three published strategies for sharing one
- * policy across heterogeneous bodies. A toggle switches the representation:
- *
- * - Padded shared vector (pi0 family, Octo): every robot fills the leading
- *   dims of one shared vector and zero-pads the tail; the human hand has
- *   no slot.
- * - Motion transfer (Gemini Robotics 1.5): each robot routes through a
- *   shared motion latent. The mechanism is named but not disclosed, so
- *   the latent is drawn schematic and the mode carries an explicit
- *   under-specified flag.
- * - Shared relative end-effector space (GR00T N1.7): every embodiment,
- *   human hand included, acts in the same delta space, which is what lets
- *   20K hours of EgoScale egocentric video enter pretraining directly.
- *
- * All three strategies render at identical strip geometry (32 slots), so
- * switching modes changes structure, not layout. The strip widths are
- * illustrative; the sourced numbers (humanoid 29 dims, 20K EgoScale
- * hours) are marked in the notes.
- *
- * Interactive contract: deterministic render, native toggle buttons with
- * aria-pressed (keyboard-focusable), visible monospace readouts per row,
- * a summary readout with aria-live, a reset control, fixed row count
- * (no layout shift across modes), no auto-playing motion.
+ * Original deterministic slot-layout illustration, not a published architecture.
+ * Three robot examples and one human-data row keep the existing geometry.
+ * Readouts separate source-reported transfer recipes from unmodelled toy adapters.
+ * Native toggles, shared accessible descriptions, live readouts and reset remain.
  */
 
 const STRIP = {
@@ -82,7 +62,7 @@ function slotAria(state: SlotState): string {
     case 'active':
       return 'driven dim';
     case 'latent':
-      return 'shared latent dim (schematic)';
+      return 'illustrative link slot (not a model dimension)';
     case 'zeroed':
       return 'zero-padded dim';
     case 'blocked':
@@ -191,6 +171,7 @@ export function CrossEmbodimentStrategies({
   const [strategyId, setStrategyId] = useState<StrategyId>(defaultStrategy);
   const strategy = STRATEGIES[strategyId];
   const citation = getCitation(strategy.citationId);
+  const extraCitation = strategyId === 'relative-eef' ? getCitation('egoscale-2026') : undefined;
 
   function reset() {
     setStrategyId(defaultStrategy);
@@ -271,7 +252,7 @@ export function CrossEmbodimentStrategies({
           dashed outline: zero-padding
         </span>
         <span className="font-mono text-[10px] text-text-dim">
-          hatched: shared latent (schematic)
+          hatched: illustrative link, not model dimensions
         </span>
         <span className="font-mono text-[10px] text-text-dim">
           faint outline: unused
@@ -285,10 +266,10 @@ export function CrossEmbodimentStrategies({
         summary="Current cross-embodiment mapping"
         description={
           strategyId === 'padded'
-            ? `Padded shared vector leaves human video unable to enter this space directly: the ${SHARED_WIDTH}-slot strips zero-pad unused dims on each of the ${EMBODIMENT_ORDER.length} bodies and leave the human hand with no slot at all.`
+            ? `Padded shared vector is an illustrative ${SHARED_WIDTH}-slot layout across ${EMBODIMENT_ORDER.length} rows. Robot rows zero-pad unused coordinates; the human row has no adapter modelled in this toy.`
             : strategyId === 'motion-transfer'
-              ? `Motion transfer routes every body through a ${LATENT_DIMS}-dim shared latent that is publicly under-specified; human-video path not disclosed, so the hatched slots on the ${SHARED_WIDTH}-slot strips are schematic rather than a published mapping.`
-              : `Shared relative end-effector space lets human video enter directly: 20,000 hours of EgoScale, because every embodiment including the human hand acts in the same ${EEF_SPACE_DIMS}-dim delta space.`
+              ? `Motion Transfer is described as alignment and shared knowledge across robots. These ${SHARED_WIDTH}-slot strips add ${LATENT_DIMS} hatched link slots as an illustration, not a model latent. The empty hand row leaves its mapping unspecified; it does not establish that human video is unusable.`
+              : `Shared relative end-effector space is illustrated with ${EEF_SPACE_DIMS} shared slots. N1.7 reports 20K hours of EgoScale human video; EgoScale separately uses wrist deltas, hand joint targets and aligned mid-training. These operations are not implemented by the strips.`
         }
         states={[
           { label: 'strategy', value: strategy.label },
@@ -311,7 +292,7 @@ export function CrossEmbodimentStrategies({
             data-testid="underspecified-flag"
             className="mb-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-warn"
           >
-            publicly under-specified
+            internal layout not specified
           </p>
         )}
         <p className="font-sans text-xs leading-relaxed text-text">
@@ -329,19 +310,32 @@ export function CrossEmbodimentStrategies({
               rel="noopener"
               className="text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
             >
-              Source: {citationLabel(citation)}
+              Source context: {citationLabel(citation)}
+            </a>
+          </p>
+        )}
+        {extraCitation && (
+          <p className="mt-1.5 font-mono text-xs">
+            <a
+              data-brand-control-id="control:link-focus"
+              href={extraCitation.url}
+              target="_blank"
+              rel="noopener"
+              className="text-accent underline decoration-border-strong underline-offset-2 transition-colors hover:decoration-accent"
+            >
+              Source context: {citationLabel(extraCitation)}
             </a>
           </p>
         )}
       </div>
 
       <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
-        The strip widths are illustrative renderings, not published
-        architectures: the pi0 report specifies the padding and
-        normalization scheme but not a slot width, and Gemini does not
-        disclose the motion-transfer representation at all. The sourced
-        figures are the humanoid&apos;s 29 dims (GR00T N1) and the 20,000
-        hours of EgoScale video (GR00T N1.7 README).
+        Every strip width is illustrative, not a published architecture or
+        hardware specification. The 8-, 16-, and 29-coordinate robot examples
+        are unchanged toy choices. NVIDIA&apos;s N1.7 README describes model
+        state/action dimensions changing from 29 to 132 relative to N1.6,
+        and reports 20K hours of EgoScale human video. It does not turn the
+        29-coordinate toy into a humanoid DoF specification.
       </p>
     </div>
   );

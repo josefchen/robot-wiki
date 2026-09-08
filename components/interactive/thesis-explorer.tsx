@@ -64,7 +64,11 @@ function EvidenceList({
         >
           {item.text}{' '}
           {item.citationIds.map((id) => (
-            <CiteRef key={id} id={id} />
+            id === 'vjepa2-2025' || id === 'cosmos-3-2026' ? (
+              <span key={id} className="block" data-thesis-source-placement="line-start">
+                <CiteRef id={id} />
+              </span>
+            ) : <CiteRef key={id} id={id} />
           ))}
         </li>
       ))}

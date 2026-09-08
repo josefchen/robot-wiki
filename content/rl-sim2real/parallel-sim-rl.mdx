@@ -30,8 +30,8 @@ The economics are worth seeing before the history. Drag the parallel environment
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Flat-terrain walk" value="< 4 min" note="Rudin 2021, one workstation GPU" accent />
-  <Stat label="DextrAH teacher" value="> 900k FPS" note="Isaac Lab, 8 GPUs / 16,384 envs" />
-  <Stat label="Franka cabinet" value="> 1.6M FPS" note="Isaac Lab, same setup" />
+  <Stat label="DextrAH teacher" value="> 900k FPS" note="v1 headless training; 8 RTX PRO 6000 GPUs / 16,384 envs" />
+  <Stat label="Franka cabinet" value="> 1.6M FPS" note="v1 headless training; same reported setup" />
   <Stat label="MJWarp vs MJX" value="252-475x" note="vendor-reported, RTX PRO 6000" />
 </div>
 
@@ -51,17 +51,17 @@ NVIDIA's stack was not the only path. Brax, from Google in 2021, wrote the physi
 
 Here is the arithmetic behind the chart at the top of this module. Holding the total experience required to reach a target reward fixed, wall-clock time is iterations times per-iteration cost. Per-iteration cost has a fixed part (the learning update, host-device transfer, the Python loop) and a part that scales with the environment count. At 64 environments the fixed part dominates and the GPU idles; at 16,384 the simulation itself is most of each iteration.
 
-One more thing to try there: turn on the CPU single-core bottleneck. Isaac Lab's benchmarks carry a systems caveat: on the Franka task, a single-GPU RTX 5090 workstation approaches a 2x RTX PRO 6000 server, because parts of the PhysX pipeline and the main training loop are bound by single-core CPU performance <Cite id="isaac-lab-2025" />. The toggle reproduces that regime: once per-environment CPU work exceeds what the GPU can absorb, adding environments stops buying time and the curve flattens.
+The CPU toggle illustrates a possible bottleneck; it does not reproduce a measured Isaac Lab curve. In the paper’s state-based Franka cabinet-drawer benchmark, a GeForce RTX 5090 workstation with an AMD 9800X3D CPU approaches a two-GPU RTX PRO 6000 server with two AMD EPYC 9554 CPUs. The authors attribute the task-dependent comparison to CPU bottlenecks in parts of PhysX and the main training loop, together with the workstation’s fast single-core CPU. This is a finding about those systems, not a universal CPU limit<br />Source: <Cite id="isaac-lab-2025" />.
 
 <Callout variant="warn" title="How to read this chart">
-  The curve is an illustrative fixed-transitions model, not a benchmark; its per-iteration cost split is schematic. The measured numbers are the two diamonds (Rudin et al. 2021: under four minutes on flat terrain, twenty on uneven, at 4,096 environments on one workstation GPU) and the Isaac Lab throughput figures cited below. The direction and shape of the curve, hours at low parallelism to minutes at high, is what every GPU-physics stack reports.
+  The curve is an illustrative fixed-transitions model, not a benchmark; its per-iteration cost split is schematic. The measured numbers are the two diamonds (Rudin et al. 2021: under four minutes on flat terrain, twenty on uneven, at 4,096 environments on one workstation GPU) and the Isaac Lab throughput figures cited below. The direction and shape of this curve follow its stated toy cost model; they are not measurements for every GPU-physics stack.
 </Callout>
 
 ## Isaac Lab and the framework era
 
-Isaac Gym was a physics engine with tensors attached. Isaac Lab, its successor, is a full robot-learning framework: OpenUSD as the scene layer, PhysX for physics, RTX for rendering, tiled camera rendering that batches many cameras into one pass, Warp-based raycast LiDAR and height-scan sensors, non-linear actuator models, and a manager-based composable environment API with out-of-the-box hooks into RSL-RL, RL-Games, SKRL, SB3, and Ray <Cite id="isaac-lab-2025" />.
+The 2025 Isaac Lab v1 paper describes OpenUSD scene graphs, PhysX simulation, RTX rendering, and camera tiling that batches cameras into one render pass. Warp ray-casting supplies height-scanner and LiDAR-like distance queries; those geometric sensors omit photorealistic rendering effects. The framework includes implicit and explicit actuator models, including nonlinear effort limits and learned actuator networks, plus a manager-based environment API and built-in support for RSL-RL, RL-Games, SKRL, Stable-Baselines3, and Ray<br />Source: <Cite id="isaac-lab-2025" />.
 
-The measured throughput is the number that matters here. Benchmarked headless, with distributed training scaling "almost perfectly linearly," Isaac Lab reports over 900,000 frames per second on the state-based DextrAH teacher task and over 1.6 million frames per second on Franka cabinet-opening, both at 8 GPUs and 16,384 environments <Cite id="isaac-lab-2025" />. At those rates, a training run that consumed a cluster weekend in 2020 fits in a lunch break.
+In the paper’s headless state-based benchmarks, distributed training on RTX PRO 6000 GPUs scales "almost perfectly linearly" over the tested configurations. At the reported eight-GPU, 16,384-environment setting, the DextrAH teacher grasp-and-lift task exceeds 900,000 frames per second and the Franka cabinet-drawer task exceeds 1.6 million. These are environment-learning FPS: environment steps divided by simulation plus learning time, not camera-only FPS or a robot control frequency. The RTX PRO 6000 server uses two AMD EPYC 9554 64-core processors<br />Source: <Cite id="isaac-lab-2025" />.
 
 Isaac Lab 3.0 (2026) then broke the framework loose from its own renderer. The backend-specific code is separated from the core API, so the same environment definition can run on Isaac Sim with PhysX and RTX for photoreal, sensor-rich work, or headless on Newton for raw throughput; photoreal sensors can be reattached through the standalone OVRTX renderer when a vision policy needs them <Cite id="state-of-simulation-2026" />.
 
@@ -73,4 +73,8 @@ The contact story matters more than the solver list. Newton ships SDF-based coll
 
 ## The honest ledger
 
-A few caveats belong with the headline numbers. The Isaac Lab figures come from the framework's own paper, but the hardware, environment counts, and tasks are named, which makes them checkable. The Newton speedups are vendor-reported. NVIDIA itself names the CPU single-core bottleneck as a target for future releases, and <Term id="domain-randomization">domain randomization</Term> still writes physics parameters (masses, frictions, contact offsets) through PhysX CPU APIs, which is why randomization happens on episode reset rather than continuously <Cite id="isaac-lab-2025" />. Newton's differentiability is advertised, but its practical use for policy learning, as opposed to <Term id="system-identification">system identification</Term> and design optimization, is early. And Drake keeps its niche: contact-implicit trajectory optimization and rigorous numerics, not throughput <Cite id="state-of-simulation-2026" />.
+A few caveats belong with the headline numbers. The Isaac Lab figures come from the framework's own paper, but the hardware, environment counts, and tasks are named, which makes them checkable. The Newton speedups are vendor-reported.
+
+The v1 paper identifies CPU bottlenecks in its tested systems as a target for future releases. For <Term id="domain-randomization">domain randomization</Term>, it distinguishes GPU-resident simulation state from physics parameters such as mass, friction, contact offsets, and joint armature, which use PhysX CPU APIs. Most of those parameters can change at runtime; mesh scale and collider type can only be randomized before simulation starts<br />Source: <Cite id="isaac-lab-2025" />.
+
+ Newton's differentiability is advertised, but its practical use for policy learning, as opposed to <Term id="system-identification">system identification</Term> and design optimization, is early. And Drake keeps its niche: contact-implicit trajectory optimization and rigorous numerics, not throughput <Cite id="state-of-simulation-2026" />.

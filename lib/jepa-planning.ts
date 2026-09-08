@@ -1,29 +1,10 @@
 /**
- * Goal-latent distance planning model for the world-models JEPA module.
- *
- * Pedagogical model of how V-JEPA 2-AC plans (research/02 Part B3): a goal
- * image is encoded once into the same embedding space as the current state,
- * candidate action sequences are scored by where the learned predictor says
- * they land, the sequence whose predicted latent minimizes the distance to
- * the goal latent wins, its first action is executed, and planning repeats.
- * No pixel decoder appears anywhere in the loop; the energy being minimized
- * is a distance between embeddings.
- *
- * The model here runs in a 2-D projection of the embedding space. The
- * predictor is deliberately imperfect: the executed step carries a small
- * deterministic wobble (the world's response differs from the model's
- * prediction), and the search only approximately aligns with the true goal
- * direction, with alignment improving as the candidate budget grows. Both
- * effects are deterministic so identical inputs reproduce identical plans.
- *
- * Contraction is guaranteed: each executed step covers STEP_FRACTION of the
- * remaining distance with angular error at most pi/3, and the wobble adds at
- * most WOBBLE_GAIN of the remaining distance, so the distance shrinks by a
- * factor of at most sqrt(1 - 2*a*cos(pi/3) + a^2) + WOBBLE_GAIN ~= 0.93 < 1
- * per step at the smallest search budget and ~0.63 at the largest.
- *
- * All functions are pure and deterministic. Unit-tested in
- * tests/unit/jepa-planning.test.ts.
+ * Deterministic synthetic teaching model for goal-directed replanning.
+ * Not a projection of V-JEPA 2 embeddings, trained dynamics, or CEM search.
+ * The paper uses L1 feature-map energy (arXiv:2506.09985v1, Section 3.2);
+ * this local model uses Euclidean distance and prescribed candidate directions.
+ * STEP_FRACTION=0.42 and WOBBLE_GAIN=0.05 enforce contraction by construction.
+ * All functions, constants, defaults, and numeric behavior remain unchanged.
  */
 
 export interface LatentPoint {
@@ -71,7 +52,7 @@ export const GOALS: ReadonlyArray<{
   { id: 'place', label: 'goal: place', point: { x: 0.62, y: 0.82 } },
 ];
 
-/** Euclidean distance between two latents: the planning energy. */
+/** Euclidean distance between synthetic toy points; not the paper’s L1 energy. */
 export function goalDistance(a: LatentPoint, b: LatentPoint): number {
   return Math.hypot(a.x - b.x, a.y - b.y);
 }

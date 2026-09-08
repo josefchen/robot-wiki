@@ -135,7 +135,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/advantage-scrubber.tsx',
     route: '/manipulation/rl-finetuning/',
     quantityNames: ['value', 'advantage'],
-    text: 'At t = 0.0 s the value trace sits at 30.0 inside the Reach segment, tagged high advantage because value changes by +8.0 across that stage; the dashed arc is the credit-assignment link that blames the insertion failure at 32 s on the grasp 20 s earlier, and the tinted stage blocks are an illustrative Recap tagging of this espresso episode rather than measured value-function output.',
+    text: 'At t = 0.0 s this teaching toy shows an arbitrary value score of 30.0 in the Reach segment, tagged high advantage because its score changes by +8.0. The dashed arc links a fictional insertion failure at 32 s to a grasp 20 s earlier. The tinted stage blocks show these fictional stage tags. Its timings, values and stage-difference tags are illustrative, not a measured Recap episode or its reward-inclusive, task-thresholded advantage estimator.',
   },
   {
     component: 'MpcVsRl',
@@ -156,14 +156,14 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/latent-imagination.tsx',
     route: '/world-models/latent-dynamics/',
     quantityNames: ['deviation', 'step'],
-    text: 'Latent deviation grows from 0 at step 0 to 0.301 units at the current 15-step horizon under 2.0% one-step error, compounding rather than staying flat; the shaded band marks the published 3 to 15 step range used by TD-MPC2 and DreamerV3, a practice bracket rather than a measured confidence interval.',
+    text: 'In this deterministic toy, latent deviation grows from 0 at step 0 to 0.301 units at the current 15-step horizon under the 2.0% one-step-error input. The shaded band is illustrative, from 3 to 15 steps; it is not a published range, confidence interval, or reliability bound.',
   },
   {
     component: 'LatentImaginationRollout',
     file: 'components/interactive/latent-imagination.tsx',
     route: '/world-models/latent-dynamics/',
     quantityNames: ['latent', 'trajectory'],
-    text: 'In the latent rollout view the solid imagined path leaves the dashed true trajectory after the first few steps and finishes 0.301 units away at t = 15 of 50; that peel is the visual form of one-step error compounding, not a second plot of the same deviation series.',
+    text: 'In this deterministic toy latent rollout view the solid imagined path leaves the dashed true trajectory after the first few steps and has accumulated 0.301 units of toy deviation at t = 15 of 50; that peel illustrates the assumed error recurrence, not measured model drift or a second plot of the same deviation series.',
   },
   {
     component: 'PendulumController',
@@ -191,7 +191,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/sample-efficiency-ledger.tsx',
     route: '/rl-sim2real/rl-for-robotics/',
     quantityNames: ['wall clock', 'environment steps'],
-    text: 'A budget of 158M environment steps costs 21.5 min of wall clock in massively parallel simulation and 82.5 d on a single real robot, a factor of 5,530 apart at every budget, so the experiment the simulator runs in the on-policy regime leaves the hardware in the offline regime instead; a fleet of 7 robots lands at 11.8 d, still off-policy.',
+    text: 'In the constant-rate toy, 158M environment steps take 21.5 min of model wall clock in massively parallel simulation, 82.5 d on one robot and 11.8 d on a fleet of 7. The single-robot-to-simulation duration ratio is 5,530. Their toy bands are on-policy, offline and off-policy; these are editorial categories, not algorithm eligibility.',
   },
   {
     component: 'CollaborativeOperationModes',
@@ -282,7 +282,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/cross-embodiment-strategies.tsx',
     route: '/manipulation/cross-embodiment/',
     quantityNames: ['human', 'slot'],
-    text: 'Padded shared vector leaves human video unable to enter this space directly: the 32-slot strips zero-pad unused dims on each of the 4 bodies and leave the human hand with no slot at all.',
+    text: 'Padded shared vector is an illustrative 32-slot layout across 4 rows. Robot rows zero-pad unused coordinates; the human row has no adapter modelled in this toy.',
   },
   {
     component: 'HierarchyTimescales',
@@ -331,7 +331,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/pi-generation-timeline.tsx',
     route: '/manipulation/pi-line/',
     quantityNames: ['generations', 'weights'],
-    text: 'The π line places 7 generations from Oct 2024 to Apr 2026, with the dashed divider after π0.5 marking where openpi stops; selected now is π0 (PaliGemma 3B + 300M action expert, open weights) and 4 later generations are closed.',
+    text: 'The π line contains 7 generations, with established source months from Oct 2024 to Apr 2026. MEM has no established month and is not plotted. The divider after π0.5 marks the pinned checkpoint catalogue, not licensing; selected now is π0 (PaliGemma 3B + 300M action expert, weights downloadable) and 4 other entries have unverified availability.',
   },
   {
     component: 'GeneralistReleaseTimeline',
@@ -345,7 +345,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/jepa-planning.tsx',
     route: '/world-models/jepa/',
     quantityNames: ['latent', 'distance'],
-    text: 'At a search budget of 24 sequences the current latent sits 0.813 away from the pick goal after 0 planning steps; the embedding-space plane shows the start and goal as two points, and the distance strip is a single sample at step 0.',
+    text: 'Synthetic teaching model, not learned embeddings or measured robot behavior. At a search budget of 24 sequences the current latent sits 0.813 away from the pick goal after 0 planning steps; the embedding-space plane shows the start and goal as two points, and the distance strip is a single sample at step 0.',
   },
   {
     component: 'ActionConditioning',

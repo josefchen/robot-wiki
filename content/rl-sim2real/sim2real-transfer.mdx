@@ -37,7 +37,7 @@ The first family's central trade is below. Drag the real robot friction line off
 <FrictionTransfer className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="DR parameter writes" value="CPU-bound" note="Isaac Lab: mass, friction via PhysX CPU API" accent />
+  <Stat label="DR parameter writes" value="CPU API" note="Isaac Lab v1: mass and friction; runtime changes supported" accent />
   <Stat label="RMA adaptation" value="< 1 s" note="latent extrinsics, online at control rate" />
   <Stat label="SplatSim zero-shot" value="86.25%" note="vs 97.5% for real-data-trained policies" />
   <Stat label="ASAP correction" value="delta action" note="learned residual, sim to real to sim" />
@@ -49,7 +49,7 @@ The idea dates to two 2017 results. Tobin and colleagues randomized rendering (t
 
 OpenAI's Rubik's-cube system added the <Term id="curriculum-learning">curriculum</Term> version: automatic domain randomization widens the randomization range as the agent succeeds, so the distribution grows with the policy's competence <Cite id="openai-rubiks-cube-2019" />. Isaac Lab ships ADR as a configurable curriculum with reference configs in its dexterous-manipulation examples <Cite id="isaac-lab-2025" />.
 
-Two details rarely make it into the textbook version. First, the plumbing: in Isaac Lab, simulation state is GPU-resident but simulation parameters (masses, frictions, contact offsets, joint armature) must still be written through PhysX CPU APIs, and mesh scale or collider type can only change before the simulator starts <Cite id="isaac-lab-2025" />. This is why randomization happens on episode reset rather than continuously, and it is a systems constraint, not a theoretical one. Second, the cost: randomizing over a wide dynamics distribution produces a policy that is optimal for none of them. DR buys a wider basin of transfer at the price of peak performance, and papers almost never quantify the price.
+Two details rarely make it into the textbook version. First, the plumbing: in the 2025 Isaac Lab v1 paper, simulation state is GPU-resident but mass, friction, contact offsets, and joint armature are modified through PhysX CPU APIs. Most other physics parameters can be randomized at runtime, while mesh scale and collider type can change only before simulation starts. CPU parameter writes do not mean randomization is restricted to episode resets<br />Source: <Cite id="isaac-lab-2025" />. Second, the cost: randomizing over a wide dynamics distribution produces a policy that is optimal for none of them. DR buys a wider basin of transfer at the price of peak performance, and papers almost never quantify the price.
 
 That price is what the figure at the top of this module plots. The gray spike is a policy trained at one friction; the blue plateau is a policy trained over the shaded distribution.
 
@@ -89,7 +89,7 @@ Domain randomization still asks the policy to act on what the robot can sense. T
 
 The reference result is Lee and colleagues' ANYmal controller: a privileged teacher distilled into a temporal convolutional network over proprioceptive history, trained in simple simulated domains and deployed blind on mud, snow, rubble, and vegetation it never saw in training <Cite id="lee-2020" />. RMA factorized the same idea into a base policy conditioned on a latent extrinsics vector plus an adaptation module that regresses those extrinsics online from recent proprioception, adapting to new payloads and terrains in fractions of a second at control rate <Cite id="rma-2021" />. The adaptation module is, in effect, system identification performed in latent space by the policy itself.
 
-The pattern has since moved to manipulation. Isaac Lab's DextrAH-RGB distills a state-privileged RL teacher into a stereo-RGB student, which the authors describe as the first system to map stereo images directly to dexterous grasping end to end <Cite id="isaac-lab-2025" />.
+In its DextrAH-RGB example, the Isaac Lab v1 paper reports an RL teacher trained with privileged state on a KUKA arm and Allegro hand, then distilled into a network taking stereo RGB pairs as input<br />Source: <Cite id="isaac-lab-2025" />.
 
 The failure mode has a name. The Isaac Lab paper calls it an information gap due to input mismatch: the teacher observes privileged state information while the student sees only partial observations, so the student must reconstruct the unobserved states from images, a challenge that becomes particularly pronounced under high camera occlusion <Cite id="isaac-lab-2025" />.
 

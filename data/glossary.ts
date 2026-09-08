@@ -630,7 +630,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'costmap',
     term: 'costmap',
     definition:
-      'The grid a mobile-robot navigation stack plans over: occupancy from the map and the live sensors, inflated by the robot\'s footprint and marked up with whatever else should influence the route, so a planner searching for a cheap path is also searching for a safe one. Lu, Hershberger and Smart introduced the layered form now standard, where each concern is a separate semantic layer that writes into the composed grid, rather than one grid that several subsystems overwrite in place.',
+      'The grid a mobile-robot navigation stack plans over: occupancy from the map and the live sensors, inflated by the robot\'s footprint and marked up with whatever else should influence the route, so a planner searching for a cheap path is also searching for a safe one. Lu, Hershberger and Smart proposed and implemented layered costmaps in ROS Navigation: ordered semantic layers update a master 2D costmap, bounds first, then values. Layers may keep private grids or write directly to the master. Sensed obstacles may overwrite static-map costs if configured.',
     citations: ['layered-costmaps-2014', 'nav2-2020'],
   },
   {
@@ -665,28 +665,28 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'sample-efficiency',
     term: 'sample efficiency',
     definition:
-      'How much environment interaction a method needs to reach a given level of performance, counted in environment steps rather than in wall-clock time or gradient updates. It decides which algorithms are available on a given platform: Haarnoja and colleagues named poor sample complexity as the reason model-free deep RL is rarely applied to real robots, and then learned Minitaur walking from 160,000 control steps, about two hours of real-world time, by attacking exactly that. In simulation the same quantity barely matters, because the sampler is a GPU running thousands of environments at once.',
+      'How much environment interaction a method needs to reach a specified performance level, counted separately from wall-clock time and gradient updates. Minitaur walking used 160,000 control steps over about two hours of the whole training process. A constant-rate budget illustration can translate steps into modelled time, but that translation does not establish algorithm eligibility or predict another robot task.',
     citations: ['sac-2018', 'haarnoja-walk-2019'],
   },
   {
     id: 'offline-reinforcement-learning',
     term: 'offline reinforcement learning',
     definition:
-      'Learning a policy entirely from a fixed dataset of previously collected transitions, with no further interaction with the environment. Levine and colleagues frame it as the data-driven counterpart to the supervised paradigms that scaled elsewhere, and identify distributional shift as the central obstacle: the learned policy would like to take actions the dataset never contains, and a value function asked about those actions has nothing to correct an overestimate with. The algorithm families that work are the ones that constrain that extrapolation, whether by penalizing out-of-distribution value estimates, by avoiding querying them at all, or by regularizing the policy toward the behaviour that produced the data.',
+      'Learning a policy from a fixed dataset of previously collected transitions, without collecting additional environment experience during training. The trained policy can then be deployed. A central challenge is distributional shift: policy improvement can query action values outside the data distribution, and erroneous estimates can propagate through Bellman backups without fresh environment feedback. This is distinct from ordinary supervised generalization; adequate data coverage and finite-data errors still matter.',
     citations: ['offline-rl-tutorial-2020', 'cql-2020'],
   },
   {
     id: 'hindsight-experience-replay',
     term: 'hindsight experience replay',
     definition:
-      'Relabelling a failed episode with the goal it actually achieved, so that experience which earned no reward under the intended goal becomes a successful demonstration of reaching a different one. Andrychowicz and colleagues introduced it for goal-conditioned policies with binary sparse rewards, where the technique learns from failure without any reward shaping, and showed it solving manipulation tasks that were otherwise unsolvable by the same algorithm. It is the standard answer to sparse reward when a task can be phrased as reaching a goal state.',
+      'An off-policy replay technique that adds alternative goals to stored transitions and recomputes their rewards, while retaining original-goal replay. It trains goal-conditioned policies and value functions; relabeling is not restricted to failed episodes or final states. Andrychowicz and colleagues tested HER with DDPG on a simulated Fetch arm for pushing, sliding and pick-and-place. Their binary-reward description is qualified by a pushing contact-penetration reward penalty and by starting half of the pick-and-place training episodes from a grasped state.',
     citations: ['her-2017'],
   },
   {
     id: 'reset-free-learning',
     term: 'reset-free learning',
     definition:
-      'Training on real hardware without a human returning the scene to a start state between attempts, which is what stands between a working algorithm and an unattended experiment. Sharma and colleagues formalize the setting as autonomous reinforcement learning, where the agent interacts continually under a bounded intervention budget and is scored across its whole training lifetime rather than only on the final policy. Gupta and colleagues make the operational version work by learning a collection of tasks whose members reset each other, so the behaviour that undoes the last attempt is itself something the agent is trying to learn.',
+      'Training on real hardware without a human returning the scene to a start state between attempts, which is what stands between a working algorithm and an unattended experiment. Sharma and colleagues distinguish deployed-policy regret over training from continuing average reward. Their base setting has no episodic resets; a separate extension for non-ergodic settings adds a bounded, cost-decremented intervention budget. EARL’s experiments instead schedule occasional resets and report both learning curves and final deployed-policy performance. Gupta and colleagues sequence task-specific policies with a designer-provided task graph, so learned re-centering, pickup and flip-up can restore conditions for in-hand reorientation after a dropped object. Their D’Hand/Sawyer experiments also covered pipe insertion; the reported reset-free training still used supplied rewards and task graphs, motion capture for in-hand manipulation and scripted pickup-arm motion.',
     citations: ['autonomous-rl-2022', 'reset-free-rl-2021'],
   },
   {

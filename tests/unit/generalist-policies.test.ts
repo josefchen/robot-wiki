@@ -26,34 +26,31 @@ describe('GENERALIST_RELEASES registry', () => {
     }
   });
 
+  it('labels Gemini 1.5 chronology as its report submission rather than a release', () => {
+    const gr15 = GENERALIST_RELEASES.find((r) => r.id === 'gemini-robotics-15');
+    expect(gr15?.dateLabel).toBe('Oct 2025 report');
+    expect(gr15?.capability).toMatch(/does not establish the release date/);
+  });
+
   it('is sorted by release date', () => {
     const dates = GENERALIST_RELEASES.map((r) => r.released);
     expect([...dates].sort()).toEqual(dates);
   });
 
-  it('partitions open and closed correctly', () => {
-    const open = filterReleases('open').map((r) => r.name);
-    const closed = filterReleases('closed').map((r) => r.name);
-    // VAL-MAN-030: GR00T N1.x and AgiBot GO-1 on the open side.
-    expect(open).toEqual(
-      expect.arrayContaining(['GR00T N1', 'GR00T N1.7', 'AgiBot GO-1']),
-    );
-    // Gemini Robotics, Helix, Skild, and pi0.6+ on the closed side.
-    for (const name of [
-      'Gemini Robotics 1.0',
-      'Gemini Robotics 1.5',
-      'Gemini Robotics 2',
-      'Helix',
-      'Helix 02',
-      'Skild Brain',
-      'AgiBot GO-2',
-      'π0.6',
-      'π0.7',
-    ]) {
-      expect(closed).toContain(name);
-      expect(open).not.toContain(name);
-    }
+  it('partitions three availability states without treating null as closed', () => {
+    const open = filterReleases('open');
+    const unavailable = filterReleases('closed');
+    const unknown = filterReleases('undisclosed');
+    expect(open.every((r) => r.openWeights === true)).toBe(true);
+    expect(unavailable.every((r) => r.openWeights === false)).toBe(true);
+    expect(unknown.map((r) => r.id).sort()).toEqual([
+      'agibot-go2', 'gemini-robotics-15', 'gemini-robotics-2', 'helix', 'helix-02', 'skild-brain',
+    ]);
+    expect(unknown.every((r) => r.openWeights === null && Boolean(r.weightsNote))).toBe(true);
+    expect(new Set([...open, ...unavailable, ...unknown].map((r) => r.id)).size).toBe(GENERALIST_RELEASES.length);
+    expect(open.length + unavailable.length + unknown.length).toBe(GENERALIST_RELEASES.length);
     expect(filterReleases('all')).toHaveLength(GENERALIST_RELEASES.length);
+    expect(open.map((r) => r.name)).toEqual(expect.arrayContaining(['GR00T N1', 'GR00T N1.7', 'AgiBot GO-1']));
   });
 
   it('every release cites a registered source', () => {

@@ -54,15 +54,32 @@ describe('METHODS data', () => {
     }
   });
 
-  it('keeps undisclosed Gemini cells null instead of guessed', () => {
+  it('keeps source-scoped unknown Gemini fields without hiding disclosed actions', () => {
+    const gr15 = METHODS.find((m) => m.id === 'gemini-robotics-15');
+    expect(gr15?.actionRepresentation).toBe('continuous');
+    expect(gr15?.actionRepresentationNote).toMatch(/v3 model card/);
+    expect(gr15?.openWeights).toBeNull();
+    expect(gr15?.weightsNote).toMatch(/inspected v3 technical report/);
+    expect(gr15?.backbone).toMatch(/separate GR-ER 1.5/);
+    expect(METHODS.find((m) => m.id === 'gemini-robotics-2')?.actionRepresentation).toBeNull();
     for (const id of ['gemini-robotics-15', 'gemini-robotics-2']) {
       const row = METHODS.find((m) => m.id === id);
       expect(row, `missing row ${id}`).toBeDefined();
-      expect(row?.actionRepresentation).toBeNull();
       expect(row?.controlFrequencyHz).toBeNull();
       expect(row?.actionHorizon.planned).toBeNull();
       expect(row?.actionHorizon.executed).toBeNull();
     }
+  });
+
+  it('scopes OFT horizons and command rate to the ALOHA experiment', () => {
+    const oft = METHODS.find((m) => m.id === 'openvla-oft');
+    expect(oft?.actionHorizon).toMatchObject({ planned: 25, executed: 25 });
+    expect(oft?.actionHorizon.note).toMatch(/LIBERO separately predicts and executes 8/);
+    expect(oft?.controlFrequencyHz).toBe(25);
+    expect(oft?.controlFrequencyNote).not.toMatch(/25-50 Hz class/);
+    expect(oft?.crossEmbodiment).toBe('limited');
+    expect(oft?.openWeights).toBe(true);
+    expect(oft?.weightsNote).toMatch(/license terms were not inspected/);
   });
 
   it('keeps Helix 02 horizon null and Skild fully undisclosed', () => {
@@ -78,7 +95,9 @@ describe('METHODS data', () => {
     expect(skild?.conditioning).toEqual([]);
     expect(skild?.crossEmbodiment).toBeNull();
     expect(skild?.hierarchy).toBeNull();
-    expect(skild?.openWeights).toBe(false);
+    expect(skild?.openWeights).toBeNull();
+    expect(skild?.weightsNote).toMatch(/January 14|Series C/);
+    expect(skild?.actionRepresentationNote).toMatch(/teleoperation data/);
   });
 
   it('excludes unverified control rates rather than stating them as fact', () => {
@@ -108,6 +127,22 @@ describe('METHODS data', () => {
   });
 });
 
+describe('Gemini 2 announcement scope', () => {
+  it('separates VLA inputs, external ER coordination and unpublished implementation fields', () => {
+    const row = METHODS.find((m) => m.id === 'gemini-robotics-2');
+    expect(row?.conditioning).toEqual(['vision', 'language']);
+    expect(row?.hierarchy).toBe('external');
+    expect(row?.backbone).toBeNull();
+    expect(row?.actionRepresentation).toBeNull();
+    expect(row?.controlFrequencyHz).toBeNull();
+    expect(row?.actionHorizon.planned).toBeNull();
+    expect(row?.actionHorizon.executed).toBeNull();
+    expect(row?.openWeights).toBeNull();
+    expect(row?.weightsNote).toMatch(/Apollo 2 with Inspire/);
+    expect(row?.weightsNote).toMatch(/licensing terms are not disclosed/);
+  });
+});
+
 describe('filterMethods', () => {
   it('returns everything under the default filters', () => {
     expect(filterMethods(METHODS, DEFAULT_FILTERS)).toHaveLength(
@@ -115,7 +150,7 @@ describe('filterMethods', () => {
     );
   });
 
-  it('partitions open vs closed weights exactly (VAL-MAN-034)', () => {
+  it('partitions downloadable, unavailable and unverified weights (VAL-MAN-034)', () => {
     const open = filterMethods(METHODS, {
       ...DEFAULT_FILTERS,
       weights: 'open',
@@ -128,6 +163,10 @@ describe('filterMethods', () => {
       'gemini-robotics-2',
       'helix-02',
       'skild',
+      'act',
+      'diffusion-policy',
+      'rt-1',
+      'rt-2',
     ]) {
       expect(openIds.has(hidden), `${hidden} must hide under open filter`).toBe(
         false,
@@ -138,8 +177,6 @@ describe('filterMethods', () => {
       'pi05',
       'openvla',
       'octo',
-      'act',
-      'diffusion-policy',
       'gr00t-n1-7',
     ]) {
       expect(openIds.has(kept), `${kept} must stay under open filter`).toBe(
@@ -151,7 +188,12 @@ describe('filterMethods', () => {
       ...DEFAULT_FILTERS,
       weights: 'closed',
     });
-    expect(closed.every((m) => !m.openWeights)).toBe(true);
+    expect(closed.every((m) => m.openWeights === false)).toBe(true);
+    const unknown = filterMethods(METHODS, { ...DEFAULT_FILTERS, weights: 'undisclosed' });
+    for (const id of ['act', 'diffusion-policy', 'rt-1', 'rt-2']) {
+      expect(unknown.some((m) => m.id === id)).toBe(true);
+      expect(closed.some((m) => m.id === id)).toBe(false);
+    }
   });
 
   it('filters by action representation', () => {

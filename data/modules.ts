@@ -110,7 +110,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'manipulation',
     'pi-line',
     'The Pi Line',
-    'pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and where open weights stop.',
+    'pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and source-scoped checkpoint availability.',
   ],
   [
     'manipulation',
@@ -200,7 +200,7 @@ const entries: Array<[Domain, string, string, string]> = [
     'world-models',
     'taxonomy',
     'What Is a World Model?',
-    'Six paradigms share one name: latent dynamics, decoder-free latent, generative video, JEPA, unified world-action, and symbolic.',
+    'An editorial comparison of six world-model example groups: what they predict, in what representation, and for what purpose. The survey-defined functional criterion is decision-relevant prediction, not visual plausibility alone.',
   ],
   [
     'world-models',

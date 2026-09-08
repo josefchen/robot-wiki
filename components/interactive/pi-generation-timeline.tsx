@@ -12,11 +12,10 @@ import {
 import { cx } from '@/lib/utils';
 
 /**
- * PiGenerationTimeline: the pi0 to pi0.7 release line with the open/closed
- * split drawn on it. Each generation is a node on a time axis; open-weights
- * generations are signal blue, closed ones are dim, and a dashed divider after
- * pi0.5 marks where openpi stops. Selecting a generation (click or arrow
- * keys) shows its backbone, contribution, and primary source below.
+ * PiGenerationTimeline: source publication months and the pinned openpi
+ * checkpoint catalogue, not a licensing classification. An undated entry is
+ * selectable but not plotted at an invented month. Selecting an entry (click
+ * or arrow keys) shows its backbone, contribution, and primary source below.
  *
  * Interactive contract: deterministic render, keyboard-accessible selection
  * with arrow keys, visible detail readout, reset control, fixed-height SVG
@@ -51,6 +50,11 @@ function dateToX(ym: string): number {
   return f(AXIS_LEFT + ((monthIndex(ym) - monthIndex(AXIS_MIN)) / span) * (AXIS_RIGHT - AXIS_LEFT));
 }
 
+function weightsLabel(g: PiGeneration): string {
+  return g.openWeights === true ? 'downloadable'
+    : g.openWeights === false ? 'unavailable' : 'unverified';
+}
+
 export function PiGenerationTimeline({
   defaultSelected = 'pi0',
   className,
@@ -65,15 +69,16 @@ export function PiGenerationTimeline({
   const frontier = openWeightsFrontier();
   const behind = generationsBehind();
 
-  // The divider sits midway between the last open and first closed release.
-  const firstClosed = PI_GENERATIONS.find((g) => !g.openWeights);
+  // A catalogue boundary, not evidence of closed licensing.
+  const firstUnlisted = PI_GENERATIONS.find((g) => g.openWeights !== true && g.released !== null);
   const dividerX = f(
-    (dateToX(frontier.released) + dateToX(firstClosed?.released ?? AXIS_MAX)) / 2,
+    (dateToX(frontier.released ?? AXIS_MIN) + dateToX(firstUnlisted?.released ?? AXIS_MAX)) / 2,
   );
 
   // pi0.6 and pi*0.6 share a release month; nudge the second node right by
   // half a month so both circles stay visible (labels stay honest).
-  const nodeX = (g: PiGeneration, index: number): number => {
+  const nodeX = (g: PiGeneration, index: number): number | null => {
+    if (g.released === null) return null;
     const base = dateToX(g.released);
     const collision = PI_GENERATIONS.findIndex(
       (other) => other.released === g.released,
@@ -98,11 +103,11 @@ export function PiGenerationTimeline({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Timeline of Physical Intelligence model generations from ${PI_GENERATIONS[0].dateLabel} to ${PI_GENERATIONS[PI_GENERATIONS.length - 1].dateLabel}. Open weights stop at ${frontier.name}; the ${behind} newer generations are closed.`}
+        aria-label={`Timeline of dated Physical Intelligence sources from ${PI_GENERATIONS[0].dateLabel} to ${PI_GENERATIONS[PI_GENERATIONS.length - 1].dateLabel}. The pinned checkpoint catalogue ends at ${frontier.name}; ${behind} other model entries have unverified weight availability. MEM has no established month and is not plotted.`}
         aria-describedby={descriptionId}
         className="block w-full"
       >
-        {/* Closed-weights region */}
+        {/* Entries outside the inspected checkpoint catalogue */}
         <rect
           x={dividerX}
           y={20}
@@ -111,7 +116,7 @@ export function PiGenerationTimeline({
           fill="var(--color-surface-2)"
           opacity={0.5}
         />
-        {/* Divider: open weights stop here */}
+        {/* Divider: pinned catalogue boundary */}
         <line
           x1={dividerX}
           x2={dividerX}
@@ -129,7 +134,7 @@ export function PiGenerationTimeline({
           fontSize={10}
           fontFamily="var(--font-mono)"
         >
-          open weights stop at {frontier.name}
+          pinned catalogue ends at {frontier.name}
         </text>
         <text
           x={AXIS_RIGHT - 4}
@@ -139,7 +144,7 @@ export function PiGenerationTimeline({
           fontSize={10}
           fontFamily="var(--font-mono)"
         >
-          {behind} closed generations since the last openpi release
+          {behind} model entries not in the pinned catalogue
         </text>
 
         {/* Time axis */}
@@ -177,6 +182,7 @@ export function PiGenerationTimeline({
         {/* Generation nodes */}
         {PI_GENERATIONS.map((g, i) => {
           const cx = nodeX(g, i);
+          if (cx === null) return null;
           const above = i % 2 === 0;
           const labelY = above ? AXIS_Y - 30 : AXIS_Y + 38;
           const isSelected = g.id === selected.id;
@@ -232,6 +238,11 @@ export function PiGenerationTimeline({
           );
         })}
       </svg>
+      <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
+        MEM is selectable below but not plotted: its source month is unverified.
+        Downloadable means listed in the inspected openpi catalogue, not an
+        open-source licence. Non-listing leaves availability unverified.
+      </p>
 
       <div
         data-testid="generation-track"
@@ -247,7 +258,7 @@ export function PiGenerationTimeline({
               buttonRefs.current[i] = el;
             }}
             type="button"
-            data-status={g.openWeights ? 'open' : 'closed'}
+            data-status={g.openWeights === true ? 'open' : g.openWeights === false ? 'unavailable' : 'unknown'}
             aria-label={g.name}
             aria-pressed={g.id === selected.id}
             onClick={() => select(i)}
@@ -275,7 +286,7 @@ export function PiGenerationTimeline({
                 g.openWeights ? 'text-accent' : 'text-text-dim',
               )}
             >
-              {g.openWeights ? 'open' : 'closed'}
+              {weightsLabel(g)}
             </span>
           </button>
         ))}
@@ -305,7 +316,7 @@ export function PiGenerationTimeline({
               selected.openWeights ? 'text-accent' : 'text-text-dim',
             )}
           >
-            {selected.openWeights ? 'open weights' : 'closed weights'}
+            weights {weightsLabel(selected)}
           </span>
         </p>
         <p className="mt-1 font-mono text-xs text-text-dim">
@@ -333,13 +344,13 @@ export function PiGenerationTimeline({
         className="mt-3"
         form="state"
         summary="Current π generation"
-        description={`The π line places ${PI_GENERATIONS.length} generations from ${PI_GENERATIONS[0].dateLabel} to ${PI_GENERATIONS[PI_GENERATIONS.length - 1].dateLabel}, with the dashed divider after ${frontier.name} marking where openpi stops; selected now is ${selected.name} (${selected.backbone}, ${selected.openWeights ? 'open' : 'closed'} weights) and ${behind} later generations are closed.`}
+        description={`The π line contains ${PI_GENERATIONS.length} generations, with established source months from ${PI_GENERATIONS[0].dateLabel} to ${PI_GENERATIONS[PI_GENERATIONS.length - 1].dateLabel}. MEM has no established month and is not plotted. The divider after ${frontier.name} marks the pinned checkpoint catalogue, not licensing; selected now is ${selected.name} (${selected.backbone}, weights ${weightsLabel(selected)}) and ${behind} other entries have unverified availability.`}
         states={[
           { label: 'selected', value: selected.name },
-          { label: 'released', value: selected.dateLabel },
-          { label: 'weights', value: selected.openWeights ? 'open' : 'closed' },
+          { label: 'source month', value: selected.dateLabel },
+          { label: 'weights', value: weightsLabel(selected) },
           { label: 'generations', value: String(PI_GENERATIONS.length) },
-          { label: 'closed since openpi', value: String(behind) },
+          { label: 'not in pinned catalogue', value: String(behind) },
         ]}
       />
     </div>
