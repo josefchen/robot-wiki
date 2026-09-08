@@ -5555,8 +5555,8 @@ export const CITATIONS: Citation[] = [
   },
   {
     // ISMAR 2011 pp. 127-136, Crossref read 2026-08-22. Real-time dense
-    // TSDF fusion from a commodity depth camera, which is what moved the
-    // Curless-Levoy volumetric method onto a live robot.
+    // TSDF fusion from a Kinect depth camera using commodity GPU hardware.
+    // The source reports depth tracking/mapping, not adoption on live robots.
     //
     // Author list follows the paper's own byline (the ISMAR PDF, read
     // 2026-08-22), which orders Fitzgibbon last; Crossref lists him second

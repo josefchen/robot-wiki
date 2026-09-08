@@ -7412,6 +7412,78 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "calibration-tsdf-five-originals-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "be15384f5e02234bce1894d27b2daabaca3211a62a98ac5dbab3166e49d06aa3",
+      "reason": "Five exact original corrections, perception8/13 and scene7/8/9 as two independent atomic groups. Zhang's 2000 journal abstract supports planar target/unknown motion, radial distortion and closed-form then maximum-likelihood refinement; removed unseen journal intrinsics/per-view-pose details are not borrowed from MSR-TR-98-71. KinectFusion's retained author-hosted PDF supports its sign convention, 11-bit 640×480/30Hz depth stream, commodity-GPU ICP/global mapping, planar failure and projective truncation; Curless–Levoy supplies its negative-empty/positive-unseen zero-weight hole-filling construction and range-point truncation. Removed unsupported live-robot displacement/universal adoption. New in-prose citation occurrences bind only these separated selected claims; declaration sets, References order, audited URLs and article dates are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; real review and guarded before/after endpoints: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/worker-application.json. No complete-journal/report or full-rendition byte identity, whole P1, authored occupancy/planner/figure claim, scene10, ORB claim, glossary fix or release acceptance is asserted.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "calibration-tsdf-five-originals-20260908-2",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "967e8204363f56a4e930cbf95b7c98a7ee566f10e9493d2fde0570ff0cf03cd7",
+      "reason": "Five exact original corrections, perception8/13 and scene7/8/9 as two independent atomic groups. Zhang's 2000 journal abstract supports planar target/unknown motion, radial distortion and closed-form then maximum-likelihood refinement; removed unseen journal intrinsics/per-view-pose details are not borrowed from MSR-TR-98-71. KinectFusion's retained author-hosted PDF supports its sign convention, 11-bit 640×480/30Hz depth stream, commodity-GPU ICP/global mapping, planar failure and projective truncation; Curless–Levoy supplies its negative-empty/positive-unseen zero-weight hole-filling construction and range-point truncation. Removed unsupported live-robot displacement/universal adoption. New in-prose citation occurrences bind only these separated selected claims; declaration sets, References order, audited URLs and article dates are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; real review and guarded before/after endpoints: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/worker-application.json. No complete-journal/report or full-rendition byte identity, whole P1, authored occupancy/planner/figure claim, scene10, ORB claim, glossary fix or release acceptance is asserted.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "calibration-tsdf-five-originals-20260908-3",
+      "manifest": "relationships",
+      "memberId": "article:classical/perception",
+      "oldHash": "9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041",
+      "newHash": "341b9c1a464c032e0e9f9d3ed688ec0a5f91775629e786dd818bb8912eaf2035",
+      "reason": "Five exact original corrections, perception8/13 and scene7/8/9 as two independent atomic groups. Zhang's 2000 journal abstract supports planar target/unknown motion, radial distortion and closed-form then maximum-likelihood refinement; removed unseen journal intrinsics/per-view-pose details are not borrowed from MSR-TR-98-71. KinectFusion's retained author-hosted PDF supports its sign convention, 11-bit 640×480/30Hz depth stream, commodity-GPU ICP/global mapping, planar failure and projective truncation; Curless–Levoy supplies its negative-empty/positive-unseen zero-weight hole-filling construction and range-point truncation. Removed unsupported live-robot displacement/universal adoption. New in-prose citation occurrences bind only these separated selected claims; declaration sets, References order, audited URLs and article dates are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; real review and guarded before/after endpoints: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/worker-application.json. No complete-journal/report or full-rendition byte identity, whole P1, authored occupancy/planner/figure claim, scene10, ORB claim, glossary fix or release acceptance is asserted.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "calibration-tsdf-five-originals-20260908-4",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31",
+      "newHash": "28d6c4a55e9849a56d32b12791b77c276cccb107e0c4522c379396daac1876ba",
+      "reason": "Five exact original corrections, perception8/13 and scene7/8/9 as two independent atomic groups. Zhang's 2000 journal abstract supports planar target/unknown motion, radial distortion and closed-form then maximum-likelihood refinement; removed unseen journal intrinsics/per-view-pose details are not borrowed from MSR-TR-98-71. KinectFusion's retained author-hosted PDF supports its sign convention, 11-bit 640×480/30Hz depth stream, commodity-GPU ICP/global mapping, planar failure and projective truncation; Curless–Levoy supplies its negative-empty/positive-unseen zero-weight hole-filling construction and range-point truncation. Removed unsupported live-robot displacement/universal adoption. New in-prose citation occurrences bind only these separated selected claims; declaration sets, References order, audited URLs and article dates are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; real review and guarded before/after endpoints: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/worker-application.json. No complete-journal/report or full-rendition byte identity, whole P1, authored occupancy/planner/figure claim, scene10, ORB claim, glossary fix or release acceptance is asserted.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -56,7 +56,7 @@ Start at the end, with the number the whole chain is judged on. Three of the sta
 Compare the composed number against the tolerance real tasks hold. The clearance band above is a parallel-jaw gripper's lateral slack, and even a well-calibrated pipeline sits close to it. Precision insertion is a different world: assembly results in this literature are reported at 0.5 mm clearance <Cite id="play2perfect-2026" />, an order of magnitude below what a vision chain delivers alone. That is not a sensor defect. It is why precise assembly closes on force and contact rather than on vision, and why grasp planning treats the pose it is handed as an input rather than a certainty.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="Zhang calibration" value="2000" note="intrinsics from a planar target at unknown orientations" />
+  <Stat label="Zhang calibration" value="2000" note="planar target; motion need not be known" />
   <Stat label="hand-eye (AX = XB)" value="1989" note="Tsai and Lenz solve the camera-to-gripper transform" />
   <Stat label="visual servoing" value="1992" note="Espiau, Chaumette and Rives, closing on image features" />
   <Stat label="promptable masks" value="2023" note="Segment Anything, trained on over a billion masks" />
@@ -68,7 +68,7 @@ The rest of the module is the six stages, in order, and what each one contribute
 
 A camera is a device that discards a dimension. It maps a 3D point onto a 2D sensor, and the mapping it uses is described by the <Term id="camera-intrinsics">intrinsics</Term>: focal length in pixels on each axis, the principal point, and the lens distortion terms. Before those are known, a pixel coordinate is a number with no geometric meaning.
 
-Zhang's 2000 method uses a planar calibration target. Show the camera a planar target at several arbitrary orientations, none of them measured; each view constrains the intrinsics, and a closed-form solution followed by nonlinear refinement recovers them along with each view's pose and the radial distortion.
+Zhang's 2000 method uses a planar calibration target. Show the camera a planar target at several arbitrary orientations, none of them measured; the paper models radial lens distortion and gives a closed-form solution followed by nonlinear refinement under a maximum-likelihood criterion <Cite id="zhang-2000-calibration" />.
 
 Zhang <Cite id="zhang-2000-calibration" /> compares this setup with classical techniques that use expensive equipment such as two or three orthogonal planes.
 

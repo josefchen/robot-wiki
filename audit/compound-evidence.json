@@ -29257,5 +29257,352 @@
         "evidenceDigest": "a1fa959e526571bcba686bda489faa1a919cd085379057381e13e566fde2c583"
       }
     ]
+  },
+  {
+    "id": "calibration-tsdf-perception-8-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "8634a355baf89ce5aecae50efe6e781fd8f7805cadc038306dcbaebf7c5d36b3",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "journal-date",
+        "text": "The cited Zhang journal paper was published in 2000.",
+        "requiredCitationIds": [
+          "zhang-2000-calibration"
+        ]
+      },
+      {
+        "id": "planar-unknown-motion",
+        "text": "The method uses a planar pattern at different orientations; the motion need not be known.",
+        "requiredCitationIds": [
+          "zhang-2000-calibration"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+      "rationale": "Reviewed the entire corrected original and all guarded reader endpoints; all 2 AND parts are required. IEEE publisher publication fields state November 2000, volume 22 issue 11, pp.1330–1334, matching DOI 10.1109/34.888718. The 1998 report cover is not used as the journal date. The actual journal abstract explicitly requires a planar pattern at different orientations and says the motion need not be known. Intrinsics recovery is removed from the Stat, not certified from the distinct report. Source identities and literal byte spans were verified in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; independent Sol/high scrutiny remains pending.",
+      "planDigest": "a4cf9d66e6fe32b53ce9707014515bd4b1793ef7dea6e0e5ae38cc0a50750f1f"
+    },
+    "evidence": [
+      {
+        "partId": "journal-date",
+        "citationId": "zhang-2000-calibration",
+        "sourceUrl": "https://doi.org/10.1109/34.888718",
+        "supportingPassage": "# A flexible new technique for camera calibration\n\n[Z. Zhang](https://ieeexplore.ieee.org/author/37279628400)\n\n**Published in:** [IEEE Transactions on Pattern Analysis and Machine Intelligence](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34) ( Volume: 22, [Issue: 11](https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=19223&punumber=34), November 2000)\n\n**Page(s):** 1330 \\- 1334\n\n**Date of Publication:** 30 November 2000 [Get help with using Publication Dates](http://ieeexplore.ieee.org/Xplorehelp/Help_Pubdates.html)\n\nISSN Information:\n\n**DOI:** [10.1109/34.888718](https://doi.org/10.1109/34.888718)"
+      },
+      {
+        "partId": "planar-unknown-motion",
+        "citationId": "zhang-2000-calibration",
+        "sourceUrl": "https://doi.org/10.1109/34.888718",
+        "supportingPassage": "We propose a flexible technique to easily calibrate a camera. It only requires the camera to observe a planar pattern shown at a few (at least two) different orientations. Either the camera or the planar pattern can be freely moved. The motion need not be known. Radial lens distortion is modeled. The proposed procedure consists of a closed-form solution, followed by a nonlinear refinement based on the maximum likelihood criterion. Both computer simulation and real data have been used to test the proposed technique and very good results have been obtained. Compared with classical techniques which use expensive equipment such as two or three orthogonal planes, the proposed technique is easy to use and flexible. It advances 3D computer vision one more step from laboratory environments to real world use."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "journal-date",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+        "rationale": "IEEE publisher publication fields state November 2000, volume 22 issue 11, pp.1330–1334, matching DOI 10.1109/34.888718. The 1998 report cover is not used as the journal date.",
+        "evidenceDigest": "d00a09ea1cc3f3c2fc85b0579ab4e597e9dd92316b4eaccda0123d031c5b3eac"
+      },
+      {
+        "partId": "planar-unknown-motion",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+        "rationale": "The actual journal abstract explicitly requires a planar pattern at different orientations and says the motion need not be known. Intrinsics recovery is removed from the Stat, not certified from the distinct report.",
+        "evidenceDigest": "21ef17f742ab52719f9ba9fb8a8b05e98073646f519f702aab1eff625edde13e"
+      }
+    ]
+  },
+  {
+    "id": "calibration-tsdf-perception-13-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "720c13b2833bd138e95078f76709d883fe2a5ea77db748c321f1a6cfb97cd984",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "radial-model",
+        "text": "Radial lens distortion is modeled.",
+        "requiredCitationIds": [
+          "zhang-2000-calibration"
+        ]
+      },
+      {
+        "id": "closed-form-refinement",
+        "text": "The procedure is closed-form followed by nonlinear maximum-likelihood refinement.",
+        "requiredCitationIds": [
+          "zhang-2000-calibration"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+      "rationale": "Reviewed the entire corrected original and all guarded reader endpoints; all 2 AND parts are required. The journal abstract explicitly states that radial lens distortion is modeled. No unseen journal method section or per-view-pose result is inferred. The journal abstract states a closed-form solution followed by nonlinear refinement based on the maximum likelihood criterion. MSR-TR-98-71 Sections3.1–3.4 are counter-context for the removed detail, not journal proof. Source identities and literal byte spans were verified in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; independent Sol/high scrutiny remains pending.",
+      "planDigest": "d238b0b7d7c0f18b348cfc0797240f6d3dea4f5fbe052692ade89ce491df1790"
+    },
+    "evidence": [
+      {
+        "partId": "radial-model",
+        "citationId": "zhang-2000-calibration",
+        "sourceUrl": "https://doi.org/10.1109/34.888718",
+        "supportingPassage": "We propose a flexible technique to easily calibrate a camera. It only requires the camera to observe a planar pattern shown at a few (at least two) different orientations. Either the camera or the planar pattern can be freely moved. The motion need not be known. Radial lens distortion is modeled. The proposed procedure consists of a closed-form solution, followed by a nonlinear refinement based on the maximum likelihood criterion. Both computer simulation and real data have been used to test the proposed technique and very good results have been obtained. Compared with classical techniques which use expensive equipment such as two or three orthogonal planes, the proposed technique is easy to use and flexible. It advances 3D computer vision one more step from laboratory environments to real world use."
+      },
+      {
+        "partId": "closed-form-refinement",
+        "citationId": "zhang-2000-calibration",
+        "sourceUrl": "https://doi.org/10.1109/34.888718",
+        "supportingPassage": "We propose a flexible technique to easily calibrate a camera. It only requires the camera to observe a planar pattern shown at a few (at least two) different orientations. Either the camera or the planar pattern can be freely moved. The motion need not be known. Radial lens distortion is modeled. The proposed procedure consists of a closed-form solution, followed by a nonlinear refinement based on the maximum likelihood criterion. Both computer simulation and real data have been used to test the proposed technique and very good results have been obtained. Compared with classical techniques which use expensive equipment such as two or three orthogonal planes, the proposed technique is easy to use and flexible. It advances 3D computer vision one more step from laboratory environments to real world use."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "radial-model",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+        "rationale": "The journal abstract explicitly states that radial lens distortion is modeled. No unseen journal method section or per-view-pose result is inferred.",
+        "evidenceDigest": "0e76107e1e164cba64209d90b26759ebf46448a80d2725219490604d0e6bad78"
+      },
+      {
+        "partId": "closed-form-refinement",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+        "rationale": "The journal abstract states a closed-form solution followed by nonlinear refinement based on the maximum likelihood criterion. MSR-TR-98-71 Sections3.1–3.4 are counter-context for the removed detail, not journal proof.",
+        "evidenceDigest": "1fbda1296acfce5dea3ebdda28762a32abf51a2ce10b68f6ebd7f5336a267f32"
+      }
+    ]
+  },
+  {
+    "id": "calibration-tsdf-scene-representation-7-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 7,
+    "originalCellsDigest": "65c59feb18c2c951d36af3711444b4e84c50a92f84170bdde2e208ce184d304d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "kinect-sign",
+        "text": "KinectFusion states positive visible/free-space and negative non-visible-side values.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      },
+      {
+        "id": "curless-state-convention",
+        "text": "Curless–Levoy require Dmin negative and Dmax positive and encode empty/unseen states using these values at W=0.",
+        "requiredCitationIds": [
+          "curless-levoy-1996"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+      "rationale": "Reviewed the entire corrected original and all guarded reader endpoints; all 2 AND parts are required. Retained author-hosted PDF Section3.3 explicitly gives positive visible/free-space and negative non-visible-side values. The additional author-page item establishes work association through all ten ordered authors, explicit DOI and the identical full 190-word abstract; that page alone does not state the sign convention. Curless–Levoy Section3 specifies negative Dmin/positive Dmax; Section4 assigns empty Dmin and unseen Dmax with W=0, with space carving back toward the sensor. This is specifically the hole-filling construction, not a universal SDF sign law. Source identities and literal byte spans were verified in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; independent Sol/high scrutiny remains pending.",
+      "planDigest": "bbc983e52f7c187a05a9329cef302c826eaa8d57c74f0f8646dfc5e22ebf5002"
+    },
+    "evidence": [
+      {
+        "partId": "kinect-sign",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "3.3 Mapping as Surface Reconstruction\nEach consecutive depth frame, with an associated live camera pose\nestimate, is fused incrementally into one single 3D reconstruction\nusing the volumetric truncated signed distance function (TSDF)\n[7]. In a true signed distance function, the value corresponds to\nthe signed distance to the closest zero crossing (the surface interface), taking on positive and increasing values moving from the\nvisible surface into free space, and negative and decreasing values\non the non-visible side. The result of averaging the SDF’s of multiple 3D point clouds (or surface measurements) that are aligned into\na global frame is a global surface fusion.\nAn example given in Figure 4 demonstrates how the TSDF allows us to represent arbitrary genus surfaces as zero crossings\nwithin the volume. We will denote the global TSDF that contains a\nfusion of the registered depth measurements from frames 1 . . . k as"
+      },
+      {
+        "partId": "kinect-sign",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/publication/kinectfusion-real-time-dense-surface-mapping-tracking/",
+        "supportingPassage": "<meta name=\"citation_title\" content=\"KinectFusion: Real-Time Dense Surface Mapping and Tracking\" />\n\t<meta name=\"citation_author\" content=\"Richard A. Newcombe\" />\n\t<meta name=\"citation_author\" content=\"Shahram Izadi\" />\n\t<meta name=\"citation_author\" content=\"Otmar Hilliges\" />\n\t<meta name=\"citation_author\" content=\"David Molyneaux\" />\n\t<meta name=\"citation_author\" content=\"David Kim\" />\n\t<meta name=\"citation_author\" content=\"Andrew J. Davison\" />\n\t<meta name=\"citation_author\" content=\"Pushmeet Kohli\" />\n\t<meta name=\"citation_author\" content=\"Jamie Shotton\" />\n\t<meta name=\"citation_author\" content=\"Steve Hodges\" />\n\t<meta name=\"citation_author\" content=\"Andrew Fitzgibbon\" />\n\t<meta name=\"citation_publication_date\" content=\"2011/10/26\" />\n\t<meta name=\"citation_conference_title\" content=\"ISMAR &#039;11 Proceedings of the 2011 10th IEEE International Symposium on Mixed and Augmented Reality\" />\n\t<meta name=\"citation_firstpage\" content=\"127\" />\n\t<meta name=\"citation_lastpage\" content=\"136\" />\n\n<p class=\"wp-block-paragraph\">We present a system for accurate real-time mapping of complex and arbitrary indoor scenes in variable lighting conditions, using only a moving low-cost depth camera and commodity graphics hardware. We fuse all of the depth data streamed from a Kinect sensor into a single global implicit surface model of the observed scene in real-time. The current sensor pose is simultaneously obtained by tracking the live depth frame relative to the global model using a coarse-to-fine iterative closest point (ICP) algorithm, which uses all of the observed depth data available. We demonstrate the advantages of tracking against the growing full surface model compared with frame-to-frame tracking, obtaining tracking and mapping results in constant time within room sized scenes with limited drift and high accuracy. We also show both qualitative and quantitative results relating to various aspects of our tracking and mapping system. Modelling of natural scenes, in real-time with only commodity sensor and GPU hardware, promises an exciting step forward in augmented reality (AR), in particular, it allows dense surfaces to be reconstructed in real-time, with a level of detail and robustness beyond any solution yet presented using passive computer vision.</p>\n\n<a href=\"https://dx.doi.org/10.1109/ISMAR.2011.6092378\" target=\"_blank\">DOI</a>"
+      },
+      {
+        "partId": "curless-state-convention",
+        "citationId": "curless-levoy-1996",
+        "sourceUrl": "https://graphics.stanford.edu/papers/volrange/volrange.pdf",
+        "supportingPassage": "practice, we use a fixed point representation for the signed distance\nfunction, which bounds the values to lie between Dmin and Dmax\nas shown in the figure. The values of Dmin and Dmax must be negative and positive, respectively, as they are on opposite sides of a\nsigned distance zero-crossing.\n\nIn practice, we represent the unseen and empty states using the\nfunction and weight fields stored on the voxel lattice. We represent\nthe unseen state with the function values D(x) = Dmax , W (x) =\n0 and the empty state with the function values D(x) = Dmin ,\nW (x) = 0, as shown in Figure 6b. The key advantage of this representation is that we can use the same isosurface extraction algorithm\nwe used in the previous section without the restriction on interpolating voxels of zero weight. This extraction finds both the signed\ndistance and hole fill isosurfaces and connects them naturally where\nthey meet, i.e., at the corners in Figure 6a where the dotted red line\n\n1. Initialize the voxel space to the “unseen” state.\n2. Update the voxels near the surface as described in the previous section. As before, these voxels take on continuous signed\ndistance and weight values.\n3. Follow the lines of sight back from the observed surface and\nmark the corresponding voxels as “empty”. We refer to this\nstep as space carving.\n4. Perform an isosurface extraction at the zero-crossing of the\nsigned distance function. Additionally, extract a surface between regions seen to be empty and regions that remain unseen.\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "kinect-sign",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+        "rationale": "Retained author-hosted PDF Section3.3 explicitly gives positive visible/free-space and negative non-visible-side values. The additional author-page item establishes work association through all ten ordered authors, explicit DOI and the identical full 190-word abstract; that page alone does not state the sign convention.",
+        "evidenceDigest": "eb4ab29ea2711b38f6853143630750245153b308d20cd66353e041d45782ef83"
+      },
+      {
+        "partId": "curless-state-convention",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+        "rationale": "Curless–Levoy Section3 specifies negative Dmin/positive Dmax; Section4 assigns empty Dmin and unseen Dmax with W=0, with space carving back toward the sensor. This is specifically the hole-filling construction, not a universal SDF sign law.",
+        "evidenceDigest": "3a279f0edca57ce41d8f530787c8260bbeb524c97f7b83983a08a1719b5c4ec6"
+      }
+    ]
+  },
+  {
+    "id": "calibration-tsdf-scene-representation-8-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "b5c7536810acafd5b51575a1b18806f3ee6d0de0da7f60c6e935ee2c117caf74",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "kinect-input",
+        "text": "The input is a Kinect structured-light depth sensor with an on-board ASIC producing 11-bit 640×480 maps at 30 Hz.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      },
+      {
+        "id": "tracking-algorithm",
+        "text": "A coarse-to-fine ICP algorithm aligns the live depth frame to the growing global model.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      },
+      {
+        "id": "gpu-frame-rate",
+        "text": "The reported tracking/mapping rate is the Kinect input frame rate, using commodity GPGPU hardware; the denominator is depth frames, not robot actions.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      },
+      {
+        "id": "planar-limit",
+        "text": "A large planar scene occupying most of the view can leave three motion degrees unconstrained and produce tracking drift or failure.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+      "rationale": "Reviewed the entire corrected original and all guarded reader endpoints; all 4 AND parts are required. Section1.1 explicitly states structured light, an on-board ASIC, 11-bit 640×480 depth maps and 30Hz. The corrected prose uses the disclosed depth-frame rate, not a robot action rate. The retained full abstract explicitly tracks the live depth frame against the global model using coarse-to-fine ICP. It does not establish adoption on live robots. The introduction explicitly gives 30Hz tracking and GPGPU tracking/mapping at the Kinect sensor frame rate; Section3.3 names the 640×480/30fps input denominator. The author-page item supplies identity and commodity-GPU context, not independent numerical-rate proof. No GPU SKU, whole-building rate or robot-control frequency is inferred. Section4.3 states a large planar scene filling most of the field of view leaves three of six motion degrees unconstrained and can produce tracking drift/failure. Section6 limits scope to medium room volumes and warns of memory and loop drift for buildings. Source identities and literal byte spans were verified in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; independent Sol/high scrutiny remains pending.",
+      "planDigest": "753a877c4b61184164ba30ebd915ce484808136d21fee408fdc475d6e045dbc7"
+    },
+    "evidence": [
+      {
+        "partId": "kinect-input",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "Kinect is a new and widely-available commodity sensor platform\nthat incorporates a structured light based depth sensor. Using an\non-board ASIC a 11-bit 640x480 depth map is generated at 30Hz.\n"
+      },
+      {
+        "partId": "tracking-algorithm",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "We present a system for accurate real-time mapping of complex and\narbitrary indoor scenes in variable lighting conditions, using only a\nmoving low-cost depth camera and commodity graphics hardware.\nWe fuse all of the depth data streamed from a Kinect sensor into\na single global implicit surface model of the observed scene in\nreal-time. The current sensor pose is simultaneously obtained by\ntracking the live depth frame relative to the global model using a\ncoarse-to-fine iterative closest point (ICP) algorithm, which uses\nall of the observed depth data available. We demonstrate the advantages of tracking against the growing full surface model compared\nwith frame-to-frame tracking, obtaining tracking and mapping results in constant time within room sized scenes with limited drift\nand high accuracy. We also show both qualitative and quantitative\nresults relating to various aspects of our tracking and mapping system. Modelling of natural scenes, in real-time with only commodity sensor and GPU hardware, promises an exciting step forward\nin augmented reality (AR), in particular, it allows dense surfaces to\nbe reconstructed in real-time, with a level of detail and robustness\nbeyond any solution yet presented using passive computer vision."
+      },
+      {
+        "partId": "gpu-frame-rate",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "A key novelty\nis that tracking, performed at 30Hz frame-rate, is always relative\nto the fully up-to-date fused dense model, and we demonstrate the\nadvantages this offers. By using only depth data, our system can\nwork in complete darkness mitigating any issues concerning low\nlight conditions, problematic for passive camera [17, 19, 26] and\nRGB-D based systems [14]. Examples of live reconstructions generated from our system are shown throughout the paper ranging in\nscale including Figures 1 and 2.\nThe use of highly parallel general purpose GPU (GPGPU) techniques is at the core of all of our design decisions, allowing both\ntracking and mapping to perform at the frame-rate of the Kinect\nsensor (and even at higher rates) and in constant time. \n\n(For a 640x480 depth stream at 30fps the equivalent of over 9\nmillion new point measurements are made per second). \n\nWe present a system for accurate real-time mapping of complex and\narbitrary indoor scenes in variable lighting conditions, using only a\nmoving low-cost depth camera and commodity graphics hardware.\nWe fuse all of the depth data streamed from a Kinect sensor into\na single global implicit surface model of the observed scene in\nreal-time. The current sensor pose is simultaneously obtained by\ntracking the live depth frame relative to the global model using a\ncoarse-to-fine iterative closest point (ICP) algorithm, which uses\nall of the observed depth data available. We demonstrate the advantages of tracking against the growing full surface model compared\nwith frame-to-frame tracking, obtaining tracking and mapping results in constant time within room sized scenes with limited drift\nand high accuracy. We also show both qualitative and quantitative\nresults relating to various aspects of our tracking and mapping system. Modelling of natural scenes, in real-time with only commodity sensor and GPU hardware, promises an exciting step forward\nin augmented reality (AR), in particular, it allows dense surfaces to\nbe reconstructed in real-time, with a level of detail and robustness\nbeyond any solution yet presented using passive computer vision."
+      },
+      {
+        "partId": "gpu-frame-rate",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/publication/kinectfusion-real-time-dense-surface-mapping-tracking/",
+        "supportingPassage": "<meta name=\"citation_title\" content=\"KinectFusion: Real-Time Dense Surface Mapping and Tracking\" />\n\t<meta name=\"citation_author\" content=\"Richard A. Newcombe\" />\n\t<meta name=\"citation_author\" content=\"Shahram Izadi\" />\n\t<meta name=\"citation_author\" content=\"Otmar Hilliges\" />\n\t<meta name=\"citation_author\" content=\"David Molyneaux\" />\n\t<meta name=\"citation_author\" content=\"David Kim\" />\n\t<meta name=\"citation_author\" content=\"Andrew J. Davison\" />\n\t<meta name=\"citation_author\" content=\"Pushmeet Kohli\" />\n\t<meta name=\"citation_author\" content=\"Jamie Shotton\" />\n\t<meta name=\"citation_author\" content=\"Steve Hodges\" />\n\t<meta name=\"citation_author\" content=\"Andrew Fitzgibbon\" />\n\t<meta name=\"citation_publication_date\" content=\"2011/10/26\" />\n\t<meta name=\"citation_conference_title\" content=\"ISMAR &#039;11 Proceedings of the 2011 10th IEEE International Symposium on Mixed and Augmented Reality\" />\n\t<meta name=\"citation_firstpage\" content=\"127\" />\n\t<meta name=\"citation_lastpage\" content=\"136\" />\n\n<p class=\"wp-block-paragraph\">We present a system for accurate real-time mapping of complex and arbitrary indoor scenes in variable lighting conditions, using only a moving low-cost depth camera and commodity graphics hardware. We fuse all of the depth data streamed from a Kinect sensor into a single global implicit surface model of the observed scene in real-time. The current sensor pose is simultaneously obtained by tracking the live depth frame relative to the global model using a coarse-to-fine iterative closest point (ICP) algorithm, which uses all of the observed depth data available. We demonstrate the advantages of tracking against the growing full surface model compared with frame-to-frame tracking, obtaining tracking and mapping results in constant time within room sized scenes with limited drift and high accuracy. We also show both qualitative and quantitative results relating to various aspects of our tracking and mapping system. Modelling of natural scenes, in real-time with only commodity sensor and GPU hardware, promises an exciting step forward in augmented reality (AR), in particular, it allows dense surfaces to be reconstructed in real-time, with a level of detail and robustness beyond any solution yet presented using passive computer vision.</p>\n\n<a href=\"https://dx.doi.org/10.1109/ISMAR.2011.6092378\" target=\"_blank\">DOI</a>"
+      },
+      {
+        "partId": "planar-limit",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "The main failure case in\nstandard indoor scenes is when the sensor is faced by a large planar\nscene which fills most of its field of view. A planar scene leaves\nthree of the sensor’s 6DOF motion unconstrained in the linear systems null space, resulting in tracking drifting or failure."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "kinect-input",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+        "rationale": "Section1.1 explicitly states structured light, an on-board ASIC, 11-bit 640×480 depth maps and 30Hz. The corrected prose uses the disclosed depth-frame rate, not a robot action rate.",
+        "evidenceDigest": "40dbaecfb1ff6a923a1c66d074045844e7048d2ad8f042a57aaf72a26e3e5a90"
+      },
+      {
+        "partId": "tracking-algorithm",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+        "rationale": "The retained full abstract explicitly tracks the live depth frame against the global model using coarse-to-fine ICP. It does not establish adoption on live robots.",
+        "evidenceDigest": "fee1f17c672956e02ceac14da53b270f00cd1272a874f827dbb9949dd55d8c43"
+      },
+      {
+        "partId": "gpu-frame-rate",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+        "rationale": "The introduction explicitly gives 30Hz tracking and GPGPU tracking/mapping at the Kinect sensor frame rate; Section3.3 names the 640×480/30fps input denominator. The author-page item supplies identity and commodity-GPU context, not independent numerical-rate proof. No GPU SKU, whole-building rate or robot-control frequency is inferred.",
+        "evidenceDigest": "98fb569b1f32282cea9106a422c9ec04171c53e800b8249b00a4838345f142df"
+      },
+      {
+        "partId": "planar-limit",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+        "rationale": "Section4.3 states a large planar scene filling most of the field of view leaves three of six motion degrees unconstrained and can produce tracking drift/failure. Section6 limits scope to medium room volumes and warns of memory and loop drift for buildings.",
+        "evidenceDigest": "8cae483c5bbb525fa2f9e96c08dd57b718fb6911b1c3a624041f6de544b91f11"
+      }
+    ]
+  },
+  {
+    "id": "calibration-tsdf-scene-representation-9-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 9,
+    "originalCellsDigest": "0321541e248bad554a0fab19bdd6e6b1cf036aaa553d29d9e032258d2bbfc040",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "curless-truncation",
+        "text": "Curless–Levoy truncate distance ramps and weights to the vicinity of range points.",
+        "requiredCitationIds": [
+          "curless-levoy-1996"
+        ]
+      },
+      {
+        "id": "kinect-projective-truncation",
+        "text": "KinectFusion uses a projective TSDF and states the visible/unseen truncation asymmetry.",
+        "requiredCitationIds": [
+          "kinectfusion-2011"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+      "rationale": "Reviewed the entire corrected original and all guarded reader endpoints; all 2 AND parts are required. The Figure3 caption explicitly truncates distance ramps and weights to the vicinity of range points. This supports only this method, not universal robotics adoption. Section3.3 distinguishes true distance from its implemented projective TSDF, caps visible-space values beyond μ and leaves non-visible points farther than μ unmeasured. This does not establish the unselected collision-margin/gradient/lookup paragraph. Source identities and literal byte spans were verified in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; independent Sol/high scrutiny remains pending.",
+      "planDigest": "5c3067eafd7cd9e1af00cb348f4aab7d8a43fa545946362fb0e808eda14bed9f"
+    },
+    "evidence": [
+      {
+        "partId": "curless-truncation",
+        "citationId": "curless-levoy-1996",
+        "sourceUrl": "https://graphics.stanford.edu/papers/volrange/volrange.pdf",
+        "supportingPassage": "represents our best guess of the location of the surface. In practice, we\ntruncate the distance ramps and weights to the vicinity of the range points."
+      },
+      {
+        "partId": "kinect-projective-truncation",
+        "citationId": "kinectfusion-2011",
+        "sourceUrl": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ismar2011.pdf",
+        "supportingPassage": "A dense surface measurement (such as the raw depth map Rk ) provides two important constraints on the surface being reconstructed.\nFirst, assuming we can truncate the uncertainty of a depth measurement such that the true value lies within ±µ of the measured\nvalue, then for a distance r from the camera center along each depth\nmap ray, r < (λ Rk (u) − µ) is a measurement of free space (here\nλ = kK−1 u̇k2 scales the measurement along the pixel ray). Second, we assume that no surface information is obtained in the reconstruction volume at r > (λ Rk (u) + µ) along the camera ray.\nTherefore the SDF need only represent the region of uncertainty\nwhere the surface measurement exists |r − λ Rk (u)| ≤ µ. A TSDF\nallows the asymmetry between free space, uncertain measurement\nand unknown areas to be represented. Points that are within visible\nspace at distance greater than µ from the nearest surface interface\nare truncated to a maximum distance µ. Non-visible points farther\nthan µ from the surface are not measured. Otherwise the SDF represents the distance to the nearest surface point.\nAlthough efficient algorithms exist for computing the true discrete SDF for a given set of point measurements (complexity is\nlinear in the the number of voxels) [22], sophisticated implementations are required to achieve top performance on GPU hardware,\nwithout which real-time computation is not possible for a reasonable size volume. Instead, we use a projective truncated signed\ndistance function that is readily computed and trivially parallelisable. For a raw depth map Rk with a known pose Tg,k , its global\nframe projective TSDF [FRk , WRk ] at a point p in the global frame\ng is computed as,"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "curless-truncation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+        "rationale": "The Figure3 caption explicitly truncates distance ramps and weights to the vicinity of range points. This supports only this method, not universal robotics adoption.",
+        "evidenceDigest": "89cdc3245095703ff06681096be14d6b3ef6676a452b983fae4a20d637b18634"
+      },
+      {
+        "partId": "kinect-projective-truncation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor; session 1a5908a6-0175-4a40-9684-7167b403bd2d; 2026-09-08T22:14:48.460Z",
+        "rationale": "Section3.3 distinguishes true distance from its implemented projective TSDF, caps visible-space values beyond μ and leaves non-visible points farther than μ unmeasured. This does not establish the unselected collision-margin/gradient/lookup paragraph.",
+        "evidenceDigest": "b3e4634742df9a1cc14898b02deac398f1cac8cd8b12eecc16b79e81e1616275"
+      }
+    ]
   }
 ]
