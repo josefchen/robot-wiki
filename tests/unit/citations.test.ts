@@ -8,11 +8,15 @@ import {
 } from '@/data/citations';
 import { citationSchema } from '@/data/schemas/citation';
 
-// Exact retained primary-body editions, not a blanket arXiv HTML exception.
+// Exact retained primary-body editions, not a blanket arXiv HTML/PDF exception.
 const primaryBodyExceptions = [
   ['octo-2024', '2405.12213', 'https://arxiv.org/html/2405.12213v2'],
   ['rt1-2022', '2212.06817', 'https://arxiv.org/html/2212.06817v2'],
   ['pi05-2025', '2504.16054', 'https://arxiv.org/html/2504.16054v1'],
+  // Retained 2026-09-08 RL campaign PDF: explicit v4 / 28 Aug 2016,
+  // four-author byline; distinct from the five-author IJRR 2018 citation.
+  // Binary SHA-256: 23b74d74000a360d73592528035c4354ce1c592ca1c22f03d915559a9aca793c.
+  ['levine-hand-eye-2016', '1603.02199', 'https://arxiv.org/pdf/1603.02199v4'],
 ] as const;
 
 function hasBoundArxivUrl(c: Pick<Citation, 'id' | 'arxiv' | 'url'>): boolean {
@@ -69,6 +73,41 @@ describe('citation registry', () => {
     const known = CITATIONS[0];
     expect(getCitation(known.id)?.id).toBe(known.id);
     expect(getCitation('no-such-citation')).toBeUndefined();
+  });
+
+  it('accepts the retained four-author Levine 2016 v4 PDF without changing source identity', () => {
+    const citation = getCitation('levine-hand-eye-2016')!;
+    expect(citation).toMatchObject({
+      arxiv: '1603.02199',
+      url: 'https://arxiv.org/pdf/1603.02199v4',
+      year: 2016,
+      authors: ['Sergey Levine', 'Peter Pastor', 'Alex Krizhevsky', 'Deirdre Quillen'],
+    });
+    expect(hasBoundArxivUrl(citation)).toBe(true);
+  });
+
+  it.each([
+    { id: 'levine-hand-eye-2018' },
+    { id: 'unknown-exception' },
+    { arxiv: '1603.02198' },
+    { url: 'https://arxiv.org/pdf/1603.02198v4' },
+    { url: 'https://arxiv.org/pdf/1603.02199v3' },
+    { url: 'https://arxiv.org/pdf/1603.02199v5' },
+    { url: 'https://arxiv.org/pdf/1603.02199' },
+    { url: 'https://arxiv.org/html/1603.02199v4' },
+    { url: 'https://arxiv.org/pdf/1603.02199v4?redirect=elsewhere' },
+    { url: 'https://arxiv.org/pdf/1603.02199v4#other' },
+    { url: 'http://arxiv.org/pdf/1603.02199v4' },
+    { url: 'https://arxiv.org.evil.example/pdf/1603.02199v4' },
+    { url: 'https://arxiv.org@evil.example/pdf/1603.02199v4' },
+    { url: 'javascript:alert(1)' },
+  ])('rejects an unbound Levine body tuple: %j', (mutation) => {
+    expect(hasBoundArxivUrl({
+      id: 'levine-hand-eye-2016',
+      arxiv: '1603.02199',
+      url: 'https://arxiv.org/pdf/1603.02199v4',
+      ...mutation,
+    })).toBe(false);
   });
 
   it('citationLabel is "FirstAuthorSurname Year"', () => {
