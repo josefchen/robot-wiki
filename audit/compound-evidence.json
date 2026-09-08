@@ -24476,5 +24476,363 @@
         "rationale": "Current implementation source review of pbt-setting supports this part of the corrected whole claim. Full context and explicit semantic review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Producer proposal 221e03952c1209c9bc200d057b798348d1d3dfb57fa11865930f44887c65c30c; current evidence and claim digests computed after correction, not copied prospective approval. No independent acceptance."
       }
     ]
+  },
+  {
+    "id": "rl-finetuning-closeout-dppo-1-20260908",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "rl-finetuning",
+    "rowOrdinal": 1,
+    "originalCellsDigest": "9f14acef6f8eb0f94d958e7096d3debe50459e27ba8c5ab8a596791824f6bb1e",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "d-identity",
+        "text": "DPPO has the literal title, nine-author byline and 2024 year recorded in the citation registry; the reviewed full body is v3, revised 9 December 2024.",
+        "requiredCitationIds": [
+          "dppo-2024"
+        ]
+      },
+      {
+        "id": "d-mdp",
+        "text": "The combined MDP exposes Gaussian likelihoods for denoising policy transitions; environment dynamics are not trainable policy parameters and reward arrives only after the final denoising step.",
+        "requiredCitationIds": [
+          "dppo-2024"
+        ]
+      },
+      {
+        "id": "d-training",
+        "text": "Environment-only value estimates and environment advantages receive a separate denoising discount; a copied network may optimize only selected final denoising steps while early-step original weights remain frozen.",
+        "requiredCitationIds": [
+          "dppo-2024"
+        ]
+      },
+      {
+        "id": "d-benchmarks",
+        "text": "The strongest-performer statement is limited to the compared diffusion RL methods on state-input Robomimic; separate PPO comparisons use Gaussian/GMM policies and named architectures, with explicit simulation protocols.",
+        "requiredCitationIds": [
+          "dppo-2024"
+        ]
+      },
+      {
+        "id": "d-limits",
+        "text": "Competitive Gym baselines, off-policy sample-efficiency advantages, slower wall-clock cases and the low-randomness Lamp counterexample preclude a universal best/strongest efficiency claim.",
+        "requiredCitationIds": [
+          "dppo-2024"
+        ]
+      },
+      {
+        "id": "d-physical",
+        "text": "The physical result is zero-shot simulation-to-real One-leg transfer on a Franka Panda at 10 Hz, 16 successes in 20 trials, not real-hardware RL fine-tuning.",
+        "requiredCitationIds": [
+          "dppo-2024"
+        ]
+      },
+      {
+        "id": "d-code",
+        "text": "The exact DPPO table prerequisite retains preprint and author-announced code only; it does not certify a venue, weights, repository contents or license.",
+        "requiredCitationIds": [
+          "dppo-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+      "rationale": "Current complete claim and own table prerequisite reviewed against the verified retained primary contexts, including counterevidence. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-finetuning-closeout-integration-20260908/source-proof.json records actual source provenance, not a new fetch date. All 7 parts are conjunctive; no aggregate/article acceptance.",
+      "planDigest": "aa76e0c8d9120f858d3a5aa636215a957c5f41c2769beafcfa8553687b1002fa"
+    },
+    "evidence": [
+      {
+        "partId": "d-identity",
+        "citationId": "dppo-2024",
+        "sourceUrl": "https://arxiv.org/abs/2409.00588",
+        "supportingPassage": "abs metadata/abstract (arXiv:2409.00588v3): “\\[Submitted on 1 Sep 2024 ( [v1](https://arxiv.org/abs/2409.00588v1)), last revised 9 Dec 2024 (this version, v3)\\]\n\n# Title:Diffusion Policy Policy Optimization\n\nAuthors: [Allen Z. Ren](https://arxiv.org/search/cs?searchtype=author&query=Ren,+A+Z), [Justin Lidard](https://arxiv.org/search/cs?searchtype=author&query=Lidard,+J), [Lars L. Ankile](https://arxiv.org/search/cs?searchtype=author&query=Ankile,+L+L), [Anthony Simeonov](https://arxiv.org/search/cs?searchtype=author&query=Simeonov,+A), [Pulkit Agrawal](https://arxiv.org/search/cs?searchtype=author&query=Agrawal,+P), [Anirudha Majumdar](https://arxiv.org/search/cs?searchtype=author&query=Majumdar,+A), [Benjamin Burchfiel](https://arxiv.org/search/cs?searchtype=author&query=Burchfiel,+B), [Hongkai Dai](https://arxiv.org/search/cs?searchtype=author&query=Dai,+H), [Max Simchowitz](https://arxiv.org/search/cs?searchtype=author&query=Simchowitz,+M)”"
+      },
+      {
+        "partId": "d-mdp",
+        "citationId": "dppo-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.00588v3",
+        "supportingPassage": "S4.SS1.p1 (arXiv:2409.00588v3): “As observed in [9] and [74], a denoising process can be represented as a multi-step MDP in which policy likelihood of each denoising step can be obtained directly. We extend this formalism by embedding the Diffusion MDP into the environmental MDP, obtaining a larger “Diffusion Policy MDP” denoted \\mathcal{M}_{\\textsc{DP}}, visualized in Fig. 3. Below, we use the notation \\updelta to denote a Dirac distribution and \\otimes to denote a product distribution.”\n\nS4.SS1.p2 (arXiv:2409.00588v3): “Recall the environment MDP \\mathcal{M}_{\\textsc{Env}}:=(\\mathcal{S},\\mathcal{A},P_{0},P,R) in Section 3. The Diffusion MDP \\mathcal{M}_{\\textsc{DP}} uses indices \\bar{t}(t,k)=tK+(K-k-1) corresponding to (t,k), which increases in t but (to keep the indexing conventions of diffusion) decreases lexicographically with K-1\\geq k\\geq 0. The states, actions and rewards are \\displaystyle\\bar{s}_{\\bar{t}(t,k)}=(s_{t},a^{k+1}_{t}),\\quad\\bar{a}_{\\bar{t}(t,k)}=a^{k}_{t},\\quad\\bar{R}_{\\bar{t}(t,k)}(\\bar{s}_{\\bar{t}(t,k)},\\bar{a}_{\\bar{t}(t,k)})=\\begin{cases}0&k>0\\\\ R(s_{t},a_{t}^{0})&k=0\\end{cases}, (4.1) where the bar-action at \\bar{t}(t,k) is the action a_{t}^{k} after one denoising step. Reward is only given at times corresponding to when a_{t}^{0} is taken. The initial state distribution is \\bar{P}^{0}=P_{0}\\otimes\\mathcal{N}(0,\\mathbf{I}), corresponding to s_{0}\\sim P_{0} is the initial distribution from the environmental MDP and a_{0}^{K}\\sim\\mathcal{N}(0,\\mathbf{I}) independently. Finally, the transitions are \\displaystyle\\bar{P}(\\bar{s}_{\\bar{t}+1}\\mid\\bar{s}_{\\bar{t}},\\bar{a}_{\\bar{t}})=\\begin{cases}(s_{t},a^{k}_{t})~\\sim\\updelta_{(s_{t},{a}_{t}^{k})}&\\bar{t}=\\bar{t}(t,k),k>0\\\\ (s_{t+1},a^{K}_{t+1})\\sim P(s_{t+1}\\mid s_{t},a_{t}^{0})\\otimes\\mathcal{N}(0,\\mathbf{I})&\\bar{t}=\\bar{t}(t,k),k=0\\\\ \\end{cases}. (4.2) That is, the transition moves the denoised action a_{t}^{k} at step \\bar{t}(t,k) into the next state when k>0, or otherwise progresses the environment MDP dynamics with k=0. The pure noise a_{t}^{K} is considered part of the environment when transitioning at k=0. In light of Eq. (3.3), the policy in \\mathcal{M}_{\\textsc{DP}} takes the form \\displaystyle\\bar{\\pi}_{\\theta}(\\bar{a}_{\\bar{t}(t,k)}\\mid\\bar{s}_{\\bar{t}(t,k)})=\\pi_{\\theta}(a_{t}^{k}\\mid a_{t}^{k+1},s_{t})=\\mathcal{N}(a_{t}^{k};\\mu(a_{t}^{k+1},\\varepsilon_{\\theta}(a_{t}^{k+1},k+1,s_{t})),\\sigma_{k+1}^{2}\\mathrm{I}). (4.3) Fortunately, Eq. (4.3) is a Gaussian likelihood, which can be evaluated analytically and is amenable to the policy gradient updates33 3 [74] proposes a similar derivation but does not consider the denoising process as a MDP. See further clarification in Appendix A.: \\displaystyle\\nabla_{\\theta}\\bar{}\\mathcal{J}(\\bar{\\pi}_{\\theta})=\\mathbb{E}^{\\bar{\\pi}_{\\theta},\\bar{P},\\bar{P}^{0}}\\left[\\sum_{\\bar{t}\\geq 0}\\nabla_{\\theta}\\log\\bar{\\pi}_{\\theta}(\\bar{a}_{\\bar{t}}\\mid\\bar{s}_{\\bar{t}})\\bar{r}(\\bar{s}_{\\bar{t}},\\bar{a}_{\\bar{t}})\\right],\\quad\\bar{r}(\\bar{s}_{\\bar{t}},\\bar{a}_{\\bar{t}}):=\\sum_{\\tau\\geq\\bar{t}}\\gamma(\\tau)\\bar{R}(\\bar{s}_{\\tau},\\bar{a}_{\\tau}). (4.4) Evaluating the above involves sampling through the denoising process, which is the usual “forward pass” that samples actions in Diffusion Policy; as noted above, the inital state can be sampled from the enviroment via \\bar{P}^{0}=P_{0}\\otimes\\mathcal{N}(0,\\mathbf{I}), where P_{0} is from the environment MDP.”\n\nalg1 (arXiv:2409.00588v3): “Algorithm 1 DPPO 1: Pre-train diffusion policy \\pi_{\\theta} with offline dataset \\mathcal{D}_{\\text{off}} using BC loss \\mathcal{L}_{\\text{BC}}(\\theta) Eq. (A1). 2: Initialize value function V_{\\phi}. 3: for iteration = 1, 2, … do 4: Initialize rollout buffer \\mathcal{D}_{\\text{itr}}. 5: \\pi_{\\theta_{\\text{old}}}=\\pi_{\\theta}. 6: for environment = 1, 2, …, N in parallel do 7: Initialize state \\bar{s}_{\\bar{t}(0,K)}=(s_{0},a_{0}^{K}) in \\mathcal{M}_{\\textsc{DP}}. 8: for environment step t = 1, …, T, denoising step k=K-1,\\dots,0 do 9: Sample the next denoised action \\bar{a}_{\\bar{t}(t,k)}=a_{t}^{k}\\sim\\pi_{\\theta_{\\text{old}}}. 10: if k=0 then 11: Run a_{t}^{0} in the environment and observe \\bar{R}_{\\bar{t}(t,0)} and \\bar{s}_{\\bar{t}(t+1,K)}. 12: else 13: Set \\bar{R}_{\\bar{t}(t,k)}=0 and \\bar{s}_{\\bar{t}(t,k-1)}=(s_{t},a_{t}^{k}). 14: Add (k,\\bar{s}_{\\bar{t}(t,k)},\\bar{a}_{\\bar{t}(t,k)},\\bar{R}_{\\bar{t}(t,k)}) to \\mathcal{D}_{\\text{itr}}. 15: Compute advantage estimates A^{\\pi_{\\theta_{\\text{old}}}}(s_{\\bar{t}(t,k=0)},a_{\\bar{t}(t,k=0)}) for \\mathcal{D}_{\\text{itr}} using GAE Eq. (A2). 16: for update = 1, 2, …, \\text{num}\\_\\text{update} do \\triangleright Based on replay ratio N_{\\theta} 17: for minibatch = 1, 2, …, B do 18: Sample (k,\\bar{s}_{\\bar{t}(t,k)},\\bar{a}_{\\bar{t}(t,k)},\\bar{R}_{\\bar{t}(t,k)}) and A^{\\pi_{\\theta_{\\text{old}}}}(s_{\\bar{t}(t,k)},a_{\\bar{t}(t,k)}) from \\mathcal{D}_{\\text{itr}}. 19: Compute denoising-discounted advantage \\hat{A}_{\\bar{t}(t,k)}=\\gamma_{\\textsc{denoise}}^{k}A^{\\pi_{\\theta_{\\text{old}}}}(s_{\\bar{t}(t,0)},a_{\\bar{t}(t,0)}). 20: Optimize \\pi_{\\theta} using policy gradient loss \\mathcal{L}_{\\theta} Eq. (A3). 21: Optimize V_{\\phi} using value loss \\mathcal{L}_{\\phi} Eq. (A4). 22: return converged policy \\pi_{\\theta}.”"
+      },
+      {
+        "partId": "d-training",
+        "citationId": "dppo-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.00588v3",
+        "supportingPassage": "S4.SS2.p2 (arXiv:2409.00588v3): “We instantiate PPO in our diffusion MDP with (s,a,t)\\leftarrow(\\bar{s},\\bar{a},\\bar{t}). Our advantage estimator takes a specific form that respects the two-level nature of the MDP: let \\gamma_{\\textsc{env}}\\in(0,1) be the environment discount and \\gamma_{\\textsc{denoise}}\\in(0,1) be the denoising discount. Consider the environment-discounted return: \\displaystyle\\bar{r}(\\bar{s}_{\\bar{t}},\\bar{a}_{\\bar{t}}):=\\sum_{t^{\\prime}\\geq t}\\gamma_{\\textsc{env}}^{t}\\bar{r}(\\bar{s}_{\\bar{t}(t^{\\prime},0)},\\bar{a}_{\\bar{t}(t^{\\prime},0)}),\\quad\\bar{t}=\\bar{t}(t,k), (4.6) since \\bar{R}(\\bar{t})=0 at k>0. This fact also obviates the need of estimating the value at k>1 and allows us to use the following denoising-discounted advantage estimator44 4 In practice, we use Generalized Advantage Estimation (GAE, Schulman et al. [84]) that better balances variance and bias in estimating the advantage. We present the simpler form here.: \\hat{A}^{\\pi_{\\theta_{\\text{old}}}}(\\bar{s}_{\\bar{t}},\\bar{a}_{\\bar{t}}):=\\gamma_{\\textsc{denoise}}^{k}\\left(\\bar{r}(\\bar{s}_{\\bar{t}},\\bar{a}_{\\bar{t}})-\\hat{V}^{\\bar{\\pi}_{\\theta_{\\text{old}}}}(\\bar{s}_{\\bar{t}(t,0)})\\right) (4.7) The denoising-discounting has the effect of downweighting the contribution of noisier steps (larger k) to the policy gradient (see study in Section C.2). Lastly, we choose the value estimator to only depend on the “s” component of \\bar{s}: \\displaystyle\\hat{V}^{\\bar{\\pi}_{\\theta_{\\text{old}}}}(\\bar{s}_{\\bar{t}(t,0)}):=\\tilde{V}^{\\bar{\\pi}_{\\theta_{\\text{old}}}}(s_{t}), (4.8) which we find leads to more efficient and stable training compared to also estimating the value of applying the denoised action a_{t}^{k=1} (part of \\bar{s}_{\\bar{t}(t,0)}) as shown in Section C.2.”\n\nS4.SS3.SSS0.Px1.p1 (arXiv:2409.00588v3): “Diffusion Policy often uses up to K=100 denoising steps with DDPM to better capture the complex data distribution of expert demonstrations. With DPPO, we can choose to fine-tune only a subset of the denoising steps instead, e.g., the last K^{\\prime} steps. Experimental results in Section C.2 shows this speeds up DPPO training and reduces GPU memory usage without sacrificing the final performance. Instead of fine-tuning the pre-trained model weights \\theta, we make a copy \\theta_{\\textsc{ft}} — \\theta is frozen and used for the early denoising steps, while \\theta_{\\textsc{ft}} is used for the last K^{\\prime} steps and updated with DPPO.”\n\nA2.SS0.SSS0.Px3.p2 (arXiv:2409.00588v3): “Note that in Eq. (A2) we are only concerned with k=0, i.e., the final denoising step, calculating the advantage for k=0 (i.e., environment steps) but not for intermediate denoising steps. We only need to apply denoising discounting to the calculated advantages so they can be applied to each denoising step k.”\n\nA2.SS0.SSS0.Px4.p1 (arXiv:2409.00588v3): “During RL fine-tuning, we update the policy \\pi_{\\theta} using the clipped objective: \\mathcal{L}_{\\theta}=\\mathbb{E}^{\\mathcal{D}_{\\text{itr}}}\\min\\Big(\\hat{A}^{\\bar{\\pi}_{\\theta_{\\text{old}}}}(\\bar{s}_{\\bar{t}},\\bar{a}_{\\bar{t}})\\frac{\\bar{\\pi}_{\\theta}(\\bar{s}_{\\bar{t}},\\bar{a}_{\\bar{t}})}{\\bar{\\pi}_{\\theta_{\\text{old}}}(\\bar{s}_{\\bar{t}},\\bar{a}_{\\bar{t}})},\\ \\hat{A}^{\\pi_{\\theta_{\\text{old}}}}(\\bar{s}_{\\bar{t}},\\bar{a}_{\\bar{t}})\\operatorname{clip}\\big(\\frac{\\bar{\\pi}_{\\theta}(\\bar{s}_{\\bar{t}},\\bar{a}_{\\bar{t}})}{\\bar{\\pi}_{\\theta_{\\text{old}}}(\\bar{s}_{\\bar{t}},\\bar{a}_{\\bar{t}})},1-\\varepsilon,1+\\varepsilon\\big)\\Big). (A3) If we choose to fine-tune only the last K^{\\prime} denoising steps, then we sample only those from \\mathcal{D}_{\\text{itr}}.”\n\nA2.SS0.SSS0.Px4.p2 (arXiv:2409.00588v3): “Finally, we train the value function to predict the future discounted sum of rewards (i.e., discounted returns): \\mathcal{L}_{\\phi}=\\mathbb{E}^{\\mathcal{D}_{\\text{itr}}}\\big[\\|\\sum_{l=0}^{T-t}\\gamma_{\\textsc{env}}^{l}\\bar{R}_{\\bar{t}(t+l,k)}-V_{\\phi}(s_{t})\\|^{2}\\big]. (A4)”"
+      },
+      {
+        "partId": "d-benchmarks",
+        "citationId": "dppo-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.00588v3",
+        "supportingPassage": "S5.SS1.p1 (arXiv:2409.00588v3): “We compare DPPO to an extensive list of RL methods for fine-tuning diffusion-based policies. Baseline names are color-coordinated with their plot colors. Two methods, DRWR, DAWR, are our own, novel baselines that are based on reward-weighted regression (RWR, Peters and Schaal [70]) and advantage-weighted regression (AWR, Peng et al. [67]). The remaining methods, DIPO [103], IDQL [35], DQL [100], and QSM [74], are existing in the literature. Among them, QSM and DIPO are proposed specifically for training-from-scratch, while IDQL and DQL can be more suitable to online fine-tuning. We evaluate on the three OpenAI Gym tasks and the four Robomimic tasks with state input; detailed descriptions of all baselines and training details are in Section E.3.”\n\nS5.SS1.p2 (arXiv:2409.00588v3): “Overall, DPPO performs consistently, exhibits great training stability, and enjoys strong fine-tuning performance across tasks. In the Gym tasks (Figure 5, top row), IDQL and DIPO exhibit competitive performance, while the other methods often perform worse and train less stably. Baselines also tend to exhibit performance drop at the beginning of fine-tuning, mostly likely due to misestimating Q values of the pre-trained policy. DPPO is the strongest performer in the Robomimic tasks (Figure 5, bottom row), especially in the challenging Transport tasks. IDQL and, surprisingly, DRWR, are strong baselines in {Lift, Can, Square} but underperforms in Transport, while all other baselines fare worse still. We postulate that the other baselines, all performing off-policy updates and propagating gradients from the imperfect Q function to the actor, suffers from even greater training instability in sparse-reward Robomimic tasks given the continuous action space plus large action chunk sizes (see furtuer studies in Section C.2).”\n\nS5.SS3.p1 (arXiv:2409.00588v3): “We compare DPPO with popular RL policy parameterizations: unimodal Gaussian with diagonal covariance [91] and Gaussian Mixture Model (GMM [8]), using either MLPs or Transformers [94], and also fine-tuned with the PPO objective. We compare these to DPPO-MLP and DPPO-UNet, which use either MLP or UNet as the network backbone. We evaluate on the four tasks from Robomimic (Lift, Can, Square, Transport) with both state and pixel input. With state input, DPPO pre-trains with 20 denoising steps and then fine-tunes the last 10. With pixel input, DPPO pre-trains with 100 denoising steps and then fine-tunes 5 DDIM steps.”\n\nS5.SS3.p2 (arXiv:2409.00588v3): “Fig. 7 display results for the more challenging Square and Transport — we defer the results in Lift and Can to Fig. A9. With state input, DPPO outperforms Gaussian and GMM policies, with faster convergence to \\sim100% success rate in Lift and Can, and greater final performance on Square and the challenging Transport, where it reaches >90\\%. UNet and MLP variants perform similarly, with the latter training somewhat more rapidly. With pixel inputs, we use a Vision-Transformer-based (ViT) image encoder introduced in Hu et al. [40] and an MLP head and compare the resulting variants DPPO-ViT-MLP and Gaussian-ViT-MLP (we omit GMM due to poor performance in state-based training). While the two are comparable on Lift and Can, DPPO trains more quickly and to higher accuracy on Square, and drastically outperforms on Transport, whereas Gaussian does not improve from its 0% pre-trained success rate. To our knowledge, DPPO is the first RL algorithm to solve Transport from either state or pixel input to high (>50%) success rates.”\n\nA5.SS6.SSS0.Px3.p1 (arXiv:2409.00588v3): “Diffusion-based, Gaussian, and GMM pre-trained policies are then fine-tuned using online experiences sampled from 50 parallelized MuJoCo environments [92]. Success rate curves shown in Fig. 5, Fig. 7, and Fig. A9 are evaluated by running fine-tuned policies with \\sigma^{\\text{exp}}_{\\text{min}}=0.001 (i.e., without extra noise) for 50 episodes. Episodes terminates only when they reach maximum episode lengths (shown in Table A6). Detailed hyperparameters are listed in Table A9.”"
+      },
+      {
+        "partId": "d-limits",
+        "citationId": "dppo-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.00588v3",
+        "supportingPassage": "S5.SS2.p1 (arXiv:2409.00588v3): “We compare DPPO with recently proposed RL methods for training robot policies (not necessarily diffusion-based) leveraging offline data, including RLPD [7], Cal-QL [62], and IBRL [40]. These methods add expert data in the replay buffer and performs off-policy updates (IBRL and Cal-QL also pretrain with behavior cloning and offline RL objectives, respectively), which significantly improves sample efficiency vs. DPPO in HalfCheetah-v2 (Fig. 6, top left).”\n\nS6.SS0.SSS0.Px1.p2 (arXiv:2409.00588v3): “It is possible, however, that the on-manifold exploration we observe with DPPO hinders fine-tuning when aggressive, unstructured exploration is desired. We conjecture this is the case in the Lamp environment with Low randomness, in which DPPO slightly underperforms the Gaussian baseline (Fig. 8). Moreover, we do not observe that DPPO is substantially better (nor is it any worse) than Gaussian in exploration from-scratch (see Appendix C). Thus, we anticipate that this structured, on-manifold exploration confers the greatest benefit when pre-training provides sufficient coverage of relevant success modes. In particular, we believe that this makes DPPO uniquely suited for fine-tuning large Diffusion Policy pre-trained on multiple tasks [99], as it may exhibit sufficient mode coverage given training data diversity.”\n\nA3.SS3.SSS0.Px1.p1 (arXiv:2409.00588v3): “In Fig. A7 we compare DPPO (10 denoising steps) and Gaussian trained from scratch (no pre-training on expert data) in the three OpenAI Gym tasks. As using larger action chunk sizes T_{a} leads to poor from-scratch training shown in Fig. A6, we focus on single-action chunks T_{a}=1 (and T_{p}=1) as is typical in RL benchmarking. Though we find Gaussian trains faster than DPPO (expected since DPPO solves an MDP with longer effective horizon), DPPO still attains reasonable final performance. However, due to the multi-step (10) denoising sampling, DPPO takes about 6\\times wall-clock time compared to Gaussian. We hope that future work will explore how to design the training curriculum of denoising steps for the best balance of training performance and wall-clock efficiency.”\n\nA4.SS0.SSS0.Px1.p1 (arXiv:2409.00588v3): “Table A1 and Table A2 shows the the wall-clock time used in each OpenAI Gym task and Robomimic task. In Gym tasks, on average DPPO trains 41%, 37%, and 12% faster than DAWR, DIPO, and DQL, respectively, which all require a significant amount of gradient updates per sample to train stably. QSM, DRWR, and IDQL trains 43%, 33%, and 7% faster than DPPO, respectively. Robomimic tasks are more expensive to simulate, especially with Transport task, and thus the wall-clock difference is smaller among the different methods. All methods use comparable time except for DIPO that uses slightly more on average.”\n\nA4.SS0.SSS0.Px2.p1 (arXiv:2409.00588v3): “Table A3 and Table A4 shows the wall-clock time used in fine-tuning in each Robomimic task with state or pixel input, respectively. Gaussian and GMM use similar times and Transformer is slightly more expensive than MLP. On average with state input, DPPO-MLP trains 24%, 21%, 24%, and 22% slower than baselines due to the more expensive diffusion sampling. DPPO-UNet requires more time with the extensive use of convolutional and normalization layers and trains on average 49% slower than DPPO-MLP. On average with pixel input, DPPO-ViT-MLP trains 14% slower than Gaussian-ViT-MLP — the difference is smaller than the state input case as the rendering in simulation can be expensive. Table A5 shows the wall-clock time used in Furniture-Bench tasks. DPPO-UNet trains 20% slower than Gaussian-MLP on average.”\n\nS7.p2 (arXiv:2409.00588v3): “We believe DPPO will become an important component in the pre-training-plus-fine-tuning pipeline for training general-purpose real-world robotic policies. To this end, we hope in future work to further showcase the promise of DPPO for simulation-to-real transfer [18, 52, 77, 19] in which we fine-tune a vision-based policy that has been pre-trained on a variety of diverse tasks. We expect this pre-training to provide a large and diverse expert data manifold, of which, as we have shown in Section 6, DPPO is well-suited to take advantage for better exploration during fine-tuning. We are also excited to understand how DPPO can fit together with other decision-making tools such as model-based planning [45] and decision-making aided by video prediction [15]; these tools may help address the main limitation of DPPO — its lower sample efficiency than off-policy methods — and unlocking performing practical RL in physical hardware or generative simulation (e.g., video-based [13, 104]). Finally, as noted in the introduction, we eagerly anticipate applications of DPPO in domains beyond robotics, where diffusion models have shown promise for combinatorial search and sequence modeling [73, 56].”"
+      },
+      {
+        "partId": "d-physical",
+        "citationId": "dppo-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.00588v3",
+        "supportingPassage": "S5.SS4.SSS0.Px1.p1 (arXiv:2409.00588v3): “We evaluate DPPO and Gaussian policies trained in the simulated One-leg task on physical hardware zero-shot (i.e., no real data fine-tuning / co-training) over 20 trials. Both policies run at 10Hz. Please see additional simulation training and hardware details in Section E.8. Fig. 8 (bottom row) shows simulated and hardware success rates after pre-training and fine-tuning. Notably, DPPO improves the real-world performance to 80% (16 out of 20 trials). Though the Gaussian policy achieves a high success rate in simulation after fine-tuning (88%), it fails entirely on hardware (0%). Supplemental video suggests it exhibits volatile and jittery behavior. For stronger comparison, we also fine-tune the Gaussian policy with an auxiliary behavior-cloning loss [93] such that the fine-tuned policy is encouraged to stay close to the base policy. However, this limits fine-tuning and only leads to 53% success rate in simulation and 50% in reality.”\n\nA5.SS8.SSS0.Px4.p1 (arXiv:2409.00588v3): “The physical robot used is a Franka Emika Panda arm. The policies output a sequence of desired end-effector poses in the robot base frame to control the robot. These poses are converted into joint position targets through differential inverse kinematics. We calculate the desired end-effector velocity as the difference between the desired and current poses divided by the delta time dt=1/10. We then convert this to desired joint velocities using the Jacobian and compute the desired joint positions with a first-order integration over the current joint positions and desired velocity. The resulting joint position targets are passed to a low-level joint impedance controller provided by Polymetis [55], running at 1kHz.”\n\nA5.SS8.SSS0.Px6.p1 (arXiv:2409.00588v3): “We perform 20 trials for each method. We adopt a single-blind model selection process: at the beginning of each trial, we first randomize the initial state. Then, we randomly select a method and roll it out, but the experimenter does not observe which model is used. We record the success and failure of each trial and then aggregate statistics for each model after all trials are completed.”\n\nA5.SS8.SSS0.Px7.p1 (arXiv:2409.00588v3): “To facilitate the sim-to-real transfer, we apply additional domain randomization to the simulation training. We record the range of observation noises in hardware without any robot motion and then apply the same amount of noise to state observations in simulation. We find the state estimation in hardware particularly sensitive to the object heights. Also, we apply random noise (zero mean with 0.03 standard deviation) to the sampled action from DPPO to simulate the imperfect low-level controller; we find adding such noise to the Gaussian policy leads to zero task success rate while DPPO is robust to it (also see discussion in Section 6).”"
+      },
+      {
+        "partId": "d-code",
+        "citationId": "dppo-2024",
+        "sourceUrl": "https://arxiv.org/abs/2409.00588",
+        "supportingPassage": "abs metadata/abstract (arXiv:2409.00588v3): “> Abstract:We introduce Diffusion Policy Policy Optimization, DPPO, an algorithmic framework including best practices for fine-tuning diffusion-based policies (e.g. Diffusion Policy) in continuous control and robot learning tasks using the policy gradient (PG) method from reinforcement learning (RL). PG methods are ubiquitous in training RL policies with other policy parameterizations; nevertheless, they had been conjectured to be less efficient for diffusion-based policies. Surprisingly, we show that DPPO achieves the strongest overall performance and efficiency for fine-tuning in common benchmarks compared to other RL methods for diffusion-based policies and also compared to PG fine-tuning of other policy parameterizations. Through experimental investigation, we find that DPPO takes advantage of unique synergies between RL fine-tuning and the diffusion parameterization, leading to structured and on-manifold exploration, stable training, and strong policy robustness. We further demonstrate the strengths of DPPO in a range of realistic settings, including simulated robotic tasks with pixel observations, and via zero-shot deployment of simulation-trained policies on robot hardware in a long-horizon, multi-stage manipulation task. Website with code: [this http URL](http://diffusion-ppo.github.io/)”"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "d-identity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. DPPO has the literal title, nine-author byline and 2024 year recorded in the citation registry; the reviewed full body is v3, revised 9 December 2024. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "425336bb98fedea944679656e8d3d638fc9f3e9a6ca61cf6f8d00ad368246bc6"
+      },
+      {
+        "partId": "d-mdp",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. The combined MDP exposes Gaussian likelihoods for denoising policy transitions; environment dynamics are not trainable policy parameters and reward arrives only after the final denoising step. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "141f157bf8cf9bc6252009f44173fb9ddea2f1e8cf500ef9440c436ef84c85ed"
+      },
+      {
+        "partId": "d-training",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. Environment-only value estimates and environment advantages receive a separate denoising discount; a copied network may optimize only selected final denoising steps while early-step original weights remain frozen. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "cb4a46c81f4ff9355c6499c636a7217a972f3eb4ae5c578a7e2a09a5aedf6252"
+      },
+      {
+        "partId": "d-benchmarks",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. The strongest-performer statement is limited to the compared diffusion RL methods on state-input Robomimic; separate PPO comparisons use Gaussian/GMM policies and named architectures, with explicit simulation protocols. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "079550c9bdcb1c375471c21a861cc589b9b614326aa613f00ce6e9c6a43a92c3"
+      },
+      {
+        "partId": "d-limits",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. Competitive Gym baselines, off-policy sample-efficiency advantages, slower wall-clock cases and the low-randomness Lamp counterexample preclude a universal best/strongest efficiency claim. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "4162b53b77a9ae508694ddc33b90be1d075a9a75680a39484085e9899d3c38fb"
+      },
+      {
+        "partId": "d-physical",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. The physical result is zero-shot simulation-to-real One-leg transfer on a Franka Panda at 10 Hz, 16 successes in 20 trials, not real-hardware RL fine-tuning. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "7d4ce13067c0139535e3694721ff33ea18c0b9e646f334c4d8153fccd936c09b"
+      },
+      {
+        "partId": "d-code",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. The exact DPPO table prerequisite retains preprint and author-announced code only; it does not certify a venue, weights, repository contents or license. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "158240ff0d3815aaf23a81337d909264643b601fc7fa51031755c342a383c9a1"
+      }
+    ]
+  },
+  {
+    "id": "rl-finetuning-closeout-conrft-2-20260908",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "rl-finetuning",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "5f9f7dfa98fe15daa2cdbbd570c0b12b795f059a11b98e75344f2bc322e1d193",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "c-identity",
+        "text": "ConRFT has the literal title, six-author byline and 2025 year recorded in the citation registry; the reviewed full body is v2, revised 14 April 2025.",
+        "requiredCitationIds": [
+          "conrft-2025"
+        ]
+      },
+      {
+        "id": "c-foundation",
+        "text": "The main study uses Octo-small, a 7-DoF Franka at 10 Hz and a trainable consistency action head; visual encoders and transformer backbone remain frozen.",
+        "requiredCitationIds": [
+          "conrft-2025"
+        ]
+      },
+      {
+        "id": "c-offline",
+        "text": "Offline Cal-ConRFT starts with 20-30 demonstrations and combines a consistency-distance BC actor loss and negative-Q actor loss with a Cal-QL critic; Cal-QL alone is not equivalent to the proposed combined method.",
+        "requiredCitationIds": [
+          "conrft-2025"
+        ]
+      },
+      {
+        "id": "c-online",
+        "text": "Online HIL-ConRFT retains both actor losses with changed weights, uses a TD critic and equal demo/replay sampling, and stores human takeover transitions in the demo buffer.",
+        "requiredCitationIds": [
+          "conrft-2025"
+        ]
+      },
+      {
+        "id": "c-sampling",
+        "text": "Appendix B's M=40 is a consistency training noise-grid count; K=5 is the separate diffusion-policy configuration. The unsupported ConRFT few-step inference-count gloss is removed, not replaced by either number as an NFE.",
+        "requiredCitationIds": [
+          "conrft-2025"
+        ]
+      },
+      {
+        "id": "c-results",
+        "text": "Table I reports 96.3% mean over eight tasks and 20 trials per task, with 15-90 minutes and 48.8-minute mean; the 45-90-minute prose/abstract conflict is explicitly represented, with timing hardware and included operations.",
+        "requiredCitationIds": [
+          "conrft-2025"
+        ]
+      },
+      {
+        "id": "c-baseline",
+        "text": "The rounded 144% is a relative mean gain against the corresponding offline Cal-ConRFT baseline (39.4%); SFT has the same rounded mean, but individual row comparator assignments differ. It is not percentage points.",
+        "requiredCitationIds": [
+          "conrft-2025"
+        ]
+      },
+      {
+        "id": "c-limits",
+        "text": "Training curves can include intervention-produced successes, and Table I's all-method intervention wording conflicts with Figure 3/PA-RL text; task/reward/generalization limits and lack of independent replication remain explicit.",
+        "requiredCitationIds": [
+          "conrft-2025"
+        ]
+      },
+      {
+        "id": "c-code",
+        "text": "The exact ConRFT table prerequisite retains preprint and author-announced code only; no venue, weights, repository contents or license is invented.",
+        "requiredCitationIds": [
+          "conrft-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+      "rationale": "Current complete claim and own table prerequisite reviewed against the verified retained primary contexts, including counterevidence. /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-finetuning-closeout-integration-20260908/source-proof.json records actual source provenance, not a new fetch date. All 9 parts are conjunctive; no aggregate/article acceptance.",
+      "planDigest": "c56b793dda06ea57421ae0dec70815c676a45a8d1ff5e996b5528fa59df33ee2"
+    },
+    "evidence": [
+      {
+        "partId": "c-identity",
+        "citationId": "conrft-2025",
+        "sourceUrl": "https://arxiv.org/abs/2502.05450",
+        "supportingPassage": "abs metadata/abstract (arXiv:2502.05450v2): “\\[Submitted on 8 Feb 2025 ( [v1](https://arxiv.org/abs/2502.05450v1)), last revised 14 Apr 2025 (this version, v2)\\]\n\n# Title:ConRFT: A Reinforced Fine-tuning Method for VLA Models via Consistency Policy\n\nAuthors: [Yuhui Chen](https://arxiv.org/search/cs?searchtype=author&query=Chen,+Y), [Shuai Tian](https://arxiv.org/search/cs?searchtype=author&query=Tian,+S), [Shugao Liu](https://arxiv.org/search/cs?searchtype=author&query=Liu,+S), [Yingting Zhou](https://arxiv.org/search/cs?searchtype=author&query=Zhou,+Y), [Haoran Li](https://arxiv.org/search/cs?searchtype=author&query=Li,+H), [Dongbin Zhao](https://arxiv.org/search/cs?searchtype=author&query=Zhao,+D)”"
+      },
+      {
+        "partId": "c-foundation",
+        "citationId": "conrft-2025",
+        "sourceUrl": "https://arxiv.org/html/2502.05450v2",
+        "supportingPassage": "S5.SS1.p1 (arXiv:2502.05450v2): “Our experiments aim to evaluate our approach’s effectiveness and efficiency for fine-tuning VLA models in real-world scenarios. To this end, we perform real-world experiments across eight diverse manipulation tasks, as illustrated in Figure 2. These tasks are designed to reflect a variety of manipulation challenges, including object placement tasks (e.g., placing bread into a toaster and putting bread on a white plate), precise and contact-rich manipulation (e.g., aligning and inserting a wheel into the chair base), and dynamic object handling (e.g., hanging a Chinese Knot). To validate our fine-tuning approach, we select the Octo-small model [47] for its balance of performance and inference efficiency, and employ a consistency policy [45] as the action head on a 7-DoF Franka Emika robot arm.”\n\nS5.SS1.p2 (arXiv:2502.05450v2): “For all tasks, the state observation includes two RGB images captured from a wrist-mounted camera (128 × 128) and a side camera (256 × 256), in combination with the robot’s proprioceptive state of the robot arm, including end-effector poses, twists, forces/torques, and gripper status. The action space is defined as either a 6-dimensional end-effector delta pose for the downstream impedance controller or a 7-dimensional target that includes 1-dimensional binary gripper action, additionally for tasks that involve grasping. Data collection and policies command actions at 10Hz. Before training, positive and negative demonstrations are collected from human operators to train a binary classifier that gives binary feedback on whether the corresponding task is done successfully or not for each task. Additionally, each task’s initial state is randomized using either a scripted robot motion or manual resets by a human operator. We present descriptions of each task in our real-world experiments and more details on the experiment tasks, training, and evaluation procedure in the Appendix -B.”\n\nS6.SS2.p1 (arXiv:2502.05450v2): “Our current implementation runs the interaction and policy learning processes in separate threads, fine-tuning only the action head network with consistent policy while keeping the visual encoders and transformer backbone frozen. While this design choice boosts real-time performance, it constrains the policy’s ability to refine its perception and representation modules during online training, especially for unseen scenarios. Allowing partial or complete updates of these frozen components, potentially with efficient techniques such as parameter-efficient fine-tuning (e.g., LoRA [52]), could enhance final task performance and adaptability without sacrificing safety or speed.”\n\nalg1 (arXiv:2502.05450v2): “Algorithm 1 Procedure of ConRFT 0: A pre-trained VLA model \\pi_{\\theta,\\psi} with VLA parameter \\phi and a consistency head parameter \\psi. A critic model Q with parameter \\theta. A pre-collected dataset \\mathcal{D} including 20-30 demonstrations. Initialize batch size B. Randomly initialize the action head \\psi and the critic model \\theta # Stage I: Offline fine-tuning with Cal-ConRFT for each offline training step do Sample (s_{t},a_{t},r_{t},s_{t+1}) of batch\\_size from \\mathcal{D} Update the action head \\psi and the critic model \\theta by Equation 1 and Equation 3. end for # Stage II: Online fine-tuning with HIL-ConRFT # Start Policy Learning Thread: Wait until The number of transitions in \\mathcal{R} is at least 100 for each online training step do Sample (s_{t},a_{t},r_{t},s_{t+1}) of \\frac{B}{2} from \\mathcal{D} and \\mathcal{R} Combine both minibatches to form batch of size B Update the action head \\psi and the critic model \\theta by Equation 4 and Equation 5. end for # Start Interaction Thread: for each interaction step do if no human intervention then Take action a_{t}\\sim\\pi_{\\psi}(\\cdot|s_{t}) Store transition (s_{t},a_{t},r_{t},s_{t+1}) in \\mathcal{R} else Take action a_{intv} Store transition (s_{t},a_{intv},r_{t},s_{t+1}) in \\mathcal{D} end if end for”"
+      },
+      {
+        "partId": "c-offline",
+        "citationId": "conrft-2025",
+        "sourceUrl": "https://arxiv.org/html/2502.05450v2",
+        "supportingPassage": "S4.SS1.p1 (arXiv:2502.05450v2): “Since pre-trained VLA models often lack zero-shot generalizability to novel robotic configurations, in the offline stage, we focus on training the policy using a small, pre-collected offline dataset (20–30 demonstrations) before transitioning to online reinforcement learning. We initialize the policy with the pre-trained VLA model for reinforcement learning, reducing both the exploration burden and the overall online training time. Considering the ability to utilize offline data effectively, we choose the Calibrated Q-Learning (Cal-QL) [16] as our base offline RL method since we want the Q-function to be robust to out-of-distribution (OOD) actions. Specifically, Cal-QL trains the Q-function on a pre-collected dataset by reducing temporal difference (TD) error and an additional regularizer. This regularizer penalizes Q-values for OOD actions when they exceed the value of the reference policy V^{\\mu}(s), while compensating for this penalization on actions observed within the offline dataset. The Cal-QL training objective for the critic is given by: \\displaystyle\\mathcal{L}_{Q}^{offline}(\\theta)= \\displaystyle\\alpha(\\mathbb{E}_{s\\sim\\mathcal{D},a\\sim\\pi(\\cdot|s)}[\\max(Q_{\\theta}(s,a),V^{\\mu}(s))] (1) \\displaystyle-\\mathbb{E}_{s,a\\sim\\mathcal{D}}[Q_{\\theta}(s,a)]) \\displaystyle+\\frac{1}{2}\\mathbb{E}_{(s,a,s^{\\prime})\\sim\\mathcal{D}}[(Q_{\\theta}(s,a)-\\mathcal{B}^{\\pi}\\overline{Q}_{\\overline{\\theta}}(s,a))^{2}] where Q_{\\theta} is the learned Q-function parameterized by \\theta, \\overline{Q}_{\\overline{\\theta}} is the delayed target Q-function parameterized by \\overline{\\theta}. \\mathcal{B}^{\\pi}\\overline{Q}(s,a)=r(s,a)+\\gamma\\mathbb{E}_{a^{\\prime}\\sim\\pi(\\cdot|s^{\\prime})}(\\overline{Q}(s^{\\prime},a^{\\prime})) is the Bellman backup operator. \\alpha is a hyper-parameter to control the conservative penalty. And \\mathcal{D} is the demo buffer that stores demonstrations.”\n\nS4.SS1.p4 (arXiv:2502.05450v2): “Motivated by combining the BC loss with Q guidance under a consistency-based objective [18], we introduce Cal-ConRFT in the offline stage. This approach employs a consistency policy as the action head for fine-tuning the VLA model, addressing two key concerns: 1) it helps leverage inconsistent and sub-optimal demonstrations that often arise in pre-collected data, and 2) compared to diffusion-based action head, the consistency-based action head remains computationally lightweight for efficient inference [18, 44, 45]. The consistency policy is a diffusion-model-based policy [46] that learns to map random actions sampled from the unit Gaussian to generate actions drawn from the expert action distribution conditioned on the current state. For the consistency policy, we discretize the diffusion horizon [\\epsilon,K] into M sub-intervals with boundaries k_{1}=\\epsilon\\leq k_{2}\\leq\\cdots\\leq k_{m}=K and \\epsilon=0.002. Specifically, the VLA model with a consistency policy as the action head is given by: \\displaystyle\\pi_{\\psi}(a|s) \\displaystyle=f_{\\psi}(a^{k},k|E_{\\phi}(s)) (2) where f denotes the consistency policy parameterized with \\psi, subscripts k denoted the diffusion step, a^{k}\\sim\\mathcal{N}(0,kI) and E_{\\phi}(s) denotes the encoded state of the pre-trained VLA model parameterized with \\phi. The consistency-based training objective for VLA model fine-tuning is given by: \\displaystyle\\mathcal{L}_{\\pi}^{offline}(\\psi)=\\beta\\mathcal{L}_{\\pi}^{BC}+\\eta\\mathcal{L}_{\\pi}^{Q} (3)”\n\nS4.SS1.p5 (arXiv:2502.05450v2): “where BC loss \\mathcal{L}_{\\pi}^{BC}=\\mathbb{E}_{(s,a)\\sim\\mathcal{D},m\\sim\\mathcal{U}[1,M-1]}[d(f_{\\psi}(a+k_{m}z,k_{m}|E(s)),a)], z\\sim\\mathcal{N}(0,I), d stands for the Euclidean distance d(x,y)=||x-y||_{2}, and Q loss \\mathcal{L}_{\\pi}^{Q}=-\\mathbb{E}_{s\\sim\\mathcal{D},a\\sim\\pi_{\\psi}}[Q(s,a)]. \\beta and \\eta are two hyper-parameters to balance the BC loss and Q loss. This combination enables efficient policy learning and stable value estimation, even with a small set of demonstrations, by aligning value estimates with expert actions and improving policy performance during offline training. Moreover, it provides a reliable initialization for the online stage, facilitating safe and effective exploration.”\n\nS5.SS2.SSS3.Px1.p1 (arXiv:2502.05450v2): “As illustrated in Table I, we observe that during the offline stage, the performance of Cal-ConRFT is similar to that of the SFT baseline. This observation raises the question of why Q loss should be introduced during the offline stage. The reason is that when the offline stage relies solely on SFT, the fine-tuned policy benefits from imitation learning but may require substantial online fine-tuning to handle states and actions not covered by the offline dataset. In contrast, incorporating Q loss during the offline stage allows the early Q-value estimations to provide initialization for policy improvement, facilitating quicker adaptation during online fine-tuning. This approach helps address potential biases and ensures more stable learning. Moreover, in scenarios with a small set of demonstrations, we find that relying on Cal-QL alone is insufficient to train an effective policy, resulting in a 0% success rate on all tasks. The lack of data affects the policy’s ability to accurately estimate Q-values, resulting in weak performance after the offline stage and longer training time in the online stage.”"
+      },
+      {
+        "partId": "c-online",
+        "citationId": "conrft-2025",
+        "sourceUrl": "https://arxiv.org/html/2502.05450v2",
+        "supportingPassage": "S4.SS2.p1 (arXiv:2502.05450v2): “While the offline stage provides an initial policy from a small set of demonstration data, its performance is limited by the scope and quality of the pre-collected demonstrations. Therefore, we have the online stage with HIL-ConRFT, where the VLA model is further fine-tuned online via the consistency policy through interacting with the real-world environment. During online training process, the demo buffer \\mathcal{D} for offline stage is remained. Furthermore, we have a replay buffer \\mathcal{R} to store online data, then implement symmetric sampling [27], whereby for each batch, we sample equally between these two buffers to form each training batch. Since the VLA model continuously gathers new transitions based on its current policy, the data distribution naturally evolves with the policy. This ongoing interaction reduces the distribution-shift problem that the offline stage faces. As a result, we use a standard Q loss for online critic updating: \\displaystyle\\mathcal{L}_{Q}^{online}(\\theta) \\displaystyle=\\mathbb{E}_{(s,a,s^{\\prime})\\sim(\\mathcal{D}\\cup\\mathcal{R})}[(Q_{\\theta}(s,a)-\\mathcal{B}^{\\pi}\\overline{Q}(s,a))^{2}] (4) The consistency-based training objective for VLA model fine-tuning is given by: \\displaystyle\\mathcal{L}_{\\pi}^{online}(\\psi)=\\beta\\mathcal{L}_{\\pi}^{BC}+\\eta\\mathcal{L}_{\\pi}^{Q} (5) where BC loss \\mathcal{L}_{\\pi}^{BC}=\\mathbb{E}_{(s,a)\\sim(\\mathcal{D}\\cup\\mathcal{R}),m\\sim\\mathcal{U}[1,M-1]}[d(f_{\\psi}(a+k_{m}z,k_{m}|E(s)),a)], z\\sim\\mathcal{N}(0,I), d stands for the Euclidean distance d(x,y)=||x-y||_{2}, and Q loss \\mathcal{L}_{\\pi}^{Q}=-\\mathbb{E}_{s\\sim(\\mathcal{D}\\cup\\mathcal{R}),a\\sim\\pi_{\\psi}}[Q(s,a)]. Note that this objective closely mirrors Equation 3 from the offline stage, enabling a quick adaption to online fine-tuning.”\n\nS4.SS2.p2 (arXiv:2502.05450v2): “Typically, we decrease the BC loss weight \\beta while increasing the Q loss weight \\eta during the online stage, yet we keep the BC loss for two main reasons. 1) Firstly, it ensures the policy continues to align with the demonstration data, preventing drastic deviations that could lead to performance collapse. This is important for maintaining the quality of actions in contact-rich manipulation tasks, where sudden changes in the policy can result in unsafe or inefficient behaviors. 2) Secondly, since reinforcement learning inherently involves exploration, it can become unstable in high-dimensional state-action spaces. By providing a stabilizing effect on exploration [48], the BC loss prevents the policy from deviating too far from its offline baseline, thereby reducing the risk of inefficient or unsafe behaviors. This aspect is important in real-world robotic training, especially in physical environments where unsafe actions can lead to damage or other hazards.”\n\nS4.SS2.p3 (arXiv:2502.05450v2): “Also, we integrate human interventions into the online stage through Human-in-the-Loop learning. Specifically, HIL learning allows for timely interventions by a human operator who can provide corrective actions during the exploration process, which will then take over the control of the robot from the VLA model. These human corrections are added to the demo buffer \\mathcal{D}, offering high-level guidance that steers exploration in a safer and more efficient direction [49]. Human interventions are essential when the robot engages in destructive behaviors, such as colliding with obstacles, applying excessive force, or damaging the environment. In addition to ensuring safe exploration, human interventions accelerate policy convergence. In scenarios where the policy leads the robot into an unrecoverable or undesirable state or when the robot becomes stuck in a local optimum that would otherwise require significant time and steps to overcome without external assistance, the human operator can step in to correct the robot’s actions and guide it towards safer and more effective behavior. This results in a stable learning process, where the VLA model is fine-tuned quicker and more safely than it would through autonomous exploration alone.”"
+      },
+      {
+        "partId": "c-sampling",
+        "citationId": "conrft-2025",
+        "sourceUrl": "https://arxiv.org/html/2502.05450v2",
+        "supportingPassage": "A0.SS2.p2 (arXiv:2502.05450v2): “For the consistency policy utilized for fine-tuning VLA models, we set k\\in[0.002,80.0] and the number of sub-intervals M=40 where the sub-interval boundaries are determined with the formula k_{i}=(\\epsilon^{\\frac{1}{\\rho}}+\\frac{i-1}{M-1}(T^{\\frac{1}{\\rho}}-\\epsilon^{\\frac{1}{\\rho}}))^{\\rho}, where \\rho=7. The network is based on a 2-layer multi-layer perceptron (MLP), with a hidden size of 256 and the Mish function serving as the activation function.”\n\nA0.SS2.p3 (arXiv:2502.05450v2): “For the diffusion policy, we use diffusion steps K=5, a cosine beta schedule, Resnet 18, and the LN_{R}esnet architecture, with a hidden size of 256 and n=3 blocks.”"
+      },
+      {
+        "partId": "c-results",
+        "citationId": "conrft-2025",
+        "sourceUrl": "https://arxiv.org/html/2502.05450v2",
+        "supportingPassage": "S4.T1 (arXiv:2502.05450v2): “Training Time (mins) Success Rate (%) Episode length Task SFT[47] Cal- ConRFT HG- DAgger[19] PA-RL[14] HIL- ConRFT SFT[47] Cal- ConRFT HG- DAgger[19] PA-RL[14] HIL- ConRFT Pick Banana 45 40 50 60 (+50%) 80 (+100%) 90 (+80%) 63.7 57.8 67.5 (0.9x) 56.1 (1.1x) 51.2 (1.1x) Put Spoon 45 50 55 90 (+80%) 80 (+60%) 100 (+82%) 49.9 57.2 50.9 (1.0x) 45.3 (1.1x) 22.6 (2.5x) Open Drawer 15 35 30 80 (+129%) 60 (+71%) 100 (+233%) 63.6 61.7 48.4 (1.3x) 57.1 (1.1x) 32.4 (1.8x) Pick Bread 45 65 55 65 (+0%) 80 (+23%) 100 (+82%) 53.2 49.1 65.6 (0.8x) 51.7 (1.0x) 31.6 (1.6x) Open Toaster 30 30 30 75 (+116%) 100 (+233%) 100 (+233%) 51.2 50.7 43.4 (1.2x) 34.3 (1.5x) 22.1 (2.3x) Put Bread 60 5 20 60 (+1100%) 75 (+1400%) 100 (+400%) 102 84.8 74.2 (1.4x) 72.1 (1.4x) 36.6 (2.3x) Insert Wheel 60 35 35 40 (+14%) 30 (-14%) 80 (+129%) 42.7 43.4 53.0 (0.8x) 47.4 (0.9x) 21.9 (2.0x) Hang Chinese Knot 90 55 40 50 (-10%) 65 (+18%) 100 (+150%) 52.6 54.9 47.5 (1.1x) 44.4 (1.3x) 26.8 (2.0x) Average 48.8 39.4 39.4 65 (+65%) 71.3 (+81%) 96.3 (+144%) 59.9 57.5 56.3 (1.1x) 51.1 (1.2x) 30.7 (1.9x) TABLE I: All experiment results for various offline and online fine-tuning methods. We report the policy performance against various baselines after offline fine-tuning (SFT [47] and Cal-ConRFT) and after online fine-tuning (HG-DAgger [19], PA-RL [14] and HIL-ConRFT), including success rates and average episode lengths for various tasks. Specifically, for online fine-tuning, HG-DAgger, and PA-RL training starts from the SFT baseline, and HIL-ConRFT training starts from the Cal-ConRFT baseline. The performance improvement is relative to corresponding offline results. Policies are trained using the same number of online episodes with human interventions for all methods. All metrics are reported over 20 trials per task.”\n\nS5.SS2.p1 (arXiv:2502.05450v2): “In this section, we provide the experimental results for all tasks as shown in Figure 2. For each task, we report result metrics, including the success rate, episode length, and total training time in Table I. The training time includes the duration of scripted motions, policy rollouts, and onboard computations, all of which are conducted using an NVIDIA RTX A6000 GPU. For the offline stage, we compare Cal-ConRFT and SFT, where the SFT uses an NLL loss for behavior cloning [47]. For the online stage, we compared HIL-ConRFT with multiple baselines, including HG-DAgger [19] that incorporates human corrections to fine-tune the policy through supervised learning, PA-RL [14] that optimized actions through a policy-agnostic Q-function and fine-tune the policy through supervised learning with the optimized actions. We also compare HIL-SERL [20] that trains a RL policy with human interventions from scratch, and RLDG [6] that fine-tunes the VLA model using SFT [47] with demonstrations collected by RL policy.”\n\nS1.p5 (arXiv:2502.05450v2): “We evaluate our approach on eight real-world manipulation tasks, demonstrating its ability to outperform state-of-the-art (SOTA) methods. Our framework achieves an average success rate of 96.3% after 45–90 minutes of online fine-tuning, showcasing high sample efficiency. Additionally, it outperforms SFT methods that are trained on either human data or RL policy data, with an average success rate improvement of 144% and an episode length of 1.9x shorter.”\n\nS5.SS2.SSS1.p1 (arXiv:2502.05450v2): “We compare different approaches for supervised and reinforced methods in Table I and present the corresponding online learning curves in Figure 3. Our approach, ConRFT, achieves the highest average success rate of 96.3% after 45 to 90 minutes of real-world training across all tasks, representing a 144% improvement over the supervised baseline. It outperforms SOTA methods such as HG-DAgger and PA-RL, with average success rates of 65% and 71.3%. While HG-DAgger leverages human corrections to fine-tune the VLA model through supervised learning, it fails to achieve significant policy improvement and even experiences a performance drop on some tasks due to the sub-optimality and inconsistency of human corrections. For example, we observe that for contact-rich tasks that require precise, careful manipulation, such as Insert Wheel and Hang Chinese Knot, HG-DAgger has limited policy improvement after online fine-tuning. Specifically, in the Hang Chinese Knot task, the careful handling of soft objects demands consistent and precise controls. The inherent variability in human corrections, such as differences in the angle of insertion, introduces noise and conflicting information into the training process. This inconsistency prevents the policy’s ability to learn precise and dexterous behaviors. Additionally, the complexity of contact dynamics means that minor deviations in the policy can result in significant performance drops, further exacerbating the challenges posed by inconsistent human corrections.”"
+      },
+      {
+        "partId": "c-baseline",
+        "citationId": "conrft-2025",
+        "sourceUrl": "https://arxiv.org/html/2502.05450v2",
+        "supportingPassage": "S4.T1 (arXiv:2502.05450v2): “Training Time (mins) Success Rate (%) Episode length Task SFT[47] Cal- ConRFT HG- DAgger[19] PA-RL[14] HIL- ConRFT SFT[47] Cal- ConRFT HG- DAgger[19] PA-RL[14] HIL- ConRFT Pick Banana 45 40 50 60 (+50%) 80 (+100%) 90 (+80%) 63.7 57.8 67.5 (0.9x) 56.1 (1.1x) 51.2 (1.1x) Put Spoon 45 50 55 90 (+80%) 80 (+60%) 100 (+82%) 49.9 57.2 50.9 (1.0x) 45.3 (1.1x) 22.6 (2.5x) Open Drawer 15 35 30 80 (+129%) 60 (+71%) 100 (+233%) 63.6 61.7 48.4 (1.3x) 57.1 (1.1x) 32.4 (1.8x) Pick Bread 45 65 55 65 (+0%) 80 (+23%) 100 (+82%) 53.2 49.1 65.6 (0.8x) 51.7 (1.0x) 31.6 (1.6x) Open Toaster 30 30 30 75 (+116%) 100 (+233%) 100 (+233%) 51.2 50.7 43.4 (1.2x) 34.3 (1.5x) 22.1 (2.3x) Put Bread 60 5 20 60 (+1100%) 75 (+1400%) 100 (+400%) 102 84.8 74.2 (1.4x) 72.1 (1.4x) 36.6 (2.3x) Insert Wheel 60 35 35 40 (+14%) 30 (-14%) 80 (+129%) 42.7 43.4 53.0 (0.8x) 47.4 (0.9x) 21.9 (2.0x) Hang Chinese Knot 90 55 40 50 (-10%) 65 (+18%) 100 (+150%) 52.6 54.9 47.5 (1.1x) 44.4 (1.3x) 26.8 (2.0x) Average 48.8 39.4 39.4 65 (+65%) 71.3 (+81%) 96.3 (+144%) 59.9 57.5 56.3 (1.1x) 51.1 (1.2x) 30.7 (1.9x) TABLE I: All experiment results for various offline and online fine-tuning methods. We report the policy performance against various baselines after offline fine-tuning (SFT [47] and Cal-ConRFT) and after online fine-tuning (HG-DAgger [19], PA-RL [14] and HIL-ConRFT), including success rates and average episode lengths for various tasks. Specifically, for online fine-tuning, HG-DAgger, and PA-RL training starts from the SFT baseline, and HIL-ConRFT training starts from the Cal-ConRFT baseline. The performance improvement is relative to corresponding offline results. Policies are trained using the same number of online episodes with human interventions for all methods. All metrics are reported over 20 trials per task.”"
+      },
+      {
+        "partId": "c-limits",
+        "citationId": "conrft-2025",
+        "sourceUrl": "https://arxiv.org/html/2502.05450v2",
+        "supportingPassage": "S5.F3 (arXiv:2502.05450v2): “Fig. 3: Learning curves during online training. This figure presents the success rates, intervention rates, and episode lengths for HIL-SERL [20], HG-DAgger [19], PA-RL [14] and our method across five representative real-world tasks, displayed as a running average over 20 episodes. PA-RL is implemented without human intervention. Note that human interventions may lead the policy to successful outcomes, and thus, the actual policy success rate when interventions exist might be lower than the curve suggests.”\n\nS5.SS2.SSS1.p2 (arXiv:2502.05450v2): “In the absence of human corrections, PA-RL offers a direct action optimization using a policy-agnostic Q-function trained through Cal-QL. By optimizing actions based on reward signals, PA-RL overcomes the sub-optimality of human corrections and demonstrates more stable policy improvement in simpler tasks such as Pick Banana and Put Spoon. However, it fails to improve the policy performance in contact-rich tasks that require precise, careful manipulation, such as Insert Wheel. Precise alignment and controlled insertion forces are critical in the Insert Wheel task. However, due to the limited state coverage in the demo buffer and replay buffer, the policy-agnostic Q-function is unable to generalize effectively to different wheel and slot positions. This limits the policy’s ability to handle the slight variations in state transitions required for successful insertion, leading to sub-optimal performance in complex manipulation scenarios. Consequently, while PA-RL shows promise in simple environments, it struggles to scale to complex tasks demanding high precision and dexterity.”\n\nS6.SS1.p1 (arXiv:2502.05450v2): “In this work, we implement a task-specific binary classifier to calculate the reward for RL. However, the inherent distributional shift between the classifier’s training data and the state-action distributions generated during RL exploration creates a critical vulnerability, as it can lead the learned policy to engage in reward hacking, exploiting unintended behaviors where the classifier provides inaccurate rewards. For instance, the robot might position its end-effector at a specific location that triggers a false positive, causing the policy to converge to an incorrect behavior. Since these reward classifiers typically provide only sparse feedback, the policy may learn slowly, even with the help of human interventions. On the other hand, this reward-driven approach leads to highly specialized policies that are closely tied to the specific conditions of the task, limiting their ability to generalize to new environments. While introducing multi-task dense reward signals could improve sample efficiency and accelerate policy convergence, it would also demand more sophisticated reward engineering for real-world applications.”\n\nS5.T3 (arXiv:2502.05450v2): “Success Rate (%) Task DP[50] SFT[47] RLDG[6] Cal-ConRFT HIL-ConRFT Put Spoon 60 70 100 55 100 Put Bread 30 65 100 20 100 Insert Wheel 35 40 50 35 80 Average 41.7 58.3 83.3 36.7 93.3 TABLE III: Experimental comparisons with various demonstrations. Diffusion Policy (DP) [50] and SFT [47] are trained with 150 demonstrations collected by human teleoperation, while RLDG [6] is trained with 150 demonstrations collected by RL policy. Cal-ConRFT is trained with 20 demonstrations collected by human teleoperation, and HIL-ConRFT is trained with 20 demonstrations as well as 80-120 policy-generated rollout trajectories. All metrics are reported over 20 trials per task.”"
+      },
+      {
+        "partId": "c-code",
+        "citationId": "conrft-2025",
+        "sourceUrl": "https://arxiv.org/abs/2502.05450",
+        "supportingPassage": "abs metadata/abstract (arXiv:2502.05450v2): “> Abstract:Vision-Language-Action (VLA) models have shown substantial potential in real-world robotic manipulation. However, fine-tuning these models through supervised learning struggles to achieve robust performance due to limited, inconsistent demonstrations, especially in contact-rich environments. In this paper, we propose a reinforced fine-tuning approach for VLA models, named ConRFT, which consists of offline and online fine-tuning with a unified consistency-based training objective, to address these challenges. In the offline stage, our method integrates behavior cloning and Q-learning to effectively extract policy from a small set of demonstrations and stabilize value estimating. In the online stage, the VLA model is further fine-tuned via consistency policy, with human interventions to ensure safe exploration and high sample efficiency. We evaluate our approach on eight diverse real-world manipulation tasks. It achieves an average success rate of 96.3% within 45-90 minutes of online fine-tuning, outperforming prior supervised methods with a 144% improvement in success rate and 1.9x shorter episode length. This work highlights the potential of integrating reinforcement learning to enhance the performance of VLA models for real-world robotic applications. Videos and code are available at our project website [this https URL](https://cccedric.github.io/conrft/).”"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "c-identity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. ConRFT has the literal title, six-author byline and 2025 year recorded in the citation registry; the reviewed full body is v2, revised 14 April 2025. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "6fee30ab83b07010b406a33ccec4e1aad90923d36dc6b8eab17b8ce82bd22de1"
+      },
+      {
+        "partId": "c-foundation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. The main study uses Octo-small, a 7-DoF Franka at 10 Hz and a trainable consistency action head; visual encoders and transformer backbone remain frozen. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "771dd584d7c1464b441c52cf2a46898c86af1840fb98d776775c23e3e5e83308"
+      },
+      {
+        "partId": "c-offline",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. Offline Cal-ConRFT starts with 20-30 demonstrations and combines a consistency-distance BC actor loss and negative-Q actor loss with a Cal-QL critic; Cal-QL alone is not equivalent to the proposed combined method. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "3f4ef71f9624a22a30680fbedcd6ffabcb9c239d2adec93c8183b27fbaa961e7"
+      },
+      {
+        "partId": "c-online",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. Online HIL-ConRFT retains both actor losses with changed weights, uses a TD critic and equal demo/replay sampling, and stores human takeover transitions in the demo buffer. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "3338bae2fbde69917ba47714e3bc4e8585d35f267926016561554dd8626275dc"
+      },
+      {
+        "partId": "c-sampling",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. Appendix B's M=40 is a consistency training noise-grid count; K=5 is the separate diffusion-policy configuration. The unsupported ConRFT few-step inference-count gloss is removed, not replaced by either number as an NFE. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "ef9f901e9fa0a75bffce8457616a03d6f48020bd74d5b74899947666e1d5003b"
+      },
+      {
+        "partId": "c-results",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. Table I reports 96.3% mean over eight tasks and 20 trials per task, with 15-90 minutes and 48.8-minute mean; the 45-90-minute prose/abstract conflict is explicitly represented, with timing hardware and included operations. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "bb3ba42490fe2c94a41c670318c56e43900355055540c833d2ac82720fbd6628"
+      },
+      {
+        "partId": "c-baseline",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. The rounded 144% is a relative mean gain against the corresponding offline Cal-ConRFT baseline (39.4%); SFT has the same rounded mean, but individual row comparator assignments differ. It is not percentage points. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "fafb3af233791f28404afb2489d383572a66164b2f8e7fa1b7aa8a61e12d0c95"
+      },
+      {
+        "partId": "c-limits",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. Training curves can include intervention-produced successes, and Table I's all-method intervention wording conflicts with Figure 3/PA-RL text; task/reward/generalization limits and lack of independent replication remain explicit. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "1684190575c2e3eea9d991bab62ea50576e06d4232f153bbee5cddb3baa65294"
+      },
+      {
+        "partId": "c-code",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max implementation source auditor, session e5a09465-494b-4f39-8327-03e496ef05eb; not independent acceptance",
+        "rationale": "Current corrected claim only. The exact ConRFT table prerequisite retains preprint and author-announced code only; no venue, weights, repository contents or license is invented. Reviewed with the entire bound supporting context and its limitations; this is implementation review, not independent acceptance.",
+        "evidenceDigest": "558a9c85b85236676d0ee9fa14e5c666206962075ddc4a4500486264c80f39a2"
+      }
+    ]
   }
 ]

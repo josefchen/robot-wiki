@@ -32,20 +32,22 @@ const ROWS: MethodRow[] = [
     method: 'DPPO',
     year: 2024,
     mechanism:
-      'PPO over a two-layer MDP: the denoising chain is one layer, the environment the other',
+      'PPO over Gaussian denoising transitions in a two-layer MDP; separate environment and denoising discounts; selected final denoising steps can be fine-tuned',
     result:
-      'Strongest overall fine-tuning performance and efficiency for diffusion policies across the paper\'s benchmarks',
+      'Paper-specific Robomimic comparisons; zero-shot One-leg hardware transfer: 16/20 trials at 10 Hz. Not a universal sample-efficiency or wall-clock winner',
     evidence: 'preprint',
+    // Code is announced by the paper; weights, license and repository contents are not audited here.
     open: true,
   },
   {
     method: 'ConRFT',
     year: 2025,
     mechanism:
-      'Consistency policy collapses the denoising chain to few steps; offline BC + Q-learning, then online RL with human interventions',
+      'Frozen Octo-small encoders/backbone; consistency action head with BC and Q objectives offline and online, plus human takeovers',
     result:
-      '96.3% average success on 8 real-world tasks after 45-90 min of online fine-tuning',
+      'Table I: 96.3% mean on 8 Franka tasks, 20 trials/task; 15-90 min online (prose says 45-90); rounded 144% relative gain over offline Cal-ConRFT',
     evidence: 'preprint',
+    // Code is announced by the paper; weights, license and repository contents are not audited here.
     open: true,
   },
   {

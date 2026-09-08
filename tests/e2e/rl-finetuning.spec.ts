@@ -101,6 +101,37 @@ test.describe('rl-finetuning module', () => {
     await expect(page.getByTestId('segment-readout')).toBeVisible();
   });
 
+  test('DPPO and ConRFT keep source-specific results and conflicts visible', async ({ page }) => {
+    await page.goto(ROUTE);
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    await expect(prose).toContainText('PPO updates the denoising policy, not the environment dynamics.');
+    await expect(prose).toContainText('16 of 20 hardware trials');
+    await expect(prose).toContainText('from 15 to 90 minutes');
+    await expect(prose).toContainText('not a percentage-point gain');
+    await expect(prose).toContainText('PA-RL without them');
+    const table = page.getByRole('table').filter({ has: page.getByRole('columnheader', { name: 'Headline result' }) });
+    await expect(table).toHaveCount(1);
+    const dppo = table.getByRole('row').filter({ has: page.getByRole('cell', { name: 'DPPO', exact: true }) });
+    const conrft = table.getByRole('row').filter({ has: page.getByRole('cell', { name: 'ConRFT', exact: true }) });
+    await expect(dppo).toContainText('Not a universal sample-efficiency or wall-clock winner');
+    await expect(conrft).toContainText('15-90 min online (prose says 45-90)');
+    for (const [id, href] of [
+      ['dppo-2024', 'https://arxiv.org/abs/2409.00588'],
+      ['conrft-2025', 'https://arxiv.org/abs/2502.05450'],
+    ]) {
+      const chip = prose.locator(`[data-cite-id="${id}"] a[target="_blank"]`).first();
+      await expect(chip).toHaveAttribute('href', href);
+      await chip.focus();
+      await expect(chip.locator('xpath=../..').getByRole('tooltip')).toBeVisible();
+      await expect(page.locator(`#ref-${id} [data-reference-source-link]`)).toHaveAttribute('href', href);
+    }
+    const dppoReference = page.locator('#ref-dppo-2024');
+    await dppoReference.getByRole('button', { name: 'Show all 9 authors' }).click();
+    await expect(dppoReference.locator('[data-author-names]')).toContainText('Max Simchowitz');
+    await dppoReference.getByRole('button', { name: 'Show 8 authors' }).click();
+    await expect(page.locator('#ref-conrft-2025 [data-author-names]')).toContainText('Dongbin Zhao');
+  });
+
   test('zero axe violations', async ({ page }) => {
     await page.goto(ROUTE);
     const results = await new AxeBuilder({ page }).analyze();

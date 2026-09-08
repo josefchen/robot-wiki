@@ -6780,6 +6780,48 @@
         "VAL-AUDIT-003"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rl-finetuning-closeout-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "78346874be258545be829a3d83f3b26bf6d27d8f9fc6c5565fa9bdf2185a9c79",
+      "newHash": "5424024e10a7e82ad997df5eb7988b12b0b04e127dfcc3f53bdbb9e0b4fe67c0",
+      "reason": "DPPO and ConRFT originals 1/2 only: restore Gaussian denoising-transition and two-layer semantics, bounded benchmark counterexamples and 16/20 zero-shot hardware protocol; distinguish ConRFT objectives, training noise grid, Table I 15–90 min versus prose 45–90, 96.3% over eight tasks/20 trials each, 144% relative improvement over 39.4%, and intervention conflicts. Additional chips support those qualifications; citation union, Recap originals 4/5, frontmatter, toy controls and values unchanged. Immediate-before hash 4483c83f0ab4302e38386b794c017a09a8ecdcf63fecb006c13bef8966e01b1b. Verified original retrieval events and literal primary contexts: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-finetuning-closeout-integration-20260908/source-proof.json; exact current/original tuples: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-finetuning-closeout-integration-20260908/row-history.json. No aggregate original 11, full P1, or independent acceptance.",
+      "ownerApproval": "Josef's September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rl-finetuning-closeout-20260908-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/rl-finetuning",
+      "oldHash": "0d56864151206310522514bf1671139a68e3ec59fa11d233e37ee71e5bb71bb0",
+      "newHash": "6a2a8eebcd9e36011ca58d06a1afaa75bb2812c5986c477c21462d0460d1fc0c",
+      "reason": "DPPO and ConRFT originals 1/2 only: restore Gaussian denoising-transition and two-layer semantics, bounded benchmark counterexamples and 16/20 zero-shot hardware protocol; distinguish ConRFT objectives, training noise grid, Table I 15–90 min versus prose 45–90, 96.3% over eight tasks/20 trials each, 144% relative improvement over 39.4%, and intervention conflicts. Additional chips support those qualifications; citation union, Recap originals 4/5, frontmatter, toy controls and values unchanged. Immediate-before hash 0b61e313d835e95eac8a7dfc47273d2c3d3f0173f3db0da5b2abd40dec67b8f8. Verified original retrieval events and literal primary contexts: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-finetuning-closeout-integration-20260908/source-proof.json; exact current/original tuples: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rl-finetuning-closeout-integration-20260908/row-history.json. No aggregate original 11, full P1, or independent acceptance.",
+      "ownerApproval": "Josef's September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
