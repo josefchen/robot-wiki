@@ -345,7 +345,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/jepa-planning.tsx',
     route: '/world-models/jepa/',
     quantityNames: ['latent', 'distance'],
-    text: 'At a search budget of 24 sequences the current latent sits 0.813 away from the pick goal after 0 planning steps; the embedding-space plane shows the start and goal as two points, and the distance strip is a single sample at step 0.',
+    text: 'Synthetic teaching model, not learned embeddings or measured robot behavior. At a search budget of 24 sequences the current latent sits 0.813 away from the pick goal after 0 planning steps; the embedding-space plane shows the start and goal as two points, and the distance strip is a single sample at step 0.',
   },
   {
     component: 'ActionConditioning',

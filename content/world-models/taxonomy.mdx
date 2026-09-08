@@ -41,7 +41,7 @@ The six example groups below are this article's selection, not an exhaustive or 
   <Stat label="example groups" value="6" note="selected in this article" accent />
   <Stat label="DreamerV3 tasks" value="150+" note="one fixed hyperparameter set" />
   <Stat label="TD-MPC2 params" value="317M" note="one offline agent, 80 tasks" />
-  <Stat label="V-JEPA 2 video" value="1M+" note="hours of action-free pretraining" />
+  <Stat label="V-JEPA 2 video" value=">1M" note="video hours; action-free pretraining" />
 </div>
 
 ## The functional cut
@@ -74,7 +74,9 @@ These models predict future pixels from current frames plus an action or text co
 
 ### JEPA: predict the representation, never the pixels
 
-V-JEPA 2 pretrains action-free on over a million hours of internet video, then post-trains an action-conditioned predictor on less than 62 hours of unlabeled robot video from the Droid dataset, and plans zero-shot on Franka arms it has never seen by searching action sequences whose predicted embedding lands closest to a goal image's embedding <Cite id="vjepa2-2025" />. Whether this beats generative prediction is a live argument with named proponents on both sides; the JEPA module in this domain gives it a full treatment.
+V-JEPA 2 uses action-free pretraining on over a million hours of internet video plus images. V-JEPA 2-AC then freezes the encoder and trains a separate action-conditioned predictor on less than 62 hours of filtered left-camera Droid video, using end-effector state signals and actions derived from state changes. “Unlabeled” means no reward, task-type, or success labels; Droid includes Franka Panda teleoperation <Cite id="vjepa2-2025" />.
+
+For evaluation, the same weights and inference code run zero-shot on Franka Emika Panda arms with RobotiQ grippers in two labs absent from Droid, without training on those evaluation robots. Camera placement was manually selected. This is a new-environment result, not universal new-embodiment transfer. Planning minimizes predicted-to-goal feature-map L1 distance with the Cross-Entropy Method, executes the first action, and replans. Pick-and-place uses two supplied subgoal images plus the final goal <Cite id="vjepa2-2025" />. The [JEPA module](/world-models/jepa) details these stages and their limitations.
 
 ### Unified world-action: one backbone, two heads
 

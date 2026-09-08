@@ -3390,14 +3390,15 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the arXiv abs page (2026-08-08): 30 authors;
-    // 1M+ hours of action-free video pretraining, 62 hours of robot video
-    // for the action-conditioned post-training.
+    // V1 HTML and PDF-derived primary byline reviewed 2026-09-07: 29 authors.
+    // The abs metadata uses Mido Assran and incorrectly splits Mojtaba/Komeili;
+    // preserve that metadata discrepancy in the audit, use the body byline here.
+    // Over 1M video hours; the action-conditioned stage uses less than 62 hours.
     id: 'vjepa2-2025',
     title:
       'V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning',
     authors: [
-      'Mido Assran',
+      'Mahmoud Assran',
       'Adrien Bardes',
       'David Fan',
       'Quentin Garrido',

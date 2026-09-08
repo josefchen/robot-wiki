@@ -9,7 +9,6 @@ lastReviewed: "2026-08-17"
 citations:
   - vjepa-2024
   - vjepa2-2025
-  - jepa-value-planning-2026
   - ami-labs-2026
   - world-model-survey-2026
   - genie-3-2025
@@ -25,16 +24,16 @@ seeAlso:
 
 import { JepaPlanning } from '@/components/interactive/jepa-planning';
 
-The fourth paradigm in the [taxonomy](/world-models/taxonomy) rejects the premise of the previous one. Instead of predicting future pixels, predict the *representation* of the future: train an encoder and a predictor jointly so that the predictor, given the current embedding and an action, matches the embedding a target encoder produces on the true future. No pixel reconstruction appears anywhere, at training time or at planning time. This is the Joint-Embedding Predictive Architecture, JEPA, and it is the principal architectural alternative to generative <Term id="world-model">world models</Term>. It is also a position with an institution behind it: Yann LeCun's AMI Labs.
+The fourth paradigm in the [taxonomy](/world-models/taxonomy) rejects the premise of the previous one. Instead of predicting future pixels, predict the *representation* of the future: train an encoder and a predictor jointly so that the predictor, given the current embedding and an action, matches the embedding a target encoder produces on the true future. The core representation and action-conditioned predictor objectives do not reconstruct pixels, and control planning compares feature maps. V-JEPA 2 separately trains an interpretability decoder in its appendix <Cite id="vjepa2-2025" />. This is the Joint-Embedding Predictive Architecture, JEPA, and it is the principal architectural alternative to generative <Term id="world-model">world models</Term>. It is also a position with an institution behind it: Yann LeCun's AMI Labs.
 
-Planning without ever drawing a frame looks like the loop below, run in a 2-D projection of the embedding space. Drag the search budget slider up and the candidate fan widens, the plan aligns better with the true goal direction, and the goal-distance readout falls in fewer steps.
+The interactive below illustrates goal-directed replanning with a deterministic teaching model. Raising the search budget changes a prescribed candidate fan and improves alignment by construction. Its synthetic coordinates and distance trace are not learned robot embeddings or measured planning performance.
 
 <JepaPlanning className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="pretrain video" value="1M+" note="hours, action-free" accent />
-  <Stat label="robot video" value="<62" note="hours, unlabeled Droid" />
-  <Stat label="SSv2 top-1" value="77.3" note="Something-Something v2" />
+  <Stat label="pretrain video" value=">1M" note="video hours; action-free" accent />
+  <Stat label="robot video" value="<62" note="Droid hours; state signals used" />
+  <Stat label="SSv2 top-1" value="77.3%" note="ViT-g384; Table 4 frozen encoder" />
   <Stat label="AMI raise" value="$1.03B" note="March 2026" />
 </div>
 
@@ -46,19 +45,27 @@ The case against generative pixel prediction, stated as strongly as it can be:
 2. The future is genuinely multimodal and partly unpredictable. A pixel-space model must either average over the possibilities, producing blur, or sample, committing to arbitrary detail. Predicting in representation space lets the model discard what it cannot predict, because the target is an embedding, not a frame.
 3. Planning wants an abstract state, not an image. If you have to decode to pixels and re-encode to plan, the decoder is pure overhead.
 
-The original V-JEPA showed the recipe works as a representation learner: a context encoder, an exponential-moving-average target encoder, and a predictor, trained by feature prediction alone on 2 million videos, with no reconstruction, no negative examples, no text, and no pretrained image encoder. The frozen backbone then performed well on both motion and appearance tasks without any adaptation of its parameters <Cite id="vjepa-2024" />.
+The original V-JEPA learns masked video features with a context encoder, a predictor, and an exponential-moving-average target encoder whose outputs are stop-gradient targets. Its representation pretraining uses feature prediction without pixel reconstruction, negative examples, text, or a pretrained image encoder. The VideoMix2M pretraining set contains approximately 2 million videos from HowTo100M, Kinetics-400/600/700, and Something-Something-v2 after removing overlap with the Kinetics and Something-Something-v2 validation sets. For frozen-backbone evaluation, the encoder stays fixed while an attentive pooling head and classifier are trained on the downstream task. The paper evaluates appearance-oriented action recognition on Kinetics-400 and motion classification on Something-Something-v2; end-to-end fine-tuning is a separate evaluation protocol <Cite id="vjepa-2024" />.
 
 ## V-JEPA 2: the argument's strongest artifact
 
-V-JEPA 2 turns the representation into a controller, in two stages <Cite id="vjepa2-2025" />.
+V-JEPA 2 separates action-free representation learning from action-conditioned world-model learning; a model-predictive-control planner then selects robot actions <Cite id="vjepa2-2025" />.
 
-First, action-free pretraining: self-supervised masked latent prediction on over 1 million hours of internet video, plus images, at roughly 1B parameters, using mask denoising and 3D rotary position embeddings. This alone sets the state of the art on motion understanding, 77.3 top-1 on Something-Something v2, with strong human-action anticipation on Epic-Kitchens-100, and the same encoder serves a <Term id="vision-language-model">VLM</Term> competitively on video question answering <Cite id="vjepa2-2025" />.
+First, action-free pretraining uses masked representation prediction on over 1 million hours of internet video plus images in the VM22M mixture. The largest encoder is ViT-g, listed as 1B parameters in Table 12; its separate pretraining predictor is 22M. The mask-denoising objective predicts target-encoder features with an L1 loss, and 3D rotary position embeddings encode time, height, and width. These are pretraining components, not the later action-conditioned predictor <Cite id="vjepa2-2025" />.
 
-Second, action-conditioned post-training, producing V-JEPA 2-AC: freeze the encoder and train an action-conditioned predictor on less than 62 hours of unlabeled robot video from the Droid dataset, with no rewards, no task-specific demonstrations, and no per-environment tuning. The result plans zero-shot on Franka arms in labs never seen during training. Control is energy minimization in latent space: specify a goal image, encode it once, search action sequences whose predicted final latent lands closest to the goal latent, execute the first action, observe, and replan. Reported tasks are reaching, grasping, and pick-and-place <Cite id="vjepa2-2025" />.
+For motion classification, Table 4 reports 77.3% top-1 accuracy on Something-Something v2 for ViT-g384 with a frozen encoder and a learned four-layer attentive probe. Evaluation uses 384-by-384 images, 64 frames per clip, two temporal crops, and three spatial crops; logits are averaged across clips. Appendix C.1 trains the probe on the task training data and reports the best of 20 classifier heads. Appendix A.4.2 separately lists 76.5 for the 384-resolution cooldown ablation in Table 14. Its protocol is not explicitly reconciled with Table 4, so these two reported results are not interchangeable <Cite id="vjepa2-2025" />.
 
-That loop is the figure at the top of this module. The goal image is a fixed point, the blue marker is the current latent, and each Plan step is one model-predictive-control iteration: the candidate fan is the searched action sequences, scored by predicted distance to the goal latent, and the readout contracts as steps execute. The predictor is imperfect on purpose, which is why the executed path wobbles off the planned one.
+For human-action anticipation, Table 5 reports 39.7% mean-class recall-at-5 for actions on the Epic-Kitchens-100 validation set, using ViT-g384. A learned probe reads both the frozen encoder and the frozen action-free predictor. Its video context is 32 frames at 8 fps and 384-by-384 resolution, ending one second before the action begins. During probe training, anticipation time is sampled from 0.25 to 1.75 seconds; the validation interval is fixed at one second. This is closed-vocabulary kitchen-action classification, not robot control or an action-conditioned robot predictor result <Cite id="vjepa2-2025" />.
 
-One follow-up makes the distance-as-value reading explicit: shaping the representation space during training so that embedding distance approximates the negative goal-conditioned value function significantly improves planning performance over standard JEPA models on simple control tasks <Cite id="jepa-value-planning-2026" />.
+Second, V-JEPA 2-AC freezes the ViT-g encoder and trains an approximately 300M-parameter action-conditioned predictor on less than 62 hours of Droid robot video. The retained data are left-camera videos at least four seconds long; training samples four-second clips at 4 fps and 256-by-256 resolution. Here “unlabeled” excludes reward, task-type, and success labels, not robot state information: end-effector position, orientation, and gripper state are supplied, and action vectors are computed from changes between adjacent states <Cite id="vjepa2-2025" />.
+
+The model is deployed zero-shot on Franka Emika Panda arms with RobotiQ grippers in two labs absent from Droid, using identical weights and inference code and no training data from those evaluation robots. Droid itself contains Franka Panda teleoperation, so this is not evidence of arbitrary new-embodiment transfer. The authors manually selected camera positions that worked well; “zero-shot” does not mean setup-free. Their reaching, grasping, reach-with-object, and pick-and-place evaluations use image goals, with two additional supplied subgoal images for pick-and-place. Table 2 reports ten trials per task setting <Cite id="vjepa2-2025" />.
+
+Control uses energy minimization in latent space: the Cross-Entropy Method searches actions that minimize the L1 distance between a predicted future feature map and the goal-image feature map, executes the first action, observes, and replans. Appendix B.2 uses 800 candidate samples, ten refinement iterations, and planning horizon one for these greedy tasks; the pick-and-place sequence relies on the supplied subgoals rather than a long-horizon solution <Cite id="vjepa2-2025" />.
+
+The interactive above is a deterministic two-dimensional teaching model, not a projection of learned V-JEPA 2 features. It uses synthetic points, Euclidean distance, prescribed candidate directions, and a deterministic execution perturbation. Its shrinking trace is guaranteed by construction, not a measured robot result, a learned value function, or a reproduction of the paper’s Cross-Entropy Method optimizer.
+
+V-JEPA 2-AC’s goal-distance energy is a planning objective, not a demonstrated calibration to a goal-conditioned value function. Its predictor learns feature prediction without reward labels; the planning loss compares predicted and target feature maps. The paper also trains a separate pixel decoder to visualize representations in Appendix B.3, but that interpretability decoder is not used to select control actions <Cite id="vjepa2-2025" />.
 
 ## The institutional bet: AMI Labs
 
@@ -68,8 +75,8 @@ The argument is no longer only a research position. LeCun left Meta and co-found
 
 1. **Every currently usable interactive simulator is generative.** Genie 3, Cosmos 3, Odyssey-2, and the Interactive World Simulator all render pixels you can inspect and steer <Cite id="genie-3-2025" /><Cite id="cosmos-3-2026" /><Cite id="odyssey-2-2025" /><Cite id="interactive-world-simulator-2026" />. Nobody has shipped an interactive, inspectable, action-controllable JEPA environment.
 2. **Latent-only objectives are hard to validate.** Without a decoder you cannot see what the model believes, and a good world model and a collapsed one can look identical in the loss. Collapse prevention leans on architectural asymmetries, the EMA target encoder and stop-gradient, whose theory is still thin <Cite id="vjepa-2024" />.
-3. **The demonstrated tasks are short-horizon single-arm pick-and-place.** No contact-rich assembly, no deformables, no whole-body control <Cite id="vjepa2-2025" />.
-4. **It still needs action-conditioned post-training.** The "learns from observation alone" framing does rhetorical work; the controllability comes from the action-conditioned stage, and that stage needs robot data with action labels <Cite id="vjepa2-2025" />.
+3. **The reported robot tests are bounded tabletop skills.** The two-lab Franka evaluation covers reaching, grasping, reach-with-object, and pick-and-place with supplied image goals and subgoals. It does not establish contact-rich assembly, deformable manipulation, or whole-body control <Cite id="vjepa2-2025" />.
+4. **Action-free pretraining is not the robot-control stage.** V-JEPA 2-AC uses robot video with end-effector state signals and constructs action vectors from successive state differences. The excluded labels are rewards, task types, and success annotations <Cite id="vjepa2-2025" />.
 5. **Empirically the camps are comparable, not one dominant.** In the 2026 survey's LIBERO table, latent-space world-model VLAs (VLA-JEPA at 97.2, JEPA-VLA at 96.4) sit alongside video-based ones (Cosmos Policy and LingBot-VA at 98.5, Say-Dream-ACT at 98.1) <Cite id="world-model-survey-2026" />. Nothing in the numbers adjudicates the architectural argument.
 6. **Fast-WAM separates video co-training from test-time generation.** It retains a future-video training objective but omits future-video tokens and their denoising at inference. The video backbone still encodes the current frame once, and the action expert still denoises an action chunk. In its controlled LIBERO and RoboTwin 2.0 comparisons, removing video co-training hurt success more than removing explicit future generation. That finding concerns these tested WAM variants; it does not establish a general advantage for JEPA over generative models. <span className="block" data-jepa-source-placement="line-start"><Cite id="fast-wam-2026" /></span>
 
