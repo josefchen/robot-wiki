@@ -27,9 +27,9 @@ import { cx } from '@/lib/utils';
  * structure so the same pattern can be compared across four 2025-2026
  * stacks.
  *
- * Rates marked "schematic" are not in the primary source; the lane exists
- * because the architectural split is disclosed, but the rate is our
- * rendering choice and is labeled as such.
+ * The event schedule is schematic. Some output rates are source-reported;
+ * other cadences, the instruction pulse, and additional drawing lanes are
+ * local assumptions, not separately disclosed control modules.
  *
  * Interactive contract: deterministic render, native range slider (keyboard
  * arrows step the playhead), visible numeric readouts, system selector +
@@ -168,7 +168,7 @@ export function HierarchyTimescales({
       <svg
         viewBox={`0 0 ${WIDTH} ${height}`}
         role="img"
-        aria-label={`Timescale lanes for ${system.name} by ${system.org}. Four lanes run at different rates from a single task instruction down to motor commands. The playhead is at ${playhead} of ${HORIZON_MS} milliseconds; lanes light up only when their own update rate has elapsed.`}
+        aria-label={`Schematic timescale lanes for ${system.name} by ${system.org}. Four drawn lanes combine reported output rates with illustrative cadences and a task-instruction initial condition. The playhead is at ${playhead} of ${HORIZON_MS} milliseconds; lanes light up only when their own update rate has elapsed.`}
         aria-describedby={descriptionId}
         className="mt-2 block w-full"
       >
@@ -258,8 +258,9 @@ export function HierarchyTimescales({
 
       <p className="mt-1 font-mono text-[10px] text-text-dim">
         blue ticks: updates fired at or before the playhead. dim ticks:
-        pending. Rates tagged (schematic) are not stated in the primary
-        source.
+        pending. This is an illustrative event schedule, not a recorded
+        robot trace. Rates tagged (schematic), the task-instruction pulse,
+        and any additional drawing lanes are local assumptions.
       </p>
 
       <ChartDescription

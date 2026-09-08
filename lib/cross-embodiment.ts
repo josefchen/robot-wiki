@@ -1,23 +1,14 @@
 /**
- * Structured data and slot-layout logic for the cross-embodiment
- * interactive: the same task across three robots (plus an egocentric
- * human-hand data source), viewed through the three published strategies
- * for making one policy span heterogeneous bodies.
- *
- * Sources (research/01-learned-manipulation-lineage.md):
- * - Padded shared action/state vector with per-embodiment normalization:
- *   pi0 (arXiv:2410.24164), also Octo (arXiv:2405.12213).
- * - Motion Transfer: Gemini Robotics 1.5 v3 (arXiv:2510.03342) describes
- *   alignment and shared knowledge, not this illustrative slot layout.
- * - Shared relative end-effector action space across robot and human
- *   data: GR00T N1.7 (Isaac-GR00T repo), the mechanism that lets 20K
- *   hours of EgoScale human video enter pretraining directly.
- *
- * Data honesty: the shared vector width (32 slots), the motion latent
- * width (3), and the shared-EEF width (8) are illustrative renderings,
- * labeled as such in the UI. The only sourced dims on display are the
- * humanoid's 29 state/action dims (GR00T N1, per its paper) and the
- * 20K-hour EgoScale figure (N1.7 README).
+ * Original slot-layout teaching model for cross-embodiment interfaces.
+ * None of the slot widths is a robot specification or a learned architecture.
+ * The padded view illustrates an assumed coordinate layout, not a verified
+ * shared pi0/Octo implementation. Octo's v2 paper describes delta-EEF dataset
+ * curation and adaptable input/output heads.
+ * Motion Transfer descriptions below retain the already applied GR1.5
+ * source correction; the slot allocation is illustrative.
+ * N1.7's README reports shared relative EEF and 20K human-video hours;
+ * EgoScale separately describes wrist deltas, retargeted hand joint actions
+ * and aligned human-robot mid-training.
  */
 
 /** Illustrative width of the shared action/state vector strip. */
@@ -50,12 +41,7 @@ export const EMBODIMENT_ORDER: readonly EmbodimentId[] = [
 export interface Embodiment {
   id: EmbodimentId;
   label: string;
-  /**
-   * Native action/state dims this source produces. The humanoid's 29 is
-   * the GR00T N1 figure from its paper; the arm and bimanual counts are
-   * an illustrative model (7 joints + gripper per arm). The human hand
-   * produces keypoint tracks, not a fixed-width vector, so 0 here.
-   */
+  /** Illustrative coordinate count; not hardware DoF or a cited model width. */
   nativeDims: number;
   /** One line on where those dims come from. */
   note: string;
@@ -78,7 +64,7 @@ export const EMBODIMENTS: readonly Embodiment[] = [
     id: 'humanoid',
     label: 'humanoid',
     nativeDims: 29,
-    note: 'full-body dims as in GR00T N1',
+    note: '29 illustrative coordinates; not hardware DoF',
   },
   {
     id: 'human-hand',
@@ -119,14 +105,14 @@ export const STRATEGIES: Record<StrategyId, Strategy> = {
   padded: {
     id: 'padded',
     label: 'Padded shared vector',
-    proponent: 'pi0 family, Octo',
+    proponent: 'Original slot-layout example',
     mechanism:
-      'One action/state vector sized for the widest embodiment in the training mix. Narrower robots occupy the leading dims and zero-pad the tail; each embodiment normalizes with its own statistics.',
+      'This toy puts each robot row in the leading coordinates of a 32-slot vector and zero-pads the rest. It is not an implementation of pi0 or Octo and performs no normalization.',
     caveat:
-      'The padding wastes capacity, and human hand keypoints have no slot in this space, so egocentric video cannot enter pretraining directly.',
-    citationId: 'pi0-2024',
+      'The toy does not define a human hand-to-action adapter. Its empty hand row is not a claim that padded models cannot learn from human data.',
+    citationId: 'octo-2024',
     underSpecified: false,
-    humanVideoVerdict: 'human video cannot enter this space directly',
+    humanVideoVerdict: 'human video: no adapter modelled in this toy',
   },
   'motion-transfer': {
     id: 'motion-transfer',
@@ -145,12 +131,12 @@ export const STRATEGIES: Record<StrategyId, Strategy> = {
     label: 'Shared relative EEF space',
     proponent: 'GR00T N1.7',
     mechanism:
-      'Every embodiment acts in deltas from its current end-effector pose rather than absolute joint targets. A per-embodiment frame transform (the EmbodimentTag system) maps each body, and a tracked human hand, into the same relative space.',
+      'NVIDIA describes N1.7 relative end-effector actions shared across human and robot data. EgoScale separately specifies wrist deltas and retargeted hand joint actions; this eight-slot strip does not implement those adapters.',
     caveat:
-      'Because a human hand already lives in this space, 20,000 hours of EgoScale egocentric video enter pretraining with no domain-adaptation step.',
+      'The N1.7 README reports 20K hours of EgoScale human video alongside robot demonstrations. The separate EgoScale paper also uses aligned human-robot mid-training.',
     citationId: 'isaac-gr00t-repo-2026',
     underSpecified: false,
-    humanVideoVerdict: 'human video enters directly: 20,000 hours of EgoScale',
+    humanVideoVerdict: 'N1.7 README: 20K hours of EgoScale human video',
   },
 };
 
@@ -180,16 +166,10 @@ function row(active: number, latent: number, rest: SlotState): Slot[] {
 }
 
 /**
- * The slot layout one embodiment occupies under one strategy, always
- * SHARED_WIDTH wide so the three strategies render at identical geometry:
- *
- * - padded: the embodiment's native dims lead, the tail is zero-padding.
- *   The human hand has no slot at all (all blocked).
- * - motion-transfer: native dims lead, then the shared motion-latent
- *   group (illustrative link), then unused. The hand-to-action mapping is
- *   not modelled here; empty slots do not establish an impossible input.
- * - relative-eef: every embodiment, hand included, occupies the same
- *   leading EEF_SPACE_DIMS shared dims; nothing is zero-padded.
+ * Original fixed-width slot layout, not a learned transfer model.
+ * Padding and empty human rows are local toy choices.
+ * Motion-transfer and relative-EEF slots are illustrative allocations.
+ * No control equations, hand retargeting, model adapters or training occur here.
  */
 export function slotRow(strategy: StrategyId, embodiment: EmbodimentId): Slot[] {
   strategyById(strategy);
@@ -241,7 +221,7 @@ export function rowSummary(
       sharesSpace: false,
       note:
         embodiment === 'human-hand'
-          ? 'no slot for human hand data'
+          ? 'no adapter modelled for human data (toy)'
           : `${active} active, ${zeroed} zero-padded`,
     };
   }
@@ -262,6 +242,6 @@ export function rowSummary(
     zeroed,
     sharedDims: active,
     sharesSpace: true,
-    note: `${active} shared dims, deltas from current end-effector pose`,
+    note: `${active} shared dims (toy); wrist and hand actions not separately modelled`,
   };
 }

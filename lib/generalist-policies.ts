@@ -48,10 +48,11 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     org: 'Figure',
     released: '2025-02',
     dateLabel: 'Feb 2025',
-    openWeights: false,
+    openWeights: null,
+    weightsNote: "The February 20, 2025 announcement identifies an open-weight VLM backbone, not a download or license for the trained Helix policy.",
     provenance: 'blog',
     capability:
-      'System 1 / System 2 split: a VLM reasons slowly and emits latent goals; a fast visuomotor transformer turns pixels into upper-body joint targets.',
+      "Figure reports a 7–9 Hz S2 VLM producing latent goals and a 200 Hz S1 visuomotor transformer producing upper-body control, including wrist poses, finger controls, and torso/head orientation targets.",
     citationId: 'helix-2025',
   },
   {
@@ -135,10 +136,11 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     org: 'Figure',
     released: '2026-01',
     dateLabel: 'Jan 2026',
-    openWeights: false,
+    openWeights: null,
+    weightsNote: "Trained Helix 02 weight-release and licensing terms are not disclosed in the January 27, 2026 announcement.",
     provenance: 'blog',
     capability:
-      'Adds S0: a 10M-parameter learned whole-body controller at 1 kHz trained on 1,000+ hours of retargeted human motion.',
+      "Figure reports S0, a 10M-parameter learned whole-body controller at 1 kHz, using over 1,000 hours of retargeted human motion and simulation training.",
     citationId: 'helix-02-2026',
   },
   {
@@ -171,11 +173,12 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     name: 'AgiBot GO-2',
     org: 'AgiBot',
     released: '2026-04',
-    dateLabel: 'Apr 2026',
-    openWeights: false,
+    dateLabel: 'Apr 2026 HTML date',
+    openWeights: null,
+    weightsNote: "Trained GO-2 weight availability and licensing are not established by the inspected announcement; no closed-weight conclusion is drawn.",
     provenance: 'press',
     capability:
-      'Action chain-of-thought: a low-frequency planner emits action intents and a high-frequency follower refines them.',
+      "AgiBot describes System 2 semantic planning and System 1 action following with relative, not numerical, frequencies; teacher forcing is used during training.",
     citationId: 'agibot-go2-2026',
   },
   {

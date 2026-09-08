@@ -282,7 +282,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/cross-embodiment-strategies.tsx',
     route: '/manipulation/cross-embodiment/',
     quantityNames: ['human', 'slot'],
-    text: 'Padded shared vector leaves human video unable to enter this space directly: the 32-slot strips zero-pad unused dims on each of the 4 bodies and leave the human hand with no slot at all.',
+    text: 'Padded shared vector is an illustrative 32-slot layout across 4 rows. Robot rows zero-pad unused coordinates; the human row has no adapter modelled in this toy.',
   },
   {
     component: 'HierarchyTimescales',

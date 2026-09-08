@@ -5140,6 +5140,552 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/generalization",
+      "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+      "newHash": "982d197681c2163b045018da286781d70b71b07737fd2bf482dd4f5e2906e0c1",
+      "reason": "Only move the existing GR2 citation to a source-leading paragraph around its unchanged claim. Reproduced375px tooltip right406 becomes276; no scientific re-adjudication, shared style or row credit. Immediate-before hash 1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-2",
+      "manifest": "prose",
+      "memberId": "article:frontier/reliability-gap",
+      "oldHash": "a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c",
+      "newHash": "66f7598571453b8f06b1921bdcd1e680d7f73b978964bd5130011ee1088ec298",
+      "reason": "Only move the two existing GR2 citations to source-leading local paragraphs around unchanged claims. Preserve occurrence counts and ASIMOV citation. Measured375px first tooltip right471, then446, becomes276; no shared redesign or row credit. Immediate-before hash a94b57b4e2cddd579a0e06f83043b7f9e2c870129405af6dbacb1456be651a6c. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-3",
+      "manifest": "prose",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "6f904461f73d886bae381a9ebfb0172892a483066c75c270c0e365afabb7a322",
+      "newHash": "fa7b5f5bce9692dbfa6ada8526a7d3930b6dc43e43de8c83c9157e7e9d434178",
+      "reason": "Original17/18: Helix02 S1 joint targets200Hz and S0 actuator commands1kHz do not classify a continuous-regression head or disclose S2Hz. GO2 has two asynchronous modules and training Teacher Forcing, not three runtime controllers. Source-scoped architecture, transfer and full-policy release unknowns remain null; whole P1 held. Immediate-before hash ddf46a13404d50376d53e953e2b9334e49ddcda0729383c551b931423e84864d. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-4",
+      "manifest": "prose",
+      "memberId": "article:manipulation/cross-embodiment",
+      "oldHash": "4113ccb348552a70f33b0c159dd51f3179d07ec4d5cb5d5fcabf282ab5c59eef",
+      "newHash": "d7fbd2bf59f321bc55f08c9ab9a37eb4e87fe296cbae28c1bd7d59d792fc2995",
+      "reason": "Original1/2/3/7/8/9/10/11: ACT hardware/action wording conflict, pi0 own versus public data and timestep units; original toy not common pi0/Octo architecture. N1.7 interface capacity, EgoScale wrist/hand/adapters/alignment, PI four-scenario2x protocol and named qualified positions. Whole four-source Stat conjunction. Preserve32/3/8 widths and8/16/29/0 native slots, controls/formulas. Move first PI chip to its own source-leading Stat explanation to bound measured376px tooltip. Immediate-before hash 3afab8d41b87b20f823a0de9451383339dab87f3ba0dc6e42321b50ac23ae643. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-5",
+      "manifest": "prose",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "2203a8a0f8c096a22cafc034334bc7fc0dbc501178c3a89aa72da535d54429b6",
+      "newHash": "68840092b1fedab94737f684e08a280476ed11a1f7103453aa0766cc7bfb761f",
+      "reason": "Original13/14/16/17: stage-specific Helix sensors/rates, lower-bound training counts and vendor demonstration not success distribution; open-weight backbone not full-policy release. GO2 runtime versus training and separate98.5/86.6/82.9populations; acceptance vendor-attributed, commented date not visible release. Preserve priorGR/OFT and nullable release logic. Immediate-before hash b0d9127ac3bef7bed9b28c8f87905c443ff2f58a2daf92f1892b8895b59d0e3b. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-6",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+      "newHash": "f4d1b9e437d94d44d254a03d431af63d12c388f4514e15cba00a1f07f86a791e",
+      "reason": "Original10/11/16: two GO2 runtime modules with training Teacher Forcing; Helix02 S1/S0 rates distinct and undisclosed S2 numericHz; pi0.5 horizon50 and50Hz commands do not prove1Hz inference. Mark instruction pulses and unsupported cadences schematic while preserving2000ms horizon, lane rates, event-counting, slider/reset and GR1.5 external orchestrator. Immediate-before hash e61d22c100e301219e0ad92bda2456f5c899cc6077d308a8206a37650ed9b9f3. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-7",
+      "manifest": "accessible-names",
+      "memberId": "expression:components/interactive/hierarchy-timescales.tsx:aria-label:2",
+      "oldHash": "d315f61f06f0bb15e941686544da907644c50c4c9e246049cb622011c2be4153",
+      "newHash": "4bd4d906ea7323a2cbeb387f0282f5c2b83407162f624f28b91fad4ca666491b",
+      "reason": "Accessible diagram name distinguishes reported output rates, illustrative cadences and instruction initial condition. Four drawn lanes are not a four-stage disclosed architecture; all numeric and state behavior preserved. Immediate-before hash d315f61f06f0bb15e941686544da907644c50c4c9e246049cb622011c2be4153. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-8",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "daf82ad971c917dec8683163a19760758a3670473d01621746f75dc4a92ba955",
+      "newHash": "179a093b41ad6ac10221f56590165292c7d160665b1b9bc17b49bd7e8a7565fa",
+      "reason": "Original17/18: Helix02 S1 joint targets200Hz and S0 actuator commands1kHz do not classify a continuous-regression head or disclose S2Hz. GO2 has two asynchronous modules and training Teacher Forcing, not three runtime controllers. Source-scoped architecture, transfer and full-policy release unknowns remain null; whole P1 held. Immediate-before hash 361a8be2719ece210dcff80e6fc6624e8c7481da7f1ae9fcc532f500d9d5dade. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-9",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/cross-embodiment",
+      "oldHash": "f1de9849496c22022b094c76389e1bad28ad87f9d1a8e6ee84110a25660ecbba",
+      "newHash": "7e70393a112cc587fdeae19dad0ab7b49380686e94da9e15af1a76382bb17670",
+      "reason": "Original1/2/3/7/8/9/10/11: ACT hardware/action wording conflict, pi0 own versus public data and timestep units; original toy not common pi0/Octo architecture. N1.7 interface capacity, EgoScale wrist/hand/adapters/alignment, PI four-scenario2x protocol and named qualified positions. Whole four-source Stat conjunction. Preserve32/3/8 widths and8/16/29/0 native slots, controls/formulas. Move first PI chip to its own source-leading Stat explanation to bound measured376px tooltip. Immediate-before hash 6b2090f6818aaf93e0aae7630f89c8aa1960c5dbecf96de1617f0f3c9217cbe1. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-10",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/generalist-policies",
+      "oldHash": "9c493d1e97ec4555db85d48c5c69eb6f97b062f1f79361a145cb431791fe481b",
+      "newHash": "d25a5f28ad57219ccc3254847e62fa154792b3762b9c04dcee6f1cd24b273e0a",
+      "reason": "Original13/14/16/17: stage-specific Helix sensors/rates, lower-bound training counts and vendor demonstration not success distribution; open-weight backbone not full-policy release. GO2 runtime versus training and separate98.5/86.6/82.9populations; acceptance vendor-attributed, commented date not visible release. Preserve priorGR/OFT and nullable release logic. Immediate-before hash 0bdd5f75a8ff206ec07da1a1fb1ec7b0613ab86a4b586e77963017b26fe5e2c9. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-11",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "17fdefd8a4628affab609602bf455b9f03dbbddbcd7605ed3e05773f41777b4b",
+      "newHash": "5ae667d4395a79f9a33724ef8e35c9c21f2ec46880b1517de8ea84823f09f36f",
+      "reason": "Original10/11/16: two GO2 runtime modules with training Teacher Forcing; Helix02 S1/S0 rates distinct and undisclosed S2 numericHz; pi0.5 horizon50 and50Hz commands do not prove1Hz inference. Mark instruction pulses and unsupported cadences schematic while preserving2000ms horizon, lane rates, event-counting, slider/reset and GR1.5 external orchestrator. Immediate-before hash 17fdefd8a4628affab609602bf455b9f03dbbddbcd7605ed3e05773f41777b4b. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-12",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/cross-embodiment-strategies.tsx",
+      "oldHash": "efdcc1035afd9c57e9d3ff1fae19a8914d9892c1d0934ba5ce6ccff83e62a62f",
+      "newHash": "cf894a2d7a772dce282c33a7052a38b509e53332cc93fcdd364dae6d160de38a",
+      "reason": "Original1/2/3/7/8/9/10/11: ACT hardware/action wording conflict, pi0 own versus public data and timestep units; original toy not common pi0/Octo architecture. N1.7 interface capacity, EgoScale wrist/hand/adapters/alignment, PI four-scenario2x protocol and named qualified positions. Whole four-source Stat conjunction. Preserve32/3/8 widths and8/16/29/0 native slots, controls/formulas. Move first PI chip to its own source-leading Stat explanation to bound measured376px tooltip. Immediate-before hash 79aafaca1a8bbbc18ea5186d30219f817a5814c01f37466e3017cae6aaea4378. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-13",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/hierarchy-timescales.tsx",
+      "oldHash": "1aabbc7e07aa690365b7bd3cfd0c2df1ff2d096638c4977910417bf16888d135",
+      "newHash": "55e66f3a6f233de042374f732f94d2763ede53608eadcc5726b26a09aab71638",
+      "reason": "Original10/11/16: two GO2 runtime modules with training Teacher Forcing; Helix02 S1/S0 rates distinct and undisclosed S2 numericHz; pi0.5 horizon50 and50Hz commands do not prove1Hz inference. Mark instruction pulses and unsupported cadences schematic while preserving2000ms horizon, lane rates, event-counting, slider/reset and GR1.5 external orchestrator. Immediate-before hash 68fa3e1caac255cbad4e89e331af58d4bddee37a54b2da59d8b07fcbc00586d4. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-14",
+      "manifest": "value-states",
+      "memberId": "state-site:content/manipulation/comparison-matrix.mdx:not-applicable:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6e061363d8bd4c929cd47cb0f085b1f38e4149fbd6fabca3f820d1b84c2dc526",
+      "reason": "The literal n/a occurs only in source-scope prose denying that applicable unknowns are not applicable. No data field is promoted to n/a. Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-15",
+      "manifest": "value-states",
+      "memberId": "state-site:content/manipulation/comparison-matrix.mdx:not-disclosed:4",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4e46eb2d491a1a6760ce126fab992baf6ab7cbbdeb4a9e62122c7eedd157dd04",
+      "reason": "Source-scoped Helix02 cross-embodiment checkpoint-transfer unknown; fleet generalization is not a controlled transfer result. Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-16",
+      "manifest": "value-states",
+      "memberId": "state-site:content/manipulation/comparison-matrix.mdx:not-disclosed:5",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "299adaa32af3b3905a7c145bc8a5ca8f30cf7fa64a0e9cf2ff1bf4206025b927",
+      "reason": "GO2 unknown applicable architecture/weight fields stay not disclosed; inspected source does not establish global absence. Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-17",
+      "manifest": "value-states",
+      "memberId": "state-site:data/methods.ts:not-disclosed:22",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "67cb72e6d76d2a15440a1637d5f7d81e7a6a145064ad8ebafe7f4ddafdf2ee20",
+      "reason": "Helix02 source-scoped unreported head-classification/checkpoint-transfer and release semantics; do not manufacture numbers or closed licensing. Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-18",
+      "manifest": "value-states",
+      "memberId": "state-site:data/methods.ts:not-disclosed:23",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3f6cf97856af01d7a3362beb85a95f53a370a84f34efd9a629ca3ceaf40fe043",
+      "reason": "GO2 source-scoped architecture, numeric rates and whole-policy release unknowns remain null; no generic unknown-to-n/a. Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-19",
+      "manifest": "value-states",
+      "memberId": "state-site:lib/generalist-policies.ts:not-disclosed:5",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7da0efa68755006f32e2f1264ace7148b2e83e33f430ead8e6b1df22e968ab31",
+      "reason": "GO2 summary uses source-scoped numeric-rate/full-policy availability unknowns rather than closed-weight or global no-paper conclusions. Immediate-before hash ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-20",
+      "manifest": "value-states",
+      "memberId": "state-site:lib/hierarchy-timescales.ts:not-disclosed:8",
+      "oldHash": "f68275256013e825e7283a7044770941151c52eb9ceb12588ac6f580ff32a053",
+      "newHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "reason": "Removed lexical marker is replaced by explicit schematic motor-tick lane and50Hz local drawing assumption, not a disclosed measurement or third GO2 module. Immediate-before hash f68275256013e825e7283a7044770941151c52eb9ceb12588ac6f580ff32a053. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-21",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:manipulation/cross-embodiment",
+      "oldHash": "b347e78a982927bdef0fbba98e87cd6ff2404a016bb7c41b44a35bb833c19a6d",
+      "newHash": "181d5eab41dc05bdedeab99daedb40b7005342536fd1e805437e63f5446dbab8",
+      "reason": "Actual canonical citation union9→10: add ACT and EgoScale after supported prose corrections; remove unused GR00T N1. Preserve title/route/lastReviewed. Sanctioned48-card source-derived generation updates reference count only. Immediate-before hash b347e78a982927bdef0fbba98e87cd6ff2404a016bb7c41b44a35bb833c19a6d. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-22",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:manipulation/cross-embodiment",
+      "oldHash": "030f62990a559005b8a0abfa1a18492ebd33dbdc9854e9cbb5b31716c9ed7489",
+      "newHash": "e81a409afca60cf9da05baf023a7bb6217185cd961c0c8dbabbde6a6dbb7745e",
+      "reason": "Frontmatter description now distinguishes robot interfaces, original illustrative padding and source-scoped human-transfer recipes instead of three incompatible published architectures. Title/route and registry summary are unchanged; no whole-article acceptance. Immediate-before hash 030f62990a559005b8a0abfa1a18492ebd33dbdc9854e9cbb5b31716c9ed7489. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-23",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "905dc70516ada8e0838923ef2f5d1bedb989a32ebf63d9efe0f99e56fdc508b8",
+      "reason": "Rendered labels and metadata reflect exactly original Helix and GO2 titles and PI title/eight ordered authors. Six actual affected/carry-forward reader routes at both375/1440were exercised, not full-corpus acceptance. Immediate-before hash 45e21d8955bf710fc8859f7a514dbdfbdbaa91c31c9014be8d335569e67ca56d. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-24",
+      "manifest": "article-metadata",
+      "memberId": "citation:agibot-go2-2026",
+      "oldHash": "aed35c70b1c09896d8ff602d379c5f4053452fd611e62c9634f2ee10cb298d9b",
+      "newHash": "43c031a3245c947dcd16f3b30be3c4b7baf1198e57bb5044324213d8caefde25",
+      "reason": "Exact AGIBOT article title bound to preserved HTML title/body. Commented2026-04-09timestamp is not a visible release date; no invented bibliographic authors or publication date. Immediate-before hash aed35c70b1c09896d8ff602d379c5f4053452fd611e62c9634f2ee10cb298d9b. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-25",
+      "manifest": "article-metadata",
+      "memberId": "citation:helix-2025",
+      "oldHash": "2549340f29b6d46517495557423e61b41a36aaef0099a60bf82f1312740b1931",
+      "newHash": "57122f160fd56d78e1ed798930a82b333c7d596a245eb7f4ee84d33b208ebc26",
+      "reason": "Exact original Figure announcement title Helix: A Vision-Language-Action Model for Generalist Humanoid Control, separately datedFebruary20,2025; not Helix02. Immediate-before hash 2549340f29b6d46517495557423e61b41a36aaef0099a60bf82f1312740b1931. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "go-helix-cross-transfer-20260908-26",
+      "manifest": "article-metadata",
+      "memberId": "citation:pi-human-to-robot-2025",
+      "oldHash": "3143a5d82ee2e1e7414f7b61a0c7afb6f01820c6b33fb669a06adb0a7d0464c6",
+      "newHash": "23f2bd0394059f2ef38a7b3292ca5b7f53fe2d4dd3a0d17dda98d40218eb4acf",
+      "reason": "Exact title Emergence of Human to Robot Transfer in VLAs and ordered eight authors from retained PI body:Simar Kareer,Karl Pertsch,James Darpinian,Judy Hoffman,Danfei Xu,Sergey Levine,Chelsea Finn,Suraj Nair. December16,2025 lab note, not independent replication. Immediate-before hash 3143a5d82ee2e1e7414f7b61a0c7afb6f01820c6b33fb669a06adb0a7d0464c6. Exact source conjunctions and original/current history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/row-history.json. Retained supporting text/provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-go-helix-cross-transfer-integration-20260908/source-proof.json. Sources: https://www.figure.ai/news/helix-02 ; https://www.figure.ai/news/helix ; https://www.agibot.com/article/231/detail/56.html ; https://arxiv.org/html/2504.16054v1 ; https://arxiv.org/html/2510.03342 ; https://ar5iv.labs.arxiv.org/html/2304.13705 ; https://arxiv.org/pdf/2410.24164 ; https://arxiv.org/html/2405.12213v2 ; https://www.pi.website/research/human_to_robot ; https://github.com/NVIDIA/Isaac-GR00T ; https://arxiv.org/html/2602.16710v1 ; https://arxiv.org/html/2310.08864v9. No whole-article/P1 or independent acceptance; unrelated failures stay red.",
+      "ownerApproval": "Josef's actual September7,2026 \"fix it all!\" instruction at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md authorizes routine evidence-backed corrections, not personal source certification or new criteria.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

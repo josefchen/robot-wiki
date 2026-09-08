@@ -44,7 +44,7 @@ describe('GENERALIST_RELEASES registry', () => {
     expect(open.every((r) => r.openWeights === true)).toBe(true);
     expect(unavailable.every((r) => r.openWeights === false)).toBe(true);
     expect(unknown.map((r) => r.id).sort()).toEqual([
-      'gemini-robotics-15', 'gemini-robotics-2', 'skild-brain',
+      'agibot-go2', 'gemini-robotics-15', 'gemini-robotics-2', 'helix', 'helix-02', 'skild-brain',
     ]);
     expect(unknown.every((r) => r.openWeights === null && Boolean(r.weightsNote))).toBe(true);
     expect(new Set([...open, ...unavailable, ...unknown].map((r) => r.id)).size).toBe(GENERALIST_RELEASES.length);

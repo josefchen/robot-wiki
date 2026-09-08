@@ -89,7 +89,7 @@ describe('rowSummary', () => {
     expect(humanoid.zeroed).toBeLessThan(arm.zeroed);
   });
 
-  it('models the human-hand mapping only in the relative-EEF illustration', () => {
+  it('keeps the existing illustrative human-row slot allocation', () => {
     expect(rowSummary('padded', 'human-hand').sharesSpace).toBe(false);
     expect(rowSummary('motion-transfer', 'human-hand').sharesSpace).toBe(false);
     expect(rowSummary('relative-eef', 'human-hand').sharesSpace).toBe(true);
@@ -111,7 +111,7 @@ describe('rowSummary', () => {
 });
 
 describe('strategy registry', () => {
-  it('covers exactly the three published strategies', () => {
+  it('covers exactly the three illustrative interface views', () => {
     expect(STRATEGY_ORDER).toEqual([
       'padded',
       'motion-transfer',

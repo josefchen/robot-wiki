@@ -1474,10 +1474,20 @@ export const CITATIONS: Citation[] = [
     type: 'blog',
   },
   {
-    // Lab research page; no arXiv id as of 2026-08.
+    // Dated PI research note, December 16, 2025; heading and eight named authors.
+    // Source body recovered 2026-09-08; this is not a review-date bump.
     id: 'pi-human-to-robot-2025',
-    title: 'Emergent Human-to-Robot Transfer (pi.website research note)',
-    authors: ['Physical Intelligence'],
+    title: 'Emergence of Human to Robot Transfer in VLAs',
+    authors: [
+      'Simar Kareer',
+      'Karl Pertsch',
+      'James Darpinian',
+      'Judy Hoffman',
+      'Danfei Xu',
+      'Sergey Levine',
+      'Chelsea Finn',
+      'Suraj Nair',
+    ],
     year: 2025,
     url: 'https://www.pi.website/research/human_to_robot',
     type: 'blog',
@@ -1762,7 +1772,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'helix-2025',
-    title: 'Helix (System 1 / System 2 humanoid VLA announcement)',
+    title: 'Helix: A Vision-Language-Action Model for Generalist Humanoid Control',
     authors: ['Figure AI'],
     year: 2025,
     url: 'https://www.figure.ai/news/helix',
@@ -1793,7 +1803,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'agibot-go2-2026',
-    title: 'AgiBot GO-2 announcement',
+    title: 'The Unity of Reasoning and Action: AGIBOT Unveils Genie Operator-2 (GO-2) Next-Gen Embodied Foundation Model',
     authors: ['AgiBot'],
     year: 2026,
     url: 'https://www.agibot.com/article/231/detail/56.html',
