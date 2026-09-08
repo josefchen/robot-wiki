@@ -1,6 +1,6 @@
 ---
 title: "The Pi Line"
-description: "pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and where open weights stop."
+description: "pi0 to pi0.7: flow-matching action experts, FAST tokenization, open-world generalization, and source-scoped checkpoint availability."
 domain: manipulation
 slug: pi-line
 order: 5
@@ -30,7 +30,7 @@ seeAlso:
 import { FlowMatchingTrajectory } from '@/components/interactive/flow-matching-trajectory';
 import { PiGenerationTimeline } from '@/components/interactive/pi-generation-timeline';
 
-The [VLA module](/manipulation/vla-models) ended on a bottleneck: <Term id="action-tokenization">discrete action tokens</Term> let a web-pretrained model emit actions with the machinery it already has, but autoregressive decoding caps the control rate an order of magnitude below what dexterous manipulation needs. Physical Intelligence's pi line answers it with a different split of labor. Keep the pretrained backbone, replace the token head with a <Term id="flow-matching">flow-matching</Term> action expert, and then keep fixing what that first design got wrong. This module walks the line from π0 (October 2024) to π0.7 (April 2026), including the point where the open weights stop.
+The [VLA module](/manipulation/vla-models) ended on a bottleneck: <Term id="action-tokenization">discrete action tokens</Term> let a web-pretrained model emit actions with the machinery it already has, but autoregressive decoding caps the control rate an order of magnitude below what dexterous manipulation needs. Physical Intelligence's pi line answers it with a different split of labor. Keep the pretrained backbone, replace the token head with a <Term id="flow-matching">flow-matching</Term> action expert, and then keep fixing what that first design got wrong. This module walks the line from π0 (October 2024) to π0.7 (April 2026), including what the pinned checkpoint catalogue actually lists.
 
 The whole design rests on one empirical curve. Drag the integration steps slider below from 1 upward: at one or two steps the transported cloud misses the action modes badly, by five to ten it has concentrated on them, and pushing to 50 buys nothing measurable. That is why a flow-matching head can close a 50 Hz loop where an autoregressive token head cannot.
 
@@ -83,15 +83,25 @@ The language-following evidence also has a qualification: vision-language co-tra
   In this recipe, FAST tokens supervise the backbone during training and the flow-matching expert generates continuous actions at inference. A comparison should record both roles for this model rather than infer the same architecture for every frontier VLA <Cite id="knowledge-insulation-paper-2025" />.
 </Aside>
 
-## π0.6 and π*0.6: the line goes closed
+<span id="π06-and-π06-the-line-goes-closed" />
+
+## π0.6 and π*0.6: scaling and experience
 
 The π0.6 model card is dated November 17, 2025 <Cite id="pi06-model-card-2025" />. It initializes the backbone from Gemma3 4B; the architecture figure labels SigLIP 400M, and the action expert has approximately 860M parameters with the backbone’s layer count. Pre-training accepts up to four 448×448 images. Knowledge Insulation supervises the backbone with FAST tokens while the expert predicts continuous actions without sending gradients into it. With five denoising steps and three camera inputs, chunk inference takes 63 ms on one H100. In the card’s out-of-the-box evaluation without task-specific fine-tuning, π0.6 folds laundry reliably and fully assembles the box 20% of the time; the card says these tasks previously required fine-tuning to achieve non-zero success <Cite id="pi06-model-card-2025" />.
 
-π*0.6 layers reinforcement learning on top via the Recap recipe, which mirrors how a person learns a manual skill: demonstrations define the behavior, coaching (an expert teleoperator taking over mid-rollout) corrects the mistakes the policy actually makes, and practice (autonomous rollouts) compounds <Cite id="pistar06-2025" />. The mechanism that makes RL tractable on a 5B flow-matching VLA is advantage conditioning. A language-conditioned value function predicts steps-to-completion, solving credit assignment (the lab's own example: a portafilter picked up at the wrong angle later fails to insert, and a correct credit-assignment method identifies the grasp, not the later failure, as the mistake) <Cite id="pistar06-blog-2025" />; the advantage is binarized and fed back to the VLA as a conditioning token, so all data, good and bad, stays in training and the model is simply told which is which. At execution you condition on "high advantage." On the hardest tasks, diverse laundry and espresso, throughput more than doubled and failure rates fell by a factor of two or more, and the final model reaches 90%+ success on every task except diverse laundry <Cite id="pistar06-2025" />.
+π*0.6 uses Recap to learn from demonstrations, expert teleoperation corrections during rollouts, and autonomous experience. It begins with offline-RL pre-training, then task-specific demonstration fine-tuning and one or more rounds of collecting experience and retraining <Cite id="pistar06-2025" />.
 
-A March 2026 variant, π0.6-MEM, added two-scale memory: a video encoder with interleaved spatial and causal-temporal attention for short-term observation history, and model-authored natural-language notes for long-term state. That combination supports tasks requiring up to 15 minutes of context and produces in-context adaptation, like retrying a failed grasp differently instead of identically <Cite id="mem-2026" />.
+Its language-conditioned distributional value function predicts negative remaining steps for successful episodes and a large negative value for failures, normalized per task. Actions receive a binary improvement indicator from an advantage estimate and a task-dependent threshold; human corrections are forced positive. The policy learns from both good and bad data, and the default evaluation samples with the positive indicator. This is not simply a test of whether raw value increased <Cite id="pistar06-2025" />. The companion blog illustrates credit assignment with a bad portafilter grasp that causes a later insertion failure; it does not give a measured twenty-second delay <Cite id="pistar06-blog-2025" />.
 
-All three are closed: no weights and no arXiv papers, only the model cards and lab PDFs linked here as primary sources.
+The report evaluates a static bimanual setup with two 6-DoF arms, parallel-jaw grippers, three cameras and 50 Hz joint-position control. Compared with offline RL plus task-specific demonstration fine-tuning, adding on-robot experience more than doubles successful completions per hour for double-shot espresso and the diverse-laundry evaluation. The espresso trial must complete all steps within 200 seconds without critical mistakes. Diverse-laundry training covers 11 item types, but the quantitative test uses a challenging button-up shirt, folded and stacked within 500 seconds <Cite id="pistar06-2025" />.
+
+Keep the report's qualifications with those results. Section VI-C describes failure reduction as “about a factor of two,” whereas Figure 8 says “more than 2×.” Its “90%+” success summary excludes diverse laundry. The easier laundry task is a T-shirt or shorts folded and stacked within 200 seconds; the box task has a 600-second limit. The box chart reports separate stages, and Section VI-C.2 describes about 90% success for folding and labeling while noting remaining failures, especially final placement. This does not establish strictly greater than 90% end-to-end success for every application <Cite id="pistar06-2025" />.
+
+The MEM report evaluates π0.6-MEM with two complementary memory scales. Its video encoder interleaves bidirectional spatial attention with causal-temporal attention across observations, while a high-level policy predicts updated natural-language summaries of earlier semantic events. Those summary predictions are trained using labels generated by an off-the-shelf language model; they are not an external agent writing the runtime notes <Cite id="mem-2026" />.
+
+The authors report tasks requiring up to fifteen minutes of memory, including recipe setup and kitchen cleanup, not a fifteen-minute dense-video input. Their separate adaptation experiments train on targeted corrections: adjusting chopstick grasp height after misses and changing which way a refrigerator door is opened. Both memory and memoryless policies receive correction data. Chopstick evaluation uses the lowest table-height setting after collecting data in the upper half of the height range; refrigerator success requires opening within four grasps. The reported in-context adaptation is therefore conditioned on this training and evaluation setup, not a claim of untrained, indefinite continual learning <Cite id="mem-2026" />.
+
+These sections cite the named model card and lab reports. Those document formats do not establish whether model weights are downloadable or what their licenses permit.
 
 ## π0.7: generalization as a prompting problem
 
@@ -104,16 +114,18 @@ The paper expands the conditioning context while training the model to use diffe
 - A control-mode label for joint or end-effector control, always retained during training.
 - Multi-view subgoal images from a BAGEL-initialized world model. Subgoal and subtask generation run in separate threads; VLA inference uses the latest available context rather than waiting for both.
 
-The paper reports laundry-folding transfer to a bimanual UR5e with no laundry-folding training data on that embodiment. It describes task progress matching experienced teleoperators attempting this task on the UR5e for the first time, with improved performance when visual subgoals are used <Cite id="pi07-2026" />. In the air-fryer example, a zero-shot prompt produces only a partial attempt. Repeated language coaching supplies instructions used to fine-tune a high-level policy that then generates the subtasks autonomously, without additional teleoperation <Cite id="pi07-blog-2026" />. Read the compositional claim with the authors' own hedge: they describe "early signs of compositional task generalization," and the zero-shot air fryer attempt does not finish the task without coaching <Cite id="pi07-blog-2026" />. Weights are closed.
+The paper reports laundry-folding transfer to a bimanual UR5e with no laundry-folding training data on that embodiment. It describes task progress matching experienced teleoperators attempting this task on the UR5e for the first time, with improved performance when visual subgoals are used <Cite id="pi07-2026" />. In the air-fryer example, a zero-shot prompt produces only a partial attempt. Repeated language coaching supplies instructions used to fine-tune a high-level policy that then generates the subtasks autonomously, without additional teleoperation <Cite id="pi07-blog-2026" />. Read the compositional claim with the authors' own hedge: they describe "early signs of compositional task generalization," and the zero-shot air fryer attempt does not finish the task without coaching <Cite id="pi07-blog-2026" />. This capability account does not establish checkpoint availability or licensing.
 
-## Where the open weights stop
+<span id="where-the-open-weights-stop" />
 
-The openpi repository hosts π0, π0-FAST, and π0.5 <Cite id="openpi-repo-2024" />. Everything after, π0.6, π*0.6, π0.6-MEM, and π0.7, is closed, documented only by lab PDFs and blog posts. The timeline below is the line at a glance; select any generation for its backbone, contribution, and primary source.
+## Which checkpoints are listed
+
+The pinned openpi README lists base checkpoints and download locations for π0, π0-FAST and π0.5. This is a catalogue observed in the retained September 7, 2026 retrieval, not a complete inventory of every later model or a statement about an unlisted model’s license <Cite id="openpi-repo-2024" />. Select a generation in the timeline to inspect its separately named primary source.
 
 <PiGenerationTimeline className="my-6" />
 
-<Callout variant="warn" title="Open weights are four generations stale">
-  Any capability claim built on openpi reflects π0.5 at best: no Knowledge-Insulation-scale training runs at 5B, no advantage conditioning, no memory, no multimodal prompting. The open/closed gap is nearly invisible on saturated simulation benchmarks and large on exactly the zero-shot, open-world behavior the later generations advertise. When a 2026 result matters to you, check which side of the divider it came from <Cite id="openpi-repo-2024" /> <Cite id="pi07-2026" />.
+<Callout variant="warn" title="Check the named checkpoint">
+  The pinned repository documents π0, π0-FAST and π0.5. It does not establish release or licensing terms for every later model. Match a capability claim to the model and source that actually report it rather than inferring it from repository membership <Cite id="openpi-repo-2024" />.
 </Callout>
 
-The arc of the line is a useful compression of the whole domain's recent history. π0 established the action expert as the standard unit. π0-FAST fixed tokenization and accidentally produced the objective that made the backbone trainable. π0.5 bought open-world generalization with heterogeneous co-training, and Knowledge Insulation made the recipe efficient. The closed generations then spent their budget on what the open line still lacks: reliability without fine-tuning, learning from experience, memory, and prompts rich enough to absorb suboptimal data.
+Across these named reports, the research questions shift from continuous-action generation and tokenization to heterogeneous co-training, Knowledge Insulation, learning from experience, memory and richer prompts. Those contributions are model- and experiment-specific; repository membership alone does not determine which capabilities a checkpoint has.

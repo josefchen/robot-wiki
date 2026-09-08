@@ -33,7 +33,7 @@ export function WmTaxonomyTable({ className }: { className?: string }) {
     >
       <table className="w-full min-w-[880px] border-collapse text-left">
         <caption className="px-4 pt-3 text-left font-mono text-[11px] text-text-dim">
-          Six paradigms, one overloaded name
+          Six example groups selected for this article
         </caption>
         <thead>
           <tr className="border-b border-border">

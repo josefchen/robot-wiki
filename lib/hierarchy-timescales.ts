@@ -52,7 +52,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
     name: 'π0.5',
     org: 'Physical Intelligence',
     pattern:
-      'One network, hierarchy internalized: the same VLA predicts the next language subtask at low frequency and conditions the flow-matching action expert on it at high frequency. There is no separate planner model.',
+      'The same model performs high-level subtask inference and low-level action inference. High-level inference runs less frequently; the numerical inference periods shown here are schematic.',
     citationId: 'pi05-2025',
     lanes: [
       {
@@ -60,8 +60,8 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
         label: 'Task instruction',
         rate: 'once',
         periodMs: null,
-        note: 'Given once at episode start, e.g. "clean the kitchen".',
-        disclosed: true,
+        note: 'One task instruction at t=0 is the schematic starting condition, not a measured instruction-arrival rate.',
+        disclosed: false,
       },
       {
         id: 'subtask',
@@ -76,15 +76,15 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
         label: 'Chunk inference',
         rate: '1 chunk/s',
         periodMs: 1000,
-        note: '50-step action chunks at 50 Hz cover one second each; the original release runs inference synchronously.',
-        disclosed: true,
+        note: 'The paper predicts 50 actions and reports 50 Hz target commands for its mobile-manipulator setup. It does not establish one chunk inference per second or how many predicted actions are executed. The 1 chunk/s cadence is schematic.',
+        disclosed: false,
       },
       {
         id: 'control',
         label: 'Motor commands',
         rate: '50 Hz',
         periodMs: 20,
-        note: 'One action per control tick, executed from the current chunk.',
+        note: 'Paper-reported mobile-manipulator target poses and base velocities at 50 Hz, tracked by PD controllers; not an inference-throughput measurement.',
         disclosed: true,
       },
     ],
@@ -102,8 +102,8 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
         label: 'Task instruction',
         rate: 'once',
         periodMs: null,
-        note: 'Given once at episode start.',
-        disclosed: true,
+        note: 'One task instruction at t=0 is the schematic starting condition, not a measured instruction-arrival rate.',
+        disclosed: false,
       },
       {
         id: 'er',
@@ -136,7 +136,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
     name: 'Helix 02',
     org: 'Figure',
     pattern:
-      'A three-rate stack, all learned: S2 sequences behaviors, S1 maps all sensors to all joints at 200 Hz, and S0, a 10M-parameter whole-body controller, runs at 1 kHz. Vendor-reported; no paper.',
+      'A three-layer learned hierarchy: S2 sequences behaviors, S1 maps all sensors to all joints at 200 Hz, and S0, a 10M-parameter whole-body controller, runs at 1 kHz. Vendor-reported in the January 27, 2026 announcement; S2 frequency is not numerically specified.',
     citationId: 'helix-02-2026',
     lanes: [
       {
@@ -144,8 +144,8 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
         label: 'Task instruction',
         rate: 'once',
         periodMs: null,
-        note: 'Given once at episode start.',
-        disclosed: true,
+        note: 'One task instruction at t=0 is the schematic starting condition, not a measured instruction-arrival rate.',
+        disclosed: false,
       },
       {
         id: 's2',
@@ -168,7 +168,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
         label: 'S0 whole-body controller',
         rate: '1 kHz',
         periodMs: 1,
-        note: 'A 10M-parameter network trained on 1,000+ hours of retargeted human motion plus sim-to-real RL. Vendor-reported 1 kHz.',
+        note: 'A 10M-parameter network using over 1,000 hours of retargeted human motion and simulation training. Vendor-reported 1 kHz.',
         disclosed: true,
       },
     ],
@@ -178,7 +178,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
     name: 'GO-2',
     org: 'AgiBot',
     pattern:
-      'An asynchronous dual system: a low-frequency planner (the "general commander") emits action intents as a macro plan, and a high-frequency follower (the "agile executor") refines them against live observations.',
+      'An asynchronous dual system: the lower-frequency Semantic Planning Module / System 2 ("General Commander") emits action intents as a macro plan, and the higher-frequency Action Following Module / System 1 ("Agile Executor") refines them against live observations.',
     citationId: 'agibot-go2-2026',
     lanes: [
       {
@@ -186,12 +186,12 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
         label: 'Task instruction',
         rate: 'once',
         periodMs: null,
-        note: 'Given once at episode start.',
-        disclosed: true,
+        note: 'One task instruction at t=0 is the schematic starting condition, not a measured instruction-arrival rate.',
+        disclosed: false,
       },
       {
         id: 'planner',
-        label: 'Intent planner (action CoT)',
+        label: 'S2 semantic planner',
         rate: 'low freq',
         periodMs: 2000,
         note: 'The planner generates a macro plan of high-level action intents, executed stage by stage. Asynchronous; rate not disclosed, shown schematically.',
@@ -199,7 +199,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
       },
       {
         id: 'follower',
-        label: 'Follower refinement',
+        label: 'S1 action follower',
         rate: 'high freq',
         periodMs: 100,
         note: 'The follower refines intents against real-time observations, trained with teacher forcing so it tolerates imperfect reasoning. Rate not disclosed, shown schematically.',
@@ -210,7 +210,7 @@ export const HIERARCHY_SYSTEMS: readonly TimescaleSystem[] = [
         label: 'Motor commands',
         rate: '50 Hz',
         periodMs: 20,
-        note: 'Control frequency not disclosed; 50 Hz shown schematically for comparability.',
+        note: 'This additional motor-tick lane is schematic, not a separately disclosed third module. S1 emits control signals; 50 Hz is a local drawing assumption.',
         disclosed: false,
       },
     ],

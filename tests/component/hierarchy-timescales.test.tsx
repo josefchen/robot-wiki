@@ -200,7 +200,7 @@ describe('HierarchyTimescales', () => {
     render(<HierarchyTimescales />);
     expect(screen.getByRole('link', { name: /source/i })).toHaveAttribute(
       'href',
-      'https://arxiv.org/abs/2504.16054',
+      'https://arxiv.org/html/2504.16054v1',
     );
     await user.click(screen.getByRole('button', { name: /GO-2/i }));
     expect(screen.getByRole('link', { name: /source/i })).toHaveAttribute(

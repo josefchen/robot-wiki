@@ -18,7 +18,8 @@
  * re-verified against manufacturer pages by RoboZaps on 2026-07-13.
  *
  * The GPU rows carry no price: the VLA-Perf paper the rows are sourced from
- * reports throughput and memory bandwidth only, and quotes no card prices.
+ * provides performance-model inputs/results, not established vendor prices.
+ * Null GPU prices are scoped to that source, not a market-wide absence claim.
  */
 import type { HardwareEntry } from './schemas/hardware.ts';
 
@@ -657,7 +658,7 @@ export const HARDWARE: HardwareEntry[] = [
     dofNote: null,
     availability: 'buy',
     availabilityNote: 'Workstation card',
-    highlight: '24 GB, 1,008 GB/s; runs pi0 at 32.2 Hz end-to-end',
+    highlight: 'VLA-Perf config: 24 GB, 1,008 GB/s; predicted pi0 inference 32.2 Hz, no network. Price not established by this source.',
     url: 'https://arxiv.org/abs/2602.18397',
     sources: ['vla-perf-2026'],
   },
@@ -674,7 +675,7 @@ export const HARDWARE: HardwareEntry[] = [
     dofNote: null,
     availability: 'buy',
     availabilityNote: 'Server training and inference',
-    highlight: '80 GB, 2,039 GB/s; runs pi0 at 61.7 Hz',
+    highlight: 'VLA-Perf config: 80 GB, 2,039 GB/s; predicted pi0 inference 61.7 Hz, no network. Price not established by this source.',
     url: 'https://arxiv.org/abs/2602.18397',
     sources: ['vla-perf-2026'],
   },
@@ -691,7 +692,7 @@ export const HARDWARE: HardwareEntry[] = [
     dofNote: null,
     availability: 'buy',
     availabilityNote: 'Server training and inference',
-    highlight: '80 GB, 3,350 GB/s; runs pi0 at 162.5 Hz',
+    highlight: 'VLA-Perf config: 80 GB, 3,350 GB/s; predicted pi0 inference 162.5 Hz, no network. Price not established by this source.',
     url: 'https://arxiv.org/abs/2602.18397',
     sources: ['vla-perf-2026'],
   },
@@ -708,7 +709,7 @@ export const HARDWARE: HardwareEntry[] = [
     dofNote: null,
     availability: null,
     availabilityNote: 'Limited availability as of Aug 2026',
-    highlight: '192 GB, 8,000 GB/s; runs pi0 at 314.4 Hz',
+    highlight: 'VLA-Perf config: 192 GB, 8,000 GB/s; predicted pi0 inference 314.4 Hz, no network. Price not established by this source.',
     url: 'https://arxiv.org/abs/2602.18397',
     sources: ['vla-perf-2026'],
   },

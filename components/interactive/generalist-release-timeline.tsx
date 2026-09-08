@@ -10,6 +10,8 @@ import {
   filterReleases,
   isVendorReported,
   provenanceLabel,
+  releaseWeightLabel,
+  releaseWeightState,
   type GeneralistRelease,
   type OpenFilter,
   type ProvenanceTier,
@@ -18,8 +20,9 @@ import { cx } from '@/lib/utils';
 
 /**
  * GeneralistReleaseTimeline: every current generalist policy on one time
- * axis, Feb 2025 to Jul 2026. Node color encodes open vs closed weights
- * (blue vs dim); node shape encodes provenance (circle paper, square repo
+ * axis, Feb 2025 to Jul 2026. Node fill distinguishes reported downloads;
+ * text labels separate unavailable and not-disclosed weights. Shape records
+ * provenance (circle paper, square repo
  * notes, triangle lab blog, diamond press release). A segmented filter
  * hides the non-matching side. Selecting a node (click or arrow keys) shows
  * its capability annotation, provenance tier, and primary source below.
@@ -75,8 +78,9 @@ const SHORT_NAME: Record<string, string> = {
 
 const FILTERS: readonly { id: OpenFilter; label: string }[] = [
   { id: 'all', label: 'All' },
-  { id: 'open', label: 'Open' },
-  { id: 'closed', label: 'Closed' },
+  { id: 'open', label: 'Downloadable' },
+  { id: 'closed', label: 'Not downloadable' },
+  { id: 'undisclosed', label: 'Not disclosed' },
 ];
 
 /** Node glyph per provenance tier: circle, square, triangle, diamond. */
@@ -93,7 +97,7 @@ function TierGlyph({
   y: number;
   size: number;
   selected: boolean;
-  open: boolean;
+  open: boolean | null;
 }) {
   const fill = open ? 'var(--color-accent)' : 'var(--color-surface-2)';
   const stroke = selected
@@ -231,7 +235,7 @@ export function GeneralistReleaseTimeline({
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         role="img"
-        aria-label={`Release timeline of generalist robot policies from ${GENERALIST_RELEASES[0].dateLabel} to ${GENERALIST_RELEASES[GENERALIST_RELEASES.length - 1].dateLabel}. Blue nodes are open weights, dim nodes are closed. Node shape encodes provenance: circle for papers, square for repo release notes, triangle for lab blogs, diamond for press releases. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}
+        aria-label={`Release timeline of generalist robot policies from ${GENERALIST_RELEASES[0].dateLabel} to ${GENERALIST_RELEASES[GENERALIST_RELEASES.length - 1].dateLabel}. Highlighted nodes have a reported weight download; dim nodes include unavailable and not-disclosed records, distinguished by their text labels. Node shape encodes provenance: circle for papers, square for repo release notes, triangle for lab blogs, diamond for press releases. Currently showing ${visible.length} of ${GENERALIST_RELEASES.length} releases.`}
         aria-describedby={descriptionId}
         className="mt-3 block w-full"
       >
@@ -332,7 +336,7 @@ export function GeneralistReleaseTimeline({
               buttonRefs.current[i] = el;
             }}
             type="button"
-            data-status={r.openWeights ? 'open' : 'closed'}
+            data-status={releaseWeightState(r)}
             data-provenance={r.provenance}
             aria-label={r.name}
             aria-pressed={r.id === selected.id}
@@ -361,7 +365,7 @@ export function GeneralistReleaseTimeline({
                 r.openWeights ? 'text-accent' : 'text-text-dim',
               )}
             >
-              {r.openWeights ? 'open' : 'closed'}
+              {releaseWeightLabel(r)}
             </span>
           </button>
         ))}
@@ -386,7 +390,7 @@ export function GeneralistReleaseTimeline({
               selected.openWeights ? 'text-accent' : 'text-text-dim',
             )}
           >
-            {selected.openWeights ? 'open weights' : 'closed weights'}
+            weights: {releaseWeightLabel(selected)}
           </span>
         </p>
         <p className="mt-1 font-mono text-xs text-text-dim">
@@ -395,6 +399,11 @@ export function GeneralistReleaseTimeline({
         <p className="mt-1.5 font-sans text-xs leading-relaxed text-text">
           {selected.capability}
         </p>
+        {selected.weightsNote && (
+          <p className="mt-1.5 font-sans text-xs leading-relaxed text-text">
+            {selected.weightsNote}
+          </p>
+        )}
         {selected.context && (
           <p className="mt-1.5 font-mono text-xs text-text-dim">
             Cross-reference: full treatment in{' '}
@@ -430,12 +439,12 @@ export function GeneralistReleaseTimeline({
         className="mt-3"
         form="state"
         summary="Current generalist release"
-        description={`${visible.length} of ${GENERALIST_RELEASES.length} generalist policies sit on a ${GENERALIST_RELEASES[0].dateLabel} to ${GENERALIST_RELEASES[GENERALIST_RELEASES.length - 1].dateLabel} axis; selected is ${selected.name} from ${selected.org} (${selected.openWeights ? 'open' : 'closed'}, ${provenanceLabel(selected.provenance)}) and blue nodes mark open weights while dim nodes mark closed ones.`}
+        description={`${visible.length} of ${GENERALIST_RELEASES.length} generalist policies sit on a ${GENERALIST_RELEASES[0].dateLabel} to ${GENERALIST_RELEASES[GENERALIST_RELEASES.length - 1].dateLabel} axis; selected is ${selected.name} from ${selected.org} (${releaseWeightLabel(selected)}, ${provenanceLabel(selected.provenance)}) and weight availability is stated by each node label; dim nodes do not establish closed licensing.`}
         states={[
           { label: 'selected', value: selected.name },
           { label: 'org', value: selected.org },
           { label: 'released', value: selected.dateLabel },
-          { label: 'weights', value: selected.openWeights ? 'open' : 'closed' },
+          { label: 'weights', value: releaseWeightLabel(selected) },
           { label: 'shown', value: `${visible.length} of ${GENERALIST_RELEASES.length}` },
         ]}
       />

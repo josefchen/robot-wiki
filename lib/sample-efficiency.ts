@@ -1,51 +1,16 @@
 /**
- * Sample-efficiency ledger: converting one environment-step budget into
- * wall-clock time under three data sources, and reading off which family
- * of reinforcement learning algorithm that budget admits. Pure functions,
- * unit-tested in tests/unit/sample-efficiency.test.ts.
- *
- * The module's whole argument is that sample efficiency is not a virtue an
- * algorithm has, it is a constraint the sampler imposes. The same budget
- * that is half an hour of GPU simulation is years of one robot's life, and
- * the algorithms that remain available differ on each side of that.
- *
- * THREE COLLECTION RATES. Each is derived from a published measurement and
- * the derivation is written out, so a reader can redo it:
- *
- * 1. Massively parallel simulation. Rudin and colleagues trained ANYmal
- *    with 4,096 parallel robots at a batch size of 98,304 (4,096 x 24
- *    rollout steps), for 1,500 policy updates, in under 20 minutes on one
- *    workstation GPU. That is 4,096 x 24 x 1,500 = 147,456,000 environment
- *    steps in under 1,200 s, so 122,880 steps/s.
- *
- * 2. A single real robot. Haarnoja and colleagues learned Minitaur walking
- *    from 160,000 control steps, about 400 rollouts, in about two hours of
- *    real-world time. 160,000 / 7,200 s is 22.2 steps/s. That figure is
- *    end-to-end: it already contains the resets, the operator's time and
- *    the robot standing still, which is why it sits far below the 50 Hz
- *    control rate the same rollouts ran at.
- *
- * 3. A fleet of N real robots, modelled as N times the single-robot rate.
- *    Linear scaling is the model, not a measurement, and it is optimistic:
- *    QT-Opt's seven-robot campaign collected over 580,000 grasp attempts
- *    of up to 20 time steps in about 800 robot hours, which is at most
- *    4.0 steps per robot-second, well under the Minitaur rate. Episodic
- *    grasping carries more per-episode overhead than continuous
- *    locomotion. The instrument discloses the divergence on screen rather
- *    than burying it here.
- *
- * TWO VERDICT BOUNDARIES, both editorial thresholds drawn from what the
- * literature actually did rather than from theory, and both labelled as
- * such in the UI:
- *
- * - One hour. Below it a run is cheap enough to throw every sample away
- *   after one gradient step and to rerun the whole thing when a reward
- *   term is wrong, which is the regime on-policy methods were designed
- *   for. Rudin's four-minute flat-terrain and twenty-minute uneven-terrain
- *   runs both sit inside it, and so does DayDreamer's one-hour quadruped.
- * - 720 hours, one month of continuous operation. Past it there is no
- *   supervised campaign to run at all, and the only remaining option is to
- *   learn from data somebody already collected.
+ * Constant-rate sample-budget toy with unchanged arithmetic and controls.
+ * Rudin reports 98,304 samples x 1,500 updates in under 1,200 seconds:
+ * the end-to-end average is strictly greater than 122,880 steps/s. The
+ * toy uses the boundary value, not an exact measured rate.
+ * Minitaur reports 160,000 steps over about two hours of the whole
+ * training process; 22.2 steps/s is an approximate process average.
+ * Fleet scaling assumes N times that single-robot constant, not a
+ * measured multi-robot throughput. One hour and 720 hours define editorial
+ * toy bands, not algorithm-eligibility or supervised-collection limits.
+ * Anchor positions retain existing nominal numeric values. Bounds,
+ * approximate times, aggregate robot-hours and a two-month period are
+ * not interchangeable measured wall-clock durations.
  */
 
 /** Rudin: 4,096 robots x 24 rollout steps per policy update. */
@@ -55,7 +20,7 @@ export const RUDIN_POLICY_UPDATES = 1_500;
 /** Rudin: "under 20 minutes" for those updates, in seconds. */
 export const RUDIN_RUN_SECONDS = 20 * 60;
 
-/** Environment steps per wall-clock second in massively parallel simulation. */
+/** Toy simulation constant at the reported time boundary, not exact measured throughput. */
 export const SIM_STEPS_PER_SECOND =
   (RUDIN_BATCH_STEPS * RUDIN_POLICY_UPDATES) / RUDIN_RUN_SECONDS;
 
@@ -64,23 +29,23 @@ export const MINITAUR_CONTROL_STEPS = 160_000;
 /** Haarnoja: "about two hours" of real-world time, in seconds. */
 export const MINITAUR_SECONDS = 2 * 3600;
 
-/** Environment steps per wall-clock second on one real robot. */
+/** Approximate Minitaur whole-training average used as a toy single-robot constant. */
 export const ROBOT_STEPS_PER_SECOND =
   MINITAUR_CONTROL_STEPS / MINITAUR_SECONDS;
 
 /**
- * QT-Opt's measured per-robot ceiling, steps per robot-second: over
- * 580,000 grasp attempts of up to 20 time steps across about 800 robot
- * hours. An upper bound, since not every attempt ran the full 20 steps.
- * Used only for the on-screen disclosure of what linear fleet scaling
- * overstates.
+ * Legacy arithmetic retained unchanged for compatibility: 580000*20/(800*3600).
+ * Not a measured mean, campaign step rate, or scientifically established
+ * upper bound: the 20-step evaluation cap is not a campaign mean, and the
+ * source count/time qualifiers do not establish exact operands. This value
+ * is not rendered as an empirical QT-Opt comparison.
  */
 export const QT_OPT_STEPS_PER_ROBOT_SECOND =
   (580_000 * 20) / (800 * 3600);
 
-/** Wall-clock hours below which a run is cheap enough to discard samples. */
+/** Editorial toy boundary in hours; not an algorithm eligibility rule. */
 export const ON_POLICY_MAX_HOURS = 1;
-/** Wall-clock hours past which no supervised collection campaign exists. */
+/** Editorial toy boundary in hours; no claim that longer collection is impossible. */
 export const OFFLINE_ONLY_ABOVE_HOURS = 720;
 
 export type SourceId = 'sim' | 'robot' | 'fleet';
@@ -98,18 +63,18 @@ export const DATA_SOURCES: readonly DataSource[] = [
     id: 'sim',
     label: 'massively parallel simulation',
     provenance:
-      '4,096 parallel robots at 98,304 steps per update, 1,500 updates in under 20 minutes',
+      'toy boundary: 98,304 samples × 1,500 updates / 1,200 seconds; reported throughput is strictly greater',
   },
   {
     id: 'robot',
     label: 'a single real robot',
     provenance:
-      '160,000 control steps to a walking policy in about two hours, resets included',
+      'toy process-average constant: 160,000 control steps / about two hours; not the rollout rate',
   },
   {
     id: 'fleet',
     label: 'a fleet of real robots',
-    provenance: 'the single-robot rate multiplied by the number of robots',
+    provenance: 'assumed perfect parallelism: the toy single-robot rate multiplied by fleet size',
   },
 ];
 
@@ -167,22 +132,22 @@ export interface FamilyVerdict {
 const FAMILIES: Record<Family, FamilyVerdict> = {
   'on-policy': {
     family: 'on-policy',
-    label: 'on-policy is affordable',
-    exemplars: 'PPO: discard every batch after one update',
+    label: 'toy on-policy band',
+    exemplars: 'PPO example; not an eligibility rule',
   },
   'off-policy': {
     family: 'off-policy',
-    label: 'off-policy or offline only',
-    exemplars: 'SAC, TD3, RLPD: reuse every transition from a replay buffer',
+    label: 'toy off-policy band',
+    exemplars: 'SAC, TD3, RLPD examples; not an eligibility rule',
   },
   offline: {
     family: 'offline',
-    label: 'offline only',
-    exemplars: 'CQL, IQL, TD3+BC: no new collection at all',
+    label: 'toy offline band',
+    exemplars: 'CQL, IQL, TD3+BC examples; not an eligibility rule',
   },
 };
 
-/** The algorithm family a wall-clock cost admits. */
+/** Map modelled time to editorial toy categories; preserve existing thresholds. */
 export function classifyFamily(seconds: number): FamilyVerdict {
   const hours = seconds / 3600;
   if (hours <= ON_POLICY_MAX_HOURS) return FAMILIES['on-policy'];
@@ -240,10 +205,10 @@ export function computeLedger(params: LedgerParams): Ledger {
 }
 
 /**
- * A measured wall-clock figure from a paper, drawn on the shared timeline
- * so the reader can see where the modelled conversions land relative to
- * runs that really happened. Every one carries a citation id: an unlabelled
- * or unsourced anchor is exactly the decoration this chart avoids.
+ * Numeric placement of a reported duration or bound. Each label/caption
+ * preserves its source unit and qualifier. In particular, QT-Opt robot-hours
+ * are not parallel wall time and the two-month position assumes 60 days.
+ * These are not matched benchmark points.
  */
 export interface Anchor {
   id: string;
@@ -270,7 +235,7 @@ export const ANCHORS: readonly Anchor[] = [
   {
     id: 'daydreamer',
     seconds: 3600,
-    label: 'A1 walking on hardware, 1 h',
+    label: 'A1 walking, one reported run, 1 h',
     citation: 'daydreamer-2022',
   },
   {
@@ -288,8 +253,8 @@ export const ANCHORS: readonly Anchor[] = [
   {
     id: 'hand-eye',
     seconds: 2 * 30 * 24 * 3600,
-    label: '800k grasps on 6 to 14 arms, two months',
-    citation: 'levine-hand-eye-2018',
+    label: 'About 800k attempts, 6–14 robots, two months',
+    citation: 'levine-hand-eye-2016',
   },
 ];
 

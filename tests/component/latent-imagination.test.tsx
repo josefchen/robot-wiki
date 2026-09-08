@@ -70,6 +70,8 @@ describe('LatentImagination', () => {
       /no image reconstruction/i,
     );
     expect(screen.queryByTestId('decoded-frames')).not.toBeInTheDocument();
+    expect(screen.getByTestId('decoder-free-note')).toHaveTextContent(/fixed multiple of the toy latent deviation/);
+    expect(screen.getByTestId('decoder-free-note')).not.toHaveTextContent(/only for reward and value/);
     const reward = screen.getByTestId('reward-error-readout');
     expect(Number.parseFloat(reward.textContent ?? '')).toBeGreaterThan(0);
   });
@@ -118,7 +120,7 @@ describe('LatentImagination', () => {
     expect(
       screen.getByRole('img', { name: /latent deviation/i }),
     ).toBeInTheDocument();
-    // The published 3-15 step horizon range is annotated on the chart.
+    // The illustrative 3-15 step band remains annotated on the chart.
     expect(screen.getByTestId('typical-range-band')).toBeInTheDocument();
   });
 
@@ -127,7 +129,10 @@ describe('LatentImagination', () => {
     const tableDesc = [...container.querySelectorAll('[data-chart-description]')].find(
       (el) => /shaded band/i.test(el.textContent ?? ''),
     );
-    expect(tableDesc?.textContent).toMatch(/published 3 to 15/i);
+    expect(tableDesc?.textContent).toMatch(/band is illustrative, from 3 to 15/i);
+    expect(tableDesc?.textContent).toMatch(/not a published range, confidence interval, or reliability bound/i);
+    expect(container.textContent).toMatch(/Illustrative toy, not measured model performance/);
+    expect(container.textContent).not.toMatch(/inside published range|before published range|past published range/);
     const table = container.querySelector(
       'details[data-chart-data][data-chart-form="table"]',
     );

@@ -11,7 +11,7 @@
  *   paper: a public arXiv report with methods and experiments
  *   docs:  repository release notes (code and weights exist, prose is thin)
  *   blog:  a detailed lab blog, vendor-reported, no external replication
- *   press: press release only, vendor-reported, no technical documentation
+ *   press: company announcement; technical disclosure varies by source
  */
 
 export type ProvenanceTier = 'paper' | 'docs' | 'blog' | 'press';
@@ -28,7 +28,9 @@ export interface GeneralistRelease {
   /** Human-readable release date for labels. */
   dateLabel: string;
   /** Whether weights are downloadable. */
-  openWeights: boolean;
+  openWeights: boolean | null;
+  /** Source-scoped note required for an unknown availability value. */
+  weightsNote?: string;
   /** How the release is documented. */
   provenance: ProvenanceTier;
   /** One-line capability annotation shown on selection. */
@@ -46,10 +48,11 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     org: 'Figure',
     released: '2025-02',
     dateLabel: 'Feb 2025',
-    openWeights: false,
+    openWeights: null,
+    weightsNote: "The February 20, 2025 announcement identifies an open-weight VLM backbone, not a download or license for the trained Helix policy.",
     provenance: 'blog',
     capability:
-      'System 1 / System 2 split: a VLM reasons slowly and emits latent goals; a fast visuomotor transformer turns pixels into upper-body joint targets.',
+      'Figure reports S2 latent task representations and S1 control of wrist poses, fingers, torso and head orientation, plus task completion; S1 also consumes images and robot state.',
     citationId: 'helix-2025',
   },
   {
@@ -61,7 +64,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     openWeights: false,
     provenance: 'paper',
     capability:
-      'Gemini 2.0-based VLA plus Gemini Robotics-ER, an embodied-reasoning model for spatial understanding, pointing, and grasp proposal.',
+      'March 2025 report: Gemini Robotics builds on Gemini Robotics-ER; the family extends Gemini 2.0 from embodied reasoning to robot actions.',
     citationId: 'gemini-robotics-2025',
   },
   {
@@ -73,7 +76,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     openWeights: true,
     provenance: 'paper',
     capability:
-      'Open humanoid foundation model: a VLM backbone with a flow-matching DiT action head, coupled by cross-attention.',
+      'The N1 v2 paper describes a VLM with a cross-attention-conditioned flow-matching DiT action head and links a public GR00T-N1-2B checkpoint.',
     citationId: 'gr00t-n1-2025',
   },
   {
@@ -106,11 +109,12 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     name: 'Gemini Robotics 1.5',
     org: 'Google DeepMind',
     released: '2025-10',
-    dateLabel: 'Oct 2025',
-    openWeights: false,
+    dateLabel: 'Oct 2025 report',
+    openWeights: null,
+    weightsNote: "Weight downloads and licensing terms are not disclosed in the inspected v3 technical report; this is not a closed-license finding.",
     provenance: 'paper',
     capability:
-      'Motion Transfer across embodiments and interleaved language thinking before acting; ER 1.5 orchestrates with a tunable thinking budget.',
+      'Report first submitted October 2, 2025; this date does not establish the release date. Motion Transfer and interleaved thinking in the VLA; a separate ER 1.5 orchestrator with a variable thinking-token budget.',
     citationId: 'gemini-robotics-15-2025',
   },
   {
@@ -132,10 +136,11 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     org: 'Figure',
     released: '2026-01',
     dateLabel: 'Jan 2026',
-    openWeights: false,
+    openWeights: null,
+    weightsNote: "Trained Helix 02 weight-release and licensing terms are not disclosed in the January 27, 2026 announcement.",
     provenance: 'blog',
     capability:
-      'Adds S0: a 10M-parameter learned whole-body controller at 1 kHz trained on 1,000+ hours of retargeted human motion.',
+      "Figure reports S0, a 10M-parameter learned whole-body controller at 1 kHz, using over 1,000 hours of retargeted human motion and simulation training.",
     citationId: 'helix-02-2026',
   },
   {
@@ -143,11 +148,12 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     name: 'Skild Brain',
     org: 'Skild AI',
     released: '2026-01',
-    dateLabel: 'Jan 2026',
-    openWeights: false,
+    dateLabel: 'Jan 2026 announcement',
+    openWeights: null,
+    weightsNote: "Weight-download and licensing terms are not disclosed in the January 14, 2026 Series C announcement.",
     provenance: 'press',
     capability:
-      'An "omni-bodied" brain claim publicized alongside a $1.4B Series C; no paper, no weights, no benchmark results.',
+      "January 14, 2026 Series C: $1.4 billion raised at over $14 billion valuation. Omni-bodied capability is a company assertion. The announcement describes four training-data sources, not a full runtime architecture.",
     citationId: 'skild-series-c-2026',
   },
   {
@@ -159,7 +165,7 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     openWeights: true,
     provenance: 'docs',
     capability:
-      'Cosmos-Reason2-2B backbone and a shared relative-EEF action space that admits 20K hours of egocentric human video.',
+      'N1.7 README: Cosmos-Reason2-2B backbone, relative-EEF actions, and 20K hours of EgoScale human video in pretraining. Its license declarations require checkpoint-specific review.',
     citationId: 'isaac-gr00t-repo-2026',
   },
   {
@@ -167,11 +173,12 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     name: 'AgiBot GO-2',
     org: 'AgiBot',
     released: '2026-04',
-    dateLabel: 'Apr 2026',
-    openWeights: false,
+    dateLabel: 'Apr 2026 HTML date',
+    openWeights: null,
+    weightsNote: "Trained GO-2 weight availability and licensing are not established by the inspected announcement; no closed-weight conclusion is drawn.",
     provenance: 'press',
     capability:
-      'Action chain-of-thought: a low-frequency planner emits action intents and a high-frequency follower refines them.',
+      "AgiBot describes System 2 semantic planning and System 1 action following with relative, not numerical, frequencies; teacher forcing is used during training.",
     citationId: 'agibot-go2-2026',
   },
   {
@@ -193,21 +200,28 @@ export const GENERALIST_RELEASES: readonly GeneralistRelease[] = [
     org: 'Google DeepMind',
     released: '2026-07',
     dateLabel: 'Jul 2026',
-    openWeights: false,
+    openWeights: null,
+    weightsNote: "The July 30 announcement provides AI Studio/private-preview access for ER 2 and early-access partnerships for VLA/On-Device; weight downloads and licensing terms are not disclosed.",
     provenance: 'blog',
     capability:
-      'Whole-body humanoid control feet-to-fingertips with 22-DoF hands; one checkpoint across three embodiment pairs.',
+      "July 30, 2026 announcement: VLA whole-body control; one checkpoint on Apollo 2 with SharpaWave, Apollo 2 with Inspire, and Franka Duo with Robotiq. Separate ER 2 and On-Device 2 roles.",
     citationId: 'gemini-robotics-2-2026',
   },
 ];
 
-export type OpenFilter = 'all' | 'open' | 'closed';
+export type OpenFilter = 'all' | 'open' | 'closed' | 'undisclosed';
+
+export function releaseWeightState(release: GeneralistRelease): Exclude<OpenFilter, 'all'> {
+  return release.openWeights === null ? 'undisclosed' : release.openWeights ? 'open' : 'closed';
+}
+
+export function releaseWeightLabel(release: GeneralistRelease): string {
+  return release.openWeights === null ? 'not disclosed' : release.openWeights ? 'downloadable' : 'not downloadable';
+}
 
 export function filterReleases(filter: OpenFilter): GeneralistRelease[] {
   if (filter === 'all') return [...GENERALIST_RELEASES];
-  return GENERALIST_RELEASES.filter((r) =>
-    filter === 'open' ? r.openWeights : !r.openWeights,
-  );
+  return GENERALIST_RELEASES.filter((release) => releaseWeightState(release) === filter);
 }
 
 /** Blog and press tiers are company communications with no external check. */

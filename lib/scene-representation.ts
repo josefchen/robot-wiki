@@ -247,11 +247,11 @@ export const REPRESENTATIONS: readonly Representation[] = [
     capabilities: {
       'free-space': {
         state: 'no',
-        note: 'opacity is a rendering weight, not an occupancy probability, and no cell is ever labelled unknown',
+        note: 'in original 3DGS, opacity controls alpha compositing rather than a calibrated free/occupied/unknown cell classification',
       },
       'contact-normal': {
         state: 'no',
-        note: 'a Gaussian has no surface, so a normal exists only after a separate surface is extracted from the field',
+        note: 'the stored volumetric Gaussian is not an explicit contact surface with normals; deriving contact geometry is separate work',
       },
       'novel-view': {
         state: 'yes',

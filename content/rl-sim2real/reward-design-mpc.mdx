@@ -42,7 +42,7 @@ Twelve weighted reward terms sit on the behavior preview below. Drag the torque 
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="reward terms" value="12+" note="in a typical locomotion objective" accent />
-  <Stat label="Eureka wins" value="83%" note="of 29 tasks vs human rewards" />
+  <Stat label="Eureka headline" value="83%" note="29 simulated tasks; see protocol below" />
   <Stat label="iLQR MPC" value="real-time" note="whole-body, on hardware" />
   <Stat label="MPC task data" value="0" note="demonstrations required" />
 </div>
@@ -67,7 +67,13 @@ The third outsources the writing to a language model. That one deserves its own 
 
 ## Eureka: the reward as code under evolution
 
-Eureka is the reference point for LLM-generated rewards, and its mechanism is more specific than "the LLM writes a reward." GPT-4 is given the environment source code as context and asked to write the reward function in Python. Candidate rewards train policies in Isaac Gym, candidates are selected on a task fitness function, and the LLM is then shown per-component reward statistics from training and asked to reflect and mutate its own code <Cite id="eureka-2024" />. This is evolutionary search over reward code with a learned mutation operator, and it works because massively parallel simulation makes each fitness evaluation cheap. Across a 29-task suite spanning 10 robot morphologies, Eureka's rewards outperformed human-expert rewards on 83% of tasks with an average normalized improvement of 52% <Cite id="eureka-2024" />.
+Eureka searches over reward code; PPO learns the policies. In the default experiment, GPT-4 receives a task description and environment observation code with the existing reward excluded, then proposes Python reward functions. Candidate rewards train PPO policies in Isaac Gym. Selection uses a separate task-fitness function, while scalar snapshots of that fitness and each reward component provide feedback for the next reward-code mutation. The implementation trims the context to the relevant observation code and the last reward/reflection pair.<br />Source: <Cite id="eureka-2024" />.
+
+The evaluation covers 29 simulated tasks: nine original Isaac Gym environments and 20 Dexterity tasks, spanning 10 robot morphologies. The paper's headline reports 83% of tasks and 52% average normalized improvement over human-expert rewards; its detailed results describe matching or exceeding the human reward on all nine Isaac tasks and 15 of the 20 Dexterity tasks, not strict wins everywhere. The human baseline is each benchmark's original shaped reward <Cite id="eureka-2024" />.
+
+Search uses five independent runs, five iterations per run and 16 candidate rewards per iteration. The reported comparison uses the best reward across search restarts; the separate reward-reflection ablation instead averages restarts. Intermediate rewards receive one PPO run; final rewards receive five, scored by the average of the maximum task fitness over ten fixed-interval checkpoints <Cite id="eureka-2024" />.
+
+The human-normalized score is `(Method - Sparse) / abs(Human - Sparse)`; for the headline average across all 29 tasks, Appendix D adjusts each score to lie in `[0, 3]`. The 52% headline is not a 52-percentage-point increase in success rate <Cite id="eureka-2024" />.
 
 The panel below replays the loop on a walking task. Watch the reflection, not the code. Each generation's mutation is justified by what the training statistics showed: a policy that sprints and falls, then a policy that survives by standing still, then a policy that actually tracks the command. The reflection step is where the search gets its direction.
 
@@ -79,7 +85,11 @@ The limitations are structural, and the 2026 literature treats them as open. Eur
 
 <Term id="reward-shaping">Reward shaping</Term> decides what to optimize; <Term id="curriculum-learning">curriculum</Term> decides in what order the policy is allowed to see difficulty. Three mechanisms dominate, and they are different enough to keep separate.
 
-Terrain curriculum is the game-inspired scheme from the massively parallel walking work: robots that succeed on a terrain tile get promoted to a harder one, robots that fail get demoted, and thousands of parallel robots make the difficulty frontier measurable rather than guessed <Cite id="rudin-2021" />. Automatic Domain Randomization widens the randomization distribution itself as success crosses a threshold, an idea from OpenAI's dexterous hand work that now ships in Isaac Lab as a configurable curriculum <Cite id="openai-rubiks-cube-2019" /> <Cite id="isaac-lab-2025" />. Population-based training goes furthest: DexPBT evolves hyperparameters and reward weights across a population of learners, and Isaac Lab reproduces its 6D reposing result with 8 workers on one to two GPUs each, converging in about 16 hours on NVIDIA OVX L40 hardware <Cite id="isaac-lab-2025" />.
+Terrain curriculum is the game-inspired scheme from the massively parallel walking work: robots that succeed on a terrain tile get promoted to a harder one, robots that fail get demoted, and thousands of parallel robots make the difficulty frontier measurable rather than guessed <Cite id="rudin-2021" />. Automatic Domain Randomization widens the randomization distribution itself as success crosses a threshold, an idea from OpenAI's dexterous hand work that now ships in Isaac Lab as a configurable curriculum <Cite id="openai-rubiks-cube-2019" /> <Cite id="isaac-lab-2025" />.
+
+For population-based training, Isaac Lab v1 describes DexPBT workers running independent RL processes with their own hyperparameters; strong workers replace weak workers’ weights and hyperparameters. Its RL-Games implementation reproduces a 6D reposing task using eight workers with one to two GPUs each, converging in approximately 16 hours on NVIDIA OVX L40 hardware<br />Source: <Cite id="isaac-lab-2025" />.
+
+
 
 Notice what all three assume: cheap, dense, parallel evaluation. Curriculum is a dividend of the throughput covered in the parallel-sim module, and it is one more reason the same machinery does not transfer to manipulation, where the [MDP is not cheaply simulatable](/rl-sim2real/why-rl-locomotion).
 

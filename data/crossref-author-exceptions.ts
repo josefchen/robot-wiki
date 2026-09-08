@@ -395,7 +395,7 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
     id: 'vjepa2-2025',
     skip: 'author-count',
     reason:
-      'The arXiv feed and abs metadata split one human into two author elements ("Mojtaba" and "Komeili" as adjacent authors 6 and 7), reporting 30 authors. DBLP transcribes "Mojtaba Komeili" as one person and 29 authors total, exactly the registry list.',
+      'The arXiv feed and abs metadata split one human into two author elements ("Mojtaba" and "Komeili" as adjacent authors 6 and 7), reporting 30 authors. The previously checked DBLP transcription has 29 people including "Mojtaba Komeili". The retained v1 HTML and PDF-derived body reviewed on 2026-09-08 independently contain 29 authors; the registry now uses that literal body byline, including Mahmoud Assran and Matthew Muckley, rather than the DBLP/abs aliases. No new DBLP or arXiv fetch was made.',
     verified:
       'DBLP publication record for V-JEPA 2 (29 authors, "Mojtaba Komeili" single entry; first eight read: Mido Assran, Adrien Bardes, David Fan 0001, Quentin Garrido, Russell Howes, Mojtaba Komeili, Matthew J. Muckley, Ammar Rizvi) read 2026-08-20; arXiv feed for 2506.09985 prints 30 elements with the split.',
   },
@@ -450,23 +450,6 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
       'arXiv feed for 2308.12952 (14 authors: Homer Walke, Kevin Black, Abraham Lee, ...) read 2026-08-20.',
   },
   {
-    id: 'isaac-lab-2025',
-    skip: 'author-count',
-    reason:
-      'The arXiv feed prints 107 author elements because it splits the org credit into "NVIDIA" and a stray ":"; DBLP transcribes the byline as two credited authors, NVIDIA and Mayank Mittal, exactly the registry.',
-    verified:
-      'DBLP publication record for Isaac Lab (journals/corr/abs-2511-04831; 1 named record plus the org: "NVIDIA") and the arXiv abs citation_author list (107 entries including ":") compared 2026-08-20.',
-  },
-  {
-    id: 'isaac-lab-2025',
-    skip: 'author',
-    authorIndex: 2,
-    reason:
-      'Registry "NVIDIA" vs the feed\'s stray ":" at position 2: the feed splits the org credit into "NVIDIA" and ":"; the byline credit is the org alone.',
-    verified:
-      'DBLP publication record for Isaac Lab read 2026-08-20; arXiv abs citation_author list for 2511.04831 read 2026-08-20.',
-  },
-  {
     id: 'agibot-world-2025',
     skip: 'author-count',
     reason:
@@ -483,23 +466,8 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
     verified:
       'arXiv feed for 2503.06669 read 2026-08-20.',
   },
-  {
-    id: 'gemini-robotics-2025',
-    skip: 'author-count',
-    reason:
-      'Registry cites the collective byline "Gemini Robotics Team, Google DeepMind"; the arXiv feed expands it to 118 named contributors. The collective credit is what the paper prints as its author line.',
-    verified:
-      'arXiv feed for 2503.20020 (118 elements, first "Gemini Robotics Team") read 2026-08-20.',
-  },
-  {
-    id: 'gemini-robotics-2025',
-    skip: 'author',
-    authorIndex: 2,
-    reason:
-      'Registry "Google DeepMind" vs the feed\'s first named contributor at position 2: the registry holds the two collective credits the byline prints, not the expanded contributor list.',
-    verified:
-      'arXiv feed for 2503.20020 read 2026-08-20.',
-  },
+
+
   {
     id: 'gemini-robotics-15-2025',
     skip: 'author-count',

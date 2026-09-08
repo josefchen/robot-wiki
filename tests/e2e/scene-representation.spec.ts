@@ -111,6 +111,71 @@ function slider(page: Page): Locator {
 }
 
 test.describe('classical scene-representation module', () => {
+  test.beforeEach(async ({ context }) => {
+    // Affected-reader proof is offline and motion-free before the first paint.
+    await context.route('**/*', (route) => {
+      const url = new URL(route.request().url());
+      if (url.protocol.startsWith('http') && !['127.0.0.1', 'localhost'].includes(url.hostname)) return route.abort();
+      return route.continue();
+    });
+    await context.addInitScript(() => {
+      const install = () => {
+        if (!document.documentElement || document.getElementById('scene-reader-motion')) return;
+        const style = document.createElement('style');
+        style.id = 'scene-reader-motion';
+        style.textContent = '*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}';
+        document.documentElement.append(style);
+      };
+      new MutationObserver(install).observe(document, { childList: true, subtree: true });
+      install();
+    });
+  });
+
+  test('paper-scoped occupancy and map tradeoffs retain their local source chips', async ({ page }) => {
+    await page.goto(ROUTE);
+    const expectations = [
+      ['moravec-elfes-1985', 0, 'two-dimensional horizontal', 'https://doi.org/10.1109/ROBOT.1985.1087316'],
+      ['moravec-elfes-1985', 1, 'Zero represents unknown occupancy', 'https://doi.org/10.1109/ROBOT.1985.1087316'],
+      ['cadena-2016', 1, 'storage size, construction cost and usefulness for the task', 'https://arxiv.org/abs/1606.05830'],
+      ['cadena-2016', 2, 'range and external-light limitations', 'https://arxiv.org/abs/1606.05830'],
+    ] as const;
+    await expect(page.locator('.prose > p > span.block [data-cite-id="moravec-elfes-1985"]')).toHaveCount(2);
+    await expect(page.locator('.prose > p > span.block [data-cite-id="cadena-2016"]')).toHaveCount(3);
+    for (const [id, ordinal, text, href] of expectations) {
+      const chip = page.locator(`.prose > p > span.block [data-cite-id="${id}"]`).nth(ordinal);
+      await expect(chip.locator('xpath=ancestor::p[1]')).toContainText(text);
+      const link = chip.locator('a[target="_blank"]');
+      await expect(link).toHaveAttribute('href', href);
+      await link.evaluate((element) => element.scrollIntoView({ block: 'center' }));
+      await link.hover();
+      const tooltip = chip.getByRole('tooltip');
+      await expect(tooltip).toBeVisible();
+      const hoverText = await tooltip.innerText();
+      await page.mouse.move(0, 0);
+      await link.focus();
+      await expect(tooltip).toBeVisible();
+      expect(await tooltip.innerText()).toBe(hoverText);
+      const bounds = await tooltip.boundingBox();
+      const viewport = page.viewportSize()!;
+      expect(bounds).not.toBeNull();
+      expect(bounds!.x).toBeGreaterThanOrEqual(0);
+      expect(bounds!.y).toBeGreaterThanOrEqual(0);
+      expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(viewport.width);
+      expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(viewport.height);
+      await link.evaluate((element) => element.blur());
+    }
+    const proseText = await page.locator('.prose').evaluate((element) => {
+      const clone = element.cloneNode(true) as HTMLElement;
+      // The unselected glossary's tooltip is not owned by this paper repair.
+      for (const tooltip of clone.querySelectorAll('[role="tooltip"]')) tooltip.remove();
+      return clone.textContent ?? '';
+    });
+    for (const obsolete of ['Every later navigation stack inherits', 'cannot be used for collision checking',
+      'does the reverse at much greater cost', 'geometrically featureless corridors', 'cheap and information-dense']) {
+      expect(proseText.includes(obsolete), obsolete).toBe(false);
+    }
+  });
+
   test('the ladder names four representations, each cited inside its own section (VAL-CLASS-047)', async ({
     page,
   }) => {
@@ -164,6 +229,27 @@ test.describe('classical scene-representation module', () => {
     const visible = await visibleArticleText(page);
     expect(visible).toMatch(/loop closure/i);
     expect(visible).toMatch(/place recognition/i);
+    // Corrected source boundaries must survive MDX rendering, with each
+    // supporting chip attached to the paragraph carrying its claim.
+    const correctedSources = [
+      ['lowry-2016-place-recognition', /motion information can also inform this belief/, 'https://doi.org/10.1109/TRO.2015.2496823'],
+      ['dellaert-kaess-2006', /QR of the measurement Jacobian or Cholesky of the information matrix/, 'https://doi.org/10.1177/0278364906072768'],
+      ['kaess-2012', /large loop closures can cost as much as a batch solve/, 'https://doi.org/10.1177/0278364911430419'],
+    ] as const;
+    for (const [id, qualification, href] of correctedSources) {
+      const chip = page.locator(`.prose [data-cite-id="${id}"]`);
+      await expect(chip).toHaveCount(1);
+      await expect(chip.locator('a[target="_blank"]')).toHaveAttribute('href', href);
+      await expect(chip.locator('xpath=ancestor::p[1]')).toContainText(qualification);
+    }
+    const correctedProse = await page.locator('.prose').evaluate((prose) => {
+      const clone = prose.cloneNode(true) as HTMLElement;
+      // Glossary tooltip wording is an explicitly unselected obligation.
+      for (const tooltip of clone.querySelectorAll('[role="tooltip"]')) tooltip.remove();
+      return clone.textContent ?? '';
+    });
+    expect(correctedProse.includes('sensor data alone')).toBe(false);
+    expect(correctedProse.includes('can be factored once')).toBe(false);
 
     // Both front-end families named inside ONE section that distinguishes
     // them, not scattered across the article.
@@ -200,9 +286,10 @@ test.describe('classical scene-representation module', () => {
     // The verdict, as rendered article prose.
     expect(visible).toMatch(/radiance field is geometry for rendering/i);
     expect(visible).toMatch(
-      /rendering weight rather than an occupancy probability/i,
+      /not a calibrated free\/occupied\/unknown cell classification/i,
     );
-    expect(visible).toMatch(/no surface anywhere in the store/i);
+    expect(visible).toMatch(/not an explicit triangle surface carrying contact normals/i);
+    expect(visible).toMatch(/does not make surface extraction impossible/i);
 
     // An inline internal link to a published world-models module.
     const prose = page.locator('div.prose[data-pagefind-body]');
@@ -399,13 +486,29 @@ test.describe('classical scene-representation module', () => {
     page,
   }) => {
     await page.goto(ROUTE);
-    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+    const menu = page.getByRole('button', { name: 'Open navigation menu' });
+    const mobile = await menu.isVisible();
+    if (mobile) {
+      await menu.focus();
+      await page.keyboard.press('Enter');
+    }
+    const nav = mobile
+      ? page.getByRole('dialog', { name: 'Site navigation' })
+      : page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+    await expect(nav).toBeVisible();
     await expect(
       nav.getByRole('link', {
         name: 'Scene Representation and Mapping',
         exact: true,
       }),
     ).toHaveAttribute('aria-current', 'page');
+    if (mobile) {
+      await expect(page.locator('#main-content').locator('xpath=ancestor-or-self::*[@inert]').first()).toBeAttached();
+      await page.keyboard.press('Escape');
+      await expect(nav).toHaveCount(0);
+      await expect(menu).toBeFocused();
+      await expect(page.locator('[inert]')).toHaveCount(0);
+    }
 
     await page.goto('/classical/');
     await expect(

@@ -18,26 +18,11 @@ import { EDGE_DASH } from '@/lib/semantic-mark-cues';
 import { cx } from '@/lib/utils';
 
 /**
- * JepaPlanning: goal-conditioned planning in embedding space.
- *
- * V-JEPA 2-AC plans without ever decoding pixels: the goal image is encoded
- * once, candidate action sequences are scored by the predicted distance of
- * their final latent to the goal latent, the winner's first action executes,
- * and planning repeats from the new observation. This interactive runs that
- * loop in a 2-D projection of the embedding space. Each Plan step click is
- * one model-predictive-control iteration: the candidate fan shows the
- * searched sequences, the signal-blue path is the winner, and the goal-embedding
- * distance readout contracts as steps execute.
- *
- * The predictor is imperfect on purpose (a small deterministic wobble
- * between predicted and executed states), and the search aligns better with
- * the true goal direction as the search budget grows, which is why a larger
- * budget reaches the goal in fewer steps.
- *
- * Interactive contract: typed props, deterministic render, monospace
- * numeric readouts, reset control, native keyboard-accessible inputs, fixed
- * chart geometry (no layout shift). Step-driven only, no auto-playing or
- * JS-driven motion, so it is reduced-motion safe by construction.
+ * Deterministic two-dimensional teaching model for goal-directed replanning.
+ * Synthetic points and Euclidean distance are not learned V-JEPA 2 features.
+ * Candidate directions, execution perturbation, and contraction are prescribed
+ * by lib/jepa-planning.ts. The paper instead plans with L1 feature-map energy
+ * and the Cross-Entropy Method (arXiv:2506.09985v1, Section 3.2).
  */
 type JepaPlanningProps = {
   /** Initial search budget in candidate action sequences. Default 24. */
@@ -255,7 +240,7 @@ export function JepaPlanning({
         className="mt-4 block w-full"
       >
         <text x={PLANE_PAD} y={16} fill={DIM} fontSize={10} fontFamily={MONO}>
-          embedding space (2-D projection): goal and state as latents
+          synthetic 2-D teaching space: goal and state points
         </text>
         {[0.25, 0.5, 0.75].map((f) => (
           <g key={f}>
@@ -474,11 +459,11 @@ export function JepaPlanning({
       <div data-testid="no-decoder-note" className="mt-3 flex items-start gap-3">
         <CrossedFrame />
         <p className="font-sans text-xs leading-relaxed text-text-dim">
-          No pixel decoder anywhere in the loop. The goal is an image encoded
-          once into the same embedding space, and planning compares embeddings
-          directly: candidate sequences are scored by the predicted distance
-          between their final latent and the goal latent, and nothing is ever
-          rendered back to pixels.
+          No pixel decoder is used to select V-JEPA 2-AC control actions. This
+          display uses synthetic two-dimensional points and Euclidean distance;
+          it loads no trained encoder or predictor. The candidate fan and
+          shrinking trace are prescribed by a deterministic teaching model, not
+          the paper’s Cross-Entropy Method or measured robot behavior.
         </p>
       </div>
 
@@ -503,7 +488,7 @@ export function JepaPlanning({
         className="mt-3"
         form="state"
         summary="Current JEPA planning state"
-        description={`At a search budget of ${candidateCount} sequences the current latent sits ${formatDistance(distance)} away from the ${goal.id} goal after ${steps} planning steps; the embedding-space plane ${planeClause}, and the distance strip is ${steps === 0 ? 'a single sample at step 0' : `a falling trace from ${formatDistance(initialDistance)} to ${formatDistance(distance)}`}.`}
+        description={`Synthetic teaching model, not learned embeddings or measured robot behavior. At a search budget of ${candidateCount} sequences the current latent sits ${formatDistance(distance)} away from the ${goal.id} goal after ${steps} planning steps; the embedding-space plane ${planeClause}, and the distance strip is ${steps === 0 ? 'a single sample at step 0' : `a falling trace from ${formatDistance(initialDistance)} to ${formatDistance(distance)}`}.`}
         states={[
           { label: 'search budget', value: `${candidateCount} sequences` },
           { label: 'goal', value: goal.label },

@@ -34,12 +34,12 @@ describe('CrossEmbodimentStrategies', () => {
     expect(humanoid).toHaveTextContent(/3 zero-padded/);
   });
 
-  it('blocks the human-hand row in padded mode', () => {
+  it('shows the unmodelled human adapter in the padded toy', () => {
     render(<CrossEmbodimentStrategies />);
     const hand = screen.getByTestId('row-human-hand');
-    expect(hand).toHaveTextContent(/no slot/i);
+    expect(hand).toHaveTextContent(/no adapter modelled/i);
     expect(screen.getByTestId('human-video-readout')).toHaveTextContent(
-      /cannot enter/i,
+      /no adapter modelled in this toy/i,
     );
   });
 
@@ -58,21 +58,21 @@ describe('CrossEmbodimentStrategies', () => {
     expect(hand).toHaveTextContent(/shared dims/);
     expect(hand).not.toHaveTextContent(/no slot/i);
     expect(screen.getByTestId('human-video-readout')).toHaveTextContent(
-      /20,000 hours|20K hours/i,
+      /N1.7 README: 20K hours/i,
     );
     // No row zero-pads in relative-EEF mode.
     expect(screen.queryAllByText(/zero-padded/)).toHaveLength(0);
   });
 
-  it('motion-transfer mode is flagged as publicly under-specified', () => {
+  it('motion-transfer mode distinguishes partial disclosure from its illustration', () => {
     render(<CrossEmbodimentStrategies />);
     fireEvent.click(strategyButton(/motion transfer/i));
     expect(screen.getByTestId('underspecified-flag')).toBeInTheDocument();
     for (const id of ['arm', 'bimanual', 'humanoid']) {
-      expect(screen.getByTestId(`row-${id}`)).toHaveTextContent(/latent/);
+      expect(screen.getByTestId(`row-${id}`)).toHaveTextContent(/not model dimensions/);
     }
     expect(screen.getByTestId('row-human-hand')).toHaveTextContent(
-      /not disclosed/i,
+      /mapping not specified in this illustration/i,
     );
   });
 

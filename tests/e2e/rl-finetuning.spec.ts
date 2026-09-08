@@ -30,11 +30,29 @@ test.describe('rl-finetuning module', () => {
         page.locator('#main-content').getByText(name, { exact: false }).first(),
       ).toBeVisible();
     }
-    // Sidebar marks this module active.
-    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
-    await expect(
-      nav.getByRole('link', { name: 'RL Fine-Tuning of Policies' }),
-    ).toHaveAttribute('aria-current', 'page');
+    // Exercise the actual responsive taxonomy, not a hidden mobile sidebar.
+    const menu = page.getByRole('button', { name: 'Open navigation menu' });
+    const mobile = await menu.isVisible();
+    if (mobile) {
+      await menu.focus();
+      await page.keyboard.press('Enter');
+      await expect(page.getByRole('dialog', { name: 'Site navigation' })).toBeVisible();
+      await expect(page.getByRole('button', { name: 'Close navigation menu' })).toBeFocused();
+      await expect(page.locator('#main-content')).toHaveAttribute('inert', '');
+    }
+    const nav = page.getByRole('navigation', {
+      name: mobile ? 'Robot Wiki taxonomy drawer' : 'Robot Wiki taxonomy', exact: true,
+    });
+    const current = nav.getByRole('link', { name: 'RL Fine-Tuning of Policies', exact: true });
+    await expect(current).toBeVisible();
+    await expect(current).toHaveAttribute('aria-current', 'page');
+    await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
+    if (mobile) {
+      await page.keyboard.press('Escape');
+      await expect(page.getByRole('dialog', { name: 'Site navigation' })).toHaveCount(0);
+      await expect(menu).toBeFocused();
+      await expect(page.locator('#main-content')).not.toHaveAttribute('inert', '');
+    }
   });
 
   test('citation chips link to external primary sources', async ({ page }) => {
@@ -99,6 +117,63 @@ test.describe('rl-finetuning module', () => {
     await page.getByRole('button', { name: /reset/i }).click();
     await expect(timeReadout).toHaveText(/t = 0\.0 s/);
     await expect(page.getByTestId('segment-readout')).toBeVisible();
+  });
+
+  test('DPPO and ConRFT keep source-specific results and conflicts visible', async ({ page }) => {
+    await page.goto(ROUTE);
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    await expect(prose).toContainText('PPO updates the denoising policy, not the environment dynamics.');
+    await expect(prose).toContainText('16 of 20 hardware trials');
+    await expect(prose).toContainText('from 15 to 90 minutes');
+    await expect(prose).toContainText('not a percentage-point gain');
+    await expect(prose).toContainText('PA-RL without them');
+    const table = page.getByRole('table').filter({ has: page.getByRole('columnheader', { name: 'Headline result' }) });
+    await expect(table).toHaveCount(1);
+    const dppo = table.getByRole('row').filter({ has: page.getByRole('cell', { name: 'DPPO', exact: true }) });
+    const conrft = table.getByRole('row').filter({ has: page.getByRole('cell', { name: 'ConRFT', exact: true }) });
+    await expect(dppo).toContainText('Not a universal sample-efficiency or wall-clock winner');
+    await expect(conrft).toContainText('15-90 min online (prose says 45-90)');
+    for (const [id, href] of [
+      ['dppo-2024', 'https://arxiv.org/abs/2409.00588'],
+      ['conrft-2025', 'https://arxiv.org/abs/2502.05450'],
+    ]) {
+      const chips = prose.locator(`[data-cite-id="${id}"] a[target="_blank"]`);
+      expect(await chips.count()).toBeGreaterThan(0);
+      for (const chip of await chips.all()) {
+        await expect(chip).toHaveAttribute('href', href);
+        await chip.focus();
+        const tooltip = chip.locator('xpath=../..').getByRole('tooltip');
+        await expect(tooltip).toBeVisible();
+        const bounds = await tooltip.boundingBox();
+        expect(bounds).not.toBeNull();
+        expect(bounds!.x).toBeGreaterThanOrEqual(0);
+        expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(page.viewportSize()!.width);
+      }
+      await expect(page.locator(`#ref-${id} [data-reference-source-link]`)).toHaveAttribute('href', href);
+    }
+    const dppoReference = page.locator('#ref-dppo-2024');
+    await dppoReference.getByRole('button', { name: 'Show all 9 authors' }).click();
+    await expect(dppoReference.locator('[data-author-names]')).toContainText('Max Simchowitz');
+    await dppoReference.getByRole('button', { name: 'Show 8 authors' }).click();
+    await expect(page.locator('#ref-conrft-2025 [data-author-names]')).toContainText('Dongbin Zhao');
+  });
+
+  test('PLD keeps benchmark populations and YAM recovery distinct', async ({ page }) => {
+    await page.goto(ROUTE);
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    const row = page.getByRole('row').filter({ hasText: 'Residual RL (PLD)' });
+    await expect(row).toHaveCount(1);
+    await expect(row).toContainText('2025');
+    await expect(row).toContainText('preprint');
+    await expect(row).not.toContainText('peer-reviewed');
+    await expect(row).toContainText('99.2% across 3 LIBERO suites');
+    await expect(row).toContainText('50 trials/task');
+    await expect(row).toContainText('not 100% one-shot success');
+    await expect(prose).toContainText('50.6-percentage-point gain');
+    await expect(prose).toContainText('displayed means differ by 24.8 points');
+    await expect(prose).toContainText('per-stage one-shot success is not 100%');
+    await expect(prose.getByRole('link', { name: /Xiao 2025/ }).first())
+      .toHaveAttribute('href', 'https://arxiv.org/abs/2511.00091');
   });
 
   test('zero axe violations', async ({ page }) => {

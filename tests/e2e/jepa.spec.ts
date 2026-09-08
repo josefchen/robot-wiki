@@ -24,13 +24,13 @@ test.describe('world-models jepa module', () => {
     const main = page.locator('#main-content');
     for (const name of [
       /over 1 million hours of internet video/,
-      /less than 62 hours of unlabeled robot video from the Droid dataset/,
-      /77.3 top-1 on Something-Something v2/,
-      /zero-shot on Franka arms/,
+      /less than 62 hours of Droid robot video/,
+      /77.3% top-1 accuracy on Something-Something v2/,
+      /zero-shot on Franka Emika Panda arms/,
       /energy minimization in latent space/,
       /\$1.03 billion at a \$3.5 billion/,
       /Every currently usable interactive simulator is generative/,
-      /short-horizon single-arm pick-and-place/,
+      /reported robot tests are bounded tabletop skills/,
     ]) {
       await expect(
         main.getByText(name).filter({ visible: true }).first(),
@@ -75,6 +75,7 @@ test.describe('world-models jepa module', () => {
     await expect(page.getByTestId('no-decoder-note')).toContainText(
       /no pixel decoder/i,
     );
+    await expect(page.getByTestId('no-decoder-note')).toContainText(/synthetic two-dimensional points/);
     const initial = await distanceReadout(page);
     expect(initial).toBeGreaterThan(0.5);
 

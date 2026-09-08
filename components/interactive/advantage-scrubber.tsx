@@ -14,21 +14,13 @@ import {
 import { cx } from '@/lib/utils';
 
 /**
- * AdvantageScrubber: the Recap (pi*0.6) advantage-conditioning idea made
- * tangible. A scrub slider walks through one failed espresso episode while
- * a value-function trace runs along the timeline. Segments where the value
- * rises are tagged high advantage; where it falls, low advantage. The
- * credit-assignment arc shows the failed insertion blamed on the grasp
- * 20 s earlier. Two further views show what Recap does with the tags: at
- * training time every transition is kept with its binary tag; at execution
- * time the policy is conditioned on "high".
- *
- * The value trace is illustrative (it encodes the shape of the Recap
- * portafilter example), not measured; the caption says so.
- *
- * Interactive contract: deterministic render, native range slider
- * (keyboard arrows step the playhead), visible monospace readouts, view
- * switcher + reset, no auto-playing motion, no layout shift across views.
+ * Deterministic teaching toy inspired by the Recap companion blog's
+ * portafilter illustration. The forty-second episode, twenty-second arc,
+ * positive arbitrary score and stage-difference tags are invented here.
+ * They are not recorded measurements or the paper's reward-inclusive
+ * n-step estimator, task threshold, negative value scale or failure penalty.
+ * Conditioning illustrates a requested distribution, not guaranteed removal
+ * of a failure. Numeric calculations and interaction controls are unchanged.
  */
 type View = 'episode' | 'training' | 'execution';
 
@@ -127,15 +119,15 @@ export function AdvantageScrubber({ className }: { className?: string }) {
   // sentences (and disclosure samples) naming what they actually render.
   const descriptionText =
     view === 'episode'
-      ? `At t = ${playhead.toFixed(1)} s the value trace sits at ${value.toFixed(1)} inside the ${current.label} segment, tagged ${current.tag} advantage because value changes by ${formatDelta(current.delta)} across that stage; the dashed arc is the credit-assignment link that blames the insertion failure at ${CREDIT_ASSIGNMENT.failureAtS} s on the grasp ${CREDIT_ASSIGNMENT.failureAtS - CREDIT_ASSIGNMENT.blamedAtS} s earlier, and the tinted stage blocks are an illustrative Recap tagging of this espresso episode rather than measured value-function output.`
+      ? `At t = ${playhead.toFixed(1)} s this teaching toy shows an arbitrary value score of ${value.toFixed(1)} in the ${current.label} segment, tagged ${current.tag} advantage because its score changes by ${formatDelta(current.delta)}. The dashed arc links a fictional insertion failure at ${CREDIT_ASSIGNMENT.failureAtS} s to a grasp ${CREDIT_ASSIGNMENT.failureAtS - CREDIT_ASSIGNMENT.blamedAtS} s earlier. The tinted stage blocks show these fictional stage tags. Its timings, values and stage-difference tags are illustrative, not a measured Recap episode or its reward-inclusive, task-thresholded advantage estimator.`
       : view === 'training'
-        ? `The training-data view keeps all ${tagged.length} transitions from the espresso episode, ${highCount} tagged high advantage and ${lowCount} low advantage; every stage stays in the dataset with its binary tag, an illustrative Recap labeling of this episode rather than measured value-function output.`
-        : `At execution the policy is conditioned on the high-advantage tag only: of the ${tagged.length} stages in the episode, ${highCount} are reproduced and ${lowCount} suppressed by conditioning; the bad grasp stays in the training data and is simply not what the model is asked to reproduce.`;
+        ? `The toy training-data view keeps all ${tagged.length} transitions between fictional stage endpoints, ${highCount} tagged high advantage and ${lowCount} low advantage; every stage stays in the dataset with a tag derived from endpoint scores, not Recap’s reward-inclusive, task-thresholded estimator.`
+        : `At execution the policy is asked for the high-advantage tag: this toy displays ${highCount} high-tag examples and ${lowCount} low-tag examples among ${tagged.length} stages. These labels show requested conditioning, not predicted outcomes or guaranteed failure removal.`;
 
   const viewTable =
     view === 'episode'
       ? {
-          summary: 'Sampled value along the espresso episode',
+          summary: 'Toy value along the fictional espresso episode',
           rowHeader: 'time (s)',
           columns: [
             { header: 'value', numeric: true },
@@ -172,8 +164,8 @@ export function AdvantageScrubber({ className }: { className?: string }) {
               values: [
                 `${segment.tag} advantage`,
                 segment.tag === 'high'
-                  ? 'reproduced'
-                  : 'suppressed by conditioning',
+                  ? 'high-tag example'
+                  : 'low-tag example',
               ] as Array<string | number>,
             })),
           };
@@ -226,6 +218,14 @@ export function AdvantageScrubber({ className }: { className?: string }) {
           espresso episode, one failed attempt
         </span>
       </div>
+
+      <p className="mt-3 font-sans text-xs leading-relaxed text-text-dim">
+        Teaching toy, not a measured Recap episode: the 40 s timeline,
+        20 s arc, positive arbitrary values and stage-difference tags are
+        illustrative. Real Recap uses reward-inclusive estimates, a
+        task-dependent threshold and a failure penalty. Conditioning does
+        not guarantee that low-tag behavior is eliminated.
+      </p>
 
       {view === 'episode' && (
         <>
@@ -461,10 +461,11 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             {lowCount} low advantage
           </p>
           <p className="mt-1 font-sans text-xs leading-relaxed text-text-dim">
-            Nothing is filtered out. Failed and suboptimal segments stay in
-            the dataset; each one is simply labeled with the sign of its
-            advantage, so the model learns which is which instead of never
-            seeing its own mistakes.
+            This toy keeps each stage and labels the sign of its score
+            change. That illustrates retaining good and bad data, but it is
+            not Recap’s estimator: the report includes rewards and a
+            task-dependent threshold, forces human corrections positive,
+            and sometimes drops the indicator during training.
           </p>
           <ul className="mt-3 divide-y divide-border">
             {tagged.map((segment) => (
@@ -503,9 +504,10 @@ export function AdvantageScrubber({ className }: { className?: string }) {
             <Badge variant="accent">advantage: high</Badge>
           </div>
           <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-            At test time the policy is always asked for the high-advantage
-            version of the behavior. The bad grasp was never deleted from
-            training; it is simply not what the model is asked to reproduce.
+            The default Recap evaluation samples the positive-conditioned
+            policy. The labels below are toy training examples, not a
+            prediction that each high-tag stage will occur or each low-tag
+            stage will disappear.
           </p>
           <ul className="mt-3 divide-y divide-border">
             {tagged.map((segment) => {
@@ -524,7 +526,7 @@ export function AdvantageScrubber({ className }: { className?: string }) {
                     {segment.label}
                   </span>
                   <span className="ml-auto font-mono text-[10px] text-text-dim">
-                    {active ? 'reproduced' : 'suppressed by conditioning'}
+                    {active ? 'high-tag example' : 'low-tag example'}
                   </span>
                 </li>
               );

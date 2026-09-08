@@ -50,7 +50,7 @@ describe('slotRow', () => {
     expect(slots.every((s) => s.state === 'blocked')).toBe(true);
   });
 
-  it('motion-transfer mode routes every robot through the shared latent', () => {
+  it('motion-transfer mode draws the registered illustrative link slots', () => {
     for (const robot of ROBOTS) {
       const slots = slotRow('motion-transfer', robot);
       const latent = slots.filter((s) => s.state === 'latent').length;
@@ -60,7 +60,7 @@ describe('slotRow', () => {
     }
   });
 
-  it('motion-transfer mode discloses no human-video path', () => {
+  it('motion-transfer illustration leaves the specific hand mapping unmodelled', () => {
     const slots = slotRow('motion-transfer', 'human-hand');
     expect(slots.filter((s) => s.state === 'latent')).toHaveLength(0);
     expect(slots.filter((s) => s.state === 'active')).toHaveLength(0);
@@ -89,7 +89,7 @@ describe('rowSummary', () => {
     expect(humanoid.zeroed).toBeLessThan(arm.zeroed);
   });
 
-  it('marks the human hand unusable except in relative-EEF mode', () => {
+  it('keeps the existing illustrative human-row slot allocation', () => {
     expect(rowSummary('padded', 'human-hand').sharesSpace).toBe(false);
     expect(rowSummary('motion-transfer', 'human-hand').sharesSpace).toBe(false);
     expect(rowSummary('relative-eef', 'human-hand').sharesSpace).toBe(true);
@@ -111,7 +111,7 @@ describe('rowSummary', () => {
 });
 
 describe('strategy registry', () => {
-  it('covers exactly the three published strategies', () => {
+  it('covers exactly the three illustrative interface views', () => {
     expect(STRATEGY_ORDER).toEqual([
       'padded',
       'motion-transfer',

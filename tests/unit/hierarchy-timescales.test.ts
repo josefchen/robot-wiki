@@ -65,6 +65,23 @@ describe('HIERARCHY_SYSTEMS registry', () => {
     expect(planner!.periodMs!).toBeGreaterThan(follower!.periodMs!);
   });
 
+  it('separates reported output rates from schematic instruction and inference cadences', () => {
+    for (const system of HIERARCHY_SYSTEMS) {
+      expect(system.lanes[0].disclosed).toBe(false);
+      expect(system.lanes[0].periodMs).toBeNull();
+    }
+    const pi05 = getSystem('pi05');
+    const chunk = pi05.lanes.find((lane) => lane.id === 'chunk')!;
+    expect(chunk.periodMs).toBe(1000);
+    expect(chunk.rate).toBe('1 chunk/s');
+    expect(chunk.disclosed).toBe(false);
+    expect(chunk.note).toContain('does not establish one chunk inference per second');
+    expect(pi05.lanes.find((lane) => lane.id === 'control')!.disclosed).toBe(true);
+    expect(getSystem('go2').lanes.every((lane) => !lane.disclosed)).toBe(true);
+    expect(getSystem('go2').lanes.find((lane) => lane.id === 'control')!.note)
+      .toContain('not a separately disclosed third module');
+  });
+
   it('every system cites a registered source', () => {
     for (const system of HIERARCHY_SYSTEMS) {
       expect(

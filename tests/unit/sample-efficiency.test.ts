@@ -24,7 +24,7 @@ import {
   timeFraction,
 } from '../../lib/sample-efficiency';
 
-describe('collection rates derive from the published measurements', () => {
+describe('source-informed toy constants retain their arithmetic, not empirical equivalence', () => {
   it('the simulation rate is Rudin batch x updates over the run time', () => {
     expect(SIM_STEPS_PER_SECOND).toBeCloseTo(
       (RUDIN_BATCH_STEPS * RUDIN_POLICY_UPDATES) / RUDIN_RUN_SECONDS,
@@ -42,10 +42,9 @@ describe('collection rates derive from the published measurements', () => {
     expect(ROBOT_STEPS_PER_SECOND).toBeCloseTo(22.22, 2);
   });
 
-  it('linear fleet scaling is optimistic against the QT-Opt per-robot ceiling', () => {
-    // The disclosure the instrument makes on screen has to be true: the
-    // measured episodic-grasping rate is below the locomotion rate the
-    // fleet model multiplies.
+  it('the unused QT-Opt arithmetic remains unchanged without claiming a measured rate', () => {
+    // Compatibility arithmetic only. Neither this value nor its comparison
+    // establishes a campaign step rate or measured per-robot ceiling.
     expect(QT_OPT_STEPS_PER_ROBOT_SECOND).toBeLessThan(ROBOT_STEPS_PER_SECOND);
     expect(QT_OPT_STEPS_PER_ROBOT_SECOND).toBeCloseTo(4.03, 2);
   });
@@ -63,7 +62,7 @@ describe('collection rates derive from the published measurements', () => {
   });
 });
 
-describe('the verdict boundaries partition wall-clock into three families', () => {
+describe('editorial toy boundaries partition modelled time into three unchanged categories', () => {
   it('classifies at the two thresholds', () => {
     expect(classifyFamily(ON_POLICY_MAX_HOURS * 3600).family).toBe('on-policy');
     expect(classifyFamily(ON_POLICY_MAX_HOURS * 3600 + 1).family).toBe(
@@ -143,7 +142,7 @@ describe('the ledger converts one budget under every source', () => {
   });
 });
 
-describe('anchors are sourced measured points on a log timeline', () => {
+describe('anchors retain reported units and qualifiers at nominal numeric positions', () => {
   it('every anchor carries a visible label and a citation id', () => {
     expect(ANCHORS.length).toBeGreaterThanOrEqual(4);
     for (const anchor of ANCHORS) {

@@ -24,13 +24,13 @@ import { ExecutionModes } from '@/components/interactive/execution-modes';
 
 A policy that needs 60 ms per inference cannot finish a new inference within every 20 ms tick of a 50 Hz controller. Chunked execution can still provide commands at 50 Hz. The control period at 50 Hz is 20 ms, and every component in the loop, cameras, network, preprocessing, model, spends from that budget. The earlier modules treated <Term id="action-chunking">action chunking</Term> as an algorithmic choice; this module is about what happens when the algorithm meets the clock. Real-time execution turns out to be a first-class architectural problem, not an engineering afterthought: the way a policy hands off from one chunk to the next while inference is still running changes what the robot physically does, and the naive ways to do it fail in documented, measurable ways <Cite id="real-time-chunking-2025" />.
 
-The wall is below. Drag the model size slider up and watch the inference bar cross the 20 ms budget line: past roughly pi0's own size, the loop no longer closes on a Jetson Thor at any control law.
+The teaching model below compares one synchronous inference with a 20 ms tick. Its slider uses illustrative scaling and a deliberately chosen 3.0B reference coordinate; it is not a hardware profiler or a proof that a chunked 50 Hz robot controller cannot run.
 
 <ControlLoopBudget className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="pi0.6 per chunk" value="63 ms" note="5 denoising steps, 3 cameras, one H100" accent />
-  <Stat label="pi0 on Jetson Thor" value="19 Hz" note="52.57 ms end-to-end, VLA-Perf" />
+  <Stat label="pi0 Thor model" value="19 Hz" note="52.57 ms predicted; network excluded" />
   <Stat label="RTC mean total" value="138.98 ms" note="mobile; 108.76 ms non-mobile, RTX 4090/LAN" />
   <Stat label="pi0.7 training delay" value="0–12 ticks" note="paper: maximum 240 ms at 50 Hz" />
 </div>
@@ -39,37 +39,44 @@ The wall is below. Drag the model size slider up and watch the inference bar cro
 
 The <Term id="real-time-chunking">Real-Time Chunking</Term> paper reports a π0.5 latency breakdown with inference on an RTX 4090 in bfloat16, five denoising steps and a wired LAN. Across 50 inference calls during a real episode, mobile total latency is 138.98 ± 6.71 ms: model 96.89 ± 0.16, network 21.20 ± 3.12, image resizing 11.22 ± 5.00 and other work 9.67 ± 3.20 ms. The non-mobile total is 108.76 ± 2.34 ms; the ± values are one standard deviation. Image resizing uses an Intel i7-1260P NUC in the mobile case and an AMD Ryzen 9 7950X workstation in the non-mobile case <Cite id="real-time-chunking-2025" />. At 50 Hz, the mean totals span about 6.95 and 5.44 control periods. Their reciprocals, about 7.20 and 9.19 inferences per second, do not establish the actual replanning or robot-control rate; the RTC experiment uses chunked execution.
 
-NVIDIA's VLA-Perf study, the first systematic latency analysis of VLAs across edge and cloud hardware, adds the scaling picture <Cite id="vla-perf-2026" />. Its central finding is that denoising steps dominate inference time for <Term id="diffusion-policy">diffusion</Term> and flow-based policies, while chunk size contributes negligibly. That is why the whole field spends its effort on step count and hand-off strategy rather than on shorter chunks.
+Jiang, Clemons, Sankaralingam and Kozyrakis study the scaling picture with VLA-Perf, a roofline-based analytical model, not a hardware-wide profiling campaign <Cite id="vla-perf-2026" />. Its predictions assume optimistic software and attainable peak compute and memory bandwidth. The paper compares them with an optimized π0 Triton implementation on an RTX 4090: the implementation reaches 73.3 to 82.6% of predicted throughput under the tested one-, two- and three-camera settings, with 10 flow-matching steps, chunk size 63 and an empty language prompt.
+
+In its separate B100 π0 model sweep, increasing denoising steps from 10 to 50 at chunk size 50 multiplies action-expert latency by 5, but total VLA latency by 2.15. Increasing chunk size from 50 to 250 at 10 steps raises expert latency by 40% and total latency by 11% <Cite id="vla-perf-2026" />. Chunk size matters less in this experiment; it is not free, and expert latency is not the whole pipeline.
 
 ## The hardware wall
 
-How big a model can close the loop at all? On an H100 server, pi0 runs end-to-end at 162.5 Hz, comfortably inside any budget. On a Jetson Thor, the same model manages 19.0 Hz (52.57 ms), and the 9.1B-parameter pi0-L drops to 3.9 Hz <Cite id="vla-perf-2026" />. That is the curve the figure at the top of this module puts a model-size slider on, and its reference list pins the other sourced numbers from this module against the same budget.
+VLA-Perf predicts π0 inference at 162.5 Hz on H100 and 19.0 Hz (52.57 ms) on Jetson Thor, excluding network latency <Cite id="vla-perf-2026" />. The baseline is 2.7B parameters: a 0.4B vision encoder, 2B VLM and 0.3B action expert. It models three 224×224 cameras, 32 language tokens (800 input tokens total), 14 action dimensions, chunk size 50, 10 denoising steps and batch size one, using BF16 or FP16 where BF16 is unsupported. These are inferences per second, not robot/controller Hz; sensing and robot execution latency are outside the analysis.
 
-VLA-Perf's takeaways are sobering for on-robot deployment <Cite id="vla-perf-2026" />. Roughly 10 Hz control is achievable on Jetson Thor for pi0-scale models, but 100 Hz control requires model-level architectural changes, not just faster hardware. Everything on the Thor is memory-bound, so latency tracks parameter count, which is why the paper points to lower-precision quantization as the lever on that platform. And server-side inference beats on-device inference in almost all scenarios except very poor networks, which is why the latency budget includes a network line at all.
+The 9.1B π0-L result, 3.9 Hz on Thor, is for a hypothetical variant built from a 1.1B SigLIP-Giant encoder, 6.5B Llama2 backbone and 1.5B action expert, not a measured deployed policy <Cite id="vla-perf-2026" />. The interactive below uses a separate teaching curve; its 3.0B coordinate is not the paper’s 2.7B baseline.
+
+VLA-Perf defines 10 Hz inference as “acceptable” and 100 Hz as “high-performance” relative to common camera rates; these are the authors’ analysis targets, not universal robot-control requirements <Cite id="vla-perf-2026" />. For their on-device π0 setup, the predicted 19 Hz exceeds the first target. They propose smaller models, fewer denoising steps or lower-precision quantization to approach 100 Hz. This does not show that future hardware cannot help.
+
+The baseline π0 vision encoder, VLM and action expert are all memory-bound on the modeled Thor configuration. On the other evaluated GPUs, vision and VLM work are compute-bound while the action expert remains memory-bound. The component-scaling experiment finds approximately linear latency growth with parameter count <Cite id="vla-perf-2026" />. These results do not characterize every possible workload on Thor. The study assumes adequate model accuracy and evaluates BF16/FP16 inference; its quantization recommendation is not an FP4/FP8 2 to 4× speedup result or an accuracy-loss validation.
+
+Server placement also depends on the modeled network <Cite id="vla-perf-2026" />. For synchronous π0 inference, RTX 4090 over WiFi 6 is 38.7 ms versus Thor’s 52.6 ms, but RTX 4090 over 5G is slower at 55.7 ms. B100 over the same 5G model is 27.8 ms. Table 7 assumes WiFi 6 upload/download bandwidth of 560/800 Mbps and 3.5 ms base latency, versus 80/500 Mbps and 10 ms for 5G. In the cloud examples, B100 with Ethernet 10G plus the fast-cloud link is 23.4 ms, while 4G plus the slow-cloud link is 273.4 ms. The fast/slow cloud links use 10/1 Gbps and 10/100 ms base latency; the 4G hop uses 19/75 Mbps and 25 ms. These are specified link assumptions, not measurements of arbitrary deployed networks.
 
 <PredictThenReveal
-  prompt="On Jetson Thor, latency is memory-bound and tracks parameter count. Roughly how large a VLA can still close a 50 Hz control loop?"
+  prompt="In this teaching model, 3.0B toy parameters map to 52.57 ms, with linear scaling below that coordinate. Which slider setting fits one 20 ms tick?"
   options={[
     {
       value: 'three-b',
-      label: 'About 3B parameters, pi0’s own size on the robot',
-      why: 'This conflates running on the robot with closing the loop. VLA-Perf measures pi0 at 19.0 Hz on Thor, respectable for chunked execution but two and a half control periods of inference inside one 20 ms tick.'
+      label: 'About 3B toy parameters',
+      why: 'At the deliberately chosen 3.0B coordinate, this model assigns 52.57 ms. That exceeds one 20 ms tick; it does not rule out chunked robot control.'
     },
     {
       value: 'one-b',
-      label: 'About 1B parameters, a third of pi0’s size',
-      why: 'The 20 ms budget divided by the measured scaling: pi0’s 52.57 ms at 3B puts 20 ms near 1.1B parameters. The figure is mounted at 1.1B, one slider step inside the budget, and the next step up already misses the first deadline.',
-      cite: 'vla-perf-2026'
+      label: 'About 1B toy parameters',
+      why: 'The teaching rule gives 52.57 × 1.1 / 3 = 19.3 ms at the 1.1B slider setting. This is arithmetic in the toy model, not a measured hardware-size limit.'
     },
     {
       value: 'nine-b',
-      label: 'About 9B parameters, given Thor’s server-class memory bandwidth',
-      why: 'This reads the hardware’s capacity as speed. The 9.1B pi0-L measured on the same device runs at 3.9 Hz: memory bandwidth is why big models run at all on Thor, not why they run fast.'
+      label: 'About 9B toy parameters',
+      why: 'The upper reference is derived from VLA-Perf’s predicted 3.9 inferences per second for hypothetical π0-L: its reciprocal is about 256.4 ms, not a 20 ms inference.'
     }
   ]}
   answer="one-b"
-  revealHint="The timeline is mounted at 1.1B params and 19.3 ms of inference, closing at 50 Hz with 52 Hz effective. Nudge the model-size slider up one step and the verdict flips."
-  takeaway="The 20 ms budget fits a model near 1.1B parameters, a third of pi0: on memory-bound hardware, loop closure caps model size long before capability does."
+  revealHint="The toy starts at 1.1B and 19.3 ms, whose reciprocal is about 52 inferences per second. One slider step upward exceeds the 20 ms tick."
+  takeaway="A synchronous-inference budget is a useful arithmetic check, not a universal model-size limit or a robot-control-rate guarantee."
 >
   <ControlLoopBudget defaultParamsB={1.1} className="mt-3" />
 </PredictThenReveal>
@@ -86,7 +93,7 @@ Suppose inference takes d milliseconds. The policy has emitted a chunk, the robo
 
 **Real-Time Chunking** guides generation of a new action chunk while the current one executes. Its inpainting guidance assigns weight 1 to the first $d$ actions, which will execute during inference; weight 0 to the non-overlapping tail; and decaying intermediate weights to the remaining overlap. These are soft-mask guidance weights, not a claim that transformer attention itself is partially disabled <Cite id="real-time-chunking-2025" />. The original method is an inference-time procedure for diffusion/flow policies without retraining. In the paper’s six-task π0.5 real-robot evaluation with five denoising steps, RTC’s aggregate throughput shows no degradation over the tested +0, +100 and +200 ms injected delays. The paper also illustrates precise match-lighting at total inference delay above 300 ms; that is not a claim that every dynamic task succeeds under every such delay <Cite id="real-time-chunking-2025" />.
 
-The comparison below makes the three behaviors numeric. One delay slider drives all three traces, and each panel reports its peak per-tick velocity step against a stated jerk limit: synchronous stays smooth but pays the delay as dead time, the naive switch spikes past the limit once the delay reaches 100 ms, and RTC holds the limit across the whole range.
+The comparison below is an illustrative hand-off model, not an implementation or measurement of RTC. One delay slider drives three constructed velocity traces. The values use arbitrary velocity units; the 0.30 per-tick threshold is a discontinuity proxy, not physical jerk. Its five-tick linear blend is a teaching assumption, not transformer attention or the paper’s inpainting solver.
 
 <ExecutionModes className="my-6" />
 
@@ -96,8 +103,10 @@ The comparison below makes the three behaviors numeric. One delay slider drives 
 
 ## Spending the step budget
 
-Since denoising steps dominate latency <Cite id="vla-perf-2026" />, the step count is where the frontier labs spend down. pi0 integrated its flow with 10 Euler steps per chunk <Cite id="pi0-2024" />. pi0.6 cut that to 5, landing at 63 ms per chunk on a single H100 with three cameras <Cite id="pi06-model-card-2025" />. pi0.7 stays at 5 <Cite id="pi07-2026" />. These three source-specific choices do not establish field-wide nonadoption of one-step distillation or show that it matters chiefly on edge hardware. π0.7’s paper documents its own five-step policy with training-time RTC, not a survey of other laboratories <Cite id="pi07-2026" />.
+VLA-Perf’s π0 sweep shows that step count affects expert and total latency by different factors <Cite id="vla-perf-2026" />. The following papers report their own step settings. pi0 integrated its flow with 10 Euler steps per chunk <Cite id="pi0-2024" />. pi0.6 cut that to 5, landing at 63 ms per chunk on a single H100 with three cameras <Cite id="pi06-model-card-2025" />. pi0.7 stays at 5 <Cite id="pi07-2026" />. These three source-specific choices do not establish field-wide nonadoption of one-step distillation or show that it matters chiefly on edge hardware. π0.7’s paper documents its own five-step policy with training-time RTC, not a survey of other laboratories <Cite id="pi07-2026" />.
 
 <Callout variant="warn" title="How to read these numbers">
-  The latency figures above come from two arXiv papers and one vendor model card; the pi0.6 figure is vendor-reported. Both interactives are models anchored to those published numbers, not re-runs of the experiments: the control-loop scaling between the two VLA-Perf anchors is illustrative, and the hand-off traces encode the published qualitative behaviors with a stated, illustrative jerk threshold. The RTC table reports 108.76 ms non-mobile and 138.98 ms mobile mean latency; π0.6’s 63 ms is a hardware-specific chunk-inference measurement. π0.7’s 240 ms is the paper’s stated maximum simulated training delay at 50 Hz, not an independently measured tolerance guarantee.
+  VLA-Perf’s values are analytical roofline predictions, not five-GPU robot measurements. Its π0-L is hypothetical, and it assumes adequate accuracy rather than validating quantization accuracy. The control-loop curve is a separate teaching model: it places the 52.57 ms reference at a deliberately chosen 3.0B coordinate instead of the paper’s 2.7B, uses linear and power-law scaling, and reports reciprocal inference rate rather than robot rate. The hand-off traces use arbitrary velocity units and an illustrative 0.30 per-tick discontinuity proxy; the five-tick blend is not RTC’s inpainting algorithm. <Cite id="vla-perf-2026" /> <Cite id="real-time-chunking-2025" />
+
+  The retained measured references have different meanings: RTC reports 108.76 ms non-mobile and 138.98 ms mobile mean total latency in its RTX 4090/wired-LAN setup; the π0.6 model card reports 63 ms per chunk on one H100 with five steps and three cameras. π0.7’s 240 ms is its stated maximum simulated training delay at 50 Hz, not a measured tolerance guarantee. None is a shared controller-frequency benchmark. <Cite id="real-time-chunking-2025" /> <Cite id="pi06-model-card-2025" /> <Cite id="pi07-2026" />
 </Callout>

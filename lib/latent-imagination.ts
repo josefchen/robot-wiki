@@ -1,21 +1,14 @@
 /**
- * Latent-imagination compounding-error model for the world-models
- * latent-dynamics module.
+ * Deterministic pedagogical toy for the latent-dynamics article.
  *
- * Pedagogical model of how error accumulates inside an imagined rollout
- * (Dreamer-style RSSM imagination or TD-MPC-style latent planning). At each
- * imagined step the learned dynamics make a one-step prediction error of
- * magnitude epsilon in latent space. The next prediction is conditioned on
- * the already-erroneous latent, so error enters the state the model reads
- * and later steps err more: deviation compounds instead of staying flat.
- * This is the mechanism behind the published practice of keeping latent
- * imagination short: DreamerV3 trains on 15-step imagined rollouts and
- * TD-MPC2 plans 3 steps ahead.
+ * The recurrence assumes that off-state error amplifies subsequent error.
+ * Its curves, projected path, and reward-error multiplier are illustrative,
+ * not measured Dreamer or TD-MPC predictions and not a reliability model.
+ * Source horizon settings are discussed separately in the article.
  *
- * Decoder-free models (TD-MPC/TD-MPC2) never reconstruct an image; the only
- * prediction that has to stay calibrated is reward and value. The reward
- * prediction error is modeled as proportional to the latent deviation: the
- * further the imagined state has drifted, the worse the scalar heads do.
+ * TD-MPC and TD-MPC2 do not reconstruct observations, but their objectives
+ * also include latent-state consistency / joint-embedding prediction.
+ * A toy scalar readout is not a complete account of either training loss.
  *
  * All functions are pure and deterministic. Unit-tested in
  * tests/unit/latent-imagination.test.ts.
@@ -38,15 +31,15 @@ export interface ImaginationParams {
 export const COMPOUNDING_GAIN = 0.02;
 
 /**
- * Reward/value prediction error per unit of latent deviation. Decoder-free
- * models are trained only for reward and value prediction, so this is the
- * readout that replaces pixel reconstruction quality for them.
+ * Illustrative reward-error multiplier per unit of toy latent deviation.
+ * This chosen coefficient is not a measured quantity or a paper loss.
  */
 export const REWARD_ERROR_GAIN = 0.35;
 
 /**
- * Published horizons from the primary papers: TD-MPC2 plans 3 steps ahead,
- * DreamerV3 trains its actor and critic on 15-step imagined rollouts.
+ * Illustrative shaded-band endpoints, not a published or reliable range.
+ * The legacy export name is retained for compatibility. Neither endpoint
+ * resolves DreamerV3 H=15/T=16 or DayDreamer H=16/H=15 source differences.
  */
 export const TYPICAL_HORIZON: readonly [number, number] = [3, 15];
 
@@ -93,9 +86,8 @@ export function deviationAt(params: ImaginationParams): number {
 }
 
 /**
- * Reward/value prediction error at the end of an H-step imagined rollout,
- * proportional to the latent deviation. This is the quantity a decoder-free
- * model exposes: prediction quality without any image reconstruction.
+ * Toy reward-error readout at the end of an H-step illustrative rollout,
+ * proportional to toy latent deviation; not measured decoder-free performance.
  */
 export function rewardPredictionError(params: ImaginationParams): number {
   return REWARD_ERROR_GAIN * deviationAt(params);

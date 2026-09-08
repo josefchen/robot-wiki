@@ -56,9 +56,18 @@ describe('ControlLoopBudget', () => {
     );
   });
 
-  it('marks the scaling between anchors as an illustrative model', () => {
+  it('distinguishes roofline predictions, hypothetical models, and the teaching coordinate', () => {
     render(<ControlLoopBudget />);
-    expect(screen.getByText(/illustrative/i)).toBeInTheDocument();
+    const note = screen.getByTestId('model-assumption-note');
+    expect(note).toHaveTextContent(/illustrative teaching model/i);
+    expect(note).toHaveTextContent(/not hardware profiling/i);
+    expect(note).toHaveTextContent(/2.7B pi0/);
+    expect(note).toHaveTextContent(/hypothetical 9.1B pi0-L/);
+    expect(note).toHaveTextContent(/deliberately places the first reference at 3.0B/);
+    expect(screen.getByText('pi0 reference (modeled)')).toBeInTheDocument();
+    expect(screen.getByText('pi0-L hypothetical')).toBeInTheDocument();
+    expect(screen.queryByText(/^pi0(?:-L)? .*measured$/i)).not.toBeInTheDocument();
+    expect(screen.getByText(/reciprocal inference rate, not robot Hz/i)).toBeInTheDocument();
   });
 
   it('reset restores the default state', async () => {

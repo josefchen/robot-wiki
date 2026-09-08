@@ -13,9 +13,9 @@ test.describe('world-models taxonomy module', () => {
     ).toBeVisible();
     const main = page.locator('#main-content');
     for (const name of [
-      /multiple architecturally distinct paradigms/,
-      /predictions change under the agent's action/,
-      /useful for decision-making/,
+      /six example groups below are this article's selection/,
+      /future changes under robot-relevant actions/,
+      /supports embodied decision-making/,
       /A physics engine is a world model/,
       /3D Gaussian Splatting twin is not/,
       /appearance is learned, physics is not/i,

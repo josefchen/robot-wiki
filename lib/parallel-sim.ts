@@ -14,12 +14,11 @@
  *   under four minutes and uneven terrain in twenty minutes on a single
  *   workstation GPU at 4,096 environments. The default curve is tuned to
  *   pass through the four-minute mark at 4,096 envs.
- * - Isaac Lab (arXiv:2511.04831): a single-GPU RTX 5090 workstation
- *   approaches a 2x RTX PRO 6000 server on the Franka task because parts of
- *   the PhysX pipeline and the main training loop are bound by single-core
- *   CPU performance. The CPU-bottleneck mode reproduces this by adding a
- *   per-environment CPU cost the GPU cannot absorb, which flattens the
- *   high end of the curve.
+ * - Isaac Lab v1 (arXiv:2511.04831), Section 4.1.1: the tested
+ *   RTX 5090 / AMD 9800X3D workstation approaches a two-RTX-PRO-6000
+ *   server on the Franka cabinet task. Its CPU-bottleneck explanation
+ *   motivates this illustrative toggle, but does not measure or establish
+ *   our per-environment CPU constant or the shape of this toy curve.
  *
  * Determinism: no Math.random anywhere; all rendered values are rounded so
  * SSR HTML and client hydration serialize identically.

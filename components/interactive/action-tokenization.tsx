@@ -474,13 +474,13 @@ export function ActionTokenization({
         </span>
       </p>
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        Illustrative model: a smooth 7-dim action chunk in the normalized
-        [-1, 1] range, binned exactly as RT-1 and OpenVLA bin real actions
-        (256 uniform bins per dimension). One shared 256-token vocabulary
-        serves every dimension; the position in the sequence carries the
-        dimension. OpenVLA maps the bins onto the 256 least-frequent tokens
-        of the LLaMA tokenizer, so each token above stands in for a real
-        vocabulary entry, emitted like a word of text.
+        Illustrative seven-coordinate sequence: fixed [-1, 1] bounds and
+        synthetic token labels, not a recorded rollout or literal vocabulary.
+        The 256 bins illustrate per-coordinate quantization. RT-1 uses each
+        variable’s bounds; OpenVLA uses the 1st and 99th training-data
+        quantiles. RT-2 PaLI-X uses existing number tokens, while PaLM-E
+        overwrites least-used tokens. The toy’s delta labels and 16-step
+        sequence do not specify a universal robot controller.
       </p>
     </div>
   );

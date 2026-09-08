@@ -33,7 +33,7 @@ test.describe('parallel-sim-rl module', () => {
     // Both headline throughput figures appear.
     await expect(main.getByText(/900,000 frames per second/)).toBeVisible();
     await expect(
-      main.getByText(/1\.6 million frames per second/),
+      main.getByText(/Franka cabinet-drawer task exceeds 1\.6 million/),
     ).toBeVisible();
     // Sidebar marks this module active.
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
@@ -49,7 +49,7 @@ test.describe('parallel-sim-rl module', () => {
       main.getByRole('link', { name: /Rudin 2021/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2109.11978');
     await expect(
-      main.getByRole('link', { name: /Mittal 2025/ }).first(),
+      main.getByRole('link', { name: /NVIDIA 2025/ }).first(),
     ).toHaveAttribute('href', 'https://arxiv.org/abs/2511.04831');
     // Scoped to the authored prose: the generated References bibliography
     // also renders external links inside main, and with every inline chip deleted its 7 registry anchors alone still passed this floor.

@@ -167,8 +167,8 @@ describe('AdvantageScrubber', () => {
     // Execution view: describes conditioning, still no episode-only elements.
     await user.click(screen.getByRole('button', { name: /at execution/i }));
     expect(read()).not.toMatch(/dashed arc/);
-    expect(read()).toMatch(new RegExp(`\\b${high} are reproduced\\b`));
-    expect(read()).toMatch(new RegExp(`\\b${low} suppressed\\b`));
+    expect(read()).toMatch(new RegExp(`\\b${high} high-tag examples\\b`));
+    expect(read()).toMatch(new RegExp(`\\b${low} low-tag examples\\b`));
     // Back to the episode view: the episode text returns.
     await user.click(screen.getByRole('button', { name: /^episode$/i }));
     expect(read()).toMatch(/dashed arc/);

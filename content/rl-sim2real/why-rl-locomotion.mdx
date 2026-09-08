@@ -49,7 +49,7 @@ The asymmetry decomposes into six specific properties. Each row is a place where
 
 <MdpComparison className="my-6 wide-measure" />
 
-The Isaac Lab team frames the dexterous case in the same terms: it "remains challenging compared to standard parallel-jaw grasping due to the high-dimensional action space and fine-grained control required," and the framework's answer is SDF collision, accurate contact modeling, and aggressive domain randomization <Cite id="isaac-lab-2025" />. The humanoid sim-to-real RL literature is blunter. Lin and colleagues note that previous successes in dexterous manipulation involve "much more laborious real-to-sim engineering efforts" that are task-specific or hardware-specific, unlike the locomotion successes <Cite id="lin-humanoid-sim2real-2025" />.
+The Isaac Lab v1 paper says dexterous manipulation with multi-fingered hands "remains challenging compared to standard parallel-jaw grasping due to the high-dimensional action space and fine-grained control required". Its discussion names accurate contact modeling, vision and proprioception, domain randomization, and tiled rendering as support for this work<br />Source: <Cite id="isaac-lab-2025" />. The humanoid sim-to-real RL literature is blunter. Lin and colleagues note that previous successes in dexterous manipulation involve "much more laborious real-to-sim engineering efforts" that are task-specific or hardware-specific, unlike the locomotion successes <Cite id="lin-humanoid-sim2real-2025" />.
 
 ## Contact geometry is where the gap lives
 
@@ -59,7 +59,11 @@ Three things to take from it. First, contact count: four near-point foot contact
 
 ## It is a tendency, not a law
 
-Sim-to-real RL has produced real dexterous results, and honesty requires listing them. OpenAI solved a Rubik's cube with a five-fingered hand in 2019, trained entirely in simulation with automatic domain randomization <Cite id="openai-rubiks-cube-2019" />. Isaac Lab's DextrAH line distills a state-privileged RL teacher into a stereo-RGB student, the first system to map stereo images directly to dexterous grasping end to end <Cite id="isaac-lab-2025" />. Play2Perfect trains CAD-derived sparse-reward assembly tasks and transfers zero-shot, including 60% success on insertions with 0.5 mm clearance <Cite id="play2perfect-2026" />.
+Sim-to-real RL has produced real dexterous results, and honesty requires listing them. OpenAI solved a Rubik's cube with a five-fingered hand in 2019, trained entirely in simulation with automatic domain randomization <Cite id="openai-rubiks-cube-2019" />.
+
+In its DextrAH-RGB example, the Isaac Lab v1 paper reports an RL teacher trained with privileged state on a KUKA arm and Allegro hand, then distilled into a network taking stereo RGB pairs as input<br />Source: <Cite id="isaac-lab-2025" />.
+
+ Play2Perfect trains CAD-derived sparse-reward assembly tasks and transfers zero-shot, including 60% success on insertions with 0.5 mm clearance <Cite id="play2perfect-2026" />.
 
 What these results share is per-task engineering. The Rubik's cube run consumed a custom robot platform and a randomization curriculum tuned for that task. Play2Perfect's clearance number comes from a pipeline built around its task family. The correct statement of the asymmetry is not that manipulation sim-to-real fails; it is that manipulation sim-to-real requires engineering per task that locomotion gets for free, and that per-task cost is exactly what the MDP table prices.
 

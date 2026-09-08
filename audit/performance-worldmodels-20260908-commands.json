@@ -1,0 +1,640 @@
+{
+  "schemaVersion": 1,
+  "mission": "mis_2b1673fa",
+  "worker": "2b3cad62-4739-4a04-9354-304f191b77b3",
+  "startingCommit": "89a31e5dc1a222c4101fbd5487981d57cb91101b",
+  "evidenceRoot": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908",
+  "environment": {
+    "NODE_DISABLE_COMPILE_CACHE": "1"
+  },
+  "distinctLogicalUnitComponentCases": 183,
+  "distinctBrowserCases": 18,
+  "note": "These are distinct logical cases with final-relevant passing results across invocations, not a single full-corpus/all-green run. Repeated invocations and red-first evidence remain separate.",
+  "commands": [
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/before-snapshot.receipt.json",
+      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/snapshot.mjs before",
+      "startedAt": "2026-09-07T23:21:31.817626+00:00",
+      "finishedAt": "2026-09-07T23:21:32.570846+00:00",
+      "elapsedSeconds": 0.753213812597096,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/before-snapshot.log",
+      "bytes": 58,
+      "sha256": "c81787eca30cd5d192e5d011b2942c5025ce1c4fa86ae7231b6450ca16286a3a",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/prepare.receipt.json",
+      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/prepare.py",
+      "startedAt": "2026-09-07T23:24:40.240062+00:00",
+      "finishedAt": "2026-09-07T23:24:40.374011+00:00",
+      "elapsedSeconds": 0.13394703716039658,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/prepare.log",
+      "bytes": 1327,
+      "sha256": "6b8c8f73e9f18738829b74b4cf6c22b19ff60f1de90c78dcdb45aba1c500ca74",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-red.receipt.json",
+      "command": "node node_modules/vitest/vitest.mjs run tests/unit/vla-performance-source-context.test.ts tests/unit/performance-worldmodels-source-context.test.ts",
+      "startedAt": "2026-09-07T23:30:36.521140+00:00",
+      "finishedAt": "2026-09-07T23:30:37.532549+00:00",
+      "elapsedSeconds": 1.0114060137420893,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-red.log",
+      "bytes": 98361,
+      "sha256": "f495b3e26752127d7393ea5a86d43413908f03535cb364177f6ec31d0197e67a",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/edge-red.receipt.json",
+      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/playwright.config.mjs --grep inherited --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/captures-red",
+      "startedAt": "2026-09-07T23:31:10.722233+00:00",
+      "finishedAt": "2026-09-07T23:31:15.830199+00:00",
+      "elapsedSeconds": 5.1079622665420175,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/edge-red.log",
+      "bytes": 6300,
+      "sha256": "ef1795c898e3d53061a8d8cc8a68f26e66d25bbaf3ec31aec0cc5f91223cbd4a",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/integrate.receipt.json",
+      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/integrate.mjs",
+      "startedAt": "2026-09-07T23:31:47.888721+00:00",
+      "finishedAt": "2026-09-07T23:31:48.479253+00:00",
+      "elapsedSeconds": 0.5905407071113586,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/integrate.log",
+      "bytes": 1692,
+      "sha256": "447355a4efa8416df4b313d6e5c3bfe55ae611091f8422d3b43078f528f09667",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/focused.receipt.json",
+      "command": "node node_modules/vitest/vitest.mjs run tests/unit/vla-performance-source-context.test.ts tests/unit/performance-worldmodels-source-context.test.ts tests/unit/control-loop.test.ts tests/unit/execution-modes.test.ts tests/component/control-loop-budget.test.tsx tests/component/execution-modes.test.tsx tests/unit/hardware.test.ts tests/component/hardware-guide.test.tsx tests/unit/world-model-taxonomy.test.ts tests/unit/latent-imagination.test.ts tests/component/latent-imagination.test.tsx tests/unit/audit-ledger.test.ts",
+      "startedAt": "2026-09-07T23:33:02.540328+00:00",
+      "finishedAt": "2026-09-07T23:33:08.059587+00:00",
+      "elapsedSeconds": 5.519253618083894,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/focused.log",
+      "bytes": 15901,
+      "sha256": "c79cae978f847f3121f381c9503d0a6a79bed96adbb552ecffa331505b8d60f3",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-wording-final.receipt.json",
+      "command": "node node_modules/vitest/vitest.mjs run tests/unit/performance-worldmodels-source-context.test.ts",
+      "startedAt": "2026-09-07T23:35:36.299737+00:00",
+      "finishedAt": "2026-09-07T23:35:37.253446+00:00",
+      "elapsedSeconds": 0.9537064228206873,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-wording-final.log",
+      "bytes": 12080,
+      "sha256": "a0c6a43213834c9a92e9c678d9f9d5c8b397e6bb199c92311701b227449271d7",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/browser.receipt.json",
+      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/playwright.config.mjs",
+      "startedAt": "2026-09-07T23:35:37.281665+00:00",
+      "finishedAt": "2026-09-07T23:38:19.751154+00:00",
+      "elapsedSeconds": 162.46948958281428,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/browser.log",
+      "bytes": 17486,
+      "sha256": "ced75110fdbbfd213ad78a127ac0a2aa64547e62c9d3f106cb95c1211ddf3758",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-scope-corrected.receipt.json",
+      "command": "node node_modules/vitest/vitest.mjs run tests/unit/performance-worldmodels-source-context.test.ts",
+      "startedAt": "2026-09-07T23:49:57.025210+00:00",
+      "finishedAt": "2026-09-07T23:49:58.002392+00:00",
+      "elapsedSeconds": 0.9771801177412271,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-scope-corrected.log",
+      "bytes": 525,
+      "sha256": "51d2f26893b514f21b3bcaa2de4c891b2d9611098ad1241db95ec030f85eb82b",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/browser-corrected.receipt.json",
+      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/playwright.config.mjs --grep \"reader (realtime-execution|taxonomy|jepa) at\" --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/captures-corrected",
+      "startedAt": "2026-09-07T23:49:58.032144+00:00",
+      "finishedAt": "2026-09-07T23:52:13.973336+00:00",
+      "elapsedSeconds": 135.9411833807826,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/browser-corrected.log",
+      "bytes": 10294,
+      "sha256": "66d288622edfa39102bb68bae96af8f857a89f63893ecb2ace65b5de2857319f",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/browser-final.receipt.json",
+      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/playwright.config.mjs --grep \"reader (realtime-execution|jepa) at\" --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/captures-final",
+      "startedAt": "2026-09-07T23:53:29.605028+00:00",
+      "finishedAt": "2026-09-07T23:53:44.588831+00:00",
+      "elapsedSeconds": 14.983804957009852,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/browser-final.log",
+      "bytes": 487,
+      "sha256": "f7f354963e17f8928caac150c80758bfb549e36791ad46f9c9952d78a51996e4",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/candidate-snapshot.receipt.json",
+      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/snapshot.mjs candidate",
+      "startedAt": "2026-09-07T23:54:36.680726+00:00",
+      "finishedAt": "2026-09-07T23:54:37.597285+00:00",
+      "elapsedSeconds": 0.9165538866072893,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/candidate-snapshot.log",
+      "bytes": 61,
+      "sha256": "a0c32c1d12a1976fe108e46dab29856622124ab9ccd5e9e94b73e2b396fdb1bf",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/exact-deltas.receipt.json",
+      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/deltas.mjs",
+      "startedAt": "2026-09-07T23:56:05.448450+00:00",
+      "finishedAt": "2026-09-07T23:56:05.807661+00:00",
+      "elapsedSeconds": 0.3592081693932414,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/exact-deltas.log",
+      "bytes": 25,
+      "sha256": "c08ce6a1b7d441f685fdd321e3aee3be2fbfa303dc5eb53736bf3decf1928721",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/typescript.receipt.json",
+      "command": "node node_modules/typescript/bin/tsc --noEmit --incremental false",
+      "startedAt": "2026-09-07T23:56:51.510508+00:00",
+      "finishedAt": "2026-09-07T23:56:53.474057+00:00",
+      "elapsedSeconds": 1.9635422360152006,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/typescript.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/lint.receipt.json",
+      "command": "node node_modules/eslint/bin/eslint.js .",
+      "startedAt": "2026-09-07T23:56:53.502483+00:00",
+      "finishedAt": "2026-09-07T23:57:10.859506+00:00",
+      "elapsedSeconds": 17.357022895477712,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/lint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/content.receipt.json",
+      "command": "npm run validate:content",
+      "startedAt": "2026-09-07T23:57:10.887719+00:00",
+      "finishedAt": "2026-09-07T23:57:11.372218+00:00",
+      "elapsedSeconds": 0.4844953464344144,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/content.log",
+      "bytes": 684,
+      "sha256": "60c989c88a2bd7196c8d37cc922ffd52a8e3b57f4fb975b062614b275fb5520b",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/baseline.receipt.json",
+      "command": "npm run baseline:brand-v2",
+      "startedAt": "2026-09-07T23:57:11.401650+00:00",
+      "finishedAt": "2026-09-07T23:57:11.832319+00:00",
+      "elapsedSeconds": 0.4306656150147319,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/baseline.log",
+      "bytes": 730061,
+      "sha256": "b5a9062c5fa6dd3fe31c688ceac1f299783f10601d517a1e6bf0342c13e46d0e",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/taxonomy-existing.receipt.json",
+      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/taxonomy-existing.config.mjs",
+      "startedAt": "2026-09-07T23:57:11.863883+00:00",
+      "finishedAt": "2026-09-07T23:57:20.535685+00:00",
+      "elapsedSeconds": 8.671796788461506,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/taxonomy-existing.log",
+      "bytes": 856,
+      "sha256": "f26d32323cfadbc3fb55ba71c2b4b3586a391ffaefe3c01013b96471cf3929b2",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/cards.receipt.json",
+      "command": "npm run check:og-card-bytes",
+      "startedAt": "2026-09-07T23:57:20.571918+00:00",
+      "finishedAt": "2026-09-07T23:57:22.685234+00:00",
+      "elapsedSeconds": 2.113312561996281,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/cards.log",
+      "bytes": 200,
+      "sha256": "a0e1b5fed530799c528ef9b9343815009ab289b3dc83457159690369675b2844",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/final-deltas.receipt.json",
+      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/deltas.mjs",
+      "startedAt": "2026-09-08T00:00:54.555728+00:00",
+      "finishedAt": "2026-09-08T00:00:54.916386+00:00",
+      "elapsedSeconds": 0.3606532458215952,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/final-deltas.log",
+      "bytes": 25,
+      "sha256": "6504a4f8df5dd339ec8454d08f0661091fbc6dc6f1973cb247785a531dcb05df",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/focused-final.receipt.json",
+      "command": "node node_modules/vitest/vitest.mjs run tests/component/execution-modes.test.tsx tests/unit/performance-worldmodels-source-context.test.ts tests/unit/vla-performance-source-context.test.ts",
+      "startedAt": "2026-09-08T00:00:54.945784+00:00",
+      "finishedAt": "2026-09-08T00:00:56.359997+00:00",
+      "elapsedSeconds": 1.4142119782045484,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/focused-final.log",
+      "bytes": 18130,
+      "sha256": "3c918d7428d8198856181e8041d943db490741d24781362dc9734c80497c3117",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/content-final.receipt.json",
+      "command": "npm run validate:content",
+      "startedAt": "2026-09-08T00:00:56.388394+00:00",
+      "finishedAt": "2026-09-08T00:00:57.168966+00:00",
+      "elapsedSeconds": 0.780571274459362,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/content-final.log",
+      "bytes": 264155,
+      "sha256": "f3d40d33e3e29ca4d834725f6420d0c1deac27b75e3fab5e894533d52e2a6eaf",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/baseline-final.receipt.json",
+      "command": "npm run baseline:brand-v2",
+      "startedAt": "2026-09-08T00:00:57.198116+00:00",
+      "finishedAt": "2026-09-08T00:00:57.623056+00:00",
+      "elapsedSeconds": 0.42493668012320995,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/baseline-final.log",
+      "bytes": 730104,
+      "sha256": "654819cf221f3eaf14204e6273ffd05d7fe653459d66e50e989a9512b5e106a1",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/realtime-final.receipt.json",
+      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/playwright.config.mjs --grep \"reader realtime-execution at\" --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/captures-realtime-final",
+      "startedAt": "2026-09-08T00:00:57.654097+00:00",
+      "finishedAt": "2026-09-08T00:01:07.439330+00:00",
+      "elapsedSeconds": 9.785231845453382,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/realtime-final.log",
+      "bytes": 283,
+      "sha256": "50a004db11e0dbec593415b45a7cd498ef721177fdf4dc01d81cb9c47d5528c7",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/vla-wording-final.receipt.json",
+      "command": "node node_modules/vitest/vitest.mjs run tests/unit/vla-performance-source-context.test.ts",
+      "startedAt": "2026-09-08T00:02:46.504206+00:00",
+      "finishedAt": "2026-09-08T00:02:47.632253+00:00",
+      "elapsedSeconds": 1.1280472567304969,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/vla-wording-final.log",
+      "bytes": 517,
+      "sha256": "0bf6346603b0c39e9e5b2dbaf4fd80075a512f6215bf260d7526e83cf03d02ef",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/typescript-final.receipt.json",
+      "command": "node node_modules/typescript/bin/tsc --noEmit --incremental false",
+      "startedAt": "2026-09-08T00:02:47.662398+00:00",
+      "finishedAt": "2026-09-08T00:02:49.610116+00:00",
+      "elapsedSeconds": 1.9477149145677686,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/typescript-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/lint-final.receipt.json",
+      "command": "node node_modules/eslint/bin/eslint.js .",
+      "startedAt": "2026-09-08T00:02:49.637489+00:00",
+      "finishedAt": "2026-09-08T00:03:06.280303+00:00",
+      "elapsedSeconds": 16.64281191304326,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/lint-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/inspection-sheets.receipt.json",
+      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/inspection-sheets.mjs",
+      "startedAt": "2026-09-08T00:03:06.310817+00:00",
+      "finishedAt": "2026-09-08T00:03:06.340202+00:00",
+      "elapsedSeconds": 0.029382333159446716,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/inspection-sheets.log",
+      "bytes": 1316,
+      "sha256": "050b9a4cae3cb4b81e45f2b942c1b0a6fb33c0e0a916cbb99d3afb8f1ceea7ec",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/final-snapshot.receipt.json",
+      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/snapshot.mjs final",
+      "startedAt": "2026-09-08T00:03:32.681642+00:00",
+      "finishedAt": "2026-09-08T00:03:33.312291+00:00",
+      "elapsedSeconds": 0.6306464718654752,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/final-snapshot.log",
+      "bytes": 57,
+      "sha256": "298c9677f28b884999b842ddd00dc9490296b4ddc71a973ad2fcabef8c6303dc",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/preservation.receipt.json",
+      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/preserve.py",
+      "startedAt": "2026-09-08T00:03:33.340180+00:00",
+      "finishedAt": "2026-09-08T00:03:33.440708+00:00",
+      "elapsedSeconds": 0.10052573308348656,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/preservation.log",
+      "bytes": 2635,
+      "sha256": "925cf8d5469bb8046e188ff6727056e939cf3ff4ef488a34e457228431f4de10",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/inspection-sheets-final.receipt.json",
+      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/inspection-sheets.mjs",
+      "startedAt": "2026-09-08T00:04:31.064509+00:00",
+      "finishedAt": "2026-09-08T00:04:32.667909+00:00",
+      "elapsedSeconds": 1.6033967416733503,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/inspection-sheets-final.log",
+      "bytes": 3296,
+      "sha256": "edc35e0b2218a7e9591013e15a7f6e171ee0a8fc72d4038cf1576d3654010a67",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/metadata-deltas.receipt.json",
+      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/deltas.mjs",
+      "startedAt": "2026-09-08T00:08:47.513920+00:00",
+      "finishedAt": "2026-09-08T00:08:47.867766+00:00",
+      "elapsedSeconds": 0.3538451427593827,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/metadata-deltas.log",
+      "bytes": 25,
+      "sha256": "ad8c6b8945d0e3cc732c8063883e1f4d0884d4caf4f0db057cbd554d0e9aa6d1",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/reader-seal.receipt.json",
+      "command": "node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/playwright.config.mjs --grep \"reader (realtime-execution|taxonomy) at\" --output /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/captures-seal",
+      "startedAt": "2026-09-08T00:09:46.281537+00:00",
+      "finishedAt": "2026-09-08T00:10:02.857172+00:00",
+      "elapsedSeconds": 16.575637428089976,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/reader-seal.log",
+      "bytes": 495,
+      "sha256": "5b322dbddb37e0c448d4aca063b235cc517907de91236bfa662bc48e23a09f01",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/metadata-unit.receipt.json",
+      "command": "node node_modules/vitest/vitest.mjs run tests/unit/performance-worldmodels-source-context.test.ts",
+      "startedAt": "2026-09-08T00:10:02.886777+00:00",
+      "finishedAt": "2026-09-08T00:10:04.064282+00:00",
+      "elapsedSeconds": 1.1774985920637846,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/metadata-unit.log",
+      "bytes": 525,
+      "sha256": "fdeccea3e35b6064e74b796a0b7856f026f12c89cacf7995b9ea83a1a09e93c6",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/typescript-seal.receipt.json",
+      "command": "node node_modules/typescript/bin/tsc --noEmit --incremental false",
+      "startedAt": "2026-09-08T00:10:04.094189+00:00",
+      "finishedAt": "2026-09-08T00:10:06.049117+00:00",
+      "elapsedSeconds": 1.9549265252426267,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/typescript-seal.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/lint-seal.receipt.json",
+      "command": "node node_modules/eslint/bin/eslint.js .",
+      "startedAt": "2026-09-08T00:10:06.077762+00:00",
+      "finishedAt": "2026-09-08T00:10:23.252113+00:00",
+      "elapsedSeconds": 17.174348630942404,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/lint-seal.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/content-seal.receipt.json",
+      "command": "npm run validate:content",
+      "startedAt": "2026-09-08T00:10:23.281152+00:00",
+      "finishedAt": "2026-09-08T00:10:24.073083+00:00",
+      "elapsedSeconds": 0.7919275956228375,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/content-seal.log",
+      "bytes": 264155,
+      "sha256": "f3d40d33e3e29ca4d834725f6420d0c1deac27b75e3fab5e894533d52e2a6eaf",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/baseline-seal.receipt.json",
+      "command": "npm run baseline:brand-v2",
+      "startedAt": "2026-09-08T00:10:24.103296+00:00",
+      "finishedAt": "2026-09-08T00:10:24.537532+00:00",
+      "elapsedSeconds": 0.43423512019217014,
+      "exitCode": 1,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/baseline-seal.log",
+      "bytes": 730104,
+      "sha256": "d1fbc522d4513d01f4472f8dacefe7621e1ad16cb2e51608c090a172784a9438",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/cards-seal.receipt.json",
+      "command": "npm run check:og-card-bytes",
+      "startedAt": "2026-09-08T00:10:24.571479+00:00",
+      "finishedAt": "2026-09-08T00:10:26.663573+00:00",
+      "elapsedSeconds": 2.0920872865244746,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/cards-seal.log",
+      "bytes": 200,
+      "sha256": "a0e1b5fed530799c528ef9b9343815009ab289b3dc83457159690369675b2844",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/inspection-seal.receipt.json",
+      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/inspection-seal.mjs",
+      "startedAt": "2026-09-08T00:11:15.301584+00:00",
+      "finishedAt": "2026-09-08T00:11:16.263931+00:00",
+      "elapsedSeconds": 0.9623442701995373,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/inspection-seal.log",
+      "bytes": 1820,
+      "sha256": "852d9db2f9731356e9bc5a3ab879018a60e258e77567e7275dc5b59dbecd802b",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/snapshot-seal.receipt.json",
+      "command": "node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/snapshot.mjs seal",
+      "startedAt": "2026-09-08T00:11:16.292016+00:00",
+      "finishedAt": "2026-09-08T00:11:16.918424+00:00",
+      "elapsedSeconds": 0.6264053760096431,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/snapshot-seal.log",
+      "bytes": 56,
+      "sha256": "a79becd2511ce48979038ba3c38a9ed1ea6bcc03f05afa76538e1238f56b78a1",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    },
+    {
+      "receiptPath": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/preservation-seal.receipt.json",
+      "command": "python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/preserve.py",
+      "startedAt": "2026-09-08T00:11:16.947421+00:00",
+      "finishedAt": "2026-09-08T00:11:17.050742+00:00",
+      "elapsedSeconds": 0.10331926681101322,
+      "exitCode": 0,
+      "log": "/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/preservation-seal.log",
+      "bytes": 2635,
+      "sha256": "319b7b4dc619422cd8a612eebace6d285cd5556ec55eaa8d6c3a2a3d90d1393b",
+      "environment": {
+        "NODE_DISABLE_COMPILE_CACHE": "1"
+      }
+    }
+  ],
+  "unreceiptedDiagnostics": [
+    "Initial node --import tsx snapshot invocation failed ERR_MODULE_NOT_FOUND; corrected to native node, no dependency installed. Exact session output retained.",
+    "Packet shape inspection initially assumed array passages and an evidence field rather than pairedItems; no source altered.",
+    "First card-triples discovery inspected only the flat public/og level and found one card; corrected to recursive traversal and all 48 triples verified.",
+    "Direct editing/hash/provenance/inspection commands are retained in the current session JSONL. No fetch date or active-time measurement is invented."
+  ],
+  "gateResults": {
+    "content": {
+      "exitCode": 1,
+      "findings": 766,
+      "complete": 235,
+      "total": 994,
+      "separateCitationGaps": 9
+    },
+    "baseline": {
+      "exitCode": 1,
+      "before": 55,
+      "after": 54,
+      "added": 0,
+      "removed": 1
+    },
+    "typescript": {
+      "exitCode": 0,
+      "incremental": false
+    },
+    "fullLint": {
+      "exitCode": 0
+    },
+    "cards": {
+      "exitCode": 0,
+      "cards": 48,
+      "publicExportFiles": 96,
+      "unchangedCommittedTriples": 48
+    },
+    "productionBuild": "not run, red prerequisite",
+    "fullBrowserCorpus": "not run, red prerequisite"
+  }
+}

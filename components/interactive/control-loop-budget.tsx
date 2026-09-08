@@ -19,20 +19,11 @@ import { EDGE_DASH } from '@/lib/semantic-mark-cues';
 import { cx } from '@/lib/utils';
 
 /**
- * ControlLoopBudget: does the 50 Hz control loop close for a VLA of a
- * given size on on-robot hardware?
- *
- * A model-size slider (0.5B to 9.1B parameters) drives a modeled inference
- * latency on Jetson Thor, anchored to the two VLA-Perf measurements
- * (pi0 ~3B at 52.57 ms / 19.0 Hz, pi0-L 9.1B at 3.9 Hz; arXiv:2602.18397).
- * The timeline shows one inference against the 20 ms control period: under
- * the budget the loop closes, over it the loop misses deadlines and runs at
- * the effective rate. A reference list pins the other sourced latency
- * figures (pi0.6 on H100, the RTC measured totals, pi0.7's tolerance).
- *
- * Interactive contract: deterministic render, native range slider
- * (keyboard arrows step the model size), visible monospace readouts, reset
- * control, fixed-height chart (no layout shift), no auto-playing motion.
+ * One synchronous toy inference against a 20 ms budget.
+ * VLA-Perf numbers are analytical predictions, not measurements; its pi0
+ * is 2.7B and pi0-L is hypothetical. This instrument deliberately keeps
+ * the original 3.0B teaching coordinate and deterministic scaling rule.
+ * Preserve keyboard, reset, two mounts, readouts and all calculations.
  */
 
 const WINDOW_MS = 280;
@@ -46,8 +37,8 @@ const DEFAULT_PARAMS_B = PI0_ANCHOR.paramsB;
 
 type ControlLoopBudgetProps = {
   /**
-   * Initial model size in billions of parameters. Defaults to the pi0
-   * anchor (3.0B). A prediction step mounts the figure at the size that
+   * Initial teaching coordinate in billions. Defaults to the chosen
+   * 3.0B coordinate (not paper pi0 size). A prediction step mounts at the size that
    * answers its prompt; existing mounts pass nothing and are unchanged.
    */
   defaultParamsB?: number;
@@ -219,7 +210,7 @@ export function ControlLoopBudget({
           20 ms budget (50 Hz)
         </text>
 
-        {/* Measured anchors. */}
+        {/* Reference latencies from analytical predictions; not measured anchors. */}
         {[PI0_ANCHOR, PI0L_ANCHOR].map((anchor) => (
           <g key={anchor.paramsB}>
             <line
@@ -240,7 +231,7 @@ export function ControlLoopBudget({
               fontSize={9}
               fontFamily="var(--font-mono)"
             >
-              {anchor === PI0_ANCHOR ? 'pi0 3B measured' : 'pi0-L 9.1B measured'}
+              {anchor === PI0_ANCHOR ? 'pi0 reference (modeled)' : 'pi0-L hypothetical'}
             </text>
           </g>
         ))}
@@ -287,6 +278,7 @@ export function ControlLoopBudget({
       </svg>
 
       <p className="mt-3 font-mono text-sm text-text" aria-live="polite">
+        <span className="text-text-dim">Synchronous toy: </span>
         <span data-testid="verdict-readout" className={closes ? 'text-ok' : 'text-err'}>
           {closes ? 'closes at 50 Hz' : 'does not close at 50 Hz'}
         </span>
@@ -294,7 +286,7 @@ export function ControlLoopBudget({
         <span data-testid="hz-readout" className="text-accent">
           {Math.round(hz)} Hz
         </span>
-        <span className="text-text-dim"> effective, </span>
+        <span className="text-text-dim"> reciprocal inference rate, not robot Hz; </span>
         <span data-testid="missed-readout" className="text-accent">
           {missed}
         </span>
@@ -304,18 +296,19 @@ export function ControlLoopBudget({
         </span>
       </p>
 
-      <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        Anchors are the VLA-Perf measurements on Jetson Thor
-        (arXiv:2602.18397): pi0 at 52.6 ms (19 Hz) and pi0-L at 3.9 Hz. The
-        scaling between and below them is an illustrative memory-bound
-        model, not a measurement.
+      <p data-testid="model-assumption-note" className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
+        Illustrative teaching model, not hardware profiling. VLA-Perf v1
+        predicts 52.57 ms for 2.7B pi0 and 3.9 Hz for hypothetical 9.1B pi0-L.
+        This plot deliberately places the first reference at 3.0B; its
+        linear and power-law scaling are not the paper’s roofline model.
+        A 20 ms inference budget is not a measured robot-control guarantee.
       </p>
 
       <ChartDescription
         id={descriptionId}
         className="mt-3"
         form="table"
-        summary="Inference latency by model size, against the 20 ms budget"
+        summary="Teaching-model inference by toy size, against the 20 ms budget"
         rowHeader="model size"
         columns={[
           { header: 'inference', numeric: true },
@@ -335,13 +328,14 @@ export function ControlLoopBudget({
         })}
         description={
           <>
-            A {paramsB.toFixed(1)}B-parameter model takes {formatMs(inferenceMs)} of
+            In this toy, the {paramsB.toFixed(1)}B coordinate gives {formatMs(inferenceMs)} of
             inference against the {Math.round(CONTROL_PERIOD_MS)} ms budget of a{' '}
             {CONTROL_HZ} Hz loop, {closes ? 'closing the loop' : `missing ${missed} ${missed === 1 ? 'deadline' : 'deadlines'} and running at ${Math.round(hz)} Hz`};
             inference stays under budget only below about{' '}
             {(PI0_ANCHOR.paramsB * CONTROL_PERIOD_MS / PI0_ANCHOR.inferenceMs).toFixed(1)}B
-            parameters, and beyond the pi0 3B and pi0-L 9.1B measured anchors the
-            scaling is modeled rather than measured.
+            toy parameters. The 3.0B coordinate is deliberately chosen; VLA-Perf
+            models pi0 at 2.7B and pi0-L as hypothetical. All displayed rates are
+            reciprocal toy inference rates, not robot/controller frequencies.
           </>
         }
       />

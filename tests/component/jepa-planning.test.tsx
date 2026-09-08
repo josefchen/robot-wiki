@@ -30,6 +30,8 @@ describe('JepaPlanning', () => {
     expect(screen.getByTestId('no-decoder-note')).toHaveTextContent(
       /no pixel decoder/i,
     );
+    expect(screen.getByTestId('no-decoder-note')).toHaveTextContent(/synthetic two-dimensional points/);
+    expect(screen.getByTestId('no-decoder-note')).toHaveTextContent(/loads no trained encoder or predictor/);
   });
 
   it('decreases the goal-latent distance over successive planning steps', async () => {

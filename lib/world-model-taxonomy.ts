@@ -1,12 +1,12 @@
 /**
  * World-model taxonomy model for the world-models/taxonomy module.
  *
- * The term "world model" covers six architecturally distinct paradigms
- * that differ in what is predicted, in what space, and what the
- * prediction is for. This file is the single source for the module's
- * disambiguation table and its disambiguator interactive, so prose,
- * table, and viz cannot drift apart. Row content follows the taxonomy in
- * research/02 (Part B) and the 2026 world-model survey (arXiv:2605.00080).
+ * Six editorial example groups for this module, not an exhaustive or
+ * universally agreed scientific taxonomy. The local grouping compares
+ * prediction target, representation, and intended use. WM_PARADIGMS is the
+ * canonical local inventory shared by the table and disambiguator.
+ * The survey (arXiv:2605.00080) supplies the functional definition, not a
+ * claim that these exact six groups are its taxonomy.
  *
  * Pure data and helpers only; no rendering.
  */
@@ -75,10 +75,10 @@ export const WM_PARADIGMS: WmParadigm[] = [
     predicts: 'Next latent state + reward; no reconstruction, no decoder',
     space: 'Implicit latent trained only for value/reward prediction',
     trainedOn: 'Interaction data',
-    primaryUse: 'Latent-space trajectory optimization (MPPI) at every control step',
+    primaryUse: 'Latent-space planning: MPPI or policy-seeded gradient ascent',
     systems: 'TD-MPC, TD-MPC2, Dream-MPC',
     uses: ['policy-learning', 'planning'],
-    panelNote: 'a latent vector with MPPI candidate trajectories and no image at all',
+    panelNote: 'a latent vector with candidate trajectories and no image at all',
   },
   {
     id: 'generative-video',
