@@ -35,6 +35,14 @@ test.describe('world-models generative-sim module', () => {
     ).toHaveAttribute('aria-current', 'page');
   });
 
+  test('keeps RoboGen algorithm and supervision qualifications', async ({ page }) => {
+    await page.goto(ROUTE);
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    await expect(prose).toContainText('cross-entropy-method planning with the ground-truth simulator');
+    await expect(prose).toContainText('human inspection of scenes, rewards, and learned skills');
+    await expect(prose).not.toContainText('reinforcement learning for locomotion and contact-rich skills');
+  });
+
   test('citation chips link to RoboGen, Holodeck, and RoboCasa', async ({
     page,
   }) => {
@@ -58,6 +66,47 @@ test.describe('world-models generative-sim module', () => {
       .locator('div.prose[data-pagefind-body]')
       .locator('a[href^="http"]');
     expect(await chips.count()).toBeGreaterThanOrEqual(8);
+  });
+
+  test('RoboCasa v1 inventory and scaling keep their source scope', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    const inventory = prose.getByText(/RoboCasa v1 reports 120 kitchen scenes/);
+    await expect(inventory).toContainText('10 floor plans combined with 12 styles');
+    await expect(inventory).toContainText('2,509 objects and 153 categories');
+    await expect(inventory).toContainText('25 atomic tasks and 75 composite tasks');
+    await expect(inventory).toContainText('human filtering, modification, and code implementation');
+    await expect(
+      inventory.getByRole('link', { name: /Nasiriany 2024/ }),
+    ).toHaveAttribute('href', 'https://arxiv.org/abs/2406.02523');
+    const scaling = prose.getByText(/The scaling study is a specific simulation experiment/);
+    for (const required of [
+      'language-conditioned BC-Transformer',
+      'Franka Panda on an Omron mobile base',
+      '24 atomic manipulation tasks; navigation is excluded',
+      'Objaverse objects and AI-generated training textures',
+      'human-curated textures, unseen object instances',
+      '50 trials per task across five fixed kitchen scenes',
+      '26.3%, 35.0%, and 47.6%',
+      'Individual tasks do not improve monotonically',
+      'Section VIII-C refers broadly to datasets over 25 tasks',
+    ]) {
+      await expect(scaling).toContainText(required);
+    }
+    await expect(
+      scaling.getByRole('link', { name: /Nasiriany 2024/ }),
+    ).toHaveAttribute('href', 'https://arxiv.org/abs/2406.02523');
+  });
+
+  test('keeps Holodeck evaluation and constraint scope', async ({ page }) => {
+    await page.goto(ROUTE);
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    await expect(prose).toContainText('soft relational constraints');
+    await expect(prose).toContainText('pretrained on ProcTHOR-10K');
+    await expect(prose).toContainText('not a test of physically valid manipulation');
+    await expect(prose).not.toContainText('without any human-constructed data');
   });
 
   test('push test: no motion without physics, motion with it', async ({
@@ -112,6 +161,18 @@ test.describe('world-models generative-sim module', () => {
     await expect(
       page.getByRole('button', { name: /^physics proxy$/i }),
     ).toHaveAttribute('aria-pressed', 'false');
+  });
+
+  test('attributes the two scene-design limitations to their papers', async ({ page }) => {
+    await page.goto(ROUTE);
+    const item = page.locator('div.prose[data-pagefind-body] li')
+      .filter({ hasText: 'Scene diversity has specific design sources.' });
+    await expect(item).toHaveCount(1);
+    await expect(item).toContainText('cultural biases from the LLM and the asset-retrieval component');
+    await expect(item).toContainText('consulted home-design and architecture magazines');
+    await expect(item.locator('[data-cite-id="holodeck-2024"] a[href="https://arxiv.org/abs/2312.09067"]')).toHaveCount(1);
+    await expect(item.locator('[data-cite-id="robocasa-2024"] a[href="https://arxiv.org/abs/2406.02523"]')).toHaveCount(1);
+    await expect(page.locator('div.prose[data-pagefind-body]')).not.toContainText('kitchens look like kitchen magazines');
   });
 
   test('interactive keyboard path: toggle, push, force slider', async ({

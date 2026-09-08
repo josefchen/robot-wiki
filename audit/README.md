@@ -1,6 +1,39 @@
 # Content-integrity audit trail
 
-## Current partial Cosmos and reader checkpoint — 2026-09-08
+## Current partial simulation-source checkpoint — 2026-09-08
+
+**345 complete / 649 incomplete / 994 original identities / 47 articles. 251 compound plans; 327 exact approval entries.** Immediate committed predecessor `bd576bb` was 337/657, with 243 plans and 325 approvals. This is an eight-record source-integration checkpoint, not completion of the assigned 24, whole-article acceptance, visual acceptance or publication. Formal Mission progress remains **307/331**.
+
+Newly complete originals are exactly **`audit/world-models.md:generative-sim:1`, `:2`, `:3`, `:5`, `:6`, `:7`, `:8`, `:13`**. Generative-sim is **8/15** complete. All **337 prior complete full records**, **986 unchanged full records**, **970 originals outside the assigned 24**, **243 prior plans** and **325 prior approval objects** are preserved; only derived line numbers are excluded from record comparison. Eight explicit AND plans and two exact prose/relationship member approvals are appended. The immutable baseline and strict gate are unchanged. The article review date stays **2026-08-17**; citation registry changes are comments only.
+
+**Sixteen assigned originals remain unapplied, not newly source-held:** generative-sim **10, 11, 12**; why-rl-locomotion **3, 6**; parallel-sim-rl **8, 9, 10, 16**; sim2real-transfer **2, 8, 12, 13**; reward-design-mpc **9, 10, 15**. Isaac's preparation objects require a proper join of separate native-part requirements, paired evidence and adjudication proposals. The attempted normalizer failed first on missing optional test metadata, then on a missing native evidence collection; neither failure is hidden or resolved by an empty evidence default. GRS/Eureka normalization did not complete. Held RoboCasa365 **4/9**, reward-design **11**, and whole-P1 claims remain excluded.
+
+**Zero new source retrievals.** Two applied packets were verified as **126 payloads / 9,778,996 bytes**, **45 literal passages / 30 native evidence items**. Source identities are RoboCasa **2406.02523v1**, RoboGen **2311.01455v3**, and Holodeck **2312.09067v2**, plus their preserved identity landings. RoboCasa's original body retrieval is **2026-09-08T00:16:20.168692+00:00**; the RoboGen/Holodeck retained retrieval-result event is **2026-09-08T04:04:24.462Z**. These are original observations, not this worker's fetch dates. Packet-local fresh-fetch flags describe the producer's earlier work. Failed RoboCasa365 provenance earns no applied-row credit.
+
+RoboCasa now distinguishes v1 inventory, human task/asset work, and the 24-task BC-Transformer scaling protocol from broader task counts. RoboGen distinguishes its locomotion planning implementation from broad RL framing and retains supervision/failure limits. Holodeck separates hard/soft constraints, solver alternatives, human/CLIP evaluation and simulated navigation from manipulation. Generator-prior limits carry two separate citations. A separate final manual read checked these five composed prose groups against the verified source context. No invokable humanizer was exposed; no humanizer invocation or whole-article quality seal is claimed.
+
+| Check | Actual outcome |
+|---|---|
+| Red first / focused final | Red **5 failed / 1 passed**; final **6 passed** |
+| Strict audit and citation tests | **149 passed in four files**, including all **77 unchanged strict-audit cases**; **155 distinct unit cases across five files** with the focused suite |
+| TypeScript / normal lint | Nonincremental TypeScript exit 0; normal `npm run lint`, including prelint, exit 0. Dependency repair targets were verified as a local symlink and byte-identical reproducible copy |
+| Offline content | Exit 1: **654 findings**, down eight; nine separate citation gaps remain. Exact prefixed-message comparison removes **12** and adds **4**, including aggregate/final-count messages |
+| Baseline | Exit 1: all **47 exact predecessor failure objects unchanged**, zero added or removed |
+| Checked-in E2E | Direct execution of `tests/e2e/generative-sim.spec.ts`: **10 passed** |
+| Bounded reader | One route at **1440×900 and 375×812**; no page/console errors, outbound attempts or document overflow; capture-time three-input hashes stable |
+| Visual inspection | **10 raw captures; 8 directly inspected; 2 full-document images uninspected. Partial and not accepted** |
+| Cards | **48 public/export/bd576bb byte triples**, **47 native article-fact objects** and **17 renderer/registry/font input paths** unchanged; no redundant generation |
+| Production / full corpus / independent | Not run; genuine content closure remains prerequisite |
+
+Visual gaps remain explicit. The RoboGen capture selector matched `displacement` rather than its method paragraph. The cultural-bias item is a list item, so the paragraph selector produced no limits image. Some desktop citation labels are absent in captured frames; the mobile scaling paragraph begins under the sticky header and its citation is partly obscured by the development badge. These images do not certify complete prose, bylines, focus/hover or the full brand-reference rubric. No product DOM was replaced or masked, and no failing capture was silently credited. Inherited red reference work remains owned by **brand-v2-cross-surface-continuity-and-reference-evidence / brand-v2-social-convergence**.
+
+Actual emitted assistant metadata establishes **custom:droidproxy:gpt-6-astra / max**, session `4735f933-950f-434d-a9fa-e9e9787bc477`, including JSONL line **87**, assistant `9f1b02f1-80db-44e9-97c4-37245111da85` at **2026-09-08T08:07:46.935Z**. Content-auditor was loaded from the existing Mission's exact skill file before audit work. No role-specific exhaustion, model switch or credit fallback occurred. The **35-minute target from 07:41:07.895Z was exceeded**; final wall time is sealed separately, with active time unmeasured.
+
+The owned loopback server tree rooted at **2223947** is stopped. Only its byte-proven generated `next-env.d.ts` imports were restored. PRODUCT_QUALITY.md, qa/, next-env.d.ts, owner work, and ancestor commits **d282a83 / 2cf7d6b** are preserved. No new Mission/controller/worktree, features.json edit, dependency/security change, cleanup, push or deployment occurred. Independent **Sol/high** scrutiny and user testing remain pending with **skipScrutiny=false / skipUserTesting=false**. **Do not push or publish this known-red checkpoint.**
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-simulation-source-integration-20260908`. `source-proof.json`, `row-integration.json`, `preservation.json`, `approval-integration.json`, `manual-review.json`, `visual-inspection.json`, `final-reconciliation.json`, `card-reuse.json`, `card-facts.json`, `command-ledger.json`, `checkpoint.json` and the closed artifact index retain exact source identities, current bindings, command outcomes and unresolved boundaries.
+
+## Historical: partial Cosmos and reader checkpoint — 2026-09-08
 
 **337 complete / 657 incomplete / 994 original identities / 47 articles. 243 compound plans; 325 exact approval entries.** Immediate predecessor `b059e35` was 330/664 with 236 plans and 317 approvals. This is a bounded local implementation checkpoint, not whole-article, brand, publication or independent acceptance. Formal Mission progress remains **307/331**.
 

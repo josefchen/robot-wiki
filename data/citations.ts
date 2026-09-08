@@ -4035,6 +4035,8 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-08): 9 authors, ICML 2024.
+    // Source recovery 2026-09-08: abs metadata and v3 HTML agree on the nine-author
+    // byline. First submitted in 2023; year 2024 denotes the ICML publication.
     id: 'robogen-2024',
     title:
       'RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation',
@@ -4057,6 +4059,9 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Verified against the arXiv abs page (2026-08-08): 14 authors, CVPR 2024.
+    // Source recovery 2026-09-08: first submitted in 2023; year 2024 denotes CVPR.
+    // The abs page spells Eli VanderBilt; v2 HTML spells Eli Vanderbilt.
+    // Preserve the registered abs-page spelling rather than silently normalizing it.
     id: 'holodeck-2024',
     title:
       'Holodeck: Language Guided Generation of 3D Embodied AI Environments',

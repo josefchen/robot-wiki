@@ -6526,6 +6526,46 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "simulation-source-generative-sim-prose-20260908",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3",
+      "newHash": "8a6ebbedf15a219f873842492110efa85c89ff270a92d0c965e2e3fad791b844",
+      "reason": "Exact RoboCasa v1, RoboGen and Holodeck source-scoped correction for original generative-sim records 1, 2, 3, 5, 6, 7, 8 and 13. Retained primary bodies and 45 literal passages verified offline; explicit native AND plans bind all eight current tuples. Inventory, methods, human inputs and evaluation limits are corrected; no held RoboCasa365 or remaining Isaac/GRS/Eureka record receives credit. References, source identities, review date and interactions remain intact. This approval permits only this exact member hash, not publication or source acceptance for other claims. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-simulation-source-integration-20260908/source-proof.json",
+      "ownerApproval": "Josef’s explicit “fix it all!” routine source-backed correction authority, as scoped by the existing mission owner brief and this fixed 24-original integration assignment; not a blanket source or independent-validation approval.",
+      "responsibleMilestone": "brand-v2-social-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "simulation-source-generative-sim-relationships-20260908",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "4205e6c9b9b4451ebe2f6743657ad89556d88721674996d40597559e6d4826d1",
+      "newHash": "2d6c88ef95c0a55126240079ba3d371f1f5d06193ddf9392d20e5b5f2c72bae9",
+      "reason": "Exact RoboCasa v1, RoboGen and Holodeck source-scoped correction for original generative-sim records 1, 2, 3, 5, 6, 7, 8 and 13. Retained primary bodies and 45 literal passages verified offline; explicit native AND plans bind all eight current tuples. Inventory, methods, human inputs and evaluation limits are corrected; no held RoboCasa365 or remaining Isaac/GRS/Eureka record receives credit. References, source identities, review date and interactions remain intact. This approval permits only this exact member hash, not publication or source acceptance for other claims. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-simulation-source-integration-20260908/source-proof.json",
+      "ownerApproval": "Josef’s explicit “fix it all!” routine source-backed correction authority, as scoped by the existing mission owner brief and this fixed 24-original integration assignment; not a blanket source or independent-validation approval.",
+      "responsibleMilestone": "brand-v2-social-convergence",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-010",
+        "VAL-B2-COMP-008",
+        "VAL-AUDIT-003",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
