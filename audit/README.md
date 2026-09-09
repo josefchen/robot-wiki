@@ -1,6 +1,728 @@
 # Content-integrity audit trail
 
-## Current partial occupancy/map-tradeoff checkpoint — 2026-09-08
+## Current checkpoint: three constrained-reward originals integrated (2026-09-09)
+
+**444 complete / 550 incomplete / 994 originals / 47 articles**; RL is
+**98 complete / 69 incomplete / 167 originals**. Applied exactly
+`audit/rl-sim2real.md:reward-design-mpc:6`, `:7`, and `:8` under the existing
+Mission. Three new AND plans retain 15 parts and 18 paired evidence items.
+Current totals: **350 plans / 446 approvals**. No other original received credit.
+
+**Zero new retrievals.** Three retained primary documents and six historical
+responses were verified against original request/result/body bindings: 60 payload
+files, 13,321,303 bytes, 46 literal passages plus one checked stage-platform
+context literal. September 8 response times are 08:51:37.012Z (bodies) and
+08:51:49.675Z (metadata), not current review times. Tool-reported 200 does not
+establish origin status or current liveness. Unversioned rendered bodies do not
+establish pinned origin-byte identity. Kim T-RO 2024 and ROGER RSS 2025 are
+source-supplied metadata, not separately fetched publisher proof; stage-wise
+venue remains unspecified. ROGER's June 2026 v2 body and missing external appendix
+remain explicit limitations. Citation registry/URLs and lastReviewed 2026-08-17
+are unchanged. Description was already neutral and is preserved by a no-op guard.
+
+Kim now retains three rewards, eleven constraints, reference-robot trial-and-error,
+transfer-only coefficient adjustment, other settings, and simulation/hardware
+separation. Stage-wise CMORL retains manual stages, user transitions, normalized
+PPO advantages, preferences and thresholds, separating Go1/H1 simulation from
+Go1 hardware. ROGER subtracts nonnegative penalties; its exploration violation
+and conditional safety assumptions prohibit a universal constraint guarantee.
+Unresolved estimator notation, zero ratios, numerical inconsistencies and unseen
+appendix claims are not promoted to established results.
+
+All **991 unselected full semantic records**, **441 prior completions**, 347 prior
+plans/prefix and 445 prior approvals/metadata/prefix are preserved. All **44 original
+unrelated baseline failure objects and their order** are identical. Wrong-old-hash,
+wrong-new-hash and stale-approval controls reject. The worker's provisional approval
+was rebound to the freshly derived final markup hash after the measured local mobile
+repair; its superseded uncommitted form is retained. Immutable baseline/checker/schema,
+shared primitives, PRODUCT_QUALITY.md, qa/, protected commits and owner work survive.
+
+Actual sequential checks used NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Observed result |
+|---|---|
+| New unit red-first | 12 failed / 1 passed, exit 1 |
+| Affected unit/component | 121 passed in five files, exit 0 |
+| Two-viewport new readers | Desktop passed; mobile failed on one tooltip, exit 1 |
+| Affected mobile rerun | 1 passed, exit 0 |
+| Existing reward-design E2E | 5 passed, exit 0; earlier wrong filename ran zero tests, exit 1 |
+| Normal prelint/lint, route typegen, nonincremental TypeScript | Passed, exits 0 |
+| Executable no-slop | Passed, exit 0; 47 MDX plus 63 inherited exported HTML, not a fresh export |
+| Structural validate-content | Passed, exit 0; not the publication content gate |
+| Native audit coverage | RED: 555 findings plus nine separate unresolved citation checks, exit 1 |
+| Final native preservation/approval controls | Passed, exit 0 after exact final-hash rebinding |
+
+The stage citation mobile tooltip right edge changed 391→327 at width 375;
+one article-local max-sm offset fixes it without shared rendering changes or
+weakened assertions. Both reader identities have passing executions, not a single
+fresh final two-case invocation. Desktop reuse is limited to unchanged semantics
+and a mobile-only wrapper. Focus/hover parity, five-point hit tests, internal width,
+Tab/Enter reference jumps, keyboard author expansion, ordered bylines, custom fonts,
+page overflow and Axe passed. No page errors or external requests were observed.
+There are 43 captures; 19 directly Read-inspected, 24 uninspected. Inspected material
+covers changed desktop prose, overlapping mobile prose, all three full references
+at both sizes, and the repaired focus/hover state. This is not full visual acceptance.
+
+Manual source/prose fidelity review and executable no-slop passed; no unavailable
+humanizer invocation is claimed. Owned offline webpack supervisor exited 0 after
+verified child termination. next.config.ts, tsconfig.json and next-env.d.ts were
+restored byte-exactly. No build/export/card corpus, source sweep, push or deployment.
+Formal progress stays **307/331**, M5 unaccepted; skipScrutiny=false and
+skipUserTesting=false. Independent Sol/high scrutiny, user testing, whole-P1,
+production/export/reading-time/card, full typography/contrast/reference/glossary
+and brand-rubric gaps retain their existing owners. Fallback inactive.
+**Do not publish.** This is a bounded implementation checkpoint, not acceptance.
+
+Run-keyed inputs, logs, receipts, row history, source proof and committed seal:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-constrained-reward-methods-integration-20260909/`.
+Earlier checkpoints below remain historical evidence.
+
+## Historical checkpoint: six H2O/ASAP originals integrated (2026-09-09)
+
+**441 complete / 553 incomplete / 994 originals / 47 articles**; RL is
+**95 complete / 72 incomplete / 167 originals**. Applied exactly transfer
+15/16/17, legged 9/10 and WBC 3, each with its full AND requirements.
+Six new plans contain 22 parts and 22 paired evidence items. There are
+**347 plans / 445 approvals**. The other 28 prepared originals remain with
+the parent. No seventh original, whole-article/P1 or review-date credit.
+
+**Zero new retrievals.** Two retained primary documents, five preserved response
+bodies and 33 literal passages were checked against original request/result
+JSONL events and system-managed full tool bodies before reuse. H2O HTML was
+returned September 8 at 09:17:38.895Z and ASAP HTML at 09:17:52.934Z; current
+review/application timestamps are not fetch dates. Unversioned bodies identify
+H2O v1 and ASAP v3 but are not independently version-pinned fetches. arXiv
+200 is tool-reported; only the retained venue GET has origin-status provenance.
+ASAP body Sobanbabu versus abs Sobanbab remains explicit; the registry adopts
+the body spelling and preserves its URL. Original 2502.13143 is an unfetched
+identity discrepancy, not a certified typo. Table/prose and noise 150/173
+conflicts remain unresolved. H2O policy Hz, latency, trial denominator and
+calibration details remain unestablished.
+
+Corrections separate privileged H2O filtering from deployable tracking,
+possible retargeting infeasibility from inevitability, human RGB input from
+robot-side MoCap, and 19 position targets from PD control. ASAP now separates
+PPO residual learning, frozen-model simulation fine-tuning and residual-free
+deployment; four ankle DoFs from the full 23-DoF simulation model; open-loop
+replay, closed-loop simulation and two hardware comparisons; and empirical
+OOD evidence from an unsupported near-distribution validity theorem.
+
+All **988 unselected full semantic records**, all **435 prior completions**,
+341 prior plan objects/serialized prefix, and 436 prior approval objects,
+metadata and serialized prefix are preserved. Seven exact native corrections
+plus two subsequent placement approvals retain the immutable baseline. All
+**44 complete unrelated failure objects and their order** remain identical.
+Fourteen wrong-old/new effective-member controls and stale approvals reject.
+No shared renderer, checker, baseline, owner file or scientific formula changed.
+
+Actual sequential checks used NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Observed result |
+|---|---|
+| New unit red-first | 24 failed, exit 1 |
+| Affected unit/component | 331 passed across 15 files, exit 0 |
+| Final-input new unit | 24 passed, exit 0; not 24 additional unique tests |
+| Initial readers | 17 passed / 6 failed of 23, exit 1 |
+| Affected readers | 6 passed / 1 failed of 7, exit 1; includes one overlapping Splat reader |
+| Remaining mobile reader | 1 passed, exit 0 |
+| Lint, route typegen, nonincremental TypeScript | All passed, exits 0 |
+| Offline content | RED: 558 findings plus nine separate citation gaps, exit 1 |
+| Final native preservation and whitespace | Passed, exits 0 |
+
+All 23 reader identities have a completed passing execution across the three
+runs, not one fresh 23/23 invocation. The former learned-locomotion 15-case
+population now has current-input executions; its lost historical JSON was not
+reconstructed. Reuse across the final article-local mobile wrappers is bounded
+by byte reconstruction, unchanged source semantics and viewport applicability.
+Three measured mobile tooltip right edges change 518→358, 426→362 and
+383→367 at width375. Focus/hover, hit testing, real Tab/Enter reference jumps,
+keyboard author expansion, exact ordered bylines and glossary states are checked.
+The first new byline failures were test omissions of the existing expansion
+button, not missing registry authors. One existing noun assertion required
+meaning-preserving delta-action → delta action spelling.
+
+There are **311 captures; 27 were directly Read-inspected**. Corrected article
+paragraphs, overlapping mobile slices, repaired focus/hover and full bylines
+were reviewed; **284 remain uninspected**, so no whole-reader/pixel acceptance.
+Selected text uses custom fonts; whole cmap, contrast incompletes, full glossary/
+reference states and structured two-reference brand rubric remain unaccepted.
+Manual rewritten-prose fidelity/no-slop review and executable source-only
+no-slop passed; the unavailable humanizer was not run. The owned offline
+webpack runtime used retained fonts; only its verified leaf was stopped,
+supervisor exit143. next.config.ts, tsconfig.json and next-env.d.ts were restored
+byte-exactly. No build/export/card corpus, source sweep, push or deployment.
+
+Two application attempts stopped before product writes on WBC evidence-header
+handling; the corresponding failed metadata attempt remains recorded. No
+completed original was replayed. Formal progress remains **307/331**, M5
+unaccepted, skipScrutiny=false and skipUserTesting=false. Independent Sol/high
+scrutiny and user testing, whole-P1, production/export/reading-time/card,
+contrast and reference-rubric gaps retain their existing owners. Fallback inactive.
+**Do not publish.** This is an implementation checkpoint, not acceptance.
+
+Exact receipts, row history, source provenance, captures and committed seal:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-motion-transfer-integration-20260909/`.
+Earlier checkpoints below are retained history.
+
+
+## Current checkpoint: six Boston Dynamics originals integrated (2026-09-09)
+
+**435 complete / 559 incomplete / 994 originals / 47 articles**.
+RL is **89 complete / 78 incomplete / 167 originals**. Applied exactly
+legged-locomotion originals 12–16 and reward-design-mpc original 18.
+Six plans contain 18 ordered AND-parts, 18 evidence items and 34 verified
+literal passages. Reward18 requires both the Spot and Atlas documents.
+Mixed Stat legged1 and reward19 remain incomplete; the other 34 prepared
+proposals remain unassigned. No whole-article credit or review-date advance.
+
+Three retained primary documents were checked against their preserved bodies
+and original retrieval events: Boston Dynamics Spot RL, RAI Atlas behavior
+production, and Boston Dynamics/TRI Atlas LBM. Historical FetchUrl returns
+were 2026-09-08T08:45:38.669Z, 08:45:54.192Z and 08:46:03.523Z;
+the two historical same-page GET fallbacks are not new retrievals. This worker
+made **zero retrievals**. Tool-reported 200 is not fresh origin/liveness proof.
+The packet remains immutable; current native IDs, ordinals and all four cells
+were independently rebound at application. Integrator reviews and native
+digests are newly computed, not copied source-worker adjudications.
+
+Corrections distinguish production Spot from the >70 cm research example,
+multiple simultaneous MPC instances from all MPC, cumulative fleet testing
+from per-robot runtime, RAI's simulator runs from invented durations, and
+Atlas's 30 Hz actions/images from its 48-action prediction and usual 24-action
+execution chunk. Atlas's explicit four-person Blog Authors list is retained;
+JSON-LD account `mrodin`, Spot personal byline and RAI corporate-name expansion
+remain qualifications, not invented identities. Both article lastReviewed
+values remain 2026-08-17. Prior learned-locomotion/Rudin corrections survive.
+
+Native preservation passes for all **988 unselected full semantic records**,
+including 429 prior completions, 335 prior plan objects/prefix, and 432 prior
+approval objects/metadata/prefix. Current totals are **341 plans / 436 approvals**.
+Three source-correction approvals and one subsequent exact placement approval
+use existing immutable-baseline/current native hashes. All **44 original
+unrelated failure objects and their order** remain identical. Six wrong-old/new
+hash controls and the stale-approval-set control reject. No schema, baseline,
+checker, citation registry, owner file or shared renderer changed.
+
+Actual sequential checks used NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Observed result |
+|---|---|
+| New unit red phase | 25 failed before integration, exit 1 |
+| Affected unit/component run | 302 passed / 5 failed across 14 files, exit 1; all five failures were new-test expectations for native schema exceptions |
+| Corrected new unit file | 25 passed, exit 0; the 282 existing passes are from the preceding invocation, not a fresh 307-pass run |
+| Initial bounded source readers | Four passed / one failed, exit 1; fleet Spot tooltip clipped 4px at mobile width 375 |
+| Affected placement rerun | Both legged viewport cases passed, exit 0; no broad browser rerun |
+| Normal lint | prelint and ESLint passed, exit 0 |
+| Route types / nonincremental TypeScript | Both passed, exits 0 |
+| Offline content | RED: 564 findings plus nine separately reported citation gaps, exit 1; source-only no-slop and chart-description stages passed |
+| Native final preservation | Exact counts, protected files, full failure objects and negative controls passed, exit 0 |
+
+One article-local `max-sm:[&_[role=tooltip]]:-left-4` wrapper moves the fleet
+tooltip from x=123/right=379 to x=107/right=363 at 375px, on both keyboard
+focus and hover. Removing only that wrapper reconstructs the pre-repair article
+hash exactly. Source text and all native row tuples are unchanged by this repair.
+The owned development runtime used supported devIndicators:false; it was not
+presented as production. Only its verified leaf was stopped; actual supervisor
+exit was **143**. next.config.ts, tsconfig.json and next-env.d.ts were restored
+byte-exactly. Other Tasks were preserved.
+
+There are 111 actual viewport captures across the initial and affected runs.
+**13 were Read-inspected**: the original clipped focus capture, four Miki
+mobile recaptures, four repaired fleet focus/hover captures, one Atlas tail
+slice and three reward prose slices. Miki's overlapping viewport slices expose
+the hike, stops, Stat and source without the historical dev-indicator obstruction;
+this earns zero original credit. The other 98 captures are not pixel-certified.
+DOM checks cover selected source URLs, tooltips, reference bylines, inline
+glossary states, custom-font attribution and reward control/reset coupling.
+That does not certify whole font cmap, full reference/glossary states, contrast,
+brand rubric or production output. The predecessor's 15-case line log remains
+historical; its lost JSON was not reconstructed and final-input qualification
+of those 15 identities remains unfinished at this bounded checkpoint.
+
+Source fidelity was reviewed against the retained passages and limiting context.
+Executable source-only no-slop passed; no humanizer run is claimed. No source
+sweep, build/export/card corpus, push or deployment occurred. Formal progress
+remains **307/331**, M5 unaccepted, skipScrutiny=false and skipUserTesting=false.
+Independent Sol/high scrutiny and user testing remain required. No fallback
+was activated. Parent retains queue, status, readiness and follow-up ownership.
+
+Exact input manifests, source provenance, original/current row history, commands,
+logs, real exits, placement reconstruction and committed reconciliation:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-boston-dynamics-control-integration-20260909/`.
+Earlier checkpoints below are retained history, not fresh validation.
+
+## Current checkpoint: five learned-locomotion originals integrated (2026-09-09)
+
+**429 complete / 565 incomplete / 994 originals / 47 articles**.
+RL is **83 complete / 84 incomplete / 167 originals**. Five selected originals
+were corrected: sim2real-transfer 10 and 14; legged-locomotion 2, 3 and 4.
+Lee and Hwangbo paired groups were applied together; Miki separately. Reward19
+is excluded. Mixed Stat original 1 remains incomplete despite its Miki-only
+headline correction. The other 40 prepared proposals remain unassigned.
+
+Retained source proof covers three primary documents, six historical FetchUrl
+responses, 35 mechanically verified literal bindings, 30 selected reviewed
+passages, 24 AND-parts and 29 paired evidence items. **Zero retrievals**.
+Bodies were observed 2026-09-08T08:14:45.521Z; metadata at
+2026-09-08T08:15:08.933Z; current application review at
+2026-09-09T12:10:36. Metadata v1 does not pin unversioned ar5iv bodies.
+Hwangbo's seven-author metadata and duplicated rendered-body name remain distinct.
+Corrected actuation/ablation/recovery scope, Lee teacher/history/deployment,
+and Miki GRU, sensor/rate and hike details retain their limiting context.
+Miki's displayed hike is 78 min, 2.2 km, versus planner 76 min; shoe/battery
+stops and no reported falls remain explicit. No article lastReviewed advances.
+
+Native preservation: 989 unselected full semantic records, all 424 prior
+completions, 330 prior plan objects and serialized prefix, and 428 prior
+approvals/metadata/prefix remain preserved. There are 335 plans and 432 approvals.
+Four exact native member approvals use immutable baseline/current hashes;
+all changed members already exist (no fabricated absence hash). The original
+44 unrelated full baseline failure objects remain; eight wrong-old/new hash
+controls and the stale-approval-set control reject. Source field completeness
+is not whole-article/P1 or independent acceptance.
+
+Actual sequential checks, all NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Command | Observed result |
+|---|---|---|
+| New red unit | `npm test -- tests/unit/learned-locomotion-integration.test.ts` | 19 failed before integration, exit 1 |
+| Affected unit | `npm test -- tests/unit/learned-locomotion-integration.test.ts tests/unit/audit-ledger.test.ts tests/unit/citations.test.ts tests/unit/citation-audit.test.ts tests/unit/rudin-source-corrections.test.ts tests/component/cite.test.tsx tests/component/term.test.tsx tests/component/stat.test.tsx` | 164 passed in five matched files; three requested paths did not exist, exit 0 |
+| Additional unit | `npm test -- tests/unit/rudin-protocol-integration.test.ts tests/unit/rudin-kl-integration.test.ts tests/unit/sim2real.test.ts tests/unit/brand-v2-baseline.test.ts tests/unit/brand-v2-baseline-truth.test.ts tests/component/ui/cite.test.tsx tests/component/ui/stat.test.tsx tests/unit/rehype-cite-punctuation.test.ts` | 128 passed in eight additional files, including native absence controls, exit 0 |
+| Lint | `npm run lint` | normal prelint and ESLint, exit 0 |
+| Route types | `node node_modules/next/dist/bin/next typegen` | exit 0 |
+| Typecheck | `./node_modules/.bin/tsc --noEmit --incremental false` | exit 0 |
+| Content | `npm run validate:content` | RED, 570 findings plus nine separate citation gaps, exit 1; no-slop and chart-description stages passed |
+| Bounded E2E | `node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/playwright.config.mjs legged-locomotion.spec.ts sim2real-transfer.spec.ts rudin-protocol-source-closeout.spec.ts` | 15 passed, exit 0; fresh owned loopback webpack runtime |
+| Lee placement red/green | same Playwright config, `legged-locomotion.spec.ts --grep 'Lee corrected citation'` | red 1 failed/1 passed, then 2 passed; exits 1/0 |
+
+Reader review found Lee mobile tooltip right edge 471px at width 375.
+One article-local `max-sm:[&_[role=tooltip]]:-left-32` wrapper repairs it;
+removing only that wrapper reconstructs pre-repair article bytes. Both viewport
+hover/focus regression cases now pass. 22 initial captures and two repaired
+Lee captures were Read-inspected at 375×812 and 1440×900; paragraph images
+are element captures at those viewports, not all fixed-size viewport captures.
+Tall mobile Miki capture includes a sticky-header/dev-indicator obstruction;
+its desktop prose and mobile focus capture supplement, not erase, that gap.
+Reference titles/bylines were DOM-read. No new comprehensive glossary-state,
+math glyph, registry-font or structured two-reference rubric acceptance is claimed.
+The earlier 15-case run is qualified reuse across the single placement wrapper,
+not a fresh 17-case invocation. Earlier reader and source failures are retained.
+The initial E2E JSON reporter was overwritten by the red placement invocation;
+its complete 15-identity line log and input/exit receipt survive. Later reports
+are run-keyed. No browser page errors or external requests were observed.
+
+Manual fidelity/no-slop reading of all five changed prose endpoints and the
+Miki Stat was completed alongside executable no-slop validation; the humanizer
+skill is unavailable, so neither check is represented as a humanizer run.
+Incomplete article dates remain unchanged. The owned runtime leaf alone was
+stopped (supervisor real exit 130); generated tsconfig and next-env changes were
+restored exactly. No broad build/export/cards, source sweep, push or deployment.
+Formal progress remains **307/331**, M5 unaccepted, skipScrutiny=false and
+skipUserTesting=false. Independent Sol/high scrutiny and user testing remain
+required; full source/P1, contrast/rubric/typography and production gaps remain.
+
+Evidence and exact commands/inputs/exits: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/`.
+Native counting uses `state.mjs` with parseLedger and parseCompoundPlans;
+its committed mode rechecks the committed bytes. Earlier checkpoints below
+are retained history, not this worker's fresh validation.
+
+## Current checkpoint: four Rudin mobile citation placements repaired (2026-09-09)
+
+**424 complete / 570 incomplete / 994 originals / 47 articles**.
+RL remains 78 complete / 89 incomplete / 167 originals. This reader-only
+checkpoint selects/applies **zero originals and performs zero retrievals**.
+All 994 full semantic records and exact 330-plan bytes remain unchanged.
+All 425 prior approvals, metadata and serialized prefix are preserved; three
+exact existing-native-member formatting approvals bring the total to 428.
+The same 44 full unrelated failure objects remain; six wrong-old/new-hash
+controls reject. No source truth, source date or completion verdict changed.
+
+Four article-local mobile-only citation wrappers repair the first code citation
+in parallel-sim, both first Rudin/code citations in legged-locomotion, and the
+first Rudin citation in reward-design. Red right edges at 375px were 489, 461,
+489 and 390px; green edges are 361, 333, 361 and 262px. All 16 occurrence ×
+viewport × focus/hover states pass at 375×812 and 1440×900, with keyboard
+re-entry, visible focus, hit testing, sticky clearance and zero page overflow.
+Desktop geometry and the shared renderer are unchanged. Removing only these
+four wrappers reconstructs the three input articles byte-for-byte. The prior
+revision-token repair, six transfer wrappers and audited repository URL remain.
+Scientific wording, dates, formulas, numerical defaults and controls are unchanged.
+
+Fresh affected browser invocation: **3/3 passed**. Combined with 14 qualified
+retained identities this supports **17/17 composed**, not a fresh 17-case run.
+Historical failed/interrupted runs and their missing exit remain historical.
+Fresh unit invocation: **29/29 passed** (18 Rudin and 11 citation coverage).
+The 11 overlap retained other-file coverage; do not add 29 to the historical
+225-case population. Normal lint including prelint, route typegen and
+nonincremental TypeScript each exit 0. **Content remains RED: 575 findings
+plus nine separately reported citation gaps**, unchanged from the predecessor.
+
+All 62 new viewport PNGs were Read-inspected, along with 51 retained
+chart/reward/glossary control captures and one retained diagnostic. A failed
+survey remains a failed evidence invocation: corrected local-font lookup and
+two direct-text scope probes yield 116/116 selected glyph checks in a separate
+reconciliation. This is not registry-wide glyph acceptance. One beta MathML
+node appears on legged locomotion at each viewport, none on the other routes.
+Both approved references were viewed, but full structured reference-rubric
+acceptance remains outstanding. Zero Axe violations do not clear retained
+98 mobile / 102 desktop contrast-incomplete nodes or all interactive states.
+The scoped repair is not whole-reader, brand, M5 or release acceptance.
+
+Only the verified owned runtime leaf was stopped. Temporary next.config,
+next-env and tsconfig changes were restored byte-for-byte. No build/export,
+card regeneration, full-corpus run, source fetch, deployment or publication.
+Formal progress remains 307/331; M5 is unaccepted; skipScrutiny=false and
+skipUserTesting=false. Independent Sol/high scrutiny, whole-P1/authored-local
+proof, full contrast/rubric/typography and production lifecycle remain held.
+The 45 prepared proposals in ten groups remain unassigned by this task.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-four-citation-reader-closeout-20260909/`.
+This is a local implementation checkpoint with zero original/source credit.
+Earlier checkpoint sections below are retained history.
+
+## Current checkpoint: Rudin overflow and URL repaired; mobile tooltip reader held (2026-09-09)
+
+**424 complete / 570 incomplete / 994 originals / 47 articles**.
+RL remains 78 complete / 89 incomplete / 167 originals. This regression-only
+checkpoint adds **zero originals and zero retrievals**. All 994 full native
+semantic records, exact 330-plan bytes, all 423 prior approval objects,
+metadata and serialized prefix, and the immutable baseline are preserved.
+Two exact native approvals were appended (425 total). Fresh-process comparison
+preserves the same **44 full unrelated failure objects**, with no substitutions;
+four wrong-old/new-hash controls reject on their exact members.
+
+The 375×812 reward page's 27px document overflow was reproduced: the unbroken
+40-character revision token reached x=397.25 and the document measured 402px.
+Article-local `overflow-wrap:anywhere` reduces document overflow to zero without
+clipping. Reversing only that markup reproduces the previous article bytes.
+Scientific wording, numerical defaults, animation and `lastReviewed` are unchanged.
+The citation registry again uses the actually audited repository landing URL.
+Its title and Nikita Rudin maintainer attribution agree with retained fetched
+landing text and the pinned initial README reconstructed from the commit API.
+No direct blob-URL fetch, new date, new reachability verdict or whole-P1 approval
+is claimed. All pinned compound-evidence bytes remain unchanged.
+
+The existing reward mobile-scroll identity now passes. The expanded two-reader
+run finishes with desktop PASS and mobile FAIL: four mobile citation tooltips
+extend to x=489, 461, 489 and 390 in a 375px viewport. Assertions remain active.
+The failures are parallel-sim's code citation, both legged-locomotion citations,
+and reward-design's Rudin citation. They are held, not concealed or accepted.
+The historical population still has 14 completed passes, two completed failures,
+one uncompleted identity and a missing overall exit receipt; composed evidence is
+not a fresh 17/17 invocation. Exact identities and input qualification are in
+the new packet. The final reader run generated 122 viewport PNGs, not 122
+Read-approved images. Overlapping tall-target captures and selected-node CDP
+font measurements improve evidence, but the bounded Read sample is incomplete.
+Zero Axe violations coexist with 98 mobile and 102 desktop color-contrast
+incomplete nodes. Legged locomotion contains one beta MathML node; the other
+two assigned routes have none. This inventory is not equation/glyph acceptance.
+Full selected-string cmap, both-reference rubric and full-reader acceptance remain held.
+
+Actual post-fix checks: 18 focused tests pass; the preceding 225-case invocation
+had 224 passes and one subsequently corrected Markdown-expectation fixture failure.
+Its other nine files (207 cases) pass, including baseline omission semantics,
+citation/audit checks and both interactive components. Normal lint including
+prelint, route typegen and nonincremental TypeScript each exit 0.
+**Content stays RED: 575 findings plus nine separate unresolved citation gaps.**
+The repaired URL mismatch is gone; no gate, checker, schema or baseline was weakened.
+The owned webpack leaf alone was stopped; its supervisor records actual exit 143.
+Temporary indicator configuration, next-env and tsconfig were restored byte-exactly.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-reader-citation-closeout-20260909/`.
+This is an implementation checkpoint, not completed reader acceptance or release.
+Formal progress stays 307/331; skipScrutiny=false and skipUserTesting=false.
+Whole-P1/authored-local-proof, production/export/cards/reading-time lifecycle,
+full-corpus and independent Sol/high/user-testing debts remain with their owners.
+No publication or new source credit. Earlier checkpoint sections below are history.
+
+## Current checkpoint: three Rudin originals corrected; reader and citation audit remain red (2026-09-09)
+
+Applied only `audit/rl-sim2real.md:parallel-sim-rl:2`, `:legged-locomotion:5`,
+and `:reward-design-mpc:2`. **424 complete / 570 incomplete / 994 originals /
+47 articles; RL 78/89/167; 330 plans and 423 approvals.** All 991 unselected
+full semantic records, 421 previous completions, 327 prior plan objects/prefix,
+and 409 prior approval objects/metadata/prefix are preserved. KL and RMA are
+not reapplied. This is a bounded implementation checkpoint, not acceptance.
+
+Protocol prose separates the flat under-four-minute headline from 4,096 robots,
+98,304 transitions, 1,500 updates and under twenty minutes on i9-11900k/RTX A6000.
+Curriculum promotion/demotion/random reassignment is source-qualified. Reward
+prose distinguishes nine paper terms (including feet air time), fifteen declared
+code scales, nine nonzero scales and nineteen functions. The twelve-term preview
+is explicitly a local teaching model; no policy is trained. Numerical formulas,
+defaults and animation behavior are unchanged. The code citation now pins the
+initial README title and Nikita Rudin attribution; it is not a full contributor list.
+
+**Zero new retrievals.** Retained September 6 FetchUrl events and September 8
+initial-commit API bytes were rechecked: 18 required parts, 21 paired items,
+15 literal passages and three reconstructed Git-blob-verified files. Unversioned
+ar5iv is not certified as v2/v3 or PDF-equivalent; API page 1 of 2 qualifies only
+those three files. Review timestamps are not fetch timestamps.
+
+The Mission helper now separates application and fresh-process approval collection.
+Fourteen exact immutable-baseline approvals remove only the two genuinely repaired
+`interactive-sources-mounts` failures for reward-shaping and training-time-chart.
+**44 unrelated complete failure objects remain identical; zero objects added.**
+Controls reject three stale-process/metadata/byte cases and 28 wrong hashes, verify
+14 actual baseline anchors and four native absence cases, and reproduce the false
+46-count match caused by two missing citation metadata approvals. Two initial
+fixture-construction failures remain recorded, not suppressed.
+
+Actual checks: red-first 19 failed/18 passed; focused 37 passed; additional affected
+188 passed. Normal lint including prelint, route typegen and nonincremental TypeScript
+passed before the new reader test; final-input checks are recorded in the packet.
+The initial 17-case browser run was externally interrupted: 14 completed passes,
+two completed failures and one uncompleted identity, with no normal-exit receipt.
+The repaired two-reader run finished: desktop passed; mobile failed on **27 px page
+overflow**, agreeing with the existing reward-page mobile failure. No geometry
+repair or full-reader acceptance is claimed. Corrected paragraph, hover/focus,
+reference/byline, chart control and glossary observations are retained. Centered
+captures do not establish full tall-section/Stat coverage; computed font checks do
+not establish CDP glyph attribution. Six captures were directly Read-inspected.
+The mobile reward disclosure is partly obscured by the development indicator.
+
+**Content stays RED: 576 findings plus nine separate citation gaps.** Of the 576,
+one is a new scoped citation-audit URL mismatch: `audit/citations.md` still records
+the repository root while the registry points at the pinned README. No direct blob-URL
+fetch occurred, and no live reachability verdict was fabricated to remove it.
+This citation-audit follow-up and mobile overflow block completing the reader task.
+No publication, build/export, card generation, readiness change or independent credit.
+Formal progress remains 307/331; skipScrutiny=false and skipUserTesting=false.
+Production HTML, reading-time/card/reference lifecycle, full browser corpus,
+whole-P1/authored-local-proof and independent Sol/high acceptance debts remain.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-scoped-delta-integration-20260909/`.
+Only the verified owned Next 16.3 webpack leaf was signaled; actual supervisor exit
+and exact generated next-env/tsconfig restoration are recorded there. Existing
+services and owner files are preserved. Earlier checkpoint sections are history.
+
+## Current checkpoint: bounded transfer-reader closeout, zero original credit (2026-09-09)
+
+Product implementation is unchanged from `2ed812e20ee3dbe663c75f157ac3e5f066b37ea2`.
+Native comparison preserves **all 994 full semantic records, all 421 completions,
+573 incomplete records, exact 327-plan bytes, and all 409 approval objects,
+metadata and serialized prefix**. There are 47 articles; RL remains 75/92/167.
+All six mobile citation wrappers, source URLs/bylines/dates, numeric constants,
+defaults, RMA/Isaac/DR/KL wording and held transfer 21/23/24/P1 questions remain.
+
+The exact 15 browser identities are reconciled rather than rerun for ownership:
+11 completed passing identities from the interrupted repaired population,
+the later completed mobile randomization citation reader, and three current
+identities (general Axe plus strengthened SplatSim/RoboGSim readers at 375×812
+and 1440×900). The initial 14-pass/1-fail run, repaired run's 11-pass/1-fail
+reporter outcomes, three uncompleted outcomes and absent normal-exit receipt,
+and later three-pass overlap remain history. Uncompleted does not mean proven
+unrun. The interrupted mobile reader's premature `runnerStatusAtFinally: passed`
+is not accepted over its false assertion-completion flag and terminal failure.
+This is composed 15-identity coverage, not one fresh 15/15 invocation.
+
+Current browser execution: **10 executions, 3 passes, 7 failures across five
+sequential runs**, preserving all raw results. Test-only repairs addressed
+rendered-innerText versus textContent parity, canonical trailing-slash URLs,
+CDP text-leaf selection, and an independent mobile hover precondition after a
+previous glossary focus. No product defect or placement change was required.
+All original assertions and reporter-visible identities remain; the two source
+readers gained strict containment/hit testing, hover/focus parity, actual
+Tab/Enter full-reference jumps for all five citation occurrences, full six-
+and nine-author bylines, three relevant glossary definitions, font-leaf
+measurements, changed-section slices and a bounded section-start survey.
+
+The completed helper cases produced **40 viewport captures (21 mobile, 19
+desktop); 36 were directly Read-inspected**, including all six readable
+changed-section slices, both Stats, both source hover/focus states and all four
+full-reference captures. Four redundant section-start images and six inherited
+Stat/focus captures were not additionally Read. The survey is not complete
+article coverage. The local Next development indicator remains visible in
+some screenshots; overlapping changed-section slices provide the reading
+continuation, not a production-HTML seal. Selected text uses actual local
+Tektur, Newsreader, IBM Plex Sans and IBM Plex Mono; this is not full-corpus
+glyph/cmap acceptance. Actual display/inline KaTeX/MathML counts are 0/0/0;
+no invented equation checks are credited. Source-reader Axe has zero violations
+but retains color-contrast incompletes: 46 mobile nodes and 44 desktop nodes.
+Chart contrast 3.6088/3.3553 and tiny SVG text retain their existing owners.
+
+Actual final gates: normal `npm run lint` **including prelint** exit 0;
+`next typegen` exit 0; `tsc --noEmit --incremental false` exit 0; native
+preservation comparison exit 0 with the **same 46 full baseline failure
+objects**, no additions/removals. The predecessor's 140 focused reporter tests
+are reused by unchanged executable-input qualification, not rerun; its 121
+local source-verification checks remain a separate population. **Zero source
+retrieval or new source certification**: retained primary HTML/extracted text
+has the original September 8 unversioned GET provenance and SplatSim v3 /
+RoboGSim v2 watermarks, not newly pinned URL/PDF proof.
+
+Evidence and exact per-identity/input/Read/runtime receipts:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-splat-transfer-reader-closeout-20260909/`.
+The fresh Next 16.3 webpack loopback preview used the retained 19 WOFF2 files
+and exact offline socket guard; only its verified leaf was signaled and the
+supervisor recorded actual exit 143. Framework-generated next-env/tsconfig
+drift was restored, not committed. Article `lastReviewed` and prose are frozen;
+no prose rewrite/humanizer claim applies.
+
+**Content remains RED: 578 findings plus nine separate citation gaps. Do not
+publish.** Formal progress remains 307/331; skipScrutiny=false and
+skipUserTesting=false. Whole-article/P1/authored-local-proof, shared reader
+contrast/accessibility, Playground/navigation, servo/glossary reconciliation,
+production HTML/reading times, 48 cards/full corpus and independent Sol/high
+acceptance remain with their existing owners. This is an implementation-worker
+checkpoint, not independent validation or brand acceptance.
+
+## Current checkpoint: three splat transfer originals integrated; acceptance remains red (2026-09-09)
+
+Applied only `audit/rl-sim2real.md:sim2real-transfer:4`, `:18` (atomic checkpoint) and `:19` (separate coupled group). **421 strict complete / 573 incomplete / 994 originals / 47 articles; 327 native plans and 409 exact approvals.** RL: **75 complete / 92 incomplete / 167 total**. All 991 unselected full semantic records, 418 prior completions, 324 prior plan objects/prefix and 406 prior approval objects/prefix are preserved. Originals 21, 23, authored/local-proof and P1 holds remain uncredited; formal progress stays 307/331.
+
+SplatSim's active erroneous 2409.09961 pointer is corrected to 2409.10161 with the original tuple retained. Its Stat/prose now qualify UR5, four tasks, forty trials per task, augmentation, hardware and preparation, and preserve conflicting Figure 2 versus IV-A inputs. The Assembly Sim2Sim 85% table versus 95% prose conflict remains in the audit note. RoboGSim retains 2024 citation identity separately from inspected August 2025 v2; mesh/Isaac Sim state dynamics, ten trials with up to three attempts, 90% real versus 30% simulated placement, and rendering/replay/safety limits remain explicit. Table 1 versus Section 4.3 remains unresolved. Registry, shared renderers, formula defaults and article review date are unchanged.
+
+**Zero new retrievals.** Local verification passed 121 checks binding two retained primary HTML bodies, complete extracted projections, original retrieval events, edition watermarks and all 25 evidence joins across 20 distinct passages. Twenty-five required parts receive actual integrator review/adjudication, not packet-readiness credit. Original GETs were September 8, not current review; requested URLs were unversioned. No PDF, supplemental, publication-venue or Isaac Sim release-version certification is earned.
+
+Raw focused red: 13 failures / 1 pass; integrated focused: 140 passes. Normal lint/prelint, route typegen and nonincremental TypeScript passed before mobile repair. Fresh browser first run: 14 pass / 1 fail of 15, detecting two mobile SplatSim popups beyond the viewport. Two article-local wrappers repair only those positions; the four prior wrappers remain. A complete-population rerun was externally timed out at 150 seconds after 11 pass / 1 fail were reported; the remaining three lack a completed reporter outcome. A subsequent targeted run passes both source readers (375x812 and 1440x900) and the previously failing mobile randomization citation reader: 3/3. This is composed evidence, not a fresh single 15/15 run. Four final Stat/SplatSim-focus captures were directly Read-inspected. New source readers have zero Axe violations but retain color-contrast incompletes; full-reference/glossary/source-specific glyph and whole-article visual coverage remain incomplete.
+
+Content remains **RED: 578 findings plus nine separate citation gaps**. All **46 full baseline failure objects remain identical**, with no newly waived failure. Exact prose and citation-multiplicity approvals plus one measured mobile-formatting endpoint are appended; no accessible-name member delta was observed. The original application stopped after product/ledger/plan writes at its unenumerated relationships guard; approvals were then completed without reapplying a record. Raw verifier/approval harness failures are retained, not suppressed. The owned loopback webpack runtime used retained fonts and a Node external-socket guard. Runtime-generated next-env/tsconfig changes were proven and restored. This is a local checkpoint, not independent validation or release acceptance. Production HTML/reading times, 48-card corpus, previous contrast/reader debts and Sol/high scrutiny/user testing remain pending. **Do not publish.**
+
+Evidence directory: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-splat-transfer-integration-20260909. Exact final command receipts, native reconciliation, process outcome and committed-state seal live there. Earlier sections are history, not current accounting.
+
+
+## Current checkpoint: five randomization originals integrated; reader gap retained (2026-09-09)
+
+**Applied:** `audit/rl-sim2real.md:why-rl-locomotion:5`, `:8`, and `audit/rl-sim2real.md:sim2real-transfer:5`, `:6`, `:9`. **418 strict complete / 576 incomplete / 994 originals / 47 articles; 324 native plans and 404 exact approvals.** All 989 unselected full records, all 413 prior completions, the 319-plan prefix and the 397-approval objects/metadata/prefix are preserved. Transfer original 23 remains excluded, incomplete and uncredited. Formal Mission progress remains 307/331.
+
+Tobin/Peng document identities, experiment qualifications and limited calibration are corrected with original-cell history retained. OpenAI now distinguishes the fixed 43-subgoal fair-scramble protocol (2/10 with vision pose/Giiker angles versus 0/10 with vision angles), symbolic solver, customized hardware and automatic ADR range adjustment. Its ordered registry byline has all 19 entries. The 2019 metadata versus rendered August 24, 2026 disagreement remains unresolved. Unsupported universal randomization-cost claims are replaced by explicit authored-toy assumptions. Formula constants, numerical defaults and controls are unchanged; winner prose compares actual values, not band membership. Existing RMA, Isaac Lab and KL corrections survive.
+
+**Zero new source retrievals.** Current review verifies six retained historical FetchUrl responses, 29 retained literal passage bindings and 29 selected evidence pairs across 27 distinct passages; all five plans contain 29 AND-parts. Historical September 8 retrieval times are not relabeled as September 9 fetches; tool-reported 200 is not independently observed origin status. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json.
+
+**Executed:** red-first 24 failed/7 passed, installed intermediate 1 failed/30 passed, final focused 31/31 pass (23 unit, eight component; 29 nested source-pair deletions and 40 nested malformed/stale mutations are not extra reporter cases). Normal lint including prelint, route typegen, nonincremental TypeScript, source-only no-slop and chart-description checks pass. Content/audit coverage remains **RED: 581 findings plus nine separate unresolved citation rows**. Seven exact immutable-baseline approvals are appended; there are still 47 baseline failure objects, but only 46 are identical: the inherited absent citation-rendering aggregate has a new byline-dependent digest. It remains unwaived; full failure-object equality is false.
+
+Four bounded reader identities at 375×812 and 1440×900 pass their executed assertions: complete selected DOM paragraphs, canonical citation URLs, hover/focus, keyboard reference jumps, ordered bylines, domain-randomization glossary paths, ordinary toy keyboard winner/reset and preserved RMA feedback. All 18 captures were directly Read-inspected. A separate screenshot-led diagnostic is RED: Peng's mobile tooltip is x=226, width=256 (right edge482 in a375 viewport). The original runner did not assert citation containment. Prediction reveal browser state, full visual framing, fresh Axe/contrast/font-platform checks and the complete math/selection matrix remain gaps, not acceptance. No shared citation UI repair is claimed.
+
+The owned Next16.3 Webpack loopback server used retained local font responses and an external-socket guard. Its supervisor recorded actual exit143 after signaling only the owned next-server leaf. Browser external attempts were zero; current Node attempt details and generated-file restoration are retained in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/verification.json. No build/export, live-link check, deployment, cleanup, controller/feature change or fallback occurred. Full reading-time/card/reference lifecycle and independent Sol/high acceptance remain pending. **Do not publish.** Local integration is not final validation; earlier sections below are history.
+
+
+## Current checkpoint: atomic RMA pair corrected; KL full-reference access proven (2026-09-09)
+
+**Two originals applied atomically:** `audit/rl-sim2real.md:sim2real-transfer:3` and `:11`. **413 complete / 581 incomplete / 994 originals / 47 articles; 319 native plans and 397 exact approvals.** All 411 prior completions, 992 unselected full semantic records, all 317 prior plan objects/serialized prefix and 395 prior approval objects/metadata/serialized prefix remain unchanged. The completed `reward-design-mpc:3` is not reapplied or semantically changed. Formal progress remains **307/331**. Earlier checkpoint sections below are historical observations, not added credit.
+
+RMA now distinguishes joint RL training of the base policy/privileged encoder, supervised adaptation from 50 state-action steps (0.5 seconds), and asynchronous A1 inference: about 10 Hz latent estimates versus 100 Hz base-policy joint-position predictions. Reported sub-second adaptation is not online gradient learning, exact friction recovery, or a universal guarantee. Hardware failure limits remain explicit. The seven coupled mechanism/Stat/question/answer/rationale/takeaway/glossary spans agree; the answer now names the adaptation module, correcting an inconsistency in the prepared proposal. Lee, the industrial glossary repair, every unrelated endpoint, canonical citation URLs and review dates are preserved.
+
+**Zero external source retrievals.** Fresh integrator review checks nine literal passages, eight paired evidence items and eight AND-parts against retained RMA body/metadata and countercontext. The body GET observed 200 on 2026-09-08 from 06:35:10.822894Z to 06:35:11.722544Z; the metadata FetchUrl response reported 200 at 06:33:50.639Z. No new fetch date or current liveness is asserted. The unversioned ar5iv body is not independently version-pinned. The printed 0.025-second simulation step is not silently reconciled with 100 Hz control. Three-seed/1,000-episode simulation evaluations and five-trial indoor experiments (two-trial early stop for drastic failure) remain distinct in source review; no general reliability or whole-P1 seal is earned.
+
+**Actual checks:** red-first 9 failed / 1 passed; then all 10 new focused unit cases pass, including eight nested mutation scenarios (not eight additional cases). The qualified 101 prior cases are reused through unchanged scientific/configuration/test inputs and preservation, not rerun. Normal npm lint including prelint, route typegen and nonincremental TypeScript pass; subsequent affected-test lint and nonincremental TypeScript reconcile final reader-test edits. Content remains **RED: 586 findings plus the same nine citation gaps**. All **47 full baseline failure objects** remain equal.
+
+**Four distinct bounded reader identities: RMA passes at 375×812 and 1440×900; KL retains two failures.** All four reach full titles and all four authors via the existing keyboard full-reference jump. Rudin's fourth author, Marco Hutter, is visible in References; the tooltip intentionally abbreviates its byline. No shared author renderer change is needed or made. The remaining KL failure is PPO tooltip geometry when its link is centered: top −48.71875 px at 375px (also obscured by the mobile header), and −5.140625 px at 1440px. A real scroll exposes its entire definition on hover and focus, but the centered placement remains a failing assertion. This is not missing-source evidence and not a fourth-author access failure. RMA's mobile drawer test now follows the actual wordmark-before-close tab order; inert background, boundary wraps, Escape and trigger focus return pass.
+
+Current proof has 31 reader captures plus five unobscured overlapping mobile text tiles. Two centered-tooltip captures are diagnostic failures; two sticky-header-obscured mobile element captures are superseded by the five tiles, not silently accepted. All 36 were directly Read-inspected; three earlier diagnostic images were also read. Four distinct reader cases are not multiplied by seven overlapping reruns; the five-tile capture-only supplement is separate. Measured scoped text contrast passes (minimum 4.760985:1), and 54 actual text/cmap probes plus browser platform-font observations use the four locked custom families without missing glyphs. Actual RMA/Rudin bylines contain no accented codepoints; no altered spelling is invented. Axe has zero violations but retains `color-contrast` incomplete for other chart/SVG and citation-arrow targets, so this is not full accessibility acceptance.
+
+The task-owned Next 16.3.0 Webpack server reused 19 retained WOFF2 files plus Tektur with an external-socket guard. One development-version lookup to registry.npmjs.org was blocked before connection; zero external transmissions and browser attempts were observed. The owned server is stopped; only two proven generated Next import prefixes were restored. No build/export, cleanup, publication, model fallback, controller/feature change or new source group occurred. Manual source-fidelity/prose review was performed because the humanizer skill is unavailable.
+
+**Do not publish.** Unassigned Rudin originals `parallel-sim-rl:2`, `legged-locomotion:5`, `reward-design-mpc:2` remain implementation holds, not missing-source findings. Existing authored-example, whole-P1, liveness, reference/export/reading-time, 48-card lifecycle and independent Sol/high scrutiny/user-testing debts remain. `skipScrutiny=false`, `skipUserTesting=false`, fallback inactive. Exact input/log/UTC/exit/source/preservation/Read and local commit/tree evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rma-and-kl-reader-integration-20260909/`.
+
+## Current checkpoint: Rudin KL corrected; five originals held and reader byline gap remains (2026-09-09)
+
+**One original applied:** `audit/rl-sim2real.md:reward-design-mpc:3`. The independent KL paragraph now reports Table 3's desired KL of 0.01 and Algorithm 1's twice/half-target adaptive learning-rate rule, without claiming exact KL control or stable reward retuning. Original and immediate-before four-cell history remain explicit. **411 complete / 583 incomplete / 994 originals / 47 articles; 317 native plans and 395 exact approvals.** The RL ledger is **65 complete / 102 incomplete / 167 originals**. All 410 prior completions, 993 unselected full semantic records, 316 old plan objects/serialized prefix and 394 old approval objects/metadata/serialized prefix are preserved. Formal progress remains 307/331.
+
+**Five selected originals remain unapplied/incomplete:** parallel-sim-rl 2, legged-locomotion 5, reward-design-mpc 2, and the atomic sim2real-transfer 3/11 pair. The prepared chart span is stale after a prior correction; the proposed code URL would drift from its audited canonical URL. Those shared dependency adjustments were not completed. RMA's writer adjudications and coupled reader validation were not completed within this checkpoint. No dependent span, code citation, glossary definition, Stat, quiz, interactive behavior/default, or review date was changed.
+
+**Zero new external retrievals.** The indexed retained source packet and dependencies were hash-checked; this application specifically verifies three literal passages, four paired items, three AND-parts and two original Rudin request/result bindings. Table 3/Algorithm 1 and the distinct body/metadata identity were reviewed, not accepted from source-worker labels. The retained body is unversioned ar5iv text, not independently pinned v2/v3. September 6 FetchUrl results reported 200; this is historical tool-output provenance, not a fresh origin-status or liveness claim. The landing and body identify Rudin, Hoeller, Reist and Hutter, 2021 submission and the CoRL 2021 comment.
+
+**Validation:** red-first 9/9 failures; then 101 distinct focused cases passed across three files. A nullable-review TypeScript error was repaired with an explicit test guard; the affected 9 cases passed again, not nine additional unique cases. Normal npm lint including prelint passed, followed by affected-file lint reconciliation; route typegen and final nonincremental TypeScript passed. Content remains **RED: 588 findings plus the same nine citation gaps**. All **47 full baseline failure objects remain equal**, not merely equal in count.
+
+**Reader proof remains RED.** Two diagnostic viewport cases at 375×812 and 1440×900 reached corrected prose, citation hover/focus and PPO keyboard-focus states, with eight directly Read-reviewed captures. Both fail the retained full-byline assertion: the canonical registry has all four authors, but the existing shared tooltip displays the first three plus “et al.” and omits Marco Hutter. No shared renderer change or reader acceptance is claimed. Earlier wrong-button-locator and missing-author runs remain retained; the two viewport identities are not multiplied by reruns. Axe reports zero violations with `color-contrast` incomplete; document overflow and page errors are zero. Loaded FontFace/CSS-role observations are retained, not a complete platform-glyph proof. Development UI remains visible; the separate prose captures show the corrected paragraph unobscured.
+
+The owned Next 16.3.0 offline Webpack server used the retained 19-font response map and existing Tektur asset. Its guard blocked one npm development-version socket attempt before opening it; zero external transmissions and zero external browser attempts were observed. Server and descendants are stopped; only the two proven generated Next dev type-import prefixes in `next-env.d.ts` were restored. No cache cleanup, build/export, publication, fallback, controller or feature-state change occurred.
+
+**Do not publish.** Whole-article/P1, complete reference/byline and font proof, authored examples, OSHA-year, Thrun/modern EKF, safety arithmetic, place-recognition, servo final-input reconciliation, production reading times/export, 48-card lifecycle and independent Sol/high scrutiny/user testing remain open. Both skip flags remain false. Fixed first emission: 03:18:14.305Z; checkpoint: 03:53:14.305Z, not reset.
+
+Exact source/adjudication, current tuple and endpoint guards, input manifests, command UTC/exits/logs, raw failures, capture/Read bindings, preservation and local commit/tree receipts: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-rma-integration-20260909/`. Earlier checkpoint sections below retain historical observations, not additional current credit.
+
+## Current checkpoint: systems-integrator glossary aligned; bounded industrial reader closed (2026-09-09)
+
+**Zero original applications, zero new plans and zero external retrievals.** Native comparison preserves all **994 full semantic records / 410 completions / 316 plan objects and exact bytes**, plus all **393 old approval objects, metadata and serialized prefixes**. One exact glossary member delta is appended: **394 approvals total**. Corpus remains **410 complete / 584 incomplete / 47 articles**; formal progress remains **307/331**. Every other glossary entry, including `place-recognition`, is unchanged. Earlier checkpoint sections below retain their historical observations, not additional current credit.
+
+Only `data/glossary.ts` entry `systems-integrator` changes reader-facing content. Its concrete application-integration definition now permits manufacturer/employer integrators, attributes risk-assessment guidance to OSHA's discussion of ANSI/RIA R15.06-2012, retains employer workplace-safety responsibility, and names EVST's July 15, 2026 commercial palletising-budget scope. The universal manufacturer exemption, cycle-time sign-off and generic two-to-three-times multiplier are removed. The whole definition was reviewed against **two retained documents / 21 literal support and counterpassage bindings**, not packet verdicts. No industrial 27/28 row, article prose, registry metadata/URL, review date, equation, calculator or font changed.
+
+**Actual source regression: 6 failed / 1 passed before correction; all 7 pass afterward. Actual affected unit/component run: 78 cases pass in six files**, including those seven and eight previously passing industrial cases; its 22 nested industrial mutation scenarios are not extra cases. A separate **95 prior cases (77 audit-ledger + 11 citation-coverage + 7 economics)** remain reusable through 19 exact transitive dependency/configuration/input hashes; they were not rerun or added to the fresh 78. Normal `npm run lint` including prelint, route typegen and nonincremental TypeScript pass.
+
+**Both final changed reader identities pass at 375×812 and 1440×900**, including supported glossary text on hover AND focus, tooltip bounds/visible focus, source hrefs/full bylines, citation hover/focus placements/reference keyboard jumps, slider/reset, mobile drawer/Tab/Escape/focus/inert/current-page, zero Axe violations, console/page errors and document overflow. **39 captures / 39 actual Read bindings.** The first three-case attempt passed VAL-DATA-032 but failed both readers on a new EVST substring collision inside the corrected tooltip. Its raw red result is retained; selecting the article's unique full lead and asserting cardinality repaired the test without removing any meaning or revealed-state check. Only the two affected readers were rerun. VAL-DATA-032's actual pass is input-bound to the final state; this is not a fresh single three-case green run. The predecessor's four hover/focus assertion failures belonged to two cases, not four cases.
+
+The owned Next.js 16.3.0 **offline Webpack** lifecycle reused the same 19 retained font binaries and four locked font roles; no production font/configuration change, fallback, external font fetch, full build or cache cleanup. It returned HTTP 200. The browser guards recorded zero external attempts. The server guard blocked **one** development-version socket attempt to `registry.npmjs.org:443` before opening it; zero transmitted external requests, not zero attempted server lookups. The owned server and descendants are stopped. `next-env.d.ts`, `tsconfig.json`, owner files and immutable baselines retain starting bytes.
+
+**Do not publish. Content remains RED: 589 findings plus nine separate citation gaps; all 47 baseline failure objects remain deeply equal.** OSHA publication-year P1, industrial 52/safety 5/6 authored holds, `place-recognition`, separate arithmetic/Thrun/servo-final-input work, full article/reference/export/48-card proof and independent Sol/high scrutiny/user testing remain open. Both skip flags remain false; fallback is inactive. This closes only `industrial-systems-integrator-glossary-source-alignment` and the assigned bounded reader contradiction under `industrial-offline-runtime-and-reader-proof`, not whole-article or release acceptance.
+
+Exact sources, original retrieval event/byte bindings, initial preserve-only identities, source review, executed argv/UTC/exits/log/input hashes, images/Read bindings, failure history and local commit/tree receipts: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-integrator-glossary-repair-20260909/`.
+
+## Current checkpoint: industrial offline runtime recovered; glossary reader gap remains (2026-09-09)
+
+**Zero original applications and zero source retrievals.** All **994 full semantic records, 410 completions, 316 plan objects/bytes and 393 approval objects/metadata/serialized prefixes** are preserved. Corpus accounting remains **410 complete / 584 incomplete / 47 articles**; formal progress remains **307/331**. The earlier checkpoint sections below are historical, not additional current credit.
+
+The installed Next.js 16.3.0 Turbopack font-file resolver sent the retained offline hook's absolute local WOFF2 paths into `FetchClientConfig` and panicked with `request should be cloneable`; the strict route regression returned HTTP 500 without either corrected paragraph. With identical product and font-hook inputs, the supported `next dev --webpack --hostname 127.0.0.1 -p 3217` lifecycle used the installed loader's local-file branch and returned HTTP 200 with both corrected paragraphs. No production font/configuration/token/layout change, fallback-font substitution, cache cleanup or Google-font fetch was made. Nineteen retained font binaries are hash/identity-bound, and browser platform-font probes confirm all four custom font roles.
+
+The three final reporter-visible identities are **one passed / two failed**: `integration-cost claim carries components and a citation (VAL-DATA-032)` passes; `industrial cost and responsibility reader at 375px` and `industrial cost and responsibility reader at 1440px` fail on the revealed `systems-integrator` glossary definition. It still says “not the robot manufacturer's,” contradicting the corrected paragraph's explicit manufacturer/employer integrator roles. The registry is outside this preserve-only repair and remains unchanged. The test now distinguishes visible prose from dormant tooltip text, then actually reveals the term by hover and focus and keeps that contradiction red. An intermediate three-pass run before adding that revealed-state assertion is not final acceptance.
+
+Both final viewport cases reach the corrected paragraphs, canonical citation hrefs/full bylines, all eight assigned citation hover/focus placement states per viewport, visible keyboard focus, reference jumps, slider/reset, and mobile drawer/current-page/Tab/Escape/focus/inert checks before failing the glossary assertion. Zero document overflow, Axe violations, browser external attempts, or console/page errors were observed. **39 final captures have 39 actual Read bindings**, including four full-paragraph captures and four revealed-contradiction captures. The server guard also recorded **one blocked** Next development-version lookup to `registry.npmjs.org:443`; it threw before opening the external socket. This is not a claim of zero attempted server lookups or a fresh source/liveness check.
+
+Normal `npm run lint` including prelint, route typegen and nonincremental TypeScript pass. The predecessor's **103 unit/component passes** are reused through **657 identical scientific/config/test input hashes**, not rerun or added to the browser population. Content remains red at the inherited **589 findings plus nine separate citation gaps**; the initial native comparison preserves the same **47 full baseline failure objects**. No source-backed prose, registry value, original evidence, review date, safety calculation or approval changed. Exact commands, input manifests, raw failures, captures and lifecycle receipts are under `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-offline-reader-repair-20260909/`.
+
+**Do not publish.** Reader acceptance remains red until the narrowly scoped glossary source-alignment repair is authorized and verified. Industrial 52/safety 5/6 authored-proof holds, OSHA publication-year P1, separate arithmetic/Thrun/servo-final-input issues, production export/full-reference/48-card work and independent Sol/high scrutiny/user testing remain open. Both skip flags are false; fallback is inactive.
+
+## Current checkpoint: industrial cost/responsibility (2026-09-09; reader proof failed)
+
+Exactly originals `audit/data-hardware.md:industrial-deployment:27` and `:28` applied atomically; zero selected holds or unattempted originals. **410 complete / 584 incomplete / 994 originals / 47 articles; 316 plans and 393 exact approvals.** All 408 prior completions, 992 unselected semantic records, 314 prior plans and 391 prior approvals/metadata/serialized prefixes are preserved. Formal progress stays 307/331. Earlier checkpoint sections are historical, not additional current credit.
+
+Eight AND-parts and 13 literal bindings from retained OSHA/EVST text were reviewed; zero external retrievals. The OSHA role/limitation correction does not exempt manufacturers or modernize the manual to ISO 10218-2:2025. The dated EVST cost list is commercial guidance, not independent price research, fixture-cost proof or a cycle guarantee. Review dates and registry values are unchanged. Native evidence and the detailed committed accounting are in audit/data-hardware.md and audit/compound-evidence.json; source/retrieval/input/preservation receipts are under `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-cost-responsibility-integration-20260909/`.
+
+The 103 focused unit/component tests, normal lint/prelint, typegen and nonincremental TypeScript pass. **Content RED: 589 findings plus nine separate citation gaps. Baseline RED: the same 47 full failure objects.** The initial approval-anchor/stale-prose errors and 49-failure results remain retained. **Reader proof FAILED:** both runs failed the same three industrial identities on a local HTTP 500; no successful affected-route screenshots, Read bindings or interaction/visual acceptance is claimed. Owned servers are stopped and generated configuration equals its starting bytes. The fixed 01:39:31.658Z target was exceeded during the bounded task/closeout and never reset.
+
+**Do not publish.** Industrial 52, safety 5/6, OSHA publication-year P1, the separate arithmetic/Thrun issues, predecessor final-input browser reconciliation, full article/reference/export/48-card obligations and independent scrutiny/user testing remain open. skipScrutiny=false; skipUserTesting=false; fallback inactive. This checkpoint is not release acceptance.
+
+## Historical checkpoint: servo and Apollo integration (2026-09-09)
+
+Exactly five originals applied: classical perception 56/57/58 and state-estimation 4/5, in their two complete atomic groups. Native accounting is **408 complete / 586 incomplete / 994 originals / 47 articles**; classical is **51 complete / 136 incomplete / 187 originals**. All 403 prior completions and 989 unselected semantic records are preserved. Compound plans: **314** (309 prior plus five); exact approvals: **391** (384 prior plus seven). Formal feature progress remains 307/331; this is not article/P1 or release acceptance. Earlier checkpoint sections below are historical.
+
+All 21 required AND-parts and 23 paired items were reviewed against retained source text: two Chaumette/Hutchinson tutorials and NASA TM-86847. Mechanical verification covers 32 literal spans and 84 retained file bindings, not 84 unique sources. Zero new retrievals. Historical retrieval provenance and limits, current native bindings, exact approval hashes, failures, and reader receipts are under the absolute Mission directory `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-servo-apollo-integration-20260909/`.
+
+Content remains **RED: 591 findings plus nine separate citation gaps**; baseline remains **RED: the same 47 full failure objects**. No publication. The separate modern Thrun-backed EKF evaluation-point/only-covariance issue, authored proof, current citation liveness, whole-P1/feature acceptance, production export/reading times, 48-card/full-reference corpus and independent scrutiny/user testing remain pending. Existing review dates, NASA/BOP registry URLs, modern equations and prior reader repairs are unchanged.
+
+
+## Current zero-credit BOP dependency and pose-reader repair — 2026-09-09
+
+**403 complete / 591 incomplete / 994 originals / 47 articles; 309 plans, 384 exact approvals. Zero original applications and zero new retrievals.** All 994 semantic records, 403 completions, 309 raw plan objects/bytes and 382 prior approvals/metadata/serialized prefix are preserved. Exactly two member approvals were appended. Classical remains 46/141/187; scene remains 34 complete; formal progress remains 307/331.
+
+The introduced BOP URL drift is repaired, not inherited debt: the registry again ships the exact historically audited https://arxiv.org/abs/2403.09799. The historical audit row is unchanged; native evidence retains https://arxiv.org/html/2403.09799v1, its 2024 preprint identity and all ten ordered authors. Retained retrieval events/bytes were verified, not fetched again. Seven article-local mobile citation breaks repair reproduced 30px tooltip overflow. Removing those exact seven breaks yields byte-identical af22bd1 article content: formulas, meanings, thresholds, glossary, claims and source plans are untouched.
+
+Validation: 46 distinct affected unit cases pass; two checked-in reader identities pass at 375×812 and 1440×900. Both complete equations, including SVG delimiters/accents, are covered by actual keyboard-entry/scroll/return/exit states. The second mobile equation is 419px inside a 335px local viewport, reachable from 0 to 84px; no math-layout change was needed. All seven source popovers have in-viewport hover/focus geometry, glossary focus and both full ordered bylines are checked. Mobile drawer/current-page/Tab wrapping/Escape/focus-return/inert removal pass. Zero Axe violations, page/console errors, external browser requests or document overflow. Thirty-seven qualifying directly Read-reviewed captures use run 5 with three unobscured unseen-paragraph replacements from run 6. Earlier failed assumptions, partial/clipped captures and the missing-tsx helper attempt remain uncredited and retained. This is bounded reader proof, not full-reference-corpus acceptance.
+
+Normal lint with prelint, route typegen and nonincremental TypeScript pass. Content remains **RED: 596 findings plus nine separate citation gaps**; the sole BOP URL-drift finding is removed. Baseline remains **RED: all 47 full failure objects equal the frozen before snapshot and actual baseline command result**. Both owned server lifecycles are closed; next-env.d.ts and tsconfig.json equal their exact before bytes. No cleanup, new source group, feature/controller change, build/export, publication or fallback occurred.
+
+**Do not publish.** Production reading-time/export, 48-card lifecycle, full visual/reference corpus, whole-P1 and independent Sol/high scrutiny/user testing remain pending; skipScrutiny=false and skipUserTesting=false. Fixed first emission: 2026-09-08T23:33:41.569Z; target: 2026-09-09T00:08:41.569Z, never reset. Actual commit/seal times are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-reader-dependency-repair-20260908/handoff.json and seal.json.
+
+## Historical partial pose-metrics/BOP checkpoint — 2026-09-08
+
+**403 complete / 591 incomplete / 994 originals / 47 articles; 309 plans and 382 exact approvals.** Four applied, zero held, zero unattempted at the original-record level: perception51/52, then53/54 with their shared glossary composed. Classical has46 complete /141 incomplete across187 originals; scene remains34 complete. Formal progress remains307/331. This is a bounded local implementation checkpoint, not whole-article P1 or release acceptance.
+
+Zero new external retrievals. Verified98 retained inventory entries,35 literal passages,22 AND-parts and27 original packet items. Thirteen pose excerpts were preserved within8 literal contiguous same-manuscript spans; native plans contain22 evidence items total. Manuscript equations are unsquared and directed, with inclusive correctness and Table1-specific0.1. BOP2403.09799v1 uses strict correctness, metric-then-equal-dataset AR_C, exact entry comparisons and explicit training/onboarding/timing limits. Hinterstoisser2013 publication metadata is distinguished from ACCV2012; canonical DOI retained. BOP is identified as the verified2024 preprint, with all10 ordered authors including Labbé.
+
+Validation:108 distinct passing unit/component cases across7 files, plus2 focused browser cases at375x812 and1440x900. Native prelint/lint, typegen and nonincremental TypeScript passed. Red-first13 failures, native duplicate-item and worker-verdict errors, missing-baseline-member lookup, two prose punctuation findings and two collapsed-byline test failures are retained with repaired runs. No native gate was weakened. Absent baseline members use the existing SHA256("missing") convention.
+
+**Content and baseline remain RED. Do not publish.** Content structure, source no-slop and chart descriptions pass; audit coverage exits1 with597 findings and9 separately tracked unresolved citation checks. One finding is the BOP citation-audit row still binding the old abs URL rather than the newly verified v1 body URL; this dependent citation re-audit is outstanding, not waived. All47 full baseline failure objects match the before snapshot after the six exact approvals. Prior399 completions,990 unselected semantic records,305 plan objects and376 approval objects/metadata are preserved.
+
+Two browser tests establish rendered formulas, both threshold conventions, glossary focus, full ordered bylines via the real expand control, no page-level horizontal overflow, zero axe/page/console errors and zero attempted external requests. Twelve captures exist, but only four were Read-reviewed at this checkpoint. The375px second equation extends beyond the initial local math viewport; complete keyboard-scroll proof is outstanding. Drawer/Escape/focus-return/inert, full reference comparison, production reading-time/export and48-card lifecycle obligations are NOT certified. No build/export or publication occurred. Independent Sol/high scrutiny and user testing remain required: skipScrutiny=false; skipUserTesting=false.
+
+Evidence directory: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908. scope-error.json records the accidental two-byte parent-directory placeholder and its immediate removal; it was an actual scope violation, not a permitted probe. The original35-minute intervention target remains2026-09-08T23:24:35.059Z.
+
+## Historical partial calibration/TSDF checkpoint — 2026-09-08
+
+**399 complete / 595 incomplete / 994 originals / 47 articles; 305 plans and 376 exact approvals.** Five applied, zero held, zero unattempted: perception originals 8/13 form one atomic group, scene-representation originals 7/8/9 the other. Classical now has 42 complete / 145 incomplete across 187 originals; scene has 34 complete. Formal progress remains 307/331. This is local implementation evidence, not whole-article P1 or release acceptance.
+
+Zero new external retrievals. Verified 30 indexed payloads, 10 retained source bodies, 16 original call/result events, 33 literal passages and 14 exact paired joins. Five actual reviewed AND plans cover 12 parts. Zhang remains 2000; the Stat says “planar target; motion need not be known”. Journal-abstract support is limited to radial distortion, closed-form solution and maximum-likelihood nonlinear refinement; the 1998 report revised through 2008 is not fetched journal full text. KinectFusion's retained February-2016-path author-hosted PDF supports its sign convention, Kinect 11-bit 640×480/30Hz depth stream, commodity-GPU ICP tracking/mapping and planar-scene failure. The author page associates the work via title, ten ordered authors, DOI and identical full abstract, not full-rendition byte identity. Its currently linked November-path PDF remains unfetched. Curless–Levoy's negative-empty/positive-unseen zero-weight hole-filling construction and both implementations' truncation are separately scoped. Unsupported live-robot adoption and universal-robotics wording was removed. Citation URLs, ordered registry values and article lastReviewed 2026-08-22 are unchanged.
+
+Validation: 175 distinct passing unit/component cases across seven files; the new 15-case suite contains 62 nested mutation scenarios, not additional reporter-visible cases. Red-first 13 failures/two passes, then five mistaken structural/source-oracle expectations, are retained with repairs. Six distinct affected E2E identities pass across 375×812 and 1440×900; the initial four passes/two failures were repaired by keyboard-activating the existing full-author disclosure and rerunning only the two scene identities. Twenty qualifying capture paths have direct Read event bindings; eight partial captures and two automatic failure screenshots remain without final credit. Full-page overviews and elided image responses do not establish full visual/reference-rubric acceptance. Normal npm lint with prelint, route typegen and nonincremental TypeScript passed. Content structure, no-slop and chart-description stages passed; audit coverage exited 1 with 600 findings, plus nine separately tracked citation gaps. Baseline exited 1: all 47 full inherited failure objects match the before snapshot and actual command result.
+
+Preserved: 989 unselected semantic records, 394 prior completions, 300 raw prior plans and prefix, 372 raw prior approvals/metadata/prefix, 1133 unowned file hashes, all five immutable parent controls and protected ancestors d282a83/2cf7d6b. Owner work, PRODUCT_QUALITY.md, qa/, glossary, interactive and prior source corrections are unchanged. Only the owned loopback server was stopped; next-env.d.ts and tsconfig.json match exact before bytes after normal typegen. No caches were deleted. Four exact prose/relationships member approvals were appended.
+
+**Content and baseline remain RED. Do not publish.** Scene10 collision-margin/gradient/lookup, ORB26/27/31/33, authored confidence/footprint/planner/figure45/local-proof obligations and glossary debt remain excluded. Full build/export, production reading times, OG/card-input reuse certification, whole P1, complete reference corpus and independent Sol/high scrutiny/user testing remain pending. skipScrutiny=false; skipUserTesting=false. No deployment, publication, feature-state/controller change or credit fallback. The fixed first-emission clock is 22:05:19.791Z, checkpoint target 22:40:19.791Z; terminal artifacts record actual time without resetting it.
+
+Exact source identities, application tuples, tests and failures, capture bindings, preservation and local committed checkpoint: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/`.
+
+## Historical: partial occupancy/map-tradeoff checkpoint — 2026-09-08
 
 **394 complete / 600 incomplete / 994 originals / 47 articles; 300 plans and 372 exact approvals.** Only `audit/classical.md:scene-representation:4/5/36/37` are applied, as atomic pairs 4/5 and 36/37: four applied, zero held, zero unattempted within this assignment. Scene has 31 complete originals; classical has 37 complete / 150 incomplete across 187 rows. Formal progress remains 307/331. This is a source-scoped local implementation checkpoint, not whole-article P1 or release acceptance.
 

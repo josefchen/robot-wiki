@@ -22,17 +22,9 @@ import {
 import { cx } from '@/lib/utils';
 
 /**
- * FrictionTransfer: task success against ground friction for two policies,
- * one trained at a single friction (tall narrow spike) and one trained over a
- * uniform friction distribution (lower, wider plateau). A vertical "real
- * robot" line marks the hardware's actual friction and drives both success
- * readouts; a second slider widens the randomization range, which widens the
- * plateau and sinks its peak (the over-randomization cost).
- *
- * The curves are an illustrative model, labeled as such in the surrounding
- * prose; the shape relationship (spike beats plateau at the training point,
- * plateau wins away from it, wider range means lower peak) is the teaching
- * content.
+ * FrictionTransfer draws authored success curves, not trained policies.
+ * The selected friction and half-width drive deterministic formulas.
+ * Peak-versus-width coupling is a local assumption, not a paper result.
  *
  * Interactive contract: deterministic initial render, native range inputs
  * (keyboard-accessible) plus pointer drag on the real-robot line, visible
@@ -87,7 +79,7 @@ export function FrictionTransfer({
   const dr = drSuccess(realMu, range);
   const drPeakValue = drPeak(range);
   const deltaPts = Math.round((dr - point) * 100);
-  const insideBand = Math.abs(realMu - MU_TRAIN) <= range;
+  const leader = point > dr ? 'point' : dr > point ? 'dr' : 'tie';
 
   function muFromPointer(clientX: number): number {
     const svg = svgRef.current;
@@ -119,9 +111,7 @@ export function FrictionTransfer({
   }, [realMu, range]);
 
   const descriptionText =
-    defaultRange === DEFAULT_DR_RANGE
-      ? `At real-robot friction ${formatMu(realMu)} the point-trained policy scores ${formatPct(point)} against the DR policy's ${formatPct(dr)}, with the DR plateau at ${formatPct(drPeakValue)} across the shaded training band of half-width ${formatMu(range)}; the two dashed edges mark that assumed randomization range, not a confidence interval, and both success curves are an illustrative model of the peak-versus-width trade.`
-      : `The sim-to-real prediction panel widens the randomization half-width to ${formatMu(range)} so the DR plateau sits at ${formatPct(drPeakValue)} while the point-trained policy still scores ${formatPct(point)} success at friction ${formatMu(realMu)} against the DR policy's ${formatPct(dr)}.`;
+    `Authored toy, not measured robot data. At selected friction ${formatMu(realMu)}, the point curve is ${formatPct(point)} and the DR curve is ${formatPct(dr)}. The assumed DR half-width is ${formatMu(range)} and its plateau is ${formatPct(drPeakValue)}. Its height follows 0.93 minus 0.55 times the half-width; the point Gaussian has center 0.80, peak 0.97 and width 0.09, and the DR tails have width 0.10. Dashed edges mark an assumed range, not a confidence interval. Reset restores this panel to friction ${formatMu(defaultRealMu)} and half-width ${formatMu(defaultRange)}. Selecting friction samples the formulas; no training or adaptation runs.`;
 
   const lineX = xFor(realMu);
   const labelAnchor = lineX > WIDTH - 150 ? 'end' : 'start';
@@ -468,9 +458,12 @@ export function FrictionTransfer({
         data-testid="ft-explanation"
         className="mt-2 font-sans text-xs leading-relaxed text-text-dim"
       >
-        {insideBand
-          ? 'The real robot sits inside the training distribution, where the point-trained policy wins: specializing at one friction bought it a higher peak than any robust policy reaches. Move the line outside the shaded band and the ranking flips.'
-          : 'The real robot sits outside the point policy\'s narrow spike, so its success collapses while the distribution-trained policy still covers this friction. That wider basin is what domain randomization buys; the lower plateau is what it costs.'}
+        {leader === 'point'
+          ? 'In this authored toy, the point curve is higher at the selected friction. The curves are formulas, not measured robot performance.'
+          : leader === 'dr'
+            ? 'In this authored toy, the DR curve is higher at the selected friction. This can happen inside or outside the shaded range.'
+            : 'The two authored curves are equal at the selected friction.'}
+        {' '}All values and the falling DR peak are local assumptions. Reset restores this panel’s initial friction and half-width; moving a control samples or redraws formulas, not a trained policy.
       </p>
 
       <ChartDescription

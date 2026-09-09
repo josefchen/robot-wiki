@@ -59,13 +59,13 @@ Three things to take from it. First, contact count: four near-point foot contact
 
 ## It is a tendency, not a law
 
-Sim-to-real RL has produced real dexterous results, and honesty requires listing them. OpenAI solved a Rubik's cube with a five-fingered hand in 2019, trained entirely in simulation with automatic domain randomization <Cite id="openai-rubiks-cube-2019" />.
+Sim-to-real RL has produced real dexterous results, and honesty requires listing them. In OpenAI’s 2019 paper, a policy trained in simulation with automatic domain randomization controlled a modified five-fingered Shadow Dexterous Hand. For one fixed fair-scramble sequence, its best policy completed all 43 subgoals in two of ten real trials using vision for cube pose and the sensor-equipped Giiker cube for face angles. The condition using vision for face angles completed the full sequence in zero of ten trials. These tests started from a solved cube and applied a fixed scramble, rather than sampling every possible scramble; a separate solver supplied the subgoal sequence <Cite id="openai-rubiks-cube-2019" />.
 
 In its DextrAH-RGB example, the Isaac Lab v1 paper reports an RL teacher trained with privileged state on a KUKA arm and Allegro hand, then distilled into a network taking stereo RGB pairs as input<br />Source: <Cite id="isaac-lab-2025" />.
 
  Play2Perfect trains CAD-derived sparse-reward assembly tasks and transfers zero-shot, including 60% success on insertions with 0.5 mm clearance <Cite id="play2perfect-2026" />.
 
-What these results share is per-task engineering. The Rubik's cube run consumed a custom robot platform and a randomization curriculum tuned for that task. Play2Perfect's clearance number comes from a pipeline built around its task family. The correct statement of the asymmetry is not that manipulation sim-to-real fails; it is that manipulation sim-to-real requires engineering per task that locomotion gets for free, and that per-task cost is exactly what the MDP table prices.
+What these results share is per-task engineering. The Rubik’s-cube system used customized hand hardware, manually tuned motor-torque limits, and a hand simulation calibrated against recorded physical joint trajectories. ADR started from a calibrated environment and adjusted randomization ranges automatically using performance thresholds; the ranges were not all hand-tuned <Cite id="openai-rubiks-cube-2019" />. Play2Perfect's clearance number comes from a pipeline built around its task family.
 
 ## The honest snapshot comes from the imitation side
 

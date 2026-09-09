@@ -12,8 +12,9 @@
  * Two anchors tie the curve to published numbers:
  * - Rudin et al. 2021 (arXiv:2109.11978): ANYmal flat-terrain walking in
  *   under four minutes and uneven terrain in twenty minutes on a single
- *   workstation GPU at 4,096 environments. The default curve is tuned to
- *   pass through the four-minute mark at 4,096 envs.
+ *   workstation GPU. Only the documented rough/deployment protocol binds
+ *   4,096 robots to a time bound. The flat marker x-coordinate and toy curve
+ *   calibration are illustrative, not measured flat-run settings.
  * - Isaac Lab v1 (arXiv:2511.04831), Section 4.1.1: the tested
  *   RTX 5090 / AMD 9800X3D workstation approaches a two-RTX-PRO-6000
  *   server on the Franka cabinet task. Its CPU-bottleneck explanation
@@ -35,8 +36,8 @@ export const ROLLOUT_STEPS = 24;
 /**
  * Total environment transitions needed to reach the target reward. Tuned so
  * the default curve crosses four minutes at 4,096 environments, matching the
- * Rudin flat-terrain anchor. Held fixed across env counts: the whole point of
- * massive parallelism is that the experience requirement does not change.
+ * illustrative flat-time reference, not a recovered Rudin experience budget.
+ * Holding experience fixed across environment counts is a toy assumption.
  */
 export const TARGET_TRANSITIONS = 2.2e8;
 
@@ -119,7 +120,7 @@ export function throughputFps(envs: number, cpuBound: boolean): number {
   return (envs * ROLLOUT_STEPS) / iterationBreakdown(envs, cpuBound).totalSeconds;
 }
 
-/** Measured ground truth from Rudin et al. 2021 (4,096 envs, one GPU). */
+/** Reported time bounds; flat x is illustrative and plotted y is the bound, not equality. */
 export interface RudinMarker {
   id: 'flat' | 'uneven';
   envs: number;
@@ -128,8 +129,8 @@ export interface RudinMarker {
 }
 
 export const RUDIN_MARKERS: RudinMarker[] = [
-  { id: 'flat', envs: 4096, minutes: 4, label: 'flat terrain: under 4 min' },
-  { id: 'uneven', envs: 4096, minutes: 20, label: 'uneven terrain: 20 min' },
+  { id: 'flat', envs: 4096, minutes: 4, label: 'flat < 4 min; x illustrative' },
+  { id: 'uneven', envs: 4096, minutes: 20, label: 'rough < 20 min (bound)' },
 ];
 
 /** Log-spaced (envs, minutes) samples for the chart polyline. */

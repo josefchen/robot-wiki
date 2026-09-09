@@ -3,6 +3,34 @@ import AxeBuilder from '@axe-core/playwright';
 
 const ROUTE = '/rl-sim2real/legged-locomotion/';
 
+for (const width of [375, 1440]) {
+  test(`Lee corrected citation stays visible on hover and keyboard focus at ${width}`, async ({ page }) => {
+    await page.setViewportSize({ width, height: width === 375 ? 812 : 900 });
+    await page.goto(ROUTE);
+    const paragraph = page.locator('p').filter({ hasText: 'Lee and colleagues used a privileged' });
+    const chip = paragraph.locator('[data-cite-id="lee-2020"]');
+    const link = chip.locator('a').first();
+    const tooltip = chip.getByRole('tooltip');
+    await link.scrollIntoViewIfNeeded();
+    for (const state of ['hover', 'focus']) {
+      if (state === 'hover') await link.hover();
+      else {
+        await page.mouse.move(0, 0);
+        await link.focus();
+      }
+      await expect(tooltip).toBeVisible();
+      const box = await tooltip.boundingBox();
+      expect(box).not.toBeNull();
+      expect(box!.x).toBeGreaterThanOrEqual(0);
+      expect(box!.x + box!.width).toBeLessThanOrEqual(width);
+      expect(box!.y).toBeGreaterThanOrEqual(0);
+      await expect(tooltip).toContainText('Learning Quadrupedal Locomotion over Challenging Terrain');
+      await expect(link).toHaveAttribute('href', 'https://arxiv.org/abs/2010.11251');
+    }
+    await page.screenshot({ path: `${process.env.DR_READER_OUT ?? 'test-results'}/lee-placement-${process.env.DR_READER_RUN ?? 'test'}-${width}.png` });
+  });
+}
+
 test.describe('legged-locomotion module', () => {
   test('renders the lineage and sidebar state', async ({ page }) => {
     await page.goto(ROUTE);
@@ -14,7 +42,7 @@ test.describe('legged-locomotion module', () => {
     for (const name of [
       /series-elastic actuators/,
       /temporal convolutional network/,
-      /hour-long hike in the Alps/,
+      /Etzel mountain hike covered 2\.2 km with 120 m of elevation gain in 78 minutes/,
       /beach sand at 3\.03/,
       /retargeted human motion/,
       /450M-parameter diffusion transformer/,

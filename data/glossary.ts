@@ -282,14 +282,14 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'curriculum-learning',
     term: 'curriculum learning',
     definition:
-      'Training on a scheduled sequence of tasks that grow harder as the agent improves, instead of sampling the full difficulty range from the start. Rudin and colleagues promoted ANYmal policies to rougher simulated terrain when they succeeded and demoted them when they failed, and the game-inspired schedule is part of what let one workstation GPU train flat-ground walking in under four minutes and uneven-terrain walking in twenty.',
+      'Training on a scheduled sequence of tasks that grow harder as the agent improves, instead of sampling the full difficulty range from the start. Rudin and colleagues raised or lowered terrain levels based on each robot\'s progress. Their documented curriculum-trained simulation-and-deployment policy used 4,096 robots, 98,304 transitions per batch and 1,500 updates in under twenty minutes on an i9-11900k CPU and RTX A6000 GPU; their separate flat-terrain headline is under four minutes on one workstation GPU.',
     citations: ['rudin-2021'],
   },
   {
     id: 'teacher-student-distillation',
     term: 'teacher-student distillation',
     definition:
-      'Training two policies in sequence to work around partial observability: a teacher trains with privileged simulator state, such as exact terrain friction or object pose, and a student then learns to imitate the teacher using only the observations available at deployment. RMA used the split for rapid adaptation to changing payloads and surfaces, and Lee and colleagues distilled a privileged ANYmal teacher into a proprioceptive student that hikes challenging terrain without ever seeing it.',
+      'Training two policies in sequence to work around partial observability: a teacher trains with privileged simulator state, such as exact terrain friction or object pose, and a student then learns to imitate the teacher using only the observations available at deployment. RMA instead trained a base policy with a privileged encoder, then trained a separate state-action-history module to predict its latent extrinsics for asynchronous online inference. Lee and colleagues distilled a privileged ANYmal teacher into a proprioceptive student that hikes challenging terrain without ever seeing it.',
     citations: ['rma-2021', 'lee-2020'],
   },
   {
@@ -574,14 +574,14 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'add-s-metric',
     term: 'symmetry-aware pose error (ADD-S)',
     definition:
-      'The standard accuracy measure for 6-DoF pose, in the variant that tolerates object symmetry. The base metric, ADD, averages the distance between corresponding model points under the estimated pose and the true pose, and a pose is counted correct when that average falls below a fraction of the object\'s diameter. The symmetry-aware variant matches each transformed point to its nearest neighbour rather than to its counterpart, so a rotationally symmetric object such as a bowl is not penalised for a rotation that is physically indistinguishable. The metric originates in the LINEMOD work of Hinterstoisser and colleagues; the BOP challenge is where methods are now compared on it and its successors.',
-    citations: ['hinterstoisser-2012', 'bop-challenge-2023'],
+      'A model-point pose-error rule that replaces fixed point correspondences with nearest-neighbour matches. In Hinterstoisser and colleagues\' LINEMOD-based paper, Equation (1) averages distances between corresponding model points transformed by the ground-truth and estimated poses. Equation (2) instead matches each ground-truth-transformed point to the nearest estimated-pose-transformed model point before averaging. The paper names cup, bowl, box and glue as ambiguous objects, including ambiguity from a subset of views. Its correctness rule is inclusive: the average distance must be at most a chosen coefficient times the model diameter; Table 1 uses 0.1. This is a point-set score and a chosen evaluation threshold, not a guarantee that every visually indistinguishable rotation has zero error.',
+    citations: ['hinterstoisser-2012'],
   },
   {
     id: 'visual-servoing',
     term: 'visual servoing',
     definition:
-      'Closing the control loop directly on image features rather than on an estimated object pose: define an error in the image, between where features are and where they should be, and drive the robot down that error using the interaction matrix relating feature velocity to camera velocity. Espiau, Chaumette and Rives gave the task-function formulation the field still uses. The appeal for manipulation is that it skips pose estimation entirely, so a calibration error that would bias a pose estimate instead only bends the path the robot takes to a still-correct final configuration.',
+      'Using computer vision data to control a robot\'s motion. Image-based visual servoing (IBVS) uses image features in its error; position-based visual servoing (PBVS) uses estimated pose parameters. Espiau, Chaumette and Rives gave the task-function formulation the field still uses. IBVS is not universally pose- or calibration-free: its point-feature interaction matrix uses depth and camera intrinsics. Under the tutorial\'s local stability conditions, coarse estimates can perturb a convergent camera path without changing the final pose reached, but poor estimates can cause instability and large displacements can encounter singularities or local minima. PBVS pose errors can also affect final accuracy.',
     citations: ['espiau-1992', 'chaumette-hutchinson-2006'],
   },
   {
@@ -791,7 +791,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'systems-integrator',
     term: 'systems integrator',
     definition:
-      'The company that turns a purchased robot into a working production cell: end-of-arm tooling, fixtures and guarding, vision, PLC integration with the surrounding line, commissioning, and sign-off against the agreed cycle time. Under ISO 10218-2 the cell-level risk assessment is the integrator\'s responsibility, not the robot manufacturer\'s. Integration is why a quoted cell commonly lands at two to three times the arm\'s price.',
+      'An organisation that integrates a robot with the end-effectors, sensors, safeguarding and controls needed for an application. Manufacturers or employers may also act as integrators. OSHA\'s Technical Manual, discussing ANSI/RIA R15.06-2012, calls for integrators to complete and document an application risk assessment before commissioning; employers remain responsible for a safe workplace. EVST\'s July 15, 2026 commercial palletising guide lists tooling, guarding, controls integration, commissioning and programming beyond the arm price.',
     citations: ['evst-cell-cost-2026', 'osha-otm-robots'],
   },
   {

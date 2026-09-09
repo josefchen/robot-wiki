@@ -2108,15 +2108,16 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Open-source reference implementation released with rudin-2021. The
-    // paper's Table 2 reward has nine terms; the canonical dozen-plus term
-    // set (15 default scales, 19 reward functions, incl. feet_air_time,
-    // feet_stumble, dof_pos_limits) lives in this config. Added 2026-08-17
-    // during the rl-sim2real audit so the enumeration cites the artifact
-    // that actually contains it.
+    // Audited repository landing URL; README title and named maintainer.
+    // Exact code claims use initial commit ae614c029977157123225f538ecdd3f873e54bd4
+    // in the article and native evidence. Its three files were reconstructed
+    // from the commit API; their blob URLs were not directly fetched.
+    // the commit identifies Nikita Rudin as author/committer in October 2021.
+    // Maintainer attribution is not the paper byline or a complete contributor list.
+    // Base config: 15 scale entries, 9 nonzero; dormant functions are not active terms.
     id: 'legged-gym-repo-2021',
-    title: 'legged_gym: massively parallel legged-robot RL reference implementation',
-    authors: ['Nikita Rudin', 'David Hoeller', 'Marco Hutter'],
+    title: 'Isaac Gym Environments for Legged Robots',
+    authors: ['Nikita Rudin'],
     year: 2021,
     url: 'https://github.com/leggedrobotics/legged_gym',
     type: 'docs',
@@ -2773,7 +2774,27 @@ export const CITATIONS: Citation[] = [
   {
     id: 'openai-rubiks-cube-2019',
     title: "Solving Rubik's Cube with a Robot Hand",
-    authors: ['OpenAI', 'Ilge Akkaya', 'Marcin Andrychowicz'],
+    authors: [
+      "OpenAI",
+      "Ilge Akkaya",
+      "Marcin Andrychowicz",
+      "Maciek Chociej",
+      "Mateusz Litwin",
+      "Bob McGrew",
+      "Arthur Petron",
+      "Alex Paino",
+      "Matthias Plappert",
+      "Glenn Powell",
+      "Raphael Ribas",
+      "Jonas Schneider",
+      "Nikolas Tezak",
+      "Jerry Tworek",
+      "Peter Welinder",
+      "Lilian Weng",
+      "Qiming Yuan",
+      "Wojciech Zaremba",
+      "Lei Zhang",
+    ],
     year: 2019,
     arxiv: '1910.07113',
     url: 'https://arxiv.org/abs/1910.07113',
@@ -2855,7 +2876,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'hwangbo-2019',
-    title: 'Learning Agile and Dynamic Motor Skills for Legged Robots',
+    title: 'Learning agile and dynamic motor skills for legged robots',
     authors: [
       'Jemin Hwangbo',
       'Joonho Lee',
@@ -2884,7 +2905,8 @@ export const CITATIONS: Citation[] = [
       'Jiashun Wang',
       'Zhengyi Luo',
       'Guanqi He',
-      'Nikhil Sobanbab',
+      // The observed v3 body spells Sobanbabu; arXiv abs metadata spells Sobanbab.
+      'Nikhil Sobanbabu',
       'Chaoyi Pan',
       'Zeji Yi',
       'Guannan Qu',
@@ -2940,7 +2962,7 @@ export const CITATIONS: Citation[] = [
   {
     id: 'miki-2022',
     title:
-      'Learning Robust Perceptive Locomotion for Quadrupedal Robots in the Wild',
+      'Learning robust perceptive locomotion for quadrupedal robots in the wild',
     authors: [
       'Takahiro Miki',
       'Joonho Lee',
@@ -5555,8 +5577,8 @@ export const CITATIONS: Citation[] = [
   },
   {
     // ISMAR 2011 pp. 127-136, Crossref read 2026-08-22. Real-time dense
-    // TSDF fusion from a commodity depth camera, which is what moved the
-    // Curless-Levoy volumetric method onto a live robot.
+    // TSDF fusion from a Kinect depth camera using commodity GPU hardware.
+    // The source reports depth tracking/mapping, not adoption on live robots.
     //
     // Author list follows the paper's own byline (the ISMAR PDF, read
     // 2026-08-22), which orders Fitzgibbon last; Crossref lists him second
@@ -7547,8 +7569,8 @@ export const CITATIONS: Citation[] = [
     // 82-90, December 2006. Part number and year verified against the
     // record rather than assumed.
     id: 'chaumette-hutchinson-2006',
-    title: 'Visual servo control. I. Basic approaches',
-    authors: ['Francois Chaumette', 'Seth Hutchinson'],
+    title: 'Visual Servo Control, Part I: Basic Approaches',
+    authors: ['François Chaumette', 'Seth Hutchinson'],
     year: 2006,
     venue: 'IEEE Robotics and Automation Magazine',
     url: 'https://doi.org/10.1109/MRA.2006.250573',
@@ -7558,8 +7580,8 @@ export const CITATIONS: Citation[] = [
     // Crossref 10.1109/MRA.2007.339609 read 2026-08-22: IEEE RAM 14(1),
     // 109-118, March 2007. Part II is a 2007 issue, not 2006.
     id: 'chaumette-hutchinson-2007',
-    title: 'Visual servo control. II. Advanced approaches',
-    authors: ['Francois Chaumette', 'Seth Hutchinson'],
+    title: 'Visual Servo Control, Part II: Advanced Approaches',
+    authors: ['François Chaumette', 'Seth Hutchinson'],
     year: 2007,
     venue: 'IEEE Robotics and Automation Magazine',
     url: 'https://doi.org/10.1109/MRA.2007.339609',
@@ -7772,18 +7794,21 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // arXiv 2403.09799 read 2026-08-22: the BOP Challenge 2023 report, 10
-    // authors, submitted 2024-03-14; DBLP indexes it at CVPR Workshops
-    // 2024. This is the report the article's "56.9 to 85.6 AR_C since
-    // 2017" and GenFlow/GPose figures come from; the 2018 ECCV BOP paper
-    // (1808.08319) is a different document and is not what is cited here.
+    // Inspected primary edition: arXiv 2403.09799v1, printed 14 Mar 2024.
+    // Retain the abs URL audited on 2026-09-06; this is not a fresh URL audit.
+    // Verified body: https://arxiv.org/html/2403.09799v1 (retained 2026-09-08).
+    // Native supporting passages keep that exact body URL and edition.
+    // Challenge year 2023 differs from this preprint's publication year.
+    // The full v1 byline prints Labbé; the prior unversioned abs used Labbe.
+    // Earlier CVPR Workshops 2024/DBLP metadata remains in audit history;
+    // this entry deliberately identifies the verified preprint, not a VOR.
     id: 'bop-challenge-2023',
     title:
       'BOP Challenge 2023 on Detection, Segmentation and Pose Estimation of Seen and Unseen Rigid Objects',
     authors: [
       'Tomas Hodan',
       'Martin Sundermeyer',
-      'Yann Labbe',
+      'Yann Labbé',
       'Van Nguyen Nguyen',
       'Gu Wang',
       'Eric Brachmann',
@@ -7793,18 +7818,20 @@ export const CITATIONS: Citation[] = [
       'Jiri Matas',
     ],
     year: 2024,
-    venue: 'CVPR Workshops 2024',
+    venue: 'arXiv preprint',
     arxiv: '2403.09799',
     url: 'https://arxiv.org/abs/2403.09799',
     type: 'paper',
   },
   {
-    // Crossref 10.1007/978-3-642-37331-2_42 read 2026-08-22: ACCV 2012,
-    // LNCS, pages 548-562, container dated 2013. The registry names 2012,
-    // the conference year the paper itself is known by and the year the
-    // ACCV volume title states; the ASME-style republication precedent for
-    // this split is documented in the year exceptions. The ADD metric this
-    // article cites originates here.
+    // Retained Crossref field projection, requested 2026-09-06T01:11:32.621Z:
+    // title and seven authors match the retained author-hosted manuscript.
+    // Container: Computer Vision – ACCV 2012; issued/print year: 2013;
+    // chapter pages: 548–562. The manuscript has 14 pages and no explicit
+    // revision identifier; do not claim published-chapter byte identity.
+    // The DOI remains the canonical HTTPS pointer. Its current liveness
+    // is separately unverified; retained HTTP paper retrieval is not a
+    // current link-check pass or proof of field-wide metric priority.
     id: 'hinterstoisser-2012',
     title:
       'Model Based Training, Detection and Pose Estimation of Texture-Less 3D Objects in Heavily Cluttered Scenes',
@@ -7817,8 +7844,8 @@ export const CITATIONS: Citation[] = [
       'Kurt Konolige',
       'Nassir Navab',
     ],
-    year: 2012,
-    venue: 'ACCV 2012',
+    year: 2013,
+    venue: 'Computer Vision – ACCV 2012 (LNCS, published 2013)',
     url: 'https://doi.org/10.1007/978-3-642-37331-2_42',
     type: 'paper',
   },
@@ -8448,9 +8475,10 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // EVST integrator guide: complete palletizing cells quoted at 2-3x
-    // the arm price; the robot body a third to half of total cell cost;
-    // guarding is the integrator's responsibility under ISO 10218-2.
+    // Commercial EVST integrator/vendor guide, last updated July 15, 2026.
+    // Primary for EVST's own cost estimates and pricing policy, not independent
+    // pricing research or authoritative proof of an ISO standards obligation.
+    // Its payload bands describe complete cells, not fixed arm-only prices.
     id: 'evst-cell-cost-2026',
     title: 'Palletizing Robot Cost & ROI 2026: Price & Payback Guide',
     authors: ['EVST Engineering Team'],

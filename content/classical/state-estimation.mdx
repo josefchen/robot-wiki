@@ -38,7 +38,7 @@ The lab below is that idea running. A target wanders in one dimension, a positio
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Kalman filter" value="1960" note="Kalman's recursive linear estimator" />
-  <Stat label="EKF" value="1960s" note="born from Apollo navigation work at NASA Ames" />
+  <Stat label="EKF" value="1960s" note="Ames nonlinear navigation studies" />
   <Stat label="factor graphs" value="2001" note="Kschischang, Frey, Loeliger unify the algebra" />
   <Stat label="iSAM2" value="2012" note="incremental smoothing on the Bayes tree" />
 </div>
@@ -87,7 +87,7 @@ $$
 
 The gain is the whole idea in one ratio: prior uncertainty over prior-plus-sensor uncertainty. A filter that trusts its model gets a small gain and mostly ignores the sensor; a filter that trusts its sensor gets a gain near one and jumps to the reading. Under the linear-Gaussian assumptions this recursion is the minimum-variance estimator outright, and Kalman's projection-based derivation still makes it the best linear estimator when the noise is merely white rather than Gaussian <Cite id="kalman-1960-filter" />.
 
-The filter outgrew its paper within years. Stanley Schmidt's group at NASA Ames picked the recursion up in the early 1960s and developed it into the navigation method for Apollo; NASA's own history of that adoption is McGee and Schmidt's 1985 technical memorandum <Cite id="mcgee-schmidt-1985" />. The mission's dynamics were nonlinear, which forced the extension the next section covers.
+McGee and Schmidt's November 1985 NASA history credits Schmidt's Ames group with adapting Kalman's linear filter to nonlinear circumlunar navigation in the early 1960s. By early 1961, their simulations supported the approach, but operation on available flight computers had not yet been verified. The report distinguishes this work from Battin's Apollo navigation studies at MIT and Potter's square-root implementation used in Apollo. It also records the decision to use ground radar for primary Apollo navigation, with an onboard backup. This is the participants' retrospective account, not a claim that Ames alone engineered the flight system<br className="lg:hidden" /><Cite id="mcgee-schmidt-1985" />.
 
 That is what the lab at the top of this module is showing. The near-black trace is the truth, the gray dots are the readings, the blue trace is the estimate, and the band is the filter's own $\pm 2\sigma$ position uncertainty. The world's noise is fixed by the seed in the readout; the sliders set what the filter *believes* about the noise, and the defaults are matched to the truth. Raising $\sigma_r$ drops the gain, and raising $\sigma_q$ climbs it: the band then swells across each measurement gap, the predict-update sawtooth made visible.
 
@@ -101,7 +101,7 @@ $$
 \bar{\Sigma}_t = G_t \Sigma_{t-1} G_t^{\top} + Q_t, \qquad K_t = \bar{\Sigma}_t H_t^{\top} \left( H_t \bar{\Sigma}_t H_t^{\top} + R_t \right)^{-1}
 $$
 
-The mean moves through the true nonlinear maps $g$ and $h$; only the covariance takes the linearized route. The idea is the Apollo one: the Ames group found that relinearizing about the *current* estimate, rather than about a precomputed nominal trajectory, was the modification that made the filter practical for the nonlinear navigation problem <Cite id="mcgee-schmidt-1985" />.
+The mean moves through the true nonlinear maps $g$ and $h$; only the covariance takes the linearized route. In McGee and Schmidt's history, the Ames group moved from linearization about a nominal reference trajectory to relinearization about the *current estimated state*. They thought this "might offer substantial advantages". An accidentally off-nominal simulation converged after initial overshoots; the report calls this modification the extended Kalman filter. That example was not a general convergence guarantee: the report also discusses instability from round-off, inadequate statistical models and nonlinearities<br className="lg:hidden" /><Cite id="mcgee-schmidt-1985" />.
 
 The failure mode is baked into that construction. Linearization is valid near the estimate, and the estimate is exactly what you are unsure about. When the nonlinearity is strong over the region the covariance covers, the propagated $\Sigma$ stops describing the true error: the filter grows overconfident, the covariance and the actual error part ways, and the estimate can diverge. Reasoning about the covariance structure of spatial estimates is where the robotics community learned these lessons, in the work of Smith, Self, and Cheeseman on uncertain spatial relationships <Cite id="smith-1990" />. The standard escapes are to keep the Gaussian but drop the analytic linearization, pushing a few deterministically chosen sample points through the true nonlinearity instead, which is the unscented Kalman filter of Julier and Uhlmann <Cite id="julier-uhlmann-1997" />, or to drop the Gaussian assumption entirely and carry the belief as a set of particles <Cite id="thrun-2005" />.
 

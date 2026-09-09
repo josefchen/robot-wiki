@@ -31,10 +31,10 @@ describe('TrainingTimeChart', () => {
     expect(screen.getByTestId('breakdown-sim')).toBeInTheDocument();
     expect(screen.getByTestId('breakdown-learn')).toBeInTheDocument();
     expect(screen.getByTestId('breakdown-cpu')).toBeInTheDocument();
+    expect(screen.getByTestId('rudin-marker-flat')).toHaveTextContent('x illustrative');
+    expect(screen.getByTestId('rudin-marker-uneven')).toHaveTextContent('< 20 min');
     expect(screen.getByTestId('rudin-marker-flat')).toBeInTheDocument();
     expect(screen.getByTestId('rudin-marker-uneven')).toBeInTheDocument();
-    expect(screen.getByText(/flat terrain/)).toBeInTheDocument();
-    expect(screen.getByText(/uneven terrain/)).toBeInTheDocument();
     expect(toggle()).toHaveAttribute('aria-pressed', 'false');
     expect(screen.getByRole('button', { name: /reset/i })).toBeInTheDocument();
   });
