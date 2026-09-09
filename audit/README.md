@@ -1,6 +1,83 @@
 # Content-integrity audit trail
 
-## Current checkpoint: six H2O/ASAP originals integrated (2026-09-09)
+## Current checkpoint: three constrained-reward originals integrated (2026-09-09)
+
+**444 complete / 550 incomplete / 994 originals / 47 articles**; RL is
+**98 complete / 69 incomplete / 167 originals**. Applied exactly
+`audit/rl-sim2real.md:reward-design-mpc:6`, `:7`, and `:8` under the existing
+Mission. Three new AND plans retain 15 parts and 18 paired evidence items.
+Current totals: **350 plans / 446 approvals**. No other original received credit.
+
+**Zero new retrievals.** Three retained primary documents and six historical
+responses were verified against original request/result/body bindings: 60 payload
+files, 13,321,303 bytes, 46 literal passages plus one checked stage-platform
+context literal. September 8 response times are 08:51:37.012Z (bodies) and
+08:51:49.675Z (metadata), not current review times. Tool-reported 200 does not
+establish origin status or current liveness. Unversioned rendered bodies do not
+establish pinned origin-byte identity. Kim T-RO 2024 and ROGER RSS 2025 are
+source-supplied metadata, not separately fetched publisher proof; stage-wise
+venue remains unspecified. ROGER's June 2026 v2 body and missing external appendix
+remain explicit limitations. Citation registry/URLs and lastReviewed 2026-08-17
+are unchanged. Description was already neutral and is preserved by a no-op guard.
+
+Kim now retains three rewards, eleven constraints, reference-robot trial-and-error,
+transfer-only coefficient adjustment, other settings, and simulation/hardware
+separation. Stage-wise CMORL retains manual stages, user transitions, normalized
+PPO advantages, preferences and thresholds, separating Go1/H1 simulation from
+Go1 hardware. ROGER subtracts nonnegative penalties; its exploration violation
+and conditional safety assumptions prohibit a universal constraint guarantee.
+Unresolved estimator notation, zero ratios, numerical inconsistencies and unseen
+appendix claims are not promoted to established results.
+
+All **991 unselected full semantic records**, **441 prior completions**, 347 prior
+plans/prefix and 445 prior approvals/metadata/prefix are preserved. All **44 original
+unrelated baseline failure objects and their order** are identical. Wrong-old-hash,
+wrong-new-hash and stale-approval controls reject. The worker's provisional approval
+was rebound to the freshly derived final markup hash after the measured local mobile
+repair; its superseded uncommitted form is retained. Immutable baseline/checker/schema,
+shared primitives, PRODUCT_QUALITY.md, qa/, protected commits and owner work survive.
+
+Actual sequential checks used NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Observed result |
+|---|---|
+| New unit red-first | 12 failed / 1 passed, exit 1 |
+| Affected unit/component | 121 passed in five files, exit 0 |
+| Two-viewport new readers | Desktop passed; mobile failed on one tooltip, exit 1 |
+| Affected mobile rerun | 1 passed, exit 0 |
+| Existing reward-design E2E | 5 passed, exit 0; earlier wrong filename ran zero tests, exit 1 |
+| Normal prelint/lint, route typegen, nonincremental TypeScript | Passed, exits 0 |
+| Executable no-slop | Passed, exit 0; 47 MDX plus 63 inherited exported HTML, not a fresh export |
+| Structural validate-content | Passed, exit 0; not the publication content gate |
+| Native audit coverage | RED: 555 findings plus nine separate unresolved citation checks, exit 1 |
+| Final native preservation/approval controls | Passed, exit 0 after exact final-hash rebinding |
+
+The stage citation mobile tooltip right edge changed 391→327 at width 375;
+one article-local max-sm offset fixes it without shared rendering changes or
+weakened assertions. Both reader identities have passing executions, not a single
+fresh final two-case invocation. Desktop reuse is limited to unchanged semantics
+and a mobile-only wrapper. Focus/hover parity, five-point hit tests, internal width,
+Tab/Enter reference jumps, keyboard author expansion, ordered bylines, custom fonts,
+page overflow and Axe passed. No page errors or external requests were observed.
+There are 43 captures; 19 directly Read-inspected, 24 uninspected. Inspected material
+covers changed desktop prose, overlapping mobile prose, all three full references
+at both sizes, and the repaired focus/hover state. This is not full visual acceptance.
+
+Manual source/prose fidelity review and executable no-slop passed; no unavailable
+humanizer invocation is claimed. Owned offline webpack supervisor exited 0 after
+verified child termination. next.config.ts, tsconfig.json and next-env.d.ts were
+restored byte-exactly. No build/export/card corpus, source sweep, push or deployment.
+Formal progress stays **307/331**, M5 unaccepted; skipScrutiny=false and
+skipUserTesting=false. Independent Sol/high scrutiny, user testing, whole-P1,
+production/export/reading-time/card, full typography/contrast/reference/glossary
+and brand-rubric gaps retain their existing owners. Fallback inactive.
+**Do not publish.** This is a bounded implementation checkpoint, not acceptance.
+
+Run-keyed inputs, logs, receipts, row history, source proof and committed seal:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-constrained-reward-methods-integration-20260909/`.
+Earlier checkpoints below remain historical evidence.
+
+## Historical checkpoint: six H2O/ASAP originals integrated (2026-09-09)
 
 **441 complete / 553 incomplete / 994 originals / 47 articles**; RL is
 **95 complete / 72 incomplete / 167 originals**. Applied exactly transfer
