@@ -8,6 +8,7 @@ status: published
 lastReviewed: "2026-08-17"
 citations:
   - rudin-2021
+  - legged-gym-repo-2021
   - isaac-gym-2021
   - brax-2021
   - mujoco-playground-2025
@@ -29,7 +30,7 @@ The economics are worth seeing before the history. Drag the parallel environment
 <TrainingTimeChart className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="Flat-terrain walk" value="< 4 min" note="Rudin 2021, one workstation GPU" accent />
+  <Stat label="Flat-terrain walk" value="< 4 min" note="Rudin abstract; single GPU, separate flat run" accent />
   <Stat label="DextrAH teacher" value="> 900k FPS" note="v1 headless training; 8 RTX PRO 6000 GPUs / 16,384 envs" />
   <Stat label="Franka cabinet" value="> 1.6M FPS" note="v1 headless training; same reported setup" />
   <Stat label="MJWarp vs MJX" value="252-475x" note="vendor-reported, RTX PRO 6000" />
@@ -39,7 +40,7 @@ The economics are worth seeing before the history. Drag the parallel environment
 
 Isaac Gym was the first demonstration of end-to-end RL for complex robot tasks running entirely on one GPU. PhysX simulated on the GPU and exposed the simulation state directly as PyTorch tensors, so the physics buffers and the policy network never round-tripped through the CPU. The authors report two to three orders of magnitude improvement over the conventional split of a CPU simulator feeding a GPU network <Cite id="isaac-gym-2021" />.
 
-Rudin and colleagues turned that capability into the canonical locomotion result. Four thousand parallel ANYmal instances, a game-inspired terrain <Term id="curriculum-learning">curriculum</Term> (robots that succeed get promoted to harder terrain tiles, robots that fail get demoted), and PPO: flat terrain in under four minutes, uneven terrain in twenty, on a single workstation GPU <Cite id="rudin-2021" />. The open-sourced code, `legged_gym`, is still the reference lineage for the RSL-RL training stack most legged-robot groups use.
+Rudin and colleagues report flat-terrain walking policies trained in under four minutes on a single workstation GPU. Separately, their documented simulation-and-deployment policy used 4,096 parallel ANYmal robots, batches of 98,304 RL transitions (24 steps per robot), and 1,500 policy updates in under twenty minutes on an i9-11900k CPU and NVIDIA RTX A6000 GPU. Their game-inspired terrain <Term id="curriculum-learning">curriculum</Term> promotes robots that cross a tile boundary, demotes those that cover less than half the commanded distance, and returns robots that solve the hardest level to a random level <Cite id="rudin-2021" />. The paper links its released training code, `legged_gym`; the pinned October 2021 repository identifies itself as the Isaac Gym environment used to train ANYmal on rough terrain <Cite id="legged-gym-repo-2021" />.
 
 The <Term id="parallel-simulation">massively parallel</Term> regime inverts the usual PPO instincts. Rollouts are short (a few dozen steps per environment per iteration, with bootstrapping covering the rest), batches are enormous (on the order of 100k transitions), and the learning rate adapts to a KL-divergence target rather than following a fixed schedule. None of this works at 16 environments; all of it is stable at 4,096.
 
@@ -54,7 +55,7 @@ Here is the arithmetic behind the chart at the top of this module. Holding the t
 The CPU toggle illustrates a possible bottleneck; it does not reproduce a measured Isaac Lab curve. In the paper’s state-based Franka cabinet-drawer benchmark, a GeForce RTX 5090 workstation with an AMD 9800X3D CPU approaches a two-GPU RTX PRO 6000 server with two AMD EPYC 9554 CPUs. The authors attribute the task-dependent comparison to CPU bottlenecks in parts of PhysX and the main training loop, together with the workstation’s fast single-core CPU. This is a finding about those systems, not a universal CPU limit<br />Source: <Cite id="isaac-lab-2025" />.
 
 <Callout variant="warn" title="How to read this chart">
-  The curve is an illustrative fixed-transitions model, not a benchmark; its per-iteration cost split is schematic. The measured numbers are the two diamonds (Rudin et al. 2021: under four minutes on flat terrain, twenty on uneven, at 4,096 environments on one workstation GPU) and the Isaac Lab throughput figures cited below. The direction and shape of this curve follow its stated toy cost model; they are not measurements for every GPU-physics stack.
+  The curve is an illustrative fixed-transitions model, not a benchmark. The diamonds mark reported time bounds: under four minutes for the flat-terrain result and under twenty minutes for the documented 4,096-robot simulation-and-deployment run on an i9-11900k CPU and RTX A6000 GPU. The flat diamond is placed at 4,096 environments for illustration; the inspected paper does not bind that flat result to the detailed rough-run configuration. Neither diamond is a measured equality or validation of this toy curve <Cite id="rudin-2021" />.
 </Callout>
 
 ## Isaac Lab and the framework era

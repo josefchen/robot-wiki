@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 7
 - Claim rows: 167
-- Recorded verified: 106
-- Recorded corrected: 60
+- Recorded verified: 104
+- Recorded corrected: 62
 - Recorded cut: 1
 - Recorded source inconsistencies: 0
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 75
-- Incomplete evidence records: 92
+- Complete evidence records: 78
+- Incomplete evidence records: 89
 
 <!-- audit-summary:end -->
 
@@ -311,7 +311,7 @@ this ledger's conventions.
 | Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | "Isaac Gym was the first demonstration of end-to-end RL for complex robot tasks running entirely on one GPU ... two to three orders of magnitude improvement" | Isaac Gym paper, arXiv 2108.10470 abstract | verified | "2-3 orders of magnitude improvements in training times"; simulation state exposed as GPU-resident PyTorch tensors. | | | |
-| "Four thousand parallel ANYmal instances, a game-inspired terrain curriculum ... flat terrain in under four minutes, uneven terrain in twenty, on a single workstation GPU" | Rudin et al., arXiv 2109.11978v2, Sec. 3-4 | verified | 4,096 robots; promote/demote curriculum; times and hardware as above. | | | |
+| Rudin reports flat-terrain training in under four minutes separately from a documented 4,096-robot simulation/deployment policy: 98,304 RL transitions per batch, 24 steps per robot, 1,500 updates in under twenty minutes on i9-11900k/RTX A6000, with a game-inspired terrain curriculum; the associated pinned legged_gym repository provides the training environment, not evidence of majority adoption. | Rudin retained ar5iv body and arXiv metadata (FetchUrl 2026-09-06); legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4 (GET 2026-09-08), three Git-blob-verified code derivatives | corrected | RUDIN-PROTOCOL-20260909. Source-backed correction reviewed 2026-09-09T09:53:54.625889+00:00; exact original and immediate-before tuples retained below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-scoped-delta-integration-20260909/source-proof.json. Unversioned ar5iv body is not certified as v2/v3 or PDF equivalent; code API page 1 of 2 certifies only three reconstructed files. All required parts are conjunctive. No mixed Stat, local-proof, whole P1, article lastReviewed or independent acceptance credit. |  |  |  | rudin-protocol-writer-parallel-sim-rl-2-20260909 |
 | "The open-sourced code, legged_gym, is still the reference lineage for the RSL-RL training stack" | legged_gym repo (github.com/leggedrobotics/legged_gym, master) + RSL-RL lineage in Isaac Lab paper | verified | Repo is Rudin/Hoeller/Hutter; Isaac Lab lists RSL-RL as a first-class hook. | | | |
 | "Rollouts are short (a few dozen steps per environment per iteration ...), batches are enormous (on the order of 100k transitions), and the learning rate adapts to a KL-divergence target" | Rudin et al., Sec. 3.2 + supplementary | verified | 24 steps x 4,096 envs ~= 98k transitions per iteration; adaptive LR on a KL target. | `rudin-2021` | https://ar5iv.labs.arxiv.org/html/2109.11978 | “\| Batch size \| 98304 (4096x24) \|<br>\| --- \| --- \|<br>\| Mini-bach size \| 24576 (4096x6) \|<br>\| --- \| --- \|<br>\| Number of epochs \| 5 \|<br>\| --- \| --- \|<br>\| Clip range \| 0.2 \|<br>\| Entropy coefficient \| 0.01 \|<br>\| Discount factor \| 0.99 \|<br>\| GAE discount factor \| 0.95 \|<br>\| Desired KL-divergence k​l∗kl^{\*} \| 0.01 \|<br>\| Learning rate α\\alpha \| adaptive∗ \|<br><br>k​l←K​L​(πn​e​w,πo​l​d)kl\\leftarrow KL(\\pi\_{new},\\pi\_{old})<br><br>ifk​l>2​k​l∗kl>2kl^{\*}then<br><br>α←max⁡(10−5,α/1.5)\\alpha\\leftarrow\\max(10^{-5},\\alpha/1.5)<br><br>else<br><br>ifk​l<0.5​k​l∗kl<0.5kl^{\*}then<br><br>α←min⁡(10−2,1.5​α)\\alpha\\leftarrow\\min(10^{-2},1.5\\alpha)<br><br>endif<br><br>endif<br><br>For our task, we find that the algorithm struggles when we provide fewer than 25 consecutive steps, corresponding to 0.5s0.5\\text{\\,}\\mathrm{s} of simulated time. It is important to distinguish ns​t​e​p​sn\_{steps} from the maximum episode length leading to a time-out and a reset, which we define as 20s20\\text{\\,}\\mathrm{s}. The environments are reset when they reach this maximum length and not after each iteration, meaning that a single episode can cover many policy updates.” Scope: The actual table uses 24 steps and five epochs; the prose says fewer than 25 can struggle. Treat this as a task-specific empirical observation, not a hard universal minimum, and do not certify the adjacent untested 16-environment claim.  Rudin, Hoeller, Reist and Hutter, Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning (arXiv 2109.11978; preprint/CoRL 2021 identity). Retained unversioned ar5iv full text; its revision is not independently labelled. The landing page reports latest v3 (2022-08-19), but this is not a byte-pinned v3 or v2 body. FetchUrl result observed 2026-09-06T19:18:21.832Z, reported HTTP 200; no new fetch in this normalization. |
 | "Brax, from Google in 2021, wrote the physics and the learning algorithms in JAX ... training performant policies on MuJoCo-like tasks in minutes" | Brax paper, arXiv 2106.13281 abstract | verified | "physics and learning algorithms ... in JAX", "minutes" on accelerators. | | | |
@@ -360,13 +360,13 @@ this ledger's conventions.
 
 ## legged-locomotion.mdx
 
-| Claim (quoted) | Source checked | Verdict | Note |
-|---|---|---|---|
+| Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
+|---|---|---|---| --- | --- | --- | --- |
 | Stats: "< 4 min" flat / "20 min" uneven, one workstation GPU; "1 h" alpine hike; "3.03 m/s" sand running | Rudin 2021; Miki 2022; Choi 2023 | verified | Hardware context present on the Rudin stats; Miki/Choi stats name paper and setting. |
 | "Hwangbo and colleagues replaced the analytic model with a learned actuator network ... policies trained in simulation produced agile dynamic skills on ANYmal, including recovery from a fall and self-righting" | Hwangbo et al., arXiv 1804.10332 | verified | Actuator net from joint-command history to torque; recovery and self-righting demonstrated. |
 | "A privileged teacher policy ... distilled into a student that sees only a short history of proprioception through a temporal convolutional network. Trained in simple simulated domains, the student hiked mud, snow, rubble, and vegetation" | Lee et al., arXiv 2010.11251 | verified | As in sim2real row. |
 | "Their controller feeds the scan through an attention-based recurrent encoder that learns a belief over the terrain, integrating proprioception ... completed an hour-long hike in the Alps in the time recommended for human hikers" | Miki et al., Science Robotics 2022, arXiv 2201.08101 | verified | Belief encoder integrating proprioception when the map lies; 1 h hike at guidebook pace. |
-| "Massive GPU parallelism plus a game-inspired terrain curriculum ... trained ANYmal to walk on flat ground in under four minutes and on uneven terrain in twenty, on a single workstation GPU" + legged_gym reference-implementation claim | Rudin et al. + legged_gym repo | verified | As above. |
+| Rudin reports flat-terrain training in under four minutes separately from its 4,096-robot, 98,304-transition, 1,500-update simulation/deployment policy trained in under twenty minutes on i9-11900k/RTX A6000 with the terrain curriculum; legged_gym is the associated released environment, with no verified claim about most subsequent academic or industrial work. | Rudin retained ar5iv body and arXiv metadata (FetchUrl 2026-09-06); legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4 (GET 2026-09-08), three Git-blob-verified code derivatives | corrected | RUDIN-PROTOCOL-20260909. Source-backed correction reviewed 2026-09-09T09:53:54.625889+00:00; exact original and immediate-before tuples retained below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-scoped-delta-integration-20260909/source-proof.json. Unversioned ar5iv body is not certified as v2/v3 or PDF equivalent; code API page 1 of 2 certifies only three reconstructed files. All required parts are conjunctive. No mixed Stat, local-proof, whole P1, article lastReviewed or independent acceptance credit. |  |  |  | rudin-protocol-writer-legged-locomotion-5-20260909 |
 | "they put a computationally cheap granular-media model inside the training loop and paired it with a controller that identifies terrain properties from feel ... Raibo quadruped ran on soft beach sand at 3.03 m/s with its feet fully buried during stance" | Choi et al., Science Robotics 2023 (science.org abstract + body) | verified | Granular-media model + proprioceptive terrain identification; 3.03 m/s, feet fully buried in stance. |
 | "The bound alternates the front pair against the hind pair with a suspension interval in between; the MIT Cheetah line made high-speed bounding practical by scaling the duty cycle with speed" | Park, Wensing & Kim, IJRR 2017, DOI 10.1177/0278364917694244, Sec. 4.3 | verified | Sec. 4.3 is literally "Duty cycle modulation via vertical impulse scaling"; stance time T_st = L/v_d scales inversely with speed; 6.4 m/s and CoT 0.47 verified from abstract. |
 | "The duty factors shown here are canonical nominal values; real controllers, classical and learned alike, modulate duty factor continuously with speed" | Park et al. 2017 (classical instance) | verified | Canonical-value disclaimer present; classical modulation per Park; learned-side induction covered by the air-time reward discussion. |
@@ -411,7 +411,7 @@ this ledger's conventions.
 | Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Stats: "reward terms 12+ in a typical locomotion objective"; "Eureka wins 83% of 29 tasks"; "iLQR MPC real-time, whole-body, on hardware"; "MPC task data 0" | legged_gym repo; Eureka paper; Zhang et al. iLQR paper | verified | "12+" now anchored to the legged_gym default config (15 scales + soft-limit/contact-force penalties); Eureka 83%/29 verified below; iLQR real-time hardware MPC verified below; "0 demonstrations" is the MPC framing, stated as such. | | | |
-| "a production locomotion reward is a weighted sum of a dozen-plus hand-tuned terms ... A canonical legged_gym-family objective contains ... a foot-slip penalty ... <Cite rudin-2021>" | Rudin et al. arXiv 2109.11978v2 (Sec. 3.3: "a weighted sum of nine terms") + legged_gym repo (legged_robot_config.py scales, legged_robot.py reward functions) | **corrected** | The enumeration (tracking lin/ang vel, z-vel and roll/pitch penalties, torque, dof_acc, action rate, joint limits, collision, base height, feet air time, stumble, termination) matches the code, not the paper; the paper's nine-term reward explicitly has no gait-dependent elements and no air-time/slip term. Citation moved to the new `legged-gym-repo-2021` entry; prose now says the enumeration "is not in any paper; it is in the code" and names the fifteen default scales; "foot-slip" replaced by the code's actual feet_stumble term ("Penalize feet hitting vertical surfaces"); "a foot air-time reward that induces an actual gait instead of shuffling" matches the code's "Reward long steps". The upstream research note had this list marked [UNVERIFIED] against a specific paper; it is now verified against the code. | | | |
+| Rudin Table 2 defines nine reward terms including feet air time. At legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4, the base config has fifteen scale entries, nine nonzero, and nineteen reward functions; zero/absent scales and threshold parameters do not activate reward functions. Its dormant feet_stumble scale differs from _reward_stumble; the latter concerns vertical-surface contacts, not foot slip. The local twelve-term preview is illustrative, not this code configuration or a production recipe. | Rudin retained ar5iv body and arXiv metadata (FetchUrl 2026-09-06); legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4 (GET 2026-09-08), three Git-blob-verified code derivatives | corrected | RUDIN-PROTOCOL-20260909. Source-backed correction reviewed 2026-09-09T09:53:54.625889+00:00; exact original and immediate-before tuples retained below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-scoped-delta-integration-20260909/source-proof.json. Unversioned ar5iv body is not certified as v2/v3 or PDF equivalent; code API page 1 of 2 certifies only three reconstructed files. All required parts are conjunctive. No mixed Stat, local-proof, whole P1, article lastReviewed or independent acceptance credit. |  |  |  | rudin-protocol-writer-reward-design-mpc-2-20260909 |
 | Rudin Table 3 and Algorithm 1 use desired KL 0.01 and adapt learning rate according to twice/half-target thresholds and clamps. The reward-retuning-stability explanation is removed; the mechanism is not a guarantee of holding KL exactly. | Rudin retained full ar5iv text/metadata | **corrected** | Source-backed KL correction reviewed 2026-09-09 by Astra/max integrator 68812493-b567-4ff7-971a-8dbda9aa95e7; not independent acceptance. Original tuple (history, not proof): {"claim":"\"The KL-adaptive learning rate in the standard PPO configuration exists partly to absorb reward retuning without destabilizing training\"","sourceChecked":"Rudin et al., Sec. 3.2","verdict":"**corrected**","note":"The paper states the mechanism (learning rate adapted to a KL-divergence target) without the retuning motive. Rewritten: mechanism cited to the paper, the retuning connection stated as the article's inference."}. Immediate-before tuple (history, not proof): {"claim":"\"The KL-adaptive learning rate in the standard PPO configuration exists partly to absorb reward retuning without destabilizing training\"","sourceChecked":"Rudin et al., Sec. 3.2","verdict":"**corrected**","note":"The paper states the mechanism (learning rate adapted to a KL-divergence target) without the retuning motive. Rewritten: mechanism cited to the paper, the retuning connection stated as the article's inference."}. Four paired items and three AND parts checked against actual retained source text and historical request/results in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-rma-integration-20260909/source-proof.json. Table 3 desired KL 0.01 and Algorithm 1 threshold updates do not establish stable reward retuning or exact KL control. Unversioned ar5iv body is not pinned v2/v3; historical FetchUrl result reports 200 on 2026-09-06, no new retrieval. Other paper/code/reward and RMA originals remain incomplete. |  |  |  | rudin-kl-writer-20260909 |
 | "The interactive below mounts the full term set on a behavior preview" | RewardShaping component (12 sliders) | **corrected** | Changed to "mounts twelve of these terms"; the interactive's "Foot slip penalty" slider was renamed "Foot stumble penalty" (blurb: "Penalizes feet catching vertical surfaces mid-stride") to match the corrected enumeration and the code. Tests updated accordingly. | | | |
 | The three failure attractors (freeze, prance, chatter) | Article prose + lib/reward-shaping.ts header | verified | Explicitly labeled an illustrative classification; the attractors are described as literature/lab-lore patterns, not measured output. | | | |
@@ -678,3 +678,90 @@ Tobin/Peng document identities, experiment qualifications and limited calibratio
 Four bounded reader identities at 375×812 and 1440×900 pass their executed assertions: complete selected DOM paragraphs, canonical citation URLs, hover/focus, keyboard reference jumps, ordered bylines, domain-randomization glossary paths, ordinary toy keyboard winner/reset and preserved RMA feedback. All 18 captures were directly Read-inspected. A separate screenshot-led diagnostic is RED: Peng's mobile tooltip is x=226, width=256 (right edge482 in a375 viewport). The original runner did not assert citation containment. Prediction reveal browser state, full visual framing, fresh Axe/contrast/font-platform checks and the complete math/selection matrix remain gaps, not acceptance. No shared citation UI repair is claimed.
 
 The owned Next16.3 Webpack loopback server used retained local font responses and an external-socket guard. Its supervisor recorded actual exit143 after signaling only the owned next-server leaf. Browser external attempts were zero; current Node attempt details and generated-file restoration are retained in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/verification.json. No build/export, live-link check, deployment, cleanup, controller/feature change or fallback occurred. Full reading-time/card/reference lifecycle and independent Sol/high acceptance remain pending. **Do not publish.** Local integration is not final validation; earlier sections below are history.
+
+## Rudin protocol/code correction history, 2026-09-09
+
+Exactly three original records; source review and native bindings are local implementation evidence, not independent acceptance. Article dates and unselected records are unchanged. Exact original and immediate-before history:
+
+```json
+[
+  {
+    "originalId": "audit/rl-sim2real.md:parallel-sim-rl:2",
+    "rowOrdinal": 2,
+    "immediateBefore": {
+      "claim": "\"Four thousand parallel ANYmal instances, a game-inspired terrain curriculum ... flat terrain in under four minutes, uneven terrain in twenty, on a single workstation GPU\"",
+      "sourceChecked": "Rudin et al., arXiv 2109.11978v2, Sec. 3-4",
+      "verdict": "verified",
+      "note": "4,096 robots; promote/demote curriculum; times and hardware as above."
+    },
+    "immediateBeforeDigest": "f675753c88f616bec991fa0b380b526337949170d1dd7f60df917b3ed884c07a",
+    "original": {
+      "claim": "\"Four thousand parallel ANYmal instances, a game-inspired terrain curriculum ... flat terrain in under four minutes, uneven terrain in twenty, on a single workstation GPU\"",
+      "sourceChecked": "Rudin et al., arXiv 2109.11978v2, Sec. 3-4",
+      "verdict": "verified",
+      "note": "4,096 robots; promote/demote curriculum; times and hardware as above."
+    },
+    "originalCommit": "2cf7d6b01efb591f387fd2efe6a659b72904f246",
+    "current": {
+      "claim": "Rudin reports flat-terrain training in under four minutes separately from a documented 4,096-robot simulation/deployment policy: 98,304 RL transitions per batch, 24 steps per robot, 1,500 updates in under twenty minutes on i9-11900k/RTX A6000, with a game-inspired terrain curriculum; the associated pinned legged_gym repository provides the training environment, not evidence of majority adoption.",
+      "sourceChecked": "Rudin retained ar5iv body and arXiv metadata (FetchUrl 2026-09-06); legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4 (GET 2026-09-08), three Git-blob-verified code derivatives",
+      "verdict": "corrected",
+      "note": "RUDIN-PROTOCOL-20260909. Source-backed correction reviewed 2026-09-09T09:53:54.625889+00:00; exact original and immediate-before tuples retained below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-scoped-delta-integration-20260909/source-proof.json. Unversioned ar5iv body is not certified as v2/v3 or PDF equivalent; code API page 1 of 2 certifies only three reconstructed files. All required parts are conjunctive. No mixed Stat, local-proof, whole P1, article lastReviewed or independent acceptance credit."
+    },
+    "currentTupleDigest": "ca871367415c26d3f558e85dcddbc4db275cd3bf0285fbc38a9f969203b534ee",
+    "nativePlanId": "rudin-protocol-writer-parallel-sim-rl-2-20260909"
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:legged-locomotion:5",
+    "rowOrdinal": 5,
+    "immediateBefore": {
+      "claim": "\"Massive GPU parallelism plus a game-inspired terrain curriculum ... trained ANYmal to walk on flat ground in under four minutes and on uneven terrain in twenty, on a single workstation GPU\" + legged_gym reference-implementation claim",
+      "sourceChecked": "Rudin et al. + legged_gym repo",
+      "verdict": "verified",
+      "note": "As above."
+    },
+    "immediateBeforeDigest": "4212fed62c85edd1a00a11a9c3c6b6a29fbab20d30fa73a196acf0dabcc16b78",
+    "original": {
+      "claim": "\"Massive GPU parallelism plus a game-inspired terrain curriculum ... trained ANYmal to walk on flat ground in under four minutes and on uneven terrain in twenty, on a single workstation GPU\" + legged_gym reference-implementation claim",
+      "sourceChecked": "Rudin et al. + legged_gym repo",
+      "verdict": "verified",
+      "note": "As above."
+    },
+    "originalCommit": "2cf7d6b01efb591f387fd2efe6a659b72904f246",
+    "current": {
+      "claim": "Rudin reports flat-terrain training in under four minutes separately from its 4,096-robot, 98,304-transition, 1,500-update simulation/deployment policy trained in under twenty minutes on i9-11900k/RTX A6000 with the terrain curriculum; legged_gym is the associated released environment, with no verified claim about most subsequent academic or industrial work.",
+      "sourceChecked": "Rudin retained ar5iv body and arXiv metadata (FetchUrl 2026-09-06); legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4 (GET 2026-09-08), three Git-blob-verified code derivatives",
+      "verdict": "corrected",
+      "note": "RUDIN-PROTOCOL-20260909. Source-backed correction reviewed 2026-09-09T09:53:54.625889+00:00; exact original and immediate-before tuples retained below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-scoped-delta-integration-20260909/source-proof.json. Unversioned ar5iv body is not certified as v2/v3 or PDF equivalent; code API page 1 of 2 certifies only three reconstructed files. All required parts are conjunctive. No mixed Stat, local-proof, whole P1, article lastReviewed or independent acceptance credit."
+    },
+    "currentTupleDigest": "5ba77e14968c2f48b386a82753a694329321ce0f24bdcaeb588930c8e4fa9e29",
+    "nativePlanId": "rudin-protocol-writer-legged-locomotion-5-20260909"
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:reward-design-mpc:2",
+    "rowOrdinal": 2,
+    "immediateBefore": {
+      "claim": "\"a production locomotion reward is a weighted sum of a dozen-plus hand-tuned terms ... A canonical legged_gym-family objective contains ... a foot-slip penalty ... <Cite rudin-2021>\"",
+      "sourceChecked": "Rudin et al. arXiv 2109.11978v2 (Sec. 3.3: \"a weighted sum of nine terms\") + legged_gym repo (legged_robot_config.py scales, legged_robot.py reward functions)",
+      "verdict": "**corrected**",
+      "note": "The enumeration (tracking lin/ang vel, z-vel and roll/pitch penalties, torque, dof_acc, action rate, joint limits, collision, base height, feet air time, stumble, termination) matches the code, not the paper; the paper's nine-term reward explicitly has no gait-dependent elements and no air-time/slip term. Citation moved to the new `legged-gym-repo-2021` entry; prose now says the enumeration \"is not in any paper; it is in the code\" and names the fifteen default scales; \"foot-slip\" replaced by the code's actual feet_stumble term (\"Penalize feet hitting vertical surfaces\"); \"a foot air-time reward that induces an actual gait instead of shuffling\" matches the code's \"Reward long steps\". The upstream research note had this list marked [UNVERIFIED] against a specific paper; it is now verified against the code."
+    },
+    "immediateBeforeDigest": "847f8c73ae9b75387b4a4953ad078a49d095bd254aeb60b69ea8146229d567fc",
+    "original": {
+      "claim": "\"a production locomotion reward is a weighted sum of a dozen-plus hand-tuned terms ... A canonical legged_gym-family objective contains ... a foot-slip penalty ... <Cite rudin-2021>\"",
+      "sourceChecked": "Rudin et al. arXiv 2109.11978v2 (Sec. 3.3: \"a weighted sum of nine terms\") + legged_gym repo (legged_robot_config.py scales, legged_robot.py reward functions)",
+      "verdict": "**corrected**",
+      "note": "The enumeration (tracking lin/ang vel, z-vel and roll/pitch penalties, torque, dof_acc, action rate, joint limits, collision, base height, feet air time, stumble, termination) matches the code, not the paper; the paper's nine-term reward explicitly has no gait-dependent elements and no air-time/slip term. Citation moved to the new `legged-gym-repo-2021` entry; prose now says the enumeration \"is not in any paper; it is in the code\" and names the fifteen default scales; \"foot-slip\" replaced by the code's actual feet_stumble term (\"Penalize feet hitting vertical surfaces\"); \"a foot air-time reward that induces an actual gait instead of shuffling\" matches the code's \"Reward long steps\". The upstream research note had this list marked [UNVERIFIED] against a specific paper; it is now verified against the code."
+    },
+    "originalCommit": "2cf7d6b01efb591f387fd2efe6a659b72904f246",
+    "current": {
+      "claim": "Rudin Table 2 defines nine reward terms including feet air time. At legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4, the base config has fifteen scale entries, nine nonzero, and nineteen reward functions; zero/absent scales and threshold parameters do not activate reward functions. Its dormant feet_stumble scale differs from _reward_stumble; the latter concerns vertical-surface contacts, not foot slip. The local twelve-term preview is illustrative, not this code configuration or a production recipe.",
+      "sourceChecked": "Rudin retained ar5iv body and arXiv metadata (FetchUrl 2026-09-06); legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4 (GET 2026-09-08), three Git-blob-verified code derivatives",
+      "verdict": "corrected",
+      "note": "RUDIN-PROTOCOL-20260909. Source-backed correction reviewed 2026-09-09T09:53:54.625889+00:00; exact original and immediate-before tuples retained below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-scoped-delta-integration-20260909/source-proof.json. Unversioned ar5iv body is not certified as v2/v3 or PDF equivalent; code API page 1 of 2 certifies only three reconstructed files. All required parts are conjunctive. No mixed Stat, local-proof, whole P1, article lastReviewed or independent acceptance credit."
+    },
+    "currentTupleDigest": "fa3fe15867e5fa16f539b62625a705dd25f9433644faa4ee15e5cf4f480528ad",
+    "nativePlanId": "rudin-protocol-writer-reward-design-mpc-2-20260909"
+  }
+]
+```

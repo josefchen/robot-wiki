@@ -282,7 +282,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'curriculum-learning',
     term: 'curriculum learning',
     definition:
-      'Training on a scheduled sequence of tasks that grow harder as the agent improves, instead of sampling the full difficulty range from the start. Rudin and colleagues promoted ANYmal policies to rougher simulated terrain when they succeeded and demoted them when they failed, and the game-inspired schedule is part of what let one workstation GPU train flat-ground walking in under four minutes and uneven-terrain walking in twenty.',
+      'Training on a scheduled sequence of tasks that grow harder as the agent improves, instead of sampling the full difficulty range from the start. Rudin and colleagues raised or lowered terrain levels based on each robot\'s progress. Their documented curriculum-trained simulation-and-deployment policy used 4,096 robots, 98,304 transitions per batch and 1,500 updates in under twenty minutes on an i9-11900k CPU and RTX A6000 GPU; their separate flat-terrain headline is under four minutes on one workstation GPU.',
     citations: ['rudin-2021'],
   },
   {

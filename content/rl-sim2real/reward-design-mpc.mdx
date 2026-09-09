@@ -1,6 +1,6 @@
 ---
 title: "Reward Design and the MPC Debate"
-description: "A locomotion reward is a dozen-plus hand-tuned terms whose weights fight each other. Eureka automates the tuning with LLM-written reward code, constrained RL abolishes the weights, and classical MPC asks why you needed learning at all."
+description: "Paper rewards, versioned reference code, illustrative weight tuning, Eureka, constrained RL, and the comparison with classical MPC."
 domain: rl-sim2real
 slug: reward-design-mpc
 order: 7
@@ -36,12 +36,12 @@ import { MpcComparison } from '@/components/mdx/mpc-comparison';
 
 Every module so far in this domain assumed someone had already written the objective. The parallel-training module showed thousands of robots collecting reward in lockstep; the sim-to-real module showed how to make the resulting policy survive contact with hardware. This module is about where the reward comes from, and it closes with the argument the whole domain has been circling: whether you need a learned policy at all, when classical trajectory optimization keeps taking back ground.
 
-Twelve weighted reward terms sit on the behavior preview below. Drag the torque penalty up and the policy stops moving; drag the foot air-time reward up instead and it prances in place. Those are not random failures, they are the attractors every locomotion team learns to recognize.
+Twelve weighted terms sit on the illustrative behavior preview below. Its weights, per-term magnitudes and freeze/prance/chatter categories are teaching choices, not the paper's nine-term objective or a runnable `legged_gym` configuration. Drag the controls to explore this toy weighted sum.
 
 <RewardShaping className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="reward terms" value="12+" note="in a typical locomotion objective" accent />
+  <Stat label="Rudin paper reward" value="9 terms" note="Table 2, including feet air time" accent />
   <Stat label="Eureka headline" value="83%" note="29 simulated tasks; see protocol below" />
   <Stat label="iLQR MPC" value="real-time" note="whole-body, on hardware" />
   <Stat label="MPC task data" value="0" note="demonstrations required" />
@@ -49,9 +49,9 @@ Twelve weighted reward terms sit on the behavior preview below. Drag the torque 
 
 ## The reward is the product
 
-The public story of locomotion RL is that the policy learns from reward. The private reality is that a production locomotion reward is a weighted sum of a dozen-plus hand-tuned terms, and the weights are much of the intellectual property. The canonical enumeration is not in any paper; it is in the code. The default `legged_gym` configuration, the open-source reference released with the massively parallel walking work, carries fifteen weighted reward scales plus soft-limit and contact-force penalties: tracking rewards for linear and angular velocity, penalties on vertical velocity and roll/pitch rates, penalties on joint torque, joint acceleration, action rate, joint limits, and undesired collisions, a base-height term, a foot air-time reward that induces an actual gait instead of shuffling, a stumble penalty for feet that catch vertical surfaces mid-stride, and a termination penalty <Cite id="legged-gym-repo-2021" />. Each term has a weight. The weights interact: raise the torque penalty and the velocity tracking degrades; raise the air-time reward and the gait turns theatrical. Changing one weight usually means retuning two others.
+Rudin and colleagues define a weighted sum of nine reward terms in the paper, including feet air time; gait-independent means that the reward does not prescribe a gait schedule, not that air time is absent <Cite id="rudin-2021" />. The separate `legged_gym` initial commit (`ae614c029977157123225f538ecdd3f873e54bd4`, October 2021) declares fifteen entries in `LeggedRobotCfg.rewards.scales`, of which nine are nonzero: linear- and angular-velocity tracking, vertical linear velocity, roll/pitch angular velocity, joint torque, joint acceleration, feet air time, collisions, and action rate. `_prepare_reward_function` removes zero scales and multiplies the remaining scales by the environment time step. The base class implements nineteen reward functions, including joint-limit and contact-force functions, but those definitions do not make them active terms in this config. Its zero-valued `feet_stumble` entry does not even match the `_reward_stumble` function name. That function penalizes feet hitting vertical surfaces, not foot slip; the air-time function rewards long steps on first contact and requires a planar-command norm above 0.1. These are properties of this pinned base code, not a universal or production reward recipe <Cite id="legged-gym-repo-2021" />.
 
-The failure modes are not random. They are attractors, and they are stable, which is why every locomotion team recognizes them on sight. Push the torque penalty too high and the optimal policy is to stand still: motion costs more than tracking pays. Push the foot air-time reward too high and the policy prances in place, maximizing swing time with zero forward progress. Drop the action-rate penalty too low and nothing prices step-to-step action changes, so the policy chatters the joints at control frequency, a motion that would destroy real actuators. Those are the three attractors the figure at the top of this module reproduces. Its classification is an illustrative model, but the attractors themselves are the ones the literature and every lab's Slack channel describe.
+The preview maps weight settings to three illustrative categories: freeze, prance, and chatter. Those classifications and the displayed motion are outputs of this local teaching model, not policies trained in the cited simulator. Rudin and colleagues report different observed artifacts, including a dragging leg and unusually high or low base height, and describe tuning reward weights before transferring their policy to hardware <Cite id="rudin-2021" />.
 
 Rudin and colleagues use an adaptive learning rate in their <Term id="ppo">PPO</Term> implementation, based on the KL divergence between the updated and previous policies. Table 3 gives a desired KL of 0.01; Algorithm 1 lowers the learning rate when KL exceeds twice the target and raises it when KL is below half the target, within stated learning-rate limits <Cite id="rudin-2021" />. This mechanism does not establish that reward retuning is stable.
 

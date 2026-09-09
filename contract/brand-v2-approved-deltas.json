@@ -8066,6 +8066,244 @@
         "VAL-B2-ART-003"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-5b7262690fbaab9cc5",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+      "newHash": "811e2d1ad72f71865f5a50d07ec21558337090580f6a6000b4dcd5aa2e5149bc",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-b1d210de386473c2d5",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+      "newHash": "06bd5d64a999f11ab74db05d4bf9a112a0c6c2b213fa45680559c2f4016f85c8",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-a9893b9fc4acd773ff",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "d0a6bc89c25c4a5fda53db79fd68731aeedadc6ae88d79732026f50648a88b7e",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-c3f2ab0cef16f0b9ea",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "cac736dab4e0dc0db9ab16e50663939319d6e39ab1d1dae6fb9abe83d1b3bff6",
+      "newHash": "ea7fbaeaa30dea05940b6cd870410d0f3a289995cd1a23592f52fccb7f87fc25",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-aa3e960e8ebf03198c",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "46002eec79d4b41f26be6e08fa298ae41c2ead431bf8382066cddfdff2f41904",
+      "newHash": "bd1f57655905dc5551edfff8aff3b489c6af55dd1e192211a94bd005ecb953cb",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-6e4d66008ecddd6205",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "d76313aba3473a09012f12fef2c160ff8c6573549832150f316c0fa7cba5be88",
+      "newHash": "6a57c0a1096bc28847432f7cd0c61eaf027ef86226378dff96e3e583739f9122",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-d0000a1583c854b620",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/reward-shaping.tsx",
+      "oldHash": "bb18c8fbc6a735849a23956e71961804b54db5208ed51cb27b3334c3efd39144",
+      "newHash": "e34e133ce04497c6f2ed8ed6a97910334e1bf8466deb052c22ac431354e42311",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-c13deb6151a41ff517",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/training-time-chart.tsx",
+      "oldHash": "12aa8c29e998ae6e716ac550b4f632716772b5cfb551169bfc25289d90eed77c",
+      "newHash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-394fe40c3834198927",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:rl-sim2real/legged-locomotion",
+      "oldHash": "6b031822485e95956265d1be25a7a902d4503665e7c494e01e12ded5af540f76",
+      "newHash": "5b30130530568d73d42456ee405fa83f9944d6efa8db0abd0c7182c1ca1c9a03",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-feacb87d0a4ca20482",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:rl-sim2real/parallel-sim-rl",
+      "oldHash": "647e246be8ea460d52815be47d46b5394a0ff433e1be9952b879ff4433cb6373",
+      "newHash": "bc7bd7754ad2a140539e53630bd032b643d44b880ff4b1ae5ec276ce6e0435ce",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-f76fd15f5b9ec4b585",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:rl-sim2real/reward-design-mpc",
+      "oldHash": "cc486f333719c25fd89de6fda277cd99df6bb5d6d8adb2fb820633e7183981c2",
+      "newHash": "77730f71b1a4f8f020b40b1c2d91e5b6cc19c7081f8d816d67e356c59af89f9b",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-093964af7407f036f6",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "2fef924d2a039c249aa72ae639cdbbf13c6eb6799b3ca8859d4f00e87377c749",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-fdd3edc8ec7ccb2da3",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "382c8296f46c710890966bf9ffdae876f02ed430fdbc4ff8c795e73341636208",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-91edc730967d22e4a4",
+      "manifest": "article-metadata",
+      "memberId": "citation:legged-gym-repo-2021",
+      "oldHash": "ebff57045221ad8bc07c191b53df5f01d1a9df15aa807d47a633dfd67c425c85",
+      "newHash": "98e1b78094f6c9883f6ab012601a6d8c8ecc526ca5b3d0b6bd1d48f9672ae104",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

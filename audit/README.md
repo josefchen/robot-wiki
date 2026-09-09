@@ -1,5 +1,66 @@
 # Content-integrity audit trail
 
+## Current checkpoint: three Rudin originals corrected; reader and citation audit remain red (2026-09-09)
+
+Applied only `audit/rl-sim2real.md:parallel-sim-rl:2`, `:legged-locomotion:5`,
+and `:reward-design-mpc:2`. **424 complete / 570 incomplete / 994 originals /
+47 articles; RL 78/89/167; 330 plans and 423 approvals.** All 991 unselected
+full semantic records, 421 previous completions, 327 prior plan objects/prefix,
+and 409 prior approval objects/metadata/prefix are preserved. KL and RMA are
+not reapplied. This is a bounded implementation checkpoint, not acceptance.
+
+Protocol prose separates the flat under-four-minute headline from 4,096 robots,
+98,304 transitions, 1,500 updates and under twenty minutes on i9-11900k/RTX A6000.
+Curriculum promotion/demotion/random reassignment is source-qualified. Reward
+prose distinguishes nine paper terms (including feet air time), fifteen declared
+code scales, nine nonzero scales and nineteen functions. The twelve-term preview
+is explicitly a local teaching model; no policy is trained. Numerical formulas,
+defaults and animation behavior are unchanged. The code citation now pins the
+initial README title and Nikita Rudin attribution; it is not a full contributor list.
+
+**Zero new retrievals.** Retained September 6 FetchUrl events and September 8
+initial-commit API bytes were rechecked: 18 required parts, 21 paired items,
+15 literal passages and three reconstructed Git-blob-verified files. Unversioned
+ar5iv is not certified as v2/v3 or PDF-equivalent; API page 1 of 2 qualifies only
+those three files. Review timestamps are not fetch timestamps.
+
+The Mission helper now separates application and fresh-process approval collection.
+Fourteen exact immutable-baseline approvals remove only the two genuinely repaired
+`interactive-sources-mounts` failures for reward-shaping and training-time-chart.
+**44 unrelated complete failure objects remain identical; zero objects added.**
+Controls reject three stale-process/metadata/byte cases and 28 wrong hashes, verify
+14 actual baseline anchors and four native absence cases, and reproduce the false
+46-count match caused by two missing citation metadata approvals. Two initial
+fixture-construction failures remain recorded, not suppressed.
+
+Actual checks: red-first 19 failed/18 passed; focused 37 passed; additional affected
+188 passed. Normal lint including prelint, route typegen and nonincremental TypeScript
+passed before the new reader test; final-input checks are recorded in the packet.
+The initial 17-case browser run was externally interrupted: 14 completed passes,
+two completed failures and one uncompleted identity, with no normal-exit receipt.
+The repaired two-reader run finished: desktop passed; mobile failed on **27 px page
+overflow**, agreeing with the existing reward-page mobile failure. No geometry
+repair or full-reader acceptance is claimed. Corrected paragraph, hover/focus,
+reference/byline, chart control and glossary observations are retained. Centered
+captures do not establish full tall-section/Stat coverage; computed font checks do
+not establish CDP glyph attribution. Six captures were directly Read-inspected.
+The mobile reward disclosure is partly obscured by the development indicator.
+
+**Content stays RED: 576 findings plus nine separate citation gaps.** Of the 576,
+one is a new scoped citation-audit URL mismatch: `audit/citations.md` still records
+the repository root while the registry points at the pinned README. No direct blob-URL
+fetch occurred, and no live reachability verdict was fabricated to remove it.
+This citation-audit follow-up and mobile overflow block completing the reader task.
+No publication, build/export, card generation, readiness change or independent credit.
+Formal progress remains 307/331; skipScrutiny=false and skipUserTesting=false.
+Production HTML, reading-time/card/reference lifecycle, full browser corpus,
+whole-P1/authored-local-proof and independent Sol/high acceptance debts remain.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-scoped-delta-integration-20260909/`.
+Only the verified owned Next 16.3 webpack leaf was signaled; actual supervisor exit
+and exact generated next-env/tsconfig restoration are recorded there. Existing
+services and owner files are preserved. Earlier checkpoint sections are history.
+
 ## Current checkpoint: bounded transfer-reader closeout, zero original credit (2026-09-09)
 
 Product implementation is unchanged from `2ed812e20ee3dbe663c75f157ac3e5f066b37ea2`.

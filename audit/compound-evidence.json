@@ -32362,5 +32362,440 @@
         "evidenceDigest": "e8c0c0185177daf000fd11aa6cae8eb44b4b2c56315c29e795666fe87b3844f4"
       }
     ]
+  },
+  {
+    "id": "rudin-protocol-writer-parallel-sim-rl-2-20260909",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "ca871367415c26d3f558e85dcddbc4db275cd3bf0285fbc38a9f969203b534ee",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "reported-time-bounds",
+        "text": "Flat <4min headline is separate from the documented rough/deployment run; neither is a measured equality.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "documented-protocol",
+        "text": "The simulation/deployment policy used 4096 robots, 98304=4096×24 transitions and 1500 updates in <20min on i9-11900k/RTX A6000.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "curriculum",
+        "text": "Promotion beyond tile borders, demotion below half commanded distance, random-level loop after highest level.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "release-not-prevalence",
+        "text": "The paper links its training code; the pinned README describes the ANYmal rough-terrain Isaac Gym environment, not later adoption prevalence.",
+        "requiredCitationIds": [
+          "legged-gym-repo-2021"
+        ]
+      },
+      {
+        "id": "paper-identity",
+        "text": "Exact Rudin title, four-person byline, 2021 submission and self-identified CoRL 2021; unversioned body, no v2 claim.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "code-identity",
+        "text": "Pinned initial README title and maintainer, paper association and initial October 2021 commit; no majority-adoption claim.",
+        "requiredCitationIds": [
+          "legged-gym-repo-2021"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+      "rationale": "Current whole-claim review 2026-09-09T09:53:54.625889+00:00: read paper identity, abstract, protocol, curriculum, Table 2 and relevant pinned code context. Reviewed all six required parts as a conjunction, not a source-only readiness label. Abstract flat <4min is separate from the documented 4096 robot, 98304=4096*24 transition, 1500 update <20min i9-11900k/RTX A6000 policy. Section 4.1 removes curriculum for scaling comparisons, unlike the tested policy. Paper tile-boundary promotion, half-command-distance demotion and random-level loop are distinct from the inspected code half-terrain-length threshold and no-demotion-on-promotion guard. Rudin, Hoeller, Reist, Hutter; 2021 submission and CoRL comment. Pinned README title and Nikita Rudin maintainer attribution, not complete contributor list or majority adoption. Exact source items and 15 literal passages are separately verified in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-scoped-delta-integration-20260909/source-proof.json.",
+      "planDigest": "54614becf859781cd4c996f256baf64177c768ac907f261c3844d5b90a82b59f"
+    },
+    "evidence": [
+      {
+        "partId": "reported-time-bounds",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "# Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\n\nNikita Rudin\nAffiliation: ETH Zurich and NVIDIA\nEmail: [rudinn@ethz.ch](mailto:)David Hoeller\nAffiliation: ETH Zurich and NVIDIA\nEmail: [dhoeller@ethz.ch](mailto:)Philipp Reist\nAffiliation: NVIDIA\nEmail: [preist@nvidia.com](mailto:)Marco Hutter\nAffiliation: ETH Zurich\nEmail: [mahutter@ethz.com](mailto:)\n\n###### Abstract\n\nIn this work, we present and study a training set-up that achieves fast policy generation for real-world robotic tasks by using massive parallelism on a single workstation GPU. We analyze and discuss the impact of different training algorithm components in the massively parallel regime on the final policy performance and training times. In addition, we present a novel game-inspired curriculum that is well suited for training with thousands of simulated robots in parallel. We evaluate the approach by training the quadrupedal robot ANYmal to walk on challenging terrain. The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. This represents a speedup of multiple orders of magnitude compared to previous work. Finally, we transfer the policies to the real robot to validate the approach. We open-source our training code to help accelerate further research in the field of learned legged locomotion: [https://leggedrobotics.github.io/legged\\_gym/](https://leggedrobotics.github.io/legged_gym/ \"\").\n\nFor our simulation and deployment experiments, we use a policy trained with 4096 robots and a batch size of 98304, which we train for 1500 policy updates in under 20 minutes222\n\n\n\nTrained on: i9-11900k CPU, NVIDIA RTX A6000 GPU. VRAM requirements are in the supplementary material..\nWe begin by measuring the performance of our trained policy in simulation. To that end, we perform robustness and traversability tests. For each terrain type, we command the robots to traverse the representative difficulty of the terrain at high forward velocity and measure the success rate. A success is defined as managing to cross the terrain while avoiding any contacts on the robot’s base. Fig. [5](https://ar5iv.labs.arxiv.org/html/2109.11978#S4.F5 \"Figure 5 ‣ 4.2 Simulation ‣ 4 Results ‣ Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\") shows the results for the different terrains. For stairs, we see a nearly 100%100\\\\text{\\\\,}\\\\% success rate for steps up to 0.2m0.2\\\\text{\\\\,}\\\\mathrm{m}, which is the hardest stair difficulty we train on and close to the kinematic limits of our robot. Randomized obstacles seem to be more demanding, with the success rate decreasing steadily. We must note that in this case, the largest step is double the reported height since neighboring obstacles can have positive and negative heights. In the case of slopes, we can observe that after 25deg25\\\\text{\\\\,}\\\\deg the robots are not able to climb anymore but still learn to slide down with a moderate success rate."
+      },
+      {
+        "partId": "documented-protocol",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "For our simulation and deployment experiments, we use a policy trained with 4096 robots and a batch size of 98304, which we train for 1500 policy updates in under 20 minutes222\n\n\n\nTrained on: i9-11900k CPU, NVIDIA RTX A6000 GPU. VRAM requirements are in the supplementary material..\nWe begin by measuring the performance of our trained policy in simulation. To that end, we perform robustness and traversability tests. For each terrain type, we command the robots to traverse the representative difficulty of the terrain at high forward velocity and measure the success rate. A success is defined as managing to cross the terrain while avoiding any contacts on the robot’s base. Fig. [5](https://ar5iv.labs.arxiv.org/html/2109.11978#S4.F5 \"Figure 5 ‣ 4.2 Simulation ‣ 4 Results ‣ Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\") shows the results for the different terrains. For stairs, we see a nearly 100%100\\\\text{\\\\,}\\\\% success rate for steps up to 0.2m0.2\\\\text{\\\\,}\\\\mathrm{m}, which is the hardest stair difficulty we train on and close to the kinematic limits of our robot. Randomized obstacles seem to be more demanding, with the success rate decreasing steadily. We must note that in this case, the largest step is double the reported height since neighboring obstacles can have positive and negative heights. In the case of slopes, we can observe that after 25deg25\\\\text{\\\\,}\\\\deg the robots are not able to climb anymore but still learn to slide down with a moderate success rate.\n\n| Batch size | 98304 (4096x24) |\n| --- | --- |\n| Mini-bach size | 24576 (4096x6) |\n| --- | --- |\n| Number of epochs | 5 |\n| --- | --- |\n| Clip range | 0.2 |\n| Entropy coefficient | 0.01 |\n| Discount factor | 0.99 |\n| GAE discount factor | 0.95 |\n| Desired KL-divergence k​l∗kl^{\\*} | 0.01 |\n| Learning rate α\\\\alpha | adaptive∗ |\n\nTable 3: PPO hyper-parameters used for the training of the tested policy. (\\*) Similarly to \\[ [9](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib9 \"\")\\], we use an adaptive learning rate based on the KL-divergence, the corresponding algorithm is described in Alg. [1](https://ar5iv.labs.arxiv.org/html/2109.11978#alg1 \"Algorithm 1 ‣ A.4 PPO Hyper-Parameters ‣ Appendix A Appendix ‣ Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\")Algorithm 1 Adaptive learning rate computation.\n\nk​l←K​L​(πn​e​w,πo​l​d)kl\\\\leftarrow KL(\\\\pi\\_{new},\\\\pi\\_{old})\n\nifk​l>2​k​l∗kl>2kl^{\\*}then\n\nα←max⁡(10−5,α/1.5)\\\\alpha\\\\leftarrow\\\\max(10^{-5},\\\\alpha/1.5)\n\nelse\n\nifk​l<0.5​k​l∗kl<0.5kl^{\\*}then\n\nα←min⁡(10−2,1.5​α)\\\\alpha\\\\leftarrow\\\\min(10^{-2},1.5\\\\alpha)\n\nendif\n\nendif\n\n### A.5 Noise Level in Observations\n"
+      },
+      {
+        "partId": "curriculum",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "\nPrevious works have shown the benefits of using an automated curriculum of task difficulty to learn complex locomotion policies \\[ [28](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib28 \"\"), [29](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib29 \"\"), [16](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib16 \"\")\\]. Similarly, we find that it is essential to first train the policy on less challenging terrain before progressively increasing the complexity. We adopt a solution inspired by \\[ [16](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib16 \"\")\\], but replace the particle filter approach with a new game-inspired automatic curriculum. All robots are assigned a terrain type and a level that represents the difficulty of that terrain. For stairs and randomized obstacles, we gradually increase the step height from 5cm5\\\\text{\\\\,}\\\\mathrm{c}\\\\mathrm{m} to 20cm20\\\\text{\\\\,}\\\\mathrm{c}\\\\mathrm{m}. Sloped terrain inclination is increased from 0deg0\\\\text{\\\\,}\\\\deg to 25deg25\\\\text{\\\\,}\\\\deg. If a robot manages to walk past the borders of its terrain, its level is increased, and at the next reset, it will start on more difficult terrain. However, if at the end of an episode it moved by less than half of the distance required by its target velocity, its level is reduced again. Robots solving the highest level are looped back to a randomly selected level to increase the diversity and avoid catastrophic forgetting.\nThis approach has the advantage of training the robots at a level of difficulty tailored to their performance without requiring any external tuning. It adapts the difficulty level for each terrain type individually and provides us with visual and quantitative feedback on the progress of the training. When the robots have reached the final level and are evenly spread across all terrains due to looping back, we can conclude they have fully learned to solve the task.\n\nThe proposed curriculum structure is well suited for the massively parallel regime. With thousands of robots we can directly use their current progress in the curriculum as the distribution of the policy’s performance, and do not need learn it with a generator network \\[ [30](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib30 \"\")\\]. Furthermore, our method doesn’t require tuning and is straightforward to implement in a parallel manner with near-zero processing cost. We remove the computational overhead of re-sampling and re-generating new terrains needed for the particle filter approach.\n\nFig. [3](https://ar5iv.labs.arxiv.org/html/2109.11978#S3.F3 \"Figure 3 ‣ 3.1 Game-Inspired Curriculum ‣ 3 Task Description ‣ Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\") shows robots progressing through the terrains at two different stages of the training process. On complex terrain types, the robots require more training iterations to reach the highest levels. The distribution of robots after 500 iterations shows that while the policy is able to cross sloped terrains and to go down stairs, climbing stairs and traversing obstacles requires more training iterations. However, after 1000 iterations, the robots have reached the most challenging level for all terrain types and are spread across the map. We train for a total for 1500 iterations to let the policy converge to its highest performance."
+      },
+      {
+        "partId": "release-not-prevalence",
+        "citationId": "legged-gym-repo-2021",
+        "sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+        "supportingPassage": "# Isaac Gym Environments for Legged Robots #\nThis repository provides the environment used to train ANYmal (and other robots) to walk on rough terrain using NVIDIA's Isaac Gym.\nIt includes all components needed for sim-to-real transfer: actuator network, friction & mass randomization, noisy observations and random pushes during training.  \n**Maintainer**: Nikita Rudin  \n**Affiliation**: Robotic Systems Lab, ETH Zurich  \n**Contact**: rudinn@ethz.ch  \n\n### Useful Links ###\nProject website: https://leggedrobotics.github.io/legged_gym/\nPaper: https://arxiv.org/abs/2109.11978\n\n### Installation ###\n1. Create a new python virtual env with python 3.6, 3.7 or 3.8 (3.8 recommended)\n2. Install pytorch 1.10 with cuda-11.3:\n    - `pip3 install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html`\n3. Install Isaac Gym\n   - Download and install Isaac Gym Preview 3 (Preview 2 will not work!) from https://developer.nvidia.com/isaac-gym\n   - `cd isaacgym_lib/python && pip install -e .`\n   - Try running an example `python examples/1080_balls_of_solitude.py`\n   - For troubleshooting check docs `isaacgym/docs/index.html`)\n4. Install rsl_rl (PPO implementation)\n   - Clone https://bitbucket.org/leggedrobotics/rsl_rl/src/master/\n   -  `cd rsl_rl && git checkout develop && pip install -e .` \n5. Install legged_gym\n    - Clone this repository\n   - `cd legged_gym && git checkout develop && pip install -e .`\n\n### CODE STRUCTURE ###\n1. Each environment is defined by an env file (`legged_robot.py`) and a config file (`legged_robot_config.py`). The config file contains two classes: one conatianing all the environment parameters (`LeggedRobotCfg`) and one for the training parameters (`LeggedRobotCfgPPo`).  \n2. Both env and config classes use inheritance.  \n3. Each non-zero reward scale specified in `cfg` will add a function with a corresponding name to the list of elements which will be summed to get the total reward.  \n4. Tasks must be registered using `task_registry.register(name, EnvClass, EnvConfig, TrainConfig)`. This is done in `envs/__init__.py`, but can also be done from outside of this repository.  "
+      },
+      {
+        "partId": "paper-identity",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://arxiv.org/abs/2109.11978",
+        "supportingPassage": "\n\n\\[Submitted on 24 Sep 2021 ( [v1](https://arxiv.org/abs/2109.11978v1)), last revised 19 Aug 2022 (this version, v3)\\]\n\n# Title:Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\n\nAuthors: [Nikita Rudin](https://arxiv.org/search/cs?searchtype=author&query=Rudin,+N), [David Hoeller](https://arxiv.org/search/cs?searchtype=author&query=Hoeller,+D), [Philipp Reist](https://arxiv.org/search/cs?searchtype=author&query=Reist,+P), [Marco Hutter](https://arxiv.org/search/cs?searchtype=author&query=Hutter,+M)\n\nView a PDF of the paper titled Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning, by Nikita Rudin and 3 other authors\n\n[View PDF](https://arxiv.org/pdf/2109.11978) [HTML (experimental)](https://arxiv.org/html/2109.11978v3)\n\n> Abstract:In this work, we present and study a training set-up that achieves fast policy generation for real-world robotic tasks by using massive parallelism on a single workstation GPU. We analyze and discuss the impact of different training algorithm components in the massively parallel regime on the final policy performance and training times. In addition, we present a novel game-inspired curriculum that is well suited for training with thousands of simulated robots in parallel. We evaluate the approach by training the quadrupedal robot ANYmal to walk on challenging terrain. The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. This represents a speedup of multiple orders of magnitude compared to previous work. Finally, we transfer the policies to the real robot to validate the approach. We open-source our training code to help accelerate further research in the field of learned legged locomotion.\n\n|     |     |\n| --- | --- |\n| Comments: | CoRL 2021 Project website: : [this https URL](https://leggedrobotics.github.io/legged_gym/) Video: [this https URL](https://youtu.be/8sO7VS3q8d0) |\n| Subjects: | Robotics (cs.RO); Machine Learning (cs.LG) |\n| Cite as: | [arXiv:2109.11978](https://arxiv.org/abs/2109.11978) \\[cs.RO\\] |\n|  | (or [arXiv:2109.11978v3](https://arxiv.org/abs/2109.11978v3) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2109.11978](https://doi.org/10.48550/arXiv.2109.11978)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |\n\n## Submission history\n\nFrom: Nikita Rudin \\[ [view email](https://arxiv.org/show-email/eba94100/2109.11978)\\]"
+      },
+      {
+        "partId": "paper-identity",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "# Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\n\nNikita Rudin\nAffiliation: ETH Zurich and NVIDIA\nEmail: [rudinn@ethz.ch](mailto:)David Hoeller\nAffiliation: ETH Zurich and NVIDIA\nEmail: [dhoeller@ethz.ch](mailto:)Philipp Reist\nAffiliation: NVIDIA\nEmail: [preist@nvidia.com](mailto:)Marco Hutter\nAffiliation: ETH Zurich\nEmail: [mahutter@ethz.com](mailto:)\n\n###### Abstract\n\nIn this work, we present and study a training set-up that achieves fast policy generation for real-world robotic tasks by using massive parallelism on a single workstation GPU. We analyze and discuss the impact of different training algorithm components in the massively parallel regime on the final policy performance and training times. In addition, we present a novel game-inspired curriculum that is well suited for training with thousands of simulated robots in parallel. We evaluate the approach by training the quadrupedal robot ANYmal to walk on challenging terrain. The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. This represents a speedup of multiple orders of magnitude compared to previous work. Finally, we transfer the policies to the real robot to validate the approach. We open-source our training code to help accelerate further research in the field of learned legged locomotion: [https://leggedrobotics.github.io/legged\\_gym/](https://leggedrobotics.github.io/legged_gym/ \"\")."
+      },
+      {
+        "partId": "code-identity",
+        "citationId": "legged-gym-repo-2021",
+        "sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+        "supportingPassage": "# Isaac Gym Environments for Legged Robots #\nThis repository provides the environment used to train ANYmal (and other robots) to walk on rough terrain using NVIDIA's Isaac Gym.\nIt includes all components needed for sim-to-real transfer: actuator network, friction & mass randomization, noisy observations and random pushes during training.  \n**Maintainer**: Nikita Rudin  \n**Affiliation**: Robotic Systems Lab, ETH Zurich  \n**Contact**: rudinn@ethz.ch  \n\n### Useful Links ###\nProject website: https://leggedrobotics.github.io/legged_gym/\nPaper: https://arxiv.org/abs/2109.11978\n\n{\"sha\":\"ae614c029977157123225f538ecdd3f873e54bd4\",\"node_id\":\"C_kwDOGPHLktoAKGFlNjE0YzAyOTk3NzE1NzEyMzIyNWY1MzhlY2RkM2Y4NzNlNTRiZDQ\",\"commit\":{\"author\":{\"name\":\"Nikita Rudin\",\"email\":\"nrudin@nvidia.com\",\"date\":\"2021-10-26T16:31:23Z\"},\"committer\":{\"name\":\"Nikita Rudin\",\"email\":\"nrudin@nvidia.com\",\"date\":\"2021-10-29T22:21:54Z\"},\"message\":\"initial open-source commit\""
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "reported-time-bounds",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Flat <4min headline is separate from the documented rough/deployment run; neither is a measured equality. Abstract flat <4min is separate from the documented 4096 robot, 98304=4096*24 transition, 1500 update <20min i9-11900k/RTX A6000 policy. Section 4.1 removes curriculum for scaling comparisons, unlike the tested policy. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "e7973eaebfec72e54e9ffb1b2e276e8829e21c832f705ff122bc4a4b2b20c57f"
+      },
+      {
+        "partId": "documented-protocol",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: The simulation/deployment policy used 4096 robots, 98304=4096×24 transitions and 1500 updates in <20min on i9-11900k/RTX A6000. Abstract flat <4min is separate from the documented 4096 robot, 98304=4096*24 transition, 1500 update <20min i9-11900k/RTX A6000 policy. Section 4.1 removes curriculum for scaling comparisons, unlike the tested policy. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "5ccec57e7e59a3e3ab0c34d3331455cc5a748527f39b27202db645da1ca0ea5f"
+      },
+      {
+        "partId": "curriculum",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Promotion beyond tile borders, demotion below half commanded distance, random-level loop after highest level. Paper tile-boundary promotion, half-command-distance demotion and random-level loop are distinct from the inspected code half-terrain-length threshold and no-demotion-on-promotion guard. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "bb48b8d77a24a936910c4af7c409a6596f31828583a95f1eab13a593d3bb1fcf"
+      },
+      {
+        "partId": "release-not-prevalence",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: The paper links its training code; the pinned README describes the ANYmal rough-terrain Isaac Gym environment, not later adoption prevalence. Pinned README establishes the released training environment, not later adoption prevalence; unsupported prevalence is removed. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "a4ded478160b254d3a93b7bca75985da94bbc20f8700cd19b5c8cfa514155541"
+      },
+      {
+        "partId": "paper-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Exact Rudin title, four-person byline, 2021 submission and self-identified CoRL 2021; unversioned body, no v2 claim. Rudin, Hoeller, Reist, Hutter; 2021 submission and CoRL comment. Pinned README title and Nikita Rudin maintainer attribution, not complete contributor list or majority adoption. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "b33a9a6a9ab8ce9189738e8f6173fe093c661871bb367f0b2d30a29d432b4b64"
+      },
+      {
+        "partId": "code-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Pinned initial README title and maintainer, paper association and initial October 2021 commit; no majority-adoption claim. Rudin, Hoeller, Reist, Hutter; 2021 submission and CoRL comment. Pinned README title and Nikita Rudin maintainer attribution, not complete contributor list or majority adoption. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "5069a075b747492f0a635a66f60e903035419f677a49278bb28601f89c496675"
+      }
+    ]
+  },
+  {
+    "id": "rudin-protocol-writer-legged-locomotion-5-20260909",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "legged-locomotion",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "5ba77e14968c2f48b386a82753a694329321ce0f24bdcaeb588930c8e4fa9e29",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "reported-time-bounds",
+        "text": "Flat <4min headline is separate from the documented rough/deployment run; neither is a measured equality.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "documented-protocol",
+        "text": "The simulation/deployment policy used 4096 robots, 98304=4096×24 transitions and 1500 updates in <20min on i9-11900k/RTX A6000.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "curriculum",
+        "text": "Promotion beyond tile borders, demotion below half commanded distance, random-level loop after highest level.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "release-not-prevalence",
+        "text": "The paper links its training code; the pinned README describes the ANYmal rough-terrain Isaac Gym environment, not later adoption prevalence.",
+        "requiredCitationIds": [
+          "legged-gym-repo-2021"
+        ]
+      },
+      {
+        "id": "paper-identity",
+        "text": "Exact Rudin title, four-person byline, 2021 submission and self-identified CoRL 2021; unversioned body, no v2 claim.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "code-identity",
+        "text": "Pinned initial README title and maintainer, paper association and initial October 2021 commit; no majority-adoption claim.",
+        "requiredCitationIds": [
+          "legged-gym-repo-2021"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+      "rationale": "Current whole-claim review 2026-09-09T09:53:54.625889+00:00: read paper identity, abstract, protocol, curriculum, Table 2 and relevant pinned code context. Reviewed all six required parts as a conjunction, not a source-only readiness label. Abstract flat <4min is separate from the documented 4096 robot, 98304=4096*24 transition, 1500 update <20min i9-11900k/RTX A6000 policy. Section 4.1 removes curriculum for scaling comparisons, unlike the tested policy. Paper tile-boundary promotion, half-command-distance demotion and random-level loop are distinct from the inspected code half-terrain-length threshold and no-demotion-on-promotion guard. Rudin, Hoeller, Reist, Hutter; 2021 submission and CoRL comment. Pinned README title and Nikita Rudin maintainer attribution, not complete contributor list or majority adoption. Exact source items and 15 literal passages are separately verified in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-scoped-delta-integration-20260909/source-proof.json.",
+      "planDigest": "fa6ee5b821b7e4bc79b64653583573c20748a32bd494ab0f5a65969c13143074"
+    },
+    "evidence": [
+      {
+        "partId": "reported-time-bounds",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "# Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\n\nNikita Rudin\nAffiliation: ETH Zurich and NVIDIA\nEmail: [rudinn@ethz.ch](mailto:)David Hoeller\nAffiliation: ETH Zurich and NVIDIA\nEmail: [dhoeller@ethz.ch](mailto:)Philipp Reist\nAffiliation: NVIDIA\nEmail: [preist@nvidia.com](mailto:)Marco Hutter\nAffiliation: ETH Zurich\nEmail: [mahutter@ethz.com](mailto:)\n\n###### Abstract\n\nIn this work, we present and study a training set-up that achieves fast policy generation for real-world robotic tasks by using massive parallelism on a single workstation GPU. We analyze and discuss the impact of different training algorithm components in the massively parallel regime on the final policy performance and training times. In addition, we present a novel game-inspired curriculum that is well suited for training with thousands of simulated robots in parallel. We evaluate the approach by training the quadrupedal robot ANYmal to walk on challenging terrain. The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. This represents a speedup of multiple orders of magnitude compared to previous work. Finally, we transfer the policies to the real robot to validate the approach. We open-source our training code to help accelerate further research in the field of learned legged locomotion: [https://leggedrobotics.github.io/legged\\_gym/](https://leggedrobotics.github.io/legged_gym/ \"\").\n\nFor our simulation and deployment experiments, we use a policy trained with 4096 robots and a batch size of 98304, which we train for 1500 policy updates in under 20 minutes222\n\n\n\nTrained on: i9-11900k CPU, NVIDIA RTX A6000 GPU. VRAM requirements are in the supplementary material..\nWe begin by measuring the performance of our trained policy in simulation. To that end, we perform robustness and traversability tests. For each terrain type, we command the robots to traverse the representative difficulty of the terrain at high forward velocity and measure the success rate. A success is defined as managing to cross the terrain while avoiding any contacts on the robot’s base. Fig. [5](https://ar5iv.labs.arxiv.org/html/2109.11978#S4.F5 \"Figure 5 ‣ 4.2 Simulation ‣ 4 Results ‣ Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\") shows the results for the different terrains. For stairs, we see a nearly 100%100\\\\text{\\\\,}\\\\% success rate for steps up to 0.2m0.2\\\\text{\\\\,}\\\\mathrm{m}, which is the hardest stair difficulty we train on and close to the kinematic limits of our robot. Randomized obstacles seem to be more demanding, with the success rate decreasing steadily. We must note that in this case, the largest step is double the reported height since neighboring obstacles can have positive and negative heights. In the case of slopes, we can observe that after 25deg25\\\\text{\\\\,}\\\\deg the robots are not able to climb anymore but still learn to slide down with a moderate success rate."
+      },
+      {
+        "partId": "documented-protocol",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "For our simulation and deployment experiments, we use a policy trained with 4096 robots and a batch size of 98304, which we train for 1500 policy updates in under 20 minutes222\n\n\n\nTrained on: i9-11900k CPU, NVIDIA RTX A6000 GPU. VRAM requirements are in the supplementary material..\nWe begin by measuring the performance of our trained policy in simulation. To that end, we perform robustness and traversability tests. For each terrain type, we command the robots to traverse the representative difficulty of the terrain at high forward velocity and measure the success rate. A success is defined as managing to cross the terrain while avoiding any contacts on the robot’s base. Fig. [5](https://ar5iv.labs.arxiv.org/html/2109.11978#S4.F5 \"Figure 5 ‣ 4.2 Simulation ‣ 4 Results ‣ Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\") shows the results for the different terrains. For stairs, we see a nearly 100%100\\\\text{\\\\,}\\\\% success rate for steps up to 0.2m0.2\\\\text{\\\\,}\\\\mathrm{m}, which is the hardest stair difficulty we train on and close to the kinematic limits of our robot. Randomized obstacles seem to be more demanding, with the success rate decreasing steadily. We must note that in this case, the largest step is double the reported height since neighboring obstacles can have positive and negative heights. In the case of slopes, we can observe that after 25deg25\\\\text{\\\\,}\\\\deg the robots are not able to climb anymore but still learn to slide down with a moderate success rate.\n\n| Batch size | 98304 (4096x24) |\n| --- | --- |\n| Mini-bach size | 24576 (4096x6) |\n| --- | --- |\n| Number of epochs | 5 |\n| --- | --- |\n| Clip range | 0.2 |\n| Entropy coefficient | 0.01 |\n| Discount factor | 0.99 |\n| GAE discount factor | 0.95 |\n| Desired KL-divergence k​l∗kl^{\\*} | 0.01 |\n| Learning rate α\\\\alpha | adaptive∗ |\n\nTable 3: PPO hyper-parameters used for the training of the tested policy. (\\*) Similarly to \\[ [9](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib9 \"\")\\], we use an adaptive learning rate based on the KL-divergence, the corresponding algorithm is described in Alg. [1](https://ar5iv.labs.arxiv.org/html/2109.11978#alg1 \"Algorithm 1 ‣ A.4 PPO Hyper-Parameters ‣ Appendix A Appendix ‣ Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\")Algorithm 1 Adaptive learning rate computation.\n\nk​l←K​L​(πn​e​w,πo​l​d)kl\\\\leftarrow KL(\\\\pi\\_{new},\\\\pi\\_{old})\n\nifk​l>2​k​l∗kl>2kl^{\\*}then\n\nα←max⁡(10−5,α/1.5)\\\\alpha\\\\leftarrow\\\\max(10^{-5},\\\\alpha/1.5)\n\nelse\n\nifk​l<0.5​k​l∗kl<0.5kl^{\\*}then\n\nα←min⁡(10−2,1.5​α)\\\\alpha\\\\leftarrow\\\\min(10^{-2},1.5\\\\alpha)\n\nendif\n\nendif\n\n### A.5 Noise Level in Observations\n"
+      },
+      {
+        "partId": "curriculum",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "\nPrevious works have shown the benefits of using an automated curriculum of task difficulty to learn complex locomotion policies \\[ [28](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib28 \"\"), [29](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib29 \"\"), [16](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib16 \"\")\\]. Similarly, we find that it is essential to first train the policy on less challenging terrain before progressively increasing the complexity. We adopt a solution inspired by \\[ [16](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib16 \"\")\\], but replace the particle filter approach with a new game-inspired automatic curriculum. All robots are assigned a terrain type and a level that represents the difficulty of that terrain. For stairs and randomized obstacles, we gradually increase the step height from 5cm5\\\\text{\\\\,}\\\\mathrm{c}\\\\mathrm{m} to 20cm20\\\\text{\\\\,}\\\\mathrm{c}\\\\mathrm{m}. Sloped terrain inclination is increased from 0deg0\\\\text{\\\\,}\\\\deg to 25deg25\\\\text{\\\\,}\\\\deg. If a robot manages to walk past the borders of its terrain, its level is increased, and at the next reset, it will start on more difficult terrain. However, if at the end of an episode it moved by less than half of the distance required by its target velocity, its level is reduced again. Robots solving the highest level are looped back to a randomly selected level to increase the diversity and avoid catastrophic forgetting.\nThis approach has the advantage of training the robots at a level of difficulty tailored to their performance without requiring any external tuning. It adapts the difficulty level for each terrain type individually and provides us with visual and quantitative feedback on the progress of the training. When the robots have reached the final level and are evenly spread across all terrains due to looping back, we can conclude they have fully learned to solve the task.\n\nThe proposed curriculum structure is well suited for the massively parallel regime. With thousands of robots we can directly use their current progress in the curriculum as the distribution of the policy’s performance, and do not need learn it with a generator network \\[ [30](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib30 \"\")\\]. Furthermore, our method doesn’t require tuning and is straightforward to implement in a parallel manner with near-zero processing cost. We remove the computational overhead of re-sampling and re-generating new terrains needed for the particle filter approach.\n\nFig. [3](https://ar5iv.labs.arxiv.org/html/2109.11978#S3.F3 \"Figure 3 ‣ 3.1 Game-Inspired Curriculum ‣ 3 Task Description ‣ Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\") shows robots progressing through the terrains at two different stages of the training process. On complex terrain types, the robots require more training iterations to reach the highest levels. The distribution of robots after 500 iterations shows that while the policy is able to cross sloped terrains and to go down stairs, climbing stairs and traversing obstacles requires more training iterations. However, after 1000 iterations, the robots have reached the most challenging level for all terrain types and are spread across the map. We train for a total for 1500 iterations to let the policy converge to its highest performance."
+      },
+      {
+        "partId": "release-not-prevalence",
+        "citationId": "legged-gym-repo-2021",
+        "sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+        "supportingPassage": "# Isaac Gym Environments for Legged Robots #\nThis repository provides the environment used to train ANYmal (and other robots) to walk on rough terrain using NVIDIA's Isaac Gym.\nIt includes all components needed for sim-to-real transfer: actuator network, friction & mass randomization, noisy observations and random pushes during training.  \n**Maintainer**: Nikita Rudin  \n**Affiliation**: Robotic Systems Lab, ETH Zurich  \n**Contact**: rudinn@ethz.ch  \n\n### Useful Links ###\nProject website: https://leggedrobotics.github.io/legged_gym/\nPaper: https://arxiv.org/abs/2109.11978\n\n### Installation ###\n1. Create a new python virtual env with python 3.6, 3.7 or 3.8 (3.8 recommended)\n2. Install pytorch 1.10 with cuda-11.3:\n    - `pip3 install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html`\n3. Install Isaac Gym\n   - Download and install Isaac Gym Preview 3 (Preview 2 will not work!) from https://developer.nvidia.com/isaac-gym\n   - `cd isaacgym_lib/python && pip install -e .`\n   - Try running an example `python examples/1080_balls_of_solitude.py`\n   - For troubleshooting check docs `isaacgym/docs/index.html`)\n4. Install rsl_rl (PPO implementation)\n   - Clone https://bitbucket.org/leggedrobotics/rsl_rl/src/master/\n   -  `cd rsl_rl && git checkout develop && pip install -e .` \n5. Install legged_gym\n    - Clone this repository\n   - `cd legged_gym && git checkout develop && pip install -e .`\n\n### CODE STRUCTURE ###\n1. Each environment is defined by an env file (`legged_robot.py`) and a config file (`legged_robot_config.py`). The config file contains two classes: one conatianing all the environment parameters (`LeggedRobotCfg`) and one for the training parameters (`LeggedRobotCfgPPo`).  \n2. Both env and config classes use inheritance.  \n3. Each non-zero reward scale specified in `cfg` will add a function with a corresponding name to the list of elements which will be summed to get the total reward.  \n4. Tasks must be registered using `task_registry.register(name, EnvClass, EnvConfig, TrainConfig)`. This is done in `envs/__init__.py`, but can also be done from outside of this repository.  "
+      },
+      {
+        "partId": "paper-identity",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://arxiv.org/abs/2109.11978",
+        "supportingPassage": "\n\n\\[Submitted on 24 Sep 2021 ( [v1](https://arxiv.org/abs/2109.11978v1)), last revised 19 Aug 2022 (this version, v3)\\]\n\n# Title:Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\n\nAuthors: [Nikita Rudin](https://arxiv.org/search/cs?searchtype=author&query=Rudin,+N), [David Hoeller](https://arxiv.org/search/cs?searchtype=author&query=Hoeller,+D), [Philipp Reist](https://arxiv.org/search/cs?searchtype=author&query=Reist,+P), [Marco Hutter](https://arxiv.org/search/cs?searchtype=author&query=Hutter,+M)\n\nView a PDF of the paper titled Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning, by Nikita Rudin and 3 other authors\n\n[View PDF](https://arxiv.org/pdf/2109.11978) [HTML (experimental)](https://arxiv.org/html/2109.11978v3)\n\n> Abstract:In this work, we present and study a training set-up that achieves fast policy generation for real-world robotic tasks by using massive parallelism on a single workstation GPU. We analyze and discuss the impact of different training algorithm components in the massively parallel regime on the final policy performance and training times. In addition, we present a novel game-inspired curriculum that is well suited for training with thousands of simulated robots in parallel. We evaluate the approach by training the quadrupedal robot ANYmal to walk on challenging terrain. The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. This represents a speedup of multiple orders of magnitude compared to previous work. Finally, we transfer the policies to the real robot to validate the approach. We open-source our training code to help accelerate further research in the field of learned legged locomotion.\n\n|     |     |\n| --- | --- |\n| Comments: | CoRL 2021 Project website: : [this https URL](https://leggedrobotics.github.io/legged_gym/) Video: [this https URL](https://youtu.be/8sO7VS3q8d0) |\n| Subjects: | Robotics (cs.RO); Machine Learning (cs.LG) |\n| Cite as: | [arXiv:2109.11978](https://arxiv.org/abs/2109.11978) \\[cs.RO\\] |\n|  | (or [arXiv:2109.11978v3](https://arxiv.org/abs/2109.11978v3) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2109.11978](https://doi.org/10.48550/arXiv.2109.11978)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |\n\n## Submission history\n\nFrom: Nikita Rudin \\[ [view email](https://arxiv.org/show-email/eba94100/2109.11978)\\]"
+      },
+      {
+        "partId": "paper-identity",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "# Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\n\nNikita Rudin\nAffiliation: ETH Zurich and NVIDIA\nEmail: [rudinn@ethz.ch](mailto:)David Hoeller\nAffiliation: ETH Zurich and NVIDIA\nEmail: [dhoeller@ethz.ch](mailto:)Philipp Reist\nAffiliation: NVIDIA\nEmail: [preist@nvidia.com](mailto:)Marco Hutter\nAffiliation: ETH Zurich\nEmail: [mahutter@ethz.com](mailto:)\n\n###### Abstract\n\nIn this work, we present and study a training set-up that achieves fast policy generation for real-world robotic tasks by using massive parallelism on a single workstation GPU. We analyze and discuss the impact of different training algorithm components in the massively parallel regime on the final policy performance and training times. In addition, we present a novel game-inspired curriculum that is well suited for training with thousands of simulated robots in parallel. We evaluate the approach by training the quadrupedal robot ANYmal to walk on challenging terrain. The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. This represents a speedup of multiple orders of magnitude compared to previous work. Finally, we transfer the policies to the real robot to validate the approach. We open-source our training code to help accelerate further research in the field of learned legged locomotion: [https://leggedrobotics.github.io/legged\\_gym/](https://leggedrobotics.github.io/legged_gym/ \"\")."
+      },
+      {
+        "partId": "code-identity",
+        "citationId": "legged-gym-repo-2021",
+        "sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+        "supportingPassage": "# Isaac Gym Environments for Legged Robots #\nThis repository provides the environment used to train ANYmal (and other robots) to walk on rough terrain using NVIDIA's Isaac Gym.\nIt includes all components needed for sim-to-real transfer: actuator network, friction & mass randomization, noisy observations and random pushes during training.  \n**Maintainer**: Nikita Rudin  \n**Affiliation**: Robotic Systems Lab, ETH Zurich  \n**Contact**: rudinn@ethz.ch  \n\n### Useful Links ###\nProject website: https://leggedrobotics.github.io/legged_gym/\nPaper: https://arxiv.org/abs/2109.11978\n\n{\"sha\":\"ae614c029977157123225f538ecdd3f873e54bd4\",\"node_id\":\"C_kwDOGPHLktoAKGFlNjE0YzAyOTk3NzE1NzEyMzIyNWY1MzhlY2RkM2Y4NzNlNTRiZDQ\",\"commit\":{\"author\":{\"name\":\"Nikita Rudin\",\"email\":\"nrudin@nvidia.com\",\"date\":\"2021-10-26T16:31:23Z\"},\"committer\":{\"name\":\"Nikita Rudin\",\"email\":\"nrudin@nvidia.com\",\"date\":\"2021-10-29T22:21:54Z\"},\"message\":\"initial open-source commit\""
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "reported-time-bounds",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Flat <4min headline is separate from the documented rough/deployment run; neither is a measured equality. Abstract flat <4min is separate from the documented 4096 robot, 98304=4096*24 transition, 1500 update <20min i9-11900k/RTX A6000 policy. Section 4.1 removes curriculum for scaling comparisons, unlike the tested policy. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "282f61c18c5192e189549b153a51c5bd8e1cd1f312cac78784af94c55ce69b9a"
+      },
+      {
+        "partId": "documented-protocol",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: The simulation/deployment policy used 4096 robots, 98304=4096×24 transitions and 1500 updates in <20min on i9-11900k/RTX A6000. Abstract flat <4min is separate from the documented 4096 robot, 98304=4096*24 transition, 1500 update <20min i9-11900k/RTX A6000 policy. Section 4.1 removes curriculum for scaling comparisons, unlike the tested policy. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "cd79c90a73b7a39d160f4f8162fc56d191a754e713a9a7687af48a3876e9328f"
+      },
+      {
+        "partId": "curriculum",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Promotion beyond tile borders, demotion below half commanded distance, random-level loop after highest level. Paper tile-boundary promotion, half-command-distance demotion and random-level loop are distinct from the inspected code half-terrain-length threshold and no-demotion-on-promotion guard. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "efb2fa2658f5da26294f7e84a74e0d095742a882476d3cd7a3abd762df7c0e28"
+      },
+      {
+        "partId": "release-not-prevalence",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: The paper links its training code; the pinned README describes the ANYmal rough-terrain Isaac Gym environment, not later adoption prevalence. Pinned README establishes the released training environment, not later adoption prevalence; unsupported prevalence is removed. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "cbef8f4757e1f36dc39430749b6980ff2a38bf5be53dfc7c480c8e9167eaafa4"
+      },
+      {
+        "partId": "paper-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Exact Rudin title, four-person byline, 2021 submission and self-identified CoRL 2021; unversioned body, no v2 claim. Rudin, Hoeller, Reist, Hutter; 2021 submission and CoRL comment. Pinned README title and Nikita Rudin maintainer attribution, not complete contributor list or majority adoption. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "2a4bdf4969a8bc580d564f2b7ab817ac87df76bf7543b8d82d21d71c291b457f"
+      },
+      {
+        "partId": "code-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Pinned initial README title and maintainer, paper association and initial October 2021 commit; no majority-adoption claim. Rudin, Hoeller, Reist, Hutter; 2021 submission and CoRL comment. Pinned README title and Nikita Rudin maintainer attribution, not complete contributor list or majority adoption. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "fc975c5e81cd3cb382cae5cbc7edf3b10481c4bc5de2a6e7ea5e9c4e842aeb31"
+      }
+    ]
+  },
+  {
+    "id": "rudin-protocol-writer-reward-design-mpc-2-20260909",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "fa3fe15867e5fa16f539b62625a705dd25f9433644faa4ee15e5cf4f480528ad",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "paper-nine",
+        "text": "Rudin Table 2 has nine reward terms including feet air time; gait independent does not mean air time absent.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "config-fifteen-nine",
+        "text": "Pinned base config declares fifteen scales, nine nonzero; only nonzero scales are prepared and multiplied by dt.",
+        "requiredCitationIds": [
+          "legged-gym-repo-2021"
+        ]
+      },
+      {
+        "id": "functions-not-activation",
+        "text": "Nineteen reward functions do not imply nineteen active rewards; joint limit/contact thresholds do not activate absent scales.",
+        "requiredCitationIds": [
+          "legged-gym-repo-2021"
+        ]
+      },
+      {
+        "id": "airtime-and-stumble",
+        "text": "Air time is first-contact gated with a planar-command threshold; dormant feet_stumble does not match _reward_stumble, whose wall-contact mechanism is not foot slip.",
+        "requiredCitationIds": [
+          "legged-gym-repo-2021"
+        ]
+      },
+      {
+        "id": "paper-identity",
+        "text": "Exact Rudin title, four-person byline, 2021 submission and self-identified CoRL 2021; unversioned body, no v2 claim.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "code-identity",
+        "text": "Pinned initial README title and maintainer, paper association and initial October 2021 commit; no majority-adoption claim.",
+        "requiredCitationIds": [
+          "legged-gym-repo-2021"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+      "rationale": "Current whole-claim review 2026-09-09T09:53:54.625889+00:00: read paper identity, abstract, protocol, curriculum, Table 2 and relevant pinned code context. Reviewed all six required parts as a conjunction, not a source-only readiness label. Paper nine terms include feet air time. Base config has 15 scales, 9 nonzero and base class 19 functions; preparation removes zero scales and multiplies by dt. Air time requires first contact and planar command norm >0.1. Dormant feet_stumble does not match _reward_stumble; that function detects wall contact, not slip. Rudin, Hoeller, Reist, Hutter; 2021 submission and CoRL comment. Pinned README title and Nikita Rudin maintainer attribution, not complete contributor list or majority adoption. Exact source items and 15 literal passages are separately verified in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-scoped-delta-integration-20260909/source-proof.json.",
+      "planDigest": "dca0703308eb469b3b425fd3616bf5b32aff87bf3d6bf32dfbfaddf1a53a8190"
+    },
+    "evidence": [
+      {
+        "partId": "paper-nine",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "### 3.2 Observations, Actions, and Rewards\n\nThe policy receives proprioceptive measurements of the robot as well as terrain information around the robot’s base. The observations are composed of: base linear and angular velocities, measurement of the gravity vector, joint positions and velocities, the previous actions selected by the policy, and finally, 108 measurements of the terrain sampled from a grid around the robot’s base. Each measurement is the distance from the terrain surface to the robot’s base height.\n\nThe total reward is a weighted sum of nine terms, detailed in supplementary material. The main terms encourage the robot to follow the commanded velocities while avoiding undesired base velocities along other axes. In order to create a smoother, more natural motion, we also penalize joint torques, joint accelerations, joint target changes, and collisions. Contacts with the knees, shanks or between the feet and a vertical surface are considered collisions, while contacts with the base are considered crashes and lead to resets. Finally, we add an additional reward term encouraging the robot to take longer steps, which results in a more visually appealing behavior. We train a single policy with the same rewards for all terrains.\n\nThe actions are interpreted as desired joint positions sent to the motors. There, a PD controller produces motor torques. In contrast to other works \\[ [16](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib16 \"\"), [20](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib20 \"\")\\], neither the reward function nor the action space has any gait-dependent elements.\n\n\n|  | definition | weight |\n| Linear velocity tracking | ϕ⁡(𝐯b,x​y∗−𝐯b,x​y)\\\\phi(\\\\mathbf{v}^{\\*}\\_{b,xy}-\\\\mathbf{v}\\_{b,xy}) | 1​d​t1dt |\n| Angular velocity tracking | ϕ⁡(𝝎b,z∗−𝝎b,z)\\\\phi(\\\\bm{\\\\omega}^{\\*}\\_{b,z}-\\\\bm{\\\\omega}\\_{b,z}) | 0.5​d​t0.5dt |\n| Linear velocity penalty | −𝐯b,z2-\\\\mathbf{v}\\_{b,z}^{2} | 4​d​t4dt |\n| Angular velocity penalty | −‖𝝎b,x​y‖2-\\|\\|\\\\bm{\\\\omega}\\_{b,xy}\\|\\|^{2} | 0.05​d​t0.05dt |\n| Joint motion | −‖𝐪j¨‖2−‖𝐪j˙‖2-\\|\\|\\\\ddot{\\\\mathbf{q}\\_{j}}\\|\\|^{2}-\\|\\|\\\\dot{\\\\mathbf{q}\\_{j}}\\|\\|^{2} | 0.001​d​t0.001dt |\n| Joint torques | −‖𝝉j‖2-\\|\\|\\\\bm{\\\\tau}\\_{j}\\|\\|^{2} | 0.00002​d​t0.00002dt |\n| Action rate | −‖𝐪j∗˙‖2-\\|\\|\\\\dot{\\\\mathbf{q}^{\\*}\\_{j}}\\|\\|^{2} | 0.25​d​t0.25dt |\n| Collisions | −nc​o​l​l​i​s​i​o​n-n\\_{collision} | 0.001​d​t0.001dt |\n| Feet air time | ∑f=04(𝐭a​i​r,f−0.5)\\\\sum\\_{f=0}^{4}(\\\\mathbf{t}\\_{air,f}-0.5) | 2​d​t2dt |\n\nTable 2: Definition of reward terms, with ϕ⁡(x):=exp⁡(−‖x‖20.25)\\\\phi(x):=\\\\exp(-\\\\frac{\\|\\|x\\|\\|^{2}}{0.25}). The z axis is aligned with gravity."
+      },
+      {
+        "partId": "config-fifteen-nine",
+        "citationId": "legged-gym-repo-2021",
+        "sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+        "supportingPassage": "        class scales:\n            termination = -0.0\n            tracking_lin_vel = 1.0\n            tracking_ang_vel = 0.5\n            lin_vel_z = -2.0\n            ang_vel_xy = -0.05\n            orientation = -0.\n            torques = -0.00001\n            dof_vel = -0.\n            dof_acc = -2.5e-7\n            base_height = -0. \n            feet_air_time =  1.0\n            collision = -1.\n            feet_stumble = -0.0 \n            action_rate = -0.01\n            stand_still = -0.\n\n        only_positive_rewards = True # if true negative total rewards are clipped at zero (avoids early termination problems)\n        tracking_sigma = 0.25 # tracking reward = exp(-error^2/sigma)\n        soft_dof_pos_limit = 1. # percentage of urdf limits, values above this limit are penalized\n        soft_dof_vel_limit = 1.\n        soft_torque_limit = 1.\n        base_height_target = 1.\n        max_contact_force = 100. # forces above this value are penalized\n\n    class normalization:\n\n    def _prepare_reward_function(self):\n        \"\"\" Prepares a list of reward functions, whcih will be called to compute the total reward.\n            Looks for self._reward_<REWARD_NAME>, where <REWARD_NAME> are names of all non zero reward scales in the cfg.\n        \"\"\"\n        # remove zero scales + multiply non-zero ones by dt\n        for key in list(self.reward_scales.keys()):\n            scale = self.reward_scales[key]\n            if scale==0:\n                self.reward_scales.pop(key) \n            else:\n                self.reward_scales[key] *= self.dt\n        # prepare list of functions\n        self.reward_functions = []\n        self.reward_names = []\n        for name, scale in self.reward_scales.items():\n            if name==\"termination\":\n                continue\n            self.reward_names.append(name)\n            name = '_reward_' + name\n            self.reward_functions.append(getattr(self, name))\n\n        # reward episode sums\n        self.episode_sums = {name: torch.zeros(self.num_envs, dtype=torch.float, device=self.device, requires_grad=False)\n                             for name in self.reward_scales.keys()}"
+      },
+      {
+        "partId": "functions-not-activation",
+        "citationId": "legged-gym-repo-2021",
+        "sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+        "supportingPassage": "    def _reward_lin_vel_z(self):\n        # Penalize z axis base linear velocity\n        return torch.square(self.base_lin_vel[:, 2])\n    \n    def _reward_ang_vel_xy(self):\n        # Penalize xy axes base angular velocity\n        return torch.sum(torch.square(self.base_ang_vel[:, :2]), dim=1)\n    \n    def _reward_orientation(self):\n        # Penalize non flat base orientation\n        return torch.sum(torch.square(self.projected_gravity[:, :2]), dim=1)\n\n    def _reward_base_height(self):\n        # Penalize base height away from target\n        base_height = torch.mean(self.root_states[:, 2].unsqueeze(1) - self.measured_heights, dim=1)\n        return torch.square(base_height - self.cfg.rewards.base_height_target)\n    \n    def _reward_torques(self):\n        # Penalize torques\n        return torch.sum(torch.square(self.torques), dim=1)\n\n    def _reward_dof_vel(self):\n        # Penalize dof velocities\n        return torch.sum(torch.square(self.dof_vel), dim=1)\n    \n    def _reward_dof_acc(self):\n        # Penalize dof accelerations\n        return torch.sum(torch.square((self.last_dof_vel - self.dof_vel) / self.dt), dim=1)\n    \n    def _reward_action_rate(self):\n        # Penalize changes in actions\n        return torch.sum(torch.square(self.last_actions - self.actions), dim=1)\n    \n    def _reward_collision(self):\n        # Penalize collisions on selected bodies\n        return torch.sum(1.*(torch.norm(self.contact_forces[:, self.penalised_contact_indices, :], dim=-1) > 0.1), dim=1)\n    \n    def _reward_termination(self):\n        # Terminal reward / penalty\n        return self.reset_buf * ~self.time_out_buf\n    \n    def _reward_dof_pos_limits(self):\n        # Penalize dof positions too close to the limit\n        out_of_limits = -(self.dof_pos - self.dof_pos_limits[:, 0]).clip(max=0.) # lower limit\n        out_of_limits += (self.dof_pos - self.dof_pos_limits[:, 1]).clip(min=0.)\n        return torch.sum(out_of_limits, dim=1)\n\n    def _reward_dof_vel_limits(self):\n        # Penalize dof velocities too close to the limit\n        # clip to max error = 1 rad/s per joint to avoid huge penalties\n        return torch.sum((torch.abs(self.dof_vel) - self.dof_vel_limits*self.cfg.rewards.soft_dof_vel_limit).clip(min=0., max=1.), dim=1)\n\n    def _reward_torque_limits(self):\n        # penalize torques too close to the limit\n        return torch.sum((torch.abs(self.torques) - self.torque_limits*self.cfg.rewards.soft_torque_limit).clip(min=0.), dim=1)\n\n    def _reward_tracking_lin_vel(self):\n        # Tracking of linear velocity commands (xy axes)\n        lin_vel_error = torch.sum(torch.square(self.commands[:, :2] - self.base_lin_vel[:, :2]), dim=1)\n        return torch.exp(-lin_vel_error/self.cfg.rewards.tracking_sigma)\n    \n    def _reward_tracking_ang_vel(self):\n        # Tracking of angular velocity commands (yaw) \n        ang_vel_error = torch.square(self.commands[:, 2] - self.base_ang_vel[:, 2])\n        return torch.exp(-ang_vel_error/self.cfg.rewards.tracking_sigma)\n\n    def _reward_feet_air_time(self):\n        # Reward long steps\n        # Need to filter the contacts because the contact reporting of PhysX is unreliable on meshes\n        contact = self.contact_forces[:, self.feet_indices, 2] > 1.\n        contact_filt = torch.logical_or(contact, self.last_contacts) \n        self.last_contacts = contact\n        first_contact = (self.feet_air_time > 0.) * contact_filt\n        self.feet_air_time += self.dt\n        rew_airTime = torch.sum((self.feet_air_time - 0.5) * first_contact, dim=1) # reward only on first contact with the ground\n        rew_airTime *= torch.norm(self.commands[:, :2], dim=1) > 0.1 #no reward for zero command\n        self.feet_air_time *= ~contact_filt\n        return rew_airTime\n    \n    def _reward_stumble(self):\n        # Penalize feet hitting vertical surfaces\n        return torch.any(torch.norm(self.contact_forces[:, self.feet_indices, :2], dim=2) >\\\n             5 *torch.abs(self.contact_forces[:, self.feet_indices, 2]), dim=1)\n        \n    def _reward_stand_still(self):\n        # Penalize motion at zero commands\n        return torch.sum(torch.abs(self.dof_pos - self.default_dof_pos), dim=1) * (torch.norm(self.commands[:, :2], dim=1) < 0.1)\n\n    def _reward_feet_contact_forces(self):\n        # penalize high contact forces\n        return torch.sum((torch.norm(self.contact_forces[:, self.feet_indices, :], dim=-1) -  self.cfg.rewards.max_contact_force).clip(min=0.), dim=1)\n\n        class scales:\n            termination = -0.0\n            tracking_lin_vel = 1.0\n            tracking_ang_vel = 0.5\n            lin_vel_z = -2.0\n            ang_vel_xy = -0.05\n            orientation = -0.\n            torques = -0.00001\n            dof_vel = -0.\n            dof_acc = -2.5e-7\n            base_height = -0. \n            feet_air_time =  1.0\n            collision = -1.\n            feet_stumble = -0.0 \n            action_rate = -0.01\n            stand_still = -0.\n\n        only_positive_rewards = True # if true negative total rewards are clipped at zero (avoids early termination problems)\n        tracking_sigma = 0.25 # tracking reward = exp(-error^2/sigma)\n        soft_dof_pos_limit = 1. # percentage of urdf limits, values above this limit are penalized\n        soft_dof_vel_limit = 1.\n        soft_torque_limit = 1.\n        base_height_target = 1.\n        max_contact_force = 100. # forces above this value are penalized\n\n    class normalization:\n\n    def _prepare_reward_function(self):\n        \"\"\" Prepares a list of reward functions, whcih will be called to compute the total reward.\n            Looks for self._reward_<REWARD_NAME>, where <REWARD_NAME> are names of all non zero reward scales in the cfg.\n        \"\"\"\n        # remove zero scales + multiply non-zero ones by dt\n        for key in list(self.reward_scales.keys()):\n            scale = self.reward_scales[key]\n            if scale==0:\n                self.reward_scales.pop(key) \n            else:\n                self.reward_scales[key] *= self.dt\n        # prepare list of functions\n        self.reward_functions = []\n        self.reward_names = []\n        for name, scale in self.reward_scales.items():\n            if name==\"termination\":\n                continue\n            self.reward_names.append(name)\n            name = '_reward_' + name\n            self.reward_functions.append(getattr(self, name))\n\n        # reward episode sums\n        self.episode_sums = {name: torch.zeros(self.num_envs, dtype=torch.float, device=self.device, requires_grad=False)\n                             for name in self.reward_scales.keys()}"
+      },
+      {
+        "partId": "airtime-and-stumble",
+        "citationId": "legged-gym-repo-2021",
+        "sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+        "supportingPassage": "    def _reward_feet_air_time(self):\n        # Reward long steps\n        # Need to filter the contacts because the contact reporting of PhysX is unreliable on meshes\n        contact = self.contact_forces[:, self.feet_indices, 2] > 1.\n        contact_filt = torch.logical_or(contact, self.last_contacts) \n        self.last_contacts = contact\n        first_contact = (self.feet_air_time > 0.) * contact_filt\n        self.feet_air_time += self.dt\n        rew_airTime = torch.sum((self.feet_air_time - 0.5) * first_contact, dim=1) # reward only on first contact with the ground\n        rew_airTime *= torch.norm(self.commands[:, :2], dim=1) > 0.1 #no reward for zero command\n        self.feet_air_time *= ~contact_filt\n        return rew_airTime\n    \n    def _reward_stumble(self):\n        # Penalize feet hitting vertical surfaces\n        return torch.any(torch.norm(self.contact_forces[:, self.feet_indices, :2], dim=2) >\\\n             5 *torch.abs(self.contact_forces[:, self.feet_indices, 2]), dim=1)\n        \n    def _reward_stand_still(self):\n        # Penalize motion at zero commands\n        return torch.sum(torch.abs(self.dof_pos - self.default_dof_pos), dim=1) * (torch.norm(self.commands[:, :2], dim=1) < 0.1)\n\n    def _reward_feet_contact_forces(self):\n        # penalize high contact forces\n        return torch.sum((torch.norm(self.contact_forces[:, self.feet_indices, :], dim=-1) -  self.cfg.rewards.max_contact_force).clip(min=0.), dim=1)\n\n        class scales:\n            termination = -0.0\n            tracking_lin_vel = 1.0\n            tracking_ang_vel = 0.5\n            lin_vel_z = -2.0\n            ang_vel_xy = -0.05\n            orientation = -0.\n            torques = -0.00001\n            dof_vel = -0.\n            dof_acc = -2.5e-7\n            base_height = -0. \n            feet_air_time =  1.0\n            collision = -1.\n            feet_stumble = -0.0 \n            action_rate = -0.01\n            stand_still = -0.\n\n        only_positive_rewards = True # if true negative total rewards are clipped at zero (avoids early termination problems)\n        tracking_sigma = 0.25 # tracking reward = exp(-error^2/sigma)\n        soft_dof_pos_limit = 1. # percentage of urdf limits, values above this limit are penalized\n        soft_dof_vel_limit = 1.\n        soft_torque_limit = 1.\n        base_height_target = 1.\n        max_contact_force = 100. # forces above this value are penalized\n\n    class normalization:\n\n    def _prepare_reward_function(self):\n        \"\"\" Prepares a list of reward functions, whcih will be called to compute the total reward.\n            Looks for self._reward_<REWARD_NAME>, where <REWARD_NAME> are names of all non zero reward scales in the cfg.\n        \"\"\"\n        # remove zero scales + multiply non-zero ones by dt\n        for key in list(self.reward_scales.keys()):\n            scale = self.reward_scales[key]\n            if scale==0:\n                self.reward_scales.pop(key) \n            else:\n                self.reward_scales[key] *= self.dt\n        # prepare list of functions\n        self.reward_functions = []\n        self.reward_names = []\n        for name, scale in self.reward_scales.items():\n            if name==\"termination\":\n                continue\n            self.reward_names.append(name)\n            name = '_reward_' + name\n            self.reward_functions.append(getattr(self, name))\n\n        # reward episode sums\n        self.episode_sums = {name: torch.zeros(self.num_envs, dtype=torch.float, device=self.device, requires_grad=False)\n                             for name in self.reward_scales.keys()}"
+      },
+      {
+        "partId": "paper-identity",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://arxiv.org/abs/2109.11978",
+        "supportingPassage": "\n\n\\[Submitted on 24 Sep 2021 ( [v1](https://arxiv.org/abs/2109.11978v1)), last revised 19 Aug 2022 (this version, v3)\\]\n\n# Title:Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\n\nAuthors: [Nikita Rudin](https://arxiv.org/search/cs?searchtype=author&query=Rudin,+N), [David Hoeller](https://arxiv.org/search/cs?searchtype=author&query=Hoeller,+D), [Philipp Reist](https://arxiv.org/search/cs?searchtype=author&query=Reist,+P), [Marco Hutter](https://arxiv.org/search/cs?searchtype=author&query=Hutter,+M)\n\nView a PDF of the paper titled Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning, by Nikita Rudin and 3 other authors\n\n[View PDF](https://arxiv.org/pdf/2109.11978) [HTML (experimental)](https://arxiv.org/html/2109.11978v3)\n\n> Abstract:In this work, we present and study a training set-up that achieves fast policy generation for real-world robotic tasks by using massive parallelism on a single workstation GPU. We analyze and discuss the impact of different training algorithm components in the massively parallel regime on the final policy performance and training times. In addition, we present a novel game-inspired curriculum that is well suited for training with thousands of simulated robots in parallel. We evaluate the approach by training the quadrupedal robot ANYmal to walk on challenging terrain. The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. This represents a speedup of multiple orders of magnitude compared to previous work. Finally, we transfer the policies to the real robot to validate the approach. We open-source our training code to help accelerate further research in the field of learned legged locomotion.\n\n|     |     |\n| --- | --- |\n| Comments: | CoRL 2021 Project website: : [this https URL](https://leggedrobotics.github.io/legged_gym/) Video: [this https URL](https://youtu.be/8sO7VS3q8d0) |\n| Subjects: | Robotics (cs.RO); Machine Learning (cs.LG) |\n| Cite as: | [arXiv:2109.11978](https://arxiv.org/abs/2109.11978) \\[cs.RO\\] |\n|  | (or [arXiv:2109.11978v3](https://arxiv.org/abs/2109.11978v3) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2109.11978](https://doi.org/10.48550/arXiv.2109.11978)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |\n\n## Submission history\n\nFrom: Nikita Rudin \\[ [view email](https://arxiv.org/show-email/eba94100/2109.11978)\\]"
+      },
+      {
+        "partId": "paper-identity",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "# Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\n\nNikita Rudin\nAffiliation: ETH Zurich and NVIDIA\nEmail: [rudinn@ethz.ch](mailto:)David Hoeller\nAffiliation: ETH Zurich and NVIDIA\nEmail: [dhoeller@ethz.ch](mailto:)Philipp Reist\nAffiliation: NVIDIA\nEmail: [preist@nvidia.com](mailto:)Marco Hutter\nAffiliation: ETH Zurich\nEmail: [mahutter@ethz.com](mailto:)\n\n###### Abstract\n\nIn this work, we present and study a training set-up that achieves fast policy generation for real-world robotic tasks by using massive parallelism on a single workstation GPU. We analyze and discuss the impact of different training algorithm components in the massively parallel regime on the final policy performance and training times. In addition, we present a novel game-inspired curriculum that is well suited for training with thousands of simulated robots in parallel. We evaluate the approach by training the quadrupedal robot ANYmal to walk on challenging terrain. The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. This represents a speedup of multiple orders of magnitude compared to previous work. Finally, we transfer the policies to the real robot to validate the approach. We open-source our training code to help accelerate further research in the field of learned legged locomotion: [https://leggedrobotics.github.io/legged\\_gym/](https://leggedrobotics.github.io/legged_gym/ \"\")."
+      },
+      {
+        "partId": "code-identity",
+        "citationId": "legged-gym-repo-2021",
+        "sourceUrl": "https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100",
+        "supportingPassage": "# Isaac Gym Environments for Legged Robots #\nThis repository provides the environment used to train ANYmal (and other robots) to walk on rough terrain using NVIDIA's Isaac Gym.\nIt includes all components needed for sim-to-real transfer: actuator network, friction & mass randomization, noisy observations and random pushes during training.  \n**Maintainer**: Nikita Rudin  \n**Affiliation**: Robotic Systems Lab, ETH Zurich  \n**Contact**: rudinn@ethz.ch  \n\n### Useful Links ###\nProject website: https://leggedrobotics.github.io/legged_gym/\nPaper: https://arxiv.org/abs/2109.11978\n\n{\"sha\":\"ae614c029977157123225f538ecdd3f873e54bd4\",\"node_id\":\"C_kwDOGPHLktoAKGFlNjE0YzAyOTk3NzE1NzEyMzIyNWY1MzhlY2RkM2Y4NzNlNTRiZDQ\",\"commit\":{\"author\":{\"name\":\"Nikita Rudin\",\"email\":\"nrudin@nvidia.com\",\"date\":\"2021-10-26T16:31:23Z\"},\"committer\":{\"name\":\"Nikita Rudin\",\"email\":\"nrudin@nvidia.com\",\"date\":\"2021-10-29T22:21:54Z\"},\"message\":\"initial open-source commit\""
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "paper-nine",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Rudin Table 2 has nine reward terms including feet air time; gait independent does not mean air time absent. Paper nine terms include feet air time. Base config has 15 scales, 9 nonzero and base class 19 functions; preparation removes zero scales and multiplies by dt. Air time requires first contact and planar command norm >0.1. Dormant feet_stumble does not match _reward_stumble; that function detects wall contact, not slip. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "e43c6cdafb433960fb36547a63c3b477a8f896a2e46bd0f73c12c311a502ad25"
+      },
+      {
+        "partId": "config-fifteen-nine",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Pinned base config declares fifteen scales, nine nonzero; only nonzero scales are prepared and multiplied by dt. Paper nine terms include feet air time. Base config has 15 scales, 9 nonzero and base class 19 functions; preparation removes zero scales and multiplies by dt. Air time requires first contact and planar command norm >0.1. Dormant feet_stumble does not match _reward_stumble; that function detects wall contact, not slip. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "f8981f12266186fff976a72f1a268ac6acddb9a0f7b4c951a3fc6596d72d083c"
+      },
+      {
+        "partId": "functions-not-activation",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Nineteen reward functions do not imply nineteen active rewards; joint limit/contact thresholds do not activate absent scales. Paper nine terms include feet air time. Base config has 15 scales, 9 nonzero and base class 19 functions; preparation removes zero scales and multiplies by dt. Air time requires first contact and planar command norm >0.1. Dormant feet_stumble does not match _reward_stumble; that function detects wall contact, not slip. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "330cb7cc3a0a1e43a2eaa244d87425ddf868fc1673c386d3fa5a2f45a1471ef2"
+      },
+      {
+        "partId": "airtime-and-stumble",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Air time is first-contact gated with a planar-command threshold; dormant feet_stumble does not match _reward_stumble, whose wall-contact mechanism is not foot slip. Paper nine terms include feet air time. Base config has 15 scales, 9 nonzero and base class 19 functions; preparation removes zero scales and multiplies by dt. Air time requires first contact and planar command norm >0.1. Dormant feet_stumble does not match _reward_stumble; that function detects wall contact, not slip. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "ed2ac6ef38c035c0d20dbdbd7f20ece9f68251f94bc99d877bf1d186c7c088e0"
+      },
+      {
+        "partId": "paper-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Exact Rudin title, four-person byline, 2021 submission and self-identified CoRL 2021; unversioned body, no v2 claim. Rudin, Hoeller, Reist, Hutter; 2021 submission and CoRL comment. Pinned README title and Nikita Rudin maintainer attribution, not complete contributor list or majority adoption. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "b589669d7b7c7021b1455549ebfcc2975280f4676e1b2465d4e129a665d5d23e"
+      },
+      {
+        "partId": "code-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:1b3af60d-fb3e-480f-a39e-d86c84a6adf8/integrator",
+        "rationale": "Reviewed 2026-09-09T09:53:54.625889+00:00: Pinned initial README title and maintainer, paper association and initial October 2021 commit; no majority-adoption claim. Rudin, Hoeller, Reist, Hutter; 2021 submission and CoRL comment. Pinned README title and Nikita Rudin maintainer attribution, not complete contributor list or majority adoption. Literal source items retain their own source URLs and joined-passage identities; review time is not retrieval time.",
+        "evidenceDigest": "64839aed43785c3e8d995d743941afcc87381c1c0274a25b88d05345b4f37df4"
+      }
+    ]
   }
 ]
