@@ -30847,5 +30847,90 @@
         "evidenceDigest": "4292673b8bfac8306f90ba1a0fac7f677e7abba2df35ad8a878444b05e05477c"
       }
     ]
+  },
+  {
+    "id": "rudin-kl-writer-20260909",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "fae7fb4813a3392b163691fcd700be6c496a2986fe86d289ae31eb6bd9623341",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "kl-rule",
+        "text": "Desired KL 0.01; adjust LR only above twice/below half target with stated clamps, not exactly enforcing KL.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "purpose-cut",
+        "text": "Remove reward-retuning-stability motive/inference; Table 3/Algorithm 1 supply the mechanism, not that causal guarantee.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      },
+      {
+        "id": "paper-identity",
+        "text": "Exact Rudin title, four-person byline, 2021 submission and self-identified CoRL 2021; unversioned body, no v2 claim.",
+        "requiredCitationIds": [
+          "rudin-2021"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:68812493-b567-4ff7-971a-8dbda9aa95e7/integrator",
+      "rationale": "Reviewed the complete corrected claim and all three conjunctive parts against actual source context, including removal of the unsupported causal inference and paired body/metadata identity; no source-only certification reused.",
+      "planDigest": "1cdd9aa95a2832f287c4908b927efcb6dd9774886262b1188933289acee5916a"
+    },
+    "evidence": [
+      {
+        "partId": "kl-rule",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "| Batch size | 98304 (4096x24) |\n| --- | --- |\n| Mini-bach size | 24576 (4096x6) |\n| --- | --- |\n| Number of epochs | 5 |\n| --- | --- |\n| Clip range | 0.2 |\n| Entropy coefficient | 0.01 |\n| Discount factor | 0.99 |\n| GAE discount factor | 0.95 |\n| Desired KL-divergence k​l∗kl^{\\*} | 0.01 |\n| Learning rate α\\\\alpha | adaptive∗ |\n\nTable 3: PPO hyper-parameters used for the training of the tested policy. (\\*) Similarly to \\[ [9](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib9 \"\")\\], we use an adaptive learning rate based on the KL-divergence, the corresponding algorithm is described in Alg. [1](https://ar5iv.labs.arxiv.org/html/2109.11978#alg1 \"Algorithm 1 ‣ A.4 PPO Hyper-Parameters ‣ Appendix A Appendix ‣ Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\")Algorithm 1 Adaptive learning rate computation.\n\nk​l←K​L​(πn​e​w,πo​l​d)kl\\\\leftarrow KL(\\\\pi\\_{new},\\\\pi\\_{old})\n\nifk​l>2​k​l∗kl>2kl^{\\*}then\n\nα←max⁡(10−5,α/1.5)\\\\alpha\\\\leftarrow\\\\max(10^{-5},\\\\alpha/1.5)\n\nelse\n\nifk​l<0.5​k​l∗kl<0.5kl^{\\*}then\n\nα←min⁡(10−2,1.5​α)\\\\alpha\\\\leftarrow\\\\min(10^{-2},1.5\\\\alpha)\n\nendif\n\nendif\n\n### A.5 Noise Level in Observations\n"
+      },
+      {
+        "partId": "purpose-cut",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "| Batch size | 98304 (4096x24) |\n| --- | --- |\n| Mini-bach size | 24576 (4096x6) |\n| --- | --- |\n| Number of epochs | 5 |\n| --- | --- |\n| Clip range | 0.2 |\n| Entropy coefficient | 0.01 |\n| Discount factor | 0.99 |\n| GAE discount factor | 0.95 |\n| Desired KL-divergence k​l∗kl^{\\*} | 0.01 |\n| Learning rate α\\\\alpha | adaptive∗ |\n\nTable 3: PPO hyper-parameters used for the training of the tested policy. (\\*) Similarly to \\[ [9](https://ar5iv.labs.arxiv.org/html/2109.11978#bib.bib9 \"\")\\], we use an adaptive learning rate based on the KL-divergence, the corresponding algorithm is described in Alg. [1](https://ar5iv.labs.arxiv.org/html/2109.11978#alg1 \"Algorithm 1 ‣ A.4 PPO Hyper-Parameters ‣ Appendix A Appendix ‣ Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\")Algorithm 1 Adaptive learning rate computation.\n\nk​l←K​L​(πn​e​w,πo​l​d)kl\\\\leftarrow KL(\\\\pi\\_{new},\\\\pi\\_{old})\n\nifk​l>2​k​l∗kl>2kl^{\\*}then\n\nα←max⁡(10−5,α/1.5)\\\\alpha\\\\leftarrow\\\\max(10^{-5},\\\\alpha/1.5)\n\nelse\n\nifk​l<0.5​k​l∗kl<0.5kl^{\\*}then\n\nα←min⁡(10−2,1.5​α)\\\\alpha\\\\leftarrow\\\\min(10^{-2},1.5\\\\alpha)\n\nendif\n\nendif\n\n### A.5 Noise Level in Observations\n"
+      },
+      {
+        "partId": "paper-identity",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://arxiv.org/abs/2109.11978",
+        "supportingPassage": "\n\n\\[Submitted on 24 Sep 2021 ( [v1](https://arxiv.org/abs/2109.11978v1)), last revised 19 Aug 2022 (this version, v3)\\]\n\n# Title:Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\n\nAuthors: [Nikita Rudin](https://arxiv.org/search/cs?searchtype=author&query=Rudin,+N), [David Hoeller](https://arxiv.org/search/cs?searchtype=author&query=Hoeller,+D), [Philipp Reist](https://arxiv.org/search/cs?searchtype=author&query=Reist,+P), [Marco Hutter](https://arxiv.org/search/cs?searchtype=author&query=Hutter,+M)\n\nView a PDF of the paper titled Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning, by Nikita Rudin and 3 other authors\n\n[View PDF](https://arxiv.org/pdf/2109.11978) [HTML (experimental)](https://arxiv.org/html/2109.11978v3)\n\n> Abstract:In this work, we present and study a training set-up that achieves fast policy generation for real-world robotic tasks by using massive parallelism on a single workstation GPU. We analyze and discuss the impact of different training algorithm components in the massively parallel regime on the final policy performance and training times. In addition, we present a novel game-inspired curriculum that is well suited for training with thousands of simulated robots in parallel. We evaluate the approach by training the quadrupedal robot ANYmal to walk on challenging terrain. The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. This represents a speedup of multiple orders of magnitude compared to previous work. Finally, we transfer the policies to the real robot to validate the approach. We open-source our training code to help accelerate further research in the field of learned legged locomotion.\n\n|     |     |\n| --- | --- |\n| Comments: | CoRL 2021 Project website: : [this https URL](https://leggedrobotics.github.io/legged_gym/) Video: [this https URL](https://youtu.be/8sO7VS3q8d0) |\n| Subjects: | Robotics (cs.RO); Machine Learning (cs.LG) |\n| Cite as: | [arXiv:2109.11978](https://arxiv.org/abs/2109.11978) \\[cs.RO\\] |\n|  | (or [arXiv:2109.11978v3](https://arxiv.org/abs/2109.11978v3) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2109.11978](https://doi.org/10.48550/arXiv.2109.11978)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |\n\n## Submission history\n\nFrom: Nikita Rudin \\[ [view email](https://arxiv.org/show-email/eba94100/2109.11978)\\]"
+      },
+      {
+        "partId": "paper-identity",
+        "citationId": "rudin-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+        "supportingPassage": "# Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning\n\nNikita Rudin\nAffiliation: ETH Zurich and NVIDIA\nEmail: [rudinn@ethz.ch](mailto:)David Hoeller\nAffiliation: ETH Zurich and NVIDIA\nEmail: [dhoeller@ethz.ch](mailto:)Philipp Reist\nAffiliation: NVIDIA\nEmail: [preist@nvidia.com](mailto:)Marco Hutter\nAffiliation: ETH Zurich\nEmail: [mahutter@ethz.com](mailto:)\n\n###### Abstract\n\nIn this work, we present and study a training set-up that achieves fast policy generation for real-world robotic tasks by using massive parallelism on a single workstation GPU. We analyze and discuss the impact of different training algorithm components in the massively parallel regime on the final policy performance and training times. In addition, we present a novel game-inspired curriculum that is well suited for training with thousands of simulated robots in parallel. We evaluate the approach by training the quadrupedal robot ANYmal to walk on challenging terrain. The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. This represents a speedup of multiple orders of magnitude compared to previous work. Finally, we transfer the policies to the real robot to validate the approach. We open-source our training code to help accelerate further research in the field of learned legged locomotion: [https://leggedrobotics.github.io/legged\\_gym/](https://leggedrobotics.github.io/legged_gym/ \"\")."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "kl-rule",
+        "outcome": "supported",
+        "reviewedBy": "agent:68812493-b567-4ff7-971a-8dbda9aa95e7/integrator",
+        "rationale": "I compared Table 3 desired KL 0.01 with both branches of Algorithm 1. Above 2x target alpha becomes max(1e-5, alpha/1.5); below 0.5x it becomes min(1e-2, 1.5 alpha). An adaptive update does not enforce an exact target. The reader replacement preserves direction and stated limits without a new guarantee.",
+        "evidenceDigest": "647ae3d71f7456037dcf4b7eb6b421a7201a328279545a9315c4483a36a66cf1"
+      },
+      {
+        "partId": "purpose-cut",
+        "outcome": "supported",
+        "reviewedBy": "agent:68812493-b567-4ff7-971a-8dbda9aa95e7/integrator",
+        "rationale": "The retained mechanism does not support the old causal inference about survivable reward retuning. Removal is supported by review of the claimed source and countercontext, not by pretending a missing assertion is a quoted passage. The replacement explicitly denies that this establishes stable retuning.",
+        "evidenceDigest": "2d7afa7440e7874be77935d1ff8eb97c0a38e6dd2fec19a74deef1260ef10de8"
+      },
+      {
+        "partId": "paper-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:68812493-b567-4ff7-971a-8dbda9aa95e7/integrator",
+        "rationale": "Compared title and all four authors in the body and landing capture. The landing reports September 2021 submission and CoRL 2021; its latest v3 date does not pin the unversioned retained body. Native plan keeps both distinct URL/passages.",
+        "evidenceDigest": "625b749c452f68fce3862850d0b1b4e16d4d229e1e698ce853641518d402ca6d"
+      }
+    ]
   }
 ]

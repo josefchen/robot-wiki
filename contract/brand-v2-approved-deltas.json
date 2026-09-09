@@ -7808,6 +7808,23 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
-    }
+    },
+  {
+    "id": "rudin-kl-mechanism-not-retuning-guarantee-20260909",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/reward-design-mpc",
+    "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+    "newHash": "ba535f68160576457aeac8b92033ef6dde238e2a08556507f5fedb8fff5efc22",
+    "reason": "Remove unsupported reward-retuning stability and exact-KL-target causality; retain Rudin Table 3 desired KL 0.01 and Algorithm 1 twice/half-target adaptive learning-rate mechanism. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-rma-integration-20260909/source-proof.json",
+    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or release acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  }
   ]
 }
