@@ -31130,5 +31130,680 @@
         "evidenceDigest": "b8f5aed48a00b7a96152405288e8432360962097f434749c2568cbabb3ea29c6"
       }
     ]
+  },
+  {
+    "id": "domain-randomization-why-rl-locomotion-5",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "why-rl-locomotion",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "4e5e787e9d05b4eb066e4cc71d89e2aed94eca88d758adfbf979e32c663e9a50",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "o-identity",
+        "text": "Version marker and full collective-plus-18-person printed byline",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      },
+      {
+        "id": "o-abstract",
+        "text": "Abstract: sim training and custom robot platform",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      },
+      {
+        "id": "o-platform",
+        "text": "3.1: E3M5R, five fingertips, cameras, hand modifications, torque limits",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      },
+      {
+        "id": "o-policy",
+        "text": "6/6.1: policy training and subgoals in simulation",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      },
+      {
+        "id": "o-evaluation",
+        "text": "8.4.1/Table 6: fixed fair scramble, ten trials, two sensing conditions",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      },
+      {
+        "id": "o-solver",
+        "text": "2.2: Kociemba chooses subgoal sequence; learned control does not solve the symbolic puzzle",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+      "rationale": "Reviewed all 6 required parts against retained primary bodies and the full corrected current claim. Table 6 ADR XXL: fixed solved-to-scrambled sequence, 43 subgoals, ten trials per sensing condition; 20% with vision pose/Giiker angles, 0% with vision angles. Qualitative random-scramble video is not this protocol. Policy, vision training, physical calibration and Kociemba solving remain distinct. Literal source bindings and counterpassages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json.",
+      "planDigest": "4932a21637dee456a899483cfc9c12ae85bf89b69f9d839e270d4f31618b4ee4"
+    },
+    "evidence": [
+      {
+        "partId": "o-identity",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+        "supportingPassage": "arXiv:1910.07113v1 \\[cs.LG\\] 16 Oct 2019\n\n# Solving Rubik’s Cube with a Robot HandThanks: Authors are listed alphabetically. We include a detailed contribution statement at the end of this manuscript. Please cite as OpenAI et al., and use the following bibtex for citation: [https://openai.com/bibtex/openai2019rubiks.bib](https://openai.com/bibtex/openai2019rubiks.bib \"\")\n\nOpenAI\nAffiliation: Ilge Akkaya,\nMarcin Andrychowicz††footnotemark: ,\nMaciek Chociej††footnotemark: ,\nMateusz Litwin††footnotemark: ,\nBob McGrew††footnotemark: ,\nArthur Petron††footnotemark: ,\nAffiliation: Alex Paino††footnotemark: ,\nMatthias Plappert††footnotemark: ,\nGlenn Powell††footnotemark: ,\nRaphael Ribas††footnotemark: ,\nJonas Schneider††footnotemark: ,\nNikolas Tezak††footnotemark: ,\nAffiliation: Jerry Tworek††footnotemark: ,\nPeter Welinder††footnotemark: ,\nLilian Weng††footnotemark: ,\nQiming Yuan††footnotemark: ,\nWojciech Zaremba††footnotemark: ,\nLei Zhang††footnotemark:"
+      },
+      {
+        "partId": "o-abstract",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+        "supportingPassage": "###### Abstract\n\nWe demonstrate that models trained only in simulation can be used to solve a manipulation problem of unprecedented complexity on a real robot. This is made possible by two key components: a novel algorithm, which we call automatic domain randomization (ADR) and a robot platform built for machine learning. ADR automatically generates a distribution over randomized environments of ever-increasing difficulty. Control policies and vision state estimators trained with ADR exhibit vastly improved sim2real transfer. For control policies, memory-augmented models trained on an ADR-generated distribution of environments show clear signs of emergent meta-learning at test time. The combination of ADR with our custom robot platform allows us to solve a Rubik’s cube with a humanoid robot hand, which involves both control and state estimation problems. Videos summarizing our results are available: [https://openai.com/blog/solving-rubiks-cube/](https://openai.com/blog/solving-rubiks-cube/ \"\")"
+      },
+      {
+        "partId": "o-platform",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+        "supportingPassage": "### 3.1 Robot Platform\n\n![Refer to caption](https://arxiv.org/html/1910.07113v1/figures/setup-cage.jpg)(a) The cage.\n\n![Refer to caption](https://arxiv.org/html/1910.07113v1/figures/setup-hand.jpg)(b) The Shadow Dexterous Hand.\n\nFigure 4: The latest version of our cage (left) that houses the Shadow Dexterous Hand, RGB cameras, and the PhaseSpace motion capture system. We made some modifications to the Shadow Dexterous Hand (right) to improve reliability for our setup by moving the PhaseSpace LEDs and cables inside the fingers and by adding rubber to the fingertips.\n\nOur robot platform is based on the configuration described in \\[ [77](https://arxiv.org/html/1910.07113v1#bib.bib77 \"\")\\]. We still use the Shadow Dexterous E Series Hand (E3M5R) \\[ [99](https://arxiv.org/html/1910.07113v1#bib.bib99 \"\")\\] as a humanoid robot hand and the PhaseSpace motion capture system to track the Cartesian coordinates of all five fingertips. We use the same 3 RGB Basler cameras for vision pose estimation.\n\nHowever, a number of improvements have been made since our previous publication. [4(a)](https://arxiv.org/html/1910.07113v1#S3.F4.sf1 \"4(a) ‣ Figure 4 ‣ 3.1 Robot Platform ‣ 3 Physical Setup ‣ Solving Rubik’s Cube with a Robot Hand\") depicts the latest iteration of our robot cage. The cage is now fully contained, i.e. all computers are housed within the system. The cage is also on coasters and can therefore be moved more easily. The larger dimensions of the new cage make calibration of the PhaseSpace motion capture system easier and help prevent disturbing calibration when taking the hand in and out of the cage.\n\nWe have made a number of customizations to the E3M5R since our last publication (see also [4(b)](https://arxiv.org/html/1910.07113v1#S3.F4.sf2 \"4(b) ‣ Figure 4 ‣ 3.1 Robot Platform ‣ 3 Physical Setup ‣ Solving Rubik’s Cube with a Robot Hand\")). We moved routing of the cables that connect the PhaseSpace LEDs on each fingertip to the PhaseSpace micro-driver within the hand, thus reducing the wear and tear on those cables. We worked with The Shadow Robot Company333 [https://www.shadowrobot.com/](https://www.shadowrobot.com/ \"\") to improve the robustness and reliability of some components for which we noticed breakages over time. We also modified the distal part of the fingers to extend the rubber area to cover a larger span to increase the grip of the hand when it interacts with an object. We increased the diameter of the wrist flexion/extension pulley in order to reduce tendon stress which has extended the life of the tendon to more than three times its typical mean time before failure (MTBF). Finally, the tendon tensioners in the hand have been upgraded and this has improved the MTBF of the finger tendons by approximately five to ten times.\n\nWe also made improvements to our software stack that interfaces with the E3M5R. For example, we found that manual tuning of the maximum torque that each motor can exercise was superior to our automated methods in avoiding physical breakage and ensuring consistent policy performance. More concretely, torque limits were minimized such that the hand can reliably achieve a series of commanded positions.\n\nWe also invested in real-time system monitoring so that issues with the physical setup could be identified and resolved more quickly. We describe our monitoring system in greater detail in [Appendix A](https://arxiv.org/html/1910.07113v1#A1 \"Appendix A System Monitoring ‣ Solving Rubik’s Cube with a Robot Hand\")."
+      },
+      {
+        "partId": "o-policy",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+        "supportingPassage": "## 6 Policy Training in Simulation\n\nIn this section we describe how we train control policies using Proximal Policy Optimization \\[ [98](https://arxiv.org/html/1910.07113v1#bib.bib98 \"\")\\] and reinforcement learning. Our setup is similar to \\[ [77](https://arxiv.org/html/1910.07113v1#bib.bib77 \"\")\\]. However, we use ADR as described in [Section 5](https://arxiv.org/html/1910.07113v1#S5 \"5 Automatic Domain Randomization ‣ Solving Rubik’s Cube with a Robot Hand\") to train on a large distribution over randomized environments.\n\n### 6.1 Actions, Rewards, and Goals\n\nOur setup for the action space and rewards is unchanged from \\[ [77](https://arxiv.org/html/1910.07113v1#bib.bib77 \"\")\\] so we only briefly recap them here. We use a discretized action space with 1111 bins per actuated joint (of which there are 2020). We use a multi-categorical distribution. Actions are relative changes in generalized joint position coordinates.\n\nThere are three types of rewards we provide to our agent during training:\n\n(a)The difference between the previous and the current distance of the system state from the goal state,\n(b)an additional reward of 55 whenever a goal is achieved,\n(c)and a penalty of −20-20 whenever a cube/block is dropped.\n\nWe generate random goals during training. For the block, the target rotation is randomly sampled but constrained such that any face points directly upwards. For the Rubik’s cube the task generation is slightly more convoluted as it depends on the state of the cube at the time when the goal is generated. If the cube faces are not aligned, we make sure to align them and additionally rotate the whole cube according to a sampled random orientation just like with the block (called a flip). Alternatively, if the faces _are_ aligned, we rotate the top cube face with 50% probability either clockwise or counter-clockwise. Otherwise we again perform a flip. Detailed listings of the goal generation algorithms can be found in the [Section C.1](https://arxiv.org/html/1910.07113v1#A3.SS1 \"C.1 Goal Generation ‣ Appendix C Implementation Details ‣ Solving Rubik’s Cube with a Robot Hand\").\n\nWe consider a training episode to be finished whenever one of the following conditions is satisfied:\n\n(a)the agent achieves 50 consecutive successes (of reaching a goal within the required threshold),\n(b)the agent drops the cube,\n(c)or the agent times out when trying to reach the next goal. Time out limits are 400 timesteps for block reorientation and 800 timesteps999\n\n\n\nWe use 16001600 timesteps when training from scratch. for the Rubik’s Cube."
+      },
+      {
+        "partId": "o-evaluation",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+        "supportingPassage": "### 8.4 Solving the Rubik’s Cube\n\nIn this section, we push the limits of sim2real transfer by considering a manipulation problem of unprecedented complexity: solving Rubik’s cube using the real Shadow hand. This is a daunting task due to the complexity of Rubik’s cube and the interactions between it and the hand: in contrast to the block reorientation task, there is no way we can accurately capture the object in simulation. While we model the Rubik’s cube (see [Section 4](https://arxiv.org/html/1910.07113v1#S4 \"4 Simulation ‣ Solving Rubik’s Cube with a Robot Hand\")), we make no effort to calibrate its dynamics. Instead, we use ADR to automate the randomization of environments.\n\nWe further need to sense the state of the Rubik’s cube, which is also much more complicated than for the block reorientation task. We always use vision for the pose estimation of the cube itself. For the 66 face angles, we experiment with two different setups: the Giiker cube (see [Section 3](https://arxiv.org/html/1910.07113v1#S3 \"3 Physical Setup ‣ Solving Rubik’s Cube with a Robot Hand\")) and a vision model which predicts face angles (see [Section 7](https://arxiv.org/html/1910.07113v1#S7 \"7 State Estimation from Vision ‣ Solving Rubik’s Cube with a Robot Hand\")).\n\nWe first evaluate performance on this task quantitatively and then highlight some qualitative findings.\n\n#### 8.4.1 Quantitative Results\n\nWe compare four different policies: a policy trained with manual domain randomization (“Manual DR”) using the randomizations that we used in \\[ [77](https://arxiv.org/html/1910.07113v1#bib.bib77 \"\")\\] trained for about 2 weeks, a policy trained with ADR for about 2 weeks, and two policies we continuously trained and updated with ADR over the course of months.\n\nTable 6: Performance of different policies on the Rubik’s cube for a fixed fair scramble goal sequence. We evaluate each policy on the real robot (N=10 trials) and report the mean ±\\\\pm standard error and median number of successes (meaning the total number of successful rotations and flips). We also report two success rates for applying half of a fair scramble (“half”) and the other one for fully applying it (“full”). For ADR policies, we report the entropy in nats per dimension (npd). For “Manual DR”, we obtain an upper bound on its ADR entropy by running ADR with the policy fixed and report the entropy once the distribution stops changing (marked with an “\\*”).\n\n| Policy | Sensing | ADR Entropy | Successes (Real) | Success Rate |\n| Pose | Face Angles | Mean | Median | Half | Full |\n| Manual DR | Vision | Giiker | −0.569-0.569\\* npd | 1.8±0.41.8\\\\pm 0.4 | 2.02.0 | 00 % | 00 % |\n| ADR | Vision | Giiker | −0.084-0.084 npd | 3.8±1.03.8\\\\pm 1.0 | 3.03.0 | 00 % | 00 % |\n| ADR (XL) | Vision | Giiker | 0.4670.467 npd | 17.8±4.217.8\\\\pm 4.2 | 12.512.5 | 3030 % | 1010 % |\n| ADR (XXL) | Vision | Giiker | 0.479\\\\mathbf{0.479}npd | 26.8±4.9\\\\mathbf{26.8\\\\pm 4.9} | 22.0\\\\mathbf{22.0} | 𝟔𝟎\\\\mathbf{60}% | 𝟐𝟎\\\\mathbf{20}% |\n| ADR (XXL) | Vision | Vision | 0.479\\\\mathbf{0.479}npd | 12.8±3.412.8\\\\pm 3.4 | 10.510.5 | 2020 % | 00 % |\n\nTo evaluate performance, we define a fixed procedure that we repeat 10 times per policy to obtain 10 trials. More concretely, we always start from a solved cube state and ask the hand to move the Rubik’s cube into a fair scramble. Since the problem is symmetric, this is equivalent to solving the Rubik’s cube starting from a fairly scrambled Rubik’s cube. However, it reduces the probability of human error and labor significantly since ensuring a correct initial state is much simpler if the cube is solved. We use the following fixed scrambling sequence for all 10 trials, which we obtained using the ‘‘TNoodle’’ application of the World Cube Association141414 [https://www.worldcubeassociation.org/regulations/scrambles/](https://www.worldcubeassociation.org/regulations/scrambles/ \"\") via a random sample (i.e., this was not cherry-picked):\n\n> L2 U2 R2 B D2 B2 D2 L2 F’ D’ R B F L U’ F D’ L2\n\nCompleting this sequence requires a total of 4343 successes (2626 face rotations and 1717 cube flips). If the sequence is completed successfully, we continue the trial by reversing the sequence. A trial ends if 5050 successes have been achieved, if the cube is dropped, or if the policy fails to achieve a goal within 16001600 timesteps, which corresponds to 128128 seconds.\n\nFor each trial, we measure the number of successfully achieved goals (both flips and rotations). We also define two thresholds for each trial: Applying at least half of the fair scramble successfully (i.e. 2222 successes) and applying at least the full fair scramble successfully (i.e. 4343 successes). We report success rates for both averaged across all 1010 trials and denote them as ‘‘half’’ and ‘‘full’’, respectively. Achieving the ‘‘full’’ threshold is equivalent to solving the Rubik’s cube since going from solved to scrambled is as difficult as going from scrambled to solved.151515\n\n\n\nWith the exception of the fully solved configuration being slightly easier for the vision model to track. We report our summarized results in [Table 6](https://arxiv.org/html/1910.07113v1#S8.T6 \"Table 6 ‣ 8.4.1 Quantitative Results ‣ 8.4 Solving the Rubik’s Cube ‣ 8 Results ‣ Solving Rubik’s Cube with a Robot Hand\") and full results in [Appendix D](https://arxiv.org/html/1910.07113v1#A4 \"Appendix D Full Results ‣ Solving Rubik’s Cube with a Robot Hand\").\n\nWe see a very similar pattern as before: manual domain randomization fails to transfer. For policies that we trained with ADR, we see that sim2real transfer clearly depends on the entropy per dimension. “Manual DR” and “ADR” were trained for 1414 days at 1/4\\\\nicefrac{{1}}{{4}}th of our usual scale in terms of compute (see [Section 6](https://arxiv.org/html/1910.07113v1#S6 \"6 Policy Training in Simulation ‣ Solving Rubik’s Cube with a Robot Hand\")) and are fully comparable. Our best policy, which was continuously trained over the course of multiple months at larger scale, achieves 26.8026.80 successes on average over 10 trials. This corresponds to successfully solving a Rubik’s cube that requires 1515 face rotations 60%60\\\\% of the time and to solve a Rubik’s cube that requires 2626 face rotations 20%20\\\\% of the time. Note that 2626 quarter face rotations is the worst case for solving a Rubik’s cube with only about 33 Rubik’s cube configurations requiring that many \\[ [87](https://arxiv.org/html/1910.07113v1#bib.bib87 \"\")\\]. In other words, almost all solution sequences will require less than 2626 face rotations."
+      },
+      {
+        "partId": "o-solver",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+        "supportingPassage": "When it comes to solving the Rubik’s cube, computing a solution sequence can easily be done with existing software libraries like the Kociemba solver \\[ [111](https://arxiv.org/html/1910.07113v1#bib.bib111 \"\")\\]. We use this solver to produce a solution sequence of subgoals for the hand to perform. In this work, the key problem is thus about sensing and control, _not_ finding the solution sequence. More concretely, we need to obtain the state of the Rubik’s cube (i.e. its pose as well as its 6 face angles) and use that information to control the robot hand such that each subgoal is successfully achieved."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "o-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: Version marker and full collective-plus-18-person printed byline. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 8074a36b09479a4d2908613efe1fab6d54132866f0652430e2866571d6cb4afd. Table 6 ADR XXL: fixed solved-to-scrambled sequence, 43 subgoals, ten trials per sensing condition; 20% with vision pose/Giiker angles, 0% with vision angles. Qualitative random-scramble video is not this protocol. Policy, vision training, physical calibration and Kociemba solving remain distinct.",
+        "evidenceDigest": "b55233945cf0e896147f201ce1efcdc958cdfde86ab6db563e7ddd5e9f863d7b"
+      },
+      {
+        "partId": "o-abstract",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: Abstract: sim training and custom robot platform. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding fb20f1632e6650edaa2fb7acbb06a853c09d40b55b0a325d8fd8511a35800c4a. Table 6 ADR XXL: fixed solved-to-scrambled sequence, 43 subgoals, ten trials per sensing condition; 20% with vision pose/Giiker angles, 0% with vision angles. Qualitative random-scramble video is not this protocol. Policy, vision training, physical calibration and Kociemba solving remain distinct.",
+        "evidenceDigest": "9029924725ca21e8eca8b3dfaf27157d42ddb0183a5ff24a1eb4a1c9a5070fc9"
+      },
+      {
+        "partId": "o-platform",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: 3.1: E3M5R, five fingertips, cameras, hand modifications, torque limits. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding d1b628709f600ded31b62d5d2869ce95af9f55905ab80be12a8d8a86f20879d3. Table 6 ADR XXL: fixed solved-to-scrambled sequence, 43 subgoals, ten trials per sensing condition; 20% with vision pose/Giiker angles, 0% with vision angles. Qualitative random-scramble video is not this protocol. Policy, vision training, physical calibration and Kociemba solving remain distinct.",
+        "evidenceDigest": "426242743b19202b571704adbd88425deffcce782b916ef867c02268b85d150f"
+      },
+      {
+        "partId": "o-policy",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: 6/6.1: policy training and subgoals in simulation. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding fe9963ced27ea5f8394272bff7c8a2fc466dcd5d805486ae93fc54870f9c02c6. Table 6 ADR XXL: fixed solved-to-scrambled sequence, 43 subgoals, ten trials per sensing condition; 20% with vision pose/Giiker angles, 0% with vision angles. Qualitative random-scramble video is not this protocol. Policy, vision training, physical calibration and Kociemba solving remain distinct.",
+        "evidenceDigest": "bcfff7ff54de42009ad7b1ed94cf8eb29bfe2dab858aa56d195c7fed7cc95081"
+      },
+      {
+        "partId": "o-evaluation",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: 8.4.1/Table 6: fixed fair scramble, ten trials, two sensing conditions. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 13803f874f39dfd52c5901a6dd1f2cc65774bd05a4c8f05a4c2435ed97e0ed10. Table 6 ADR XXL: fixed solved-to-scrambled sequence, 43 subgoals, ten trials per sensing condition; 20% with vision pose/Giiker angles, 0% with vision angles. Qualitative random-scramble video is not this protocol. Policy, vision training, physical calibration and Kociemba solving remain distinct.",
+        "evidenceDigest": "cd958326f0b8652627995f0bee095a3690eaae0b2141961ee563c56d1d578260"
+      },
+      {
+        "partId": "o-solver",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: 2.2: Kociemba chooses subgoal sequence; learned control does not solve the symbolic puzzle. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 67bf22c1cd0fd408e0a6e9fdcba0237be2451ccf45d8224bcfdf685a6caa9289. Table 6 ADR XXL: fixed solved-to-scrambled sequence, 43 subgoals, ten trials per sensing condition; 20% with vision pose/Giiker angles, 0% with vision angles. Qualitative random-scramble video is not this protocol. Policy, vision training, physical calibration and Kociemba solving remain distinct.",
+        "evidenceDigest": "d0b936bf3eeaae40f09a49a39c7bde70034838ffd733a4894fafa4af3ed16915"
+      }
+    ]
+  },
+  {
+    "id": "domain-randomization-why-rl-locomotion-8",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "why-rl-locomotion",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "607dc8b20fa3b050168e52a47af3622b8e89e23a4d9c641dc4ed04cab36dc954",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "o-identity",
+        "text": "Version marker and full collective-plus-18-person printed byline",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      },
+      {
+        "id": "o-platform",
+        "text": "3.1: E3M5R, five fingertips, cameras, hand modifications, torque limits",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      },
+      {
+        "id": "o-physical-calibration",
+        "text": "4.1: physical trajectories used for hand simulation calibration",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      },
+      {
+        "id": "o-curriculum",
+        "text": "5.1: automatic ranges, calibrated initial environment, thresholds",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      },
+      {
+        "id": "o-boundaries",
+        "text": "5.2: boundary sampling and bidirectional threshold updates",
+        "requiredCitationIds": [
+          "openai-rubiks-cube-2019"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+      "rationale": "Reviewed all 5 required parts against retained primary bodies and the full corrected current claim. Hand hardware/torque limits and measured physical joint-trajectory calibration are distinct from automatic ADR boundary updates. No all-ranges-hand-tuned or free-locomotion inference remains. Literal source bindings and counterpassages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json.",
+      "planDigest": "de08b9ee0438f7efde6c6924546972f1a84247a6089387643c09bbd99a91b231"
+    },
+    "evidence": [
+      {
+        "partId": "o-identity",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+        "supportingPassage": "arXiv:1910.07113v1 \\[cs.LG\\] 16 Oct 2019\n\n# Solving Rubik’s Cube with a Robot HandThanks: Authors are listed alphabetically. We include a detailed contribution statement at the end of this manuscript. Please cite as OpenAI et al., and use the following bibtex for citation: [https://openai.com/bibtex/openai2019rubiks.bib](https://openai.com/bibtex/openai2019rubiks.bib \"\")\n\nOpenAI\nAffiliation: Ilge Akkaya,\nMarcin Andrychowicz††footnotemark: ,\nMaciek Chociej††footnotemark: ,\nMateusz Litwin††footnotemark: ,\nBob McGrew††footnotemark: ,\nArthur Petron††footnotemark: ,\nAffiliation: Alex Paino††footnotemark: ,\nMatthias Plappert††footnotemark: ,\nGlenn Powell††footnotemark: ,\nRaphael Ribas††footnotemark: ,\nJonas Schneider††footnotemark: ,\nNikolas Tezak††footnotemark: ,\nAffiliation: Jerry Tworek††footnotemark: ,\nPeter Welinder††footnotemark: ,\nLilian Weng††footnotemark: ,\nQiming Yuan††footnotemark: ,\nWojciech Zaremba††footnotemark: ,\nLei Zhang††footnotemark:"
+      },
+      {
+        "partId": "o-platform",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+        "supportingPassage": "### 3.1 Robot Platform\n\n![Refer to caption](https://arxiv.org/html/1910.07113v1/figures/setup-cage.jpg)(a) The cage.\n\n![Refer to caption](https://arxiv.org/html/1910.07113v1/figures/setup-hand.jpg)(b) The Shadow Dexterous Hand.\n\nFigure 4: The latest version of our cage (left) that houses the Shadow Dexterous Hand, RGB cameras, and the PhaseSpace motion capture system. We made some modifications to the Shadow Dexterous Hand (right) to improve reliability for our setup by moving the PhaseSpace LEDs and cables inside the fingers and by adding rubber to the fingertips.\n\nOur robot platform is based on the configuration described in \\[ [77](https://arxiv.org/html/1910.07113v1#bib.bib77 \"\")\\]. We still use the Shadow Dexterous E Series Hand (E3M5R) \\[ [99](https://arxiv.org/html/1910.07113v1#bib.bib99 \"\")\\] as a humanoid robot hand and the PhaseSpace motion capture system to track the Cartesian coordinates of all five fingertips. We use the same 3 RGB Basler cameras for vision pose estimation.\n\nHowever, a number of improvements have been made since our previous publication. [4(a)](https://arxiv.org/html/1910.07113v1#S3.F4.sf1 \"4(a) ‣ Figure 4 ‣ 3.1 Robot Platform ‣ 3 Physical Setup ‣ Solving Rubik’s Cube with a Robot Hand\") depicts the latest iteration of our robot cage. The cage is now fully contained, i.e. all computers are housed within the system. The cage is also on coasters and can therefore be moved more easily. The larger dimensions of the new cage make calibration of the PhaseSpace motion capture system easier and help prevent disturbing calibration when taking the hand in and out of the cage.\n\nWe have made a number of customizations to the E3M5R since our last publication (see also [4(b)](https://arxiv.org/html/1910.07113v1#S3.F4.sf2 \"4(b) ‣ Figure 4 ‣ 3.1 Robot Platform ‣ 3 Physical Setup ‣ Solving Rubik’s Cube with a Robot Hand\")). We moved routing of the cables that connect the PhaseSpace LEDs on each fingertip to the PhaseSpace micro-driver within the hand, thus reducing the wear and tear on those cables. We worked with The Shadow Robot Company333 [https://www.shadowrobot.com/](https://www.shadowrobot.com/ \"\") to improve the robustness and reliability of some components for which we noticed breakages over time. We also modified the distal part of the fingers to extend the rubber area to cover a larger span to increase the grip of the hand when it interacts with an object. We increased the diameter of the wrist flexion/extension pulley in order to reduce tendon stress which has extended the life of the tendon to more than three times its typical mean time before failure (MTBF). Finally, the tendon tensioners in the hand have been upgraded and this has improved the MTBF of the finger tendons by approximately five to ten times.\n\nWe also made improvements to our software stack that interfaces with the E3M5R. For example, we found that manual tuning of the maximum torque that each motor can exercise was superior to our automated methods in avoiding physical breakage and ensuring consistent policy performance. More concretely, torque limits were minimized such that the hand can reliably achieve a series of commanded positions.\n\nWe also invested in real-time system monitoring so that issues with the physical setup could be identified and resolved more quickly. We describe our monitoring system in greater detail in [Appendix A](https://arxiv.org/html/1910.07113v1#A1 \"Appendix A System Monitoring ‣ Solving Rubik’s Cube with a Robot Hand\")."
+      },
+      {
+        "partId": "o-physical-calibration",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+        "supportingPassage": "To address the dynamics of coupled joints, we added a non-actuated spatial tendon and pulleys to the simulated non-thumb fingers (see [Figure 7](https://arxiv.org/html/1910.07113v1#S4.F7 \"Figure 7 ‣ 4.1 Hand Dynamics Calibration ‣ 4 Simulation ‣ Solving Rubik’s Cube with a Robot Hand\")), analogous to the non-actuated tendon present in the physical robot.\nParameters relevant to the joint movement in the new MuJoCo model were then calibrated to minimize root mean square error between reference joint positions recorded on a physical robot and joint positions recorded in simulation for the same time series of actions. We observe that better modeling of coupling and dynamics calibration improves performance significantly and present full results in [Section D.1](https://arxiv.org/html/1910.07113v1#A4.SS1 \"D.1 Simulation Calibration ‣ Appendix D Full Results ‣ Solving Rubik’s Cube with a Robot Hand\"). We use this version of the simulation throughout the rest of this work."
+      },
+      {
+        "partId": "o-curriculum",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+        "supportingPassage": "### 5.1 ADR Overview\n\nWe use ADR both to train our vision models (supervised learning) and our policy (reinforcement learning). In each case, we generate a distribution over environments by randomizing certain aspects, e.g. the visual appearance of the cube or the dynamics of the robotic hand. While domain randomization requires us to define the ranges of this distribution manually and keep it fixed throughout model training, in ADR the distribution ranges are defined automatically and allowed to change.\n\nA top-level diagram of ADR is given in [Figure 10](https://arxiv.org/html/1910.07113v1#S5.F10 \"Figure 10 ‣ 5.1 ADR Overview ‣ 5 Automatic Domain Randomization ‣ Solving Rubik’s Cube with a Robot Hand\"). We give an intuitive overview of ADR below. See [Section 5.2](https://arxiv.org/html/1910.07113v1#S5.SS2 \"5.2 Algorithm ‣ 5 Automatic Domain Randomization ‣ Solving Rubik’s Cube with a Robot Hand\") for a formal description of the algorithm.\n\nFigure 10: Overview of ADR. ADR controls the distribution over environments. We sample environments from this distribution and use it to generate training data, which is then used to optimize our model (either a policy or a vision state estimator). We further evaluate performance of our model on the current distribution and use this information to update the distribution over environments automatically.\n\nAt its core, ADR realizes a training curriculum that gradually expands a distribution over environments for which the model can perform well. The initial distribution over environments is concentrated on a single environment. For example, in policy training the initial environment is based on calibration values measured from the physical robot.\n\nThe distribution over environments is sampled to obtain environments used to generate training data and evaluate model performance. ADR is independent of the algorithm used for model training. It only generates training data. This allows us to use ADR for both policy and vision model training.\n\nAs training progresses and model performance improves sufficiently on the initial environment, the distribution is expanded. This expansion continues as long as model performance is considered acceptable. With a sufficiently powerful model architecture and training algorithm, the distribution is expected to expand far beyond manual domain randomization ranges since every improvement in the model’s performance results in an increase in randomization.\n\nADR has two key benefits over manual domain randomization (DR):\n\n- •\n\n\nUsing a curriculum that gradually increases difficulty as training progresses simplifies training, since the problem is first solved on a single environment and additional environments are only added when a minimum level of performance is achieved \\[ [35](https://arxiv.org/html/1910.07113v1#bib.bib35 \"\"), [67](https://arxiv.org/html/1910.07113v1#bib.bib67 \"\")\\].\n\n- •\n\n\nIt removes the need to manually tune the randomizations. This is critical, because as more randomization parameters are incorporated, manual adjustment becomes increasingly difficult and non-intuitive.\n\n\nAcceptable performance is defined by _performance thresholds_. For policy training, they are configured as the lower and upper bounds on the number of successes in an episode. For vision training, we first configure target performance thresholds for each output (e.g. position, orientation). During evaluation, we then compute the percentage of samples which achieve these targets for all outputs; if the resulting percentage is above the upper threshold or below the lower threshold, the distribution is adjusted accordingly."
+      },
+      {
+        "partId": "o-boundaries",
+        "citationId": "openai-rubiks-cube-2019",
+        "sourceUrl": "https://arxiv.org/html/1910.07113v1",
+        "supportingPassage": "At each iteration, the ADR algorithm randomly selects a dimension of the environment λi\\\\lambda\\_{i} to fix to a boundary value ϕiL\\\\phi^{L}\\_{i} or ϕiH\\\\phi^{H}\\_{i} (we call this “boundary sampling”), while the other parameters are sampled as per PϕP\\_{\\\\phi}. Model performance for the sampled environment is then evaluated and appended to the buffer associated with the selected boundary of the selected parameter. Once enough performance data is collected, it is averaged and compared to thresholds. If the average model performance is better than the high threshold tHt\\_{H}, the parameter for the chosen dimension is increased. It is decreased if the average model performance is worse than the low threshold tLt\\_{L}."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "o-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: Version marker and full collective-plus-18-person printed byline. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 8074a36b09479a4d2908613efe1fab6d54132866f0652430e2866571d6cb4afd. Hand hardware/torque limits and measured physical joint-trajectory calibration are distinct from automatic ADR boundary updates. No all-ranges-hand-tuned or free-locomotion inference remains.",
+        "evidenceDigest": "ac49c110e684bb071228eca228d76f0a5b4ae0aa45684e0882d5b6501c62e4a1"
+      },
+      {
+        "partId": "o-platform",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: 3.1: E3M5R, five fingertips, cameras, hand modifications, torque limits. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding d1b628709f600ded31b62d5d2869ce95af9f55905ab80be12a8d8a86f20879d3. Hand hardware/torque limits and measured physical joint-trajectory calibration are distinct from automatic ADR boundary updates. No all-ranges-hand-tuned or free-locomotion inference remains.",
+        "evidenceDigest": "e7b4d73040945e4e0e36ac39f3ebddbe10a7d721bf2634c452b67d3fc23466f3"
+      },
+      {
+        "partId": "o-physical-calibration",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: 4.1: physical trajectories used for hand simulation calibration. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 5cbae1805785f3506e126edecc2d2bd8085dabe97feec8a0f5e063de41f64e6e. Hand hardware/torque limits and measured physical joint-trajectory calibration are distinct from automatic ADR boundary updates. No all-ranges-hand-tuned or free-locomotion inference remains.",
+        "evidenceDigest": "d047fe143a73764afa985260e545d410f6552c304eb48767bd456aaf1bf921a9"
+      },
+      {
+        "partId": "o-curriculum",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: 5.1: automatic ranges, calibrated initial environment, thresholds. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 686e961708dacda4deb12413d9f7e9b706aa4115bf8172592c0f43545682c0c4. Hand hardware/torque limits and measured physical joint-trajectory calibration are distinct from automatic ADR boundary updates. No all-ranges-hand-tuned or free-locomotion inference remains.",
+        "evidenceDigest": "91199f2e0e2c7b6276ac7c00031c4bd9dc813d501db19e4cd8e390bcf98de75d"
+      },
+      {
+        "partId": "o-boundaries",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: 5.2: boundary sampling and bidirectional threshold updates. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding eb8b3df57cac2396907ba6e31393100f5782f208a4e26275e8a6d738048481e7. Hand hardware/torque limits and measured physical joint-trajectory calibration are distinct from automatic ADR boundary updates. No all-ranges-hand-tuned or free-locomotion inference remains.",
+        "evidenceDigest": "56e640ced6c2b7a97919da4b4d5b78e6c5200cf34730ed493b2c3a5642da7b12"
+      }
+    ]
+  },
+  {
+    "id": "domain-randomization-sim2real-transfer-5",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "a76bef7af8a61120f705b96c797746eb060a1926d66af20b8f2386bad126680f",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "t-identity",
+        "text": "Version marker and full byline",
+        "requiredCitationIds": [
+          "tobin-2017"
+        ]
+      },
+      {
+        "id": "t-framing",
+        "text": "Abstract; visual randomization, not dynamics",
+        "requiredCitationIds": [
+          "tobin-2017"
+        ]
+      },
+      {
+        "id": "t-approximation",
+        "text": "Introduction: around 1.5 cm",
+        "requiredCitationIds": [
+          "tobin-2017"
+        ]
+      },
+      {
+        "id": "t-randomizations",
+        "text": "III-A: rendering, fixed table height, approximate camera placement",
+        "requiredCitationIds": [
+          "tobin-2017"
+        ]
+      },
+      {
+        "id": "t-initialization",
+        "text": "III-B: majority of experiments use ImageNet initialization",
+        "requiredCitationIds": [
+          "tobin-2017"
+        ]
+      },
+      {
+        "id": "t-selection",
+        "text": "IV-A: eight objects and best-network hyperparameter selection",
+        "requiredCitationIds": [
+          "tobin-2017"
+        ]
+      },
+      {
+        "id": "t-evaluation",
+        "text": "IV-B: 480 real images, 60 per object, 20 per condition, on-average result",
+        "requiredCitationIds": [
+          "tobin-2017"
+        ]
+      },
+      {
+        "id": "t-scratch",
+        "text": "IV-C: random initialization versus ImageNet",
+        "requiredCitationIds": [
+          "tobin-2017"
+        ]
+      },
+      {
+        "id": "t-robot",
+        "text": "IV-D: detector plus motion planner on Fetch; separate grasp experiment",
+        "requiredCitationIds": [
+          "tobin-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+      "rationale": "Reviewed all 9 required parts against retained primary bodies and the full corrected current claim. Original ledger arXiv pointer was inverted: Tobin is 1703.06907, not 1710.06537. Abstract 1.5cm, introduction around1.5cm, IV-B on-average and differing Table I cells are retained. Main ImageNet initialization, from-scratch ablation, selected best network and separate Fetch planner/grasp experiment remain distinct. Literal source bindings and counterpassages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json.",
+      "planDigest": "412554fac41d732b8137bbe979e3d5377e1568b3a2382acfc3d839c1df565e6f"
+    },
+    "evidence": [
+      {
+        "partId": "t-identity",
+        "citationId": "tobin-2017",
+        "sourceUrl": "https://arxiv.org/html/1703.06907v1",
+        "supportingPassage": "arXiv:1703.06907v1 \\[cs.RO\\] 20 Mar 2017\n\n# Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World\n\nJosh Tobin\nAffiliation: OpenAI and UC Berkeley EECS, josh@openai.comRachel Fong\nAffiliation: OpenAI, {rfong, aray, jonas, woj}@openai.comAlex Ray\nAffiliation: OpenAI, {rfong, aray, jonas, woj}@openai.comJonas Schneider\nAffiliation: OpenAI, {rfong, aray, jonas, woj}@openai.comWojciech Zaremba\nAffiliation: OpenAI, {rfong, aray, jonas, woj}@openai.comPieter Abbeel\nAffiliation: OpenAI, UC Berkeley EECS & ICSI, pieter@openai.com"
+      },
+      {
+        "partId": "t-framing",
+        "citationId": "tobin-2017",
+        "sourceUrl": "https://arxiv.org/html/1703.06907v1",
+        "supportingPassage": "###### Abstract\n\nBridging the ‘reality gap’ that separates simulated robotics from experiments on hardware could accelerate robotic research through improved data availability. This paper explores _domain randomization_,\na simple technique for training models on simulated images that transfer to real images by randomizing rendering in the simulator. With enough variability in the simulator, the real world may appear to the model as just another variation. We focus on the task of object localization, which is a stepping stone to general robotic manipulation skills. We find that it is possible to train a real-world object detector that is accurate to 1.5cm1.5\\\\text{\\\\,}\\\\mathrm{cm} and robust to distractors and partial occlusions using only data from a simulator with non-realistic random textures.\nTo demonstrate the capabilities of our detectors, we show they can be used to perform grasping in a cluttered environment. To our knowledge, this is the first successful transfer of a deep neural network trained _only_ on simulated RGB images (without pre-training on real images) to the real world for the purpose of robotic control."
+      },
+      {
+        "partId": "t-approximation",
+        "citationId": "tobin-2017",
+        "sourceUrl": "https://arxiv.org/html/1703.06907v1",
+        "supportingPassage": "We find that for a range of geometric objects, we are able to train a detector that is accurate to around 1.5cm1.5\\\\text{\\\\,}\\\\mathrm{cm} in the real world using only simulated data rendered with simple, algorithmically generated textures. Although previous work demonstrated the ability to perform robotic control using a neural network pretrained on ImageNet\nand fine-tuned on randomized rendered pixels \\[ [37](https://arxiv.org/html/1703.06907v1#bib.bib37 \"\")\\], this paper provides the first demonstration that domain randomization can be useful for robotic tasks requiring precision. We also provide an ablation study of the impact of different choices of randomization and training method on the success of transfer. We find that with a sufficient number of textures, pre-training the object detector using real images is unnecessary. To our knowledge, this is the first successful transfer of a deep neural network trained _only_ on simulated RGB images to the real world for the purpose of robotic control."
+      },
+      {
+        "partId": "t-randomizations",
+        "citationId": "tobin-2017",
+        "sourceUrl": "https://arxiv.org/html/1703.06907v1",
+        "supportingPassage": "### III-ADomain randomization\n\nThe purpose of domain randomization is to provide enough simulated variability at training time such that at test time the model is able to generalize to real-world data. We randomize the following aspects of the domain for each sample used during training:\n\n- •\n\n\nNumber and shape of distractor objects on the table\n\n- •\n\n\nPosition and texture of all objects on the table\n\n- •\n\n\nTextures of the table, floor, skybox, and robot\n\n- •\n\n\nPosition, orientation, and field of view of the camera\n\n- •\n\n\nNumber of lights in the scene\n\n- •\n\n\nPosition, orientation, and specular characteristics of the lights\n\n- •\n\n\nType and amount of random noise added to images\n\n\nSince we use a single monocular camera image from an uncalibrated camera to estimate object positions, we fix the height of the table in simulation, effectively creating a 2D pose estimation task. Random textures are chosen among the following:\n\n1. (a)\n\n\nA random RGB value\n\n2. (b)\n\n\nA gradient between two random RGB values\n\n3. (c)\n\n\nA checker pattern between two random RGB values\n\n\nThe textures of all objects are chosen uniformly at random – the detector does not have access to the color of the object(s) of interest at training time, only their size and shape. We render images using the MuJoCo Physics Engine’s \\[ [45](https://arxiv.org/html/1703.06907v1#bib.bib45 \"\")\\] built-in renderer. This renderer is not intended to be photo-realistic, and physically plausible choices of textures and lighting are not needed.\n\nBetween 00 and 1010 distractor objects are added to the table in each scene. Distractor objects on the floor or in the background are unnecessary, despite some clutter (e.g., cables) on the floor in our real images.\n\nOur method avoids calibration and precise placement of the camera in the real world by randomizing characteristics of the cameras used to render images in training. We manually place a camera in the simulated scene that approximately matches the viewpoint and field of view of the real camera. Each training sample places the camera randomly within a (10×5×10)(10\\\\times 5\\\\times 10) cm box around this initial point. The viewing angle of the camera is calculated analytically to point at a fixed point on the table, and then offset by up to 0.10.1 radians in each direction. The field of view is also scaled by up to 5%5\\\\text{\\\\,}\\\\mathrm{\\\\%} from the starting point."
+      },
+      {
+        "partId": "t-initialization",
+        "citationId": "tobin-2017",
+        "sourceUrl": "https://arxiv.org/html/1703.06907v1",
+        "supportingPassage": "We parametrize our object detector with a deep convolutional neural network. In particular, we use a modified version the VGG-16 architecture \\[ [39](https://arxiv.org/html/1703.06907v1#bib.bib39 \"\")\\] shown in Figure [2](https://arxiv.org/html/1703.06907v1#S3.F2 \"Fig. 2 ‣ III-B Model architecture and training ‣ III METHOD ‣ Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World\"). We chose this architecture because it performs well on a variety of computer vision tasks, and because it has a wide availability of pretrained weights. We use the standard VGG convolutional layers, but use smaller fully connected layers of sizes 256256 and 6464 and do not use dropout. For the majority of our experiments, we use weights obtained by pretraining on ImageNet to initialize the convolutional layers, which we hypothesized would be essential to achieving transfer. In practice, we found that using random weight initialization works as well in most cases."
+      },
+      {
+        "partId": "t-selection",
+        "citationId": "tobin-2017",
+        "sourceUrl": "https://arxiv.org/html/1703.06907v1",
+        "supportingPassage": "We evaluated our approach by training object detectors for each of eight geometric objects. We constructed mesh representations for each object to render in the simulator. Each training sample consists of (a) a rendered image of the object and one or more distractors (also from among the geometric object set) on a simulated tabletop and (b) a label corresponding to the Cartesian coordinates of the center of mass of the object in the world frame.\n\nFor each experiment, we performed a small hyperparameter search, evaluating combinations of two learning rates (1​e−41\\\\mathrm{e}{-4} and 2​e−42\\\\mathrm{e}{-4}) and three batch sizes (2525, 5050, and 100100). We report the performance of the best network."
+      },
+      {
+        "partId": "t-evaluation",
+        "citationId": "tobin-2017",
+        "sourceUrl": "https://arxiv.org/html/1703.06907v1",
+        "supportingPassage": "### IV-BLocalization accuracy\n\nTo evaluate the accuracy of learned detectors in the real world, we captured 480480 webcam images of one or more geometric objects on a table at a distance of 70cm to 105cm70\\\\text{\\\\,}\\\\mathrm{cm}105\\\\text{\\\\,}\\\\mathrm{cm} from the camera. The camera position remains constant across all images. We did not control for lighting conditions or the rest of the scene around the table (e.g., all images contain part of the robot and tape and wires on the floor). We measured ground truth positions for a single object per image by aligning the object on a grid on the tabletop. Each of the eight geometric objects has 60 labeled images in the dataset: 2020 with the object alone on the table, 2020 in which one or more distractor objects are present on the table, and 2020 in which the object is also partially occluded by another object.\n\nTable I summarizes the performance of our models on the test set. Our object detectors are able to localize objects to within 1.5cm1.5\\\\text{\\\\,}\\\\mathrm{cm} (on average) in the real world and perform well in the presence of clutter and partial occlusions. Though the accuracy of our trained detectors is promising, note that they are still over-fitting222\n\n\nOverfitting in this setting is more subtle than in the standard supervised learning where train and test data come from the same distribution. In the standard supervised learning setting overfitting can be avoided by using a hold-out set during training. We do apply this idea to ensure that we are not overfitting on the simulated data. However, since our goal is to learn from training data originated in the simulator and generalize to test data originated from the real world, we assume to not have any real world data available during training. Therefore no validation on real data can be done during training. the simulated training data, where error is 0.3cm to 0.5cm0.3\\\\text{\\\\,}\\\\mathrm{cm}0.5\\\\text{\\\\,}\\\\mathrm{cm}. Even with over-fitting, the accuracy is comparable at a similar distance to the translation error in traditional techniques for pose estimation in clutter from a single monocular camera frame \\[ [5](https://arxiv.org/html/1703.06907v1#bib.bib5 \"\")\\] that use higher-resolution images."
+      },
+      {
+        "partId": "t-scratch",
+        "citationId": "tobin-2017",
+        "sourceUrl": "https://arxiv.org/html/1703.06907v1",
+        "supportingPassage": "Figure [4](https://arxiv.org/html/1703.06907v1#S4.F4 \"Fig. 4 ‣ IV-C Ablation study ‣ IV EXPERIMENTS ‣ Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World\") also compares to the performance of a model trained from scratch (i.e., without using pre-trained ImageNet weights). Our hypothesis that pre-training would be essential to generalizing to the real world proved to be false. With a large amount of training data, random weight initialization can achieve nearly the same performance in transferring to the real world as does pre-trained weight initialization. The best detectors for a given object were often those initialized with random weights. However, using a pre-trained model can significantly improve performance when less training data is used."
+      },
+      {
+        "partId": "t-robot",
+        "citationId": "tobin-2017",
+        "sourceUrl": "https://arxiv.org/html/1703.06907v1",
+        "supportingPassage": "### IV-DRobotics experiments\n\nTo demonstrate the potential of this technique for transferring robotic behaviors learned in simulation to the real world, we evaluated the use of our object detection networks for localizing an object in clutter and performing a prescribed grasp. For two of our most consistently accurate detectors, we evaluated the ability to pick up the detected object in 20 increasingly cluttered scenes using the positions estimated by the detector and off-the-shelf motion planning software \\[ [41](https://arxiv.org/html/1703.06907v1#bib.bib41 \"\")\\]. To test the robustness of our method to discrepancies in object distributions between training and test time, some of our test images contain distractors placed at orientations not seen during training (e.g., a hexagonal prism placed on its side).\n\nWe deployed the pipeline on a Fetch robot \\[ [49](https://arxiv.org/html/1703.06907v1#bib.bib49 \"\")\\], and found it was able to successfully detect and pick up the target object in 38 out of 40 trials, including in highly cluttered scenes with significant occlusion of the target object. Note that the trained detectors have no prior information about the color of the target object, only its shape and size, and are able to detect objects placed closely to other objects of the same color."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "t-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: Version marker and full byline. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 7bf2e3edcfcc96b9f4f288f0bc476f359e02a28ec727e93498b83f8ce2317ea2. Original ledger arXiv pointer was inverted: Tobin is 1703.06907, not 1710.06537. Abstract 1.5cm, introduction around1.5cm, IV-B on-average and differing Table I cells are retained. Main ImageNet initialization, from-scratch ablation, selected best network and separate Fetch planner/grasp experiment remain distinct.",
+        "evidenceDigest": "456865de115dd6470917942dc366f57d1c4295a9228bc11256305ae668db8696"
+      },
+      {
+        "partId": "t-framing",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: Abstract; visual randomization, not dynamics. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 56f2d32b8665e29ed7603d295a97b595473afea0306574eaa00c36d03f36f217. Original ledger arXiv pointer was inverted: Tobin is 1703.06907, not 1710.06537. Abstract 1.5cm, introduction around1.5cm, IV-B on-average and differing Table I cells are retained. Main ImageNet initialization, from-scratch ablation, selected best network and separate Fetch planner/grasp experiment remain distinct.",
+        "evidenceDigest": "3da7410a6fb8a8eb562934b907f546282f6835aaa0f0e2b13da0bc5720795c92"
+      },
+      {
+        "partId": "t-approximation",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: Introduction: around 1.5 cm. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 3b5fceaf20c1f017bb08f45ca2da7023241bcfd91375ebc31c6263b6c78e6df2. Original ledger arXiv pointer was inverted: Tobin is 1703.06907, not 1710.06537. Abstract 1.5cm, introduction around1.5cm, IV-B on-average and differing Table I cells are retained. Main ImageNet initialization, from-scratch ablation, selected best network and separate Fetch planner/grasp experiment remain distinct.",
+        "evidenceDigest": "39f5ffb4ed7109ef9a45a2bf40b540a718be199badde937fa2adbe430f9db7cb"
+      },
+      {
+        "partId": "t-randomizations",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: III-A: rendering, fixed table height, approximate camera placement. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 372492836777f48f7a0dd01fb8945b96defa619821b4b02e20b812b19cbf57ad. Original ledger arXiv pointer was inverted: Tobin is 1703.06907, not 1710.06537. Abstract 1.5cm, introduction around1.5cm, IV-B on-average and differing Table I cells are retained. Main ImageNet initialization, from-scratch ablation, selected best network and separate Fetch planner/grasp experiment remain distinct.",
+        "evidenceDigest": "fb62afc4cab269c18fc60cfce2f227f370a4c39bc2702579541559f5b5323a4d"
+      },
+      {
+        "partId": "t-initialization",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: III-B: majority of experiments use ImageNet initialization. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 3f0cb395e6c021fe63fa7ca6a7db0e6bd94530b7d3662098fabe26c7192d43a2. Original ledger arXiv pointer was inverted: Tobin is 1703.06907, not 1710.06537. Abstract 1.5cm, introduction around1.5cm, IV-B on-average and differing Table I cells are retained. Main ImageNet initialization, from-scratch ablation, selected best network and separate Fetch planner/grasp experiment remain distinct.",
+        "evidenceDigest": "c9d598976282be6a02cd5aa9c52c98d81bc1aff0c2bd77a730782ea62f454153"
+      },
+      {
+        "partId": "t-selection",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: IV-A: eight objects and best-network hyperparameter selection. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 0e75dc54f12fe3e82567efb96920949119cf06abd3f2f83242cf71cc5519b836. Original ledger arXiv pointer was inverted: Tobin is 1703.06907, not 1710.06537. Abstract 1.5cm, introduction around1.5cm, IV-B on-average and differing Table I cells are retained. Main ImageNet initialization, from-scratch ablation, selected best network and separate Fetch planner/grasp experiment remain distinct.",
+        "evidenceDigest": "d9238ddd498ec54a6bee13f2504296e0772883d87c5969a2acd35b9850eb59ec"
+      },
+      {
+        "partId": "t-evaluation",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: IV-B: 480 real images, 60 per object, 20 per condition, on-average result. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 16fdf6644589afdbaf0cbcfee5f0d359fd08b21659ad8d7165d421eb2ed9e908. Original ledger arXiv pointer was inverted: Tobin is 1703.06907, not 1710.06537. Abstract 1.5cm, introduction around1.5cm, IV-B on-average and differing Table I cells are retained. Main ImageNet initialization, from-scratch ablation, selected best network and separate Fetch planner/grasp experiment remain distinct.",
+        "evidenceDigest": "6ba4deddcc7b21930a1ea116cdf8911e335f89a4798e9d8252cfa5e67f0f88da"
+      },
+      {
+        "partId": "t-scratch",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: IV-C: random initialization versus ImageNet. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding b973b63ed7ce230027479ab42ef15ed841def66bedc645004fe17e8ee7d88fc6. Original ledger arXiv pointer was inverted: Tobin is 1703.06907, not 1710.06537. Abstract 1.5cm, introduction around1.5cm, IV-B on-average and differing Table I cells are retained. Main ImageNet initialization, from-scratch ablation, selected best network and separate Fetch planner/grasp experiment remain distinct.",
+        "evidenceDigest": "a675b273ef47c7952762bdd659830acf8f4cd7a942b06fde556b474cd10edbb9"
+      },
+      {
+        "partId": "t-robot",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: IV-D: detector plus motion planner on Fetch; separate grasp experiment. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding ad881c5e8966e143e8499cb454d3847fea6f604c24c8b1a1116c8985b9a514d8. Original ledger arXiv pointer was inverted: Tobin is 1703.06907, not 1710.06537. Abstract 1.5cm, introduction around1.5cm, IV-B on-average and differing Table I cells are retained. Main ImageNet initialization, from-scratch ablation, selected best network and separate Fetch planner/grasp experiment remain distinct.",
+        "evidenceDigest": "a2ed390c4ec3d0670c81e8cec339db24f0312192f724d128756e6cb764a2506d"
+      }
+    ]
+  },
+  {
+    "id": "domain-randomization-sim2real-transfer-6",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 6,
+    "originalCellsDigest": "74f7c84ea3e9d84b54f35b33633f145ecd0ccb777b3e86375896727f0cecd528",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "p-identity",
+        "text": "Version marker and complete four-author byline",
+        "requiredCitationIds": [
+          "peng-2018"
+        ]
+      },
+      {
+        "id": "p-transfer",
+        "text": "Abstract: physical-policy-training scope and calibration robustness",
+        "requiredCitationIds": [
+          "peng-2018"
+        ]
+      },
+      {
+        "id": "p-task",
+        "text": "IV-A: seven-DoF Fetch puck pushing",
+        "requiredCitationIds": [
+          "peng-2018"
+        ]
+      },
+      {
+        "id": "p-parameters",
+        "text": "IV-C: actual parameter list; no separately listed inertia parameter",
+        "requiredCitationIds": [
+          "peng-2018"
+        ]
+      },
+      {
+        "id": "p-calibration",
+        "text": "V: 0.07 m tolerance, 200 real timesteps, motion capture, little calibration",
+        "requiredCitationIds": [
+          "peng-2018"
+        ]
+      },
+      {
+        "id": "p-evaluation",
+        "text": "V-A: end-of-episode success, random target/initial location, 0.3 m square",
+        "requiredCitationIds": [
+          "peng-2018"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+      "rationale": "Reviewed all 6 required parts against retained primary bodies and the full corrected current claim. Original ledger arXiv pointer was inverted: Peng is 1710.06537, not 1703.06907. Inspected v3 is 3 March2018; first submission2017. Physical evaluation and limited calibration are retained. Parameter list does not invent a separate inertia item. Literal source bindings and counterpassages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json.",
+      "planDigest": "590c9a128f54e532299e7d9076bdadc82699732b5c6a4533beaa67d772cf3b99"
+    },
+    "evidence": [
+      {
+        "partId": "p-identity",
+        "citationId": "peng-2018",
+        "sourceUrl": "https://arxiv.org/html/1710.06537v3",
+        "supportingPassage": "arXiv:1710.06537v3 \\[cs.RO\\] 03 Mar 2018\n\n# Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\n\nXue Bin Peng\nAffiliation: OpenAI\nAffiliation: UC Berkeley, Department of Electrical Engineering and Computer Science\nMarcin Andrychowicz\nAffiliation: OpenAI\nWojciech Zaremba\nAffiliation: OpenAI\nPieter Abbeel\nAffiliation: OpenAI\nAffiliation: UC Berkeley, Department of Electrical Engineering and Computer Science"
+      },
+      {
+        "partId": "p-transfer",
+        "citationId": "peng-2018",
+        "sourceUrl": "https://arxiv.org/html/1710.06537v3",
+        "supportingPassage": "###### Abstract\n\nSimulations are attractive environments for training agents as they provide an abundant source of data and alleviate certain safety concerns during the training process. But the behaviours developed by agents in simulation are often specific to the characteristics of the simulator. Due to modeling error, strategies that are successful in simulation may not transfer to their real world counterparts. In this paper, we demonstrate a simple method to bridge this “reality gap”. By randomizing the dynamics of the simulator during training, we are able to develop policies that are capable of adapting to very different dynamics, including ones that differ significantly from the dynamics on which the policies were trained. This adaptivity enables the policies to generalize to the dynamics of the real world without any training on the physical system. Our approach is demonstrated on an object pushing task using a robotic arm. Despite being trained exclusively in simulation, our policies are able to maintain a similar level of performance when deployed on a real robot, reliably moving an object to a desired location from random initial configurations. We explore the impact of various design decisions and show that the resulting policies are robust to significant calibration error."
+      },
+      {
+        "partId": "p-task",
+        "citationId": "peng-2018",
+        "sourceUrl": "https://arxiv.org/html/1710.06537v3",
+        "supportingPassage": "### IV-ATasks\n\nOur experiments are conducted on a puck pushing task using a 7-DOF Fetch Robotics arm. Images of the real robot and simulated model is available in Figure [2](https://arxiv.org/html/1710.06537v3#S4.F2 \"Fig. 2 ‣ IV-A Tasks ‣ IV METHOD ‣ Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\"). The goal gg for each episode specifies a random target position on the table that the puck should be moved to. The reward is binary with rt=0r\\_{t}=0 if the puck is within a given distance of the target, and rt=−1r\\_{t}=-1 otherwise. At the start of each episode, the arm is initialized to a default pose and the initial location of the puck is randomly placed within a fixed bound on the table.\n\n![Refer to caption](https://arxiv.org/html/1710.06537v3/figures/fetch_real.png)\n\n![Refer to caption](https://arxiv.org/html/1710.06537v3/figures/fetch_sim.png)\n\nFig. 2: Our experiments are conducted on a 7-DOF Fetch Robotics arm. Left: Real robot. Right: Simulated MuJoCo model."
+      },
+      {
+        "partId": "p-parameters",
+        "citationId": "peng-2018",
+        "sourceUrl": "https://arxiv.org/html/1710.06537v3",
+        "supportingPassage": "### IV-CDynamics Randomization\n\nDuring training, rollouts are organized into episodes of a fixed length. At the start of each episode, a random set of dynamics parameters μ\\\\mu are sampled according to ρμ\\\\rho\\_{\\\\mu} and held fixed for the duration of the episode. The parameters which we randomize include:\n\n- •\n\n\nMass of each link in the robot’s body\n\n- •\n\n\nDamping of each joint\n\n- •\n\n\nMass, friction, and damping of the puck\n\n- •\n\n\nHeight of the table\n\n- •\n\n\nGains for the position controller\n\n- •\n\n\nTimestep between actions\n\n- •\n\n\nObservation noise\n\n\nwhich results in a total of 95 randomized parameters. The timestep between actions specifies the amount of time an action is applied before the policy is queried again to sample a new action. This serves as a simple model of the latency exhibited by the physical controller. The observation noise models uncertainty in the sensors and is implemented as independent Gaussian noise applied to each state feature. While parameters such as mass and damping are constant over the course of an episode, the action timestep and the observation noise varies randomly each timestep."
+      },
+      {
+        "partId": "p-calibration",
+        "citationId": "peng-2018",
+        "sourceUrl": "https://arxiv.org/html/1710.06537v3",
+        "supportingPassage": "The real puck has a mass of approximately 0.2​k​g0.2kg and a radius of 0.065m. The goal is considered satisfied if the puck is within 0.07m of the target. The location of the puck is tracked using the PhaseSpace mocap system. When evaluating performance on the physical system, each episode consists of 200 timesteps. Little calibration was performed to ensure that the behaviour of the simulation closely conforms to that of the real robot. While more extensive calibration will likely improve performance, we show that our policy is nonetheless able to adapt to the physical system despite poor calibration. To illustrate the discrepancies between the dynamics of the real world and simulation we executed the same target trajectory on the real and simulated robot, and recorded the resulting joint trajectories. Figure [5](https://arxiv.org/html/1710.06537v3#S5.F5 \"Fig. 5 ‣ V EXPERIMENTS ‣ Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\") illustrates the recorded trajectories. Given the same target trajectory, the pose trajectories of the simulated and real robot differ significantly, with varying degrees of mismatch across joints."
+      },
+      {
+        "partId": "p-evaluation",
+        "citationId": "peng-2018",
+        "sourceUrl": "https://arxiv.org/html/1710.06537v3",
+        "supportingPassage": "### V-AComparison of Architectures\n\nTo evaluate the impact of different architectural choices, we compared policies modeled using different architectures and tested their performance in simulation and on the real robot. The first is an LSTM policy following the architecture illustrated in Figure [4](https://arxiv.org/html/1710.06537v3#S4.F4 \"Fig. 4 ‣ IV-F Network Architecture ‣ IV METHOD ‣ Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\"). Next we consider a memoryless feedforward network (FF) that receives only the current state sts\\_{t} and goal gg as input. As a baseline, we also trained a memoryless feedforward network without randomization (FF no Rand), then evaluated the performance with randomization. To provide the feedforward network with more information to infer the dynamics, we augmented the inputs with a history of the 8 previously observed states and actions (FF + Hist). The success rate is determined as the portion of episodes where the goal is fulfilled at the end of the episode. In simulation, performance of each policy is evaluated over 100 episodes, with randomized dynamics parameters for each episode. Learning curves comparing the performance of different model architectures in simulation are available in Figure [6](https://arxiv.org/html/1710.06537v3#S5.F6 \"Fig. 6 ‣ V EXPERIMENTS ‣ Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\"). Four policies initialized with different random seeds are trained for each architecture. The LSTM learns faster while also converging to a higher success rate than the feedforward models. The feedforward network trained without randomization is unable to cope with unfamiliar dynamics during evaluation. While training a memoryless policy with randomization improves robustness to random dynamics, it is still unable to perform the task consistently.\n\nNext, we evaluate the performance of the different models when deployed on the real Fetch arm. Figure [7](https://arxiv.org/html/1710.06537v3#S5.F7 \"Fig. 7 ‣ V-A Comparison of Architectures ‣ V EXPERIMENTS ‣ Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\") compares the performance of the final policies when deployed in simulation and the real world. Table [II](https://arxiv.org/html/1710.06537v3#S5.T2 \"TABLE II ‣ V-C Robustness ‣ V EXPERIMENTS ‣ Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\") summarizes the performance of the models. The target and initial location of the puck is randomly placed within a 0.3​m×0.3​m0.3m\\\\times 0.3m bound. While the performance of LSTM and FF + Hist policies are comparable in simulation, the LSTM is able to better generalize to the dynamics of the physical system. The feedforward network trained without randomization is unable to perform the task under the real world dynamics.\n\n![Refer to caption](https://arxiv.org/html/1710.06537v3/figures/perf_real.png)Fig. 7: Performance of different models when deployed on the simulated and real robot for the pushing task. Policies are trained using only data from simulation."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "p-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: Version marker and complete four-author byline. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding d7a0ebb5b9a7255f2b0f15b2a5522d5107919577fa63c001df76d2d750c14abb. Original ledger arXiv pointer was inverted: Peng is 1710.06537, not 1703.06907. Inspected v3 is 3 March2018; first submission2017. Physical evaluation and limited calibration are retained. Parameter list does not invent a separate inertia item.",
+        "evidenceDigest": "0bba26d89b69c7d0553716c81759f2bfc7662c448d4efaa60d3a35b61ceecfc9"
+      },
+      {
+        "partId": "p-transfer",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: Abstract: physical-policy-training scope and calibration robustness. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding ff1822b57352ac42e3b344daf66643b5bb91d40cc98e8dd13741039398e02378. Original ledger arXiv pointer was inverted: Peng is 1710.06537, not 1703.06907. Inspected v3 is 3 March2018; first submission2017. Physical evaluation and limited calibration are retained. Parameter list does not invent a separate inertia item.",
+        "evidenceDigest": "7e135cfe9b91861a74cc5947791dfb3481b45a3217d42e22d4e62e54096c70f2"
+      },
+      {
+        "partId": "p-task",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: IV-A: seven-DoF Fetch puck pushing. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding c812f17f66ae44168a5e3ffc610f581a11e5da098c47c7d078121545c7282e4b. Original ledger arXiv pointer was inverted: Peng is 1710.06537, not 1703.06907. Inspected v3 is 3 March2018; first submission2017. Physical evaluation and limited calibration are retained. Parameter list does not invent a separate inertia item.",
+        "evidenceDigest": "5df4d181b59a98bda4eae4979e2f32731eaab62f6db3bf21a3c550aae0495089"
+      },
+      {
+        "partId": "p-parameters",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: IV-C: actual parameter list; no separately listed inertia parameter. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding b2e7778e090eeb727f6da8440676773e3cfbb3a3a242e8fb651682d21a07935f. Original ledger arXiv pointer was inverted: Peng is 1710.06537, not 1703.06907. Inspected v3 is 3 March2018; first submission2017. Physical evaluation and limited calibration are retained. Parameter list does not invent a separate inertia item.",
+        "evidenceDigest": "f27541d23be394fb17e01502d6497115bd7c5f1b24398815170f1a24877806ee"
+      },
+      {
+        "partId": "p-calibration",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: V: 0.07 m tolerance, 200 real timesteps, motion capture, little calibration. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding d6136b3aa1ff01f7c71c03ea25407c2009bca8dd818e35c393f1eb843cfd6b07. Original ledger arXiv pointer was inverted: Peng is 1710.06537, not 1703.06907. Inspected v3 is 3 March2018; first submission2017. Physical evaluation and limited calibration are retained. Parameter list does not invent a separate inertia item.",
+        "evidenceDigest": "edd52bb88c8fe76ac1aac009fe97defea8e431558cc949e9a2df6353616c9bab"
+      },
+      {
+        "partId": "p-evaluation",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: V-A: end-of-episode success, random target/initial location, 0.3 m square. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 6f038c34939d57fd33522f17f4d60e23b16133bed09050e0bf1cff2f33a2f7e1. Original ledger arXiv pointer was inverted: Peng is 1710.06537, not 1703.06907. Inspected v3 is 3 March2018; first submission2017. Physical evaluation and limited calibration are retained. Parameter list does not invent a separate inertia item.",
+        "evidenceDigest": "2e08b3a9eb3952d5d1c09f7f97fd9eab5978ac3b7f2577133b4bddabb62fe076"
+      }
+    ]
+  },
+  {
+    "id": "domain-randomization-sim2real-transfer-9",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 9,
+    "originalCellsDigest": "4641ae74732b78763a75f14d48f1da8afb539e5115779e2ad7beb9eb6ef92e48",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "p-objective",
+        "text": "IV: expected return across distribution, not universal peak loss",
+        "requiredCitationIds": [
+          "peng-2018"
+        ]
+      },
+      {
+        "id": "p-ablations",
+        "text": "V-B/C and Tables II/III: task-specific real comparisons, not a universal tradeoff",
+        "requiredCitationIds": [
+          "peng-2018"
+        ]
+      },
+      {
+        "id": "p-adaptation",
+        "text": "IV-D: recurrent memory infers dynamics from past observations",
+        "requiredCitationIds": [
+          "peng-2018"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+      "rationale": "Reviewed all 3 required parts against retained primary bodies and the full corrected current claim. Expected-return objective, task-specific randomization ablations and recurrent history inference replace universal cost/absence claims. All source-attributing toy prose, feedback and comments are corrected; toy constants remain local assumptions. This is zero credit for held transfer23, not an external-passage/local-proof contract exemption. Literal source bindings and counterpassages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json.",
+      "planDigest": "2246ee2726623300891b1783d7bab870daaae80f7d5de7e4854357eba90bcb50"
+    },
+    "evidence": [
+      {
+        "partId": "p-objective",
+        "citationId": "peng-2018",
+        "sourceUrl": "https://arxiv.org/html/1710.06537v3",
+        "supportingPassage": "## IV METHOD\n\nOur objective is to train policies that can perform a task under the dynamics of the real world p∗​(st+1\\|st,at)p^{\\*}(s\\_{t+1}\\|s\\_{t},a\\_{t}). Since sampling from the real world dynamics can be prohibitive, we instead train a policy using an approximate dynamics model p^​(st+1\\|st,at)≈p∗​(st+1\\|st,at)\\\\hat{p}(s\\_{t+1}\\|s\\_{t},a\\_{t})\\\\approx p^{\\*}(s\\_{t+1}\\|s\\_{t},a\\_{t}) that is easier to sample from. For all of our experiments, p^\\\\hat{p} assumes the form of a physics simulation. Due to modeling and other forms of calibration error, behaviours that successfully accomplish a task in simulation may not be successful once deployed in the real world. Furthermore, it has been observed that DeepRL policies are prone to exploiting idiosyncrasies of the simulator to realize behaviours that are infeasible in the real world \\[ [2](https://arxiv.org/html/1710.06537v3#bib.bib2 \"\"), [7](https://arxiv.org/html/1710.06537v3#bib.bib7 \"\")\\]. Therefore, instead of training a policy under one particular dynamics model, we train a policy that can perform a task under a variety of different dynamics models. First we introduce a set of dynamics parameters μ\\\\mu that parameterizes the dynamics of the simulation p^​(st+1\\|st,at,μ)\\\\hat{p}(s\\_{t+1}\\|s\\_{t},a\\_{t},\\\\mu). The objective is then modified to maximize the expected return across a distribution of dynamics models ρμ\\\\rho\\_{\\\\mu},\n\n|     |     |     |\n| --- | --- | --- |\n|  | 𝔼μ∼ρμ\\[𝔼τ∼p⁡(τ\\|π,μ)​\\[∑t=0T−1r⁡(st,at)\\]\\]\\\\mathop{\\\\mathbb{E}}\\_{\\\\mu\\\\sim\\\\rho\\_{\\\\mu}}\\\\left\\[\\\\mathbb{E}\\_{\\\\tau\\\\sim p(\\\\tau\\|\\\\pi,\\\\mu)}\\\\left\\[\\\\sum\\_{t=0}^{T-1}r(s\\_{t},a\\_{t})\\\\right\\]\\\\right\\] |  |\n\nBy training policies to adapt to variability in the dynamics of the environment, the resulting policy might then better generalize to the dynamics of real world."
+      },
+      {
+        "partId": "p-ablations",
+        "citationId": "peng-2018",
+        "sourceUrl": "https://arxiv.org/html/1710.06537v3",
+        "supportingPassage": "### V-BAblation\n\nTo evaluate the effects of randomizing the various dynamics parameters, we trained policies with subsets of the parameters held fixed. A complete list of the dynamics parameters are available in Table [I](https://arxiv.org/html/1710.06537v3#S4.T1 \"TABLE I ‣ IV-F Network Architecture ‣ IV METHOD ‣ Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\").\nThe configurations we consider include training with a fixed timestep between actions, training without observation noise, or with fixed mass for each link. Table [III](https://arxiv.org/html/1710.06537v3#S5.T3 \"TABLE III ‣ V-C Robustness ‣ V EXPERIMENTS ‣ Sim-to-Real Transfer of Robotic Control with Dynamics Randomization\") summarizes the performance of the resulting policies when deployed on the real robot. Disabling randomization of the action timestep, observation noise, link mass, and friction impairs the policies’ ability to adapt to the physical environment. Policies trained without randomizing the action timestep and observation noise show particularly noticeable drops in performance. This suggests that coping with the latency of the controller and sensor noise are important factors in adapting to the physical system.\n\n### V-CRobustness\n\nTo evaluate the robustness of the LSTM policy to different dynamics when deployed on the real robot, we experimented with changing the contact dynamics of the physical system by attaching a packet of chips to the bottom of the puck. The texture of the bag reduces the friction between the puck and the table, while the contents of the bag further alters the contact dynamics. Nonetheless, the LSTM policy achieves a success rate of 0.91±0.040.91\\\\pm 0.04, which is comparable to the success rate without the attachment 0.89±0.060.89\\\\pm 0.06. The policy also develops clever strategies to make fine adjustments to position the puck over the target. One such strategy involves pressing on one side of the puck in order to partially upend it before sliding it to the target. Other strategies including manipulating the puck from the top or sides depending on the required adjustments, and correcting for case where the puck overshoots the target. These behaviours emerged naturally from the learning process using only a sparse binary reward.\n\n| Model | Success (Sim) | Success (Real) | Trials (Real) |\n| --- | --- | --- | --- |\n| LSTM | 0.91±0.03\\\\boldsymbol{0.91\\\\pm 0.03} | 0.89±0.06\\\\boldsymbol{0.89\\\\pm 0.06} | 2828 |\n| FF no Rand | 0.51±0.050.51\\\\pm 0.05 | 0.0±0.00.0\\\\pm 0.0 | 1010 |\n| FF | 0.83±0.040.83\\\\pm 0.04 | 0.67±0.140.67\\\\pm 0.14 | 1212 |\n| FF + Hist | 0.87±0.030.87\\\\pm 0.03 | 0.70±0.100.70\\\\pm 0.10 | 2020 |\n\nTABLE II: Performance of the policies when deployed on the simulated and real robot. Performance in simulation is evaluated over 100 trials with randomized dynamics parameters.\n\n| Model | Success | Trials |\n| --- | --- | --- |\n| all | 0.89±0.06\\\\boldsymbol{0.89\\\\pm 0.06} | 2828 |\n| fixed action timestep | 0.29±0.110.29\\\\pm 0.11 | 1717 |\n| no observation noise | 0.25±0.120.25\\\\pm 0.12 | 1212 |\n| fixed link mass | 0.64±0.100.64\\\\pm 0.10 | 2222 |\n| fixed puck friction | 0.48±0.100.48\\\\pm 0.10 | 2727 |\n\nTABLE III: Performance of LSTM policies on the real robot, where the policies are trained with subsets of parameters held fixed."
+      },
+      {
+        "partId": "p-adaptation",
+        "citationId": "peng-2018",
+        "sourceUrl": "https://arxiv.org/html/1710.06537v3",
+        "supportingPassage": "### IV-DAdaptive Policy\n\nManipulation tasks, such as pushing, have a strong dependency on the physical properties of the system (e.g. mass, friction, and characteristics of the actuators). In order to determine the appropriate actions, a policy requires some means of inferring the underlying dynamics of its environment. While the dynamics parameters are readily available in simulation, the same does not hold once a policy has been deployed in the real world. In the absence of direct knowledge of the parameters, the dynamics can be inferred from a history of past states and actions. System identification using a history of past trajectories has been previously explored by Yu et al. \\[ [24](https://arxiv.org/html/1710.06537v3#bib.bib24 \"\")\\]. Their system incorporates an online system identification module ϕ⁡(st,ht)=μ^\\\\phi(s\\_{t},h\\_{t})=\\\\hat{\\\\mu}, which utilizes a history of past states and actions ht=\\[at−1,st−1,at−2,st−2,…\\]h\\_{t}=\\[a\\_{t-1},s\\_{t-1},a\\_{t-2},s\\_{t-2},...\\] to predict the dynamics parameters μ\\\\mu. The predicted parameters are then used as inputs to a universal policy that samples an action according to the current state and inferred dynamics π⁡(at\\|st,μ^)\\\\pi(a\\_{t}\\|s\\_{t},\\\\hat{\\\\mu}). However, this decomposition requires identifying the dynamics parameters of interest to be predicted at runtime, which may be difficult for more complex systems. Constructing such a set of parameters necessarily requires some structural assumptions about the dynamics of a system, which may not hold in the real world. Alternatively, SysID can be implicitly embedded into a policy by using a recurrent model π⁡(at\\|st,zt,g)\\\\pi(a\\_{t}\\|s\\_{t},z\\_{t},g), where the internal memory zt=z⁡(ht)z\\_{t}=z(h\\_{t}) acts as a summary of past states and actions, thereby providing a mechanism with which the policy can use to infer the dynamics of the system. This model can then be trained end-to-end and the representation of the internal memory can be learned without requiring manual identification of a set of dynamics parameters to be inferred at runtime."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "p-objective",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: IV: expected return across distribution, not universal peak loss. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 8aadfb05401927078617bc4c4b10c763329371c6d58debf640fecfbe7cf7051e. Expected-return objective, task-specific randomization ablations and recurrent history inference replace universal cost/absence claims. All source-attributing toy prose, feedback and comments are corrected; toy constants remain local assumptions. This is zero credit for held transfer23, not an external-passage/local-proof contract exemption.",
+        "evidenceDigest": "662be2d72bca2b4c80828449819fd22dd9823a0692d2392486c40130ce17b3e0"
+      },
+      {
+        "partId": "p-ablations",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: V-B/C and Tables II/III: task-specific real comparisons, not a universal tradeoff. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 271456be2d395226ae9cf3263d40ed79088f4959f41b4bf1920000ec829faa56. Expected-return objective, task-specific randomization ablations and recurrent history inference replace universal cost/absence claims. All source-attributing toy prose, feedback and comments are corrected; toy constants remain local assumptions. This is zero credit for held transfer23, not an external-passage/local-proof contract exemption.",
+        "evidenceDigest": "1a7ec5e67dce6c23a2425742d7a6891fe8ef54c841dce62d4c97466bee6d3db9"
+      },
+      {
+        "partId": "p-adaptation",
+        "outcome": "supported",
+        "reviewedBy": "agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator",
+        "rationale": "Current claim part: IV-D: recurrent memory infers dynamics from past observations. Checked the actual retained primary passage, source identity and surrounding setup/qualifiers; literal binding 647b6f430e6823a814e52f3ad847bcf0b2c7bf69803c286a98c0ef0698310bac. Expected-return objective, task-specific randomization ablations and recurrent history inference replace universal cost/absence claims. All source-attributing toy prose, feedback and comments are corrected; toy constants remain local assumptions. This is zero credit for held transfer23, not an external-passage/local-proof contract exemption.",
+        "evidenceDigest": "d266721b2544e7333a877821f7ff3498693a2e2ec772d783955d4d860890b76c"
+      }
+    ]
   }
 ]

@@ -32,7 +32,7 @@ The [previous module](/rl-sim2real/parallel-sim-rl) ended with a policy that wal
 
 Four method families do the work. <Term id="domain-randomization">Domain randomization</Term> trains over a distribution of simulators so the real world reads as one more sample. <Term id="teacher-student-distillation">Teacher-student distillation</Term> trains on privileged simulator state, then compresses that knowledge into a policy that sees only what the robot sees. <Term id="system-identification">System identification</Term> measures the dynamics gap and corrects the model directly. Real-to-sim reconstruction rebuilds the deployment scene inside the simulator so the visual gap shrinks to rendering error. The 2026 reality-gap survey organizes the field into nearly these same buckets, adding sim-real co-training and state/action abstraction as cross-cutting levers <Cite id="reality-gap-survey-2026" />.
 
-The first family's central trade is below. Drag the real robot friction line off the training point and the ranking inverts, the specialist collapsing where the generalist holds. Then widen the randomization half-width and watch the plateau sink: coverage and peak performance pull against each other, and the slider only moves along that frontier.
+The figure below is a deterministic toy, not a learned policy or a measured robot benchmark. Drag the selected friction to compare the two authored curves. Widening the half-width lowers the plateau because that relationship is built into this model, not because the cited papers establish a universal tradeoff.
 
 <FrictionTransfer className="my-6" />
 
@@ -45,41 +45,40 @@ The first family's central trade is below. Drag the real robot friction line off
 
 ## Domain randomization: train on a distribution of simulators
 
-The idea dates to two 2017 results. Tobin and colleagues randomized rendering (textures, lighting, camera pose) and showed a detector trained only on non-realistic simulated images could localize objects to 1.5 cm on a real arm <Cite id="tobin-2017" />. Peng and colleagues randomized dynamics instead (mass, inertia, friction) and transferred a pushing policy to hardware with no real-world training, robust to significant calibration error <Cite id="peng-2018" />. With enough variability in the simulator, the real world may appear to the model as just another variation, as Tobin's abstract puts it.
+These two papers address different parts of transfer. Tobin and colleagues randomized textures, lighting and camera pose for tabletop object localization. They summarize real-world localization accuracy as around 1.5 cm, evaluated on 480 webcam images of eight geometric objects in object-only, distractor and partial-occlusion conditions. The paper reports the best network after a small hyperparameter search; the approximate 1.5 cm summary is not a bound for every object or condition. Most experiments used ImageNet initialization, but an ablation found that random initialization could achieve nearly the same transfer performance with enough simulated training data. The detector was also used with a motion planner on a Fetch robot <Cite id="tobin-2017" />. Peng and colleagues randomized link mass, joint damping, puck mass/friction/damping, table height, controller gains, action timing and observation noise. A recurrent policy trained only in simulation transferred to a seven-DoF Fetch arm pushing a puck to a target. Real evaluation used motion capture for puck position, 200 control steps per episode, and success within 7 cm of the target at the end of the episode; target and initial puck positions were randomized within a 30 cm by 30 cm area. The authors report substantial simulated-versus-real joint-trajectory mismatch after limited calibration, not an absence of calibration <Cite id="peng-2018" />. With enough variability in the simulator, the real world may appear to the model as just another variation, as Tobin's abstract puts it.
 
 OpenAI's Rubik's-cube system added the <Term id="curriculum-learning">curriculum</Term> version: automatic domain randomization widens the randomization range as the agent succeeds, so the distribution grows with the policy's competence <Cite id="openai-rubiks-cube-2019" />. Isaac Lab ships ADR as a configurable curriculum with reference configs in its dexterous-manipulation examples <Cite id="isaac-lab-2025" />.
 
-Two details rarely make it into the textbook version. First, the plumbing: in the 2025 Isaac Lab v1 paper, simulation state is GPU-resident but mass, friction, contact offsets, and joint armature are modified through PhysX CPU APIs. Most other physics parameters can be randomized at runtime, while mesh scale and collider type can change only before simulation starts. CPU parameter writes do not mean randomization is restricted to episode resets<br />Source: <Cite id="isaac-lab-2025" />. Second, the cost: randomizing over a wide dynamics distribution produces a policy that is optimal for none of them. DR buys a wider basin of transfer at the price of peak performance, and papers almost never quantify the price.
+Two details rarely make it into the textbook version. First, the plumbing: in the 2025 Isaac Lab v1 paper, simulation state is GPU-resident but mass, friction, contact offsets, and joint armature are modified through PhysX CPU APIs. Most other physics parameters can be randomized at runtime, while mesh scale and collider type can change only before simulation starts. CPU parameter writes do not mean randomization is restricted to episode resets<br />Source: <Cite id="isaac-lab-2025" />. Second, the objective: Peng and colleagues maximize expected return over a distribution of dynamics models and evaluate randomization ablations on their Fetch pushing task <Cite id="peng-2018" />. The friction chart below instead imposes its peak-versus-width relation by construction; it is not a measured performance frontier.
 
-That price is what the figure at the top of this module plots. The gray spike is a policy trained at one friction; the blue plateau is a policy trained over the shaded distribution.
+The figure draws a point-trained-policy toy curve and a distribution-trained-policy toy curve. No policy is trained here. The shaded interval marks the assumed training range, not uncertainty or a confidence interval.
 
 <Callout variant="warn" title="How to read this chart">
-  Both curves are an illustrative model, not a benchmark. The sourced facts are the framing (Tobin and Peng's randomization results, ADR's widening curriculum, the CPU-API constraint) and the qualitative shape, which every DR paper reports: specialists win at the training point and lose away from it. The specific success values are schematic.
+  Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula. Tobin and Peng support the visual and dynamics randomization framing, not these constants or a universal curve shape <Cite id="tobin-2017" /> <Cite id="peng-2018" />.
 </Callout>
 
 <PredictThenReveal
-  prompt="Widen the friction randomization range and the DR plateau covers more ground. What happens to the plateau's peak at the training friction while the range widens?"
+  prompt="In this authored toy, what happens to the DR plateau when its half-width increases?"
   options={[
     {
       value: 'both-ways',
-      label: 'The plateau widens and its peak sinks, so coverage and peak trade against each other along one frontier',
-      why: 'Randomizing over a wide dynamics distribution produces a policy that is optimal for none of it: DR buys a wider basin of transfer at the price of peak performance, a cost the papers almost never quantify. In the figure, the widest range holds 57% where the stock range holds 74%.',
-      cite: 'peng-2018'
+      label: 'The plateau widens and its peak falls because the formula makes it do so',
+      why: 'The local formula is peak = 0.93 - 0.55 × half-width. It gives 0.7375 at half-width 0.35 and 0.5725 at 0.65, displayed as 74% and 57%. These are authored values, not Peng paper results.'
     },
     {
       value: 'monotone-up',
-      label: 'Coverage typically grows and the peak holds or rises too, since more training variety rarely hurts the trained policy at its own training point',
-      why: 'This is the monotone-improvement reading, and the figure is built to break it. The distribution-trained policy spreads its capacity across the range it is trained over; concentrating it back at one friction is what earned the specialist its 97% spike in the first place.'
+      label: 'The plateau widens and its peak rises as the half-width increases',
+      why: 'Not in this toy: the half-width has a negative coefficient in the plateau-height formula. This answer is about that formula, not about all randomized policies.'
     },
     {
       value: 'peak-flat',
-      label: 'The peak usually stays roughly flat: the extra range is coverage the policy gets for free, and the training distribution widens without changing the midpoint',
-      why: 'Free coverage is the sales pitch, not the mechanics. The plateau’s height is set by how much of the distribution the policy can serve near-optimally; widen the range and the same capacity is spread thinner, which is exactly the sink the widest setting shows.'
+      label: 'The plateau widens but its peak stays unchanged as half-width increases',
+      why: 'The peak would stay unchanged only under a different formula. This toy explicitly couples its height to the selected half-width.'
     }
   ]}
   answer="both-ways"
-  revealHint="The chart is mounted at the widest randomization range of 0.65 around the training point: the plateau spans most of the axis and tops out at 57 percent. Drag the half-width slider down toward its minimum and watch the peak climb as the plateau narrows."
-  takeaway="Widening the randomization range buys coverage and pays for it in peak: the plateau spans more frictions at a lower success rate, not the same rate over more ground."
+  revealHint="This panel starts at friction 0.80 and half-width 0.65, where the authored DR height rounds to 57%. Reset restores those starting values; the earlier panel resets its half-width to 0.35."
+  takeaway="The slider demonstrates an assumed peak-versus-width relationship, not a measured law of domain randomization."
 >
   <FrictionTransfer defaultRange={0.65} className="mt-3" />
 </PredictThenReveal>
@@ -119,7 +118,7 @@ The survey adds two cross-cutting options that rarely get headline systems. Sim-
 
 ## Where each family breaks
 
-Each family's failure mode is worth holding onto. Domain randomization's conservatism cost is real and almost never quantified in the papers that rely on it. Teacher-student distillation bottoms out at partial observability when the privileged variable leaves no trace in the student's history. Delta-action correction is valid only near the trajectories it was fit on. Real-to-sim twins freeze the scene they captured.
+Each family's failure mode is worth holding onto. The friction chart's conservatism cost is an authored assumption, not an empirical result of the cited papers. Teacher-student distillation bottoms out at partial observability when the privileged variable leaves no trace in the student's history. Delta-action correction is valid only near the trajectories it was fit on. Real-to-sim twins freeze the scene they captured.
 
 <SelfCheck
   prompt="Which RMA component estimates behavior-relevant latent extrinsics from recent state-action history, while the deployed base policy uses the latest estimate?"
@@ -127,7 +126,7 @@ Each family's failure mode is worth holding onto. Domain randomization's conserv
     {
       value: 'dr-wide',
       label: 'Domain randomization over a very wide friction range',
-      why: 'This buys a wider basin of transfer at the price of peak performance: the trained policy is optimal for none of the simulated frictions, and the cost is almost never quantified in the papers that rely on it. It also never acts on the actual friction under the feet; it tolerates it.'
+      why: 'A wide training distribution is not itself an observation of current terrain friction. Peng and colleagues use recurrent memory to infer dynamics from past states and actions; the friction chart here contains no such adaptation process.'
     },
     {
       value: 'latent-adaptation',
