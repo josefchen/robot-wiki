@@ -7547,8 +7547,8 @@ export const CITATIONS: Citation[] = [
     // 82-90, December 2006. Part number and year verified against the
     // record rather than assumed.
     id: 'chaumette-hutchinson-2006',
-    title: 'Visual servo control. I. Basic approaches',
-    authors: ['Francois Chaumette', 'Seth Hutchinson'],
+    title: 'Visual Servo Control, Part I: Basic Approaches',
+    authors: ['François Chaumette', 'Seth Hutchinson'],
     year: 2006,
     venue: 'IEEE Robotics and Automation Magazine',
     url: 'https://doi.org/10.1109/MRA.2006.250573',
@@ -7558,8 +7558,8 @@ export const CITATIONS: Citation[] = [
     // Crossref 10.1109/MRA.2007.339609 read 2026-08-22: IEEE RAM 14(1),
     // 109-118, March 2007. Part II is a 2007 issue, not 2006.
     id: 'chaumette-hutchinson-2007',
-    title: 'Visual servo control. II. Advanced approaches',
-    authors: ['Francois Chaumette', 'Seth Hutchinson'],
+    title: 'Visual Servo Control, Part II: Advanced Approaches',
+    authors: ['François Chaumette', 'Seth Hutchinson'],
     year: 2007,
     venue: 'IEEE Robotics and Automation Magazine',
     url: 'https://doi.org/10.1109/MRA.2007.339609',

@@ -581,7 +581,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'visual-servoing',
     term: 'visual servoing',
     definition:
-      'Closing the control loop directly on image features rather than on an estimated object pose: define an error in the image, between where features are and where they should be, and drive the robot down that error using the interaction matrix relating feature velocity to camera velocity. Espiau, Chaumette and Rives gave the task-function formulation the field still uses. The appeal for manipulation is that it skips pose estimation entirely, so a calibration error that would bias a pose estimate instead only bends the path the robot takes to a still-correct final configuration.',
+      'Using computer vision data to control a robot\'s motion. Image-based visual servoing (IBVS) uses image features in its error; position-based visual servoing (PBVS) uses estimated pose parameters. Espiau, Chaumette and Rives gave the task-function formulation the field still uses. IBVS is not universally pose- or calibration-free: its point-feature interaction matrix uses depth and camera intrinsics. Under the tutorial\'s local stability conditions, coarse estimates can perturb a convergent camera path without changing the final pose reached, but poor estimates can cause instability and large displacements can encounter singularities or local minima. PBVS pose errors can also affect final accuracy.',
     citations: ['espiau-1992', 'chaumette-hutchinson-2006'],
   },
   {

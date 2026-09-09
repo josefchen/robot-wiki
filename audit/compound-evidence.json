@@ -30120,5 +30120,534 @@
         "evidenceDigest": "24f8140fd1c435e9407b9e048b5e1fcbb966a6c6a92a1aee141fb9a19fe6398b"
       }
     ]
+  },
+  {
+    "id": "perception-visual-servoing-56-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 56,
+    "originalCellsDigest": "23f8fda5539b69652719c55692fea518d877fac4ee4e7163e5a6ffde29a69b59",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ibvs-pbvs-error",
+        "text": "IBVS image features versus PBVS estimated pose in the error.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2006"
+        ]
+      },
+      {
+        "id": "matrix-depth-calibration",
+        "text": "IBVS point interaction-matrix estimates require depth/intrinsics, with current/desired variants.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2006"
+        ]
+      },
+      {
+        "id": "local-conditions",
+        "text": "Local stability depends on the positivity condition, full rank and estimates not too coarse; outside the neighborhood local minima remain possible.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2006"
+        ]
+      },
+      {
+        "id": "calibration-trajectory",
+        "text": "Coarse estimates perturb convergent IBVS paths, whereas poor estimates may destabilize the system; PBVS pose bias affects final accuracy.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2006"
+        ]
+      },
+      {
+        "id": "limits-and-nonmeasurement",
+        "text": "Singularities, ambiguous zero-error poses and noiseless simulation examples prevent universal or measured calibration-error guarantees.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2006"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+      "planDigest": "daf3f822f4cabb5bbbe135f896c9275f63118ceaa898c0709b27180483e55931",
+      "rationale": "Reviewed every one of 5 AND parts and 5 paired items against preserved source text and countercontext at 2026-09-09T00:40:05.731Z; all parts jointly cover the corrected tuple and coupled product endpoints. Original labels are historical leads, not proof. No source/date/acceptance scope expansion."
+    },
+    "evidence": [
+      {
+        "partId": "ibvs-pbvs-error",
+        "citationId": "chaumette-hutchinson-2006",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2006_ieee_ram_chaumette.pdf",
+        "supportingPassage": "I-goal-and-features (printed p. 82):\nIn Part I of the tutorial (this article), we consider the case\nof a fixed goal pose and a motionless target, i.e., s∗ is constant,\nand changes in s depend only on camera motion. Further, we\nconsider here the case of controlling the motion of a camera\nwith six degrees of freedom (6 DOF); e.g., a camera attached\nto the end effector of a six degree-of-freedom arm. We will\ntreat more general cases in Part II of the tutorial.\nVisual servoing schemes mainly differ in the way that s is\ndesigned. In this article, we will see two very different\napproaches. First, we describe image-based visual servo control (IBVS), in which s consists of a set of features that are\nimmediately available in the image data. Then, we describe\nposition-based visual servo control (PBVS), in which s consists of a set of 3-D parameters, which must be estimated from\nimage measurements."
+      },
+      {
+        "partId": "matrix-depth-calibration",
+        "citationId": "chaumette-hutchinson-2006",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2006_ieee_ram_chaumette.pdf",
+        "supportingPassage": "I-depth-calibration (printed p. 83):\nIn the matrix Lx , the value Z is the depth of the point relative\nto the camera frame. Therefore, any control scheme that uses\nthis form of the interaction matrix must estimate or approximate the value of Z . Similarly, the camera intrinsic parameters\nare involved in the computation of x and y. Thus, Lx cannot\nbe directly used in (4), and an estimation or an approximation\nL\u0006x must be used. We discuss this in more detail below.\n\nI-estimate-options (printed p. 83):\nApproximating the Interaction Matrix\nThere are several choices available for constructing the esti+ to be used in the control law. One popular scheme\n\u0001\nmate L\ne\n+ = L+ if L = L is known; that\n\u0001\nis, of course, to choose L\ne\nx\ne\ne\nis, if the current depth Z of each point is available [7]. In\npractice, these parameters must be estimated at each iteration\nof the control scheme. The basic methods presented in this\narticle use classical pose estimation methods that will be\nbriefly presented in the next section. Another popular\nIEEE Robotics & Automation Magazine\n\n83\n\n\fIRISA/INRIA Rennes vue exterieure\n\nIRISA/INRIA Rennes vue exterieure\n\n(a)\n\n(b)\n\nIRISA/INRIA Rennes vue camera\n\n(c)\n\nFigure 1. An example of positioning task: (a) the desired camera pose with respect to a simple target, (b) the initial camera pose,\nand (c) the corresponding initial and desired image of the target.\n+ = L+∗ , where L ∗ is the value of\n\u0001\napproach is to choose L\ne\ne\ne\n+ is\n\u0001\nLe for the desired position e = e∗ = 0 [8]. In this case, L\ne\nconstant, and only the desired depth of each point has to be\nset, which means no varying 3-D parameters have to be estimated during the visual servo. Finally, the choice\n+ = 1/2(L + L ∗ )+ has recently been proposed in [9].\n\u0001\nL\ne\ne\ne\nSince Le is involved in this method, the current depth of\neach point must also be available.\nWe illustrate the behavior of these control schemes with an\nexample. The goal is to position the camera so that it observes a\nsquare as a centered square in the image (see Figure 1). We\n\n8\n4\n0\n−4\n−8\n0\n\n25\n\n50\n(b)\n\n(a)\n\n75\n\n100\n\n20\n0\n−20\n−20\n\n0\n\n20 0\n(c)\n\n20\n\n40\n\n60\n\nFigure 2. The system behavior using s = (x1 , y1 , . . . , x4 , y4 ) and\n+\n+\nL\u0001\ne = Le∗ : (a) image points trajectories including the trajectory of\nthe center of the square ,which is not used in the control scheme,\n(b) vc components (cm/s and dg/s) computed at each iteration of\nthe control scheme, and (c) 3-D trajectory of the camera optical\ncenter expressed in Rc∗ (cm).\n84\n\nIEEE Robotics & Automation Magazine\n\ndefine s to include the x and y coordinates of the four points\nforming the square. Note that the initial camera pose has been\nselected far away from the desired pose, particularly with regard\nto the rotational motions, which are known to be the most problematic for IBVS. In the simulations presented in the following,\nno noise or modeling errors have been introduced in order to\nallow comparison of different behaviors in perfect conditions."
+      },
+      {
+        "partId": "local-conditions",
+        "citationId": "chaumette-hutchinson-2006",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2006_ieee_ram_chaumette.pdf",
+        "supportingPassage": "I-local-stability (printed p. 89):\nwhich is known to be locally asymptotically stable in a neighborhood of e = e∗ = 0 if\n+ L > 0,\n\u0001\nL\ne e\n\n(20)\n\n+ L ∈ R6×6 . Indeed, only the linearized\n\u0001\nwhere L\ne e\n\u0001\n+ L e\u0001 has to be considered if we are inter\u0001\nsystem ė = −λL\ne e\nested in the local asymptotic stability [20].\nOnce again, if the features are chosen and the control\n+ are of full rank 6, then\n\u0001\nscheme designed so that Le and L\ne\ncondition (20) is ensured if the approximations involved in\n+ are not too coarse.\n\u0001\nL\ne\nTo end the demonstration of local asymptotic stability,\n\nI-local-neighborhood (printed p. 89):\nEven though local asymptotic stability can be ensured\nwhen k > 6, we cannot ensure global asymptotic stability.\nFor instance, as illustrated in Figure 9, there may exist local\nminima corresponding to configurations where\n+ , which are outside of the neighborhood con\u0001\ne ∈ Ker L\ne\nsidered above. Determining the size of the neighborhood\nwhere the stability and the convergence are ensured is still\nan open issue, even if this neighborhood is surprisingly\nquite large in practice."
+      },
+      {
+        "partId": "calibration-trajectory",
+        "citationId": "chaumette-hutchinson-2006",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2006_ieee_ram_chaumette.pdf",
+        "supportingPassage": "I-calibration-noise-tradeoff (printed p. 90):\nConclusions\nAt this point, one might wonder which of IBVS or PBVS is\nthe superior control strategy. As with most engineering questions, there is no definitive answer—only a set of performance\ntradeoffs to consider.\nAs for stability issues, we have seen that no strategy provides\nperfect properties. As for the 3-D parameters involved, a correct\nestimation is important in IBVS, since they appear in Le and\nthus in the stability condition (20). Poor estimation can thus\nmake the system unstable, but coarse estimations will only imply\nperturbations in the trajectory performed by the robot to reach\nits desired pose and will have no effect on the accuracy of the\npose reached. On the other hand, a correct estimation of the\npose is crucial in PBVS, since it appears both in the error e to be\nregulated to 0 and in Le . Coarse estimations will thus induce\nperturbations on the trajectory realized but will have also an\neffect on the accuracy of the pose reached after convergence.\nIn fact, in PBVS, the vision sensor is considered as a 3-D\nsensor. Since the control scheme imposes a behavior of s,\nwhich is here expressed in the Cartesian space, it allows the\ncamera to follow theoretically an optimal trajectory in that\nspace but generally not in the image space. When only one\nimage is used, even small errors in the image measurements\ncan lead to errors in the pose that can impact significantly the\naccuracy of the system. The main question with this approach\nis thus: Can a vision sensor be considered as a 3-D sensor?\nOn the other hand, in IBVS, the vision sensor is considered\nas a two-dimensional (2-D) sensor since the features are directly\nexpressed in the image space. That is more realistic when a\nmonocular camera is used, and this allows IBVS to be remarkably robust to errors in calibration and image noise. However,\nIBVS is not without its shortcomings. When the displacement\nto realize is large, the camera may reach a local minimum or\nmay cross a singularity of the interaction matrix. Furthermore,\nthe camera motion may follow unpredictable, often suboptimal\nCartesian trajectories, such as those discussed previously.\nEven if the two basic approaches presented and discussed in\nthis article give in practice satisfactory results in most cases, their\nrespective shortcomings have led to many works and improvements. Results in computer vision about 3-D reconstruction\nfrom two views have also been applied successfully, making the\nknowledge of the 3-D object model unnecessary. These different approaches will form one of the main points presented in\nPart II of this tutorial."
+      },
+      {
+        "partId": "limits-and-nonmeasurement",
+        "citationId": "chaumette-hutchinson-2006",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2006_ieee_ram_chaumette.pdf",
+        "supportingPassage": "I-singular-ambiguous (printed p. 83):\nTo control the 6 DOF, at least three points are necessary\n(i.e., we require k ≥ 6). If we use the feature vector\nx = (x1 ,x2 ,x3 ), by merely stacking interaction matrices for\nthree points we obtain\n\u0007\n\b\nLx1\nLx = Lx2 .\nLx3\nIn this case, there will exist some configurations for which Lx\nis singular [5]. Furthermore, there exist four distinct camera\nposes for which e = 0, i.e., four global minima exist, and it is\nimpossible to differentiate them [6]. For these reasons, more\nthan three points are usually considered.\n\nI-estimate-options (printed p. 83):\nApproximating the Interaction Matrix\nThere are several choices available for constructing the esti+ to be used in the control law. One popular scheme\n\u0001\nmate L\ne\n+ = L+ if L = L is known; that\n\u0001\nis, of course, to choose L\ne\nx\ne\ne\nis, if the current depth Z of each point is available [7]. In\npractice, these parameters must be estimated at each iteration\nof the control scheme. The basic methods presented in this\narticle use classical pose estimation methods that will be\nbriefly presented in the next section. Another popular\nIEEE Robotics & Automation Magazine\n\n83\n\n\fIRISA/INRIA Rennes vue exterieure\n\nIRISA/INRIA Rennes vue exterieure\n\n(a)\n\n(b)\n\nIRISA/INRIA Rennes vue camera\n\n(c)\n\nFigure 1. An example of positioning task: (a) the desired camera pose with respect to a simple target, (b) the initial camera pose,\nand (c) the corresponding initial and desired image of the target.\n+ = L+∗ , where L ∗ is the value of\n\u0001\napproach is to choose L\ne\ne\ne\n+ is\n\u0001\nLe for the desired position e = e∗ = 0 [8]. In this case, L\ne\nconstant, and only the desired depth of each point has to be\nset, which means no varying 3-D parameters have to be estimated during the visual servo. Finally, the choice\n+ = 1/2(L + L ∗ )+ has recently been proposed in [9].\n\u0001\nL\ne\ne\ne\nSince Le is involved in this method, the current depth of\neach point must also be available.\nWe illustrate the behavior of these control schemes with an\nexample. The goal is to position the camera so that it observes a\nsquare as a centered square in the image (see Figure 1). We\n\n8\n4\n0\n−4\n−8\n0\n\n25\n\n50\n(b)\n\n(a)\n\n75\n\n100\n\n20\n0\n−20\n−20\n\n0\n\n20 0\n(c)\n\n20\n\n40\n\n60\n\nFigure 2. The system behavior using s = (x1 , y1 , . . . , x4 , y4 ) and\n+\n+\nL\u0001\ne = Le∗ : (a) image points trajectories including the trajectory of\nthe center of the square ,which is not used in the control scheme,\n(b) vc components (cm/s and dg/s) computed at each iteration of\nthe control scheme, and (c) 3-D trajectory of the camera optical\ncenter expressed in Rc∗ (cm).\n84\n\nIEEE Robotics & Automation Magazine\n\ndefine s to include the x and y coordinates of the four points\nforming the square. Note that the initial camera pose has been\nselected far away from the desired pose, particularly with regard\nto the rotational motions, which are known to be the most problematic for IBVS. In the simulations presented in the following,\nno noise or modeling errors have been introduced in order to\nallow comparison of different behaviors in perfect conditions.\n\nI-calibration-noise-tradeoff (printed p. 90):\nConclusions\nAt this point, one might wonder which of IBVS or PBVS is\nthe superior control strategy. As with most engineering questions, there is no definitive answer—only a set of performance\ntradeoffs to consider.\nAs for stability issues, we have seen that no strategy provides\nperfect properties. As for the 3-D parameters involved, a correct\nestimation is important in IBVS, since they appear in Le and\nthus in the stability condition (20). Poor estimation can thus\nmake the system unstable, but coarse estimations will only imply\nperturbations in the trajectory performed by the robot to reach\nits desired pose and will have no effect on the accuracy of the\npose reached. On the other hand, a correct estimation of the\npose is crucial in PBVS, since it appears both in the error e to be\nregulated to 0 and in Le . Coarse estimations will thus induce\nperturbations on the trajectory realized but will have also an\neffect on the accuracy of the pose reached after convergence.\nIn fact, in PBVS, the vision sensor is considered as a 3-D\nsensor. Since the control scheme imposes a behavior of s,\nwhich is here expressed in the Cartesian space, it allows the\ncamera to follow theoretically an optimal trajectory in that\nspace but generally not in the image space. When only one\nimage is used, even small errors in the image measurements\ncan lead to errors in the pose that can impact significantly the\naccuracy of the system. The main question with this approach\nis thus: Can a vision sensor be considered as a 3-D sensor?\nOn the other hand, in IBVS, the vision sensor is considered\nas a two-dimensional (2-D) sensor since the features are directly\nexpressed in the image space. That is more realistic when a\nmonocular camera is used, and this allows IBVS to be remarkably robust to errors in calibration and image noise. However,\nIBVS is not without its shortcomings. When the displacement\nto realize is large, the camera may reach a local minimum or\nmay cross a singularity of the interaction matrix. Furthermore,\nthe camera motion may follow unpredictable, often suboptimal\nCartesian trajectories, such as those discussed previously.\nEven if the two basic approaches presented and discussed in\nthis article give in practice satisfactory results in most cases, their\nrespective shortcomings have led to many works and improvements. Results in computer vision about 3-D reconstruction\nfrom two views have also been applied successfully, making the\nknowledge of the 3-D object model unnecessary. These different approaches will form one of the main points presented in\nPart II of this tutorial."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ibvs-pbvs-error",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "Part I p.82 explicitly contrasts immediately available image features with estimated 3-D parameters and confines this treatment to a fixed goal and motionless target. This supports the error-coordinate distinction, not deletion of all pose/depth work.",
+        "evidenceDigest": "5b0f3ba1d6c3cefbb4877ff3050780138293008a40c5a02af86259ebfafabcbd"
+      },
+      {
+        "partId": "matrix-depth-calibration",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "Part I p.83 requires Z estimation or approximation and camera intrinsics for point interaction matrices. Current, desired and averaged alternatives have different depth requirements; no uncalibrated blanket claim is retained.",
+        "evidenceDigest": "a7df854eeea56bb38d12461a0275ec0be57b05eec3bd164f0b82f96f9eaf84c8"
+      },
+      {
+        "partId": "local-conditions",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "The local-stability section requires full rank and the positivity condition with estimates not too coarse. Its local neighborhood excludes a global convergence inference; additional features do not remove local minima.",
+        "evidenceDigest": "2dcfeb5b028405a4f2c49b34ba1097a2495d1a86888483b1b9287f2ce27ce098"
+      },
+      {
+        "partId": "calibration-trajectory",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "Part I distinguishes perturbed but convergent trajectories under coarse estimates from possible instability under poor estimates. PBVS pose-estimation bias affects final accuracy. The corrected text explicitly retains the conditional premise.",
+        "evidenceDigest": "67ef9273707b19c89158a5237a987613ed0d9b7b815e1863279e7375b5bfc410"
+      },
+      {
+        "partId": "limits-and-nonmeasurement",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "Part I singularities, local minima, multiple zero-error configurations and its noiseless simulation setting defeat universal convergence and measured arbitrary-noise claims. No local toy or safety result is inferred.",
+        "evidenceDigest": "7c2abb05d654b03a62bbb32216bdc4637a3c94e04983e73991155ea0b985aac9"
+      }
+    ]
+  },
+  {
+    "id": "perception-visual-servoing-57-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 57,
+    "originalCellsDigest": "66f03e9fa07c1fb534c4a693f06e78dfb3ebf1b5fdf59ec01494fc7e5ecece37",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "part-I-identity-and-scope",
+        "text": "Part I title/byline/year and basic IBVS/PBVS plus performance and stability.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2006"
+        ]
+      },
+      {
+        "id": "part-II-identity-and-scope",
+        "text": "Part II title/byline/year and advanced estimation, tracking, and joint-space scope.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2007"
+        ]
+      },
+      {
+        "id": "two-part-relationship",
+        "text": "The works explicitly describe themselves as the two parts of this tutorial, with Part I introducing basics and Part II extending them.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2006",
+          "chaumette-hutchinson-2007"
+        ]
+      },
+      {
+        "id": "advanced-methods-and-limits",
+        "text": "Hybrid, partitioned, optimization, switching and trajectory-planning sections; named conditional results and conflicts remain scoped.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2007"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+      "planDigest": "bba157ac32a8cf15a08ccfffad7598aa80b974bb64fa02c61f1fbcb7c1d2cbbd",
+      "rationale": "Reviewed every one of 4 AND parts and 5 paired items against preserved source text and countercontext at 2026-09-09T00:40:05.731Z; all parts jointly cover the corrected tuple and coupled product endpoints. Original labels are historical leads, not proof. No source/date/acceptance scope expansion."
+    },
+    "evidence": [
+      {
+        "partId": "part-I-identity-and-scope",
+        "citationId": "chaumette-hutchinson-2006",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2006_ieee_ram_chaumette.pdf",
+        "supportingPassage": "I-identity-basic (printed p. 82):\nVisual Servo Control\nPart I: Basic Approaches\nBY FRANÇOIS CHAUMETTE AND SETH HUTCHINSON\n\nhis article is the first of a two-part series on the topic\nof visual servo control—using computer vision data\nin the servo loop to control the motion of a robot. In\nthe present article, we describe the basic techniques that are\nby now well established in the field. We first give a general\noverview of the formulation of the visual servo control problem. We then describe the two archetypal visual servo control\nschemes: image-based and position-based visual servo control.\nFinally, we discuss performance and stability issues that pertain\nto these two schemes, motivating the second article in the\nseries, in which we consider advanced techniques.\n\nT\n\nIntroduction\n\nI-publication-imprint (printed p. 82):\n1070-9932/06/$20.00©2006 IEEE\n\nDECEMBER 2006\n\nI-local-stability (printed p. 89):\nwhich is known to be locally asymptotically stable in a neighborhood of e = e∗ = 0 if\n+ L > 0,\n\u0001\nL\ne e\n\n(20)\n\n+ L ∈ R6×6 . Indeed, only the linearized\n\u0001\nwhere L\ne e\n\u0001\n+ L e\u0001 has to be considered if we are inter\u0001\nsystem ė = −λL\ne e\nested in the local asymptotic stability [20].\nOnce again, if the features are chosen and the control\n+ are of full rank 6, then\n\u0001\nscheme designed so that Le and L\ne\ncondition (20) is ensured if the approximations involved in\n+ are not too coarse.\n\u0001\nL\ne\nTo end the demonstration of local asymptotic stability,"
+      },
+      {
+        "partId": "part-II-identity-and-scope",
+        "citationId": "chaumette-hutchinson-2007",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2007_ieee_ram_chaumette.pdf",
+        "supportingPassage": "II-identity-advanced (printed p. 109):\nVisual Servo Control\nPart II: Advanced Approaches\n\nT\n\nhis article is the second of a two-part tutorial on\nvisual servo control. In Part I (IEEE Robotics and\nAutomation Magazine, vol. 13, no. 4), we introduced\nfundamental concepts and descr ibed basic\napproaches. Here we discuss more advanced concepts, and present a number of recent approaches.\nAs described in Part I of the tutorial, visual servo schemes\nrely on the relationship\nṡ = Ls v c\n\n(1)\n\nin which s is a set of geometrical features whose time derivative ṡ is linearly related to the spatial velocity v c of the camera\nthrough the interaction matrix Ls . Using this relationship,\ncontrol schemes are designed to minimize the error e between\nthe current value of the visual feature s and its desired value\ns∗ : e = s − s∗ .\nA classical proportional control scheme is given by:\n+ e,\n\u0001\nv c = −λL\ne\n\n(2)\n\nė = Le v c ,\n\n(3)\n\n(IBVS), the depth of each point considered appears in the\ncoefficients of the interaction matrix related to the transla+\n+ =L\n\u0001\n\u0001\ntional motions. This is the case even when L\nis\ne∗\ne\nused in the control scheme, although in this case only the\ndepth Z ∗ of each point for the desired pose is needed,\nwhich is generally not difficult to obtain in practice. In all\nother cases, an estimation of the current depth must be\nmade at each iteration of the control scheme.\nWe begin Part II of the tutorial by describing two\napproaches to estimating the interaction matrix. First we\ndescribe how epipolar geometry can be used to estimate the\n3-D parameters, which can then be used to construct the\ninteraction matrix. We then describe how it is possible to esti+ . With these methods\n\u0001\nmate directly the numerical value of L\ne\nin hand, we then present more advanced techniques in visual\nservo control. These techniques aim to compensate for the\nrelative shortcomings of the PBVS and IBVS methods. We\nthen consider target tracking tasks, that is, tasks for which the\ntarget object is not stationary. Finally, we present a generalization of the modeling issues that allows one to consider both\neye-in-hand systems and eye-to-hand systems.\n\nwhere Le is defined by\n\nEstimation of 3-D Parameters\n\nII-byline-imprint (printed p. 109):\nBY FRANÇOIS CHAUMETTE AND SETH HUTCHINSON\n\nMARCH 2007\n\n1070-9932/07/$25.00©2007 IEEE\n\nIEEE Robotics & Automation Magazine 109\n\nII-final-scope (printed p. 117):\nConclusion\nIn this tutorial, we have only considered velocity controllers.\nIt is convenient for most of classical robot arms. However, the\ndynamics of the robot must of course be taken into account\nfor high speed tasks, or when we deal with mobile nonholonomic or underactuated robots. As for the sensor, we have\nonly considered geometrical features coming from a classical\nperspective camera. Features related to the image motion or\ncoming from other vision sensors (fish-eye camera, catadioptric camera, echographic probes, etc.) necessitate to revisit the\nmodeling issues to select adequate visual features. Finally, fusing visual features with data coming from other sensors (force\nsensor, proximetry sensors, etc.) at the level of the control\nscheme will allow to address new research topics. Numerous\nambitious applications of visual servoing can also be considered, as well as for mobile robots in indoor or outdoor environments, for aerial, space, and submarine robots, and in\nmedical robotics. The end of fruitful research in the field of\nvisual servo is thus nowhere yet in sight.\n\nKeywords"
+      },
+      {
+        "partId": "two-part-relationship",
+        "citationId": "chaumette-hutchinson-2006",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2006_ieee_ram_chaumette.pdf",
+        "supportingPassage": "I-identity-basic (printed p. 82):\nVisual Servo Control\nPart I: Basic Approaches\nBY FRANÇOIS CHAUMETTE AND SETH HUTCHINSON\n\nhis article is the first of a two-part series on the topic\nof visual servo control—using computer vision data\nin the servo loop to control the motion of a robot. In\nthe present article, we describe the basic techniques that are\nby now well established in the field. We first give a general\noverview of the formulation of the visual servo control problem. We then describe the two archetypal visual servo control\nschemes: image-based and position-based visual servo control.\nFinally, we discuss performance and stability issues that pertain\nto these two schemes, motivating the second article in the\nseries, in which we consider advanced techniques.\n\nT\n\nIntroduction"
+      },
+      {
+        "partId": "two-part-relationship",
+        "citationId": "chaumette-hutchinson-2007",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2007_ieee_ram_chaumette.pdf",
+        "supportingPassage": "II-identity-advanced (printed p. 109):\nVisual Servo Control\nPart II: Advanced Approaches\n\nT\n\nhis article is the second of a two-part tutorial on\nvisual servo control. In Part I (IEEE Robotics and\nAutomation Magazine, vol. 13, no. 4), we introduced\nfundamental concepts and descr ibed basic\napproaches. Here we discuss more advanced concepts, and present a number of recent approaches.\nAs described in Part I of the tutorial, visual servo schemes\nrely on the relationship\nṡ = Ls v c\n\n(1)\n\nin which s is a set of geometrical features whose time derivative ṡ is linearly related to the spatial velocity v c of the camera\nthrough the interaction matrix Ls . Using this relationship,\ncontrol schemes are designed to minimize the error e between\nthe current value of the visual feature s and its desired value\ns∗ : e = s − s∗ .\nA classical proportional control scheme is given by:\n+ e,\n\u0001\nv c = −λL\ne\n\n(2)\n\nė = Le v c ,\n\n(3)\n\n(IBVS), the depth of each point considered appears in the\ncoefficients of the interaction matrix related to the transla+\n+ =L\n\u0001\n\u0001\ntional motions. This is the case even when L\nis\ne∗\ne\nused in the control scheme, although in this case only the\ndepth Z ∗ of each point for the desired pose is needed,\nwhich is generally not difficult to obtain in practice. In all\nother cases, an estimation of the current depth must be\nmade at each iteration of the control scheme.\nWe begin Part II of the tutorial by describing two\napproaches to estimating the interaction matrix. First we\ndescribe how epipolar geometry can be used to estimate the\n3-D parameters, which can then be used to construct the\ninteraction matrix. We then describe how it is possible to esti+ . With these methods\n\u0001\nmate directly the numerical value of L\ne\nin hand, we then present more advanced techniques in visual\nservo control. These techniques aim to compensate for the\nrelative shortcomings of the PBVS and IBVS methods. We\nthen consider target tracking tasks, that is, tasks for which the\ntarget object is not stationary. Finally, we present a generalization of the modeling issues that allows one to consider both\neye-in-hand systems and eye-to-hand systems.\n\nwhere Le is defined by\n\nEstimation of 3-D Parameters"
+      },
+      {
+        "partId": "advanced-methods-and-limits",
+        "citationId": "chaumette-hutchinson-2007",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2007_ieee_ram_chaumette.pdf",
+        "supportingPassage": "II-hybrid-conditional (printed p. 111):\nAs for stability, it is clear that this scheme is globally asymptotically stable in perfect conditions (refer to the stability\n\n8\n4\n0\n\n\u0003\n\n−4\n\nLω ]\n\n−8\n0\n\nNow, setting ė t = −λe t , we can solve for the desired translational control input as\n−λe t = ė t = ṡ t = Lv v c + Lω ω c\n⇒ v c = −L+\nv (λe t + Lω ω c ).\n\n25\n\n50\n(b)\n\n(a)\n\n75\n\n100\n\n20\n0\n\n(8)\n\nWe can think of the quantity (λe t + Lω ω c ) as a modified\nerror term, one that combines the original error with the\nerror that would be induced by the rotational motion due to\nMARCH 2007\n\nω c . The translational control input v c = −L+\nv (λe t + Lω ω c )\nwill drive this error to zero.\nThe method known as two and one-half-dimensional (2 1/2D) Visual Servo [13] was the first to exploit such a partitioning in\ncombining IBVS and PBVS. More precisely, in [13], s t has been\nselected as the coordinates of an image point, and the logarithm\nof its depth, so that Lv is a triangular always invertible matrix.\nMore precisely, we have s t = (x, log Z ), s∗t = (x∗ , log Z ∗ ),\ne t = (x − x ∗ , log ρZ ) where ρZ = Z /Z ∗ , and\n\n−20\n−20\n\n0\n\n20 0\n(c)\n\n20\n\n40\n\n60\n\nFigure 1. System behavior using s = (xg , log (Z g ), θu).\nIEEE Robotics & Automation Magazine 111\n\n\fanalysis provided in the Part I of the tutorial: we are here in\nthe simple case k = 6). Furthermore, thanks to the triangular\nform of the interaction matrix Le , it has been possible to analyze the stability of this scheme in the presence of calibration\nerrors using the homography estimation approach [14]. Finally, the only unknown constant parameter involved in this\nscheme, that is Z ∗ , can be estimated on line using adaptive\ntechniques [15].\nOther hybrid schemes can be designed. For instance, in\n[16], the third component of s t is different and has been\nselected so that all the target points remain in the camera\nfield of view as far as possible.\n\nII-partitioned-control (printed p. 112):\nPartitioned Visual Servo\nThe hybrid visual servo schemes described previously have\nbeen designed to decouple the rotational motions from the\ntranslational ones by selecting adequate visual features defined\nin part in 2-D, and in part in 3-D (that is why they have been\ncalled 2 1/2-D visual servoing). This work has inspired some\nresearchers to find features that exhibit similar decoupling\nproperties but using only features expressed directly in the\nimage. More precisely, the goal is to find six features so that\neach of them is related to only one degree of freedom (in\nwhich case the interaction matrix is a diagonal matrix), the\nGrail being to find a diagonal interaction matrix whose elements are constant, as near as possible of the identity matrix,\nleading to a pure, direct, and simple linear control problem.\n\nII-redundancy-limits (printed p. 114):\nThe constraints considered to design the control scheme\nusing the optimal control approach may be contradictory in\n\n0\n50\n100\n150\n200\n250\n300\n350\n400\n450\n500\n0\n\n50 100 150 200 250 300 350 400 450 500\n\nFigure 4. Image feature trajectories for a rotation of 160◦\nabout the optical axis using a switched control scheme (initial\npoints position in blue and desired points position in red).\n\n114 IEEE Robotics & Automation Magazine\n\nsome cases, leading the system to fail due to local minima in\nthe objective function to be minimized. For example, it may\nhappen that the motion produced to move away from a robot\njoint limit is exactly the opposite of the motion produced to\nnear the desired pose, which results in a zero global motion.\nTo avoid this potential problem, it is possible to use the gradient projection method, which is classical in robotics. Applying\nthis method to visual servoing has been proposed in [25] and\n[23]. The approach consists in projecting the secondary constraints e s on the null space of the vision-based task e so that\nthey have no effect on the regulation of e to 0\n+e + P e ,\n\u0001\neg = L\ne s\ne\n\nwhere e g is the new global task considered and\n+L\n\u0001\n\u0002\n\u0002\nPe = (I6 − L\ne e ) is such that Le Pe e s = 0, ∀e s . Avoiding\nthe robot joint limits using this approach has been presented\nin [33]. However, when the vision-based task constrains all\nthe camera degrees of freedom, the secondary constraints cannot be considered since, when L\u0002e is of full rank 6, we have\nPe e s = 0, ∀e s . In that case, it is necessary to inject the constraints in a global objective function, such as navigation functions which are free of local minima [34], [35].\nSwitching Schemes\n\nII-switching-planning (printed p. 115):\nOther examples of temporal switching schemes can be\nfound, such as for instance the one developed in [37] to\nensure the visibility of the target observed.\nFeature Trajectory Planning\nIt is also possible to treat the optimization problem offline,\nduring a planning stage. In that case, several constraints can\nbe simultaneously taken into account, such as obstacle\navoidance [38], joint limit and occlusions avoidance, and\nensuring the visibility of the target [5]. The feature trajectories s∗ (t) that allow the camera to reach its desired pose\nwhile ensuring the constraints are satisfied are determined\nusing path planning techniques, such as the well known\npotential field approach."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "part-I-identity-and-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "The Part I source cover/body gives Visual Servo Control, Part I: Basic Approaches, François Chaumette and Seth Hutchinson, 2006. Its own performance/stability/failure analysis is explicit; it is not deferred wholesale to Part II.",
+        "evidenceDigest": "eecb625f6346b91f239ba642b6c1efb498fd118fcf91adb03a99c2925856f4e6"
+      },
+      {
+        "partId": "part-II-identity-and-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "Part II identifies the same accented byline, Advanced Approaches and 2007, and extends control, estimation, tracking and joint-space treatment. Existing canonical DOI URLs are preserved rather than equated with current author-host liveness.",
+        "evidenceDigest": "eb1b2cf483d324de8bf47367134c7937da47ef7845735470a59bfbd625f65b29"
+      },
+      {
+        "partId": "two-part-relationship",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "Both paired works explicitly relate Part I basics to Part II extensions. Reading both required source pairs establishes the tutorial relationship without suppressing Part I stability analysis.",
+        "evidenceDigest": "5157d35b5d543bb7a859d7088e97c9d2cfd13d0fb4db5b9d391c23cf1cb5320b"
+      },
+      {
+        "partId": "advanced-methods-and-limits",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "Part II treats hybrid/partitioned, optimization, switching and trajectory planning. Their conditional benefits and competing visibility/joint/trajectory constraints do not establish universal stability or constraint satisfaction.",
+        "evidenceDigest": "cd35b797611263ba4519180626c38a82261a21fc99343917bf7ab9f381e11570"
+      }
+    ]
+  },
+  {
+    "id": "perception-visual-servoing-58-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 58,
+    "originalCellsDigest": "ff381ab56eb02f3186b9ee8ed688ca028d6e32ba50cdd56ecd935dc80fd16de1",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "feature-and-view-scope",
+        "text": "Visibility and measurement association belong to the chosen feature construction, illustrated by stereo observations and current/desired matching.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2006",
+          "chaumette-hutchinson-2007"
+        ]
+      },
+      {
+        "id": "visibility-techniques",
+        "text": "Part II presents qualified feature design and target-visibility switching/trajectory planning including occlusions and joint limits.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2007"
+        ]
+      },
+      {
+        "id": "view-loss-counterexample",
+        "text": "Even a perfectly estimated PBVS camera trajectory may allow points to leave the camera view.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2006"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+      "planDigest": "712315c8cee590ac4870ef570ddb440ecb0280b492f29382a0e3aecd0fc0380b",
+      "rationale": "Reviewed every one of 3 AND parts and 4 paired items against preserved source text and countercontext at 2026-09-09T00:40:05.731Z; all parts jointly cover the corrected tuple and coupled product endpoints. Original labels are historical leads, not proof. No source/date/acceptance scope expansion."
+    },
+    "evidence": [
+      {
+        "partId": "feature-and-view-scope",
+        "citationId": "chaumette-hutchinson-2006",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2006_ieee_ram_chaumette.pdf",
+        "supportingPassage": "I-stereo-visibility (printed p. 85):\nIBVS with a Stereovision System\nIt is straightforward to extend the IBVS approach to a multicamera system. If a stereovision system is used, and a 3-D\npoint is visible in both left and right images (see Figure 6), it is\npossible to use as visual features"
+      },
+      {
+        "partId": "feature-and-view-scope",
+        "citationId": "chaumette-hutchinson-2007",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2007_ieee_ram_chaumette.pdf",
+        "supportingPassage": "II-matches-degeneracy (printed p. 110):\nEpipolar Geometry\nGiven a set of matches between the image measurements in\nthe current image and in the desired one, the fundamental\nmatrix, or the esential matrix if the camera is calibrated, can\nbe recovered [1], and then used in visual servoing [2]. Indeed,\nfrom the essential matrix, the rotation and the translation up\nto a scalar factor between the two views can be estimated.\nHowever, near the convergence of the visual servo, that is\nwhen the current and desired images are similar, the epipolar\ngeometry becomes degenerate and it is not possible to estimate accurately the partial pose between the two views. For\nthis reason, using homography is generally prefered."
+      },
+      {
+        "partId": "visibility-techniques",
+        "citationId": "chaumette-hutchinson-2007",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2007_ieee_ram_chaumette.pdf",
+        "supportingPassage": "II-hybrid-conditional (printed p. 111):\nAs for stability, it is clear that this scheme is globally asymptotically stable in perfect conditions (refer to the stability\n\n8\n4\n0\n\n\u0003\n\n−4\n\nLω ]\n\n−8\n0\n\nNow, setting ė t = −λe t , we can solve for the desired translational control input as\n−λe t = ė t = ṡ t = Lv v c + Lω ω c\n⇒ v c = −L+\nv (λe t + Lω ω c ).\n\n25\n\n50\n(b)\n\n(a)\n\n75\n\n100\n\n20\n0\n\n(8)\n\nWe can think of the quantity (λe t + Lω ω c ) as a modified\nerror term, one that combines the original error with the\nerror that would be induced by the rotational motion due to\nMARCH 2007\n\nω c . The translational control input v c = −L+\nv (λe t + Lω ω c )\nwill drive this error to zero.\nThe method known as two and one-half-dimensional (2 1/2D) Visual Servo [13] was the first to exploit such a partitioning in\ncombining IBVS and PBVS. More precisely, in [13], s t has been\nselected as the coordinates of an image point, and the logarithm\nof its depth, so that Lv is a triangular always invertible matrix.\nMore precisely, we have s t = (x, log Z ), s∗t = (x∗ , log Z ∗ ),\ne t = (x − x ∗ , log ρZ ) where ρZ = Z /Z ∗ , and\n\n−20\n−20\n\n0\n\n20 0\n(c)\n\n20\n\n40\n\n60\n\nFigure 1. System behavior using s = (xg , log (Z g ), θu).\nIEEE Robotics & Automation Magazine 111\n\n\fanalysis provided in the Part I of the tutorial: we are here in\nthe simple case k = 6). Furthermore, thanks to the triangular\nform of the interaction matrix Le , it has been possible to analyze the stability of this scheme in the presence of calibration\nerrors using the homography estimation approach [14]. Finally, the only unknown constant parameter involved in this\nscheme, that is Z ∗ , can be estimated on line using adaptive\ntechniques [15].\nOther hybrid schemes can be designed. For instance, in\n[16], the third component of s t is different and has been\nselected so that all the target points remain in the camera\nfield of view as far as possible.\n\nII-switching-planning (printed p. 115):\nOther examples of temporal switching schemes can be\nfound, such as for instance the one developed in [37] to\nensure the visibility of the target observed.\nFeature Trajectory Planning\nIt is also possible to treat the optimization problem offline,\nduring a planning stage. In that case, several constraints can\nbe simultaneously taken into account, such as obstacle\navoidance [38], joint limit and occlusions avoidance, and\nensuring the visibility of the target [5]. The feature trajectories s∗ (t) that allow the camera to reach its desired pose\nwhile ensuring the constraints are satisfied are determined\nusing path planning techniques, such as the well known\npotential field approach."
+      },
+      {
+        "partId": "view-loss-counterexample",
+        "citationId": "chaumette-hutchinson-2006",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2006_ieee_ram_chaumette.pdf",
+        "supportingPassage": "I-PBVS-view-loss (printed p. 87):\nIn this case, as can be seen in Figure 8, if the pose parameters involved in (18) are perfectly estimated, the camera trajectory is a pure straight line, while the image trajectories are\nless satisfactory than before. Some particular configurations\ncan even be found so that some points leave the camera field\nof view."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "feature-and-view-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "Part I stereo observations and Part II current/desired matching are scoped feature-construction examples. The two paired sources support feature/view-dependent visibility and association, not an all-features/all-views universal rule.",
+        "evidenceDigest": "3b0440af970a88c82d71f997d9de1f547c2b84782ac71ec0b14a930ec19ba400"
+      },
+      {
+        "partId": "visibility-techniques",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "Part II discusses switching and planning to address visibility, occlusions and joint limits. Qualified as techniques, not proof that visibility is automatic or all constraints jointly satisfiable.",
+        "evidenceDigest": "9de18204e26a5ea282046cfd7989eb3c1e692fe5b437dd1b887528e3cf614b7a"
+      },
+      {
+        "partId": "view-loss-counterexample",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "Part I PBVS examples show points leaving view even with a perfectly estimated camera trajectory. This directly counters a universal visibility guarantee and qualifies the adjacent techniques.",
+        "evidenceDigest": "4219edcaee80e62fd7d1878e23f1f780f8421ec6ba403536f4d4afd00641553e"
+      }
+    ]
+  },
+  {
+    "id": "classical-state-estimation-apollo-history-20260908-4",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "state-estimation",
+    "rowOrdinal": 4,
+    "originalCellsDigest": "ae97a0d88cdfcaf857ebd4f8673e2b2df1be2783d809ec678bed97a6a596c9b5",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "report-identity",
+        "text": "NASA TM-86847, exact title, Leonard A. McGee and Stanley F. Schmidt, November 1985.",
+        "requiredCitationIds": [
+          "mcgee-schmidt-1985"
+        ]
+      },
+      {
+        "id": "retrospective-scope",
+        "text": "The participants' recollections are limited and not an exhaustive priority history.",
+        "requiredCitationIds": [
+          "mcgee-schmidt-1985"
+        ]
+      },
+      {
+        "id": "ames-extension",
+        "text": "Schmidt and his Ames staff adapted linear filtering to nonlinear navigation, developed relinearization about the best estimated state and separated time/measurement updates.",
+        "requiredCitationIds": [
+          "mcgee-schmidt-1985"
+        ]
+      },
+      {
+        "id": "early-simulation",
+        "text": "By early 1961 the simulation validated the EKF/guidance approach; flight-computer mechanization was not yet verified.",
+        "requiredCitationIds": [
+          "mcgee-schmidt-1985"
+        ]
+      },
+      {
+        "id": "mit-apollo",
+        "text": "Battin continued the Apollo work at MIT; Potter's square-root implementation was used in Apollo, with the random-forcing limitation retained.",
+        "requiredCitationIds": [
+          "mcgee-schmidt-1985"
+        ]
+      },
+      {
+        "id": "ground-primary",
+        "text": "The report says primary Apollo navigation used ground radar and the spacecraft carried a backup system.",
+        "requiredCitationIds": [
+          "mcgee-schmidt-1985"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+      "planDigest": "5f04b91527fa765fde7959798e315a73e37769d7f845bd82cf9d865c5b97eeef",
+      "rationale": "Reviewed every one of 6 AND parts and 6 paired items against preserved source text and countercontext at 2026-09-09T00:40:05.731Z; all parts jointly cover the corrected tuple and coupled product endpoints. Original labels are historical leads, not proof. No source/date/acceptance scope expansion."
+    },
+    "evidence": [
+      {
+        "partId": "report-identity",
+        "citationId": "mcgee-schmidt-1985",
+        "sourceUrl": "https://ntrs.nasa.gov/api/citations/19860003843/downloads/19860003843.pdf",
+        "supportingPassage": "NASA   Techmcal   Memorandum    86847\n\n\n\n\n  Discovery of the Kalman Filter as\n  a Practical Tool for Aerospace and\n  Industry\n  Leonard A. McGee and Stanley F. Schmidt\n\n :MASA-_N-6bS_7)         r,ISCOVERY    OF   IHE     K&L_&M\n_ILTS_     AS   A PBACTICA£      '_CCL EC_    At.ROSPACE      AND\nINL_Ub:_Y     {l_,a._A)  _/4 1: HC A_]2/MI;     A0l    CSCL   17G\n                                                                            Ui_c_3_\n                                                                    G3/O_   0_9u5\n\n\n\n\n  November   1985\n\n\n                                                              ,,;   _cc_sDe]'...._'"
+      },
+      {
+        "partId": "retrospective-scope",
+        "citationId": "mcgee-schmidt-1985",
+        "sourceUrl": "https://ntrs.nasa.gov/api/citations/19860003843/downloads/19860003843.pdf",
+        "supportingPassage": "This       history          of    Kalman          filtering           has       naturally            dwelt       on    the       events        that        took\nplace     at    _RC,          LMSC,       Philco-WDL,                and    Analytical            Mechanics            Associates,               Inc,         The\nrecording           of    those        events         is elmost             totally         dependent           on     the      recollections                 of     and\npersonal        contacts             made       by    the       authors.            Omissions            in    this       work,       of     which          there     are\nundoubtedly              some,       should          be    attributed              to    our     ignorance           of    some       pertinent              events,\nfailures        of       memory,          the     inevitable               limitations            of     time,       and       to    the     mushrooming\npublication              of    papers       about          the       Kalman        filter        which        has     taken         place     since          the     early\n1960's.         For       those        interested               in    further           details,         the    authors             counsel        a    perusal           of\nthe     various          references             cited       herein          and     of     the    many        other       papers          they     in turn           are\ncertain        to    suggest.\n\n\n\n\n                                                                                    18"
+      },
+      {
+        "partId": "ames-extension",
+        "citationId": "mcgee-schmidt-1985",
+        "sourceUrl": "https://ntrs.nasa.gov/api/citations/19860003843/downloads/19860003843.pdf",
+        "supportingPassage": "During          the early period,                      Dr. Schmidt           and his staff of researchers   at Ames                                           can\nbe     credited          with the following                      technical           breakthroughs  which led to this first                                            major\napplication               of    the       Kalman         filter.\n\n         I.        Demonstration                  that        Kalman's        original           theory         could        be    adapted           to nonlinear\nproblems.\n\n      2.           Development               of the extended Kalman                            filter,  which  linearized   about                              the\ncurrent           best estimate               of the state to reduce                            the effects   of nonlinearities                                in the\n\nproblem.\n\n         3.        Decomposition                  and        reformulation           of     Kalman's             original          algorithm               into    sepa-\nrate     time-update                  measurement-update                    portions            so    that      measurements                 could       b_    prcce_3_d\nat     any     arbitrary              time        interval.\n\n\n\n\n                                                                                     9\n                                                                                                                                                                                 %"
+      },
+      {
+        "partId": "early-simulation",
+        "citationId": "mcgee-schmidt-1985",
+        "sourceUrl": "https://ntrs.nasa.gov/api/citations/19860003843/downloads/19860003843.pdf",
+        "supportingPassage": "By    early        1961,        the       si_lation                program            had      been     used          extensively             co    validate                the\nextended         Kalman          filter        and       the        guidance            laws       we    had     developed.                   OUr     very      encouraging\nresults         indicated             that     on-board              optical            measurements                 combined           with        the     knowledge                of\nthe    equations            of    motion           could        yield        adequate              accuracy           for        the    circumlunar\nnavigation/guidance                      problem.               This        was        the     breakthrough                that        we     had     set    out          to\nachieve        at     the      beginning            when        we     had       selected            the midcourse                    navigation            and      guidance\nfor     the    circumlunar               mission           as       the     study        area        for       the     Dynamics              Analysis        Branch.                 At\nthat     time        it was       clear        that        we       had     achieved              a potentially                  significant              result             for\non-board         navigation              systems.               Our       studies            indicated           that          the     extended           Kalman             filter\nwculd        give     accuracies              comparable               to    those           of    weighted            least-square                 estimators,                 but\nwith     a tremendous                 reduction            in requirements                        for    on-board              computer            memory         and        compu-\ntational         speed.           We     had       not,       however,             verified             that        the    extended            Kalman           filter          could\nbe    mechanized            and       operated           properly            with         the      flight        computers                 available         at       this\ntime."
+      },
+      {
+        "partId": "mit-apollo",
+        "citationId": "mcgee-schmidt-1985",
+        "sourceUrl": "https://ntrs.nasa.gov/api/citations/19860003843/downloads/19860003843.pdf",
+        "supportingPassage": "Dr.    Battin        continued               to    investigate              using        the    filter          fo:     application                to    the      Apollo\nnavigation           system.               Later,           Potter     (ref.        6),     working            with     Dr.       Battin       at       MiT,      devised\nthe    first        square-root               filter           implementation,                 which       was       used     for       the    Apollo          system.\nHis    formulation                  could     not       handle        random        forcing          functions,              out       it was        useful        for\nimplementation                  in    small-word-size                  on-board           computers,              such       as    that       of     the      Apollo\nsystem.            Still        later,        Potter's              implementation              was       included           as    part       of     other        square-\nroot     implementations                     that       could        handle        random       forcing           functions.                 Some       of    these\nimplementations                     will     be discussed              later."
+      },
+      {
+        "partId": "ground-primary",
+        "citationId": "mcgee-schmidt-1985",
+        "sourceUrl": "https://ntrs.nasa.gov/api/citations/19860003843/downloads/19860003843.pdf",
+        "supportingPassage": "3.       That       ground           radar     data       are       generally              superior          to    on-board             measurem             nts        for\nestimating             the     trajectory              of    the       spacecraft,              but      that       use     of    radar          data       does          not\nsave significant   midcourse                            correction   fuel, and control   of the                                        trajectory                endpoint\nis not greatly   enhanced.                             These results   supported  the ultimate                                         decisions                to have the\nprimary          Apollo        navigation              conducted             from       the     ground,          using          ground          radar       data          with        a\nbackup        system         on    the        spacecraft.                It was         an     important            and     timely           result."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "report-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "Official retained NASA TM-86847 cover, also visually inspected, establishes the exact title, Leonard A. McGee and Stanley F. Schmidt and November 1985 despite noisy OCR. No new liveness or edition equivalence is claimed.",
+        "evidenceDigest": "95119457a4a0763edb9c2c67e404be175ade35352e3527c536714f3ebfdbe295"
+      },
+      {
+        "partId": "retrospective-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "The final history paragraph expressly attributes omissions to recollections, memory and limited time. Corrected history is the participants retrospective account, not exhaustive priority certification.",
+        "evidenceDigest": "d1fa6b121a3044d99e4af98928987c9c058d176c25c512c8a68b7812bbaa4b68"
+      },
+      {
+        "partId": "ames-extension",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "The report credits Schmidt and Ames staff with adaptation to nonlinear problems, current-estimate linearization and separate time/measurement updates. The corrected Stat identifies Ames nonlinear navigation studies, not proved onboard operation.",
+        "evidenceDigest": "9ec957a7a3ca936bd00f1a881b3d8eba653996205a309a284d53dcd6d7fb78f7"
+      },
+      {
+        "partId": "early-simulation",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "By early 1961 the simulation program had validated their studies, but the next explicit sentence says operation on available flight computers had not been verified. Both sides are retained in the prose.",
+        "evidenceDigest": "4feafd33596845d653fe9e19a528224cdc52fd43ec8fb23c5c7b6ad36c14dacc"
+      },
+      {
+        "partId": "mit-apollo",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "The report separately says Battin continued Apollo work at MIT and Potter devised the square-root implementation used in Apollo. Its inability to handle random forcing functions is retained; this is not assigned to Ames simulation work.",
+        "evidenceDigest": "717082bc7d1798c31067c81ad713c2183d3d7ed3558caba2810d35456f8ecb6f"
+      },
+      {
+        "partId": "ground-primary",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "The report explicitly describes primary Apollo navigation from ground radar and backup aboard the spacecraft. Corrected prose preserves that architecture rather than claiming onboard primacy.",
+        "evidenceDigest": "1e32c9f3f705f968f670001c604d0601bfeadb16dd3b4608e93c959c75c3539b"
+      }
+    ]
+  },
+  {
+    "id": "classical-state-estimation-apollo-history-20260908-5",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "state-estimation",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "31bd5617401094f4819c6ef46d9494b15ec9f7fdd0cc60af0a4cb48d9bdccca6",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "nominal-current",
+        "text": "The original nominal/reference linearization was changed to current-estimated-state relinearization because it might offer substantial advantages, not because success was guaranteed.",
+        "requiredCitationIds": [
+          "mcgee-schmidt-1985"
+        ]
+      },
+      {
+        "id": "simulation-scope",
+        "text": "The cited accidental off-nominal simulation overshot before converging and the report calls the modification the extended Kalman filter.",
+        "requiredCitationIds": [
+          "mcgee-schmidt-1985"
+        ]
+      },
+      {
+        "id": "remaining-limits",
+        "text": "Numerical round-off, inadequate statistical models and nonlinearities could still cause instability or inaccuracy; extra precision did not remove model mismatch.",
+        "requiredCitationIds": [
+          "mcgee-schmidt-1985"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+      "planDigest": "78a27dc7124a67f2d41908cfceefe976f2ddfba03d5ac670f57626f83693608a",
+      "rationale": "Reviewed every one of 3 AND parts and 3 paired items against preserved source text and countercontext at 2026-09-09T00:40:05.731Z; all parts jointly cover the corrected tuple and coupled product endpoints. Original labels are historical leads, not proof. No source/date/acceptance scope expansion."
+    },
+    "evidence": [
+      {
+        "partId": "nominal-current",
+        "citationId": "mcgee-schmidt-1985",
+        "sourceUrl": "https://ntrs.nasa.gov/api/citations/19860003843/downloads/19860003843.pdf",
+        "supportingPassage": "The original studies using perturbation methods and the above mentioned decom-\nposition of the filter   were based on a linearization  about a nominal (reference)\ntrajectory,    it soon becameapparent that a relinearization   about the current esti-\nmated state might offer substantial advantages over the technique previously used.\nWe    reasoned            that       \"on     the    average,\"               the    estimated                 state          would       be       closer           to     the\nactual,        or        true,       state      than       to    the        reference,                 or    nominal,             state          and     thus          the     lin-\nearity        of    the        approximation               would       be        retained              better          than       with          a nominal,               or    refer-\nence,        state."
+      },
+      {
+        "partId": "simulation-scope",
+        "citationId": "mcgee-schmidt-1985",
+        "sourceUrl": "https://ntrs.nasa.gov/api/citations/19860003843/downloads/19860003843.pdf",
+        "supportingPassage": "The     correctness              of    this        presum_ption                was       borne          out       in a        rather           extreme\nincident.             An       accidental           error        in     input           conditions                to    a simulation                   run        caused        the\ntrue     trajectory              to     remain        in an          orbit        around           Earth,          but       the       estimated              trajectory                  had\nthe     proper        starting              conditions           for        a    lunar        transfer             trajectory.                    The        simulated\noptical        measurements                  used     to       estimate           the        position             of    the       space          vehicle           were        inten-\ntionally           sparse         in the        early          part    of        the     run       because             the       trajectories                 were        quite\nnonlinear            in that           regicn.            At    first,           the     Kalman-filter                      estimator                caused        some        rela-\ntively  large              overshoots  in the estimated    state                                        owing  to the nonlinear  effects,                                           but\nthe estimated               state soon successfully    converged                                         close  to the true state.    This\nmodification               to     the       implementation                  has    come           to    be    known          as     the         \"extended              Kalman\nfilter.\""
+      },
+      {
+        "partId": "remaining-limits",
+        "citationId": "mcgee-schmidt-1985",
+        "sourceUrl": "https://ntrs.nasa.gov/api/citations/19860003843/downloads/19860003843.pdf",
+        "supportingPassage": "It    is clear              that        the      relatively             simple           and    straightforward                  sequential,                 extended\nKalman        filter           used       by     the      authors          in    the       early        1960's      can    be     adequate             as       a    fundamen-\ntal    analytical               tool          for    solving          some       estimation              problems.             Certainly,              persons\nattempting              to     construct             a Kalman             filter        without          experience            would        be      tempted           to     take\nthis     route          because           of     the      intuitive             statistical              familiarity.                However,             success            or\nfailure        with          this        approach           may      be    dependent              on many        factors,         such         as    computer               round-\noff    errors,            inadequate                statistical             models           and    nonlinearities                in the            problem,              any     or\nall    of which              may     trigger           the      filter's           potential             instability            or     inaccuracy.                    Some\nrather        pragmatic              yet       effective             solutions             to     some     of    these     problems              have       been\ndevised,           as     we    have          seen     in the         foregoing              history.            Which     of     the       pragmatic                solutions\nto use        often          depends           on    correctly             identifying              the     problem        and       applying             the        proper\namount        of    ad       hoc     stabilization                   or    \"fix.\"            If    the     filter        is being           run      on     a       large\nmachine,           extra        precision              arithmetic               may     be a       reliable         solution           to      the     problem              of\nnumerical            instability,                   but     stability            problems           may     still        remain       because             of        mismodel-\ning.   In the case                       of    an    airborne             application,              extra        precision           is often             not        a practi-\ncal alternative."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "nominal-current",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "The source says current-estimate relinearization might offer substantial advantages over nominal/reference linearization. This qualified retrospective rationale is not promoted into a sufficient general success theorem.",
+        "evidenceDigest": "1db5551e0bd61c15f48e3061b442bdcfedde57cd6d9fdb5b5d51c79ee56f86ac"
+      },
+      {
+        "partId": "simulation-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "The accidental off-nominal simulated orbit caused large initial overshoots then recovery near the true state. This is an example, not universal convergence; the report names the modification the extended Kalman filter.",
+        "evidenceDigest": "a6906683e4fc5cafe94b90108616e7643d69a24668880b19f7e690b051ed636e"
+      },
+      {
+        "partId": "remaining-limits",
+        "outcome": "supported",
+        "reviewedBy": "agent:source-auditor:c4f5c2b5-4c91-490e-a340-d5188a6dbbbc:2026-09-09T00:40:05.731Z",
+        "rationale": "The report names round-off, inadequate statistical models and nonlinearities as instability/inaccuracy causes. Extra arithmetic precision can address numerical error without removing mismodeling; these limits survive the correction.",
+        "evidenceDigest": "45ccac1b19c1965f43987cc12c20747bafa41bd81d53524e249a8e034359426d"
+      }
+    ]
   }
 ]

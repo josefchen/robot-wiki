@@ -1,4 +1,4 @@
-import { expect, test, type Locator, type Page } from '@playwright/test';
+import { expect, test, type Locator, type Page } from './servo-apollo-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -143,6 +143,31 @@ test.describe('classical perception module', () => {
     expect(visible).not.toContain('$$');
     expect(await page.getByText('missing citation:').count()).toBe(0);
     expect(errors).toEqual([]);
+  });
+
+  test('visual servoing separates IBVS/PBVS and states local convergence and visibility limits', async ({ page }) => {
+    await page.goto(ROUTE);
+    const servo = sectionMatching(await sections(page), /visual servoing/i);
+    expect(servo).toBeDefined();
+    expect(servo!.text).toMatch(/image-based visual servoing \(IBVS\)/i);
+    expect(servo!.text).toMatch(/position-based visual servoing \(PBVS\)/i);
+    expect(servo!.text).toMatch(/local asymptotic stability/i);
+    expect(servo!.text).toMatch(/full rank/i);
+    expect(servo!.text).toMatch(/positivity condition/i);
+    expect(servo!.text).toMatch(/local minima or singularities/i);
+    expect(servo!.text).toMatch(/Visibility requirements depend on the chosen measurements/);
+    expect(servo!.text).toMatch(/observed in both images/);
+    expect(servo!.text).toMatch(/matches between the current and desired images/);
+    expect(servo!.text).toMatch(/Part I[\s\S]*performance and stability/);
+    expect(servo!.citeIds).toContain('chaumette-hutchinson-2006');
+    expect(servo!.citeIds).toContain('chaumette-hutchinson-2007');
+    expect(servo!.text).not.toMatch(/deletes the pose-estimation term|final image error still converges to zero|must stay in view for the whole motion/);
+    const term = page.locator('[data-term-id="visual-servoing"]').first();
+    await term.locator('a, button').first().focus();
+    const tooltip = term.locator('[role="tooltip"]');
+    await expect(tooltip).toBeVisible();
+    await expect(tooltip).toContainText('local stability conditions');
+    await expect(tooltip).not.toContainText('skips pose estimation entirely');
   });
 
   test('at least four depth failure surface classes are named with a chip in the same section (VAL-CLASS-041)', async ({

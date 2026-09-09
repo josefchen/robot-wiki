@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page } from './servo-apollo-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import { extractXAxis } from './helpers/table-agreement';
 

@@ -7628,6 +7628,132 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "9350d760be6b6a56f7c2f84ff2b3cf08a38bc33e0cafef14f1c95da43cfd85d6",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance. Final article-local mobile citation wrapping fixes observed tooltip clipping; scientific wording and prior seven pose-reader breaks preserved.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-2",
+      "manifest": "prose",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+      "newHash": "5f6160b299dfe3c5e982f4a1352a126e0f51c120398a78ffdbfc98e2a6e73518",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance. Final article-local mobile citation wrapping fixes observed tooltip clipping; scientific wording and prior seven pose-reader breaks preserved.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-3",
+      "manifest": "relationships",
+      "memberId": "article:classical/perception",
+      "oldHash": "9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041",
+      "newHash": "1a687609467ea1e089e69e1a14ad69025f75e092d898823468eddbe6d7f420a7",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-4",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "ac40375fa6c72ab6db017f5e8446e37c328f281c6b573cc020d6af69770370ab",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-5",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9c6da7f1ba8ef59c2cfb14e77e96d42635dcdee06b102ec75f8d41cce6b8b3af",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-6",
+      "manifest": "article-metadata",
+      "memberId": "citation:chaumette-hutchinson-2006",
+      "oldHash": "58499ed2811a20901a220a70b2c396ac22633caf1d1e273631ce7a4abcd424cb",
+      "newHash": "06294644655a5835af102798d4bda0acd7238b2c5a82c44f2550f37d608166e1",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-7",
+      "manifest": "article-metadata",
+      "memberId": "citation:chaumette-hutchinson-2007",
+      "oldHash": "c79dfed6e51784ff77f3dfd56ac2e906093e4c9332b00aa43529286ca7b5a723",
+      "newHash": "22e8fbd01904443cc5b0645920f262aa00e0fd8377df2b36c55a16d83ccdeabf",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

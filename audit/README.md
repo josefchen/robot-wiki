@@ -1,5 +1,14 @@
 # Content-integrity audit trail
 
+## Current checkpoint: servo and Apollo integration (2026-09-09)
+
+Exactly five originals applied: classical perception 56/57/58 and state-estimation 4/5, in their two complete atomic groups. Native accounting is **408 complete / 586 incomplete / 994 originals / 47 articles**; classical is **51 complete / 136 incomplete / 187 originals**. All 403 prior completions and 989 unselected semantic records are preserved. Compound plans: **314** (309 prior plus five); exact approvals: **391** (384 prior plus seven). Formal feature progress remains 307/331; this is not article/P1 or release acceptance. Earlier checkpoint sections below are historical.
+
+All 21 required AND-parts and 23 paired items were reviewed against retained source text: two Chaumette/Hutchinson tutorials and NASA TM-86847. Mechanical verification covers 32 literal spans and 84 retained file bindings, not 84 unique sources. Zero new retrievals. Historical retrieval provenance and limits, current native bindings, exact approval hashes, failures, and reader receipts are under the absolute Mission directory `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-servo-apollo-integration-20260909/`.
+
+Content remains **RED: 591 findings plus nine separate citation gaps**; baseline remains **RED: the same 47 full failure objects**. No publication. The separate modern Thrun-backed EKF evaluation-point/only-covariance issue, authored proof, current citation liveness, whole-P1/feature acceptance, production export/reading times, 48-card/full-reference corpus and independent scrutiny/user testing remain pending. Existing review dates, NASA/BOP registry URLs, modern equations and prior reader repairs are unchanged.
+
+
 ## Current zero-credit BOP dependency and pose-reader repair — 2026-09-09
 
 **403 complete / 591 incomplete / 994 originals / 47 articles; 309 plans, 384 exact approvals. Zero original applications and zero new retrievals.** All 994 semantic records, 403 completions, 309 raw plan objects/bytes and 382 prior approvals/metadata/serialized prefix are preserved. Exactly two member approvals were appended. Classical remains 46/141/187; scene remains 34 complete; formal progress remains 307/331.
