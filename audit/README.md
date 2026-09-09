@@ -1,5 +1,93 @@
 # Content-integrity audit trail
 
+## Current checkpoint: six H2O/ASAP originals integrated (2026-09-09)
+
+**441 complete / 553 incomplete / 994 originals / 47 articles**; RL is
+**95 complete / 72 incomplete / 167 originals**. Applied exactly transfer
+15/16/17, legged 9/10 and WBC 3, each with its full AND requirements.
+Six new plans contain 22 parts and 22 paired evidence items. There are
+**347 plans / 445 approvals**. The other 28 prepared originals remain with
+the parent. No seventh original, whole-article/P1 or review-date credit.
+
+**Zero new retrievals.** Two retained primary documents, five preserved response
+bodies and 33 literal passages were checked against original request/result
+JSONL events and system-managed full tool bodies before reuse. H2O HTML was
+returned September 8 at 09:17:38.895Z and ASAP HTML at 09:17:52.934Z; current
+review/application timestamps are not fetch dates. Unversioned bodies identify
+H2O v1 and ASAP v3 but are not independently version-pinned fetches. arXiv
+200 is tool-reported; only the retained venue GET has origin-status provenance.
+ASAP body Sobanbabu versus abs Sobanbab remains explicit; the registry adopts
+the body spelling and preserves its URL. Original 2502.13143 is an unfetched
+identity discrepancy, not a certified typo. Table/prose and noise 150/173
+conflicts remain unresolved. H2O policy Hz, latency, trial denominator and
+calibration details remain unestablished.
+
+Corrections separate privileged H2O filtering from deployable tracking,
+possible retargeting infeasibility from inevitability, human RGB input from
+robot-side MoCap, and 19 position targets from PD control. ASAP now separates
+PPO residual learning, frozen-model simulation fine-tuning and residual-free
+deployment; four ankle DoFs from the full 23-DoF simulation model; open-loop
+replay, closed-loop simulation and two hardware comparisons; and empirical
+OOD evidence from an unsupported near-distribution validity theorem.
+
+All **988 unselected full semantic records**, all **435 prior completions**,
+341 prior plan objects/serialized prefix, and 436 prior approval objects,
+metadata and serialized prefix are preserved. Seven exact native corrections
+plus two subsequent placement approvals retain the immutable baseline. All
+**44 complete unrelated failure objects and their order** remain identical.
+Fourteen wrong-old/new effective-member controls and stale approvals reject.
+No shared renderer, checker, baseline, owner file or scientific formula changed.
+
+Actual sequential checks used NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Observed result |
+|---|---|
+| New unit red-first | 24 failed, exit 1 |
+| Affected unit/component | 331 passed across 15 files, exit 0 |
+| Final-input new unit | 24 passed, exit 0; not 24 additional unique tests |
+| Initial readers | 17 passed / 6 failed of 23, exit 1 |
+| Affected readers | 6 passed / 1 failed of 7, exit 1; includes one overlapping Splat reader |
+| Remaining mobile reader | 1 passed, exit 0 |
+| Lint, route typegen, nonincremental TypeScript | All passed, exits 0 |
+| Offline content | RED: 558 findings plus nine separate citation gaps, exit 1 |
+| Final native preservation and whitespace | Passed, exits 0 |
+
+All 23 reader identities have a completed passing execution across the three
+runs, not one fresh 23/23 invocation. The former learned-locomotion 15-case
+population now has current-input executions; its lost historical JSON was not
+reconstructed. Reuse across the final article-local mobile wrappers is bounded
+by byte reconstruction, unchanged source semantics and viewport applicability.
+Three measured mobile tooltip right edges change 518→358, 426→362 and
+383→367 at width375. Focus/hover, hit testing, real Tab/Enter reference jumps,
+keyboard author expansion, exact ordered bylines and glossary states are checked.
+The first new byline failures were test omissions of the existing expansion
+button, not missing registry authors. One existing noun assertion required
+meaning-preserving delta-action → delta action spelling.
+
+There are **311 captures; 27 were directly Read-inspected**. Corrected article
+paragraphs, overlapping mobile slices, repaired focus/hover and full bylines
+were reviewed; **284 remain uninspected**, so no whole-reader/pixel acceptance.
+Selected text uses custom fonts; whole cmap, contrast incompletes, full glossary/
+reference states and structured two-reference brand rubric remain unaccepted.
+Manual rewritten-prose fidelity/no-slop review and executable source-only
+no-slop passed; the unavailable humanizer was not run. The owned offline
+webpack runtime used retained fonts; only its verified leaf was stopped,
+supervisor exit143. next.config.ts, tsconfig.json and next-env.d.ts were restored
+byte-exactly. No build/export/card corpus, source sweep, push or deployment.
+
+Two application attempts stopped before product writes on WBC evidence-header
+handling; the corresponding failed metadata attempt remains recorded. No
+completed original was replayed. Formal progress remains **307/331**, M5
+unaccepted, skipScrutiny=false and skipUserTesting=false. Independent Sol/high
+scrutiny and user testing, whole-P1, production/export/reading-time/card,
+contrast and reference-rubric gaps retain their existing owners. Fallback inactive.
+**Do not publish.** This is an implementation checkpoint, not acceptance.
+
+Exact receipts, row history, source provenance, captures and committed seal:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-motion-transfer-integration-20260909/`.
+Earlier checkpoints below are retained history.
+
+
 ## Current checkpoint: six Boston Dynamics originals integrated (2026-09-09)
 
 **435 complete / 559 incomplete / 994 originals / 47 articles**.

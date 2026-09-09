@@ -2905,7 +2905,8 @@ export const CITATIONS: Citation[] = [
       'Jiashun Wang',
       'Zhengyi Luo',
       'Guanqi He',
-      'Nikhil Sobanbab',
+      // The observed v3 body spells Sobanbabu; arXiv abs metadata spells Sobanbab.
+      'Nikhil Sobanbabu',
       'Chaoyi Pan',
       'Zeji Yi',
       'Guannan Qu',

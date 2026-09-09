@@ -65,7 +65,11 @@ Learned policies are not handed these patterns. Foot-air-time and footfall-style
 
 ## From quadrupeds to humanoids
 
-The recipe moved to two legs on two hardware lines. Unitree's H1 and G1 became the default research platforms: H2O turned <Term id="retargeting">retargeted</Term> human keypoints into real-time whole-body teleoperation on the H1, with RL supplying the physical feasibility that raw retargeting destroys <Cite id="h2o-2024" />. ASAP added a delta-action correction stage, trained on real rollouts and injected back into the simulator, and produced jumps and sports-style motions on the G1 <Cite id="asap-2025" />.
+On Unitree's H1, H2O turns human pose estimates from an RGB camera into real-time whole-body <Term id="teleoperation">teleoperation</Term>. It first fits and <Term id="retargeting">retargets</Term> AMASS human motions, then uses a privileged imitator to filter motions it cannot track. A separate tracking policy learns from the cleaned set with domain randomization and outputs 19 joint-position targets to a PD controller. Naive retargeting can produce infeasible references; it does not invariably destroy feasibility. The demonstrated system also uses robot-side motion capture for linear velocity, so "one RGB camera" describes the human-motion input, not the complete sensing setup <Cite id="h2o-2024" />.
+
+ On the G1 with fixed wrists, ASAP uses real rollouts to train an ankle delta-action model, freezes it in simulation for policy fine-tuning, and deploys the fine-tuned policy without the residual model. The paper illustrates jumps and Ronaldo-, LeBron- and Kobe-inspired motions. Its quantitative hardware comparison is kicking and LeBron's "Silencer" against Vanilla, not a success-rate study of every illustrated skill <Cite id="asap-2025" />.
+
+
 
 MIT's humanoid program attacked a different piece of the problem. On the MIT humanoid platform, Jeon and colleagues benchmarked direct and potential-based reward formulations for learned running, finding that the potential-based terms are significantly more robust to reward scaling than conventional shaping, and therefore easier to tune <Cite id="mit-humanoid-rewards-2023" />. Everything in that benchmark trained with one off-the-shelf PPO configuration, which is the pattern across the whole lineage: the training recipe is the commodity and the objective design is the work. The full human-motion-tracking lineage, from PHC through GMT and the 2026 robustness results, gets its own module next.
 
