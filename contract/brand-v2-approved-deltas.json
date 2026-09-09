@@ -8338,6 +8338,63 @@
         "VAL-B2-A11Y-008"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rudin-four-placement-20260909-52c5ff700c2ca0c8c9",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+      "newHash": "589dceb26e6801e962f9fec2366a816ce3704ca8eb647757cb9e048573514ecc",
+      "reason": "ZERO-original responsive placement repair for four measured 375px Rudin citation tooltip defects using occurrence-local max-sm offsets. Removing only the formatting wrappers reconstructs all three input articles; source text, URLs, dates, and semantics are unchanged.",
+      "ownerApproval": "Josef September 7 fix it all correction authority, bounded parent assignment to 553ffb26-2de2-40a5-8c37-eb8aa9195dc1 for Rudin reader/citation closeout; authority is not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-A11Y-008",
+        "VAL-B2-A11Y-011",
+        "VAL-B2-VIZ-016"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-four-placement-20260909-a981a05d2fe91c6e7d",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+      "newHash": "b6827e2ea6b4cfac9e072192741290dd270ff1460007d6130312771ee9242caf",
+      "reason": "ZERO-original responsive placement repair for four measured 375px Rudin citation tooltip defects using occurrence-local max-sm offsets. Removing only the formatting wrappers reconstructs all three input articles; source text, URLs, dates, and semantics are unchanged.",
+      "ownerApproval": "Josef September 7 fix it all correction authority, bounded parent assignment to 553ffb26-2de2-40a5-8c37-eb8aa9195dc1 for Rudin reader/citation closeout; authority is not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-A11Y-008",
+        "VAL-B2-A11Y-011",
+        "VAL-B2-VIZ-016"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-four-placement-20260909-13235a0b243d5d1c3d",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "5beb6292b9c784c6fc668a90b487810a474647c57edc748616c3b480741a0d46",
+      "reason": "ZERO-original responsive placement repair for four measured 375px Rudin citation tooltip defects using occurrence-local max-sm offsets. Removing only the formatting wrappers reconstructs all three input articles; source text, URLs, dates, and semantics are unchanged.",
+      "ownerApproval": "Josef September 7 fix it all correction authority, bounded parent assignment to 553ffb26-2de2-40a5-8c37-eb8aa9195dc1 for Rudin reader/citation closeout; authority is not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-A11Y-008",
+        "VAL-B2-A11Y-011",
+        "VAL-B2-VIZ-016"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

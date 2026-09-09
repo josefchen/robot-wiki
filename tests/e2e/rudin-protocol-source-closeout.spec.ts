@@ -25,6 +25,9 @@ for (const width of [375, 1440]) test(`Rudin scoped source readers ${width}`, as
   page.on('pageerror', error => errors.push(error.message));
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
   async function capture(target: Locator, name: string) {
+    // Bounded remediation may reuse already input-qualified captures.
+    // This controls pixels only; every original behavioral assertion still runs.
+    if (process.env.DR_READER_CAPTURE_MODE === 'placements-only') return;
     await page.mouse.move(2, 2);
     const geometry = await target.evaluate(e => {
       const r = e.getBoundingClientRect();
@@ -88,7 +91,8 @@ for (const width of [375, 1440]) test(`Rudin scoped source readers ${width}`, as
         const link = chip.getByRole('link').first();
         await chip.evaluate(e => e.scrollIntoView({ block: 'center', behavior: 'instant' }));
         await page.keyboard.press('Tab');
-        await link.focus(); await expect(link).toBeFocused();
+        await link.focus(); await page.keyboard.press('Shift+Tab');
+        await page.keyboard.press('Tab'); await expect(link).toBeFocused();
         const tooltip = chip.getByRole('tooltip'); await expect(tooltip).toBeVisible();
         await expect(link).toHaveAttribute('href', citation.url);
         const box = await tooltip.boundingBox();
@@ -97,10 +101,18 @@ for (const width of [375, 1440]) test(`Rudin scoped source readers ${width}`, as
         expect.soft(box!.y).toBeGreaterThanOrEqual(0);
         expect.soft(box!.y + box!.height).toBeLessThanOrEqual(height);
         measures.push({ slug, id, state: 'focus-tooltip', box, focus: await link.evaluate(e => ({ visible: e.matches(':focus-visible'), outline: getComputedStyle(e).outline, offset: getComputedStyle(e).outlineOffset })) });
-        await page.screenshot({ path: `${directory}/${slug}-${id}-focus.png`, caret: 'initial' });
+        if (process.env.DR_READER_CAPTURE_MODE !== 'placements-only')
+          await page.screenshot({ path: `${directory}/${slug}-${id}-focus.png`, caret: 'initial' });
         await link.blur(); await page.mouse.move(2, 2);
         await link.hover(); await expect(tooltip).toBeVisible();
-        await page.screenshot({ path: `${directory}/${slug}-${id}-hover.png`, caret: 'initial' });
+        const hoverBox = await tooltip.boundingBox();
+        expect.soft(hoverBox).toEqual(box);
+        expect.soft(await link.evaluate(e => {
+          const r = e.getBoundingClientRect();
+          return e.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2));
+        })).toBe(true);
+        if (process.env.DR_READER_CAPTURE_MODE !== 'placements-only')
+          await page.screenshot({ path: `${directory}/${slug}-${id}-hover.png`, caret: 'initial' });
         await page.mouse.move(0, 0); await link.blur();
         const reference = page.locator(`[data-reference-id="${id}"]`);
         await expect(reference).toContainText(citation.title);

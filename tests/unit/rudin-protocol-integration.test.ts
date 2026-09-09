@@ -62,6 +62,16 @@ describe('Rudin protocol and code integration', () => {
     expect(GLOSSARY.find(g => g.id === 'curriculum-learning')!.definition).toContain('separate flat-terrain headline');
   });
   it('allows the exact long revision token to wrap without changing its value', () => {
+    for (const [slug, ids] of [
+      ['parallel-sim-rl', ['legged-gym-repo-2021']],
+      ['legged-locomotion', ['rudin-2021', 'legged-gym-repo-2021']],
+      ['reward-design-mpc', ['rudin-2021']],
+    ] as const) {
+      const article = text(`content/rl-sim2real/${slug}.mdx`);
+      for (const id of ids) expect(article).toContain(
+        `<span className="max-sm:[&_[role=tooltip]]:-left-32"><Cite id="${id}" /></span>`,
+      );
+    }
     expect(text('content/rl-sim2real/reward-design-mpc.mdx')).toContain(
       '<code className="[overflow-wrap:anywhere]">ae614c029977157123225f538ecdd3f873e54bd4</code>',
     );

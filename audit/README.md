@@ -1,5 +1,59 @@
 # Content-integrity audit trail
 
+## Current checkpoint: four Rudin mobile citation placements repaired (2026-09-09)
+
+**424 complete / 570 incomplete / 994 originals / 47 articles**.
+RL remains 78 complete / 89 incomplete / 167 originals. This reader-only
+checkpoint selects/applies **zero originals and performs zero retrievals**.
+All 994 full semantic records and exact 330-plan bytes remain unchanged.
+All 425 prior approvals, metadata and serialized prefix are preserved; three
+exact existing-native-member formatting approvals bring the total to 428.
+The same 44 full unrelated failure objects remain; six wrong-old/new-hash
+controls reject. No source truth, source date or completion verdict changed.
+
+Four article-local mobile-only citation wrappers repair the first code citation
+in parallel-sim, both first Rudin/code citations in legged-locomotion, and the
+first Rudin citation in reward-design. Red right edges at 375px were 489, 461,
+489 and 390px; green edges are 361, 333, 361 and 262px. All 16 occurrence ×
+viewport × focus/hover states pass at 375×812 and 1440×900, with keyboard
+re-entry, visible focus, hit testing, sticky clearance and zero page overflow.
+Desktop geometry and the shared renderer are unchanged. Removing only these
+four wrappers reconstructs the three input articles byte-for-byte. The prior
+revision-token repair, six transfer wrappers and audited repository URL remain.
+Scientific wording, dates, formulas, numerical defaults and controls are unchanged.
+
+Fresh affected browser invocation: **3/3 passed**. Combined with 14 qualified
+retained identities this supports **17/17 composed**, not a fresh 17-case run.
+Historical failed/interrupted runs and their missing exit remain historical.
+Fresh unit invocation: **29/29 passed** (18 Rudin and 11 citation coverage).
+The 11 overlap retained other-file coverage; do not add 29 to the historical
+225-case population. Normal lint including prelint, route typegen and
+nonincremental TypeScript each exit 0. **Content remains RED: 575 findings
+plus nine separately reported citation gaps**, unchanged from the predecessor.
+
+All 62 new viewport PNGs were Read-inspected, along with 51 retained
+chart/reward/glossary control captures and one retained diagnostic. A failed
+survey remains a failed evidence invocation: corrected local-font lookup and
+two direct-text scope probes yield 116/116 selected glyph checks in a separate
+reconciliation. This is not registry-wide glyph acceptance. One beta MathML
+node appears on legged locomotion at each viewport, none on the other routes.
+Both approved references were viewed, but full structured reference-rubric
+acceptance remains outstanding. Zero Axe violations do not clear retained
+98 mobile / 102 desktop contrast-incomplete nodes or all interactive states.
+The scoped repair is not whole-reader, brand, M5 or release acceptance.
+
+Only the verified owned runtime leaf was stopped. Temporary next.config,
+next-env and tsconfig changes were restored byte-for-byte. No build/export,
+card regeneration, full-corpus run, source fetch, deployment or publication.
+Formal progress remains 307/331; M5 is unaccepted; skipScrutiny=false and
+skipUserTesting=false. Independent Sol/high scrutiny, whole-P1/authored-local
+proof, full contrast/rubric/typography and production lifecycle remain held.
+The 45 prepared proposals in ten groups remain unassigned by this task.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-four-citation-reader-closeout-20260909/`.
+This is a local implementation checkpoint with zero original/source credit.
+Earlier checkpoint sections below are retained history.
+
 ## Current checkpoint: Rudin overflow and URL repaired; mobile tooltip reader held (2026-09-09)
 
 **424 complete / 570 incomplete / 994 originals / 47 articles**.
