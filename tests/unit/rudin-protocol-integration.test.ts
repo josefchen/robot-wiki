@@ -51,8 +51,20 @@ describe('Rudin protocol and code integration', () => {
     const code = CITATIONS.find(c => c.id === 'legged-gym-repo-2021')!;
     expect(code.title).toBe('Isaac Gym Environments for Legged Robots');
     expect(code.authors).toEqual(['Nikita Rudin']);
-    expect(code.url).toContain('/blob/ae614c029977157123225f538ecdd3f873e54bd4/README.md');
+    // The landing URL was fetched; the pinned files were reconstructed from
+    // the commit API, not fetched at their blob URLs. Keep those facts distinct.
+    expect(code.url).toBe('https://github.com/leggedrobotics/legged_gym');
+    expect(text('audit/citations.md')).toContain(`| legged-gym-repo-2021 | ${code.url} |`);
+    const identity = selected(planIds[2]).evidence.find(e => e.partId === 'code-identity')!;
+    expect(identity.sourceUrl).toBe('https://api.github.com/repos/leggedrobotics/legged_gym/commits/ae614c029977157123225f538ecdd3f873e54bd4?per_page=100');
+    expect(identity.supportingPassage).toContain('Isaac Gym Environments for Legged Robots');
+    expect(identity.supportingPassage).toContain('**Maintainer**: Nikita Rudin');
     expect(GLOSSARY.find(g => g.id === 'curriculum-learning')!.definition).toContain('separate flat-terrain headline');
+  });
+  it('allows the exact long revision token to wrap without changing its value', () => {
+    expect(text('content/rl-sim2real/reward-design-mpc.mdx')).toContain(
+      '<code className="[overflow-wrap:anywhere]">ae614c029977157123225f538ecdd3f873e54bd4</code>',
+    );
   });
   describe.each(planIds)('%s conjunction and stale-review guards', id => {
     it('binds six required parts and seven paired items to actual writer review', () => {

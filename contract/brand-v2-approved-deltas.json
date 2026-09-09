@@ -8304,6 +8304,40 @@
         "VAL-B2-ART-003"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rudin-reader-url-20260909-13235a0b243d5d1c3d",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "8b79b01b618d57ffe376326cdc946a1cf3d5d154f27c0b9fe6ed5e82dddecab4",
+      "reason": "ZERO-original reader regression repair: preserve scientific text while allowing the pinned commit token to wrap; restore the actually audited repository landing URL, retaining exact revision/reconstructed-file proof in native evidence. No new URL retrieval or whole-P1 certification.",
+      "ownerApproval": "Josef September 7 fix it all correction authority, bounded parent assignment to e579e1ca-b69f-4d86-ae21-5486f655a9f1 for Rudin reader/citation closeout; authority is not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-A11Y-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-reader-url-20260909-8f4abfad9e1c035e03",
+      "manifest": "article-metadata",
+      "memberId": "citation:legged-gym-repo-2021",
+      "oldHash": "ebff57045221ad8bc07c191b53df5f01d1a9df15aa807d47a633dfd67c425c85",
+      "newHash": "6422ac167d1624256e008dddcfa411266684e9f99c68f73896a108d4141c7116",
+      "reason": "ZERO-original reader regression repair: preserve scientific text while allowing the pinned commit token to wrap; restore the actually audited repository landing URL, retaining exact revision/reconstructed-file proof in native evidence. No new URL retrieval or whole-P1 certification.",
+      "ownerApproval": "Josef September 7 fix it all correction authority, bounded parent assignment to e579e1ca-b69f-4d86-ae21-5486f655a9f1 for Rudin reader/citation closeout; authority is not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-A11Y-008"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

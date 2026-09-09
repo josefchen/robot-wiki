@@ -1,5 +1,60 @@
 # Content-integrity audit trail
 
+## Current checkpoint: Rudin overflow and URL repaired; mobile tooltip reader held (2026-09-09)
+
+**424 complete / 570 incomplete / 994 originals / 47 articles**.
+RL remains 78 complete / 89 incomplete / 167 originals. This regression-only
+checkpoint adds **zero originals and zero retrievals**. All 994 full native
+semantic records, exact 330-plan bytes, all 423 prior approval objects,
+metadata and serialized prefix, and the immutable baseline are preserved.
+Two exact native approvals were appended (425 total). Fresh-process comparison
+preserves the same **44 full unrelated failure objects**, with no substitutions;
+four wrong-old/new-hash controls reject on their exact members.
+
+The 375×812 reward page's 27px document overflow was reproduced: the unbroken
+40-character revision token reached x=397.25 and the document measured 402px.
+Article-local `overflow-wrap:anywhere` reduces document overflow to zero without
+clipping. Reversing only that markup reproduces the previous article bytes.
+Scientific wording, numerical defaults, animation and `lastReviewed` are unchanged.
+The citation registry again uses the actually audited repository landing URL.
+Its title and Nikita Rudin maintainer attribution agree with retained fetched
+landing text and the pinned initial README reconstructed from the commit API.
+No direct blob-URL fetch, new date, new reachability verdict or whole-P1 approval
+is claimed. All pinned compound-evidence bytes remain unchanged.
+
+The existing reward mobile-scroll identity now passes. The expanded two-reader
+run finishes with desktop PASS and mobile FAIL: four mobile citation tooltips
+extend to x=489, 461, 489 and 390 in a 375px viewport. Assertions remain active.
+The failures are parallel-sim's code citation, both legged-locomotion citations,
+and reward-design's Rudin citation. They are held, not concealed or accepted.
+The historical population still has 14 completed passes, two completed failures,
+one uncompleted identity and a missing overall exit receipt; composed evidence is
+not a fresh 17/17 invocation. Exact identities and input qualification are in
+the new packet. The final reader run generated 122 viewport PNGs, not 122
+Read-approved images. Overlapping tall-target captures and selected-node CDP
+font measurements improve evidence, but the bounded Read sample is incomplete.
+Zero Axe violations coexist with 98 mobile and 102 desktop color-contrast
+incomplete nodes. Legged locomotion contains one beta MathML node; the other
+two assigned routes have none. This inventory is not equation/glyph acceptance.
+Full selected-string cmap, both-reference rubric and full-reader acceptance remain held.
+
+Actual post-fix checks: 18 focused tests pass; the preceding 225-case invocation
+had 224 passes and one subsequently corrected Markdown-expectation fixture failure.
+Its other nine files (207 cases) pass, including baseline omission semantics,
+citation/audit checks and both interactive components. Normal lint including
+prelint, route typegen and nonincremental TypeScript each exit 0.
+**Content stays RED: 575 findings plus nine separate unresolved citation gaps.**
+The repaired URL mismatch is gone; no gate, checker, schema or baseline was weakened.
+The owned webpack leaf alone was stopped; its supervisor records actual exit 143.
+Temporary indicator configuration, next-env and tsconfig were restored byte-exactly.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-reader-citation-closeout-20260909/`.
+This is an implementation checkpoint, not completed reader acceptance or release.
+Formal progress stays 307/331; skipScrutiny=false and skipUserTesting=false.
+Whole-P1/authored-local-proof, production/export/cards/reading-time lifecycle,
+full-corpus and independent Sol/high/user-testing debts remain with their owners.
+No publication or new source credit. Earlier checkpoint sections below are history.
+
 ## Current checkpoint: three Rudin originals corrected; reader and citation audit remain red (2026-09-09)
 
 Applied only `audit/rl-sim2real.md:parallel-sim-rl:2`, `:legged-locomotion:5`,

@@ -2108,7 +2108,10 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Pinned initial open-source commit. README title and named maintainer;
+    // Audited repository landing URL; README title and named maintainer.
+    // Exact code claims use initial commit ae614c029977157123225f538ecdd3f873e54bd4
+    // in the article and native evidence. Its three files were reconstructed
+    // from the commit API; their blob URLs were not directly fetched.
     // the commit identifies Nikita Rudin as author/committer in October 2021.
     // Maintainer attribution is not the paper byline or a complete contributor list.
     // Base config: 15 scale entries, 9 nonzero; dormant functions are not active terms.
@@ -2116,7 +2119,7 @@ export const CITATIONS: Citation[] = [
     title: 'Isaac Gym Environments for Legged Robots',
     authors: ['Nikita Rudin'],
     year: 2021,
-    url: 'https://github.com/leggedrobotics/legged_gym/blob/ae614c029977157123225f538ecdd3f873e54bd4/README.md',
+    url: 'https://github.com/leggedrobotics/legged_gym',
     type: 'docs',
   },
   {
