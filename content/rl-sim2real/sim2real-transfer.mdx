@@ -38,7 +38,7 @@ The first family's central trade is below. Drag the real robot friction line off
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DR parameter writes" value="CPU API" note="Isaac Lab v1: mass and friction; runtime changes supported" accent />
-  <Stat label="RMA adaptation" value="< 1 s" note="latent extrinsics, online at control rate" />
+  <Stat label="RMA reported adaptation" value="< 1 s" note="A1: latent ~10 Hz; base policy 100 Hz" />
   <Stat label="SplatSim zero-shot" value="86.25%" note="vs 97.5% for real-data-trained policies" />
   <Stat label="ASAP correction" value="delta action" note="learned residual, sim to real to sim" />
 </div>
@@ -87,7 +87,9 @@ That price is what the figure at the top of this module plots. The gray spike is
 
 Domain randomization still asks the policy to act on what the robot can sense. The teacher-student pattern separates those problems. Phase one trains a teacher with privileged, simulator-only observations: terrain geometry under the feet, friction coefficients, applied disturbances. Phase two trains a student that sees only deployable sensing, usually a short history of <Term id="proprioception">proprioception</Term>, to imitate the teacher's actions.
 
-The reference result is Lee and colleagues' ANYmal controller: a privileged teacher distilled into a temporal convolutional network over proprioceptive history, trained in simple simulated domains and deployed blind on mud, snow, rubble, and vegetation it never saw in training <Cite id="lee-2020" />. RMA factorized the same idea into a base policy conditioned on a latent extrinsics vector plus an adaptation module that regresses those extrinsics online from recent proprioception, adapting to new payloads and terrains in fractions of a second at control rate <Cite id="rma-2021" />. The adaptation module is, in effect, system identification performed in latent space by the policy itself.
+The reference result is Lee and colleagues' ANYmal controller: a privileged teacher distilled into a temporal convolutional network over proprioceptive history, trained in simple simulated domains and deployed blind on mud, snow, rubble, and vegetation it never saw in training <Cite id="lee-2020" />.
+
+RMA uses a different two-stage construction: a base policy and an environment-factor encoder are trained jointly with RL, then an adaptation module is trained by supervised regression on simulator state-action histories to predict the latent extrinsics. At deployment the base policy combines the current state, previous action and estimated extrinsics to predict desired joint positions. The adaptation module uses 50 state-action steps (0.5 seconds of history); on the tested Unitree A1 setup it updates extrinsics asynchronously at about 10 Hz, while the base policy runs at 100 Hz using the latest estimate. These are inference processes, not online gradient updates. The paper reports adaptation in fractions of a second and deployment without real-world fine-tuning, but also reports failures after large perturbations or multiple leg obstructions. The latent is a behavior-relevant encoding, not a guarantee of recovering each physical parameter <Cite id="rma-2021" />.
 
 In its DextrAH-RGB example, the Isaac Lab v1 paper reports an RL teacher trained with privileged state on a KUKA arm and Allegro hand, then distilled into a network taking stereo RGB pairs as input<br />Source: <Cite id="isaac-lab-2025" />.
 
@@ -120,7 +122,7 @@ The survey adds two cross-cutting options that rarely get headline systems. Sim-
 Each family's failure mode is worth holding onto. Domain randomization's conservatism cost is real and almost never quantified in the papers that rely on it. Teacher-student distillation bottoms out at partial observability when the privileged variable leaves no trace in the student's history. Delta-action correction is valid only near the trajectories it was fit on. Real-to-sim twins freeze the scene they captured.
 
 <SelfCheck
-  prompt="A quadruped must cross terrain whose friction varies patch to patch, and you have a simulator that knows the friction map. Which training scheme lets the deployed policy act on that friction at control rate?"
+  prompt="Which RMA component estimates behavior-relevant latent extrinsics from recent state-action history, while the deployed base policy uses the latest estimate?"
   options={[
     {
       value: 'dr-wide',
@@ -129,8 +131,8 @@ Each family's failure mode is worth holding onto. Domain randomization's conserv
     },
     {
       value: 'latent-adaptation',
-      label: 'A privileged teacher distilled into a student with an online adaptation module',
-      why: 'This is the scheme the crossing needs. RMA’s adaptation module regresses a latent extrinsics vector from recent proprioception and the base policy conditions on it, adapting to new payloads and terrains in fractions of a second at control rate. The floor is partial observability: friction that leaves no proprioceptive signature cannot be recovered, but friction that shows up in the gait can.'
+      label: 'A separately trained adaptation module',
+      why: 'RMA trains the adaptation module in simulation to estimate latent extrinsics from 50 state-action steps. On its A1 setup, that module runs at about 10 Hz and the base policy at 100 Hz, asynchronously using the latest estimate. The reported sub-second adaptation is not a control-frequency or gradient-update claim, and the latent need not recover ground-truth friction.'
     },
     {
       value: 'ground-truth-friction',
@@ -139,5 +141,5 @@ Each family's failure mode is worth holding onto. Domain randomization's conserv
     }
   ]}
   answer="latent-adaptation"
-  takeaway="Privilege goes into the teacher, but only what leaves a trace in proprioception can come back out in the student: the adaptation module is system identification in latent space, done online by the policy."
+  takeaway="RMA trains a latent predictor in simulation, then performs asynchronous latent inference during deployment. Its base policy uses the latest estimate; neither an exact friction estimate nor adaptation at every control step is promised."
 />

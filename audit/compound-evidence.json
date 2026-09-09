@@ -30932,5 +30932,203 @@
         "evidenceDigest": "625b749c452f68fce3862850d0b1b4e16d4d229e1e698ce853641518d402ca6d"
       }
     ]
+  },
+  {
+    "id": "rma-writer-3-20260909",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "9ce042889e783e4127956bcd6b2753acb10ae084e18f822b730c19a0b5c823f1",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "reported-latency",
+        "text": "RMA reports adaptation in fractions of a second / less than 1s, not universal success within a hard deadline.",
+        "requiredCitationIds": [
+          "rma-2021"
+        ]
+      },
+      {
+        "id": "actual-frequencies",
+        "text": "Tested A1: asynchronous ~10Hz extrinsics and 100Hz joint-position base policy, not gradient updates at control rate.",
+        "requiredCitationIds": [
+          "rma-2021"
+        ]
+      },
+      {
+        "id": "paper-identity",
+        "text": "Exact RMA title, four-person byline, July 2021 submission and RSS 2021 comment; unversioned ar5iv body is not falsely byte-pinned.",
+        "requiredCitationIds": [
+          "rma-2021"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:91d0f5b9-f12a-456b-ab9d-5fb4d5691f28/integrator",
+      "rationale": "Fresh complete-claim review against actual RMA source, deployment algorithm and countercontext; all conjunctive parts retained. Prepared answer-component mismatch corrected, not synthetically approved.",
+      "planDigest": "40523b7f2e887d77145586e94cf4b4ae009d79d21b53aad83d1987df26954c75"
+    },
+    "evidence": [
+      {
+        "partId": "reported-latency",
+        "citationId": "rma-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2107.04034",
+        "supportingPassage": "Abstract\nSuccessful real-world deployment of legged robots would require them to adapt in real-time to unseen scenarios like changing terrains, changing payloads, wear and tear. This paper presents Rapid Motor Adaptation (RMA) algorithm to solve this problem of real-time online adaptation in quadruped robots. RMA consists of two components: a base policy and an adaptation module. The combination of these components enables the robot to adapt to novel situations in fractions of a second. RMA is trained completely in simulation without using any domain knowledge like reference trajectories or predefined foot trajectory generators and is deployed on the A1 robot without any fine-tuning. We train RMA on a varied terrain generator using bioenergetics-inspired rewards and deploy it on a variety of difficult terrains including rocky, slippery, deformable surfaces in environments with grass, long vegetation, concrete, pebbles, stairs, sand, etc. RMA shows state-of-the-art performance across diverse real-world as well as simulation experiments. Video results at https://ashish-kmr.github.io/rma-legged-robots/.\nFig. 0: RMA consists of two subsystems - the base policy π\\pi and the adaptation module ϕ\\phi. Top: RMA is trained in two phases. In the first phase, the base policy π\\pi takes as input the current state xtx_{t}, previous action at−1a_{t-1} and the privileged environmental factors ete_{t} which is encoded into the latent extrinsics vector ztz_{t} using the environmental factor encoder μ\\mu. The base policy is trained in simulation using model-free RL. In the second phase, the adaptation module ϕ\\phi is trained to predict the extrinsics zt^\\hat{z_{t}} from the history of state and actions via supervised learning with on-policy data. Bottom: At deployment, the adaptation module ϕ\\phi generates the extrinsics z^t\\hat{z}_{t} at 10Hz, and the base policy generates the desired joint positions at 100Hz which are converted to torques using A1’s PD controller. Since the adaptation module runs at a lower frequency, the base policy consumes the most recent extrinsics vector z^t\\hat{z}_{t} predicted by the adaptation module to predict ata_{t}. This asynchronous design was critical for seamless deployment on low-cost robots like A1 with limited on-board compute. Videos at: https://ashish-kmr.github.io/rma-legged-robots/\n\nUnfortunately, this policy cannot be directly deployed because we don’t have access to ete_{t} in the real world. What we need to do is to estimate the extrinsics at run time, which is the role of the adaptation module ϕ\\phi. The key insight is that when we command a certain movement of the robot joints, the actual movement differs from that in a way that depends on the extrinsics. So instead of using privileged information, we might hope to use the recent history of the agent’s state to estimate this extrinsics vector, analogously to the operation of a Kalman filter for state estimation from history of observables. Specifically, the goal of ϕ\\phi is to estimate the extrinsics vector ztz_{t} from the robot’s recent state and action history, without assuming any access to ete_{t}. That is at runtime, but at training time, life is easier. Since both the state history and the extrinsics vector 𝐳𝐭\\mathbf{z_{t}} can be computed in simulation, we can train this module via supervised learning. At deployment, both these modules work together to perform robust and adaptive locomotion. In our experimental setup with its limited on-board computing, the base policy π\\pi runs at 100 Hz, while the adaptation module ϕ\\phi is slower and runs at 10Hz. The two run asynchronously in parallel with no central clock to align them. The base policy just uploads the most recent prediction of the extrinsics vector ztz_{t} from the adaptation module to predict action ata_{t}.\nOur approach is in contrast to previous learning-based work in locomotion that adapt learned policies via inferring the key parameters about the environment from a small dataset collected in every new situation to which the robot is introduced. These could either be physical parameters like friction, etc. [7] or their latent encoding [41]. Unfortunately, as mentioned earlier, collecting such a dataset, when the robot hasn’t yet acquired a good policy for walking, could result in falls and damage to the robot. Our approach avoids this because RMA, through the rapid estimation of ztz_{t} permits the walking policy to adapt quickly 11 1 RMA takes less than 11s, whereas Peng et al. 2020 need to collect 4−84-8mins (5050 episodes of 5−105-10s) of data. and avoid falls.\nTraining of a base policy using RL with an extra argument for the environmental parameters has also been pursued in [57, 41]. Our novel aspects are the use of a varied terrain generator and “natural” reward functions motivated by bioenergetics which allows us to learn walking policies without using any reference demonstrations [41]. But the truly novel contribution of this paper is the adaptation module, trained in simulation, which makes RMA possible. This, at deployment time, has the flavor of system identification, but it is an on-line version of system identification, based just on the single trajectory that the robot has seen in the past fraction of a second. One might reasonably ask why it should work at all, but we can offer a few speculations:\n•\nSystem identification is traditionally thought of as an optimization problem. But in many settings researchers have found that given sample (input, output) pairs of optimization problems with their solutions, we could use a neural network to approximate the function mapping the problem to its solution [1, 17]. Effectively that is what ϕ\\phi is learning to do.\n•\nWe don’t need perfect system identification for the approach to work. The vector of extrinsics ztz_{t} is a lower-dimensional nonlinear projection of the environmental parameters. This takes care of some identifiability issues where some parameters could covary with identical effects on observables. Secondly, we don’t need this vector of extrinsics to be correct in some “ground truth” sense. What matters is that it leads to the “right” action, and the end-to-end training optimizes for that.\n•\nThe range of situations seen in training should encompass what the robot will encounter in the real world. We use a fractal terrain generator which accompanied by the randomization of parameters such as mass, friction etc. creates a wide variety of physical contexts in which the walking robot has to react."
+      },
+      {
+        "partId": "actual-frequencies",
+        "citationId": "rma-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2107.04034",
+        "supportingPassage": "We train RMA completely in simulation and then deploy it in the real world without any modification or fine-tuning. The two subsystems of RMA run asynchronously and at substantially different frequencies, and hence, can easily run using little on-board compute. The adaptation policy is slow because it operates on the state-action history of 5050 time steps, roughly updating the extrinsic vector zt^\\hat{z_{t}} once every 0.10.1s (10 Hz). The base policy runs at 100 Hz and uses the most recent zt^\\hat{z_{t}} generated by the adaptation module, along with the current state and the previous action, to predict ata_{t}. This asynchronous execution doesn’t hurt performance in practice because zt^\\hat{z_{t}} changes relatively infrequently in the real world.\nAlternately, we could have trained a base policy which directly takes the state and action history as input without decoupling them into the two modules. We found that this (a) leads to unnatural gaits and poor performance in simulation, (b) can only run at 10Hz on the on-board compute, and (c) lacks the asynchronous design which is critical for a seamless deployment of RMA on the real robot without the need for any synchronization or calibration of the two subsystems. This asynchronous design is fundamentally enabled by the decoupling of the relatively infrequently changing extrinsics vector with the quickly changing robot state.\n\nProcess 1 operating at 100 Hz;\nt←0t\\leftarrow 0;\nwhile not fall do\nat←π⁡(xt,at−1,z^async)a_{t}\\leftarrow\\pi(x_{t},a_{t-1},\\hat{z}_{\\mathrm{async}});\nxt+1←x_{t+1}\\leftarrow env.step(ata_{t});\nt←t+1t\\leftarrow t+1;\nend while\nProcess 2 operating at 10 Hz;\nwhile not fall do\nz^async←ϕ(xt−k:k,at−k−1:k−1)\\hat{z}_{\\mathrm{async}}\\leftarrow\\phi(x_{t-k:k},a_{t-k-1:k-1});\nend while\nAlgorithm 2 Rapid Motor AdaptationDeployment"
+      },
+      {
+        "partId": "paper-identity",
+        "citationId": "rma-2021",
+        "sourceUrl": "https://arxiv.org/abs/2107.04034",
+        "supportingPassage": "\n\n\\[Submitted on 8 Jul 2021\\]\n\n# Title:RMA: Rapid Motor Adaptation for Legged Robots\n\nAuthors: [Ashish Kumar](https://arxiv.org/search/cs?searchtype=author&query=Kumar,+A), [Zipeng Fu](https://arxiv.org/search/cs?searchtype=author&query=Fu,+Z), [Deepak Pathak](https://arxiv.org/search/cs?searchtype=author&query=Pathak,+D), [Jitendra Malik](https://arxiv.org/search/cs?searchtype=author&query=Malik,+J)\n\nView a PDF of the paper titled RMA: Rapid Motor Adaptation for Legged Robots, by Ashish Kumar and 3 other authors\n\n[View PDF](https://arxiv.org/pdf/2107.04034) [HTML (experimental)](https://arxiv.org/html/2107.04034v1)\n\n> Abstract:Successful real-world deployment of legged robots would require them to adapt in real-time to unseen scenarios like changing terrains, changing payloads, wear and tear. This paper presents Rapid Motor Adaptation (RMA) algorithm to solve this problem of real-time online adaptation in quadruped robots. RMA consists of two components: a base policy and an adaptation module. The combination of these components enables the robot to adapt to novel situations in fractions of a second. RMA is trained completely in simulation without using any domain knowledge like reference trajectories or predefined foot trajectory generators and is deployed on the A1 robot without any fine-tuning. We train RMA on a varied terrain generator using bioenergetics-inspired rewards and deploy it on a variety of difficult terrains including rocky, slippery, deformable surfaces in environments with grass, long vegetation, concrete, pebbles, stairs, sand, etc. RMA shows state-of-the-art performance across diverse real-world as well as simulation experiments. Video results at [this https URL](https://ashish-kmr.github.io/rma-legged-robots/)\n\n|     |     |\n| --- | --- |\n| Comments: | RSS 2021. Webpage at [this https URL](https://ashish-kmr.github.io/rma-legged-robots/) |\n| Subjects: | Machine Learning (cs.LG); Artificial Intelligence (cs.AI); Computer Vision and Pattern Recognition (cs.CV); Robotics (cs.RO) |\n| Cite as: | [arXiv:2107.04034](https://arxiv.org/abs/2107.04034) \\[cs.LG\\] |\n|  | (or [arXiv:2107.04034v1](https://arxiv.org/abs/2107.04034v1) \\[cs.LG\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2107.04034](https://doi.org/10.48550/arXiv.2107.04034)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |\n\n## Submission history\n\nFrom: Deepak Pathak \\[ [view email](https://arxiv.org/show-email/b80869a3/2107.04034)\\]\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "reported-latency",
+        "outcome": "supported",
+        "reviewedBy": "agent:91d0f5b9-f12a-456b-ab9d-5fb4d5691f28/integrator",
+        "rationale": "I read the abstract together with the introductory less-than-one-second footnote. This is the authors' reported adaptation timescale, not a universal bound, a gradient update, or the history duration. No measured precision is invented.",
+        "evidenceDigest": "622fc2adfeeebef122c90f091399886bb81a789fed0790a9c7f4e815a2d79164"
+      },
+      {
+        "partId": "actual-frequencies",
+        "outcome": "supported",
+        "reviewedBy": "agent:91d0f5b9-f12a-456b-ab9d-5fb4d5691f28/integrator",
+        "rationale": "Figure 0, introduction, III-C and Algorithm 2 consistently separate 10 Hz latent inference and 100 Hz desired-joint-position inference on the tested A1. The latest latent is reused without a central synchronization clock. IV-A prints a 0.025 s simulation step alongside 100 Hz control; I do not infer or repair a physics rate from this unresolved printed mismatch.",
+        "evidenceDigest": "4c4c81a4edf1958b924111c1eb4c5b8179692b5ae3fc5510a8792c7cf310744e"
+      },
+      {
+        "partId": "paper-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:91d0f5b9-f12a-456b-ab9d-5fb4d5691f28/integrator",
+        "rationale": "Compared actual full title and Ashish Kumar, Zipeng Fu, Deepak Pathak, Jitendra Malik in body and landing metadata. Landing reports 8 July 2021 and RSS 2021 comment. Only v1 is listed there, but the unversioned ar5iv response has no independent version pin. Canonical registry abs URL remains exact; evidence uses actual retrieved URLs.",
+        "evidenceDigest": "6e018f7cb581ee52eeadd3e5b3eb4d01893e3b8c1e9e5dd58a7b2b83e82b2a1f"
+      }
+    ]
+  },
+  {
+    "id": "rma-writer-11-20260909",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 11,
+    "originalCellsDigest": "040fc9a3b50cd58cfe075941858eddef4367cf024fbfe0d04f9d5ddf0129b591",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "base-and-latent",
+        "text": "Jointly train base policy and environment encoder; deployment base policy uses current state, previous action and latent for target joint positions.",
+        "requiredCitationIds": [
+          "rma-2021"
+        ]
+      },
+      {
+        "id": "adaptation-training-history",
+        "text": "Supervised simulator on-policy latent regression using 50 state-action steps / 0.5s, not action imitation or online policy optimization.",
+        "requiredCitationIds": [
+          "rma-2021"
+        ]
+      },
+      {
+        "id": "deployment",
+        "text": "A1 deployment without fine-tuning; ~10Hz adaptation vs 100Hz base inference asynchronously.",
+        "requiredCitationIds": [
+          "rma-2021"
+        ]
+      },
+      {
+        "id": "limits",
+        "text": "Latent need not equal ground-truth parameters; blind walking can fail under large perturbations/multiple leg obstructions.",
+        "requiredCitationIds": [
+          "rma-2021"
+        ]
+      },
+      {
+        "id": "paper-identity",
+        "text": "Exact RMA title, four-person byline, July 2021 submission and RSS 2021 comment; unversioned ar5iv body is not falsely byte-pinned.",
+        "requiredCitationIds": [
+          "rma-2021"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:91d0f5b9-f12a-456b-ab9d-5fb4d5691f28/integrator",
+      "rationale": "Fresh complete-claim review against actual RMA source, deployment algorithm and countercontext; all conjunctive parts retained. Prepared answer-component mismatch corrected, not synthetically approved.",
+      "planDigest": "78484b3d53e77279852176a39d8496b971f25fd2de2200745c3bc230ccff5152"
+    },
+    "evidence": [
+      {
+        "partId": "base-and-latent",
+        "citationId": "rma-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2107.04034",
+        "supportingPassage": "We learn a base policy π\\pi which takes as input the current state xt∈ℝ30x_{t}\\in\\mathbb{R}^{30}, previous action at−1∈ℝ12a_{t-1}\\in\\mathbb{R}^{12} and the extrinsics vector zt∈ℝ8z_{t}\\in\\mathbb{R}^{8} to predict the next action ata_{t}. The predicted action ata_{t} is the desired joint position for the 1212 robot joints which is converted to torque using a PD controller. The extrinsics vector ztz_{t} is a low dimensional encoding of the environment vector et∈ℝ17e_{t}\\in\\mathbb{R}^{17} generated by μ\\mu.\nzt\\displaystyle z_{t} =μ⁡(et)\\displaystyle=\\mu(e_{t})\n(1)\nat\\displaystyle a_{t} =π⁡(xt,at−1,zt)\\displaystyle=\\pi(x_{t},a_{t-1},z_{t})\n(2)\nWe implement μ\\mu and π\\pi as MLPs (details in Section IV-B). We jointly train the base policy π\\pi and the environmental factor encoder μ\\mu end to end using model-free reinforcement learning. At time step tt, π\\pi takes the current state xtx_{t}, previous action at−1a_{t-1} and the extrinsics zt=μ⁡(et)z_{t}=\\mu(e_{t}), to predict an action ata_{t}. RL maximizes the following expected return of the policy π\\pi:\n\nAbstract\nSuccessful real-world deployment of legged robots would require them to adapt in real-time to unseen scenarios like changing terrains, changing payloads, wear and tear. This paper presents Rapid Motor Adaptation (RMA) algorithm to solve this problem of real-time online adaptation in quadruped robots. RMA consists of two components: a base policy and an adaptation module. The combination of these components enables the robot to adapt to novel situations in fractions of a second. RMA is trained completely in simulation without using any domain knowledge like reference trajectories or predefined foot trajectory generators and is deployed on the A1 robot without any fine-tuning. We train RMA on a varied terrain generator using bioenergetics-inspired rewards and deploy it on a variety of difficult terrains including rocky, slippery, deformable surfaces in environments with grass, long vegetation, concrete, pebbles, stairs, sand, etc. RMA shows state-of-the-art performance across diverse real-world as well as simulation experiments. Video results at https://ashish-kmr.github.io/rma-legged-robots/.\nFig. 0: RMA consists of two subsystems - the base policy π\\pi and the adaptation module ϕ\\phi. Top: RMA is trained in two phases. In the first phase, the base policy π\\pi takes as input the current state xtx_{t}, previous action at−1a_{t-1} and the privileged environmental factors ete_{t} which is encoded into the latent extrinsics vector ztz_{t} using the environmental factor encoder μ\\mu. The base policy is trained in simulation using model-free RL. In the second phase, the adaptation module ϕ\\phi is trained to predict the extrinsics zt^\\hat{z_{t}} from the history of state and actions via supervised learning with on-policy data. Bottom: At deployment, the adaptation module ϕ\\phi generates the extrinsics z^t\\hat{z}_{t} at 10Hz, and the base policy generates the desired joint positions at 100Hz which are converted to torques using A1’s PD controller. Since the adaptation module runs at a lower frequency, the base policy consumes the most recent extrinsics vector z^t\\hat{z}_{t} predicted by the adaptation module to predict ata_{t}. This asynchronous design was critical for seamless deployment on low-cost robots like A1 with limited on-board compute. Videos at: https://ashish-kmr.github.io/rma-legged-robots/"
+      },
+      {
+        "partId": "adaptation-training-history",
+        "citationId": "rma-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2107.04034",
+        "supportingPassage": "The knowledge of privileged environment configuration ete_{t} and its encoded extrinsics vector ztz_{t} are not accessible during deployment in the real-world. Hence, we propose to estimate the extrinsics online using the adaptation module ϕ\\phi. Instead of ete_{t}, the adaptation module uses the recent history of robot’s states xt−k:t−1x_{t-k:t-1} and actions at−k:t−1a_{t-k:t-1} to generate zt^\\hat{z_{t}} which is an estimate of the true extrinsics vector ztz_{t}. In our experiments, we use k=50k=50 which corresponds to 0.50.5s.\nzt^=ϕ(xt−k:t−1,at−k:t−1)\\hat{z_{t}}=\\phi\\big(x_{t-k:t-1},a_{t-k:t-1}\\big)\nNote that instead of predicting ete_{t}, which is the case in typical system identification, we directly estimate the extrinsics ztz_{t} that only encodes how the behavior should change to correct for the given environment vector ete_{t}.\nTo train the adaptation module, we just need the state-action history and the target value of ztz_{t} (given by the environmental factor encoder μ\\mu). Both of these are available in simulation, and hence, ϕ\\phi can be trained via supervised learning to minimize: MSE​(zt^,zt)=‖zt^−zt‖2,\\text{MSE}(\\hat{z_{t}},z_{t})=\\|\\hat{z_{t}}-z_{t}\\|^{2}, where zt=μ⁡(et)z_{t}=\\mu(e_{t}). We model ϕ\\phi as a 11-D CNN to capture temporal correlations (Section IV-B).\nOne way to collect the state-action history is to unroll the trained base policy π\\pi with the ground truth ztz_{t}. However, such a dataset will contain examples of only good trajectories where the robot walks seamlessly. Adaptation module ϕ\\phi trained on this data would not be robust to deviations from the expert trajectory, which will happen often during deployment.\nWe resolve this problem by training ϕ\\phi with on-policy data (similar to Ross et al. 2011). We unroll the base policy π\\pi with the zt^\\hat{z_{t}} predicted by the randomly initialized policy ϕ\\phi. We then use this state action history, paired with the ground truth ztz_{t} to train ϕ\\phi. We iteratively repeat this until convergence. This training procedure ensures that RMA sees enough exploration trajectories during training due to a) randomly initialized ϕ\\phi, and b) imperfect prediction of zt^\\hat{z_{t}}. This adds robustness to the performance of RMA during deployment.\nIII-C Asynchronous Deployment"
+      },
+      {
+        "partId": "deployment",
+        "citationId": "rma-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2107.04034",
+        "supportingPassage": "We train RMA completely in simulation and then deploy it in the real world without any modification or fine-tuning. The two subsystems of RMA run asynchronously and at substantially different frequencies, and hence, can easily run using little on-board compute. The adaptation policy is slow because it operates on the state-action history of 5050 time steps, roughly updating the extrinsic vector zt^\\hat{z_{t}} once every 0.10.1s (10 Hz). The base policy runs at 100 Hz and uses the most recent zt^\\hat{z_{t}} generated by the adaptation module, along with the current state and the previous action, to predict ata_{t}. This asynchronous execution doesn’t hurt performance in practice because zt^\\hat{z_{t}} changes relatively infrequently in the real world.\nAlternately, we could have trained a base policy which directly takes the state and action history as input without decoupling them into the two modules. We found that this (a) leads to unnatural gaits and poor performance in simulation, (b) can only run at 10Hz on the on-board compute, and (c) lacks the asynchronous design which is critical for a seamless deployment of RMA on the real robot without the need for any synchronization or calibration of the two subsystems. This asynchronous design is fundamentally enabled by the decoupling of the relatively infrequently changing extrinsics vector with the quickly changing robot state.\n\nProcess 1 operating at 100 Hz;\nt←0t\\leftarrow 0;\nwhile not fall do\nat←π⁡(xt,at−1,z^async)a_{t}\\leftarrow\\pi(x_{t},a_{t-1},\\hat{z}_{\\mathrm{async}});\nxt+1←x_{t+1}\\leftarrow env.step(ata_{t});\nt←t+1t\\leftarrow t+1;\nend while\nProcess 2 operating at 10 Hz;\nwhile not fall do\nz^async←ϕ(xt−k:k,at−k−1:k−1)\\hat{z}_{\\mathrm{async}}\\leftarrow\\phi(x_{t-k:k},a_{t-k-1:k-1});\nend while\nAlgorithm 2 Rapid Motor AdaptationDeployment"
+      },
+      {
+        "partId": "limits",
+        "citationId": "rma-2021",
+        "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2107.04034",
+        "supportingPassage": "Unfortunately, this policy cannot be directly deployed because we don’t have access to ete_{t} in the real world. What we need to do is to estimate the extrinsics at run time, which is the role of the adaptation module ϕ\\phi. The key insight is that when we command a certain movement of the robot joints, the actual movement differs from that in a way that depends on the extrinsics. So instead of using privileged information, we might hope to use the recent history of the agent’s state to estimate this extrinsics vector, analogously to the operation of a Kalman filter for state estimation from history of observables. Specifically, the goal of ϕ\\phi is to estimate the extrinsics vector ztz_{t} from the robot’s recent state and action history, without assuming any access to ete_{t}. That is at runtime, but at training time, life is easier. Since both the state history and the extrinsics vector 𝐳𝐭\\mathbf{z_{t}} can be computed in simulation, we can train this module via supervised learning. At deployment, both these modules work together to perform robust and adaptive locomotion. In our experimental setup with its limited on-board computing, the base policy π\\pi runs at 100 Hz, while the adaptation module ϕ\\phi is slower and runs at 10Hz. The two run asynchronously in parallel with no central clock to align them. The base policy just uploads the most recent prediction of the extrinsics vector ztz_{t} from the adaptation module to predict action ata_{t}.\nOur approach is in contrast to previous learning-based work in locomotion that adapt learned policies via inferring the key parameters about the environment from a small dataset collected in every new situation to which the robot is introduced. These could either be physical parameters like friction, etc. [7] or their latent encoding [41]. Unfortunately, as mentioned earlier, collecting such a dataset, when the robot hasn’t yet acquired a good policy for walking, could result in falls and damage to the robot. Our approach avoids this because RMA, through the rapid estimation of ztz_{t} permits the walking policy to adapt quickly 11 1 RMA takes less than 11s, whereas Peng et al. 2020 need to collect 4−84-8mins (5050 episodes of 5−105-10s) of data. and avoid falls.\nTraining of a base policy using RL with an extra argument for the environmental parameters has also been pursued in [57, 41]. Our novel aspects are the use of a varied terrain generator and “natural” reward functions motivated by bioenergetics which allows us to learn walking policies without using any reference demonstrations [41]. But the truly novel contribution of this paper is the adaptation module, trained in simulation, which makes RMA possible. This, at deployment time, has the flavor of system identification, but it is an on-line version of system identification, based just on the single trajectory that the robot has seen in the past fraction of a second. One might reasonably ask why it should work at all, but we can offer a few speculations:\n•\nSystem identification is traditionally thought of as an optimization problem. But in many settings researchers have found that given sample (input, output) pairs of optimization problems with their solutions, we could use a neural network to approximate the function mapping the problem to its solution [1, 17]. Effectively that is what ϕ\\phi is learning to do.\n•\nWe don’t need perfect system identification for the approach to work. The vector of extrinsics ztz_{t} is a lower-dimensional nonlinear projection of the environmental parameters. This takes care of some identifiability issues where some parameters could covary with identical effects on observables. Secondly, we don’t need this vector of extrinsics to be correct in some “ground truth” sense. What matters is that it leads to the “right” action, and the end-to-end training optimizes for that.\n•\nThe range of situations seen in training should encompass what the robot will encounter in the real world. We use a fractal terrain generator which accompanied by the randomization of parameters such as mass, friction etc. creates a wide variety of physical contexts in which the walking robot has to react.\n\nWe presented the RMA algorithm for real-time adaptation of a legged robot walking in a variety of terrains. No demonstrations or predefined motion templates were needed. Despite only having access to proprioceptive data, the robot can also go downstairs and walk across rocks. However, a blind robot has limitations. Larger perturbations such as sudden falls while going downstairs, or due to multiple leg obstructions from rocks, sometimes lead to failures. To develop a truly reliable walking robot, we need to use not just proprioception but also exteroception with an onboard vision sensor. The importance of vision in guiding long range, rapid locomotion has been well studied, e.g. by [35], and this is an important direction for future work.\nAcknowledgments\nWe would like to thank Jemin Hwangbo for helping with the simulation platform, and Koushil Sreenath and Stuart Anderson for helpful feedback during the course of this project. We would also like to thank Claire Tomlin, Shankar Sastry, Chris Atkeson, Aravind Sivakumar, Ilija Radosavovic and Russell Mendonca for their high quality feedback on the paper. This research was part of a BAIR-FAIR collaborative project, and recently also supported by the DARPA Machine Common Sense program.\nReferences"
+      },
+      {
+        "partId": "paper-identity",
+        "citationId": "rma-2021",
+        "sourceUrl": "https://arxiv.org/abs/2107.04034",
+        "supportingPassage": "\n\n\\[Submitted on 8 Jul 2021\\]\n\n# Title:RMA: Rapid Motor Adaptation for Legged Robots\n\nAuthors: [Ashish Kumar](https://arxiv.org/search/cs?searchtype=author&query=Kumar,+A), [Zipeng Fu](https://arxiv.org/search/cs?searchtype=author&query=Fu,+Z), [Deepak Pathak](https://arxiv.org/search/cs?searchtype=author&query=Pathak,+D), [Jitendra Malik](https://arxiv.org/search/cs?searchtype=author&query=Malik,+J)\n\nView a PDF of the paper titled RMA: Rapid Motor Adaptation for Legged Robots, by Ashish Kumar and 3 other authors\n\n[View PDF](https://arxiv.org/pdf/2107.04034) [HTML (experimental)](https://arxiv.org/html/2107.04034v1)\n\n> Abstract:Successful real-world deployment of legged robots would require them to adapt in real-time to unseen scenarios like changing terrains, changing payloads, wear and tear. This paper presents Rapid Motor Adaptation (RMA) algorithm to solve this problem of real-time online adaptation in quadruped robots. RMA consists of two components: a base policy and an adaptation module. The combination of these components enables the robot to adapt to novel situations in fractions of a second. RMA is trained completely in simulation without using any domain knowledge like reference trajectories or predefined foot trajectory generators and is deployed on the A1 robot without any fine-tuning. We train RMA on a varied terrain generator using bioenergetics-inspired rewards and deploy it on a variety of difficult terrains including rocky, slippery, deformable surfaces in environments with grass, long vegetation, concrete, pebbles, stairs, sand, etc. RMA shows state-of-the-art performance across diverse real-world as well as simulation experiments. Video results at [this https URL](https://ashish-kmr.github.io/rma-legged-robots/)\n\n|     |     |\n| --- | --- |\n| Comments: | RSS 2021. Webpage at [this https URL](https://ashish-kmr.github.io/rma-legged-robots/) |\n| Subjects: | Machine Learning (cs.LG); Artificial Intelligence (cs.AI); Computer Vision and Pattern Recognition (cs.CV); Robotics (cs.RO) |\n| Cite as: | [arXiv:2107.04034](https://arxiv.org/abs/2107.04034) \\[cs.LG\\] |\n|  | (or [arXiv:2107.04034v1](https://arxiv.org/abs/2107.04034v1) \\[cs.LG\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2107.04034](https://doi.org/10.48550/arXiv.2107.04034)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |\n\n## Submission history\n\nFrom: Deepak Pathak \\[ [view email](https://arxiv.org/show-email/b80869a3/2107.04034)\\]\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "base-and-latent",
+        "outcome": "supported",
+        "reviewedBy": "agent:91d0f5b9-f12a-456b-ab9d-5fb4d5691f28/integrator",
+        "rationale": "III-A equations 1/2 and introduction jointly train the privileged encoder and base policy with RL. State, previous action and latent feed joint-position inference. This is not direct teacher-action imitation, and the quiz answer must name the adaptation module rather than the base policy.",
+        "evidenceDigest": "680750a652eb9329d2723e79c824e7e2b1a9724ce262ff855fe23475f056839e"
+      },
+      {
+        "partId": "adaptation-training-history",
+        "outcome": "supported",
+        "reviewedBy": "agent:91d0f5b9-f12a-456b-ab9d-5fb4d5691f28/integrator",
+        "rationale": "III-B explicitly uses k=50 corresponding to 0.5 s of state AND action history. Encoder latents are supervised targets. On-policy rollouts with imperfect predicted latents cover deviations, not only expert trajectories. Algorithm 1 contains training updates; Algorithm 2 deployment only inference.",
+        "evidenceDigest": "662a27024d63043b0b2e92e8e138fc4cbcae3ed40eeeb83b284e558540355a06"
+      },
+      {
+        "partId": "deployment",
+        "outcome": "supported",
+        "reviewedBy": "agent:91d0f5b9-f12a-456b-ab9d-5fb4d5691f28/integrator",
+        "rationale": "III-C and Algorithm 2 establish simulated training and A1 deployment without real-world fine-tuning, asynchronous ~10 Hz adaptation / 100 Hz base policy. The PD torque conversion is separate; no low-level PD or physics rate is claimed.",
+        "evidenceDigest": "22f339308d55f8296cdf2bf2af24eca2e15a27729431fb489798ee5af1e11fcf"
+      },
+      {
+        "partId": "limits",
+        "outcome": "supported",
+        "reviewedBy": "agent:91d0f5b9-f12a-456b-ab9d-5fb4d5691f28/integrator",
+        "rationale": "Introduction says ground-truth extrinsics are unnecessary if they lead to appropriate actions. VI explicitly records failures after large perturbations, downstairs falls and multiple leg obstructions. V separates 3 seeds x1000 simulated episodes from 5 indoor trials, stopping after 2 drastic failures to protect hardware; these are not broad reliability certification.",
+        "evidenceDigest": "d7a484f4d7a57f132a20b39b1172abedbcc4d747417efca25b5a7c1db5cfd562"
+      },
+      {
+        "partId": "paper-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:91d0f5b9-f12a-456b-ab9d-5fb4d5691f28/integrator",
+        "rationale": "Compared actual full title and Ashish Kumar, Zipeng Fu, Deepak Pathak, Jitendra Malik in body and landing metadata. Landing reports 8 July 2021 and RSS 2021 comment. Only v1 is listed there, but the unversioned ar5iv response has no independent version pin. Canonical registry abs URL remains exact; evidence uses actual retrieved URLs.",
+        "evidenceDigest": "b8f5aed48a00b7a96152405288e8432360962097f434749c2568cbabb3ea29c6"
+      }
+    ]
   }
 ]

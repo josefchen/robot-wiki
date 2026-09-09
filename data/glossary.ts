@@ -289,7 +289,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'teacher-student-distillation',
     term: 'teacher-student distillation',
     definition:
-      'Training two policies in sequence to work around partial observability: a teacher trains with privileged simulator state, such as exact terrain friction or object pose, and a student then learns to imitate the teacher using only the observations available at deployment. RMA used the split for rapid adaptation to changing payloads and surfaces, and Lee and colleagues distilled a privileged ANYmal teacher into a proprioceptive student that hikes challenging terrain without ever seeing it.',
+      'Training two policies in sequence to work around partial observability: a teacher trains with privileged simulator state, such as exact terrain friction or object pose, and a student then learns to imitate the teacher using only the observations available at deployment. RMA instead trained a base policy with a privileged encoder, then trained a separate state-action-history module to predict its latent extrinsics for asynchronous online inference. Lee and colleagues distilled a privileged ANYmal teacher into a proprioceptive student that hikes challenging terrain without ever seeing it.',
     citations: ['rma-2021', 'lee-2020'],
   },
   {
