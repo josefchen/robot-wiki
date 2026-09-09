@@ -120,9 +120,28 @@ This is a zero-credit component checkpoint: all 994 original audit records
 (413 complete / 581 incomplete across 47 articles), 319 plans, 397 existing
 approvals, and 47 inherited baseline failures are unchanged. Three current
 article comparisons still fail four locked reference anchors. Full production
-export/reading-time, the 48-card OG/X matrix, all-consumer/shared smoke coverage,
+export/reading-time, the 48-card OG/X matrix, the remaining shared smoke failure,
 and independent release acceptance remain open. Do not treat these scoped
 passes as a green content gate or publication authorization.
+
+The subsequent bounded consumer verification reconciles 46 consuming routes,
+224 unique article/term bindings, and 227 raw rendered occurrences across all
+47 published articles. All 908 occurrence × viewport × hover/keyboard-focus
+identities pass at 375×812 and 1440×900, including canonical definitions,
+glossary fragments, ARIA identity, viewport/header bounds, and scrollable
+definition endpoints. Seven new inventory tests pass. The 94 route/viewport
+identities include two checks of the non-consuming article; the three targeted
+keyboard reruns overlap that population and are not additional coverage.
+Earlier trailing-slash and conditional-tooltip-tab-stop fixture failures remain
+in the retained history.
+
+The four non-consuming shared smoke routes produced seven passes and one
+failure: on `/playground/` at 375×812, after keyboard skip-to-content and clicking
+the navigation trigger, the close-menu control did not appear. That failure
+remains unresolved; no product implementation was changed to hide it. Axe was
+not reached in that failed case, and incompletes from the other cases are not
+full accessibility acceptance. These are offline development-runtime checks,
+not a production export or a full-reference comparison of every trigger.
 
 ## Building
 
