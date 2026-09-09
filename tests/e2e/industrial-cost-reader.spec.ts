@@ -54,11 +54,17 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
       fonts.push({ selector, family, used });
     }
     await cdp.detach();
-    const paragraph = prose.locator('p').filter({ hasText: "EVST's July 15, 2026" });
+    // The glossary now also names this dated source. Select the article's
+    // full lead, not a substring repeated inside a dormant Term tooltip.
+    const paragraph = prose.locator('p').filter({
+      hasText: "EVST's July 15, 2026 commercial palletising-cell guide",
+    });
+    await expect(paragraph).toHaveCount(1);
     await expect(paragraph).toContainText('commercial palletising-cell guide', { useInnerText: true });
     await expect(paragraph).toContainText('application-specific end-of-arm tooling', { useInnerText: true });
     await expect(paragraph).not.toContainText('part fixtures', { useInnerText: true });
     const responsibility = prose.locator('p').filter({ hasText: "OSHA's Technical Manual, discussing" });
+    await expect(responsibility).toHaveCount(1);
     await expect(responsibility).toContainText('Manufacturers or employers may also act as integrators', { useInnerText: true });
     await expect(responsibility).toContainText('risk assessment alone does not establish', { useInnerText: true });
     // This is a visible-prose oracle, not a textContent oracle over dormant
@@ -178,13 +184,42 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await term.evaluate(e => window.scrollBy(0, e.getBoundingClientRect().top - innerHeight / 2));
     for (const mode of ['hover', 'focus'] as const) {
       if (mode === 'hover') await termLink.hover();
-      else { await page.mouse.move(0, 0); await termLink.focus(); }
+      else {
+        await page.mouse.move(0, 0); await termLink.focus();
+        await expect(termLink).toBeFocused();
+      }
       const tip = term.getByRole('tooltip');
       await expect(tip).toBeVisible();
       const text = await tip.innerText();
-      await capture(`systems-integrator-${mode}`, { text, bounds: await tip.boundingBox() });
+      const bounds = (await tip.boundingBox())!;
+      const focusStyle = await termLink.evaluate(e => {
+        const s = getComputedStyle(e);
+        return { outlineStyle: s.outlineStyle, outlineWidth: s.outlineWidth, outlineColor: s.outlineColor };
+      });
+      await capture(`systems-integrator-${mode}`, { mode, text, bounds, focusStyle });
       expect.soft(text, `revealed ${mode} definition must not contradict the corrected responsibility paragraph`)
         .not.toContain('not the robot manufacturer');
+      // Positive source-backed scope is mandatory: deleting the definition
+      // or replacing it with an empty disclaimer cannot repair this case.
+      for (const supported of [
+        'integrates a robot',
+        'end-effectors, sensors, safeguarding and controls needed for an application',
+        'Manufacturers or employers may also act as integrators.',
+        "OSHA's Technical Manual, discussing ANSI/RIA R15.06-2012",
+        'complete and document an application risk assessment before commissioning',
+        'employers remain responsible for a safe workplace',
+        "EVST's July 15, 2026 commercial palletising guide",
+        'tooling, guarding, controls integration, commissioning and programming beyond the arm price.',
+      ]) expect(text, `${mode}: ${supported}`).toContain(supported);
+      expect(text).not.toMatch(/two to three|2\s*[-–]\s*3|sign-off|agreed cycle time|Under ISO/);
+      expect(bounds.x).toBeGreaterThanOrEqual(0);
+      expect(bounds.x + bounds.width).toBeLessThanOrEqual(viewport.width);
+      expect(bounds.y).toBeGreaterThanOrEqual(0);
+      expect(bounds.y + bounds.height).toBeLessThanOrEqual(viewport.height);
+      if (mode === 'focus') {
+        expect(focusStyle.outlineStyle).not.toBe('none');
+        expect(Number.parseFloat(focusStyle.outlineWidth)).toBeGreaterThanOrEqual(2);
+      }
     }
     await capture('reader-result', { assertionErrors: testInfo.errors.map(e => e.message), errors });
   });

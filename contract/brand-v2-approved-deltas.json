@@ -7790,6 +7790,24 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "industrial-systems-integrator-glossary-source-alignment-20260909",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "644008c1d1ab70e06f038b17c1b249880f43af991670f596736573312b6c9380",
+      "reason": "Change only systems-integrator: retain concrete application integration, OSHA manual ANSI/RIA R15.06-2012 risk-assessment and employer/manufacturer roles, and dated EVST commercial cell-budget scope; remove universal manufacturer exemption, cycle-time sign-off and generic price multiplier. Retained passages reviewed in convergence-industrial-integrator-glossary-repair-20260909/source-review.json. ZERO original applications.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. This is authority for source-backed correction, not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-DISC-005",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

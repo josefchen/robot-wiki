@@ -791,7 +791,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'systems-integrator',
     term: 'systems integrator',
     definition:
-      'The company that turns a purchased robot into a working production cell: end-of-arm tooling, fixtures and guarding, vision, PLC integration with the surrounding line, commissioning, and sign-off against the agreed cycle time. Under ISO 10218-2 the cell-level risk assessment is the integrator\'s responsibility, not the robot manufacturer\'s. Integration is why a quoted cell commonly lands at two to three times the arm\'s price.',
+      'An organisation that integrates a robot with the end-effectors, sensors, safeguarding and controls needed for an application. Manufacturers or employers may also act as integrators. OSHA\'s Technical Manual, discussing ANSI/RIA R15.06-2012, calls for integrators to complete and document an application risk assessment before commissioning; employers remain responsible for a safe workplace. EVST\'s July 15, 2026 commercial palletising guide lists tooling, guarding, controls integration, commissioning and programming beyond the arm price.',
     citations: ['evst-cell-cost-2026', 'osha-otm-robots'],
   },
   {
