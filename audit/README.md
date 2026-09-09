@@ -1,5 +1,91 @@
 # Content-integrity audit trail
 
+## Current checkpoint: six Boston Dynamics originals integrated (2026-09-09)
+
+**435 complete / 559 incomplete / 994 originals / 47 articles**.
+RL is **89 complete / 78 incomplete / 167 originals**. Applied exactly
+legged-locomotion originals 12–16 and reward-design-mpc original 18.
+Six plans contain 18 ordered AND-parts, 18 evidence items and 34 verified
+literal passages. Reward18 requires both the Spot and Atlas documents.
+Mixed Stat legged1 and reward19 remain incomplete; the other 34 prepared
+proposals remain unassigned. No whole-article credit or review-date advance.
+
+Three retained primary documents were checked against their preserved bodies
+and original retrieval events: Boston Dynamics Spot RL, RAI Atlas behavior
+production, and Boston Dynamics/TRI Atlas LBM. Historical FetchUrl returns
+were 2026-09-08T08:45:38.669Z, 08:45:54.192Z and 08:46:03.523Z;
+the two historical same-page GET fallbacks are not new retrievals. This worker
+made **zero retrievals**. Tool-reported 200 is not fresh origin/liveness proof.
+The packet remains immutable; current native IDs, ordinals and all four cells
+were independently rebound at application. Integrator reviews and native
+digests are newly computed, not copied source-worker adjudications.
+
+Corrections distinguish production Spot from the >70 cm research example,
+multiple simultaneous MPC instances from all MPC, cumulative fleet testing
+from per-robot runtime, RAI's simulator runs from invented durations, and
+Atlas's 30 Hz actions/images from its 48-action prediction and usual 24-action
+execution chunk. Atlas's explicit four-person Blog Authors list is retained;
+JSON-LD account `mrodin`, Spot personal byline and RAI corporate-name expansion
+remain qualifications, not invented identities. Both article lastReviewed
+values remain 2026-08-17. Prior learned-locomotion/Rudin corrections survive.
+
+Native preservation passes for all **988 unselected full semantic records**,
+including 429 prior completions, 335 prior plan objects/prefix, and 432 prior
+approval objects/metadata/prefix. Current totals are **341 plans / 436 approvals**.
+Three source-correction approvals and one subsequent exact placement approval
+use existing immutable-baseline/current native hashes. All **44 original
+unrelated failure objects and their order** remain identical. Six wrong-old/new
+hash controls and the stale-approval-set control reject. No schema, baseline,
+checker, citation registry, owner file or shared renderer changed.
+
+Actual sequential checks used NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Observed result |
+|---|---|
+| New unit red phase | 25 failed before integration, exit 1 |
+| Affected unit/component run | 302 passed / 5 failed across 14 files, exit 1; all five failures were new-test expectations for native schema exceptions |
+| Corrected new unit file | 25 passed, exit 0; the 282 existing passes are from the preceding invocation, not a fresh 307-pass run |
+| Initial bounded source readers | Four passed / one failed, exit 1; fleet Spot tooltip clipped 4px at mobile width 375 |
+| Affected placement rerun | Both legged viewport cases passed, exit 0; no broad browser rerun |
+| Normal lint | prelint and ESLint passed, exit 0 |
+| Route types / nonincremental TypeScript | Both passed, exits 0 |
+| Offline content | RED: 564 findings plus nine separately reported citation gaps, exit 1; source-only no-slop and chart-description stages passed |
+| Native final preservation | Exact counts, protected files, full failure objects and negative controls passed, exit 0 |
+
+One article-local `max-sm:[&_[role=tooltip]]:-left-4` wrapper moves the fleet
+tooltip from x=123/right=379 to x=107/right=363 at 375px, on both keyboard
+focus and hover. Removing only that wrapper reconstructs the pre-repair article
+hash exactly. Source text and all native row tuples are unchanged by this repair.
+The owned development runtime used supported devIndicators:false; it was not
+presented as production. Only its verified leaf was stopped; actual supervisor
+exit was **143**. next.config.ts, tsconfig.json and next-env.d.ts were restored
+byte-exactly. Other Tasks were preserved.
+
+There are 111 actual viewport captures across the initial and affected runs.
+**13 were Read-inspected**: the original clipped focus capture, four Miki
+mobile recaptures, four repaired fleet focus/hover captures, one Atlas tail
+slice and three reward prose slices. Miki's overlapping viewport slices expose
+the hike, stops, Stat and source without the historical dev-indicator obstruction;
+this earns zero original credit. The other 98 captures are not pixel-certified.
+DOM checks cover selected source URLs, tooltips, reference bylines, inline
+glossary states, custom-font attribution and reward control/reset coupling.
+That does not certify whole font cmap, full reference/glossary states, contrast,
+brand rubric or production output. The predecessor's 15-case line log remains
+historical; its lost JSON was not reconstructed and final-input qualification
+of those 15 identities remains unfinished at this bounded checkpoint.
+
+Source fidelity was reviewed against the retained passages and limiting context.
+Executable source-only no-slop passed; no humanizer run is claimed. No source
+sweep, build/export/card corpus, push or deployment occurred. Formal progress
+remains **307/331**, M5 unaccepted, skipScrutiny=false and skipUserTesting=false.
+Independent Sol/high scrutiny and user testing remain required. No fallback
+was activated. Parent retains queue, status, readiness and follow-up ownership.
+
+Exact input manifests, source provenance, original/current row history, commands,
+logs, real exits, placement reconstruction and committed reconciliation:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-boston-dynamics-control-integration-20260909/`.
+Earlier checkpoints below are retained history, not fresh validation.
+
 ## Current checkpoint: five learned-locomotion originals integrated (2026-09-09)
 
 **429 complete / 565 incomplete / 994 originals / 47 articles**.

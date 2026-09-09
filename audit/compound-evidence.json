@@ -33402,5 +33402,479 @@
         "evidenceDigest": "998821f3e179fa90659a0666780685c2657b5e0c26349568c2bafc4431f117ee"
       }
     ]
+  },
+  {
+    "id": "boston-control-20260908-legged-locomotion-12",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "legged-locomotion",
+    "rowOrdinal": 12,
+    "originalCellsDigest": "bcee4f0ad02f1ead6a0ded2f9859fb9d013c2a90e64b4623f116f15bb9f4950a",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "architecture",
+        "text": "Boston Dynamics describes Spot's earlier production controller as simultaneously evaluating many MPC controllers and dozens of predictive horizons in less than a millisecond, each with a distinct step reference, with scores selecting the maximum-valued output.",
+        "requiredCitationIds": [
+          "bd-spot-rl-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+      "rationale": "Current corrected claim and all ordered AND parts reviewed at 2026-09-09T12:44:02.510Z. The legacy architecture paragraph explicitly gives simultaneous MPC evaluation, the less-than-a-millisecond interval, distinct references, and maximum-score selection. It does not specify the original every-step timing gloss. Original retrievals are bound separately in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-boston-dynamics-control-integration-20260909/source-proof.json; not independent acceptance.",
+      "planDigest": "6fa591d5df4bd78199982973f75047eaf756b91298eac064dc6d496a335ea922"
+    },
+    "evidence": [
+      {
+        "partId": "architecture",
+        "citationId": "bd-spot-rl-2024",
+        "sourceUrl": "https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/",
+        "supportingPassage": "Spot’s production controller achieves this multi-scale decision making by evaluating many MPC controllers simultaneously. In less than a millisecond, Spot evaluates dozens of individual predictive horizons, each with its own unique step trajectory reference that considers both the robot and environment state (e.g., terrain roughness, presence of obstacles). To choose from among these many solutions, we’ve developed a system that can “score” the output of each of these controllers, selecting the one with the maximum value and using its output to control the robot."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "architecture",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The legacy architecture paragraph explicitly gives simultaneous MPC evaluation, the less-than-a-millisecond interval, distinct references, and maximum-score selection. It does not specify the original every-step timing gloss.",
+        "evidenceDigest": "de38d6645c3a452693676b87a6977077dd9a974c019920d412d2ebe20bf38100"
+      }
+    ]
+  },
+  {
+    "id": "boston-control-20260908-legged-locomotion-13",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "legged-locomotion",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "fde011e4de8db004401587eaae35b1a475674bce012e2419099c856e2c310725",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "generation",
+        "text": "The Spot account was published in 2024; its described production policy is integrated with the existing model-based locomotion controller, not a complete-stack replacement.",
+        "requiredCitationIds": [
+          "bd-spot-rl-2024"
+        ]
+      },
+      {
+        "id": "compute",
+        "text": "The production architecture removes the need for multiple parallel MPC instances and reduces computational complexity, without asserting a measured compute percentage.",
+        "requiredCitationIds": [
+          "bd-spot-rl-2024"
+        ]
+      },
+      {
+        "id": "reported-benefit-release",
+        "text": "The company reports Spot is less likely to fall even on extremely slick or irregular surfaces and describes delivery through its software update, without a numeric effect size or universal safety guarantee.",
+        "requiredCitationIds": [
+          "bd-spot-rl-2024"
+        ]
+      },
+      {
+        "id": "separate-research-box",
+        "text": "The What's Next research discussion separately describes a learned policy combined with a model-based controller not limited by periodic-gait assumptions climbing boxes over 70 cm; the text does not establish that as the shipped production policy's capability.",
+        "requiredCitationIds": [
+          "bd-spot-rl-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+      "rationale": "Current corrected claim and all ordered AND parts reviewed at 2026-09-09T12:44:02.510Z. The preserved HTML Article date is in 2024. The locomotion-with-RL discussion explicitly retains the existing model-based controller; the later research architecture is not the production controller. The production paragraph names removal of multiple parallel MPC instances and lower computational complexity. It neither removes every model-based controller nor quantifies a percentage saving. Results with RL reports less likely to fall on slick or irregular surfaces and an update for current users. The inspected report provides no numerical reduction or unconditional reliability guarantee. The over-70-cm caption follows What’s Next and its exploration of different architectures. Its model-based component lacks periodic-gait assumptions; no shipped-policy attribution is made. Original retrievals are bound separately in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-boston-dynamics-control-integration-20260909/source-proof.json; not independent acceptance.",
+      "planDigest": "8fa24e3c14826a3eb332f9ed8e4057ee45ca63a17caab778be34e1378583f4f7"
+    },
+    "evidence": [
+      {
+        "partId": "generation",
+        "citationId": "bd-spot-rl-2024",
+        "sourceUrl": "https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/",
+        "supportingPassage": "{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/\"},\"author\":{\"name\":\"mrodin\",\"@id\":\"https:\\/\\/bostondynamics.com\\/#\\/schema\\/person\\/a4d76fffcd30181801eb34e2584caf90\"},\"headline\":\"Starting on the Right Foot with Reinforcement Learning\",\"datePublished\":\"2024-03-19T14:02:45+00:00\",\"dateModified\":\"2024-06-27T18:49:50+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/\"},\"wordCount\":1739,\"image\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#primaryimage\"},\"thumbnailUrl\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2024\\/03\\/spot-unstable-ground-scaled.jpg\",\"inLanguage\":\"en-US\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/\",\"url\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/\",\"name\":\"Starting on the Right Foot with Reinforcement Learning | Boston Dynamics\",\"isPartOf\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/#website\"},\"primaryImageOfPage\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#primaryimage\"},\"image\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#primaryimage\"},\"thumbnailUrl\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2024\\/03\\/spot-unstable-ground-scaled.jpg\",\"datePublished\":\"2024-03-19T14:02:45+00:00\",\"dateModified\":\"2024-06-27T18:49:50+00:00\",\"description\":\"We’ve integrated reinforcement learning into Spot’s locomotion to enable the robot to handle more and more real-world variability.\",\"breadcrumb\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/\"]}]},{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#primaryimage\",\"url\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2024\\/03\\/spot-unstable-ground-scaled.jpg\",\"contentUrl\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2024\\/03\\/spot-unstable-ground-scaled.jpg\",\"width\":2560,\"height\":1807,\"caption\":\"Spot walks across on unstable terrain\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bostondynamics.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Starting on the Right Foot with Reinforcement Learning\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bostondynamics.com\\/#website\",\"url\":\"https:\\/\\/bostondynamics.com\\/\",\"name\":\"Boston Dynamics\",\"description\":\"Changing your idea of what robots can do.\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bostondynamics.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/bostondynamics.com\\/#\\/schema\\/person\\/a4d76fffcd30181801eb34e2584caf90\",\"name\":\"mrodin\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/a4cacff82401ce3a50e4b86e9dd37c58c3f484002a6ff490dd53020254faba30?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/a4cacff82401ce3a50e4b86e9dd37c58c3f484002a6ff490dd53020254faba30?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/a4cacff82401ce3a50e4b86e9dd37c58c3f484002a6ff490dd53020254faba30?s=96&d=mm&r=g\",\"caption\":\"mrodin\"}}]}\n\nArchitecting things this way has multiple benefits. First, it allows us to take advantage of our existing model-based locomotion controller to solve the part of the problem it handles well, while focusing learning on the part of the strategy that is harder to program. Second, it reduces the computational complexity of the production controller by removing the need to run multiple MPC instances in parallel."
+      },
+      {
+        "partId": "compute",
+        "citationId": "bd-spot-rl-2024",
+        "sourceUrl": "https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/",
+        "supportingPassage": "Architecting things this way has multiple benefits. First, it allows us to take advantage of our existing model-based locomotion controller to solve the part of the problem it handles well, while focusing learning on the part of the strategy that is harder to program. Second, it reduces the computational complexity of the production controller by removing the need to run multiple MPC instances in parallel.\n\nThis approach has yielded a mean time between falls of hundreds of hours, but it has a couple drawbacks. First, having to evaluate multiple MPC instances in parallel consumes significant onboard compute, which takes additional time and energy. Second, making changes to the selection function in order to address new failure modes can be nontrivial and risks inadvertently reducing performance in other situations. To address both of these challenges, we recently employed a data-driven approach to robot control design called reinforcement learning."
+      },
+      {
+        "partId": "reported-benefit-release",
+        "citationId": "bd-spot-rl-2024",
+        "sourceUrl": "https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/",
+        "supportingPassage": "In both our reliability fleet and in customer fleets, we have seen the benefits of these upgrades. Spot is now less likely to fall—even on extremely slick or irregular surfaces. This improved locomotion means customers can more easily deploy Spot in areas of their facilities that would have otherwise been challenging to access, as well as receive additional downstream benefits from improved reliability. For example, reducing the likelihood of falls also reduces the likelihood of operator interventions or damage resulting from a fall.\n\nCurrent Spot users will automatically benefit from the performance improvements of this RL policy following our most recent [software update](https://bostondynamics.com/blog/robot-fleet-management-lifts-off-with-spot/). And we’re continuing to iterate with the data we’re collecting to further refine the policy and expand the capabilities."
+      },
+      {
+        "partId": "separate-research-box",
+        "citationId": "bd-spot-rl-2024",
+        "sourceUrl": "https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/",
+        "supportingPassage": "While a hybrid control strategy that leverages both a model predictive controller and a learned policy is proving effective at expanding and robustifying robotic capabilities, it largely imposes the limitations of the modeling on the full control system. To unlock totally new capabilities or be tolerant in scenarios that excessively violate the assumptions of the models, we are actively exploring and testing totally different architectures.\n\nA learned policy in combination with a model-based controller that is not limited to the periodic gait assumptions of the stepping controllers is capable of climbing boxes >70cm in height"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "generation",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The preserved HTML Article date is in 2024. The locomotion-with-RL discussion explicitly retains the existing model-based controller; the later research architecture is not the production controller.",
+        "evidenceDigest": "e19fe8817c8fd6fb745bbbb40eb843b10e3b8cc406ab95c0401be89cba791fb2"
+      },
+      {
+        "partId": "compute",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The production paragraph names removal of multiple parallel MPC instances and lower computational complexity. It neither removes every model-based controller nor quantifies a percentage saving.",
+        "evidenceDigest": "eafbee4df5b576683715623df492e677cddd30814c01c357a5da947e5ecfeaee"
+      },
+      {
+        "partId": "reported-benefit-release",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: Results with RL reports less likely to fall on slick or irregular surfaces and an update for current users. The inspected report provides no numerical reduction or unconditional reliability guarantee.",
+        "evidenceDigest": "a78bbe7f68f8b53ca4a0d2cbb18ddf896be07c9226bd185d9f347c0a13de2858"
+      },
+      {
+        "partId": "separate-research-box",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The over-70-cm caption follows What’s Next and its exploration of different architectures. Its model-based component lacks periodic-gait assumptions; no shipped-policy attribution is made.",
+        "evidenceDigest": "b75834684f3ab8dc2a5c3c8d50205ce8a5a69f1aefe514381c325d2696bce9fb"
+      }
+    ]
+  },
+  {
+    "id": "boston-control-20260908-legged-locomotion-14",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "legged-locomotion",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "6a1a8a3db647ec039e1172bc4033f16bd731218cf968573f912bacfb92c345f8",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "staged-testing",
+        "text": "Simulation benchmarking precedes deployment to the internal robustness fleet, with customer release following thousands of simulated and on-robot hours.",
+        "requiredCitationIds": [
+          "bd-spot-rl-2024"
+        ]
+      },
+      {
+        "id": "fleet-runtime",
+        "text": "The internal fleet operates 24/7 for cumulative runtime over 2,000 hours a week across the named test conditions; this is not 2,000 hours per robot or an inception date.",
+        "requiredCitationIds": [
+          "bd-spot-rl-2024"
+        ]
+      },
+      {
+        "id": "selected-failures",
+        "text": "Falls and mobility issues reproducible in physics simulation are recreated for either the training or evaluation set, not every fall automatically entering training.",
+        "requiredCitationIds": [
+          "bd-spot-rl-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+      "rationale": "Current corrected claim and all ordered AND parts reviewed at 2026-09-09T12:44:02.510Z. The evaluation section orders simulation benchmarks before the internal robustness fleet and describes thousands of simulated and on-robot hours before customer deployment. The fleet paragraph expressly calls over 2,000 hours a week cumulative runtime. The listed stairs, surfaces and weather describe testing conditions, not a per-robot duration or process start date. Only physics-simulation-reproducible issues are recreated; the text says either training or evaluation. The original training-only statement discarded an explicit alternative. Original retrievals are bound separately in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-boston-dynamics-control-integration-20260909/source-proof.json; not independent acceptance.",
+      "planDigest": "06daa74f0afa4cdce77d4b6333d30d81d6b1eb50c4389f1e45d072c387f48f88"
+    },
+    "evidence": [
+      {
+        "partId": "staged-testing",
+        "citationId": "bd-spot-rl-2024",
+        "sourceUrl": "https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/",
+        "supportingPassage": "We learned years ago that in order to be confident in robot software changes, it is important to be able to do testing at a representative scale. We achieve this through a combination of simulation and hardware testing to evaluate all software changes before they are shipped to customers. We applied the same process to evaluating learned locomotion policies.\n\nWe used many parallel simulations to benchmark the robot performance on a set of scenarios with increasing difficulty. For example, decrease the coefficient of friction to characterize the slipperiest environment that can be reliably traversed. We collected statistics to validate that the learned policies improved performance in specific scenarios while maintaining performance in hundreds of others where the current production system already performs well.\n\nAfter thousands of hours of simulated and on-robot runtime across varied configurations and terrains is the policy ready for deployment to customer robots."
+      },
+      {
+        "partId": "fleet-runtime",
+        "citationId": "bd-spot-rl-2024",
+        "sourceUrl": "https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/",
+        "supportingPassage": "Once simulation results met our standards, we deployed the policy to our internal robustness fleet of Spot robots. These robots operate 24/7 for a cumulative runtime of over 2,000 hours a week indoors, outdoors, on various stairs, floor materials, and simulated weather conditions. We leverage systems that track performance metrics of this fleet in a digital dashboard and upload logs for engineers to review."
+      },
+      {
+        "partId": "selected-failures",
+        "citationId": "bd-spot-rl-2024",
+        "sourceUrl": "https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/",
+        "supportingPassage": "To robustify our learned policy given the data we collect, falls and general mobility issues that are reproducible within a physics simulation are recreated in simulation where they become either part of the training or evaluation set. Retraining a policy then effectively robustifies to failure modes we’ve already seen."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "staged-testing",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The evaluation section orders simulation benchmarks before the internal robustness fleet and describes thousands of simulated and on-robot hours before customer deployment.",
+        "evidenceDigest": "833d8a8b7168b1ae5eb49337bb1db3bac9d30557714c6964a76672dcd17319e7"
+      },
+      {
+        "partId": "fleet-runtime",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The fleet paragraph expressly calls over 2,000 hours a week cumulative runtime. The listed stairs, surfaces and weather describe testing conditions, not a per-robot duration or process start date.",
+        "evidenceDigest": "7ca5b967ee81dd79331b5ec93d952790a97faf130ac78f3c8159fb3eaa737948"
+      },
+      {
+        "partId": "selected-failures",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: Only physics-simulation-reproducible issues are recreated; the text says either training or evaluation. The original training-only statement discarded an explicit alternative.",
+        "evidenceDigest": "d19d98c74c70bf97fcf6979a02cd42995f9b8fec3e7d4c89660e299e373620c8"
+      }
+    ]
+  },
+  {
+    "id": "boston-control-20260908-legged-locomotion-15",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "legged-locomotion",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "b47e806e52f0d7d5750c235c63db9a4b2c77c2a691d3bd86d4b0f156cd0559f5",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "report-date-identity",
+        "text": "The RAI Institute's Atlas/Boston Dynamics collaboration landing page is dated March 19, 2025.",
+        "requiredCitationIds": [
+          "rai-atlas-rl-2025"
+        ]
+      },
+      {
+        "id": "motion-data-unit",
+        "text": "The control policy tracks and controls retargeted human motion data; each maneuver is created from data from about 150 million simulator runs, not a total over the whole program, steps, seconds or independent examples.",
+        "requiredCitationIds": [
+          "rai-atlas-rl-2025"
+        ]
+      },
+      {
+        "id": "zero-shot-scope",
+        "text": "The page reports zero-shot transfer to hardware but does not define run duration or specify calibration, system-identification or intervention procedures; the claim is not calibration-free deployment.",
+        "requiredCitationIds": [
+          "rai-atlas-rl-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+      "rationale": "Current corrected claim and all ordered AND parts reviewed at 2026-09-09T12:44:02.510Z. The readable RAI landing page prints Mar 19, 2025, the Atlas title, and its collaboration with Boston Dynamics. No media or expanded corporate byline was used as evidence. The complete landing-page description says each maneuver, about 150 million, and runs of the simulator. It does not define those runs as steps, seconds, or independent examples. The landing page reports zero-shot hardware transfer. Its full readable description does not establish run duration, calibration, system identification or intervention procedures; calibration-free deployment is not inferred. Original retrievals are bound separately in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-boston-dynamics-control-integration-20260909/source-proof.json; not independent acceptance.",
+      "planDigest": "318b9564ab6ff4c0496f8c3335d627ff8de3dfb9064608b13e542df74195e5f6"
+    },
+    "evidence": [
+      {
+        "partId": "report-date-identity",
+        "citationId": "rai-atlas-rl-2025",
+        "sourceUrl": "https://rai-inst.com/resources/videos/reinforcement-learning-accelerates-humanoid-behavior-production/",
+        "supportingPassage": "Mar 19, 2025\n\n# Reinforcement Learning Accelerates Humanoid Behavior Production\n\nReinforcement learning is used to speed the production of behavior for the Atlas humanoid robot. At the heart of the learning process is a physics-based simulator that generates training data for a variety of maneuvers. The control policy tracks and controls retargeted human motion data. Each maneuver is created with data from about 150 million runs of the simulator and transferred zero-shot to the hardware. This work is part of a collaboration between the RAI Institute and Boston Dynamics."
+      },
+      {
+        "partId": "motion-data-unit",
+        "citationId": "rai-atlas-rl-2025",
+        "sourceUrl": "https://rai-inst.com/resources/videos/reinforcement-learning-accelerates-humanoid-behavior-production/",
+        "supportingPassage": "Reinforcement learning is used to speed the production of behavior for the Atlas humanoid robot. At the heart of the learning process is a physics-based simulator that generates training data for a variety of maneuvers. The control policy tracks and controls retargeted human motion data. Each maneuver is created with data from about 150 million runs of the simulator and transferred zero-shot to the hardware. This work is part of a collaboration between the RAI Institute and Boston Dynamics."
+      },
+      {
+        "partId": "zero-shot-scope",
+        "citationId": "rai-atlas-rl-2025",
+        "sourceUrl": "https://rai-inst.com/resources/videos/reinforcement-learning-accelerates-humanoid-behavior-production/",
+        "supportingPassage": "Reinforcement learning is used to speed the production of behavior for the Atlas humanoid robot. At the heart of the learning process is a physics-based simulator that generates training data for a variety of maneuvers. The control policy tracks and controls retargeted human motion data. Each maneuver is created with data from about 150 million runs of the simulator and transferred zero-shot to the hardware. This work is part of a collaboration between the RAI Institute and Boston Dynamics."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "report-date-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The readable RAI landing page prints Mar 19, 2025, the Atlas title, and its collaboration with Boston Dynamics. No media or expanded corporate byline was used as evidence.",
+        "evidenceDigest": "ae2a5d59192b6c501eea21b379b3ea25d718d35205ae9f0be15d22762f1f12f2"
+      },
+      {
+        "partId": "motion-data-unit",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The complete landing-page description says each maneuver, about 150 million, and runs of the simulator. It does not define those runs as steps, seconds, or independent examples.",
+        "evidenceDigest": "8961f45f69cd62ab78aa25a35cebe834888d513c00435aac5d6d25e05b579f3e"
+      },
+      {
+        "partId": "zero-shot-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The landing page reports zero-shot hardware transfer. Its full readable description does not establish run duration, calibration, system identification or intervention procedures; calibration-free deployment is not inferred.",
+        "evidenceDigest": "ef11be4cdd92eaf746f48e13917c2eb58101687ce0f92d7d64605b51367e06e6"
+      }
+    ]
+  },
+  {
+    "id": "boston-control-20260908-legged-locomotion-16",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "legged-locomotion",
+    "rowOrdinal": 16,
+    "originalCellsDigest": "bab514e7e30ea3a357450eec79ba72c9ea4491ed16bdaacff33a30c8b075cd6f",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "dated-research-deployment",
+        "text": "The August 2025 Boston Dynamics/TRI account reports language-conditioned long-horizon whole-body manipulation policies, including locomotion, and hardware deployment of research policies, not wholesale replacement of Atlas behavior.",
+        "requiredCitationIds": [
+          "bd-atlas-lbm-2025"
+        ]
+      },
+      {
+        "id": "architecture-inputs",
+        "text": "The policy uses a 450M-parameter Diffusion Transformer with a flow-matching objective and conditioning on proprioception, images and language.",
+        "requiredCitationIds": [
+          "bd-atlas-lbm-2025"
+        ]
+      },
+      {
+        "id": "demonstration-training",
+        "text": "Training uses processed and curated teleoperation data from real hardware and simulation; demonstration quality is emphasized.",
+        "requiredCitationIds": [
+          "bd-atlas-lbm-2025"
+        ]
+      },
+      {
+        "id": "control-versus-inference",
+        "text": "The caption describes full-robot actions at 30 Hz; images arrive at 30 Hz, predicted chunks have 48 actions or 1.6 seconds, and generally 24 actions or 0.8 seconds at 1x are executed per inference. This is not a claim of 30 neural inferences per second.",
+        "requiredCitationIds": [
+          "bd-atlas-lbm-2025"
+        ]
+      },
+      {
+        "id": "mpc-interface",
+        "text": "Atlas teleoperation is built on MPC and its neural policies use the same robot control interface; retaining this interface is not proof about every controller, every deployment or a fallback orchestration protocol.",
+        "requiredCitationIds": [
+          "bd-atlas-lbm-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+      "rationale": "Current corrected claim and all ordered AND parts reviewed at 2026-09-09T12:44:02.510Z. The preserved HTML date is August 2025; the introduction, simulation and next-steps sections describe research policies, whole-body manipulation including locomotion, and hardware deployment, not all-stack replacement. The Policy section explicitly states 450M parameters, diffusion transformer, flow matching, and proprioception/images/language conditioning. These are the reported model inputs and training objective. The four-stage process collects hardware and simulation teleoperation, then processes, annotates and curates it. The later quality-assurance discussion confirms filtering demonstrations. The caption gives 30 Hz actions. The Policy section separately gives 30 Hz images, 48 predicted actions/1.6 seconds, and generally 24 executed/0.8 seconds at 1x per inference. Execution-speed adaptation precludes treating 30 Hz as an inference frequency. The teleoperation section names MPC and explicitly says neural policies use that same robot control interface. This establishes interface reuse, not an undisclosed fallback protocol or every downstream controller. Original retrievals are bound separately in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-boston-dynamics-control-integration-20260909/source-proof.json; not independent acceptance.",
+      "planDigest": "07c0442cc84b15c14b5c4467776e364bed57cd027c096baadec22694d5b5c456"
+    },
+    "evidence": [
+      {
+        "partId": "dated-research-deployment",
+        "citationId": "bd-atlas-lbm-2025",
+        "sourceUrl": "https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/",
+        "supportingPassage": "{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/\"},\"author\":{\"name\":\"mrodin\",\"@id\":\"https:\\/\\/bostondynamics.com\\/#\\/schema\\/person\\/a4d76fffcd30181801eb34e2584caf90\"},\"headline\":\"Large Behavior Models and Atlas Find New Footing\",\"datePublished\":\"2025-08-20T15:53:19+00:00\",\"dateModified\":\"2025-08-20T18:47:30+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/\"},\"wordCount\":2293,\"image\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#primaryimage\"},\"thumbnailUrl\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2025\\/08\\/atlas-tri-blog.jpg\",\"inLanguage\":\"en-US\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/\",\"url\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/\",\"name\":\"Large Behavior Models and Atlas Find New Footing | Boston Dynamics\",\"isPartOf\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/#website\"},\"primaryImageOfPage\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#primaryimage\"},\"image\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#primaryimage\"},\"thumbnailUrl\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2025\\/08\\/atlas-tri-blog.jpg\",\"datePublished\":\"2025-08-20T15:53:19+00:00\",\"dateModified\":\"2025-08-20T18:47:30+00:00\",\"breadcrumb\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/\"]}]},{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#primaryimage\",\"url\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2025\\/08\\/atlas-tri-blog.jpg\",\"contentUrl\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2025\\/08\\/atlas-tri-blog.jpg\",\"width\":1530,\"height\":1080,\"caption\":\"The Atlas folds a leg from a Spot robot\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bostondynamics.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Large Behavior Models and Atlas Find New Footing\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bostondynamics.com\\/#website\",\"url\":\"https:\\/\\/bostondynamics.com\\/\",\"name\":\"Boston Dynamics\",\"description\":\"Changing your idea of what robots can do.\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bostondynamics.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/bostondynamics.com\\/#\\/schema\\/person\\/a4d76fffcd30181801eb34e2584caf90\",\"name\":\"mrodin\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/a4cacff82401ce3a50e4b86e9dd37c58c3f484002a6ff490dd53020254faba30?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/a4cacff82401ce3a50e4b86e9dd37c58c3f484002a6ff490dd53020254faba30?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/a4cacff82401ce3a50e4b86e9dd37c58c3f484002a6ff490dd53020254faba30?s=96&d=mm&r=g\",\"caption\":\"mrodin\"}}]}\n\nWe are excited to share some of our progress on developing [Large Behavior Models (LBMs)](https://toyotaresearchinstitute.github.io/lbm1/) for [Atlas](https://bostondynamics.com/atlas/) ®. This work is part of a [collaboration](https://pressroom.toyota.com/boston-dynamics-and-toyota-research-institute-announce-partnership-to-advance-robotics-research/) between AI research teams at Toyota Research Institute (TRI) and Boston Dynamics. We have been building end-to-end language-conditioned policies that enable Atlas to accomplish long-horizon manipulation tasks.\n\nThese policies are able to take full advantage of the capabilities of the humanoid form factor, including taking steps, precisely positioning its feet, crouching, shifting its center of mass, and avoiding self-collisions, all of which we have found to be critical to solving realistic mobile manipulation tasks.\n\nIn addition to using simulation to benchmark our policy and architecture choices, we also incorporate our simulation as a significant co-training data source for our multi-task and multi-embodiment policies that we deploy on the hardware.\n\nWhile we are encouraged by our results so far, there is still much work to be done. With our established baseline of tasks and performance, we will focus on scaling our data flywheel to increase throughput, quality, task diversity, and difficulty while also exploring new algorithmic ideas."
+      },
+      {
+        "partId": "architecture-inputs",
+        "citationId": "bd-atlas-lbm-2025",
+        "sourceUrl": "https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/",
+        "supportingPassage": "Building upon Toyota Research Institute’s [Large Behavior Models](https://toyotaresearchinstitute.github.io/lbm1/), which scale [Diffusion Policy](https://diffusion-policy.cs.columbia.edu/)-like architectures, our policy uses a 450M parameter Diffusion Transformer-based architecture together with a flow-matching objective. The policy is conditioned on proprioception, images, and also accepts a language prompt that specifies the objective to the robot. Image data comes in at 30 Hz and our network uses a history of observations to predict an action-chunk of length 48 (corresponding to 1.6 seconds) where generally 24 actions (0.8 seconds when running at 1x speed) are executed each time policy inference is run."
+      },
+      {
+        "partId": "demonstration-training",
+        "citationId": "bd-atlas-lbm-2025",
+        "sourceUrl": "https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/",
+        "supportingPassage": "1. Collect embodied behavior data using teleoperation on both the real-robot hardware and in simulation.\n2. Process, annotate, and curate data so that we can easily incorporate it into a machine learning pipeline.\n3. Train a neural-network policy using _all_ of the data across all tasks.\n4. Evaluate the policy using a test suite of tasks.\n\nThese policies were trained on data that the team continuously collected and iterated upon, where high quality demonstrations were a critical part of getting successful policies. We heavily relied upon our quality assurance tooling that allowed us to review, filter, and provide feedback on the data collected."
+      },
+      {
+        "partId": "control-versus-inference",
+        "citationId": "bd-atlas-lbm-2025",
+        "sourceUrl": "https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/",
+        "supportingPassage": "![Our policy maps inputs consisting of images, proprioception and language prompts to actions that control the full Atlas robot at 30Hz. We leverage a diffusion transformer together with a flow matching loss to train our model.](https://bostondynamics.com/wp-content/uploads/2025/08/Atlas-TRI-Blog-Post-Policy-Architecture-Diagram-v2e-1024x372.png)Our policy maps inputs consisting of images, proprioception, and language prompts to actions that control the full Atlas robot at 30Hz. We leverage a diffusion transformer together with a flow matching loss to train our model.\n\nBuilding upon Toyota Research Institute’s [Large Behavior Models](https://toyotaresearchinstitute.github.io/lbm1/), which scale [Diffusion Policy](https://diffusion-policy.cs.columbia.edu/)-like architectures, our policy uses a 450M parameter Diffusion Transformer-based architecture together with a flow-matching objective. The policy is conditioned on proprioception, images, and also accepts a language prompt that specifies the objective to the robot. Image data comes in at 30 Hz and our network uses a history of observations to predict an action-chunk of length 48 (corresponding to 1.6 seconds) where generally 24 actions (0.8 seconds when running at 1x speed) are executed each time policy inference is run.\n\nOne notable feature of our policies is that we can speed up the execution at inference time without requiring any training time changes. Specifically, since our policies predict a trajectory of future actions along with the time at which those actions should be taken, we can adjust this timing to control execution speed. In the video shown below we compare the policy being rolled out at 1x (i.e. the speed at which this task was done during data collection) and also at 2x and 3x speed. In general, we found that we were able to speed up policies by 1.5x-2x without significantly affecting policy performance on both the MTS and full Atlas platforms. While the task dynamics can sometimes preclude this kind of inference-time speedup, it does suggest that, in some cases, we can exceed the speed limits of human teleoperation."
+      },
+      {
+        "partId": "mpc-interface",
+        "citationId": "bd-atlas-lbm-2025",
+        "sourceUrl": "https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/",
+        "supportingPassage": "Controlling the robot in a fluid, dynamic, and dexterous manner is crucial, and we have invested heavily in our teleoperation system to address these needs. The system is built on Boston Dynamics’s MPC system, which has previously been deployed for use-cases ranging from [parkour](https://bostondynamics.com/blog/flipping-the-script-with-atlas/), [dance](https://youtu.be/fn3KWM1kuAw?feature=shared), and both [practical](https://www.youtube.com/shorts/SFKM-Rxiqzg) and [impractical manipulation](https://bostondynamics.com/blog/picking-up-momentum/). This control system allows us to perform precise manipulation while maintaining balance and avoiding self-collisions, enabling us to push the boundaries of what we can do with the Atlas hardware.\n\nOur neural network policies use the same control interface to the robot as the teleoperation system, which made it easy to reuse model architectures we had developed previously (for policies that didn’t involve locomotion), simply by augmenting the action representation.\n\nThe policy’s observation space for Atlas consists of the images from the robot’s head-mounted cameras along with proprioception. The action space includes the joint positions for the left and right grippers, neck yaw, torso pose, left and right hand pose, and the left and right foot poses."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "dated-research-deployment",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The preserved HTML date is August 2025; the introduction, simulation and next-steps sections describe research policies, whole-body manipulation including locomotion, and hardware deployment, not all-stack replacement.",
+        "evidenceDigest": "c2ed78009efa2792a5a89b2ace8a0a4901e659914c73dccd88b6cb244a5f33af"
+      },
+      {
+        "partId": "architecture-inputs",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The Policy section explicitly states 450M parameters, diffusion transformer, flow matching, and proprioception/images/language conditioning. These are the reported model inputs and training objective.",
+        "evidenceDigest": "84c5bcfb00991a3b9f1c91e20541f7daed17f4935c6fac7f2aad578d294fbf11"
+      },
+      {
+        "partId": "demonstration-training",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The four-stage process collects hardware and simulation teleoperation, then processes, annotates and curates it. The later quality-assurance discussion confirms filtering demonstrations.",
+        "evidenceDigest": "55832e3bd26c87af10faf50822048436c4eeae55181d50edb263aaf77e870a03"
+      },
+      {
+        "partId": "control-versus-inference",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The caption gives 30 Hz actions. The Policy section separately gives 30 Hz images, 48 predicted actions/1.6 seconds, and generally 24 executed/0.8 seconds at 1x per inference. Execution-speed adaptation precludes treating 30 Hz as an inference frequency.",
+        "evidenceDigest": "b50d4355bab44d72211849b6795ecad140e841ae7bbd6f46db724cc8e7ea2ae9"
+      },
+      {
+        "partId": "mpc-interface",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The teleoperation section names MPC and explicitly says neural policies use that same robot control interface. This establishes interface reuse, not an undisclosed fallback protocol or every downstream controller.",
+        "evidenceDigest": "302a670b82e3cae9bf3f6847092b420ed9dca4595b41124a25ab64966c1c3896"
+      }
+    ]
+  },
+  {
+    "id": "boston-control-20260908-reward-design-mpc-18",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "reward-design-mpc",
+    "rowOrdinal": 18,
+    "originalCellsDigest": "8bf148c0213d76f0961894fb928204f3daec745cd0cbbd59e9a9fe8a15f5e156",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "spot-2024-hybrid",
+        "text": "The 2024 Spot source describes a learned policy integrated with an existing model-based locomotion controller, removing parallel MPC evaluations rather than removing the entire stack.",
+        "requiredCitationIds": [
+          "bd-spot-rl-2024"
+        ]
+      },
+      {
+        "id": "atlas-2025-interface",
+        "text": "The August 2025 Atlas/TRI source describes whole-body manipulation including locomotion, MPC-based teleoperation, and learned policies using that same robot control interface.",
+        "requiredCitationIds": [
+          "bd-atlas-lbm-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+      "rationale": "Current corrected claim and all ordered AND parts reviewed at 2026-09-09T12:44:02.510Z. The dated Spot document retains model-based locomotion while removing parallel MPC evaluation through its learned policy. Its separate research limitations prevent a timeless universal hybrid claim. The separate dated Atlas document describes language-conditioned whole-body manipulation and reuses the MPC-based teleoperation interface. Both source documents are necessary for this two-robot statement. Original retrievals are bound separately in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-boston-dynamics-control-integration-20260909/source-proof.json; not independent acceptance.",
+      "planDigest": "3be37b7d6a6b988cfef089b11624808301d24f88006de0ce0b84a4ec22d795cb"
+    },
+    "evidence": [
+      {
+        "partId": "spot-2024-hybrid",
+        "citationId": "bd-spot-rl-2024",
+        "sourceUrl": "https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/",
+        "supportingPassage": "{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/\"},\"author\":{\"name\":\"mrodin\",\"@id\":\"https:\\/\\/bostondynamics.com\\/#\\/schema\\/person\\/a4d76fffcd30181801eb34e2584caf90\"},\"headline\":\"Starting on the Right Foot with Reinforcement Learning\",\"datePublished\":\"2024-03-19T14:02:45+00:00\",\"dateModified\":\"2024-06-27T18:49:50+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/\"},\"wordCount\":1739,\"image\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#primaryimage\"},\"thumbnailUrl\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2024\\/03\\/spot-unstable-ground-scaled.jpg\",\"inLanguage\":\"en-US\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/\",\"url\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/\",\"name\":\"Starting on the Right Foot with Reinforcement Learning | Boston Dynamics\",\"isPartOf\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/#website\"},\"primaryImageOfPage\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#primaryimage\"},\"image\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#primaryimage\"},\"thumbnailUrl\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2024\\/03\\/spot-unstable-ground-scaled.jpg\",\"datePublished\":\"2024-03-19T14:02:45+00:00\",\"dateModified\":\"2024-06-27T18:49:50+00:00\",\"description\":\"We’ve integrated reinforcement learning into Spot’s locomotion to enable the robot to handle more and more real-world variability.\",\"breadcrumb\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/\"]}]},{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#primaryimage\",\"url\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2024\\/03\\/spot-unstable-ground-scaled.jpg\",\"contentUrl\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2024\\/03\\/spot-unstable-ground-scaled.jpg\",\"width\":2560,\"height\":1807,\"caption\":\"Spot walks across on unstable terrain\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/starting-on-the-right-foot-with-reinforcement-learning\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bostondynamics.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Starting on the Right Foot with Reinforcement Learning\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bostondynamics.com\\/#website\",\"url\":\"https:\\/\\/bostondynamics.com\\/\",\"name\":\"Boston Dynamics\",\"description\":\"Changing your idea of what robots can do.\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bostondynamics.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/bostondynamics.com\\/#\\/schema\\/person\\/a4d76fffcd30181801eb34e2584caf90\",\"name\":\"mrodin\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/a4cacff82401ce3a50e4b86e9dd37c58c3f484002a6ff490dd53020254faba30?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/a4cacff82401ce3a50e4b86e9dd37c58c3f484002a6ff490dd53020254faba30?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/a4cacff82401ce3a50e4b86e9dd37c58c3f484002a6ff490dd53020254faba30?s=96&d=mm&r=g\",\"caption\":\"mrodin\"}}]}\n\nArchitecting things this way has multiple benefits. First, it allows us to take advantage of our existing model-based locomotion controller to solve the part of the problem it handles well, while focusing learning on the part of the strategy that is harder to program. Second, it reduces the computational complexity of the production controller by removing the need to run multiple MPC instances in parallel.\n\nWhile a hybrid control strategy that leverages both a model predictive controller and a learned policy is proving effective at expanding and robustifying robotic capabilities, it largely imposes the limitations of the modeling on the full control system. To unlock totally new capabilities or be tolerant in scenarios that excessively violate the assumptions of the models, we are actively exploring and testing totally different architectures."
+      },
+      {
+        "partId": "atlas-2025-interface",
+        "citationId": "bd-atlas-lbm-2025",
+        "sourceUrl": "https://bostondynamics.com/blog/large-behavior-models-atlas-find-new-footing/",
+        "supportingPassage": "{\"@context\":\"https:\\/\\/schema.org\",\"@graph\":[{\"@type\":\"Article\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#article\",\"isPartOf\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/\"},\"author\":{\"name\":\"mrodin\",\"@id\":\"https:\\/\\/bostondynamics.com\\/#\\/schema\\/person\\/a4d76fffcd30181801eb34e2584caf90\"},\"headline\":\"Large Behavior Models and Atlas Find New Footing\",\"datePublished\":\"2025-08-20T15:53:19+00:00\",\"dateModified\":\"2025-08-20T18:47:30+00:00\",\"mainEntityOfPage\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/\"},\"wordCount\":2293,\"image\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#primaryimage\"},\"thumbnailUrl\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2025\\/08\\/atlas-tri-blog.jpg\",\"inLanguage\":\"en-US\"},{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/\",\"url\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/\",\"name\":\"Large Behavior Models and Atlas Find New Footing | Boston Dynamics\",\"isPartOf\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/#website\"},\"primaryImageOfPage\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#primaryimage\"},\"image\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#primaryimage\"},\"thumbnailUrl\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2025\\/08\\/atlas-tri-blog.jpg\",\"datePublished\":\"2025-08-20T15:53:19+00:00\",\"dateModified\":\"2025-08-20T18:47:30+00:00\",\"breadcrumb\":{\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/\"]}]},{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#primaryimage\",\"url\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2025\\/08\\/atlas-tri-blog.jpg\",\"contentUrl\":\"https:\\/\\/bostondynamics.com\\/wp-content\\/uploads\\/2025\\/08\\/atlas-tri-blog.jpg\",\"width\":1530,\"height\":1080,\"caption\":\"The Atlas folds a leg from a Spot robot\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\\/\\/bostondynamics.com\\/blog\\/large-behavior-models-atlas-find-new-footing\\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\\/\\/bostondynamics.com\\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Large Behavior Models and Atlas Find New Footing\"}]},{\"@type\":\"WebSite\",\"@id\":\"https:\\/\\/bostondynamics.com\\/#website\",\"url\":\"https:\\/\\/bostondynamics.com\\/\",\"name\":\"Boston Dynamics\",\"description\":\"Changing your idea of what robots can do.\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\\/\\/bostondynamics.com\\/?s={search_term_string}\"},\"query-input\":{\"@type\":\"PropertyValueSpecification\",\"valueRequired\":true,\"valueName\":\"search_term_string\"}}],\"inLanguage\":\"en-US\"},{\"@type\":\"Person\",\"@id\":\"https:\\/\\/bostondynamics.com\\/#\\/schema\\/person\\/a4d76fffcd30181801eb34e2584caf90\",\"name\":\"mrodin\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/a4cacff82401ce3a50e4b86e9dd37c58c3f484002a6ff490dd53020254faba30?s=96&d=mm&r=g\",\"url\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/a4cacff82401ce3a50e4b86e9dd37c58c3f484002a6ff490dd53020254faba30?s=96&d=mm&r=g\",\"contentUrl\":\"https:\\/\\/secure.gravatar.com\\/avatar\\/a4cacff82401ce3a50e4b86e9dd37c58c3f484002a6ff490dd53020254faba30?s=96&d=mm&r=g\",\"caption\":\"mrodin\"}}]}\n\nWe are excited to share some of our progress on developing [Large Behavior Models (LBMs)](https://toyotaresearchinstitute.github.io/lbm1/) for [Atlas](https://bostondynamics.com/atlas/) ®. This work is part of a [collaboration](https://pressroom.toyota.com/boston-dynamics-and-toyota-research-institute-announce-partnership-to-advance-robotics-research/) between AI research teams at Toyota Research Institute (TRI) and Boston Dynamics. We have been building end-to-end language-conditioned policies that enable Atlas to accomplish long-horizon manipulation tasks.\n\nThese policies are able to take full advantage of the capabilities of the humanoid form factor, including taking steps, precisely positioning its feet, crouching, shifting its center of mass, and avoiding self-collisions, all of which we have found to be critical to solving realistic mobile manipulation tasks.\n\nControlling the robot in a fluid, dynamic, and dexterous manner is crucial, and we have invested heavily in our teleoperation system to address these needs. The system is built on Boston Dynamics’s MPC system, which has previously been deployed for use-cases ranging from [parkour](https://bostondynamics.com/blog/flipping-the-script-with-atlas/), [dance](https://youtu.be/fn3KWM1kuAw?feature=shared), and both [practical](https://www.youtube.com/shorts/SFKM-Rxiqzg) and [impractical manipulation](https://bostondynamics.com/blog/picking-up-momentum/). This control system allows us to perform precise manipulation while maintaining balance and avoiding self-collisions, enabling us to push the boundaries of what we can do with the Atlas hardware.\n\nOur neural network policies use the same control interface to the robot as the teleoperation system, which made it easy to reuse model architectures we had developed previously (for policies that didn’t involve locomotion), simply by augmenting the action representation."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "spot-2024-hybrid",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The dated Spot document retains model-based locomotion while removing parallel MPC evaluation through its learned policy. Its separate research limitations prevent a timeless universal hybrid claim.",
+        "evidenceDigest": "cd6f9b2c602be23f06a68c20493f8b022380942b0b48e72b24073bc20758b042"
+      },
+      {
+        "partId": "atlas-2025-interface",
+        "outcome": "supported",
+        "reviewedBy": "agent:0d32fee8-d20f-40b2-82e2-9afa72eda5ae/integrator",
+        "rationale": "Review 2026-09-09T12:44:02.510Z: The separate dated Atlas document describes language-conditioned whole-body manipulation and reuses the MPC-based teleoperation interface. Both source documents are necessary for this two-robot statement.",
+        "evidenceDigest": "d7ffcfea230ecfed66753eb50bd940dc185c97216557469eed2678f94ac3f3a3"
+      }
+    ]
   }
 ]
