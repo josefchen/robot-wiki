@@ -31805,5 +31805,562 @@
         "evidenceDigest": "d266721b2544e7333a877821f7ff3498693a2e2ec772d783955d4d860890b76c"
       }
     ]
+  },
+  {
+    "id": "sim2real-splat-consumer-4-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 4,
+    "originalCellsDigest": "528c306695203fa80684e69648fca8e5065328676739aaf4c700db16a0927682",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "average-comparison",
+        "text": "86.25% zero-shot Sim2Real versus 97.5% Real2Real average success.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "trial-denominator",
+        "text": "Four named tasks with 40 trials per task; do not confuse demonstrations with evaluation trials.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "ur5-setup",
+        "text": "UR5 robot in the evaluated setup.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "augmentation-context",
+        "text": "Reported transfer uses training augmentations, not a renderer-only ablation.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+      "rationale": "Reviewed the full replacement conjunction against both retained complete primary bodies and counterpassages, not source-packet readiness labels. 4 required AND-parts cover this original. Exact scientific claim is Stat: \"SplatSim zero-shot (UR5) 86.25%\"; \"vs 97.5% real-data; 4 tasks, 40 trials/task\". Scope conflicts and original history remain in the row note; no excluded original is credited.",
+      "planDigest": "9873f84e47922e1bfd758006faa11945478e13cd99f1f86a7b24bcf38d225e1d"
+    },
+    "evidence": [
+      {
+        "partId": "average-comparison",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "We evaluate the zero-shot deployment of our policies across four contact-rich real-world tasks, using task success rate as the primary metric. As shown in Table I , our method achieves an average success rate of 86.25% for zero-shot Sim2Real transfer, compared to 97.5% for policies trained directly on real-world data, highlighting the effectiveness of our approach. All experiments were conducted using a UR5 robot equipped with a Robotiq 2F-85 gripper and 2 Intel Realsense D455 cameras [ 54 ] with deployment on an NVIDIA RTX 3080Ti GPU for the Diffusion Policy [ 51 ] ."
+      },
+      {
+        "partId": "trial-denominator",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "Task Successful Trials Human Effort to Collect Data (Out of 40 Trials) ( hours) Sim2Sim Real2Real Sim2Real (SplatSim) Simulator Real World T-Push 100% 100% 90% 3.0 3.5 Pick-Up-Apple 100% 100% 95% 0.0 ∗ 3.5 Orange-On-Plate 97.5% 95% 90% 0.0 ∗ 6.0 Assembly 85% 90% 70% 0.0 ∗ 7.5 Total 95.62% 97.5% 86.25 % 3.0 20.5 ∗ Automated process"
+      },
+      {
+        "partId": "ur5-setup",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "We evaluate the zero-shot deployment of our policies across four contact-rich real-world tasks, using task success rate as the primary metric. As shown in Table I , our method achieves an average success rate of 86.25% for zero-shot Sim2Real transfer, compared to 97.5% for policies trained directly on real-world data, highlighting the effectiveness of our approach. All experiments were conducted using a UR5 robot equipped with a Robotiq 2F-85 gripper and 2 Intel Realsense D455 cameras [ 54 ] with deployment on an NVIDIA RTX 3080Ti GPU for the Diffusion Policy [ 51 ] ."
+      },
+      {
+        "partId": "augmentation-context",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "To quantify the impact of data augmentations on the Sim2Real performance of our policy, we conducted experiments comparing policies trained with and without augmentations. While the Diffusion-Policy performs effectively without augmentations in consistent environments (e.g., Sim2Sim or Real2Real scenarios), transferring a policy trained in simulation to the real world introduces domain shifts that necessitate additional robustness as the renderings can’t capture dynamic details like changing reflections and shadows. We incorporated augmentations such as random noise addition, Color Jitter, and random erasing during training to address these shifts. These augmentations improve the performance of the policy from 21% to 86.25% across four tasks in Sec. V-B ."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "average-comparison",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The retained abstract states the two averages; the methods and Table I constrain them to four tasks with evaluation denominators, not a universal transfer rate.",
+        "evidenceDigest": "7278ff02dfda3e2dd56e8d679e160812eeca50dc6b805c679948182bc17bf7f9"
+      },
+      {
+        "partId": "trial-denominator",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "Table I names T-Push, Pick-Up-Apple, Orange-On-Plate and Assembly and specifies forty trials per task, distinct from training demonstrations.",
+        "evidenceDigest": "06c282b2c417ccad30315e9a5365c261cf15d93549738b120a7fb09a2d793552"
+      },
+      {
+        "partId": "ur5-setup",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "Section V-A explicitly names the UR5 evaluation robot; the Stat now includes that scope.",
+        "evidenceDigest": "92cc38a0881f51aac77af2c3a024c920a47dd6c3a8a9c913bcb845f6e0fb6e63"
+      },
+      {
+        "partId": "augmentation-context",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The experimental augmentation paragraph explicitly includes noisy trajectories, color/brightness changes and erasing. This qualifies the reported setting rather than attributing success to rendering alone.",
+        "evidenceDigest": "519b5d4cc1b521651597423ca37149633b99a968b94c43a10fab3bf5ac370a41"
+      }
+    ]
+  },
+  {
+    "id": "sim2real-splat-consumer-18-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 18,
+    "originalCellsDigest": "9b6226828659ef7137d97ec1017db218f71547b812354e8dc94ab73aa6e72083",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "rendering-not-physics-replacement",
+        "text": "Gaussian splats replace mesh rendering primitives; existing simulators supply physics.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "pybullet-and-sim-demonstrations",
+        "text": "PyBullet demonstrations train the frozen diffusion policy subsequently deployed in the real world.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "averages-and-hardware",
+        "text": "86.25% versus 97.5%, four real-world tasks, UR5/Robotiq 2F-85/two D455 cameras.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "forty-trials",
+        "text": "Table I's four tasks each have 40 trials, not 40 total across the four.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "augmentation-context",
+        "text": "Augmentations are part of the 86.25% setting.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "preparation",
+        "text": "Manual robot segmentation, ICP alignment and CAD-derived link bounds.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "robot-kinematics",
+        "text": "Forward kinematics moves individual link splats.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "object-state",
+        "text": "Simulated object position/orientation drives object splat transformations.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "figure-two-inputs",
+        "text": "Figure 2 specifies RGB observations and end-effector position/orientation inputs.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      },
+      {
+        "id": "conflicting-test-description",
+        "text": "Section IV-A instead says solely RGB at test time; preserve this disagreement with Figure 2 rather than universal image-only wording.",
+        "requiredCitationIds": [
+          "splatsim-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+      "rationale": "Reviewed the full replacement conjunction against both retained complete primary bodies and counterpassages, not source-packet readiness labels. 10 required AND-parts cover this original. Exact scientific claim is SplatSim replaces mesh primitives in the rendering pipeline with Gaussian splats reconstructed from the deployment scene; PyBullet supplies the physics. Across four UR5 manipulation tasks, with 40 trials per task, the authors report 86.25% average zero-shot real-world success for diffusion policies trained on simulated demonstrations, versus 97.5% for policies trained on real-world demonstrations. This is the result with training augmentations, not rendering alone. The setup uses a Robotiq 2F-85 gripper and two RealSense D455 cameras. Preparing the splats requires manual robot segmentation, CAD-derived link bounds and ICP alignment; robot kinematics and simulated object poses drive rendering. Figure 2 lists RGB observations plus end-effector position and orientation, while Section IV-A says the policy relies solely on RGB at test time. Those descriptions disagree; they do not establish an unqualified image-only input specification. Scope conflicts and original history remain in the row note; no excluded original is credited.",
+      "planDigest": "967a94871fd5f6207d5b6f0c1a99155c91d284a637e477465cb56024bd9dcd06"
+    },
+    "evidence": [
+      {
+        "partId": "rendering-not-physics-replacement",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "In this paper, we propose a systematic and novel method to reduce the Sim2Real gap for RGB images, by leveraging Gaussian Splatting [ 8 ] as a photorealistic render, using existing simulators as the physics backbone. We propose utilizing Gaussian Splatting [ 8 ] as the primary rendering primitive, replacing traditional mesh-based representations in existing simulators, to significantly improve the photo-realism of rendered scenes. By integrating these renderings of simulated demonstrations with state-of-the-art behavior cloning techniques, we introduce a framework for zero-shot transfer of manipulation policies trained entirely on simulation data, to the real world. Our key contributions are as follows:"
+      },
+      {
+        "partId": "pybullet-and-sim-demonstrations",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "Fig. 2: Top: Our proposed SplatSim framework. Expert demonstrations are collected (a) in a physics simulator (PyBullet). In our case, these demonstrations come either from human experts (teleoperation via Gello [ 50 ] ) or through a privileged information-based motion planner. The trajectories from the simulator are then fed to the simulator-aligned splat models of the scene and the object (b). We transform the 3D Gaussians to manipulate the static Gaussian Splat models, as delineated in Sec. IV-C , to extract photorealistic renderings of the scene at novel joint and object poses, which serve as the RGB state observations for the diffusion policy. Along with these RGB observations, diffusion policy [ 51 ] also takes the end effector position and orientation as the input. We augment the end effector states as well. Bottom: Once trained with the sim data, we freeze the policy and directly deploy it to the real-world setting."
+      },
+      {
+        "partId": "averages-and-hardware",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "We evaluate the zero-shot deployment of our policies across four contact-rich real-world tasks, using task success rate as the primary metric. As shown in Table I , our method achieves an average success rate of 86.25% for zero-shot Sim2Real transfer, compared to 97.5% for policies trained directly on real-world data, highlighting the effectiveness of our approach. All experiments were conducted using a UR5 robot equipped with a Robotiq 2F-85 gripper and 2 Intel Realsense D455 cameras [ 54 ] with deployment on an NVIDIA RTX 3080Ti GPU for the Diffusion Policy [ 51 ] ."
+      },
+      {
+        "partId": "forty-trials",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "Task Successful Trials Human Effort to Collect Data (Out of 40 Trials) ( hours) Sim2Sim Real2Real Sim2Real (SplatSim) Simulator Real World T-Push 100% 100% 90% 3.0 3.5 Pick-Up-Apple 100% 100% 95% 0.0 ∗ 3.5 Orange-On-Plate 97.5% 95% 90% 0.0 ∗ 6.0 Assembly 85% 90% 70% 0.0 ∗ 7.5 Total 95.62% 97.5% 86.25 % 3.0 20.5 ∗ Automated process"
+      },
+      {
+        "partId": "augmentation-context",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "To quantify the impact of data augmentations on the Sim2Real performance of our policy, we conducted experiments comparing policies trained with and without augmentations. While the Diffusion-Policy performs effectively without augmentations in consistent environments (e.g., Sim2Sim or Real2Real scenarios), transferring a policy trained in simulation to the real world introduces domain shifts that necessitate additional robustness as the renderings can’t capture dynamic details like changing reflections and shadows. We incorporated augmentations such as random noise addition, Color Jitter, and random erasing during training to address these shifts. These augmentations improve the performance of the policy from 21% to 86.25% across four tasks in Sec. V-B ."
+      },
+      {
+        "partId": "preparation",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "In order to combine the Gaussian Splat representation 𝒮 r ​ e ​ a ​ l \\mathcal{S}_{real} with the simulator, we first manually segment out the 3D Gaussians associated with the robot. The means of these 3D Gaussians form a point cloud which is aligned with the ground truth point cloud obtained from the simulator. To achieve this, we use the Iterative Closest Point (ICP) algorithm, which produces the desired transformation T ℱ r ​ o ​ b ​ o ​ t ℱ s ​ p ​ l ​ a ​ t T^{\\mathcal{F}_{splat}}_{\\mathcal{F}_{robot}} . IV-C 2 Segmentation of the Robot Links To associate the 3D Gaussians with their respective links in 𝒮 r ​ e ​ a ​ l \\mathcal{S}_{real} , we leverage the ground truth bounding boxes of the robot’s links, provided by its CAD model. This method allows us to isolate the 3D Gaussians corresponding to each link in the real-world scene, denoted as 𝒮 r ​ e ​ a ​ l l \\mathcal{S}^{l}_{real} , where l l refers to the l l -th link of the robot."
+      },
+      {
+        "partId": "robot-kinematics",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "Once we have the 3D Gaussians for individual links and the frames aligned, we can use the robot’s forward kinematics to get the robot pose at arbitrary joint angles q t ∈ s t q_{t}\\in s_{t} , given by the simulator. In this work, we use the forward kinematics routine from PyBullet to get the Transformation T f ​ k l T^{l}_{fk} for link l l in the robot’s canonical frame ℱ s ​ i ​ m \\mathcal{F}_{sim} . The transformation of the 3D Gaussians can be calculated as :"
+      },
+      {
+        "partId": "object-state",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "Similar to the robot rendering, we use ICP to align each object’s 3D Gaussians 𝒮 o ​ b ​ j k \\mathcal{S}^{k}_{obj} to its simulated ground truth point cloud. In this way, we get the transformation T ℱ k − o ​ b ​ j , s ​ i ​ m ℱ k − o ​ b ​ j , s ​ p ​ l ​ a ​ t T_{\\mathcal{F}_{k-obj,sim}}^{\\mathcal{F}_{k-obj,splat}} , which transforms the splat in 𝒮 o ​ b ​ j k \\mathcal{S}^{k}_{obj} frame to simulator frame. Given the position p t k ∈ s t p^{k}_{t}\\in s_{t} and orientation R t k ∈ s t R^{k}_{t}\\in s_{t} can be used to calculate the transformation of object T fk k − o ​ b ​ j T_{\\text{fk}}^{k-obj} from its original simulator frame ℱ k − o ​ b ​ j , s ​ i ​ m \\mathcal{F}_{k-obj,sim} . Using T fk k − o ​ b ​ j T_{\\text{fk}}^{k-obj} we can get the object’s 3D Gaussians in 𝒮 r ​ e ​ a ​ l \\mathcal{S}_{real} frame with the transformation :"
+      },
+      {
+        "partId": "figure-two-inputs",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "Fig. 2: Top: Our proposed SplatSim framework. Expert demonstrations are collected (a) in a physics simulator (PyBullet). In our case, these demonstrations come either from human experts (teleoperation via Gello [ 50 ] ) or through a privileged information-based motion planner. The trajectories from the simulator are then fed to the simulator-aligned splat models of the scene and the object (b). We transform the 3D Gaussians to manipulate the static Gaussian Splat models, as delineated in Sec. IV-C , to extract photorealistic renderings of the scene at novel joint and object poses, which serve as the RGB state observations for the diffusion policy. Along with these RGB observations, diffusion policy [ 51 ] also takes the end effector position and orientation as the input. We augment the end effector states as well. Bottom: Once trained with the sim data, we freeze the policy and directly deploy it to the real-world setting."
+      },
+      {
+        "partId": "conflicting-test-description",
+        "citationId": "splatsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2409.10161",
+        "supportingPassage": "The renderings I s ​ i ​ m {I}^{sim} , derived from these simulated states s t s_{t} , are used as inputs to train the policy π ℐ \\pi_{\\mathcal{I}} . The policy relies solely on real-world RGB images I r ​ e ​ a ​ l {I}^{real} at test time."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "rendering-not-physics-replacement",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The methods replace rendering primitives, while the architecture separately delegates dynamics to physics simulation; no claim that splats replace physics survives.",
+        "evidenceDigest": "9af70ba7e97defa110429aea8e62a22bbb9ca3e4f3b163b14a1d97a737bef41d"
+      },
+      {
+        "partId": "pybullet-and-sim-demonstrations",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "Section IV identifies PyBullet demonstrations and Diffusion Policy deployment, supporting simulation-trained transfer rather than real-data-only training.",
+        "evidenceDigest": "cc64c00ae0d6d0bc412a60fd71fe51303b629c16a9bdff766715ea9dadd407de"
+      },
+      {
+        "partId": "averages-and-hardware",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The experimental setup names UR5, Robotiq 2F-85 and two D455 cameras beside the four-task averages; no platform-independent result is inferred.",
+        "evidenceDigest": "ae9e675e8454d75f411a1430962674a0dbe77fafdfcb317e7d2dfad5522ae884"
+      },
+      {
+        "partId": "forty-trials",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The Table I caption fixes forty evaluation trials per task and the four columns prevent interpreting forty as the overall denominator.",
+        "evidenceDigest": "d157c0c3b013869f1033fb37a4618fd8a961a61642e27695db83edd684e5db41"
+      },
+      {
+        "partId": "augmentation-context",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The experimental augmentation paragraph explicitly includes noisy trajectories, color/brightness changes and erasing. This qualifies the reported setting rather than attributing success to rendering alone.",
+        "evidenceDigest": "bac6bfb283a0ba8c91024764884dcfecb7308b3ca9656992cecd17fec8add920"
+      },
+      {
+        "partId": "preparation",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The robot preparation paragraph explicitly requires manual segmentation, ICP alignment and CAD-based link bounds, inconsistent with an automatic drop-in reconstruction claim.",
+        "evidenceDigest": "7e083dc8d7cc81224f54a231a4cb002e76414b7bd077d415c8a9d318442f04dc"
+      },
+      {
+        "partId": "robot-kinematics",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The methods transform per-link Gaussian sets using forward kinematics, supporting articulated rendering without changing the physics engine.",
+        "evidenceDigest": "3a0d817d1a4e34947574d3cccdd6a862834ad3fdbc8016b93a4ceb24ba6861ab"
+      },
+      {
+        "partId": "object-state",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The object-transform method uses simulated position and orientation to move the object splats; this is state-driven rendering.",
+        "evidenceDigest": "314889682541439bea05cb972ced8dd232fd2bac19ebeed2197e5ed4335c3a9e"
+      },
+      {
+        "partId": "figure-two-inputs",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The literal Figure 2 caption lists RGB and end-effector position/orientation. This establishes that description, not a reconciled universal policy-input interface.",
+        "evidenceDigest": "8d977e55c5ac598f8c6d1d5cf1f373ef6ab6fa43a4654a9dd60d2f69d8241299"
+      },
+      {
+        "partId": "conflicting-test-description",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "Section IV-A says solely RGB at test time. Read beside Figure 2, this supports explicitly recording a conflict; neither statement is silently selected as definitive.",
+        "evidenceDigest": "e158386af33e394a0cb556eba53a4825d20ae8abdd015f8ab0e0b4d09c4664cf"
+      }
+    ]
+  },
+  {
+    "id": "sim2real-splat-consumer-19-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 19,
+    "originalCellsDigest": "922d22a9c45b177965c3aced4b36b1de1532b2852c4e2f8fa1b91ba78bab91f1",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "edition",
+        "text": "The inspected source is the August 2025 v2 body, not the original November 2024 v1.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "components-inputs-composition",
+        "text": "Four components, supplied MDH/multi-view images, mesh reconstruction, and novel view/object/scene synthesis.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "isaac-mesh-assets",
+        "text": "Digital twin mesh construction connects to Isaac Sim; not a renderer-only mesh removal.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "measured-layout",
+        "text": "Real-world scene measurement and layout adjustment align Isaac Sim and GS representations.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "trajectory-synthesis",
+        "text": "Synthesized trajectories drive robot/object renderings across novel views/scenes/objects.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "closed-loop-physics-and-safety-scope",
+        "text": "Rendered images feed the policy; predicted actions pass through Isaac Sim physical interactions, then state drives the next render. This is simulated evaluation, not a real-world safety guarantee.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "ur5-experiments",
+        "text": "UR5 robot used for all experiments.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "ring-toss-protocol",
+        "text": "Ten tests per model, up to three grasp attempts in each trial; not thirty independent trials.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "real-vs-simulator-placement",
+        "text": "Table 2 real-data model: 90% placement on real hardware versus 30% in RoboGSim, limiting interchangeability.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "rendering-scope",
+        "text": "Novel-pose rendering examines image fidelity under recorded real-robot trajectories.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      },
+      {
+        "id": "replay-scope",
+        "text": "Sim2Real trajectory replay uses the same simulator trajectory to drive the rendering and real robot; distinguish from online closed-loop policy success.",
+        "requiredCitationIds": [
+          "robogsim-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+      "rationale": "Reviewed the full replacement conjunction against both retained complete primary bodies and counterpassages, not source-packet readiness labels. 11 required AND-parts cover this original. Exact scientific claim is In its August 2025 v2, RoboGSim combines a Gaussian Reconstructor, Digital Twins Builder, Scene Composer and Interactive Engine in a real2sim2real system. Multi-view images and supplied robot MDH parameters feed reconstruction; mesh assets and measured layout alignment connect the scene to Isaac Sim. The synthesizer composes novel views, objects, scenes and trajectories. In closed-loop evaluation, a policy acts on splat-rendered images; Isaac Sim handles inverse kinematics, collisions and other physical interactions, and the resulting state drives the next rendering. This evaluation is not interchangeable with real-robot testing. On the UR5 ring-toss task, each model had ten trials with up to three grasp attempts per trial. Table 2 reports 90% placement for the real-data-trained model on the real robot but 30% in RoboGSim. Simulated evaluation avoids executing those actions on hardware; it is not a demonstrated safety guarantee for a deployed robot. The paper examines novel-pose rendering and trajectory replay separately from closed-loop policy evaluation. Scope conflicts and original history remain in the row note; no excluded original is credited.",
+      "planDigest": "d4e3896daadade985ea548026ccd3e84d896f94683450171cb52f15f26822e96"
+    },
+    "evidence": [
+      {
+        "partId": "edition",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "arXiv:2411.11839v2 [cs.RO] 03 Aug 2025"
+      },
+      {
+        "partId": "components-inputs-composition",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "As shown in Fig. 2 , RoboGSim mainly includes four parts: Gaussian Reconstructor, Digital Twins Builder, Scene Composer, and Interactive Engine. Given multi-view images and MDH parameters of the robotic arm, Gaussian Reconstructor (Sec. 3.2 ) reconstructs scenes and objects using 3DGS, segments the robotic arm, and builds an MDH kinematic drive graph structure to enable accurate motion modeling of the robotic arm. Digital Twin Builder (Sec. 3.3 ) involves mesh reconstruction of the scene and objects. Through layout alignment, the asset data flow can be interconnected, facilitating the subsequent evaluation in Interactive Engine. Scene Composer (Sec. 3.4 ) achieves the synthesis of novel objects, scenes, and views. Interactive Engine (Sec. 3.5 ) synthesizes novel view/scene/object images for policy learning. It can also evaluate the policy networks in a closed-loop manner. Moreover, we can collect the manipulated data in simulation using VR/Xbox equipment of the real world."
+      },
+      {
+        "partId": "isaac-mesh-assets",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "In this paper, we develop a Real2Sim2Real simulator, called RoboGSim, for both high-fidelity demonstration synthesis and physics-consistent closed-loop evaluation. It mainly includes four parts: Gaussian Reconstructor, Digital Twins Builder, Scene Composer and Interactive Engine.\nGiven the multi-view RGB image sequences and MDH [ 6 ] parameters of the robotic arm, Gaussian Reconstructor is built upon 3DGS [ 43 ] and reconstructs the scene and objects.\nThen, the Digital Twins Builder performs the mesh reconstruction and creates a digital twin in Isaac Sim. In Digital Twins Builder, we propose the layout alignment module to align the space between the simulation, real-world, and GS representation.\nAfter that, the Scene Composer combines the scene, robotic arm and objects in simulation, and renders the images from new perspective. Finally, in the Interactive Engine, RoboGSim works as the Synthesizer and Evaluator to performs the demonstration synthesis and closed-loop policy evaluation."
+      },
+      {
+        "partId": "measured-layout",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "Layout Alignment : As shown in Fig. 2 , since we follow the local coordinate system of the robotic arm, the world coordinates and Isaac Sim are axis-aligned. We first measure the real-world scene to align the size of the imported table scene in Isaac Sim. In the GS scene, a downward-facing camera is placed 1.6 meters above the base joint to render a segmentation map. For coordinate alignment, we place a downward-facing camera 1.6 meters above the base joint in Isaac Sim. By comparing the rendered scene from the BEV, front and side view segmentation, with the views from Isaac Sim, we adjust the shift to achieve layout alignment."
+      },
+      {
+        "partId": "trajectory-synthesis",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "Synthesizer : We use the engine to generate numerous training trajectories, including robotic arm movements and target object trajectories. These trajectories drive the GS to generate massive and photorealistic simulated datasets for policy learning. This diverse data includes novel view renderings, scene combinations, and object replacements."
+      },
+      {
+        "partId": "closed-loop-physics-and-safety-scope",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "Evaluator : For trained models, testing directly on physical devices may pose safety risks or incur high costs for reproduction. Therefore, we convert the predicted trajectories into GS-rendered results to efficiently and rapidly evaluate the model’s prediction quality. Specifically, the Isaac Sim [ 28 ] outputs an initial state of the target object and robotic arm, and GS renders according to the status. The rendered images are then fed to the policy to predict the next frame’s action. The predicted action is passed to the simulation for kinematic inverse parsing, collision detection, and other physical interactions. Then, Isaac sim sends the parsed six-axis relative pose to the GS renderer, which then sends the rendered result as feedback to the policy network. This serves as visual feedback for predicting the next action, and the process iterates until the task is finished."
+      },
+      {
+        "partId": "ur5-experiments",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "Since there is no benchmarks available for Real2Sim2Real, we construct the following four groups of proxy experiments to comprehensively evaluate the performance of RoboGSim under simulation and real-world. We use UR5 robot arm for all experiments.\nThe robot arm rendering is partially built upon the codebase of Robo-GS [ 21 ] ."
+      },
+      {
+        "partId": "ring-toss-protocol",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "By using the real machine distribution to guide the RoboGSim distribution, we aim to improve the model’s success rate. We perform the experiments on a challenging ring-toss task (see Fig. 7 ), which is divided into two subtasks: picking up the ring and tossing it onto the target. The accuracy requirement for the Z-axis when picking up the ring is within 5mm. For real data, 1,000 samples are collected manually. For a fair comparison, we used 1,000 synthetic samples generated by RoboGSim. During testing, each model was tested 10 times, with three attempts allowed per trial for grasping. If all three attempts failed, the trial was marked as unsuccessful."
+      },
+      {
+        "partId": "real-vs-simulator-placement",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "Method Grasp Suc. Place Suc. Real-to-Real 100% 90% Real-to-RoboGSim 100% 30% Sim-to-Real 80% 0% RoboGSim-to-Real 100% 90%"
+      },
+      {
+        "partId": "rendering-scope",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "The objective of the novel pose synthesis is to validate the performance of Real2Sim reconstruction, with a particular focus on the accuracy of the robotic arm’s movements and the fidelity of the image texture. The static scene is reconstructed using the initial pose of the robotic arm from the first frame of GT. The trajectory collected from the real robotic arm is used as the driving force, and we employ the kinematic control for novel pose rendering.\nAs shown in Fig. 3 , the results demonstrate that our reconstruction accurately captures both the texture and the physical dynamics of the robotic arm, highlighting the fidelity achieved by RoboGSim. To compare with the video sequence driven by the real robot under the new viewpoint, RoboGSim achieves a 31.3 PSNR and 0.79 SSIM rendering result, while ensuring real-time rendering with 10 FPS."
+      },
+      {
+        "partId": "replay-scope",
+        "citationId": "robogsim-2024",
+        "sourceUrl": "https://arxiv.org/html/2411.11839",
+        "supportingPassage": "To verify whether the trajectories from Issac Sim can perfectly align with the real machine and RoboGSim, we designed an experiment where the trajectory is collected using Issac Sim, and then the trajectory is used to drive GS to render a Coke-grasping scene, while the same trajectory is used to drive the real machine to grasp a Coke can.\nAs shown in Fig. 4 , the comparison reveals a strong alignment between the simulated policy and the actual physical behavior of the robotic arm, highlighting the effectiveness of the Sim2Real transfer in our system. These results suggest that our simulation can reliably model real-world dynamics, facilitating successful policy transfer from simulation to the real world."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "edition",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The literal raw-HTML watermark reads arXiv:2411.11839v2 [cs.RO] 03 Aug 2025. It is outside the article projection; the unversioned GET and original 2024 citation remain separate.",
+        "evidenceDigest": "adb8f1c33c53c85f068b4846f2783f9bbbd6c467e58983d97a4f16c7bb509dac"
+      },
+      {
+        "partId": "components-inputs-composition",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The architecture lists all four named modules and reconstruction inputs, then scene composition operations; the article preserves this conjunction rather than describing a renderer swap.",
+        "evidenceDigest": "72a71022b40b1c63a168651e99ff20d106b8d3424d90277db78f35cfcad8d538"
+      },
+      {
+        "partId": "isaac-mesh-assets",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "Digital Twins Builder constructs mesh assets for Isaac Sim; reconstructed splat appearance does not eliminate collision/physics assets.",
+        "evidenceDigest": "a57cfc67b49b5095cc9cffb6372e2621e9c145f9102d548adf08ef2d55618baa"
+      },
+      {
+        "partId": "measured-layout",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The builder description explicitly measures the real layout and adjusts the simulator scene to align with the Gaussian representation.",
+        "evidenceDigest": "072aed9277aa735f946e8335494e4c381d69abc251a5fd11eb1ae0040858b511"
+      },
+      {
+        "partId": "trajectory-synthesis",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The synthesis description uses action trajectories to drive robot/object transforms across views, scenes and objects; this is separate from success-rate evaluation.",
+        "evidenceDigest": "bf840fbc757f63b186828eb53dbef48ff071fcef6e29232227fae73c2db4d175"
+      },
+      {
+        "partId": "closed-loop-physics-and-safety-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The evaluator paragraph orders rendered observations, policy actions, Isaac Sim inverse kinematics/collisions and next-state rendering. Avoiding hardware execution during simulation does not establish deployed-robot safety.",
+        "evidenceDigest": "a5f224afc867ba032832c0383263211c5e35afae32f47efc38138d52c34e3459"
+      },
+      {
+        "partId": "ur5-experiments",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The experimental setup explicitly names UR5 for the experiments; the reader-facing evaluation is scoped accordingly.",
+        "evidenceDigest": "24b9316745c78392210614c60f80e7243421222230d272689157f678d4afebeb"
+      },
+      {
+        "partId": "ring-toss-protocol",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The protocol gives ten tests per model with up to three grasp attempts per trial. Attempts are nested, not thirty independent trials.",
+        "evidenceDigest": "ace2e20775fe0dae8d03fd40a13bf6752042aeadd740ff8ab95f684d6dd5a998"
+      },
+      {
+        "partId": "real-vs-simulator-placement",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "Table 2 distinguishes real-hardware and RoboGSim placement for the real-data model, 90% and 30%; this is counterevidence to interchangeable evaluation.",
+        "evidenceDigest": "0f8f76342e9f4fd151dd24dbf1c82207cb8dc2976b66c15c00dd9bb32a40e1b8"
+      },
+      {
+        "partId": "rendering-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The novel-pose experiment renders along recorded robot motion to evaluate image fidelity, not autonomous task completion.",
+        "evidenceDigest": "bba63622f3091bd981bc6b6c44c52f8577b27370c28322d26046a4dac5ceb76c"
+      },
+      {
+        "partId": "replay-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator",
+        "rationale": "The replay experiment drives the simulated rendering and real robot using the same trajectory. That protocol cannot be relabeled closed-loop policy success.",
+        "evidenceDigest": "e8c0c0185177daf000fd11aa6cae8eb44b4b2c56315c29e795666fe87b3844f4"
+      }
+    ]
   }
 ]

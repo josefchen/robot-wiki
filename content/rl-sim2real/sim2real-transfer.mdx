@@ -39,7 +39,10 @@ The figure below is a deterministic toy, not a learned policy or a measured robo
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DR parameter writes" value="CPU API" note="Isaac Lab v1: mass and friction; runtime changes supported" accent />
   <Stat label="RMA reported adaptation" value="< 1 s" note="A1: latent ~10 Hz; base policy 100 Hz" />
-  <Stat label="SplatSim zero-shot" value="86.25%" note="vs 97.5% for real-data-trained policies" />
+  <div data-testid="splatsim-transfer-stat">
+    <Stat label="SplatSim zero-shot (UR5)" value="86.25%" note="vs 97.5% real-data; 4 tasks, 40 trials/task" />
+    <Cite id="splatsim-2024" />
+  </div>
   <Stat label="ASAP correction" value="delta action" note="learned residual, sim to real to sim" />
 </div>
 
@@ -108,7 +111,11 @@ The caveat is baked into the construction. The delta model is learned on the sta
 
 ## Real-to-sim: rebuild the scene, keep the physics
 
-The newest family attacks the visual gap by reconstructing the actual deployment scene. SplatSim replaces the simulator's mesh renderer with a 3D Gaussian Splatting reconstruction of the real environment and reports zero-shot transfer of RGB manipulation policies at 86.25% average success, against 97.5% for policies trained on real data <Cite id="splatsim-2024" />. RoboGSim packages the same loop as a real2sim2real simulator: reconstruct the scene as splats, compose novel views, objects, and trajectories, and evaluate policies online against the twin <Cite id="robogsim-2024" />. Newton 1.0's tiled camera sensor accepts Gaussian splats as a native scene representation, which is this idea productized <Cite id="newton-manipulation-blog-2026" />.
+The newest family attacks the visual gap by reconstructing the actual deployment scene. SplatSim replaces mesh primitives in the rendering pipeline with Gaussian splats reconstructed from the deployment scene; PyBullet supplies the physics. Across four UR5 manipulation tasks, with 40 trials per task, the authors report 86.25% average zero-shot real-world success for diffusion policies trained on simulated demonstrations, versus 97.5% for policies trained on real-world demonstrations. This is the result with training augmentations, not rendering alone <span className="max-sm:[&_[role=tooltip]]:-left-32"><Cite id="splatsim-2024" />.</span>
+
+The setup uses a Robotiq 2F-85 gripper and two RealSense D455 cameras. Preparing the splats requires manual robot segmentation, CAD-derived link bounds and ICP alignment; robot kinematics and simulated object poses drive rendering. Figure 2 lists RGB observations plus end-effector position and orientation, while Section IV-A says the policy relies solely on RGB at test time. Those descriptions disagree; they do not establish an unqualified image-only input specification <span className="max-sm:[&_[role=tooltip]]:-left-32"><Cite id="splatsim-2024" />.</span> In its August 2025 v2, RoboGSim combines a Gaussian Reconstructor, Digital Twins Builder, Scene Composer and Interactive Engine in a real2sim2real system. Multi-view images and supplied robot MDH parameters feed reconstruction; mesh assets and measured layout alignment connect the scene to Isaac Sim. The synthesizer composes novel views, objects, scenes and trajectories. In closed-loop evaluation, a policy acts on splat-rendered images; Isaac Sim handles inverse kinematics, collisions and other physical interactions, and the resulting state drives the next rendering <Cite id="robogsim-2024" />.
+
+This evaluation is not interchangeable with real-robot testing. On the UR5 ring-toss task, each model had ten trials with up to three grasp attempts per trial. Table 2 reports 90% placement for the real-data-trained model on the real robot but 30% in RoboGSim. Simulated evaluation avoids executing those actions on hardware; it is not a demonstrated safety guarantee for a deployed robot. The paper examines novel-pose rendering and trajectory replay separately from closed-loop policy evaluation <Cite id="robogsim-2024" />. Newton 1.0's tiled camera sensor accepts Gaussian splats as a native scene representation, which is this idea productized <Cite id="newton-manipulation-blog-2026" />.
 
 Keep the division of labor straight: the splat supplies appearance, and a conventional physics engine still supplies dynamics. A 3DGS twin is a learned renderer bolted onto a simulator, not a learned simulator, and it reconstructs a static scene: articulated objects, deformables, and lighting changes each require extra machinery on top. Confusing the two is the most common misreading of the real-to-sim literature.
 

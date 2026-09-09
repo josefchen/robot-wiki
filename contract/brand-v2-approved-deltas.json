@@ -8015,6 +8015,57 @@
         "VAL-B2-SPACE-006"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "splat-transfer-prose-1-20260909",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "9ecfc2ec34476dd0b6a32a3d41b481b5496ab255ffaa9490d43e6bc09287e8e7",
+      "reason": "Exact original4/18 SplatSim Stat/prose and original19 RoboGSim correction, including citation occurrence counts and scoped Stat text. Retains platform/evaluation/augmentation scope, conflicting inputs, inspected v2, mesh/physics separation, nested attempts and placement/safety/replay limits. Preserves prior corrections, four mobile wrappers and held original21. Immediate-before bb2ed4c749dabe4b0d34cbf9d5e8e07e2f569630f174359de5fe1599d83835d3; source and endpoint proof at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-splat-transfer-integration-20260909. No whole-article, P1 or release acceptance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' correction authority at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md plus the bounded three-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "splat-transfer-relationships-2-20260909",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "37ac6804fe8d3683da470450a7c89b081bee8f0800b7c0d568dbf89a72bb1ac8",
+      "newHash": "90f3d4d8454dd5614b4198206f8c465a98248126af862159d5cb9e46044c81e9",
+      "reason": "Exact original4/18 SplatSim Stat/prose and original19 RoboGSim correction, including citation occurrence counts and scoped Stat text. Retains platform/evaluation/augmentation scope, conflicting inputs, inspected v2, mesh/physics separation, nested attempts and placement/safety/replay limits. Preserves prior corrections, four mobile wrappers and held original21. Immediate-before 6a23c89913297ff7c6f6ee8495f4ba1ef53f8678032ee8c309b9f255c8422946; source and endpoint proof at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-splat-transfer-integration-20260909. No whole-article, P1 or release acceptance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' correction authority at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md plus the bounded three-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "splat-transfer-mobile-citation-position-20260909",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "dd918afc1e63563815a79a7e8ac1296ac2e8ed326a92c84f7c5d14a9047eb03d",
+      "reason": "Two measured overflowing new SplatSim prose citation popups at 375px (right edges 410 and 472) receive article-local responsive -left-32 positioning. Removing exactly the two added wrapper tags reconstructs the source-integrated article SHA256 5d0920a3867b9d00f62f8964fae5698ebfceec7223e07e9fd4845510f87ac447. No scientific wording, citation IDs, shared renderer, existing four wrappers or native semantic record changes. Exact before/after reader evidence at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-splat-transfer-integration-20260909.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' correction authority at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md plus the bounded three-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
