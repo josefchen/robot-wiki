@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './servo-apollo-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
 
@@ -110,11 +110,11 @@ test.describe('data-hardware industrial-deployment module', () => {
     // Component words asserted against the paragraph's text content
     // rather than getByText regex nodes (which fragment inside the
     // citation-chip spans).
-    const sectionText = (await main.locator('p', { hasText: 'two to three times the arm' }).first().textContent()) ?? '';
+    const sectionText = (await main.locator('p', { hasText: "EVST's July 15, 2026" }).first().textContent()) ?? '';
     for (const comp of [
       'end-of-arm tool',
-      'fixtures',
-      'guarding',
+      'light curtains',
+      'fencing',
       'vision',
       'PLC',
       'commissioning',

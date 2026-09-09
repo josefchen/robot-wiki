@@ -7754,6 +7754,42 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "industrial-cost-responsibility-20260909-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "1c7ea96deb80f4e7c1c7d3b76cecf79a22f690a5c241230e3188bd5787870330",
+      "reason": "Source-backed industrial originals27/28: dated EVST commercial budget list and OSHA manual role/RA limitations, with local citation line breaks. Retained source and exact current spans reviewed by the integrator, not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-cost-responsibility-20260909-2",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d",
+      "newHash": "ffcb047aefa2e3b89e495d0c84a148c117aeebd2362ee2429970b3004fe69940",
+      "reason": "Source-backed industrial originals27/28: dated EVST commercial budget list and OSHA manual role/RA limitations, with local citation line breaks. Retained source and exact current spans reviewed by the integrator, not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

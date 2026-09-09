@@ -8453,9 +8453,10 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // EVST integrator guide: complete palletizing cells quoted at 2-3x
-    // the arm price; the robot body a third to half of total cell cost;
-    // guarding is the integrator's responsibility under ISO 10218-2.
+    // Commercial EVST integrator/vendor guide, last updated July 15, 2026.
+    // Primary for EVST's own cost estimates and pricing policy, not independent
+    // pricing research or authoritative proof of an ISO standards obligation.
+    // Its payload bands describe complete cells, not fixed arm-only prices.
     id: 'evst-cell-cost-2026',
     title: 'Palletizing Robot Cost & ROI 2026: Price & Payback Guide',
     authors: ['EVST Engineering Team'],

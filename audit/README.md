@@ -1,6 +1,16 @@
 # Content-integrity audit trail
 
-## Current checkpoint: servo and Apollo integration (2026-09-09)
+## Current checkpoint: industrial cost/responsibility (2026-09-09; reader proof failed)
+
+Exactly originals `audit/data-hardware.md:industrial-deployment:27` and `:28` applied atomically; zero selected holds or unattempted originals. **410 complete / 584 incomplete / 994 originals / 47 articles; 316 plans and 393 exact approvals.** All 408 prior completions, 992 unselected semantic records, 314 prior plans and 391 prior approvals/metadata/serialized prefixes are preserved. Formal progress stays 307/331. Earlier checkpoint sections are historical, not additional current credit.
+
+Eight AND-parts and 13 literal bindings from retained OSHA/EVST text were reviewed; zero external retrievals. The OSHA role/limitation correction does not exempt manufacturers or modernize the manual to ISO 10218-2:2025. The dated EVST cost list is commercial guidance, not independent price research, fixture-cost proof or a cycle guarantee. Review dates and registry values are unchanged. Native evidence and the detailed committed accounting are in audit/data-hardware.md and audit/compound-evidence.json; source/retrieval/input/preservation receipts are under `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-cost-responsibility-integration-20260909/`.
+
+The 103 focused unit/component tests, normal lint/prelint, typegen and nonincremental TypeScript pass. **Content RED: 589 findings plus nine separate citation gaps. Baseline RED: the same 47 full failure objects.** The initial approval-anchor/stale-prose errors and 49-failure results remain retained. **Reader proof FAILED:** both runs failed the same three industrial identities on a local HTTP 500; no successful affected-route screenshots, Read bindings or interaction/visual acceptance is claimed. Owned servers are stopped and generated configuration equals its starting bytes. The fixed 01:39:31.658Z target was exceeded during the bounded task/closeout and never reset.
+
+**Do not publish.** Industrial 52, safety 5/6, OSHA publication-year P1, the separate arithmetic/Thrun issues, predecessor final-input browser reconciliation, full article/reference/export/48-card obligations and independent scrutiny/user testing remain open. skipScrutiny=false; skipUserTesting=false; fallback inactive. This checkpoint is not release acceptance.
+
+## Historical checkpoint: servo and Apollo integration (2026-09-09)
 
 Exactly five originals applied: classical perception 56/57/58 and state-estimation 4/5, in their two complete atomic groups. Native accounting is **408 complete / 586 incomplete / 994 originals / 47 articles**; classical is **51 complete / 136 incomplete / 187 originals**. All 403 prior completions and 989 unselected semantic records are preserved. Compound plans: **314** (309 prior plus five); exact approvals: **391** (384 prior plus seven). Formal feature progress remains 307/331; this is not article/P1 or release acceptance. Earlier checkpoint sections below are historical.
 
