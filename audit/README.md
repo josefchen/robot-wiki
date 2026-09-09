@@ -1,5 +1,76 @@
 # Content-integrity audit trail
 
+## Current checkpoint: bounded transfer-reader closeout, zero original credit (2026-09-09)
+
+Product implementation is unchanged from `2ed812e20ee3dbe663c75f157ac3e5f066b37ea2`.
+Native comparison preserves **all 994 full semantic records, all 421 completions,
+573 incomplete records, exact 327-plan bytes, and all 409 approval objects,
+metadata and serialized prefix**. There are 47 articles; RL remains 75/92/167.
+All six mobile citation wrappers, source URLs/bylines/dates, numeric constants,
+defaults, RMA/Isaac/DR/KL wording and held transfer 21/23/24/P1 questions remain.
+
+The exact 15 browser identities are reconciled rather than rerun for ownership:
+11 completed passing identities from the interrupted repaired population,
+the later completed mobile randomization citation reader, and three current
+identities (general Axe plus strengthened SplatSim/RoboGSim readers at 375×812
+and 1440×900). The initial 14-pass/1-fail run, repaired run's 11-pass/1-fail
+reporter outcomes, three uncompleted outcomes and absent normal-exit receipt,
+and later three-pass overlap remain history. Uncompleted does not mean proven
+unrun. The interrupted mobile reader's premature `runnerStatusAtFinally: passed`
+is not accepted over its false assertion-completion flag and terminal failure.
+This is composed 15-identity coverage, not one fresh 15/15 invocation.
+
+Current browser execution: **10 executions, 3 passes, 7 failures across five
+sequential runs**, preserving all raw results. Test-only repairs addressed
+rendered-innerText versus textContent parity, canonical trailing-slash URLs,
+CDP text-leaf selection, and an independent mobile hover precondition after a
+previous glossary focus. No product defect or placement change was required.
+All original assertions and reporter-visible identities remain; the two source
+readers gained strict containment/hit testing, hover/focus parity, actual
+Tab/Enter full-reference jumps for all five citation occurrences, full six-
+and nine-author bylines, three relevant glossary definitions, font-leaf
+measurements, changed-section slices and a bounded section-start survey.
+
+The completed helper cases produced **40 viewport captures (21 mobile, 19
+desktop); 36 were directly Read-inspected**, including all six readable
+changed-section slices, both Stats, both source hover/focus states and all four
+full-reference captures. Four redundant section-start images and six inherited
+Stat/focus captures were not additionally Read. The survey is not complete
+article coverage. The local Next development indicator remains visible in
+some screenshots; overlapping changed-section slices provide the reading
+continuation, not a production-HTML seal. Selected text uses actual local
+Tektur, Newsreader, IBM Plex Sans and IBM Plex Mono; this is not full-corpus
+glyph/cmap acceptance. Actual display/inline KaTeX/MathML counts are 0/0/0;
+no invented equation checks are credited. Source-reader Axe has zero violations
+but retains color-contrast incompletes: 46 mobile nodes and 44 desktop nodes.
+Chart contrast 3.6088/3.3553 and tiny SVG text retain their existing owners.
+
+Actual final gates: normal `npm run lint` **including prelint** exit 0;
+`next typegen` exit 0; `tsc --noEmit --incremental false` exit 0; native
+preservation comparison exit 0 with the **same 46 full baseline failure
+objects**, no additions/removals. The predecessor's 140 focused reporter tests
+are reused by unchanged executable-input qualification, not rerun; its 121
+local source-verification checks remain a separate population. **Zero source
+retrieval or new source certification**: retained primary HTML/extracted text
+has the original September 8 unversioned GET provenance and SplatSim v3 /
+RoboGSim v2 watermarks, not newly pinned URL/PDF proof.
+
+Evidence and exact per-identity/input/Read/runtime receipts:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-splat-transfer-reader-closeout-20260909/`.
+The fresh Next 16.3 webpack loopback preview used the retained 19 WOFF2 files
+and exact offline socket guard; only its verified leaf was signaled and the
+supervisor recorded actual exit 143. Framework-generated next-env/tsconfig
+drift was restored, not committed. Article `lastReviewed` and prose are frozen;
+no prose rewrite/humanizer claim applies.
+
+**Content remains RED: 578 findings plus nine separate citation gaps. Do not
+publish.** Formal progress remains 307/331; skipScrutiny=false and
+skipUserTesting=false. Whole-article/P1/authored-local-proof, shared reader
+contrast/accessibility, Playground/navigation, servo/glossary reconciliation,
+production HTML/reading times, 48 cards/full corpus and independent Sol/high
+acceptance remain with their existing owners. This is an implementation-worker
+checkpoint, not independent validation or brand acceptance.
+
 ## Current checkpoint: three splat transfer originals integrated; acceptance remains red (2026-09-09)
 
 Applied only `audit/rl-sim2real.md:sim2real-transfer:4`, `:18` (atomic checkpoint) and `:19` (separate coupled group). **421 strict complete / 573 incomplete / 994 originals / 47 articles; 327 native plans and 409 exact approvals.** RL: **75 complete / 92 incomplete / 167 total**. All 991 unselected full semantic records, 418 prior completions, 324 prior plan objects/prefix and 406 prior approval objects/prefix are preserved. Originals 21, 23, authored/local-proof and P1 holds remain uncredited; formal progress stays 307/331.

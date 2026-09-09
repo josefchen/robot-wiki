@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
 import type { Page } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
+import { splatTransferReaderProof } from './splat-transfer-reader-proof';
 
 const ROUTE = '/rl-sim2real/sim2real-transfer/';
 
@@ -211,6 +212,8 @@ test.describe('sim2real-transfer module', () => {
       expect(results.violations).toEqual([]);
       expect(external).toEqual([]);
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+      await splatTransferReaderProof(page, testInfo);
+      expect(external).toEqual([]);
     });
   }
 });
