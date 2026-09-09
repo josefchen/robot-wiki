@@ -106,6 +106,24 @@ npm run validate:content  # content-pipeline validation, also runs before every 
 
 Scope a Vitest run with a filename substring, for example `npm run test -- repo-docs`. The e2e runner starts its own dev server on port 3200 and executes serially (the 3D playground renders through SwiftShader in headless Chromium); a full suite takes several minutes.
 
+### Shared glossary viewport repair (2026-09-09)
+
+The shared `Term` placement repair has 34 passing focused unit/component cases
+and 10 passing scoped browser cases (`term-viewport` and `rma-kl-reader`) at
+375×812 and 1440×900. These cover centered PPO placement, visible sticky-header
+clearance, viewport edges, scroll/resize updates, and complete oversized
+pointer/keyboard-readable definitions. Normal lint (including prelint), route
+type generation, and nonincremental TypeScript pass. The separate 111 historical
+cases are input-qualified reuse, not fresh executions.
+
+This is a zero-credit component checkpoint: all 994 original audit records
+(413 complete / 581 incomplete across 47 articles), 319 plans, 397 existing
+approvals, and 47 inherited baseline failures are unchanged. Three current
+article comparisons still fail four locked reference anchors. Full production
+export/reading-time, the 48-card OG/X matrix, all-consumer/shared smoke coverage,
+and independent release acceptance remain open. Do not treat these scoped
+passes as a green content gate or publication authorization.
+
 ## Building
 
 ```sh
