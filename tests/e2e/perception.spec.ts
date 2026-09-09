@@ -1,6 +1,7 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import { setSlider } from './slider';
@@ -421,6 +422,39 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
   test(`pose source corrections render at ${viewport.width}px`, async ({ page }, testInfo) => {
     const errors: string[] = [];
     const denied: string[] = [];
+    const captures: object[] = [];
+    const equationProof: object[] = [];
+    const inputPath = process.env.ROBOT_WIKI_GATE_INPUTS;
+    const inputSha256 = inputPath ? createHash('sha256').update(readFileSync(inputPath)).digest('hex') : null;
+    const saveState = () => writeFileSync(testInfo.outputPath('reader-state.json'), JSON.stringify({
+      url: page.url(), viewport, inputPath, inputSha256, errors, denied, equationProof, captures,
+    }, null, 2));
+    const capture = async (name: string, state: object = {}) => {
+      const path = testInfo.outputPath(`${name}.png`);
+      await page.screenshot({ path, animations: 'disabled' });
+      captures.push({ path, sha256: createHash('sha256').update(readFileSync(path)).digest('hex'),
+        utc: new Date().toISOString(), url: page.url(), viewport, state, inputPath, inputSha256 });
+      saveState();
+    };
+    const position = async (element: Locator) => {
+      await element.scrollIntoViewIfNeeded();
+      await element.evaluate(el => window.scrollBy(0, el.getBoundingClientRect().top - 100));
+    };
+    const bounds = async (element: Locator) => {
+      const box = await element.boundingBox();
+      expect(box).not.toBeNull();
+      expect(box!.x).toBeGreaterThanOrEqual(0);
+      expect(box!.x + box!.width).toBeLessThanOrEqual(viewport.width);
+      return box!;
+    };
+    const captureText = async (element: Locator, name: string) => {
+      await position(element);
+      const box = await bounds(element);
+      for (let offset = 0, part = 1; offset < box.height; offset += viewport.height - 180, part++) {
+        await element.evaluate((el, y) => window.scrollBy(0, el.getBoundingClientRect().top - 100 + y), offset);
+        await capture(`${name}-${part}`, { subject: name, textOffset: offset, elementHeight: box.height });
+      }
+    };
     page.on('pageerror', error => errors.push(error.message));
     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
     await page.context().route('**/*', route => {
@@ -444,6 +478,8 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await page.setViewportSize(viewport);
     const response = await page.goto(ROUTE);
     expect(response?.status()).toBe(200);
+    await page.waitForFunction(() => [...document.querySelectorAll('button')].some(el =>
+      Object.keys(el).some(key => key.startsWith('__reactFiber$'))));
     await page.evaluate(async () => { await document.fonts.ready; await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))); });
     const prose = page.locator('div.prose[data-pagefind-body]');
     await expect(prose).toContainText('Equality counts as correct');
@@ -453,42 +489,189 @@ for (const viewport of [{ width: 375, height: 812 }, { width: 1440, height: 900 
     await expect(prose).not.toContainText('Three years erased');
     await expect(prose.locator('[data-cite-id="hinterstoisser-2012"]')).toHaveCount(4);
     await expect(prose.locator('[data-cite-id="bop-challenge-2023"]')).toHaveCount(3);
+
+    // Exercise the visible taxonomy, never the hidden desktop navigation at 375px.
+    const menu = page.getByRole('button', { name: 'Open navigation menu' });
+    if (viewport.width === 375) {
+      await expect(menu).toBeVisible();
+      await menu.focus();
+      await page.keyboard.press('Enter');
+      const dialog = page.getByRole('dialog');
+      const close = dialog.getByRole('button', { name: 'Close navigation menu' });
+      await expect(close).toBeFocused();
+      const nav = dialog.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+      await expect(nav.getByRole('link', { name: 'Perception for Manipulation', exact: true })).toHaveAttribute('aria-current', 'page');
+      await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
+      await expect(page.locator('#main-content').locator('xpath=ancestor-or-self::*[@inert]').first()).toBeAttached();
+      await page.keyboard.press('Tab');
+      expect(await dialog.evaluate(el => el.contains(document.activeElement))).toBe(true);
+      await close.focus();
+      await page.keyboard.press('Shift+Tab');
+      // The dialog also contains the dismissing scrim, outside the trapped
+      // panel. Assert actual wrap behavior, not that scrim's DOM ordering.
+      expect(await dialog.evaluate(el => el.contains(document.activeElement))).toBe(true);
+      await expect(close).not.toBeFocused();
+      await page.keyboard.press('Tab');
+      await expect(close).toBeFocused();
+      await capture('mobile-drawer', { currentPage: ROUTE, backgroundInert: true, tabTrapBothDirections: true });
+      await page.keyboard.press('Escape');
+      await expect(dialog).toHaveCount(0);
+      await expect(menu).toBeFocused();
+      await expect(page.locator('[inert]')).toHaveCount(0);
+      await capture('mobile-drawer-escape', { focusReturned: true, inertRemoved: true });
+    } else {
+      await expect(menu).not.toBeVisible();
+      const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+      await expect(nav.getByRole('link', { name: 'Perception for Manipulation', exact: true })).toHaveAttribute('aria-current', 'page');
+      await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
+    }
+
     const formulas = page.locator('.katex-display').filter({ hasText: /operatorname.*avg/ });
     await expect(formulas).toHaveCount(2);
     for (let i = 0; i < 2; i++) {
-      await formulas.nth(i).scrollIntoViewIfNeeded();
-      await expect(formulas.nth(i)).toBeVisible();
-      await page.screenshot({ path: testInfo.outputPath(`equation-${i + 1}.png`), animations: 'disabled' });
+      const formula = formulas.nth(i);
+      await expect(formula).toHaveAttribute('role', 'region');
+      await expect(formula).toHaveAttribute('aria-label', `Display equation ${i + 2}`);
+      await expect(formula).toHaveAttribute('tabindex', '0');
+      // Derive the actual preceding visible tab stop; citation ordering is
+      // not keyboard ordering (a citation can follow its display equation).
+      const keyboardEntry = await formula.evaluate(el => {
+        const stops = [...document.querySelectorAll<HTMLElement>('a[href],button:not([disabled]),input:not([disabled]),[tabindex]:not([tabindex="-1"])')];
+        const previous = stops.filter(stop => !el.contains(stop) &&
+          Boolean(stop.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING) &&
+          stop.getClientRects().length > 0 && getComputedStyle(stop).visibility !== 'hidden' &&
+          !stop.closest('[inert]')).at(-1);
+        if (!previous) throw new Error('No preceding visible keyboard stop');
+        previous.focus();
+        return { tag: previous.tagName, text: previous.textContent, href: previous.getAttribute('href') };
+      });
+      const keyboardPath: Array<{ tag: string; label: string | null; text: string | null }> = [];
+      for (let tab = 0; tab < 4; tab++) {
+        await page.keyboard.press('Tab');
+        keyboardPath.push(await page.evaluate(() => ({
+          tag: document.activeElement!.tagName,
+          label: document.activeElement!.getAttribute('aria-label'),
+          text: document.activeElement!.textContent,
+        })));
+        if (await formula.evaluate(el => el === document.activeElement)) break;
+      }
+      await expect(formula).toBeFocused();
+      await position(formula);
+      await bounds(formula);
+      const geometry = await formula.evaluate(el => {
+        const region = el as HTMLElement;
+        const origin = region.getBoundingClientRect();
+        const glyphs: Array<{ text: string; left: number; right: number }> = [];
+        const walker = document.createTreeWalker(region.querySelector('.katex-html')!, NodeFilter.SHOW_TEXT);
+        while (walker.nextNode()) {
+          const node = walker.currentNode;
+          for (let c = 0; c < (node.textContent?.length ?? 0); c++) {
+            if (!node.textContent![c].trim()) continue;
+            const range = document.createRange();
+            range.setStart(node, c); range.setEnd(node, c + 1);
+            const rect = range.getBoundingClientRect();
+            if (rect.width > 0) glyphs.push({ text: node.textContent![c], left: rect.left - origin.left + region.scrollLeft, right: rect.right - origin.left + region.scrollLeft });
+          }
+        }
+        // KaTeX draws norm delimiters and accents with SVGs, not text nodes.
+        for (const svg of region.querySelectorAll('.katex-html svg')) {
+          const rect = svg.getBoundingClientRect();
+          if (rect.width > 0) glyphs.push({ text: '[SVG delimiter/accent]', left: rect.left - origin.left + region.scrollLeft, right: rect.right - origin.left + region.scrollLeft });
+        }
+        const style = getComputedStyle(region);
+        return { width: region.clientWidth, scrollWidth: region.scrollWidth, scrollLeft: region.scrollLeft,
+          glyphs, outline: style.outline, outlineOffset: style.outlineOffset };
+      });
+      expect(geometry.glyphs.length).toBeGreaterThan(20);
+      expect(geometry.scrollLeft).toBe(0);
+      const windows = [{ left: 0, right: geometry.width }];
+      await capture(`equation-${i + 1}-start`, { ...geometry, glyphs: undefined, keyboardFocused: true });
+      const max = geometry.scrollWidth - geometry.width;
+      let previous = 0;
+      while (previous < max - 1) {
+        await page.keyboard.press('ArrowRight');
+        await expect.poll(() => formula.evaluate(el => el.scrollLeft)).toBeGreaterThan(previous);
+        previous = await formula.evaluate(el => el.scrollLeft);
+      }
+      if (max > 1) {
+        await expect(formula).toBeFocused();
+        windows.push({ left: previous, right: previous + geometry.width });
+        await capture(`equation-${i + 1}-end`, { scrollLeft: previous, maxScrollLeft: max, keyboardFocused: true });
+      }
+      // Every glyph, including both ends of the unsquared norm, must be
+      // entirely readable in at least one actual captured keyboard state.
+      const unreachable = geometry.glyphs.filter(glyph => !windows.some(window => glyph.left >= window.left - 1 && glyph.right <= window.right + 1));
+      expect(unreachable).toEqual([]);
+      while (previous > 0) {
+        await page.keyboard.press('ArrowLeft');
+        await expect.poll(() => formula.evaluate(el => el.scrollLeft)).toBeLessThan(previous);
+        previous = await formula.evaluate(el => el.scrollLeft);
+      }
+      await page.keyboard.press('Tab');
+      await expect(formula).not.toBeFocused();
+      equationProof.push({ equation: i + 1, keyboardEntry, keyboardPath, geometry, windows, unreachable, keyboardReturnedToStart: true, keyboardExited: true });
+      saveState();
     }
     const tex = await prose.locator('annotation').allTextContents();
     expect(tex.some(value => value.includes('m \\leq k_m d'))).toBe(true);
     expect(tex.some(value => value.includes('e < \\theta_e'))).toBe(true);
     const term = prose.locator('[data-term-id="add-s-metric"]');
+    await position(term);
     await term.locator('a, button').first().focus();
     await expect(term.locator('[role="tooltip"]')).toBeVisible();
     await expect(term.locator('[role="tooltip"]')).not.toContainText('BOP');
-    await page.screenshot({ path: testInfo.outputPath('glossary.png'), animations: 'disabled' });
+    await bounds(term.locator('[role="tooltip"]'));
+    await capture('glossary-focus', { term: 'add-s-metric' });
+    await page.keyboard.press('Escape');
     await page.keyboard.press('Tab');
-    const bop = prose.locator('p').filter({ hasText: 'The BOP Challenge 2023 report uses' });
-    await bop.scrollIntoViewIfNeeded();
-    await page.screenshot({ path: testInfo.outputPath('bop-protocol.png'), animations: 'disabled' });
+    for (const id of ['hinterstoisser-2012', 'bop-challenge-2023']) {
+      const cites = prose.locator(`[data-cite-id="${id}"]`);
+      for (let occurrence = 0; occurrence < await cites.count(); occurrence++) {
+      const cite = cites.nth(occurrence);
+      await position(cite);
+      await cite.evaluate(el => window.scrollBy(0, el.getBoundingClientRect().top - 350));
+      await cite.locator('a').first().hover();
+      const hoverBox = await bounds(cite.getByRole('tooltip'));
+      expect(hoverBox.y).toBeGreaterThanOrEqual(54);
+      expect(hoverBox.y + hoverBox.height).toBeLessThanOrEqual(viewport.height);
+      await page.mouse.move(viewport.width - 1, viewport.height - 1);
+      await cite.locator('a').first().focus();
+      await expect(cite.getByRole('tooltip')).toBeVisible();
+      const focusBox = await bounds(cite.getByRole('tooltip'));
+      expect(focusBox.y).toBeGreaterThanOrEqual(54);
+      expect(focusBox.y + focusBox.height).toBeLessThanOrEqual(viewport.height);
+      await capture(`${id}-source-focus-${occurrence + 1}`, { citation: id, occurrence: occurrence + 1, hoverBox, focusBox });
+      await page.keyboard.press('Escape');
+      await page.keyboard.press('Tab');
+      }
+    }
+    // Leave the last citation's second link before unobscured prose captures.
+    await page.keyboard.press('Tab');
+    await expect(prose.getByRole('tooltip')).toHaveCount(0);
+    for (const [text, name] of [
+      ['The paper counts the detection', 'inclusive-threshold'],
+      ['The BOP Challenge 2023 report uses', 'bop-protocol'],
+      ['In the report’s retrospective', 'bop-retrospective'],
+      ['For unseen objects, GenFlow', 'bop-unseen'],
+    ]) await captureText(prose.locator('p').filter({ hasText: text }), name);
     for (const [id, authors] of [
       ['hinterstoisser-2012', ['Stefan Hinterstoisser', 'Vincent Lepetit', 'Slobodan Ilic', 'Stefan Holzer', 'Gary Bradski', 'Kurt Konolige', 'Nassir Navab']],
       ['bop-challenge-2023', ['Tomas Hodan', 'Martin Sundermeyer', 'Yann Labbé', 'Van Nguyen Nguyen', 'Gu Wang', 'Eric Brachmann', 'Bertram Drost', 'Vincent Lepetit', 'Carsten Rother', 'Jiri Matas']],
     ] as const) {
       const reference = page.locator(`ol [data-reference-id="${id}"]`);
       const expand = reference.getByRole('button', { name: /Show all/ });
-      if (await expand.count()) await expand.click();
+      if (await expand.count()) { await expand.focus(); await page.keyboard.press('Enter'); }
       const text = await reference.innerText();
       let previous = -1;
       for (const author of authors) { const index = text.indexOf(author); expect(index).toBeGreaterThan(previous); previous = index; }
-      await reference.scrollIntoViewIfNeeded();
-      await page.screenshot({ path: testInfo.outputPath(`${id}-byline.png`), animations: 'disabled' });
+      if (id === 'bop-challenge-2023') await expect(reference.getByRole('link', { name: /^BOP Challenge/ })).toHaveAttribute('href', 'https://arxiv.org/abs/2403.09799');
+      await captureText(reference, `${id}-byline`);
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(0);
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
     expect(errors).toEqual([]);
     expect(denied).toEqual([]);
-    await testInfo.attach('reader-state', { body: JSON.stringify({ url: page.url(), viewport, errors, denied, tex, fonts: await page.evaluate(() => document.fonts.status) }), contentType: 'application/json' });
+    saveState();
+    await testInfo.attach('reader-state', { path: testInfo.outputPath('reader-state.json'), contentType: 'application/json' });
   });
 }

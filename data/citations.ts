@@ -7773,6 +7773,9 @@ export const CITATIONS: Citation[] = [
   },
   {
     // Inspected primary edition: arXiv 2403.09799v1, printed 14 Mar 2024.
+    // Retain the abs URL audited on 2026-09-06; this is not a fresh URL audit.
+    // Verified body: https://arxiv.org/html/2403.09799v1 (retained 2026-09-08).
+    // Native supporting passages keep that exact body URL and edition.
     // Challenge year 2023 differs from this preprint's publication year.
     // The full v1 byline prints Labbé; the prior unversioned abs used Labbe.
     // Earlier CVPR Workshops 2024/DBLP metadata remains in audit history;
@@ -7795,7 +7798,7 @@ export const CITATIONS: Citation[] = [
     year: 2024,
     venue: 'arXiv preprint',
     arxiv: '2403.09799',
-    url: 'https://arxiv.org/html/2403.09799v1',
+    url: 'https://arxiv.org/abs/2403.09799',
     type: 'paper',
   },
   {

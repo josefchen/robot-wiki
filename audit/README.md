@@ -1,6 +1,18 @@
 # Content-integrity audit trail
 
-## Current partial pose-metrics/BOP checkpoint — 2026-09-08
+## Current zero-credit BOP dependency and pose-reader repair — 2026-09-09
+
+**403 complete / 591 incomplete / 994 originals / 47 articles; 309 plans, 384 exact approvals. Zero original applications and zero new retrievals.** All 994 semantic records, 403 completions, 309 raw plan objects/bytes and 382 prior approvals/metadata/serialized prefix are preserved. Exactly two member approvals were appended. Classical remains 46/141/187; scene remains 34 complete; formal progress remains 307/331.
+
+The introduced BOP URL drift is repaired, not inherited debt: the registry again ships the exact historically audited https://arxiv.org/abs/2403.09799. The historical audit row is unchanged; native evidence retains https://arxiv.org/html/2403.09799v1, its 2024 preprint identity and all ten ordered authors. Retained retrieval events/bytes were verified, not fetched again. Seven article-local mobile citation breaks repair reproduced 30px tooltip overflow. Removing those exact seven breaks yields byte-identical af22bd1 article content: formulas, meanings, thresholds, glossary, claims and source plans are untouched.
+
+Validation: 46 distinct affected unit cases pass; two checked-in reader identities pass at 375×812 and 1440×900. Both complete equations, including SVG delimiters/accents, are covered by actual keyboard-entry/scroll/return/exit states. The second mobile equation is 419px inside a 335px local viewport, reachable from 0 to 84px; no math-layout change was needed. All seven source popovers have in-viewport hover/focus geometry, glossary focus and both full ordered bylines are checked. Mobile drawer/current-page/Tab wrapping/Escape/focus-return/inert removal pass. Zero Axe violations, page/console errors, external browser requests or document overflow. Thirty-seven qualifying directly Read-reviewed captures use run 5 with three unobscured unseen-paragraph replacements from run 6. Earlier failed assumptions, partial/clipped captures and the missing-tsx helper attempt remain uncredited and retained. This is bounded reader proof, not full-reference-corpus acceptance.
+
+Normal lint with prelint, route typegen and nonincremental TypeScript pass. Content remains **RED: 596 findings plus nine separate citation gaps**; the sole BOP URL-drift finding is removed. Baseline remains **RED: all 47 full failure objects equal the frozen before snapshot and actual baseline command result**. Both owned server lifecycles are closed; next-env.d.ts and tsconfig.json equal their exact before bytes. No cleanup, new source group, feature/controller change, build/export, publication or fallback occurred.
+
+**Do not publish.** Production reading-time/export, 48-card lifecycle, full visual/reference corpus, whole-P1 and independent Sol/high scrutiny/user testing remain pending; skipScrutiny=false and skipUserTesting=false. Fixed first emission: 2026-09-08T23:33:41.569Z; target: 2026-09-09T00:08:41.569Z, never reset. Actual commit/seal times are recorded in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-reader-dependency-repair-20260908/handoff.json and seal.json.
+
+## Historical partial pose-metrics/BOP checkpoint — 2026-09-08
 
 **403 complete / 591 incomplete / 994 originals / 47 articles; 309 plans and 382 exact approvals.** Four applied, zero held, zero unattempted at the original-record level: perception51/52, then53/54 with their shared glossary composed. Classical has46 complete /141 incomplete across187 originals; scene remains34 complete. Formal progress remains307/331. This is a bounded local implementation checkpoint, not whole-article P1 or release acceptance.
 

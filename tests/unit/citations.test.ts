@@ -71,15 +71,18 @@ describe('citation registry', () => {
     expect(hasBoundArxivUrl({ ...rt1, url: 'https://arxiv.org/abs/2212.06817v2' })).toBe(true);
   });
 
-  it('binds the BOP report to its inspected 2024 v1 and full ordered byline', () => {
+  it('keeps the audited BOP pointer and exact inspected v1 identity distinct', () => {
     const c = getCitation('bop-challenge-2023')!;
     expect(c).toMatchObject({
       title: 'BOP Challenge 2023 on Detection, Segmentation and Pose Estimation of Seen and Unseen Rigid Objects',
       year: 2024, venue: 'arXiv preprint', arxiv: '2403.09799',
-      url: 'https://arxiv.org/html/2403.09799v1',
+      url: 'https://arxiv.org/abs/2403.09799',
       authors: ['Tomas Hodan', 'Martin Sundermeyer', 'Yann Labbé', 'Van Nguyen Nguyen', 'Gu Wang', 'Eric Brachmann', 'Bertram Drost', 'Vincent Lepetit', 'Carsten Rother', 'Jiri Matas'],
     });
     expect(hasBoundArxivUrl(c)).toBe(true);
+    // Body-edition proof is preserved; it is not a substitute for URL-audit coverage.
+    const body = { ...c, url: 'https://arxiv.org/html/2403.09799v1' };
+    expect(hasBoundArxivUrl(body)).toBe(true);
     for (const mutation of [
       { id: 'bop-challenge-2024' }, { arxiv: '2403.09798' },
       { url: 'https://arxiv.org/html/2403.09799v2' },
@@ -89,7 +92,7 @@ describe('citation registry', () => {
       { url: 'http://arxiv.org/html/2403.09799v1' },
       { url: 'https://arxiv.org.evil.example/html/2403.09799v1' },
       { url: 'https://arxiv.org@evil.example/html/2403.09799v1' },
-    ]) expect(hasBoundArxivUrl({ ...c, ...mutation })).toBe(false);
+    ]) expect(hasBoundArxivUrl({ ...body, ...mutation })).toBe(false);
   });
 
   it('getCitation resolves known ids and misses unknown ones', () => {

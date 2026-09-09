@@ -7592,6 +7592,42 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "pose-reader-dependency-repair-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "d5fbd4751662c6a0d4497139aae36db0cf062feb415dbe5e50add1ac613808cc",
+      "reason": "Zero-original-credit dependency/reader repair from af22bd1. Restore historically audited BOP abs URL without changing exact retained v1 supporting URLs or historical audit row; add seven article-local mobile citation breaks after reproduced 30px tooltip overflow. All scientific article bytes are unchanged after removing exactly seven responsive breaks. All 994 semantic records, 403 completions and 309 native plans remain unchanged. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-reader-dependency-repair-20260908/identity-provenance.json and browser-attempt-5.receipt.json. No source promotion, fresh retrieval, VOR/current-liveness or release acceptance.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pose-reader-dependency-repair-20260908-2",
+      "manifest": "article-metadata",
+      "memberId": "citation:bop-challenge-2023",
+      "oldHash": "580eb9020e665e732f5ec21aa7f0bc98998cd5eea3ba73f2bc854796fcfdb627",
+      "newHash": "236b4e4dd8acf921c583ebe205b9882cfc9fc79da53c4d897017c616b33282f3",
+      "reason": "Zero-original-credit dependency/reader repair from af22bd1. Restore historically audited BOP abs URL without changing exact retained v1 supporting URLs or historical audit row; add seven article-local mobile citation breaks after reproduced 30px tooltip overflow. All scientific article bytes are unchanged after removing exactly seven responsive breaks. All 994 semantic records, 403 completions and 309 native plans remain unchanged. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-reader-dependency-repair-20260908/identity-provenance.json and browser-attempt-5.receipt.json. No source promotion, fresh retrieval, VOR/current-liveness or release acceptance.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

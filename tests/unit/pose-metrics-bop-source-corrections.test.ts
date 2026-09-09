@@ -98,7 +98,7 @@ describe('source-scoped pose metrics and BOP corrections', () => {
     });
     expect(CROSSREF_AUTHOR_EXCEPTIONS.some((entry) => entry.id === 'hinterstoisser-2012')).toBe(false);
     expect(CITATIONS.find((citation) => citation.id === 'bop-challenge-2023')).toMatchObject({
-      year: 2024, venue: 'arXiv preprint', arxiv: '2403.09799', url: bop,
+      year: 2024, venue: 'arXiv preprint', arxiv: '2403.09799', url: 'https://arxiv.org/abs/2403.09799',
       authors: ['Tomas Hodan', 'Martin Sundermeyer', 'Yann Labbé', 'Van Nguyen Nguyen', 'Gu Wang', 'Eric Brachmann', 'Bertram Drost', 'Vincent Lepetit', 'Carsten Rother', 'Jiri Matas'],
     });
   });
