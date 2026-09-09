@@ -99,8 +99,10 @@ test.describe('data-hardware industrial-deployment module', () => {
   test('integration-cost claim carries components and a citation (VAL-DATA-032)', async ({
     page,
   }) => {
-    await page.goto(ROUTE);
+    const response = await page.goto(ROUTE);
+    expect(response?.status()).toBe(200);
     const main = page.locator('#main-content');
+    await expect(main.getByRole('heading', { level: 1, name: 'Industrial Deployment' })).toBeVisible();
     // The claim sentence lives in the article body; matching the inner
     // text node directly, because getByText on a regex can fail to match
     // when the phrase is one text child among several in the paragraph.
@@ -110,7 +112,7 @@ test.describe('data-hardware industrial-deployment module', () => {
     // Component words asserted against the paragraph's text content
     // rather than getByText regex nodes (which fragment inside the
     // citation-chip spans).
-    const sectionText = (await main.locator('p', { hasText: "EVST's July 15, 2026" }).first().textContent()) ?? '';
+    const sectionText = await main.locator('p', { hasText: "EVST's July 15, 2026" }).first().innerText();
     for (const comp of [
       'end-of-arm tool',
       'light curtains',
