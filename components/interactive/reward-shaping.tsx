@@ -26,12 +26,12 @@ import { cx } from '@/lib/utils';
 
 /**
  * RewardShaping: the weighted-sum reality of locomotion rewards. Twelve
- * sliders set the weights of the canonical legged_gym-family term set; a
- * stick quadruped preview shows the behavior the resulting objective
- * induces, including the three classic failure attractors (freeze when
+ * sliders set illustrative weights, not a pinned simulator configuration.
+ * A stick quadruped shows the local teaching model categories, not learned
+ * policy rollouts: freeze when
  * torque dominates, prance when foot air time dominates, chatter when the
  * action-rate penalty collapses). A monospace readout reports the
- * weighted total the policy actually maximizes.
+ * weighted sum of fixed illustrative per-term magnitudes.
  *
  * The classification is an illustrative teaching model, labeled as such
  * in the surrounding prose.
@@ -410,7 +410,7 @@ export function RewardShaping({ className }: { className?: string }) {
           fontSize={10}
           fontFamily="var(--font-mono)"
         >
-          illustrative behavior preview, not simulator output
+          illustrative terms and weights, not a source configuration
         </text>
       </svg>
 
@@ -442,6 +442,9 @@ export function RewardShaping({ className }: { className?: string }) {
         ))}
       </div>
 
+      <p className="mt-4 font-sans text-sm leading-relaxed text-text">
+        Local teaching model: twelve illustrative terms and weights, not the paper reward or a source configuration. No policy is trained here.
+      </p>
       <p className="mt-4 font-sans text-xs leading-relaxed text-text-dim" aria-live="polite">
         <span className={TONE_TEXT[behavior.tone]}>{behavior.status}.</span>{' '}
         {behavior.description}

@@ -2,6 +2,8 @@ import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { setSlider } from './slider';
 import type { Page } from '@playwright/test';
+import { writeFileSync } from 'node:fs';
+import { splatTransferReaderProof } from './splat-transfer-reader-proof';
 
 const ROUTE = '/rl-sim2real/sim2real-transfer/';
 
@@ -145,4 +147,73 @@ test.describe('sim2real-transfer module', () => {
     const results = await new AxeBuilder({ page }).analyze();
     expect(results.violations).toEqual([]);
   });
+
+  for (const width of [375, 1440]) {
+    test(`SplatSim and RoboGSim scoped source reader at ${width}`, async ({ page }, testInfo) => {
+      await page.setViewportSize({ width, height: width === 375 ? 812 : 900 });
+      const external: string[] = [];
+      await page.route('**/*', async route => {
+        const url = new URL(route.request().url());
+        if (url.hostname !== '127.0.0.1' && url.hostname !== 'localhost') {
+          external.push(url.href);
+          await route.abort();
+        } else await route.continue();
+      });
+      await page.goto(ROUTE);
+      await page.evaluate(() => document.fonts.ready);
+      const prose = page.locator('div.prose[data-pagefind-body]');
+      const stat = prose.getByTestId('splatsim-transfer-stat');
+      await expect(stat).toContainText('SplatSim zero-shot (UR5)');
+      await expect(stat).toContainText('86.25%');
+      await expect(stat).toContainText('vs 97.5% real-data; 4 tasks, 40 trials/task');
+      for (const text of [
+        'PyBullet supplies the physics', '40 trials per task', 'training augmentations',
+        'Robotiq 2F-85', 'two RealSense D455', 'manual robot segmentation', 'ICP alignment',
+        'CAD-derived link bounds', 'Figure 2 lists RGB observations plus end-effector position and orientation',
+        'solely on RGB at test time', 'Those descriptions disagree', 'August 2025 v2',
+        'Gaussian Reconstructor', 'Digital Twins Builder', 'Scene Composer', 'Interactive Engine',
+        'mesh assets and measured layout alignment', 'inverse kinematics', 'collisions',
+        'resulting state drives the next rendering', 'ten trials with up to three grasp attempts per trial',
+        '90% placement', '30% in RoboGSim', 'not a demonstrated safety guarantee',
+        'trajectory replay separately from closed-loop policy evaluation',
+      ]) await expect(prose).toContainText(text);
+      await expect(prose).not.toContainText("SplatSim replaces the simulator's mesh renderer");
+      await expect(prose).not.toContainText('RoboGSim packages the same loop');
+      await stat.scrollIntoViewIfNeeded();
+      await page.screenshot({ path: testInfo.outputPath(`splat-${width}-stat.png`) });
+      const geometry: unknown[] = [];
+      for (const [id, url, count] of [
+        ['splatsim-2024', 'https://arxiv.org/abs/2409.10161', 3],
+        ['robogsim-2024', 'https://arxiv.org/abs/2411.11839', 2],
+      ] as const) {
+        const clusters = prose.locator(`[data-cite-id="${id}"]`);
+        await expect(clusters).toHaveCount(count);
+        for (let i = 0; i < count; i++) {
+          const cluster = clusters.nth(i);
+          const link = cluster.locator('a').first();
+          await expect(link).toHaveAttribute('href', url);
+          await link.focus();
+          await expect(link).toBeFocused();
+          const popup = cluster.getByRole('tooltip');
+          await expect(popup).toBeVisible();
+          const box = await popup.boundingBox();
+          geometry.push({ id, occurrence: i, box });
+          expect.soft(box!.x, `${id}:${i} left edge`).toBeGreaterThanOrEqual(0);
+          expect.soft(box!.x + box!.width, `${id}:${i} right edge`).toBeLessThanOrEqual(width);
+          if (i === count - 1) await page.screenshot({ path: testInfo.outputPath(`splat-${width}-${id}-focused.png`) });
+          await page.keyboard.press('Tab');
+        }
+      }
+      const results = await new AxeBuilder({ page }).include('div.prose[data-pagefind-body]').analyze();
+      writeFileSync(testInfo.outputPath(`splat-${width}-reader.json`), JSON.stringify({
+        geometry, externalRequestsBlocked: external, axe: results,
+        fonts: await page.evaluate(() => ({ status: document.fonts.status, families: [...document.fonts].map(f => ({ family: f.family, status: f.status })) })),
+      }, null, 2));
+      expect(results.violations).toEqual([]);
+      expect(external).toEqual([]);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+      await splatTransferReaderProof(page, testInfo);
+      expect(external).toEqual([]);
+    });
+  }
 });

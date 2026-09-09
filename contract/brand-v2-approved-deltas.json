@@ -7412,6 +7412,1291 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "calibration-tsdf-five-originals-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "be15384f5e02234bce1894d27b2daabaca3211a62a98ac5dbab3166e49d06aa3",
+      "reason": "Five exact original corrections, perception8/13 and scene7/8/9 as two independent atomic groups. Zhang's 2000 journal abstract supports planar target/unknown motion, radial distortion and closed-form then maximum-likelihood refinement; removed unseen journal intrinsics/per-view-pose details are not borrowed from MSR-TR-98-71. KinectFusion's retained author-hosted PDF supports its sign convention, 11-bit 640×480/30Hz depth stream, commodity-GPU ICP/global mapping, planar failure and projective truncation; Curless–Levoy supplies its negative-empty/positive-unseen zero-weight hole-filling construction and range-point truncation. Removed unsupported live-robot displacement/universal adoption. New in-prose citation occurrences bind only these separated selected claims; declaration sets, References order, audited URLs and article dates are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; real review and guarded before/after endpoints: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/worker-application.json. No complete-journal/report or full-rendition byte identity, whole P1, authored occupancy/planner/figure claim, scene10, ORB claim, glossary fix or release acceptance is asserted.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "calibration-tsdf-five-originals-20260908-2",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "967e8204363f56a4e930cbf95b7c98a7ee566f10e9493d2fde0570ff0cf03cd7",
+      "reason": "Five exact original corrections, perception8/13 and scene7/8/9 as two independent atomic groups. Zhang's 2000 journal abstract supports planar target/unknown motion, radial distortion and closed-form then maximum-likelihood refinement; removed unseen journal intrinsics/per-view-pose details are not borrowed from MSR-TR-98-71. KinectFusion's retained author-hosted PDF supports its sign convention, 11-bit 640×480/30Hz depth stream, commodity-GPU ICP/global mapping, planar failure and projective truncation; Curless–Levoy supplies its negative-empty/positive-unseen zero-weight hole-filling construction and range-point truncation. Removed unsupported live-robot displacement/universal adoption. New in-prose citation occurrences bind only these separated selected claims; declaration sets, References order, audited URLs and article dates are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; real review and guarded before/after endpoints: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/worker-application.json. No complete-journal/report or full-rendition byte identity, whole P1, authored occupancy/planner/figure claim, scene10, ORB claim, glossary fix or release acceptance is asserted.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "calibration-tsdf-five-originals-20260908-3",
+      "manifest": "relationships",
+      "memberId": "article:classical/perception",
+      "oldHash": "9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041",
+      "newHash": "341b9c1a464c032e0e9f9d3ed688ec0a5f91775629e786dd818bb8912eaf2035",
+      "reason": "Five exact original corrections, perception8/13 and scene7/8/9 as two independent atomic groups. Zhang's 2000 journal abstract supports planar target/unknown motion, radial distortion and closed-form then maximum-likelihood refinement; removed unseen journal intrinsics/per-view-pose details are not borrowed from MSR-TR-98-71. KinectFusion's retained author-hosted PDF supports its sign convention, 11-bit 640×480/30Hz depth stream, commodity-GPU ICP/global mapping, planar failure and projective truncation; Curless–Levoy supplies its negative-empty/positive-unseen zero-weight hole-filling construction and range-point truncation. Removed unsupported live-robot displacement/universal adoption. New in-prose citation occurrences bind only these separated selected claims; declaration sets, References order, audited URLs and article dates are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; real review and guarded before/after endpoints: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/worker-application.json. No complete-journal/report or full-rendition byte identity, whole P1, authored occupancy/planner/figure claim, scene10, ORB claim, glossary fix or release acceptance is asserted.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "calibration-tsdf-five-originals-20260908-4",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31",
+      "newHash": "28d6c4a55e9849a56d32b12791b77c276cccb107e0c4522c379396daac1876ba",
+      "reason": "Five exact original corrections, perception8/13 and scene7/8/9 as two independent atomic groups. Zhang's 2000 journal abstract supports planar target/unknown motion, radial distortion and closed-form then maximum-likelihood refinement; removed unseen journal intrinsics/per-view-pose details are not borrowed from MSR-TR-98-71. KinectFusion's retained author-hosted PDF supports its sign convention, 11-bit 640×480/30Hz depth stream, commodity-GPU ICP/global mapping, planar failure and projective truncation; Curless–Levoy supplies its negative-empty/positive-unseen zero-weight hole-filling construction and range-point truncation. Removed unsupported live-robot displacement/universal adoption. New in-prose citation occurrences bind only these separated selected claims; declaration sets, References order, audited URLs and article dates are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/source-verification.json; real review and guarded before/after endpoints: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-calibration-tsdf-integration-20260908/worker-application.json. No complete-journal/report or full-rendition byte identity, whole P1, authored occupancy/planner/figure claim, scene10, ORB claim, glossary fix or release acceptance is asserted.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pose-metrics-bop-four-originals-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "1166a14f53e0d9bbb26600cd153bbed7b394ab8e2acf6d6505d516776c9060ec",
+      "reason": "Four source-backed originals perception51/52 and53/54, two atomic groups composed on current HEAD. Unsquared/directed pose means and inclusive Table1 threshold replace universal/invariance claims; glossary is source-scoped. BOP strict threshold, metric-then-equal-dataset AR_C, 0–100 scale, exact entry scores/timings, training/onboarding and occlusion limits replace the erased-gap claim. ACCV2012 event versus 2013 issued/print metadata, canonical DOI, and exact BOP2403.09799v1/2024 ten-author byline including Labbé are preserved with historical registry values. Four Hinterstoisser and three BOP inline occurrences are represented, not deduplicated. Source verification: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json; guarded history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/application.json; native duplicate-source consolidation: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/native-source-normalization.json. No current liveness, VOR byte equivalence, whole P1/article, authored-local, production export or independent acceptance is certified.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pose-metrics-bop-four-originals-20260908-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/perception",
+      "oldHash": "9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041",
+      "newHash": "60a6c289739352026750173ffa1ad0b18b4d66f71b7498c5bdd2fe35da97693f",
+      "reason": "Four source-backed originals perception51/52 and53/54, two atomic groups composed on current HEAD. Unsquared/directed pose means and inclusive Table1 threshold replace universal/invariance claims; glossary is source-scoped. BOP strict threshold, metric-then-equal-dataset AR_C, 0–100 scale, exact entry scores/timings, training/onboarding and occlusion limits replace the erased-gap claim. ACCV2012 event versus 2013 issued/print metadata, canonical DOI, and exact BOP2403.09799v1/2024 ten-author byline including Labbé are preserved with historical registry values. Four Hinterstoisser and three BOP inline occurrences are represented, not deduplicated. Source verification: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json; guarded history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/application.json; native duplicate-source consolidation: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/native-source-normalization.json. No current liveness, VOR byte equivalence, whole P1/article, authored-local, production export or independent acceptance is certified.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pose-metrics-bop-four-originals-20260908-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "24da92bbe13bbacda8f8f8b2dee8c196fb5c30761a5b01a1ebcf7750723d3811",
+      "reason": "Four source-backed originals perception51/52 and53/54, two atomic groups composed on current HEAD. Unsquared/directed pose means and inclusive Table1 threshold replace universal/invariance claims; glossary is source-scoped. BOP strict threshold, metric-then-equal-dataset AR_C, 0–100 scale, exact entry scores/timings, training/onboarding and occlusion limits replace the erased-gap claim. ACCV2012 event versus 2013 issued/print metadata, canonical DOI, and exact BOP2403.09799v1/2024 ten-author byline including Labbé are preserved with historical registry values. Four Hinterstoisser and three BOP inline occurrences are represented, not deduplicated. Source verification: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json; guarded history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/application.json; native duplicate-source consolidation: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/native-source-normalization.json. No current liveness, VOR byte equivalence, whole P1/article, authored-local, production export or independent acceptance is certified.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pose-metrics-bop-four-originals-20260908-4",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b990f28bc59b401cc490d8936a863b8cceed1310cbf393439ba46fa1d23b10d8",
+      "reason": "Four source-backed originals perception51/52 and53/54, two atomic groups composed on current HEAD. Unsquared/directed pose means and inclusive Table1 threshold replace universal/invariance claims; glossary is source-scoped. BOP strict threshold, metric-then-equal-dataset AR_C, 0–100 scale, exact entry scores/timings, training/onboarding and occlusion limits replace the erased-gap claim. ACCV2012 event versus 2013 issued/print metadata, canonical DOI, and exact BOP2403.09799v1/2024 ten-author byline including Labbé are preserved with historical registry values. Four Hinterstoisser and three BOP inline occurrences are represented, not deduplicated. Source verification: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json; guarded history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/application.json; native duplicate-source consolidation: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/native-source-normalization.json. No current liveness, VOR byte equivalence, whole P1/article, authored-local, production export or independent acceptance is certified.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pose-metrics-bop-four-originals-20260908-5",
+      "manifest": "article-metadata",
+      "memberId": "citation:bop-challenge-2023",
+      "oldHash": "580eb9020e665e732f5ec21aa7f0bc98998cd5eea3ba73f2bc854796fcfdb627",
+      "newHash": "ccb5682a56c8343e5b7500f1a694d8986e5cb542e9cd941199079aecaabcbd3d",
+      "reason": "Four source-backed originals perception51/52 and53/54, two atomic groups composed on current HEAD. Unsquared/directed pose means and inclusive Table1 threshold replace universal/invariance claims; glossary is source-scoped. BOP strict threshold, metric-then-equal-dataset AR_C, 0–100 scale, exact entry scores/timings, training/onboarding and occlusion limits replace the erased-gap claim. ACCV2012 event versus 2013 issued/print metadata, canonical DOI, and exact BOP2403.09799v1/2024 ten-author byline including Labbé are preserved with historical registry values. Four Hinterstoisser and three BOP inline occurrences are represented, not deduplicated. Source verification: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json; guarded history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/application.json; native duplicate-source consolidation: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/native-source-normalization.json. No current liveness, VOR byte equivalence, whole P1/article, authored-local, production export or independent acceptance is certified.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pose-metrics-bop-four-originals-20260908-6",
+      "manifest": "article-metadata",
+      "memberId": "citation:hinterstoisser-2012",
+      "oldHash": "1cf0c7870e545e776dfcc17af2fc0f79a54ab12f1134fa2652b61231c8d268e1",
+      "newHash": "f006f0d52097817a9c82c41e01b9421930224676b9cce41d82647ca44167ac9f",
+      "reason": "Four source-backed originals perception51/52 and53/54, two atomic groups composed on current HEAD. Unsquared/directed pose means and inclusive Table1 threshold replace universal/invariance claims; glossary is source-scoped. BOP strict threshold, metric-then-equal-dataset AR_C, 0–100 scale, exact entry scores/timings, training/onboarding and occlusion limits replace the erased-gap claim. ACCV2012 event versus 2013 issued/print metadata, canonical DOI, and exact BOP2403.09799v1/2024 ten-author byline including Labbé are preserved with historical registry values. Four Hinterstoisser and three BOP inline occurrences are represented, not deduplicated. Source verification: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/source-verification.json; guarded history: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/application.json; native duplicate-source consolidation: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-metrics-bop-integration-20260908/native-source-normalization.json. No current liveness, VOR byte equivalence, whole P1/article, authored-local, production export or independent acceptance is certified.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pose-reader-dependency-repair-20260908-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "d5fbd4751662c6a0d4497139aae36db0cf062feb415dbe5e50add1ac613808cc",
+      "reason": "Zero-original-credit dependency/reader repair from af22bd1. Restore historically audited BOP abs URL without changing exact retained v1 supporting URLs or historical audit row; add seven article-local mobile citation breaks after reproduced 30px tooltip overflow. All scientific article bytes are unchanged after removing exactly seven responsive breaks. All 994 semantic records, 403 completions and 309 native plans remain unchanged. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-reader-dependency-repair-20260908/identity-provenance.json and browser-attempt-5.receipt.json. No source promotion, fresh retrieval, VOR/current-liveness or release acceptance.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pose-reader-dependency-repair-20260908-2",
+      "manifest": "article-metadata",
+      "memberId": "citation:bop-challenge-2023",
+      "oldHash": "580eb9020e665e732f5ec21aa7f0bc98998cd5eea3ba73f2bc854796fcfdb627",
+      "newHash": "236b4e4dd8acf921c583ebe205b9882cfc9fc79da53c4d897017c616b33282f3",
+      "reason": "Zero-original-credit dependency/reader repair from af22bd1. Restore historically audited BOP abs URL without changing exact retained v1 supporting URLs or historical audit row; add seven article-local mobile citation breaks after reproduced 30px tooltip overflow. All scientific article bytes are unchanged after removing exactly seven responsive breaks. All 994 semantic records, 403 completions and 309 native plans remain unchanged. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-pose-reader-dependency-repair-20260908/identity-provenance.json and browser-attempt-5.receipt.json. No source promotion, fresh retrieval, VOR/current-liveness or release acceptance.",
+      "ownerApproval": "Josef's September7 'fix it all!' routine source-backed correction authority, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "9350d760be6b6a56f7c2f84ff2b3cf08a38bc33e0cafef14f1c95da43cfd85d6",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance. Final article-local mobile citation wrapping fixes observed tooltip clipping; scientific wording and prior seven pose-reader breaks preserved.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-2",
+      "manifest": "prose",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+      "newHash": "5f6160b299dfe3c5e982f4a1352a126e0f51c120398a78ffdbfc98e2a6e73518",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance. Final article-local mobile citation wrapping fixes observed tooltip clipping; scientific wording and prior seven pose-reader breaks preserved.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-3",
+      "manifest": "relationships",
+      "memberId": "article:classical/perception",
+      "oldHash": "9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041",
+      "newHash": "1a687609467ea1e089e69e1a14ad69025f75e092d898823468eddbe6d7f420a7",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-4",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "ac40375fa6c72ab6db017f5e8446e37c328f281c6b573cc020d6af69770370ab",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-5",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9c6da7f1ba8ef59c2cfb14e77e96d42635dcdee06b102ec75f8d41cce6b8b3af",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-6",
+      "manifest": "article-metadata",
+      "memberId": "citation:chaumette-hutchinson-2006",
+      "oldHash": "58499ed2811a20901a220a70b2c396ac22633caf1d1e273631ce7a4abcd424cb",
+      "newHash": "06294644655a5835af102798d4bda0acd7238b2c5a82c44f2550f37d608166e1",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "servo-apollo-integration-20260909-7",
+      "manifest": "article-metadata",
+      "memberId": "citation:chaumette-hutchinson-2007",
+      "oldHash": "c79dfed6e51784ff77f3dfd56ac2e906093e4c9332b00aa43529286ca7b5a723",
+      "newHash": "22e8fbd01904443cc5b0645920f262aa00e0fd8377df2b36c55a16d83ccdeabf",
+      "reason": "Source-backed servo/Apollo correction for exactly perception56/57/58 and state-estimation4/5; current-byte composition preserves prior BOP/pose/calibration repairs. Authority: Josef’s September 7 fix-it-all instruction, /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Verified routine correction authority, not personal source certification; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-cost-responsibility-20260909-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "1c7ea96deb80f4e7c1c7d3b76cecf79a22f690a5c241230e3188bd5787870330",
+      "reason": "Source-backed industrial originals27/28: dated EVST commercial budget list and OSHA manual role/RA limitations, with local citation line breaks. Retained source and exact current spans reviewed by the integrator, not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-cost-responsibility-20260909-2",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d",
+      "newHash": "ffcb047aefa2e3b89e495d0c84a148c117aeebd2362ee2429970b3004fe69940",
+      "reason": "Source-backed industrial originals27/28: dated EVST commercial budget list and OSHA manual role/RA limitations, with local citation line breaks. Retained source and exact current spans reviewed by the integrator, not personal source certification or release acceptance.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "industrial-systems-integrator-glossary-source-alignment-20260909",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "644008c1d1ab70e06f038b17c1b249880f43af991670f596736573312b6c9380",
+      "reason": "Change only systems-integrator: retain concrete application integration, OSHA manual ANSI/RIA R15.06-2012 risk-assessment and employer/manufacturer roles, and dated EVST commercial cell-budget scope; remove universal manufacturer exemption, cycle-time sign-off and generic price multiplier. Retained passages reviewed in convergence-industrial-integrator-glossary-repair-20260909/source-review.json. ZERO original applications.",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. This is authority for source-backed correction, not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-DISC-005",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+  {
+    "id": "rudin-kl-mechanism-not-retuning-guarantee-20260909",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/reward-design-mpc",
+    "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+    "newHash": "ba535f68160576457aeac8b92033ef6dde238e2a08556507f5fedb8fff5efc22",
+    "reason": "Remove unsupported reward-retuning stability and exact-KL-target causality; retain Rudin Table 3 desired KL 0.01 and Algorithm 1 twice/half-target adaptive learning-rate mechanism. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-rma-integration-20260909/source-proof.json",
+    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or release acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-004",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "rma-asynchronous-latent-1-20260909",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/sim2real-transfer",
+    "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+    "newHash": "ea1eebe9d2c019c630660f0c93f48569d536a39a8306a41f67948ba7bbc9db1a",
+    "reason": "Atomic RMA source-backed rates, state-action-history inference, training/mechanism, limits and quiz/glossary consistency. Actual source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rma-and-kl-reader-integration-20260909/source-proof.json",
+    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "rma-asynchronous-latent-2-20260909",
+    "manifest": "article-metadata",
+    "memberId": "canonical-metadata-source:data/glossary.ts",
+    "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+    "newHash": "800c8e6054f44e9a9523bfbc264aab4b2d6feaff66c22aa9b3a22d6ca4b5dec5",
+    "reason": "Atomic RMA source-backed rates, state-action-history inference, training/mechanism, limits and quiz/glossary consistency. Actual source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rma-and-kl-reader-integration-20260909/source-proof.json",
+    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "domain-randomization-source-1-20260909",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/sim2real-transfer",
+    "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+    "newHash": "e69163064966555ef0c762bf7254b51518a04b399df291c59540677bc3c1a739",
+    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-011",
+      "VAL-B2-BASE-012",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "domain-randomization-source-2-20260909",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/why-rl-locomotion",
+    "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+    "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-011",
+      "VAL-B2-BASE-012",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "domain-randomization-source-3-20260909",
+    "manifest": "relationships",
+    "memberId": "article:rl-sim2real/sim2real-transfer",
+    "oldHash": "37ac6804fe8d3683da470450a7c89b081bee8f0800b7c0d568dbf89a72bb1ac8",
+    "newHash": "6a23c89913297ff7c6f6ee8495f4ba1ef53f8678032ee8c309b9f255c8422946",
+    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-011",
+      "VAL-B2-BASE-012",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "domain-randomization-source-4-20260909",
+    "manifest": "relationships",
+    "memberId": "article:rl-sim2real/why-rl-locomotion",
+    "oldHash": "b0b744221f2a7f22117bd733ca798be417c3b1e6fddaf04ac2c1b9eaf6092fc2",
+    "newHash": "b5decbf9df603d6658018f76d4e04e46da69ee69ab78470c693da0d8466e2333",
+    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-011",
+      "VAL-B2-BASE-012",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "domain-randomization-source-5-20260909",
+    "manifest": "interactive-sources-mounts",
+    "memberId": "source:components/interactive/friction-transfer.tsx",
+    "oldHash": "e3b585903b881c63119a830ca15380265b14b850aefc0178a352fa657e140f98",
+    "newHash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d",
+    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-011",
+      "VAL-B2-BASE-012",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "domain-randomization-source-6-20260909",
+    "manifest": "behavioral-defaults",
+    "memberId": "default:components/interactive/friction-transfer.tsx:11",
+    "oldHash": "9cc10a02f78e2246bb66e4c012f22a7801266615b878fa638386826130eba7d1",
+    "newHash": "84775288845c55993fd63a1d0151d49de30a12215938d429af88a19fe6bed620",
+    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-011",
+      "VAL-B2-BASE-012",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "domain-randomization-source-7-20260909",
+    "manifest": "article-metadata",
+    "memberId": "citation:openai-rubiks-cube-2019",
+    "oldHash": "a16d3652cef1054616ec5631e839912e64e994ba84496f1a0801c9e19d237dc8",
+    "newHash": "bb26d459d2c458beb8e3592c3c8c0aad45b110151743883bee160c5db411204b",
+    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-011",
+      "VAL-B2-BASE-012",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+    {
+      "id": "randomization-citation-rendering-reconciliation-20260909",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4b36cb18768cb7b21719fae5a0bdae280818b7330a3b9f12b7162febb7972205",
+      "reason": "Exact composed citation-rendering member after the already-applied OpenAI byline correction in 0d14437. Immutable baseline has no such member: oldHash is the native SHA256('missing') absence sentinel, not a fabricated prior value. The immediate prior accepted endpoint was 9c6da7f1ba8ef59c2cfb14e77e96d42635dcdee06b102ec75f8d41cce6b8b3af. Current member has count 416 and digest 76c33cdf50c8296378de1c6996bf2cb556a6a7161c122319c20bac78790dd2db. The only intervening citation-record change expands OpenAI plus Ilge Akkaya and Marcin Andrychowicz to the complete ordered OpenAI-plus-18-person byline. The retained https://arxiv.org/html/1910.07113v1 printed byline and https://arxiv.org/abs/1910.07113 metadata support those 19 entries; original September 8 FetchUrl tool-reported 200 is not an independently observed origin status or current liveness. Current source review and literal passages: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909/source-reuse.json; prior verified source-review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json. Preserve the printed 2019-version versus August 24 2026 body-date disagreement. This exact endpoint incorporates the prior exact aggregate approvals and adds no citation, source URL, prose, review date, record completion or general allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; bounded randomization-citation-aggregate-reconciliation assignment. Routine source-backed correction authority, not personal source certification, baseline replacement authority or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "randomization-local-citation-placement-20260909",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "bb2ed4c749dabe4b0d34cbf9d5e8e07e2f569630f174359de5fe1599d83835d3",
+      "reason": "Four article-local responsive span wrappers shift only the measured overflowing Peng (two occurrences), Tobin (callout occurrence) and OpenAI popup positions at widths below 640px. They add no nowrap or punctuation-binding mechanism. Removing exactly these four span tags reconstructs the entire 0d14437 MDX file byte-for-byte, including all scientific wording, numeric qualifiers, citation IDs and targets, default expressions, RMA feedback, review date and frontmatter. The raw-MDX prose baseline hashes markup as well as visible words, so this exact formatting endpoint is necessary despite zero semantic change. Red and repaired geometry, exact byte reconstruction and source-backed predecessor identity are retained in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-randomization-reader-closeout-20260909. Immediate before member hash e69163064966555ef0c762bf7254b51518a04b399df291c59540677bc3c1a739; this endpoint retains its prior authorized source corrections. No shared renderer or other prose member changes.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' correction authority at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, and the explicit bounded nonsemantic MDX citation-placement closeout assignment. Not new scientific authority, personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003",
+        "VAL-B2-A11Y-003",
+        "VAL-B2-SPACE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "splat-transfer-prose-1-20260909",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "9ecfc2ec34476dd0b6a32a3d41b481b5496ab255ffaa9490d43e6bc09287e8e7",
+      "reason": "Exact original4/18 SplatSim Stat/prose and original19 RoboGSim correction, including citation occurrence counts and scoped Stat text. Retains platform/evaluation/augmentation scope, conflicting inputs, inspected v2, mesh/physics separation, nested attempts and placement/safety/replay limits. Preserves prior corrections, four mobile wrappers and held original21. Immediate-before bb2ed4c749dabe4b0d34cbf9d5e8e07e2f569630f174359de5fe1599d83835d3; source and endpoint proof at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-splat-transfer-integration-20260909. No whole-article, P1 or release acceptance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' correction authority at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md plus the bounded three-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "splat-transfer-relationships-2-20260909",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "37ac6804fe8d3683da470450a7c89b081bee8f0800b7c0d568dbf89a72bb1ac8",
+      "newHash": "90f3d4d8454dd5614b4198206f8c465a98248126af862159d5cb9e46044c81e9",
+      "reason": "Exact original4/18 SplatSim Stat/prose and original19 RoboGSim correction, including citation occurrence counts and scoped Stat text. Retains platform/evaluation/augmentation scope, conflicting inputs, inspected v2, mesh/physics separation, nested attempts and placement/safety/replay limits. Preserves prior corrections, four mobile wrappers and held original21. Immediate-before 6a23c89913297ff7c6f6ee8495f4ba1ef53f8678032ee8c309b9f255c8422946; source and endpoint proof at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-splat-transfer-integration-20260909. No whole-article, P1 or release acceptance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' correction authority at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md plus the bounded three-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "splat-transfer-mobile-citation-position-20260909",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "dd918afc1e63563815a79a7e8ac1296ac2e8ed326a92c84f7c5d14a9047eb03d",
+      "reason": "Two measured overflowing new SplatSim prose citation popups at 375px (right edges 410 and 472) receive article-local responsive -left-32 positioning. Removing exactly the two added wrapper tags reconstructs the source-integrated article SHA256 5d0920a3867b9d00f62f8964fae5698ebfceec7223e07e9fd4845510f87ac447. No scientific wording, citation IDs, shared renderer, existing four wrappers or native semantic record changes. Exact before/after reader evidence at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-splat-transfer-integration-20260909.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' correction authority at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md plus the bounded three-original assignment; not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-5b7262690fbaab9cc5",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+      "newHash": "811e2d1ad72f71865f5a50d07ec21558337090580f6a6000b4dcd5aa2e5149bc",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-b1d210de386473c2d5",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+      "newHash": "06bd5d64a999f11ab74db05d4bf9a112a0c6c2b213fa45680559c2f4016f85c8",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-a9893b9fc4acd773ff",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "d0a6bc89c25c4a5fda53db79fd68731aeedadc6ae88d79732026f50648a88b7e",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-c3f2ab0cef16f0b9ea",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "cac736dab4e0dc0db9ab16e50663939319d6e39ab1d1dae6fb9abe83d1b3bff6",
+      "newHash": "ea7fbaeaa30dea05940b6cd870410d0f3a289995cd1a23592f52fccb7f87fc25",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-aa3e960e8ebf03198c",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "46002eec79d4b41f26be6e08fa298ae41c2ead431bf8382066cddfdff2f41904",
+      "newHash": "bd1f57655905dc5551edfff8aff3b489c6af55dd1e192211a94bd005ecb953cb",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-6e4d66008ecddd6205",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "d76313aba3473a09012f12fef2c160ff8c6573549832150f316c0fa7cba5be88",
+      "newHash": "6a57c0a1096bc28847432f7cd0c61eaf027ef86226378dff96e3e583739f9122",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-d0000a1583c854b620",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/reward-shaping.tsx",
+      "oldHash": "bb18c8fbc6a735849a23956e71961804b54db5208ed51cb27b3334c3efd39144",
+      "newHash": "e34e133ce04497c6f2ed8ed6a97910334e1bf8466deb052c22ac431354e42311",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-c13deb6151a41ff517",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/training-time-chart.tsx",
+      "oldHash": "12aa8c29e998ae6e716ac550b4f632716772b5cfb551169bfc25289d90eed77c",
+      "newHash": "7c9fe696f43e71d53d34c493eebd1b4b5abd1ceb695021993b3174858c00c27c",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-394fe40c3834198927",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:rl-sim2real/legged-locomotion",
+      "oldHash": "6b031822485e95956265d1be25a7a902d4503665e7c494e01e12ded5af540f76",
+      "newHash": "5b30130530568d73d42456ee405fa83f9944d6efa8db0abd0c7182c1ca1c9a03",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-feacb87d0a4ca20482",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:rl-sim2real/parallel-sim-rl",
+      "oldHash": "647e246be8ea460d52815be47d46b5394a0ff433e1be9952b879ff4433cb6373",
+      "newHash": "bc7bd7754ad2a140539e53630bd032b643d44b880ff4b1ae5ec276ce6e0435ce",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-f76fd15f5b9ec4b585",
+      "manifest": "article-metadata",
+      "memberId": "article-metadata:rl-sim2real/reward-design-mpc",
+      "oldHash": "cc486f333719c25fd89de6fda277cd99df6bb5d6d8adb2fb820633e7183981c2",
+      "newHash": "77730f71b1a4f8f020b40b1c2d91e5b6cc19c7081f8d816d67e356c59af89f9b",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-093964af7407f036f6",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "2fef924d2a039c249aa72ae639cdbbf13c6eb6799b3ca8859d4f00e87377c749",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-fdd3edc8ec7ccb2da3",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "382c8296f46c710890966bf9ffdae876f02ed430fdbc4ff8c795e73341636208",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-protocol-20260909-91edc730967d22e4a4",
+      "manifest": "article-metadata",
+      "memberId": "citation:legged-gym-repo-2021",
+      "oldHash": "ebff57045221ad8bc07c191b53df5f01d1a9df15aa807d47a633dfd67c425c85",
+      "newHash": "98e1b78094f6c9883f6ab012601a6d8c8ecc526ca5b3d0b6bd1d48f9672ae104",
+      "reason": "Source-backed Rudin protocol/code correction across exact article, Stat, chart label/description, model documentation, curriculum glossary and pinned code citation identity; toy numerical behavior and locked brand-v2 are unchanged.",
+      "ownerApproval": "Josef fix it all correction authority and bounded parent assignment to 1b3af60d: integrate only parallel-sim-rl:2, legged-locomotion:5 and reward-design-mpc:2. This is correction authority, not Josef source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-reader-url-20260909-13235a0b243d5d1c3d",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "8b79b01b618d57ffe376326cdc946a1cf3d5d154f27c0b9fe6ed5e82dddecab4",
+      "reason": "ZERO-original reader regression repair: preserve scientific text while allowing the pinned commit token to wrap; restore the actually audited repository landing URL, retaining exact revision/reconstructed-file proof in native evidence. No new URL retrieval or whole-P1 certification.",
+      "ownerApproval": "Josef September 7 fix it all correction authority, bounded parent assignment to e579e1ca-b69f-4d86-ae21-5486f655a9f1 for Rudin reader/citation closeout; authority is not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-A11Y-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-reader-url-20260909-8f4abfad9e1c035e03",
+      "manifest": "article-metadata",
+      "memberId": "citation:legged-gym-repo-2021",
+      "oldHash": "ebff57045221ad8bc07c191b53df5f01d1a9df15aa807d47a633dfd67c425c85",
+      "newHash": "6422ac167d1624256e008dddcfa411266684e9f99c68f73896a108d4141c7116",
+      "reason": "ZERO-original reader regression repair: preserve scientific text while allowing the pinned commit token to wrap; restore the actually audited repository landing URL, retaining exact revision/reconstructed-file proof in native evidence. No new URL retrieval or whole-P1 certification.",
+      "ownerApproval": "Josef September 7 fix it all correction authority, bounded parent assignment to e579e1ca-b69f-4d86-ae21-5486f655a9f1 for Rudin reader/citation closeout; authority is not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-A11Y-008"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-four-placement-20260909-52c5ff700c2ca0c8c9",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+      "newHash": "589dceb26e6801e962f9fec2366a816ce3704ca8eb647757cb9e048573514ecc",
+      "reason": "ZERO-original responsive placement repair for four measured 375px Rudin citation tooltip defects using occurrence-local max-sm offsets. Removing only the formatting wrappers reconstructs all three input articles; source text, URLs, dates, and semantics are unchanged.",
+      "ownerApproval": "Josef September 7 fix it all correction authority, bounded parent assignment to 553ffb26-2de2-40a5-8c37-eb8aa9195dc1 for Rudin reader/citation closeout; authority is not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-A11Y-008",
+        "VAL-B2-A11Y-011",
+        "VAL-B2-VIZ-016"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-four-placement-20260909-a981a05d2fe91c6e7d",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+      "newHash": "b6827e2ea6b4cfac9e072192741290dd270ff1460007d6130312771ee9242caf",
+      "reason": "ZERO-original responsive placement repair for four measured 375px Rudin citation tooltip defects using occurrence-local max-sm offsets. Removing only the formatting wrappers reconstructs all three input articles; source text, URLs, dates, and semantics are unchanged.",
+      "ownerApproval": "Josef September 7 fix it all correction authority, bounded parent assignment to 553ffb26-2de2-40a5-8c37-eb8aa9195dc1 for Rudin reader/citation closeout; authority is not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-A11Y-008",
+        "VAL-B2-A11Y-011",
+        "VAL-B2-VIZ-016"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rudin-four-placement-20260909-13235a0b243d5d1c3d",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "5beb6292b9c784c6fc668a90b487810a474647c57edc748616c3b480741a0d46",
+      "reason": "ZERO-original responsive placement repair for four measured 375px Rudin citation tooltip defects using occurrence-local max-sm offsets. Removing only the formatting wrappers reconstructs all three input articles; source text, URLs, dates, and semantics are unchanged.",
+      "ownerApproval": "Josef September 7 fix it all correction authority, bounded parent assignment to 553ffb26-2de2-40a5-8c37-eb8aa9195dc1 for Rudin reader/citation closeout; authority is not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003",
+        "VAL-B2-A11Y-008",
+        "VAL-B2-A11Y-011",
+        "VAL-B2-VIZ-016"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "learned-locomotion-20260909-30ad991c49070976b1",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+      "newHash": "4138599a1acfc155d973a2d4fc83b8140b5ad846e507b2d85de3d28eda5c332d",
+      "reason": "Five selected complete learned-locomotion originals corrected against retained, provenance-verified Hwangbo, Lee and Miki source passages. Two current article members include exact scoped endpoint corrections and Miki-only hike display coupling; two metadata members correct literal titles without changing audited URLs/authors. No whole-P1 or unselected-original credit. Native immutable baseline/current member hashes, not chained input hashes. Includes one occurrence-local max-sm tooltip offset for measured Lee right-edge 471px at 375px; prose/source text unchanged by the wrapper.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 36dfbf8e-81df-46ca-a4e9-59126b61ee32; authority is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "learned-locomotion-20260909-da83a3636f6fbbbc7d",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "34c5fb9b01ec0bcd4f25f85668de7105ade19d8a32312e522c48e3e1bff9e60f",
+      "reason": "Five selected complete learned-locomotion originals corrected against retained, provenance-verified Hwangbo, Lee and Miki source passages. Two current article members include exact scoped endpoint corrections and Miki-only hike display coupling; two metadata members correct literal titles without changing audited URLs/authors. No whole-P1 or unselected-original credit. Native immutable baseline/current member hashes, not chained input hashes.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 36dfbf8e-81df-46ca-a4e9-59126b61ee32; authority is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "learned-locomotion-20260909-8f6c62f66f9e33f1fe",
+      "manifest": "article-metadata",
+      "memberId": "citation:hwangbo-2019",
+      "oldHash": "5db80dac2ac5803f9bde628ceb783f168b16320e544d1f77d06385206b095464",
+      "newHash": "eedbb2dae5d49e2d34cc355f6574b536aab60981541e36cad0569b6ae33c8f3c",
+      "reason": "Five selected complete learned-locomotion originals corrected against retained, provenance-verified Hwangbo, Lee and Miki source passages. Two current article members include exact scoped endpoint corrections and Miki-only hike display coupling; two metadata members correct literal titles without changing audited URLs/authors. No whole-P1 or unselected-original credit. Native immutable baseline/current member hashes, not chained input hashes.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 36dfbf8e-81df-46ca-a4e9-59126b61ee32; authority is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "learned-locomotion-20260909-49795bd428e2f8d5d8",
+      "manifest": "article-metadata",
+      "memberId": "citation:miki-2022",
+      "oldHash": "c269510c1c0f3c5dbfc1a5e38b6b09c39c9c98035f533fd019896ff4cf244689",
+      "newHash": "bcfe355c319379b6947893a419a237dbdab35cf29fc5a9a44cd868d9722921d8",
+      "reason": "Five selected complete learned-locomotion originals corrected against retained, provenance-verified Hwangbo, Lee and Miki source passages. Two current article members include exact scoped endpoint corrections and Miki-only hike display coupling; two metadata members correct literal titles without changing audited URLs/authors. No whole-P1 or unselected-original credit. Native immutable baseline/current member hashes, not chained input hashes.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 36dfbf8e-81df-46ca-a4e9-59126b61ee32; authority is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "boston-control-20260909-f6ae041bcc53d0fc5f",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+      "newHash": "89cf98890d9857bc5931f5b71acf7180ed0a073f0889810a1898c72a5f9cebf5",
+      "reason": "Six assigned Boston Dynamics/RAI originals corrected using three retained, original-response-bound primary documents and eighteen complete AND parts. Separate Spot production/research, cumulative fleet tests, RAI runs, Atlas chunks/control rates and dated two-document hybrid attribution. Relationships add two Spot citation occurrences beside separately supported paragraphs while preserving the current ordered frontmatter, references and all prior citations. Exact immutable-baseline/current native hashes; no whole-P1 or unselected credit. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-boston-dynamics-control-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 0d32fee8-d20f-40b2-82e2-9afa72eda5ae. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "boston-control-20260909-e150053faaf2a173b2",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "2dc621b6cddc664b82cc81109556b9dc2b9e4f1c9bf8fe622ef95b6357cad8c5",
+      "reason": "Six assigned Boston Dynamics/RAI originals corrected using three retained, original-response-bound primary documents and eighteen complete AND parts. Separate Spot production/research, cumulative fleet tests, RAI runs, Atlas chunks/control rates and dated two-document hybrid attribution. Relationships add two Spot citation occurrences beside separately supported paragraphs while preserving the current ordered frontmatter, references and all prior citations. Exact immutable-baseline/current native hashes; no whole-P1 or unselected credit. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-boston-dynamics-control-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 0d32fee8-d20f-40b2-82e2-9afa72eda5ae. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "boston-control-20260909-d118c68ce6ed508de0",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "cac736dab4e0dc0db9ab16e50663939319d6e39ab1d1dae6fb9abe83d1b3bff6",
+      "newHash": "fa946c4e42d99d42edb9916fbaed46b55c8f23efb4cf3c46b2c5a535bdd46cb9",
+      "reason": "Six assigned Boston Dynamics/RAI originals corrected using three retained, original-response-bound primary documents and eighteen complete AND parts. Separate Spot production/research, cumulative fleet tests, RAI runs, Atlas chunks/control rates and dated two-document hybrid attribution. Relationships add two Spot citation occurrences beside separately supported paragraphs while preserving the current ordered frontmatter, references and all prior citations. Exact immutable-baseline/current native hashes; no whole-P1 or unselected credit. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-boston-dynamics-control-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 0d32fee8-d20f-40b2-82e2-9afa72eda5ae. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "boston-fleet-placement-20260909-b04006dd70d08087d8",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+      "newHash": "b04006dd70d08087d86d3729911f8a153cee887664037170ecf506b5a2894bc2",
+      "reason": "Exact existing-member baseline/current hash for one article-local mobile-only fleet citation wrapper. Fixes observed 4px clipping at 375px; both affected viewport source-reader cases pass. Source prose, source truth, native row tuples and shared renderer are unchanged. Initial three correction approvals remain retained.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 0d32fee8-d20f-40b2-82e2-9afa72eda5ae. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanoid-motion-20260909-a23d20d64ea736f000",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/humanoid-wbc",
+      "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+      "newHash": "892e08801025df819f1cad25d541bc8ee4b6f66ed7e4e0d37ac3eb2262b00f97",
+      "reason": "Six assigned H2O/ASAP originals corrected against two retained original-response-bound primary documents with 22 complete AND parts. Distinguish H2O privileged filtering and deployment, possible retargeting infeasibility, sensing and PD targets; ASAP simulator-only PPO residual learning, hardware versus simulated comparisons, OOD and practical limits. Three prose and relationship members preserve prior citations/frontmatter and add the same-source feasibility/summary citation plus teleoperation term. ASAP metadata adopts the observed body author spelling while preserving the abs disagreement and URL. Exact immutable-baseline/current native hashes; no seventh original, whole-P1 or independent acceptance. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-motion-transfer-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to daf8738d-c462-4afa-82ce-9ab57455ccb8. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanoid-motion-20260909-b798db6b699b7d9371",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+      "newHash": "51a064ecd1372dd1231e26e1bd5c71c43fa6a27ebe78ed6a067d4bd9359a3fac",
+      "reason": "Six assigned H2O/ASAP originals corrected against two retained original-response-bound primary documents with 22 complete AND parts. Distinguish H2O privileged filtering and deployment, possible retargeting infeasibility, sensing and PD targets; ASAP simulator-only PPO residual learning, hardware versus simulated comparisons, OOD and practical limits. Three prose and relationship members preserve prior citations/frontmatter and add the same-source feasibility/summary citation plus teleoperation term. ASAP metadata adopts the observed body author spelling while preserving the abs disagreement and URL. Exact immutable-baseline/current native hashes; no seventh original, whole-P1 or independent acceptance. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-motion-transfer-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to daf8738d-c462-4afa-82ce-9ab57455ccb8. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanoid-motion-20260909-160f56bf40a985daf6",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "8dffcd50cc04f689da54d3f2a8b42810413ee7126e539376b33e4f29d9782055",
+      "reason": "Six assigned H2O/ASAP originals corrected against two retained original-response-bound primary documents with 22 complete AND parts. Distinguish H2O privileged filtering and deployment, possible retargeting infeasibility, sensing and PD targets; ASAP simulator-only PPO residual learning, hardware versus simulated comparisons, OOD and practical limits. Three prose and relationship members preserve prior citations/frontmatter and add the same-source feasibility/summary citation plus teleoperation term. ASAP metadata adopts the observed body author spelling while preserving the abs disagreement and URL. Exact immutable-baseline/current native hashes; no seventh original, whole-P1 or independent acceptance. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-motion-transfer-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to daf8738d-c462-4afa-82ce-9ab57455ccb8. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanoid-motion-20260909-ab8189d3141e2a038c",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/humanoid-wbc",
+      "oldHash": "9dda1ceff07236a21f1b4073ab2b4c71633229e2151d9214f10a5bac429e283a",
+      "newHash": "ea9cf31797c288d04a14d07a7a4a6127fc60fa3654bcd6a91135e07878624681",
+      "reason": "Six assigned H2O/ASAP originals corrected against two retained original-response-bound primary documents with 22 complete AND parts. Distinguish H2O privileged filtering and deployment, possible retargeting infeasibility, sensing and PD targets; ASAP simulator-only PPO residual learning, hardware versus simulated comparisons, OOD and practical limits. Three prose and relationship members preserve prior citations/frontmatter and add the same-source feasibility/summary citation plus teleoperation term. ASAP metadata adopts the observed body author spelling while preserving the abs disagreement and URL. Exact immutable-baseline/current native hashes; no seventh original, whole-P1 or independent acceptance. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-motion-transfer-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to daf8738d-c462-4afa-82ce-9ab57455ccb8. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanoid-motion-20260909-be53f952122859470a",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "cac736dab4e0dc0db9ab16e50663939319d6e39ab1d1dae6fb9abe83d1b3bff6",
+      "newHash": "376491dbb1555f787405f90c6fc28b2e728be9f87845f6316d013d43e87fbe97",
+      "reason": "Six assigned H2O/ASAP originals corrected against two retained original-response-bound primary documents with 22 complete AND parts. Distinguish H2O privileged filtering and deployment, possible retargeting infeasibility, sensing and PD targets; ASAP simulator-only PPO residual learning, hardware versus simulated comparisons, OOD and practical limits. Three prose and relationship members preserve prior citations/frontmatter and add the same-source feasibility/summary citation plus teleoperation term. ASAP metadata adopts the observed body author spelling while preserving the abs disagreement and URL. Exact immutable-baseline/current native hashes; no seventh original, whole-P1 or independent acceptance. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-motion-transfer-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to daf8738d-c462-4afa-82ce-9ab57455ccb8. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanoid-motion-20260909-2d3b70c70e84f747bf",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "37ac6804fe8d3683da470450a7c89b081bee8f0800b7c0d568dbf89a72bb1ac8",
+      "newHash": "071de9ffbd198049f9ff0a66c801f9b6f206fc7e409a9f9644c241bfcc2ff415",
+      "reason": "Six assigned H2O/ASAP originals corrected against two retained original-response-bound primary documents with 22 complete AND parts. Distinguish H2O privileged filtering and deployment, possible retargeting infeasibility, sensing and PD targets; ASAP simulator-only PPO residual learning, hardware versus simulated comparisons, OOD and practical limits. Three prose and relationship members preserve prior citations/frontmatter and add the same-source feasibility/summary citation plus teleoperation term. ASAP metadata adopts the observed body author spelling while preserving the abs disagreement and URL. Exact immutable-baseline/current native hashes; no seventh original, whole-P1 or independent acceptance. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-motion-transfer-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to daf8738d-c462-4afa-82ce-9ab57455ccb8. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanoid-motion-20260909-a2d1ccf41b36e0667e",
+      "manifest": "article-metadata",
+      "memberId": "citation:asap-2025",
+      "oldHash": "ce30bad4bef4828fdde1ede1b42e1916d1c93288270149e27ed923c83736304e",
+      "newHash": "d8221f3bf3d4642ec8b60e3d31e71551415db1abcf216314db46a5272ee1dda2",
+      "reason": "Six assigned H2O/ASAP originals corrected against two retained original-response-bound primary documents with 22 complete AND parts. Distinguish H2O privileged filtering and deployment, possible retargeting infeasibility, sensing and PD targets; ASAP simulator-only PPO residual learning, hardware versus simulated comparisons, OOD and practical limits. Three prose and relationship members preserve prior citations/frontmatter and add the same-source feasibility/summary citation plus teleoperation term. ASAP metadata adopts the observed body author spelling while preserving the abs disagreement and URL. Exact immutable-baseline/current native hashes; no seventh original, whole-P1 or independent acceptance. Evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-motion-transfer-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to daf8738d-c462-4afa-82ce-9ab57455ccb8. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanoid-placement-20260909-e63998046475510500",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/humanoid-wbc",
+      "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+      "newHash": "98a85d01809b619ce821fea6490be0d6e27f25d282f088fbc88e6ad5bca36560",
+      "reason": "Exact existing native member approval for three measured article-local mobile citation placements: first ASAP 518\u2192358px, H2O lineage 426\u2192362px, summary ASAP 383\u2192367px at width375. Both hover/focus are asserted; all six source-reader identities have completed passes across retained runs. Meaning-preserving delta action model noun spelling restores the existing reader vocabulary. Byte reconstruction is preserved in reader-repairs.json and summary-placement.json. No source row, shared renderer, scientific value or whole-reader acceptance changed.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to daf8738d-c462-4afa-82ce-9ab57455ccb8. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanoid-placement-20260909-c76fa386485b9c9a4c",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "88c4ad4d990ea57dc1f8ae0dbb7a00afc57130a337121d4fddaf96562c8bf841",
+      "reason": "Exact existing native member approval for three measured article-local mobile citation placements: first ASAP 518\u2192358px, H2O lineage 426\u2192362px, summary ASAP 383\u2192367px at width375. Both hover/focus are asserted; all six source-reader identities have completed passes across retained runs. Meaning-preserving delta action model noun spelling restores the existing reader vocabulary. Byte reconstruction is preserved in reader-repairs.json and summary-placement.json. No source row, shared renderer, scientific value or whole-reader acceptance changed.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to daf8738d-c462-4afa-82ce-9ab57455ccb8. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "constrained-reward-20260909-51505e7b4ec4027936",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "cb5ee935e65175ff82dc5fa6daf03900266f45da1f6fd61e1decfe9e8597e370",
+      "reason": "Exactly reward originals 6/7/8 corrected against three retained original-response-bound primary documents. Preserve three rewards and eleven constraints, transfer-only coefficient adjustment, manual constraint and stage design, simulation/hardware separation, penalty subtraction and ROGER counterevidence. Fifteen AND parts and eighteen source pairs remain; a verified preceding stage-platform sentence is added. The already neutral current description, citation union, registry URLs and article review date are unchanged. Source and final wording review: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-constrained-reward-methods-integration-20260909/semantic-review.json The failed mobile reader showed the stage citation tooltip 16px beyond the viewport; one article-local max-sm -left-16 offset fixes containment without changing text, citation identities or shared primitives. Final exact member hash rederived after this observed repair; the provisional uncommitted approval is retained in superseded-uncommitted-approval.json.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 91cb126e-ddcb-4d68-82ef-08c78394b8b8. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

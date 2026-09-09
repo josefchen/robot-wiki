@@ -1,10 +1,9 @@
 /**
  * Reward-shaping model for the reward-design-mpc module.
  *
- * A production locomotion reward is a weighted sum of a dozen-plus
- * hand-tuned terms whose weights interact. This model holds the canonical
- * legged_gym-family term set, computes the weighted total shown in the
- * interactive, classifies a weight configuration into the three classic
+ * This local teaching model uses twelve illustrative terms and weights,
+ * not the paper reward or a runnable pinned legged_gym configuration.
+ * It computes the displayed weighted total and maps weights to illustrative
  * failure attractors (freeze, prance, chatter), and produces the stick
  * quadruped pose for the behavior preview.
  *
@@ -121,12 +120,12 @@ export const TERMS: RewardTerm[] = [
     sign: 1,
     magnitude: 0.6,
     defaultWeight: 0.6,
-    blurb: 'Rewards swing time per step; induces a gait instead of shuffling.',
+    blurb: 'Illustrative air-time contribution; not the reference first-contact calculation.',
   },
   {
-    // Mirrors legged_gym's feet_stumble term, which fires when a foot's
-    // horizontal contact force dominates the vertical one (catching a wall
-    // or stair edge mid-stride).
+    // Illustrative label inspired by the pinned _reward_stumble function.
+    // The base config's feet_stumble scale is zero and its name does not
+    // match that function; this toy does not execute the reference reward.
     id: 'stumble',
     label: 'Foot stumble penalty',
     sign: -1,
@@ -162,7 +161,7 @@ export function termContribution(term: RewardTerm, weight: number): number {
   return term.sign * term.magnitude * weight;
 }
 
-/** The weighted total the policy actually maximizes, per step. */
+/** Weighted sum of the fixed illustrative per-term magnitudes, per step. */
 export function weightedTotal(weights: Weights): number {
   const total = TERMS.reduce(
     (sum, t) => sum + termContribution(t, weights[t.id]),
@@ -201,7 +200,7 @@ export const BEHAVIORS: Record<BehaviorId, Behavior> = {
     status: 'balanced gait',
     tone: 'ok',
     description:
-      'No single term dominates. The policy tracks the velocity command with a proper trot because every penalty stays cheap relative to the task reward.',
+      'This toy selects a balanced trot when none of its three failure-category rules fires. The motion is drawn from a fixed gait pattern, not an optimized policy.',
   },
   frozen: {
     id: 'frozen',
@@ -209,7 +208,7 @@ export const BEHAVIORS: Record<BehaviorId, Behavior> = {
     status: 'failure attractor: freeze',
     tone: 'err',
     description:
-      'The torque penalty outweighs the velocity reward, so the optimal policy is to stand still: any motion costs more torque than the tracking reward pays back. The robot accepts the tracking penalty and does nothing.',
+      'This toy selects freeze when the torque weight crosses its fixed absolute and relative thresholds. The stationary preview is a teaching choice, not a trained optimum.',
   },
   prancing: {
     id: 'prancing',
@@ -217,7 +216,7 @@ export const BEHAVIORS: Record<BehaviorId, Behavior> = {
     status: 'failure attractor: prance',
     tone: 'err',
     description:
-      'The foot air time reward outweighs the velocity reward, so the policy maximizes swing time by bouncing in place. Spectacular air time, zero forward progress.',
+      'This toy selects prance when the air-time weight crosses its fixed absolute and relative thresholds. The bouncing preview is not the reference first-contact reward or a trained policy.',
   },
   chatter: {
     id: 'chatter',
@@ -225,7 +224,7 @@ export const BEHAVIORS: Record<BehaviorId, Behavior> = {
     status: 'failure attractor: chatter',
     tone: 'err',
     description:
-      'With almost no action-rate penalty, nothing prices step-to-step action changes. The policy vibrates the joints at control frequency, a motion that would destroy a real actuator within minutes.',
+      'This toy selects chatter when the action-rate weight is at or below its fixed threshold. The drawn vibration is not a measured control frequency or an actuator-damage prediction.',
   },
 };
 

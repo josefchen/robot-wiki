@@ -493,14 +493,7 @@ export const CROSSREF_AUTHOR_EXCEPTIONS: CrossrefAuthorExceptionEntry[] = [
     verified:
       'arXiv API for 2510.25889 re-read 2026-08-21: published 2025-10-29T18:37:39Z, latest updated 2026-01-29T16:00:57Z, feed id .../abs/2510.25889v3.',
   },
-  {
-    id: 'hinterstoisser-2012',
-    skip: 'year',
-    reason:
-      'Springer dates the LNCS volume 2013, the year the proceedings were printed; the registry cites 2012, the year of the conference the paper was presented at and the year the ADD metric is universally credited to. The Crossref record itself names the venue as ACCV 2012 in its container title, so the two figures are the same event described by different conventions.',
-    verified:
-      'Crossref 10.1007/978-3-642-37331-2_42 read 2026-08-22: container-title ["Lecture Notes in Computer Science", "Computer Vision - ACCV 2012"], issued 2013, published-print 2013.',
-  },
+
   {
     id: 'cleargrasp-2020',
     skip: 'title',

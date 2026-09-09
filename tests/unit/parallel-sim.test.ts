@@ -126,6 +126,9 @@ describe('parallel-sim training-time model', () => {
   it('Rudin ground-truth markers pin 4 and 20 minutes at 4,096 envs', () => {
     expect(RUDIN_MARKERS.map((m) => m.minutes)).toEqual([4, 20]);
     for (const m of RUDIN_MARKERS) expect(m.envs).toBe(4096);
+    // Legacy test title retained; these are bound coordinates, not measured equalities.
+    expect(RUDIN_MARKERS[0].label).toContain('x illustrative');
+    expect(RUDIN_MARKERS[1].label).toContain('< 20');
   });
 
   it('curve points are log-sampled, rounded, and monotonic', () => {

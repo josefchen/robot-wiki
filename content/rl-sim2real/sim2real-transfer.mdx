@@ -32,54 +32,56 @@ The [previous module](/rl-sim2real/parallel-sim-rl) ended with a policy that wal
 
 Four method families do the work. <Term id="domain-randomization">Domain randomization</Term> trains over a distribution of simulators so the real world reads as one more sample. <Term id="teacher-student-distillation">Teacher-student distillation</Term> trains on privileged simulator state, then compresses that knowledge into a policy that sees only what the robot sees. <Term id="system-identification">System identification</Term> measures the dynamics gap and corrects the model directly. Real-to-sim reconstruction rebuilds the deployment scene inside the simulator so the visual gap shrinks to rendering error. The 2026 reality-gap survey organizes the field into nearly these same buckets, adding sim-real co-training and state/action abstraction as cross-cutting levers <Cite id="reality-gap-survey-2026" />.
 
-The first family's central trade is below. Drag the real robot friction line off the training point and the ranking inverts, the specialist collapsing where the generalist holds. Then widen the randomization half-width and watch the plateau sink: coverage and peak performance pull against each other, and the slider only moves along that frontier.
+The figure below is a deterministic toy, not a learned policy or a measured robot benchmark. Drag the selected friction to compare the two authored curves. Widening the half-width lowers the plateau because that relationship is built into this model, not because the cited papers establish a universal tradeoff.
 
 <FrictionTransfer className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="DR parameter writes" value="CPU API" note="Isaac Lab v1: mass and friction; runtime changes supported" accent />
-  <Stat label="RMA adaptation" value="< 1 s" note="latent extrinsics, online at control rate" />
-  <Stat label="SplatSim zero-shot" value="86.25%" note="vs 97.5% for real-data-trained policies" />
+  <Stat label="RMA reported adaptation" value="< 1 s" note="A1: latent ~10 Hz; base policy 100 Hz" />
+  <div data-testid="splatsim-transfer-stat">
+    <Stat label="SplatSim zero-shot (UR5)" value="86.25%" note="vs 97.5% real-data; 4 tasks, 40 trials/task" />
+    <Cite id="splatsim-2024" />
+  </div>
   <Stat label="ASAP correction" value="delta action" note="learned residual, sim to real to sim" />
 </div>
 
 ## Domain randomization: train on a distribution of simulators
 
-The idea dates to two 2017 results. Tobin and colleagues randomized rendering (textures, lighting, camera pose) and showed a detector trained only on non-realistic simulated images could localize objects to 1.5 cm on a real arm <Cite id="tobin-2017" />. Peng and colleagues randomized dynamics instead (mass, inertia, friction) and transferred a pushing policy to hardware with no real-world training, robust to significant calibration error <Cite id="peng-2018" />. With enough variability in the simulator, the real world may appear to the model as just another variation, as Tobin's abstract puts it.
+These two papers address different parts of transfer. Tobin and colleagues randomized textures, lighting and camera pose for tabletop object localization. They summarize real-world localization accuracy as around 1.5 cm, evaluated on 480 webcam images of eight geometric objects in object-only, distractor and partial-occlusion conditions. The paper reports the best network after a small hyperparameter search; the approximate 1.5 cm summary is not a bound for every object or condition. Most experiments used ImageNet initialization, but an ablation found that random initialization could achieve nearly the same transfer performance with enough simulated training data. The detector was also used with a motion planner on a Fetch robot <Cite id="tobin-2017" />. Peng and colleagues randomized link mass, joint damping, puck mass/friction/damping, table height, controller gains, action timing and observation noise. A recurrent policy trained only in simulation transferred to a seven-DoF Fetch arm pushing a puck to a target. Real evaluation used motion capture for puck position, 200 control steps per episode, and success within 7 cm of the target at the end of the episode; target and initial puck positions were randomized within a 30 cm by 30 cm area. The authors report substantial simulated-versus-real joint-trajectory mismatch after limited calibration, <span className="max-sm:[&_[role=tooltip]]:-left-32">not an absence of calibration <Cite id="peng-2018" />.</span> With enough variability in the simulator, the real world may appear to the model as just another variation, as Tobin's abstract puts it.
 
-OpenAI's Rubik's-cube system added the <Term id="curriculum-learning">curriculum</Term> version: automatic domain randomization widens the randomization range as the agent succeeds, so the distribution grows with the policy's competence <Cite id="openai-rubiks-cube-2019" />. Isaac Lab ships ADR as a configurable curriculum with reference configs in its dexterous-manipulation examples <Cite id="isaac-lab-2025" />.
+OpenAI's Rubik's-cube system added the <Term id="curriculum-learning">curriculum</Term> version: automatic domain randomization widens the randomization range as the agent succeeds, <span className="max-sm:[&_[role=tooltip]]:-left-32">so the distribution grows with the policy's competence <Cite id="openai-rubiks-cube-2019" />.</span> Isaac Lab ships ADR as a configurable curriculum with reference configs in its dexterous-manipulation examples <Cite id="isaac-lab-2025" />.
 
-Two details rarely make it into the textbook version. First, the plumbing: in the 2025 Isaac Lab v1 paper, simulation state is GPU-resident but mass, friction, contact offsets, and joint armature are modified through PhysX CPU APIs. Most other physics parameters can be randomized at runtime, while mesh scale and collider type can change only before simulation starts. CPU parameter writes do not mean randomization is restricted to episode resets<br />Source: <Cite id="isaac-lab-2025" />. Second, the cost: randomizing over a wide dynamics distribution produces a policy that is optimal for none of them. DR buys a wider basin of transfer at the price of peak performance, and papers almost never quantify the price.
+Two details rarely make it into the textbook version. First, the plumbing: in the 2025 Isaac Lab v1 paper, simulation state is GPU-resident but mass, friction, contact offsets, and joint armature are modified through PhysX CPU APIs. Most other physics parameters can be randomized at runtime, while mesh scale and collider type can change only before simulation starts. CPU parameter writes do not mean randomization is restricted to episode resets<br />Source: <Cite id="isaac-lab-2025" />. Second, the objective: Peng and colleagues maximize expected return over a distribution of dynamics models <span className="max-sm:[&_[role=tooltip]]:-left-8">and evaluate randomization ablations on their Fetch pushing task <Cite id="peng-2018" />.</span> The friction chart below instead imposes its peak-versus-width relation by construction; it is not a measured performance frontier.
 
-That price is what the figure at the top of this module plots. The gray spike is a policy trained at one friction; the blue plateau is a policy trained over the shaded distribution.
+The figure draws a point-trained-policy toy curve and a distribution-trained-policy toy curve. No policy is trained here. The shaded interval marks the assumed training range, not uncertainty or a confidence interval.
 
 <Callout variant="warn" title="How to read this chart">
-  Both curves are an illustrative model, not a benchmark. The sourced facts are the framing (Tobin and Peng's randomization results, ADR's widening curriculum, the CPU-API constraint) and the qualitative shape, which every DR paper reports: specialists win at the training point and lose away from it. The specific success values are schematic.
+  Both curves and every plotted success value are authored assumptions, not paper measurements. The point curve is a Gaussian centered at friction 0.80, with peak 0.97 and width 0.09. The DR curve has height 0.93 minus 0.55 times the selected half-width, stays flat inside that range, and has Gaussian tails of width 0.10. The ordinary panel starts at half-width 0.35; the prediction panel starts at 0.65. Reset restores each panel’s own initial friction and half-width. Changing friction selects a position on fixed formulas; changing half-width redraws the DR formula. <span className="max-sm:[&_[data-cite-id=tobin-2017]_[role=tooltip]]:-left-32">Tobin and Peng support the visual and dynamics randomization framing, not these constants or a universal curve shape <Cite id="tobin-2017" /> <Cite id="peng-2018" />.</span>
 </Callout>
 
 <PredictThenReveal
-  prompt="Widen the friction randomization range and the DR plateau covers more ground. What happens to the plateau's peak at the training friction while the range widens?"
+  prompt="In this authored toy, what happens to the DR plateau when its half-width increases?"
   options={[
     {
       value: 'both-ways',
-      label: 'The plateau widens and its peak sinks, so coverage and peak trade against each other along one frontier',
-      why: 'Randomizing over a wide dynamics distribution produces a policy that is optimal for none of it: DR buys a wider basin of transfer at the price of peak performance, a cost the papers almost never quantify. In the figure, the widest range holds 57% where the stock range holds 74%.',
-      cite: 'peng-2018'
+      label: 'The plateau widens and its peak falls because the formula makes it do so',
+      why: 'The local formula is peak = 0.93 - 0.55 × half-width. It gives 0.7375 at half-width 0.35 and 0.5725 at 0.65, displayed as 74% and 57%. These are authored values, not Peng paper results.'
     },
     {
       value: 'monotone-up',
-      label: 'Coverage typically grows and the peak holds or rises too, since more training variety rarely hurts the trained policy at its own training point',
-      why: 'This is the monotone-improvement reading, and the figure is built to break it. The distribution-trained policy spreads its capacity across the range it is trained over; concentrating it back at one friction is what earned the specialist its 97% spike in the first place.'
+      label: 'The plateau widens and its peak rises as the half-width increases',
+      why: 'Not in this toy: the half-width has a negative coefficient in the plateau-height formula. This answer is about that formula, not about all randomized policies.'
     },
     {
       value: 'peak-flat',
-      label: 'The peak usually stays roughly flat: the extra range is coverage the policy gets for free, and the training distribution widens without changing the midpoint',
-      why: 'Free coverage is the sales pitch, not the mechanics. The plateau’s height is set by how much of the distribution the policy can serve near-optimally; widen the range and the same capacity is spread thinner, which is exactly the sink the widest setting shows.'
+      label: 'The plateau widens but its peak stays unchanged as half-width increases',
+      why: 'The peak would stay unchanged only under a different formula. This toy explicitly couples its height to the selected half-width.'
     }
   ]}
   answer="both-ways"
-  revealHint="The chart is mounted at the widest randomization range of 0.65 around the training point: the plateau spans most of the axis and tops out at 57 percent. Drag the half-width slider down toward its minimum and watch the peak climb as the plateau narrows."
-  takeaway="Widening the randomization range buys coverage and pays for it in peak: the plateau spans more frictions at a lower success rate, not the same rate over more ground."
+  revealHint="This panel starts at friction 0.80 and half-width 0.65, where the authored DR height rounds to 57%. Reset restores those starting values; the earlier panel resets its half-width to 0.35."
+  takeaway="The slider demonstrates an assumed peak-versus-width relationship, not a measured law of domain randomization."
 >
   <FrictionTransfer defaultRange={0.65} className="mt-3" />
 </PredictThenReveal>
@@ -87,7 +89,9 @@ That price is what the figure at the top of this module plots. The gray spike is
 
 Domain randomization still asks the policy to act on what the robot can sense. The teacher-student pattern separates those problems. Phase one trains a teacher with privileged, simulator-only observations: terrain geometry under the feet, friction coefficients, applied disturbances. Phase two trains a student that sees only deployable sensing, usually a short history of <Term id="proprioception">proprioception</Term>, to imitate the teacher's actions.
 
-The reference result is Lee and colleagues' ANYmal controller: a privileged teacher distilled into a temporal convolutional network over proprioceptive history, trained in simple simulated domains and deployed blind on mud, snow, rubble, and vegetation it never saw in training <Cite id="lee-2020" />. RMA factorized the same idea into a base policy conditioned on a latent extrinsics vector plus an adaptation module that regresses those extrinsics online from recent proprioception, adapting to new payloads and terrains in fractions of a second at control rate <Cite id="rma-2021" />. The adaptation module is, in effect, system identification performed in latent space by the policy itself.
+Lee and colleagues trained a privileged RL teacher with simulator-only terrain and contact information, then distilled its actions and latent features into a temporal convolutional network student. The deployed student uses two seconds of proprioceptive history from joint encoders and an IMU, together with the command and current state; it does not consume an external terrain map. Training used rigid, procedurally generated terrain, while ANYmal-B and ANYmal-C deployments included mud, snow, rubble, and vegetation. Robots of the same generation used the same controller across those environments without environment-specific tuning <Cite id="lee-2020" />.
+
+RMA uses a different two-stage construction: a base policy and an environment-factor encoder are trained jointly with RL, then an adaptation module is trained by supervised regression on simulator state-action histories to predict the latent extrinsics. At deployment the base policy combines the current state, previous action and estimated extrinsics to predict desired joint positions. The adaptation module uses 50 state-action steps (0.5 seconds of history); on the tested Unitree A1 setup it updates extrinsics asynchronously at about 10 Hz, while the base policy runs at 100 Hz using the latest estimate. These are inference processes, not online gradient updates. The paper reports adaptation in fractions of a second and deployment without real-world fine-tuning, but also reports failures after large perturbations or multiple leg obstructions. The latent is a behavior-relevant encoding, not a guarantee of recovering each physical parameter <Cite id="rma-2021" />.
 
 In its DextrAH-RGB example, the Isaac Lab v1 paper reports an RL teacher trained with privileged state on a KUKA arm and Allegro hand, then distilled into a network taking stereo RGB pairs as input<br />Source: <Cite id="isaac-lab-2025" />.
 
@@ -99,15 +103,21 @@ Push the degradation slider up. The student's input strip loses channels and gai
 
 ## System identification: measure the gap instead
 
-Randomization averages over model error. System identification removes the error by measurement. The ancestral version in this lineage is Hwangbo and colleagues' actuator network: a learned map from joint-command history to realized torque, replacing the analytic actuator model whose miscalibration had been the dominant sim-to-real error source on ANYmal <Cite id="hwangbo-2019" />.
+Randomization averages over model error. System identification removes the error by measurement. Hwangbo and colleagues learned an actuator network for ANYmal's series-elastic actuators: it predicts joint torque from joint-position errors and velocities at the current time and 0.01 and 0.02 seconds earlier. They fitted it to real-robot excitation data, then used it inside the simulator to train control policies. In their locomotion ablations, policies trained with ideal or analytical actuator models could not take a single step without falling <Cite id="hwangbo-2019" />.
 
-The cleanest modern formulation is ASAP. Pre-train a motion-tracking policy in simulation on <Term id="retargeting">retargeted</Term> human motion, roll it out on the real Unitree G1, then train a delta action model: a network that maps simulator state and commanded action to the residual action that would have reproduced the observed real transition. Insert the delta model into the simulator and fine-tune the policy against the corrected dynamics <Cite id="asap-2025" />. The loop runs sim to real to sim to real, and ASAP evaluates it across IsaacGym-to-IsaacSim, IsaacGym-to-Genesis, and IsaacGym-to-hardware transfers, reducing tracking error against SysID, DR, and delta-dynamics baselines <Cite id="asap-2025" />.
+ASAP starts with phase-conditioned tracking policies trained in IsaacGym on <Term id="retargeting">retargeted</Term> human motions. It runs the pretrained policies on a Unitree G1 and records trajectories using motion capture and onboard sensors. A second PPO policy takes the simulated state and a recorded action and outputs a delta action. Adding that delta before the simulator step lets its reward penalize disagreement with the recorded real trajectory; the delta is learned through RL, not supplied as a measured residual-action label. The delta action model is then frozen while the tracking policy is fine-tuned in the modified simulator. Only the fine-tuned tracking policy is deployed: the delta model stays in simulation. The hardware study learns corrections for four ankle DoFs, not the full 23-DoF simulation model <span className="max-sm:[&_[role=tooltip]]:-left-40"><Cite id="asap-2025" /></span>.
 
-The caveat is baked into the construction. The delta model is learned on the state distribution the pre-trained policy visits, so it is only valid near that distribution; the fine-tuned policy cannot stray far before the correction itself becomes unreliable <Cite id="asap-2025" />.
+ The evaluation separates IsaacGym-to-IsaacSim and IsaacGym-to-Genesis transfer from the G1 hardware study. Table III tests open-loop replay; Table IV evaluates closed-loop motion tracking. The simulation suite has 43 motion sequences grouped by difficulty, and reports mean tracking errors across motion sequences. SysID and delta-dynamics are explicit simulation baselines, but ASAP does not win every metric: in Table IV's easy IsaacSim group, its mean global joint-position error is 106 mm versus SysID's 105 mm. On hardware, Table V compares ASAP only with Vanilla on kicking and LeBron James's "Silencer": mean global joint-position error falls from 61.2 to 50.2 mm and from 159 to 112 mm, respectively. Basic domain randomization is used in pretraining; the separate random-action-noise fine-tuning ablation is an IsaacGym-to-Genesis test, not a hardware comparison against every baseline <Cite id="asap-2025" />.
+
+Generalization is measured, not guaranteed. ASAP reports improved tracking on the held-out "Silencer" motion and better out-of-distribution replay with more training data; neither result establishes arbitrary unseen-skill coverage. Its stated hardware limits are motor overheating and damage, motion-capture dependence during data collection, and the data required to learn a full 23-DoF delta model. These are empirical limitations, not a mathematical rule that the correction is valid only near the pretrained policy's trajectories <Cite id="asap-2025" />.
 
 ## Real-to-sim: rebuild the scene, keep the physics
 
-The newest family attacks the visual gap by reconstructing the actual deployment scene. SplatSim replaces the simulator's mesh renderer with a 3D Gaussian Splatting reconstruction of the real environment and reports zero-shot transfer of RGB manipulation policies at 86.25% average success, against 97.5% for policies trained on real data <Cite id="splatsim-2024" />. RoboGSim packages the same loop as a real2sim2real simulator: reconstruct the scene as splats, compose novel views, objects, and trajectories, and evaluate policies online against the twin <Cite id="robogsim-2024" />. Newton 1.0's tiled camera sensor accepts Gaussian splats as a native scene representation, which is this idea productized <Cite id="newton-manipulation-blog-2026" />.
+The newest family attacks the visual gap by reconstructing the actual deployment scene. SplatSim replaces mesh primitives in the rendering pipeline with Gaussian splats reconstructed from the deployment scene; PyBullet supplies the physics. Across four UR5 manipulation tasks, with 40 trials per task, the authors report 86.25% average zero-shot real-world success for diffusion policies trained on simulated demonstrations, versus 97.5% for policies trained on real-world demonstrations. This is the result with training augmentations, not rendering alone <span className="max-sm:[&_[role=tooltip]]:-left-32"><Cite id="splatsim-2024" />.</span>
+
+The setup uses a Robotiq 2F-85 gripper and two RealSense D455 cameras. Preparing the splats requires manual robot segmentation, CAD-derived link bounds and ICP alignment; robot kinematics and simulated object poses drive rendering. Figure 2 lists RGB observations plus end-effector position and orientation, while Section IV-A says the policy relies solely on RGB at test time. Those descriptions disagree; they do not establish an unqualified image-only input specification <span className="max-sm:[&_[role=tooltip]]:-left-32"><Cite id="splatsim-2024" />.</span> In its August 2025 v2, RoboGSim combines a Gaussian Reconstructor, Digital Twins Builder, Scene Composer and Interactive Engine in a real2sim2real system. Multi-view images and supplied robot MDH parameters feed reconstruction; mesh assets and measured layout alignment connect the scene to Isaac Sim. The synthesizer composes novel views, objects, scenes and trajectories. In closed-loop evaluation, a policy acts on splat-rendered images; Isaac Sim handles inverse kinematics, collisions and other physical interactions, and the resulting state drives the next rendering <Cite id="robogsim-2024" />.
+
+This evaluation is not interchangeable with real-robot testing. On the UR5 ring-toss task, each model had ten trials with up to three grasp attempts per trial. Table 2 reports 90% placement for the real-data-trained model on the real robot but 30% in RoboGSim. Simulated evaluation avoids executing those actions on hardware; it is not a demonstrated safety guarantee for a deployed robot. The paper examines novel-pose rendering and trajectory replay separately from closed-loop policy evaluation <Cite id="robogsim-2024" />. Newton 1.0's tiled camera sensor accepts Gaussian splats as a native scene representation, which is this idea productized <Cite id="newton-manipulation-blog-2026" />.
 
 Keep the division of labor straight: the splat supplies appearance, and a conventional physics engine still supplies dynamics. A 3DGS twin is a learned renderer bolted onto a simulator, not a learned simulator, and it reconstructs a static scene: articulated objects, deformables, and lighting changes each require extra machinery on top. Confusing the two is the most common misreading of the real-to-sim literature.
 
@@ -117,20 +127,20 @@ The survey adds two cross-cutting options that rarely get headline systems. Sim-
 
 ## Where each family breaks
 
-Each family's failure mode is worth holding onto. Domain randomization's conservatism cost is real and almost never quantified in the papers that rely on it. Teacher-student distillation bottoms out at partial observability when the privileged variable leaves no trace in the student's history. Delta-action correction is valid only near the trajectories it was fit on. Real-to-sim twins freeze the scene they captured.
+Each family's failure mode is worth holding onto. The friction chart's conservatism cost is an authored assumption, not an empirical result of the cited papers. Teacher-student distillation bottoms out at partial observability when the privileged variable leaves no trace in the student's history. ASAP shows some held-out motion transfer, but broader coverage and affordable real-robot data collection remain open <span className="max-sm:[&_[role=tooltip]]:-left-4"><Cite id="asap-2025" /></span>. Real-to-sim twins freeze the scene they captured.
 
 <SelfCheck
-  prompt="A quadruped must cross terrain whose friction varies patch to patch, and you have a simulator that knows the friction map. Which training scheme lets the deployed policy act on that friction at control rate?"
+  prompt="Which RMA component estimates behavior-relevant latent extrinsics from recent state-action history, while the deployed base policy uses the latest estimate?"
   options={[
     {
       value: 'dr-wide',
       label: 'Domain randomization over a very wide friction range',
-      why: 'This buys a wider basin of transfer at the price of peak performance: the trained policy is optimal for none of the simulated frictions, and the cost is almost never quantified in the papers that rely on it. It also never acts on the actual friction under the feet; it tolerates it.'
+      why: 'A wide training distribution is not itself an observation of current terrain friction. Peng and colleagues use recurrent memory to infer dynamics from past states and actions; the friction chart here contains no such adaptation process.'
     },
     {
       value: 'latent-adaptation',
-      label: 'A privileged teacher distilled into a student with an online adaptation module',
-      why: 'This is the scheme the crossing needs. RMA’s adaptation module regresses a latent extrinsics vector from recent proprioception and the base policy conditions on it, adapting to new payloads and terrains in fractions of a second at control rate. The floor is partial observability: friction that leaves no proprioceptive signature cannot be recovered, but friction that shows up in the gait can.'
+      label: 'A separately trained adaptation module',
+      why: 'RMA trains the adaptation module in simulation to estimate latent extrinsics from 50 state-action steps. On its A1 setup, that module runs at about 10 Hz and the base policy at 100 Hz, asynchronously using the latest estimate. The reported sub-second adaptation is not a control-frequency or gradient-update claim, and the latent need not recover ground-truth friction.'
     },
     {
       value: 'ground-truth-friction',
@@ -139,5 +149,5 @@ Each family's failure mode is worth holding onto. Domain randomization's conserv
     }
   ]}
   answer="latent-adaptation"
-  takeaway="Privilege goes into the teacher, but only what leaves a trace in proprioception can come back out in the student: the adaptation module is system identification in latent space, done online by the policy."
+  takeaway="RMA trains a latent predictor in simulation, then performs asynchronous latent inference during deployment. Its base policy uses the latest estimate; neither an exact friction estimate nor adaptation at every control step is promised."
 />

@@ -70,10 +70,11 @@ describe('FrictionTransfer', () => {
     expect(readout('dr-readout')).toBe('74%');
   });
 
-  it('renders a table-form chart description that names the shaded training band', () => {
+  it('renders a table-form chart description that names the assumed range and dashed edges', () => {
     const { container } = render(<FrictionTransfer />);
     const desc = container.querySelector('[data-chart-description]');
-    expect(desc?.textContent).toMatch(/shaded training band/i);
+    expect(desc?.textContent).toMatch(/assumed DR half-width is 0.35/i);
+    expect(desc?.textContent).toMatch(/not a confidence interval/i);
     expect(desc?.textContent).toMatch(/dashed edges/i);
     const details = container.querySelector('details[data-chart-data]');
     expect(details).toHaveAttribute('data-chart-form', 'table');
@@ -85,5 +86,24 @@ describe('FrictionTransfer', () => {
     expect(container.querySelector('[data-chart-description]')?.textContent).not.toBe(
       before,
     );
+  });
+
+  it('does not confuse being inside the assumed training band with the point curve winning', () => {
+    render(<FrictionTransfer />);
+    fireEvent.change(realMuSlider(), { target: { value: '110' } });
+    expect(readout('delta-readout')).toMatch(/DR \+\d+ pts/);
+    expect(screen.getByTestId('ft-explanation')).not.toHaveTextContent('point-trained policy wins');
+    expect(screen.getByTestId('ft-explanation')).toHaveTextContent('local assumptions');
+  });
+
+  it('discloses authored formulas and restores the prediction mount defaults', () => {
+    render(<FrictionTransfer defaultRange={0.65} />);
+    expect(screen.getByTestId('ft-explanation')).toHaveTextContent('authored');
+    expect(readout('dr-readout')).toBe('57%');
+    fireEvent.change(realMuSlider(), { target: { value: '20' } });
+    fireEvent.change(rangeSlider(), { target: { value: '10' } });
+    fireEvent.click(screen.getByRole('button', { name: /reset/i }));
+    expect(readout('real-mu-readout')).toBe('0.80');
+    expect(readout('dr-readout')).toBe('57%');
   });
 });

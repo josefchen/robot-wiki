@@ -72,7 +72,7 @@ export const CHART_DESCRIPTIONS: ChartDescriptionEntry[] = [
     file: 'components/interactive/training-time-chart.tsx',
     route: '/rl-sim2real/parallel-sim-rl/',
     quantityNames: ['wall-clock', 'envs'],
-    text: 'Wall-clock to the target reward falls steeply from 3.6 h at 64 envs to 4.0 min at the current 4,096 envs, then flattens toward 1.5 min at 16,384: simulation draws level with the fixed learn-and-transfer costs near 12,500 envs, between the 8,192 and 16,384 stops, and is the larger bucket beyond, and the Rudin flat-terrain measurement (under 4 min) sits at 4,096 envs.',
+    text: 'Wall-clock to the target reward falls steeply from 3.6 h at 64 envs to 4.0 min at the current 4,096 envs, then flattens toward 1.5 min at 16,384: simulation draws level with the fixed learn-and-transfer costs near 12,500 envs, between the 8,192 and 16,384 stops, and is the larger bucket beyond, and the flat-terrain time bound (under 4 min) is shown at an illustrative 4,096-env position, not a source-established flat-run environment count.',
   },
   {
     component: 'ControlLoopBudget',

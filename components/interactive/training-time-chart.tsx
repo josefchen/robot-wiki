@@ -25,9 +25,9 @@ import { cx } from '@/lib/utils';
  * environment count, on a log-log chart.
  *
  * The curve is an illustrative fixed-transitions model tuned to pass through
- * the Rudin et al. 2021 anchor (ANYmal flat terrain in under four minutes at
- * 4,096 environments on one workstation GPU); both Rudin ground-truth marks
- * (flat < 4 min, uneven 20 min) are drawn as labeled diamonds. A stacked bar
+ * a four-minute illustrative reference. The flat marker x-coordinate is a
+ * teaching choice, not a recovered flat-run environment count. The diamonds
+ * show reported time bounds, not measured equalities. A stacked bar
  * splits one training iteration into simulation, learning update, and
  * CPU + transfer work, recomposing as the env count moves. The CPU
  * single-core bottleneck toggle adds an assumed per-environment CPU cost,
@@ -310,7 +310,7 @@ export function TrainingTimeChart({
           {cpuBound ? 'CPU-bound' : 'GPU-scaling'}
         </text>
 
-        {/* Rudin ground-truth markers at 4,096 envs. */}
+        {/* Reported time bounds; flat x-coordinate is illustrative. */}
         {RUDIN_MARKERS.map((m) => {
           const x = xFor(m.envs);
           const y = yFor(m.minutes);
@@ -460,7 +460,7 @@ export function TrainingTimeChart({
       >
         {cpuBound
           ? 'This toy adds an assumed per-environment CPU cost, so the dash-dot curve flattens; the fine evenly dashed curve is the same toy without that cost. Isaac Lab v1 motivates the comparison with a specific benchmark: a 5090 / AMD 9800X3D workstation approaches a 2x RTX PRO 6000 server on the Franka cabinet task. Neither this curve nor its CPU-cost constant is measured by that benchmark.'
-          : 'At low env counts the fixed per-iteration costs (learning update, host-device transfer, the Python loop) dominate and the GPU idles; at high counts simulation takes over and wall-clock falls from hours to minutes. Diamonds are measured wall-clock from Rudin et al. 2021 at 4,096 envs on one workstation GPU.'}
+          : 'At low env counts the fixed per-iteration costs (learning update, host-device transfer, the Python loop) dominate and the GPU idles; at high counts simulation takes over and wall-clock falls from hours to minutes. Diamonds show reported time bounds, not measured equalities. The rough/deployment run used 4,096 robots and an i9-11900k / RTX A6000; the flat diamond x-coordinate is illustrative.'}
       </p>
 
       <ChartDescription
@@ -501,8 +501,8 @@ export function TrainingTimeChart({
                 8,192 and 16,384 stops, and is the larger bucket beyond
               </>
             )}
-            , and the Rudin flat-terrain measurement (under 4 min) sits at 4,096
-            envs
+            , and the flat-terrain time bound (under 4 min) is shown at an illustrative
+            4,096-env position, not a source-established flat-run environment count
             {cpuBound
               ? '; with the CPU single-core bottleneck on, the curve flattens earlier and higher'
               : ''}

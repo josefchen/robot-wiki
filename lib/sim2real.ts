@@ -4,15 +4,11 @@
  *
  * Two models live here:
  *
- * 1. Friction domain randomization. Success rate against ground friction for
- *    two policies: one trained at a single friction coefficient (a tall,
- *    narrow spike) and one trained over a uniform distribution of frictions
- *    (a lower, wider plateau). The peak-versus-width trade and the
- *    over-randomization cost (widening the range lowers the peak) are the
- *    teaching points; both curves are illustrative, labeled as such in the
- *    UI, and consistent with the robustness/performance trade described in
- *    the reality-gap survey (arXiv:2510.20808) and the DR literature
- *    (arXiv:1710.06537).
+ * 1. Friction domain randomization: a deterministic authored toy, not
+ *    a trained policy or paper dataset. All constants, Gaussian curves and
+ *    the linear peak-versus-width relation below are local assumptions.
+ *    Tobin (1703.06907) and Peng (1710.06537) motivate visual and dynamics
+ *    randomization, not these values, curve shapes or a universal cost.
  *
  * 2. Teacher-student privileged distillation. A deterministic terrain
  *    heightfield plays the role of the teacher's privileged observation; the
@@ -58,9 +54,8 @@ export function pointSuccess(mu: number): number {
 }
 
 /**
- * Peak success of the DR-trained policy. Wider randomization buys coverage at
- * the cost of peak performance: the policy is optimal for none of the
- * frictions it trained on, so the plateau sinks as the range widens.
+ * Authored DR-toy plateau height. The negative slope is imposed locally,
+ * not measured in a paper and not a theorem about randomized policies.
  */
 export function drPeak(range: number): number {
   return 0.93 - 0.55 * range;

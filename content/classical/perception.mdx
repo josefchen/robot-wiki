@@ -56,7 +56,7 @@ Start at the end, with the number the whole chain is judged on. Three of the sta
 Compare the composed number against the tolerance real tasks hold. The clearance band above is a parallel-jaw gripper's lateral slack, and even a well-calibrated pipeline sits close to it. Precision insertion is a different world: assembly results in this literature are reported at 0.5 mm clearance <Cite id="play2perfect-2026" />, an order of magnitude below what a vision chain delivers alone. That is not a sensor defect. It is why precise assembly closes on force and contact rather than on vision, and why grasp planning treats the pose it is handed as an input rather than a certainty.
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="Zhang calibration" value="2000" note="intrinsics from a planar target at unknown orientations" />
+  <Stat label="Zhang calibration" value="2000" note="planar target; motion need not be known" />
   <Stat label="hand-eye (AX = XB)" value="1989" note="Tsai and Lenz solve the camera-to-gripper transform" />
   <Stat label="visual servoing" value="1992" note="Espiau, Chaumette and Rives, closing on image features" />
   <Stat label="promptable masks" value="2023" note="Segment Anything, trained on over a billion masks" />
@@ -68,7 +68,7 @@ The rest of the module is the six stages, in order, and what each one contribute
 
 A camera is a device that discards a dimension. It maps a 3D point onto a 2D sensor, and the mapping it uses is described by the <Term id="camera-intrinsics">intrinsics</Term>: focal length in pixels on each axis, the principal point, and the lens distortion terms. Before those are known, a pixel coordinate is a number with no geometric meaning.
 
-Zhang's 2000 method uses a planar calibration target. Show the camera a planar target at several arbitrary orientations, none of them measured; each view constrains the intrinsics, and a closed-form solution followed by nonlinear refinement recovers them along with each view's pose and the radial distortion.
+Zhang's 2000 method uses a planar calibration target. Show the camera a planar target at several arbitrary orientations, none of them measured; the paper models radial lens distortion and gives a closed-form solution followed by nonlinear refinement under a maximum-likelihood criterion <Cite id="zhang-2000-calibration" />.
 
 Zhang <Cite id="zhang-2000-calibration" /> compares this setup with classical techniques that use expensive equipment such as two or three orthogonal planes.
 
@@ -136,15 +136,42 @@ The other route from image to graspable geometry skips object identity altogethe
 
 **Model-free and novel-object** methods removed that constraint. MegaPose estimates the pose of novel objects by render-and-compare against a CAD model supplied at test time <Cite id="megapose-2022" />, and FoundationPose unifies model-based and model-free operation in one network: give it a CAD model, or give it a handful of reference images, and it runs on an object it never trained on, reaching results comparable to instance-level methods despite assuming far less <Cite id="foundationpose-2024" />.
 
-To read any of these claims you need the metric. The <Term id="add-s-metric">symmetry-aware pose error</Term> is the standard, and its ancestor ADD comes from the LINEMOD work: transform the object's model points by the estimated pose and by the true pose, average the distance between corresponding points, and count the pose correct when that average is below a fraction of the object's diameter <Cite id="hinterstoisser-2012" />. The symmetry-aware variant matches each point to its nearest neighbour instead of its counterpart, so a bowl rotated about its axis is not scored as wrong for a rotation no camera could distinguish.
+To read a pose-estimation result, check its evaluation protocol. Hinterstoisser and colleagues' LINEMOD-based paper evaluates a model $\mathcal M$ using its ground-truth rotation and translation $(R,T)$ and its estimated pose $(\widetilde R,\widetilde T)$. Equation (1) averages the distances between corresponding model points after the two transforms <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />:
 
-The benchmark where the comparison actually happens is BOP, and its 2023 report gives a sense of how fast this moved. Accuracy on 6-DoF localisation of *seen* objects improved by more than 50 percent since 2017, from 56.9 to 85.6 AR_C. More striking is the unseen-object result: the best 2023 method for objects unseen during training, GenFlow, reached the accuracy of the best 2020 method for *seen* objects, CosyPose, though noticeably slower <Cite id="bop-challenge-2023" />. Three years erased the seen-versus-unseen gap, at a runtime cost.
+$$
+m = \operatorname{avg}_{x \in \mathcal M}
+\left\lVert (Rx+T)-(\widetilde R x+\widetilde T) \right\rVert
+$$
 
-## Visual servoing: the alternative that skips the pose
+The paper counts the detection and pose estimate as correct when $m \leq k_m d$, where $d$ is the model's diameter and $k_m$ is a chosen coefficient. Equality counts as correct. Table 1 uses $k_m=0.1$; that is this evaluation's setting, not a universal pose-accuracy threshold <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />.
+
+For the <Term id="add-s-metric">symmetry-aware pose error</Term>, Equation (2) changes the correspondence rule: each ground-truth-transformed model point is matched to its nearest estimated-pose-transformed model point, and those distances are averaged <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />:
+
+$$
+m = \operatorname{avg}_{x_1 \in \mathcal M}
+\min_{x_2 \in \mathcal M}
+\left\lVert (Rx_1+T)-(\widetilde R x_2+\widetilde T) \right\rVert
+$$
+
+The paper uses this rule for objects that are ambiguous, or appear ambiguous from a subset of views, naming “cup”, “bowl”, “box” and “glue” <br className="lg:hidden" /><Cite id="hinterstoisser-2012" />. Read that as a rule over the supplied model points, not a guarantee that every indistinguishable rotation of any bowl has zero error or passes the chosen threshold.
+
+The BOP Challenge 2023 report uses a different aggregate from ADD-S. For 6-DoF localisation, each dataset score first averages three metric recalls: VSD, MSSD and MSPD. Each recall is averaged over multiple correctness thresholds, with a strict correctness test $e < \theta_e$; VSD also varies its misalignment tolerance. $AR_C$ then averages the dataset scores equally across seven core datasets: LM-O, T-LESS, ITODD, HB, YCB-V, TUD-L and IC-BIN. The report displays this dimensionless recall score on a 0 to 100 scale, not ADD-S distance, millimetres or robot success. It does not use the object-first averaging of the report's 2D-detection $AP_C$. VSD considers the visible object surface; MSSD and MSPD use pre-identified object symmetries. The report delegates numerical threshold grids and further symmetry details to its cited 2020 report. Seen and unseen localisation use the same evaluation methodology, with object identities and instance counts supplied at test time <br className="lg:hidden" /><Cite id="bop-challenge-2023" />.
+
+In the report’s retrospective 2017 to 2023 comparison, seen-object accuracy rises from 56.9 to 85.6 $AR_C$, a relative improvement of more than 50 percent. The endpoints are Vidal’s point-pair-feature method and GPose2023, not a universal gain in robot performance. The dates and channels need care: Figure 1 labels the selected methods RGB-D and associates Vidal with 2017, while Table 2 labels the Vidal-Sensors18 entry’s submission year as 2019 and its test input as depth. That entry uses PPF and ICP without training images; GPose2023 uses object-specific networks, custom detections, coordinate-guided refinement and RGB-D training/testing with PBR plus real training images <br className="lg:hidden" /><Cite id="bop-challenge-2023" />.
+
+For unseen objects, GenFlow-MultiHypo16 leads Task 4 with 67.4 $AR_C$. The best 2020 seen-object entry, CosyPose-ECCV20-SYNT+REAL-ICP, scores 69.8 in Task 1. Section 4.4 calls these results comparable, not identical. Their reported average image-processing times are 34.58 and 13.74 seconds, respectively: reported timings, not a matched-hardware speed ratio or a robot control frequency. Both entries test on RGB-D images. GenFlow uses one network across datasets, CNOS-fastSAM, recurrent-flow refinement and PBR training; CosyPose uses dataset-specific networks, default synthetic-plus-real detections, DeepIM plus ICP refinement and RGB training with PBR plus real images. Task 4 still supplies 3D mesh models of the test objects for onboarding, capped at 5 minutes per object on one GPU; no real images of those objects may be used for onboarding. This is a comparison between two benchmark entries with different training and onboarding conditions, not evidence that the seen-versus-unseen gap disappeared. Figure 4 still shows GenFlow failures under heavy object occlusion <br className="lg:hidden" /><Cite id="bop-challenge-2023" />.
+
+## Visual servoing: image-based and position-based control
 
 There is a way out of the middle of this budget, and it is older than most of it. Instead of estimating a pose and then commanding the arm to it, define the error in the *image*: where the features are versus where they should be when the task is done. Espiau, Chaumette and Rives formulated this as a task function with an interaction matrix relating feature velocity to camera velocity, and drove the error to zero directly <Cite id="espiau-1992" />.
 
-<Term id="visual-servoing">Visual servoing</Term> deletes the pose-estimation term from the budget and changes what a calibration error does. An error that would bias a pose estimate, and therefore the final position, instead bends the *path* the camera takes while the final image error still converges to zero. Chaumette and Hutchinson's two-part tutorial separates the basic image-based and position-based schemes <Cite id="chaumette-hutchinson-2006" /> from the advanced treatments of their stability and their known failure modes <Cite id="chaumette-hutchinson-2007" />. The cost is that the target features must stay in view for the whole motion, which is a real constraint and the reason the technique is a tool rather than a default.
+<Term id="visual-servoing">Visual servoing</Term> uses vision in the control loop; image-based visual servoing (IBVS) and position-based visual servoing (PBVS) define different errors. IBVS uses image features, while PBVS uses estimated pose parameters. This does not make IBVS universally pose- or calibration-free: the point-feature interaction matrix uses depth and camera intrinsics, and its estimate may use current depths or depths at the desired pose<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />.
+
+For a fixed goal and motionless target, the tutorial gives local asymptotic stability conditions for redundant-feature IBVS: the interaction matrices must have full rank, and the estimated pseudoinverse multiplied by the true matrix must satisfy a positivity condition. The approximations must not be too coarse. Within a convergent IBVS motion, coarse estimates can change the camera trajectory without changing the final pose reached; poor estimates can instead make the system unstable. Large displacements can encounter local minima or singularities, and the camera path can be unpredictable and suboptimal. This is not a guarantee under arbitrary calibration error or image noise. In PBVS, errors in the estimated pose can also affect final accuracy<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />.
+
+Chaumette and Hutchinson’s Part I, *Basic Approaches* (2006), presents IBVS and PBVS and analyzes their performance and stability<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />. Part II, *Advanced Approaches* (2007), extends the treatment to interaction-matrix estimation, hybrid and partitioned control, optimization, switching, trajectory planning, target tracking, and joint-space formulations for eye-in-hand and eye-to-hand systems<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2007" />.
+
+Visibility requirements depend on the chosen measurements. The tutorial’s stereo point feature is observed in both images<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />, while its epipolar estimate uses matches between the current and desired images. Part II describes switching and trajectory-planning methods that address target visibility, occlusions and joint limits<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2007" />. Visibility is not automatic: Part I gives PBVS configurations in which points leave the camera’s field of view<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />.
 
 ## What the end-to-end models replaced
 
