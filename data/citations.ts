@@ -2876,7 +2876,7 @@ export const CITATIONS: Citation[] = [
   },
   {
     id: 'hwangbo-2019',
-    title: 'Learning Agile and Dynamic Motor Skills for Legged Robots',
+    title: 'Learning agile and dynamic motor skills for legged robots',
     authors: [
       'Jemin Hwangbo',
       'Joonho Lee',
@@ -2961,7 +2961,7 @@ export const CITATIONS: Citation[] = [
   {
     id: 'miki-2022',
     title:
-      'Learning Robust Perceptive Locomotion for Quadrupedal Robots in the Wild',
+      'Learning robust perceptive locomotion for quadrupedal robots in the wild',
     authors: [
       'Takahiro Miki',
       'Joonho Lee',

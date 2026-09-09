@@ -8395,6 +8395,70 @@
         "VAL-B2-VIZ-016"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "learned-locomotion-20260909-30ad991c49070976b1",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+      "newHash": "4138599a1acfc155d973a2d4fc83b8140b5ad846e507b2d85de3d28eda5c332d",
+      "reason": "Five selected complete learned-locomotion originals corrected against retained, provenance-verified Hwangbo, Lee and Miki source passages. Two current article members include exact scoped endpoint corrections and Miki-only hike display coupling; two metadata members correct literal titles without changing audited URLs/authors. No whole-P1 or unselected-original credit. Native immutable baseline/current member hashes, not chained input hashes. Includes one occurrence-local max-sm tooltip offset for measured Lee right-edge 471px at 375px; prose/source text unchanged by the wrapper.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 36dfbf8e-81df-46ca-a4e9-59126b61ee32; authority is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "learned-locomotion-20260909-da83a3636f6fbbbc7d",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "34c5fb9b01ec0bcd4f25f85668de7105ade19d8a32312e522c48e3e1bff9e60f",
+      "reason": "Five selected complete learned-locomotion originals corrected against retained, provenance-verified Hwangbo, Lee and Miki source passages. Two current article members include exact scoped endpoint corrections and Miki-only hike display coupling; two metadata members correct literal titles without changing audited URLs/authors. No whole-P1 or unselected-original credit. Native immutable baseline/current member hashes, not chained input hashes.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 36dfbf8e-81df-46ca-a4e9-59126b61ee32; authority is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "learned-locomotion-20260909-8f6c62f66f9e33f1fe",
+      "manifest": "article-metadata",
+      "memberId": "citation:hwangbo-2019",
+      "oldHash": "5db80dac2ac5803f9bde628ceb783f168b16320e544d1f77d06385206b095464",
+      "newHash": "eedbb2dae5d49e2d34cc355f6574b536aab60981541e36cad0569b6ae33c8f3c",
+      "reason": "Five selected complete learned-locomotion originals corrected against retained, provenance-verified Hwangbo, Lee and Miki source passages. Two current article members include exact scoped endpoint corrections and Miki-only hike display coupling; two metadata members correct literal titles without changing audited URLs/authors. No whole-P1 or unselected-original credit. Native immutable baseline/current member hashes, not chained input hashes.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 36dfbf8e-81df-46ca-a4e9-59126b61ee32; authority is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "learned-locomotion-20260909-49795bd428e2f8d5d8",
+      "manifest": "article-metadata",
+      "memberId": "citation:miki-2022",
+      "oldHash": "c269510c1c0f3c5dbfc1a5e38b6b09c39c9c98035f533fd019896ff4cf244689",
+      "newHash": "bcfe355c319379b6947893a419a237dbdab35cf29fc5a9a44cd868d9722921d8",
+      "reason": "Five selected complete learned-locomotion originals corrected against retained, provenance-verified Hwangbo, Lee and Miki source passages. Two current article members include exact scoped endpoint corrections and Miki-only hike display coupling; two metadata members correct literal titles without changing audited URLs/authors. No whole-P1 or unselected-original credit. Native immutable baseline/current member hashes, not chained input hashes.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 36dfbf8e-81df-46ca-a4e9-59126b61ee32; authority is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-003"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

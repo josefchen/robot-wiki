@@ -1,5 +1,80 @@
 # Content-integrity audit trail
 
+## Current checkpoint: five learned-locomotion originals integrated (2026-09-09)
+
+**429 complete / 565 incomplete / 994 originals / 47 articles**.
+RL is **83 complete / 84 incomplete / 167 originals**. Five selected originals
+were corrected: sim2real-transfer 10 and 14; legged-locomotion 2, 3 and 4.
+Lee and Hwangbo paired groups were applied together; Miki separately. Reward19
+is excluded. Mixed Stat original 1 remains incomplete despite its Miki-only
+headline correction. The other 40 prepared proposals remain unassigned.
+
+Retained source proof covers three primary documents, six historical FetchUrl
+responses, 35 mechanically verified literal bindings, 30 selected reviewed
+passages, 24 AND-parts and 29 paired evidence items. **Zero retrievals**.
+Bodies were observed 2026-09-08T08:14:45.521Z; metadata at
+2026-09-08T08:15:08.933Z; current application review at
+2026-09-09T12:10:36. Metadata v1 does not pin unversioned ar5iv bodies.
+Hwangbo's seven-author metadata and duplicated rendered-body name remain distinct.
+Corrected actuation/ablation/recovery scope, Lee teacher/history/deployment,
+and Miki GRU, sensor/rate and hike details retain their limiting context.
+Miki's displayed hike is 78 min, 2.2 km, versus planner 76 min; shoe/battery
+stops and no reported falls remain explicit. No article lastReviewed advances.
+
+Native preservation: 989 unselected full semantic records, all 424 prior
+completions, 330 prior plan objects and serialized prefix, and 428 prior
+approvals/metadata/prefix remain preserved. There are 335 plans and 432 approvals.
+Four exact native member approvals use immutable baseline/current hashes;
+all changed members already exist (no fabricated absence hash). The original
+44 unrelated full baseline failure objects remain; eight wrong-old/new hash
+controls and the stale-approval-set control reject. Source field completeness
+is not whole-article/P1 or independent acceptance.
+
+Actual sequential checks, all NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Command | Observed result |
+|---|---|---|
+| New red unit | `npm test -- tests/unit/learned-locomotion-integration.test.ts` | 19 failed before integration, exit 1 |
+| Affected unit | `npm test -- tests/unit/learned-locomotion-integration.test.ts tests/unit/audit-ledger.test.ts tests/unit/citations.test.ts tests/unit/citation-audit.test.ts tests/unit/rudin-source-corrections.test.ts tests/component/cite.test.tsx tests/component/term.test.tsx tests/component/stat.test.tsx` | 164 passed in five matched files; three requested paths did not exist, exit 0 |
+| Additional unit | `npm test -- tests/unit/rudin-protocol-integration.test.ts tests/unit/rudin-kl-integration.test.ts tests/unit/sim2real.test.ts tests/unit/brand-v2-baseline.test.ts tests/unit/brand-v2-baseline-truth.test.ts tests/component/ui/cite.test.tsx tests/component/ui/stat.test.tsx tests/unit/rehype-cite-punctuation.test.ts` | 128 passed in eight additional files, including native absence controls, exit 0 |
+| Lint | `npm run lint` | normal prelint and ESLint, exit 0 |
+| Route types | `node node_modules/next/dist/bin/next typegen` | exit 0 |
+| Typecheck | `./node_modules/.bin/tsc --noEmit --incremental false` | exit 0 |
+| Content | `npm run validate:content` | RED, 570 findings plus nine separate citation gaps, exit 1; no-slop and chart-description stages passed |
+| Bounded E2E | `node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/playwright.config.mjs legged-locomotion.spec.ts sim2real-transfer.spec.ts rudin-protocol-source-closeout.spec.ts` | 15 passed, exit 0; fresh owned loopback webpack runtime |
+| Lee placement red/green | same Playwright config, `legged-locomotion.spec.ts --grep 'Lee corrected citation'` | red 1 failed/1 passed, then 2 passed; exits 1/0 |
+
+Reader review found Lee mobile tooltip right edge 471px at width 375.
+One article-local `max-sm:[&_[role=tooltip]]:-left-32` wrapper repairs it;
+removing only that wrapper reconstructs pre-repair article bytes. Both viewport
+hover/focus regression cases now pass. 22 initial captures and two repaired
+Lee captures were Read-inspected at 375×812 and 1440×900; paragraph images
+are element captures at those viewports, not all fixed-size viewport captures.
+Tall mobile Miki capture includes a sticky-header/dev-indicator obstruction;
+its desktop prose and mobile focus capture supplement, not erase, that gap.
+Reference titles/bylines were DOM-read. No new comprehensive glossary-state,
+math glyph, registry-font or structured two-reference rubric acceptance is claimed.
+The earlier 15-case run is qualified reuse across the single placement wrapper,
+not a fresh 17-case invocation. Earlier reader and source failures are retained.
+The initial E2E JSON reporter was overwritten by the red placement invocation;
+its complete 15-identity line log and input/exit receipt survive. Later reports
+are run-keyed. No browser page errors or external requests were observed.
+
+Manual fidelity/no-slop reading of all five changed prose endpoints and the
+Miki Stat was completed alongside executable no-slop validation; the humanizer
+skill is unavailable, so neither check is represented as a humanizer run.
+Incomplete article dates remain unchanged. The owned runtime leaf alone was
+stopped (supervisor real exit 130); generated tsconfig and next-env changes were
+restored exactly. No broad build/export/cards, source sweep, push or deployment.
+Formal progress remains **307/331**, M5 unaccepted, skipScrutiny=false and
+skipUserTesting=false. Independent Sol/high scrutiny and user testing remain
+required; full source/P1, contrast/rubric/typography and production gaps remain.
+
+Evidence and exact commands/inputs/exits: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/`.
+Native counting uses `state.mjs` with parseLedger and parseCompoundPlans;
+its committed mode rechecks the committed bytes. Earlier checkpoints below
+are retained history, not this worker's fresh validation.
+
 ## Current checkpoint: four Rudin mobile citation placements repaired (2026-09-09)
 
 **424 complete / 570 incomplete / 994 originals / 47 articles**.

@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 7
 - Claim rows: 167
-- Recorded verified: 104
-- Recorded corrected: 62
+- Recorded verified: 99
+- Recorded corrected: 67
 - Recorded cut: 1
 - Recorded source inconsistencies: 0
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 78
-- Incomplete evidence records: 89
+- Complete evidence records: 83
+- Incomplete evidence records: 84
 
 <!-- audit-summary:end -->
 
@@ -342,11 +342,11 @@ this ledger's conventions.
 | "automatic domain randomization widens the randomization range as the agent succeeds" + "Isaac Lab ships ADR as a configurable curriculum" | OpenAI paper (ADR) + Isaac Lab paper, Sec. 5 (ADR workflow) | verified | ADR mechanism per OpenAI; Isaac Lab's ADR curriculum with reference dexterous configs per the paper. |
 | Isaac Lab v1: GPU state; mass/friction/contact-offset/joint-armature writes through PhysX CPU APIs; most other physics parameters runtime-randomizable; mesh scale/collider type startup-only; no reset-only restriction. | Isaac Lab v1, https://arxiv.org/html/2511.04831v1; exact per-part source text and locators retained in the native evidence plan | **corrected** | Current source-backed correction and retained-body review on 2026-09-08 by Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance. Original tuple (history, not proof): ["\"simulation parameters (masses, frictions, contact offsets, joint armature) must still be written through PhysX CPU APIs, and mesh scale or collider type can only change before the simulator starts\"","Isaac Lab paper, Sec. 4","verified","Both plumbing facts stated in the paper's DR section."]. Immediate-before tuple (history, not proof): ["\"simulation parameters (masses, frictions, contact offsets, joint armature) must still be written through PhysX CPU APIs, and mesh scale or collider type can only change before the simulator starts\"","Isaac Lab paper, Sec. 4","verified","Both plumbing facts stated in the paper's DR section."]. Producer GET 2026-09-08T00:55:54.021238+00:00 to 00:55:54.267675+00:00, observed 200/no redirects; body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39. Current review 2026-09-08T09:53:04.838899+00:00; no fresh fetch. Every required part/source pair, body context and original tool event checked in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Complete correction includes source-local reader, mounted CPU disclosure where applicable, and NVIDIA plus 105 unique Appendix A credits. Source-only proposal 932a0686a2fb4c4b62547b337e9791812a423738787fbadee78ddaca17750c1e reviewed rather than accepted prospectively. No whole-article P1/P5 certification or review-date bump. |  |  |  | isaac-v1-rl-sim2real-sim2real-transfer-8-20260908 |
 | Peng et al. maximize expected return over a distribution of dynamics models and evaluate randomization ablations on their Fetch pushing task; the friction chart's peak-versus-width relation is a local authored assumption, not a universal measured performance cost or a literature-wide absence claim. | https://arxiv.org/html/1710.06537v3 | corrected | Source-backed correction reviewed 2026-09-09T06:38:07.637Z by agent:d43f66d4-36fb-4868-9083-3813fa407df4/integrator, not independent acceptance. Original tuple (history, not proof): {"claim":"\"DR buys a wider basin of transfer at the price of peak performance, and papers almost never quantify the price\"","sourceChecked":"DR literature pattern; honest-unknown framing","verdict":"verified","note":"Article presents it as an unquantified cost; no source overclaimed."}. Expected-return objective, task-specific randomization ablations and recurrent history inference replace universal cost/absence claims. All source-attributing toy prose, feedback and comments are corrected; toy constants remain local assumptions. This is zero credit for held transfer23, not an external-passage/local-proof contract exemption. Retained FetchUrl bodies/metadata retrieved 2026-09-08T07:25:52.282Z through 07:27:07.993Z; tool-reported 200, origin status not independently observed. Current review is not a new retrieval. Exact request/response identities, bodies and literal bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json. OpenAI HTML 2019 version/metadata versus typeset August24,2026 remains an unresolved source-rendering disagreement with unknown cause, not PDF/proceedings identity proof. No whole P1 or lastReviewed change. |  |  |  | domain-randomization-sim2real-transfer-9 |
-| "Lee and colleagues' ANYmal controller: a privileged teacher distilled into a temporal convolutional network over proprioceptive history, trained in simple simulated domains and deployed blind on mud, snow, rubble, and vegetation" | Lee et al., Science Robotics 2020, arXiv 2010.11251 | verified | Teacher-student with TCN student; zero-shot deployment on those terrains. |
+| Lee and colleagues trained a privileged RL teacher with simulator-only terrain and contact information, then distilled its actions and latent features into a temporal convolutional network student. The deployed student uses two seconds of proprioceptive history from joint encoders and an IMU, together with the command and current state; it does not consume an external terrain map. Training used rigid, procedurally generated terrain, while ANYmal-B and ANYmal-C deployments included mud, snow, rubble, and vegetation. Robots of the same generation used the same controller across those environments without environment-specific tuning. | Learning Quadrupedal Locomotion over Challenging Terrain; https://arxiv.org/abs/2010.11251; unversioned ar5iv body https://ar5iv.labs.arxiv.org/html/2010.11251 | corrected | Source-backed correction reviewed 2026-09-09T12:10:36.397Z by agent:36dfbf8e-81df-46ca-a4e9-59126b61ee32/integrator. Retained FetchUrl body response event 2026-09-08T08:14:45.521Z; metadata event 2026-09-08T08:15:08.933Z. Unversioned ar5iv body is not pinned by v1 metadata. No new retrieval or whole-article/P1 credit. Original cells remain in learned-locomotion-original-history-20260909 below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/source-proof.json. |  |  |  | learned-locomotion-sim2real-transfer-10-20260908 |
 | RMA jointly trains a base policy and privileged environment encoder, then trains a supervised adaptation module on simulator state-action histories to estimate latent extrinsics. At deployment it uses 50 steps / 0.5s of history, updates the latent at about 10 Hz and runs the A1 base policy at 100 Hz without real-world fine-tuning. The latent is behavior-relevant rather than guaranteed ground-truth system identification, and blind deployment has documented failure limits. | RMA full ar5iv HTML + arXiv metadata | **corrected** | RMA source-backed correction reviewed 2026-09-09 by Astra/max integrator 91d0f5b9-f12a-456b-ab9d-5fb4d5691f28, not independent acceptance. Original tuple (history, not proof): {"claim":"\"RMA factorized the same idea into a base policy conditioned on a latent extrinsics vector plus an adaptation module that regresses those extrinsics online\"","sourceChecked":"RMA paper, arXiv 2107.04034","verdict":"verified","note":"Base policy + adaptation module architecture; online latent extrinsics."}. Immediate-before tuple (history, not proof): {"claim":"\"RMA factorized the same idea into a base policy conditioned on a latent extrinsics vector plus an adaptation module that regresses those extrinsics online\"","sourceChecked":"RMA paper, arXiv 2107.04034","verdict":"verified","note":"Base policy + adaptation module architecture; online latent extrinsics."}. Actual retained body/metadata, all AND-parts and paired passages verified in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rma-and-kl-reader-integration-20260909/source-proof.json. Original body GET 2026-09-08T06:35:10.822894+00:00 to 06:35:11.722544+00:00, observed 200; metadata FetchUrl 06:33:44.654Z to 06:33:50.639Z reported 200. No new retrieval. A1 ~10 Hz latent inference /100 Hz base policy; 50 steps /0.5 s history, no real-world fine-tuning. Unversioned ar5iv is not independently pinned; printed 0.025 s simulation step is not reconciled to a physics rate. Hardware trials and simulated evaluation remain distinct; blind failures and non-ground-truth latent limits remain explicit. Atomic original3/11 application; no whole-P1 or review-date claim. |  |  |  | rma-writer-11-20260909 |
 | Isaac Lab v1 reports DextrAH-RGB privileged-state RL on a KUKA arm/Allegro hand distilled to stereo-RGB input; global-first assertion deleted. | Isaac Lab v1, https://arxiv.org/html/2511.04831v1; exact per-part source text and locators retained in the native evidence plan | **corrected** | Current source-backed correction and retained-body review on 2026-09-08 by Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance. Original tuple (history, not proof): ["\"DextrAH-RGB distills a state-privileged RL teacher into a stereo-RGB student, which the authors describe as the first system to map stereo images directly to dexterous grasping end to end\"","Isaac Lab paper, Sec. 5.1.2","verified","First-system claim attributed to the authors."]. Immediate-before tuple (history, not proof): ["\"DextrAH-RGB distills a state-privileged RL teacher into a stereo-RGB student, which the authors describe as the first system to map stereo images directly to dexterous grasping end to end\"","Isaac Lab paper, Sec. 5.1.2","verified","First-system claim attributed to the authors."]. Producer GET 2026-09-08T00:55:54.021238+00:00 to 00:55:54.267675+00:00, observed 200/no redirects; body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39. Current review 2026-09-08T09:53:04.838899+00:00; no fresh fetch. Every required part/source pair, body context and original tool event checked in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Complete correction includes source-local reader, mounted CPU disclosure where applicable, and NVIDIA plus 105 unique Appendix A credits. Source-only proposal 07b9d38ee3e52c82bbf02cc4c9a5274c9122b643406c873460e9c4ccccb99887 reviewed rather than accepted prospectively. No whole-article P1/P5 certification or review-date bump. |  |  |  | isaac-v1-rl-sim2real-sim2real-transfer-12-20260908 |
 | The Isaac Lab paper calls distillation's limitation an information gap due to input mismatch: privileged teacher state versus partial student observations, reconstruction of unobserved states from images and particular difficulty under high camera occlusion. | Isaac Lab v1, https://arxiv.org/html/2511.04831v1; exact per-part source text and locators retained in the native evidence plan | **corrected** | Current source-backed correction and retained-body review on 2026-09-08 by Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance. Original tuple (history, not proof): ["\"Isaac Lab calls it an information-capacity mismatch\"","Isaac Lab paper, Sec. 5.1.2","**corrected**","Paper: \"imitation-based distillation introduces an information gap due to input mismatch: the teacher observes privileged state information, while the student sees only partial observations ... particularly pronounced under high camera occlusions\". The \"information-capacity mismatch\" coinage came from `research/02-rl-sim2real-world-models.md`, not the paper. Rewritten to the paper's term and wording; code comments in `lib/sim2real.ts` and `components/interactive/teacher-student.tsx` updated to match."]. Immediate-before tuple (history, not proof): ["\"Isaac Lab calls it an information-capacity mismatch\"","Isaac Lab paper, Sec. 5.1.2","**corrected**","Paper: \"imitation-based distillation introduces an information gap due to input mismatch: the teacher observes privileged state information, while the student sees only partial observations ... particularly pronounced under high camera occlusions\". The \"information-capacity mismatch\" coinage came from `research/02-rl-sim2real-world-models.md`, not the paper. Rewritten to the paper's term and wording; code comments in `lib/sim2real.ts` and `components/interactive/teacher-student.tsx` updated to match."]. Producer GET 2026-09-08T00:55:54.021238+00:00 to 00:55:54.267675+00:00, observed 200/no redirects; body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39. Current review 2026-09-08T09:53:04.838899+00:00; no fresh fetch. Every required part/source pair, body context and original tool event checked in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Complete correction includes source-local reader, mounted CPU disclosure where applicable, and NVIDIA plus 105 unique Appendix A credits. Source-only proposal fd30d836ada913007fb2478e04e41b84ce655c268bb391e2d00e532aced8fada reviewed rather than accepted prospectively. No whole-article P1/P5 certification or review-date bump. |  |  |  | isaac-v1-rl-sim2real-sim2real-transfer-13-20260908 |
-| "Hwangbo and colleagues' actuator network: a learned map from joint-command history to realized torque, replacing the analytic actuator model whose miscalibration had been the dominant sim-to-real error source on ANYmal" | Hwangbo et al., Science Robotics 2019, arXiv 1804.10332 | verified | Actuator net trained on real data; dominant error source; agile skills incl. fall recovery. |
+| Hwangbo and colleagues learned an actuator network for ANYmal's series-elastic actuators: it predicts joint torque from joint-position errors and velocities at the current time and 0.01 and 0.02 seconds earlier. They fitted it to real-robot excitation data, then used it inside the simulator to train control policies. In their locomotion ablations, policies trained with ideal or analytical actuator models could not take a single step without falling. | Learning agile and dynamic motor skills for legged robots; https://arxiv.org/abs/1901.08652; unversioned ar5iv body https://ar5iv.labs.arxiv.org/html/1901.08652 | corrected | Source-backed correction reviewed 2026-09-09T12:10:36.397Z by agent:36dfbf8e-81df-46ca-a4e9-59126b61ee32/integrator. Retained FetchUrl body response event 2026-09-08T08:14:45.521Z; metadata event 2026-09-08T08:15:08.933Z. Unversioned ar5iv body is not pinned by v1 metadata. No new retrieval or whole-article/P1 credit. Original cells remain in learned-locomotion-original-history-20260909 below. Hwangbo metadata has seven authors; rendered body repeats Joonho Lee. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/source-proof.json. |  |  |  | learned-locomotion-sim2real-transfer-14-20260908 |
 | ASAP pipeline (pre-train tracking policy on retargeted human motion, real G1 rollout, delta action model mapping sim state + action to residual, insert into simulator, fine-tune) | ASAP paper, arXiv 2502.13143 | verified | All stages as described; Unitree G1 hardware. |
 | "ASAP evaluates it across IsaacGym-to-IsaacSim, IsaacGym-to-Genesis, and IsaacGym-to-hardware transfers, reducing tracking error against SysID, DR, and delta-dynamics baselines" | ASAP paper | verified | Three transfer scenarios and the baseline set as stated. |
 | "the delta model is learned on the state distribution the pre-trained policy visits, so it is only valid near that distribution" | ASAP paper, limitations | verified | The paper's own validity caveat. |
@@ -363,9 +363,9 @@ this ledger's conventions.
 | Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
 |---|---|---|---| --- | --- | --- | --- |
 | Stats: "< 4 min" flat / "20 min" uneven, one workstation GPU; "1 h" alpine hike; "3.03 m/s" sand running | Rudin 2021; Miki 2022; Choi 2023 | verified | Hardware context present on the Rudin stats; Miki/Choi stats name paper and setting. |
-| "Hwangbo and colleagues replaced the analytic model with a learned actuator network ... policies trained in simulation produced agile dynamic skills on ANYmal, including recovery from a fall and self-righting" | Hwangbo et al., arXiv 1804.10332 | verified | Actuator net from joint-command history to torque; recovery and self-righting demonstrated. |
-| "A privileged teacher policy ... distilled into a student that sees only a short history of proprioception through a temporal convolutional network. Trained in simple simulated domains, the student hiked mud, snow, rubble, and vegetation" | Lee et al., arXiv 2010.11251 | verified | As in sim2real row. |
-| "Their controller feeds the scan through an attention-based recurrent encoder that learns a belief over the terrain, integrating proprioception ... completed an hour-long hike in the Alps in the time recommended for human hikers" | Miki et al., Science Robotics 2022, arXiv 2201.08101 | verified | Belief encoder integrating proprioception when the map lies; 1 h hike at guidebook pace. |
+| Hwangbo and colleagues learned an actuator network for ANYmal's series-elastic actuators. It predicts joint torque from current and past joint-position errors and velocities, using supervised data collected by exciting the real robot's legs and manually disturbing it. The network models actuation inside the simulator; the control policies are trained there and then deployed on the robot. Policies trained with ideal or analytical actuator models could not take a single step without falling in the reported ablations. A separately trained recovery policy flipped ANYmal upright from nine tested configurations, including upside-down and folded-leg poses. The authors report relaxing joint-velocity constraints after the first successful hardware recovery attempt. | Learning agile and dynamic motor skills for legged robots; https://arxiv.org/abs/1901.08652; unversioned ar5iv body https://ar5iv.labs.arxiv.org/html/1901.08652 | corrected | Source-backed correction reviewed 2026-09-09T12:10:36.397Z by agent:36dfbf8e-81df-46ca-a4e9-59126b61ee32/integrator. Retained FetchUrl body response event 2026-09-08T08:14:45.521Z; metadata event 2026-09-08T08:15:08.933Z. Unversioned ar5iv body is not pinned by v1 metadata. No new retrieval or whole-article/P1 credit. Original cells remain in learned-locomotion-original-history-20260909 below. Hwangbo metadata has seven authors; rendered body repeats Joonho Lee. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/source-proof.json. |  |  |  | learned-locomotion-legged-locomotion-2-20260908 |
+| Lee and colleagues used a privileged RL teacher to supervise both the actions and latent features of a temporal convolutional network student. Its deployed default uses two seconds of proprioceptive history from joint encoders and an IMU, alongside the command and current state. Trained on rigid, procedurally generated terrain, controllers for ANYmal-B and ANYmal-C traversed mud, snow, rubble, and vegetation outside the training conditions, without environment-specific tuning for robots of the same generation. The student has no external terrain map: it infers terrain properties from bodily feedback. This blindness still limits foresight: Lee and colleagues explicitly warn that a robot commanded off a cliff will walk off it. The [sim-to-real module](/rl-sim2real/sim2real-transfer) covers the distillation mechanics. | Learning Quadrupedal Locomotion over Challenging Terrain; https://arxiv.org/abs/2010.11251; unversioned ar5iv body https://ar5iv.labs.arxiv.org/html/2010.11251 | corrected | Source-backed correction reviewed 2026-09-09T12:10:36.397Z by agent:36dfbf8e-81df-46ca-a4e9-59126b61ee32/integrator. Retained FetchUrl body response event 2026-09-08T08:14:45.521Z; metadata event 2026-09-08T08:15:08.933Z. Unversioned ar5iv body is not pinned by v1 metadata. No new retrieval or whole-article/P1 credit. Original cells remain in learned-locomotion-original-history-20260909 below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/source-proof.json. |  |  |  | learned-locomotion-legged-locomotion-3-20260908 |
+| Miki and colleagues combined height samples from an elevation map with proprioception in a GRU-based recurrent belief encoder. A learned attention gate controls how much exteroceptive information enters the belief state; the student is trained to imitate a privileged teacher and reconstruct terrain information from noisy observations. In covered-sensor stair and slippery-platform tests, the controller fell back on proprioception, revising its terrain estimate after contact rather than anticipating every obstacle. On ANYmal C, deployment used either two Robosense Bpearl LiDAR sensors or four Intel RealSense D435 cameras, with elevation mapping at 20 Hz and the policy at 50 Hz. Their Etzel mountain hike covered 2.2 km with 120 m of elevation gain in 78 minutes, compared with a hiking planner's 76 minutes; it had no falls but included stops to reattach a shoe and swap batteries. The paper's “hour-long” description is not an exact one-hour traversal. Its limitations include possible falls at occluded cliffs or stepping stones, so the result does not establish all-terrain robustness. | Learning robust perceptive locomotion for quadrupedal robots in the wild; https://arxiv.org/abs/2201.08117; unversioned ar5iv body https://ar5iv.labs.arxiv.org/html/2201.08117 | corrected | Source-backed correction reviewed 2026-09-09T12:10:36.397Z by agent:36dfbf8e-81df-46ca-a4e9-59126b61ee32/integrator. Retained FetchUrl body response event 2026-09-08T08:14:45.521Z; metadata event 2026-09-08T08:15:08.933Z. Unversioned ar5iv body is not pinned by v1 metadata. No new retrieval or whole-article/P1 credit. Original cells remain in learned-locomotion-original-history-20260909 below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/source-proof.json. |  |  |  | learned-locomotion-legged-locomotion-4-20260908 |
 | Rudin reports flat-terrain training in under four minutes separately from its 4,096-robot, 98,304-transition, 1,500-update simulation/deployment policy trained in under twenty minutes on i9-11900k/RTX A6000 with the terrain curriculum; legged_gym is the associated released environment, with no verified claim about most subsequent academic or industrial work. | Rudin retained ar5iv body and arXiv metadata (FetchUrl 2026-09-06); legged_gym initial commit ae614c029977157123225f538ecdd3f873e54bd4 (GET 2026-09-08), three Git-blob-verified code derivatives | corrected | RUDIN-PROTOCOL-20260909. Source-backed correction reviewed 2026-09-09T09:53:54.625889+00:00; exact original and immediate-before tuples retained below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-scoped-delta-integration-20260909/source-proof.json. Unversioned ar5iv body is not certified as v2/v3 or PDF equivalent; code API page 1 of 2 certifies only three reconstructed files. All required parts are conjunctive. No mixed Stat, local-proof, whole P1, article lastReviewed or independent acceptance credit. |  |  |  | rudin-protocol-writer-legged-locomotion-5-20260909 |
 | "they put a computationally cheap granular-media model inside the training loop and paired it with a controller that identifies terrain properties from feel ... Raibo quadruped ran on soft beach sand at 3.03 m/s with its feet fully buried during stance" | Choi et al., Science Robotics 2023 (science.org abstract + body) | verified | Granular-media model + proprioceptive terrain identification; 3.03 m/s, feet fully buried in stance. |
 | "The bound alternates the front pair against the hind pair with a suspension interval in between; the MIT Cheetah line made high-speed bounding practical by scaling the duty cycle with speed" | Park, Wensing & Kim, IJRR 2017, DOI 10.1177/0278364917694244, Sec. 4.3 | verified | Sec. 4.3 is literally "Duty cycle modulation via vertical impulse scaling"; stance time T_st = L/v_d scales inversely with speed; 6.4 m/s and CoT 0.47 verified from abstract. |
@@ -765,3 +765,184 @@ Exactly three original records; source review and native bindings are local impl
   }
 ]
 ```
+
+
+## learned-locomotion-original-history-20260909
+
+Five original identities corrected, not duplicated. Historical four-cell values below are not source proof. The Miki headline now agrees with its detailed hike result; mixed Stat original 1 remains incomplete and receives no credit. Reward19 remains excluded. No reviewed date is advanced.
+
+```json
+[
+  {
+    "originalId": "audit/rl-sim2real.md:sim2real-transfer:10",
+    "rowOrdinal": 10,
+    "originalCells": {
+      "claim": "\"Lee and colleagues' ANYmal controller: a privileged teacher distilled into a temporal convolutional network over proprioceptive history, trained in simple simulated domains and deployed blind on mud, snow, rubble, and vegetation\"",
+      "sourceChecked": "Lee et al., Science Robotics 2020, arXiv 2010.11251",
+      "verdict": "verified",
+      "note": "Teacher-student with TCN student; zero-shot deployment on those terrains."
+    },
+    "originalTupleDigest": "07375f1dbb37f9215f39c7023e5b63e4fcb26fed83e538bfa92412b6a19905a1",
+    "currentCells": {
+      "claim": "Lee and colleagues trained a privileged RL teacher with simulator-only terrain and contact information, then distilled its actions and latent features into a temporal convolutional network student. The deployed student uses two seconds of proprioceptive history from joint encoders and an IMU, together with the command and current state; it does not consume an external terrain map. Training used rigid, procedurally generated terrain, while ANYmal-B and ANYmal-C deployments included mud, snow, rubble, and vegetation. Robots of the same generation used the same controller across those environments without environment-specific tuning.",
+      "sourceChecked": "Learning Quadrupedal Locomotion over Challenging Terrain; https://arxiv.org/abs/2010.11251; unversioned ar5iv body https://ar5iv.labs.arxiv.org/html/2010.11251",
+      "verdict": "corrected",
+      "note": "Source-backed correction reviewed 2026-09-09T12:10:36.397Z by agent:36dfbf8e-81df-46ca-a4e9-59126b61ee32/integrator. Retained FetchUrl body response event 2026-09-08T08:14:45.521Z; metadata event 2026-09-08T08:15:08.933Z. Unversioned ar5iv body is not pinned by v1 metadata. No new retrieval or whole-article/P1 credit. Original cells remain in learned-locomotion-original-history-20260909 below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/source-proof.json."
+    },
+    "currentTupleDigest": "684580fee0880284df6fcdb45d6d30895ec8ae5d562c7483898df7814891b87a",
+    "evidencePlanId": "learned-locomotion-sim2real-transfer-10-20260908"
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:sim2real-transfer:14",
+    "rowOrdinal": 14,
+    "originalCells": {
+      "claim": "\"Hwangbo and colleagues' actuator network: a learned map from joint-command history to realized torque, replacing the analytic actuator model whose miscalibration had been the dominant sim-to-real error source on ANYmal\"",
+      "sourceChecked": "Hwangbo et al., Science Robotics 2019, arXiv 1804.10332",
+      "verdict": "verified",
+      "note": "Actuator net trained on real data; dominant error source; agile skills incl. fall recovery."
+    },
+    "originalTupleDigest": "8bc6f42a81443fe7d75597b131a6b2df9003fb5c3dcf586f9090a8180ffc8e69",
+    "currentCells": {
+      "claim": "Hwangbo and colleagues learned an actuator network for ANYmal's series-elastic actuators: it predicts joint torque from joint-position errors and velocities at the current time and 0.01 and 0.02 seconds earlier. They fitted it to real-robot excitation data, then used it inside the simulator to train control policies. In their locomotion ablations, policies trained with ideal or analytical actuator models could not take a single step without falling.",
+      "sourceChecked": "Learning agile and dynamic motor skills for legged robots; https://arxiv.org/abs/1901.08652; unversioned ar5iv body https://ar5iv.labs.arxiv.org/html/1901.08652",
+      "verdict": "corrected",
+      "note": "Source-backed correction reviewed 2026-09-09T12:10:36.397Z by agent:36dfbf8e-81df-46ca-a4e9-59126b61ee32/integrator. Retained FetchUrl body response event 2026-09-08T08:14:45.521Z; metadata event 2026-09-08T08:15:08.933Z. Unversioned ar5iv body is not pinned by v1 metadata. No new retrieval or whole-article/P1 credit. Original cells remain in learned-locomotion-original-history-20260909 below. Hwangbo metadata has seven authors; rendered body repeats Joonho Lee. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/source-proof.json."
+    },
+    "currentTupleDigest": "a7efa3659e4aa237e5606a37bec433eaed36db18d0826c87bf204e44a52138a9",
+    "evidencePlanId": "learned-locomotion-sim2real-transfer-14-20260908"
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:legged-locomotion:2",
+    "rowOrdinal": 2,
+    "originalCells": {
+      "claim": "\"Hwangbo and colleagues replaced the analytic model with a learned actuator network ... policies trained in simulation produced agile dynamic skills on ANYmal, including recovery from a fall and self-righting\"",
+      "sourceChecked": "Hwangbo et al., arXiv 1804.10332",
+      "verdict": "verified",
+      "note": "Actuator net from joint-command history to torque; recovery and self-righting demonstrated."
+    },
+    "originalTupleDigest": "cea767d6a521b047d9ef8e01b603d70e1a10d0af8ef844b892708b865f6a7632",
+    "currentCells": {
+      "claim": "Hwangbo and colleagues learned an actuator network for ANYmal's series-elastic actuators. It predicts joint torque from current and past joint-position errors and velocities, using supervised data collected by exciting the real robot's legs and manually disturbing it. The network models actuation inside the simulator; the control policies are trained there and then deployed on the robot. Policies trained with ideal or analytical actuator models could not take a single step without falling in the reported ablations. A separately trained recovery policy flipped ANYmal upright from nine tested configurations, including upside-down and folded-leg poses. The authors report relaxing joint-velocity constraints after the first successful hardware recovery attempt.",
+      "sourceChecked": "Learning agile and dynamic motor skills for legged robots; https://arxiv.org/abs/1901.08652; unversioned ar5iv body https://ar5iv.labs.arxiv.org/html/1901.08652",
+      "verdict": "corrected",
+      "note": "Source-backed correction reviewed 2026-09-09T12:10:36.397Z by agent:36dfbf8e-81df-46ca-a4e9-59126b61ee32/integrator. Retained FetchUrl body response event 2026-09-08T08:14:45.521Z; metadata event 2026-09-08T08:15:08.933Z. Unversioned ar5iv body is not pinned by v1 metadata. No new retrieval or whole-article/P1 credit. Original cells remain in learned-locomotion-original-history-20260909 below. Hwangbo metadata has seven authors; rendered body repeats Joonho Lee. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/source-proof.json."
+    },
+    "currentTupleDigest": "df4069174f391379e78d6cab73a34eb2d160b6dbef23234240a10b9fe96e5fbb",
+    "evidencePlanId": "learned-locomotion-legged-locomotion-2-20260908"
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:legged-locomotion:3",
+    "rowOrdinal": 3,
+    "originalCells": {
+      "claim": "\"A privileged teacher policy ... distilled into a student that sees only a short history of proprioception through a temporal convolutional network. Trained in simple simulated domains, the student hiked mud, snow, rubble, and vegetation\"",
+      "sourceChecked": "Lee et al., arXiv 2010.11251",
+      "verdict": "verified",
+      "note": "As in sim2real row."
+    },
+    "originalTupleDigest": "caea770d127fd918b699b80c8e7d15a9f4d6f0d1c87811b8001967fa88863783",
+    "currentCells": {
+      "claim": "Lee and colleagues used a privileged RL teacher to supervise both the actions and latent features of a temporal convolutional network student. Its deployed default uses two seconds of proprioceptive history from joint encoders and an IMU, alongside the command and current state. Trained on rigid, procedurally generated terrain, controllers for ANYmal-B and ANYmal-C traversed mud, snow, rubble, and vegetation outside the training conditions, without environment-specific tuning for robots of the same generation. The student has no external terrain map: it infers terrain properties from bodily feedback. This blindness still limits foresight: Lee and colleagues explicitly warn that a robot commanded off a cliff will walk off it. The [sim-to-real module](/rl-sim2real/sim2real-transfer) covers the distillation mechanics.",
+      "sourceChecked": "Learning Quadrupedal Locomotion over Challenging Terrain; https://arxiv.org/abs/2010.11251; unversioned ar5iv body https://ar5iv.labs.arxiv.org/html/2010.11251",
+      "verdict": "corrected",
+      "note": "Source-backed correction reviewed 2026-09-09T12:10:36.397Z by agent:36dfbf8e-81df-46ca-a4e9-59126b61ee32/integrator. Retained FetchUrl body response event 2026-09-08T08:14:45.521Z; metadata event 2026-09-08T08:15:08.933Z. Unversioned ar5iv body is not pinned by v1 metadata. No new retrieval or whole-article/P1 credit. Original cells remain in learned-locomotion-original-history-20260909 below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/source-proof.json."
+    },
+    "currentTupleDigest": "f631c914bd78b7539d96169fcb1a3d61fef0f0b07760bc3f2c7c0ae07aca6b49",
+    "evidencePlanId": "learned-locomotion-legged-locomotion-3-20260908"
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:legged-locomotion:4",
+    "rowOrdinal": 4,
+    "originalCells": {
+      "claim": "\"Their controller feeds the scan through an attention-based recurrent encoder that learns a belief over the terrain, integrating proprioception ... completed an hour-long hike in the Alps in the time recommended for human hikers\"",
+      "sourceChecked": "Miki et al., Science Robotics 2022, arXiv 2201.08101",
+      "verdict": "verified",
+      "note": "Belief encoder integrating proprioception when the map lies; 1 h hike at guidebook pace."
+    },
+    "originalTupleDigest": "37d8301bf74e0958291c7af772dea28b260e986ba04b389e6887d62ccb6f6b2c",
+    "currentCells": {
+      "claim": "Miki and colleagues combined height samples from an elevation map with proprioception in a GRU-based recurrent belief encoder. A learned attention gate controls how much exteroceptive information enters the belief state; the student is trained to imitate a privileged teacher and reconstruct terrain information from noisy observations. In covered-sensor stair and slippery-platform tests, the controller fell back on proprioception, revising its terrain estimate after contact rather than anticipating every obstacle. On ANYmal C, deployment used either two Robosense Bpearl LiDAR sensors or four Intel RealSense D435 cameras, with elevation mapping at 20 Hz and the policy at 50 Hz. Their Etzel mountain hike covered 2.2 km with 120 m of elevation gain in 78 minutes, compared with a hiking planner's 76 minutes; it had no falls but included stops to reattach a shoe and swap batteries. The paper's “hour-long” description is not an exact one-hour traversal. Its limitations include possible falls at occluded cliffs or stepping stones, so the result does not establish all-terrain robustness.",
+      "sourceChecked": "Learning robust perceptive locomotion for quadrupedal robots in the wild; https://arxiv.org/abs/2201.08117; unversioned ar5iv body https://ar5iv.labs.arxiv.org/html/2201.08117",
+      "verdict": "corrected",
+      "note": "Source-backed correction reviewed 2026-09-09T12:10:36.397Z by agent:36dfbf8e-81df-46ca-a4e9-59126b61ee32/integrator. Retained FetchUrl body response event 2026-09-08T08:14:45.521Z; metadata event 2026-09-08T08:15:08.933Z. Unversioned ar5iv body is not pinned by v1 metadata. No new retrieval or whole-article/P1 credit. Original cells remain in learned-locomotion-original-history-20260909 below. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/source-proof.json."
+    },
+    "currentTupleDigest": "fac7a8c421743ce48aaf875a8867d853a3993ff465bc5fb6a8490f97ffaa4117",
+    "evidencePlanId": "learned-locomotion-legged-locomotion-4-20260908"
+  }
+]
+```
+
+
+## Learned-locomotion integration verification 2026-09-09
+
+**429 complete / 565 incomplete / 994 originals / 47 articles**.
+RL is **83 complete / 84 incomplete / 167 originals**. Five selected originals
+were corrected: sim2real-transfer 10 and 14; legged-locomotion 2, 3 and 4.
+Lee and Hwangbo paired groups were applied together; Miki separately. Reward19
+is excluded. Mixed Stat original 1 remains incomplete despite its Miki-only
+headline correction. The other 40 prepared proposals remain unassigned.
+
+Retained source proof covers three primary documents, six historical FetchUrl
+responses, 35 mechanically verified literal bindings, 30 selected reviewed
+passages, 24 AND-parts and 29 paired evidence items. **Zero retrievals**.
+Bodies were observed 2026-09-08T08:14:45.521Z; metadata at
+2026-09-08T08:15:08.933Z; current application review at
+2026-09-09T12:10:36. Metadata v1 does not pin unversioned ar5iv bodies.
+Hwangbo's seven-author metadata and duplicated rendered-body name remain distinct.
+Corrected actuation/ablation/recovery scope, Lee teacher/history/deployment,
+and Miki GRU, sensor/rate and hike details retain their limiting context.
+Miki's displayed hike is 78 min, 2.2 km, versus planner 76 min; shoe/battery
+stops and no reported falls remain explicit. No article lastReviewed advances.
+
+Native preservation: 989 unselected full semantic records, all 424 prior
+completions, 330 prior plan objects and serialized prefix, and 428 prior
+approvals/metadata/prefix remain preserved. There are 335 plans and 432 approvals.
+Four exact native member approvals use immutable baseline/current hashes;
+all changed members already exist (no fabricated absence hash). The original
+44 unrelated full baseline failure objects remain; eight wrong-old/new hash
+controls and the stale-approval-set control reject. Source field completeness
+is not whole-article/P1 or independent acceptance.
+
+Actual sequential checks, all NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Command | Observed result |
+|---|---|---|
+| New red unit | `npm test -- tests/unit/learned-locomotion-integration.test.ts` | 19 failed before integration, exit 1 |
+| Affected unit | `npm test -- tests/unit/learned-locomotion-integration.test.ts tests/unit/audit-ledger.test.ts tests/unit/citations.test.ts tests/unit/citation-audit.test.ts tests/unit/rudin-source-corrections.test.ts tests/component/cite.test.tsx tests/component/term.test.tsx tests/component/stat.test.tsx` | 164 passed in five matched files; three requested paths did not exist, exit 0 |
+| Additional unit | `npm test -- tests/unit/rudin-protocol-integration.test.ts tests/unit/rudin-kl-integration.test.ts tests/unit/sim2real.test.ts tests/unit/brand-v2-baseline.test.ts tests/unit/brand-v2-baseline-truth.test.ts tests/component/ui/cite.test.tsx tests/component/ui/stat.test.tsx tests/unit/rehype-cite-punctuation.test.ts` | 128 passed in eight additional files, including native absence controls, exit 0 |
+| Lint | `npm run lint` | normal prelint and ESLint, exit 0 |
+| Route types | `node node_modules/next/dist/bin/next typegen` | exit 0 |
+| Typecheck | `./node_modules/.bin/tsc --noEmit --incremental false` | exit 0 |
+| Content | `npm run validate:content` | RED, 570 findings plus nine separate citation gaps, exit 1; no-slop and chart-description stages passed |
+| Bounded E2E | `node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/playwright.config.mjs legged-locomotion.spec.ts sim2real-transfer.spec.ts rudin-protocol-source-closeout.spec.ts` | 15 passed, exit 0; fresh owned loopback webpack runtime |
+| Lee placement red/green | same Playwright config, `legged-locomotion.spec.ts --grep 'Lee corrected citation'` | red 1 failed/1 passed, then 2 passed; exits 1/0 |
+
+Reader review found Lee mobile tooltip right edge 471px at width 375.
+One article-local `max-sm:[&_[role=tooltip]]:-left-32` wrapper repairs it;
+removing only that wrapper reconstructs pre-repair article bytes. Both viewport
+hover/focus regression cases now pass. 22 initial captures and two repaired
+Lee captures were Read-inspected at 375×812 and 1440×900; paragraph images
+are element captures at those viewports, not all fixed-size viewport captures.
+Tall mobile Miki capture includes a sticky-header/dev-indicator obstruction;
+its desktop prose and mobile focus capture supplement, not erase, that gap.
+Reference titles/bylines were DOM-read. No new comprehensive glossary-state,
+math glyph, registry-font or structured two-reference rubric acceptance is claimed.
+The earlier 15-case run is qualified reuse across the single placement wrapper,
+not a fresh 17-case invocation. Earlier reader and source failures are retained.
+The initial E2E JSON reporter was overwritten by the red placement invocation;
+its complete 15-identity line log and input/exit receipt survive. Later reports
+are run-keyed. No browser page errors or external requests were observed.
+
+Manual fidelity/no-slop reading of all five changed prose endpoints and the
+Miki Stat was completed alongside executable no-slop validation; the humanizer
+skill is unavailable, so neither check is represented as a humanizer run.
+Incomplete article dates remain unchanged. The owned runtime leaf alone was
+stopped (supervisor real exit 130); generated tsconfig and next-env changes were
+restored exactly. No broad build/export/cards, source sweep, push or deployment.
+Formal progress remains **307/331**, M5 unaccepted, skipScrutiny=false and
+skipUserTesting=false. Independent Sol/high scrutiny and user testing remain
+required; full source/P1, contrast/rubric/typography and production gaps remain.
+
+Evidence and exact commands/inputs/exits: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-learned-locomotion-integration-20260909/`.
+Native counting uses `state.mjs` with parseLedger and parseCompoundPlans;
+its committed mode rechecks the committed bytes. Earlier checkpoints below
+are retained history, not this worker's fresh validation.
