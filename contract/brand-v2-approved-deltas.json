@@ -8799,6 +8799,23 @@
         "VAL-AUDIT-002"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "humanoid-advanced-motion-20260912-6b67ecef9f56bb3866",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/humanoid-wbc",
+      "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+      "newHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+      "reason": "Exactly humanoid-wbc originals 6/7/8 corrected against three retained primary documents, with 19 reviewed mandatory AND parts and 19 paired items. ExBody2 separates drift diagnosis, initial-policy filtering, PPO teacher, history-based student and specialist limits; KungfuBot separates per-motion policies and three curriculum variables and scopes ten Tai Chi hardware trials; GMT separates unified learning and teacher soft-MoE from deployed student architecture, simulation comparisons, selected G1 demonstrations and limitations. No citation occurrence, union, registry or URL changes. The measured ASAP and ExBody2 mobile tooltip offsets are article-local and zero-credit; desktop and shared renderers remain unchanged. Exact reverse reconstruction protects all unselected prose. Source provenance and final-current native reviews are in convergence-advanced-motion-integration-20260912. No whole-P1, article, independent acceptance or release credit.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to 9c217dee-f8b8-4eee-ba5d-9e6352edcaff. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

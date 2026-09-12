@@ -35434,5 +35434,442 @@
         "evidenceDigest": "9636e7ccfb00f26904be557772f0f970693e25493933ced8a83c23060449af8f"
       }
     ]
+  },
+  {
+    "id": "humanoid-advanced-motion-6-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 6,
+    "originalCellsDigest": "5194ad44c109f98552a58f80fd13a7605790c7a9202e01b218c5a06ed40dff9f",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "diagnosis-and-decoupling",
+        "text": "ExBody2 attributes cumulative error to global-keypoint drift and uses local keypoint tracking with separate velocity tracking; no universal missed-footstep cascade is asserted.",
+        "requiredCitationIds": [
+          "exbody2-2024"
+        ]
+      },
+      {
+        "id": "dataset-filter",
+        "text": "An initial policy ranks motions by lower-body tracking error for empirical dataset filtering, not physical certification.",
+        "requiredCitationIds": [
+          "exbody2-2024"
+        ]
+      },
+      {
+        "id": "ppo-teacher",
+        "text": "A privileged teacher is trained with PPO.",
+        "requiredCitationIds": [
+          "exbody2-2024"
+        ]
+      },
+      {
+        "id": "history-student",
+        "text": "The student uses observation history and DAgger-style action supervision rather than privileged inputs.",
+        "requiredCitationIds": [
+          "exbody2-2024"
+        ]
+      },
+      {
+        "id": "g1-platform",
+        "text": "The deployed platform is Unitree G1.",
+        "requiredCitationIds": [
+          "exbody2-2024"
+        ]
+      },
+      {
+        "id": "motion-scope",
+        "text": "The authors report walking, squatting, and dancing in their selected-motion hardware evaluation.",
+        "requiredCitationIds": [
+          "exbody2-2024"
+        ]
+      },
+      {
+        "id": "specialist-limits",
+        "text": "Generalist breadth does not match every specialist's precision; seamless recombination of specialist policies remains a stated limitation.",
+        "requiredCitationIds": [
+          "exbody2-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+      "rationale": "Final actual replacement wording and all 7 mandatory AND parts reviewed 2026-09-12T21:14:11.114Z. The ExBody2 decoupling passage diagnoses accumulating errors from drifting global keypoint targets and contrasts local keypoints with separate velocity tracking; it does not establish a universal missed-footstep cascade in H2O. The velocity-error tradeoff remains a limitation, not an all-metric victory. The dataset-filter passage uses an initial policy and lower-body tracking error to rank reference motions. This is separate from the privileged PPO teacher used after filtering; infeasibility is not determined by an all-purpose teacher oracle. The teacher passage explicitly uses PPO and privileged state during training. Prose and Table VI disagree about the exact privilege schema; no harmonized schema or deployment privilege is inferred. The student passage describes DAgger distillation with observation history. History is not interchangeable with privileged teacher state, and does not independently certify arbitrary reference tracking. The interface passage identifies Unitree G1 and its control interface. This platform identification is not a claim that all simulation ablations or every reference motion succeeded on hardware. The hardware passage supports selected walking, squatting and dancing demonstrations, not a repertoire-wide success percentage. Comparative gains do not eliminate the reported velocity-error tradeoff. The limitations passage distinguishes broad generalist coverage and higher-precision fine-tuned specialists, and explicitly leaves seamless specialist recombination unresolved. Source/prose rereview 2026-09-12T21:21:05.105Z: the source leaves specialist transitions unresolved; neutral wording replaces the promotional adjective without altering scope.",
+      "planDigest": "a004b33e78809c7d7f395c5c9cc20c3281c6ae388e3daec2db889c17cda9881d"
+    },
+    "evidence": [
+      {
+        "partId": "diagnosis-and-decoupling",
+        "citationId": "exbody2-2024",
+        "sourceUrl": "https://arxiv.org/html/2412.13196",
+        "supportingPassage": "#### III-B3 Motion-velocity Decoupled Control Strategy\n\nMotion tracking comprises two objectives: tracking DoF (joint) positions and keypoint (body keypoint) positions. Keypoint tracking usually plays a crucial role in tracking motions during training stage, as joint DoF errors can propagate to the whole body, while keypoint tracking is directly applied to the body. Existing work like H2O, OmniH2O \\[ [18](https://arxiv.org/html/2412.13196#bib.bib18 \"\"), [17](https://arxiv.org/html/2412.13196#bib.bib17 \"\")\\] learns to follow the trajectory of global keypoints. However, this global tracking strategy usually results in suboptimal or failed tracking behavior, as global keypoints may drift through time, resulting in cumulative errors that eventually hinder learning. To address this, we map global keypoints to the robot’s current coordinate frame, and instead utilize velocity-based global tracking. The coordination of velocity and motion allows tracking completion with maximal expressiveness, even if slight positional deviations arise. Moreover, to further enhance the robot’s capabilities in following challenging keypoint motions, we allow a small global drift of keypoints during training stage and periodically correct them to the robot’s current coordinate frame. During deployment, we strictly employ local keypoint tracking with motion-velocity decoupled control.\n"
+      },
+      {
+        "partId": "dataset-filter",
+        "citationId": "exbody2-2024",
+        "sourceUrl": "https://arxiv.org/html/2412.13196",
+        "supportingPassage": "#### III-A1 Generalist policy with automated data curation\n\nTo obtain a policy π\\\\pi that performs well across diverse motion inputs, we first train an initial policy π0\\\\pi\\_{0} on a comprehensive, unfiltered motion dataset 𝒟\\\\mathcal{D}, which is highly diverse with a lot of infeasible motions. After training π0\\\\pi\\_{0}, we evaluate its tracking accuracy for each motion sequence s∈𝒟s\\\\in\\\\mathcal{D}, obtaining a tracking error metric e⁡(s)e(s) that focuses on the lower body. The lower body plays a central role in dynamic feasibility and balance; thus, we focus on its tracking error for filtering. This preserves the upper body’s diversity while excluding excessively unstable motions, aligning with our feasibility–diversity principle. Specifically, we define\n\n|     |     |     |\n| --- | --- | --- |\n|  | e⁡(s)=α​Ekey​(s)+β​Edof​(s),e(s)\\\\;=\\\\;\\\\alpha\\\\,E\\_{\\\\text{key}}(s)\\\\;+\\\\;\\\\beta\\\\,E\\_{\\\\text{dof}}(s), |  |\n\nwhere Ekey​(s)E\\_{\\\\text{key}}(s) is the mean keybody position error for the lower body (preventing extreme deviations such as flipping or rolling), and Edof​(s)E\\_{\\\\text{dof}}(s) measures the mean joint-angle tracking error. The coefficients α\\\\alpha and β\\\\beta weight these two terms according to their relative importance for lower-body stability and precision. Once e⁡(s)e(s) is computed for each sequence, we rank the motions by their tracking errors and derive the empirical distribution P⁡(e)P(e).\n\nThe objective is to determine an error threshold τ\\\\tau such that the subset of motion sequences with e⁡(s)≤τe(s)\\\\leq\\\\tau, denoted as 𝒟τ={s∈𝒟∣e⁡(s)≤τ}\\\\mathcal{D}\\_{\\\\tau}=\\\\{s\\\\in\\\\mathcal{D}\\\\mid e(s)\\\\leq\\\\tau\\\\}, enables the training of a new policy πτ\\\\pi\\_{\\\\tau} that maximizes performance across the full dataset 𝒟\\\\mathcal{D}. Formally, we seek:\n\n|     |     |     |\n| --- | --- | --- |\n|  | τ∗=arg⁡maxτ​𝔼s∈𝒟​\\[Performance​(πτ,s)\\],\\\\tau^{\\*}=\\\\arg\\\\max\\_{\\\\tau}\\\\mathbb{E}\\_{s\\\\in\\\\mathcal{D}}\\[\\\\text{Performance}(\\\\pi\\_{\\\\tau},s)\\], |  |\n\nwhere πτ\\\\pi\\_{\\\\tau} is trained on 𝒟τ\\\\mathcal{D}\\_{\\\\tau}.\n\nIn practice, we divide P⁡(e)P(e) into evenly spaced error intervals to systematically evaluate the performance of policies trained on subsets corresponding to different thresholds τ\\\\tau. Although we use a greedy search to identify the optimal threshold τ∗\\\\tau^{\\*}, subsequent experiments reveal a strong trend in how the policy’s performance changes with τ\\\\tau. When τ\\\\tau is too small, the filtered motions are overly simple, limiting the policy’s ability to generalize across the full dataset. Conversely, when τ\\\\tau is too large, the inclusion of many infeasible motions introduces noise, degrading the training effectiveness. The best-performing policy is consistently obtained at a moderate τ\\\\tau, balancing diversity and feasibility.\n\nThe optimal threshold τ∗\\\\tau^{\\*}, identified through this process, exhibits generalizability and can be effectively applied to other motion datasets, ensuring robust training and improved performance.\n"
+      },
+      {
+        "partId": "ppo-teacher",
+        "citationId": "exbody2-2024",
+        "sourceUrl": "https://arxiv.org/html/2412.13196",
+        "supportingPassage": "### III-BPolicy Objective and Architecture\n\nExbody2 aims at tracking a target motion more expressively in the whole body. To this end, Exbody2 adopts a two-stage teacher-student training procedure as in \\[ [29](https://arxiv.org/html/2412.13196#bib.bib29 \"\"), [28](https://arxiv.org/html/2412.13196#bib.bib28 \"\")\\]. Specifically, the oracle teacher policy is first trained with an off-the-shelf reinforcement learning (RL) algorithm, PPO \\[ [51](https://arxiv.org/html/2412.13196#bib.bib51 \"\")\\], with privileged information that can be obtained only in simulators. For the second stage, we replace the privileged information with observations which are aligned with the real world, and distill the teacher policy to a deployable student policy. We train our policies using IsaacGym \\[ [39](https://arxiv.org/html/2412.13196#bib.bib39 \"\")\\] with efficient parallel simulation.\n\n#### III-B1 Teacher Policy Training\n\nWe can formulate the humanoid motion control problem as a _Markov Decision Process_ (MDP). The state space 𝒮\\\\mathcal{S} contains privileged observation 𝒳\\\\mathcal{X}, proprioceptive states 𝒪\\\\mathcal{O} and motion tracking target 𝒢\\\\mathcal{G}. A policy π^\\\\hat{\\\\pi} takes {pt,ot,gt}\\\\{p\\_{t},o\\_{t},g\\_{t}\\\\} as input, and outputs action a^t\\\\hat{a}\\_{t}, as illustrated in Figure [3](https://arxiv.org/html/2412.13196#S3.F3 \"Figure 3 ‣ III-A2 Specialist policy with finetuning for targeted motions ‣ III-A Data-driven Generalist-specialist Training Pipeline ‣ III Exbody2: Learning Expressive Humanoid Whole-Body Control ‣ ExBody2: Advanced Expressive Humanoid Whole-Body Control\"), the teacher policy. The predicted action a^t∈R23\\\\hat{a}\\_{t}\\\\in R^{23} is the target joint positions of joint proportional derivative (PD) controllers. We use off-the-shelf PPO \\[ [51](https://arxiv.org/html/2412.13196#bib.bib51 \"\")\\] algorithm to maximize expectation of the accumulated future rewards Eπ^​\\[∑t=0Tγt​ℛ​(st,a^t)\\]E\\_{\\\\hat{\\\\pi}}\\[\\\\sum\\_{t=0}^{T}\\\\gamma^{t}\\\\mathcal{R}(s\\_{t},\\\\hat{a}\\_{t})\\], which encourages tracking the demonstrations with robust behavior. The predicted a^t∈R23\\\\hat{a}\\_{t}\\\\in R^{23}, which is the target position of joint proportional derivative (PD) controllers.\n\nPrivileged Information. The privileged information ptp\\_{t} contains some ground-truth states of the humanoid robot and the environment, which can only be observed in simulators. It contains the ground-truth root velocity, real body links’ positions, and physical properties (e.g. friction coefficients, motor strength). Privileged information can significantly improve the sample efficiency of RL algorithms, which is often leveraged to obtain a high-performing teacher policy.\n\nMotion Tracking Target. Similar to Exbody \\[ [4](https://arxiv.org/html/2412.13196#bib.bib4 \"\")\\], Exbody2 learns a policy that can be controlled by the joystick commands (e.g. the linear velocity and body pose) when accurately tracking a whole-body motion. The motion tracking target consists of two components, which are (1) the desired joints and 3D keypoints in both the upper and lower body and (2) target root velocity and root pose.\nFor the full information about the privileged information, motion tracking information, and proprioceptive observations for the teacher policy, please refer to the supplementary materials.\n\nReward Design. Our reward function is carefully constructed to enhance the performance and realism of the humanoid robot’s motion. The primary components of the reward include tracking the velocity, direction, and orientation of the root, alongside precise tracking of keypoints and joint positions. Additionally, we incorporate several regularization terms designed to boost the robot’s stability and enhance the transferability from simulation to real-world applications. The main elements of our tracking reward are detailed in Table [I](https://arxiv.org/html/2412.13196#S3.T1 \"Table I ‣ III-B2 Student Policy Training ‣ III-B Policy Objective and Architecture ‣ III Exbody2: Learning Expressive Humanoid Whole-Body Control ‣ ExBody2: Advanced Expressive Humanoid Whole-Body Control\"), while supplementary rewards aimed at improving stability and sim2real capabilities would discussed in the supplementary materials.\n"
+      },
+      {
+        "partId": "history-student",
+        "citationId": "exbody2-2024",
+        "sourceUrl": "https://arxiv.org/html/2412.13196",
+        "supportingPassage": "#### III-B2 Student Policy Training\n\nIn this stage, we remove the privileged information, and use longer history observation to train a student policy. As shown in Figure [3](https://arxiv.org/html/2412.13196#S3.F3 \"Figure 3 ‣ III-A2 Specialist policy with finetuning for targeted motions ‣ III-A Data-driven Generalist-specialist Training Pipeline ‣ III Exbody2: Learning Expressive Humanoid Whole-Body Control ‣ ExBody2: Advanced Expressive Humanoid Whole-Body Control\"), the student policy encodes a series of past observations ot−H:to\\_{t-H:t} together with the encoded gtg\\_{t} to get the predicted at∼π(⋅\\|ot−H:t,gt)a\\_{t}\\\\sim\\\\pi(\\\\cdot\\|o\\_{t-H:t},g\\_{t}). We supervise π\\\\pi using the teacher’s action a^t∼π^(⋅\\|ot,gt)\\\\hat{a}\\_{t}\\\\sim\\\\hat{\\\\pi}(\\\\cdot\\|o\\_{t},g\\_{t}) with an MSE loss.\n\n|     |     |     |\n| --- | --- | --- |\n|  | l=‖at−a^t‖2l=\\\\\\|a\\_{t}-\\\\hat{a}\\_{t}\\\\\\|^{2} |  |\n\nTo train the student, we adopt the strategy used in DAgger \\[ [50](https://arxiv.org/html/2412.13196#bib.bib50 \"\")\\], we roll out the student policy π\\\\pi in the simulation environment to generate training data. For each visited state, the teacher policy π^\\\\hat{\\\\pi} computes the oracle action as the supervision signal. We proceed to refine the policy π\\\\pi by iteratively minimizing the loss ll on the accumulated data. The training of π^\\\\hat{\\\\pi} continues through successive rollouts until the loss ll reaches convergence. A critical aspect of training the student policy is preserving a sufficiently long sequence of historical observations. Detailed results and further analysis are elaborated in Section [IV](https://arxiv.org/html/2412.13196#S4 \"IV Experiments ‣ ExBody2: Advanced Expressive Humanoid Whole-Body Control\").\n\n|     |     |     |\n"
+      },
+      {
+        "partId": "g1-platform",
+        "citationId": "exbody2-2024",
+        "sourceUrl": "https://arxiv.org/html/2412.13196",
+        "supportingPassage": "### A-AReal-world Deployment\n\nOur real robot employs a Unitree G1 platform, with an onboard Jetson Orin NX acting as the primary computing and communication device. The control policy receives motion-tracking target information as input, computes the desired joint positions for each motor, and sends commands to the robot’s low-level interface. The policy’s inference frequency is set at 50 Hz. The commands are sent with a delay kept between 18 and 30 milliseconds. The low-level interface operates at a frequency of 500 Hz, ensuring smooth real-time control. The communication between the control policy and the low-level interface is realized through LCM (Lightweight Communications and Marshalling) \\[ [21](https://arxiv.org/html/2412.13196#bib.bib21 \"\")\\].\n\n### A-BState Space Definition\n\nIn this section, we provide detailed information on the state space used for policy training, including proprioceptive states, privileged information, and motion tracking targets.\n\nRobot Proprioceptive States. The robot proprioceptive states for the teacher and the student policy can be found in Table [V](https://arxiv.org/html/2412.13196#A1.T5 \"Table V ‣ A-B State Space Definition ‣ Appendix A Environments ‣ ExBody2: Advanced Expressive Humanoid Whole-Body Control\"). Note that the student policy is trained on longer history length compared to the teacher, as it cannot observe privileged information but have to learn from a longer sequence of past observations.\n\nPrivileged Information. The teacher policy leverages privileged information to obtain accurate motion-tracking performance. The complete information about the privileged states is listed in Table [VI](https://arxiv.org/html/2412.13196#A1.T6 \"Table VI ‣ A-B State Space Definition ‣ Appendix A Environments ‣ ExBody2: Advanced Expressive Humanoid Whole-Body Control\").\n\nTracking Target Information. Both the teacher policy and student policy also take the motion tracking goal as part of their observations, which consists of the keypoint positions, DoF (joint) positions, as well as root movement information. The detailed components of the motion tracking target can be found in Table [VII](https://arxiv.org/html/2412.13196#A1.T7 \"Table VII ‣ A-B State Space Definition ‣ Appendix A Environments ‣ ExBody2: Advanced Expressive Humanoid Whole-Body Control\").\n\nAction Space. The action is the target position of joint proportional derivative (PD) controllers, which is 23 dimensions for Unitree G1.\n\n|     |     |\n| --- | --- |\n| State | Dimensions |\n| DoF position | 23 |\n| DoF velocity | 23 |\n| Last Action | 23 |\n| Root Angular Velocity | 3 |\n| Roll | 1 |\n| Pitch | 1 |\n| Yaw | 1 |\n| Total Dim | 75\\*10 |\n\nTABLE V: Proprioceptive states used in Exbody2. The rotation information is from IMU. 10 is the length of the history proprioception\n\n|     |     |\n| --- | --- |\n| State | Dimensions |\n| DoF Difference | 23 |\n| Keybody Difference | 36 |\n| Root velocity | 3 |\n| Total dim | 62 |\n\nTABLE VI: Privileged information used in Exbody2.\n\n|     |     |\n| --- | --- |\n| State | Dimensions |\n| DoF position | 23 |\n| Keypoint position | 36 |\n| Root Velocity | 3 |\n| Root Angular Velocity | 3 |\n| Roll | 1 |\n| Pitch | 1 |\n| Yaw | 1 |\n| Height | 1 |\n| Total dim | 69 |\n\nTABLE VII: Reference information used in Exbody2.\n"
+      },
+      {
+        "partId": "motion-scope",
+        "citationId": "exbody2-2024",
+        "sourceUrl": "https://arxiv.org/html/2412.13196",
+        "supportingPassage": "### IV-BGeneralist Policy Performance\n\nAs shown in Table [II](https://arxiv.org/html/2412.13196#S4.T2 \"Table II ‣ IV Experiments ‣ ExBody2: Advanced Expressive Humanoid Whole-Body Control\"), our _Exbody2_ policy already surpasses prior baselines ( _Exbody_, _Exbody†\\\\dagger_, and _OmniH2O\\*_) across all reported metrics in simulation without motion filter when trained on the complete dataset. By further incorporating motion filtering, _Exbody2_ achieves additional gains in both upper- and lower-body tracking. The improvement in lower-body accuracy is especially notable, leading to greater global stability and, consequently, more precise upper-body control.\n\nThe only trade-off observed is a slight increase in velocity tracking error compared to the unfiltered version. We attribute this to the broader velocity patterns found in the full dataset, which facilitate more diverse dynamic behaviors but also introduce additional noise. Overall, the modest velocity trade-off is outweighed by significant enhancements in stability and precision. These trends are observed under simulation conditions, and we further analyze real-world performance in the following section.\n\nIn real-world experiments, we selected a representative subset from the CMU dataset, encompassing a diverse range of actions—such as expressive standing postures, walking at various speeds and patterns, squatting, and dancing. Using the robot’s onboard motor readings, we computed the joint position error, as reported in Table [III](https://arxiv.org/html/2412.13196#S4.T3 \"Table III ‣ IV Experiments ‣ ExBody2: Advanced Expressive Humanoid Whole-Body Control\"). The experimental outcomes closely mirror the simulation results, demonstrating that our algorithm achieves higher tracking accuracy compared to other baselines for both upper and lower body segments. Notably, the integration of automated data curation has substantially enhanced performance. This improvement is critical in real-world environments, where unanticipated disturbances are more prevalent, underscoring the importance of maintaining robust and consistent behavior to achieve high-precision tracking throughout the motion sequences.\n\nOverall, our generalist policy achieves significant improvements in full-body tracking accuracy for both upper and lower body, and velocity tracking accuracy compared to the baseline algorithms both in simulation and the real world, demonstrating stable and effective tracking performance in dynamic environments.\n"
+      },
+      {
+        "partId": "specialist-limits",
+        "citationId": "exbody2-2024",
+        "sourceUrl": "https://arxiv.org/html/2412.13196",
+        "supportingPassage": "## VI Limitations\n\nAlthough our _generalist_ policy already provides broad coverage of diverse motions, it does not capture the fine-grained precision of each specialist policy within a single framework. One limitation of our approach is the inability to seamlessly recombine policies that have been fine-tuned for specific motion groups. This constraint reduces the flexibility of switching between different policies within a single tracking session, as each specialist policy remains focused on a particular subset of motions. Consequently, transitions between different motion types may not be handled as smoothly or efficiently as desired.\n\n_In principle, unifying the broad coverage of the generalist policy with the high-accuracy tracking of individual specialists could provide the best of both worlds._ Addressing this limitation by incorporating a dynamic policy-integration mechanism—where specialized policies can be adaptively blended or switched in real time—could significantly improve overall tracking precision, adaptability, and robustness, especially when dealing with complex, multi-modal motion sequences.\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "diagnosis-and-decoupling",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The ExBody2 decoupling passage diagnoses accumulating errors from drifting global keypoint targets and contrasts local keypoints with separate velocity tracking; it does not establish a universal missed-footstep cascade in H2O. The velocity-error tradeoff remains a limitation, not an all-metric victory.",
+        "evidenceDigest": "a37e0c4ed48a8a3f13b186b7281ff494a389b7eb2bb49b878ef847975ab6a4b3"
+      },
+      {
+        "partId": "dataset-filter",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The dataset-filter passage uses an initial policy and lower-body tracking error to rank reference motions. This is separate from the privileged PPO teacher used after filtering; infeasibility is not determined by an all-purpose teacher oracle.",
+        "evidenceDigest": "7b0eb5f358df7891d39e811b8e461f98f623e914dc8ecd059c75bc0666b8a31f"
+      },
+      {
+        "partId": "ppo-teacher",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The teacher passage explicitly uses PPO and privileged state during training. Prose and Table VI disagree about the exact privilege schema; no harmonized schema or deployment privilege is inferred.",
+        "evidenceDigest": "1d44608195353e43179800f28646385d95235b6e60571e56be88dc7a2e77b4c3"
+      },
+      {
+        "partId": "history-student",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The student passage describes DAgger distillation with observation history. History is not interchangeable with privileged teacher state, and does not independently certify arbitrary reference tracking.",
+        "evidenceDigest": "8ee23efbc18242d9a64c01322f705bae8305bc98c816b0b593c4ad74f38a42b3"
+      },
+      {
+        "partId": "g1-platform",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The interface passage identifies Unitree G1 and its control interface. This platform identification is not a claim that all simulation ablations or every reference motion succeeded on hardware.",
+        "evidenceDigest": "e800cff0c1ca5600701439ef9eed15b4c54e6d2f14da6b562c36a28750c1cd50"
+      },
+      {
+        "partId": "motion-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The hardware passage supports selected walking, squatting and dancing demonstrations, not a repertoire-wide success percentage. Comparative gains do not eliminate the reported velocity-error tradeoff.",
+        "evidenceDigest": "ba64bddc0e6d6d087f2a46dd2fb03cf79497b1551703ddfbd9458f6b6bae62dd"
+      },
+      {
+        "partId": "specialist-limits",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The limitations passage distinguishes broad generalist coverage and higher-precision fine-tuned specialists, and explicitly leaves seamless specialist recombination unresolved.",
+        "evidenceDigest": "96c687804558a2a638963e097279507bd0c60a46a13cb5393d01956f7a04b70f"
+      }
+    ]
+  },
+  {
+    "id": "humanoid-advanced-motion-7-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 7,
+    "originalCellsDigest": "0538aaa9da3d2aa08c937b8cbb536dab0d93dbd640de4caf5a48e4b7ca2bc272",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "per-motion-policy",
+        "text": "KungfuBot trains a separate RL policy for each processed reference trajectory and deploys these policies on G1.",
+        "requiredCitationIds": [
+          "kungfubot-2025"
+        ]
+      },
+      {
+        "id": "exponential-tolerance",
+        "text": "Tracking rewards except the contact term use an exponential error form with a tolerance parameter.",
+        "requiredCitationIds": [
+          "kungfubot-2025"
+        ]
+      },
+      {
+        "id": "adaptive-update",
+        "text": "An EMA of tracking error drives a non-increasing tolerance update.",
+        "requiredCitationIds": [
+          "kungfubot-2025"
+        ]
+      },
+      {
+        "id": "distinct-curricula",
+        "text": "Separate termination and penalty curricula decrease the early-termination threshold and increase regularization penalties.",
+        "requiredCitationIds": [
+          "kungfubot-2025"
+        ]
+      },
+      {
+        "id": "hardware-scope",
+        "text": "The authors demonstrate dynamic motions; the quantitative hardware comparison is ten Tai Chi trials with the root fixed to the origin for evaluation.",
+        "requiredCitationIds": [
+          "kungfubot-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+      "rationale": "Final actual replacement wording and all 5 mandatory AND parts reviewed 2026-09-12T21:14:11.114Z. The policy passage trains one policy per processed reference trajectory, not a single repertoire-wide controller. The 13-motion dataset and simulation protocol are not the quantitative hardware denominator. The exponential reward passage defines tracking tolerance sigma. It is distinct from early-termination theta and penalty scaling alpha. The printed derivative has a sign inconsistency and the printed foot-contact expression is suspicious; neither is silently repaired or certified as implemented. The adaptive passage describes an exponential moving average of tracking error and a non-increasing tolerance update. The algorithmic update supports the prose despite the separate derivative-sign inconsistency; no corrected derivation is invented. The curricula passage separately lowers termination theta and increases regularization alpha. These schedules are not sigma adaptation and do not imply one unified curriculum variable. The real-world passage quantitatively evaluates ten Tai Chi trials with inaccessible robot-root state fixed to the origin for evaluation. Three seeds and 1,000 simulation rollouts and the 13-motion dataset are distinct. Dynamic G1 demonstrations do not establish all-motion hardware reliability. Inference uses an external PC over Ethernet/DDS; terrain and obstacle awareness remain limited.",
+      "planDigest": "0d8e5ce9cdb3aa86cb9259521f0dbd613725618527ebd7f87023e349bed272ef"
+    },
+    "evidence": [
+      {
+        "partId": "per-motion-policy",
+        "citationId": "kungfubot-2025",
+        "sourceUrl": "https://arxiv.org/html/2506.12851",
+        "supportingPassage": "## 3 Methods\n\n![Refer to caption](https://arxiv.org/html/2506.12851v3/overview-v4.png)Figure 1: An overview of PBHC that includes three core components: (a) motion extraction from videos and multi-steps motion processing, (b) adaptive motion tracking based on the optimal tracking factor, (c) the RL training framework and sim-to-real deployment.\n\nAn overview of PBHC is illustrated in Fig. [1](https://arxiv.org/html/2506.12851#S3.F1 \"Figure 1 ‣ 3 Methods ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\").\nFirst, raw human videos are processed by a Human Motion Recovery (HMR) model to produce SMPL-format motion sequences. These sequences are filtered via physics-based metrics and corrected using contact masks. The refined motions are then retargeted to the G1 robot. Finally, each resulting trajectory serves as reference motion for training a separate RL policy, which is then deployed on the real G1 robot. In the following, we detail the\nmotion processing pipeline (§ [3.1](https://arxiv.org/html/2506.12851#S3.SS1 \"3.1 Motion Processing Pipeline ‣ 3 Methods ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\")), adaptive motion tracking module (§ [3.2](https://arxiv.org/html/2506.12851#S3.SS2 \"3.2 Adaptive Motion Tracking ‣ 3 Methods ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\")) and RL framework (§ [3.3](https://arxiv.org/html/2506.12851#S3.SS3 \"3.3 RL Training Framework ‣ 3 Methods ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\")).\n\n### 3.1 Motion Processing Pipeline\n\n"
+      },
+      {
+        "partId": "exponential-tolerance",
+        "citationId": "kungfubot-2025",
+        "sourceUrl": "https://arxiv.org/html/2506.12851",
+        "supportingPassage": "#### 3.2.1 Exponential Form Tracking Reward\n\nThe reward function in PBHC, detailed in Appendix [C.2](https://arxiv.org/html/2506.12851#A3.SS2 \"C.2 Reward Design ‣ Appendix C Algorithm Design ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\"),\ncomprises two components: task-specific rewards, which enforce accurate tracking of reference motions, and regularization rewards, which promote overall stability and smoothness.\n\nThe task-specific rewards include terms for aligning joint states, rigid body state, and foot contact mask. These rewards, except the foot contact tracking term, follow the exponential form as:\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n|  | r(x)=exp(−x/σ),r(x)=\\\\exp(-x/\\\\sigma), |  | (4) |\n\nwhere xx represents the tracking error, typically measured as the mean squared error (MSE) of quantities such as joint angles, while σ\\\\sigma controls the tolerance of the error, referred to as the _tracking factor_. This exponential form is preferred over the negative error form because it is bounded, helps stabilize the training process, and provides a more intuitive approach for reward weighting.\n\nFigure 2: Illustration of the effect of tracking factor σ\\\\sigma on the reward value.\n\nIntuitively, when σ\\\\sigma is much larger than the typical range of xx, the reward remains close to 1 and becomes insensitive to changes in xx, while an overly small σ\\\\sigma causes the reward to approach 0 and also reduces its sensitivity, highlighting the importance of choosing σ\\\\sigma appropriately to enhance responsiveness and hence tracking precision. This intuition is illustrated in Fig. [2](https://arxiv.org/html/2506.12851#S3.F2 \"Figure 2 ‣ 3.2.1 Exponential Form Tracking Reward ‣ 3.2 Adaptive Motion Tracking ‣ 3 Methods ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\").\n"
+      },
+      {
+        "partId": "adaptive-update",
+        "citationId": "kungfubot-2025",
+        "sourceUrl": "https://arxiv.org/html/2506.12851",
+        "supportingPassage": "#### 3.2.3 Adaptive Mechanism\n\nFigure 3: Closed-loop adjustment of tracking factor in the proposed adaptive mechanism.\n\n![Refer to caption](https://arxiv.org/html/2506.12851v3/left_hand_traj_v3-punch1.png)Figure 4: Example of the right hand yy-position for ‘Horse-stance punch’. The adaptive σ\\\\sigma can progressively improve the tracking precision. σpos​\\_​vr\\\\sigma\\_{\\\\mathrm{pos\\\\\\_vr}} is used for tracking the head and hands.\n\nWhile Eq. ( [7](https://arxiv.org/html/2506.12851#S3.E7 \"In 3.2.2 Optimal Tracking Factor ‣ 3.2 Adaptive Motion Tracking ‣ 3 Methods ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\")) provides a theoretical guidance for determining the tracking factor, the coupling between σ∗\\\\sigma^{\\*} and 𝒙∗\\\\bm{x}^{\\*} creates a circular dependency that prevents direct computation. Additionally, due to the varying quality and complexity of reference motion data, selecting a single, fixed value for the tracking factor that works for all motion scenarios is impractical. To resolve this, we design an adaptive mechanism that dynamically adjusts σ\\\\sigma during training through a feedback loop between error estimation and tracking factor adaptation.\n\nIn this mechanism, we maintain an Exponential Moving Average (EMA) x^\\\\hat{x} of the instantaneous tracking error over environment steps. This EMA serves as an online estimate of the expected tracking error under the current policy, and during training this value should approach the average optimal tracking error\n(∑i=1Nxi∗)/N\\\\left(\\\\sum\\\\nolimits\\_{i=1}^{N}x^{\\*}\\_{i}\\\\right)/N\nunder the current factor σ\\\\sigma.\nAt each step, PBHC updates σ\\\\sigma to the current value of x^\\\\hat{x}, creating a feedback loop where reductions in tracking error lead to tightening of σ\\\\sigma. This closed-loop process drives further policy refinement, and as the tracking error decreases, the system converges to an optimal value of σ\\\\sigma that asymptotically solves Eq. ( [9](https://arxiv.org/html/2506.12851#A1.E9 \"In Appendix A Derivation of Optimal Tracking Sigma ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\")), as illustrated in Fig. [4](https://arxiv.org/html/2506.12851#S3.F4 \"Figure 4 ‣ 3.2.3 Adaptive Mechanism ‣ 3.2 Adaptive Motion Tracking ‣ 3 Methods ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\").\n\nTo ensure stability during training, we constrain σ\\\\sigma to be non-increasing and initialize it with a relatively large value, σinit\\\\sigma^{\\\\mathrm{init}}. The update rule is given by Eq. ( [8](https://arxiv.org/html/2506.12851#S3.E8 \"In 3.2.3 Adaptive Mechanism ‣ 3.2 Adaptive Motion Tracking ‣ 3 Methods ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\")). As shown in Fig. [4](https://arxiv.org/html/2506.12851#S3.F4 \"Figure 4 ‣ 3.2.3 Adaptive Mechanism ‣ 3.2 Adaptive Motion Tracking ‣ 3 Methods ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\"), this adaptive mechanism allows the policy to progressively improve its tracking precision during training.\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n|  | σ←min⁡(σ,x^).\\\\sigma\\\\leftarrow\\\\min(\\\\sigma,\\\\hat{x}). |  | (8) |\n\n### 3.3 RL Training Framework\n"
+      },
+      {
+        "partId": "distinct-curricula",
+        "citationId": "kungfubot-2025",
+        "sourceUrl": "https://arxiv.org/html/2506.12851",
+        "supportingPassage": "### C.5 Curriculum Learning\n\nTo imitate high-dynamic motions, we introduce two curriculum mechanisms: a termination curriculum that gradually reduces tracking error tolerance, and a penalty curriculum that progressively increases the weight of regularization terms, promoting more stable and physically plausible behaviors.\n\n- •\n\n\nTermination Curriculum:\nThe episode is terminated early when the humanoid’s motion deviates from the reference beyond a termination threshold θ\\\\theta. During training, this threshold is gradually decreased to increase the difficulty:\n\n\n\n\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n|  | θ←clip⁡(θ⋅(1−δ),θmin,θmax),\\\\theta\\\\leftarrow\\\\mathrm{clip}\\\\left(\\\\theta\\\\cdot(1-\\\\delta),\\ \\\\theta\\_{\\\\min},\\ \\\\theta\\_{\\\\max}\\\\right), |  | (19) |\n\n\n\nwhere the initial threshold θ=1.5\\\\theta=1.5, with bounds θmin=0.3\\\\theta\\_{\\\\min}=0.3, θmax=2.0\\\\theta\\_{\\\\max}=2.0, and decay rate δ=2.5×10−5\\\\delta=2.5\\\\times 10^{-5}.\n\n- •\n\n\nPenalty Curriculum:\nTo facilitate learning in the early training stages while gradually enforcing stronger regularization, we introduce a scaling factor α\\\\alpha that increases progressively to modulate the influence of the penalty term:\n\n\n\n\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n|  | α←clip⁡(α⋅(1+δ),αmin,αmax),r^penalty←α⋅rpenalty,\\\\alpha\\\\leftarrow\\\\mathrm{clip}\\\\left(\\\\alpha\\\\cdot(1+\\\\delta),\\ \\\\alpha\\_{\\\\min},\\ \\\\alpha\\_{\\\\max}\\\\right),\\\\hskip 8.50012pt\\\\hat{r}\\_{\\\\rm{penalty}}\\\\leftarrow\\\\alpha\\\\cdot r\\_{\\\\rm{penalty}}, |  | (20) |\n\n\n\n\n\nwhere the initial penalty scale α=0.1\\\\alpha=0.1, with bounds αmin=0.0\\\\alpha\\_{\\\\min}=0.0, αmax=1.0\\\\alpha\\_{\\\\max}=1.0, and growth rate δ=1.0×10−4\\\\delta=1.0\\\\times 10^{-4}.\n\n"
+      },
+      {
+        "partId": "hardware-scope",
+        "citationId": "kungfubot-2025",
+        "sourceUrl": "https://arxiv.org/html/2506.12851",
+        "supportingPassage": "### 5.5 Real-World Deployment\n\n![Refer to caption](https://arxiv.org/html/2506.12851v3/exp-real.png)Figure 8: Our robot masters highly-dynamic skills in the real world. Time flows left to right.\n\nTo investigate Q4, we deploy the policies in real robot. As shown in Fig. [8](https://arxiv.org/html/2506.12851#S5.F8 \"Figure 8 ‣ 5.5 Real-World Deployment ‣ 5 Experiments ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\"), [12](https://arxiv.org/html/2506.12851#A5.F12 \"Figure 12 ‣ E.4 Additional Real-World Results ‣ Appendix E Additional Experimental Results ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\") and the supporting videos, our robot in real world demonstrates outstanding dynamic capabilities through a diverse repertoire of advanced skills: (1) sophisticated martial arts techniques including powerful boxing combinations (jabs, hooks, and horse-stance punches) and high-degree kicking maneuvers (front kicks, jump kicks, side kicks, back kicks, and spinning roundhouse kicks); (2) acrobatic movements such as full 360-degree spins; (3) flexible motions including deep squats and stretches; (4) artistic performances ranging from dynamic dance routines to graceful Tai Chi sequences. This comprehensive skill set highlights our system’s remarkable versatility, dynamic control, and real-world applicability across both athletic and artistic domains.\n\nTo quantitatively assess our policy’s tracking performance, we conduct 10 trials of the Tai Chi motion and compute evaluation metrics based on the onboard sensor readings, as shown in Table [2](https://arxiv.org/html/2506.12851#S5.T2 \"Table 2 ‣ 5.5 Real-World Deployment ‣ 5 Experiments ‣ KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills\"). Notably, the metrics obtained in the real world are closely aligned with those from the sim-to-sim platform MuJoCo, demonstrating that our policy can robustly transfer from simulation to real-world deployment while maintaining high-performance control.\n\nTable 2: Comparison of tracking performance of Tai Chi between real-world and simulation. The robot root is fixed to the origin since it’s inaccessible in real-world.\n\n| Platform | Empbpe↓E\\_{\\\\mathrm{mpbpe}}\\\\downarrow | Empjpe↓E\\_{\\\\mathrm{mpjpe}}\\\\downarrow | Empbve↓E\\_{\\\\mathrm{mpbve}}\\\\downarrow | Empbae↓E\\_{\\\\mathrm{mpbae}}\\\\downarrow | Empjve↓E\\_{\\\\mathrm{mpjve}}\\\\downarrow |\n| --- | --- | --- | --- | --- | --- |\n| MuJoCo | 33.18±\\\\pm2.720 | 1061.24±\\\\pm83.27 | 2.96±\\\\pm0.342 | 2.90±\\\\pm0.498 | 67.71±\\\\pm6.747 |\n| Real | 36.64±\\\\pm2.592 | 1130.05±\\\\pm9.478 | 3.01±\\\\pm0.126 | 3.12±\\\\pm0.056 | 65.68±\\\\pm1.972 |\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "per-motion-policy",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The policy passage trains one policy per processed reference trajectory, not a single repertoire-wide controller. The 13-motion dataset and simulation protocol are not the quantitative hardware denominator.",
+        "evidenceDigest": "efd6ab20ebcc446f54a20bd5384ee405d1a1edbdb27b15b1771a4ba2f1a0e02f"
+      },
+      {
+        "partId": "exponential-tolerance",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The exponential reward passage defines tracking tolerance sigma. It is distinct from early-termination theta and penalty scaling alpha. The printed derivative has a sign inconsistency and the printed foot-contact expression is suspicious; neither is silently repaired or certified as implemented.",
+        "evidenceDigest": "d6c866118e8c5a33a9e4e07470522d8a52b751224aff0e60a43f3bd0d611f632"
+      },
+      {
+        "partId": "adaptive-update",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The adaptive passage describes an exponential moving average of tracking error and a non-increasing tolerance update. The algorithmic update supports the prose despite the separate derivative-sign inconsistency; no corrected derivation is invented.",
+        "evidenceDigest": "8437b35bf5977ae694bda6766e4dd141c6c2a89dfa4fe074c07a1a28e56ae857"
+      },
+      {
+        "partId": "distinct-curricula",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The curricula passage separately lowers termination theta and increases regularization alpha. These schedules are not sigma adaptation and do not imply one unified curriculum variable.",
+        "evidenceDigest": "7ca9cae1a247010e54060c58b0dfb2989052690143ab55a0a0834d6ca65fa658"
+      },
+      {
+        "partId": "hardware-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The real-world passage quantitatively evaluates ten Tai Chi trials with inaccessible robot-root state fixed to the origin for evaluation. Three seeds and 1,000 simulation rollouts and the 13-motion dataset are distinct. Dynamic G1 demonstrations do not establish all-motion hardware reliability. Inference uses an external PC over Ethernet/DDS; terrain and obstacle awareness remain limited.",
+        "evidenceDigest": "f2c140e4398ac83c23c8e9d5a4a6bceca94bfbcc4bcfcee755cde0e457175bc2"
+      }
+    ]
+  },
+  {
+    "id": "humanoid-advanced-motion-8-20260908",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "3f74bac056451602ef035292a1aad443bdccdcb9cc560be5d9e709e6fdb77864",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "unified-learning",
+        "text": "GMT trains a unified motion-tracking policy, rather than claiming a merge of pretrained per-skill policies.",
+        "requiredCitationIds": [
+          "gmt-2025"
+        ]
+      },
+      {
+        "id": "adaptive-sampling",
+        "text": "Random re-clipping and completion/tracking-error-dependent probabilities redirect sampling; balanced mastery is not guaranteed.",
+        "requiredCitationIds": [
+          "gmt-2025"
+        ]
+      },
+      {
+        "id": "teacher-soft-moe",
+        "text": "The privileged teacher uses a learned soft MoE gating network combining expert action outputs.",
+        "requiredCitationIds": [
+          "gmt-2025"
+        ]
+      },
+      {
+        "id": "distilled-student",
+        "text": "A deployable observation-history student learns from the teacher through DAgger.",
+        "requiredCitationIds": [
+          "gmt-2025"
+        ]
+      },
+      {
+        "id": "simulation-comparison",
+        "text": "Baseline comparisons and ablations evaluate privileged policies in simulation; real deployment is on Unitree G1.",
+        "requiredCitationIds": [
+          "gmt-2025"
+        ]
+      },
+      {
+        "id": "real-demonstrations",
+        "text": "The paper demonstrates diverse real-world motions; its MDM-generated-motion test is MuJoCo sim-to-sim.",
+        "requiredCitationIds": [
+          "gmt-2025"
+        ]
+      },
+      {
+        "id": "limitations",
+        "text": "Getting up and rolling are unsupported, and the policy has no terrain observations and is not designed for slopes or stairs.",
+        "requiredCitationIds": [
+          "gmt-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+      "rationale": "Final actual replacement wording and all 7 mandatory AND parts reviewed 2026-09-12T21:14:11.114Z. The unified-learning passage learns across reference motions; it does not merge already-trained per-skill policies. The final wording removes the old merger claim. The sampling passage re-clips long motions and updates probabilities using completion and tracking errors; this is more specific than simply mixing easy and hard clips. The teacher architecture uses a learned soft gating network to combine expert action outputs. It is not hard expert selection and does not establish that the deployed student has an MoE architecture. The student passage describes DAgger distillation. Reference lookahead and proprioceptive observation history remain source context; no reference-free or purely reactive deployment is inferred, and the student MoE architecture is not established. The protocol passage locates baseline comparisons and ablations in privileged-policy simulation. These comparisons are not hardware success rates or directly equivalent deployed-student comparisons. The real-world passage supports selected Unitree G1 tracking demonstrations. The separately described MDM-generated-motion tests run in MuJoCo, not demonstrated language-driven hardware generalization. The limitations passage explicitly excludes getting up after falls and rolling, and says tracking was not designed for slopes and stairs. No invented venue, terrain capability or hardware success percentage is added.",
+      "planDigest": "614a5897818f760330a4ac2232b377138b848f132f7fd25de8d696ed128d36fd"
+    },
+    "evidence": [
+      {
+        "partId": "unified-learning",
+        "citationId": "gmt-2025",
+        "sourceUrl": "https://arxiv.org/html/2506.14770",
+        "supportingPassage": "\n###### Abstract\n\nThe ability to track general whole-body motions in the real world is a useful way to build general-purpose humanoid robots.\nHowever, achieving this can be challenging due to the temporal and kinematic diversity of the motions, the policy’s capability, and the difficulty of coordination of the upper and lower bodies.\nTo address these issues, we propose GMT, a general and scalable motion-tracking framework that trains a single unified policy to enable humanoid robots to track diverse motions in the real world. GMT is built upon two core components: an Adaptive Sampling strategy and a Motion Mixture-of-Experts (MoE) architecture.\nThe Adaptive Sampling automatically balances easy and difficult motions during training. The MoE ensures better specialization of different regions of the motion manifold.\nWe show through extensive experiments in both simulation and the real world the effectiveness of GMT, achieving state-of-the-art performance across a broad spectrum of motions using a unified general policy. Videos and additional information can be found at [gmt-humanoid.github.io](https://gmt-humanoid.github.io/ \"\").\n\n|     |\n| --- |\n|  |\n\n![Refer to caption](https://arxiv.org/html/2506.14770v2/teaser-v4.png)Figure 1: We deploy the general unified motion tracking policy on a medium-sized humanoid robot.\n"
+      },
+      {
+        "partId": "adaptive-sampling",
+        "citationId": "gmt-2025",
+        "sourceUrl": "https://arxiv.org/html/2506.14770",
+        "supportingPassage": "\nLeveraging human motion data to develop human-like whole-body behaviors for robots has been extensively studied in character animation. Previous works have achieved high-quality and general motion tracking on simulated characters \\[ [1](https://arxiv.org/html/2506.14770#bib.bib1 \"\"), [3](https://arxiv.org/html/2506.14770#bib.bib3 \"\"), [5](https://arxiv.org/html/2506.14770#bib.bib5 \"\"), [4](https://arxiv.org/html/2506.14770#bib.bib4 \"\")\\], and diverse motion skills for various downstream tasks \\[ [30](https://arxiv.org/html/2506.14770#bib.bib30 \"\"), [2](https://arxiv.org/html/2506.14770#bib.bib2 \"\"), [31](https://arxiv.org/html/2506.14770#bib.bib31 \"\"), [32](https://arxiv.org/html/2506.14770#bib.bib32 \"\"), [33](https://arxiv.org/html/2506.14770#bib.bib33 \"\")\\]. However, due to the partial observability in the real world, developing such whole-body controllers for real robots \\[ [10](https://arxiv.org/html/2506.14770#bib.bib10 \"\"), [34](https://arxiv.org/html/2506.14770#bib.bib34 \"\"), [9](https://arxiv.org/html/2506.14770#bib.bib9 \"\"), [8](https://arxiv.org/html/2506.14770#bib.bib8 \"\"), [7](https://arxiv.org/html/2506.14770#bib.bib7 \"\"), [11](https://arxiv.org/html/2506.14770#bib.bib11 \"\"), [35](https://arxiv.org/html/2506.14770#bib.bib35 \"\"), [36](https://arxiv.org/html/2506.14770#bib.bib36 \"\"), [37](https://arxiv.org/html/2506.14770#bib.bib37 \"\")\\] can be challenging. For developing a unified general whole-body motion tracking controller, some works decouple upper-body and lower-body control to compromise between expressiveness and balance \\[ [10](https://arxiv.org/html/2506.14770#bib.bib10 \"\"), [34](https://arxiv.org/html/2506.14770#bib.bib34 \"\")\\]. HumanPlus \\[ [9](https://arxiv.org/html/2506.14770#bib.bib9 \"\")\\] and OmniH2O \\[ [8](https://arxiv.org/html/2506.14770#bib.bib8 \"\")\\] then successfully enabled whole-body motion imitation on a full-sized robot, but with unnatural movements in the lower body. ExBody2 \\[ [7](https://arxiv.org/html/2506.14770#bib.bib7 \"\")\\] achieved better whole-body tracking performance but with several separate specialist policies. VMP \\[ [35](https://arxiv.org/html/2506.14770#bib.bib35 \"\")\\] demonstrated high-fidelity reproduction of a wide range of skills on the real robot, but its dependency on the mocap system during deployment limits its applicability in the wild.\n\n## 3 Learning General Motion Tracking Controllers\n\n![Refer to caption](https://arxiv.org/html/2506.14770v2/method_v3.png)Figure 3: An overview of GMT. Here 𝒈t{\\\\bm{g}}\\_{t} denotes the motion target frame, 𝒐t{\\\\bm{o}}\\_{t} denotes proprioceptive observation, and 𝒆t{\\\\bm{e}}\\_{t} denotes privileged information.\n\nIn this section, we introduce GMT, a framework for developing general and high-quality motion tracking controllers for real-world humanoid robots. GMT follows the two-stage teacher-student training framework similar to prior works \\[ [7](https://arxiv.org/html/2506.14770#bib.bib7 \"\"), [8](https://arxiv.org/html/2506.14770#bib.bib8 \"\")\\], where a privileged teacher policy is first trained using PPO \\[ [38](https://arxiv.org/html/2506.14770#bib.bib38 \"\")\\], and a student policy is then trained using DAgger\\[ [39](https://arxiv.org/html/2506.14770#bib.bib39 \"\")\\] by imitating the output of the teacher policy.\nFor the following part, we first introduce the core components of our method, which are Adaptive Sampling strategy and Motion MoE architecture. Then we present some key designs that are also crucial for policy learning, including motion input designs and the dataset curation process.\n\n### 3.1 Adaptive Sampling\n\nAs illustrated in Fig. [2](https://arxiv.org/html/2506.14770#S1.F2 \"Figure 2 ‣ 1 Introduction ‣ GMT: General Motion Tracking for Humanoid Whole-Body Control\"), large motion datasets like AMASS \\[ [6](https://arxiv.org/html/2506.14770#bib.bib6 \"\")\\] exhibit significant category unbalance. This unbalance can substantially hinder the learning of less frequent and more complex motions. Moreover, longer sequences within such datasets are often composite motions, consisting of a series of skills that include both basic and challenging segments. Using previous sampling strategies \\[ [5](https://arxiv.org/html/2506.14770#bib.bib5 \"\"), [3](https://arxiv.org/html/2506.14770#bib.bib3 \"\")\\], when a policy fails on harder segments, it is still trained on the entire motion sequence — often dominated by easier parts — which results in a low effective sampling rate for the difficult portions.\n\nTo address these issues, we introduce Adaptive Sampling, which consists of two key components:\n\n- •\n\n\nRandom Clipping: Motions longer than 1010 seconds are clipped into several sub-clips, each with a maximum length of 10 seconds. To prevent artifacts at clip transitions, we apply randomized clipping by introducing a random offset of up to 22 seconds. Additionally, all motions are re-clipped periodically during training to further diversify the sampled sub-clips;\n\n- •\n\n\nTracking Performance-based Probabilities: During training, we log the completion level cic\\_{i} of each motion, and terminate episodes when the tracking error exceeds EiE\\_{i}. cic\\_{i} starts at 1010 and decays by multiplying 0.990.99 each time the motion is completed, the minimum value is 11. And Ei=0.25​exp⁡((ci−1)/(10−1)∗log⁡(0.6/0.25))E\\_{i}=0.25\\\\exp((c\\_{i}-1)/(10-1)\\*\\\\log(0.6/0.25)). We then define the sampling level sis\\_{i} of each motion as:\n\n\n\n|     |     |     |     |     |\n| --- | --- | --- | --- | --- |\n|  | si\\\\displaystyle s\\_{i} | ={(min⁡(Emax\\_key\\_body\\_error/0.15,1))5,ci=1,ci,ci>1.\\\\displaystyle=\\\\begin{cases}\\\\left(\\\\min\\\\left(E\\_{\\\\text{max\\\\\\_key\\\\\\_body\\\\\\_error}}/{0.15},1\\\\right)\\\\right)^{5},&c\\_{i}=1,\\\\\\<br>c\\_{i},&c\\_{i}>1.\\\\end{cases} |  | (1) |\n\n\n\nThe actual sampling probability is obtained by normalizing sis\\_{i}.\n\n"
+      },
+      {
+        "partId": "teacher-soft-moe",
+        "citationId": "gmt-2025",
+        "sourceUrl": "https://arxiv.org/html/2506.14770",
+        "supportingPassage": "### 3.2 Motion Mixture-of-Experts\n\nTo enhance the expressiveness of the model, we incorporate a soft MoE module during the training of the teacher policy. An illustration of our model is shown in Fig. [3](https://arxiv.org/html/2506.14770#S3.F3 \"Figure 3 ‣ 3 Learning General Motion Tracking Controllers ‣ GMT: General Motion Tracking for Humanoid Whole-Body Control\"). The policy network consists of a group of expert networks and a gating network. The expert networks take both of the robot state observation and motion targets as input, which output the final action 𝒂t{\\\\bm{a}}\\_{t}. The gating network also takes the same input observations and outputs a probability distribution over all experts. The final action output is a combination of actions sampled from each expert’s individual action distributions:\n𝒂=∑i=1npi​𝒂i,{\\\\bm{a}}=\\\\sum\\_{i=1}^{n}p\\_{i}{\\\\bm{a}}\\_{i},\nwhere pip\\_{i} is the probability of each expert output by the gating network and 𝒂i{\\\\bm{a}}\\_{i} is the output of each expert policy.\n"
+      },
+      {
+        "partId": "distilled-student",
+        "citationId": "gmt-2025",
+        "sourceUrl": "https://arxiv.org/html/2506.14770",
+        "supportingPassage": "### 6.3 Policy Learning\n\nFollowing previous works \\[ [7](https://arxiv.org/html/2506.14770#bib.bib7 \"\"), [8](https://arxiv.org/html/2506.14770#bib.bib8 \"\")\\], we adopt a two-stage training framework. In the first stage, we train a privileged teacher policy that observes both proprioceptive and privileged information, and outputs joint target actions 𝒂^t\\\\hat{{\\\\bm{a}}}\\_{t}, optimized using PPO \\[ [38](https://arxiv.org/html/2506.14770#bib.bib38 \"\")\\]. In the second stage, we train a deployable student policy that takes as input a sequence of proprioceptive observation history, and is supervised by the teacher policy through DAgger \\[ [39](https://arxiv.org/html/2506.14770#bib.bib39 \"\")\\]. The student policy is optimized by minimizing the ℓ2\\\\ell\\_{2} loss between its output 𝒂t{\\\\bm{a}}\\_{t} and the teacher’s output 𝒂t^\\\\hat{{\\\\bm{a}}\\_{t}} according to ‖𝒂t^−𝒂‖22\\\\\\|\\\\hat{{\\\\bm{a}}\\_{t}}-{\\\\bm{a}}\\\\\\|\\_{2}^{2}.\n\n### 6.4 Observations and Actions\n\nFor the teacher policy observations consist of proprioception 𝒐t{\\\\bm{o}}\\_{t}, privileged information 𝒆t{\\\\bm{e}}\\_{t}, and motion targets 𝒈{\\\\bm{g}}. 𝒐t{\\\\bm{o}}\\_{t} consists of root angular velocity (3 dims), root roll and pitch (2 dims), joint positions (23 dims), joint velocities (23 dims), and last action (23 dims). 𝒆t{\\\\bm{e}}\\_{t} consists of root linear velocity (3 dims), root height (1 dim), key body positions, feet contact mask (2 dims), mass randomization params (6 dim), and motor strength (46 dims). For the student policy, observation consists of proprioception 𝒐t{\\\\bm{o}}\\_{t}, proprioception history 𝒐t−20,…,𝒐t{\\\\bm{o}}\\_{t-20},\\\\dots,{\\\\bm{o}}\\_{t}, and motion targets 𝒈{\\\\bm{g}}.\n\nThe output action is target joint positions.\n"
+      },
+      {
+        "partId": "simulation-comparison",
+        "citationId": "gmt-2025",
+        "sourceUrl": "https://arxiv.org/html/2506.14770",
+        "supportingPassage": "### 4.1 Experimental Setups\n\nWe evaluate GMT in both simulation and real-world settings. For simulation experiments, each policy is trained using approximately 6.86.8 billion samples with domain randomization \\[ [42](https://arxiv.org/html/2506.14770#bib.bib42 \"\")\\] and action delay \\[ [43](https://arxiv.org/html/2506.14770#bib.bib43 \"\")\\], on a filtered subset of the AMASS and LAFAN1 \\[ [40](https://arxiv.org/html/2506.14770#bib.bib40 \"\")\\] datasets; and evaluated on AMASS test set \\[ [3](https://arxiv.org/html/2506.14770#bib.bib3 \"\")\\] and LAFAN1. We use IsaacGym \\[ [44](https://arxiv.org/html/2506.14770#bib.bib44 \"\")\\] as the simulator and the number of parallel environments is 40964096. For ablation studies and baseline comparisons, we focus on evaluating the performance of the privileged policy, as the deployable student policy is trained solely through imitation of the privileged teacher. For real-world experiments, we deploy our policy on Unitree G1 \\[ [45](https://arxiv.org/html/2506.14770#bib.bib45 \"\")\\], a medium-sized humanoid robot with 2323 DoFs and a height of 1.321.32 meters.\nThe policy tracking performance is quantitatively evaluated with: 1)EmpkpeE\\_{\\\\text{mpkpe}}, mean per keybody position error, in m​mmm; 2)EmpjpeE\\_{\\\\text{mpjpe}}, mean per joint position error, in r​a​drad; 3)EvelE\\_{\\\\text{vel}}, linear velocity error, in m/sm/s; 4)Eyaw velE\\_{\\\\text{yaw vel}}, yaw velocity error, in r​a​d/srad/s.\n\n### 4.2 Baselines\n\nWe compare GMT’s performance with ExBody2 \\[ [7](https://arxiv.org/html/2506.14770#bib.bib7 \"\")\\] in simulation. We re-implement ExBody2 and train it on our filtered dataset. From table [2](https://arxiv.org/html/2506.14770#S4.T2 \"Table 2 ‣ 4.2 Baselines ‣ 4 Experiments ‣ GMT: General Motion Tracking for Humanoid Whole-Body Control\"), we found that GMT outperforms ExBody2 on both local tracking performance (EmpkpeE\\_{\\\\text{mpkpe}} and EmpjpeE\\_{\\\\text{mpjpe}}) and global tracking performance (EvelE\\_{\\\\text{vel}} and Eyaw velE\\_{\\\\text{yaw vel}}).\n\nTable 2: Simulation evaluation of trained policies on AMASS-test and LAFAN dataset. All policies are trained on our filtered AMASS+LAFAN dataset. For all the baseline comparison and ablation studies, we only compare the performance of privileged policies.\n\n|  | AMASS-Test | LAFAN1 |\n| Method | EmpkpeE\\_{\\\\text{mpkpe}}↓\\\\downarrow | EmpjpeE\\_{\\\\text{mpjpe}}↓\\\\downarrow | EvelE\\_{\\\\text{vel}}↓\\\\downarrow | Eyaw velE\\_{\\\\text{yaw vel}}↓\\\\downarrow | EmpkpeE\\_{\\\\text{mpkpe}}↓\\\\downarrow | EmpjpeE\\_{\\\\text{mpjpe}}↓\\\\downarrow | EvelE\\_{\\\\text{vel}}↓\\\\downarrow | Eyaw velE\\_{\\\\text{yaw vel}}↓\\\\downarrow |\n| Teacher & Student |  |  |  |  |  |  |  |  |\n"
+      },
+      {
+        "partId": "real-demonstrations",
+        "citationId": "gmt-2025",
+        "sourceUrl": "https://arxiv.org/html/2506.14770",
+        "supportingPassage": "### 4.4 Real-World Deployment\n\nAs shown in Fig. [1](https://arxiv.org/html/2506.14770#S0.F1 \"Figure 1 ‣ GMT: General Motion Tracking for Humanoid Whole-Body Control\"), we successfully deploy our policy on a real-world humanoid robot, reproducing a wide range of human motions — including stylized walking, high kicking, dancing, spinning, crouch walking, soccer kicking, and many others — with high fidelity and state-of-the-art performance. For more detailed deployment results, please refer to the [project website](https://gmt-humanoid.github.io/ \"\").\n\n### 4.5 Applications - Tracking MDM-Generated Motions\n\nWe test our policy with motion diffusion model (MDM) \\[ [46](https://arxiv.org/html/2506.14770#bib.bib46 \"\")\\] generated motions in MuJoCo \\[ [47](https://arxiv.org/html/2506.14770#bib.bib47 \"\")\\] sim-to-sim settings. Results in Fig. [7](https://arxiv.org/html/2506.14770#S4.F7 \"Figure 7 ‣ 4.5 Applications - Tracking MDM-Generated Motions ‣ 4 Experiments ‣ GMT: General Motion Tracking for Humanoid Whole-Body Control\") show that GMT can perform well on motions generated with MDM by text prompts, proving the potential of GMT to be applied to other downstream tasks.\n\n![Refer to caption](https://arxiv.org/html/2506.14770v2/mdm-snaps.png)Figure 7: Motion tracking on MDM-generated motions.\n"
+      },
+      {
+        "partId": "limitations",
+        "citationId": "gmt-2025",
+        "sourceUrl": "https://arxiv.org/html/2506.14770",
+        "supportingPassage": "## 6 Limitations\n\nWhile GMT achieves state-of-the-art performance as a unified, general motion tracking controller, it still has several limitations:\n\n- •\n\n\nLack of Contact-Rich Skills. Due to the significant additional simulation complexity required to model contact-rich behaviors \\[ [28](https://arxiv.org/html/2506.14770#bib.bib28 \"\")\\], along with hardware limitations, our framework does not currently support skills such as getting up from a fallen state or rolling on the ground.\n\n- •\n\n\nLimitations on Challenging Terrains. Our current policy is trained without any terrain observations and is not designed for imitation on challenging terrains like slopes and stairs. In future work, we aim to extend our framework to develop a general and robust controller capable of operating across both flat and challenging terrains.\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "unified-learning",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The unified-learning passage learns across reference motions; it does not merge already-trained per-skill policies. The final wording removes the old merger claim.",
+        "evidenceDigest": "57b6a122ee3a6dfa1ccc704b5a0b9cc46694e5c833bd1b47fbe3db00487e086e"
+      },
+      {
+        "partId": "adaptive-sampling",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The sampling passage re-clips long motions and updates probabilities using completion and tracking errors; this is more specific than simply mixing easy and hard clips.",
+        "evidenceDigest": "af7baa7eaeb5c107bcb24ebb714237556ec46e5d235d2d27d7d9810214260b38"
+      },
+      {
+        "partId": "teacher-soft-moe",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The teacher architecture uses a learned soft gating network to combine expert action outputs. It is not hard expert selection and does not establish that the deployed student has an MoE architecture.",
+        "evidenceDigest": "e7815f9b699381d7fd96c365651200243b4636e5bf82394f9c653842e74c6cbe"
+      },
+      {
+        "partId": "distilled-student",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The student passage describes DAgger distillation. Reference lookahead and proprioceptive observation history remain source context; no reference-free or purely reactive deployment is inferred, and the student MoE architecture is not established.",
+        "evidenceDigest": "da52c888ed68b706fd66f2286e1ebcbbe917f0c44a77c3232e27fbbc82f15ede"
+      },
+      {
+        "partId": "simulation-comparison",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The protocol passage locates baseline comparisons and ablations in privileged-policy simulation. These comparisons are not hardware success rates or directly equivalent deployed-student comparisons.",
+        "evidenceDigest": "02aac0cf62262af15ec50a0a9516e6b969bca3c4268f096aba4b4ceb67e79b21"
+      },
+      {
+        "partId": "real-demonstrations",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The real-world passage supports selected Unitree G1 tracking demonstrations. The separately described MDM-generated-motion tests run in MuJoCo, not demonstrated language-driven hardware generalization.",
+        "evidenceDigest": "63bd2108376313ca791d47fef1ecb2bf343f1a918b9cfc9badf1903ecb965259"
+      },
+      {
+        "partId": "limitations",
+        "outcome": "supported",
+        "reviewedBy": "agent:9c217dee-f8b8-4eee-ba5d-9e6352edcaff/integrator",
+        "rationale": "Review 2026-09-12T21:14:11.114Z: The limitations passage explicitly excludes getting up after falls and rolling, and says tracking was not designed for slopes and stairs. No invented venue, terrain capability or hardware success percentage is added.",
+        "evidenceDigest": "05fb3744bc4c90898919622b9e3865ca869c6bd28dd3c2a00668bf893fd5711f"
+      }
+    ]
   }
 ]

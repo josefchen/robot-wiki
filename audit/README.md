@@ -1,6 +1,71 @@
 # Content-integrity audit trail
 
-## Current checkpoint: eight Newton/engine originals integrated (2026-09-12)
+## Current checkpoint: three advanced-motion originals integrated (2026-09-12)
+
+**458 complete / 536 incomplete / 994 originals / 47 articles**; RL is
+**112 complete / 55 incomplete / 167 originals**. Applied exactly
+`audit/rl-sim2real.md:humanoid-wbc:6` (ExBody2), `:7` (KungfuBot), and `:8`
+(GMT), all corrected. Each independently satisfies its native prerequisites.
+**19 mandatory AND parts / 19 paired items; 364 plans / 453 approvals**.
+One exact fresh-input prose approval appends; no other member changes.
+
+**Zero new retrieval.** Three retained documents, six September 8 FetchUrl
+responses, and all 38 indexed literal ranges were verified against original
+full tool bodies and request/result events. Source packet: 44 payloads /
+1,464,572 bytes / 47 files including three excluded seal controls. Body result
+UTC times: ExBody2 10:22:27.945, KungfuBot 10:22:38.037, GMT 10:22:48.895;
+metadata 10:23:00.730, 10:23:12.973, 10:23:26.216. Unversioned HTML bodies
+self-identify v2/v3/v2, respectively. These tool-reported 200 responses are
+not separately pinned origin GETs, observed origin redirect chains or current
+liveness. The source-only reviews remain distinct from actual current native
+reviews; 84 historical source fixtures are not current product tests.
+
+ExBody2 separates global-target drift, initial-policy filtering, PPO teacher,
+history-based student and unresolved specialist transitions. KungfuBot is
+per-motion and separates tracking tolerance, termination threshold and penalty
+scaling; quantitative hardware evidence is ten Tai Chi trials with the root
+fixed to the origin for evaluation. GMT uses unified learning, not policy
+merging; teacher soft-MoE action mixing, student distillation, simulation
+comparisons, selected hardware demonstrations and limitations stay distinct.
+Source privilege-schema, derivative-sign and foot-contact-expression issues,
+external-PC inference, reference/history and generated-motion scope remain
+explicit in native notes and actual reviews, not silently reconciled.
+Registry metadata, citation union, URLs and lastReviewed are unchanged.
+
+The measured ASAP mobile containment defect is repaired with an article-local
+max-sm offset of 96px; ExBody2's newly exposed overflow uses 112px. No shared
+renderer or desktop style changes. Final hover/focus containment, source-link
+hit tests, keyboard reference jumps, full seven-/six-author bylines, KungfuBot's
+nine-author expand/collapse and preserved WBC controls pass at 375x812 and
+1440x900. **Final reader invocation: 20/20 passed**. Earlier red proof: ASAP
+right454 at375; intermediate reader run 19/20, ExBody2 right478. A required
+neutral-wording repair changed layout, so the final20 were requalified.
+
+Sequential actual gates used NODE_DISABLE_COMPILE_CACHE=1: new prose red4/4;
+new native test draft exposed and corrected a schema-binding error; final
+**150/150 unit/component tests across six files**, normal prelint/lint,
+source-only no-slop over47 MDX, route typegen and nonincremental TypeScript
+all pass. The full offline content lifecycle remains **RED: 541 findings plus
+nine separate citation gaps**, exit1. No fresh export or build/card pass.
+Native preservation verifies all455 prior completions,991 unselected semantic
+records,361 old plans,452 old approvals and their metadata/serialized prefixes,
+and all44 unrelated baseline failure objects/order. Wrong old/new hash, stale
+and missing-approval controls reject. All994 identities and old histories,
+protected ancestors d282a83/2cf7d6b and owner files remain preserved.
+Both owned loopback runtimes stopped with actual exit0; next.config.ts,
+tsconfig.json and next-env.d.ts were restored byte-exactly.
+
+Six PNGs were directly Read-inspected: two failure captures and four final
+captures (ExBody2 mobile focus, ASAP mobile focus, KungfuBot mobile expanded,
+GMT desktop byline). Other captures are not visually certified. Development
+UI remains visible. No full reference-rubric, Axe, contrast, glyph/cmap, Tab
+order, current export/card corpus, whole-P1 or independent acceptance credit.
+Existing acceptance owners retain those boundaries. No push or deployment.
+Evidence is retained in `convergence-advanced-motion-integration-20260912`
+under the existing Mission source-recovery directory.
+
+
+## Previous checkpoint: eight Newton/engine originals integrated (2026-09-12)
 
 **455 complete / 539 incomplete / 994 originals / 47 articles**; RL is
 **109 complete / 58 incomplete / 167 originals**. Applied only
