@@ -36347,5 +36347,441 @@
         "evidenceDigest": "88af087895a76734312bb98993f40aaa9fa4ecd4f3d526d08d99f81ad1651f39"
       }
     ]
+  },
+  {
+    "id": "ifr-industrial-1-20260912",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 1,
+    "originalCellsDigest": "b42e686a6c85ce5f4dbc19682d1b29e8cd5d753975267c5f8ea7deaf13964a5a",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "global-stock",
+        "text": "The source's 2024 operational stock is exactly 4,663,698 industrial robots; prose and Stat carry the same year and value.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+      "rationale": "Actual current review 2026-09-12T23:11:43.685Z; all 1 mandatory AND parts, sources and composed correction reviewed. Printed page 13 explicitly computes operational stock at 4,663,698 in 2024. This stock is distinct from annual new installations; exact prose and Stat now use the same year/value.",
+      "planDigest": "bf84af348b04076a7cfb073d50680fd35c92c0410e76ef52778bef626587e888"
+    },
+    "evidence": [
+      {
+        "partId": "global-stock",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "In 2024, the operational stock of industrial robots was computed at 4,663,698 units\n(+9%). Since 2019, the operational stock of industrial robots had been increasing by 11%\non average each year."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "global-stock",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: Printed page 13 explicitly computes operational stock at 4,663,698 in 2024. This stock is distinct from annual new installations; exact prose and Stat now use the same year/value.",
+        "evidenceDigest": "ce6954bd44242115407c9aad28373657741c0b312cca68de47969f97cd398588"
+      }
+    ]
+  },
+  {
+    "id": "ifr-industrial-2-20260912",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "6c5daffac73ac835766a55fb13033afaf754aca426f1527c8013c04272226d5b",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "four-year-chronology",
+        "text": "Each of 2021, 2022, 2023 and 2024 exceeded 500,000 annual installations; no exact 2021 count is invented.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025"
+        ]
+      },
+      {
+        "id": "installations-2024",
+        "text": "The 2024 installation count is 542,076; it is annual flow and the Stat's fourth-year note is 2021–2024.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+      "rationale": "Actual current review 2026-09-12T23:11:43.685Z; all 2 mandatory AND parts, sources and composed correction reviewed. Page 13 says 2021 first exceeded half a million, gives 552,946 for 2022, 541,302 for 2023 and 542,076 for 2024. All four exceed 500,000; no exact 2021 count is asserted. The opening installation paragraph explicitly states 542,076 robots installed in 2024; this is a flow, not global stock. The Stat chronology is 2021–2024.",
+      "planDigest": "b319de7bdf1c1de271ad0770e9e0f2d74a9a93af65d3b6d1c606885e9e114754"
+    },
+    "evidence": [
+      {
+        "partId": "four-year-chronology",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "542,076 robots installed in 2024. Annual robot installations established above the\n500,000-unit mark. In 2021, more than half a million new installations of industrial robots\nwere recorded for the first time. In 2022, the record level of 552,946 units was achieved.\nDespite challenging macroeconomic conditions, installation counts were just 2% down\nin 2023 (541,302 units) and remained at this level in 2024."
+      },
+      {
+        "partId": "installations-2024",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "542,076 robots installed in 2024. Annual robot installations established above the\n500,000-unit mark. In 2021, more than half a million new installations of industrial robots\nwere recorded for the first time. In 2022, the record level of 552,946 units was achieved.\nDespite challenging macroeconomic conditions, installation counts were just 2% down\nin 2023 (541,302 units) and remained at this level in 2024."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "four-year-chronology",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: Page 13 says 2021 first exceeded half a million, gives 552,946 for 2022, 541,302 for 2023 and 542,076 for 2024. All four exceed 500,000; no exact 2021 count is asserted.",
+        "evidenceDigest": "ac851fd0a3da8e0f174c5de38bda82e3509b8e694572b46b9be2a76ac89a9f12"
+      },
+      {
+        "partId": "installations-2024",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: The opening installation paragraph explicitly states 542,076 robots installed in 2024; this is a flow, not global stock. The Stat chronology is 2021–2024.",
+        "evidenceDigest": "e09efadc867e16c7fa7a4b166aaff97d2d3b52773aba07f764143c54f95ff53b"
+      }
+    ]
+  },
+  {
+    "id": "ifr-industrial-3-20260912",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "b487369a33e40ec495b3357672294713a78b6580e13bab1104640c5aa19851c6",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "electronics",
+        "text": "Electrical/electronics accounts for 128,899 installations in 2024, reported as 24 percent.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025"
+        ]
+      },
+      {
+        "id": "automotive-units",
+        "text": "The 2024 chart and automotive narrative both give 126,088 automotive installations.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025"
+        ]
+      },
+      {
+        "id": "automotive-conflict",
+        "text": "The source disagrees internally: automotive 23 percent on page 13 and 24 percent on page 16; neither statement is silently suppressed.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025"
+        ]
+      },
+      {
+        "id": "metal",
+        "text": "Metal and machinery has 88,777 installations in 2024, reported as 16 percent.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025"
+        ]
+      },
+      {
+        "id": "denominator-and-unspecified",
+        "text": "The denominator is all 2024 industrial-robot installations, 542,076; the report says customer industry is unspecified for 14 percent.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025"
+        ]
+      },
+      {
+        "id": "industry-not-application",
+        "text": "The inspected summary groups the displayed global counts by customer industry; these shares are not application-family shares.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+      "rationale": "Actual current review 2026-09-12T23:11:43.685Z; all 6 mandatory AND parts, sources and composed correction reviewed. Printed pages 15 and 16 give 128,899 electrical/electronics installations in 2024; page 16 reports the rounded 24 percent share. The chart on printed page 15 and narrative on page 16 agree on 126,088 automotive installations in 2024. I inspected the retained chart image and its year legend as well as extracted text. Page 13 prints automotive 23 percent while page 16 prints 24 percent in 2024. Both are represented explicitly. Arithmetic about 23.26 percent does not silently resolve the publisher disagreement; this original is recorded inconsistency, not a single-value verified verdict. Page 16 explicitly gives 88,777 metal/machinery installations and a reported 16 percent share for 2024; the chart agrees. The installation paragraph supplies the 542,076 global 2024 denominator and says there is no customer-industry information for 14 percent. Unspecified industry is not an invented application category. The printed page 15 chart title is Annual installations of industrial robots by customer industry - World. Its seven categories describe customers, not robot task families.",
+      "planDigest": "f3b513a5b23c6b4a966ca1a54cd86a763191d3fee46cf42980130771894c9636"
+    },
+    "evidence": [
+      {
+        "partId": "electronics",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "The latest switch took place in 2024, when the electrical/electronics industry\nreclaimed the lead. Installations were up 2% to 128,899 units. The share of the total\ninstallations was up 1 percentage point to 24%. Demand for electronics for all kinds of\nengineering, including automotive and industrial machinery and for consumer\nelectronics, has been growing strongly for many years. Global production capacity has\nbeen ramped up and so has the industry’s robot demand. From 2019 to 2024, the\ncompound annual growth rate (CAGR) was +8%."
+      },
+      {
+        "partId": "automotive-units",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "Annual installations of industrial robots by customer industry - World\n                                                     units\n\n\n                                                                                           128,899\n         Electrical/electronics                                                           125,804\n                                                                                                         156,920\n                                                                                          126,088\n                  Automotive                                                                  135,461\n                                                                                               136,112\n                                                                         88,777\n        Metal and machinery                                         76,831\n                                                               66,115\n                                       26,491\nPlastic and chemical products        22,402\n                                     23,540\n                                     20,792\n                         Food     14,685\n                                  15,107\n                                                                       77,752\n                    All others                                        74,838\n                                                             60,997\n                                                                  73,277\n                  Unspecified                                                   91,281\n                                                                                 94,155\n\n                                              2024    2023      2022                       Source: World Robotics 2025\n\n[Separate literal excerpt from the same fetched document; editorial separator]\n\nThe automotive industry was the second largest customer of industrial robots in 2024,\njust some 2,800 units shy of the electronics industry. Demand was down 7% to 126,088\nunits. The automotive industry invested in the transition from combustion engines to\nalternative drives, but decreasing demand for battery electric vehicles currently limits the\nneed for capacity expansion. From 2019 to 2024, annual installations in the automotive\nindustry increased by 5% on average each year (CAGR). After several years of\ncontinuous decline, down to 21% in 2020, the share of the automotive industry in the\ntotal installations was 25% in 2022 and 2023 and 24% in 2024."
+      },
+      {
+        "partId": "automotive-conflict",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "Slightly growing demand from\nthe electronics industry and the general industry offset a contraction of demand from the\nautomotive industry. In 2024, the electronics accounted for 24% of the installations (+1\npp), whereas the automotive industry had a 23% share (-2 pp). The metal and machinery\nindustry retained its third place and increased its share to 16% (+2 pp), followed by the\nplastic and chemical products industry (5%) and the food and beverage industry (4%).\nNote that for 14% of the robot installations (-3 pp), there is no information available on\nthe customer industry.\n\n[Separate literal excerpt from the same fetched document; editorial separator]\n\nThe automotive industry was the second largest customer of industrial robots in 2024,\njust some 2,800 units shy of the electronics industry. Demand was down 7% to 126,088\nunits. The automotive industry invested in the transition from combustion engines to\nalternative drives, but decreasing demand for battery electric vehicles currently limits the\nneed for capacity expansion. From 2019 to 2024, annual installations in the automotive\nindustry increased by 5% on average each year (CAGR). After several years of\ncontinuous decline, down to 21% in 2020, the share of the automotive industry in the\ntotal installations was 25% in 2022 and 2023 and 24% in 2024."
+      },
+      {
+        "partId": "metal",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "The metal and machinery industry established itself as the third largest customer\nindustry and accounted for 16% of all installations in 2024. Both producers of metal\nproducts and producers of industrial machinery have installed substantial amounts of\nrobots in recent years. From 2019 to 2024, installations in the metal and machinery\nindustry increased by 12% on average each year. In 2024, installations were up 16% to\na new peak level of 88,777 units."
+      },
+      {
+        "partId": "denominator-and-unspecified",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "542,076 robots installed in 2024. Annual robot installations established above the\n500,000-unit mark. In 2021, more than half a million new installations of industrial robots\nwere recorded for the first time. In 2022, the record level of 552,946 units was achieved.\nDespite challenging macroeconomic conditions, installation counts were just 2% down\nin 2023 (541,302 units) and remained at this level in 2024.\n\n[Separate literal excerpt from the same fetched document; editorial separator]\n\nSlightly growing demand from\nthe electronics industry and the general industry offset a contraction of demand from the\nautomotive industry. In 2024, the electronics accounted for 24% of the installations (+1\npp), whereas the automotive industry had a 23% share (-2 pp). The metal and machinery\nindustry retained its third place and increased its share to 16% (+2 pp), followed by the\nplastic and chemical products industry (5%) and the food and beverage industry (4%).\nNote that for 14% of the robot installations (-3 pp), there is no information available on\nthe customer industry."
+      },
+      {
+        "partId": "industry-not-application",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "Annual installations of industrial robots by customer industry - World\n                                                     units\n\n\n                                                                                           128,899\n         Electrical/electronics                                                           125,804\n                                                                                                         156,920\n                                                                                          126,088\n                  Automotive                                                                  135,461\n                                                                                               136,112\n                                                                         88,777\n        Metal and machinery                                         76,831\n                                                               66,115\n                                       26,491\nPlastic and chemical products        22,402\n                                     23,540\n                                     20,792\n                         Food     14,685\n                                  15,107\n                                                                       77,752\n                    All others                                        74,838\n                                                             60,997\n                                                                  73,277\n                  Unspecified                                                   91,281\n                                                                                 94,155\n\n                                              2024    2023      2022                       Source: World Robotics 2025"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "electronics",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: Printed pages 15 and 16 give 128,899 electrical/electronics installations in 2024; page 16 reports the rounded 24 percent share.",
+        "evidenceDigest": "3c3b3baaa25abe252ac35b62401a10c4e123c4571ad659b99263ed44bcebc043"
+      },
+      {
+        "partId": "automotive-units",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: The chart on printed page 15 and narrative on page 16 agree on 126,088 automotive installations in 2024. I inspected the retained chart image and its year legend as well as extracted text.",
+        "evidenceDigest": "a3bc45743d73643ab3debae34b019f9c3a14ea9b565f048dadd2538a0fc7f4d2"
+      },
+      {
+        "partId": "automotive-conflict",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: Page 13 prints automotive 23 percent while page 16 prints 24 percent in 2024. Both are represented explicitly. Arithmetic about 23.26 percent does not silently resolve the publisher disagreement; this original is recorded inconsistency, not a single-value verified verdict.",
+        "evidenceDigest": "8816fe1f4bd75639000b976aff716bffa76f081c6cdfb53be22103cfa6a2d026"
+      },
+      {
+        "partId": "metal",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: Page 16 explicitly gives 88,777 metal/machinery installations and a reported 16 percent share for 2024; the chart agrees.",
+        "evidenceDigest": "5dd137fdf1c27fcdd698d106cbab020bd9b7d8fd0e0a5947ca13a39cbfd6849c"
+      },
+      {
+        "partId": "denominator-and-unspecified",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: The installation paragraph supplies the 542,076 global 2024 denominator and says there is no customer-industry information for 14 percent. Unspecified industry is not an invented application category.",
+        "evidenceDigest": "daab38f90e38ff0249ef93c7d047e1dd7b0990d67dd83c937fe4c336593cab8c"
+      },
+      {
+        "partId": "industry-not-application",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: The printed page 15 chart title is Annual installations of industrial robots by customer industry - World. Its seven categories describe customers, not robot task families.",
+        "evidenceDigest": "53ad8b8639b36184413bbc6340aef8250515e666b8bd8a75b2aae1d98f7383f7"
+      }
+    ]
+  },
+  {
+    "id": "ifr-industrial-4-20260912",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 4,
+    "originalCellsDigest": "612dffe577493b05b8946a184516231d9f3d3baae0bf8b8be97381460287ca98",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "china-stock-year",
+        "text": "China's operational stock is 2,027,190 units in 2024, not a 2026 count.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025"
+        ]
+      },
+      {
+        "id": "japan-rank-and-ratio",
+        "text": "Japan's 2024 operational stock is 450,530; the IFR release calls Japan global number two and gives China's stock as approximately 4.5 times as large.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025",
+          "ifr-china-five-year-plan-2026"
+        ]
+      },
+      {
+        "id": "china-installation-share-year",
+        "text": "China receives 295,045 new installations in 2024; the published rounded share is 54 percent of global annual installations, not stock.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025",
+          "ifr-china-five-year-plan-2026"
+        ]
+      },
+      {
+        "id": "release-date-and-report-context",
+        "text": "The IFR release is dated May 5, 2026 and attributes its rounded figures to World Robotics 2025 rather than reporting a fresh 2026 robot count.",
+        "requiredCitationIds": [
+          "ifr-china-five-year-plan-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+      "rationale": "Actual current review 2026-09-12T23:11:43.685Z; all 4 mandatory AND parts, sources and composed correction reviewed. Pages 13–14 give China 2,027,190 and Japan 450,530 operational units in 2024. The later press release is not a new 2026 measurement. The PDF supplies the exact same-year stocks; the May 5 release calls Japan global number two and gives China an approximate 4.5 ratio. Wording is times the stock, not the ambiguous times more. Page 14 gives China 295,045 new installations in 2024 and a reported rounded 54 percent of global installations. The release repeats 54 percent; both required source pairs remain. This is not the 43 percent stock share. The retained complete FetchUrl response has the May 05, 2026 dateline and explicitly attributes the rounded figures to World Robotics 2025. Corporate IFR attribution is supported; Carsten Heer is a press contact, not a personal byline.",
+      "planDigest": "f40c1f60dc0fb3a22af6de459862d2e26ab5355bc9b129bf668e1f9084f6a0a1"
+    },
+    "evidence": [
+      {
+        "partId": "china-stock-year",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "China’s operational stock of industrial robots, which had been growing impressively by\n21% on average each year since 2019, exceeded the one-million-unit mark in 2021 and\nthe 1.5-million-unit mark in 2022. In 2024, the two-million-unit mark was surpassed:\n2,027,190 units represented 43% of the global stock. The Japanese operational stock\n\f14                  Executive summary World Robotics 2025 Industrial Robots\n\nwas 450,530 units in 2024, representing 10% of the global stock."
+      },
+      {
+        "partId": "japan-rank-and-ratio",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "China’s operational stock of industrial robots, which had been growing impressively by\n21% on average each year since 2019, exceeded the one-million-unit mark in 2021 and\nthe 1.5-million-unit mark in 2022. In 2024, the two-million-unit mark was surpassed:\n2,027,190 units represented 43% of the global stock. The Japanese operational stock\n\f14                  Executive summary World Robotics 2025 Industrial Robots\n\nwas 450,530 units in 2024, representing 10% of the global stock."
+      },
+      {
+        "partId": "japan-rank-and-ratio",
+        "citationId": "ifr-china-five-year-plan-2026",
+        "sourceUrl": "https://ifr.org/ifr-press-releases/news/china-makes-ai-powered-robots-core-of-national-strategy",
+        "supportingPassage": "_Frankfurt, May 05, 2026 —_ China has launched its 15th Five-Year Plan by placing robotics at the heart of its modern industrial system. The aim is to pivot its AI research towards physical applications with robots as main drivers for economic growth. This is a next step in the country´s strong automation development: China´s manufacturing industry already has an operational stock of around 2 million units — approximately 4.5 times more than the global no. 2, Japan. 54% of annual industrial robots installed worldwide were deployed in China. This is according to the World Robotics 2025 Report, presented by the International Federation of Robotics (IFR)."
+      },
+      {
+        "partId": "china-installation-share-year",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "Three of the top five markets for industrial robots are in Asia: China is by far the largest\nmarket. More than every other robot (54%) installed worldwide in 2024 ended up in\nChina: Installations were up 7% to 295,045 units. Installations in Japan were down 4%\nto 44,453 units."
+      },
+      {
+        "partId": "china-installation-share-year",
+        "citationId": "ifr-china-five-year-plan-2026",
+        "sourceUrl": "https://ifr.org/ifr-press-releases/news/china-makes-ai-powered-robots-core-of-national-strategy",
+        "supportingPassage": "_Frankfurt, May 05, 2026 —_ China has launched its 15th Five-Year Plan by placing robotics at the heart of its modern industrial system. The aim is to pivot its AI research towards physical applications with robots as main drivers for economic growth. This is a next step in the country´s strong automation development: China´s manufacturing industry already has an operational stock of around 2 million units — approximately 4.5 times more than the global no. 2, Japan. 54% of annual industrial robots installed worldwide were deployed in China. This is according to the World Robotics 2025 Report, presented by the International Federation of Robotics (IFR)."
+      },
+      {
+        "partId": "release-date-and-report-context",
+        "citationId": "ifr-china-five-year-plan-2026",
+        "sourceUrl": "https://ifr.org/ifr-press-releases/news/china-makes-ai-powered-robots-core-of-national-strategy",
+        "supportingPassage": "# China Makes AI-powered Robots Core of National Strategy\n\n### China´s 15th Five-Year Plan (2026-2030) marks pivot to innovation\n\n[Separate literal excerpt from the same fetched document; editorial separator]\n\n_Frankfurt, May 05, 2026 —_ China has launched its 15th Five-Year Plan by placing robotics at the heart of its modern industrial system. The aim is to pivot its AI research towards physical applications with robots as main drivers for economic growth. This is a next step in the country´s strong automation development: China´s manufacturing industry already has an operational stock of around 2 million units — approximately 4.5 times more than the global no. 2, Japan. 54% of annual industrial robots installed worldwide were deployed in China. This is according to the World Robotics 2025 Report, presented by the International Federation of Robotics (IFR)."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "china-stock-year",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: Pages 13–14 give China 2,027,190 and Japan 450,530 operational units in 2024. The later press release is not a new 2026 measurement.",
+        "evidenceDigest": "ee0afbe8690dea2cf01f592d2605175f4e3bb44ccb63d34e0e00e8c2b1f33dcd"
+      },
+      {
+        "partId": "japan-rank-and-ratio",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: The PDF supplies the exact same-year stocks; the May 5 release calls Japan global number two and gives China an approximate 4.5 ratio. Wording is times the stock, not the ambiguous times more.",
+        "evidenceDigest": "22b2d64c2f9a63232089ac3d2a6483a357902593e362b3b35742a98eda6a210b"
+      },
+      {
+        "partId": "china-installation-share-year",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: Page 14 gives China 295,045 new installations in 2024 and a reported rounded 54 percent of global installations. The release repeats 54 percent; both required source pairs remain. This is not the 43 percent stock share.",
+        "evidenceDigest": "a21a4419a581c37c65d6d22afd478eee383eac470feb4bb6ad717004aab8d0a4"
+      },
+      {
+        "partId": "release-date-and-report-context",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: The retained complete FetchUrl response has the May 05, 2026 dateline and explicitly attributes the rounded figures to World Robotics 2025. Corporate IFR attribution is supported; Carsten Heer is a press contact, not a personal byline.",
+        "evidenceDigest": "190975d936208d8507d654cd1e38f12ad1124e2b22b7cd1f6f2301d053969e74"
+      }
+    ]
+  },
+  {
+    "id": "industrial-applications-13-retained-20260912",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "9e3d6921838371bef33b4a9b29e3ac5339447e5f6ab675346e649918a81b18e1",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "retained-osha-uses",
+        "text": "The proposed current use examples are all in OSHA’s non-exhaustive industrial robot guidance, with machine-tool loading/unloading rather than a broader machine-tending gloss. No task-frequency, dominance or exhaustive-list inference is retained.",
+        "requiredCitationIds": [
+          "osha-otm-robots"
+        ]
+      },
+      {
+        "id": "source-scoped-rank-cut",
+        "text": "The current worldwide application-family ranking is cut rather than certified. EVST actually repeats it with an IFR attribution; its commercial-guide body is evidence of that attribution, not primary world-ranking evidence. Review of the full retained IFR extract establishes only the scoped lack of a substantiating task ranking here, not absence from all IFR publications.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025",
+          "evst-cell-cost-2026"
+        ]
+      },
+      {
+        "id": "customer-industry-scope",
+        "text": "The relevant IFR chart and industry discussion classify purchasing/customer industries, not welding, painting, palletising or machine-tending application families. Historical 'customer-industry data only' is narrowed; chronology, geography, stock, density and outlook also occur in the extract. No industry-share disagreement is silently resolved.",
+        "requiredCitationIds": [
+          "ifr-world-robotics-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+      "rationale": "Actual current review 2026-09-12T23:11:43.685Z; all 3 mandatory AND parts, sources and composed correction reviewed. I checked the actual retained OSHA raw introduction, use paragraph and not-all-inclusive paragraph. All retained examples occur there; including makes the list non-exhaustive. Machine-tool loading/unloading is the exact supported scope, not a general machine-tending or popularity claim. The actual EVST raw paragraph does print the IFR-attributed worldwide ranking, within a commercial payback guide. It is proof of what EVST wrote, not primary ranking proof. Full nine-page IFR extracted text and the customer-industry chart do not substantiate this task-ranking assertion in this retained set. The assertion is cut, not certified absent from every IFR publication. Both IFR and EVST pairs remain. The IFR chart and electronics/automotive discussion classify customer industries. The full retained extract also discusses chronology, geography, stock, density, vision/integrator capabilities and forecasts. Historical customer-industry-data-only and zero-grep authority are rejected; automotive disagreement remains visible and no task-frequency inference survives.",
+      "planDigest": "8f0e7a54568ec5b1c0dca205ff368b5f59a4b99965338740d11bc38961d236c0"
+    },
+    "evidence": [
+      {
+        "partId": "retained-osha-uses",
+        "citationId": "osha-otm-robots",
+        "sourceUrl": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+        "supportingPassage": "This OSHA Technical Manual chapter is written to provide technical information to help to prepare OSHA compliance officers and others, who may be performing inspections and investigations at facilities with robot systems. This chapter is intended as a guide to robot systems found in industrial applications.\n\nIndustrial robot systems have many different uses such as for materials handling, assembly operations, arc and resistance welding, machine-tool loading and unloading functions, painting, spraying, inspecting, testing, packaging, labeling. The development and use of robot systems in industry continues to advance with more and more companies finding more and more uses. Advances in artificial intelligence 2 have also boosted the abilities and uses of robot systems, especially in industrial applications.\n\nThis chapter is not an all-inclusive document. Robot systems other than those discussed in this chapter may be found during inspections. In those cases, and when questions arise, consult with the area office, regional office, or national office for assistance. The OSHA Health Response Team (HRT) at Directorate of Technical Support and Emergency Management's Salt Lake Technical Center is also available as needed."
+      },
+      {
+        "partId": "source-scoped-rank-cut",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "Slightly growing demand from\nthe electronics industry and the general industry offset a contraction of demand from the\nautomotive industry. In 2024, the electronics accounted for 24% of the installations (+1\npp), whereas the automotive industry had a 23% share (-2 pp). The metal and machinery\nindustry retained its third place and increased its share to 16% (+2 pp), followed by the\nplastic and chemical products industry (5%) and the food and beverage industry (4%).\nNote that for 14% of the robot installations (-3 pp), there is no information available on\nthe customer industry.\n\nAnnual installations of industrial robots by customer industry - World\n                                                     units\n\n\n                                                                                           128,899\n         Electrical/electronics                                                           125,804\n                                                                                                         156,920\n                                                                                          126,088\n                  Automotive                                                                  135,461\n                                                                                               136,112\n                                                                         88,777\n        Metal and machinery                                         76,831\n                                                               66,115\n                                       26,491\nPlastic and chemical products        22,402\n                                     23,540\n                                     20,792\n                         Food     14,685\n                                  15,107\n                                                                       77,752\n                    All others                                        74,838\n                                                             60,997\n                                                                  73,277\n                  Unspecified                                                   91,281\n                                                                                 94,155\n\n                                              2024    2023      2022                       Source: World Robotics 2025"
+      },
+      {
+        "partId": "source-scoped-rank-cut",
+        "citationId": "evst-cell-cost-2026",
+        "sourceUrl": "https://www.evsint.com/palletizing-robot-cost-roi-price-payback-2026/",
+        "supportingPassage": "In practice, EVST’s field engineers find that the fastest-payback deployments share two traits: multi-shift or continuous operation (which amortizes the same capex against more throughput hours), and an existing pain point around injury risk or product damage from manual stacking, which adds savings beyond raw labor cost. According to the International Federation of Robotics, material handling and palletizing applications remain among the largest categories of industrial robot installations worldwide. That volume has helped push robot hardware pricing down over time, even as integration and safety costs have stayed comparatively fixed.\n\nAbout the author: The EVST Engineering Team writes about industrial robotics and automation economics for operations and finance leaders evaluating automation capex. EVST (EVS TECH CO., LTD), founded in Chengdu in 2018, has delivered 600+ automation projects and ships to 100+ countries, with IATF16949 automotive-grade certification and CE / SGS / TUV third-party certifications across its QJAR/QJRB industrial and palletizing robot lines."
+      },
+      {
+        "partId": "customer-industry-scope",
+        "citationId": "ifr-world-robotics-2025",
+        "sourceUrl": "https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf",
+        "supportingPassage": "Annual installations of industrial robots by customer industry - World\n                                                     units\n\n\n                                                                                           128,899\n         Electrical/electronics                                                           125,804\n                                                                                                         156,920\n                                                                                          126,088\n                  Automotive                                                                  135,461\n                                                                                               136,112\n                                                                         88,777\n        Metal and machinery                                         76,831\n                                                               66,115\n                                       26,491\nPlastic and chemical products        22,402\n                                     23,540\n                                     20,792\n                         Food     14,685\n                                  15,107\n                                                                       77,752\n                    All others                                        74,838\n                                                             60,997\n                                                                  73,277\n                  Unspecified                                                   91,281\n                                                                                 94,155\n\n                                              2024    2023      2022                       Source: World Robotics 2025\n\nThe latest switch took place in 2024, when the electrical/electronics industry\nreclaimed the lead. Installations were up 2% to 128,899 units. The share of the total\ninstallations was up 1 percentage point to 24%. Demand for electronics for all kinds of\nengineering, including automotive and industrial machinery and for consumer\nelectronics, has been growing strongly for many years. Global production capacity has\nbeen ramped up and so has the industry’s robot demand. From 2019 to 2024, the\ncompound annual growth rate (CAGR) was +8%.\n\nThe automotive industry was the second largest customer of industrial robots in 2024,\njust some 2,800 units shy of the electronics industry. Demand was down 7% to 126,088\nunits. The automotive industry invested in the transition from combustion engines to\nalternative drives, but decreasing demand for battery electric vehicles currently limits the\nneed for capacity expansion. From 2019 to 2024, annual installations in the automotive\nindustry increased by 5% on average each year (CAGR). After several years of\ncontinuous decline, down to 21% in 2020, the share of the automotive industry in the\ntotal installations was 25% in 2022 and 2023 and 24% in 2024."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "retained-osha-uses",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: I checked the actual retained OSHA raw introduction, use paragraph and not-all-inclusive paragraph. All retained examples occur there; including makes the list non-exhaustive. Machine-tool loading/unloading is the exact supported scope, not a general machine-tending or popularity claim.",
+        "evidenceDigest": "4288278e5ffb5a98ec8a5a07f50e1402d2cebc93f7054d644f4fea778e6c6835"
+      },
+      {
+        "partId": "source-scoped-rank-cut",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: The actual EVST raw paragraph does print the IFR-attributed worldwide ranking, within a commercial payback guide. It is proof of what EVST wrote, not primary ranking proof. Full nine-page IFR extracted text and the customer-industry chart do not substantiate this task-ranking assertion in this retained set. The assertion is cut, not certified absent from every IFR publication. Both IFR and EVST pairs remain.",
+        "evidenceDigest": "c4309965bce965488610efd704e3458816833c7bb2f0920eea3a59ee27b5c042"
+      },
+      {
+        "partId": "customer-industry-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:6a506add-a62d-4273-b5c1-bbf23340811f/integrator",
+        "rationale": "2026-09-12T23:11:43.685Z: The IFR chart and electronics/automotive discussion classify customer industries. The full retained extract also discusses chronology, geography, stock, density, vision/integrator capabilities and forecasts. Historical customer-industry-data-only and zero-grep authority are rejected; automotive disagreement remains visible and no task-frequency inference survives.",
+        "evidenceDigest": "080e1a81113eea2f17118068873544b237a7f120dada450e1a79746bc2e491fc"
+      }
+    ]
   }
 ]

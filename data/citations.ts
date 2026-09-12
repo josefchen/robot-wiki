@@ -8355,14 +8355,14 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // IFR World Robotics 2025 press summary (public PDF); figures
-    // verified against the executive summary: 542,076 installations in
-    // 2024 and an operational stock of 4,663,698 units (+9%).
+    // IFR-hosted public executive-summary extract. The report's suggested
+    // citation names Christopher Müller; VDMA Services GmbH produces it.
+    // The extract establishes 2025, not a day-level publication date.
     id: 'ifr-world-robotics-2025',
-    title: 'World Robotics 2025: Industrial Robots (press summary)',
-    authors: ['International Federation of Robotics'],
+    title: 'World Robotics 2025 – Industrial Robots',
+    authors: ['Christopher Müller'],
     year: 2025,
-    venue: 'IFR, Frankfurt, published 2025-09-25',
+    venue: 'IFR Statistical Department, VDMA Services GmbH, Frankfurt am Main, Germany',
     url: 'https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf',
     type: 'docs',
   },

@@ -1,6 +1,78 @@
 # Content-integrity audit trail
 
-## Current checkpoint: three reward/MPC originals integrated (2026-09-12)
+## Current checkpoint: five IFR industrial originals integrated (2026-09-12)
+
+**466 complete / 528 incomplete / 994 originals / 47 articles**; RL remains
+**115 complete / 52 incomplete / 167 originals**. Applied exactly
+`audit/data-hardware.md:industrial-deployment:1`, `:2`, `:3`, `:4`, and `:13`:
+**16 mandatory AND parts / 19 required source pairs / 19 evidence items**.
+Four corrected originals and one recorded source inconsistency; **372 plans /
+460 approvals**. All 461 prior completions, 989 unselected semantic records,
+367 prior plans, 456 prior approvals and their serialized prefixes/metadata,
+and all 44 unrelated baseline failure objects/order are preserved. Four exact
+new member approvals; wrong old/new hashes and missing/stale approvals reject.
+
+Zero retrieval. Two sealed retained packets cover four documents: the IFR
+executive-summary PDF, IFR China rendered release, OSHA HTML and EVST HTML.
+All selected literal ranges and 19 supporting-passage joins were verified;
+PDF text was reproduced offline. September 12 IFR GET was origin HTTP200
+(6,606,878 bytes), 21:04:20.374047–21:04:21.041471 UTC. China is a retained
+FetchUrl rendering, request21:02:26.588/result21:02:31.180, tool-reported200,
+not retained origin HTML/headers. OSHA/EVST belong to the September6
+00:49:10.685–00:49:14.485 batch reporting final200/body sizes, not individual
+origin times, preserved headers or current liveness. Source-only packet reviews
+remain null; actual integrator reviews are separately recorded.
+
+The prose and Stats distinguish 2024 stock4,663,698 from installation flow;
+2021–2024 each exceeded500,000, with542,076 in2024. China/Japan stock is
+2,027,190/450,530; China installations295,045, rounded54% globally. The May5
+2026 release repeats2024 data. Customer-industry counts128,899/126,088/88,777,
+unspecified14%, and automotive23% on printedp13 versus24% onp16 remain
+explicit. OSHA's non-exhaustive uses replace the EVST-mediated world ranking;
+the rank-cut part still requires IFR AND EVST. The IFR bibliography follows
+Christopher Müller's suggested citation, not PDF creator credit or an
+unsupported publication day. No OSHA-year/P1 or adjacent perception claim
+is certified; original8 and other held originals remain incomplete. The
+article's August22 lastReviewed value is unchanged.
+
+Current sequential NODE_DISABLE_COMPILE_CACHE=1 checks: red-first focused
+10 failed/1 passed; final relevant unit/component **107/107** (including the
+same11 focused cases); normal prelint/lint, no-slop, route typegen and
+nonincremental TypeScript pass. Complete offline content lifecycle is **RED:
+533 findings plus nine separately reported citation gaps**, exit1. Schema,
+source-only no-slop and48 chart descriptions pass before the audit failure.
+No-slop's63 exported HTML files are retained output, not a new export.
+
+Reader initial12/14, final **14/14** at375x812 and1440x900. Mobile tooltip
+right edges398/378/400 are repaired to366/362/368 with article-local
+32/16/32px offsets. Scientific text, Stats, source URLs, hover/focus at reading
+and lower-edge positions, hit tests, complete bylines and References pass.
+All ten Back actions return to the article URL but focus BODY: this shared
+keyboard-focus debt remains open. Existing industrial27/28, calculator,
+four-role delivered fonts, systems-integrator glossary and two peer Axe cases
+pass; these are not exhaustive brand/accessibility acceptance. Four final
+captures and two failing captures were directly inspected; other screenshots
+are not visually certified. Development UI stays visible in new reader tests;
+the existing peer fixture hides it before paint. The one owned3242 runtime
+stopped with exit0 at23:28:32.597586Z; three configuration files were restored
+byte-exactly, including next-env.d.ts. Typegen separately restored them.
+The server guard blocked one registry.npmjs.org:443 development-version
+lookup before its socket opened; zero source retrievals and no browser
+external requests were observed.
+
+Evidence: `convergence-ifr-industrial-integration-20260912` under the existing
+Mission source-recovery directory. Two failed source-proof helper assumptions
+were corrected with their failure evidence retained. The incidental seven-byte
+placeholder outside the exclusive evidence directory was removed immediately.
+The later member collection overwrote the earlier generic members-state output;
+its original run inputs/log/receipt and initial-state remain, and the replacement
+is explicitly the23:28:33 composed state, not an immutable earlier snapshot.
+No owner files, protected ancestors, baseline, features or shared renderer were
+changed. No whole-P1/article/feature/independent/release acceptance, push or
+deployment. Formal307/331 and independent Sol/high scrutiny/user testing remain
+with existing owners; both skip flags remain false.
+
+## Previous checkpoint: three reward/MPC originals integrated (2026-09-12)
 
 **461 complete / 533 incomplete / 994 originals / 47 articles**; RL is
 **115 complete / 52 incomplete / 167 originals**. Applied exactly

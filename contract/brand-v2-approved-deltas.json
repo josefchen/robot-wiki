@@ -8867,6 +8867,78 @@
         "VAL-AUDIT-002"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "ifr-industrial-originals-20260912-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "f4886dbb51051a51cba727226c04a0373213b1f97987338862f8d6bf13e01b77",
+      "reason": "Exactly industrial originals 1/2/3/4/13: source-backed 2024 stock, installation chronology, customer-industry counts with automotive 23/24 percent inconsistency, China/Japan scope, non-exhaustive OSHA uses and removal of EVST-mediated ranking; Müller suggested bibliography. Immediate-before member hash 1c7ea96deb80f4e7c1c7d3b76cecf79a22f690a5c241230e3188bd5787870330. Article-only mobile tooltip offsets preserve scientific text. Inline occurrence changes are IFR +1 and EVST -1; citation union, other sources and controls remain unchanged. Retained source identities/passages, actual review, endpoints and current source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-ifr-industrial-integration-20260912. Composes earlier exact endpoint approvals, not an unrelated or wildcard allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus bounded five-original parent dispatch. Routine source-backed implementation authority, not personal source verification, whole-P1 or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ifr-industrial-originals-20260912-2",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d",
+      "newHash": "6ccb8498334d9444c795767c2cae1413c4c282e70b1a3ac8c14aa159ebba9feb",
+      "reason": "Exactly industrial originals 1/2/3/4/13: source-backed 2024 stock, installation chronology, customer-industry counts with automotive 23/24 percent inconsistency, China/Japan scope, non-exhaustive OSHA uses and removal of EVST-mediated ranking; Müller suggested bibliography. Immediate-before member hash ffcb047aefa2e3b89e495d0c84a148c117aeebd2362ee2429970b3004fe69940. Article-only mobile tooltip offsets preserve scientific text. Inline occurrence changes are IFR +1 and EVST -1; citation union, other sources and controls remain unchanged. Retained source identities/passages, actual review, endpoints and current source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-ifr-industrial-integration-20260912. Composes earlier exact endpoint approvals, not an unrelated or wildcard allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus bounded five-original parent dispatch. Routine source-backed implementation authority, not personal source verification, whole-P1 or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ifr-industrial-originals-20260912-3",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9db509451024c2f2ba02808619b47af462f31d835eed4ad8e26b7ffefc930856",
+      "reason": "Exactly industrial originals 1/2/3/4/13: source-backed 2024 stock, installation chronology, customer-industry counts with automotive 23/24 percent inconsistency, China/Japan scope, non-exhaustive OSHA uses and removal of EVST-mediated ranking; Müller suggested bibliography. Immediate-before member hash 382c8296f46c710890966bf9ffdae876f02ed430fdbc4ff8c795e73341636208. Article-only mobile tooltip offsets preserve scientific text. Inline occurrence changes are IFR +1 and EVST -1; citation union, other sources and controls remain unchanged. Retained source identities/passages, actual review, endpoints and current source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-ifr-industrial-integration-20260912. Composes earlier exact endpoint approvals, not an unrelated or wildcard allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus bounded five-original parent dispatch. Routine source-backed implementation authority, not personal source verification, whole-P1 or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ifr-industrial-originals-20260912-4",
+      "manifest": "article-metadata",
+      "memberId": "citation:ifr-world-robotics-2025",
+      "oldHash": "3df9bbcf0381168aea792d10ebea00824bf259e00435a258e2066ff9b12cde95",
+      "newHash": "5155b72c6032a0e7af90399d44a7d0dd37b6bc3d511bdbe6bb7c352c99f89fa5",
+      "reason": "Exactly industrial originals 1/2/3/4/13: source-backed 2024 stock, installation chronology, customer-industry counts with automotive 23/24 percent inconsistency, China/Japan scope, non-exhaustive OSHA uses and removal of EVST-mediated ranking; Müller suggested bibliography. Immediate-before member hash 3df9bbcf0381168aea792d10ebea00824bf259e00435a258e2066ff9b12cde95. Article-only mobile tooltip offsets preserve scientific text. Inline occurrence changes are IFR +1 and EVST -1; citation union, other sources and controls remain unchanged. Retained source identities/passages, actual review, endpoints and current source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-ifr-industrial-integration-20260912. Composes earlier exact endpoint approvals, not an unrelated or wildcard allowance.",
+      "ownerApproval": "Josef's September 7 2026 'fix it all!' in native Watcher thread 01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus bounded five-original parent dispatch. Routine source-backed implementation authority, not personal source verification, whole-P1 or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
