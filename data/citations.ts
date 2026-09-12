@@ -2588,14 +2588,17 @@ export const CITATIONS: Citation[] = [
     type: 'blog',
   },
   {
-    // NVIDIA community article on Hugging Face, 2026-07-21.
+    // NVIDIA-authored community overview on Hugging Face: published 2026-07-21,
+    // modified 2026-08-05 in the captured body. First-party for NVIDIA/Newton
+    // descriptions and these authors' opinions, not independent technical
+    // evidence about third-party engines or a comparative benchmark.
     id: 'state-of-simulation-2026',
     title: 'The State of Simulation for Physical AI: An Overview',
     authors: [
       'Johnny Nuñez Cano',
       'Mitesh Patel',
       'Asier Arranz',
-      'Lior Ben Horin',
+      'lior ben horin',
       'Raymond Lo',
       'Rishabh Chadha',
     ],

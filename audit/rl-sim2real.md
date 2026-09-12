@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 7
 - Claim rows: 167
-- Recorded verified: 81
-- Recorded corrected: 85
-- Recorded cut: 1
+- Recorded verified: 73
+- Recorded corrected: 92
+- Recorded cut: 2
 - Recorded source inconsistencies: 0
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 101
-- Incomplete evidence records: 66
+- Complete evidence records: 109
+- Incomplete evidence records: 58
 
 <!-- audit-summary:end -->
 
@@ -316,17 +316,17 @@ this ledger's conventions.
 | "Rollouts are short (a few dozen steps per environment per iteration ...), batches are enormous (on the order of 100k transitions), and the learning rate adapts to a KL-divergence target" | Rudin et al., Sec. 3.2 + supplementary | verified | 24 steps x 4,096 envs ~= 98k transitions per iteration; adaptive LR on a KL target. | `rudin-2021` | https://ar5iv.labs.arxiv.org/html/2109.11978 | “\| Batch size \| 98304 (4096x24) \|<br>\| --- \| --- \|<br>\| Mini-bach size \| 24576 (4096x6) \|<br>\| --- \| --- \|<br>\| Number of epochs \| 5 \|<br>\| --- \| --- \|<br>\| Clip range \| 0.2 \|<br>\| Entropy coefficient \| 0.01 \|<br>\| Discount factor \| 0.99 \|<br>\| GAE discount factor \| 0.95 \|<br>\| Desired KL-divergence k​l∗kl^{\*} \| 0.01 \|<br>\| Learning rate α\\alpha \| adaptive∗ \|<br><br>k​l←K​L​(πn​e​w,πo​l​d)kl\\leftarrow KL(\\pi\_{new},\\pi\_{old})<br><br>ifk​l>2​k​l∗kl>2kl^{\*}then<br><br>α←max⁡(10−5,α/1.5)\\alpha\\leftarrow\\max(10^{-5},\\alpha/1.5)<br><br>else<br><br>ifk​l<0.5​k​l∗kl<0.5kl^{\*}then<br><br>α←min⁡(10−2,1.5​α)\\alpha\\leftarrow\\min(10^{-2},1.5\\alpha)<br><br>endif<br><br>endif<br><br>For our task, we find that the algorithm struggles when we provide fewer than 25 consecutive steps, corresponding to 0.5s0.5\\text{\\,}\\mathrm{s} of simulated time. It is important to distinguish ns​t​e​p​sn\_{steps} from the maximum episode length leading to a time-out and a reset, which we define as 20s20\\text{\\,}\\mathrm{s}. The environments are reset when they reach this maximum length and not after each iteration, meaning that a single episode can cover many policy updates.” Scope: The actual table uses 24 steps and five epochs; the prose says fewer than 25 can struggle. Treat this as a task-specific empirical observation, not a hard universal minimum, and do not certify the adjacent untested 16-environment claim.  Rudin, Hoeller, Reist and Hutter, Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning (arXiv 2109.11978; preprint/CoRL 2021 identity). Retained unversioned ar5iv full text; its revision is not independently labelled. The landing page reports latest v3 (2022-08-19), but this is not a byte-pinned v3 or v2 body. FetchUrl result observed 2026-09-06T19:18:21.832Z, reported HTTP 200; no new fetch in this normalization. |
 | "Brax, from Google in 2021, wrote the physics and the learning algorithms in JAX ... training performant policies on MuJoCo-like tasks in minutes" | Brax paper, arXiv 2106.13281 abstract | verified | "physics and learning algorithms ... in JAX", "minutes" on accelerators. | | | |
 | "MuJoCo XLA (MJX) ... MuJoCo Playground (2025) packaged it as an open robot-learning framework spanning locomotion and manipulation, with sim-to-real transfer as a stated goal" | MuJoCo Playground paper, arXiv 2502.08844 abstract | verified | "A unified framework for robot learning built on MJX ... locomotion and manipulation ... sim-to-real". | | | |
-| "Brax remains the JAX-native differentiable option among current engines" | State of Simulation 2026 (primary page) | verified | Solver/engine survey lists Brax as the JAX-native differentiable engine. | | | |
+| Cut the unsupported sentence asserting that Brax remains the current JAX-native differentiable option; the cited captured overview does not discuss Brax. Earlier Brax 2021 history remains unchanged. | state-of-simulation-2026; https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai; retained September 8 GET body | cut | Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. Read the entire captured overview, including its Newton and other-engine sections: it contains no Brax mention. The removed current-positioning sentence therefore had no support from its adjacent source. Earlier Brax/JAX history and its own paper citation remain intact. This is an attribution cut, not a universal assertion that Brax lacks capabilities. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit. |  |  |  | source-newton-engine-20260908-parallel-sim-rl-7 |
 | Isaac Lab v1 feature inventory: OpenUSD, PhysX, RTX/tiled cameras, Warp geometric raycast sensors, implicit/explicit nonlinear/learned actuators, manager API and RSL-RL/RL-Games/SKRL/SB3/Ray support. | Isaac Lab v1, https://arxiv.org/html/2511.04831v1; exact per-part source text and locators retained in the native evidence plan | **corrected** | Current source-backed correction and retained-body review on 2026-09-08 by Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance. Original tuple (history, not proof): ["Isaac Lab feature inventory (OpenUSD scene layer, PhysX, RTX, tiled camera rendering, Warp raycast sensors, non-linear actuator models, manager-based API, RSL-RL/RL-Games/SKRL/SB3/Ray hooks)","Isaac Lab paper, arXiv 2511.04831v1 HTML, Sec. 3-4","verified","Each named feature appears in the framework sections."]. Immediate-before tuple (history, not proof): ["Isaac Lab feature inventory (OpenUSD scene layer, PhysX, RTX, tiled camera rendering, Warp raycast sensors, non-linear actuator models, manager-based API, RSL-RL/RL-Games/SKRL/SB3/Ray hooks)","Isaac Lab paper, arXiv 2511.04831v1 HTML, Sec. 3-4","verified","Each named feature appears in the framework sections."]. Producer GET 2026-09-08T00:55:54.021238+00:00 to 00:55:54.267675+00:00, observed 200/no redirects; body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39. Current review 2026-09-08T09:53:04.838899+00:00; no fresh fetch. Every required part/source pair, body context and original tool event checked in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Complete correction includes source-local reader, mounted CPU disclosure where applicable, and NVIDIA plus 105 unique Appendix A credits. Source-only proposal 13d4160dbd319498f287c20a417b521a18b0697f8de23bb0aff00f40bb40ba4b reviewed rather than accepted prospectively. No whole-article P1/P5 certification or review-date bump. |  |  |  | isaac-v1-rl-sim2real-parallel-sim-rl-8-20260908 |
 | Isaac Lab v1 headless state-based training: DextrAH teacher >900,000 FPS and Franka cabinet-drawer >1.6million FPS at reported eight RTXPRO6000 GPUs/16,384 environments, near-linear over tested configurations; training FPS includes simulation+learning and the server has two AMD EPYC9554 CPUs. | Isaac Lab v1, https://arxiv.org/html/2511.04831v1; exact per-part source text and locators retained in the native evidence plan | **corrected** | Current source-backed correction and retained-body review on 2026-09-08 by Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance. Original tuple (history, not proof): ["\"over 900,000 frames per second on the state-based DextrAH teacher task and over 1.6 million frames per second on Franka cabinet-opening, both at 8 GPUs and 16,384 environments\", scaling \"almost perfectly linearly\"","Isaac Lab paper, Sec. 6 benchmark tables","verified",">900k and >1.6M FPS at 8 GPUs / 16,384 envs; \"almost perfectly linearly\" is the paper's phrase. Hardware/env context present in Stat boxes and prose."]. Immediate-before tuple (history, not proof): ["\"over 900,000 frames per second on the state-based DextrAH teacher task and over 1.6 million frames per second on Franka cabinet-opening, both at 8 GPUs and 16,384 environments\", scaling \"almost perfectly linearly\"","Isaac Lab paper, Sec. 6 benchmark tables","verified",">900k and >1.6M FPS at 8 GPUs / 16,384 envs; \"almost perfectly linearly\" is the paper's phrase. Hardware/env context present in Stat boxes and prose."]. Producer GET 2026-09-08T00:55:54.021238+00:00 to 00:55:54.267675+00:00, observed 200/no redirects; body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39. Current review 2026-09-08T09:53:04.838899+00:00; no fresh fetch. Every required part/source pair, body context and original tool event checked in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Complete correction includes source-local reader, mounted CPU disclosure where applicable, and NVIDIA plus 105 unique Appendix A credits. Source-only proposal 299ed98c90dd69dfb006ac6de32fa60f5e30eea48aa013b880f1fe905a764793 reviewed rather than accepted prospectively. No whole-article P1/P5 certification or review-date bump. |  |  |  | isaac-v1-rl-sim2real-parallel-sim-rl-9-20260908 |
 | Isaac Lab v1's tested RTX5090/AMD9800X3D workstation approaches the two-RTXPRO6000/two-EPYC9554 server on Franka; task-dependent CPU bottlenecks motivate but do not measure the interactive's assumed CPU-cost curve. | Isaac Lab v1, https://arxiv.org/html/2511.04831v1; exact per-part source text and locators retained in the native evidence plan | **corrected** | Current source-backed correction and retained-body review on 2026-09-08 by Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance. Original tuple (history, not proof): ["\"a single-GPU RTX 5090 workstation approaches a 2x RTX PRO 6000 server, because parts of the PhysX pipeline and the main training loop are bound by single-core CPU performance\"","Isaac Lab paper, Sec. 6 systems analysis","verified","Paper's own single-core-CPU-bottleneck finding; RTX 5090 vs 2x RTX PRO 6000 on Franka (25% faster on DextrAH)."]. Immediate-before tuple (history, not proof): ["\"a single-GPU RTX 5090 workstation approaches a 2x RTX PRO 6000 server, because parts of the PhysX pipeline and the main training loop are bound by single-core CPU performance\"","Isaac Lab paper, Sec. 6 systems analysis","verified","Paper's own single-core-CPU-bottleneck finding; RTX 5090 vs 2x RTX PRO 6000 on Franka (25% faster on DextrAH)."]. Producer GET 2026-09-08T00:55:54.021238+00:00 to 00:55:54.267675+00:00, observed 200/no redirects; body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39. Current review 2026-09-08T09:53:04.838899+00:00; no fresh fetch. Every required part/source pair, body context and original tool event checked in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Complete correction includes source-local reader, mounted CPU disclosure where applicable, and NVIDIA plus 105 unique Appendix A credits. Source-only proposal db23845b6312856012bb3f0ebdeca3bc38c204e40668e7047c57f653bc3bbae8 reviewed rather than accepted prospectively. No whole-article P1/P5 certification or review-date bump. |  |  |  | isaac-v1-rl-sim2real-parallel-sim-rl-10-20260908 |
-| "Isaac Lab 3.0 (2026) ... backend-specific code is separated from the core API ... headless on Newton ... photoreal sensors ... through the standalone OVRTX renderer" | State of Simulation 2026 | verified | 3.0 decoupling and OVRTX reattachment as described. | | | |
-| "Newton, which hit 1.0 GA at GTC in March 2026 ... built on NVIDIA Warp and OpenUSD, founded by NVIDIA, Google DeepMind, and Disney Research and governed under the Linux Foundation" | Newton manipulation blog (NVIDIA developer), fetched 2026-08-17 | verified | All four facts stated in the announcement. | | | |
-| Solver inventory (MuJoCo Warp, Featherstone, Kamino, VBD, implicit MPM) + "SDF-based collision ... plus-or-minus 10 mm narrow band" + "hydroelastic contacts ... explicitly borrowed from Drake's contact model" | Newton blog | verified | Solver list, +-10 mm SDF narrow band, and the Drake hydroelastic borrowing all stated. | | | |
-| "Skild ... GPU-rack connector insertion, and Samsung with Lightwheel for refrigerator hose insertion with the VBD cable solver" | Newton blog | verified | Both customer uses named as in the article. | | | |
-| "MuJoCo Warp runs 252x faster than MJX on locomotion and 475x on manipulation, measured on an RTX PRO 6000 Blackwell" | Newton blog benchmark section | verified | Numbers and hardware named; article flags vendor-reported, unreplicated. | | | |
+| NVIDIA's 2026 overview describes Isaac Lab 3.0 as separating backend-specific code from the core API. Developers can use Isaac Sim with PhysX and RTX for photorealistic, sensor-rich workflows, or run headless Newton physics for high-throughput simulation. The overview also describes adding photoreal sensors through the standalone OVRTX renderer, or using Newton's renderer for vision-based RL with many environments. | state-of-simulation-2026; https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai; retained September 8 GET body | corrected | Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The overview explicitly separates core API from backend code and names Isaac Sim/PhysX/RTX, headless Newton, standalone OVRTX and Newton rendering. Current prose attributes these paths to NVIDIA rather than treating them as an independent framework benchmark. The separate March release paragraph now states Isaac Sim 6.0 and Isaac Lab 3.0 early access, not GA. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit. |  |  |  | source-newton-engine-20260908-parallel-sim-rl-11 |
+| NVIDIA's March 16, 2026 release post announces Newton 1.0 GA at GTC 2026 and describes an open-source, GPU-accelerated physics engine built on NVIDIA Warp and OpenUSD. It identifies Newton as a Linux Foundation project founded by NVIDIA, Google DeepMind, and Disney Research. The post calls Isaac Sim 6.0 and Isaac Lab 3.0 early access releases. The later NVIDIA overview describes the engine as differentiable, while noting that differentiation support differs between solvers. | newton-manipulation-blog-2026; https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics; retained September 8 GET body / state-of-simulation-2026; https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai; retained September 8 GET body | corrected | Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The visible March 16 date, authored 1.0 GA/GTC paragraph, Linux Foundation project sentence and three named founders support the current release description. The existing early-access passage supports the added Isaac Sim 6.0/Lab 3.0 distinction. No governance mechanism or particular software license identifier is inferred. The overview first calls Newton differentiable and later explicitly says differentiation capabilities differ between solvers. The current sentence retains both statements instead of claiming every solver/contact/learning path supports differentiation. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit. |  |  |  | source-newton-engine-20260908-parallel-sim-rl-12 |
+| Newton puts multiple solvers behind a unified API. NVIDIA's overview lists MuJoCo and Featherstone for generalized-coordinate articulated rigid bodies; SemiImplicit, XPBD, and Kamino for maximal-coordinate formulations; VBD for rigid bodies, particles, cloth, and soft bodies, with limited joint support; implicit MPM for particle-based continuum materials; and Style3D for cloth. The release post describes Disney Research's Kamino as handling closed-chain mechanisms, and describes coupling VBD and iMPM with MuJoCo Warp for deformable manipulation and locomotion. The release post describes SDF-based collision built from CAD-exported meshes and hydroelastic contacts inspired by Drake: pressure is distributed across finite-area contact patches rather than isolated points. Its assembly code example precomputes sparse SDFs with `narrow_band_range=(-0.01, 0.01)`, a plus-or-minus 10 mm band around the surface. That band belongs to the example configuration, not a stated engine-wide requirement. | state-of-simulation-2026; https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai; retained September 8 GET body / newton-manipulation-blog-2026; https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics; retained September 8 GET body | corrected | Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. Read the entire Newton inventory and its qualifier. Current prose preserves generalized MuJoCo/Featherstone, maximal SemiImplicit/XPBD/Kamino, VBD limited joint support, continuum implicit MPM and Style3D cloth. Deleted accuracy-reference and blanket articulation-impossibility claims are not in this source. The authored release describes Kamino closed-chain mechanisms, including parallel linkages, and explicit coupling of VBD/MPM with MuJoCo Warp. Current prose says these mechanisms, not an invented tendon-hand feature or universal solver limitation. Read authored collision bullets and assembly snippet. CAD-derived SDF and finite-area pressure contacts are explicit, as is inspiration from Drake. The literal narrow_band_range=(-0.01, 0.01) comment states plus-or-minus 10 mm only for the assembly example. Current wording does not promote it to an engine-wide constant. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit. |  |  |  | source-newton-engine-20260908-parallel-sim-rl-13 |
+| For GPU rack assembly, NVIDIA says Skild AI is training RL policies with Isaac Lab's Newton backend, using SDF collision and hydroelastic contact modeling for tasks including connector insertion. The same post says Samsung "will use Newton" for synthetic data generation to train VLA models and describes Lightwheel's work on calibrated SimReady assets. Its refrigerator-assembly example is a simulated RB-Y1 cable-insertion task using two-way coupled MuJoCo Warp and VBD; the text describes inserting a water-hose connector into its housing. These are NVIDIA's accounts of the workflows, not independently established production-deployment results. | newton-manipulation-blog-2026; https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics; retained September 8 GET body | corrected | Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The authored GPU-rack section says Skild is training RL policies and using Isaac Lab with the Newton SDF/hydroelastic pipeline. The current paragraph attributes that account to NVIDIA and does not count it as independently demonstrated production deployment. Read the future-tense Samsung sentence, Lightwheel measurement/calibration paragraph, RB-Y1 simulation caption and water-hose-connector paragraph together. Current text preserves will use, simulated RB-Y1, two-way MuJoCo/VBD coupling and the connector identity, rather than repeating the stronger AI-generated summary. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit. |  |  |  | source-newton-engine-20260908-parallel-sim-rl-14 |
+| In its MuJoCo 3.5 (MJWarp) release summary, NVIDIA reports speedups over MJX of 252x for locomotion and 475x for manipulation on NVIDIA RTX PRO 6000 Blackwell Series hardware. The post does not specify benchmark task variants, environment counts, numeric precision, or the timing definition for those ratios. Do not read them as end-to-end policy-training-time or control-frequency measurements. Stat: MJWarp vs MJX, 252x / 475x; NVIDIA report: locomotion / manipulation; limits below. | newton-manipulation-blog-2026; https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics; retained September 8 GET body | corrected | Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The authored MuJoCo 3.5 (MJWarp) bullet gives 252x locomotion and 475x manipulation over MJX on RTX PRO 6000 Blackwell Series. The Stat now separates those ratios by workload. Reading the complete body did not establish task variants, environment counts, precision or a timing definition for those ratios; nearby code examples are not benchmark protocol. Removed dated no-independent-replication claim was unsupported. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit. |  |  |  | source-newton-engine-20260908-parallel-sim-rl-15 |
 | Isaac Lab v1 uses PhysX CPU APIs for physics parameter writes; most can change at runtime, while mesh scale/collider type are startup-only. Episode-reset-only causal assertion deleted. | Isaac Lab v1, https://arxiv.org/html/2511.04831v1; exact per-part source text and locators retained in the native evidence plan | **corrected** | Current source-backed correction and retained-body review on 2026-09-08 by Astra/max source-review integrator 18d95639-1eed-451f-8b27-32c86184c076; not independent acceptance. Original tuple (history, not proof): ["\"domain randomization still writes physics parameters (masses, frictions, contact offsets) through PhysX CPU APIs, which is why randomization happens on episode reset rather than continuously\"","Isaac Lab paper, Sec. 4 (domain randomization)","verified","Parameter writes go through the PhysX CPU API; mesh scale/collider type fixed before sim start."]. Immediate-before tuple (history, not proof): ["\"domain randomization still writes physics parameters (masses, frictions, contact offsets) through PhysX CPU APIs, which is why randomization happens on episode reset rather than continuously\"","Isaac Lab paper, Sec. 4 (domain randomization)","verified","Parameter writes go through the PhysX CPU API; mesh scale/collider type fixed before sim start."]. Producer GET 2026-09-08T00:55:54.021238+00:00 to 00:55:54.267675+00:00, observed 200/no redirects; body SHA256 9e3fba6a5031507b29d5ecc529c8dfba329f9f2c25582184b7d067f8aac43a39. Current review 2026-09-08T09:53:04.838899+00:00; no fresh fetch. Every required part/source pair, body context and original tool event checked in /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-isaac-only-integration-20260908/source-proof.json. Complete correction includes source-local reader, mounted CPU disclosure where applicable, and NVIDIA plus 105 unique Appendix A credits. Source-only proposal e977a4b4686ccc38c4c8eacb660e82964e36210c4b853fefa10f287a19f9e138 reviewed rather than accepted prospectively. No whole-article P1/P5 certification or review-date bump. |  |  |  | isaac-v1-rl-sim2real-parallel-sim-rl-16-20260908 |
-| "Drake keeps its niche: contact-implicit trajectory optimization and rigorous numerics, not throughput" | State of Simulation 2026 | verified | Drake's positioning as stated in the survey article. | | | |
+| Johnny Nuñez Cano and his NVIDIA coauthors call Drake the "gold standard" for contact-implicit trajectory optimisation and rigorous numerics rather than throughput. This is the overview authors' positioning, not a comparative benchmark. | state-of-simulation-2026; https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai; retained September 8 GET body | corrected | Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The visible ordered six-author byline includes Johnny Nuñez Cano and lowercase lior ben horin; the other-engines paragraph calls Drake gold standard. Current wording names the authors and identifies the statement as positioning, not a quantitative benchmark or first-party Drake technical certification. The preceding unselected Newton policy-learning sentence remains uncredited. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit. |  |  |  | source-newton-engine-20260908-parallel-sim-rl-17 |
 | TrainingTimeChart economics (fixed vs scaling per-iteration cost; hours-to-minutes curve) | Callout in article; lib/parallel-sim.ts header | verified | Labeled illustrative fixed-transitions model; measured anchors are the Rudin diamonds and Isaac Lab FPS figures. | | | |
 
 ## sim2real-transfer.mdx
@@ -352,7 +352,7 @@ this ledger's conventions.
 | ASAP reports one OOD hardware Silencer result and data-size-dependent replay generalization, not arbitrary unseen-skill coverage or a mathematical near-distribution-only validity guarantee. Stated limitations are hardware damage/overheating, MoCap collection dependence and data demand for full23-DoF delta training; training-free one-step OOD caveats are not a theorem for the RL-fine-tuned policy. | ASAP primary body self-identifying2502.01143v3; sourceURL2502.01143 | corrected | Correction reviewed 2026-09-09T13:34:18.331Z by agent:daf8738d-c462-4afa-82ce-9ab57455ccb8/integrator against retained original responses, not a new retrieval. The real-world evaluation reports held-out Silencer, and the data-size study reports improved OOD replay with more data. Those are specific empirical generalization findings. The one-step approximation and OOD caveat occur in the training-free-alternatives derivation; they do not prove a mathematical only-near-trajectory validity law for the learned ASAP model or arbitrary unseen-skill coverage. The limitations name hardware overheating and damage, MoCap collection and the cost of full 23-DoF data. Those observed practical constraints replace the unsupported distribution theorem. Historical limitations: H2O policy Hz, numerical latency, trial denominator and calibration remain unestablished. ASAP body Sobanbabu versus abs Sobanbab, Table/prose discrepancies, noise 150/173, and data-allocation details remain explicit. Original 2502.13143 is an unfetched identity discrepancy, not a certified typo. Unversioned bodies self-identify H2O v1 and ASAP v3, not separate version-pinned fetches. No whole-P1/article credit. Original cells: humanoid-motion-original-history-20260909. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-motion-transfer-integration-20260909/source-proof.json. |  |  |  | humanoid-motion-sim2real-transfer-17-20260908 |
 | SplatSim replaces mesh primitives in the rendering pipeline with Gaussian splats reconstructed from the deployment scene; PyBullet supplies the physics. Across four UR5 manipulation tasks, with 40 trials per task, the authors report 86.25% average zero-shot real-world success for diffusion policies trained on simulated demonstrations, versus 97.5% for policies trained on real-world demonstrations. This is the result with training augmentations, not rendering alone. The setup uses a Robotiq 2F-85 gripper and two RealSense D455 cameras. Preparing the splats requires manual robot segmentation, CAD-derived link bounds and ICP alignment; robot kinematics and simulated object poses drive rendering. Figure 2 lists RGB observations plus end-effector position and orientation, while Section IV-A says the policy relies solely on RGB at test time. Those descriptions disagree; they do not establish an unqualified image-only input specification. | splatsim-2024; retained primary HTML https://arxiv.org/html/2409.10161, explicit v3, 07 Oct 2024; original GET 2026-09-08T13:21:54.273952+00:00 to 2026-09-08T13:21:54.889013+00:00. | corrected | Source-backed correction. Figure 2 end-effector pose inputs versus Section IV-A solely-RGB test-time description are both retained. Assembly Sim2Sim is 85% in Table I but 95% in V-B4; neither is silently reconciled or substituted for the real-transfer average. No renderer-only or image-only universal claim. Original tuple (history, not proof): ["\"SplatSim replaces the simulator's mesh renderer with a 3D Gaussian Splatting reconstruction ... 86.25% ... against 97.5%\"","SplatSim paper","verified","As Stat row above."]. Source-preparation review 2026-09-08; current integrator review 2026-09-09T08:08:25.992Z; no new retrieval. Immediate-before tuple (history, not proof): {"claim":"\"SplatSim replaces the simulator's mesh renderer with a 3D Gaussian Splatting reconstruction ... 86.25% ... against 97.5%\"","sourceChecked":"SplatSim paper","verdict":"verified","note":"As Stat row above."}. Genuine per-part writer adjudication by agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator; source body, projection, edition, event and passage bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-splat-transfer-integration-20260909/source-review.json. Not independent acceptance, whole-P1, bibliography certification, local-figure proof or article-clean credit. Retained source conflict: Assembly Sim2Sim is 85% in Table I but 95% in Section V-B4; not reconciled. |  |  |  | sim2real-splat-consumer-18-20260908 |
 | In its August 2025 v2, RoboGSim combines a Gaussian Reconstructor, Digital Twins Builder, Scene Composer and Interactive Engine in a real2sim2real system. Multi-view images and supplied robot MDH parameters feed reconstruction; mesh assets and measured layout alignment connect the scene to Isaac Sim. The synthesizer composes novel views, objects, scenes and trajectories. In closed-loop evaluation, a policy acts on splat-rendered images; Isaac Sim handles inverse kinematics, collisions and other physical interactions, and the resulting state drives the next rendering. This evaluation is not interchangeable with real-robot testing. On the UR5 ring-toss task, each model had ten trials with up to three grasp attempts per trial. Table 2 reports 90% placement for the real-data-trained model on the real robot but 30% in RoboGSim. Simulated evaluation avoids executing those actions on hardware; it is not a demonstrated safety guarantee for a deployed robot. The paper examines novel-pose rendering and trajectory replay separately from closed-loop policy evaluation. | robogsim-2024; retained primary HTML https://arxiv.org/html/2411.11839, explicit v2, 03 Aug 2025; original GET 2026-09-08T13:21:54.890694+00:00 to 2026-09-08T13:21:55.759449+00:00. | corrected | Source-backed correction. 2024 citation year is original submission, not the inspected August 2025 v2 body. Isaac Sim release version remains unestablished in this body; no rendered absence classification is invented. Ten ring-toss trials with up to three grasp attempts; Table 2 90% real versus 30% simulator placement. Table 1 and Section 4.3 novel-scene baseline descriptions disagree. Rendering/replay evidence is not a real-world safety or universal fidelity guarantee. Original tuple (history, not proof): ["\"RoboGSim packages the same loop as a real2sim2real simulator: reconstruct the scene as splats, compose novel views, objects, and trajectories, and evaluate policies online against the twin\"","RoboGSim paper, arXiv 2411.11839","verified","Real2Sim2Real pipeline as described."]. Source-preparation review 2026-09-08; current integrator review 2026-09-09T08:08:25.992Z; no new retrieval. Immediate-before tuple (history, not proof): {"claim":"\"RoboGSim packages the same loop as a real2sim2real simulator: reconstruct the scene as splats, compose novel views, objects, and trajectories, and evaluate policies online against the twin\"","sourceChecked":"RoboGSim paper, arXiv 2411.11839","verdict":"verified","note":"Real2Sim2Real pipeline as described."}. Genuine per-part writer adjudication by agent:1460e88e-4f8b-4b94-8b63-304a471477f1/integrator; source body, projection, edition, event and passage bindings: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-splat-transfer-integration-20260909/source-review.json. Not independent acceptance, whole-P1, bibliography certification, local-figure proof or article-clean credit. |  |  |  | sim2real-splat-consumer-19-20260908 |
-| "Newton 1.0's tiled camera sensor accepts Gaussian splats as a native scene representation" | Newton blog | verified | Splat-native tiled camera stated in the announcement. |
+| The Newton 1.0 release post describes a Warp-based tiled camera sensor whose ray-tracing backend supports both triangle meshes and Gaussian splats. | newton-manipulation-blog-2026; https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics; retained September 8 GET body | corrected | Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The authored tiled-sensor bullet explicitly states Warp-based sensing, ray-tracing rendering and triangle-mesh/Gaussian-splat representations. Current transfer prose removes the productized-SplatSim inference and leaves all adjacent SplatSim/RoboGSim/ASAP/Lee content and wrappers unchanged. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit. |  |  |  | source-newton-engine-20260908-sim2real-transfer-20 |
 | "the splat supplies appearance, and a conventional physics engine still supplies dynamics ... it reconstructs a static scene" | SplatSim/RoboGSim architectures | verified | Division of labor as described; article's static-scene caveat matches both papers' scopes. |
 | "The survey calls the abstraction choice one of the highest-leverage and least-discussed levers in the field" | Reality-gap survey, arXiv 2510.20808 HTML, Sec. 4.2 | **corrected** | Survey says "The action space plays a crucial role in reducing the sim-to-real gap as demonstrated across robotics domains including navigation, locomotion, and manipulation" — no "highest-leverage" or "least-discussed" characterization anywhere. Rewritten to the survey's own emphasis. |
 | FrictionTransfer interactive (specialist spike vs generalist plateau) | Callout in article; lib/sim2real.ts header | verified | Labeled illustrative; sourced anchors are the Tobin/Peng framing, ADR, and the CPU-API constraint. |
@@ -1336,3 +1336,310 @@ Exactly humanoid-wbc originals 2, 4 and 5 corrected against three retained prima
   }
 ]
 ```
+
+
+## newton-engine-original-history-20260912
+
+Exactly parallel-sim-rl originals 7, 11, 12, 13, 14, 15, 17 and sim2real-transfer original 20 are integrated: seven corrected rows and one source-scoped cut, twelve mandatory AND parts and twelve source/part pairs. The two primary documents and seventeen retained passages were checked against raw HTML and original GET receipts; original completion times are September 8 07:49:16.353777 and 07:49:16.639111 UTC (historical HTTP200/curl0, not fresh liveness). Source text ranges are Unicode character ranges; separately recorded byte offsets refer to the derived text, not raw HTML. The authored NVIDIA body, not its AI-generated summary, supports the release, example-only SDF band, vendor accounts, future Samsung use, simulated RB-Y1 and two distinct MJWarp/MJX workload ratios. The overview supports solver-dependent differentiation and its six named authors opinion about Drake. Visible Newton byline has five authors while JSON-LD has only Philipp Reist; overview preserves lowercase lior ben horin. No venue or SPDX license inferred. The early-access qualifier uses the retained newton-early-access passage within original12, without removing any prerequisite. Reward-design-mpc21 is excluded/held; all other originals and prior completions are protected. LastReviewed remains unchanged; whole-P1, current liveness, independent Sol scrutiny/user testing, production export and release acceptance remain unearned.
+
+```json
+[
+  {
+    "originalId": "audit/rl-sim2real.md:parallel-sim-rl:7",
+    "rowOrdinal": 7,
+    "originalCells": {
+      "claim": "\"Brax remains the JAX-native differentiable option among current engines\"",
+      "sourceChecked": "State of Simulation 2026 (primary page)",
+      "verdict": "verified",
+      "note": "Solver/engine survey lists Brax as the JAX-native differentiable engine."
+    },
+    "originalTupleDigest": "05b57f3d48dc299112f8d60da8a9610104d5d81e3a9f4196db06807f8deac1d2",
+    "currentCells": {
+      "claim": "Cut the unsupported sentence asserting that Brax remains the current JAX-native differentiable option; the cited captured overview does not discuss Brax. Earlier Brax 2021 history remains unchanged.",
+      "sourceChecked": "state-of-simulation-2026; https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai; retained September 8 GET body",
+      "verdict": "cut",
+      "note": "Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. Read the entire captured overview, including its Newton and other-engine sections: it contains no Brax mention. The removed current-positioning sentence therefore had no support from its adjacent source. Earlier Brax/JAX history and its own paper citation remain intact. This is an attribution cut, not a universal assertion that Brax lacks capabilities. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit."
+    },
+    "currentTupleDigest": "cbcd47b10d78e08acf9e9ee7c3754fd5299d96b30806d4aab2867ab691c42038",
+    "evidencePlanId": "source-newton-engine-20260908-parallel-sim-rl-7",
+    "currentArticleCitationUnion": [
+      "rudin-2021",
+      "legged-gym-repo-2021",
+      "isaac-gym-2021",
+      "brax-2021",
+      "mujoco-playground-2025",
+      "isaac-lab-2025",
+      "newton-manipulation-blog-2026",
+      "state-of-simulation-2026"
+    ]
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:parallel-sim-rl:11",
+    "rowOrdinal": 11,
+    "originalCells": {
+      "claim": "\"Isaac Lab 3.0 (2026) ... backend-specific code is separated from the core API ... headless on Newton ... photoreal sensors ... through the standalone OVRTX renderer\"",
+      "sourceChecked": "State of Simulation 2026",
+      "verdict": "verified",
+      "note": "3.0 decoupling and OVRTX reattachment as described."
+    },
+    "originalTupleDigest": "aa91df1ab5354b5486e48367334eedf7f62c3569012c89a80c77421490c6e8d4",
+    "currentCells": {
+      "claim": "NVIDIA's 2026 overview describes Isaac Lab 3.0 as separating backend-specific code from the core API. Developers can use Isaac Sim with PhysX and RTX for photorealistic, sensor-rich workflows, or run headless Newton physics for high-throughput simulation. The overview also describes adding photoreal sensors through the standalone OVRTX renderer, or using Newton's renderer for vision-based RL with many environments.",
+      "sourceChecked": "state-of-simulation-2026; https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai; retained September 8 GET body",
+      "verdict": "corrected",
+      "note": "Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The overview explicitly separates core API from backend code and names Isaac Sim/PhysX/RTX, headless Newton, standalone OVRTX and Newton rendering. Current prose attributes these paths to NVIDIA rather than treating them as an independent framework benchmark. The separate March release paragraph now states Isaac Sim 6.0 and Isaac Lab 3.0 early access, not GA. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit."
+    },
+    "currentTupleDigest": "8f3f0628ce682593be851cfb36fa0afab2438c37ee84cbc9cd73a9095546e563",
+    "evidencePlanId": "source-newton-engine-20260908-parallel-sim-rl-11",
+    "currentArticleCitationUnion": [
+      "rudin-2021",
+      "legged-gym-repo-2021",
+      "isaac-gym-2021",
+      "brax-2021",
+      "mujoco-playground-2025",
+      "isaac-lab-2025",
+      "newton-manipulation-blog-2026",
+      "state-of-simulation-2026"
+    ]
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:parallel-sim-rl:12",
+    "rowOrdinal": 12,
+    "originalCells": {
+      "claim": "\"Newton, which hit 1.0 GA at GTC in March 2026 ... built on NVIDIA Warp and OpenUSD, founded by NVIDIA, Google DeepMind, and Disney Research and governed under the Linux Foundation\"",
+      "sourceChecked": "Newton manipulation blog (NVIDIA developer), fetched 2026-08-17",
+      "verdict": "verified",
+      "note": "All four facts stated in the announcement."
+    },
+    "originalTupleDigest": "78cd13407c9ba1fcb37f179e19c63ba743d1b18a177daaee1cf71b3e04278387",
+    "currentCells": {
+      "claim": "NVIDIA's March 16, 2026 release post announces Newton 1.0 GA at GTC 2026 and describes an open-source, GPU-accelerated physics engine built on NVIDIA Warp and OpenUSD. It identifies Newton as a Linux Foundation project founded by NVIDIA, Google DeepMind, and Disney Research. The post calls Isaac Sim 6.0 and Isaac Lab 3.0 early access releases. The later NVIDIA overview describes the engine as differentiable, while noting that differentiation support differs between solvers.",
+      "sourceChecked": "newton-manipulation-blog-2026; https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics; retained September 8 GET body / state-of-simulation-2026; https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai; retained September 8 GET body",
+      "verdict": "corrected",
+      "note": "Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The visible March 16 date, authored 1.0 GA/GTC paragraph, Linux Foundation project sentence and three named founders support the current release description. The existing early-access passage supports the added Isaac Sim 6.0/Lab 3.0 distinction. No governance mechanism or particular software license identifier is inferred. The overview first calls Newton differentiable and later explicitly says differentiation capabilities differ between solvers. The current sentence retains both statements instead of claiming every solver/contact/learning path supports differentiation. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit."
+    },
+    "currentTupleDigest": "aa753bec14b3e007ea5b75b4d8495302e3e1fda18aefacc574be663d31f8b8e5",
+    "evidencePlanId": "source-newton-engine-20260908-parallel-sim-rl-12",
+    "currentArticleCitationUnion": [
+      "rudin-2021",
+      "legged-gym-repo-2021",
+      "isaac-gym-2021",
+      "brax-2021",
+      "mujoco-playground-2025",
+      "isaac-lab-2025",
+      "newton-manipulation-blog-2026",
+      "state-of-simulation-2026"
+    ]
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:parallel-sim-rl:13",
+    "rowOrdinal": 13,
+    "originalCells": {
+      "claim": "Solver inventory (MuJoCo Warp, Featherstone, Kamino, VBD, implicit MPM) + \"SDF-based collision ... plus-or-minus 10 mm narrow band\" + \"hydroelastic contacts ... explicitly borrowed from Drake's contact model\"",
+      "sourceChecked": "Newton blog",
+      "verdict": "verified",
+      "note": "Solver list, +-10 mm SDF narrow band, and the Drake hydroelastic borrowing all stated."
+    },
+    "originalTupleDigest": "cb4ab30f614c4f13c8407a82ffba19f506d24ce9331c41b2e477a155567fc234",
+    "currentCells": {
+      "claim": "Newton puts multiple solvers behind a unified API. NVIDIA's overview lists MuJoCo and Featherstone for generalized-coordinate articulated rigid bodies; SemiImplicit, XPBD, and Kamino for maximal-coordinate formulations; VBD for rigid bodies, particles, cloth, and soft bodies, with limited joint support; implicit MPM for particle-based continuum materials; and Style3D for cloth. The release post describes Disney Research's Kamino as handling closed-chain mechanisms, and describes coupling VBD and iMPM with MuJoCo Warp for deformable manipulation and locomotion. The release post describes SDF-based collision built from CAD-exported meshes and hydroelastic contacts inspired by Drake: pressure is distributed across finite-area contact patches rather than isolated points. Its assembly code example precomputes sparse SDFs with `narrow_band_range=(-0.01, 0.01)`, a plus-or-minus 10 mm band around the surface. That band belongs to the example configuration, not a stated engine-wide requirement.",
+      "sourceChecked": "state-of-simulation-2026; https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai; retained September 8 GET body / newton-manipulation-blog-2026; https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics; retained September 8 GET body",
+      "verdict": "corrected",
+      "note": "Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. Read the entire Newton inventory and its qualifier. Current prose preserves generalized MuJoCo/Featherstone, maximal SemiImplicit/XPBD/Kamino, VBD limited joint support, continuum implicit MPM and Style3D cloth. Deleted accuracy-reference and blanket articulation-impossibility claims are not in this source. The authored release describes Kamino closed-chain mechanisms, including parallel linkages, and explicit coupling of VBD/MPM with MuJoCo Warp. Current prose says these mechanisms, not an invented tendon-hand feature or universal solver limitation. Read authored collision bullets and assembly snippet. CAD-derived SDF and finite-area pressure contacts are explicit, as is inspiration from Drake. The literal narrow_band_range=(-0.01, 0.01) comment states plus-or-minus 10 mm only for the assembly example. Current wording does not promote it to an engine-wide constant. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit."
+    },
+    "currentTupleDigest": "e29ef8108be76bbb8b65fd2f2e3b65332a0254b4e493413d195fdd0ca734be6c",
+    "evidencePlanId": "source-newton-engine-20260908-parallel-sim-rl-13",
+    "currentArticleCitationUnion": [
+      "rudin-2021",
+      "legged-gym-repo-2021",
+      "isaac-gym-2021",
+      "brax-2021",
+      "mujoco-playground-2025",
+      "isaac-lab-2025",
+      "newton-manipulation-blog-2026",
+      "state-of-simulation-2026"
+    ]
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:parallel-sim-rl:14",
+    "rowOrdinal": 14,
+    "originalCells": {
+      "claim": "\"Skild ... GPU-rack connector insertion, and Samsung with Lightwheel for refrigerator hose insertion with the VBD cable solver\"",
+      "sourceChecked": "Newton blog",
+      "verdict": "verified",
+      "note": "Both customer uses named as in the article."
+    },
+    "originalTupleDigest": "57505ec8875b9b7046f7882995a3d7ca2b2a4924f595bfc0655f8f3ca4c5eea6",
+    "currentCells": {
+      "claim": "For GPU rack assembly, NVIDIA says Skild AI is training RL policies with Isaac Lab's Newton backend, using SDF collision and hydroelastic contact modeling for tasks including connector insertion. The same post says Samsung \"will use Newton\" for synthetic data generation to train VLA models and describes Lightwheel's work on calibrated SimReady assets. Its refrigerator-assembly example is a simulated RB-Y1 cable-insertion task using two-way coupled MuJoCo Warp and VBD; the text describes inserting a water-hose connector into its housing. These are NVIDIA's accounts of the workflows, not independently established production-deployment results.",
+      "sourceChecked": "newton-manipulation-blog-2026; https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics; retained September 8 GET body",
+      "verdict": "corrected",
+      "note": "Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The authored GPU-rack section says Skild is training RL policies and using Isaac Lab with the Newton SDF/hydroelastic pipeline. The current paragraph attributes that account to NVIDIA and does not count it as independently demonstrated production deployment. Read the future-tense Samsung sentence, Lightwheel measurement/calibration paragraph, RB-Y1 simulation caption and water-hose-connector paragraph together. Current text preserves will use, simulated RB-Y1, two-way MuJoCo/VBD coupling and the connector identity, rather than repeating the stronger AI-generated summary. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit."
+    },
+    "currentTupleDigest": "ea3544e465aae6ae4ab9dbb3316bcbc0d91e923db532b374fc5ebfe1eccc2800",
+    "evidencePlanId": "source-newton-engine-20260908-parallel-sim-rl-14",
+    "currentArticleCitationUnion": [
+      "rudin-2021",
+      "legged-gym-repo-2021",
+      "isaac-gym-2021",
+      "brax-2021",
+      "mujoco-playground-2025",
+      "isaac-lab-2025",
+      "newton-manipulation-blog-2026",
+      "state-of-simulation-2026"
+    ]
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:parallel-sim-rl:15",
+    "rowOrdinal": 15,
+    "originalCells": {
+      "claim": "\"MuJoCo Warp runs 252x faster than MJX on locomotion and 475x on manipulation, measured on an RTX PRO 6000 Blackwell\"",
+      "sourceChecked": "Newton blog benchmark section",
+      "verdict": "verified",
+      "note": "Numbers and hardware named; article flags vendor-reported, unreplicated."
+    },
+    "originalTupleDigest": "0d43e9d0495d8b71351e801e64ce129aa0cdf6c697950aea4d0973ebf31703df",
+    "currentCells": {
+      "claim": "In its MuJoCo 3.5 (MJWarp) release summary, NVIDIA reports speedups over MJX of 252x for locomotion and 475x for manipulation on NVIDIA RTX PRO 6000 Blackwell Series hardware. The post does not specify benchmark task variants, environment counts, numeric precision, or the timing definition for those ratios. Do not read them as end-to-end policy-training-time or control-frequency measurements. Stat: MJWarp vs MJX, 252x / 475x; NVIDIA report: locomotion / manipulation; limits below.",
+      "sourceChecked": "newton-manipulation-blog-2026; https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics; retained September 8 GET body",
+      "verdict": "corrected",
+      "note": "Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The authored MuJoCo 3.5 (MJWarp) bullet gives 252x locomotion and 475x manipulation over MJX on RTX PRO 6000 Blackwell Series. The Stat now separates those ratios by workload. Reading the complete body did not establish task variants, environment counts, precision or a timing definition for those ratios; nearby code examples are not benchmark protocol. Removed dated no-independent-replication claim was unsupported. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit."
+    },
+    "currentTupleDigest": "e9e282db187e2e4e007805524c511fe3ffee633a2be47516a933de5015ca2bbd",
+    "evidencePlanId": "source-newton-engine-20260908-parallel-sim-rl-15",
+    "currentArticleCitationUnion": [
+      "rudin-2021",
+      "legged-gym-repo-2021",
+      "isaac-gym-2021",
+      "brax-2021",
+      "mujoco-playground-2025",
+      "isaac-lab-2025",
+      "newton-manipulation-blog-2026",
+      "state-of-simulation-2026"
+    ]
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:parallel-sim-rl:17",
+    "rowOrdinal": 17,
+    "originalCells": {
+      "claim": "\"Drake keeps its niche: contact-implicit trajectory optimization and rigorous numerics, not throughput\"",
+      "sourceChecked": "State of Simulation 2026",
+      "verdict": "verified",
+      "note": "Drake's positioning as stated in the survey article."
+    },
+    "originalTupleDigest": "c8408b99941133036b44692d6b8a5d07af8ea13e4b3bc062e719917af98dba8d",
+    "currentCells": {
+      "claim": "Johnny Nuñez Cano and his NVIDIA coauthors call Drake the \"gold standard\" for contact-implicit trajectory optimisation and rigorous numerics rather than throughput. This is the overview authors' positioning, not a comparative benchmark.",
+      "sourceChecked": "state-of-simulation-2026; https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai; retained September 8 GET body",
+      "verdict": "corrected",
+      "note": "Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The visible ordered six-author byline includes Johnny Nuñez Cano and lowercase lior ben horin; the other-engines paragraph calls Drake gold standard. Current wording names the authors and identifies the statement as positioning, not a quantitative benchmark or first-party Drake technical certification. The preceding unselected Newton policy-learning sentence remains uncredited. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit."
+    },
+    "currentTupleDigest": "537d17b6f86e0382a9f744f3faf61da76fb6c8f73ef8555ad69373a887f36ca1",
+    "evidencePlanId": "source-newton-engine-20260908-parallel-sim-rl-17",
+    "currentArticleCitationUnion": [
+      "rudin-2021",
+      "legged-gym-repo-2021",
+      "isaac-gym-2021",
+      "brax-2021",
+      "mujoco-playground-2025",
+      "isaac-lab-2025",
+      "newton-manipulation-blog-2026",
+      "state-of-simulation-2026"
+    ]
+  },
+  {
+    "originalId": "audit/rl-sim2real.md:sim2real-transfer:20",
+    "rowOrdinal": 20,
+    "originalCells": {
+      "claim": "\"Newton 1.0's tiled camera sensor accepts Gaussian splats as a native scene representation\"",
+      "sourceChecked": "Newton blog",
+      "verdict": "verified",
+      "note": "Splat-native tiled camera stated in the announcement."
+    },
+    "originalTupleDigest": "c063eda1d57d9080c7434cb4c6f47f6ed9d46e8228a06c1d23087c079e448d81",
+    "currentCells": {
+      "claim": "The Newton 1.0 release post describes a Warp-based tiled camera sensor whose ray-tracing backend supports both triangle meshes and Gaussian splats.",
+      "sourceChecked": "newton-manipulation-blog-2026; https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics; retained September 8 GET body",
+      "verdict": "corrected",
+      "note": "Final-current source review 2026-09-12T20:13:42.481Z by agent:14bec1ba-6368-4110-9037-8456239b335e/integrator; no new retrieval. The authored tiled-sensor bullet explicitly states Warp-based sensing, ray-tracing rendering and triangle-mesh/Gaussian-splat representations. Current transfer prose removes the productized-SplatSim inference and leaves all adjacent SplatSim/RoboGSim/ASAP/Lee content and wrappers unchanged. Original four-cell history: newton-engine-original-history-20260912. Reproducible retained provenance: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/source-proof.json. No whole-P1, licensing, present liveness, independent acceptance or release credit."
+    },
+    "currentTupleDigest": "c399fa7f53b8ecbdcc8422f92874e93e553f3df48bd7cd357e887910a4c5b1e1",
+    "evidencePlanId": "source-newton-engine-20260908-sim2real-transfer-20",
+    "currentArticleCitationUnion": [
+      "tobin-2017",
+      "peng-2018",
+      "openai-rubiks-cube-2019",
+      "isaac-lab-2025",
+      "lee-2020",
+      "rma-2021",
+      "hwangbo-2019",
+      "asap-2025",
+      "splatsim-2024",
+      "robogsim-2024",
+      "reality-gap-survey-2026",
+      "newton-manipulation-blog-2026"
+    ]
+  }
+]
+```
+
+
+## Newton/engine integration verification — 2026-09-12
+
+Native preservation passes for **986 unselected full semantic records**,
+**447 prior completions**, **353 prior plans** and **448 prior approvals**,
+including catalog metadata and serialized prefixes. All **44 unrelated
+baseline failure objects and their order remain identical**. Four exact
+fresh-input member approvals append; eight wrong-old/new-hash controls,
+stale and missing approvals reject. Protected ancestors d282a83/2cf7d6b,
+owner files, schemas, feature policy and shared UI remain unchanged.
+
+Sequential actual gates used NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Observed result |
+|---|---|
+| Source verification | Passed, exit 0; two GET bindings / 17 ranges |
+| New unit red-first | 40 failed, exit 1 |
+| New unit green and final-input qualification | 40 passed each, exits 0; same identities |
+| Other affected units/components | 79 passed across seven files, exit 0 |
+| Normal prelint/lint | Passed, exit 0; code inputs requalified byte-exactly |
+| Source-only no-slop | Passed, 47 MDX; no fresh export claim |
+| Initial reader cases | 9 passed / 3 failed of 12, exit 1 |
+| Only failed mobile reader cases rerun | 3 passed, exit 0 |
+| Existing affected reader controls | 4 passed, exit 0 |
+| Route typegen / nonincremental TypeScript | Passed, exits 0 |
+| Full offline content lifecycle | **RED: 544 findings plus nine separate citation gaps**, exit 1 |
+| Final native preservation and approval controls | Passed, exit 0 |
+
+Five measured mobile tooltip right edges at width375 are repaired with local
+max-sm offsets: **442→346, 486→358, 408→344, 377→361, 438→342**. Hover/focus
+containment and source-chip hit tests pass for all repaired occurrences.
+Five/six-author reference bylines display in order; no expansion is expected.
+All 12 source-reader identities have a passing execution across two runs
+(15 executions: 12 passes / three initial failures), **not a fresh 12/12
+final invocation**. Desktop reuse is limited to inactive max-sm wrappers and
+otherwise unchanged inputs. The reward byline dependency passes without
+closing reward original 21. Back returns to the expected URL but leaves
+focus on BODY: existing history-owner debt, not a restoration pass.
+
+**52 PNG captures: six directly Read-inspected, 46 uninspected**; both
+approved reference images were read. The inspected repairs fit the mobile
+viewport; development UI remains visible. Full reference-rubric, Axe,
+glyph/cmap, contrast and whole-P1 acceptance remain unearned. The inherited
+humanoid-WBC ASAP tooltip (right454 at375) is untouched and remains held.
+
+Owned loopback webpack runtime on3225 exited **0** after SIGINT to its
+verified child; the port is free. Three configuration files, including
+next-env.d.ts, are restored byte-exactly after runtime and typegen.
+**One external socket attempt was blocked**, not zero attempts; no new
+retrieval succeeded. No other process was signaled. No build/export,
+reading-time or card-corpus acceptance, push, deployment, controller launch,
+feature edit or fallback occurred. Formal progress remains **307/331**,
+independently unaccepted. Whole-P1/authored-local-proof, production/brand
+convergence, independent Sol/high scrutiny and user testing retain their
+existing owners. **Do not publish.**
+
+Exact current/original cells and digests, source proof, reviews, final-input
+receipts, captures, committed recount and noncircular inventory are under:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/`.
+Earlier checkpoint sections below remain historical evidence.

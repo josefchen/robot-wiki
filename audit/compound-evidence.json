@@ -35042,5 +35042,397 @@
         "evidenceDigest": "3244513bb05c91b23a0c021e15a8bea5e6df2c9435d29f1db6065be4462c4242"
       }
     ]
+  },
+  {
+    "id": "source-newton-engine-20260908-parallel-sim-rl-7",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 7,
+    "originalCellsDigest": "cbcd47b10d78e08acf9e9ee7c3754fd5299d96b30806d4aab2867ab691c42038",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "remove-unsupported-current-position",
+        "text": "Remove only the unsupported sentence asserting Brax's unique current JAX-native differentiable positioning. The captured cited overview does not mention Brax. This cut makes no claim that Brax lacks either capability and leaves the earlier 2021 Brax/MJX discussion unchanged and unaudited here.",
+        "requiredCitationIds": [
+          "state-of-simulation-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+      "rationale": "Actual applied text reviewed 2026-09-12T20:13:42.481Z. All own mandatory source/part endpoints checked; shared metadata applied once. Read the entire captured overview, including its Newton and other-engine sections: it contains no Brax mention. The removed current-positioning sentence therefore had no support from its adjacent source. Earlier Brax/JAX history and its own paper citation remain intact. This is an attribution cut, not a universal assertion that Brax lacks capabilities.",
+      "planDigest": "041fec3ffeeb4b5cf42ab2e78d58f519848281e21f873cdb5735dcf63923b150"
+    },
+    "evidence": [
+      {
+        "partId": "remove-unsupported-current-position",
+        "citationId": "state-of-simulation-2026",
+        "sourceUrl": "https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai",
+        "supportingPassage": "Newton is an open-source, GPU-accelerated, extensible, and differentiable physics engine developed by NVIDIA, Google DeepMind, and Disney Research, and managed through the Linux Foundation. It is built on NVIDIA Warp and OpenUSD, and it integrates MuJoCo Warp as a key physics backend. In the broader simulation ecosystem, Newton acts as a modern physics layer for robot learning frameworks such as Isaac Lab and MuJoCo Playground, giving researchers a path toward scalable, differentiable, simulator-agnostic physics. In Isaac Lab specifically, Newton is currently an active integration path, with the MuJoCo-Warp solver used as a primary focus for high-throughput robot-learning experiments. Figure showcases breakdown on how different application frameworks communicate with GPU accelerated physics libraries and simulation engines. Newton provides multiple solver implementations rather than prescribing one numerical method for every problem. SolverMuJoCo and SolverFeatherstone use generalized coordinates for articulated rigid-body systems. SolverSemiImplicit, SolverXPBD, and the SolverKamino use maximal-coordinate formulations. SolverVBD is an implicit solver supporting rigid bodies, particles, cloth, and soft bodies, although its joint support remains limited. SolverImplicitMPM targets particle-based continuum materials, while SolverStyle3D specializes in cloth simulation. Because capabilities differ between solvers—including support for articulations, deformable bodies, contacts, and differentiation—the appropriate solver depends on the physical system being modeled.\n[Retained derived-text lines 115-115; Unicode characters 9565-11152 end-exclusive; body SHA-256 79b83e7c5f75bb105debd43141196765c5e87d90ade993edd6a97fac758cff8c; original GET completed 2026-09-08T07:49:16.639111+00:00.]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "remove-unsupported-current-position",
+        "outcome": "supported",
+        "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+        "rationale": "Actual review 2026-09-12T20:13:42.481Z: Read the entire captured overview, including its Newton and other-engine sections: it contains no Brax mention. The removed current-positioning sentence therefore had no support from its adjacent source. Earlier Brax/JAX history and its own paper citation remain intact. This is an attribution cut, not a universal assertion that Brax lacks capabilities.",
+        "evidenceDigest": "e2ab2b29d3fecc3cfa06057e51749b87ba652655a1f49f16ddee6f42a2e166ab"
+      }
+    ]
+  },
+  {
+    "id": "source-newton-engine-20260908-parallel-sim-rl-11",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 11,
+    "originalCellsDigest": "8f3f0628ce682593be851cfb36fa0afab2438c37ee84cbc9cd73a9095546e563",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "backend-and-renderer-split",
+        "text": "NVIDIA's overview describes the Isaac Lab 3.0 core/backend separation, Isaac Sim PhysX/RTX path, headless Newton path, standalone OVRTX photoreal sensors, and Newton rendering for large vision-RL workloads.",
+        "requiredCitationIds": [
+          "state-of-simulation-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+      "rationale": "Actual applied text reviewed 2026-09-12T20:13:42.481Z. All own mandatory source/part endpoints checked; shared metadata applied once. The overview explicitly separates core API from backend code and names Isaac Sim/PhysX/RTX, headless Newton, standalone OVRTX and Newton rendering. Current prose attributes these paths to NVIDIA rather than treating them as an independent framework benchmark. The separate March release paragraph now states Isaac Sim 6.0 and Isaac Lab 3.0 early access, not GA.",
+      "planDigest": "a667bc47afe2fbf5b9372533c02a6237dc338d291f440384044417e5d1e16936"
+    },
+    "evidence": [
+      {
+        "partId": "backend-and-renderer-split",
+        "citationId": "state-of-simulation-2026",
+        "sourceUrl": "https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai",
+        "supportingPassage": "With Isaac Lab 3.0.0 - We have decoupled the Isaac Sim and omniverse dependency, and made Isaac Lab a lightweight, multi backend Robot learning framework.\nThe new architecture separates backend-specific code from the core Isaac Lab API. Developers can select to use Isaac Sim with PhysX and RTX rendering for photorealistic, sensor-rich workflows, or run light-weightheadless Newton physics for high-throughput simulation. Additionally, developers can add photoreal sensors via the standalone OVRTX renderer, or leverage the Newton renderer for vision-based RL tasks that require a very large number of environments.\n[Retained derived-text lines 110-111; Unicode characters 8285-8901 end-exclusive; body SHA-256 79b83e7c5f75bb105debd43141196765c5e87d90ade993edd6a97fac758cff8c; original GET completed 2026-09-08T07:49:16.639111+00:00.]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "backend-and-renderer-split",
+        "outcome": "supported",
+        "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+        "rationale": "Actual review 2026-09-12T20:13:42.481Z: The overview explicitly separates core API from backend code and names Isaac Sim/PhysX/RTX, headless Newton, standalone OVRTX and Newton rendering. Current prose attributes these paths to NVIDIA rather than treating them as an independent framework benchmark. The separate March release paragraph now states Isaac Sim 6.0 and Isaac Lab 3.0 early access, not GA.",
+        "evidenceDigest": "4d138389d30363f5cd4fcda72243c61ed9f39056a3d56948fd14cde253954c4b"
+      }
+    ]
+  },
+  {
+    "id": "source-newton-engine-20260908-parallel-sim-rl-12",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 12,
+    "originalCellsDigest": "aa753bec14b3e007ea5b75b4d8495302e3e1fda18aefacc574be663d31f8b8e5",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "release-foundation-and-founders",
+        "text": "NVIDIA's March 16, 2026 post announces Newton 1.0 GA at GTC 2026, describes open-source GPU acceleration and Warp/OpenUSD foundations, and names the Linux Foundation project and three founders. The release post calls Isaac Sim 6.0 and Isaac Lab 3.0 early access releases.",
+        "requiredCitationIds": [
+          "newton-manipulation-blog-2026"
+        ]
+      },
+      {
+        "id": "differentiability-is-solver-dependent",
+        "text": "NVIDIA's overview describes Newton as differentiable but explicitly says differentiation capabilities differ by solver.",
+        "requiredCitationIds": [
+          "state-of-simulation-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+      "rationale": "Actual applied text reviewed 2026-09-12T20:13:42.481Z. All own mandatory source/part endpoints checked; shared metadata applied once. The visible March 16 date, authored 1.0 GA/GTC paragraph, Linux Foundation project sentence and three named founders support the current release description. The existing early-access passage supports the added Isaac Sim 6.0/Lab 3.0 distinction. No governance mechanism or particular software license identifier is inferred. The overview first calls Newton differentiable and later explicitly says differentiation capabilities differ between solvers. The current sentence retains both statements instead of claiming every solver/contact/learning path supports differentiation.",
+      "planDigest": "61caf30d386308fc3592aa68ff62ba545d524b3d50ec4b8b2e7566a75bda659f"
+    },
+    "evidence": [
+      {
+        "partId": "release-foundation-and-founders",
+        "citationId": "newton-manipulation-blog-2026",
+        "sourceUrl": "https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics",
+        "supportingPassage": "Newton Adds Contact-Rich Manipulation and Locomotion Capabilities for Industrial Robotics\nMar 16, 2026\nBy Philipp Reist, Miguel Zamora Mora, JC Chang, Rishabh Chadha and Mohammad Mohajerani\n[Retained derived-text lines 14-16; Unicode characters 222-411 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]\n\nNewton 1.0 GA, announced at NVIDIA GTC 2026, is delivering an accelerated, production-ready foundation for dexterous manipulation and locomotion tasks. As an extensible physics engine built on NVIDIA Warp and OpenUSD, robots can learn how to handle complex tasks with greater precision, speed, and extensibility while using frameworks such as NVIDIA Isaac Lab and NVIDIA Isaac Sim.\n[Retained derived-text lines 37-37; Unicode characters 2473-2854 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]\n\nNewton is a Linux Foundation project founded by NVIDIA, Google DeepMind, and Disney Research. Lightwheel, a leader in simulation infrastructure for physical AI, has joined forces with Newton to advance solver calibration, define the SimReady standard, and develop the next generation of physically grounded SimReady assets. Toyota Research Institute (TRI), developer of the Drake physics engine, is also partnering with Newton to advance solver development and contact modeling capabilities.\n[Retained derived-text lines 53-53; Unicode characters 7226-7717 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]\n\nOpenUSD and Isaac integration: With OpenUSD as a common data layer, Newton integrates natively with NVIDIA Isaac Sim 6.0 and Isaac Lab 3.0 early access releases, enabling faster workflows from robot description to trained policy and evaluation pipelines across reinforcement and imitation learning workflows.\n[Retained derived-text lines 50-50; Unicode characters 6340-6648 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]"
+      },
+      {
+        "partId": "differentiability-is-solver-dependent",
+        "citationId": "state-of-simulation-2026",
+        "sourceUrl": "https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai",
+        "supportingPassage": "Newton is an open-source, GPU-accelerated, extensible, and differentiable physics engine developed by NVIDIA, Google DeepMind, and Disney Research, and managed through the Linux Foundation. It is built on NVIDIA Warp and OpenUSD, and it integrates MuJoCo Warp as a key physics backend. In the broader simulation ecosystem, Newton acts as a modern physics layer for robot learning frameworks such as Isaac Lab and MuJoCo Playground, giving researchers a path toward scalable, differentiable, simulator-agnostic physics. In Isaac Lab specifically, Newton is currently an active integration path, with the MuJoCo-Warp solver used as a primary focus for high-throughput robot-learning experiments. Figure showcases breakdown on how different application frameworks communicate with GPU accelerated physics libraries and simulation engines. Newton provides multiple solver implementations rather than prescribing one numerical method for every problem. SolverMuJoCo and SolverFeatherstone use generalized coordinates for articulated rigid-body systems. SolverSemiImplicit, SolverXPBD, and the SolverKamino use maximal-coordinate formulations. SolverVBD is an implicit solver supporting rigid bodies, particles, cloth, and soft bodies, although its joint support remains limited. SolverImplicitMPM targets particle-based continuum materials, while SolverStyle3D specializes in cloth simulation. Because capabilities differ between solvers—including support for articulations, deformable bodies, contacts, and differentiation—the appropriate solver depends on the physical system being modeled.\n[Retained derived-text lines 115-115; Unicode characters 9565-11152 end-exclusive; body SHA-256 79b83e7c5f75bb105debd43141196765c5e87d90ade993edd6a97fac758cff8c; original GET completed 2026-09-08T07:49:16.639111+00:00.]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "release-foundation-and-founders",
+        "outcome": "supported",
+        "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+        "rationale": "Actual review 2026-09-12T20:13:42.481Z: The visible March 16 date, authored 1.0 GA/GTC paragraph, Linux Foundation project sentence and three named founders support the current release description. The existing early-access passage supports the added Isaac Sim 6.0/Lab 3.0 distinction. No governance mechanism or particular software license identifier is inferred.",
+        "evidenceDigest": "4e1936bb8e8fd1c542d7184a82351daa835b667f2486de529e2e597c4ded3abc"
+      },
+      {
+        "partId": "differentiability-is-solver-dependent",
+        "outcome": "supported",
+        "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+        "rationale": "Actual review 2026-09-12T20:13:42.481Z: The overview first calls Newton differentiable and later explicitly says differentiation capabilities differ between solvers. The current sentence retains both statements instead of claiming every solver/contact/learning path supports differentiation.",
+        "evidenceDigest": "450c8500f066f61f07b6c3c377c35b6ac98796c8193c8a0395a2eca42c707b28"
+      }
+    ]
+  },
+  {
+    "id": "source-newton-engine-20260908-parallel-sim-rl-13",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "e29ef8108be76bbb8b65fd2f2e3b65332a0254b4e493413d195fdd0ca734be6c",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "overview-solver-inventory",
+        "text": "Exact overview inventory: MuJoCo and Featherstone generalized coordinates; SemiImplicit, XPBD, Kamino maximal coordinates; VBD implicit and limited joint support; implicit MPM continuum particles; Style3D cloth.",
+        "requiredCitationIds": [
+          "state-of-simulation-2026"
+        ]
+      },
+      {
+        "id": "kamino-and-coupling",
+        "text": "Release post names Disney Research's Kamino closed-chain mechanisms and explicit coupling of VBD and iMPM with MuJoCo Warp.",
+        "requiredCitationIds": [
+          "newton-manipulation-blog-2026"
+        ]
+      },
+      {
+        "id": "sdf-hydroelastic-and-example-band",
+        "text": "CAD-exported SDF collision and Drake-inspired finite-area hydroelastic contact are stated; plus-or-minus 10 mm is the narrow_band_range in the assembly example, not a universal engine setting.",
+        "requiredCitationIds": [
+          "newton-manipulation-blog-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+      "rationale": "Actual applied text reviewed 2026-09-12T20:13:42.481Z. All own mandatory source/part endpoints checked; shared metadata applied once. Read the entire Newton inventory and its qualifier. Current prose preserves generalized MuJoCo/Featherstone, maximal SemiImplicit/XPBD/Kamino, VBD limited joint support, continuum implicit MPM and Style3D cloth. Deleted accuracy-reference and blanket articulation-impossibility claims are not in this source. The authored release describes Kamino closed-chain mechanisms, including parallel linkages, and explicit coupling of VBD/MPM with MuJoCo Warp. Current prose says these mechanisms, not an invented tendon-hand feature or universal solver limitation. Read authored collision bullets and assembly snippet. CAD-derived SDF and finite-area pressure contacts are explicit, as is inspiration from Drake. The literal narrow_band_range=(-0.01, 0.01) comment states plus-or-minus 10 mm only for the assembly example. Current wording does not promote it to an engine-wide constant.",
+      "planDigest": "126688e25bc277e53c3dd8caf2520672abe03a24871fc142785106c49cf0c8c3"
+    },
+    "evidence": [
+      {
+        "partId": "overview-solver-inventory",
+        "citationId": "state-of-simulation-2026",
+        "sourceUrl": "https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai",
+        "supportingPassage": "Newton is an open-source, GPU-accelerated, extensible, and differentiable physics engine developed by NVIDIA, Google DeepMind, and Disney Research, and managed through the Linux Foundation. It is built on NVIDIA Warp and OpenUSD, and it integrates MuJoCo Warp as a key physics backend. In the broader simulation ecosystem, Newton acts as a modern physics layer for robot learning frameworks such as Isaac Lab and MuJoCo Playground, giving researchers a path toward scalable, differentiable, simulator-agnostic physics. In Isaac Lab specifically, Newton is currently an active integration path, with the MuJoCo-Warp solver used as a primary focus for high-throughput robot-learning experiments. Figure showcases breakdown on how different application frameworks communicate with GPU accelerated physics libraries and simulation engines. Newton provides multiple solver implementations rather than prescribing one numerical method for every problem. SolverMuJoCo and SolverFeatherstone use generalized coordinates for articulated rigid-body systems. SolverSemiImplicit, SolverXPBD, and the SolverKamino use maximal-coordinate formulations. SolverVBD is an implicit solver supporting rigid bodies, particles, cloth, and soft bodies, although its joint support remains limited. SolverImplicitMPM targets particle-based continuum materials, while SolverStyle3D specializes in cloth simulation. Because capabilities differ between solvers—including support for articulations, deformable bodies, contacts, and differentiation—the appropriate solver depends on the physical system being modeled.\n[Retained derived-text lines 115-115; Unicode characters 9565-11152 end-exclusive; body SHA-256 79b83e7c5f75bb105debd43141196765c5e87d90ade993edd6a97fac758cff8c; original GET completed 2026-09-08T07:49:16.639111+00:00.]"
+      },
+      {
+        "partId": "kamino-and-coupling",
+        "citationId": "newton-manipulation-blog-2026",
+        "sourceUrl": "https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics",
+        "supportingPassage": "Newton is a modular framework that brings together multiple solvers and simulation components behind a unified architecture. Rather than being tied to a single scene format, it supports a broad runtime data model that spans common robotics descriptions such as MJCF, URDF, and OpenUSD, making it easier to connect existing robot assets and workflows. Teams can mix and match collision detection, contact models, sensors, control, and solver backends—rigid-body and deformable solvers as well as custom solvers—while keeping a consistent simulation stack for robot learning and development.\n[Retained derived-text lines 38-38; Unicode characters 2855-3444 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]\n\nVersatile rigid-body solvers: Newton ships with several rigid-body solvers. MuJoCo and Kamino have the most advanced and complementary capabilities:\nKamino, developed by Disney Research, handles complex mechanisms such as robotic hands and legged systems with closed-loop linkages and passive actuation. It enables a new class of simulation capabilities, giving mechanical designers the freedom to design systems without worrying about simulatability, while paving the way for scalable reinforcement learning.\nMuJoCo 3.5 (MJWarp) builds on the stability and accuracy the robotics community already trusts in MuJoCo, developed by Google DeepMind, now extended with GPU-scale throughput for thousands of parallel training environments. New optimizations enable MuJoCo Warp to speed up MJX by 252x for locomotion, and 475x for manipulation tasks on the NVIDIA RTX PRO 6000 Blackwell Series.\nRich deformable simulation: Powered by the Vertex Block Descent (VBD) solver, Newton handles linear deformables (cables), thin deformables (cloth), and volumetric deformables (rubber parts), covering common materials found in real industrial settings. Also, the Implicit Material Point Method (iMPM) handles particle simulation (granular material) applicable to rough terrain locomotion scenarios. The VBD and MPM solvers can be coupled with MuJoCo Warp explicitly to support deformable manipulation and locomotion scenarios with robotic systems.\n[Retained derived-text lines 42-45; Unicode characters 3873-5307 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]\n\nThe Kamino solver handles complex and intricate closed-chain mechanisms, such as robots with kinematics that include parallel linkage mechanisms. This enables the simulation of mechanisms like multi-link walking robots, where kinematics can include several closed loops in each leg. An example is Dr. Legs, a closed-chain robotic leg mechanism available in the Newton asset repository, which demonstrates how Kamino handles articulated structures with multiple closed loops.\n[Retained derived-text lines 56-56; Unicode characters 7870-8344 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]"
+      },
+      {
+        "partId": "sdf-hydroelastic-and-example-band",
+        "citationId": "newton-manipulation-blog-2026",
+        "sourceUrl": "https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics",
+        "supportingPassage": "Collision library: A flexible and fast collision detection pipeline enables selection of the right broadphase and narrowphase detection approaches based on scene complexity. The pipeline is reusable and can accelerate custom solver development. The library includes advanced contact generation and modeling:\nSigned distance field (SDF)-based collision captures complex geometries directly from CAD-exported meshes, eliminating the need for mesh approximation methods. This is critical for tight-tolerance tasks such as connector insertion or in-hand manipulation.\nHydroelastic contacts, inspired by this Drake contact model, use a continuous pressure distribution across finite-area contact patches rather than a set of contact points. This provides higher-fidelity and more robust object interaction required for tactile sensing and manipulation policies, ultimately achieving better sim-to-real transfer.\n[Retained derived-text lines 46-48; Unicode characters 5308-6214 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]\n\n# --- 1. Shape configuration: enable hydroelastic contact ---\nshape_cfg = newton.ModelBuilder.ShapeConfig(\nmu=1.0, # friction coefficient\ngap=0.01, # contact detection margin [m]\nke=5.0e4, # elastic contact stiffness (MJWarp fallback)\nkd=5.0e2, # contact damping\nkh=1.0e11, # hydroelastic stiffness [Pa/m] — controls\n# pressure vs. penetration across the contact patch\n)\n# --- 2. Build SDF on each collision mesh ---\n# Precompute a sparse signed-distance field so Newton can find\n# sub-voxel contact surfaces via marching cubes at runtime.\nfor mesh in assembly_meshes:\nmesh.build_sdf(\nmax_resolution=128, # SDF grid resolution\nnarrow_band_range=(-0.01, 0.01), # ±10 mm band around surface\nmargin=shape_cfg.gap,\n)\n# --- 3. Mark shapes as hydroelastic ---\n[Retained derived-text lines 126-144; Unicode characters 13620-14373 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "overview-solver-inventory",
+        "outcome": "supported",
+        "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+        "rationale": "Actual review 2026-09-12T20:13:42.481Z: Read the entire Newton inventory and its qualifier. Current prose preserves generalized MuJoCo/Featherstone, maximal SemiImplicit/XPBD/Kamino, VBD limited joint support, continuum implicit MPM and Style3D cloth. Deleted accuracy-reference and blanket articulation-impossibility claims are not in this source.",
+        "evidenceDigest": "d4c43ed0ff4e340e82e0d875684dc554506749f7cf332da164b42d98d6475c89"
+      },
+      {
+        "partId": "kamino-and-coupling",
+        "outcome": "supported",
+        "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+        "rationale": "Actual review 2026-09-12T20:13:42.481Z: The authored release describes Kamino closed-chain mechanisms, including parallel linkages, and explicit coupling of VBD/MPM with MuJoCo Warp. Current prose says these mechanisms, not an invented tendon-hand feature or universal solver limitation.",
+        "evidenceDigest": "555b37a55667f0734a1c70e7d1807f7f211e673e4ae6063a1e92175b370234d1"
+      },
+      {
+        "partId": "sdf-hydroelastic-and-example-band",
+        "outcome": "supported",
+        "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+        "rationale": "Actual review 2026-09-12T20:13:42.481Z: Read authored collision bullets and assembly snippet. CAD-derived SDF and finite-area pressure contacts are explicit, as is inspiration from Drake. The literal narrow_band_range=(-0.01, 0.01) comment states plus-or-minus 10 mm only for the assembly example. Current wording does not promote it to an engine-wide constant.",
+        "evidenceDigest": "eeeafbe49edd2ace66cdb4b81863b06115d7036c9c83e906a19784cf067fba94"
+      }
+    ]
+  },
+  {
+    "id": "source-newton-engine-20260908-parallel-sim-rl-14",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "ea3544e465aae6ae4ab9dbb3316bcbc0d91e923db532b374fc5ebfe1eccc2800",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "skild-vendor-workflow",
+        "text": "NVIDIA says Skild AI is training RL policies for GPU rack assembly including connector insertion using Isaac Lab with Newton's SDF/hydroelastic pipeline.",
+        "requiredCitationIds": [
+          "newton-manipulation-blog-2026"
+        ]
+      },
+      {
+        "id": "samsung-future-and-simulation",
+        "text": "NVIDIA says Samsung will use Newton for VLA synthetic data and describes Lightwheel calibrated assets; the RB-Y1 refrigerator cable example is simulated with two-way coupled MuJoCo Warp and VBD, including a water-hose connector.",
+        "requiredCitationIds": [
+          "newton-manipulation-blog-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+      "rationale": "Actual applied text reviewed 2026-09-12T20:13:42.481Z. All own mandatory source/part endpoints checked; shared metadata applied once. The authored GPU-rack section says Skild is training RL policies and using Isaac Lab with the Newton SDF/hydroelastic pipeline. The current paragraph attributes that account to NVIDIA and does not count it as independently demonstrated production deployment. Read the future-tense Samsung sentence, Lightwheel measurement/calibration paragraph, RB-Y1 simulation caption and water-hose-connector paragraph together. Current text preserves will use, simulated RB-Y1, two-way MuJoCo/VBD coupling and the connector identity, rather than repeating the stronger AI-generated summary.",
+      "planDigest": "3f4ede450fde0d63d57d2c9f3f147b588d8325a385cc6881da4662ba51e7cecd"
+    },
+    "evidence": [
+      {
+        "partId": "skild-vendor-workflow",
+        "citationId": "newton-manipulation-blog-2026",
+        "sourceUrl": "https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics",
+        "supportingPassage": "Skild AI is training reinforcement learning policies for GPU rack assembly for their industrial end-users, one of the most demanding contact-rich tasks in electronics manufacturing. Connector insertion, board placement, and fastening require stable collision and contact, reliable force feedback, and full-fidelity geometric representation that most simulators cannot provide at training scale.\nSkild is using Isaac Lab with the Newton backend for their electronics assembly automation tasks. In their workflows, the SDF-based collision detection and hydroelastic contact modeling are used to bypass MuJoCo Warp’s native collision and contact pipeline, enabling higher contact fidelity. Shapes are configured with precomputed SDFs built from the original CAD geometry, enabling Newton to operate on non-convex tri-mesh models that accurately represent the geometry of assembly components.\nSDF collision is useful for rigid, non-compliant interactions with complex geometry, enabling precise contact queries against connectors, boards, and other tightly-toleranced parts.\n[Retained derived-text lines 118-120; Unicode characters 11771-12841 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]"
+      },
+      {
+        "partId": "samsung-future-and-simulation",
+        "citationId": "newton-manipulation-blog-2026",
+        "sourceUrl": "https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics",
+        "supportingPassage": "Samsung will use Newton for physically-grounded synthetic data generation (SDG) used for training their vision-language-action (VLA) models.\nLightwheel is applying Newton to generate SimReady assets for Newton with proper tuning based on real-world measurements and verification. This enables a variety of complex industrial assembly tasks, including cable manipulation tasks in Samsung manufacturing workflows. Cables are among the hardest objects to simulate reliably, they exhibit complex 1D deformable behavior, self-collision, and force-dependent shape changes that canonical solvers cannot capture accurately.\nSamsung and Lightwheel’s work illustrates how Newton’s deformable simulation stack, spanning cables through volumetric solids, enables synthetic data generation and policy training on the full range of materials found in real electronics assembly lines.\nVideo 5. A RB-Y1 robot is performing a cable insertion task for refrigerator assembly, simulated with two-way coupled MuJoCo Warp and a VBD cable solver\nNewton’s VBD solver enables simulating linear deformables such as cables. Two-way coupling with rigid-body solvers like MuJoCo Warp enables robot motion to physically interact with cable deformation during simulation. Combined with Newton’s stable collision and high-fidelity contact modeling, this setup enables simulation of tasks such as inserting a refrigerator water-hose connector into its housing. The snippet shows how VBD and MuJoCo Warp are coupled.\n[Retained derived-text lines 164-168; Unicode characters 15275-16757 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "skild-vendor-workflow",
+        "outcome": "supported",
+        "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+        "rationale": "Actual review 2026-09-12T20:13:42.481Z: The authored GPU-rack section says Skild is training RL policies and using Isaac Lab with the Newton SDF/hydroelastic pipeline. The current paragraph attributes that account to NVIDIA and does not count it as independently demonstrated production deployment.",
+        "evidenceDigest": "0f4decccdec74c154ca522413ee0543f9dd5a1b14d69471838d30b997f00d360"
+      },
+      {
+        "partId": "samsung-future-and-simulation",
+        "outcome": "supported",
+        "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+        "rationale": "Actual review 2026-09-12T20:13:42.481Z: Read the future-tense Samsung sentence, Lightwheel measurement/calibration paragraph, RB-Y1 simulation caption and water-hose-connector paragraph together. Current text preserves will use, simulated RB-Y1, two-way MuJoCo/VBD coupling and the connector identity, rather than repeating the stronger AI-generated summary.",
+        "evidenceDigest": "17cd18fa28662c935a140bbc7a198e3c99704922e9e94c556b0aa5dbc9127414"
+      }
+    ]
+  },
+  {
+    "id": "source-newton-engine-20260908-parallel-sim-rl-15",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "e9e282db187e2e4e007805524c511fe3ffee633a2be47516a933de5015ca2bbd",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "vendor-speedup-with-protocol-limits",
+        "text": "NVIDIA reports MuJoCo 3.5 (MJWarp) over MJX speedups of 252x for locomotion and 475x for manipulation on RTX PRO 6000 Blackwell Series hardware. They are two reported ratios, not a continuous range or a policy-training-time/control-frequency measurement; the post leaves detailed task variants, environment counts, precision and timing definition unstated.",
+        "requiredCitationIds": [
+          "newton-manipulation-blog-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+      "rationale": "Actual applied text reviewed 2026-09-12T20:13:42.481Z. All own mandatory source/part endpoints checked; shared metadata applied once. The authored MuJoCo 3.5 (MJWarp) bullet gives 252x locomotion and 475x manipulation over MJX on RTX PRO 6000 Blackwell Series. The Stat now separates those ratios by workload. Reading the complete body did not establish task variants, environment counts, precision or a timing definition for those ratios; nearby code examples are not benchmark protocol. Removed dated no-independent-replication claim was unsupported.",
+      "planDigest": "8e83e0d1269d83253af59af63c723bf56d152238104c6997a1d2fb9686871210"
+    },
+    "evidence": [
+      {
+        "partId": "vendor-speedup-with-protocol-limits",
+        "citationId": "newton-manipulation-blog-2026",
+        "sourceUrl": "https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics",
+        "supportingPassage": "Versatile rigid-body solvers: Newton ships with several rigid-body solvers. MuJoCo and Kamino have the most advanced and complementary capabilities:\nKamino, developed by Disney Research, handles complex mechanisms such as robotic hands and legged systems with closed-loop linkages and passive actuation. It enables a new class of simulation capabilities, giving mechanical designers the freedom to design systems without worrying about simulatability, while paving the way for scalable reinforcement learning.\nMuJoCo 3.5 (MJWarp) builds on the stability and accuracy the robotics community already trusts in MuJoCo, developed by Google DeepMind, now extended with GPU-scale throughput for thousands of parallel training environments. New optimizations enable MuJoCo Warp to speed up MJX by 252x for locomotion, and 475x for manipulation tasks on the NVIDIA RTX PRO 6000 Blackwell Series.\nRich deformable simulation: Powered by the Vertex Block Descent (VBD) solver, Newton handles linear deformables (cables), thin deformables (cloth), and volumetric deformables (rubber parts), covering common materials found in real industrial settings. Also, the Implicit Material Point Method (iMPM) handles particle simulation (granular material) applicable to rough terrain locomotion scenarios. The VBD and MPM solvers can be coupled with MuJoCo Warp explicitly to support deformable manipulation and locomotion scenarios with robotic systems.\n[Retained derived-text lines 42-45; Unicode characters 3873-5307 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "vendor-speedup-with-protocol-limits",
+        "outcome": "supported",
+        "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+        "rationale": "Actual review 2026-09-12T20:13:42.481Z: The authored MuJoCo 3.5 (MJWarp) bullet gives 252x locomotion and 475x manipulation over MJX on RTX PRO 6000 Blackwell Series. The Stat now separates those ratios by workload. Reading the complete body did not establish task variants, environment counts, precision or a timing definition for those ratios; nearby code examples are not benchmark protocol. Removed dated no-independent-replication claim was unsupported.",
+        "evidenceDigest": "f6e3441db1763b78b1912d8c57cc5b3ba76e6c9bfdd63c7d8eed8fbbce9e69ad"
+      }
+    ]
+  },
+  {
+    "id": "source-newton-engine-20260908-parallel-sim-rl-17",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "parallel-sim-rl",
+    "rowOrdinal": 17,
+    "originalCellsDigest": "537d17b6f86e0382a9f744f3faf61da76fb6c8f73ef8555ad69373a887f36ca1",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "named-authors-opinion-only",
+        "text": "Johnny Nuñez Cano and the five ordered NVIDIA coauthors call Drake the gold standard for contact-implicit trajectory optimisation and rigorous numerics rather than throughput; this is their named positioning, not an independently measured technical ranking.",
+        "requiredCitationIds": [
+          "state-of-simulation-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+      "rationale": "Actual applied text reviewed 2026-09-12T20:13:42.481Z. All own mandatory source/part endpoints checked; shared metadata applied once. The visible ordered six-author byline includes Johnny Nuñez Cano and lowercase lior ben horin; the other-engines paragraph calls Drake gold standard. Current wording names the authors and identifies the statement as positioning, not a quantitative benchmark or first-party Drake technical certification. The preceding unselected Newton policy-learning sentence remains uncredited.",
+      "planDigest": "7dd53dd3312a95e9cb600e10eca17e0ff726b828c9b1f1f160ea08c6dbe9e831"
+    },
+    "evidence": [
+      {
+        "partId": "named-authors-opinion-only",
+        "citationId": "state-of-simulation-2026",
+        "sourceUrl": "https://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai",
+        "supportingPassage": "The State of Simulation for Physical AI: An Overview\nCommunity Article\nPublished\nJuly 21, 2026\nUpvote\n71\n+65\nJohnny Nuñez Cano\njohnnynv\nFollow\nnvidia\nMitesh Patel\nmitp\nFollow\nnvidia\nAsier Arranz\nasiernvidia\nFollow\nnvidia\nlior ben horin\nliorbenhorin-nv\nFollow\nnvidia\nRaymond Lo\nraymondlo84-nvidia\nFollow\nnvidia\nRishabh Chadha\nrchadha-nv\n[Retained derived-text lines 35-63; Unicode characters 409-744 end-exclusive; body SHA-256 79b83e7c5f75bb105debd43141196765c5e87d90ade993edd6a97fac758cff8c; original GET completed 2026-09-08T07:49:16.639111+00:00.]\n\nPyBullet remains a useful CPU baseline for quick prototyping; DART and ODE are still Gazebo back-ends; Drake is the gold standard if you need contact-implicit trajectory optimisation and rigorous numerics rather than throughput. Each has a niche. None of them is the answer to “I need 4,096 humanoids on one GPU.”\n[Retained derived-text lines 118-118; Unicode characters 11344-11657 end-exclusive; body SHA-256 79b83e7c5f75bb105debd43141196765c5e87d90ade993edd6a97fac758cff8c; original GET completed 2026-09-08T07:49:16.639111+00:00.]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "named-authors-opinion-only",
+        "outcome": "supported",
+        "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+        "rationale": "Actual review 2026-09-12T20:13:42.481Z: The visible ordered six-author byline includes Johnny Nuñez Cano and lowercase lior ben horin; the other-engines paragraph calls Drake gold standard. Current wording names the authors and identifies the statement as positioning, not a quantitative benchmark or first-party Drake technical certification. The preceding unselected Newton policy-learning sentence remains uncredited.",
+        "evidenceDigest": "a0f317a874136c09c5f4bc57a62cde313364309f1aa14acf92d88bf4433f3ab5"
+      }
+    ]
+  },
+  {
+    "id": "source-newton-engine-20260908-sim2real-transfer-20",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "sim2real-transfer",
+    "rowOrdinal": 20,
+    "originalCellsDigest": "c399fa7f53b8ecbdcc8422f92874e93e553f3df48bd7cd357e887910a4c5b1e1",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "camera-backend-representations",
+        "text": "Newton 1.0 release post describes a Warp-based tiled camera sensor with ray-tracing rendering that supports triangle meshes and Gaussian splats.",
+        "requiredCitationIds": [
+          "newton-manipulation-blog-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+      "rationale": "Actual applied text reviewed 2026-09-12T20:13:42.481Z. All own mandatory source/part endpoints checked; shared metadata applied once. The authored tiled-sensor bullet explicitly states Warp-based sensing, ray-tracing rendering and triangle-mesh/Gaussian-splat representations. Current transfer prose removes the productized-SplatSim inference and leaves all adjacent SplatSim/RoboGSim/ASAP/Lee content and wrappers unchanged.",
+      "planDigest": "157f9b844d2811714706b6fa1969fe63525e54ca321c2f6e0ad64f35a47cc9da"
+    },
+    "evidence": [
+      {
+        "partId": "camera-backend-representations",
+        "citationId": "newton-manipulation-blog-2026",
+        "sourceUrl": "https://developer.nvidia.com/blog/newton-adds-contact-rich-manipulation-and-locomotion-capabilities-for-industrial-robotics",
+        "supportingPassage": "Tiled camera sensor: A Warp-based tiled camera sensor supports high-throughput simplified rendering with channels for RGB, depth, albedo, surface normals, and instance segmentation. Designed to scale vision-based RL policies, it enables end-to-end perceptive training pipelines to run on the NVIDIA DGX platform. The rendering backend is ray-tracing-based and supports multiple scene representations, including triangle meshes and Gaussian splats.\n[Retained derived-text lines 51-51; Unicode characters 6649-7096 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]\n\nNewton 1.0 GA, announced at NVIDIA GTC 2026, is delivering an accelerated, production-ready foundation for dexterous manipulation and locomotion tasks. As an extensible physics engine built on NVIDIA Warp and OpenUSD, robots can learn how to handle complex tasks with greater precision, speed, and extensibility while using frameworks such as NVIDIA Isaac Lab and NVIDIA Isaac Sim.\n[Retained derived-text lines 37-37; Unicode characters 2473-2854 end-exclusive; body SHA-256 9cd5822e27d68d3e2c546db67ec2c83d5bd327601e4d26b4fb84af926b9282d5; original GET completed 2026-09-08T07:49:16.353777+00:00.]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "camera-backend-representations",
+        "outcome": "supported",
+        "reviewedBy": "agent:14bec1ba-6368-4110-9037-8456239b335e/integrator",
+        "rationale": "Actual review 2026-09-12T20:13:42.481Z: The authored tiled-sensor bullet explicitly states Warp-based sensing, ray-tracing rendering and triangle-mesh/Gaussian-splat representations. Current transfer prose removes the productized-SplatSim inference and leaves all adjacent SplatSim/RoboGSim/ASAP/Lee content and wrappers unchanged.",
+        "evidenceDigest": "9636e7ccfb00f26904be557772f0f970693e25493933ced8a83c23060449af8f"
+      }
+    ]
   }
 ]

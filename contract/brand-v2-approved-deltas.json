@@ -8731,6 +8731,74 @@
         "VAL-AUDIT-002"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "newton-engine-20260912-2f6e8bc798bf35e18a",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "d7d3e9f8532419d409f1b06428ef7fea171925c0706ca4cf5409b40970dfa1bb",
+      "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+      "reason": "Exactly originals7/11/12/13/14/15/17: cut unsupported current Brax attribution, separate NVIDIA framework/backends and early-access status, Linux Foundation project identity, solver-dependent differentiation, complete solver inventory, example-only SDF band, vendor Skild/future Samsung/simulated RB-Y1 workflows, two workload ratios with protocol limits, and named-author Drake opinion. Four measured mobile tooltips receive local max-sm offsets without changing source text. Isaac/Rudin and all unselected paragraphs remain protected by exact fragment reverse reconstruction. Actual reviews bind twelve mandatory AND parts and twelve source/part pairs from two retained primary documents. Original September8 GET provenance, literal ranges and final inputs are in convergence-newton-engine-integration-20260912. No new retrieval, whole-P1, independent validation or release credit.",
+      "ownerApproval": "Josef September 7 \"fix it all!\" correction authority, reinforced by September12 release-readiness instruction, and bounded parent assignment to14bec1ba-6368-4110-9037-8456239b335e. Authority to correct is not Josef personally certifying sources or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "newton-engine-20260912-6a115dfde665c0aa65",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+      "reason": "Exactly original20: replace unsupported productization inference with the retained Newton tiled-sensor ray-tracing/triangle-mesh/Gaussian-splat description. One measured mobile tooltip receives a local max-sm offset. SplatSim/RoboGSim/ASAP/Lee and every existing wrapper remain byte-identical outside this fragment. Actual reviews bind twelve mandatory AND parts and twelve source/part pairs from two retained primary documents. Original September8 GET provenance, literal ranges and final inputs are in convergence-newton-engine-integration-20260912. No new retrieval, whole-P1, independent validation or release credit.",
+      "ownerApproval": "Josef September 7 \"fix it all!\" correction authority, reinforced by September12 release-readiness instruction, and bounded parent assignment to14bec1ba-6368-4110-9037-8456239b335e. Authority to correct is not Josef personally certifying sources or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "newton-engine-20260912-8da13ce06d19003b8c",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/parallel-sim-rl",
+      "oldHash": "46002eec79d4b41f26be6e08fa298ae41c2ead431bf8382066cddfdff2f41904",
+      "newHash": "bc55036e37d8a1b8f7dc786473d5d070fca0ed208726f6bbb0e249a737b6b28f",
+      "reason": "Exact inline source multiplicity changes follow the eight-original correction: remove the unsupported Brax-overview citation, add overview citations beside solver differentiation/inventory, and place the release source separately for contact/example claims. Declared frontmatter population, audited registry URLs and unrelated citation occurrences remain unchanged. Actual reviews bind twelve mandatory AND parts and twelve source/part pairs from two retained primary documents. Original September8 GET provenance, literal ranges and final inputs are in convergence-newton-engine-integration-20260912. No new retrieval, whole-P1, independent validation or release credit.",
+      "ownerApproval": "Josef September 7 \"fix it all!\" correction authority, reinforced by September12 release-readiness instruction, and bounded parent assignment to14bec1ba-6368-4110-9037-8456239b335e. Authority to correct is not Josef personally certifying sources or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "newton-engine-20260912-5a8584dcff4195cceb",
+      "manifest": "article-metadata",
+      "memberId": "citation:state-of-simulation-2026",
+      "oldHash": "7d5b970004811558b8f5e66ff184b3fbd5cb120ee61e31a90d72e29e5d168b53",
+      "newHash": "c22a08f22e02eedad281a52f4b93460ee877288f37bf4ae5080454bc3495aa22",
+      "reason": "The retained original HTML visible byline and embedded author array use lowercase lior ben horin in the fourth position. Correct only that spelling/case; preserve all six ordered authors, title, year, type and audited URL. Neither this metadata correction nor the NVIDIA-authored overview certifies independent technical facts about third-party engines. Actual reviews bind twelve mandatory AND parts and twelve source/part pairs from two retained primary documents. Original September8 GET provenance, literal ranges and final inputs are in convergence-newton-engine-integration-20260912. No new retrieval, whole-P1, independent validation or release credit.",
+      "ownerApproval": "Josef September 7 \"fix it all!\" correction authority, reinforced by September12 release-readiness instruction, and bounded parent assignment to14bec1ba-6368-4110-9037-8456239b335e. Authority to correct is not Josef personally certifying sources or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

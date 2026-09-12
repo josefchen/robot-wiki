@@ -1,6 +1,96 @@
 # Content-integrity audit trail
 
-## Current checkpoint: three humanoid tracking originals integrated (2026-09-12)
+## Current checkpoint: eight Newton/engine originals integrated (2026-09-12)
+
+**455 complete / 539 incomplete / 994 originals / 47 articles**; RL is
+**109 complete / 58 incomplete / 167 originals**. Applied only
+`audit/rl-sim2real.md:parallel-sim-rl:7`, `:11`, `:12`, `:13`, `:14`, `:15`,
+`:17`, and `audit/rl-sim2real.md:sim2real-transfer:20`: seven corrected,
+one source-scoped cut (parallel original 7). Reward original 21 remains held.
+Eight actual reviewed plans add **12 mandatory AND parts / 12 source-part
+pairs**: **361 plans / 452 approvals**. No unselected original receives credit.
+
+**Zero new retrieval.** Both retained September 8 primary GET bindings were
+verified against raw HTML, decoded body text and 17 literal passage ranges.
+Packet: 33 indexed payloads / 5,405,962 bytes / exactly 35 files. Newton GET
+completed 07:49:16.353777 UTC; overview GET 07:49:16.639111 UTC, both HTTP 200,
+curl 0, no redirects. These are historic retrievals, not current liveness.
+The Newton body is modified after its March publication; the July overview
+is an unversioned NVIDIA-authored Hugging Face community article. Its named
+authors' engine positioning is opinion, not independent comparative proof.
+Visible Newton five-author byline is distinct from single-author JSON-LD.
+Only the necessary overview author case changes to `lior ben horin`; both
+audited URLs and article lastReviewed dates remain unchanged.
+
+Applied prose separates Newton 1.0 GA from Isaac Sim/Lab early access,
+framework/backends and solver-dependent differentiation; retains the complete
+solver inventory and limited VBD joints; scopes the ±10 mm SDF band to an
+example; distinguishes vendor Skild claims, future Samsung use and simulated
+RB-Y1. The Stat is **252x / 475x**, locomotion/manipulation respectively,
+against MJX on RTX PRO 6000 Blackwell hardware, without inventing benchmark
+protocol. Drake positioning is attributed; tiled meshes/splats no longer
+imply productization. Earlier Brax/JAX, Isaac/Rudin, SplatSim/RoboGSim/ASAP/Lee
+and unrelated fragments are preserved by guarded reverse reconstruction.
+
+Native preservation passes for **986 unselected full semantic records**,
+**447 prior completions**, **353 prior plans** and **448 prior approvals**,
+including catalog metadata and serialized prefixes. All **44 unrelated
+baseline failure objects and their order remain identical**. Four exact
+fresh-input member approvals append; eight wrong-old/new-hash controls,
+stale and missing approvals reject. Protected ancestors d282a83/2cf7d6b,
+owner files, schemas, feature policy and shared UI remain unchanged.
+
+Sequential actual gates used NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Observed result |
+|---|---|
+| Source verification | Passed, exit 0; two GET bindings / 17 ranges |
+| New unit red-first | 40 failed, exit 1 |
+| New unit green and final-input qualification | 40 passed each, exits 0; same identities |
+| Other affected units/components | 79 passed across seven files, exit 0 |
+| Normal prelint/lint | Passed, exit 0; code inputs requalified byte-exactly |
+| Source-only no-slop | Passed, 47 MDX; no fresh export claim |
+| Initial reader cases | 9 passed / 3 failed of 12, exit 1 |
+| Only failed mobile reader cases rerun | 3 passed, exit 0 |
+| Existing affected reader controls | 4 passed, exit 0 |
+| Route typegen / nonincremental TypeScript | Passed, exits 0 |
+| Full offline content lifecycle | **RED: 544 findings plus nine separate citation gaps**, exit 1 |
+| Final native preservation and approval controls | Passed, exit 0 |
+
+Five measured mobile tooltip right edges at width375 are repaired with local
+max-sm offsets: **442→346, 486→358, 408→344, 377→361, 438→342**. Hover/focus
+containment and source-chip hit tests pass for all repaired occurrences.
+Five/six-author reference bylines display in order; no expansion is expected.
+All 12 source-reader identities have a passing execution across two runs
+(15 executions: 12 passes / three initial failures), **not a fresh 12/12
+final invocation**. Desktop reuse is limited to inactive max-sm wrappers and
+otherwise unchanged inputs. The reward byline dependency passes without
+closing reward original 21. Back returns to the expected URL but leaves
+focus on BODY: existing history-owner debt, not a restoration pass.
+
+**52 PNG captures: six directly Read-inspected, 46 uninspected**; both
+approved reference images were read. The inspected repairs fit the mobile
+viewport; development UI remains visible. Full reference-rubric, Axe,
+glyph/cmap, contrast and whole-P1 acceptance remain unearned. The inherited
+humanoid-WBC ASAP tooltip (right454 at375) is untouched and remains held.
+
+Owned loopback webpack runtime on3225 exited **0** after SIGINT to its
+verified child; the port is free. Three configuration files, including
+next-env.d.ts, are restored byte-exactly after runtime and typegen.
+**One external socket attempt was blocked**, not zero attempts; no new
+retrieval succeeded. No other process was signaled. No build/export,
+reading-time or card-corpus acceptance, push, deployment, controller launch,
+feature edit or fallback occurred. Formal progress remains **307/331**,
+independently unaccepted. Whole-P1/authored-local-proof, production/brand
+convergence, independent Sol/high scrutiny and user testing retain their
+existing owners. **Do not publish.**
+
+Exact current/original cells and digests, source proof, reviews, final-input
+receipts, captures, committed recount and noncircular inventory are under:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/`.
+Earlier checkpoint sections below remain historical evidence.
+
+## Historical checkpoint: three humanoid tracking originals integrated (2026-09-12)
 
 **447 complete / 547 incomplete / 994 originals / 47 articles**; RL is
 **101 complete / 66 incomplete / 167 originals**. Applied only
