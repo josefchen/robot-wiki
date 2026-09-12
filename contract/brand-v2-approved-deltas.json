@@ -8697,6 +8697,40 @@
         "VAL-AUDIT-002"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "humanoid-tracking-20260912-7cafdd67a0649db61f",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/humanoid-wbc",
+      "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
+      "newHash": "041f005709bad57c91f6d6aec0e365d6001f7fde18faae417baeff811067c935",
+      "reason": "Exactly humanoid-wbc originals 2/4/5 corrected against three retained primary documents, with nine reviewed AND parts and nine paired items. PHC simulation, training denominator and progressive failed subsets; Omni teacher/student, upstream goals, odometry, actuation conflict and four-task denominator; HumanPlus human/robot sensing, separate shadowing/BC interfaces and source limitations remain explicit. One additional Omni citation occurrence follows the split source-backed explanation; citation identities and registry URLs remain unchanged. H2O/ASAP and all unselected text are protected by exact reverse reconstruction. Literal ranges, original FetchUrl provenance, current bindings and actual reviews are in convergence-humanoid-tracking-integration-20260912. No whole-P1, venue, independent acceptance or release credit. Final source-backed Omni explanation has two observed article-local mobile tooltip offsets (-16px and -128px), retaining text and citation identities. Hover/focus final right edges are 363/357px within 375px; desktop and full-byline keyboard tests also pass. Unchanged ASAP tracking-lineage tooltip overflow remains a recorded out-of-scope failure, not waived. Final member hashes rederived in a fresh process after these two repairs.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to cf70d662-e6ba-47a0-bbfd-010ce9debc92. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "humanoid-tracking-20260912-feb28445b710f6ed14",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/humanoid-wbc",
+      "oldHash": "9dda1ceff07236a21f1b4073ab2b4c71633229e2151d9214f10a5bac429e283a",
+      "newHash": "c39d9cf5861b5ec7d343a19d086d743c002a60d2aaf7ad4851946c51a014b802",
+      "reason": "Exactly humanoid-wbc originals 2/4/5 corrected against three retained primary documents, with nine reviewed AND parts and nine paired items. PHC simulation, training denominator and progressive failed subsets; Omni teacher/student, upstream goals, odometry, actuation conflict and four-task denominator; HumanPlus human/robot sensing, separate shadowing/BC interfaces and source limitations remain explicit. One additional Omni citation occurrence follows the split source-backed explanation; citation identities and registry URLs remain unchanged. H2O/ASAP and all unselected text are protected by exact reverse reconstruction. Literal ranges, original FetchUrl provenance, current bindings and actual reviews are in convergence-humanoid-tracking-integration-20260912. No whole-P1, venue, independent acceptance or release credit. Final source-backed Omni explanation has two observed article-local mobile tooltip offsets (-16px and -128px), retaining text and citation identities. Hover/focus final right edges are 363/357px within 375px; desktop and full-byline keyboard tests also pass. Unchanged ASAP tracking-lineage tooltip overflow remains a recorded out-of-scope failure, not waived. Final member hashes rederived in a fresh process after these two repairs.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to cf70d662-e6ba-47a0-bbfd-010ce9debc92. Authority to correct is not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -1,6 +1,94 @@
 # Content-integrity audit trail
 
-## Current checkpoint: three constrained-reward originals integrated (2026-09-09)
+## Current checkpoint: three humanoid tracking originals integrated (2026-09-12)
+
+**447 complete / 547 incomplete / 994 originals / 47 articles**; RL is
+**101 complete / 66 incomplete / 167 originals**. Applied only
+`audit/rl-sim2real.md:humanoid-wbc:2` (PHC), `:4` (OmniH2O), and `:5`
+(HumanPlus). Three actual reviewed plans add nine AND parts and nine paired
+items: **353 plans / 448 approvals**. No other original receives credit.
+
+**Zero new retrievals.** The retained September 8 packet was verified against
+original request/result/body events: 42 payload files / 1,833,902 bytes,
+three documents / six historical responses, 23 literal ranges plus one
+additional literal HumanPlus BC sentence. PHC body returned at 09:55:26.102Z;
+OmniH2O/HumanPlus bodies at 09:55:46.869Z; metadata at 09:56:09.352Z.
+These are historical FetchUrl result times, not this review's fetch dates.
+Reported 200 is not independently observed origin status or current liveness.
+Unversioned bodies self-identify PHC v3 and Omni/Human v1, not independently
+pinned-origin-byte proof. Registry titles, ordered authors, URLs and article
+lastReviewed 2026-08-17 remain unchanged. Omni's existing CoRL 2024 venue is
+not established by these captures and remains uncredited. Historical 94
+source-only fixtures are not product tests or actual integrator adjudications.
+
+PHC now distinguishes simulated avatars, training-set 98.9% on 11,313 clips,
+the 0.5 m failure definition and progressively harder failed subsets. Omni
+separates privileged teacher, deployable student, upstream goals and required
+root odometry; it retains the PD-angle/Appendix-A-torque wording conflict,
+four-of-six task evaluation and lack of extreme/OOD safety guarantees.
+HumanPlus separates human-observation RGB from robot sensing, shadowing body
+setpoints/PD and direct hand targets, seated bypass, and separate supervised
+BC/HIT deployment. Source notes retain conflicting task counts, conditional
+denominators, rates, filtering limits and Table 5 ties rather than certifying
+unrestricted tracking, safety or skill generalization.
+
+Native preservation passes for **991 unselected full semantic records**, all
+**444 prior completions**, 350 prior plans/prefix and 446 prior approvals,
+metadata/prefix. All **44 unrelated baseline failure objects and their order**
+remain identical. Four wrong-old/new-hash controls, stale approvals and missing
+approvals reject. Two exact native prose/relationship approvals are derived
+from fresh final input; their uncommitted provisional versions are retained.
+H2O/ASAP and every unselected article byte survive reverse reconstruction.
+Protected commits d282a83/2cf7d6b, owner files, schemas and shared UI survive.
+
+Actual sequential gates used NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Observed result |
+|---|---|
+| New unit red-first | 12 failed / 1 passed, exit 1 |
+| New unit green and final-input reconciliation | 13 passed each, exits 0; same identities |
+| Other affected units/components | 269 passed in ten files, exit 0 |
+| Initial reader population | 10 passed / 2 failed of 12, exit 1 |
+| First Omni repair rerun | 1 passed / 1 failed, exit 1; second mobile occurrence exposed |
+| Final Omni repair rerun | 2 passed, exit 0 |
+| Normal prelint/lint and final-input lint | Passed, exits 0 |
+| Route typegen / nonincremental TypeScript | Passed, exits 0 |
+| Executable no-slop | Passed; 47 MDX plus 63 inherited exported HTML, not a fresh export |
+| Structural content check | Passed, exit 0; overlaps first stage of full lifecycle |
+| Full offline content lifecycle | RED: 552 findings plus nine separate citation gaps, exit 1 |
+| Final native preservation/approval controls | Passed, exit 0 |
+
+Two selected article-local mobile offsets repair Omni tooltip right edges
+379→363 and 485→357 at width375, with hover/focus and hit testing. All six
+selected source×viewport identities have completed passing executions for
+canonical links, keyboard Enter reference jumps, ordered full bylines and
+Omni expansion/collapse; WBC selection/readouts/reset pass at both viewports.
+Across three runs: 16 executions, 13 passes and three failures; 11 of 12
+identities have a passing execution, not a fresh 11/12 final invocation.
+The remaining peer failure is an **unchanged, unselected ASAP tracking-lineage
+tooltip**, right454 at width375. Its assertion remains active and the defect
+is held for its owner, not repaired, hidden or waived by this source task.
+There are **29 PNG captures: six directly Read-inspected, 23 uninspected**.
+Full tall prose, complete keyboard Tab traversal, page-error telemetry, Axe,
+platform glyphs/cmap, contrast and structured reference-rubric acceptance are
+not earned here. Development UI remains visible in captures.
+
+Manual source/prose fidelity and executable no-slop passed. The owned offline
+webpack supervisor exited **0** after SIGINT to its verified child; port3224
+is free. next.config.ts, tsconfig.json and next-env.d.ts were restored exactly,
+including typegen's later automatic changes. No source sweep, build/export,
+card corpus, push, deployment, controller/feature change or fallback occurred.
+Formal progress remains **307/331**, skipScrutiny=false, skipUserTesting=false.
+Independent Sol/high scrutiny and user testing, whole-P1/authored-local-proof,
+production/reading-time/card, complete typography/contrast/reference and brand
+convergence retain their existing owners. **Do not publish.** This is a local
+implementation checkpoint, not independent acceptance or release readiness.
+
+Exact source history, inputs, logs, exits, captures and committed seal:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-tracking-integration-20260912/`.
+Earlier checkpoint sections below are retained history.
+
+## Historical checkpoint: three constrained-reward originals integrated (2026-09-09)
 
 **444 complete / 550 incomplete / 994 originals / 47 articles**; RL is
 **98 complete / 69 incomplete / 167 originals**. Applied exactly
