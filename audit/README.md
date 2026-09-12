@@ -1,6 +1,72 @@
 # Content-integrity audit trail
 
-## Current checkpoint: three advanced-motion originals integrated (2026-09-12)
+## Current checkpoint: three reward/MPC originals integrated (2026-09-12)
+
+**461 complete / 533 incomplete / 994 originals / 47 articles**; RL is
+**115 complete / 52 incomplete / 167 originals**. Applied exactly
+`audit/rl-sim2real.md:legged-locomotion:11` (Jeon),
+`audit/rl-sim2real.md:reward-design-mpc:12` (RDA), and `:17` (MuJoCo iLQR).
+Three independently whole corrected originals: **20 mandatory AND parts /
+21 required part-citation pairs / 23 evidence items; 367 plans / 456 approvals**.
+Three exact approvals cover two article prose members and RDA's one additional
+inline Eureka occurrence. Structured registry fields and both August17
+lastReviewed values are unchanged; citation provenance comments are appended.
+
+Zero new retrieval. The retained packet has 104 payloads / 13,168,996 bytes /
+106 files. All33 prepared literal passages were byte-checked, plus a retained
+MuJoCo Fig.1 caption identifying Go1, added to the existing quadruped pair.
+Six September8 FetchUrl responses cover three primary documents; these are
+tool-reported200, not newly observed origin responses. Eureka v2 context uses
+the retained September8 04:39:40.633359–04:39:41.697167 GET (origin200),
+its PDF and separately hashed extracted text, without new conversion.
+
+Jeon is one fixed PPO-Clip experiment: reward-weight sensitivity is not an
+algorithm comparison, and practical shaping discount1 versus PPO0.99 sacrifices
+policy invariance. RDA separates matched GPT-5 baseline, visual diagnostics,
+GPT-4.1 alignment ratings and binary success, including HB alignment0.70/0.47
+and RDA success0.42 slightly below Eureka. Its title-prefix, environment-count,
+iteration-label and compute-unit discrepancies remain explicit. Eureka's prior
+fitness/intent and human-reflection discussion is context, not credit for the
+held local original. MuJoCo retains derivative/approximate-Hessian details,
+motion capture, hardware rates, H1 simplifications, contact tuning, separate
+timing-machine and gantry-assisted recovery limits. ArXiv says to appear at
+ICRA2026, not presented; abs/body and anonymous-review discrepancies remain.
+
+Measured mobile tooltip right edges417,492,380 at width375 are repaired with
+article-local mobile-only translations64px (Jeon),128px (RDA),16px (existing
+third Eureka occurrence). No shared renderer or desktop change, and no source
+credit for that existing Eureka original. Initial reader7/10; **final10/10**
+at375x812 and1440x900. Exact active populations1/1/2/5, source URLs,
+hover/focus containment, hit tests, Enter-to-References, Back, full ordered
+bylines/expansion and retained Eureka/MPC controls pass.
+
+Sequential NODE_DISABLE_COMPILE_CACHE=1 checks: new unit red10/10 then final
+green10/10; relevant existing unit/component179/179; normal prelint/lint,
+no-slop, route typegen and final nonincremental TypeScript pass. No-slop's
+47-MDX check is current; its63 exported-HTML inputs are retained output, not
+a fresh export. Offline content lifecycle remains **RED:538 findings plus
+nine separate citation gaps**, exit1. No new export, build/card or release pass.
+The final source/row/citation/approval state preserves all458 prior completions,
+991 unselected semantic records,364 old plans,453 old approvals and their
+metadata/serialized prefixes, and all44 unrelated baseline failure objects.
+Wrong old/new hashes and missing/stale approvals reject.
+
+Six of35 captures were directly Read-inspected: two failing mobile tooltips,
+final Jeon/RDA/Eureka mobile focus and expanded MuJoCo desktop byline.
+Other captures are not visually certified. Development UI remains visible;
+no full reference rubric, Axe, contrast, glyph/cmap or exhaustive Tab-order
+acceptance. One owned loopback runtime on3241 stopped with exit0 at
+22:42:28.275811Z; next.config.ts, tsconfig.json and next-env.d.ts restored
+byte-exactly. The earlier typegen edits were separately restored from verified
+input bytes. Port3200 and unrelated processes were untouched.
+
+Evidence: `convergence-reward-mpc-integration-20260912` under the existing
+Mission source-recovery directory. Local completion is not whole-P1,
+whole-article, feature, independent or release acceptance. Formal307/331,
+M5/editorial acceptance, independent Sol/high scrutiny and user testing remain
+with existing owners; both skip flags remain false. No push or deployment.
+
+## Previous checkpoint: three advanced-motion originals integrated (2026-09-12)
 
 **458 complete / 536 incomplete / 994 originals / 47 articles**; RL is
 **112 complete / 55 incomplete / 167 originals**. Applied exactly

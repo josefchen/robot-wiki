@@ -3020,6 +3020,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Retained arXiv metadata (September 8, 2026) states the four authors and
+    // ICRA 2023 journal reference; the ar5iv body is not independently version-pinned.
     id: 'mit-humanoid-rewards-2023',
     title:
       'Benchmarking Potential Based Rewards for Learning Humanoid Locomotion',
@@ -3290,6 +3292,9 @@ export const CITATIONS: Citation[] = [
   {
     // Verified against the arXiv abs page (2026-08-08): RLC 2026, VLM-based
     // reward design agent that restates the Eureka loop as its baseline.
+    // Retained September 8, 2026 metadata includes the RDA: title prefix;
+    // the printed v1 body omits it. RLC acceptance is an author-submitted comment,
+    // not independently inspected proceedings. The matched baseline uses GPT-5.
     id: 'rda-2026',
     title: 'RDA: Reward Design Agent for Reinforcement Learning',
     authors: [
@@ -3364,6 +3369,9 @@ export const CITATIONS: Citation[] = [
     // iLQR with MuJoCo dynamics and finite-difference derivatives; abstract
     // confirms "few sim-to-real considerations" and the three hardware
     // experiments.
+    // Retained March 2026 v3 body and arXiv metadata have nine authors.
+    // ICRA 2026 is the author-submitted "to appear" comment, not proof of presentation.
+    // The abs/body abstracts differ; hardware uses laboratory motion capture.
     id: 'mujoco-ilqr-2026',
     title: 'Whole-Body Model-Predictive Control of Legged Robots with MuJoCo',
     authors: [

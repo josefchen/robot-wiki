@@ -8816,6 +8816,57 @@
         "VAL-AUDIT-002"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "reward-mpc-20260912-5b7262690fbaab9cc5",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/legged-locomotion",
+      "oldHash": "0f26e397b3efbdbf2b9981c1ee0843c81647b061aff1a53d94152f52f16a9998",
+      "newHash": "fe43e71cbac518a83cf8e24bebfbcde0843d365ac54822c76276ecfc40ed531a",
+      "reason": "Exactly assigned Jeon original11 or RDA original12 and MuJoCo original17 corrected against retained primary passages, including experimental scope, numerical qualifications and counterevidence. Three independently whole originals; 20 mandatory AND parts, 21 required source-part pairs and 23 evidence items. Source integrity and final-current review are retained in convergence-reward-mpc-integration-20260912. No new retrieval, adjacent held-original, whole-P1, independent acceptance or release credit. Measured mobile tooltip overflows are repaired only at Jeon64px, RDA128px and existing Eureka occurrence3 16px; no scientific credit for the pre-existing Eureka original, no shared or desktop change.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to d9816a12-4393-499d-a7c6-df13075695fb. This is correction authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reward-mpc-20260912-a9893b9fc4acd773ff",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "d09142ee8e120a36dd3042bd2fbce5b25d444e6d4f977d9d10edc7ad4dd53092",
+      "reason": "Exactly assigned Jeon original11 or RDA original12 and MuJoCo original17 corrected against retained primary passages, including experimental scope, numerical qualifications and counterevidence. Three independently whole originals; 20 mandatory AND parts, 21 required source-part pairs and 23 evidence items. Source integrity and final-current review are retained in convergence-reward-mpc-integration-20260912. No new retrieval, adjacent held-original, whole-P1, independent acceptance or release credit. Measured mobile tooltip overflows are repaired only at Jeon64px, RDA128px and existing Eureka occurrence3 16px; no scientific credit for the pre-existing Eureka original, no shared or desktop change.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to d9816a12-4393-499d-a7c6-df13075695fb. This is correction authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "reward-mpc-20260912-6e4d66008ecddd6205",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "d76313aba3473a09012f12fef2c160ff8c6573549832150f316c0fa7cba5be88",
+      "newHash": "0016ba7d3828117aa2e077c16ee618369370be17533292fcdf0e103d9032c5d2",
+      "reason": "Exactly one additional inline Eureka occurrence supports its prior fitness/intent and human-written-reflection context. Frontmatter union and all prior source occurrences remain unchanged. Three independently whole originals; 20 mandatory AND parts, 21 required source-part pairs and 23 evidence items. Source integrity and final-current review are retained in convergence-reward-mpc-integration-20260912. No new retrieval, adjacent held-original, whole-P1, independent acceptance or release credit. Measured mobile tooltip overflows are repaired only at Jeon64px, RDA128px and existing Eureka occurrence3 16px; no scientific credit for the pre-existing Eureka original, no shared or desktop change.",
+      "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to d9816a12-4393-499d-a7c6-df13075695fb. This is correction authority, not personal source certification or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-002"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
