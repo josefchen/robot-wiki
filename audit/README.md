@@ -1,6 +1,249 @@
 # Content-integrity audit trail
 
-## Current checkpoint: three constrained-reward originals integrated (2026-09-09)
+## Current checkpoint: three advanced-motion originals integrated (2026-09-12)
+
+**458 complete / 536 incomplete / 994 originals / 47 articles**; RL is
+**112 complete / 55 incomplete / 167 originals**. Applied exactly
+`audit/rl-sim2real.md:humanoid-wbc:6` (ExBody2), `:7` (KungfuBot), and `:8`
+(GMT), all corrected. Each independently satisfies its native prerequisites.
+**19 mandatory AND parts / 19 paired items; 364 plans / 453 approvals**.
+One exact fresh-input prose approval appends; no other member changes.
+
+**Zero new retrieval.** Three retained documents, six September 8 FetchUrl
+responses, and all 38 indexed literal ranges were verified against original
+full tool bodies and request/result events. Source packet: 44 payloads /
+1,464,572 bytes / 47 files including three excluded seal controls. Body result
+UTC times: ExBody2 10:22:27.945, KungfuBot 10:22:38.037, GMT 10:22:48.895;
+metadata 10:23:00.730, 10:23:12.973, 10:23:26.216. Unversioned HTML bodies
+self-identify v2/v3/v2, respectively. These tool-reported 200 responses are
+not separately pinned origin GETs, observed origin redirect chains or current
+liveness. The source-only reviews remain distinct from actual current native
+reviews; 84 historical source fixtures are not current product tests.
+
+ExBody2 separates global-target drift, initial-policy filtering, PPO teacher,
+history-based student and unresolved specialist transitions. KungfuBot is
+per-motion and separates tracking tolerance, termination threshold and penalty
+scaling; quantitative hardware evidence is ten Tai Chi trials with the root
+fixed to the origin for evaluation. GMT uses unified learning, not policy
+merging; teacher soft-MoE action mixing, student distillation, simulation
+comparisons, selected hardware demonstrations and limitations stay distinct.
+Source privilege-schema, derivative-sign and foot-contact-expression issues,
+external-PC inference, reference/history and generated-motion scope remain
+explicit in native notes and actual reviews, not silently reconciled.
+Registry metadata, citation union, URLs and lastReviewed are unchanged.
+
+The measured ASAP mobile containment defect is repaired with an article-local
+max-sm offset of 96px; ExBody2's newly exposed overflow uses 112px. No shared
+renderer or desktop style changes. Final hover/focus containment, source-link
+hit tests, keyboard reference jumps, full seven-/six-author bylines, KungfuBot's
+nine-author expand/collapse and preserved WBC controls pass at 375x812 and
+1440x900. **Final reader invocation: 20/20 passed**. Earlier red proof: ASAP
+right454 at375; intermediate reader run 19/20, ExBody2 right478. A required
+neutral-wording repair changed layout, so the final20 were requalified.
+
+Sequential actual gates used NODE_DISABLE_COMPILE_CACHE=1: new prose red4/4;
+new native test draft exposed and corrected a schema-binding error; final
+**150/150 unit/component tests across six files**, normal prelint/lint,
+source-only no-slop over47 MDX, route typegen and nonincremental TypeScript
+all pass. The full offline content lifecycle remains **RED: 541 findings plus
+nine separate citation gaps**, exit1. No fresh export or build/card pass.
+Native preservation verifies all455 prior completions,991 unselected semantic
+records,361 old plans,452 old approvals and their metadata/serialized prefixes,
+and all44 unrelated baseline failure objects/order. Wrong old/new hash, stale
+and missing-approval controls reject. All994 identities and old histories,
+protected ancestors d282a83/2cf7d6b and owner files remain preserved.
+Both owned loopback runtimes stopped with actual exit0; next.config.ts,
+tsconfig.json and next-env.d.ts were restored byte-exactly.
+
+Six PNGs were directly Read-inspected: two failure captures and four final
+captures (ExBody2 mobile focus, ASAP mobile focus, KungfuBot mobile expanded,
+GMT desktop byline). Other captures are not visually certified. Development
+UI remains visible. No full reference-rubric, Axe, contrast, glyph/cmap, Tab
+order, current export/card corpus, whole-P1 or independent acceptance credit.
+Existing acceptance owners retain those boundaries. No push or deployment.
+Evidence is retained in `convergence-advanced-motion-integration-20260912`
+under the existing Mission source-recovery directory.
+
+
+## Previous checkpoint: eight Newton/engine originals integrated (2026-09-12)
+
+**455 complete / 539 incomplete / 994 originals / 47 articles**; RL is
+**109 complete / 58 incomplete / 167 originals**. Applied only
+`audit/rl-sim2real.md:parallel-sim-rl:7`, `:11`, `:12`, `:13`, `:14`, `:15`,
+`:17`, and `audit/rl-sim2real.md:sim2real-transfer:20`: seven corrected,
+one source-scoped cut (parallel original 7). Reward original 21 remains held.
+Eight actual reviewed plans add **12 mandatory AND parts / 12 source-part
+pairs**: **361 plans / 452 approvals**. No unselected original receives credit.
+
+**Zero new retrieval.** Both retained September 8 primary GET bindings were
+verified against raw HTML, decoded body text and 17 literal passage ranges.
+Packet: 33 indexed payloads / 5,405,962 bytes / exactly 35 files. Newton GET
+completed 07:49:16.353777 UTC; overview GET 07:49:16.639111 UTC, both HTTP 200,
+curl 0, no redirects. These are historic retrievals, not current liveness.
+The Newton body is modified after its March publication; the July overview
+is an unversioned NVIDIA-authored Hugging Face community article. Its named
+authors' engine positioning is opinion, not independent comparative proof.
+Visible Newton five-author byline is distinct from single-author JSON-LD.
+Only the necessary overview author case changes to `lior ben horin`; both
+audited URLs and article lastReviewed dates remain unchanged.
+
+Applied prose separates Newton 1.0 GA from Isaac Sim/Lab early access,
+framework/backends and solver-dependent differentiation; retains the complete
+solver inventory and limited VBD joints; scopes the ±10 mm SDF band to an
+example; distinguishes vendor Skild claims, future Samsung use and simulated
+RB-Y1. The Stat is **252x / 475x**, locomotion/manipulation respectively,
+against MJX on RTX PRO 6000 Blackwell hardware, without inventing benchmark
+protocol. Drake positioning is attributed; tiled meshes/splats no longer
+imply productization. Earlier Brax/JAX, Isaac/Rudin, SplatSim/RoboGSim/ASAP/Lee
+and unrelated fragments are preserved by guarded reverse reconstruction.
+
+Native preservation passes for **986 unselected full semantic records**,
+**447 prior completions**, **353 prior plans** and **448 prior approvals**,
+including catalog metadata and serialized prefixes. All **44 unrelated
+baseline failure objects and their order remain identical**. Four exact
+fresh-input member approvals append; eight wrong-old/new-hash controls,
+stale and missing approvals reject. Protected ancestors d282a83/2cf7d6b,
+owner files, schemas, feature policy and shared UI remain unchanged.
+
+Sequential actual gates used NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Observed result |
+|---|---|
+| Source verification | Passed, exit 0; two GET bindings / 17 ranges |
+| New unit red-first | 40 failed, exit 1 |
+| New unit green and final-input qualification | 40 passed each, exits 0; same identities |
+| Other affected units/components | 79 passed across seven files, exit 0 |
+| Normal prelint/lint | Passed, exit 0; code inputs requalified byte-exactly |
+| Source-only no-slop | Passed, 47 MDX; no fresh export claim |
+| Initial reader cases | 9 passed / 3 failed of 12, exit 1 |
+| Only failed mobile reader cases rerun | 3 passed, exit 0 |
+| Existing affected reader controls | 4 passed, exit 0 |
+| Route typegen / nonincremental TypeScript | Passed, exits 0 |
+| Full offline content lifecycle | **RED: 544 findings plus nine separate citation gaps**, exit 1 |
+| Final native preservation and approval controls | Passed, exit 0 |
+
+Five measured mobile tooltip right edges at width375 are repaired with local
+max-sm offsets: **442→346, 486→358, 408→344, 377→361, 438→342**. Hover/focus
+containment and source-chip hit tests pass for all repaired occurrences.
+Five/six-author reference bylines display in order; no expansion is expected.
+All 12 source-reader identities have a passing execution across two runs
+(15 executions: 12 passes / three initial failures), **not a fresh 12/12
+final invocation**. Desktop reuse is limited to inactive max-sm wrappers and
+otherwise unchanged inputs. The reward byline dependency passes without
+closing reward original 21. Back returns to the expected URL but leaves
+focus on BODY: existing history-owner debt, not a restoration pass.
+
+**52 PNG captures: six directly Read-inspected, 46 uninspected**; both
+approved reference images were read. The inspected repairs fit the mobile
+viewport; development UI remains visible. Full reference-rubric, Axe,
+glyph/cmap, contrast and whole-P1 acceptance remain unearned. The inherited
+humanoid-WBC ASAP tooltip (right454 at375) is untouched and remains held.
+
+Owned loopback webpack runtime on3225 exited **0** after SIGINT to its
+verified child; the port is free. Three configuration files, including
+next-env.d.ts, are restored byte-exactly after runtime and typegen.
+**One external socket attempt was blocked**, not zero attempts; no new
+retrieval succeeded. No other process was signaled. No build/export,
+reading-time or card-corpus acceptance, push, deployment, controller launch,
+feature edit or fallback occurred. Formal progress remains **307/331**,
+independently unaccepted. Whole-P1/authored-local-proof, production/brand
+convergence, independent Sol/high scrutiny and user testing retain their
+existing owners. **Do not publish.**
+
+Exact current/original cells and digests, source proof, reviews, final-input
+receipts, captures, committed recount and noncircular inventory are under:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-newton-engine-integration-20260912/`.
+Earlier checkpoint sections below remain historical evidence.
+
+## Historical checkpoint: three humanoid tracking originals integrated (2026-09-12)
+
+**447 complete / 547 incomplete / 994 originals / 47 articles**; RL is
+**101 complete / 66 incomplete / 167 originals**. Applied only
+`audit/rl-sim2real.md:humanoid-wbc:2` (PHC), `:4` (OmniH2O), and `:5`
+(HumanPlus). Three actual reviewed plans add nine AND parts and nine paired
+items: **353 plans / 448 approvals**. No other original receives credit.
+
+**Zero new retrievals.** The retained September 8 packet was verified against
+original request/result/body events: 42 payload files / 1,833,902 bytes,
+three documents / six historical responses, 23 literal ranges plus one
+additional literal HumanPlus BC sentence. PHC body returned at 09:55:26.102Z;
+OmniH2O/HumanPlus bodies at 09:55:46.869Z; metadata at 09:56:09.352Z.
+These are historical FetchUrl result times, not this review's fetch dates.
+Reported 200 is not independently observed origin status or current liveness.
+Unversioned bodies self-identify PHC v3 and Omni/Human v1, not independently
+pinned-origin-byte proof. Registry titles, ordered authors, URLs and article
+lastReviewed 2026-08-17 remain unchanged. Omni's existing CoRL 2024 venue is
+not established by these captures and remains uncredited. Historical 94
+source-only fixtures are not product tests or actual integrator adjudications.
+
+PHC now distinguishes simulated avatars, training-set 98.9% on 11,313 clips,
+the 0.5 m failure definition and progressively harder failed subsets. Omni
+separates privileged teacher, deployable student, upstream goals and required
+root odometry; it retains the PD-angle/Appendix-A-torque wording conflict,
+four-of-six task evaluation and lack of extreme/OOD safety guarantees.
+HumanPlus separates human-observation RGB from robot sensing, shadowing body
+setpoints/PD and direct hand targets, seated bypass, and separate supervised
+BC/HIT deployment. Source notes retain conflicting task counts, conditional
+denominators, rates, filtering limits and Table 5 ties rather than certifying
+unrestricted tracking, safety or skill generalization.
+
+Native preservation passes for **991 unselected full semantic records**, all
+**444 prior completions**, 350 prior plans/prefix and 446 prior approvals,
+metadata/prefix. All **44 unrelated baseline failure objects and their order**
+remain identical. Four wrong-old/new-hash controls, stale approvals and missing
+approvals reject. Two exact native prose/relationship approvals are derived
+from fresh final input; their uncommitted provisional versions are retained.
+H2O/ASAP and every unselected article byte survive reverse reconstruction.
+Protected commits d282a83/2cf7d6b, owner files, schemas and shared UI survive.
+
+Actual sequential gates used NODE_DISABLE_COMPILE_CACHE=1:
+
+| Gate | Observed result |
+|---|---|
+| New unit red-first | 12 failed / 1 passed, exit 1 |
+| New unit green and final-input reconciliation | 13 passed each, exits 0; same identities |
+| Other affected units/components | 269 passed in ten files, exit 0 |
+| Initial reader population | 10 passed / 2 failed of 12, exit 1 |
+| First Omni repair rerun | 1 passed / 1 failed, exit 1; second mobile occurrence exposed |
+| Final Omni repair rerun | 2 passed, exit 0 |
+| Normal prelint/lint and final-input lint | Passed, exits 0 |
+| Route typegen / nonincremental TypeScript | Passed, exits 0 |
+| Executable no-slop | Passed; 47 MDX plus 63 inherited exported HTML, not a fresh export |
+| Structural content check | Passed, exit 0; overlaps first stage of full lifecycle |
+| Full offline content lifecycle | RED: 552 findings plus nine separate citation gaps, exit 1 |
+| Final native preservation/approval controls | Passed, exit 0 |
+
+Two selected article-local mobile offsets repair Omni tooltip right edges
+379→363 and 485→357 at width375, with hover/focus and hit testing. All six
+selected source×viewport identities have completed passing executions for
+canonical links, keyboard Enter reference jumps, ordered full bylines and
+Omni expansion/collapse; WBC selection/readouts/reset pass at both viewports.
+Across three runs: 16 executions, 13 passes and three failures; 11 of 12
+identities have a passing execution, not a fresh 11/12 final invocation.
+The remaining peer failure is an **unchanged, unselected ASAP tracking-lineage
+tooltip**, right454 at width375. Its assertion remains active and the defect
+is held for its owner, not repaired, hidden or waived by this source task.
+There are **29 PNG captures: six directly Read-inspected, 23 uninspected**.
+Full tall prose, complete keyboard Tab traversal, page-error telemetry, Axe,
+platform glyphs/cmap, contrast and structured reference-rubric acceptance are
+not earned here. Development UI remains visible in captures.
+
+Manual source/prose fidelity and executable no-slop passed. The owned offline
+webpack supervisor exited **0** after SIGINT to its verified child; port3224
+is free. next.config.ts, tsconfig.json and next-env.d.ts were restored exactly,
+including typegen's later automatic changes. No source sweep, build/export,
+card corpus, push, deployment, controller/feature change or fallback occurred.
+Formal progress remains **307/331**, skipScrutiny=false, skipUserTesting=false.
+Independent Sol/high scrutiny and user testing, whole-P1/authored-local-proof,
+production/reading-time/card, complete typography/contrast/reference and brand
+convergence retain their existing owners. **Do not publish.** This is a local
+implementation checkpoint, not independent acceptance or release readiness.
+
+Exact source history, inputs, logs, exits, captures and committed seal:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-tracking-integration-20260912/`.
+Earlier checkpoint sections below are retained history.
+
+## Historical checkpoint: three constrained-reward originals integrated (2026-09-09)
 
 **444 complete / 550 incomplete / 994 originals / 47 articles**; RL is
 **98 complete / 69 incomplete / 167 originals**. Applied exactly
