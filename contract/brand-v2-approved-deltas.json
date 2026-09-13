@@ -9229,6 +9229,40 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "evaluation-benchmarks-originals-20260913-0",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/evaluation-crisis",
+      "oldHash": "a82d68cc5fad165e3cb345da4717268cd27b0531c327e347f599310b5073d92e",
+      "newHash": "305a77e8f50ffe093bdaa3d90ce5f35dacbf8b8e7e368ec378f3f60990024e45",
+      "reason": "Source-backed correction of evaluation originals 8,10,11,12,13 after complete retained-text review and exact original-event/passage equality; 33 AND parts, 33 citation pairs and 35 evidence items. Distinguishes task/suite populations, real/sim units, gap mitigation, ranking comparators, masking and user-side inference. Preserves excluded originals, completed statistics, nine-source union and date. Worker source/prose review and reader tests remain bounded; no source-visual/P1/release acceptance.",
+      "ownerApproval": "Existing owner correction authorization and parent bounded integration dispatch; routine evidence-backed correction authority, not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "evaluation-benchmarks-originals-20260913-1",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/evaluation-crisis",
+      "oldHash": "27991c22cedcb751dda6261f1099f836f1c6584f56821d1da8ec26ceeb224a37",
+      "newHash": "572a8bdcab3b76d2fae6d5c0832cf830390d0a47c6ec534f706f1f546d2540c2",
+      "reason": "Source-backed correction of evaluation originals 8,10,11,12,13 after complete retained-text review and exact original-event/passage equality; 33 AND parts, 33 citation pairs and 35 evidence items. Distinguishes task/suite populations, real/sim units, gap mitigation, ranking comparators, masking and user-side inference. Preserves excluded originals, completed statistics, nine-source union and date. Worker source/prose review and reader tests remain bounded; no source-visual/P1/release acceptance.",
+      "ownerApproval": "Existing owner correction authorization and parent bounded integration dispatch; routine evidence-backed correction authority, not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

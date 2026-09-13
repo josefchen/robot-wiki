@@ -4911,13 +4911,13 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the arXiv abs page and the SIMPLER project site
-    // (2026-08-09): 16 authors across UCSD, Stanford, Berkeley, and Google
-    // DeepMind. research/03 misattributes this as an arXiv 2507.05331
-    // companion; the paper is arXiv 2405.05941. Visual matching and system
-    // identification close the visual and control gaps; Pearson r and the
-    // Mean Maximum Rank Violation (MMRV) metric come from the paper, the
-    // ~1,500 paired sim-and-real episode count only from the project site.
+    // Source preparation 2026-09-13: arXiv 2405.05941 v1, 16 authors.
+    // Visual matching and offline system identification mitigate, rather
+    // than universally close, the visual and control gaps. Pearson r and
+    // margin-weighted MMRV measure setup-scoped relative-policy agreement.
+    // https://simpler-env.github.io/ reports approximately 1,500 episodes
+    // from EACH of real and sim, not 1,500 one-to-one matching raw trials.
+    // Appendix B specifies simulation repetitions by variants/colors/seeds.
     id: 'simpler-2024',
     title: 'Evaluating Real-World Robot Manipulation Policies in Simulation',
     authors: [
@@ -4993,10 +4993,10 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the arXiv abs page (2026-08-09): 32 authors across 7
-    // institutions. Crowd-sourced double-blind pairwise comparisons on the
-    // DROID platform: more than 600 pairwise real-robot episodes over 7
-    // generalist policies, aggregated into a policy ranking.
+    // Retained body-text review 2026-09-13: arXiv 2506.18123 v2, 32 named authors.
+    // Seven universities evaluated seven DROID policies in 612 A/B comparisons;
+    // the exhaustive oracle uses 4,284 individual rollouts. The authors also
+    // have an NVIDIA affiliation; seven is not the count of all affiliations.
     id: 'roboarena-2025',
     title:
       'RoboArena: Distributed Real-World Evaluation of Generalist Robot Policies',

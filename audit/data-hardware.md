@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 6
 - Claim rows: 128
-- Recorded verified: 70
-- Recorded corrected: 55
+- Recorded verified: 65
+- Recorded corrected: 60
 - Recorded cut: 2
 - Recorded source inconsistencies: 1
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 37
-- Incomplete evidence records: 91
+- Complete evidence records: 42
+- Incomplete evidence records: 86
 
 <!-- audit-summary:end -->
 
@@ -325,12 +325,12 @@ Int = checked against repo code/data rather than an external source.
 | Snyder et al. give 10 or 50 trials as examples of small feasible sample sizes for policy comparison, not a typical 10–50 range or a census of most papers; the formal maximum trial budget is per policy. | optimal-stopping-2025 https://arxiv.org/html/2503.10966 | C |  |  |  | Retained-text integration reviewed 2026-09-13T03:21:41.120Z by agent:7607d0a5-1732-45f3-9105-58342de307a9/integrator. Snyder v4 abstract literally gives e.g.,10 or50, not a continuous typical10–50 range or survey of robotics papers. Snyder SectionIII preselects significance and maximum trials for each policy; no universal trial minimum is established. Source request/result times on2026-09-13UTC: TRI body00:52:57.259/00:53:02.566; Snyder body00:53:07.050/00:53:12.797; TRI metadata00:53:19.285/00:53:22.813; Snyder metadata00:53:32.966/00:53:36.763. Historical tool-rendered200, not raw HTTP/HTML or fresh liveness. Both complete substantive text bodies, metadata and full current article read. Figures and incorporated external materials uninspected; no whole-source visual, P1, article or independent acceptance. Exact original cells, including the historical32%-appears-nowhere error, preserved at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-statistics-integration-20260913/row-history.json. | evaluation-statistics-5-20260913 |
 | TRI warns of significant risk that many robotics papers are measuring statistical noise because of insufficient power; this is a qualified warning, not a measured prevalence. An inconclusive comparison does not establish policy equivalence. | tri-lbm-2025 https://arxiv.org/html/2507.05331; optimal-stopping-2025 https://arxiv.org/html/2503.10966 | C |  |  |  | Retained-text integration reviewed 2026-09-13T03:21:41.120Z by agent:7607d0a5-1732-45f3-9105-58342de307a9/integrator. TRI Section5 warns of significant risk of insufficient-power noise. It neither measures prevalence of false papers nor establishes a universal10–15-point noise floor. Snyder SectionV-C2 explicitly states insignificance does not mean the null should be accepted; small-gap hardware comparisons remain undecided under the budget. Source request/result times on2026-09-13UTC: TRI body00:52:57.259/00:53:02.566; Snyder body00:53:07.050/00:53:12.797; TRI metadata00:53:19.285/00:53:22.813; Snyder metadata00:53:32.966/00:53:36.763. Historical tool-rendered200, not raw HTTP/HTML or fresh liveness. Both complete substantive text bodies, metadata and full current article read. Figures and incorporated external materials uninspected; no whole-source visual, P1, article or independent acceptance. Exact original cells, including the historical32%-appears-nowhere error, preserved at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-statistics-integration-20260913/row-history.json. | evaluation-statistics-6-20260913 |
 | Snyder et al.'s observed v4 reports up to 32% fewer evaluation trials versus state-of-the-art sequential baselines with stated statistical assurances under its i.i.d. binary-outcome, risk-budget and horizon assumptions. TRI used sequential binary-policy testing but explicitly adopted Lai's test, not Snyder's STEP; its task-progress analysis uses Welch's t-test. | optimal-stopping-2025 https://arxiv.org/html/2503.10966; tri-lbm-2025 https://arxiv.org/html/2507.05331 | C |  |  |  | Retained-text integration reviewed 2026-09-13T03:21:41.120Z by agent:7607d0a5-1732-45f3-9105-58342de307a9/integrator. Snyder introduction and formulation allow sequential evidence-dependent stopping or abstention when the chosen budget is exhausted. Both inspected v4 abstract and metadata state up to32%. The inherited40% and32%-appears-nowhere claim is contradicted by these captures. No earlier-version text was retrieved, so no version-history explanation is inferred. Snyder V-A identifies feasible sequential Lai and SAVI baselines and an infeasible privileged-information SPRT oracle. V-B shows method/distribution-dependent power, not equal power everywhere. Assumption1 uses i.i.d. environment/initial-condition sampling and binary Bernoulli success outcomes; the practical assumptions are retained. SectionIV-D specifies uniform Type-I risk accumulation in the reported experiments; risk schedule affects power and is not universal. TRI Section4.1.5 explicitly adopts reference79 for binary tests; categorical progress uses Welch with normality/Type-I caveats and no global control across all tasks plotted together. TRI reference79 is Lai1988; reference75 is Snyder2025. The paper citation to Snyder does not establish adoption of STEP. Both mandatory sources are read together: Snyder proposes STEP while TRI explicitly adopts Lai. No conflation of the methods is supported. Snyder SectionIII makes significance and per-policy horizon evaluator-selected; attainable power depends on the true unknown distribution and chosen constraints. Source request/result times on2026-09-13UTC: TRI body00:52:57.259/00:53:02.566; Snyder body00:53:07.050/00:53:12.797; TRI metadata00:53:19.285/00:53:22.813; Snyder metadata00:53:32.966/00:53:36.763. Historical tool-rendered200, not raw HTTP/HTML or fresh liveness. Both complete substantive text bodies, metadata and full current article read. Figures and incorporated external materials uninspected; no whole-source visual, P1, article or independent acceptance. Exact original cells, including the historical32%-appears-nowhere error, preserved at /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-statistics-integration-20260913/row-history.json. | evaluation-statistics-7-20260913 |
-| LIBERO: 130 tasks across four suites, teleoperated demonstrations | libero-2023 (arXiv 2306.1147, verified 2026-08-09; unchanged) | V |
+| LIBERO v2 reports 130 tasks in the original four suites: Spatial, Object and Goal have ten each, and LIBERO-100 has 100. The paper splits LIBERO-100 into 90 short-horizon pretraining tasks and ten long-horizon downstream tasks. Every generated task has 50 human-expert Spacemouse demonstrations. | libero-2023; complete retained primary-body text and retrieval events reviewed 2026-09-13T04:22:55.164Z | C |  |  |  | Corrected after retained-text source review. LIBERO 2306.03310v2 body and metadata agree on identity and seven authors. Original Spatial/Object/Goal suites contain ten tasks each, LIBERO-100 splits 90 short-horizon pretraining and ten long-horizon downstream tasks; 50 expert Spacemouse demonstrations are per generated task. The original LLDM training, evaluation and best-checkpoint protocol does not establish later VLA configurations or contemporary adoption. The malformed historical 2306.1147 pointer remains unfetched history. Historical request/result times remain distinct from this review; no new retrievals or source-visual/P1/article acceptance. Evidence details: evaluation-8-libero-simpler-20260913. | evaluation-8-libero-simpler-20260913 |
 | LIBERO-Plus: seven perturbation dimensions; 95% clean falls below 30% under modest shifts of camera viewpoint or initial state; language ablation barely moves performance, models ignore instructions | libero-plus-2025 (arXiv 2510.13626 abstract: "objects layout, camera viewpoints, robot initial states, language instructions, light conditions, background textures and sensor noise"; "performance dropping from 95% to below 30% under modest perturbations"; "models are largely insensitive to language variations... tend to ignore language instructions completely") | V |
-| SIMPLER: visual gap / control gap; visual matching and system identification; Pearson correlation and MMRV; agreement task-dependent | simpler-2024 (arXiv 2405.05941, verified 2026-08-09; registry comment updated by banked edit to source the ~1,500 episode count to the project site) | V |
-| ~1,500 paired evaluation episodes | simpler-env.github.io (fetched 2026-08-17: "a strong correlation between real-world and simulated performance across ∼1500 evaluation episodes (from each of real and sim)") | V |
-| RoboArena: seven academic institutions on the DROID Franka platform; 600+ pairwise real-robot episodes across seven generalist policies; double-blind; ranking more accurate than centralized evaluation | roboarena-2025 (arXiv 2506.18123: "a network of evaluators at seven academic institutions using the DROID robot platform"; "more than 600 pairwise real-robot evaluation episodes across seven generalist policies... more accurately rank the performance... than conventional"; "pairwise, double-blind comparisons") | V |
-| RoboChallenge: centralized online evaluation, Table30 task suite | robochallenge-2025 (abstract-level use only, per library/content-quality.md caution) | V |
+| SIMPLER evaluates policies trained on real data in simulation. Offline system identification mitigates the control gap; green-screening and foreground/robot texture matching mitigate the visual gap. Pearson r and margin-weighted MMRV measure relative-policy agreement under explicit Google Robot and WidowX protocols, including seed/color averaging. Task- and policy-dependent agreement and tested distribution-shift behavior do not replace real rollouts or establish universal sim-to-real validity. | simpler-2024; complete retained primary-body text and retrieval events reviewed 2026-09-13T04:22:55.164Z | C |  |  |  | Corrected after retained-text source review. SIMPLER 2405.05941v1 body and official site support bounded real-to-sim improvement signals and controller/visual gap mitigation, not closure or exact behavior reproduction. Variant/color/seed multipliers, three Octo seeds, four Google arm colors and no WidowX color averaging distinguish raw executions from aggregate comparisons. Pearson linear agreement differs from margin-weighted per-policy worst rank violation. Table 5 task-dependent agreement, carrot rank error, partial versus final success, tested distribution shifts, rigid objects, fixed cameras, missing shadows and manual curation constrain inference. Drawer aggregates, RT-1 Begin versus 15% labels and 500 versus 501 Hz descriptions are retained as source-internal distinctions, not harmonized. Historical request/result times remain distinct from this review; no new retrievals or source-visual/P1/article acceptance. Evidence details: evaluation-10-libero-simpler-20260913. | evaluation-10-libero-simpler-20260913 |
+| The SIMPLER project site reports approximately 1,500 evaluation episodes from each of real and simulation. Paired means corresponding policy/task/setup comparisons here, not an established 1,500 one-to-one matching raw-trial count: the paper multiplies simulated trials by variants, robot colors and Octo seeds. | simpler-2024; complete retained primary-body text and retrieval events reviewed 2026-09-13T04:22:55.164Z | C |  |  |  | Corrected after retained-text source review. The official SIMPLER project page says approximately 1500 episodes from each of real and simulation. Paper protocol and variant/color/seed averaging do not establish 1500 one-to-one matched raw trials; this correction retains the approximation and distinct populations. Historical request/result times remain distinct from this review; no new retrievals or source-visual/P1/article acceptance. Evidence details: evaluation-11-libero-simpler-20260913. | evaluation-11-libero-simpler-20260913 |
+| RoboArena v2: seven universities using DROID Franka Panda; 612 A/B comparisons among seven DROID policies, distinct from 4,284 individual oracle rollouts. Evaluator policy identities are hidden. Task-aware rankings improve agreement with the authors’ oracle versus their specified conventional baseline, not universally; population and uncertainty limits remain explicit. | roboarena-2025; complete retained primary-body text and retrieval events reviewed 2026-09-13T04:22:55.164Z | C |  |  |  | Corrected after retained-text source review. RoboArena 2506.18123v2 identifies seven evaluating universities, distinct from all author affiliations including NVIDIA. Its seven DROID Franka Panda policy variants produce 612 A/B comparisons and 4284 individual oracle rollouts in different units; running the other five policies constructs the exhaustive progress oracle. Anonymous endpoints mask evaluators and pair conditions are matched; administrator/developer blindness is not established. Ranking agreement is with the authors oracle and 17-task/44-episode conventional comparator, not universal accuracy or monetary superiority. Controlled experiments complement this protocol and adversarial evaluator robustness is untested. Historical request/result times remain distinct from this review; no new retrievals or source-visual/P1/article acceptance. Evidence details: proposed-evaluation-robustness-12-20260913. | proposed-evaluation-robustness-12-20260913 |
+| RoboChallenge v1: an online service hosts robots at its testing site while models run user-side; Table30 is its initial table/around-table benchmark. Reference-image resets standardize the benchmark but do not remove environmental variation or verify the submitted model identity. | robochallenge-2025; complete retained primary-body text and retrieval events reviewed 2026-09-13T04:22:55.164Z | C |  |  |  | Corrected after retained-text source review. RoboChallenge 2510.17950v1 supports centrally hosted robots but user-side model integration and inference, asynchronous observation/action interfaces, Table30 tasks on or around a table and image-guided reset controls. These do not prove drift-free conditions, remote model identity or universal VLA robustness. Panda/Research 3, UR5/UR5e and method/population inconsistencies remain source-internal limitations; image perturbations are a bounded proof of concept. Historical request/result times remain distinct from this review; no new retrievals or source-visual/P1/article acceptance. Evidence details: proposed-evaluation-robustness-13-20260913. | proposed-evaluation-robustness-13-20260913 |
 
 ### industrial-deployment.mdx
 
@@ -918,3 +918,97 @@ Actual receipts below retain raw child exits, including failures. All recorded v
 | tooltip-application.receipt.json | `python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-engineering-integration-20260913/placement.py` | 0 |
 | tooltip-red.receipt.json | `npm test -- tests/unit/industrial-engineering-originals.test.ts -t 'keeps the measured mobile'` | 1 |
 | types.receipt.json | `python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-engineering-integration-20260913/types.py` | 0 |
+
+
+## Historical: evaluation benchmark source recovery 2026-09-13
+
+Exactly originals 8, 10, 11, 12 and 13 were corrected in atomic groups [8], [10,11], [12,13]. Retained FetchUrl text was compared with original request/result events: six captures, 436835 bytes; zero new retrievals. All 33 mandatory parts, 33 citation pairs and 35 evidence items were adjudicated. Source-visual inspection, P1, excluded originals 1/9, independent acceptance and release remain open. The content gate remains RED; fresh gate transcript follows separately.
+
+Original four-cell history (not extra claim rows):
+
+```json
+[
+  {
+    "originalId": "audit/data-hardware.md:evaluation-crisis:8",
+    "rowOrdinal": 8,
+    "currentTupleDigest": "41814c048e257500f69401e0840a7eee3e1e5a7ea08a5030dfe6f6b41a1f8e9d",
+    "currentCells": {
+      "claim": "LIBERO: 130 tasks across four suites, teleoperated demonstrations",
+      "sourceChecked": "libero-2023 (arXiv 2306.1147, verified 2026-08-09; unchanged)",
+      "verdict": "V",
+      "note": ""
+    }
+  },
+  {
+    "originalId": "audit/data-hardware.md:evaluation-crisis:10",
+    "rowOrdinal": 10,
+    "currentTupleDigest": "6f373273eae20d1b5d75a002eadf30ab4c1bc5cd2f8e7c061ac09101558a2f99",
+    "currentCells": {
+      "claim": "SIMPLER: visual gap / control gap; visual matching and system identification; Pearson correlation and MMRV; agreement task-dependent",
+      "sourceChecked": "simpler-2024 (arXiv 2405.05941, verified 2026-08-09; registry comment updated by banked edit to source the ~1,500 episode count to the project site)",
+      "verdict": "V",
+      "note": ""
+    }
+  },
+  {
+    "originalId": "audit/data-hardware.md:evaluation-crisis:11",
+    "rowOrdinal": 11,
+    "currentTupleDigest": "b9cc9211ebdc7ab042ccdd7695fae3f3966b934daf5e50c6bc5f36e464c71ae4",
+    "currentCells": {
+      "claim": "~1,500 paired evaluation episodes",
+      "sourceChecked": "simpler-env.github.io (fetched 2026-08-17: \"a strong correlation between real-world and simulated performance across ∼1500 evaluation episodes (from each of real and sim)\")",
+      "verdict": "V",
+      "note": ""
+    }
+  },
+  {
+    "originalId": "audit/data-hardware.md:evaluation-crisis:12",
+    "rowOrdinal": 12,
+    "currentTupleDigest": "b7fbbdb40a2a14eb34ad724d83d9969fae39b551588e02bab693dcf13c99dd35",
+    "currentCells": {
+      "claim": "RoboArena: seven academic institutions on the DROID Franka platform; 600+ pairwise real-robot episodes across seven generalist policies; double-blind; ranking more accurate than centralized evaluation",
+      "sourceChecked": "roboarena-2025 (arXiv 2506.18123: \"a network of evaluators at seven academic institutions using the DROID robot platform\"; \"more than 600 pairwise real-robot evaluation episodes across seven generalist policies... more accurately rank the performance... than conventional\"; \"pairwise, double-blind comparisons\")",
+      "verdict": "V",
+      "note": ""
+    }
+  },
+  {
+    "originalId": "audit/data-hardware.md:evaluation-crisis:13",
+    "rowOrdinal": 13,
+    "currentTupleDigest": "82bb69237eede903f2550a99e233d65a81309ba65a07c2dc127dfdfa90fade68",
+    "currentCells": {
+      "claim": "RoboChallenge: centralized online evaluation, Table30 task suite",
+      "sourceChecked": "robochallenge-2025 (abstract-level use only, per library/content-quality.md caution)",
+      "verdict": "V",
+      "note": ""
+    }
+  }
+]
+```
+
+
+## Historical: evaluation benchmark gate transcript 2026-09-13
+
+Fresh native checkpoint: 492 complete / 502 incomplete across 994 originals and 47 articles; this domain 42 complete / 86 incomplete / 128. Content gate RED: 507 findings and nine separate citation gaps. Reader proof remains failed (72 tooltip containment failures in 180 states; 16 captures, four inspected). The external guard-chaining gap is recorded in `worker-application-guard-reconciliation.json`; no retroactive guard success is claimed. Owned runtime raw exit 0 and byte restoration/free-port proof are retained.
+
+| Receipt (bounded worker lane) | Actual argv | Raw exit | Log SHA-256 |
+| --- | --- | --- | --- |
+| worker-application.receipt.json | `node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-native.mjs apply` | 0 | `a5412e674dc25063c1525a4a90f09c4f7e480369bc930c5b8e40a7fe7d927f8f` |
+| worker-approval-2.receipt.json | `node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-native.mjs approve` | 0 | `96abc5f79e1269708db550a05549e2de6f61b4a1c94a86162773e0db564915a9` |
+| worker-approval-controls.receipt.json | `node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-approval-controls.mjs` | 0 | `b3210c0be6f3b6e341e830705d8007c7070e12399386723dcdc128c709b91ce4` |
+| worker-approval.receipt.json | `node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-native.mjs approve` | 1 | `8a816ea88be0b695170ed891d00859c406115cca584e4cc1a1d5dc5a83206b51` |
+| worker-content.receipt.json | `npm run validate:content` | 1 | `d06a8908598c8660331153147a69baa3fef95ab8596e17021ba6ab403bc95750` |
+| worker-focused.receipt.json | `npm test -- tests/unit/evaluation-benchmark-originals.test.ts tests/unit/evaluation-statistics-originals.test.ts tests/unit/audit-ledger.test.ts tests/unit/audit-citation-coverage.test.ts tests/unit/citations.test.ts tests/unit/references.test.ts tests/component/references.test.tsx` | 0 | `6d5162862ad6eeaf036b1fe478ceb8230a1a823c883c1829c0c961d4432de63a` |
+| worker-lint.receipt.json | `npm run lint` | 0 | `ebca3fe12cc9f932ebe6cd470447b922d6cdf93c685026f23947523c9424f05c` |
+| worker-native-before-2.receipt.json | `node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-native.mjs before` | 0 | `e95ad3e35f295645d0a60dba0f0f38dadaf9abf40137dddc612860f44d936f96` |
+| worker-native-before.receipt.json | `node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-native.mjs before` | 1 | `ff83a0e78a8f82017d682dccc5923efab21507a0138d0ad100651fd7f91b83af` |
+| worker-preservation.receipt.json | `node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-native.mjs validated` | 0 | `b2c42768ccf6bf95feaa60588398c2dc7c366677370ea98ba774966863490977` |
+| worker-readers-desktop.receipt.json | `node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-readers.mjs` | 1 | `9ce2d675c95f0867fab1b8dec6582d84c99933034dbbc91e0456d9acb9747136` |
+| worker-readers.receipt.json | `node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-readers.mjs` | 1 | `368c6e0584decf69df90c66eef78680541925c72e1a54cdeff1110b0c06e27ef` |
+| worker-red-first.receipt.json | `npm test -- tests/unit/evaluation-benchmark-originals.test.ts` | 1 | `2389e3f274fdd8cd993eb1381a6766b67713b34c29bf3350ef8e8b91adac2862` |
+| worker-runtime.receipt.json | `python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-runtime.py` | 0 | `227a7ed34288f9ad2b8efe7b39b6e815ab81e425b12e2266dca352ae54ed2ed9` |
+| worker-source-proof-2.receipt.json | `python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-source-proof.py` | 1 | `1391cf54132afc9cc14f033e970347af6412f854585e0f2a0ff136aa4ad4f796` |
+| worker-source-proof-3.receipt.json | `python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-source-proof.py` | 0 | `5140e382cfcc20f78a473a603d273611cae545b8403e0b72147f9db3d0152cbb` |
+| worker-source-proof.receipt.json | `python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-source-proof.py` | 1 | `5c0a5d619eab04984d8de39c56375dc022a1c7f40c5a06307959b4d7b8e5c10e` |
+| worker-tsc.receipt.json | `node node_modules/typescript/bin/tsc --noEmit --incremental false` | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| worker-typegen.receipt.json | `node node_modules/next/dist/bin/next typegen` | 0 | `adba4af9194e10e47dda75ff0fd0f8c2b756474896d0eba5612799c527ff372a` |
