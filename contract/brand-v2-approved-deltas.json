@@ -9263,6 +9263,108 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "perception-foundations-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "d9e19dc18a28e5af9ba4a54da4b7d831a15c758a9920c6629148e1485d577753",
+      "reason": "Retained-source correction of perception originals 37/38,39,11/40,41 and their coupled glossary/Stat/inspected arXiv editions. Forty mandatory parts and forty citation/passage pairs were matched to retained bytes and reviewed with protocol, training, population and source-inconsistency qualifications. No whole-P1, source-visual, fresh retrieval, independent or release acceptance.",
+      "ownerApproval": "Owner recorded September 7 fix-it-all correction authorization and parent bounded six-original integration dispatch; ordinary source-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-foundations-20260913-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/perception",
+      "oldHash": "9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041",
+      "newHash": "3ac3a5b9066abd3ede9701ff8ad15b1c64dccc971b7c8175b988864b863134ed",
+      "reason": "Retained-source correction of perception originals 37/38,39,11/40,41 and their coupled glossary/Stat/inspected arXiv editions. Forty mandatory parts and forty citation/passage pairs were matched to retained bytes and reviewed with protocol, training, population and source-inconsistency qualifications. No whole-P1, source-visual, fresh retrieval, independent or release acceptance.",
+      "ownerApproval": "Owner recorded September 7 fix-it-all correction authorization and parent bounded six-original integration dispatch; ordinary source-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-foundations-20260913-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "1504fc5e7270074c24ef7c672036ab97ba1d856021722415e3b6e7eb99fb62e9",
+      "reason": "Retained-source correction of perception originals 37/38,39,11/40,41 and their coupled glossary/Stat/inspected arXiv editions. Forty mandatory parts and forty citation/passage pairs were matched to retained bytes and reviewed with protocol, training, population and source-inconsistency qualifications. No whole-P1, source-visual, fresh retrieval, independent or release acceptance.",
+      "ownerApproval": "Owner recorded September 7 fix-it-all correction authorization and parent bounded six-original integration dispatch; ordinary source-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-foundations-20260913-4",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "43d99fc56253db83d960b989acd81a7ba776310a27c99d6cc62eeb1f9ff40195",
+      "reason": "Retained-source correction of perception originals 37/38,39,11/40,41 and their coupled glossary/Stat/inspected arXiv editions. Forty mandatory parts and forty citation/passage pairs were matched to retained bytes and reviewed with protocol, training, population and source-inconsistency qualifications. No whole-P1, source-visual, fresh retrieval, independent or release acceptance.",
+      "ownerApproval": "Owner recorded September 7 fix-it-all correction authorization and parent bounded six-original integration dispatch; ordinary source-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-foundations-20260913-5",
+      "manifest": "article-metadata",
+      "memberId": "citation:grounding-dino-2024",
+      "oldHash": "cefe13aade3b55350f9e7d473049f7581f082f2fe85cf430b14e7e3faab2b041",
+      "newHash": "9ec568a216e62e4f0be5e77bca7f223d8816d6d2ddb90feafd883794199bba98",
+      "reason": "Retained-source correction of perception originals 37/38,39,11/40,41 and their coupled glossary/Stat/inspected arXiv editions. Forty mandatory parts and forty citation/passage pairs were matched to retained bytes and reviewed with protocol, training, population and source-inconsistency qualifications. No whole-P1, source-visual, fresh retrieval, independent or release acceptance.",
+      "ownerApproval": "Owner recorded September 7 fix-it-all correction authorization and parent bounded six-original integration dispatch; ordinary source-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-foundations-20260913-6",
+      "manifest": "article-metadata",
+      "memberId": "citation:segment-anything-2023",
+      "oldHash": "3d1006804524353642362e80d93881b57be60a7c76fc02e6ef2c91978aef58c5",
+      "newHash": "d991ef945fa26ceab8b1a96ea1ab7e4e40be98bdd567aac5a7b614d2473088de",
+      "reason": "Retained-source correction of perception originals 37/38,39,11/40,41 and their coupled glossary/Stat/inspected arXiv editions. Forty mandatory parts and forty citation/passage pairs were matched to retained bytes and reviewed with protocol, training, population and source-inconsistency qualifications. No whole-P1, source-visual, fresh retrieval, independent or release acceptance.",
+      "ownerApproval": "Owner recorded September 7 fix-it-all correction authorization and parent bounded six-original integration dispatch; ordinary source-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

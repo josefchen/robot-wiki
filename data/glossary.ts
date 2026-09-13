@@ -560,7 +560,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'promptable-segmentation',
     term: 'promptable segmentation',
     definition:
-      'Segmentation posed so the mask is produced in response to a prompt, a point, a box or a rough mask, rather than to a fixed label set decided at training time. The Segment Anything model was designed and trained for the task explicitly, on a dataset of over a billion masks, so it transfers to new image distributions without retraining, and SAM 2 extends the same interface across video frames with a streaming memory. That is what makes it usable as a grounding layer under a policy: the prompt can come from a detector, a language model, or a keypoint the robot already cares about.',
+      'Segmentation that predicts a mask from an image and prompts such as foreground/background points, a box or a mask. SAM was trained on SA-1B, reported as 1.1 billion automatically generated masks from 11 million images. The paper evaluates zero-shot transfer to new datasets, but an ambiguous prompt can produce multiple candidate masks and performance is not guaranteed on every image distribution. SAM 2 extends geometric prompting across video frames with streaming memory of predictions and prompted frames; masks can be refined with further prompts, but tracking can fail after shot changes, occlusion or confusion between similar objects. In the SAM instance-segmentation experiment, the box prompt comes from a separate ViTDet detector.',
     citations: ['segment-anything-2023', 'sam2-2024'],
   },
   {
