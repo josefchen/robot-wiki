@@ -9569,6 +9569,42 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "keypoint-hierarchy-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7",
+      "reason": "Source-backed correction of perception42/43/44 and zero-credit hierarchical3/4/5: distinct MOKA selection/depth/grasp execution, ReKep staged constraints/finite penalties/tracking assumptions, and RoboPoint mixed training plus Where2Place100-image point-in-mask means46.77% versus29.06%, not grasp success or a universal21.8% gain. All five coupled prose endpoints reviewed against retained MOKAv3/ReKepv2/RoboPointv1. Original history preserved; no date, registry, glossary, calculator or unrelated endpoint changes. Zero retrieval; hierarchy candidates remain incomplete, full P1/source-visual/independent acceptance remain open.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact coupled keypoint/hierarchy dispatch authorize routine source-backed repair, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "keypoint-hierarchy-20260913-2",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+      "newHash": "1ad8d672a630982ea64b781bcc37605f6ed105e32519b81dd2fc518fbcec95a6",
+      "reason": "Source-backed correction of perception42/43/44 and zero-credit hierarchical3/4/5: distinct MOKA selection/depth/grasp execution, ReKep staged constraints/finite penalties/tracking assumptions, and RoboPoint mixed training plus Where2Place100-image point-in-mask means46.77% versus29.06%, not grasp success or a universal21.8% gain. All five coupled prose endpoints reviewed against retained MOKAv3/ReKepv2/RoboPointv1. Original history preserved; no date, registry, glossary, calculator or unrelated endpoint changes. Zero retrieval; hierarchy candidates remain incomplete, full P1/source-visual/independent acceptance remain open.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact coupled keypoint/hierarchy dispatch authorize routine source-backed repair, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
