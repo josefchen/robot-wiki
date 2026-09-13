@@ -156,8 +156,8 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'success-rate',
     term: 'success rate',
     definition:
-      'The standard headline metric of robot learning evaluation: the fraction of attempted episodes in which the policy completes the task. The number compresses the trial count, the time limit, and the scene distribution into one figure, and most papers measure it on 10 to 20 rollouts, where the confidence interval is wider than the differences being reported. Toyota Research Institute\'s Large Behavior Model study budgeted 1,800 real-world rollouts and concluded that underpowered evaluation, not method equivalence, explains many published comparisons.',
-    citations: ['tri-lbm-2025'],
+      'The standard headline metric of robot learning evaluation: the fraction of attempted episodes in which the policy completes the task. Trial count, time limit and scene distribution belong with the reported rate. Toyota Research Institute\'s Large Behavior Model study analyzed 1,800 real-world rollouts and warned of a significant risk of statistical noise from insufficient power, not a measured prevalence of incorrect papers. An inconclusive comparison does not establish policy equivalence.',
+    citations: ['tri-lbm-2025', 'optimal-stopping-2025'],
   },
   {
     id: 'ppo',
