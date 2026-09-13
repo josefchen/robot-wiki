@@ -28,7 +28,7 @@ import { RrtExplorer } from '@/components/interactive/rrt-explorer';
 
 Motion planning answers a deceptively simple question: given where the robot is and where it needs to be, what motion gets it there without hitting anything? [Kinematics](/classical/kinematics) tells you where the arm is for a given set of joint angles; planning finds the sequence of joint angles worth executing. It is the layer where geometry becomes a decision, and it is the layer most learned policies quietly replace or lean on, depending on whom you ask.
 
-Two algorithm families dominate the classical answer, and they start from opposite ends. Sampling-based planners build a graph of collision-free configurations by random exploration and search it for a route. <Term id="trajectory-optimization">Trajectory optimization</Term> starts with a whole candidate motion, often a bad one, and bends it downhill on a cost functional until it is smooth and collision-free. The first family is global and probabilistic; the second is local and deterministic. Practical systems use both.
+Sampling-based planning and <Term id="trajectory-optimization">trajectory optimization</Term> start differently. A sampling planner explores configurations and connections; an optimizer starts with a complete candidate trajectory and improves an objective. Neither a smoothness objective nor an initial guess guarantees that local optimization will find a collision-free motion. CHOMP and TrajOpt both examine planning from infeasible guesses as well as refining existing trajectories <Cite id="ratliff-2009" /><Cite id="schulman-2013" />.
 
 The sampling family is below, running for real: a 2D world, five obstacles between start and goal, one accepted extension per iteration from a fixed seed. Press Run, or drag the exploration iteration slider, and watch the tree flood open space, leak through the gap above the wall, and only then stumble into the goal region. Nothing in it knows where the goal is.
 
@@ -103,25 +103,66 @@ Section V describes the Sample routine more strongly, as if every sampled state 
 
 ## Trajectory optimization
 
-The second family refuses to search at all. Treat the trajectory itself, a whole time-parameterized curve $\xi(t)$, as the decision variable, write down a cost that penalizes what you dislike, and descend. The motion comes out smooth by construction, because smoothness is in the objective, and the machinery of numerical optimization brings decades of fast solvers with it.
+Trajectory optimization makes the trajectory the decision variable. Smoothness, obstacle clearance, and task requirements enter an objective or constraints; solving the local optimization problem is not the same as guaranteeing a feasible global route.
 
-CHOMP frames the objective as a sum of two functionals, one measuring smoothness, one measuring obstacle proximity <Cite id="ratliff-2009" />:
+### CHOMP: a smoothness metric, not a local step-size rule
 
-$$
-\mathcal{U}[\xi] = f_{smooth}[\xi] + \lambda \, f_{obs}[\xi], \qquad f_{smooth}[\xi] = \frac{1}{2} \int_{0}^{1} \left\lVert \frac{d}{dt} \xi(t) \right\rVert^{2} dt
-$$
-
-The obstacle term integrates a cost field along the path: distance to the nearest obstacle, read off a signed-distance field, mapped through a penalty that rises as clearance shrinks. CHOMP's contribution is how it descends: a covariant functional gradient, which takes large steps in regions where the trajectory is already cheap and small steps where it is not, so optimization polishes the middle of a motion without destroying its endpoints. It is fast enough to serve as a standalone planner on the paper's 6-DoF arm and quadruped experiments, and it needs no graph, no samples, and no roadmap <Cite id="ratliff-2009" />.
-
-TrajOpt, from Schulman and collaborators, replaces the soft penalty with explicit constraints and solves the result as sequential convex optimization <Cite id="schulman-2013" />. Collisions enter as a hinge loss on signed distance, penalized outside a safety margin and linearized inside it, and the collision test is swept over the motion between waypoints rather than at the waypoints alone, so thin obstacles cannot slip between samples:
+CHOMP combines an obstacle cost with an environment-independent prior on trajectory dynamics. In the paper's discrete formulation, $\xi$ contains the interior waypoints, $K_d$ computes finite differences, and $e_d$ accounts for the fixed endpoints:
 
 $$
-\min_{\xi} \; f(\xi) \quad \text{subject to} \quad g_i(\xi) \le 0
+\mathcal U(\xi)=f_{\mathrm{prior}}(\xi)+f_{\mathrm{obs}}(\xi), \qquad
+f_{\mathrm{prior}}(\xi)=\frac12\sum_{d=1}^{D} w_d\lVert K_d\xi+e_d\rVert^2.
 $$
 
-Each iteration convexifies the nonconvex constraints around the current trajectory and solves a convex subproblem, trusting the answer only within a shrinking region. In benchmarks on arm and full-body planning problems it outpaced both OMPL's sampling planners and CHOMP, solving more problems with smoother results <Cite id="schulman-2013" />.
+The retained CHOMP body is an eight-page preprint, distinct from the landing page's six-page ICRA publication. The first derivative term penalizes squared velocity; higher-order terms can penalize other dynamics. This discrete expression is the source's explicit half-weighted formula, rather than an assertion that its continuous prior is printed with the same normalization <Cite id="ratliff-2009" />.
 
-The family's weakness is structural, not incidental. Descent methods find local minima, and in a cluttered scene the nearest local minimum may route the elbow around the wrong side of a post. Trajectory optimization also needs an initial guess, and a naive straight-line seed in configuration space usually passes straight through the obstacle set. The standard industrial pipeline therefore pairs the two families: a sampling planner finds a globally sensible, jerky route, then optimization refines it into something a controller would actually track.
+The obstacle cost integrates over the robot's body elements and their arc length through the workspace. A workspace signed-distance field is negative inside an obstacle and positive outside; its penalty discourages low clearance. Arc-length weighting prevents merely moving faster through a costly region from reducing that obstacle cost. Covariant descent uses the inverse of a smoothness metric to distribute a gradient update along the trajectory while retaining smoothness. It is not a rule that selects large steps at cheap locations and small steps at expensive ones <Cite id="ratliff-2009" />.
+
+The arm experiment used the first six joints of a seven-DoF Barrett WAM. Its 15 endpoint configurations yielded 105 planning problems, of which CHOMP solved 99. The reported implementation used a $50\times50\times50$ voxel grid and Matlab distance-field computation; 400 optimization iterations took approximately 12 seconds, with the core optimization usually completed in the first 100 iterations, approximately 3 seconds. The inspected body does not name the processor. Those are setup-specific timings, not a processor-independent real-time claim. In the LittleDog experiment, CHOMP instead operated inside a footstep controller informed by a separate footstep planner. Trunk motion was initialized with a ZMP preview controller and swing-foot motion by interpolation, with stability and reachability criteria added. Its trajectories were generated before execution because worst-case optimization could take longer than the motion <Cite id="ratliff-2009" />.
+
+CHOMP can turn an infeasible initial guess into a useful trajectory without a separate motion planner on many queries. But the paper also implements a Hamiltonian Monte Carlo variant and records finite-time local-minimum failures. Neither “no samples” nor “no search” describes every variant or guarantees success <Cite id="ratliff-2009" />.
+
+### TrajOpt: penalties, trust regions, and collision limits
+
+TrajOpt solves a sequence of convex subproblems. Its kinematic objective sums squared displacements between successive waypoints. Nonlinear constraints enter an $\ell_1$ penalty method, with penalty coefficients increased in an outer loop as necessary; linear constraints are imposed directly. This does not eliminate soft penalties in favor of hard constraints from the first iteration. For a signed distance $\operatorname{sd}$ that is positive when objects are separated, the collision penalty is
+
+$$
+\max\!\left(d_{\mathrm{safe}}-\operatorname{sd},\,0\right).
+$$
+
+It is active below the safety margin. The collision checker considers nearby pairs out to $d_{\mathrm{check}}>d_{\mathrm{safe}}$, so the linearized subproblem can also account for some pairs that currently have zero penalty. A box trust region limits each proposed update; it expands when actual improvement sufficiently agrees with the local model and shrinks otherwise <Cite id="schulman-2013" />.
+
+Checking only waypoints can miss a collision in the motion between them. TrajOpt therefore considers a modeled swept volume. For the translational case its construction uses the convex hull of endpoint shapes; rotations require additional inflation. The paper states a bound with $d_{\mathrm{arc}}=r\phi^2/8$ added to the safety margin, but omitted this correction in its experiments because it was well under 1 cm. It also notes that its swept-volume gradient approximation is not guaranteed accurate in 3D. The implementation used Bullet and convex hulls of robot meshes, and its continuous-time collision cost did not cover self-collisions: those were penalized at discrete times. These qualifications rule out an unconditional claim that thin obstacles can never be missed, especially for an arbitrary interpolation executed by a controller <Cite id="schulman-2013" />.
+
+### What the TrajOpt benchmark measured
+
+The benchmark used four simulated MoveIt scenes with fixed start and goal configurations: 198 seven-DoF PR2 arm problems and 96 eighteen-DoF full-body problems. The arm trajectories had 11 timesteps and the full-body trajectories 41. A single initialization was a straight line; the arm multi-initialization condition used four manually selected intermediate configurations, while full-body planning used up to five collision-free base configurations sampled with the arms tucked. OMPL methods used default parameters and MoveIt's default smoother. Path length was normalized by the shortest path found for that problem across the compared planners; it was not a separate smoothness measurement <Cite id="schulman-2013" />.
+
+| Arm method | Success fraction | Average time (s) | Average normalized length |
+| --- | ---: | ---: | ---: |
+| TrajOpt | 0.84 | 0.20 | 1.2 |
+| TrajOpt, multiple initializations | 0.99 | 0.32 | 1.2 |
+| OMPL RRTConnect | 0.97 | 1.2 | 1.6 |
+| OMPL LBKPIECE | 0.96 | 3.1 | 1.7 |
+| CHOMP | 0.66 | 3.1 | 2.4 |
+| CHOMP, multiple initializations | 0.85 | 6.0 | 2.6 |
+
+These are Table I's arm results. In particular, single-initialization TrajOpt solved a smaller fraction than either OMPL comparator; the multi-initialization result supports the stronger success comparison. The tested CHOMP implementation was supplied by its authors and is not established as identical to the earlier 2009 preprint <Cite id="schulman-2013" />.
+
+| Full-body method | Success fraction | Average time (s) | Average normalized length |
+| --- | ---: | ---: | ---: |
+| TrajOpt | 0.63 | 2.1 | 1.08 |
+| TrajOpt, multiple initializations | 0.84 | 7.6 | 1.09 |
+| OMPL RRTConnect | 0.53 | 18.0 | 1.5 |
+| OMPL LBKPIECE | 0.50 | 18.7 | 1.5 |
+
+Table II contains no CHOMP full-body result: the authors lacked the documentation or data needed to run that comparison. Its measured full-body times also qualify the introduction's subsecond characterization. The introduction says all planners had ten seconds, while the experimental section specifies three seconds per CHOMP initialization and a thirty-second full-body OMPL limit. Those statements should not be collapsed into a single matched-budget protocol. The inspected paper does not identify the processor used for these benchmark timings <Cite id="schulman-2013" />.
+
+### Initial guesses and the two-stage pattern
+
+Both methods need an initial trajectory and can remain trapped in a bad local minimum. That does not make a sampling-based preplanner mandatory. CHOMP compared straight-line and RRT initializations; among queries where collision removal succeeded, straight-line initialization often produced the better objective. TrajOpt likewise evaluated planning from infeasible seeds and found that multiple initializations changed success rates <Cite id="ratliff-2009" /><Cite id="schulman-2013" />.
+
+Ratliff and colleagues describe PRM and RRT as typically used in a two-phase process: first find a feasible path, then remove redundant or jerky motion. Schulman and colleagues distinguish two roles for trajectory optimization: refining a trajectory generated by another method, or planning from scratch. Those are the papers' accounts, not evidence that sampling followed by refinement is the standard industrial pipeline today <Cite id="ratliff-2009" /><Cite id="schulman-2013" />.
 
 ## Where this meets the learned stack
 

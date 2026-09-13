@@ -86,6 +86,16 @@ test.describe('classical motion-planning module', () => {
       800,
     );
 
+    // Conditional trajectory-source correction coverage; execute only after
+    // the three original records and their coupled endpoints are integrated.
+    expect(visibleText).toContain('CHOMP: a smoothness metric, not a local step-size rule');
+    expect(visibleText).toContain('three seconds per CHOMP initialization');
+    expect(visibleText).toContain('thirty-second full-body OMPL limit');
+    expect(visibleText).toContain('Table II contains no CHOMP full-body result');
+    expect(visibleText).not.toContain('thin obstacles cannot slip between samples');
+    expect(visibleText).not.toContain('trusting the answer only within a shrinking region');
+    expect(visibleText).not.toContain('The standard industrial pipeline therefore');
+
     // No raw MDX or component source leaks into the rendered page.
     expect(visibleText).not.toContain('import {');
     expect(visibleText).not.toContain('<Cite');

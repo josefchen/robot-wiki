@@ -9677,6 +9677,60 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "trajectory-optimization-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
+      "newHash": "0c8010cf98bdda263dd5c6a8901f2c735f627831807072b0fe42b9a0ef63e75b",
+      "reason": "Atomic source-backed correction of motion-planning originals12/13/14: CHOMP discrete normalization, inverse metric, workspace arc length and scoped WAM/LittleDog experiments; TrajOpt nonlinear penalties, trust-region expansion/shrinkage, rotation/self-collision limitations and complete qualified benchmark tables; paper-attributed initialization and two-stage accounts, not industrial prevalence. Two retained documents,17 mandatory parts,20 literal evidence bundles and five current article/glossary/existing-reader endpoints reviewed. Citation population remains ten; only occurrence relationships change. No new retrieval, article review-date change, whole P1 or independent acceptance.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals12/13/14 dispatch authorize routine source-backed correction, not Josef’s personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "trajectory-optimization-20260913-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "2de52b7ff8f01c0a9f9fbfbdf4523dbef95b1403a9d7cfacd56d703b0cf9b229",
+      "newHash": "c63d75e48c552d7a1e3c5a5a6ce8dae0b246db039e9f6917d125022213be00e0",
+      "reason": "Atomic source-backed correction of motion-planning originals12/13/14: CHOMP discrete normalization, inverse metric, workspace arc length and scoped WAM/LittleDog experiments; TrajOpt nonlinear penalties, trust-region expansion/shrinkage, rotation/self-collision limitations and complete qualified benchmark tables; paper-attributed initialization and two-stage accounts, not industrial prevalence. Two retained documents,17 mandatory parts,20 literal evidence bundles and five current article/glossary/existing-reader endpoints reviewed. Citation population remains ten; only occurrence relationships change. No new retrieval, article review-date change, whole P1 or independent acceptance.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals12/13/14 dispatch authorize routine source-backed correction, not Josef’s personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "trajectory-optimization-20260913-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "230bb678c5caa2fc31b7911a62735e5b81aa481fffcf3476117604c1b58b5abc",
+      "reason": "Atomic source-backed correction of motion-planning originals12/13/14: CHOMP discrete normalization, inverse metric, workspace arc length and scoped WAM/LittleDog experiments; TrajOpt nonlinear penalties, trust-region expansion/shrinkage, rotation/self-collision limitations and complete qualified benchmark tables; paper-attributed initialization and two-stage accounts, not industrial prevalence. Two retained documents,17 mandatory parts,20 literal evidence bundles and five current article/glossary/existing-reader endpoints reviewed. Citation population remains ten; only occurrence relationships change. No new retrieval, article review-date change, whole P1 or independent acceptance.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals12/13/14 dispatch authorize routine source-backed correction, not Josef’s personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

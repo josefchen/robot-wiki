@@ -1,6 +1,39 @@
 # Content-integrity audit trail
 
-## Current checkpoint: three optimal-sampling and OMPL originals (2026-09-13)
+## Current checkpoint: three trajectory-optimization originals (2026-09-13)
+
+Motion-planning originals **12,13,14: 3 applied / 0 assigned held / 0 assigned unattempted**, as one atomic group. Three reviewed plans retain **17 mandatory scientific parts /20 required citation pairs /20 literal source bundles**, drawn from18 retained page-text records. Original four-cell history and a fresh native current-HEAD identity check are preserved. No unselected original or previous completion was reapplied.
+
+Fresh native collection at14:37:58UTC: **522 complete /472 incomplete /994 originals /47 articles**; classical **81/106/187**, motion-planning **6/9/15** (complete/incomplete/originals). **428 plans /506 approvals /43 baseline failure objects**. Preservation passed for all994 original IDs/order,519 prior complete IDs/order,991 unselected full semantic records,425 old plans,503 old approval objects/metadata and two serialized prefixes. All43 inherited full failure objects/order remain unchanged. Three exact approvals cover motion-planning prose, occurrence relationships and the canonical glossary source; no immutable baseline replacement or release acceptance.
+
+**Zero new retrieval.** Retained CHOMP GET2026-09-13T09:42:20.675954–09:42:25.181487UTC and TrajOpt GET09:42:25.261839–09:42:27.243177UTC had original HTTP200/no redirects. PDF/text identities and exact literal byte/code-point spans were verified before reuse; these are historical retrievals, not fresh liveness. Current review14:29:59UTC and application/adjudication14:32:03UTC are separate. CHOMP's eight-page PREPRINT is not certified identical to the landing page's six-page ICRA publication; landing Matthew/PDF Matt Zucker remain distinct. TrajOpt is the retained unversioned ten-page RSS-hosted body, without independent edition-history certification. Full extracted texts and seven rendered source pages were inspected: CHOMP1/2/5, TrajOpt1/3/6/8. Eleven other source page images remain uninspected.
+
+CHOMP now uses the explicit discrete half-weighted prior, inverse smoothness metric and workspace arc-length obstacle cost. WAM joint/query/timing scope, separate LittleDog planning/controller/initialization and pre-generated trajectories, HMC and local-minimum failures are explicit. TrajOpt retains nonlinear penalties, expanding/shrinking trust regions, rotation inflation omitted experimentally, 3D-gradient and discrete self-collision limits, complete arm/full-body result tables, initialization schemes, normalization, unknown processor and conflicting introductory/detailed time budgets. Two-stage planning is attributed to both papers, not an industrial census. The coupled glossary and two existing reader fixtures are corrected; citation registry, optimal/OMPL prose, learned-stack hold and article lastReviewed2026-08-17 are preserved. Manual fidelity/no-hype reading was performed, not an unavailable humanizer invocation or independent validation.
+
+### Verification actually observed
+
+Commands ran sequentially through the fail-closed runner with NODE_DISABLE_COMPILE_CACHE=1.
+
+| Gate | Executed command | Actual result |
+| --- | --- | --- |
+| Retained source proof | `python3 -B source-proof.py` | exit0;2 documents,17 parts,20 pairs,18 literal page records; zero retrieval |
+| Focused units | `npm run test -- trajectory-optimization-corrections` | final90/90 pass;40 deleted/placeholder source controls,17 stale adjudications,3 missing members and2 mandatory-AND controls |
+| Atomic application controls | `node apply.mjs` | three partial-plan groups rejected before writes;3 originals applied together |
+| Exact approval controls | `node approve.mjs` | six missing/stale controls reject;3 exact entries;43 inherited full failures preserved |
+| Normal lint | `npm run lint` | exit0 including normal prelint |
+| Types | `node node_modules/next/dist/bin/next typegen`, then `node node_modules/typescript/bin/tsc --noEmit --incremental false` | both raw0; next-env.d.ts, next.config.ts and tsconfig.json restored byte-exactly |
+| Source prose lint | `node scripts/lint-no-slop.ts --source-only` | exit0;47 MDX,zero banned markers,14 existing quotation exceptions; no export scan |
+| Native accounting / preservation | `node native-state.mjs native-final`; `python3 -B preserve.py` | both exit0; exact counts above,1205 unmodified product/owner inputs and43 retained external inputs (42 trajectory source inputs) preserved |
+| Browser / changed existing E2E / runtime | not executed | zero browser runs,runtime launches,product captures or product pixel Reads |
+| Full content / build / export / cards | not executed | inherited content495 findings plus9 citation gaps is historical,not a fresh result; content gate remains RED |
+
+Retained failures: red-first29 failed/4 passed; first post-application unit invocation blocked before action by a transient parent gh reader (raw125), with unchanged guard and later33/33 pass; expanded final suite90/90 pass. Eight runner controls passed, including seven intentional no-action/raw125 refusals. Final diff review also caught a missing newline in the inserted existing-reader comment that had swallowed its raw-import assertion; the assertion was restored before commit, then changed-reader ESLint and nonincremental TypeScript both exited0. This was a preparation defect caught by review, not a passing browser result. No production build, duplicate browser run, disk cleanup, fallback or assertion waiver occurred.
+
+**Reader acceptance remains unattempted.** Both changed existing E2E files still require actual execution at375x812/1440x900. New trajectory-specific full citation/byline/References, benchmark table/math containment, final glossary caveat and keyboard exit, controls/reset/disclosure, mobile drawer/history, font roles, errors/overflow and scoped Axe remain owed. Source-image Reads are not product screenshots. No owned runtime was started, so no runtime stop or runtime-exit certification is claimed. Broader references/accessibility, whole P1, demo15, learned-stack, production export/reading times,48-card corpus and independent scrutiny/user testing remain open.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-trajectory-optimization-integration-20260913/`. First actual Astra/max event14:07:27.605UTC; fixed checkpoint14:42:27.605UTC, not reset. Local commit and acyclic post-commit seal are recorded separately only after creation. **Do not publish.** Formal307/331,M5 unaccepted,0 runnable/24 blocked/one editorial repair remain unchanged. Protected commits d282a83/2cf7d6b and owner PRODUCT_QUALITY.md/qa/ are preserved. No feature/Mission/controller, deployment, billing, credential or security changes.
+
+## Historical checkpoint: three optimal-sampling and OMPL originals (2026-09-13)
 
 Motion-planning originals **9, 10 and 11: 3 applied / 0 assigned held / 0 assigned unattempted**, with 15 mandatory scientific parts, 15 required citation pairs and **40 retained literal excerpts in 16 native source bundles (7/5/4)**. Same-part/citation/URL excerpts retain explicit […] separators; no source text or native rule was dropped. PRM4, RRT5/6/8, trajectory12/13/14, RRT7, demo15, whole P1 and the learned-stack conclusion were not integrated.
 

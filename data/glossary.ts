@@ -331,7 +331,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'trajectory-optimization',
     term: 'trajectory optimization',
     definition:
-      'Motion planning as numerical optimization over a whole trajectory at once: the trajectory is the decision variable, a cost functional scores smoothness and obstacle clearance, and a solver descends that cost from an initial guess. CHOMP descends a smoothness-plus-obstacle objective with covariant functional gradients; TrajOpt instead convexifies the collision constraints and solves a sequence of convex programs. The family produces smooth, locally optimal motions in high dimensions but can stall in local minima, so it often refines paths that a sampling-based planner found first.',
+      'Motion planning as numerical optimization over a candidate trajectory. CHOMP combines a dynamics prior with a workspace arc-length obstacle cost and uses inverse-metric covariant updates; TrajOpt uses sequential convex subproblems, nonlinear constraint penalties, and a trust region that can expand or shrink. Local optimization can fail and depends on its initial trajectory. Ratliff and colleagues describe a feasible-path-then-refinement pattern for PRM/RRT, while Schulman and colleagues also study planning from infeasible seeds. Neither source establishes that this is the standard industrial pipeline, and their collision-handling assumptions are not unconditional safety guarantees.',
     citations: ['ratliff-2009', 'schulman-2013'],
   },
   {
