@@ -42907,5 +42907,441 @@
         "evidenceDigest": "77ebb3e5ac4f80c51131682ed93b262bac0fde70959cf1bac9fe8cff7e02973b"
       }
     ]
+  },
+  {
+    "id": "state-smoothing-11-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "state-estimation",
+    "rowOrdinal": 11,
+    "originalCellsDigest": "7d693b6a2d1789652fd2df75a0fecc831116bc3b4b89b5b4d054258322a12ab1",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "identity",
+        "text": "Dellaert and Kaess, Square Root SAM, 2006 author-page bridge; retained manuscript is not publisher-version proof.",
+        "requiredCitationIds": [
+          "dellaert-kaess-2006"
+        ]
+      },
+      {
+        "id": "joint-map",
+        "text": "The estimated unknowns are the entire trajectory and landmark map in joint MAP inference.",
+        "requiredCitationIds": [
+          "dellaert-kaess-2006"
+        ]
+      },
+      {
+        "id": "model-assumptions",
+        "text": "Known data association, Gaussian process/measurement models, uniform landmark prior in the derivation, and fixed initial reference frame qualify the nonlinear least-squares formulation.",
+        "requiredCitationIds": [
+          "dellaert-kaess-2006"
+        ]
+      },
+      {
+        "id": "successive-solves",
+        "text": "Nonlinear optimization solves successive linearized systems, not one factorization; ordering alone can be computed once in the described batch formulation.",
+        "requiredCitationIds": [
+          "dellaert-kaess-2006"
+        ]
+      },
+      {
+        "id": "matrix-roles",
+        "text": "For the full-rank linearized system, QR acts on the measurement Jacobian and Cholesky on the information matrix.",
+        "requiredCitationIds": [
+          "dellaert-kaess-2006"
+        ]
+      },
+      {
+        "id": "ordering-cost",
+        "text": "Variable ordering affects fill-in and computational cost; sparse structure is not a universal cost guarantee.",
+        "requiredCitationIds": [
+          "dellaert-kaess-2006"
+        ]
+      },
+      {
+        "id": "slam-tooltip-conjunction",
+        "text": "The complete proposed SLAM glossary definition: concurrent state/map estimation; landmark trajectory/map unknowns and qualified nonlinear least squares; Cadena standard MAP/factor-graph formulation with high-performing EKF counterexamples. Both existing glossary citations are required.",
+        "requiredCitationIds": [
+          "dellaert-kaess-2006",
+          "cadena-2016"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+      "rationale": "The retained SAM manuscript names Dellaert and Kaess and says To appear in IJRR; the author publication page supplies December 2006 publication metadata. This bridges identity, not publisher-byte equivalence, and the 1181–1203/1181–1204 discrepancy remains unresolved. The SAM derivation explicitly estimates X, the entire trajectory, together with M, the landmark map. The correction names both unknowns rather than presenting trajectory-only algebra as the entire SLAM problem. The retained derivation states known correspondence, Gaussian process and measurement noise, a uniform prior on landmarks, and a fixed initial frame. All four conditions remain explicit in article and glossary; they are not universal claims about SLAM. SAM describes repeated linearization and solution of a succession of linear systems. The separate statement that ordering can be computed once does not support factoring the nonlinear estimation problem once. For the full-rank linearized system the retained matrix discussion distinguishes QR of measurement Jacobian A from Cholesky of information matrix A-transpose-A. The correction preserves the rank qualification and does not interchange the matrices. SAM relates variable ordering to fill-in and sparse factorization cost. This supports a cost dependency, not a constant-cost or universally efficient method. Cadena defines concurrent map construction and robot state estimation; SAM supplies the qualified trajectory-plus-landmark joint MAP derivation. Cadena calls MAP, often represented by factor graphs, standard while naming high-performing EKF systems. Both existing citations and the entire qualified definition are required, without an impossibility claim about solving subproblems. The three-original conjunction and full two-citation SLAM definition are atomic.",
+      "planDigest": "a5da23f306f28ad6ce96a6232b99c6d37f3fd4943e204105ceedee5f1852c93a"
+    },
+    "evidence": [
+      {
+        "partId": "identity",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.pdf",
+        "supportingPassage": "Square Root SAM Simultaneous Localization and Mapping via Square Root Information Smoothing Frank Dellaert and Michael Kaess Center for Robotics and Intelligent Machines, College of Computing Georgia Institute of Technology, Atlanta, GA 30332-0280 To appear in the Intl. Journal of Robotics Research"
+      },
+      {
+        "partId": "identity",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.html",
+        "supportingPassage": "<h1>Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing</h1> <p> <b>Download:</b> <a href=\"Dellaert06ijrr.pdf\">PDF</a>. </p> <p> &#8220;Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing&#8221; by <a href=\"http://www.cc.gatech.edu/~dellaert\">F. Dellaert</a> and <a href=\"https://www.cs.cmu.edu/~kaess/\">M. Kaess</a>. <em>Intl. J. of Robotics Research, IJRR</em>, vol. 25, no. 12, Dec. 2006, pp. 1181-1204."
+      },
+      {
+        "partId": "joint-map",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.pdf",
+        "supportingPassage": "While the previous section was concerned with modeling, we now discuss inference, i.e., obtaining an optimal estimate for the set of unknowns given all measurements available to us. We are concerned with smoothing rather than filtering, i.e., we would like to recover the maximum a posteriori ∆ ∆ (MAP) estimate for the entire trajectory X = {xi } and the map L = {lj }, given the measurements ∆ ∆ Z = {zk } and control inputs U = {ui }. Let us collect all unknowns in X and L in the vector ∆ Θ = (X, L). Under the assumptions made above, we obtain the maximum a posteriori (MAP) estimate by maximizing the joint probability P (X, L, Z) from Equation 1, ∆ Θ∗ = argmax P (X, L|Z) = argmax P (X, L, Z) Θ Θ = argmin − log P (X, L, Z) Θ which leads us via (2) and (3) to the following non-linear least-squares problem: (M ) K X X ∆ Θ∗ = argmin kfi (xi−1 , ui ) − xi k2Λi + khk (xik , ljk ) − zk k2Σk Θ i=1 (5) k=1 Regarding the prior P (x0 ), we will assume that x0 is given and hence it is treated as a constant below. This considerably simplifies the equations in the rest of this document. This is what is often done in practice: the origin of the coordinate system is arbitrary, and we can then just as well fix x0 at the origin. The exposition is easily adapted to the case where this assumption is invalid. In practice one always considers a linearized version of problem (5). If the process models fi and measurement equations hk are non-linear and a good linearization point is not available, non-linear optimization methods such as Gauss-Newton iterations or the Levenberg-Marquardt algorithm will solve a succession of linear approximations to (5) in order to approach the minimum [20]. This is similar to the extended Kalman filter approach to SLAM as pioneered by [70, 71, 52], but allows for iterating multiple times to convergence while controlling in which region one is willing to trust the linear assumption (hence, these methods are often called region-trust methods). We now linearize all terms in the non-linear least-squares objective function (5). In what follows, we will assume that either a good linearization point is available or that we are working on one iteration of a non-linear optimization method."
+      },
+      {
+        "partId": "model-assumptions",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.pdf",
+        "supportingPassage": "where P (x0 ) is a prior on the initial state, P (xi |xi−1 , ui ) is the motion model, parameterized by a control input ui , and P (z|x, l) is the landmark measurement model. The above assumes a uniform prior over the landmarks l. Furthermore, it assumes that the data-association problem has been solved, i.e., that the indices ik and jk corresponding to each measurement zk are known. […] As is standard in the SLAM literature [71, 51, 8, 21], we assume Gaussian process and measurement models [59], defined by xi = fi (xi−1 , ui ) + wi ⇔ 1 P (xi |xi−1 , ui ) ∝ exp − kfi (xi−1 , ui ) − xi k2Λi 2 (2) where fi (.) is a process model, and wi is normally distributed zero-mean process noise with covariance matrix Λi , and zk = hk (xik , ljk ) + vk ⇔ 1 P (zk |xik , ljk ) ∝ exp − khk (xik , ljk ) − zk k2Σk 2 (3) where hk (.) is a measurement equation, and vk is normally distributed zero-mean measurement ∆ noise with covariance Σk . Above kek2Σ = eT Σ−1 e is defined as the squared Mahalanobis distance given a covariance matrix Σ. The equations above model the robot’s behavior in response to control input, and its sensors, respectively. […] While the previous section was concerned with modeling, we now discuss inference, i.e., obtaining an optimal estimate for the set of unknowns given all measurements available to us. We are concerned with smoothing rather than filtering, i.e., we would like to recover the maximum a posteriori ∆ ∆ (MAP) estimate for the entire trajectory X = {xi } and the map L = {lj }, given the measurements ∆ ∆ Z = {zk } and control inputs U = {ui }. Let us collect all unknowns in X and L in the vector ∆ Θ = (X, L). Under the assumptions made above, we obtain the maximum a posteriori (MAP) estimate by maximizing the joint probability P (X, L, Z) from Equation 1, ∆ Θ∗ = argmax P (X, L|Z) = argmax P (X, L, Z) Θ Θ = argmin − log P (X, L, Z) Θ which leads us via (2) and (3) to the following non-linear least-squares problem: (M ) K X X ∆ Θ∗ = argmin kfi (xi−1 , ui ) − xi k2Λi + khk (xik , ljk ) − zk k2Σk Θ i=1 (5) k=1 Regarding the prior P (x0 ), we will assume that x0 is given and hence it is treated as a constant below. This considerably simplifies the equations in the rest of this document. This is what is often done in practice: the origin of the coordinate system is arbitrary, and we can then just as well fix x0 at the origin. The exposition is easily adapted to the case where this assumption is invalid. In practice one always considers a linearized version of problem (5). If the process models fi and measurement equations hk are non-linear and a good linearization point is not available, non-linear optimization methods such as Gauss-Newton iterations or the Levenberg-Marquardt algorithm will solve a succession of linear approximations to (5) in order to approach the minimum [20]. This is similar to the extended Kalman filter approach to SLAM as pioneered by [70, 71, 52], but allows for iterating multiple times to convergence while controlling in which region one is willing to trust the linear assumption (hence, these methods are often called region-trust methods). We now linearize all terms in the non-linear least-squares objective function (5). In what follows, we will assume that either a good linearization point is available or that we are working on one iteration of a non-linear optimization method."
+      },
+      {
+        "partId": "successive-solves",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.pdf",
+        "supportingPassage": "While the previous section was concerned with modeling, we now discuss inference, i.e., obtaining an optimal estimate for the set of unknowns given all measurements available to us. We are concerned with smoothing rather than filtering, i.e., we would like to recover the maximum a posteriori ∆ ∆ (MAP) estimate for the entire trajectory X = {xi } and the map L = {lj }, given the measurements ∆ ∆ Z = {zk } and control inputs U = {ui }. Let us collect all unknowns in X and L in the vector ∆ Θ = (X, L). Under the assumptions made above, we obtain the maximum a posteriori (MAP) estimate by maximizing the joint probability P (X, L, Z) from Equation 1, ∆ Θ∗ = argmax P (X, L|Z) = argmax P (X, L, Z) Θ Θ = argmin − log P (X, L, Z) Θ which leads us via (2) and (3) to the following non-linear least-squares problem: (M ) K X X ∆ Θ∗ = argmin kfi (xi−1 , ui ) − xi k2Λi + khk (xik , ljk ) − zk k2Σk Θ i=1 (5) k=1 Regarding the prior P (x0 ), we will assume that x0 is given and hence it is treated as a constant below. This considerably simplifies the equations in the rest of this document. This is what is often done in practice: the origin of the coordinate system is arbitrary, and we can then just as well fix x0 at the origin. The exposition is easily adapted to the case where this assumption is invalid. In practice one always considers a linearized version of problem (5). If the process models fi and measurement equations hk are non-linear and a good linearization point is not available, non-linear optimization methods such as Gauss-Newton iterations or the Levenberg-Marquardt algorithm will solve a succession of linear approximations to (5) in order to approach the minimum [20]. This is similar to the extended Kalman filter approach to SLAM as pioneered by [70, 71, 52], but allows for iterating multiple times to convergence while controlling in which region one is willing to trust the linear assumption (hence, these methods are often called region-trust methods). We now linearize all terms in the non-linear least-squares objective function (5). In what follows, we will assume that either a good linearization point is available or that we are working on one iteration of a non-linear optimization method. […] The same algorithm applies in the non-linear case, but is simply called multiple times by the non-linear optimizer. Note that the ordering has to be computed only once, however."
+      },
+      {
+        "partId": "matrix-roles",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.pdf",
+        "supportingPassage": "In this section we briefly review Cholesky and QR factorization and their application to the full rank linear least-squares (LS) problem in (9). This material is well known and is given primarily for review and to contrast the linear algebra algorithms with the graph-theoretic view of the next section. The exposition closely follows [35], which can be consulted for a more in-depth treatment. For a full-rank m × n matrix A, with m ≥ n, the unique LS solution to (9) can be found by solving the normal equations: AT Aδ ∗ = AT b (10) This is normally done by Cholesky factorization of the information matrix I, defined and factorized as follows: ∆ I = AT A = R T R (11) The Cholesky triangle R is an upper-triangular n × n matrix1 and is computed using Cholesky factorization, a variant of LU factorization for symmetric positive definite matrices. For dense matrices Cholesky factorization requires n3 /3 flops. After this, δ ∗ can be found by solving first RT y = AT b and then Rδ ∗ = y by back-substitution. The entire algorithm, including computing half of the symmetric AT A, requires (m + n/3)n2 flops. For the example of Figure 1, both I and its Cholesky triangle R are shown alongside A in Figure 4. Note the very typical block structure of I when the columns of A are ordered in the standard way [79], e.g., trajectory X first and then map L (to which we refer below as the XL ordering): \u0014 T \u0015 AX AX IXL I= T IXL ATL AL ∆ Here IXL = ATX AL encodes the correlation between robot states X and map L, and the diagonal blocks are band-diagonal. A variant of Cholesky factorization which avoids computing square roots is LDL factorization, which computes a lower triangular matrix L and a diagonal matrix D such that I = RT R = LDLT An alternative to Cholesky factorization that is both more accurate and numerically stable is to proceed via QR-factorization without computing the information matrix I. Instead, we compute the QR-factorization of A itself along with its corresponding RHS: \u0014 \u0015 \u0014 \u0015 R d T T Q A= Q b= 0 e Here Q is an m × m orthogonal matrix, and R is the upper-triangular Cholesky triangle. The preferred method for factorizing a dense matrix A is to compute R column by column, proceeding Some treatments, including [35], define the Cholesky triangle as the lower-triangular matrix G = RT , but the other convention is more convenient here. 1 5 A GRAPHICAL MODEL PERSPECTIVE 11 from left to right. For each column j, all non-zero elements below the diagonal are zeroed out by multiplying A on the left with a Householder reflection matrix Hj . After n iterations A is completely factorized: \u0015 \u0014 R T Hn ..H2 H1 A = Q A = (12) 0 The orthogonal matrix Q is not usually formed: instead, the transformed RHS QT b is computed by appending b as an extra column to A. Because the Q factor is orthogonal, we have: 2 kAδ − bk22 = QT Aδ − QT b 2 = kRδ − dk22 + kek22 Clearly, kek22 will be the least-squares residual, and the LS solution δ ∗ can be obtained by solving the square system Rδ = d (13) via back-substitution. The cost of QR is dominated by the cost of the Householder reflections, which is 2(m − n/3)n2 . Comparing QR with Cholesky factorization, we see that both algorithms require O(mn2 ) operations when m n, but that QR-factorization is a factor of 2 slower. While these numbers are valid for dense matrices only, we have seen that in practice LDL and Cholesky factorization far outperform QR factorization on sparse problems as well, and not just by a constant factor."
+      },
+      {
+        "partId": "ordering-cost",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.pdf",
+        "supportingPassage": "The single most important factor to good performance is the order in which variables are eliminated. Different variable orderings can yield dramatically more or less fill-in, defined as the amount of edges added into the graph during factorization. As each edge added corresponds to a non-zero in the Cholesky triangle R, both the cost of computing R and back-substitution is heavily dependent on how much fill-in occurs. Unfortunately, finding an optimal ordering is NP-complete. Discovering algorithms that approximate the optimal ordering is an active area of research in sparse linear algebra. A popular method for medium-sized problems is colamd [1], which works on the columns of A. Another popular method, based on graph theory and often used to speed up finite element methods, is generalized nested dissection [55, 54]. Given that an optimal ordering is out of reach in general, heuristics or domain-knowledge can do much better than general-purpose algorithms. A simple idea is to use a standard method such as colamd, but have it work on the sparsity pattern of the blocks instead of passing it the original measurement Jacobian A. In other words we treat a collection of scalar variables such as the x and y position and orientation α as a single variable and create a smaller graph which encapsulates the constraints between these blocks rather than the individual variables. Not only is it cheaper to call colamd on this smaller graph, it also leads to a substantially improved ordering. As we mentioned above, the block-structure is real knowledge about the SLAM problem and is not accessible to colamd or any other approximate ordering algorithm. While the effect on the performance of colamd is negligible, we have found that making it work on the SLAM MRF instead of on the sparse matrix I directly can yield improvements of 2 to sometimes a 100-fold, with 15 being a good rule of thumb. Note that there are cases in which any ordering will result in the same large fill-in. The worstcase scenario is a fully connected bipartite2 MRF: every landmark is seen from every location. In that case, eliminating any variable will completely connect all variables on the other side, and after that the structure of the clique tree is completely known: if a pose was chosen first, the root will be the entire map, and all poses will be computed once the map is known. Vice versa, if a landmark is chosen, the trajectory will be the clique tree root clique, and computation will proceed via an (expensive) trajectory optimization, followed by (very cheap) computation of landmarks. Interestingly, these two cases form the basis of the standard partitioned inverse, or “Schur complement”, which is well-known in structure from motion applications [79, 41] and also used in GraphSLAM [77]."
+      },
+      {
+        "partId": "slam-tooltip-conjunction",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.pdf",
+        "supportingPassage": "where P (x0 ) is a prior on the initial state, P (xi |xi−1 , ui ) is the motion model, parameterized by a control input ui , and P (z|x, l) is the landmark measurement model. The above assumes a uniform prior over the landmarks l. Furthermore, it assumes that the data-association problem has been solved, i.e., that the indices ik and jk corresponding to each measurement zk are known. […] As is standard in the SLAM literature [71, 51, 8, 21], we assume Gaussian process and measurement models [59], defined by xi = fi (xi−1 , ui ) + wi ⇔ 1 P (xi |xi−1 , ui ) ∝ exp − kfi (xi−1 , ui ) − xi k2Λi 2 (2) where fi (.) is a process model, and wi is normally distributed zero-mean process noise with covariance matrix Λi , and zk = hk (xik , ljk ) + vk ⇔ 1 P (zk |xik , ljk ) ∝ exp − khk (xik , ljk ) − zk k2Σk 2 (3) where hk (.) is a measurement equation, and vk is normally distributed zero-mean measurement ∆ noise with covariance Σk . Above kek2Σ = eT Σ−1 e is defined as the squared Mahalanobis distance given a covariance matrix Σ. The equations above model the robot’s behavior in response to control input, and its sensors, respectively. […] While the previous section was concerned with modeling, we now discuss inference, i.e., obtaining an optimal estimate for the set of unknowns given all measurements available to us. We are concerned with smoothing rather than filtering, i.e., we would like to recover the maximum a posteriori ∆ ∆ (MAP) estimate for the entire trajectory X = {xi } and the map L = {lj }, given the measurements ∆ ∆ Z = {zk } and control inputs U = {ui }. Let us collect all unknowns in X and L in the vector ∆ Θ = (X, L). Under the assumptions made above, we obtain the maximum a posteriori (MAP) estimate by maximizing the joint probability P (X, L, Z) from Equation 1, ∆ Θ∗ = argmax P (X, L|Z) = argmax P (X, L, Z) Θ Θ = argmin − log P (X, L, Z) Θ which leads us via (2) and (3) to the following non-linear least-squares problem: (M ) K X X ∆ Θ∗ = argmin kfi (xi−1 , ui ) − xi k2Λi + khk (xik , ljk ) − zk k2Σk Θ i=1 (5) k=1 Regarding the prior P (x0 ), we will assume that x0 is given and hence it is treated as a constant below. This considerably simplifies the equations in the rest of this document. This is what is often done in practice: the origin of the coordinate system is arbitrary, and we can then just as well fix x0 at the origin. The exposition is easily adapted to the case where this assumption is invalid. In practice one always considers a linearized version of problem (5). If the process models fi and measurement equations hk are non-linear and a good linearization point is not available, non-linear optimization methods such as Gauss-Newton iterations or the Levenberg-Marquardt algorithm will solve a succession of linear approximations to (5) in order to approach the minimum [20]. This is similar to the extended Kalman filter approach to SLAM as pioneered by [70, 71, 52], but allows for iterating multiple times to convergence while controlling in which region one is willing to trust the linear assumption (hence, these methods are often called region-trust methods). We now linearize all terms in the non-linear least-squares objective function (5). In what follows, we will assume that either a good linearization point is available or that we are working on one iteration of a non-linear optimization method."
+      },
+      {
+        "partId": "slam-tooltip-conjunction",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Abstract—Simultaneous Localization And Mapping (SLAM) consists in the concurrent construction of a model of the environment (the map), and the estimation of the state of the robot moving within it. […] Maximum a posteriori (MAP) estimation and the SLAM back-end. The current de-facto standard formulation of SLAM has its origins in the seminal paper of Lu and Milios [161], followed by the work of Gutmann and Konolige [101]. Since then, numerous approaches have improved the efficiency and robustness of the optimization underlying the problem [63, 81, 100, 125, 192, 241]. All these approaches formulate SLAM as a maximum a posteriori estimation problem, and often use the formalism of factor graphs [143] to reason about the interdependence among variables. […] MAP estimation has been proven to be more accurate and efficient than original approaches for SLAM based on nonlinear filtering. We refer the reader to the surveys [7, 69] for an overview on filtering approaches, and to [236] for a comparison between filtering and smoothing. We remark that some SLAM systems based on EKF have also been demonstrated to attain state-of-the-art performance. Excellent examples of EKF-based SLAM systems include the MultiState Constraint Kalman Filter of Mourikis and Roumeliotis [175], and the VIN systems of Kottas et al. [139] and Hesch et al. [105]. Not surprisingly, the performance mismatch between filtering and MAP estimation gets smaller when the linearization point for the EKF is accurate (as it happens in visual-inertial navigation problems), when using slidingwindow filters, and when potential sources of inconsistency in the EKF are taken care of [105, 108, 139]."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "The retained SAM manuscript names Dellaert and Kaess and says To appear in IJRR; the author publication page supplies December 2006 publication metadata. This bridges identity, not publisher-byte equivalence, and the 1181–1203/1181–1204 discrepancy remains unresolved.",
+        "evidenceDigest": "5dd18358b8221c14bced9f732afdb47aaf8b5f7d4ed0e07a81abb5cec375a24e"
+      },
+      {
+        "partId": "joint-map",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "The SAM derivation explicitly estimates X, the entire trajectory, together with M, the landmark map. The correction names both unknowns rather than presenting trajectory-only algebra as the entire SLAM problem.",
+        "evidenceDigest": "8242a09093a19cceddc0341025dc5d89d32c57c5c9075ab5865a467df04ef1a1"
+      },
+      {
+        "partId": "model-assumptions",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "The retained derivation states known correspondence, Gaussian process and measurement noise, a uniform prior on landmarks, and a fixed initial frame. All four conditions remain explicit in article and glossary; they are not universal claims about SLAM.",
+        "evidenceDigest": "045d2647378c4879f7e69e9bf60396dd133bd50462ed46a128f18a0827f11225"
+      },
+      {
+        "partId": "successive-solves",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "SAM describes repeated linearization and solution of a succession of linear systems. The separate statement that ordering can be computed once does not support factoring the nonlinear estimation problem once.",
+        "evidenceDigest": "cd3ffbd6bdc419423a90d35abdf871f8e3dd81aa0cb18e443f9ef021b760fc8e"
+      },
+      {
+        "partId": "matrix-roles",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "For the full-rank linearized system the retained matrix discussion distinguishes QR of measurement Jacobian A from Cholesky of information matrix A-transpose-A. The correction preserves the rank qualification and does not interchange the matrices.",
+        "evidenceDigest": "6c1dea2846781786cfff18d55719ad668558aca4ebad562d93b071f22e166f38"
+      },
+      {
+        "partId": "ordering-cost",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "SAM relates variable ordering to fill-in and sparse factorization cost. This supports a cost dependency, not a constant-cost or universally efficient method.",
+        "evidenceDigest": "0be300ce9832a8cc5b22fb10908d5df020113bb65200bee29f517d3b861a43df"
+      },
+      {
+        "partId": "slam-tooltip-conjunction",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "Cadena defines concurrent map construction and robot state estimation; SAM supplies the qualified trajectory-plus-landmark joint MAP derivation. Cadena calls MAP, often represented by factor graphs, standard while naming high-performing EKF systems. Both existing citations and the entire qualified definition are required, without an impossibility claim about solving subproblems.",
+        "evidenceDigest": "486a1e26e2c158c63d722fcb377e0e83fb3e001d2754ddf0e817bf83c679a578"
+      }
+    ]
+  },
+  {
+    "id": "state-smoothing-13-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "state-estimation",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "21282dcb11a9ac128f66315cbc3c51d6b519993b51a4bdcdcd6ec28cceee3987",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "bayes-tree-mechanism",
+        "text": "iSAM2 uses a Bayes tree for incremental nonlinear least-squares estimation, including incremental reordering and relinearization; retained Gaussian-noise modeling context applies.",
+        "requiredCitationIds": [
+          "kaess-2012"
+        ]
+      },
+      {
+        "id": "affected-and-ancestors",
+        "text": "Re-eliminate affected cliques AND ancestors up to the root; reattach unaffected subtrees.",
+        "requiredCitationIds": [
+          "kaess-2012"
+        ]
+      },
+      {
+        "id": "estimate-propagation",
+        "text": "Unchanged factorization subtrees do not imply fixed estimates: changes at the top can propagate downward.",
+        "requiredCitationIds": [
+          "kaess-2012"
+        ]
+      },
+      {
+        "id": "threshold-tradeoffs",
+        "text": "Fluid relinearization and partial state-update thresholds trade computation against accuracy; an almost-exact empirical solution is not universal exactness.",
+        "requiredCitationIds": [
+          "kaess-2012"
+        ]
+      },
+      {
+        "id": "not-universal-local-cost",
+        "text": "Updates are not constant time; large loop closures can cost as much as a batch solution. No universal speed or growing-map locality guarantee.",
+        "requiredCitationIds": [
+          "kaess-2012"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+      "rationale": "The retained iSAM2 draft describes Bayes-tree incremental nonlinear least squares with Gaussian noise models, incremental reordering and relinearization. The author page bridges this April 6, 2011 draft to February 2012 publication, not version-of-record bytes. The update description and inspected page 9 identify affected cliques and ancestors to the root, with unaffected subtrees reattached. Omitting ancestors would repeat the false universally local-work interpretation. The retained update discussion explicitly permits top-of-tree estimate changes to propagate downward. Reusing a subtree factorization is not a promise that its state estimates remain fixed. The source distinguishes relinearization and partial-state-update thresholds and their computation/accuracy tradeoffs. Near-batch empirical accuracy and the inspected page 16 plots do not establish universal exactness; the interleaved isam-convergence extraction is not used as a convergence theorem. The paper explicitly says updates are not constant time and large loop closings can be as expensive as a batch solution. That counterqualification is retained rather than hidden behind typical-case locality. The three-original conjunction and full two-citation SLAM definition are atomic.",
+      "planDigest": "e9e9d012f18e90e594300dedbb2113729aa2e99a8e001c8c7c7c37d57e0001d4"
+    },
+    "evidence": [
+      {
+        "partId": "bayes-tree-mechanism",
+        "citationId": "kaess-2012",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Kaess12ijrr.pdf",
+        "supportingPassage": "We have presented a novel data structure, the Bayes tree, which provides an algorithmic foundation that enables new insights into existing graphical model inference algorithms and sparse matrix factorization methods. These insights have led us to iSAM2, a fully incremental algorithm for nonlinear least-squares problems as they occur in mobile robotics. Our new algorithm is completely different from the original iSAM algorithm as both variable reordering and relinearization are now done incrementally. […] iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree Michael Kaess, Hordur Johannsson, Richard Roberts, Viorela Ila, John Leonard, and Frank Dellaert Abstract We present a novel data structure, the Bayes tree, that provides an algorithmic foundation enabling a better understanding of existing graphical model inference algorithms and their connection to sparse matrix factorization methods. Similar to a clique tree, a Bayes tree encodes a factored probability density, but unlike the clique tree it is directed and maps more naturally to the square root information matrix of the simultaneous localization and mapping (SLAM) problem. In this paper, we highlight three insights provided by our new data structure. First, the Bayes tree provides a better understanding of the matrix factorization in terms of probability densities. Second, we show how the fairly abstract updates to a matrix factorization translate to a simple editing of the Bayes tree and its conditional densities. Third, we apply the Bayes tree to obtain a completely novel algorithm for sparse nonlinear incremental optimization, named iSAM2, which achieves improvements in efficiency through incremental variable re-ordering and fluid relinearization, eliminating the need for periodic batch steps. We analyze various properties of iSAM2 in detail, and show on a range of real and simulated datasets that our algorithm compares favorably with other recent mapping algorithms in both quality and efficiency. Keywords: graphical models, clique tree, junction tree, probabilistic inference, sparse linear algebra, nonlinear optimization, smoothing and mapping, SLAM 1 Introduction Probabilistic inference algorithms are important in robotics for a number of applications, ranging from simultaneous localization and mapping (SLAM) for building geometric models of the world, to tracking people for human robot interaction. Our research is mainly in large-scale SLAM and hence we will use this as an example throughout the paper. SLAM is a core competency for autonomous robots, as it provides the necessary data for many other important tasks such as planning and manipulation, in addition to direct applications such as navigation, exploration, and 3D modeling. The uncertainty inherent in sensor measurements makes probabilistic inference algorithms the favorite choice for SLAM. Online operation is essential for most real applications, therefore our work focuses on efficient incremental online algorithms. Taking a graphical model perspective to probabilistic inference in SLAM has a rich history (Brooks, 1985) and has especially led to several novel and exciting developments in the last years (Paskin, 2003; Folkesson and Christensen, 2004; Frese et al., 2005; Frese, 2006; Folkesson and Christensen, Draft manuscript, April 6, 2011. Submitted to IJRR. […] 4 The iSAM2 Algorithm Our fluid relinearization algorithm is shown in Alg. 5. The decision to relinearize a given variable is based on the deviaIn this section we use the Bayes tree in a novel algorithm tion of its current estimate from the linearization point being called iSAM2 for online mapping in robotic applications. Aslarger than a threshold β . To be exact, the different units of suming Gaussian noise, the algorithm incrementally estimates variables have to be taken into account, but one simple soa set of variables (robot positions and/or landmarks in the enlution is to take the minimum over all thresholds. For the vironment) given a set of nonlinear factors, both sets growing Manhattan dataset, a nearly exact solution is provided for a over time. We have already shown how the Bayes tree is upthreshold of 0.1, while the computational cost is significantly dated with new linear factors. That leaves the question of how reduced, as can be seen from Fig. 9. Note that because we to deal with nonlinear factors and how to perform this process combine the relinearization and update steps for efficiency, efficiently by only relinearizing where needed, a process that the actual changes in the Bayes tree are performed later, which we call fluid relinearization. To further improve efficiency we differs from the original algorithm in Kaess et al. (2010). The restrict the state recovery to the variables that actually change, modified update algorithm is presented in Alg. 6. resulting in partial state updates. 4.1 Fluid Relinearization"
+      },
+      {
+        "partId": "bayes-tree-mechanism",
+        "citationId": "kaess-2012",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Kaess12ijrr.html",
+        "supportingPassage": "<h1>iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree</h1> <p> <b>Download:</b> <a href=\"Kaess12ijrr.pdf\">PDF</a>. </p> <p> &#8220;iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree&#8221; by <a href=\"https://www.cs.cmu.edu/~kaess/\">M. Kaess</a>, <a href=\"http://people.csail.mit.edu/hordurj/\">H. Johannsson</a>, <a href=\"http://www.cc.gatech.edu/~richard\">R. Roberts</a>, <a href=\"http://viorelaila.com/\">V. Ila</a>, <a href=\"http://people.csail.mit.edu/jleonard\">J.J. Leonard</a>, and <a href=\"http://www.cc.gatech.edu/~dellaert\">F. Dellaert</a>. <em>Intl. J. of Robotics Research, IJRR</em>, vol. 31, no. 2, Feb. 2012, pp. 216-235."
+      },
+      {
+        "partId": "affected-and-ancestors",
+        "citationId": "kaess-2012",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Kaess12ijrr.pdf",
+        "supportingPassage": "Alg. 4 Updating the Bayes tree with new factors F 0 . In: Bayes tree T , new linear factors F 0 Out: modified Bayes tree T ’ 1. Remove top of Bayes tree and re-interpret it as a factor graph: (a) For each variable affected by new factors, remove the corresponding clique and all parents up to the root. (b) Store orphaned sub-trees Torph of removed cliques. 2. Add the new factors F 0 into the resulting factor graph. 3. Re-order variables of factor graph. 4. Eliminate the factor graph (Alg. 2) and create a new Bayes tree (Alg. 3). 5. Insert the orphans Torph back into the new Bayes tree. […] Alg. 5 Fluid relinearization: The linearization points of select variables are updated based on the current delta ∆. In: linearization point Θ, delta ∆ Out: updated linearization point Θ, marked cliques M 1. Mark variables in ∆ above threshold β : J = {∆ j ∈ ∆| ∆ j ≥ β }. 2. Update linearization point for marked variables: ΘJ := ΘJ ⊕ ∆J . 3. Mark all cliques M that involve marked variables ΘJ and all their ancestors. Alg. 6 Updating the Bayes tree inclusive of fluid relinearization by recalculating all affected cliques. Note that the algorithm differs from Alg. 4 as it also includes the fluid relinearization; combining both steps is more efficient. In: Bayes tree T , nonlinear factors F , affected variables J Out: modified Bayes tree T ’ 1. Remove top of Bayes tree: (a) For each affected variable in J remove the corresponding clique and all parents up to the root. (b) Store orphaned sub-trees Torph of removed cliques. 2. Relinearize all factors required to recreate top. 3. Add cached linear factors from orphans Torph . 4. Re-order variables, see Section 3.4. 5. Eliminate the factor graph (Alg. 2) and create a new Bayes tree (Alg. 3). 6. Insert the orphans Torph back into the new Bayes tree."
+      },
+      {
+        "partId": "estimate-propagation",
+        "citationId": "kaess-2012",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Kaess12ijrr.pdf",
+        "supportingPassage": "require solving for all variables. Updates to the Bayes tree from new factors and from relinearization only affect the top of the tree, however, changes in variable estimates occurring here can still propagate further down to all sub-trees. But the effect of changes in the top is often limited, as new measurements have only a local effect if no large loops are being closed, leaving spatially remote parts of the estimate unchanged. Consider the example of mapping a large building with many rooms: Measurements taken inside a room usually do not affect the estimates previously obtained for other rooms. Solving only for variables that actually change should therefore significantly reduce computational cost. How do we update only variables that actually change, i.e. perform a partial state update? Full backsubstitution starts at the root and continues to all leaves, obtaining a delta vector ∆ that is used to update the linearization point Θ. The partial state update starts by solving for all variables contained in the modified top of the tree. As shown in Alg. 7, we continue processing all sub-trees, stopping when a clique is encountered that does not refer to any variable for which ∆ changed by more than a small threshold α. The running intersection property guarantees that none of the variables that changed Alg. 7 Partial state update: Solving the Bayes tree in the nonlinear case returns an update ∆ to the current linearization point Θ. In: Bayes tree T Out: update ∆ Starting from the root clique Cr = Fr : 1. For current clique Ck = Fk : Sk compute update ∆k of frontal variables Fk from the local conditional density P(Fk |Sk ). 2. For all variables ∆k j in ∆k that change by more than threshold α: recursively process each descendant containing such a variable. significantly can occur in any sub-tree of that clique. Note that the threshold refers to a change in the delta vector ∆, not the absolute value of the recovered delta ∆ itself. The absolute values of the entries in ∆ can be quite large, because, as described above, the linearization point is only updated when a larger threshold β is reached. For simplicity we again use the same threshold for all variables, though that could be refined. For variables that are not reached by this process, the previous estimate ∆ is kept."
+      },
+      {
+        "partId": "threshold-tradeoffs",
+        "citationId": "kaess-2012",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Kaess12ijrr.pdf",
+        "supportingPassage": "Alg. 5 Fluid relinearization: The linearization points of select variables are updated based on the current delta ∆. In: linearization point Θ, delta ∆ Out: updated linearization point Θ, marked cliques M 1. Mark variables in ∆ above threshold β : J = {∆ j ∈ ∆| ∆ j ≥ β }. 2. Update linearization point for marked variables: ΘJ := ΘJ ⊕ ∆J . 3. Mark all cliques M that involve marked variables ΘJ and all their ancestors. Alg. 6 Updating the Bayes tree inclusive of fluid relinearization by recalculating all affected cliques. Note that the algorithm differs from Alg. 4 as it also includes the fluid relinearization; combining both steps is more efficient. In: Bayes tree T , nonlinear factors F , affected variables J Out: modified Bayes tree T ’ 1. Remove top of Bayes tree: (a) For each affected variable in J remove the corresponding clique and all parents up to the root. (b) Store orphaned sub-trees Torph of removed cliques. 2. Relinearize all factors required to recreate top. 3. Add cached linear factors from orphans Torph . 4. Re-order variables, see Section 3.4. 5. Eliminate the factor graph (Alg. 2) and create a new Bayes tree (Alg. 3). 6. Insert the orphans Torph back into the new Bayes tree. […] require solving for all variables. Updates to the Bayes tree from new factors and from relinearization only affect the top of the tree, however, changes in variable estimates occurring here can still propagate further down to all sub-trees. But the effect of changes in the top is often limited, as new measurements have only a local effect if no large loops are being closed, leaving spatially remote parts of the estimate unchanged. Consider the example of mapping a large building with many rooms: Measurements taken inside a room usually do not affect the estimates previously obtained for other rooms. Solving only for variables that actually change should therefore significantly reduce computational cost. How do we update only variables that actually change, i.e. perform a partial state update? Full backsubstitution starts at the root and continues to all leaves, obtaining a delta vector ∆ that is used to update the linearization point Θ. The partial state update starts by solving for all variables contained in the modified top of the tree. As shown in Alg. 7, we continue processing all sub-trees, stopping when a clique is encountered that does not refer to any variable for which ∆ changed by more than a small threshold α. The running intersection property guarantees that none of the variables that changed Alg. 7 Partial state update: Solving the Bayes tree in the nonlinear case returns an update ∆ to the current linearization point Θ. In: Bayes tree T Out: update ∆ Starting from the root clique Cr = Fr : 1. For current clique Ck = Fk : Sk compute update ∆k of frontal variables Fk from the local conditional density P(Fk |Sk ). 2. For all variables ∆k j in ∆k that change by more than threshold α: recursively process each descendant containing such a variable. significantly can occur in any sub-tree of that clique. Note that the threshold refers to a change in the delta vector ∆, not the absolute value of the recovered delta ∆ itself. The absolute values of the entries in ∆ can be quite large, because, as described above, the linearization point is only updated when a larger threshold β is reached. For simplicity we again use the same threshold for all variables, though that could be refined. For variables that are not reached by this process, the previous estimate ∆ is kept. […] iSAM2 consistently performs better than SPA, and simi- curacy. We choose the normalized χ 2 measure that quantifies lar to iSAM1. While iSAM2 saves computation over iSAM1 the quality of a least-squares fit. Normalized χ 2 is defined as 2 1 by only performing partial backsubstitution, the fluid relin- m−n ∑i khi (Θi ) − zi kΛi , where the numerator is the weighted earization adds complexity. Relinearization typically affects sum of squared errors of (4), m is the number of measuremany more variables than a linear update (compare Figs. 8 ments and n the number of degrees of freedom. Normalized and 9), resulting in larger parts of the Bayes tree having to be χ 2 measures how well the constraints are satisfied, approach- 16 iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree Diff. norm. chi-square Diff. norm. chi-square 2005), and belief propagation (Ranganathan et al., 2007). Direct methods, such as QR and Cholesky matrix factorization, provide the advantage of faster convergence, at least if a good initialization is available. They have initially been iSAM1 ignored, because a naive dense implementation is too expeniSAM2 0.15 SPA sive. An efficient sparse factorization for SLAM has first been HOG-Man 0.10 proposed by Dellaert (2005), but is now widely used (Dellaert 0.05 and Kaess, 2006; Frese, 2006; Folkesson et al., 2007; Kaess 0.00 et al., 2008; Mahon et al., 2008; Grisetti et al., 2010; Konolige 1000 1500 2000 2500 3000 3500 et al., 2010; Strasdat et al., 2010). Square Root SAM (DelTime step laert, 2005; Dellaert and Kaess, 2006) performs smoothing by 2.50 Cholesky factorization of the complete, naturally sparse inforiSAM1 2.00 mation matrix in every step using the Levenberg-Marquardt iSAM2 1.50 SPA algorithm. Konolige et al. (2010) recently presented Sparse HOG-Man 1.00 0.50 Pose Adjustment (SPA) using Cholesky factorization, that introduces a continuable Levenberg-Marquardt algorithm and 0.15 focuses on a fast setup of the information matrix, often the 0.10 most costly part in batch factorization. 0.05 Smoothing is closely related to structure from motion 0.00 (Hartley and Zisserman, 2000) and bundle adjustment (Triggs 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 et al., 1999) in computer vision. Both bundle adjustment and Time step the smoothing formulation of SLAM keep all poses and landmarks in the estimation problem (pose-graph SLAM is a speFig. 16: Step-wise quality comparison of the different algorithms for the Manhattan world (top) and W10000 dataset (bottom). For improved read- cial case that omits landmarks). The key difference between ability, the difference in normalized χ 2 to the least squares solution is shown bundle adjustment and SLAM is that bundle adjustment is (i.e. ground truth given by y = 0). typically solving the batch problem, while for robotics applications online solutions are required because data is continuously collected. Our iSAM2 algorithm achieves online buning 1 for a large number of measurements sampled from a dle adjustment, at least up to some reasonable size of datasets. normal distribution. The question of creating a “perpetual SLAM engine” to run The results in Fig. 16 show that the iSAM2 solution is very indefinitely remains open. Note that the number of landmarks close to the ground truth. The ground truth is the least-squares per frame is typically much lower for laser range-based appliestimate obtained by iterating until convergence in each step. cations than for visual SLAM applications (Eade and DrumSmall spikes are caused by relinearizing only every 10 steps, mond, 2007; Konolige and Agrawal, 2008; Paz et al., 2008; which is a trade-off with computational speed."
+      },
+      {
+        "partId": "not-universal-local-cost",
+        "citationId": "kaess-2012",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Kaess12ijrr.pdf",
+        "supportingPassage": "In iSAM2 we therefore focus on making online recovery of globally metric maps more efficient - however, our update steps are not constant time, and for large loop closings can become as expensive as a batch solution. […] Here we provide some general complexity bounds for ized in each step, as we show below. […] iSAM2 consistently performs better than SPA, and simi- curacy. We choose the normalized χ 2 measure that quantifies lar to iSAM1. While iSAM2 saves computation over iSAM1 the quality of a least-squares fit. Normalized χ 2 is defined as 2 1 by only performing partial backsubstitution, the fluid relin- m−n ∑i khi (Θi ) − zi kΛi , where the numerator is the weighted earization adds complexity. Relinearization typically affects sum of squared errors of (4), m is the number of measuremany more variables than a linear update (compare Figs. 8 ments and n the number of degrees of freedom. Normalized and 9), resulting in larger parts of the Bayes tree having to be χ 2 measures how well the constraints are satisfied, approach- 16 iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree Diff. norm. chi-square Diff. norm. chi-square 2005), and belief propagation (Ranganathan et al., 2007). Direct methods, such as QR and Cholesky matrix factorization, provide the advantage of faster convergence, at least if a good initialization is available. They have initially been iSAM1 ignored, because a naive dense implementation is too expeniSAM2 0.15 SPA sive. An efficient sparse factorization for SLAM has first been HOG-Man 0.10 proposed by Dellaert (2005), but is now widely used (Dellaert 0.05 and Kaess, 2006; Frese, 2006; Folkesson et al., 2007; Kaess 0.00 et al., 2008; Mahon et al., 2008; Grisetti et al., 2010; Konolige 1000 1500 2000 2500 3000 3500 et al., 2010; Strasdat et al., 2010). Square Root SAM (DelTime step laert, 2005; Dellaert and Kaess, 2006) performs smoothing by 2.50 Cholesky factorization of the complete, naturally sparse inforiSAM1 2.00 mation matrix in every step using the Levenberg-Marquardt iSAM2 1.50 SPA algorithm. Konolige et al. (2010) recently presented Sparse HOG-Man 1.00 0.50 Pose Adjustment (SPA) using Cholesky factorization, that introduces a continuable Levenberg-Marquardt algorithm and 0.15 focuses on a fast setup of the information matrix, often the 0.10 most costly part in batch factorization. 0.05 Smoothing is closely related to structure from motion 0.00 (Hartley and Zisserman, 2000) and bundle adjustment (Triggs 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 et al., 1999) in computer vision. Both bundle adjustment and Time step the smoothing formulation of SLAM keep all poses and landmarks in the estimation problem (pose-graph SLAM is a speFig. 16: Step-wise quality comparison of the different algorithms for the Manhattan world (top) and W10000 dataset (bottom). For improved read- cial case that omits landmarks). The key difference between ability, the difference in normalized χ 2 to the least squares solution is shown bundle adjustment and SLAM is that bundle adjustment is (i.e. ground truth given by y = 0). typically solving the batch problem, while for robotics applications online solutions are required because data is continuously collected. Our iSAM2 algorithm achieves online buning 1 for a large number of measurements sampled from a dle adjustment, at least up to some reasonable size of datasets. normal distribution. The question of creating a “perpetual SLAM engine” to run The results in Fig. 16 show that the iSAM2 solution is very indefinitely remains open. Note that the number of landmarks close to the ground truth. The ground truth is the least-squares per frame is typically much lower for laser range-based appliestimate obtained by iterating until convergence in each step. cations than for visual SLAM applications (Eade and DrumSmall spikes are caused by relinearizing only every 10 steps, mond, 2007; Konolige and Agrawal, 2008; Paz et al., 2008; which is a trade-off with computational speed."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "bayes-tree-mechanism",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "The retained iSAM2 draft describes Bayes-tree incremental nonlinear least squares with Gaussian noise models, incremental reordering and relinearization. The author page bridges this April 6, 2011 draft to February 2012 publication, not version-of-record bytes.",
+        "evidenceDigest": "1e9fa1f1da71e1f6f701262b82f061566458e71e4508ea2b0d68c2540aba4dcf"
+      },
+      {
+        "partId": "affected-and-ancestors",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "The update description and inspected page 9 identify affected cliques and ancestors to the root, with unaffected subtrees reattached. Omitting ancestors would repeat the false universally local-work interpretation.",
+        "evidenceDigest": "3864a20fefa41e2d27b580ef8e48e555cf05f4567a4d8434ba12529c92942333"
+      },
+      {
+        "partId": "estimate-propagation",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "The retained update discussion explicitly permits top-of-tree estimate changes to propagate downward. Reusing a subtree factorization is not a promise that its state estimates remain fixed.",
+        "evidenceDigest": "995172d2d9b33c55fee204ac38b386a035439e9897b8b347ca78be348794a13a"
+      },
+      {
+        "partId": "threshold-tradeoffs",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "The source distinguishes relinearization and partial-state-update thresholds and their computation/accuracy tradeoffs. Near-batch empirical accuracy and the inspected page 16 plots do not establish universal exactness; the interleaved isam-convergence extraction is not used as a convergence theorem.",
+        "evidenceDigest": "d58557a59dec90826e181c143d0a77e0e610662e5be5388f23aa65aea578d8bb"
+      },
+      {
+        "partId": "not-universal-local-cost",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "The paper explicitly says updates are not constant time and large loop closings can be as expensive as a batch solution. That counterqualification is retained rather than hidden behind typical-case locality.",
+        "evidenceDigest": "691ac74e1689a5db70d37c33d71bce7121dbbd42df74673c287545fb71ad652e"
+      }
+    ]
+  },
+  {
+    "id": "state-smoothing-16-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "state-estimation",
+    "rowOrdinal": 16,
+    "originalCellsDigest": "7ba79a3c22332c00a58fbc39ea29a4617d33bb4dccbf1b6469064e4d7786aee5",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "qualified-marginalization",
+        "text": "In EKF-based SLAM, old-pose marginalization commits a linearized Gaussian approximation; full smoothing can relinearize the retained trajectory. This is not a prohibition on EKF loop closure.",
+        "requiredCitationIds": [
+          "dellaert-kaess-2006"
+        ]
+      },
+      {
+        "id": "no-global-convergence-promise",
+        "text": "Relinearization access does not guarantee reaching the global optimum of nonlinear SLAM.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "survey-history",
+        "text": "Classical age 1986–2004 included EKF, Rao-Blackwellised particle filters and maximum likelihood; algorithmic-analysis age 2004–2015, not exclusive 1990s/2010s buckets.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "standard-not-displacement",
+        "text": "The survey calls MAP, often expressed with factor graphs, de-facto standard, while explicitly describing state-of-the-art EKF systems.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "ekf-gap-conditions",
+        "text": "The survey reports a smaller gap with accurate EKF linearization, sliding-window filters, and inconsistency handled.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "resource-tradeoffs",
+        "text": "Unbounded graph growth and sparsification information-loss/resource tradeoffs do not justify universal smoothing or filtering winners.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+      "rationale": "SAM contrasts committing a linearized Gaussian approximation by old-pose marginalization with relinearizing the retained trajectory in smoothing. This supports discarded-variable limits, not a prohibition on EKF loop closure. Cadena section VII describes nonlinear SLAM as nonconvex and iterative solvers as locally convergent. Retaining variables for relinearization does not imply global-optimum recovery. Cadena explicitly labels 1986–2004 the classical age and 2004–2015 the algorithmic-analysis age, including EKF, Rao-Blackwellised particle filters and maximum likelihood in the former. These are the survey periods, not exclusive decade-long regimes. Cadena calls MAP, often expressed using factor graphs, the de-facto standard, but immediately names state-of-the-art EKF systems. Both statements are required; the survey does not certify universal displacement or present-day adoption. The survey names accurate EKF linearization, sliding-window filters and addressing inconsistency as conditions narrowing the mismatch. This qualified observation is preserved, not recast as an absolute performance ranking. Cadena describes potentially unbounded graph growth and sparsification trading information for computational and memory savings. This countercontext defeats a universal smoothing-wins or tiny-compute filtering-wins rule. The three-original conjunction and full two-citation SLAM definition are atomic.",
+      "planDigest": "98eb6702050fe5c496bb33fd5041afa7a83b31bafaba9f12ae3dc6eb9c313fcb"
+    },
+    "evidence": [
+      {
+        "partId": "qualified-marginalization",
+        "citationId": "dellaert-kaess-2006",
+        "sourceUrl": "https://www.cs.cmu.edu/~kaess/pub/Dellaert06ijrr.pdf",
+        "supportingPassage": "If in an incremental setting the SLAM problem is non-linear and a linearization point is available, then the linear incremental solution above applies. Whether this is the case very much depends on the sensors and prior knowledge available to the robot. For example, in indoor mobile robots there is often no good absolute orientation sensor, which means we have to linearize around the current guess for the orientation. This is exactly why EKF’s have problems in larger-scale environments, as these potentially wrong linearization points are “baked into” the information matrix when past robot poses are eliminated from the MRF. A significant advantage of the smoothing approach is the fact that we never commit to a given linearization, as no variables are ever eliminated from the graph. There are two different ways to re-linearize: In certain scenarios, like closing of a large loop along the complete trajectory, it is cheaper to re-linearize all variables. Essentially this means that we have to call the batch version above each time. On the upside, our experimental results will show that even this seemingly expensive algorithm is quite practical on large problems where an EKF approach is intractable. The alternative way is favorable when only a smaller number of variables is affected by the change in the linearization point. In this case downdating and updating techniques [79] can be applied to temporarily remove these variables from the factor, followed by adding them in again using the new linearization point. We plan to evaluate this approach in future work. […] Smoothing every time step becomes cheaper than the EKF when the number of landmarks N reaches 600. At the end, with N = 1100, each factorization took about 0.6 s, and the slope is nearly linear over time. In contrast, the computational requirements of the EKF increase quadratically with N , and by the end each update of the EKF took over a second. As implementation independent measures, we have also plotted N 2 , as well as the number of non-zeros nz in the Cholesky triangle R. The behavior of the latter is exactly opposite to that of the EKF: when new, unexplored terrain is encountered, there is almost no correlation between new features and the past trajectory and/or map, and the number of non-zeros per column stays almost constant. In contrast, the EKF’s computation is not affected when re-entering previously visited areas -closing the loop- whereas that is exactly when R fill-in occurs."
+      },
+      {
+        "partId": "no-global-convergence-promise",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Brief Survey. Most SLAM algorithms are based on iterative nonlinear optimization [63, 99, 125, 126, 192, 204]. SLAM is a nonconvex problem and iterative optimization can only guarantee local convergence. When an algorithm converges to a local minimum7 it usually returns an estimate that is completely wrong and unsuitable for navigation (Fig. 6). State-of-the-art iterative solvers fail to converge to a global minimum of the cost for relatively small noise levels [32, 37]."
+      },
+      {
+        "partId": "survey-history",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "A thorough historical review of the first 20 years of the SLAM problem is given by Durrant-Whyte and Bailey in two surveys [7, 69]. These mainly cover what we call the classical age (1986-2004); the classical age saw the introduction of the main probabilistic formulations for SLAM, including approaches based on Extended Kalman Filters, RaoBlackwellised Particle Filters, and maximum likelihood estimation; moreover, it delineated the basic challenges connected S 2 to efficiency and robust data association. Two other excellent references describing the three main SLAM formulations of the classical age are the book of Thrun, Burgard, and Fox [240] and the chapter of Stachniss et al. [234, Ch. 46]. The subsequent period is what we call the algorithmic-analysis age (2004-2015), and is partially covered by Dissanayake et al. in [64]. The algorithmic analysis period saw the study of fundamental properties of SLAM, including observability, convergence, and consistency. In this period, the key role of sparsity towards efficient SLAM solvers was also understood, and the main open-source SLAM libraries were developed."
+      },
+      {
+        "partId": "standard-not-displacement",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Maximum a posteriori (MAP) estimation and the SLAM back-end. The current de-facto standard formulation of SLAM has its origins in the seminal paper of Lu and Milios [161], followed by the work of Gutmann and Konolige [101]. Since then, numerous approaches have improved the efficiency and robustness of the optimization underlying the problem [63, 81, 100, 125, 192, 241]. All these approaches formulate SLAM as a maximum a posteriori estimation problem, and often use the formalism of factor graphs [143] to reason about the interdependence among variables. […] MAP estimation has been proven to be more accurate and efficient than original approaches for SLAM based on nonlinear filtering. We refer the reader to the surveys [7, 69] for an overview on filtering approaches, and to [236] for a comparison between filtering and smoothing. We remark that some SLAM systems based on EKF have also been demonstrated to attain state-of-the-art performance. Excellent examples of EKF-based SLAM systems include the MultiState Constraint Kalman Filter of Mourikis and Roumeliotis [175], and the VIN systems of Kottas et al. [139] and Hesch et al. [105]. Not surprisingly, the performance mismatch between filtering and MAP estimation gets smaller when the linearization point for the EKF is accurate (as it happens in visual-inertial navigation problems), when using slidingwindow filters, and when potential sources of inconsistency in the EKF are taken care of [105, 108, 139]."
+      },
+      {
+        "partId": "ekf-gap-conditions",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "MAP estimation has been proven to be more accurate and efficient than original approaches for SLAM based on nonlinear filtering. We refer the reader to the surveys [7, 69] for an overview on filtering approaches, and to [236] for a comparison between filtering and smoothing. We remark that some SLAM systems based on EKF have also been demonstrated to attain state-of-the-art performance. Excellent examples of EKF-based SLAM systems include the MultiState Constraint Kalman Filter of Mourikis and Roumeliotis [175], and the VIN systems of Kottas et al. [139] and Hesch et al. [105]. Not surprisingly, the performance mismatch between filtering and MAP estimation gets smaller when the linearization point for the EKF is accurate (as it happens in visual-inertial navigation problems), when using slidingwindow filters, and when potential sources of inconsistency in the EKF are taken care of [105, 108, 139]."
+      },
+      {
+        "partId": "resource-tradeoffs",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "While modern SLAM algorithms have been successfully demonstrated mostly in indoor building-scale environments, in many application endeavors, robots must operate for an extended period of time over larger areas. These applications include ocean exploration for environmental monitoring, nonstop cleaning robots in our ever changing cities, or large-scale precision agriculture. For such applications the size of the factor graph underlying SLAM can grow unbounded, due to the continuous exploration of new places and the increasing time of operation. In practice, the computational time and memory footprint are bounded by the resources of the robot. Therefore, it is important to design SLAM methods whose computational and memory complexity remains bounded. In the worst-case, successive linearization methods based on direct linear solvers imply a memory consumption which grows quadratically in the number of variables. When using iterative linear solvers (e.g., the conjugate gradient [62]) the memory consumption grows linearly in the number of variables. The situation is further complicated by the fact that, when re-visiting a place multiple times, factor graph optimization becomes less efficient as nodes and edges are continuously added to the same spatial region, compromising the sparsity structure of the graph. In this section we review some of the current approaches to control, or at least reduce, the growth of the size of the problem and discuss open challenges. Brief Survey. We focus on two ways to reduce the complexity of factor graph optimization: (i) sparsification methods, which trade off information loss for memory and computational efficiency, and (ii) out-of-core and multi-robot methods, which split the computation among many robots/processors. […] One can identify tasks for which different flavors of SLAM formulations are more suitable than others. For instance, a topological map can be used to analyze reachability of a given place, but it is not suitable for motion planning and low-level control; a locally-consistent metric map is well-suited for obstacle avoidance and local interactions with the environment, but it may sacrifice accuracy; a globally-consistent metric map allows the robot to perform global path planning, but it may be computationally demanding to compute and maintain. One may even devise examples in which SLAM is unnecessary altogether and can be replaced by other techniques, e.g., visual servoing for local control and stabilization, or “teach and repeat” to perform repetitive navigation tasks. A more general way to choose the most appropriate SLAM system is to think about SLAM as a mechanism to compute a sufficient statistic that summarizes all past observations of the robot, and in this sense, which information to retain in this compressed representation is deeply task-dependent."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "qualified-marginalization",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "SAM contrasts committing a linearized Gaussian approximation by old-pose marginalization with relinearizing the retained trajectory in smoothing. This supports discarded-variable limits, not a prohibition on EKF loop closure.",
+        "evidenceDigest": "2d98d3b9da40b9f2d22a4c8373a2b6d9b3b0bf2a69f8c6e153b7c3b2605e3f39"
+      },
+      {
+        "partId": "no-global-convergence-promise",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "Cadena section VII describes nonlinear SLAM as nonconvex and iterative solvers as locally convergent. Retaining variables for relinearization does not imply global-optimum recovery.",
+        "evidenceDigest": "13bb551a80a3ad4ac34274a9b1a60156768569280b5e2e61cc362e274e8963e3"
+      },
+      {
+        "partId": "survey-history",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "Cadena explicitly labels 1986–2004 the classical age and 2004–2015 the algorithmic-analysis age, including EKF, Rao-Blackwellised particle filters and maximum likelihood in the former. These are the survey periods, not exclusive decade-long regimes.",
+        "evidenceDigest": "80f7e988ff413db23d760b393e9d808670bcd794683a06c77b7fd9ffc4183047"
+      },
+      {
+        "partId": "standard-not-displacement",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "Cadena calls MAP, often expressed using factor graphs, the de-facto standard, but immediately names state-of-the-art EKF systems. Both statements are required; the survey does not certify universal displacement or present-day adoption.",
+        "evidenceDigest": "c6149c6ecb7748ec19e4f3bbe7bff90c22ce961fdebefb83c087bbe7aecdacce"
+      },
+      {
+        "partId": "ekf-gap-conditions",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "The survey names accurate EKF linearization, sliding-window filters and addressing inconsistency as conditions narrowing the mismatch. This qualified observation is preserved, not recast as an absolute performance ranking.",
+        "evidenceDigest": "487c7e42ff1704df12fac2c21ae9ac6d84c52820f9942dbda78f99f5ff6db512"
+      },
+      {
+        "partId": "resource-tradeoffs",
+        "outcome": "supported",
+        "reviewedBy": "agent:3380b06b-f3f1-4e35-b672-d5fb07fadb6f/source-auditor; review 2026-09-13T16:10:05.818Z; not independent acceptance",
+        "rationale": "Cadena describes potentially unbounded graph growth and sparsification trading information for computational and memory savings. This countercontext defeats a universal smoothing-wins or tiny-compute filtering-wins rule.",
+        "evidenceDigest": "06377afac8f3836aeb885aa4f931b7275a289a2ac8e1ec07affa6063cee3f8b8"
+      }
+    ]
   }
 ]

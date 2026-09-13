@@ -1,6 +1,41 @@
 # Content-integrity audit trail
 
-## Current checkpoint: three trajectory-optimization originals (2026-09-13)
+## Current checkpoint: atomic state-smoothing correction (2026-09-13)
+
+State-estimation originals **11, 13, 16: 3 applied / 0 assigned held / 0 assigned unattempted**, together with four article replacements and the complete two-citation SLAM glossary definition. Three reviewed native plans preserve **18 mandatory parts / 19 citation pairs / 21 distinct part-citation-URL bundles / 38 retained excerpts / 28 distinct passage-context bindings**. Same-URL excerpts retain explicit `[…]` separation. Immutable original four-cell history and exact current identity checks remain recorded. No other original was reapplied.
+
+Fresh native collection at **16:16:31 UTC**: **525 complete / 469 incomplete / 994 originals / 47 articles**; classical **84/103/187**, state-estimation **5/12/17** (complete/incomplete/originals). **431 plans / 512 approvals / 43 inherited full baseline failure objects**. Three exact approvals cover article prose, citation occurrence relationships and the canonical glossary source, not source certification or release acceptance.
+
+Native preservation checks passed for all **994 IDs/order, 522 previous complete IDs/order, 991 unselected full semantic records, 428 old plans, 509 old approval entries/metadata, two serialized prefixes and 43 full failure objects/order**. All **1209 unmodified product/owner inputs**, including protected configuration and owner work, and **81 external inputs** matched. **The overall preservation command remains exit 1:** the live Mission `active-correction-status.md` changed outside this worker's writes at 16:07:48 UTC, from SHA256 `19604a154d9f5c2b25aa9e5ef5ba36546cea0f1e8720f96021492cac9b49f66e` to `d1fdfcf68f5c4988d6a677dba285468826871353806d8f2d7a307bbb19a5c934`. Its current header still identifies this sole-writer assignment and original checkpoint. No retained source drift was found; this is not an all-external-input preservation pass.
+
+**Zero new retrievals.** Original SAM/iSAM2 PDF GETs were September 6, 01:11:50.461–01:12:06.713 UTC; Cadena's was 01:13:31.236–01:14:02.499 UTC, with historical HTTP200. Original records do not establish contemporaneous body hashes or redirect histories. Current review verified five retained representations, all 28 literal/context bindings and six source-binding rejection controls. Review coverage is **28 retained excerpts/context bindings plus actual iSAM2 page-image Reads 9/16**, not an integrator full-paper read. Source-worker coverage was SAM32/32 and iSAM2 19/19 extracted pages and selected Cadena14/25. SAM manuscript pagination1181–1203 versus1181–1204 remains unresolved; the April6,2011 iSAM2 submitted draft is not certified VOR; Cadena's retained January30,2017 arXiv v4 carries a2016 journal citation. Registry URLs and article lastReviewed2026-08-17 remain unchanged.
+
+SAM now states joint trajectory/landmark MAP assumptions, successive linearized solves, distinct QR/Cholesky matrix roles and ordering cost. iSAM2 retains ancestors, subtree reattachment, estimate propagation, threshold tradeoffs and possible batch-level loop-closure cost. Cadena's periods, strong EKF counterexamples, local-convergence and resource limits replace categorical displacement. Manual source-paraphrase/no-hype review was performed; no unavailable humanizer or independent validation is claimed. Actual glossary population is **119**, with all **118 non-SLAM entries preserved**, including the completed trajectory definition that postdated the source packet's frozen glossary. Only one authored inline SLAM trigger exists, on state-estimation, plus the glossary index.
+
+### Gates actually observed
+
+All execution was sequential with NODE_DISABLE_COMPILE_CACHE=1 through the inspected fail-closed runner.
+
+| Gate | Actual result |
+| --- | --- |
+| Runner controls | 7 pass, including six intentional exit125/actionInvoked=false refusals |
+| Atomic application | 51 native rejection controls passed before four scoped product writes |
+| Exact approvals | 6 missing/stale controls; 3 exact entries; all43 inherited failures retained |
+| Focused units/components | `npm run test -- state-smoothing-corrections glossary kalman`: **104/104 pass**, five files |
+| Normal lint | `npm run lint`: exit0, including normal prelint |
+| Types | Installed `next typegen`: exit0; `tsc --noEmit --incremental false`: final exit0; configs/next-env restored byte-exactly |
+| Source-only prose lint | exit0;47 MDX, zero prohibited markers,14 existing quotation exceptions |
+| Native preservation | Core native/product/source comparisons above passed; overall exit1 for live authority drift, not waived |
+| Mounted readers / runtime / screenshots | **Not executed: zero runtime launches, browser runs, product captures or product pixel Reads** |
+| Full content / build / export / cards | Not rerun; content gate remains **RED** |
+
+Retained failures: initial test fixture path error (zero tests), corrected red-first50failed/1passed, and initial post-application109passed/2failed. One was the new fixture's raw verdict expectation (`C`, not `corrected`), now fixed. The other is a pre-existing global Term count assertion expecting227: entry HEAD and current tree both have228 raw tags; it remains unchanged and unresolved. First application stopped before writes on the packet's stale whole-glossary hash; exact current endpoints were then composed while preserving the proven pre-entry trajectory correction. First TypeScript pass could not resolve `next/types.js` from evidence-local generated types; a temporary explicit project-module mapping resolved it without regenerating types or changing production configuration. Source proof separately records the older source-worker status hash, distinct from both live-status identities above.
+
+**Mounted reader acceptance is still owed** at375x812/1440x900: corrected prose/math, relevant citation chips/full References authors, short-meta first-three-plus-et-al distinction, hover/focus/Escape, final long-tooltip text and keyboard exit, estimator defaults/controls/reset, disclosure/drawer/navigation, overflow/errors/Axe and actual reference-comparison screenshots. No runtime was started, so no runtime stop/exit certification is claimed. Whole P1, current liveness, state originals10/12/14/15, factor-graph glossary hold, all motion work, production reading times/export/cards and independent scrutiny/user testing remain outside this completion.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-state-smoothing-integration-20260913/`. Actual Astra/max activation15:46:17.226UTC; fixed checkpoint16:21:17.226UTC, not reset. Local commit and committed-native seal are recorded only after creation. Protected commits d282a83/2cf7d6b and owner files remain preserved. **Do not publish.** Formal307/331 and M5 remain unaccepted; no feature/Mission/controller, deployment, credential/security change or fallback.
+
+## Historical checkpoint: three trajectory-optimization originals (2026-09-13)
 
 Motion-planning originals **12,13,14: 3 applied / 0 assigned held / 0 assigned unattempted**, as one atomic group. Three reviewed plans retain **17 mandatory scientific parts /20 required citation pairs /20 literal source bundles**, drawn from18 retained page-text records. Original four-cell history and a fresh native current-HEAD identity check are preserved. No unselected original or previous completion was reapplied.
 

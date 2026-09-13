@@ -9773,6 +9773,60 @@
         "VAL-B2-BASE-011"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "state-smoothing-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+      "newHash": "ef4baece4fd28f41d0c2d92983cd2fa1e0d2dfd5cad6486236f96b04ef9f5ef0",
+      "reason": "Atomic source-backed correction of state-estimation originals11/13/16 and the full two-citation SLAM glossary: qualified joint MAP, successive linearized solves and matrix roles; affected iSAM2 cliques and ancestors, estimate propagation, threshold and batch-cost limits; Cadena chronology, strong EKF counterexamples, nonlinear convergence and resource qualifications. All18 mandatory parts,19 citation pairs and38 retained excerpts in21 distinct URL bundles were reviewed. Both glossary citations and all other118 entries are preserved, including the pre-entry trajectory correction. Only inline citation occurrences change, not registry population or article date. Zero new retrievals; source versions and historical retrieval limitations remain explicit. This is not mounted-reader, whole P1 or independent acceptance.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals11/13/16 plus SLAM dispatch authorize routine source-backed correction, not personal source certification or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "state-smoothing-20260913-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "f8911307ca80b738167e1982e231693f080b59f6c72a4093f5c048f5d07c9f56",
+      "newHash": "8adf483a7445f22c4dae769aba85ca567ace93ffbb446704d2ca6459e6cab63f",
+      "reason": "Atomic source-backed correction of state-estimation originals11/13/16 and the full two-citation SLAM glossary: qualified joint MAP, successive linearized solves and matrix roles; affected iSAM2 cliques and ancestors, estimate propagation, threshold and batch-cost limits; Cadena chronology, strong EKF counterexamples, nonlinear convergence and resource qualifications. All18 mandatory parts,19 citation pairs and38 retained excerpts in21 distinct URL bundles were reviewed. Both glossary citations and all other118 entries are preserved, including the pre-entry trajectory correction. Only inline citation occurrences change, not registry population or article date. Zero new retrievals; source versions and historical retrieval limitations remain explicit. This is not mounted-reader, whole P1 or independent acceptance.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals11/13/16 plus SLAM dispatch authorize routine source-backed correction, not personal source certification or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "state-smoothing-20260913-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "1e5690e276c8e2b2cc1d09bf85a5d9ccc4934504388b368d4d8e8e962fffaeb4",
+      "reason": "Atomic source-backed correction of state-estimation originals11/13/16 and the full two-citation SLAM glossary: qualified joint MAP, successive linearized solves and matrix roles; affected iSAM2 cliques and ancestors, estimate propagation, threshold and batch-cost limits; Cadena chronology, strong EKF counterexamples, nonlinear convergence and resource qualifications. All18 mandatory parts,19 citation pairs and38 retained excerpts in21 distinct URL bundles were reviewed. Both glossary citations and all other118 entries are preserved, including the pre-entry trajectory correction. Only inline citation occurrences change, not registry population or article date. Zero new retrievals; source versions and historical retrieval limitations remain explicit. This is not mounted-reader, whole P1 or independent acceptance.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals11/13/16 plus SLAM dispatch authorize routine source-backed correction, not personal source certification or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -352,7 +352,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'slam',
     term: 'SLAM',
     definition:
-      'Simultaneous localization and mapping: the concurrent construction of a model of the environment and the estimation of the state of the robot moving within it. The two halves cannot be solved separately, since localizing against an unknown map and mapping from an unknown pose are coupled. The modern formulation is a factor graph over the trajectory and the landmarks; the Cadena et al. survey charts the field\'s move from filtering to smoothing.',
+      'Simultaneous localization and mapping: estimating a robot\'s state while building a model of its environment. In the landmark-based formulation studied by Square Root SAM, the unknowns include the robot trajectory and landmark map. With known data associations, Gaussian process and measurement models, a uniform landmark prior, and the initial reference frame fixed, joint MAP estimation becomes nonlinear least squares. Cadena and colleagues describe MAP estimation, often expressed with factor graphs, as a standard SLAM formulation while also noting high-performing EKF-based systems.',
     citations: ['cadena-2016', 'dellaert-kaess-2006'],
   },
   {
