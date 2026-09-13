@@ -9827,6 +9827,40 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "brooks-theses-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/competing-theses",
+      "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+      "newHash": "a56425425bd904d6c36138657bc0b46a1a2203bc4ed0544de1010258a37aa77f",
+      "reason": "Source-backed atomic correction of competing-theses originals3/4/5/10/11/24: Brooks paraphrase and self-described length;2019 CNN and2025 implementation-dependent speech front ends with acknowledged learning gains; scoped plug-compatible humanoid replacement forecast, robustness/force/lifetime assessments, warehouse/Robust.AI context, Baxter/Sawyer deployments and specialized future forms. Six reviewed native plans retain20 mandatory parts/evidence items and13 distinct literal native passages. The eight coupled article/interactive/registry-comment spans and immutable original history remain bound. Zero new retrieval; historical FetchUrl-rendered text/tool-reported200 is not raw HTTP, publication-day, whole P1, independent industry verification or reader/release acceptance.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals3/4/5/10/11/24 dispatch authorize routine source-backed correction, not personal source certification or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "brooks-theses-20260913-2",
+      "manifest": "relationships",
+      "memberId": "article:frontier/competing-theses",
+      "oldHash": "9c77edeb862d21e0164fe59d47a73da05d9d8b18a29194a345e80891af2a6360",
+      "newHash": "649d52ae7eb4b7980db3662635cd25730271de4bc81c1739ef64702a58567fd8",
+      "reason": "Source-backed atomic correction of competing-theses originals3/4/5/10/11/24: Brooks paraphrase and self-described length;2019 CNN and2025 implementation-dependent speech front ends with acknowledged learning gains; scoped plug-compatible humanoid replacement forecast, robustness/force/lifetime assessments, warehouse/Robust.AI context, Baxter/Sawyer deployments and specialized future forms. Six reviewed native plans retain20 mandatory parts/evidence items and13 distinct literal native passages. The eight coupled article/interactive/registry-comment spans and immutable original history remain bound. Zero new retrieval; historical FetchUrl-rendered text/tool-reported200 is not raw HTTP, publication-day, whole P1, independent industry verification or reader/release acceptance.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals3/4/5/10/11/24 dispatch authorize routine source-backed correction, not personal source certification or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

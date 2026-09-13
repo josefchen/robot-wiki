@@ -43343,5 +43343,519 @@
         "evidenceDigest": "06377afac8f3836aeb885aa4f931b7275a289a2ac8e1ec07affa6063cee3f8b8"
       }
     ]
+  },
+  {
+    "id": "competing-theses-brooks-3-20260913",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "de8d72192212e00dbf522f54c1443590b3eeef1eef4ae2c787c158a716c208bd",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "paraphrase",
+        "text": "Brooks summarizes Sutton in his own narrative and explicitly disagrees; do not treat the text as an extended Sutton quotation or verify Sutton through this reply.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      },
+      {
+        "id": "length",
+        "text": "The seventy-six-word comparison is Brooks’s own closing statement, explicitly including that comment, not an independent two-document count.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+      "rationale": "The opening says In his post he argues, then describes Sutton in Brooks’s own narrative and explicitly disagrees. This supports attribution as a paraphrase, not an extended Sutton quotation or independent verification of Sutton. The complete closing sentence explicitly says This review, including this comment, is seventy six words shorter. Retain it as Brooks’s self-description; neither an independent count nor a chronology finding follows.",
+      "planDigest": "2e362ef755a21ef5c93b8fbd2bdab6b208c7bd6e24b7e010690f4ae32a6ee561"
+    },
+    "evidence": [
+      {
+        "partId": "paraphrase",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "Just last week Rich Sutton published a very short blog post titled [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html). I’m going to try to keep this review shorter than his post. Sutton is well known for his long and sustained contributions to reinforcement learning.\n\nIn his post he argues, using many good examples, that over the 70 year history of AI, more computation and less built in knowledge has always won out as the best way to build Artificial Intelligence systems. This resonates with a current mode of thinking among many of the newer entrants to AI that it is better to design learning networks and put in massive amounts of computer power, than to try to design a structure for computation that is specialized in any way for the task. I must say, however, that at a two day work shop on Deep Learning last week at the National Academy of Science, the latter idea was much more in vogue, something of a backlash against exactly what Sutton is arguing.\n\nI think Sutton is wrong for a number of reasons."
+      },
+      {
+        "partId": "length",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "This review, including this comment, is seventy six words shorter than Sutton’s post."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "paraphrase",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The opening says In his post he argues, then describes Sutton in Brooks’s own narrative and explicitly disagrees. This supports attribution as a paraphrase, not an extended Sutton quotation or independent verification of Sutton.",
+        "evidenceDigest": "15ae7907ae03047e1463ec3bb62b4ee47d0a0ce428ab3e968c875048a0c6cfce"
+      },
+      {
+        "partId": "length",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The complete closing sentence explicitly says This review, including this comment, is seventy six words shorter. Retain it as Brooks’s self-description; neither an independent count nor a chronology finding follows.",
+        "evidenceDigest": "9580569786f5fe0c92eb1c300378d68c3d8328429792199f7bc0dfacdf0b9ba0"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-brooks-4-20260913",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 4,
+    "originalCellsDigest": "ebcf9b4f50a955949c369d276b2ac6034256185d9185ec3a78d6173ccd5ab99f",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "cnn",
+        "text": "Brooks argues that human-designed CNN front ends manage translational invariance in image labeling.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+      "rationale": "The first numbered objection explicitly identifies a human-designed CNN front end for translational invariance. The correction attributes that argument to Brooks, not a measured universal architectural or computational result.",
+      "planDigest": "be992b40c99fff660e1e79f8219e43d8c2e74a7ed02d54dd0b6e3b37f012dde4"
+    },
+    "evidence": [
+      {
+        "partId": "cnn",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "1. One of the most celebrated successes of Deep Learning is image labeling, using CNNs, Convolutional Neural Networks, but the very essence of CNNs is that the front end of the network is designed by humans to manage translational invariance, the idea that objects can appear anywhere in the frame. To have a Deep Learning network also have to learn that seems pedantic to the extreme, and will drive up the computational costs of the learning by many orders of magnitude."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "cnn",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The first numbered objection explicitly identifies a human-designed CNN front end for translational invariance. The correction attributes that argument to Brooks, not a measured universal architectural or computational result.",
+        "evidenceDigest": "4f4ab0f579b336a0e6a1c17dd93f5250c7662682c0aa68138695f710361542e7"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-brooks-5-20260913",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "40265d75ea34d86a7aa940afe7534362e0c4225218485aa45ee865463ca778d6",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "cnn",
+        "text": "Brooks argues that human-designed CNN front ends manage translational invariance in image labeling.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      },
+      {
+        "id": "extension",
+        "text": "The 2025 essay explicitly extends the earlier image argument to speech, which Brooks says he did not address in the earlier reply.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "speech",
+        "text": "Brooks connects speech preprocessing to telephone engineering and lists common alternatives including FFTs and Mel filter banks, explicitly varying by implementation.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "success",
+        "text": "The same author acknowledges end-to-end gains and says leaving as much as possible to learning was critical to speech/image success.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+      "rationale": "The first numbered objection explicitly identifies a human-designed CNN front end for translational invariance. The correction attributes that argument to Brooks, not a measured universal architectural or computational result. The later essay explicitly says the earlier reply did not make the speech argument and then develops it in section3.1. Both essays remain required for the combined historical attribution. Section3.1 traces the preprocessing to telephone transmission and lists FFTs, Mel filter banks and other techniques. Its immediately following paragraph says different implementations use different selections. These are examples in Brooks’s account, not a universal pipeline. MFCC lexical absence establishes no technical equivalence. The section3 opening explicitly calls leaving as much as possible to learning critical to the speech/image successes. This acknowledgement must accompany the criticism rather than turning Brooks into an opponent of learning gains.",
+      "planDigest": "81cd88689cf859294e75669d33431dd585266e9f3c214922937b346ac9b117da"
+    },
+    "evidence": [
+      {
+        "partId": "cnn",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "1. One of the most celebrated successes of Deep Learning is image labeling, using CNNs, Convolutional Neural Networks, but the very essence of CNNs is that the front end of the network is designed by humans to manage translational invariance, the idea that objects can appear anywhere in the frame. To have a Deep Learning network also have to learn that seems pedantic to the extreme, and will drive up the computational costs of the learning by many orders of magnitude."
+      },
+      {
+        "partId": "extension",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Most importantly I pointed out that the image labeling case was not end-to-end starting with images and ending with labels. Instead it uses a convolutional network as a front end to structure the way the learning algorithm has access to the images. While I did not make a similar argument for speech to text, nor the as-then-yet-unannounced LLMs, I will make the the case that all three succeeded due to engineers building case specific pre-processing that relied on directly simulating (without learning) parts of human physiology.\n\nHere are the accommodations made to learning, in each of the three cases, in terms of hard coding front end processing of data."
+      },
+      {
+        "partId": "speech",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "There are many ways the sound signal could get into the computer for this learning. We could take the analog output of a microphone and digitize the loudness of the signal many tens of thousands of times a second and have that as the input to the learning. But in practice that is not how it is done.\n\nInstead it relies on a technology developed for practical spoken communication over world wide telephone networks in the 20th century where the signals were compressed for individual voice circuits so that more calls could fit on a single wire. This work determined aspects of the signal that had to be preserved so that a human could understand what had been said by the distant speaker. And if a human could understand such compressed signals that says that all the information that is necessary to understand speech is still in that signal.\n\nThe inputs to various speech to text learning systems vary, but here are some of the common pre-processing steps taken. The analog input signal is sampled at a fixed frequency, perhaps 16kHz, then a high pass filter boosts higher frequencies as they are important for detecting consonants, then the signal is cut into frames, say 25ms long with 10ms overlap, for instance, and then each frame is conditioned so that subsequent Fast Fourier Transforms (FFTs) will not be compromised by the shortness of the window. Somewhere along the way there may be some noise reduction. Then the signal is subdivided into frequency bands using one or more methods such as FFT, Mel filter banks, logarithm of outputs, and cosine transforms. In some implementations there is initial training on just the frames so that language dependent frame signatures can be recognized early in the deep network.\n\nDifferent implementations use different selections of these and other techniques, but the point is that **after** all this, **then** end-to-end learning is let loose on the output of all this input signal transformation.\n\nFurther, all that signal transformation was originally developed so that human speech could be stored and the listened to in distant places and times. The important thing about those transformations was that they allowed the human listening mechanism for understanding speech to be used with no change to the human."
+      },
+      {
+        "partId": "success",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "In the last two decades speech to text, image labeling, and fluid language generated by Large Language Models (LLMs) have all been transformed, in spectacular ways, by end-to-end learning, using linear threshold neural models.\n\nFor the speech and image cases the new methods showed radical increases in performances. In both cases leaving as much as possible to the learning methods was critical for that success. That meant, for speech, getting rid of explicit models for phonemes (which are very language dependent), which had dominated all previously recent approaches. For image labeling it meant getting rid of any notion of line (boundary) finding, shape, shading, or color constancy, all of which had dominated recent work on image understanding.\n\nLLMs showed proficiency with language and answering general questions (with a strong tendency, still today, for rabid confabulations) that was beyond anything anyone was expecting was around the corner. And they had done it by eliminating any references or direct experience in the world of anything other than language. They were self-contained language machines, with none of the long expected grounding in experience in the real world, that everyone had expected, the believed to be [_symbol grounding problem_](https://en.wikipedia.org/wiki/Symbol_grounding_problem). \\[\\[Even Alan Turing had brought this up in his brilliant [Intelligent M](https://people.csail.mit.edu/brooks/idocs/IntelligentMachinery.pdf) [achinery](https://people.csail.mit.edu/brooks/idocs/IntelligentMachinery.pdf), written in 1948 but not published until 1970, in Machine Intelligence 5, edited by Bernard Meltzer and Donald Michie. There (on page 13 of that volume) Turing had said that the sure way to get to an intelligent machine was to “take a man as a whole and to try replace all parts of him by machinery”. Today we might say “build a humanoid”; prescient! As for the grounding in real world experience he went on to say: “In order that the machine should have a chance of finding things out for itself it should be allowed to roam the countryside, and _the danger to the ordinary citizen would be serious_” (my emphasis). He concluded that it was too hard to do with the technology of the day. Two more instances of prescience.\\]\\]\n\nThese were radical changes and head spinning for most researchers, including me. But the new methods undeniably worked much better than anything we had seen in the past."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "cnn",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The first numbered objection explicitly identifies a human-designed CNN front end for translational invariance. The correction attributes that argument to Brooks, not a measured universal architectural or computational result.",
+        "evidenceDigest": "7909fab74785187c99f4601da110d982b8bbc41c55737b4dd6e2a252d9da090d"
+      },
+      {
+        "partId": "extension",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The later essay explicitly says the earlier reply did not make the speech argument and then develops it in section3.1. Both essays remain required for the combined historical attribution.",
+        "evidenceDigest": "61869230ee5d8f5cfbf0c99be71a31ab169f19904e4618a7994a965b8a350269"
+      },
+      {
+        "partId": "speech",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "Section3.1 traces the preprocessing to telephone transmission and lists FFTs, Mel filter banks and other techniques. Its immediately following paragraph says different implementations use different selections. These are examples in Brooks’s account, not a universal pipeline. MFCC lexical absence establishes no technical equivalence.",
+        "evidenceDigest": "daf2d4f55641e372f84f41734e69ec6b4ac853ce534b5ea7e394950cf4e5fb2e"
+      },
+      {
+        "partId": "success",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The section3 opening explicitly calls leaving as much as possible to learning critical to the speech/image successes. This acknowledgement must accompany the criticism rather than turning Brooks into an opponent of learning gains.",
+        "evidenceDigest": "3f14937617733f174f78c7a1a2471b3ea15bec30b326ab3804ac9eaa6a00879b"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-brooks-10-20260913",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 10,
+    "originalCellsDigest": "d0d5fb6da752d4aea6c6fd1b5c2699e397a172d058e78d2a2f563a59eb32ab8d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "paraphrase",
+        "text": "Brooks summarizes Sutton in his own narrative and explicitly disagrees; do not treat the text as an extended Sutton quotation or verify Sutton through this reply.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      },
+      {
+        "id": "length",
+        "text": "The seventy-six-word comparison is Brooks’s own closing statement, explicitly including that comment, not an independent two-document count.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+      "rationale": "The opening says In his post he argues, then describes Sutton in Brooks’s own narrative and explicitly disagrees. This supports attribution as a paraphrase, not an extended Sutton quotation or independent verification of Sutton. The complete closing sentence explicitly says This review, including this comment, is seventy six words shorter. Retain it as Brooks’s self-description; neither an independent count nor a chronology finding follows.",
+      "planDigest": "220e0d9fb0e8d7e49221b2cc31bf82572b1bf9b80dd4d5a046227446709ac3e8"
+    },
+    "evidence": [
+      {
+        "partId": "paraphrase",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "Just last week Rich Sutton published a very short blog post titled [The Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html). I’m going to try to keep this review shorter than his post. Sutton is well known for his long and sustained contributions to reinforcement learning.\n\nIn his post he argues, using many good examples, that over the 70 year history of AI, more computation and less built in knowledge has always won out as the best way to build Artificial Intelligence systems. This resonates with a current mode of thinking among many of the newer entrants to AI that it is better to design learning networks and put in massive amounts of computer power, than to try to design a structure for computation that is specialized in any way for the task. I must say, however, that at a two day work shop on Deep Learning last week at the National Academy of Science, the latter idea was much more in vogue, something of a backlash against exactly what Sutton is arguing.\n\nI think Sutton is wrong for a number of reasons."
+      },
+      {
+        "partId": "length",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "This review, including this comment, is seventy six words shorter than Sutton’s post."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "paraphrase",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The opening says In his post he argues, then describes Sutton in Brooks’s own narrative and explicitly disagrees. This supports attribution as a paraphrase, not an extended Sutton quotation or independent verification of Sutton.",
+        "evidenceDigest": "ecaa1bc10c99df26c128b2556a9eac7ff6c06a6c27c343cbad7cfb02735b82a5"
+      },
+      {
+        "partId": "length",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The complete closing sentence explicitly says This review, including this comment, is seventy six words shorter. Retain it as Brooks’s self-description; neither an independent count nor a chronology finding follows.",
+        "evidenceDigest": "2b8a826cf1397cb858446caaa34b354f89b9a0d442bb8ddb8dc346aa59ee9c8e"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-brooks-11-20260913",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 11,
+    "originalCellsDigest": "cca0231967256d76d72fd6f6765864d6c46e137481d229244036fc56356240b2",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "cnn",
+        "text": "Brooks argues that human-designed CNN front ends manage translational invariance in image labeling.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      },
+      {
+        "id": "extension",
+        "text": "The 2025 essay explicitly extends the earlier image argument to speech, which Brooks says he did not address in the earlier reply.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "speech",
+        "text": "Brooks connects speech preprocessing to telephone engineering and lists common alternatives including FFTs and Mel filter banks, explicitly varying by implementation.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "success",
+        "text": "The same author acknowledges end-to-end gains and says leaving as much as possible to learning was critical to speech/image success.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+      "rationale": "The first numbered objection explicitly identifies a human-designed CNN front end for translational invariance. The correction attributes that argument to Brooks, not a measured universal architectural or computational result. The later essay explicitly says the earlier reply did not make the speech argument and then develops it in section3.1. Both essays remain required for the combined historical attribution. Section3.1 traces the preprocessing to telephone transmission and lists FFTs, Mel filter banks and other techniques. Its immediately following paragraph says different implementations use different selections. These are examples in Brooks’s account, not a universal pipeline. MFCC lexical absence establishes no technical equivalence. The section3 opening explicitly calls leaving as much as possible to learning critical to the speech/image successes. This acknowledgement must accompany the criticism rather than turning Brooks into an opponent of learning gains.",
+      "planDigest": "11e06d34acaef65ffe9193bfbd717b537b10f16bf559280293518c207652754e"
+    },
+    "evidence": [
+      {
+        "partId": "cnn",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "1. One of the most celebrated successes of Deep Learning is image labeling, using CNNs, Convolutional Neural Networks, but the very essence of CNNs is that the front end of the network is designed by humans to manage translational invariance, the idea that objects can appear anywhere in the frame. To have a Deep Learning network also have to learn that seems pedantic to the extreme, and will drive up the computational costs of the learning by many orders of magnitude."
+      },
+      {
+        "partId": "extension",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Most importantly I pointed out that the image labeling case was not end-to-end starting with images and ending with labels. Instead it uses a convolutional network as a front end to structure the way the learning algorithm has access to the images. While I did not make a similar argument for speech to text, nor the as-then-yet-unannounced LLMs, I will make the the case that all three succeeded due to engineers building case specific pre-processing that relied on directly simulating (without learning) parts of human physiology.\n\nHere are the accommodations made to learning, in each of the three cases, in terms of hard coding front end processing of data."
+      },
+      {
+        "partId": "speech",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "There are many ways the sound signal could get into the computer for this learning. We could take the analog output of a microphone and digitize the loudness of the signal many tens of thousands of times a second and have that as the input to the learning. But in practice that is not how it is done.\n\nInstead it relies on a technology developed for practical spoken communication over world wide telephone networks in the 20th century where the signals were compressed for individual voice circuits so that more calls could fit on a single wire. This work determined aspects of the signal that had to be preserved so that a human could understand what had been said by the distant speaker. And if a human could understand such compressed signals that says that all the information that is necessary to understand speech is still in that signal.\n\nThe inputs to various speech to text learning systems vary, but here are some of the common pre-processing steps taken. The analog input signal is sampled at a fixed frequency, perhaps 16kHz, then a high pass filter boosts higher frequencies as they are important for detecting consonants, then the signal is cut into frames, say 25ms long with 10ms overlap, for instance, and then each frame is conditioned so that subsequent Fast Fourier Transforms (FFTs) will not be compromised by the shortness of the window. Somewhere along the way there may be some noise reduction. Then the signal is subdivided into frequency bands using one or more methods such as FFT, Mel filter banks, logarithm of outputs, and cosine transforms. In some implementations there is initial training on just the frames so that language dependent frame signatures can be recognized early in the deep network.\n\nDifferent implementations use different selections of these and other techniques, but the point is that **after** all this, **then** end-to-end learning is let loose on the output of all this input signal transformation.\n\nFurther, all that signal transformation was originally developed so that human speech could be stored and the listened to in distant places and times. The important thing about those transformations was that they allowed the human listening mechanism for understanding speech to be used with no change to the human."
+      },
+      {
+        "partId": "success",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "In the last two decades speech to text, image labeling, and fluid language generated by Large Language Models (LLMs) have all been transformed, in spectacular ways, by end-to-end learning, using linear threshold neural models.\n\nFor the speech and image cases the new methods showed radical increases in performances. In both cases leaving as much as possible to the learning methods was critical for that success. That meant, for speech, getting rid of explicit models for phonemes (which are very language dependent), which had dominated all previously recent approaches. For image labeling it meant getting rid of any notion of line (boundary) finding, shape, shading, or color constancy, all of which had dominated recent work on image understanding.\n\nLLMs showed proficiency with language and answering general questions (with a strong tendency, still today, for rabid confabulations) that was beyond anything anyone was expecting was around the corner. And they had done it by eliminating any references or direct experience in the world of anything other than language. They were self-contained language machines, with none of the long expected grounding in experience in the real world, that everyone had expected, the believed to be [_symbol grounding problem_](https://en.wikipedia.org/wiki/Symbol_grounding_problem). \\[\\[Even Alan Turing had brought this up in his brilliant [Intelligent M](https://people.csail.mit.edu/brooks/idocs/IntelligentMachinery.pdf) [achinery](https://people.csail.mit.edu/brooks/idocs/IntelligentMachinery.pdf), written in 1948 but not published until 1970, in Machine Intelligence 5, edited by Bernard Meltzer and Donald Michie. There (on page 13 of that volume) Turing had said that the sure way to get to an intelligent machine was to “take a man as a whole and to try replace all parts of him by machinery”. Today we might say “build a humanoid”; prescient! As for the grounding in real world experience he went on to say: “In order that the machine should have a chance of finding things out for itself it should be allowed to roam the countryside, and _the danger to the ordinary citizen would be serious_” (my emphasis). He concluded that it was too hard to do with the technology of the day. Two more instances of prescience.\\]\\]\n\nThese were radical changes and head spinning for most researchers, including me. But the new methods undeniably worked much better than anything we had seen in the past."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "cnn",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The first numbered objection explicitly identifies a human-designed CNN front end for translational invariance. The correction attributes that argument to Brooks, not a measured universal architectural or computational result.",
+        "evidenceDigest": "38dba09608e62e6ca374e4ca1ea2e4d6e5581e3fe2c8a6e321d96589c1b3edf6"
+      },
+      {
+        "partId": "extension",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The later essay explicitly says the earlier reply did not make the speech argument and then develops it in section3.1. Both essays remain required for the combined historical attribution.",
+        "evidenceDigest": "64f4695456dd1c3e22b546e5b79746b84cab53f581a7e65867c3922fde8762f4"
+      },
+      {
+        "partId": "speech",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "Section3.1 traces the preprocessing to telephone transmission and lists FFTs, Mel filter banks and other techniques. Its immediately following paragraph says different implementations use different selections. These are examples in Brooks’s account, not a universal pipeline. MFCC lexical absence establishes no technical equivalence.",
+        "evidenceDigest": "712df46eb794c679739606d687e6315e3e5b19789a02f215193a660630ae662c"
+      },
+      {
+        "partId": "success",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The section3 opening explicitly calls leaving as much as possible to learning critical to the speech/image successes. This acknowledgement must accompany the criticism rather than turning Brooks into an opponent of learning gains.",
+        "evidenceDigest": "cd02708b99d9694cf5297a4007a8829f6b6611f92cd95d342fbd5472985de2e3"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-brooks-24-20260913",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 24,
+    "originalCellsDigest": "83f170f439541cfa1ee17a5ad329c332de042537f78c8517937fe7ef0db7faca",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "humanoid-opinion",
+        "text": "Brooks’s explicitly personal within-decades opinion addresses lower-price/equally competent plug-compatible replacement of human manual labor, not all practical humanoids.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "industrial-fingers",
+        "text": "Brooks asserts that articulated fingers have not jointly met robustness, force and lifetime needs for industrial applications; this is not an independent mechanical test.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "deployment",
+        "text": "Brooks asserts that human-like hand designs have not reached real-world deployment and lack general dexterity; this is an attributed date-scoped assessment, not a source-worker census.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "warehouse",
+        "text": "Brooks states in the first person that his company builds robots deployed in warehouses.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "robust",
+        "text": "In the same essay Brooks explicitly names Robust.AI as where he and Benjie Holson work closely; pair this affiliation with the separate warehouse statement, without inventing corporate particulars.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "earlier-deployment",
+        "text": "Brooks himself reports Baxter/Sawyer humanoids deployed in factories, preventing a categorical no-humanoids reading.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "future",
+        "text": "Brooks predicts changed forms and specialized jobs under the humanoid label over the next fifteen years; preserve this qualification to the prolog forecast.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+      "rationale": "The prolog’s pure fantasy thinking phrase is explicitly In my opinion and refers to plug-compatible replacement of human manual jobs at lower prices and just as well. It does not address every humanoid or every specialized deployment forever. Section2.1 joins robustness, sufficient force and lifetime for industrial articulated fingers. All three remain attributed assessments, not our mechanical measurements or independently established industry absence. The author says human-like hand designs have not reached real-world applications and have little general dexterity. Preserve his date-scoped assessment without turning it into our census or a claim that no humanoid robot has been deployed. The prolog says At my company we build robots that are deployed in warehouses. This supports his first-person warehouse account, without a new ownership or commercial performance assertion. The same body explicitly discloses that Brooks and Holson work closely at Robust.AI. Paired with the distinct warehouse paragraph this supports the affiliation context, not unobserved corporate particulars. Section2 names Baxter and Sawyer and says They were deployed in factories around the world. Keeping that author report prevents a false no-humanoid-ever interpretation of the prolog. Section6 forecasts changing forms, specialized jobs and continued humanoid naming over the next fifteen years. It qualifies the earlier forecast and is not a rolling fifteen-year forecast made by this wiki.",
+      "planDigest": "f409fb28709f63d6a276e9a947bd1eeff2ddf6790d420d96f8c8c888251dea99"
+    },
+    "evidence": [
+      {
+        "partId": "humanoid-opinion",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "For both these companies and probably several others the general plan is that humanoid robots will be “plug compatible” with humans and be able to step in and do the manual things that humans do at lower prices and just as well. In my opinion, believing that this will happen any time within decades is pure fantasy thinking. But many are predicting that it will happen in as soon as two years, and the more conservative hypenotists believe it will have significant economic impact within five years."
+      },
+      {
+        "partId": "industrial-fingers",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Schunk, a German company, [sells](https://schunk.com/de/en/gripping-systems/parallel-gripper/c/PUB_8295) over 1,000 varieties of parallel jaw grippers, both electric and pneumatic (using compressed air), for robot arms. It also sells some three fingered radially symmetric hands and a few other specialized grippers. No one has managed to get _articulated fingers_ (i.e., fingers with joints in them) that are robust enough, have enough force, nor enough lifetime, for real industrial applications."
+      },
+      {
+        "partId": "deployment",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "No human-like robot hands have demonstrated much in the way of dexterity, in any general sense. And none have inspired designs that have made it into deployment in real world applications. The approaches to dexterity have been very mathematical and geometrical, and they have just not produced anything like human dexterity."
+      },
+      {
+        "partId": "warehouse",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "At my company we build robots that are deployed in warehouses. They have a new fangled locomotion system based on “wheels” (and yes our locomotion system is actually new fangled and did not exist at all or anywhere just two years ago).  I have had VCs to whom we have pitched (as is the parlance in startup land) for funding to scale to meet our customer pull, question why we would possibly do that as _everyone knows_ that two legged, and two armed, humanoid robots will take over most human jobs in two years."
+      },
+      {
+        "partId": "robust",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "You might see pretty videos of human-like robot hands doing one particular task, but they do not generalize at all well beyond that task. In a light hearted, but very insightful, [recent blog post](https://generalrobots.substack.com/p/benjies-humanoid-olympic-games), Benjie Holson (full disclosure: Benjie and I work together closely at Robust.AI) lays out fifteen tasks that any eight year old human can do, in a proposed humanoid robot Olympics. With medals. For instance, one challenge is for a humanoid robot folding laundry to hang a men’s dress shirt which starts with one sleeve inside out, and to have at least one button buttoned. Another is to clean peanut butter off its own hand. And you can’t say “Oh, that would be better done by a different kind of robot mechanism.” No, it is central to the case for humanoid robots that they can do all the tasks that humans can do. Once you see Benjie’s fifteen challenge tasks, it is pretty easy to come up with another fifteen or thirty more dexterous tasks which have very little in common with any of his, but which all of us humans can do without a second thought. And then there are the hard things that we can all do if we have to."
+      },
+      {
+        "partId": "earlier-deployment",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Besides the early work in Japan on humanoid robots there have been many academic groups across the world that have worked on robots with human form, with and without legs, and with and without arms. My own research group at MIT started building the humanoid Cog in 1992, and we developed seven different platforms, and then I founded Rethink Robotics in 2008, and we sold thousands of two models of humanoids, Baxter and Sawyer. They were deployed in factories around the world. Some of my former post-docs returned to Italy and started the RoboCub open source humanoid project, which has enabled many tens of humanoid robots to be built in AI Labs all over the world."
+      },
+      {
+        "partId": "future",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Following that pattern, what it means to be a _humanoid robot_ will change over time.\n\nBefore too long (and we already start to see this) humanoid robots will get wheels for feet, at first two, and later maybe more, with nothing that any longer really resembles human legs in gross form. But they will still be called _humanoid robots_.\n\nThen there will be versions which variously have one, two, and three arms. Some of those arms will have five fingered hands, but a lot will have two fingered parallel jaw grippers. Some may have suction cups. But they will still be called _humanoid robots_.\n\nThen there will be versions which have a lot of sensors that are not passive cameras, and so they will have eyes that see with active light, or in non-human frequency ranges, and they may have eyes in their hands, and even eyes looking down from near their crotch to see the ground so that they can locomote better over uneven surfaces. But they will still be called _humanoid robots_.\n\nThere will be many, many robots with different forms for different specialized jobs that humans can do. But they will all still be called _humanoid robots_.\n\nAnd a lot of money will have disappeared, spent on trying to squeeze performance, any performance, from today’s _humanoid robots_. But those robots will be long gone and mostly conveniently forgotten.\n\nThat is the next fifteen years for you."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "humanoid-opinion",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The prolog’s pure fantasy thinking phrase is explicitly In my opinion and refers to plug-compatible replacement of human manual jobs at lower prices and just as well. It does not address every humanoid or every specialized deployment forever.",
+        "evidenceDigest": "6fccde88e63b0e5d344a9593a7ccd929b69f95d1ba20724e61b5b5c7ea6700f4"
+      },
+      {
+        "partId": "industrial-fingers",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "Section2.1 joins robustness, sufficient force and lifetime for industrial articulated fingers. All three remain attributed assessments, not our mechanical measurements or independently established industry absence.",
+        "evidenceDigest": "8386032113b22183751b854138eb939a3dfc297c11bbeb5f1ee04a4226e2bc16"
+      },
+      {
+        "partId": "deployment",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The author says human-like hand designs have not reached real-world applications and have little general dexterity. Preserve his date-scoped assessment without turning it into our census or a claim that no humanoid robot has been deployed.",
+        "evidenceDigest": "f31791c4f6c364653037efa2d8e626f4665666b5be3aa7fb3b0f5561c2cbd702"
+      },
+      {
+        "partId": "warehouse",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The prolog says At my company we build robots that are deployed in warehouses. This supports his first-person warehouse account, without a new ownership or commercial performance assertion.",
+        "evidenceDigest": "4f20542a3b3ee2726a876114f1c8439e37fa27efea6817f0ce56317731dc64bc"
+      },
+      {
+        "partId": "robust",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "The same body explicitly discloses that Brooks and Holson work closely at Robust.AI. Paired with the distinct warehouse paragraph this supports the affiliation context, not unobserved corporate particulars.",
+        "evidenceDigest": "e7124424a60ca3700c6f283b88bd80698c68908a0322028930d81a1e3f93d434"
+      },
+      {
+        "partId": "earlier-deployment",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "Section2 names Baxter and Sawyer and says They were deployed in factories around the world. Keeping that author report prevents a false no-humanoid-ever interpretation of the prolog.",
+        "evidenceDigest": "11949068d22e67b1e9386b0cd31dea50a9d9bd6d079badf605eb2569f4213d97"
+      },
+      {
+        "partId": "future",
+        "outcome": "supported",
+        "reviewedBy": "agent:519d4fc5-473a-42df-af96-ec08c0a7056b/source-auditor; review 2026-09-13T17:34:04.420477+00:00; native binding 2026-09-13T18:03:43.905Z; not independent acceptance",
+        "rationale": "Section6 forecasts changing forms, specialized jobs and continued humanoid naming over the next fifteen years. It qualifies the earlier forecast and is not a rolling fifteen-year forecast made by this wiki.",
+        "evidenceDigest": "607a87cf6849eeefd3fdbed59332ccbadd7abc205bd914dd153d24d440a7ed22"
+      }
+    ]
   }
 ]

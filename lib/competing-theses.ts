@@ -70,7 +70,7 @@ const ROWS: Thesis[] = [
     ],
     evidenceAgainst: [
       {
-        text: 'Rodney Brooks argues the celebrated vision and speech wins rode on human-engineered front ends (convolutional networks for translational invariance, telephone-derived spectral processing for speech), and that vision-only training gives a robot no tactile channel at all.',
+        text: 'Brooks argues that image-labeling uses a human-designed convolutional front end for translational invariance (2019). His 2025 account lists FFTs and Mel filter banks among implementation-dependent speech preprocessing steps with telephone-engineering roots, and argues that vision-only training gives a robot no tactile channel at all. His 2025 essay also acknowledges that leaving as much as possible to learning was critical to speech and image gains.',
         citationIds: ['brooks-better-lesson-2019', 'brooks-dexterity-2025'],
       },
       {
@@ -255,7 +255,7 @@ const ROWS: Thesis[] = [
     ],
     evidenceAgainst: [
       {
-        text: 'Brooks calls practical humanoids within decades pure fantasy thinking, and notes that no human-like robot hand has yet survived real-world deployment.',
+        text: 'In his 2025 essay, Brooks calls plug-compatible humanoids replacing human manual work at lower prices and equal competence "pure fantasy thinking" within decades. His objections to articulated-finger robustness, force and lifetime, and to human-like hand deployment, are his assessments rather than an industry census. He also reports Baxter and Sawyer factory deployments and predicts differently shaped, task-specialized robots still called humanoids over the next fifteen years.',
         citationIds: ['brooks-dexterity-2025'],
       },
       {

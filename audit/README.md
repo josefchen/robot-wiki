@@ -1,6 +1,49 @@
 # Content-integrity audit trail
 
-## Current checkpoint: atomic state-smoothing correction (2026-09-13)
+## Current checkpoint: six Brooks thesis originals (2026-09-13)
+
+Competing-theses originals **3,4,5,10,11,24:6 applied /0 assigned held /0 assigned unattempted**. Counting unit: immutable original ledger rows, **6 corrected-verdict rows /0 verified-verdict rows /0 cuts**, not six distinct defects. Repeated originals3/10 and5/11 remain separate. Six appended native plans bind **20 mandatory AND parts /20 evidence items /13 distinct native passage strings**. Eight exact article/interactive/registry-comment endpoints travel together. Tuple/plan/part digests were recomputed after the integrator's claim/note refinements; original four-cell history remains in the notes.
+
+Fresh native collection **2026-09-13T18:20:20.814Z**: **531 complete /463 incomplete /994 originals /47 articles**; frontier **11 complete /136 incomplete /147 originals**; competing-theses **6 complete /19 incomplete /25 originals**. **437 plans /514 approvals /43 inherited full baseline failure objects**. Two exact baseline approvals cover this article's prose and citation relationships. Registry comments create no extra semantic metadata delta; no approval was invented for them. Content/publication gates remain **RED**. No feature, release, whole-P1, article-date or publication credit.
+
+### Source meaning and provenance
+
+The2019 reply paraphrases Sutton; its seventy-six-word comparison is Brooks's self-description, including his closing comment, not an independent recount. The2019 CNN argument and2025 speech account stay distinct and jointly required where combined. Speech processing examples are implementation-dependent; Brooks's acknowledgment that leaving much to learning was critical is retained. The humanoid forecast concerns plug-compatible replacement of human manual work at lower prices and equal competence. Force, robustness, lifetime and hand-deployment claims remain Brooks's assessments, alongside warehouse/Robust.AI context, earlier Baxter/Sawyer factory deployments and differently shaped specialized future humanoids.
+
+**Zero new retrievals.** Sources: https://rodneybrooks.com/a-better-lesson/ and https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/. Original FetchUrl results: **2026-09-13T15:12:19.623Z /2026-09-13T15:12:43.252Z**. Both complete retained author-text bodies were reviewed: **6,071 /62,459 characters**. Historical tool-rendered Markdown/tool-reported200 are not raw HTTP, current reachability, redirect history, publication-day, whole-P1 or independent industry proof. The truncated2025 event's original full-output artifact was verified. Fourteen retained context records include `2019-total-cost-context`, which is not among the20 native evidence items. No Sutton-primary, chronology or media acceptance follows. Article `lastReviewed` remains **2026-08-18**.
+
+### Gates actually observed
+
+Execution was sequential with `NODE_DISABLE_COMPILE_CACHE=1`. Pre-execution inputs, commands, raw logs, failures and lifecycle receipts are retained under `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-brooks-theses-integration-20260913/resume-1755`.
+
+| Gate | Actual result |
+| --- | --- |
+| Source proof | Reused integrator proof:2 documents,20 native items,13 distinct strings; initial truncated-event selector failure retained |
+| Scientific and atomic application | **58 rejection controls pass**, then five scoped product writes; no source/checker relaxation |
+| Exact approvals | **6 missing/stale-hash controls pass**,2 entries; all43 full inherited failure objects/order retained |
+| Units/components | `npm run test -- brooks-theses-corrections competing-theses thesis-explorer`: **28/28 pass**,3 files; original10 expected-red failures retained |
+| Lint | `npm run lint`: exit0 including normal prelint; after capture and portable-fixture changes, targeted ESLint over both affected E2E files: exit0 |
+| TypeScript | `node node_modules/typescript/bin/tsc --noEmit --incremental false`: exit0 through final portable-fixture code, using fresh owned dev route types; effective resolver inputs retained and restored |
+| Prose lint | `node scripts/lint-no-slop.ts`: exit0;47 MDX,zero banned markers,14 existing quotation exceptions. Also swept63 pre-existing exported HTML files, not rebuilt or credited as current output |
+| Mounted readers | Initial **10/10 pass**, mobile capture-method rerun **1/1 pass**, final portable-fixture wiring with both corrected readers plus one existing case **3/3 pass**. **10 distinct cases /14 executions /14 passes /0 failures**. Normal non-Mission collection also passes:10 tests/2 files; no browser run in that mode |
+| Browser population | **14 contexts /14 document navigations:10 at1440×900,4 at375×812**; external requests,console/page errors,horizontal overflow0 |
+| Axe | Six analyses,zero violations; color-contrast incomplete-node observations **63+54+54+63+63+54=351**, not351 unique nodes or accessibility passes |
+| Pixels | **12 captures /6 actual Reads**; two approved references previously read. First tall mobile element capture overlapped sticky shell; retained and superseded by two inspected natural viewport captures. Duplicate rerun and final-wiring captures not re-Read; product inputs are unchanged. No full visual-release acceptance |
+| Preservation |994 IDs/order,525 prior complete IDs/order,988 unselected full semantic records,431 old plans,512 old approvals/metadata,two serialized prefixes,43 full failure objects/order;82 old sealed payloads and20 source payloads byte-identical |
+| Owned lifecycle | Three nonconcurrent offline webpack launches; all child/runner exits0. Third launch verifies final test-fixture portability wiring, not new product changes. First absolute-distDir attempt generated29 files/192,617 bytes under unexpected product `home/`; preserved intact in lane evidence, not deleted. Relative-path retry contained output. Three configs restored byte-exactly; no3260 listener |
+| Full corpus/build/export/cards/live checkers | **Not rerun; content gate RED** |
+
+Normal E2E uses the standard Playwright fixture when Mission inputs are absent; guarded runs retain the strict offline/input-bound fixture. The final fixture check reran both corrected readers and one existing case; the other seven existing case bodies/assertions are unchanged. Both-width readers exercise all six choices, both evidence sides, keyboard selection/reset, Brooks and ENPIRE hover/focus/Escape/References/URLs, full-author versus short-meta behavior, current-page navigation and mobile drawer inertness/Tab/focus restoration. Applied prose received a deliberate source-fidelity read separate from no-slop; source phrases were not paraphrased into stronger claims.
+
+Retained failed attempts include absent optional `tsx`, missing explicit Evidence-plan column, an empty-part negative-control schema exception, an assumed approval-delta count, and pre-application-versus-baseline old-hash mismatch. An initial report draft assumed one verified verdict; actual selected native cells are all six `C`, detected before any report write. All corresponding corrected runs have unique receipts. Ownership refusals remain125/actionInvoked=false. Exact transport repairs were independently inspected and mutation-tested; transient passive bridge reads were allowed to finish, not broadly exempted or signaled.
+
+The original target **17:57:04.255Z was exceeded**, not reset. Same-worker Astra/max activation was verified at17:55:47.866Z after the17:50:47.609Z blocked terminal; parent-authorized recovery continued only to this interrupted integration's coherent boundary, with no new source audit. The original predecessor-to-successor gap remains1,156.134 seconds,856.134 seconds beyond the five-minute target. This report is not the final assistant terminal timestamp.
+
+### Explicit remaining scope
+
+This article still has19 incomplete originals. PI/Helix6/15/16/19, Recap/RL-100,mixed25,chronology,neighboring tactile claims and other articles remain unadjudicated by this batch. Shared Term Escape,glossary Back-focus,full-reference/profile and existing visual/accessibility debt retain their separate owners. Source-backed completion does not resolve Axe incompletes or whole-P1/source-edition limits. No push,deployment,feature-file edit,controller change,cleanup or fallback activation occurred.
+
+## Previous checkpoint: atomic state-smoothing correction (2026-09-13)
 
 State-estimation originals **11, 13, 16: 3 applied / 0 assigned held / 0 assigned unattempted**, together with four article replacements and the complete two-citation SLAM glossary definition. Three reviewed native plans preserve **18 mandatory parts / 19 citation pairs / 21 distinct part-citation-URL bundles / 38 retained excerpts / 28 distinct passage-context bindings**. Same-URL excerpts retain explicit `[…]` separation. Immutable original four-cell history and exact current identity checks remain recorded. No other original was reapplied.
 

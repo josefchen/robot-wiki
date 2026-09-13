@@ -1,5 +1,11 @@
-import { expect, test } from '@playwright/test';
+import { test as base, expect } from '@playwright/test';
+import { test as evidenceTest } from './helpers/state-smoothing-fixture';
+import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
+
+// Normal E2E remains runnable without Mission-only evidence inputs.
+// Guarded Mission runs retain the strict input-bound offline fixture.
+const test = process.env.ROBOT_WIKI_GATE_INPUTS ? evidenceTest : base;
 
 const ROUTE = '/frontier/competing-theses/';
 
@@ -218,9 +224,10 @@ test.describe('frontier competing-theses module', () => {
     await context.close();
   });
 
-  test('zero axe violations', async ({ page }) => {
+  test('zero axe violations', async ({ page }, testInfo) => {
     await page.goto(ROUTE);
     const results = await new AxeBuilder({ page }).analyze();
+    writeFileSync(testInfo.outputPath('axe-existing.json'), JSON.stringify(results, null, 2));
     expect(results.violations).toEqual([]);
   });
 });

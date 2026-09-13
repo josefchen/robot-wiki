@@ -6195,10 +6195,12 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
-    // Verified against the live essay (2026-08-12): the Johansson
-    // match-lighting videos (seven seconds with touch, four times as long
-    // with fingertips anesthetized), the 17,000-mechanoreceptor figure, and
-    // the Figure/Tesla vision-only training critique quoting eWeek.
+    // Brooks argues for engineered learning inputs and tactile data.
+    // Speech preprocessing varies by implementation; humanoid forecasts
+    // and hand-deployment assertions are his date-scoped assessments.
+    // The essay reports video timings and physiology; this entry does
+    // not independently certify those measurements or linked sources.
+    // Historical registry check: 2026-08-12; not re-certified here.
     id: 'brooks-dexterity-2025',
     title: "Why Today's Humanoids Won't Learn Dexterity",
     authors: ['Rodney Brooks'],
@@ -6263,10 +6265,10 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Brooks's rebuttal to Sutton, published the following week (March
-    // 2019). Verified against the live page (2026-08-12): CNN front ends
-    // as engineered priors, the traffic-sign example, and the
-    // total-cost-of-solution counterargument.
+    // Brooks's rebuttal to Sutton: CNN front ends as engineered priors
+    // and the total-cost-of-solution counterargument. Its closing
+    // word-count comparison is Brooks's own statement, not a recount.
+    // Historical registry check: 2026-08-12; not re-certified here.
     id: 'brooks-better-lesson-2019',
     title: 'A Better Lesson',
     authors: ['Rodney Brooks'],
