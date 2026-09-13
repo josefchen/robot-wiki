@@ -9731,6 +9731,48 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "motion-table-readers-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
+      "newHash": "a9e92585c394b16f8956c98d49c60c1379cf72ee93193623caae338fb3462847",
+      "reason": "Article-local labelled keyboard-scroll containment for the two retained TrajOpt benchmark tables. A real 5px mobile document overflow preceded repair. All 32 three-file reader executions passed at configured 375x812 and 1440x900, including keyboard right-edge reach and exit. Underlying prose, benchmark cells, citations, dates and all native audit records are unchanged. This approves markup and accessible names only, not source truth or whole-article acceptance.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s explicit predecessor-reader prerequisite authorize this routine bounded reader repair, not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-012"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-table-readers-20260913-2",
+      "manifest": "accessible-names",
+      "memberId": "literal:content/classical/motion-planning.mdx:aria-label:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "8552740d9a85871541c98fd1225a0068fcf1c0abc853ad00e407d75afda87c6e",
+      "reason": "Article-local labelled keyboard-scroll containment for the two retained TrajOpt benchmark tables. A real 5px mobile document overflow preceded repair. All 32 three-file reader executions passed at configured 375x812 and 1440x900, including keyboard right-edge reach and exit. Underlying prose, benchmark cells, citations, dates and all native audit records are unchanged. This approves markup and accessible names only, not source truth or whole-article acceptance.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s explicit predecessor-reader prerequisite authorize this routine bounded reader repair, not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-table-readers-20260913-3",
+      "manifest": "accessible-names",
+      "memberId": "literal:content/classical/motion-planning.mdx:aria-label:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ceeeaf8a8b8c52204ff7fbdf7ac14e04db28e3fa89dbadcd6c7b83ba35e95acd",
+      "reason": "Article-local labelled keyboard-scroll containment for the two retained TrajOpt benchmark tables. A real 5px mobile document overflow preceded repair. All 32 three-file reader executions passed at configured 375x812 and 1440x900, including keyboard right-edge reach and exit. Underlying prose, benchmark cells, citations, dates and all native audit records are unchanged. This approves markup and accessible names only, not source truth or whole-article acceptance.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s explicit predecessor-reader prerequisite authorize this routine bounded reader repair, not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

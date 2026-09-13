@@ -138,6 +138,8 @@ Checking only waypoints can miss a collision in the motion between them. TrajOpt
 
 The benchmark used four simulated MoveIt scenes with fixed start and goal configurations: 198 seven-DoF PR2 arm problems and 96 eighteen-DoF full-body problems. The arm trajectories had 11 timesteps and the full-body trajectories 41. A single initialization was a straight line; the arm multi-initialization condition used four manually selected intermediate configurations, while full-body planning used up to five collision-free base configurations sampled with the arms tucked. OMPL methods used default parameters and MoveIt's default smoother. Path length was normalized by the shortest path found for that problem across the compared planners; it was not a separate smoothness measurement <Cite id="schulman-2013" />.
 
+<div className="my-6 max-w-full overflow-x-auto" role="region" aria-label="TrajOpt arm benchmark results" tabIndex={0}>
+
 | Arm method | Success fraction | Average time (s) | Average normalized length |
 | --- | ---: | ---: | ---: |
 | TrajOpt | 0.84 | 0.20 | 1.2 |
@@ -147,7 +149,11 @@ The benchmark used four simulated MoveIt scenes with fixed start and goal config
 | CHOMP | 0.66 | 3.1 | 2.4 |
 | CHOMP, multiple initializations | 0.85 | 6.0 | 2.6 |
 
+</div>
+
 These are Table I's arm results. In particular, single-initialization TrajOpt solved a smaller fraction than either OMPL comparator; the multi-initialization result supports the stronger success comparison. The tested CHOMP implementation was supplied by its authors and is not established as identical to the earlier 2009 preprint <Cite id="schulman-2013" />.
+
+<div className="my-6 max-w-full overflow-x-auto" role="region" aria-label="TrajOpt full-body benchmark results" tabIndex={0}>
 
 | Full-body method | Success fraction | Average time (s) | Average normalized length |
 | --- | ---: | ---: | ---: |
@@ -155,6 +161,8 @@ These are Table I's arm results. In particular, single-initialization TrajOpt so
 | TrajOpt, multiple initializations | 0.84 | 7.6 | 1.09 |
 | OMPL RRTConnect | 0.53 | 18.0 | 1.5 |
 | OMPL LBKPIECE | 0.50 | 18.7 | 1.5 |
+
+</div>
 
 Table II contains no CHOMP full-body result: the authors lacked the documentation or data needed to run that comparison. Its measured full-body times also qualify the introduction's subsecond characterization. The introduction says all planners had ten seconds, while the experimental section specifies three seconds per CHOMP initialization and a thirty-second full-body OMPL limit. Those statements should not be collapsed into a single matched-budget protocol. The inspected paper does not identify the processor used for these benchmark timings <Cite id="schulman-2013" />.
 
