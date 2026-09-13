@@ -9912,6 +9912,40 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "motion-three-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
+      "newHash": "1ddc13a902a92dc728743de6911b258646c2de7453cc8a90f6182557615bd29c",
+      "reason": "Source-backed correction of motion originals3/6/8: constructive configuration-space limits and unbounded-dimension hardness; planar Voronoi selection and distinct step-size-free dense-tree hypotheses without a speed promise; exact robust geometric sPRM/RRT completeness and heuristic counterexample. Four article spans,14 mandatory parts,15 evidence items. Retained body excerpt repairs, zero retrieval, unchanged unassigned equation/calculators/date, no P1 or release acceptance.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals3/6/8 dispatch authorize routine source-backed correction, not personal source certification or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "motion-three-20260913-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "2de52b7ff8f01c0a9f9fbfbdf4523dbef95b1403a9d7cfacd56d703b0cf9b229",
+      "newHash": "d3cf287cbe516b7728115d2c26aa0a85a590c08020998c9b1d1258ace4c53256",
+      "reason": "Source-backed correction of motion originals3/6/8: constructive configuration-space limits and unbounded-dimension hardness; planar Voronoi selection and distinct step-size-free dense-tree hypotheses without a speed promise; exact robust geometric sPRM/RRT completeness and heuristic counterexample. Four article spans,14 mandatory parts,15 evidence items. Retained body excerpt repairs, zero retrieval, unchanged unassigned equation/calculators/date, no P1 or release acceptance.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals3/6/8 dispatch authorize routine source-backed correction, not personal source certification or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

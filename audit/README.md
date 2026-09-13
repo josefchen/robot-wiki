@@ -1,6 +1,40 @@
 # Content-integrity audit trail
 
-## Current checkpoint: four PI and Helix thesis originals (2026-09-13)
+## Current checkpoint: three motion-foundation originals (2026-09-13)
+
+Motion-planning originals **3/6/8: 3 applied / 0 assigned held / 0 assigned unattempted**, all three corrected-verdict records. Four exact article spans and three current-tuple-bound native plans contain **14 mandatory AND parts / 15 evidence items / 22 retained contexts**. Original IDs and four-cell history remain intact. No other original was reapplied.
+
+Fresh native collection **2026-09-13T19:57:25 UTC**: **538 complete / 456 incomplete / 994 originals / 47 articles**; classical **87/100/187**, motion-planning **9/6/15** (complete/incomplete/originals). **444 plans / 519 approvals / 43 inherited full baseline failure objects**. The two exact prose/relationship approvals use immutable migration-baseline old hashes. Whole content/publication gates remain **RED**; no article, P1, feature or release acceptance.
+
+Construction is difficult rather than universally impossible above a dimensional cutoff; constructive translational and semi-algebraic chain/tree cases survive, and PSPACE-hardness is scoped to the basic semi-algebraic mover problem with unbounded dimension. Voronoi selection is tied to the report's planar holonomic example; the book's separate step-size-free dense-tree hypotheses do not promise universal speed or query success. Completeness is limited to the stated robust, positive-clearance Euclidean model, independent uniform samples, fixed positive sPRM radius, positive capped RRT steering and whole-segment collision checks, retaining the 1-nearest-sPRM counterexample. Original5's extension equation/stat/origin, originals9–14, focusable TrajOpt tables, calculator behavior, all three meaningful ordered Terms, ten-reference population and lastReviewed2026-08-17 are preserved.
+
+**Zero retrieval.** Verified19 retained PDF/text/receipt/image identities. Sources: https://lavalle.pl/planning/ch4.pdf (original GET2026-09-13 12:35:48.794821–12:35:49.838839UTC), https://lavalle.pl/planning/ch5.pdf (11:30:32.413106–11:30:33.587043UTC), https://lavalle.pl/papers/Lav98c.pdf (11:30:33.601118–11:30:34.593909UTC), https://arxiv.org/pdf/1105.1186 (09:41:15.701905–09:41:16.175297UTC, retained v1). These are original retrieval records, not current liveness. Current review19:44:45.241883UTC repaired five insufficient draft excerpt boundaries using actual retained text. Selected chapter/preprint context review and actual Reads of all four RRT report images plus Karaman pages11/17 do not certify whole books, the full preprint, source-edition equivalence or P1. A deliberate sentence-level source-fidelity/no-hype review was separate from machine prose lint; no unavailable humanizer invocation is claimed.
+
+### Gates actually observed in this integration
+
+Commands ran sequentially through the fail-closed lane runner with NODE_DISABLE_COMPILE_CACHE=1. All raw logs, pre-execution inputs, failed attempts and receipts are retained.
+
+| Gate | Actual command/result |
+| --- | --- |
+| Red-first correction tests | `node node_modules/vitest/vitest.mjs run tests/unit/motion-three-corrections.test.ts`:8 expected failures before application |
+| Native/source/atomic application | `node apply-native.mjs`:3 originals,3 plans,14 parts,15 items;29 negative controls pass |
+| Exact approvals | `node approve-deltas.mjs`:2 entries,6 mutation controls;43 full failure objects/order unchanged |
+| Affected units/components | Vitest motion-three-corrections,rrt,rrt-explorer:39/39 pass across3 files; the additionally requested nonexistent term-consumer-identities path did not execute |
+| Actual ordered Term inventory | `node node_modules/vitest/vitest.mjs run tests/unit/term-consumer-inventory.test.ts`:11 pass/1 fail; competing-theses expects an imitation-learning trigger absent from its byte-identical entry-HEAD article. Motion's ordered Terms pass. Global fixture remains unchanged; no out-of-scope waiver |
+| Normal lint | `npm run lint`:exit0 including normal prelint |
+| Types | `node node_modules/typescript/bin/tsc --noEmit --incremental false`:exit0 using existing types; fresh owned type generation was not run |
+| Source prose lint | `node scripts/lint-no-slop.ts --source-only`:exit0;47 MDX,zero banned/placeholder markers,14 registered quotation exceptions; no export scan |
+| Native preservation | `python3 preserve.py`:final exit0;994 IDs/order,535 previous complete IDs/order,991 unselected full semantic records,441 old plans,517 old approvals/metadata,two serialized prefixes,43 full failure objects/order,1217 unmodified product/owner inputs and19 retained source identities |
+| Mounted readers/runtime/product pixels | Not executed:zero runtime launches,browser runs,product captures or product pixel Reads. Existing optimal-reader Karaman occurrence oracle updated4→5; execution at375x812/1440x900 remains owed |
+| Full content/build/export/cards | Not rerun; content remains RED. Existing export/reading-time/card evidence is not a fresh result |
+
+Preserved failed attempts include bootstrap's legacy endpoint-key mismatch, the expected red tests, the global Term mismatch, and an overbroad preservation assertion that incorrectly required approval-selection IDs to remain unchanged. Final preservation explicitly verifies only the two authorized selection replacements (motion-table-readers-20260913-1 and trajectory-optimization-20260913-2 to motion-three-20260913-1/-2), while every prior approval object and all inherited failure objects remain unchanged. Four unknown-process refusals returned125/actionInvoked=false; exact follow-up probes found the targets and descendants absent before retry. No process was exempted or signaled.
+
+**Remaining:** motion originals1/2/4/5/7/15, full P1/edition/liveness, the inherited competing-theses Term fixture mismatch, fresh owned route types, new motion-three readers and every affected existing reader at375x812/1440x900, full-author References versus tooltips, popup end reach/Escape/return focus, corrected prose/math/control pixels, Axe incompletes, production export/reading times/cards and independent Sol/high scrutiny/user testing. Neither skip flag was changed. This checkpoint does not claim reader acceptance. No runtime was started, so no runtime exit/restoration claim is made; next.config.ts,tsconfig.json,next-env.d.ts remain byte-identical. Protected d282a83/2cf7d6b and owner PRODUCT_QUALITY.md/qa/ remain untouched.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-motion-three-integration-20260913`. Actual Astra/max first emission19:34:08.714UTC; fixed checkpoint20:09:08.714UTC, not reset. Local commit and post-commit seal are recorded separately only after creation. **Do not publish.** No push, deployment, feature/Mission/controller, credential/security change, cleanup or fallback activation.
+
+## Previous checkpoint: four PI and Helix thesis originals (2026-09-13)
 
 Competing-theses originals **6/15/16/19: 4 applied / 0 assigned held / 0 assigned unattempted**, all four corrected-verdict rows. Eleven exact article/library endpoints, four current-tuple-bound native plans, **15 mandatory AND parts / 17 part-source evidence items / 25 retained literal passages**. No other original was reapplied.
 

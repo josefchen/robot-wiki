@@ -11,7 +11,7 @@ const PROSE = 'div.prose[data-pagefind-body]';
 // Pinned from inspected registry metadata, not from citationMeta or rendered output.
 // These are reader expectations, not a fresh bibliographic/source certification.
 const SOURCES = [
-  { id: 'karaman-frazzoli-2011', count: 4, title: 'Sampling-based Algorithms for Optimal Motion Planning',
+  { id: 'karaman-frazzoli-2011', count: 5, title: 'Sampling-based Algorithms for Optimal Motion Planning',
     authors: ['Sertac Karaman', 'Emilio Frazzoli'], year: 2011, venue: 'arXiv preprint',
     meta: 'Sertac Karaman, Emilio Frazzoli, arXiv preprint, 2011', url: 'https://arxiv.org/abs/1105.1186' },
   { id: 'gammell-2014', count: 3, title: 'Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic',

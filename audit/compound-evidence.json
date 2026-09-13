@@ -44247,5 +44247,349 @@
         "evidenceDigest": "fb6f3f75516b7fa6214f69705fbf4f08140b287e4050547e3735ec3822e88b8c"
       }
     ]
+  },
+  {
+    "id": "motion-three-3-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "motion-planning",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "d5aa0d49b079a53a8989f91d300496af8b32ab0d718d33160b95d92542769b7c",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "cost-not-dimensional-cutoff",
+        "text": "Replace the universal hopeless-beyond-a-few-dimensions and volume-explosion claims with the source-described difficulty of explicitly representing Cobs/Cfree.",
+        "requiredCitationIds": [
+          "lavalle-2006"
+        ]
+      },
+      {
+        "id": "constructive-exceptions",
+        "text": "Preserve explicit constructions in restricted translational cases and possible automated semialgebraic representations for chains and trees; computational difficulty is not impossibility.",
+        "requiredCitationIds": [
+          "lavalle-2006"
+        ]
+      },
+      {
+        "id": "general-complexity-scope",
+        "text": "Any complexity attribution is limited to the basic semialgebraic mover problem and unbounded configuration dimension, not every fixed seven-joint instance.",
+        "requiredCitationIds": [
+          "lavalle-2006"
+        ]
+      },
+      {
+        "id": "implicit-collision-method",
+        "text": "Sampling-based planning can avoid explicit obstacle construction by querying a collision module; whole local paths still need validation, and this methodological description is not an empirical fieldwide census.",
+        "requiredCitationIds": [
+          "lavalle-2006"
+        ]
+      },
+      {
+        "id": "closed-chain-exception",
+        "text": "Closed-chain constraint varieties can be hard to parameterize and can also obstruct efficient sampling; sampling is not a universal escape from every implicit-space difficulty.",
+        "requiredCitationIds": [
+          "lavalle-2006"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+      "rationale": "Chapter4 p157 identifies construction difficulty, and p164 describes complicated but semi-algebraic obstacles. No universal dimensional cutoff or volume-explosion law follows. Chapter4 translational polygon construction and chain/tree polynomial products explicitly permit automated representations. Difficulty is not impossibility. Formulation4.1 lists semi-algebraic world, robot, transformations and query; its PSPACE-hardness discussion explicitly identifies unbounded configuration dimension. Chapter5 introduction supplies collision-oracle probing; section5.3.4 requires the entire path and warns that coarse point sampling can jump thin obstacles. Chapter4 closed-chain varieties lack easy parameterization in general, which also impedes efficient sampling. No universal sampling escape is claimed.",
+      "planDigest": "5bf7e9dfdefaa59b2b663e60eebb1b9f794ef3382d3cc8f14f1549cd88539680"
+    },
+    "evidence": [
+      {
+        "partId": "cost-not-dimensional-cutoff",
+        "citationId": "lavalle-2006",
+        "sourceUrl": "https://lavalle.pl/planning/ch4.pdf",
+        "supportingPassage": "The main difficulty is that it is neither straightforward nor efficient to construct an explicit boundary or solid representation of\neither Cf ree or Cobs . The components are as follows:\n\n[Separate excerpt from the same retained source]\n\nUnfortunately, the cases in which Cobs is polygonal or polyhedral are quite limited. Most problems yield extremely complicated C-space obstacles. One good\npoint is that Cobs can be expressed using semi-algebraic models, for any robots\nand obstacles defined using semi-algebraic models, even after applying any of the\ntransformations from Sections 3.2 to 3.4. It might not be true, however, for other\nkinds of transformations, such as warping a flexible material [2, 22]."
+      },
+      {
+        "partId": "constructive-exceptions",
+        "citationId": "lavalle-2006",
+        "sourceUrl": "https://lavalle.pl/planning/ch4.pdf",
+        "supportingPassage": "It is important to understand how to construct a representation of Cobs . In some\nalgorithms, especially the combinatorial methods of Chapter 6, this represents\nan important first step to solving the problem. In other algorithms, especially\nthe sampling-based planning algorithms of Chapter 5, it helps to understand why\nsuch constructions are avoided due to their complexity.\nThe simplest case for characterizing Cobs is when C = Rn for n = 1, 2, and\n3, and the robot is a rigid body that is restricted to translation only.\n\n[Separate excerpt from the same retained source]\n\nA polygonal C-space obstacle A simple algorithm for computing Cobs exists\nin the case of a 2D world that contains a convex polygonal obstacle O and a\nconvex polygonal robot A [25]. This is often called the star algorithm. For this\nproblem, Cobs is also a convex polygon.\n\n[Separate excerpt from the same retained source]\n\nChains and trees of bodies For chains and trees of bodies, the ideas are conceptually the same, but the algebra becomes more cumbersome. Recall that the\ntransformation for each link is obtained by a product of homogeneous transformation matrices, as given in (3.53) and (3.57) for the 2D and 3D cases, respectively.\nIf the rotation part is parameterized using complex numbers for SO(2) or quaternions for SO(3), then each matrix consists of polynomial entries. After the matrix\nproduct is formed, polynomial expressions in terms of the configuration variables\nare obtained. Therefore, a semi-algebraic model can be constructed. For each\nlink, all of the contact types need to be considered. Extrapolating from Examples\n4.15 and 4.16, you can imagine that no human would ever want to do all of that\nby hand, but it can at least be automated. The ability to construct this representation automatically is also very important for the existence of theoretical\nalgorithms that solve the motion planning problem combinatorially; see Section\n6.4."
+      },
+      {
+        "partId": "general-complexity-scope",
+        "citationId": "lavalle-2006",
+        "sourceUrl": "https://lavalle.pl/planning/ch4.pdf",
+        "supportingPassage": "Formulation 4.1 (The Piano Mover’s Problem)\n1. A world W in which either W = R2 or W = R3 .\n2. A semi-algebraic obstacle region O ⊂ W in the world.\n3. A semi-algebraic robot is defined in W. It may be a rigid robot A or a\ncollection of m links, A1 , A2 , . . . , Am .\n4. The configuration space C determined by specifying the set of all possible\ntransformations that may be applied to the robot. From this, Cobs and Cf ree\nare derived.\n5. A configuration, qI ∈ Cf ree designated as the initial configuration.\n\n158\n\nS. M. LaValle: Planning Algorithms\n\nCobs\nCobs\nCf ree\n\nqG\n\nCobs\n\nqI\n\nFigure 4.11: The basic motion planning problem is conceptually very simple using\nC-space ideas. The task is to find a path from qI to qG in Cf ree . The entire blob\nrepresents C = Cf ree ∪ Cobs .\n6. A configuration qG ∈ Cf ree designated as the goal configuration. The initial\nand goal configurations together are often called a query pair (or query) and\ndesignated as (qI , qG ).\n7. A complete algorithm must compute a (continuous) path, τ : [0, 1] → Cf ree ,\nsuch that τ (0) = qI and τ (1) = qG , or correctly report that such a path does\nnot exist.\nIt was shown by Reif [31] that this problem is PSPACE-hard, which implies\nNP-hard. The main problem is that the dimension of C is unbounded."
+      },
+      {
+        "partId": "implicit-collision-method",
+        "citationId": "lavalle-2006",
+        "sourceUrl": "https://lavalle.pl/planning/ch5.pdf",
+        "supportingPassage": "There are two main philosophies for addressing the motion planning problem, in\nFormulation 4.1 from Section 4.3.1. This chapter presents one of the philosophies,\nsampling-based motion planning, which is outlined in Figure 5.1. The main idea is\nto avoid the explicit construction of Cobs, as described in Section 4.3, and instead\nconduct a search that probes the C-space with a sampling scheme. This probing\nis enabled by a collision detection module, which the motion planning algorithm\nconsiders as a “black box.” This enables the development of planning algorithms\nthat are independent of the particular geometric models. The collision detection\nmodule handles concerns such as whether the models are semi-algebraic sets, 3D\ntriangles, nonconvex polyhedra, and so on. This general philosophy has been very\nsuccessful in recent years for solving problems from robotics, manufacturing, and\nbiological applications that involve thousands and even millions of geometric prim-\nitives. Such problems would be practically impossible to solve using techniques\nthat explicitly represent Cobs.\n\n[Separate excerpt from the same retained source]\n\n5.3.4 Checking a Path Segment\nCollision detection algorithms determine whether a configuration lies in Cfree, but\nmotion planning algorithms require that an entire path maps into Cfree. The\ninterface between the planner and collision detection usually involves validation\nof a path segment (i.e., a path, but often a short one). This cannot be checked\npoint-by-point because it would require an uncountably infinite number of calls\nto the collision detection algorithm.\nSuppose that a path, τ : [0, 1] → C, needs to be checked to determine whether\nτ([0, 1]) ⊂ Cfree. A common approach is to sample the interval [0, 1] and call the\n\f5.3. COLLISION DETECTION 215\nA x\ny\nar\nr\nFigure 5.12: The furthest point on A from the origin travels the fastest when A\nis rotated. At most it can be displaced by 2πr, if xt and yt are fixed.\ncollision checker only on the samples. What resolution of sampling is required?\nHow can one ever guarantee that the places where the path is not sampled are\ncollision-free? There are both practical and theoretical answers to these questions.\nIn practice, a fixed ∆q > 0 is often chosen as the C-space step size. Points t1, t2 ∈\n[0, 1] are then chosen close enough together to ensure that ρ(τ(t1), τ(t2)) ≤ ∆q, in\nwhich ρ is the metric on C. The value of ∆q is often determined experimentally.\nIf ∆q is too small, then considerable time is wasted on collision checking. If ∆q\nis too large, then there is a chance that the robot could jump through a thin\nobstacle."
+      },
+      {
+        "partId": "closed-chain-exception",
+        "citationId": "lavalle-2006",
+        "sourceUrl": "https://lavalle.pl/planning/ch4.pdf",
+        "supportingPassage": "This section continues the discussion from Section 3.4. Suppose that a collection\nof links is arranged in a way that forms loops. In this case, the C-space becomes\nmuch more complicated because the joint angles must be chosen to ensure that\nthe loops remain closed. This leads to constraints such as that shown in (3.80)\nand Figure 3.26, in which some links must maintain specified positions relative\nto each other. Consider the set of all configurations that satisfy such constraints.\nIs this a manifold? It turns out, unfortunately, that the answer is generally no.\nHowever, the C-space belongs to a nice family of spaces from algebraic geometry\ncalled varieties. Algebraic geometry deals with characterizing the solution sets of\npolynomials. As seen so far in this chapter, all of the kinematics can be expressed\nas polynomials. Therefore, it may not be surprising that the resulting constraints\nare a system of polynomials whose solution set represents the C-space for closed\nkinematic linkages. Although the algebraic varieties considered here need not be\nmanifolds, they can be decomposed into a finite collection of manifolds that fit\ntogether nicely.11\nUnfortunately, a parameterization of the variety that arises from closed chains\nis available in only a few simple cases. Even the topology of the variety is extremely difficult to characterize. To make matters worse, it was proved in [17]\nthat for every closed, bounded real algebraic variety that can be embedded in Rn ,\nthere exists a linkage whose C-space is homeomorphic to it. These troubles imply\nthat most of the time, motion planning algorithms need to work directly with implicit polynomials. For the algebraic methods of Section 6.4.2, this does not pose\nany conceptual difficulty because the methods already work directly with polynomials. Sampling-based methods usually rely on the ability to efficiently sample\nconfigurations, which cannot be easily adapted to a variety without a parameterization. Section 7.4 covers recent methods that extend sampling-based planning\nalgorithms to work for varieties that arise from closed chains."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "cost-not-dimensional-cutoff",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Chapter4 p157 identifies construction difficulty, and p164 describes complicated but semi-algebraic obstacles. No universal dimensional cutoff or volume-explosion law follows.",
+        "evidenceDigest": "8d546be2284eb9df76a536371ab59ee5ea646c8af584750f016061a324044c56"
+      },
+      {
+        "partId": "constructive-exceptions",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Chapter4 translational polygon construction and chain/tree polynomial products explicitly permit automated representations. Difficulty is not impossibility.",
+        "evidenceDigest": "b0e8f6eab9091aa06364983717b00493690aad1f878c55d0440b67b603920b8c"
+      },
+      {
+        "partId": "general-complexity-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Formulation4.1 lists semi-algebraic world, robot, transformations and query; its PSPACE-hardness discussion explicitly identifies unbounded configuration dimension.",
+        "evidenceDigest": "ed82162d4383b718eafd18eac159f35d65550a5f5ab43dd66cd5dd48b368bac7"
+      },
+      {
+        "partId": "implicit-collision-method",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Chapter5 introduction supplies collision-oracle probing; section5.3.4 requires the entire path and warns that coarse point sampling can jump thin obstacles.",
+        "evidenceDigest": "f8d5b6319fa80f974e46bc5a71c547de03618b407b99d14ef71c05f52ed6fc6f"
+      },
+      {
+        "partId": "closed-chain-exception",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Chapter4 closed-chain varieties lack easy parameterization in general, which also impedes efficient sampling. No universal sampling escape is claimed.",
+        "evidenceDigest": "925555ee7088542463a6ed01a9095835b174b802f15aea7443e1da945cc411c6"
+      }
+    ]
+  },
+  {
+    "id": "motion-three-6-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "motion-planning",
+    "rowOrdinal": 6,
+    "originalCellsDigest": "e001922cb61072e9d9489e0f265ee38508c298491438823527bb0e17f8f24d37",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "voronoi-selection",
+        "text": "The report’s planar holonomic example favours frontier vertices with larger Voronoi regions through nearest-neighbor selection.",
+        "requiredCitationIds": [
+          "lavalle-1998"
+        ]
+      },
+      {
+        "id": "denseness-hypotheses",
+        "text": "The 2006 dense-tree construction assumes an infinite dense sequence; random/nonuniform sequences qualify only if dense with probability one. Distinguish obstacle-free construction from collision-limited extensions.",
+        "requiredCitationIds": [
+          "lavalle-2006"
+        ]
+      },
+      {
+        "id": "no-universal-speed",
+        "text": "Bias/denseness do not guarantee fast coverage of every problem. The report leaves convergence-rate analysis open; the book separates exploration from a planning query.",
+        "requiredCitationIds": [
+          "lavalle-1998",
+          "lavalle-2006"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+      "rationale": "Actual report pages2–3 bound the example to planar bounded convex holonomic Euclidean geometry and explain nearest-neighbor selection of larger Voronoi regions. Actual chapter5 section5.5.1, not the prior truncated pre-section excerpt, specifies infinite dense sequences, almost-sure density, the step-size-free swath construction and obstacle-limited extension. Report page3 explicitly leaves convergence rate open; chapter5 section5.5.3 says exploring free space does not itself solve a query. The corrected paragraph supplies neither universal speed nor arbitrary obstacle connectivity.",
+      "planDigest": "bf70c650fbf238bed62aaba8911800e0e24bc55870b4d8131c25ef8d76d8d7ed"
+    },
+    "evidence": [
+      {
+        "partId": "voronoi-selection",
+        "citationId": "lavalle-1998",
+        "sourceUrl": "https://lavalle.pl/papers/Lav98c.pdf",
+        "supportingPassage": "An RRT works in the opposite manner by being biased toward places not yet visited. This can be seen by considering the Voronoi diagram of the RRT vertices. Larger Voronoi regions occur on the “frontier” of the tree. Since vertex selection is based on nearest neighbors, this implies that vertices with large Voronoi regions are more likely to be selected for expansion. On average, an RRT is constructed by iteratively breaking large Voronoi regions into smaller ones.\n"
+      },
+      {
+        "partId": "denseness-hypotheses",
+        "citationId": "lavalle-2006",
+        "sourceUrl": "https://lavalle.pl/planning/ch5.pdf",
+        "supportingPassage": "5.5 Rapidly Exploring Dense Trees\nThis section introduces an incremental sampling and searching approach that\nyields good performance in practice without any parameter tuning.14\nThe idea\nis to incrementally construct a search tree that gradually improves the resolution\nbut does not need to explicitly set any resolution parameters. In the limit, the tree\ndensely covers the space. Thus, it has properties similar to space filling curves\n[147], but instead of one long path, there are shorter paths that are organized\ninto a tree. A dense sequence of samples is used as a guide in the incremental\nconstruction of the tree. If this sequence is random, the resulting tree is called\na rapidly exploring random tree (RRT). In general, this family of trees, whether\nthe sequence is random or deterministic, will be referred to as rapidly exploring\ndense trees (RDTs) to indicate that a dense covering of the space is obtained. This\nmethod was originally developed for motion planning under differential constraints\n[105, 108]; that case is covered in Section 14.4.3.\n5.5.1 The Exploration Algorithm\nBefore explaining how to use these trees to solve a planning query, imagine that\nthe goal is to get as close as possible to every configuration, starting from an\ninitial configuration. The method works for any dense sequence. Once again, let\nα denote an infinite, dense sequence of samples in C. The ith sample is denoted\nby α(i). This may possibly include a uniform, random sequence, which is only\ndense with probability one. Random sequences that induce a nonuniform bias are\nalso acceptable, as long as they are dense with probability one.\nAn RDT is a topological graph, G(V, E). Let S ⊂ Cfree indicate the set of all\npoints reached by G. Since each e ∈ E is a path, this can be expressed as the\n14\nThe original RRT [103] was introduced with a step size parameter, but this is eliminated in\nthe current presentation. For implementation purposes, one might still want to revert to this\nolder way of formulating the algorithm because the implementation is a little easier. This will\nbe discussed shortly.\n230 S. M. LaValle: Planning Algorithms\nSIMPLE RDT(q0)\n1 G.init(q0);\n2 for i = 1 to k do\n3 G.add vertex(α(i));\n4 qn ← nearest(S(G), α(i));\n5 G.add edge(qn, α(i));\nFigure 5.16: The basic algorithm for constructing RDTs (which includes RRTs\nas a special case) when there are no obstacles. It requires the availability of a\ndense sequence, α, and iteratively connects from α(i) to the nearest point among\nall those reached by G.\nq0\nqn\nα(i)\nq0\n(a) (b)\nFigure 5.17: (a) Suppose inductively that this tree has been constructed so far\nusing the algorithm in Figure 5.16. (b) A new edge is added that connects from\nthe sample α(i) to the nearest point in S, which is the vertex qn.\nswath, S, of the graph, which is defined as\nS =\n[\ne∈E\ne([0, 1]). (5.40)\nIn (5.40), e([0, 1]) ⊆ Cfree is the image of the path e.\nThe exploration algorithm is first explained in Figure 5.16 without any obsta-\ncles or boundary obstructions. It is assumed that C is a metric space. Initially, a\nvertex is made at q0. For k iterations, a tree is iteratively grown by connecting\nα(i) to its nearest point in the swath, S. The connection is usually made along\nqn\nα(i)\nq0\nFigure 5.18: If the nearest point in S lies in an edge, then the edge is split into\ntwo, and a new vertex is inserted into G.\n\f5.5. RAPIDLY EXPLORING DENSE TREES 231\n45 iterations 2345 iterations\nFigure 5.19: In the early iterations, the RRT quickly reaches the unexplored parts.\nHowever, the RRT is dense in the limit (with probability one), which means that\nit gets arbitrarily close to any point in the space.\nthe shortest possible path. In every iteration, α(i) becomes a vertex. Therefore,\nthe resulting tree is dense. Figures 5.17–5.18 illustrate an iteration graphically.\nSuppose the tree has three edges and four vertices, as shown in Figure 5.17a. If\nthe nearest point, qn ∈ S, to α(i) is a vertex, as shown in Figure 5.17b, then an\nedge is made from qn to α(i). However, if the nearest point lies in the interior\nof an edge, as shown in Figure 5.18, then the existing edge is split so that qn\nappears as a new vertex, and an edge is made from qn to α(i). The edge splitting,\nif required, is assumed to be handled in line 4 by the method that adds edges.\nNote that the total number of edges may increase by one or two in each iteration.\nThe method as described here does not fit precisely under the general frame-\nwork from Section 5.4.1; however, with the modifications suggested in Section\n5.5.2, it can be adapted to fit. In the RDT formulation, the nearest function\nserves the purpose of the VSM, but in the RDT, a point may be selected from\nanywhere in the swath of the graph. The VSM can be generalized to a swath-point\nselection method, SSM. This generalization will be used in Section 14.3.4. The\nLPM tries to connect α(i) to qn along the shortest path possible in C.\nFigure 5.19 shows an execution of the algorithm in Figure 5.16 for the case\nin which C = [0, 1]2\nand q0 = (1/2, 1/2). It exhibits a kind of fractal behavior.15\nSeveral main branches are first constructed as it rapidly reaches the far corners of\nthe space. Gradually, more and more area is filled in by smaller branches. From\nthe pictures, it is clear that in the limit, the tree densely fills the space. Thus,\n15\nIf α is uniform, random, then a stochastic fractal [101] is obtained. Deterministic fractals\ncan be constructed using sequences that have appropriate symmetries.\n232 S. M. LaValle: Planning Algorithms\nqn\nq0\nCobs\nqs\nα(i)\nFigure 5.20: If there is an obstacle, the edge travels up to the obstacle boundary,\nas far as allowed by the collision detection algorithm.\nRDT(q0)\n1 G.init(q0);\n2 for i = 1 to k do\n3 qn ← nearest(S, α(i));\n4 qs ← stopping-configuration(qn,α(i));\n5 if qs 6= qn then\n6 G.add vertex(qs);\n7 G.add edge(qn, qs);\nFigure 5.21: The RDT with obstacles.\nit can be seen that the tree gradually improves the resolution (or dispersion) as\nthe iterations continue. This behavior turns out to be ideal for sampling-based\nmotion planning.\nRecall that in sampling-based motion planning, the obstacle region Cobs is not\nexplicitly represented. Therefore, it must be taken into account in the construction\nof the tree. Figure 5.20 indicates how to modify the algorithm in Figure 5.16 so\nthat collision checking is taken into account. The modified algorithm appears\nin Figure 5.21. The procedure stopping-configuration yields the nearest\nconfiguration possible to the boundary of Cfree, along the direction toward α(i).\nThe nearest point qn ∈ S is defined to be same (obstacles are ignored); however,\nthe new edge might not reach to α(i). In this case, an edge is made from qn to qs,\nthe last point possible before hitting the obstacle. How close can the edge come to\nthe obstacle boundary? This depends on the method used to check for collision,\nas explained in Section 5.3.4. It is sometimes possible that qn is already as close\nas possible to the boundary of Cfree in the direction of α(i). In this case, no new\nedge or vertex is added that for that iteration.\n"
+      },
+      {
+        "partId": "no-universal-speed",
+        "citationId": "lavalle-1998",
+        "sourceUrl": "https://lavalle.pl/papers/Lav98c.pdf",
+        "supportingPassage": "A crucial piece of analysis that remains open is the rate of convergence.\n"
+      },
+      {
+        "partId": "no-universal-speed",
+        "citationId": "lavalle-2006",
+        "sourceUrl": "https://lavalle.pl/planning/ch5.pdf",
+        "supportingPassage": "5.5.3 Using the Trees for Planning\nSo far, the discussion has focused on exploring Cfree, but this does not solve a\nplanning query by itself. RRTs and RDTs can be used in many ways in plan-\nning algorithms. For example, they could be used to escape local minima in the\nrandomized potential field planner of Section 5.4.3.\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "voronoi-selection",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Actual report pages2–3 bound the example to planar bounded convex holonomic Euclidean geometry and explain nearest-neighbor selection of larger Voronoi regions.",
+        "evidenceDigest": "3f960d2d45b4a3e2b9d8ae690cb12da1632adfe3945296730643edc4c732c4a8"
+      },
+      {
+        "partId": "denseness-hypotheses",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Actual chapter5 section5.5.1, not the prior truncated pre-section excerpt, specifies infinite dense sequences, almost-sure density, the step-size-free swath construction and obstacle-limited extension.",
+        "evidenceDigest": "93635cc6ab93a1e21b410e2f4b461d920f5bad61ec031825ecffd9077051285f"
+      },
+      {
+        "partId": "no-universal-speed",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Report page3 explicitly leaves convergence rate open; chapter5 section5.5.3 says exploring free space does not itself solve a query. The corrected paragraph supplies neither universal speed nor arbitrary obstacle connectivity.",
+        "evidenceDigest": "a2fba327fe9ef40185cf9c5b87c064cb43bb7e3d0ad2b65a081d4397591d99c1"
+      }
+    ]
+  },
+  {
+    "id": "motion-three-8-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "motion-planning",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "051753dfb053d0940fcf082266f6238bc0a4c94c7cc35e1a310caf401d20ae63",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "book-definition",
+        "text": "Preserve LaValle’s limiting-probability definition; do not infer an unconditional arbitrary-path guarantee.",
+        "requiredCitationIds": [
+          "lavalle-2006"
+        ]
+      },
+      {
+        "id": "problem-clearance",
+        "text": "Karaman–Frazzoli’s geometric model uses X=(0,1)^d, d>=2, an open goal region and a solution with strong positive delta clearance.",
+        "requiredCitationIds": [
+          "karaman-frazzoli-2011"
+        ]
+      },
+      {
+        "id": "sampling-hypotheses",
+        "text": "Samples are i.i.d. uniform; the stated extension is to absolutely continuous densities bounded away from zero.",
+        "requiredCitationIds": [
+          "karaman-frazzoli-2011"
+        ]
+      },
+      {
+        "id": "local-planners",
+        "text": "Use the specified fixed-positive-radius sPRM connections and RRT steering bounded by positive eta, with entire straight-segment collision tests.",
+        "requiredCitationIds": [
+          "karaman-frazzoli-2011"
+        ]
+      },
+      {
+        "id": "precise-theorem-family",
+        "text": "Theorems cover sPRM and the specified RRT, not every heuristic implementation; 1-nearest sPRM is a counterexample.",
+        "requiredCitationIds": [
+          "karaman-frazzoli-2011"
+        ]
+      },
+      {
+        "id": "book-roadmap-context",
+        "text": "Retain the book’s local-planner/clearance context; difficult connections and performance bounds depend on the problem.",
+        "requiredCitationIds": [
+          "lavalle-2006"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+      "rationale": "Chapter5 p186 defines limiting solution probability and distinguishes finite-time completeness; the article binds a precise robust model instead of certifying every existing path. Karaman section2.1 specifies the unit-cube Euclidean d>=2 domain and open goal; section4.1 defines strong delta-clearance for the whole path and robust feasibility. The full section3.1 primitive specifies iid uniform sampling and SampleFree rejection; its density extension is preserved in source evidence without broadening the article's uniform case. Complete Near/Steer/CollisionFree definitions and Algorithms2/3 support fixed positive-radius sPRM and positive eta-capped RRT with collision checking over whole straight segments. Definition14 and Theorems15/16 concern robust feasibility for these precise algorithms; the complete next-page Theorem17, absent from the old truncated excerpt, rejects 1-nearest sPRM. Chapter5 section5.6.1 ties difficult connections to tight clearance and the local planner, and gives problem-dependent epsilon-goodness bounds, not a fixed runtime guarantee.",
+      "planDigest": "dd721cb66cf18bf4cb4417556f7d425539bfb626357e94af1a7cdade8d6feb78"
+    },
+    "evidence": [
+      {
+        "partId": "book-definition",
+        "citationId": "lavalle-2006",
+        "sourceUrl": "https://lavalle.pl/planning/ch5.pdf",
+        "supportingPassage": "186 S. M. LaValle: Planning Algorithms\ntion in a finite amount of time. If a solution exists, it must return one in finite\ntime. The combinatorial motion planning methods of Chapter 6 will achieve this.\nUnfortunately, such completeness is not achieved with sampling-based planning.\nInstead, weaker notions of completeness are tolerated. The notion of denseness\nbecomes important, which means that the samples come arbitrarily close to any\nconfiguration as the number of iterations tends to infinity. A deterministic ap-\nproach that samples densely will be called resolution complete. This means that\nif a solution exists, the algorithm will find it in finite time; however, if a solution\ndoes not exist, the algorithm may run forever. Many sampling-based approaches\nare based on random sampling, which is dense with probability one. This leads\nto algorithms that are probabilistically complete, which means that with enough\npoints, the probability that it finds an existing solution converges to one. The\nmost relevant information, however, is the rate of convergence, which is usually\nvery difficult to establish.\n"
+      },
+      {
+        "partId": "problem-clearance",
+        "citationId": "karaman-frazzoli-2011",
+        "sourceUrl": "https://arxiv.org/pdf/1105.1186",
+        "supportingPassage": "\n2.1\n\nProblem Formulation\n\nIn this section, the feasible and optimal path planning problems are formalized.\nLet X = (0, 1)d be the configuration space, where d ∈ N, d ≥ 2. Let Xobs be the obstacle region,\nsuch that X \\ Xobs is an open set, and denote the obstacle-free space as Xfree = cl(X \\ Xobs ), where\ncl(·) denotes the closure of a set. The initial condition xinit is an element of Xfree , and the goal region\nXgoal is an open subset of Xfree . A path planning problem is defined by a triplet (Xfree , xinit , Xgoal ).\nLet σ : [0, 1] → Rd ; the total variation of σ is defined as\nTV(σ) =\n\nn\nX\n\nsup\n\n|σ(τi ) − σ(τi−1 )|.\n\n{n∈N,0=τ0 <τ1 <···<τn =s} i=1\n\nA function σ with TV(σ) < ∞ is said to have bounded variation.\nDefinition 1 (Path) A function σ : [0, 1] → Rd of bounded variation is called a\n• Path, if it is continuous;\n• Collision-free path, if it is a path, and σ(τ ) ∈ Xfree , for all τ ∈ [0, 1];\n• Feasible path, if it is a collision-free path, σ(0) = xinit , and σ(1) ∈ cl(Xgoal ).\nThe total variation of a path is essentially its length, i.e., the Euclidean distance traversed by the\n\n\n[Separate excerpt from the same retained source]\n\nball of radius δ centered at x lies entirely inside Xfree . The δ-interior of Xfree , denoted as intδ (Xfree ),\nis defined as the collection of all δ-interior states, i.e., intδ (Xfree ) := {x ∈ Xfree | Bx,δ ⊆ Xfree }. In\n2\nWe will not address the case in which the sampling procedure is deterministic, but refer the reader to LaValle et al.\n(2004), which contains an in-depth discussion of the relative merits of randomness and determinism in sampling-based\nmotion planning algorithms.\n\n16\n\n\f\u0001\n\u0001\u0001\u0002\u0003\n\nFigure 1: An illustration of the δ-interior of Xfree . The obstacle region Xobs is shown in dark grey\nand the δ-interior of Xfree is shown in light grey. The distance between the dashed boundary of\nintδ (Xfree ) and the solid boundary of Xfree is precisely δ.\nother words, the δ-interior of Xfree is the set of all states that are at least a distance δ away from any\npoint in the obstacle set (see Figure 1). A collision-free path σ : [0, 1] → Xfree is said to have strong\nδ-clearance, if σ lies entirely inside the δ-interior of Xfree , i.e., σ(τ ) ∈ intδ (Xfree ) for all τ ∈ [0, 1]. A\npath planning problem (Xfree , xinit , Xgoal ) is said to be robustly feasible if there exists a path with\nstrong δ-clearance, for some δ > 0, that solves it. In terms of the notation used in this paper, the\nnotion of probabilistic completeness can be stated as follows.\nDefinition 14 (Probabilistic Completeness) An algorithm ALG is probabilistically complete,\nif, for any robustly feasible path planning problem (Xfree , xinit , Xgoal ),\n\u0001\nlim inf P {∃xgoal ∈ VnALG ∩ Xgoal such that xinit is connected to xgoal in GALG\n} = 1.\nn\nn→∞\n\nIf an algorithm is probabilistically complete, and the path planning problem is robustly feasible,\nthe limit\n\u0001\nlimn→∞ P {∃xgoal ∈ VnALG ∩ Xgoal such that xinit is connected to xgoal in GALG\n}\nn\nexists and is equal to 1. On the other hand, the same limit is equal to zero for any sampling-based\nalgorithm (including probabilistically complete ones) if the problem is not robustly feasible, unless\nthe samples are drawn from a singular distribution adapted to the problem.\nIt is known from the literature that the sPRM and RRT algorithms are probabilistically complete, and that the probability of finding a solution if one exists approaches one exponentially fast\nwith the number of vertices in the graph returned by the algorithms. In other words,\nTheorem 15 (Probabilistic completeness of sPRM (Kavraki et al., 1998)) Consider a robustly feasible path planning problem (Xfree , xinit , Xgoal ). There exist constants a > 0 and n0 ∈ N,\n"
+      },
+      {
+        "partId": "sampling-hypotheses",
+        "citationId": "karaman-frazzoli-2011",
+        "sourceUrl": "https://arxiv.org/pdf/1105.1186",
+        "supportingPassage": "Sampling: Let Sample : ω 7→ {Samplei (ω)}i∈N0 ⊂ X be a map from Ω to sequences of points\nin X , such that the random variables Samplei , i ∈ N0 , are independent and identically distributed (i.i.d.). For simplicity, the samples are assumed to be drawn from a uniform distribution, even though results extend naturally to any absolutely continuous distribution with density\nbounded away from zero on X . It is convenient to consider another map, SampleFree : ω 7→\n{SampleFreei (ω)}i∈N0 ⊂ Xfree that returns sequences of i.i.d. samples from Xfree . For each ω ∈ Ω,\nthe sequence {SampleFreei (ω)}i∈N0 is the subsequence of {Samplei (ω)}i∈N0 containing only the\nsamples in Xfree , i.e., {SampleFreei (ω)}i∈N0 = {Samplei (ω)}i∈N0 ∩ Xfree .\n"
+      },
+      {
+        "partId": "local-planners",
+        "citationId": "karaman-frazzoli-2011",
+        "sourceUrl": "https://arxiv.org/pdf/1105.1186",
+        "supportingPassage": "Near Vertices: Given a graph G = (V, E), where V ⊂ X , a point x ∈ X , and a positive real\nnumber r ∈ R>0 , the function Near : (G, x, r) 7→ V 0 ⊆ V returns the vertices in V that are\ncontained in a ball of radius r centered at x, i.e.,\nNear(G = (V, E), x, r) := {v ∈ V : v ∈ Bx,r } .\nSteering: Given two points x, y ∈ X , the function Steer : (x, y) 7→ z returns a point z ∈ X\nsuch that z is “closer” to y than x is. Throughout the paper, the point z returned by the function\nSteer will be such that z minimizes kz − yk while at the same time maintaining kz − xk ≤ η, for\na prespecified η > 0,1 i.e.,\nSteer(x, y) := argminz∈Bx,η kz − yk.\nCollision Test: Given two points x, x0 ∈ X , the Boolean function CollisionFree(x, x0 ) returns\nTrue if the line segment between x and x0 lies in Xfree , i.e., [x, x0 ] ⊂ Xfree , and False otherwise.\n\n\n\n[Separate excerpt from the same retained source]\n\n\nxrand ← SampleFreei ;\nU ← Near(G = (V, E), xrand , r) ;\nV ← V ∪ {xrand };\nforeach u ∈ U , in order of increasing ku − xrand k, do\nif xrand and u are not in the same connected component of G = (V, E) then\nif CollisionFree(xrand , u) then E ← E ∪ {(xrand , u), (u, xrand )};\n\n9 return G = (V, E);\n\nAnalysis results in the literature are only available for a “simplified” version of the PRM algorithm (Kavraki et al., 1998), referred to as sPRM in this paper. The simplified algorithm initializes\nthe vertex set with the initial condition, samples n points from Xfree , and then attempts to connect\npoints within a distance r, i.e., using a similar logic as PRM, with the difference that connections\nbetween vertices in the same connected component are allowed. Notice that in the absence of\nobstacles, i.e., if Xfree = X , the roadmap constructed in this way is a random r-disc graph.\nAlgorithm 2: sPRM\n1 V ← {xinit } ∪ {SampleFreei }i=1,...,n ; E ← ∅;\n2 foreach v ∈ V\n3\n\n\n[Separate excerpt from the same retained source]\n\nkNearest(G = (V, E), xrand , k) in line 4 of Algorithm 1 and U ← kNearest(G = (V, E), v, k)\\\n{v} in line 3 of Algorithm 2. The roadmap constructed in this way in an obstacle-free\nenvironment is a random k-nearest graph.\n• Bounded-degree (s)PRM: For any fixed r, the average number of connections attempted\nat each iteration is proportional to the number of vertices in V , and can result in an excessive\ncomputational burden for large n. To address this, an upper bound k can be imposed on\nthe cardinality of the set U (a typical value is reported as k = 20 (LaValle, 2006)). In\nother words, U ← Near(G, xrand , r) ∩ kNearest(G, xrand , k) in line 4 of Algorithm 1, and\nU ← (Near(G, v, r) ∩ kNearest(G, v, k)) \\ {v} in line 3 of Algorithm 2.\n• Variable-radius (s)PRM: Another option to maintain the degree of the vertices in the\nroadmap small is to make the connection radius r a function of n, as opposed to a fixed\n12\n\n\fparameter. However, there are no clear indications in the literature on the appropriate functional relationship between r and n.\nRapidly-exploring Random Trees (RRT): The Rapidly-exploring Random Tree algorithm\nis primarily aimed at single-query applications. In its basic version, the algorithm incrementally\nbuilds a tree of feasible trajectories, rooted at the initial condition. An outline of the algorithm is\ngiven in Algorithm 3. The algorithm is initialized with a graph that includes the initial state as its\nsingle vertex, and no edges. At each iteration, a point xrand ∈ Xfree is sampled. An attempt is made\nto connect the nearest vertex v ∈ V in the tree to the new sample. If such a connection is successful,\nxrand is added to the vertex set, and (v, xrand ) is added to the edge set. In the original version\nof this algorithm, the iteration is stopped as soon as the tree contains a node in the goal region.\nIn this paper, for consistency with the other algorithms (e.g., PRM), the iteration is performed n\ntimes. In the absence of obstacles, i.e., if Xfree = X , the tree constructed in this way is an online\nnearest neighbor graph.\nAlgorithm 3: RRT\n1 V ← {xinit }; E ← ∅;\n2 for i = 1, . . . , n do\n3\n"
+      },
+      {
+        "partId": "precise-theorem-family",
+        "citationId": "karaman-frazzoli-2011",
+        "sourceUrl": "https://arxiv.org/pdf/1105.1186",
+        "supportingPassage": "Let δ > 0 be a real number. A state x ∈ Xfree is said to be a δ-interior state of Xfree , if the closed\nball of radius δ centered at x lies entirely inside Xfree . The δ-interior of Xfree , denoted as intδ (Xfree ),\nis defined as the collection of all δ-interior states, i.e., intδ (Xfree ) := {x ∈ Xfree | Bx,δ ⊆ Xfree }. In\n2\nWe will not address the case in which the sampling procedure is deterministic, but refer the reader to LaValle et al.\n(2004), which contains an in-depth discussion of the relative merits of randomness and determinism in sampling-based\nmotion planning algorithms.\n\n16\n\n\f\u0001\n\u0001\u0001\u0002\u0003\n\nFigure 1: An illustration of the δ-interior of Xfree . The obstacle region Xobs is shown in dark grey\nand the δ-interior of Xfree is shown in light grey. The distance between the dashed boundary of\nintδ (Xfree ) and the solid boundary of Xfree is precisely δ.\nother words, the δ-interior of Xfree is the set of all states that are at least a distance δ away from any\npoint in the obstacle set (see Figure 1). A collision-free path σ : [0, 1] → Xfree is said to have strong\nδ-clearance, if σ lies entirely inside the δ-interior of Xfree , i.e., σ(τ ) ∈ intδ (Xfree ) for all τ ∈ [0, 1]. A\npath planning problem (Xfree , xinit , Xgoal ) is said to be robustly feasible if there exists a path with\nstrong δ-clearance, for some δ > 0, that solves it. In terms of the notation used in this paper, the\nnotion of probabilistic completeness can be stated as follows.\nDefinition 14 (Probabilistic Completeness) An algorithm ALG is probabilistically complete,\nif, for any robustly feasible path planning problem (Xfree , xinit , Xgoal ),\n\u0001\nlim inf P {∃xgoal ∈ VnALG ∩ Xgoal such that xinit is connected to xgoal in GALG\n} = 1.\nn\nn→∞\n\nIf an algorithm is probabilistically complete, and the path planning problem is robustly feasible,\nthe limit\n\u0001\nlimn→∞ P {∃xgoal ∈ VnALG ∩ Xgoal such that xinit is connected to xgoal in GALG\n}\nn\nexists and is equal to 1. On the other hand, the same limit is equal to zero for any sampling-based\nalgorithm (including probabilistically complete ones) if the problem is not robustly feasible, unless\nthe samples are drawn from a singular distribution adapted to the problem.\nIt is known from the literature that the sPRM and RRT algorithms are probabilistically complete, and that the probability of finding a solution if one exists approaches one exponentially fast\nwith the number of vertices in the graph returned by the algorithms. In other words,\nTheorem 15 (Probabilistic completeness of sPRM (Kavraki et al., 1998)) Consider a robustly feasible path planning problem (Xfree , xinit , Xgoal ). There exist constants a > 0 and n0 ∈ N,\ndependent only on Xfree and Xgoal , such that\n\b\n\u0001\nP ∃ xgoal ∈ VnsPRM ∩ Xgoal : xgoal is connected to xinit in GsPRM\n> 1 − e−a n , ∀n > n0 .\nn\nTheorem 16 (Probabilistic Completeness of RRT (LaValle and Kuffner, 2001)) Consider\na robustly feasible path planning problem (Xfree , xinit , Xgoal ). There exist constants a > 0 and\nn0 ∈ N, both dependent only on Xfree and Xgoal , such that\n\u0001\n\b\nP VnRRT ∩ Xgoal 6= ∅ > 1 − e−a n , ∀n > n0 .\nOn the other hand, the probabilistic completeness results do not necessarily extend to the\nheuristics used in practical implementations of the (s)PRM algorithm, as detailed in Section 3. For\n17\n\n\fexample, consider the k-nearest sPRM algorithm, where k = 1. That is, each vertex is connected\nto its nearest neighbor and the resulting undirected graph is returned as the output. This sPRM\nalgorithm will be called the 1-nearest sPRM, and indicated with the label 1PRM. The RRT\nalgorithm can be thought of as the incremental version of the 1-nearest sPRM algorithm: the RRT\nalgorithm also connects each sample to its nearest neighbor, but forces connectivity of the graph by\nan incremental construction. The following theorem shows that the 1-nearest sPRM algorithm is\nnot probabilistically complete, although the RRT is (see Theorem 16). Furthermore, the probability\nthat it fails to find a path converges to one as the number of samples approaches infinity.\nTheorem 17 (Incompleteness of k-nearest sPRM for k = 1) The k-nearest sPRM algorithm\nis not probabilistically complete for k = 1. Furthermore,\n\u0001\nlim P {∃xgoal ∈ Vn1PRM ∩ Xgoal such that xinit is connected to xgoal in GALG\n} = 0.\nn\nn→∞\n\n"
+      },
+      {
+        "partId": "book-roadmap-context",
+        "citationId": "lavalle-2006",
+        "sourceUrl": "https://lavalle.pl/planning/ch5.pdf",
+        "supportingPassage": "Some analysis There have been many works that analyze the performance of\nsampling-based roadmaps. The basic idea from one of them [13] is briefly pre-\nsented here. Consider problems such as the one in Figure 5.27, in which the con-\nnect method will mostly likely fail in the thin tube, even though a connection\nexists. The higher dimensional versions of these problems are even more difficult.\nMany planning problems involve moving a robot through an area with tight clear-\nance. This generally causes narrow channels to form in Cfree, which leads to a\nchallenging planning problem for the sampling-based roadmap algorithm. Finding\nthe escape of a bug trap is also challenging, but for the roadmap methods, even\ntraveling through a single corridor is hard (unless more sophisticated LPMs are\nused [83]).\nLet V (q) denote the set of all configurations that can be connected to q using\nthe connect method. Intuitively, this is considered as the set of all configurations\nthat can be “seen” using line-of-sight visibility, as shown in Figure 5.28a\n\f5.6. ROADMAP METHODS FOR MULTIPLE QUERIES 241\nqG\nqI\nFigure 5.27: An example such as this is difficult for sampling-based roadmaps (in\nhigher dimensional C-spaces) because some samples must fall along many points\nin the curved tube. Other methods, however, may be able to easily solve it.\nV (q)\nq\n(a) Visibility definition (b) Visibility roadmap\nFigure 5.28: (a) V (q) is the set of points reachable by the LPM from q. (b) A\nvisibility roadmap has two kinds of vertices: guards, which are shown in black,\nand connectors, shown in white. Guards are not allowed to see other guards.\nConnectors must see at least two guards.\n242 S. M. LaValle: Planning Algorithms\nThe ǫ-goodness of Cfree is defined as\nǫ(Cfree) = min\nq∈Cfree\n\u001a\nµ(V (q))\nµ(Cfree)\n\u001b\n, (5.41)\nin which µ represents the measure. Intuitively, ǫ(Cfree) represents the small frac-\ntion of Cfree that is visible from any point. In terms of ǫ and the number of vertices\nin G, bounds can be established that yield the probability that a solution will be\nfound [13]. The main difficulties are that the ǫ-goodness concept is very conserva-\ntive (it uses worst-case analysis over all configurations), and ǫ-goodness is defined\nin terms of the structure of Cfree, which cannot be computed efficiently. This\nresult and other related results help to gain a better understanding of sampling-\nbased planning, but such bounds are difficult to apply to particular problems to\ndetermine whether an algorithm will perform well.\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "book-definition",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Chapter5 p186 defines limiting solution probability and distinguishes finite-time completeness; the article binds a precise robust model instead of certifying every existing path.",
+        "evidenceDigest": "60f5cf80dc9597a07b71121c0bf986f837f9ead7802f6240e29862ccf4f2f315"
+      },
+      {
+        "partId": "problem-clearance",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Karaman section2.1 specifies the unit-cube Euclidean d>=2 domain and open goal; section4.1 defines strong delta-clearance for the whole path and robust feasibility.",
+        "evidenceDigest": "e839338ad3b94ef4eb58cd9443f408b510744ef48e2243eff5eb7a2272caaad5"
+      },
+      {
+        "partId": "sampling-hypotheses",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "The full section3.1 primitive specifies iid uniform sampling and SampleFree rejection; its density extension is preserved in source evidence without broadening the article's uniform case.",
+        "evidenceDigest": "22e2ac5a4cbbdc92807132f994b47e951da7ebc514286d1505b9f0618987b1e6"
+      },
+      {
+        "partId": "local-planners",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Complete Near/Steer/CollisionFree definitions and Algorithms2/3 support fixed positive-radius sPRM and positive eta-capped RRT with collision checking over whole straight segments.",
+        "evidenceDigest": "9dcb672b1eeff2276632b6f5422c797b7b7c6078650533d993cfbb6ab4d4bccc"
+      },
+      {
+        "partId": "precise-theorem-family",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Definition14 and Theorems15/16 concern robust feasibility for these precise algorithms; the complete next-page Theorem17, absent from the old truncated excerpt, rejects 1-nearest sPRM.",
+        "evidenceDigest": "2af8b6117757f865f95bf582a96066a45b9c8ac21400598cbef09b190eaad90d"
+      },
+      {
+        "partId": "book-roadmap-context",
+        "outcome": "supported",
+        "reviewedBy": "agent:73b1ed6a-cb22-4847-890d-99c03ff48758/source-auditor; review 2026-09-13T19:44:45.241883+00:00; native binding 2026-09-13T19:48:20.264Z; not independent acceptance",
+        "rationale": "Chapter5 section5.6.1 ties difficult connections to tight clearance and the local planner, and gives problem-dependent epsilon-goodness bounds, not a fixed runtime guarantee.",
+        "evidenceDigest": "7fa2fcef801c0767b8579fc7fbb41e8e84d079a56d5c09f1c9c0281722bc484d"
+      }
+    ]
   }
 ]
