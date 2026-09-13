@@ -37316,5 +37316,480 @@
         "evidenceDigest": "ec36d5fd7da4d7c9506c0dedb339022c5cafca7b32e267f22c98b4c23fca8f52"
       }
     ]
+  },
+  {
+    "id": "amazon-industrial-20260912-15",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "2739690956b14c5ef13eb16e98bb33db24c4a21222284dd31f72a2061b267c2c",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "announcement-identity-date",
+        "text": "The announcement names Scott Dresser and October 18, 2023; its source H1 identifies Sequoia and Digit announcement context.",
+        "requiredCitationIds": [
+          "amazon-sequoia-digit-2023"
+        ]
+      },
+      {
+        "id": "historical-working-count",
+        "text": "Amazon reports over 750,000 robots working collaboratively with employees at this announcement, not an exact count or a 2026 active-fleet number.",
+        "requiredCitationIds": [
+          "amazon-sequoia-digit-2023"
+        ]
+      },
+      {
+        "id": "system-status-distinction",
+        "text": "Sequoia was operating at one Houston fulfillment center; Digit testing was planned with initial tote recycling, not an established scale deployment of both systems.",
+        "requiredCitationIds": [
+          "amazon-sequoia-digit-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+      "rationale": "2026-09-13T01:10:15.440Z: all current whole-claim AND parts reviewed. The complete retained announcement names Scott Dresser, VP Amazon Robotics, and October 18, 2023. Its H1 is the existing registry title; the different FetchUrl title field is retained separately, not manufactured as an HTML title. The actual opening says over 750,000 robots working collaboratively with employees. The bound and historical announcement context remain; this is not a precise count or a 2026 fleet census. The complete source says Sequoia is operating at one Houston fulfillment center. It says Digit testing will begin and names tote recycling as the initial intended use. The general mobile-manipulator testing paragraph does not convert the Digit future tense to deployed status.",
+      "planDigest": "f840a6bfbaca57a83dfb9bd197b408df8f879834870bab3fd712f9ff59e86918"
+    },
+    "evidence": [
+      {
+        "partId": "announcement-identity-date",
+        "citationId": "amazon-sequoia-digit-2023",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions",
+        "supportingPassage": "# Amazon announces 2 new ways it's using robots to assist employees and deliver for customers\n\nWritten by [Scott Dresser](https://www.aboutamazon.com/author/scott-dresser-vp-amazon-robotics), VP, Amazon Robotics\n\nOctober 18, 2023"
+      },
+      {
+        "partId": "historical-working-count",
+        "citationId": "amazon-sequoia-digit-2023",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions",
+        "supportingPassage": "We now have over 750,000 robots working collaboratively with our employees, taking on highly repetitive tasks and freeing employees up to better deliver for our customers."
+      },
+      {
+        "partId": "system-status-distinction",
+        "citationId": "amazon-sequoia-digit-2023",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions",
+        "supportingPassage": "With all of these efforts underway, it makes us particularly proud to share that we have just launched a new robotic system in time to help fulfill customer orders for holiday shopping this year. Sequoia is the name of this new technology, and it’s now operating at one of our fulfillment centers in Houston, Texas.\n\nBroadening our partnership with Agility Robotics, we will begin testing their bipedal robot, Digit, for use in our operations.\n\nOur initial use for this technology will be to help employees with tote recycling, a highly repetitive process of picking up and moving empty totes once inventory has been completely picked out of them."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "announcement-identity-date",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The complete retained announcement names Scott Dresser, VP Amazon Robotics, and October 18, 2023. Its H1 is the existing registry title; the different FetchUrl title field is retained separately, not manufactured as an HTML title.",
+        "evidenceDigest": "9708a08d329d05ebccf29079c9a8399f28fe81f0d8e4a96ebe98129e4995ab4a"
+      },
+      {
+        "partId": "historical-working-count",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The actual opening says over 750,000 robots working collaboratively with employees. The bound and historical announcement context remain; this is not a precise count or a 2026 fleet census.",
+        "evidenceDigest": "57199d6985314ce71c3e58688845968a04b1490e4ae73dc9c0667f4973c24f81"
+      },
+      {
+        "partId": "system-status-distinction",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The complete source says Sequoia is operating at one Houston fulfillment center. It says Digit testing will begin and names tote recycling as the initial intended use. The general mobile-manipulator testing paragraph does not convert the Digit future tense to deployed status.",
+        "evidenceDigest": "ec5ea8d00f0d07e744e8c40d107f934814a515abe8237b5f781075aaf66485db"
+      }
+    ]
+  },
+  {
+    "id": "amazon-industrial-20260912-16",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 16,
+    "originalCellsDigest": "8e4baa75b957a3f7a6c6e1fb8cefc069c667bed2d206816a9ca66d2f7faed581",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "overview-identity-edition",
+        "text": "The source names Tyler Greenawalt, publication October 9, 2024 and update June 4, 2026; the update is not publication or article review.",
+        "requiredCitationIds": [
+          "amazon-robot-fleet-2026"
+        ]
+      },
+      {
+        "id": "cumulative-network-count",
+        "text": "More than one million robots have been deployed across the operations network since 2012; preserve that cumulative scope and distinguish plans to scale systems from active fleet stock.",
+        "requiredCitationIds": [
+          "amazon-robot-fleet-2026"
+        ]
+      },
+      {
+        "id": "sequoia-task",
+        "text": "The source describes Sequoia inventory identification/storage and inventory transport; this does not establish a per-system deployment count.",
+        "requiredCitationIds": [
+          "amazon-robot-fleet-2026"
+        ]
+      },
+      {
+        "id": "sparrow-task",
+        "text": "The source’s Sparrow section describes a robotic arm moving individual items from containers into totes before packaging.",
+        "requiredCitationIds": [
+          "amazon-robot-fleet-2026"
+        ]
+      },
+      {
+        "id": "vulcan-task",
+        "text": "The source’s Vulcan section describes employee-assisted high/low inventory-pod picking and stowing, not its deployment at fleet-wide scale.",
+        "requiredCitationIds": [
+          "amazon-robot-fleet-2026"
+        ]
+      },
+      {
+        "id": "proteus-task-and-pilot",
+        "text": "Proteus moves Cardinal-loaded carts to the loading dock; next-generation Proteus is separately described as being piloted in labs with future deployment.",
+        "requiredCitationIds": [
+          "amazon-robot-fleet-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+      "rationale": "2026-09-13T01:10:15.440Z: all current whole-claim AND parts reviewed. The retained full overview names Tyler Greenawalt, Published October 09, 2024 and Updated June 04, 2026. Its closing update note agrees. Publication, content update, original retrieval and current integration review are different dates. Both key takeaways and body say more than one million robots deployed since the 2012 Kiva acquisition. The body separately describes plans to scale systems. This supports a cumulative bound, not simultaneous operating stock or one co-located fleet. The named Sequoia section describes identifying/storing inventory and mobile transport to storage or an employee. No per-system count is inferred. The eight-system Shreveport introduction and nine-system survey are different populations. The complete named Sparrow paragraph, including its antecedent link, describes an arm moving individual items from containers into totes before packaging. That is the piece-picking description retained, not an unsupported system count. The complete named Vulcan paragraph describes working alongside employees at high and low inventory-pod levels. It does not establish deployment at fleet-wide scale; the overview is not read as a per-system census. The actual current Proteus paragraph says it moves Cardinal-loaded carts to the loading dock. The following next-generation description explicitly says it is being piloted in labs and deployment is slated in coming months. Current and future systems remain separate.",
+      "planDigest": "8f197eb5612d5084d3d4ba970971a930a138bddfcae50192113216563271ac0a"
+    },
+    "evidence": [
+      {
+        "partId": "overview-identity-edition",
+        "citationId": "amazon-robot-fleet-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
+        "supportingPassage": "# Amazon uses robots that sort, lift, and carry packages—see them in action\n\nWritten by [Tyler Greenawalt](https://www.aboutamazon.com/author/tyler-greenawalt)\n\nPublished October 09, 2024\n\nUpdated June 04, 2026\n\nThis story has been updated with the most recent information on Amazon Robotics."
+      },
+      {
+        "partId": "cumulative-network-count",
+        "citationId": "amazon-robot-fleet-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
+        "supportingPassage": "- Amazon has deployed more than 1 million robots across its operations network since 2012.\n\nSince then, Amazon has developed, produced, and deployed more than [1 million](https://www.youtube.com/watch?v=7SvTdW4OLUQ) robots across its operations network.\n\nAmazon plans to scale these robotics systems to existing [facilities across the network](https://www.aboutamazon.com/workplace/facilities)."
+      },
+      {
+        "partId": "sequoia-task",
+        "citationId": "amazon-robot-fleet-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
+        "supportingPassage": "Sequoia enables Amazon to identify and store inventory up to 75% faster at our fulfillment centers. It works by having mobile robots transport inventory directly to a containerized storage system or to an employee picking out items for a customer order."
+      },
+      {
+        "partId": "sparrow-task",
+        "citationId": "amazon-robot-fleet-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
+        "supportingPassage": "[Sparrow](https://www.aboutamazon.com/news/operations/amazon-introduces-sparrow-a-state-of-the-art-robot-that-handles-millions-of-diverse-products) is another robotic system that supports employees who aggregate items for customer orders. This robotic arm picks up and moves individual items from containers into specific totes to send off to employees before they’re packaged."
+      },
+      {
+        "partId": "vulcan-task",
+        "citationId": "amazon-robot-fleet-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
+        "supportingPassage": "[Vulcan](https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch) is Amazon’s first robot with a sense of touch, representing a fundamental leap forward in robotics. Working alongside employees, the robot can pick and stow items at the highest and lowest level of inventory pods, creating a safer and easier job for operations employees, while moving orders more efficiently."
+      },
+      {
+        "partId": "proteus-task-and-pilot",
+        "citationId": "amazon-robot-fleet-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
+        "supportingPassage": "Proteus works in conjunction with Cardinal—a robotic arm that loads packages into carts—to move those carts from the outbound dock area of the fulfillment center to the loading dock, where packages are loaded onto trucks.\n\nLike its predecessor, the next-generation Proteus is designed to take on physically demanding tasks, moving heavy carts and covering long distances. This means employees will be able to focus on work like managing inventory flow and ensuring quality control across Amazon's fulfillment network. It is currently being piloted in Amazon's labs, with deployment slated in the months ahead."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "overview-identity-edition",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The retained full overview names Tyler Greenawalt, Published October 09, 2024 and Updated June 04, 2026. Its closing update note agrees. Publication, content update, original retrieval and current integration review are different dates.",
+        "evidenceDigest": "cd5817354879f87877fbf792d45ea9e64e8dd75e5ba71322127993f47a776e03"
+      },
+      {
+        "partId": "cumulative-network-count",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: Both key takeaways and body say more than one million robots deployed since the 2012 Kiva acquisition. The body separately describes plans to scale systems. This supports a cumulative bound, not simultaneous operating stock or one co-located fleet.",
+        "evidenceDigest": "8bcc13287de9e76be2835948c818abe027285ed3cc7705de02f4754044c92b2f"
+      },
+      {
+        "partId": "sequoia-task",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The named Sequoia section describes identifying/storing inventory and mobile transport to storage or an employee. No per-system count is inferred. The eight-system Shreveport introduction and nine-system survey are different populations.",
+        "evidenceDigest": "fda42193bf38599ca7a513e1e6e20f353f0327ce65dc117992e57b87b9bba2fd"
+      },
+      {
+        "partId": "sparrow-task",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The complete named Sparrow paragraph, including its antecedent link, describes an arm moving individual items from containers into totes before packaging. That is the piece-picking description retained, not an unsupported system count.",
+        "evidenceDigest": "ddd7eeb0f27a787c02a4a28d6f30dbd6638e6908649cb8e4da77059340475364"
+      },
+      {
+        "partId": "vulcan-task",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The complete named Vulcan paragraph describes working alongside employees at high and low inventory-pod levels. It does not establish deployment at fleet-wide scale; the overview is not read as a per-system census.",
+        "evidenceDigest": "e1ba69d6d48e83450467552af78b753edfb9e62ab45a165745181ea9aa89309e"
+      },
+      {
+        "partId": "proteus-task-and-pilot",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The actual current Proteus paragraph says it moves Cardinal-loaded carts to the loading dock. The following next-generation description explicitly says it is being piloted in labs and deployment is slated in coming months. Current and future systems remain separate.",
+        "evidenceDigest": "0f36da09223a75a0b283780c3736a6f4d1a29b1d68dd5164db38922b1cac0c06"
+      }
+    ]
+  },
+  {
+    "id": "amazon-industrial-20260912-17",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 17,
+    "originalCellsDigest": "97a3ac99af29923b44f787eff03ba68d3be286abd62d965a8d8985896fca69cd",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "dated-operating-setup",
+        "text": "The October 18, 2023 announcement reports Sequoia operating at one Houston fulfillment center; the company result is tied to that announcement.",
+        "requiredCitationIds": [
+          "amazon-sequoia-digit-2023"
+        ]
+      },
+      {
+        "id": "inventory-speed",
+        "text": "Identify AND store received inventory up to 75% faster than the then-current process; do not drop the task, comparison basis or ceiling.",
+        "requiredCitationIds": [
+          "amazon-sequoia-digit-2023"
+        ]
+      },
+      {
+        "id": "order-time-reduction",
+        "text": "Up to 25% reduction in the time to process an order THROUGH a fulfillment center, not a 25% speed increase or fixed reduction.",
+        "requiredCitationIds": [
+          "amazon-sequoia-digit-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+      "rationale": "2026-09-13T01:10:15.440Z: all current whole-claim AND parts reviewed. The full announcement dates the company statements October 18, 2023 and identifies one Houston fulfillment center as operating Sequoia. It does not present the result as an independent cross-site benchmark. The source says identify AND store received inventory up to 75% faster than we can today. Both operations, upper bound and then-current comparison basis are preserved. The actual source says reduces the time to process an order through a fulfillment center by up to 25%. A 25% time reduction is not a 25% speed increase; the previous corrected label still carried this unit error. The replacement preserves time, scope and bound.",
+      "planDigest": "9972d534619d73087e5461b47e3ea33702019ec407666aea21099889f5eae9c4"
+    },
+    "evidence": [
+      {
+        "partId": "dated-operating-setup",
+        "citationId": "amazon-sequoia-digit-2023",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions",
+        "supportingPassage": "Written by [Scott Dresser](https://www.aboutamazon.com/author/scott-dresser-vp-amazon-robotics), VP, Amazon Robotics\n\nOctober 18, 2023\n\nWith all of these efforts underway, it makes us particularly proud to share that we have just launched a new robotic system in time to help fulfill customer orders for holiday shopping this year. Sequoia is the name of this new technology, and it’s now operating at one of our fulfillment centers in Houston, Texas."
+      },
+      {
+        "partId": "inventory-speed",
+        "citationId": "amazon-sequoia-digit-2023",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions",
+        "supportingPassage": "Sequoia allows us to identify and store inventory we receive at our fulfillment centers up to 75% faster than we can today. This means we can list items for sale on Amazon.com more quickly, benefiting both sellers and customers."
+      },
+      {
+        "partId": "order-time-reduction",
+        "citationId": "amazon-sequoia-digit-2023",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions",
+        "supportingPassage": "When orders are placed, Sequoia also reduces the time it takes to process an order through a fulfillment center by up to 25%, which improves our shipping predictability and increases the number of goods we can offer for Same-Day or Next-Day shipping."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "dated-operating-setup",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The full announcement dates the company statements October 18, 2023 and identifies one Houston fulfillment center as operating Sequoia. It does not present the result as an independent cross-site benchmark.",
+        "evidenceDigest": "ede8f5c71b5bf29b40e3b00c9056d7450bf8c4d1bf7df145d277a0f6c50f2fdc"
+      },
+      {
+        "partId": "inventory-speed",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The source says identify AND store received inventory up to 75% faster than we can today. Both operations, upper bound and then-current comparison basis are preserved.",
+        "evidenceDigest": "3651be0026c0563848f8d496e1bb7a07f1dc3b190f77e5d029429d2f142c9e5f"
+      },
+      {
+        "partId": "order-time-reduction",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The actual source says reduces the time to process an order through a fulfillment center by up to 25%. A 25% time reduction is not a 25% speed increase; the previous corrected label still carried this unit error. The replacement preserves time, scope and bound.",
+        "evidenceDigest": "a99d0e995c1a5e846a61fd8c2b953e0e0fabf3c706feac8e6bc5607fcf68cbc4"
+      }
+    ]
+  },
+  {
+    "id": "amazon-industrial-20260912-18",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 18,
+    "originalCellsDigest": "69df89961fdaba3f61b522a286772ece234d5517c1f0544f92f640b3bf4be9bf",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "vulcan-identity-edition",
+        "text": "Alex Davies is the author; May 7, 2025 is publication and June 4, 2026 is the displayed update; the introduction was in 2025.",
+        "requiredCitationIds": [
+          "amazon-vulcan-2026"
+        ]
+      },
+      {
+        "id": "touch-mechanism",
+        "text": "Vulcan uses force-feedback sensors and tooling to sense contact forces; do not characterize the system as only a generic suction arm.",
+        "requiredCitationIds": [
+          "amazon-vulcan-2026"
+        ]
+      },
+      {
+        "id": "item-type-coverage-and-speed",
+        "text": "Approximately 75% of various stored item TYPES can be picked and stowed, with company-reported employee-comparable speed; not percent of picks or orders, a success rate, or independent reliability validation.",
+        "requiredCitationIds": [
+          "amazon-vulcan-2026"
+        ]
+      },
+      {
+        "id": "disclosed-operating-setup",
+        "text": "The source describes high and low storage-pod work at Spokane and Hamburg; it does not supply a matched evaluation protocol/trial count for the speed claim.",
+        "requiredCitationIds": [
+          "amazon-vulcan-2026"
+        ]
+      },
+      {
+        "id": "handoff-and-future-rollout",
+        "text": "Human partners handle items Vulcan cannot move, and additional Europe/US deployments are planned over the next couple of years, not represented as already rolled out everywhere.",
+        "requiredCitationIds": [
+          "amazon-vulcan-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+      "rationale": "2026-09-13T01:10:15.440Z: all current whole-claim AND parts reviewed. The full Vulcan body names Alex Davies, publication May 07, 2025, update June 04, 2026 and introduction at Dortmund in 2025. The stable citation ID is not a publication-year oracle. The source describes end-of-arm tooling and force-feedback sensors measuring pushing and holding force, plus separate camera/suction picking. Force-feedback picking/stowing summarizes the system, not an assertion that all tooling is one generic suction arm. The actual paragraph says approximately 75% of various stored item TYPES can be picked and stowed, at employee-comparable speeds. A later 75% customer-order paragraph refers to robots in aggregate, not Vulcan success. Thousands of training examples is not a trial count; no matched evaluation protocol or independent reliability evidence is supplied. The full body names Spokane and Hamburg and high inventory-pod rows, then explicitly includes work just above the floor. These are disclosed operating contexts, not a controlled protocol proving the company speed comparison. The source explicitly allows asking a human partner to handle an item Vulcan cannot move; Europe/US expansion is planned over the next couple of years. The remaining older more-than-750,000 total in this updated document is retained source context, not silently replaced by the separate fleet overview or treated as an exact contradictory count.",
+      "planDigest": "2dea8bd656878c3ccd76333adcfe7f33808719bf484bfcb001a4d14c0433f3eb"
+    },
+    "evidence": [
+      {
+        "partId": "vulcan-identity-edition",
+        "citationId": "amazon-vulcan-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch",
+        "supportingPassage": "# Introducing Vulcan: Amazon's first robot with a sense of touch\n\nWritten by [Alex Davies](https://www.aboutamazon.com/author/alex-davies)\n\nPublished May 07, 2025\n\nUpdated June 04, 2026\n\nAmazon first introduced Vulcan, a robot that is neither numb nor dumb, at its Delivering the Future event in Dortmund, Germany, in 2025. Built on key advances in robotics, engineering, and physical AI, Vulcan is Amazon's first robot with a sense of touch."
+      },
+      {
+        "partId": "touch-mechanism",
+        "citationId": "amazon-vulcan-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch",
+        "supportingPassage": "Vulcan does this using an “end of arm tooling” that resembles a ruler stuck onto a hair straightener, plus force feedback sensors that tell it how hard it’s pushing or how firmly it’s holding something, so it can stay below the point at which it risks doing damage."
+      },
+      {
+        "partId": "item-type-coverage-and-speed",
+        "citationId": "amazon-vulcan-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch",
+        "supportingPassage": "With the ability to pick and stow approximately 75% of all various types of items we store at our fulfillment centers, and at speeds comparable to that our front-line employees, Vulcan represents a step change in how automation and AI can assist our employees in their everyday tasks. It also has the smarts to identify when it can’t move a specific item, and can ask a human partner to tag in, helping us leveraging the best of what our technology and employees can achieve by working together."
+      },
+      {
+        "partId": "disclosed-operating-setup",
+        "citationId": "amazon-vulcan-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch",
+        "supportingPassage": "At our fulfillment centers in Spokane, Washington, and Hamburg, Germany, Vulcan is focused on picking and stowing inventory in the top rows of those inventory pods. Because those rows are about 8 feet up, they typically require an employee to reach them using a step ladder, a process that’s time-consuming, tiring, and one that is less ergonomic than stowing and picking at their midriff. Vulcan also handles items stowed just above the floor, so our employees can work where they’re most comfortable."
+      },
+      {
+        "partId": "handoff-and-future-rollout",
+        "citationId": "amazon-vulcan-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch",
+        "supportingPassage": "With the ability to pick and stow approximately 75% of all various types of items we store at our fulfillment centers, and at speeds comparable to that our front-line employees, Vulcan represents a step change in how automation and AI can assist our employees in their everyday tasks. It also has the smarts to identify when it can’t move a specific item, and can ask a human partner to tag in, helping us leveraging the best of what our technology and employees can achieve by working together.\n\nWe plan to deploy Vulcan systems over the next couple of years, at sites throughout Europe and the United States."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "vulcan-identity-edition",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The full Vulcan body names Alex Davies, publication May 07, 2025, update June 04, 2026 and introduction at Dortmund in 2025. The stable citation ID is not a publication-year oracle.",
+        "evidenceDigest": "e412b3ee65db4a920d195c4f4ea0a5940015bfb76629d71314d3f17a7172f821"
+      },
+      {
+        "partId": "touch-mechanism",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The source describes end-of-arm tooling and force-feedback sensors measuring pushing and holding force, plus separate camera/suction picking. Force-feedback picking/stowing summarizes the system, not an assertion that all tooling is one generic suction arm.",
+        "evidenceDigest": "fc8f323e25527d68acb14d2d0a6019819ea2e1774b8756d12846b89ce4f59723"
+      },
+      {
+        "partId": "item-type-coverage-and-speed",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The actual paragraph says approximately 75% of various stored item TYPES can be picked and stowed, at employee-comparable speeds. A later 75% customer-order paragraph refers to robots in aggregate, not Vulcan success. Thousands of training examples is not a trial count; no matched evaluation protocol or independent reliability evidence is supplied.",
+        "evidenceDigest": "c770a3cd5dc0f4fce2838f7591cb47f062eb2bc36b434168f1cd8685a78a1ef8"
+      },
+      {
+        "partId": "disclosed-operating-setup",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The full body names Spokane and Hamburg and high inventory-pod rows, then explicitly includes work just above the floor. These are disclosed operating contexts, not a controlled protocol proving the company speed comparison.",
+        "evidenceDigest": "6cd3ad099ccbb55fb6799223f44af5c12a2318afbe4dafd8eb0bb6c5084a6f44"
+      },
+      {
+        "partId": "handoff-and-future-rollout",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The source explicitly allows asking a human partner to handle an item Vulcan cannot move; Europe/US expansion is planned over the next couple of years. The remaining older more-than-750,000 total in this updated document is retained source context, not silently replaced by the separate fleet overview or treated as an exact contradictory count.",
+        "evidenceDigest": "2d02eeac7d30ee6cbb03e2308dde247baa0f89f2b99ebc78c93db002e7f53b9e"
+      }
+    ]
+  },
+  {
+    "id": "amazon-industrial-20260912-49",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 49,
+    "originalCellsDigest": "5a96e8738d2df5332567413af6aa8ffb027cf82c27919fb5ea0efcc7b2564d1a",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "fleet-title-fidelity",
+        "text": "Keep the existing registry title because it exactly matches the observed FetchUrl document-title field; preserve the distinct H1 rather than inventing an old convenient edition. This is not independent raw HTML title verification.",
+        "requiredCitationIds": [
+          "amazon-robot-fleet-2026"
+        ]
+      },
+      {
+        "id": "fleet-author-publication-update",
+        "text": "Tyler Greenawalt, originally published October 9, 2024, updated June 4, 2026; the stable ID stays amazon-robot-fleet-2026.",
+        "requiredCitationIds": [
+          "amazon-robot-fleet-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+      "rationale": "2026-09-13T01:10:15.440Z: all current whole-claim AND parts reviewed. The current registry title exactly equals the retained FetchUrl Title field. The full body has a different H1. No new title correction is made and this is not raw-origin HTML/JSON-LD title verification. Blue Jay is absent from the full readable overview; no unobserved meta-description assertion is renewed. The full retained byline/date block establishes Tyler Greenawalt and 2024 publication separately from the 2026 update. The registry keeps its stable ID and title, corrects the publication year and records both dates.",
+      "planDigest": "b83b5af941c2d81439d5771633c7489c3d3f528a8b10ebf104ce97bc5f144646"
+    },
+    "evidence": [
+      {
+        "partId": "fleet-title-fidelity",
+        "citationId": "amazon-robot-fleet-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
+        "supportingPassage": "Title: Amazon robotics: Meet the robots inside fulfillment centers\n\n# Amazon uses robots that sort, lift, and carry packages—see them in action"
+      },
+      {
+        "partId": "fleet-author-publication-update",
+        "citationId": "amazon-robot-fleet-2026",
+        "sourceUrl": "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
+        "supportingPassage": "Written by [Tyler Greenawalt](https://www.aboutamazon.com/author/tyler-greenawalt)\n\nPublished October 09, 2024\n\nUpdated June 04, 2026"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "fleet-title-fidelity",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The current registry title exactly equals the retained FetchUrl Title field. The full body has a different H1. No new title correction is made and this is not raw-origin HTML/JSON-LD title verification. Blue Jay is absent from the full readable overview; no unobserved meta-description assertion is renewed.",
+        "evidenceDigest": "1d56fdb64986aa6172c3cbdcadec04b8260b41d5c2514eaacc0777e0bbaafd70"
+      },
+      {
+        "partId": "fleet-author-publication-update",
+        "outcome": "supported",
+        "reviewedBy": "agent:3c425d06-ac3a-46f5-93c3-0c6715fb2ce9/integrator",
+        "rationale": "2026-09-13T01:10:15.440Z: The full retained byline/date block establishes Tyler Greenawalt and 2024 publication separately from the 2026 update. The registry keeps its stable ID and title, corrects the publication year and records both dates.",
+        "evidenceDigest": "ff34da5040bd0706547e79941f42233d8b3585f1a45172a3a8941e7297e51af3"
+      }
+    ]
   }
 ]

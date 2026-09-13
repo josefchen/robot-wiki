@@ -8406,44 +8406,34 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // Amazon company press, October 2023: Sequoia (75% faster inventory
-    // storage, 25% faster order processing), Digit pilot, 750,000+
-    // robots working collaboratively.
-    id: 'amazon-sequoia-digit-2023',
-    title:
-      "Amazon announces 2 new ways it's using robots to assist employees and deliver for customers",
-    authors: ['Scott Dress (About Amazon)'],
+    // Company announcement: >750,000 robots working with employees in October 2023. Sequoia operating at one Houston site; Digit testing planned. Inventory identification/storage speed and order-processing time are distinct bounded metrics.
+    id: "amazon-sequoia-digit-2023",
+    title: "Amazon announces 2 new ways it's using robots to assist employees and deliver for customers",
+    authors: ["Scott Dresser"],
     year: 2023,
-    venue: 'Amazon company press, 2023-10-18',
-    url: 'https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions',
-    type: 'press',
+    venue: "Amazon company press, published 2023-10-18",
+    url: "https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions",
+    type: "press",
   },
   {
-    // Amazon company press, June 2026: more than 1 million robots
-    // deployed across its operations network since 2012; fleet guide
-    // naming Sequoia, Hercules, Titan, Vulcan, Sparrow, Robin, Cardinal
-    // and Proteus. Blue Jay survives only in the page's meta description,
-    // so no wiki claim may rest on it through this entry (audit
-    // 2026-09-06, industrial-deployment).
-    id: 'amazon-robot-fleet-2026',
-    title: 'Amazon robotics: Meet the robots inside fulfillment centers',
-    authors: ['Tyler Greenawalt (About Amazon)'],
-    year: 2026,
-    venue: 'Amazon company press, as of 2026-06-04',
-    url: 'https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center',
-    type: 'press',
+    // Updated overview, not a simultaneous active-fleet census. More than one million deployed since 2012 is cumulative. Preserve the returned document title; the H1 differs. Named systems and next-generation Proteus pilot have distinct statuses. Stable citation ID retained.
+    id: "amazon-robot-fleet-2026",
+    title: "Amazon robotics: Meet the robots inside fulfillment centers",
+    authors: ["Tyler Greenawalt"],
+    year: 2024,
+    venue: "Amazon company press, published 2024-10-09; updated 2026-06-04",
+    url: "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
+    type: "press",
   },
   {
-    // Vulcan company press: touch-sensing arm that picks and stows
-    // approximately 75% of stored item types at speeds comparable to
-    // front-line employees.
-    id: 'amazon-vulcan-2026',
+    // Company-reported approximate item-type coverage and employee-comparable speed for pick/stow, not pick success or an independent reliability trial. Spokane/Hamburg pod work and further planned rollout are distinct. Stable citation ID retained.
+    id: "amazon-vulcan-2026",
     title: "Introducing Vulcan: Amazon's first robot with a sense of touch",
-    authors: ['About Amazon'],
-    year: 2026,
-    venue: 'Amazon company press, as of 2026-06-04',
-    url: 'https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch',
-    type: 'press',
+    authors: ["Alex Davies"],
+    year: 2025,
+    venue: "Amazon company press, published 2025-05-07; updated 2026-06-04",
+    url: "https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch",
+    type: "press",
   },
   {
     id: 'acemoglu-restrepo-2020',
