@@ -1,6 +1,91 @@
 # Content-integrity audit trail
 
-## Current checkpoint: five IFR industrial originals integrated (2026-09-12)
+## Current checkpoint: seven Symbotic/A3 industrial originals integrated (2026-09-13)
+
+**473 complete / 521 incomplete / 994 originals / 47 articles**. Exactly
+industrial originals **19/20/21**, **39/40**, and **14/50** were applied as three
+whole groups: **20 mandatory parts / 20 required source pairs / 20 evidence
+items**. Data-hardware is **23 complete / 105 incomplete / 128 originals**;
+RL stays **115 complete / 52 incomplete / 167 originals**. There are **379
+plans / 462 approvals**. Fresh native preservation retains all **987 unselected
+semantic records**, **466 prior completions**, **372 prior plans**, and **460
+prior approval entries**, including old serialized prefixes and metadata.
+Two exact industrial prose/relationship member approvals retain all **44
+unrelated baseline failure objects in order**. Thirty-five independent source
+mutation controls and wrong-hash/missing/stale approval controls reject.
+
+Zero new retrieval. Three retained source documents were bound to original
+request/result events, hashes and literal ranges; 39 prepared literals support
+20 current evidence joins. Symbotic is the 579,888-byte rendered FetchUrl
+artifact requested September12 at21:03:13.584Z, returned21:03:19.099Z with
+tool-reported200, not retained origin HTML/headers or current liveness. OSHA
+is retained243,403-byte HTML from the September6 00:49:10.685–00:49:14.485Z
+batch reporting final200, not an individual-origin timestamp or publication
+year. A3 is the9,425-byte tool response with9,147-byte rendered suffix,
+request September6 06:59:17.470Z/result06:59:21.451Z, tool-reported200.
+Its literal date02/06/2026 is kept distinct from the US-format February6
+interpretation; the earlier obsolete-URL404 is not erased. Full A3 response
+and selected Symbotic/OSHA passages with context were manually read; a full
+manual reading of the entire10-K and OSHA document is **not certified**.
+That parent-requested review coverage remains an acceptance follow-up.
+
+The article distinguishes backlog from earned revenue,42 contractual sites
+from operational sites,50 deployment systems from48 operational maintenance/
+support systems, and a dated12% recognition forecast from installation lead
+time. Multiyear contract-cost language is acknowledged in the ledger; the
+unsupported slow-build/unwind claim is cut. OSHA mode-specific safeguards
+remain distinct from Symbotic's company-reported phased-installation ability.
+A3's36,766 robots/$2.25bn total and7,212 cobots/$241m retain19.6% unit versus
+10.7% value shares and theQ1 2025 reporting start; the learned-policy inference
+is removed. No bibliography change was needed or made; the21-ID citation union
+and2026-08-22 lastReviewed remain unchanged. No excluded original or P1 gains
+credit, including OSHA's unresolved publication year.
+
+Sequential NODE_DISABLE_COMPILE_CACHE=1 checks: red-first new suite10 failed/
+1 passed; relevant final unit/component **151/151**, normal prelint/lint,
+route typegen and nonincremental TypeScript pass. Full offline
+`npm run validate:content` is **RED:526 findings**, with **nine separately
+reported unresolved citation rows** (416/416 coverage, not nine missing rows).
+Schema validation, source-only no-slop and48 chart descriptions pass before
+the audit failure. Full no-slop also passes over47 MDX and63 **retained** export
+HTML files; this did not create a current export. An initial incorrect
+`npm run check:content` invocation failed because that script does not exist;
+its receipt remains, followed by the real lifecycle receipt.
+
+Browser initial **13/14**, then the one affected mobile case **1/1** after a
+32px article-only tooltip offset. First Symbotic tooltip's right edge399px
+failed a375px viewport; the corrected case passes containment, hit testing,
+hover/focus, source/byline, References Enter and Back URL checks. The other
+13 green cases are reused, not falsely labelled a new14-case final run.
+Peer IFR1–4/13, OSHA uses, industrial27/28, calculator, glossary, delivered
+four-role fonts and two Axe checks pass. Back URL return does **not** mean
+focus restoration; BODY focus remains shared debt. **123 screenshots were
+created; seven were directly inspected** (one failing, six passing), against
+the already-read locked references. Inspection found the bounded typography,
+source scopes and corrected tooltip coherent, not whole-reference acceptance;
+some direct science/citation captures visibly retain the Next development
+badge. Production capture parity and complete reference rubric remain owed.
+
+Owned loopback3243 runtime stopped exit0 at00:28:10.731598Z; next.config.ts,
+tsconfig.json and next-env.d.ts were restored byte-exactly, independently
+checked against starting HEAD, and3243 was independently rebound. Typegen
+also restored those files byte-exactly. Controller2096735 was preserved.
+The fixed first emission was00:00:00.928Z, target00:35:00.928Z; this checkpoint
+is late and the target was not reset. Astra/max activation is established by
+actual assistant metadata, including resumed event791d14cc-2db1-4db7-82ea-d89e207db8f5.
+No fallback was activated. All scoped receipts, histories, source proof and
+final sealing evidence live at:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-symbotic-a3-integration-20260912`.
+
+**Do not publish.** This is a local seven-original implementation checkpoint,
+not whole-article/P1, full-document manual review, independent Sol/high,
+user-testing, release or owner personal-verification acceptance. Production
+export/reading times,48-card corpus and full browser/reference acceptance remain
+outstanding; formal feature progress remains307/331. No features.json,
+PRODUCT_QUALITY.md, qa/, preserved ancestor, controller, model, credential,
+spending, security, deployment or remote Git change is authorized here.
+
+## Previous checkpoint: five IFR industrial originals integrated (2026-09-12)
 
 **466 complete / 528 incomplete / 994 originals / 47 articles**; RL remains
 **115 complete / 52 incomplete / 167 originals**. Applied exactly

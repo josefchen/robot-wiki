@@ -8939,6 +8939,40 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "symbotic-a3-industrial-originals-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "46eb8ae18d6f630cd556e387a5a7519cb841e378274b9528627caf51eb17378b",
+      "reason": "Exactly industrial originals19/20/21,39/40,14/50: distinguish backlog and FY2025 revenue, Walmart contractual scope, deployment/support populations, dated recognition forecast, OSHA mode-specific safeguards versus Symbotic phased installation, and A3 North American 2025 unit/value shares and Q1 reporting start. Cut unsupported duration and learned-policy inferences. Immediate-before member hash f4886dbb51051a51cba727226c04a0373213b1f97987338862f8d6bf13e01b77. Composes previous exact endpoint approvals. First Symbotic mobile tooltip shifted left32px after measured right-edge399px overflow; no shared renderer, registry or citation-union change. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-symbotic-a3-integration-20260912. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Josef's September7 2026 'fix it all!' in native Watcher thread01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus bounded seven-original parent dispatch. Routine source-backed correction authority, not owner personal source verification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "symbotic-a3-industrial-originals-20260913-2",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "964e4ecae063d1fa9164e507cffd78aea7a72656d0adf935d0a87f488ee6bd1d",
+      "newHash": "20cc0ecaf854f0873eddf7d1072e12b413c162208cac5c794fe236ede4507244",
+      "reason": "Exactly industrial originals19/20/21,39/40,14/50: distinguish backlog and FY2025 revenue, Walmart contractual scope, deployment/support populations, dated recognition forecast, OSHA mode-specific safeguards versus Symbotic phased installation, and A3 North American 2025 unit/value shares and Q1 reporting start. Cut unsupported duration and learned-policy inferences. Immediate-before member hash 6ccb8498334d9444c795767c2cae1413c4c282e70b1a3ac8c14aa159ebba9feb. Composes previous exact endpoint approvals. First Symbotic mobile tooltip shifted left32px after measured right-edge399px overflow; no shared renderer, registry or citation-union change. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-symbotic-a3-integration-20260912. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Josef's September7 2026 'fix it all!' in native Watcher thread01a05ed5-026d-7931-89e9-16d54167dad5, recorded in /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md, plus bounded seven-original parent dispatch. Routine source-backed correction authority, not owner personal source verification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

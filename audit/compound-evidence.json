@@ -36783,5 +36783,538 @@
         "evidenceDigest": "080e1a81113eea2f17118068873544b237a7f120dada450e1a79746bc2e491fc"
       }
     ]
+  },
+  {
+    "id": "symbotic-industrial-20260912-industrial-deployment-19",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 19,
+    "originalCellsDigest": "f030ac6f3d0296f515814f95fee24cbaa869c79f17f8d62e34382cba584256e9",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "backlog-value-and-date",
+        "text": "Approximately $22.5 billion of backlog as of September 27, 2025.",
+        "requiredCitationIds": [
+          "symbotic-10k-2025"
+        ]
+      },
+      {
+        "id": "annual-revenue-unit-and-period",
+        "text": "$2,246,922 thousand of total revenue for FY ended September 27, 2025 equals $2.246922 billion; not backlog, profit or cash receipts.",
+        "requiredCitationIds": [
+          "symbotic-10k-2025"
+        ]
+      },
+      {
+        "id": "backlog-accounting-scope",
+        "text": "Backlog denotes unperformed existing-contract performance obligations, not revenue earned.",
+        "requiredCitationIds": [
+          "symbotic-10k-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+      "rationale": "Actual integration review 2026-09-13T00:12:58.954Z; all 3 AND parts and exact final-current article plan reviewed. The actual retained filing backlog paragraph and Note 4 agree on approximately $22.5 billion at September 27, 2025. The hedge and reporting date are retained, rather than presenting a present-day backlog. The Consolidated Statements of Operations and MD&A countertable both print total revenue 2,246,922 in thousands for the year ended September 27, 2025. Exact division by 1,000,000 gives 2.246922 billion USD; this is not profit, cash or backlog. The actual backlog definition is unperformed performance obligations under existing contracts; Note 4 specifies undelivered or partially undelivered obligations and estimates. The replacement distinguishes this remaining contracted work from revenue already earned.",
+      "planDigest": "c2acfc02dd401ec2947cb9adf47854af03e9352ccdc58e5657df4fc8658eb1ea"
+    },
+    "evidence": [
+      {
+        "partId": "backlog-value-and-date",
+        "citationId": "symbotic-10k-2025",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm",
+        "supportingPassage": "As of September 27, 2025, we had approximately $22.5 billion of backlog of orders from our customers, of which approximately 12% is expected to be recognized as revenue in fiscal year 2026. We define backlog as unperformed performance obligations under existing contracts. The backlog is largely structured to maintain our gross profit targets even in times of high inflation or supply chain-related price increases. For example, in most cases, increases in steel prices are passed on to the customer, preserving our gross profit. Our contracts that we use to determine this backlog do not contain termination for convenience clauses. Outside of insolvency, or specific change in control provisions, most of our backlog can only be terminated if we do not deliver the systems with its defined performance standards.\n\nRemaining performance obligations represent the aggregate amount of the transaction price allocated to performance obligations not delivered, or partially undelivered, at the end of the reporting period. Remaining performance obligations include deferred revenue plus unbilled amounts not yet recorded in deferred revenue. Remaining performance obligation estimates are subject to change and are affected by several factors, including terminations, changes in scope of contracts, periodic revalidation, adjustments for revenue that have not materialized, adjustments for inflation, and adjustments for currency. The definition of remaining performance obligations excludes those contracts that provide the customer with the right to cancel or terminate the contract without incurring a substantial penalty. For contracts with a duration of greater than one year, the transaction price allocated to performance obligations that are unsatisfied as of September 27, 2025 was $22.5 billion, which is primarily comprised of undelivered or partially undelivered Systems under contract, and which a substantial majority relates to undelivered or partially undelivered Systems in connection with the Master Automation Agreement (“MAA”) with Walmart Inc. (“Walmart”) to implement Systems in all of Walmart’s 42 regional distribution centers, and in connection with the Commercial Agreement with GreenBox Systems LLC (“GreenBox”) under which Symbotic will implement its System into GreenBox distribution center locations. As the Company accounts for GreenBox as an equity method investment, the remaining performance obligation includes the Company’s proportionate share of unconsolidated variable interest entity contracts. In addition, the contingent promise to purchase 400 APDs under the 2025 Walmart MAA could increase the Company’s future remaining performance obligation by more than $5.0 billion. The Company expects to recognize approximately 12% of its remaining performance obligations as revenue in the next 12 months, approximately 62% of its remaining performance obligations as revenue within the following 13 to 60 months, and the remaining thereafter, which is dependent on the timing of System installation timelines. The Company does not disclose the value of remaining performance obligations for contracts with an original expected duration of one year or less or for performance obligations where revenue is recognized under the right to invoice practical expedient."
+      },
+      {
+        "partId": "annual-revenue-unit-and-period",
+        "citationId": "symbotic-10k-2025",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm",
+        "supportingPassage": "Consolidated Statements of Operations\n\n(in thousands, except share and per share information)\n\n|     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |     |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |\n|  | Year Ended |\n|  | September 27, 2025 |  | September 28, 2024 |  | September 30, 2023 |\n| Revenue: |  |  |  |  |  |\n| Systems | $ | 2,118,868 |  |  | $ | 1,705,440 |  |  | $ | 1,138,059 |  |\n| Software maintenance and support | 29,602 |  |  | 14,173 |  |  | 6,601 |  |\n| Operation services | 98,452 |  |  | 68,566 |  |  | 32,231 |  |\n| Total revenue | 2,246,922 |  |  | 1,788,179 |  |  | 1,176,891 |  |\n\nResults of Operations for the Years Ended September 27, 2025 and September 28, 2024\n\nThe following tables set forth our results of operations for the periods presented and as a percentage of our total revenue for those periods. The data has been derived from the consolidated financial statements contained in this Annual Report on Form 10-K which include, in our opinion, all adjustments, consisting only of normal recurring adjustments, that we consider necessary for a fair statement of the financial position and results of operations for the interim periods presented. The period-to-period comparison of financial results is not necessarily indicative of financial results to be achieved in future periods.\n\n|     |     |     |     |     |     |     |     |     |     |     |     |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  |  |  |  |  |  |  |  |  |  |  |  |\n|  | Year Ended |\n|  | September 27, 2025 |  | September 28, 2024 |\n|  | (in thousands) |\n| Revenue: |  |  |  |\n| Systems | $ | 2,118,868 |  |  | $ | 1,705,440 |  |\n| Software maintenance and support | 29,602 |  |  | 14,173 |  |\n| Operation services | 98,452 |  |  | 68,566 |  |\n| Total revenue | 2,246,922 |  |  | 1,788,179 |  |"
+      },
+      {
+        "partId": "backlog-accounting-scope",
+        "citationId": "symbotic-10k-2025",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm",
+        "supportingPassage": "As of September 27, 2025, we had approximately $22.5 billion of backlog of orders from our customers, of which approximately 12% is expected to be recognized as revenue in fiscal year 2026. We define backlog as unperformed performance obligations under existing contracts. The backlog is largely structured to maintain our gross profit targets even in times of high inflation or supply chain-related price increases. For example, in most cases, increases in steel prices are passed on to the customer, preserving our gross profit. Our contracts that we use to determine this backlog do not contain termination for convenience clauses. Outside of insolvency, or specific change in control provisions, most of our backlog can only be terminated if we do not deliver the systems with its defined performance standards.\n\nRemaining performance obligations represent the aggregate amount of the transaction price allocated to performance obligations not delivered, or partially undelivered, at the end of the reporting period. Remaining performance obligations include deferred revenue plus unbilled amounts not yet recorded in deferred revenue. Remaining performance obligation estimates are subject to change and are affected by several factors, including terminations, changes in scope of contracts, periodic revalidation, adjustments for revenue that have not materialized, adjustments for inflation, and adjustments for currency. The definition of remaining performance obligations excludes those contracts that provide the customer with the right to cancel or terminate the contract without incurring a substantial penalty. For contracts with a duration of greater than one year, the transaction price allocated to performance obligations that are unsatisfied as of September 27, 2025 was $22.5 billion, which is primarily comprised of undelivered or partially undelivered Systems under contract, and which a substantial majority relates to undelivered or partially undelivered Systems in connection with the Master Automation Agreement (“MAA”) with Walmart Inc. (“Walmart”) to implement Systems in all of Walmart’s 42 regional distribution centers, and in connection with the Commercial Agreement with GreenBox Systems LLC (“GreenBox”) under which Symbotic will implement its System into GreenBox distribution center locations. As the Company accounts for GreenBox as an equity method investment, the remaining performance obligation includes the Company’s proportionate share of unconsolidated variable interest entity contracts. In addition, the contingent promise to purchase 400 APDs under the 2025 Walmart MAA could increase the Company’s future remaining performance obligation by more than $5.0 billion. The Company expects to recognize approximately 12% of its remaining performance obligations as revenue in the next 12 months, approximately 62% of its remaining performance obligations as revenue within the following 13 to 60 months, and the remaining thereafter, which is dependent on the timing of System installation timelines. The Company does not disclose the value of remaining performance obligations for contracts with an original expected duration of one year or less or for performance obligations where revenue is recognized under the right to invoice practical expedient."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "backlog-value-and-date",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The actual retained filing backlog paragraph and Note 4 agree on approximately $22.5 billion at September 27, 2025. The hedge and reporting date are retained, rather than presenting a present-day backlog.",
+        "evidenceDigest": "38bc91d868b02329ecc57f513377b679314f42448280ec6da8d1511a11485308"
+      },
+      {
+        "partId": "annual-revenue-unit-and-period",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The Consolidated Statements of Operations and MD&A countertable both print total revenue 2,246,922 in thousands for the year ended September 27, 2025. Exact division by 1,000,000 gives 2.246922 billion USD; this is not profit, cash or backlog.",
+        "evidenceDigest": "4bd79ecb329bade80d105847f084c60b98ea0e8db494c4b60612f36d63061f26"
+      },
+      {
+        "partId": "backlog-accounting-scope",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The actual backlog definition is unperformed performance obligations under existing contracts; Note 4 specifies undelivered or partially undelivered obligations and estimates. The replacement distinguishes this remaining contracted work from revenue already earned.",
+        "evidenceDigest": "95572de3c7a7fa200120d9e66007274fb9402bbbdaa5572c947d2d8da43bbc8c"
+      }
+    ]
+  },
+  {
+    "id": "symbotic-industrial-20260912-industrial-deployment-20",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 20,
+    "originalCellsDigest": "cfa64fff5259e75aa46bc4709f7f8c064947f04fcf278284f4fbb480b5879c74",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "walmart-contractual-42",
+        "text": "The May 2022 expansion covers implementation across all 42 Walmart regional distribution centres; this does not establish 42 operating deployments.",
+        "requiredCitationIds": [
+          "symbotic-10k-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+      "rationale": "Actual integration review 2026-09-13T00:12:58.954Z; all 1 AND parts and exact final-current article plan reviewed. The actual Business/Walmart paragraph places the all-42 expansion in May 2022 and says implementation of additional systems. The risk paragraph and Note 4 corroborate contractual all-42 scope, not 42 operational sites. Earlier 25-site chronology differs between Business April 2021 and compressed risk 2017 language; that unselected chronology is not adjudicated.",
+      "planDigest": "ea4ee9b5987d7ae189cd0a46ba50423c7955eda48cda6ca817ffbef13d97af36"
+    },
+    "evidence": [
+      {
+        "partId": "walmart-contractual-42",
+        "citationId": "symbotic-10k-2025",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm",
+        "supportingPassage": "We have worked with Walmart since 2015 and entered into the initial Walmart Master Automation Agreement (“Walmart MAA”) in 2017 and restated and amended that agreement in January 2019. In April 2021, we amended the Walmart MAA to expand our commercial relationship with Walmart and the scope of the Walmart MAA to the implementation of our systems across 25 of Walmart’s 42 regional distribution centers. In May 2022, we again amended and restated the Walmart MAA (“A&R MAA”) to further expand our commercial relationship with Walmart and the scope of the Walmart MAA to the implementation of additional systems across all of Walmart’s 42 regional distribution centers. The A&R MAA added approximately an additional $6.1 billion to our backlog at that time.\n\nThe implementation of our systems began in 2021 and will continue based upon an agreed-upon timeline, subject to limited adjustment, with the implementation of all systems to begin by the end of 2029. For each system, Walmart pays us:\n\nRemaining performance obligations represent the aggregate amount of the transaction price allocated to performance obligations not delivered, or partially undelivered, at the end of the reporting period. Remaining performance obligations include deferred revenue plus unbilled amounts not yet recorded in deferred revenue. Remaining performance obligation estimates are subject to change and are affected by several factors, including terminations, changes in scope of contracts, periodic revalidation, adjustments for revenue that have not materialized, adjustments for inflation, and adjustments for currency. The definition of remaining performance obligations excludes those contracts that provide the customer with the right to cancel or terminate the contract without incurring a substantial penalty. For contracts with a duration of greater than one year, the transaction price allocated to performance obligations that are unsatisfied as of September 27, 2025 was $22.5 billion, which is primarily comprised of undelivered or partially undelivered Systems under contract, and which a substantial majority relates to undelivered or partially undelivered Systems in connection with the Master Automation Agreement (“MAA”) with Walmart Inc. (“Walmart”) to implement Systems in all of Walmart’s 42 regional distribution centers, and in connection with the Commercial Agreement with GreenBox Systems LLC (“GreenBox”) under which Symbotic will implement its System into GreenBox distribution center locations. As the Company accounts for GreenBox as an equity method investment, the remaining performance obligation includes the Company’s proportionate share of unconsolidated variable interest entity contracts. In addition, the contingent promise to purchase 400 APDs under the 2025 Walmart MAA could increase the Company’s future remaining performance obligation by more than $5.0 billion. The Company expects to recognize approximately 12% of its remaining performance obligations as revenue in the next 12 months, approximately 62% of its remaining performance obligations as revenue within the following 13 to 60 months, and the remaining thereafter, which is dependent on the timing of System installation timelines. The Company does not disclose the value of remaining performance obligations for contracts with an original expected duration of one year or less or for performance obligations where revenue is recognized under the right to invoice practical expedient."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "walmart-contractual-42",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The actual Business/Walmart paragraph places the all-42 expansion in May 2022 and says implementation of additional systems. The risk paragraph and Note 4 corroborate contractual all-42 scope, not 42 operational sites. Earlier 25-site chronology differs between Business April 2021 and compressed risk 2017 language; that unselected chronology is not adjudicated.",
+        "evidenceDigest": "1ff03d6bf1e04728346e9d666400c52d47b438414be2a0ae2fa55c44d73c4d79"
+      }
+    ]
+  },
+  {
+    "id": "symbotic-industrial-20260912-industrial-deployment-21",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 21,
+    "originalCellsDigest": "e41fd98f9bc61e8309216a6b6b3758e69479fc59455c62dd4e782b629ad4cc63",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "deployment50-period",
+        "text": "50 Systems in Deployment for the fiscal year ended September 27, 2025; not 50 robot units or an order-duration statistic.",
+        "requiredCitationIds": [
+          "symbotic-10k-2025"
+        ]
+      },
+      {
+        "id": "maintenance-operational48",
+        "text": "48 Operational Systems under Software Maintenance and Support contracts for FY2025, not an unconstrained whole-fleet count or necessarily a disjoint census from deployment systems.",
+        "requiredCitationIds": [
+          "symbotic-10k-2025"
+        ]
+      },
+      {
+        "id": "backlog12-forecast-and-risk",
+        "text": "Approximately 12% was expected to be recognized as FY2026 revenue; RPO estimates change with terminations, scope and other adjustments. This is not each system's order-to-running duration.",
+        "requiredCitationIds": [
+          "symbotic-10k-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+      "rationale": "Actual integration review 2026-09-13T00:12:58.954Z; all 3 AND parts and exact final-current article plan reviewed. The actual FY2025 Systems revenue discussion states 50 Systems in Deployment versus 44 in FY2024. The article names the FY ended September 27, 2025 and does not substitute robots, a disjoint fleet or deployment duration. The adjacent revenue paragraph states 48 Operational Systems under Software Maintenance and Support contracts for FY2025 versus 25 in FY2024. The specific contract population stays attached; no 50+48 fleet sum is claimed. The actual backlog paragraph expects approximately 12 percent as FY2026 revenue; Note 4 supplies RPO adjustment/cancellation context and the forward-looking caution dates the expectation. Note 2 AND MD&A explicitly say contract costs can span multiple years, contradicting the old no-duration-language note, but not establishing each system order-to-running duration. The unsupported universal speed sentence is cut.",
+      "planDigest": "e05c7577b2a97d9fa38be13f7d6b03ab31a9cb378ea051c3f81d3e2ddeed77b8"
+    },
+    "evidence": [
+      {
+        "partId": "deployment50-period",
+        "citationId": "symbotic-10k-2025",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm",
+        "supportingPassage": "Systems revenue increased for the year ended September 27, 2025, as compared to the year ended September 28, 2024, due to there being 50 Systems in Deployment for the fiscal year ended September 27, 2025, as compared to 44 Systems in Deployment for the fiscal year ended September 28, 2024. The increase in Systems revenue was also attributable to the additional revenue generated from the 2025 Walmart MAA for ASR."
+      },
+      {
+        "partId": "maintenance-operational48",
+        "citationId": "symbotic-10k-2025",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm",
+        "supportingPassage": "The increase in Software Maintenance and Support revenue is due to 48 Operational Systems which were under Software Maintenance and Support contracts for the year ended September 27, 2025, as compared to 25 Operational Systems which were under Software Maintenance and Support contracts for the year ended September 28, 2024.\n\nC&S Wholesale Grocers is also an important customer that has our systems that are Operational (defined as achieving acceptance) in its facilities. We provide ongoing Software Maintenance and Support and Operation Services under our contracts with C&S through October 2029. Despite our affiliation with C&S Wholesale Grocers, there is no guarantee that it will continue to be a customer beyond the term of its current contracts with us in October 2029. To the extent C&S Wholesale Grocers decides not to renew its contracts with us or to implement additional systems, our business, financial condition or results of operations may be materially and adversely affected."
+      },
+      {
+        "partId": "backlog12-forecast-and-risk",
+        "citationId": "symbotic-10k-2025",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm",
+        "supportingPassage": "As of September 27, 2025, we had approximately $22.5 billion of backlog of orders from our customers, of which approximately 12% is expected to be recognized as revenue in fiscal year 2026. We define backlog as unperformed performance obligations under existing contracts. The backlog is largely structured to maintain our gross profit targets even in times of high inflation or supply chain-related price increases. For example, in most cases, increases in steel prices are passed on to the customer, preserving our gross profit. Our contracts that we use to determine this backlog do not contain termination for convenience clauses. Outside of insolvency, or specific change in control provisions, most of our backlog can only be terminated if we do not deliver the systems with its defined performance standards.\n\nRemaining performance obligations represent the aggregate amount of the transaction price allocated to performance obligations not delivered, or partially undelivered, at the end of the reporting period. Remaining performance obligations include deferred revenue plus unbilled amounts not yet recorded in deferred revenue. Remaining performance obligation estimates are subject to change and are affected by several factors, including terminations, changes in scope of contracts, periodic revalidation, adjustments for revenue that have not materialized, adjustments for inflation, and adjustments for currency. The definition of remaining performance obligations excludes those contracts that provide the customer with the right to cancel or terminate the contract without incurring a substantial penalty. For contracts with a duration of greater than one year, the transaction price allocated to performance obligations that are unsatisfied as of September 27, 2025 was $22.5 billion, which is primarily comprised of undelivered or partially undelivered Systems under contract, and which a substantial majority relates to undelivered or partially undelivered Systems in connection with the Master Automation Agreement (“MAA”) with Walmart Inc. (“Walmart”) to implement Systems in all of Walmart’s 42 regional distribution centers, and in connection with the Commercial Agreement with GreenBox Systems LLC (“GreenBox”) under which Symbotic will implement its System into GreenBox distribution center locations. As the Company accounts for GreenBox as an equity method investment, the remaining performance obligation includes the Company’s proportionate share of unconsolidated variable interest entity contracts. In addition, the contingent promise to purchase 400 APDs under the 2025 Walmart MAA could increase the Company’s future remaining performance obligation by more than $5.0 billion. The Company expects to recognize approximately 12% of its remaining performance obligations as revenue in the next 12 months, approximately 62% of its remaining performance obligations as revenue within the following 13 to 60 months, and the remaining thereafter, which is dependent on the timing of System installation timelines. The Company does not disclose the value of remaining performance obligations for contracts with an original expected duration of one year or less or for performance obligations where revenue is recognized under the right to invoice practical expedient.\n\nAs customer acceptance can be reasonably certain upon contract inception, the Company recognizes revenue over time based on an input method. Under this method, revenue is recorded based on the ratio of costs incurred over total estimated contract costs. This method provides a faithful depiction of the transfer of the System to the customer because the costs incurred represent the Company’s inputs towards satisfying the performance obligation. Systems revenue is predominantly recognized over time. Contract costs are incurred over a period of time, which can span multiple years, and the estimation of these costs requires management’s judgment. Due to the nature of the work required to be performed on the Systems and the Company’s reliance on the availability and cost of materials required to be procured from third party vendors to build the systems, the estimation of total revenue and cost at completion is complex, subject to many variables, and requires significant judgment on a contract-by-contract basis. As part of this process, the Company reviews information including, but not limited to, any outstanding key contract matters, progress towards completion and the related program schedule, identified risks and opportunities and the related changes in estimates of revenue and costs. Changes in estimates of net sales, cost of sales, and the related impact to operating profit are recognized on a cumulative catch-up basis, which recognizes the cumulative effect of the profit changes on current and prior periods based on a performance obligation’s percentage of completion in the current period.\n\nThe forward-looking statements made in this Annual Report on Form 10-K are expressed in good faith, relate only to events as of the date on which the statements are made, and are based on the beliefs, estimates, expectations, and opinions of management on that date. We are not under any obligation, and expressly disclaim any obligation, to update, alter, or otherwise revise any forward-looking statements made in this Annual Report on Form 10-K, whether as a result of new information, future events or otherwise, except as required by law.\n\nThe reader is cautioned not to place undue reliance on these forward-looking statements because of their inherent uncertainty and to appreciate the limited purposes for which they are being used by management. Forward-looking statements involve risks and uncertainties that may cause actual events, results or performance to differ materially from those indicated by such statements. Certain of these risks are identified and discussed in other sections of this Annual Report on Form 10-K, including Part I, Item 1A “Risk Factors” and Part II, Item 7 “Management’s Discussion and Analysis of Financial Condition and Results of Operations.” These risk factors will be important to consider in determining future results and should be reviewed in their entirety."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "deployment50-period",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The actual FY2025 Systems revenue discussion states 50 Systems in Deployment versus 44 in FY2024. The article names the FY ended September 27, 2025 and does not substitute robots, a disjoint fleet or deployment duration.",
+        "evidenceDigest": "c660e706f00df71472139c1e2eccc1e40e83e37de00782a7fd0f2b7b1344cf52"
+      },
+      {
+        "partId": "maintenance-operational48",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The adjacent revenue paragraph states 48 Operational Systems under Software Maintenance and Support contracts for FY2025 versus 25 in FY2024. The specific contract population stays attached; no 50+48 fleet sum is claimed.",
+        "evidenceDigest": "6db8aee0c06a24561ec14fe24bcd25020e1fb118fe0181208cfe2d5a73a4358d"
+      },
+      {
+        "partId": "backlog12-forecast-and-risk",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The actual backlog paragraph expects approximately 12 percent as FY2026 revenue; Note 4 supplies RPO adjustment/cancellation context and the forward-looking caution dates the expectation. Note 2 AND MD&A explicitly say contract costs can span multiple years, contradicting the old no-duration-language note, but not establishing each system order-to-running duration. The unsupported universal speed sentence is cut.",
+        "evidenceDigest": "1745bccc0a1f40c8848c7fcb6a051ad7976e2db59a2413318b813c412e40d7d7"
+      }
+    ]
+  },
+  {
+    "id": "symbotic-industrial-20260912-industrial-deployment-39",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 39,
+    "originalCellsDigest": "c4252a2dac75dbb3f0a034fac65b35ee29de0b60a80864d18b3f78de1bd39101",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "osha-automatic-safeguards",
+        "text": "OSHA describes guards, interlocked guards and presence-sensing devices separating workers from non-collaborative robot applications during automatic operation.",
+        "requiredCitationIds": [
+          "osha-otm-robots"
+        ]
+      },
+      {
+        "id": "osha-teaching-manual",
+        "text": "For teaching inside safeguarded space, OSHA describes reduced-speed manual mode with an enabling device.",
+        "requiredCitationIds": [
+          "osha-otm-robots"
+        ]
+      },
+      {
+        "id": "osha-lockout-and-energy",
+        "text": "OSHA describes lockout/tagout SOPs and training and maintenance control of hazardous energy under 29 CFR 1910.147 or 1910.333, not an exemption because schedules cannot stop.",
+        "requiredCitationIds": [
+          "osha-otm-robots"
+        ]
+      },
+      {
+        "id": "symbotic-not-osha-phasing",
+        "text": "The phased-installation capability is Symbotic's company report, not OSHA's guidance or proof of every manual/automated parallel-flow configuration.",
+        "requiredCitationIds": [
+          "symbotic-10k-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+      "rationale": "Actual integration review 2026-09-13T00:12:58.954Z; all 4 AND parts and exact final-current article plan reviewed. The actual OSHA subsection is Non-Collaborative Robot Application Risk Reduction. Its paragraph explicitly describes guards, interlocked guards and presence-sensing devices separating workers during automatic operation; the population and mode are preserved. The actual OSHA safeguarded-space paragraph describes active teaching in reduced-speed manual mode with an enabling device. This is distinct from automatic-operation safeguards, not unrestricted human/robot coexistence. Actual OSHA text names lockout/tagout SOPs and training, calls for hazardous-energy control under 29 CFR 1910.147 or 1910.333, discusses powered manual-mode maintenance safeguards, and warns about time pressure. The schedule-cannot-stop implication is cut, not treated as an exemption. The actual Symbotic Scalable Modularity and No Compromise Retrofit paragraphs report phased installation while a warehouse operates. This is explicitly company-reported capability; OSHA does not become the source of vendor phasing or a generic parallel-flow guarantee.",
+      "planDigest": "471a861355e59324e798179e899fd291119dedf386f891a019fd632d7e56c644"
+    },
+    "evidence": [
+      {
+        "partId": "osha-automatic-safeguards",
+        "citationId": "osha-otm-robots",
+        "sourceUrl": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+        "supportingPassage": "Risks are reduced by physically separating workers from robot applications during automatic operation (in automatic mode). This risk reduction is achieved through safeguards such as guards (fences, barriers), interlocked guards, and presence-sensing devices (e.g., light curtains, safety mats, safety scanners, and safety vision systems) (Figure IV-6). "
+      },
+      {
+        "partId": "osha-teaching-manual",
+        "citationId": "osha-otm-robots",
+        "sourceUrl": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+        "supportingPassage": "In most circumstances, the robot application automatically achieves a safe state when a worker enters the safeguarded space (Figure IV-7). However, there are some circumstances in which a worker needs to perform a task that will require them to interact with a robot application that is still active (e.g., programming or teaching the system). In an industrial robot application, worker safety while within the safeguarded space is based on the application being in manual mode while using an enabling device (often integrated into the teach pendant) with the robot operating at a reduced speed. The application layout design needs to provide adequate clearance. Because the enabling device is typically a 3-position device, the worker must hold it in the center-ON position, otherwise the robot system's motion will be inhibited. If the enabling device is interconnected with other equipment in the application, then the other equipment will be similarly inhibited from operation. "
+      },
+      {
+        "partId": "osha-lockout-and-energy",
+        "citationId": "osha-otm-robots",
+        "sourceUrl": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+        "supportingPassage": "In addition to physical safeguards, protective devices, and other engineering controls, risk can be further reduced through administrative controls such as: \n Written robot application entry and exit procedures and training \n Lockout/tagout standard operating procedures (SOPs) and training\n\nPower and other hazardous energy sources should be controlled in accordance with 29 CFR 1910.147 , The Control of Hazardous Energy (Lockout/Tagout), or 29 CFR 1910.333 , Selection and Use of Work Practices . \n\nOften employers and sometimes the workers themselves can impose pressure to resume operations as soon as possible. When workers feel rushed to resume operations as quickly as possible, critical safety functions can be overlooked, maintenance steps can be missed, shutdown and/or startup steps can be neglected, the position of other workers can be unnoticed, and other critical steps could be overlooked resulting in hazards and injuries. \n\nWhen maintenance, repairs, and/or troubleshooting must be performed with power on and with maintenance workers performing their work within the safeguarded space, the robot should be in manual mode. Additional hazards can be present during this manual mode because some of the robot application safeguards may not be active and functioning as during automatic mode. To protect maintenance and repair workers, safeguarding techniques and procedures as stated in the ANSI/RIA R15.06-2012 Part 2, Sections 5.9.7, 5.10.2, 5.12.1, 7.2.7 are recommended. "
+      },
+      {
+        "partId": "symbotic-not-osha-phasing",
+        "citationId": "symbotic-10k-2025",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm",
+        "supportingPassage": "•Scalable Modularity: Our architecture is highly modular and scalable, allowing us to install our systems in existing warehouses rather than requiring capital to build new warehouse space. We are also able to install our systems in phases, allowing the existing warehouse to continue to operate during the transition to our systems. Finally, we can easily reconfigure and expand our systems to accommodate SKU proliferation as our customers’ needs and strategies evolve.\n\n•No Compromise Retrofit: The modularity of our systems allows us to install our systems in existing warehouses while achieving full performance benefits. We are also able to install our systems in phases, which allows the warehouse to continue to operate while the transition to our systems is underway."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "osha-automatic-safeguards",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The actual OSHA subsection is Non-Collaborative Robot Application Risk Reduction. Its paragraph explicitly describes guards, interlocked guards and presence-sensing devices separating workers during automatic operation; the population and mode are preserved.",
+        "evidenceDigest": "55be4c2cd8ba0cb5ca288d88d38587d867f3dcf47563e0608b331861da2fc85e"
+      },
+      {
+        "partId": "osha-teaching-manual",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The actual OSHA safeguarded-space paragraph describes active teaching in reduced-speed manual mode with an enabling device. This is distinct from automatic-operation safeguards, not unrestricted human/robot coexistence.",
+        "evidenceDigest": "2b0b6839a37722ba101930015e6f0b86d9b7765b9647b23691a0909a545417fc"
+      },
+      {
+        "partId": "osha-lockout-and-energy",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: Actual OSHA text names lockout/tagout SOPs and training, calls for hazardous-energy control under 29 CFR 1910.147 or 1910.333, discusses powered manual-mode maintenance safeguards, and warns about time pressure. The schedule-cannot-stop implication is cut, not treated as an exemption.",
+        "evidenceDigest": "7fe94882fed0921fc6925c6e79b7dad98e3d1b39ba04820be0161571734356b0"
+      },
+      {
+        "partId": "symbotic-not-osha-phasing",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The actual Symbotic Scalable Modularity and No Compromise Retrofit paragraphs report phased installation while a warehouse operates. This is explicitly company-reported capability; OSHA does not become the source of vendor phasing or a generic parallel-flow guarantee.",
+        "evidenceDigest": "56a2f07382eaa6a38b8fcd9c7e525205c47b26f66d2a7aec91e8a44105e9302a"
+      }
+    ]
+  },
+  {
+    "id": "symbotic-industrial-20260912-industrial-deployment-40",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 40,
+    "originalCellsDigest": "4516d2a7ac99d167b1044cb365e83069e310adff20185be854a4cf1bff89774d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "vendor-phasing-capability",
+        "text": "Symbotic reports the ability to install in phases while an existing warehouse operates; do not promote that capability into guaranteed uninterrupted operations or an absolute claim that distribution centres cannot close.",
+        "requiredCitationIds": [
+          "symbotic-10k-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+      "rationale": "Actual integration review 2026-09-13T00:12:58.954Z; all 1 AND parts and exact final-current article plan reviewed. Actual overview, modularity and retrofit passages agree on vendor phasing capability. Actual integration-risk and error/disruption paragraphs rule out promoting it to universal uninterrupted operation. The cannot-close causal claim is removed.",
+      "planDigest": "888ea8e7facae94597c84bea88653711f64e2a23371fbc7cfa6a989e11af0096"
+    },
+    "evidence": [
+      {
+        "partId": "vendor-phasing-capability",
+        "citationId": "symbotic-10k-2025",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1837240/000183724025000278/sym-20250927.htm",
+        "supportingPassage": "Our systems manage every aspect of warehouse logistics, from the time merchandise is off-loaded from a producer’s truck or container until that merchandise is ready to be delivered to a store, pick-up location, or individual. They are so space-efficient that they can be installed in phases in operating warehouses with minimal impact to operations.\n\n•Scalable Modularity: Our architecture is highly modular and scalable, allowing us to install our systems in existing warehouses rather than requiring capital to build new warehouse space. We are also able to install our systems in phases, allowing the existing warehouse to continue to operate during the transition to our systems. Finally, we can easily reconfigure and expand our systems to accommodate SKU proliferation as our customers’ needs and strategies evolve.\n\n•No Compromise Retrofit: The modularity of our systems allows us to install our systems in existing warehouses while achieving full performance benefits. We are also able to install our systems in phases, which allows the warehouse to continue to operate while the transition to our systems is underway.\n\nComplex technology will need to be developed and implemented, both in-house and in coordination with our vendors and suppliers, for us to successfully produce and integrate our systems with our customers’ existing warehouses, and there can be no assurance that they will be successfully developed and implemented.\n\nIf our systems are not implemented or used correctly or as intended, inadequate performance and disruptions in service may result. Because our customers use our systems for important aspects of their business, any actual or perceived errors, defects, bugs, or other performance problems in our systems could damage our customers’ businesses. Any defects or errors in our systems generally, or the perception of such defects or errors, could result in a loss of customers and delayed or lost revenue and could damage our reputation and lead to liability or litigation."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "vendor-phasing-capability",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: Actual overview, modularity and retrofit passages agree on vendor phasing capability. Actual integration-risk and error/disruption paragraphs rule out promoting it to universal uninterrupted operation. The cannot-close causal claim is removed.",
+        "evidenceDigest": "d2c2457537a95ee86c7a7cb38d2d8d30587c80668e34daf851de31a203593381"
+      }
+    ]
+  },
+  {
+    "id": "a3-industrial-orders-20260912-industrial-deployment-14",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "b39b0ec422b356aaeacd214f5e43bc3f23f066064d63be1a1751383fb6635544",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "annual-order-population",
+        "text": "The population is A3-reported North American orders in 2025: 36,766 robots valued at $2.25 billion. Do not substitute installations, shipments, installed stock or a worldwide population.",
+        "requiredCitationIds": [
+          "a3-orders-2025"
+        ]
+      },
+      {
+        "id": "cobot-unit-share",
+        "text": "The full-year collaborative-robot count is 7,212 units, reported as 19.6 percent of total robots ordered in 2025, not a value share.",
+        "requiredCitationIds": [
+          "a3-orders-2025"
+        ]
+      },
+      {
+        "id": "cobot-value-share",
+        "text": "The full-year collaborative-robot order value is $241 million, reported as 10.7 percent of total revenue/order value. Retain published precision, not inferred raw-dollar precision.",
+        "requiredCitationIds": [
+          "a3-orders-2025"
+        ]
+      },
+      {
+        "id": "reporting-category-start",
+        "text": "A3 began reporting collaborative robots as a distinct category in Q1 2025. The release does not establish a comparable pre-2025 cobot series.",
+        "requiredCitationIds": [
+          "a3-orders-2025"
+        ]
+      },
+      {
+        "id": "source-scoped-inference-cut",
+        "text": "The entire old lower-volume-shop/conventional-control/learned-policy replacement inference must be removed from the coupled article endpoint. Retain reported orders; do not certify a robotics-wide absence of learned policies. The source passage supports the replacement numbers, not the deleted inference.",
+        "requiredCitationIds": [
+          "a3-orders-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+      "rationale": "Actual integration review 2026-09-13T00:12:58.954Z; all 5 AND parts and exact final-current article plan reviewed. The full retained A3 primary release says companies across North America ordered 36,766 robots valued at $2.25 billion in 2025. Annual orders are kept distinct from installations, shipments, stock and global population. The full-year paragraph prints 7,212 collaborative robot orders and 19.6 percent of total robots ordered in 2025. The independent arithmetic rounds to 19.6 percent, but published precision, not inferred raw values, is retained. The same annual paragraph prints $241 million and 10.7 percent of total revenue; the introduction labels the $2.25 billion total as order value. 241/2250 rounds to 10.7 percent. The already-correct units/value distinction is preserved, not claimed newly repaired. The Q4 paragraph explicitly says A3 began reporting collaborative robots as a distinct category in Q1 2025. The new sentence does not claim a pre-2025 comparable series or confuse Q4 shares with annual shares. I read the entire retained A3 release, including annual and Q4 populations, cohort footnote, executive quotations and byline. It does not supply the old lower-volume-shop/learned-policy inference. The entire unsupported clause is cut; the source supports the replacement orders, not a claim that learned policies are absent.",
+      "planDigest": "c2f24410b4325ef22bdd2e0d73327d133f5bd65bc1dc37d43fb74a42c54b85f9"
+    },
+    "evidence": [
+      {
+        "partId": "annual-order-population",
+        "citationId": "a3-orders-2025",
+        "sourceUrl": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
+        "supportingPassage": "**ANN ARBOR, Michigan –** North American robot orders rose in 2025, reflecting strong investment in automation across a growing range of industries. According to new data from the [Association for Advancing Automation (A3)](https://www.automate.org/), companies across the region ordered 36,766 robots valued at $2.25 billion last year. Compared to 2024, this represents a 6.6% increase in units ordered and a 10.1% increase in revenue1."
+      },
+      {
+        "partId": "cobot-unit-share",
+        "citationId": "a3-orders-2025",
+        "sourceUrl": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
+        "supportingPassage": "Across the full year, collaborative robot orders totaled 7,212 units valued at $241 million. This represents 19.6% of total robots ordered in 2025 and 10.7% of total revenue, underscoring the growing importance of collaborative systems as part of modern automation strategies."
+      },
+      {
+        "partId": "cobot-value-share",
+        "citationId": "a3-orders-2025",
+        "sourceUrl": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
+        "supportingPassage": "Across the full year, collaborative robot orders totaled 7,212 units valued at $241 million. This represents 19.6% of total robots ordered in 2025 and 10.7% of total revenue, underscoring the growing importance of collaborative systems as part of modern automation strategies."
+      },
+      {
+        "partId": "reporting-category-start",
+        "citationId": "a3-orders-2025",
+        "sourceUrl": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
+        "supportingPassage": "Collaborative robots continued their upward trajectory, accounting for 28.6% of all robots ordered in Q4 2025 and 14.7% of quarterly revenue. This represents 2,953 units valued at $85 million, the highest quarterly volume recorded since A3 began reporting collaborative robot as a distinct category in Q1 2025."
+      },
+      {
+        "partId": "source-scoped-inference-cut",
+        "citationId": "a3-orders-2025",
+        "sourceUrl": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
+        "supportingPassage": "Across the full year, collaborative robot orders totaled 7,212 units valued at $241 million. This represents 19.6% of total robots ordered in 2025 and 10.7% of total revenue, underscoring the growing importance of collaborative systems as part of modern automation strategies."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "annual-order-population",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The full retained A3 primary release says companies across North America ordered 36,766 robots valued at $2.25 billion in 2025. Annual orders are kept distinct from installations, shipments, stock and global population.",
+        "evidenceDigest": "34dd80168c67cedcd3009ad34b43e622a84bb8db2edbfbedf8be96900773ac9c"
+      },
+      {
+        "partId": "cobot-unit-share",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The full-year paragraph prints 7,212 collaborative robot orders and 19.6 percent of total robots ordered in 2025. The independent arithmetic rounds to 19.6 percent, but published precision, not inferred raw values, is retained.",
+        "evidenceDigest": "3eff7b4f6891228881ac252cf19630ab870b4b0db3b70e4814f0f7cbd60a53dd"
+      },
+      {
+        "partId": "cobot-value-share",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The same annual paragraph prints $241 million and 10.7 percent of total revenue; the introduction labels the $2.25 billion total as order value. 241/2250 rounds to 10.7 percent. The already-correct units/value distinction is preserved, not claimed newly repaired.",
+        "evidenceDigest": "97b080ca3d60341f2c1dc2ec845c96421895f4df2902c6c662ea99dfc3dc4a05"
+      },
+      {
+        "partId": "reporting-category-start",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The Q4 paragraph explicitly says A3 began reporting collaborative robots as a distinct category in Q1 2025. The new sentence does not claim a pre-2025 comparable series or confuse Q4 shares with annual shares.",
+        "evidenceDigest": "bb8c79c3f42ba717c5b87830e0079026eae37cc7ff39b510c855f580e526c0f6"
+      },
+      {
+        "partId": "source-scoped-inference-cut",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: I read the entire retained A3 release, including annual and Q4 populations, cohort footnote, executive quotations and byline. It does not supply the old lower-volume-shop/learned-policy inference. The entire unsupported clause is cut; the source supports the replacement orders, not a claim that learned policies are absent.",
+        "evidenceDigest": "933717eddb19aa4012ee6608c82908bf137d9d2877a4a37c53dd188d547ae8c0"
+      }
+    ]
+  },
+  {
+    "id": "a3-industrial-orders-20260912-industrial-deployment-50",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 50,
+    "originalCellsDigest": "8bafbff6b529f0ccc07db6e9f0a63e35a23c63af12deae3eba11e7503785d9f3",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "title-and-url",
+        "text": "The exact H1 title includes Broader and the retained request/response is for the registered official URL containing drive-broader-automation-adoption. The obsolete-URL historical error is not a new reachability result.",
+        "requiredCitationIds": [
+          "a3-orders-2025"
+        ]
+      },
+      {
+        "id": "corporate-byline",
+        "text": "The displayed author is Association for Advancing Automation, not the quoted executive or media contacts.",
+        "requiredCitationIds": [
+          "a3-orders-2025"
+        ]
+      },
+      {
+        "id": "displayed-publication",
+        "text": "The displayed publication date is exactly 02/06/2026 and year 2026. Preserve this literal and the U.S. MM/DD/YYYY interpretation separately; no publication time or timezone was recovered.",
+        "requiredCitationIds": [
+          "a3-orders-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+      "rationale": "Actual integration review 2026-09-13T00:12:58.954Z; all 3 AND parts and exact final-current article plan reviewed. The actual H1 and retained successful request match the registered official broader-automation-adoption URL and complete title. The earlier obsolete-slug 404 is a separate historical tool result, not a current reachability observation. No registry correction is needed. The actual By line and Meet the Author name Association for Advancing Automation. Alex Shikany is a quoted executive and the media contacts are not article authors. The existing corporate byline stays unchanged. The actual rendered date is 02/06/2026 and establishes year 2026. February 6 is the U.S. MM/DD/YYYY interpretation retained in the existing venue, not a recovered ISO timestamp or timezone.",
+      "planDigest": "205e42716e7b21e4634a27de67119b5738db4cc012a4dcd3c1fd6c4bd8c489fe"
+    },
+    "evidence": [
+      {
+        "partId": "title-and-url",
+        "citationId": "a3-orders-2025",
+        "sourceUrl": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
+        "supportingPassage": "# Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation Adoption"
+      },
+      {
+        "partId": "corporate-byline",
+        "citationId": "a3-orders-2025",
+        "sourceUrl": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
+        "supportingPassage": "By [Association for Advancing Automation](https://www.automate.org/companies/association-for-advancing-automation)"
+      },
+      {
+        "partId": "displayed-publication",
+        "citationId": "a3-orders-2025",
+        "sourceUrl": "https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption",
+        "supportingPassage": "02/06/2026"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "title-and-url",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The actual H1 and retained successful request match the registered official broader-automation-adoption URL and complete title. The earlier obsolete-slug 404 is a separate historical tool result, not a current reachability observation. No registry correction is needed.",
+        "evidenceDigest": "103d188770d0d5f410f61e99167f2d323d96eb0005b8272191fa9d3b5d6f05cd"
+      },
+      {
+        "partId": "corporate-byline",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The actual By line and Meet the Author name Association for Advancing Automation. Alex Shikany is a quoted executive and the media contacts are not article authors. The existing corporate byline stays unchanged.",
+        "evidenceDigest": "a64c3f8fefed682b68c31c39b9460d677c7cff166768bd8bd5e86d2c6f262493"
+      },
+      {
+        "partId": "displayed-publication",
+        "outcome": "supported",
+        "reviewedBy": "agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator",
+        "rationale": "2026-09-13T00:12:58.954Z: The actual rendered date is 02/06/2026 and establishes year 2026. February 6 is the U.S. MM/DD/YYYY interpretation retained in the existing venue, not a recovered ISO timestamp or timezone.",
+        "evidenceDigest": "ec36d5fd7da4d7c9506c0dedb339022c5cafca7b32e267f22c98b4c23fca8f52"
+      }
+    ]
   }
 ]
