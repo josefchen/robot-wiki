@@ -9518,6 +9518,57 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "perception-servo-origins-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "7e3e42d22bf89886e0d6e341fe1844ce97971236bcc2eaae7953af89172f23c2",
+      "reason": "Retained-primary correction of perception originals 10 and 55 as one group: attributed 1992 task-function formulation rather than invention, conditional regulation, camera-relative scene velocity expressed in the camera frame, and tutorial Equation (2) scoped to its fixed goal and motionless target. The task function need not be raw feature difference and camera spatial velocity is not joint rates. Stat, opening, relation, glossary and assertions change together. Registry identities, calculator, held originals 9/16/17/18/33/34 and lastReviewed remain unchanged. Eight evidence items; zero retrieval. Whole P1 and independent acceptance remain open.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact two-original dispatch authorize routine source-backed repair, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-servo-origins-20260913-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/perception",
+      "oldHash": "9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041",
+      "newHash": "acf38422a9080c9a7a8bf02e9992fbaea15fc9aeb63d5e17181563ca3f088654",
+      "reason": "Retained-primary correction of perception originals 10 and 55 as one group: attributed 1992 task-function formulation rather than invention, conditional regulation, camera-relative scene velocity expressed in the camera frame, and tutorial Equation (2) scoped to its fixed goal and motionless target. The task function need not be raw feature difference and camera spatial velocity is not joint rates. Stat, opening, relation, glossary and assertions change together. Registry identities, calculator, held originals 9/16/17/18/33/34 and lastReviewed remain unchanged. Eight evidence items; zero retrieval. Whole P1 and independent acceptance remain open.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact two-original dispatch authorize routine source-backed repair, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-servo-origins-20260913-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "e6cdb0e9a8441a988d76e02a50dcc71b4f51033fb75d3c44fb5e08055ebd3939",
+      "reason": "Retained-primary correction of perception originals 10 and 55 as one group: attributed 1992 task-function formulation rather than invention, conditional regulation, camera-relative scene velocity expressed in the camera frame, and tutorial Equation (2) scoped to its fixed goal and motionless target. The task function need not be raw feature difference and camera spatial velocity is not joint rates. Stat, opening, relation, glossary and assertions change together. Registry identities, calculator, held originals 9/16/17/18/33/34 and lastReviewed remain unchanged. Eight evidence items; zero retrieval. Whole P1 and independent acceptance remain open.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact two-original dispatch authorize routine source-backed repair, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

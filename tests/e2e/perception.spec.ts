@@ -151,6 +151,12 @@ test.describe('classical perception module', () => {
     expect(servo).toBeDefined();
     expect(servo!.text).toMatch(/image-based visual servoing \(IBVS\)/i);
     expect(servo!.text).toMatch(/position-based visual servoing \(PBVS\)/i);
+    await expect(page.getByText('visual-servo formulation', { exact: true })).toBeVisible();
+    expect(servo!.text).toMatch(/applies a task-function framework/i);
+    expect(servo!.text).toMatch(/need not be the raw feature difference/i);
+    expect(servo!.text).toMatch(/relative to the scene, expressed in the camera frame/i);
+    expect(servo!.text).toMatch(/neglecting target motion can leave a tracking error/i);
+    expect(servo!.text).toMatch(/six-component spatial velocity, not a vector of joint rates/i);
     expect(servo!.text).toMatch(/local asymptotic stability/i);
     expect(servo!.text).toMatch(/full rank/i);
     expect(servo!.text).toMatch(/positivity condition/i);
@@ -166,6 +172,8 @@ test.describe('classical perception module', () => {
     await term.locator('a, button').first().focus();
     const tooltip = term.locator('[role="tooltip"]');
     await expect(tooltip).toBeVisible();
+    await expect(tooltip).toContainText('applied a task-function framework');
+    await expect(tooltip).toContainText('relative to the scene, expressed in the camera frame');
     await expect(tooltip).toContainText('local stability conditions');
     await expect(tooltip).not.toContainText('skips pose estimation entirely');
   });

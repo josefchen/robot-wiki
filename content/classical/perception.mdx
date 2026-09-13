@@ -58,7 +58,7 @@ Compare the composed number against the tolerance real tasks hold. The clearance
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="Zhang calibration" value="2000" note="planar target; motion need not be known" />
   <Stat label="hand-eye (AX = XB)" value="1989" note="Tsai and Lenz solve the camera-to-gripper transform" />
-  <Stat label="visual servoing" value="1992" note="Espiau, Chaumette and Rives, closing on image features" />
+  <Stat label="visual-servo formulation" value="1992" note="Espiau, Chaumette and Rives; image-feature feedback" />
   <Stat label="promptable masks" value="2023" note="SAM; SA-1B: 1.1 billion masks on 11 million images" />
 </div>
 
@@ -177,7 +177,9 @@ For unseen objects, GenFlow-MultiHypo16 leads Task 4 with 67.4 $AR_C$. The best 
 
 ## Visual servoing: image-based and position-based control
 
-There is a way out of the middle of this budget, and it is older than most of it. Instead of estimating a pose and then commanding the arm to it, define the error in the *image*: where the features are versus where they should be when the task is done. Espiau, Chaumette and Rives formulated this as a task function with an interaction matrix relating feature velocity to camera velocity, and drove the error to zero directly <Cite id="espiau-1992" />.
+Image-based visual control defines a desired configuration of image features and uses their measured error to guide motion. Espiau, Chaumette and Rives’s 1992 paper applies a task-function framework to this problem. The task function is designed for regulation and need not be the raw feature difference. Their interaction matrix relates feature rates to the camera’s translational and rotational velocity relative to the scene, expressed in the camera frame. Convergence depends on the task and interaction-model conditions; neglecting target motion can leave a tracking error <Cite id="espiau-1992" />.
+
+For the fixed goal and motionless target considered in Chaumette and Hutchinson’s Part I, the relation is $\dot{s} = L_s v_c$: $v_c$ is the camera’s six-component spatial velocity, not a vector of joint rates <Cite id="chaumette-hutchinson-2006" />.
 
 <Term id="visual-servoing">Visual servoing</Term> uses vision in the control loop; image-based visual servoing (IBVS) and position-based visual servoing (PBVS) define different errors. IBVS uses image features, while PBVS uses estimated pose parameters. This does not make IBVS universally pose- or calibration-free: the point-feature interaction matrix uses depth and camera intrinsics, and its estimate may use current depths or depths at the desired pose<br className="lg:hidden" /><Cite id="chaumette-hutchinson-2006" />.
 

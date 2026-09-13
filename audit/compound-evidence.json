@@ -41584,5 +41584,190 @@
         "evidenceDigest": "c3e30a26f14fd18a9228fb8e9d2b326e5df230524c727fc0b02e87da8f641d1c"
       }
     ]
+  },
+  {
+    "id": "perception-calibration-servo-origins-10-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 10,
+    "originalCellsDigest": "e06e45e0c6d55ba5d0c8ca07cd7b62c9d56b3472ac766bfea1961699842c4499",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "p10-year-authors",
+        "text": "Espiau, Chaumette and Rives, 1992 visual-servo journal formulation, not the birth of all visual servoing.",
+        "requiredCitationIds": [
+          "espiau-1992"
+        ]
+      },
+      {
+        "id": "p10-image-goal",
+        "text": "Image-feature feedback: define a goal image feature configuration and design control toward it.",
+        "requiredCitationIds": [
+          "espiau-1992"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 7fed4678-9453-4db4-9c69-75e513455dff; custom:droidproxy:gpt-6-astra/max; 2026-09-13T10:30:14.690Z; retained-primary review, not independent acceptance",
+      "rationale": "Publisher title/byline/year and primary p313 establish the attributed 1992 formulation. Introduction explicitly discusses earlier visual servoing; no invention or present-prevalence claim is accepted. All mandatory parts and coupled Stat/prose/glossary/test endpoints reviewed.",
+      "planDigest": "9a99c9d8d7f6a2c10c78c8f168d1ca0c7b2d7277137235d175f5b3eeff5269f1"
+    },
+    "evidence": [
+      {
+        "partId": "p10-year-authors",
+        "citationId": "espiau-1992",
+        "sourceUrl": "https://doi.org/10.1109/70.143350",
+        "supportingPassage": "# A new approach to visual servoing in robotics\n\nPublisher: IEEE\n\nCite This\n\nPDF\n\n[B. Espiau](https://ieeexplore.ieee.org/author/37330694000); [F. Chaumette](https://ieeexplore.ieee.org/author/37265186700); [P. Rives](https://ieeexplore.ieee.org/author/37283594600)\n\nAll Authors\n\nSign In or Purchase\n\n1287\n\nCites in\n\nPapers\n\n10\n\nCites in\n\nPatents\n\n4527\n\nFull\n\nText Views\n\n- Alerts\n\n\n\n[Manage Content Alerts](https://ieeexplore.ieee.org/alerts/citation)\n\n\n\nAdd to Citation Alerts\n\n\n* * *\n\n- Download PDF\n- Download References\n- Request Permissions\n- Save to\n- Alerts\n\n## Abstract:\n\nVision-based control in robotics based on considering a vision system as a specific sensor dedicated to a task and included in a control servo loop is described. Once the...Show More\n\n## Metadata\n\n## Abstract:\n\nVision-based control in robotics based on considering a vision system as a specific sensor dedicated to a task and included in a control servo loop is described. Once the necessary modeling stage is performed, the framework becomes one of automatic control, and stability and robustness questions arise. State-of-the-art visual servoing is reviewed, and the basic concepts for modeling the concerned interactions are given. The interaction screw is thus defined in a general way, and the application to images follows. Starting from the concept of task function, the general framework of the control is described, and stability results are recalled. The concept of the hybrid task is presented and then applied to visual sensors. Simulation and experimental results are presented, and guidelines for future work are drawn in the conclusion.<>\n\n**Published in:** [IEEE Transactions on Robotics and Automation](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=70) ( Volume: 8, [Issue: 3](https://ieeexplore.ieee.org/xpl/tocresult.jsp?isnumber=3847&punumber=70), June 1992)\n\n**Page(s):** 313 \\- 326\n\n**Date of Publication:** 30 June 1992 [Get help with using Publication Dates](http://ieeexplore.ieee.org/Xplorehelp/Help_Pubdates.html)\n\nISSN Information:\n\n**DOI:** [10.1109/70.143350](https://doi.org/10.1109/70.143350)"
+      },
+      {
+        "partId": "p10-image-goal",
+        "citationId": "espiau-1992",
+        "sourceUrl": "https://www.irisa.fr/lagadic/pdf/1992_itra_espiau.pdf",
+        "supportingPassage": "It should be emphasized that this approach differs from\nthe ones referred to as dynamic vision approaches, which\nexploit, without controlling it, the motion of the sensor or\nof the objects in the scene. In the visual servoing approach,\nthe first step consists in defining in the image a particular\nset of characteristic features that constitutes the goal to be\nFeached. The second step will be to design a control that will\nensure convergence toward the configuration corresponding to\nthe goal image by starting from a different initial condition,"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "p10-year-authors",
+        "outcome": "supported",
+        "reviewedBy": "Droid 7fed4678-9453-4db4-9c69-75e513455dff; custom:droidproxy:gpt-6-astra/max; 2026-09-13T10:30:14.690Z; retained-primary review, not independent acceptance",
+        "rationale": "Espiau, Chaumette and Rives, 1992 visual-servo journal formulation, not the birth of all visual servoing. Publisher title/byline/year and primary p313 establish the attributed 1992 formulation. Introduction explicitly discusses earlier visual servoing; no invention or present-prevalence claim is accepted.",
+        "evidenceDigest": "a4031b81ca6f3be601f579b1f23419d35dfaa3df406556b0a360a7e280ec5427"
+      },
+      {
+        "partId": "p10-image-goal",
+        "outcome": "supported",
+        "reviewedBy": "Droid 7fed4678-9453-4db4-9c69-75e513455dff; custom:droidproxy:gpt-6-astra/max; 2026-09-13T10:30:14.690Z; retained-primary review, not independent acceptance",
+        "rationale": "Image-feature feedback: define a goal image feature configuration and design control toward it. Publisher title/byline/year and primary p313 establish the attributed 1992 formulation. Introduction explicitly discusses earlier visual servoing; no invention or present-prevalence claim is accepted.",
+        "evidenceDigest": "0b0c8623dd587cbb1b70b092401c77cfbf0d9d72ea059839ba0e64e8b8ac65a7"
+      }
+    ]
+  },
+  {
+    "id": "perception-calibration-servo-origins-55-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 55,
+    "originalCellsDigest": "fba456352d3b54ad9354e59dffd7fee6a508ade604a919270729e9e68532e152",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "p55-task-framework",
+        "text": "Apply a task-function framework to visual control without claiming invention of the general framework.",
+        "requiredCitationIds": [
+          "espiau-1992"
+        ]
+      },
+      {
+        "id": "p55-task-definition",
+        "text": "Task function e(q,t) is designed for regulation, with admissibility conditions; it need not equal the raw feature error.",
+        "requiredCitationIds": [
+          "espiau-1992"
+        ]
+      },
+      {
+        "id": "p55-interaction-frame",
+        "text": "Interaction matrix connects visual-feature rates with camera translational and rotational velocity relative to the scene, expressed in the camera frame.",
+        "requiredCitationIds": [
+          "espiau-1992",
+          "chaumette-hutchinson-2006"
+        ]
+      },
+      {
+        "id": "p55-fixed-goal-relation",
+        "text": "For the tutorial’s fixed goal and motionless target with a six-DOF camera, s-dot = L_s v_c; v_c is spatial camera velocity.",
+        "requiredCitationIds": [
+          "chaumette-hutchinson-2006"
+        ]
+      },
+      {
+        "id": "p55-conditional-regulation",
+        "text": "Convergence depends on task/model conditions; neglecting autonomous target motion can leave tracking error.",
+        "requiredCitationIds": [
+          "espiau-1992"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 7fed4678-9453-4db4-9c69-75e513455dff; custom:droidproxy:gpt-6-astra/max; 2026-09-13T10:30:14.690Z; retained-primary review, not independent acceptance",
+      "rationale": "Read primary p315 camera relative to scene in camera frame; p319 admissible task function and prior-framework attribution; p321 combination/hybrid task equations63/65, rank/positivity and near-goal model qualifications; p322 joint-Jacobian distinction and nonzero tracking error when target motion is neglected. Retained tutorial p82 distinguishes Eq1 feature error from Eq2 s-dot=L_s*v_c for fixed goal/motionless target and six-DOF camera. Both source pairs of interaction-frame part reviewed. No unconditional drive-to-zero or raw-feature-equals-task claim remains. All mandatory parts and coupled Stat/prose/glossary/test endpoints reviewed.",
+      "planDigest": "9f3921d75e21f91d11f4fbea1333c66dae1b71b03a788559ecc9e0e39b019390"
+    },
+    "evidence": [
+      {
+        "partId": "p55-task-framework",
+        "citationId": "espiau-1992",
+        "sourceUrl": "https://doi.org/10.1109/70.143350",
+        "supportingPassage": "Vision-based control in robotics based on considering a vision system as a specific sensor dedicated to a task and included in a control servo loop is described. Once the...Show More\n\n## Metadata\n\n## Abstract:\n\nVision-based control in robotics based on considering a vision system as a specific sensor dedicated to a task and included in a control servo loop is described. Once the necessary modeling stage is performed, the framework becomes one of automatic control, and stability and robustness questions arise. State-of-the-art visual servoing is reviewed, and the basic concepts for modeling the concerned interactions are given. The interaction screw is thus defined in a general way, and the application to images follows. Starting from the concept of task function, the general framework of the control is described, and stability results are recalled. The concept of the hybrid task is presented and then applied to visual sensors. Simulation and experimental results are presented, and guidelines for future work are drawn in the conclusion.<>"
+      },
+      {
+        "partId": "p55-task-definition",
+        "citationId": "espiau-1992",
+        "sourceUrl": "https://www.irisa.fr/lagadic/pdf/1992_itra_espiau.pdf",
+        "supportingPassage": "More precisely, we can show (24] that the user’s objective\nmay in general be expressed as the regulation to zero of\n\n3\n\nsome n-dimensional C? function e(g. 1) called a task function,\nduring a time interval (0, tm}. Several cases of task functions\nare presented in [24]. When sensors are used, it appears that\nthe sensor vector s(q,2) has to contribute to the design of\ne(q,t) in a way explained later.\n\n‘The problem of regulating ¢ is well conditioned if e presents\nsome specific properties. One of them is the existence and\nthe uniqueness of a C? ideal trajectory, qr(t), such that\ne(ar(t),t) = 0, Vt € [0,t] and g,(0) = qo, where qo is\n@ given initial condition. Another very important property is\nthe nonsingularity of the task-Jacobian matrix (de /24) (q.t)\naround q,(t). When all the required conditions are satisfied,\nthe task function is said to be “admissible,” which then allows\nthe realization of efficient control laws more or less robust\naccording to the task admissibility."
+      },
+      {
+        "partId": "p55-interaction-frame",
+        "citationId": "espiau-1992",
+        "sourceUrl": "https://www.irisa.fr/lagadic/pdf/1992_itra_espiau.pdf",
+        "supportingPassage": "The velocity screw of the camera frame Fs(O.7. 9,2),\ngiven Fig. 1, with respect to the scene is denoted as T -\n(v(O),w) where v(O) and w are, respectively, the translational\nand rotational velocities. In the following, all variables (point\nCoordinates, screws, etc.) will be assumed to be expressed in\nthat frame,"
+      },
+      {
+        "partId": "p55-interaction-frame",
+        "citationId": "chaumette-hutchinson-2006",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2006_ieee_ram_chaumette.pdf",
+        "supportingPassage": "Once s is selected, the design of the control scheme can be\nquite simple. Perhaps the most straightforward approach is to\ndesign a velocity controller. To do this, we require the relationship between the time variation of s and the camera\nvelocity. Let the spatial velocity of the camera be denoted by\nv c = (v c , ω c ), with v c the instantaneous linear velocity of the\norigin of the camera frame and ω c the instantaneous angular\nvelocity of the camera frame The relationship between ṡ and\nv c is given by\nṡ = Ls v c ,\n(2)"
+      },
+      {
+        "partId": "p55-fixed-goal-relation",
+        "citationId": "chaumette-hutchinson-2006",
+        "sourceUrl": "http://www.irisa.fr/lagadic/pdf/2006_ieee_ram_chaumette.pdf",
+        "supportingPassage": "In Part I of the tutorial (this article), we consider the case\nof a fixed goal pose and a motionless target, i.e., s∗ is constant,\nand changes in s depend only on camera motion. Further, we\nconsider here the case of controlling the motion of a camera\nwith six degrees of freedom (6 DOF); e.g., a camera attached\nto the end effector of a six degree-of-freedom arm. We will\ntreat more general cases in Part II of the tutorial.\nVisual servoing schemes mainly differ in the way that s is\ndesigned. In this article, we will see two very different\napproaches. First, we describe image-based visual servo control (IBVS), in which s consists of a set of features that are\nimmediately available in the image data. Then, we describe\nposition-based visual servo control (PBVS), in which s consists of a set of 3-D parameters, which must be estimated from\nimage measurements.\nOnce s is selected, the design of the control scheme can be\nquite simple. Perhaps the most straightforward approach is to\ndesign a velocity controller. To do this, we require the relationship between the time variation of s and the camera\nvelocity. Let the spatial velocity of the camera be denoted by\nv c = (v c , ω c ), with v c the instantaneous linear velocity of the\norigin of the camera frame and ω c the instantaneous angular\nvelocity of the camera frame The relationship between ṡ and\nv c is given by\nṡ = Ls v c ,\n(2)"
+      },
+      {
+        "partId": "p55-conditional-regulation",
+        "citationId": "espiau-1992",
+        "sourceUrl": "https://www.irisa.fr/lagadic/pdf/1992_itra_espiau.pdf",
+        "supportingPassage": "The positivity condition (66) is then often only satisfied\nin the neighborhood of » = s4(t), whatever the choice of C.\nFortunately, it should be emphasized that this condition is only\nsufficient, and we shall see in the examples of Section IV that\nthe convergence of the control law may be obtained even from\ninitial conditions far away from the goal configuration.\n\nThis choice of L requires the knowledge of pa, which is\nequivalent to making assumptions about the shape and the\ngeometry of the 3-D scene. Such assumptions may often be\ndone within the task design step and then seem not too strong,\nFor example, if the task consists in positioning the camera\nin front of a door, it may be assumed that there is a door\nin the scene, and that characteristic signals of this door (for\nexample, its four corners) may be extracted. In addition, if it\nis desired to place the camera at a given range of the door, its\ndimensions should be known in order to determine the goal\nfeature in the image.\n\nFinally, when no scene knowledge is available (for example,\nwhen it is wished to track an unknown object with a goal\nimage feature extracted from an initial image of the object),\nwe may then choose L = L(p,, Px) where ji, is an estimate of\nPa, not necessarily very accurate, but ensuring the asymptotic\nstability of the controlled system in some neighborhood of\n5 = sa(t). Ensuring the positivity condition to be satisfied is\nthen difficult, even when s = su(t), since the value L),,\nremains unknown,\n\nIV. EXPERIMENTAL RESU\n\nIs\n\nIn the cases presented, the camera is assumed to have\nsix degrees of freedom. The goal consists in positioning the\ncamera with respect to a target. Let us note that shape and\ngeometrical assumptions on the different targets have been\nmade. Therefore, L = Lj.-s,- Furthermore, we have only\n\n\n=== espiau-page-10.png ===\nconsidered the case where the vision-based task consists in\nregulating s(7, ¢) around a desired value sq and not a trajectory\nsa(t). This limitation allows us to choose constant matrices\nW and C in (68),\n\nBefore showing the results obtained, we describe the sim-\nplified version of the control scheme used in the following. It\nwill be pointed out that condition (56) remains essential even\nin this simpler case.\n\nA. Motion Rate Control: Simplified Version of the General\nControl Scheme\n\nThe basic idea of control simplification consists of trying\nto determine that the task error approximately behaves like @\nfirst-order decoupled system, ie,\n\namie (67)\nWe also have\n‘ (68)\nwhere the velocity screw T' relies to g through\na= (5) T (69)\n\nF/Aq being the robot Jacobian matrix. We assume that the\nsetting variable tunable by the user is simply the desired\njoint velocity q., as for most industrial robots. Then if it\nis possible to ensure that qe & q (for example, by using a\nlarge gain control, or when accelerations and disturbances are\nnot too large), the velocity setting variable in se, that is to\nsay, the desired velocity screw T,, may be considered as a\npseudocontrol vector. Its general form is\n\n(Ae (70)\n\not\n\nUsing (70) in (68) then gives\n\npel ee\nae (de ae (de) Be _ de\nAx(S) e-S(S) Sic\na (F) #(%) atm\n\nwhich would give the evolution (67) if the models were\nperfect. Assuming in (71) that Je/Ot = de/at = 0 (which\nis not strictly necessary for the analysis [24]), we can show\n\nIEEE TRANSACTIONS ON ROBOTICS AND AUTOMATION. VOL. 8, NO. 3. JUNE 1992\n\nLet us now come back to the task function given by (65).\nSince s¢, W, and Care chosen constant, we have\n\nvagy D (ahs\\™\n-Ww ws (F) )\n\nThe vector ds/Jt represents the contribution of a possible\nautonomous target motion and is often unknown. The choice\nmade in the following is Js/Ot = 0. If the target moves, this\nchoice leads to a tracking error, the size of which decreases\nwith (In [7], a simple estimation scheme of Os/At is\nproposed such that this tracking error progressively vanishes\nfor 2 constant velocity of the target). However, if, as in\ntrajectory tracking, (8/0t)(9h,/2F) is known, we may choose\n\n; T\n8 <a, wei)? (3)\n\nax\noe wre 4 as\na at 74\n\nor Paw te)\n\nFinally, it is assumed that the selected interaction models\nallow us to satisfy condition (59) around the goal configuration\nand that (3 is small enough in the hybrid tasks of form (65)\nthat we used. The cho Ge /OF = Ig may therefore be done.\nConsequently, the simple form of the set velocity screw (i.e.,\nused as the input of a low-level large gain control) is,"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "p55-task-framework",
+        "outcome": "supported",
+        "reviewedBy": "Droid 7fed4678-9453-4db4-9c69-75e513455dff; custom:droidproxy:gpt-6-astra/max; 2026-09-13T10:30:14.690Z; retained-primary review, not independent acceptance",
+        "rationale": "Apply a task-function framework to visual control without claiming invention of the general framework. Read primary p315 camera relative to scene in camera frame; p319 admissible task function and prior-framework attribution; p321 combination/hybrid task equations63/65, rank/positivity and near-goal model qualifications; p322 joint-Jacobian distinction and nonzero tracking error when target motion is neglected. Retained tutorial p82 distinguishes Eq1 feature error from Eq2 s-dot=L_s*v_c for fixed goal/motionless target and six-DOF camera. Both source pairs of interaction-frame part reviewed. No unconditional drive-to-zero or raw-feature-equals-task claim remains.",
+        "evidenceDigest": "0683c297bb2ac2352355328d2847070d562fd088eed0865035936cdade3fd87c"
+      },
+      {
+        "partId": "p55-task-definition",
+        "outcome": "supported",
+        "reviewedBy": "Droid 7fed4678-9453-4db4-9c69-75e513455dff; custom:droidproxy:gpt-6-astra/max; 2026-09-13T10:30:14.690Z; retained-primary review, not independent acceptance",
+        "rationale": "Task function e(q,t) is designed for regulation, with admissibility conditions; it need not equal the raw feature error. Read primary p315 camera relative to scene in camera frame; p319 admissible task function and prior-framework attribution; p321 combination/hybrid task equations63/65, rank/positivity and near-goal model qualifications; p322 joint-Jacobian distinction and nonzero tracking error when target motion is neglected. Retained tutorial p82 distinguishes Eq1 feature error from Eq2 s-dot=L_s*v_c for fixed goal/motionless target and six-DOF camera. Both source pairs of interaction-frame part reviewed. No unconditional drive-to-zero or raw-feature-equals-task claim remains.",
+        "evidenceDigest": "21d6ce172f7954a17494c29adcb4c3f921834274561228caeb7525d1181b99f3"
+      },
+      {
+        "partId": "p55-interaction-frame",
+        "outcome": "supported",
+        "reviewedBy": "Droid 7fed4678-9453-4db4-9c69-75e513455dff; custom:droidproxy:gpt-6-astra/max; 2026-09-13T10:30:14.690Z; retained-primary review, not independent acceptance",
+        "rationale": "Interaction matrix connects visual-feature rates with camera translational and rotational velocity relative to the scene, expressed in the camera frame. Read primary p315 camera relative to scene in camera frame; p319 admissible task function and prior-framework attribution; p321 combination/hybrid task equations63/65, rank/positivity and near-goal model qualifications; p322 joint-Jacobian distinction and nonzero tracking error when target motion is neglected. Retained tutorial p82 distinguishes Eq1 feature error from Eq2 s-dot=L_s*v_c for fixed goal/motionless target and six-DOF camera. Both source pairs of interaction-frame part reviewed. No unconditional drive-to-zero or raw-feature-equals-task claim remains.",
+        "evidenceDigest": "e79bbf9ce51cdf9ea3af6fccd679a5b93ab071a993fc42774661317a0bbe9968"
+      },
+      {
+        "partId": "p55-fixed-goal-relation",
+        "outcome": "supported",
+        "reviewedBy": "Droid 7fed4678-9453-4db4-9c69-75e513455dff; custom:droidproxy:gpt-6-astra/max; 2026-09-13T10:30:14.690Z; retained-primary review, not independent acceptance",
+        "rationale": "For the tutorial’s fixed goal and motionless target with a six-DOF camera, s-dot = L_s v_c; v_c is spatial camera velocity. Read primary p315 camera relative to scene in camera frame; p319 admissible task function and prior-framework attribution; p321 combination/hybrid task equations63/65, rank/positivity and near-goal model qualifications; p322 joint-Jacobian distinction and nonzero tracking error when target motion is neglected. Retained tutorial p82 distinguishes Eq1 feature error from Eq2 s-dot=L_s*v_c for fixed goal/motionless target and six-DOF camera. Both source pairs of interaction-frame part reviewed. No unconditional drive-to-zero or raw-feature-equals-task claim remains.",
+        "evidenceDigest": "9602784c97ebdd502189251c7fb769896d17821531cf412fd5ab2a471dd546eb"
+      },
+      {
+        "partId": "p55-conditional-regulation",
+        "outcome": "supported",
+        "reviewedBy": "Droid 7fed4678-9453-4db4-9c69-75e513455dff; custom:droidproxy:gpt-6-astra/max; 2026-09-13T10:30:14.690Z; retained-primary review, not independent acceptance",
+        "rationale": "Convergence depends on task/model conditions; neglecting autonomous target motion can leave tracking error. Read primary p315 camera relative to scene in camera frame; p319 admissible task function and prior-framework attribution; p321 combination/hybrid task equations63/65, rank/positivity and near-goal model qualifications; p322 joint-Jacobian distinction and nonzero tracking error when target motion is neglected. Retained tutorial p82 distinguishes Eq1 feature error from Eq2 s-dot=L_s*v_c for fixed goal/motionless target and six-DOF camera. Both source pairs of interaction-frame part reviewed. No unconditional drive-to-zero or raw-feature-equals-task claim remains.",
+        "evidenceDigest": "a070766dcc5e19854a08edf89664d251c604dd6b0713e63403e93225b0153af4"
+      }
+    ]
   }
 ]
