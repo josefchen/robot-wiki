@@ -1,4 +1,4 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page } from './helpers/motion-planning-offline-fixture';
 import AxeBuilder from '@axe-core/playwright';
 
 const ROUTE = '/classical/motion-planning/';
@@ -44,11 +44,21 @@ test.describe('classical motion-planning module', () => {
       page.getByRole('heading', { level: 1, name: 'Motion Planning' }),
     ).toBeVisible();
 
-    // Sidebar shows the module active under the classical domain.
+    // The taxonomy is in the closed drawer at the compact breakpoint.
+    // Test the actual keyboard path rather than querying an inaccessible sidebar.
+    const menu = page.getByRole('button', { name: 'Open navigation menu' });
+    const compact = await menu.isVisible();
+    if (compact) { await menu.focus(); await page.keyboard.press('Enter'); }
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
-      nav.getByRole('link', { name: 'Motion Planning' }),
+      nav.getByRole('link', { name: 'Motion Planning', exact: true }),
     ).toHaveAttribute('aria-current', 'page');
+    await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
+    if (compact) {
+      await page.keyboard.press('Escape');
+      await expect(page.getByRole('dialog')).toHaveCount(0);
+      await expect(menu).toBeFocused();
+    }
 
     const main = page.locator('#main-content');
     // The required strands are all present as rendered prose. The glossary
