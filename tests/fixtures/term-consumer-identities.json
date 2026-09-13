@@ -1,0 +1,525 @@
+{
+  "schema": "robot-wiki-term-consumer-identities-v1",
+  "provenance": {
+    "historicalInventoryCommit": "260241d",
+    "additionCommit": "53d2cf8",
+    "addedIdentity": "/rl-sim2real/legged-locomotion/#teleoperation:1",
+    "methods": [
+      "raw authored opening tags",
+      "MDX AST",
+      "independent compiled MDX React SSR with inert imported interactives"
+    ],
+    "runtimeLimit": "This fixture is not full browser or scientific acceptance."
+  },
+  "articles": [
+    {
+      "route": "/adjacent/autonomous-vehicles/",
+      "rawOpeningTags": 4,
+      "termIds": [
+        "operational-design-domain",
+        "long-tail",
+        "vision-language-action-model",
+        "mpc"
+      ]
+    },
+    {
+      "route": "/adjacent/drones/",
+      "rawOpeningTags": 2,
+      "termIds": [
+        "swarm-robotics",
+        "visual-inertial-odometry"
+      ]
+    },
+    {
+      "route": "/adjacent/space/",
+      "rawOpeningTags": 3,
+      "termIds": [
+        "in-situ-resource-utilization",
+        "on-orbit-servicing",
+        "teleoperation"
+      ]
+    },
+    {
+      "route": "/adjacent/surgical/",
+      "rawOpeningTags": 3,
+      "termIds": [
+        "minimally-invasive-surgery",
+        "success-rate",
+        "force-feedback"
+      ]
+    },
+    {
+      "route": "/classical/control/",
+      "rawOpeningTags": 9,
+      "termIds": [
+        "mpc",
+        "jacobian",
+        "degrees-of-freedom",
+        "whole-body-control",
+        "impedance-control",
+        "admittance-control",
+        "hybrid-force-position-control",
+        "series-elastic-actuator",
+        "backdrivability"
+      ]
+    },
+    {
+      "route": "/classical/grasp-planning/",
+      "rawOpeningTags": 5,
+      "termIds": [
+        "friction-cone",
+        "grasp-wrench-space",
+        "force-closure",
+        "form-closure",
+        "antipodal-grasp"
+      ]
+    },
+    {
+      "route": "/classical/kinematics/",
+      "rawOpeningTags": 7,
+      "termIds": [
+        "teleoperation",
+        "forward-kinematics",
+        "end-effector",
+        "inverse-kinematics",
+        "jacobian",
+        "denavit-hartenberg-parameters",
+        "degrees-of-freedom"
+      ]
+    },
+    {
+      "route": "/classical/motion-planning/",
+      "rawOpeningTags": 3,
+      "termIds": [
+        "trajectory-optimization",
+        "configuration-space",
+        "degrees-of-freedom"
+      ]
+    },
+    {
+      "route": "/classical/perception/",
+      "rawOpeningTags": 8,
+      "termIds": [
+        "camera-intrinsics",
+        "hand-eye-calibration",
+        "point-cloud",
+        "semantic-segmentation",
+        "promptable-segmentation",
+        "pose-estimation",
+        "add-s-metric",
+        "visual-servoing"
+      ]
+    },
+    {
+      "route": "/classical/scene-representation/",
+      "rawOpeningTags": 8,
+      "termIds": [
+        "point-cloud",
+        "occupancy-grid",
+        "signed-distance-field",
+        "neural-radiance-field",
+        "gaussian-splatting",
+        "loop-closure",
+        "place-recognition",
+        "costmap"
+      ]
+    },
+    {
+      "route": "/classical/state-estimation/",
+      "rawOpeningTags": 4,
+      "termIds": [
+        "kalman-filter",
+        "jacobian",
+        "factor-graph",
+        "slam"
+      ]
+    },
+    {
+      "route": "/data-hardware/data-bottleneck/",
+      "rawOpeningTags": 7,
+      "termIds": [
+        "open-x-embodiment",
+        "teleoperation",
+        "scaling-law",
+        "imitation-learning",
+        "success-rate",
+        "sim-to-real-gap",
+        "covariate-shift"
+      ]
+    },
+    {
+      "route": "/data-hardware/datasets/",
+      "rawOpeningTags": 5,
+      "termIds": [
+        "open-x-embodiment",
+        "cross-embodiment",
+        "imitation-learning",
+        "diffusion-policy",
+        "behavior-cloning"
+      ]
+    },
+    {
+      "route": "/data-hardware/evaluation-crisis/",
+      "rawOpeningTags": 4,
+      "termIds": [
+        "success-rate",
+        "diffusion-policy",
+        "teleoperation",
+        "system-identification"
+      ]
+    },
+    {
+      "route": "/data-hardware/hardware-taxonomy/",
+      "rawOpeningTags": 3,
+      "termIds": [
+        "degrees-of-freedom",
+        "teleoperation",
+        "proprioception"
+      ]
+    },
+    {
+      "route": "/data-hardware/industrial-deployment/",
+      "rawOpeningTags": 10,
+      "termIds": [
+        "automated-storage-and-retrieval",
+        "autonomous-mobile-robot",
+        "goods-to-person",
+        "systems-integrator",
+        "cycle-time",
+        "takt-time",
+        "mean-time-between-failures",
+        "payback-period",
+        "intervention-rate",
+        "brownfield-deployment"
+      ]
+    },
+    {
+      "route": "/data-hardware/teleop-rigs/",
+      "rawOpeningTags": 4,
+      "termIds": [
+        "teleoperation",
+        "retargeting",
+        "diffusion-policy",
+        "inverse-kinematics"
+      ]
+    },
+    {
+      "route": "/frontier/bear-case/",
+      "rawOpeningTags": 4,
+      "termIds": [
+        "success-rate",
+        "vision-language-action-model",
+        "sim-to-real-gap",
+        "scaling-law"
+      ]
+    },
+    {
+      "route": "/frontier/competing-theses/",
+      "rawOpeningTags": 6,
+      "termIds": [
+        "vision-language-action-model",
+        "world-model",
+        "scaling-law",
+        "whole-body-control",
+        "imitation-learning",
+        "teleoperation"
+      ]
+    },
+    {
+      "route": "/frontier/dexterity/",
+      "rawOpeningTags": 7,
+      "termIds": [
+        "contact-rich-manipulation",
+        "in-hand-manipulation",
+        "mechanoreceptor",
+        "teleoperation",
+        "degrees-of-freedom",
+        "in-hand-manipulation",
+        "proprioception"
+      ]
+    },
+    {
+      "route": "/frontier/generalization/",
+      "rawOpeningTags": 6,
+      "termIds": [
+        "distribution-shift",
+        "vision-language-action-model",
+        "teleoperation",
+        "cross-embodiment",
+        "success-rate",
+        "success-rate"
+      ]
+    },
+    {
+      "route": "/frontier/reliability-gap/",
+      "rawOpeningTags": 3,
+      "termIds": [
+        "success-rate",
+        "compounding-error",
+        "vision-language-action-model"
+      ]
+    },
+    {
+      "route": "/frontier/safety-and-assurance/",
+      "rawOpeningTags": 11,
+      "termIds": [
+        "speed-and-separation-monitoring",
+        "power-and-force-limiting",
+        "risk-assessment",
+        "functional-safety",
+        "safety-integrity-level",
+        "performance-level",
+        "emergency-stop",
+        "control-barrier-function",
+        "safety-case",
+        "conformal-prediction",
+        "out-of-distribution-detection"
+      ]
+    },
+    {
+      "route": "/manipulation/action-chunking/",
+      "rawOpeningTags": 8,
+      "termIds": [
+        "behavior-cloning",
+        "dagger",
+        "action-chunking",
+        "cvae",
+        "compounding-error",
+        "temporal-ensembling",
+        "real-time-chunking",
+        "flow-matching"
+      ]
+    },
+    {
+      "route": "/manipulation/bc-foundations/",
+      "rawOpeningTags": 6,
+      "termIds": [
+        "behavior-cloning",
+        "dagger",
+        "compounding-error",
+        "diffusion-policy",
+        "covariate-shift",
+        "imitation-learning"
+      ]
+    },
+    {
+      "route": "/manipulation/comparison-matrix/",
+      "rawOpeningTags": 4,
+      "termIds": [
+        "flow-matching",
+        "predicted-horizon",
+        "committed-horizon",
+        "temporal-ensembling"
+      ]
+    },
+    {
+      "route": "/manipulation/cross-embodiment/",
+      "rawOpeningTags": 0,
+      "termIds": []
+    },
+    {
+      "route": "/manipulation/diffusion-policy/",
+      "rawOpeningTags": 3,
+      "termIds": [
+        "diffusion-policy",
+        "flow-matching",
+        "real-time-chunking"
+      ]
+    },
+    {
+      "route": "/manipulation/generalist-policies/",
+      "rawOpeningTags": 3,
+      "termIds": [
+        "degrees-of-freedom",
+        "vision-language-model",
+        "flow-matching"
+      ]
+    },
+    {
+      "route": "/manipulation/hierarchical/",
+      "rawOpeningTags": 3,
+      "termIds": [
+        "affordance",
+        "vision-language-model",
+        "vision-language-action-model"
+      ]
+    },
+    {
+      "route": "/manipulation/knowledge-insulation/",
+      "rawOpeningTags": 4,
+      "termIds": [
+        "flow-matching",
+        "vision-language-model",
+        "knowledge-insulation",
+        "action-tokenization"
+      ]
+    },
+    {
+      "route": "/manipulation/pi-line/",
+      "rawOpeningTags": 5,
+      "termIds": [
+        "action-tokenization",
+        "flow-matching",
+        "vision-language-model",
+        "cross-embodiment",
+        "real-time-chunking"
+      ]
+    },
+    {
+      "route": "/manipulation/realtime-execution/",
+      "rawOpeningTags": 4,
+      "termIds": [
+        "action-chunking",
+        "real-time-chunking",
+        "temporal-ensembling",
+        "real-time-chunking"
+      ]
+    },
+    {
+      "route": "/manipulation/rl-finetuning/",
+      "rawOpeningTags": 5,
+      "termIds": [
+        "imitation-learning",
+        "flow-matching",
+        "ppo",
+        "behavior-cloning",
+        "success-rate"
+      ]
+    },
+    {
+      "route": "/manipulation/vla-models/",
+      "rawOpeningTags": 5,
+      "termIds": [
+        "vision-language-action-model",
+        "vision-language-model",
+        "open-x-embodiment",
+        "cross-embodiment",
+        "action-chunking"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/humanoid-wbc/",
+      "rawOpeningTags": 6,
+      "termIds": [
+        "whole-body-control",
+        "retargeting",
+        "teleoperation",
+        "behavior-cloning",
+        "proprioception",
+        "flow-matching"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/legged-locomotion/",
+      "rawOpeningTags": 7,
+      "termIds": [
+        "legged-locomotion",
+        "proprioception",
+        "curriculum-learning",
+        "teleoperation",
+        "retargeting",
+        "mpc",
+        "flow-matching"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/parallel-sim-rl/",
+      "rawOpeningTags": 5,
+      "termIds": [
+        "ppo",
+        "curriculum-learning",
+        "parallel-simulation",
+        "domain-randomization",
+        "system-identification"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/reward-design-mpc/",
+      "rawOpeningTags": 5,
+      "termIds": [
+        "ppo",
+        "reward-shaping",
+        "curriculum-learning",
+        "mpc",
+        "domain-randomization"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/rl-for-robotics/",
+      "rawOpeningTags": 8,
+      "termIds": [
+        "on-policy",
+        "off-policy",
+        "replay-buffer",
+        "q-learning",
+        "sample-efficiency",
+        "offline-reinforcement-learning",
+        "hindsight-experience-replay",
+        "reset-free-learning"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/sim2real-transfer/",
+      "rawOpeningTags": 7,
+      "termIds": [
+        "domain-randomization",
+        "teacher-student-distillation",
+        "system-identification",
+        "curriculum-learning",
+        "proprioception",
+        "retargeting",
+        "end-effector"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/why-rl-locomotion/",
+      "rawOpeningTags": 4,
+      "termIds": [
+        "proprioception",
+        "ppo",
+        "domain-randomization",
+        "curriculum-learning"
+      ]
+    },
+    {
+      "route": "/world-models/generative-sim/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "world-model"
+      ]
+    },
+    {
+      "route": "/world-models/generative-video/",
+      "rawOpeningTags": 4,
+      "termIds": [
+        "vision-language-model",
+        "world-model",
+        "latent-dynamics",
+        "vision-language-action-model"
+      ]
+    },
+    {
+      "route": "/world-models/jepa/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "world-model"
+      ]
+    },
+    {
+      "route": "/world-models/latent-dynamics/",
+      "rawOpeningTags": 1,
+      "termIds": [
+        "latent-dynamics"
+      ]
+    },
+    {
+      "route": "/world-models/taxonomy/",
+      "rawOpeningTags": 3,
+      "termIds": [
+        "world-model",
+        "latent-dynamics",
+        "mpc"
+      ]
+    }
+  ]
+}

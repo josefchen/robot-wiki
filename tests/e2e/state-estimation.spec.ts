@@ -1,4 +1,4 @@
-import { expect, test, type Page } from './servo-apollo-fixture';
+import { expect, test, type Page } from './helpers/state-smoothing-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import { extractXAxis } from './helpers/table-agreement';
 
@@ -75,11 +75,17 @@ test.describe('classical state-estimation module', () => {
       page.getByRole('heading', { level: 1, name: 'State Estimation' }),
     ).toBeVisible();
 
-    // Sidebar shows the module active under the classical domain.
+    // Compact navigation is intentionally hidden until its real drawer opens.
+    const compact = page.viewportSize()!.width < 1024;
+    if (compact) await page.getByRole('button', { name: 'Open navigation menu' }).click();
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'State Estimation', exact: true }),
     ).toHaveAttribute('aria-current', 'page');
+    if (compact) {
+      await page.keyboard.press('Escape');
+      await expect(page.getByRole('button', { name: 'Open navigation menu' })).toBeFocused();
+    }
 
     const main = page.locator('#main-content');
     // The required strands are all present as rendered prose. The glossary
@@ -351,7 +357,7 @@ test.describe('classical state-estimation module', () => {
 
   test('reduced motion: no advance before the first coarse tick, then 4-step jumps', async ({
     browser,
-  }) => {
+  }, info) => {
     // The previous shape polled the step readout for greaterThan(10), but
     // the tracker OPENS paused at step 60, so the poll passed instantly
     // and proved nothing about reduced-motion gating. This rewrite pins
@@ -366,7 +372,7 @@ test.describe('classical state-estimation module', () => {
     //      cadence rather than disabling playback.
     // Mutation-checked: forcing playbackCadence onto the smooth cadence
     // (gate disabled) makes half 1 fail immediately (step 61 at 80 ms).
-    const context = await browser.newContext({ reducedMotion: 'reduce' });
+    const context = await browser.newContext({ reducedMotion: 'reduce', viewport: info.project.use.viewport });
     const page = await context.newPage();
     await page.goto(ROUTE);
     const stepReadout = page.getByTestId('kalman-step-readout');
