@@ -71,7 +71,11 @@ On Unitree's H1, H2O turns human pose estimates from an RGB camera into real-tim
 
 
 
-MIT's humanoid program attacked a different piece of the problem. On the MIT humanoid platform, Jeon and colleagues benchmarked direct and potential-based reward formulations for learned running, finding that the potential-based terms are significantly more robust to reward scaling than conventional shaping, and therefore easier to tune <Cite id="mit-humanoid-rewards-2023" />. Everything in that benchmark trained with one off-the-shelf PPO configuration, which is the pattern across the whole lineage: the training recipe is the commodity and the objective design is the work. The full human-motion-tracking lineage, from PHC through GMT and the 2026 robustness results, gets its own module next.
+MIT's humanoid program attacked a different piece of the problem.
+
+Jeon and colleagues compared reward formulations, not RL algorithms, for running with a simulated MIT Humanoid: an 18-DoF platform with its arms fixed and ten leg joints controlled. They held PPO-Clip and the IsaacGym training setup fixed while comparing baseline rewards alone, baseline plus direct shaping, and baseline plus potential-based shaping of orientation, height, and joint regularization. After tuning the baseline weights and keeping them fixed, they compared accumulated baseline reward rather than the differently scaled total rewards. Ten runs per nominal case converged to similarly performing behaviors within 1,000 policy iterations; the potential-based terms offered only marginally faster convergence but were less sensitive in a sweep from 0.1 to 10 times the nominal shaping weights. The practical variant set the potential-shaping discount to 1 while retaining PPO's discount of 0.99, which the authors explicitly say sacrifices policy invariance. This is evidence for easier reward tuning in that experiment, not proof that algorithm choice is irrelevant or that the learned controller is optimal or safe <span className="max-sm:[&_[role=tooltip]]:-translate-x-[64px]"><Cite id="mit-humanoid-rewards-2023" /></span>.
+
+The full human-motion-tracking lineage, from PHC through GMT and the 2026 robustness results, gets its own module next.
 
 ## Industrial adoption
 

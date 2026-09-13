@@ -3020,6 +3020,8 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // Retained arXiv metadata (September 8, 2026) states the four authors and
+    // ICRA 2023 journal reference; the ar5iv body is not independently version-pinned.
     id: 'mit-humanoid-rewards-2023',
     title:
       'Benchmarking Potential Based Rewards for Learning Humanoid Locomotion',
@@ -3290,6 +3292,9 @@ export const CITATIONS: Citation[] = [
   {
     // Verified against the arXiv abs page (2026-08-08): RLC 2026, VLM-based
     // reward design agent that restates the Eureka loop as its baseline.
+    // Retained September 8, 2026 metadata includes the RDA: title prefix;
+    // the printed v1 body omits it. RLC acceptance is an author-submitted comment,
+    // not independently inspected proceedings. The matched baseline uses GPT-5.
     id: 'rda-2026',
     title: 'RDA: Reward Design Agent for Reinforcement Learning',
     authors: [
@@ -3364,6 +3369,9 @@ export const CITATIONS: Citation[] = [
     // iLQR with MuJoCo dynamics and finite-difference derivatives; abstract
     // confirms "few sim-to-real considerations" and the three hardware
     // experiments.
+    // Retained March 2026 v3 body and arXiv metadata have nine authors.
+    // ICRA 2026 is the author-submitted "to appear" comment, not proof of presentation.
+    // The abs/body abstracts differ; hardware uses laboratory motion capture.
     id: 'mujoco-ilqr-2026',
     title: 'Whole-Body Model-Predictive Control of Legged Robots with MuJoCo',
     authors: [
@@ -4381,19 +4389,97 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // Verified against the arXiv abs page (2026-08-08): team author plus 81 names.
-    // Science Robotics 2026 per research/03. Full-text re-read 2026-08-17:
-    // 1,800 real and >47,000 sim rollouts, 50 real / 200 sim per task per
-    // policy per condition, ~1,700 h corpus. The paper reports Bayesian
-    // posteriors as violin plots and gives two reasons for avoiding
-    // confidence intervals; "Clopper-Pearson", the "20-30pp CI width at
-    // n=50", and "4,200 rollouts across 29 tasks" appear nowhere in it.
+    // Retained arXiv v1 and abs metadata inspected 2026-09-13; no fresh fetch.
+    // Preserve the collective byline plus all 81 names listed by this registry URL.
+    // Body contributions spell Ben Burchfiel; abs metadata spells Benjamin Burchfiel.
+    // Science Robotics 2026 was inherited from research/03, not established by these captures.
     id: 'tri-lbm-2025',
-    title:
-      'A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation',
-    authors: ['TRI LBM Team'],
+    title: 'A Careful Examination of Large Behavior Models for Multitask Dexterous Manipulation',
+    authors: [
+      'TRI LBM Team',
+      'Jose Barreiros',
+      'Andrew Beaulieu',
+      'Aditya Bhat',
+      'Rick Cory',
+      'Eric Cousineau',
+      'Hongkai Dai',
+      'Ching-Hsin Fang',
+      'Kunimatsu Hashimoto',
+      'Muhammad Zubair Irshad',
+      'Masha Itkina',
+      'Naveen Kuppuswamy',
+      'Kuan-Hui Lee',
+      'Katherine Liu',
+      'Dale McConachie',
+      'Ian McMahon',
+      'Haruki Nishimura',
+      'Calder Phillips-Grafflin',
+      'Charles Richter',
+      'Paarth Shah',
+      'Krishnan Srinivasan',
+      'Blake Wulfe',
+      'Chen Xu',
+      'Mengchao Zhang',
+      'Alex Alspach',
+      'Maya Angeles',
+      'Kushal Arora',
+      'Vitor Campagnolo Guizilini',
+      'Alejandro Castro',
+      'Dian Chen',
+      'Ting-Sheng Chu',
+      'Sam Creasey',
+      'Sean Curtis',
+      'Richard Denitto',
+      'Emma Dixon',
+      'Eric Dusel',
+      'Matthew Ferreira',
+      'Aimee Goncalves',
+      'Grant Gould',
+      'Damrong Guoy',
+      'Swati Gupta',
+      'Xuchen Han',
+      'Kyle Hatch',
+      'Brendan Hathaway',
+      'Allison Henry',
+      'Hillel Hochsztein',
+      'Phoebe Horgan',
+      'Shun Iwase',
+      'Donovon Jackson',
+      'Siddharth Karamcheti',
+      'Sedrick Keh',
+      'Joseph Masterjohn',
+      'Jean Mercat',
+      'Patrick Miller',
+      'Paul Mitiguy',
+      'Tony Nguyen',
+      'Jeremy Nimmer',
+      'Yuki Noguchi',
+      'Reko Ong',
+      'Aykut Onol',
+      'Owen Pfannenstiehl',
+      'Richard Poyner',
+      'Leticia Priebe Mendes Rocha',
+      'Gordon Richardson',
+      'Christopher Rodriguez',
+      'Derick Seale',
+      'Michael Sherman',
+      'Mariah Smith-Jones',
+      'David Tago',
+      'Pavel Tokmakov',
+      'Matthew Tran',
+      'Basile Van Hoorick',
+      'Igor Vasiljevic',
+      'Sergey Zakharov',
+      'Mark Zolotas',
+      'Rares Ambrus',
+      'Kerri Fetzer-Borelli',
+      'Benjamin Burchfiel',
+      'Hadas Kress-Gazit',
+      'Siyuan Feng',
+      'Stacie Ford',
+      'Russ Tedrake'
+    ],
     year: 2025,
-    venue: 'Science Robotics 2026',
     arxiv: '2507.05331',
     url: 'https://arxiv.org/abs/2507.05331',
     type: 'paper',
@@ -4825,13 +4911,13 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the arXiv abs page and the SIMPLER project site
-    // (2026-08-09): 16 authors across UCSD, Stanford, Berkeley, and Google
-    // DeepMind. research/03 misattributes this as an arXiv 2507.05331
-    // companion; the paper is arXiv 2405.05941. Visual matching and system
-    // identification close the visual and control gaps; Pearson r and the
-    // Mean Maximum Rank Violation (MMRV) metric come from the paper, the
-    // ~1,500 paired sim-and-real episode count only from the project site.
+    // Source preparation 2026-09-13: arXiv 2405.05941 v1, 16 authors.
+    // Visual matching and offline system identification mitigate, rather
+    // than universally close, the visual and control gaps. Pearson r and
+    // margin-weighted MMRV measure setup-scoped relative-policy agreement.
+    // https://simpler-env.github.io/ reports approximately 1,500 episodes
+    // from EACH of real and sim, not 1,500 one-to-one matching raw trials.
+    // Appendix B specifies simulation repetitions by variants/colors/seeds.
     id: 'simpler-2024',
     title: 'Evaluating Real-World Robot Manipulation Policies in Simulation',
     authors: [
@@ -4907,10 +4993,10 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the arXiv abs page (2026-08-09): 32 authors across 7
-    // institutions. Crowd-sourced double-blind pairwise comparisons on the
-    // DROID platform: more than 600 pairwise real-robot episodes over 7
-    // generalist policies, aggregated into a policy ranking.
+    // Retained body-text review 2026-09-13: arXiv 2506.18123 v2, 32 named authors.
+    // Seven universities evaluated seven DROID policies in 612 A/B comparisons;
+    // the exhaustive oracle uses 4,284 individual rollouts. The authors also
+    // have an NVIDIA affiliation; seven is not the count of all affiliations.
     id: 'roboarena-2025',
     title:
       'RoboArena: Distributed Real-World Evaluation of Generalist Robot Policies',
@@ -5141,22 +5227,22 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the arXiv abstract page (2026-08-11): IJRR 30(7),
-    // 2011. Proves RRT and PRM converge to non-optimal solutions and
-    // introduces the asymptotically optimal PRM* and RRT* variants.
+    // Source: arXiv:1105.1186v1, 5 May 2011; Karaman and Frazzoli.
+    // The landing page says IJRR is forthcoming; final issue metadata
+    // is not established by this preprint. Algorithm 1 PRM differs from sPRM.
     id: 'karaman-frazzoli-2011',
     title: 'Sampling-based Algorithms for Optimal Motion Planning',
     authors: ['Sertac Karaman', 'Emilio Frazzoli'],
     year: 2011,
-    venue: 'Int. J. Robotics Research',
+    venue: 'arXiv preprint',
     arxiv: '1105.1186',
     url: 'https://arxiv.org/abs/1105.1186',
     type: 'paper',
   },
   {
-    // Verified against the arXiv abstract page (2026-08-11): IROS 2014,
-    // pp. 2997-3004. Focuses RRT* sampling on the prolate hyperspheroid of
-    // states that can still improve the current solution.
+    // Source: arXiv:1404.2334v3, 28 November 2014; landing metadata
+    // records IROS 2014, pp. 2997-3004. The ellipsoidal path-length
+    // heuristic is an admissible superset, not exact feasible improving states.
     id: 'gammell-2014',
     title:
       'Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic',
@@ -5223,10 +5309,11 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // Verified against the project site (2026-08-11): the Kavraki Lab's
-    // Open Motion Planning Library, the reference implementation of PRM,
-    // RRT, RRT*, and their descendants (Sucan, Moll, Kavraki, IEEE RAM
-    // 19(4), 2012).
+    // This entry links to project documentation, not a version-pinned copy
+    // of the associated 2012 paper. The fetched project page lists PRM/RRT
+    // implementations and benchmarking/integration capabilities; it does
+    // not establish field-wide adoption or testing certification. The
+    // paper title, authors and year below remain a separate P1 identity check.
     id: 'ompl-2012',
     title: 'The Open Motion Planning Library',
     authors: ['Ioan A. Șucan', 'Mark Moll', 'Lydia E. Kavraki'],
@@ -6071,7 +6158,7 @@ export const CITATIONS: Citation[] = [
     // 80%-to-99.9% framing this module anchors on.
     id: 'bessemer-robotics-2026',
     title: 'Bessemer Predicts: Robotics and physical AI',
-    authors: ['Bessemer Venture Partners'],
+    authors: ['Jeremy Levine', 'Talia Goldberg', 'Janelle Teng Wade', 'Alexandra Sukin', 'Bhavik Nagda', 'Jason Scheller', 'Christine Deakers'],
     year: 2026,
     url: 'https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai',
     type: 'blog',
@@ -6108,10 +6195,12 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
-    // Verified against the live essay (2026-08-12): the Johansson
-    // match-lighting videos (seven seconds with touch, four times as long
-    // with fingertips anesthetized), the 17,000-mechanoreceptor figure, and
-    // the Figure/Tesla vision-only training critique quoting eWeek.
+    // Brooks argues for engineered learning inputs and tactile data.
+    // Speech preprocessing varies by implementation; humanoid forecasts
+    // and hand-deployment assertions are his date-scoped assessments.
+    // The essay reports video timings and physiology; this entry does
+    // not independently certify those measurements or linked sources.
+    // Historical registry check: 2026-08-12; not re-certified here.
     id: 'brooks-dexterity-2025',
     title: "Why Today's Humanoids Won't Learn Dexterity",
     authors: ['Rodney Brooks'],
@@ -6176,10 +6265,10 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Brooks's rebuttal to Sutton, published the following week (March
-    // 2019). Verified against the live page (2026-08-12): CNN front ends
-    // as engineered priors, the traffic-sign example, and the
-    // total-cost-of-solution counterargument.
+    // Brooks's rebuttal to Sutton: CNN front ends as engineered priors
+    // and the total-cost-of-solution counterargument. Its closing
+    // word-count comparison is Brooks's own statement, not a recount.
+    // Historical registry check: 2026-08-12; not re-certified here.
     id: 'brooks-better-lesson-2019',
     title: 'A Better Lesson',
     authors: ['Rodney Brooks'],
@@ -7637,7 +7726,7 @@ export const CITATIONS: Citation[] = [
       'Ross Girshick',
     ],
     year: 2023,
-    venue: 'ICCV 2023',
+    venue: 'arXiv 2023',
     arxiv: '2304.02643',
     url: 'https://arxiv.org/abs/2304.02643',
     type: 'paper',
@@ -7697,7 +7786,7 @@ export const CITATIONS: Citation[] = [
       'Lei Zhang',
     ],
     year: 2024,
-    venue: 'ECCV 2024',
+    venue: 'arXiv 2024',
     arxiv: '2303.05499',
     url: 'https://arxiv.org/abs/2303.05499',
     type: 'paper',
@@ -7912,7 +8001,7 @@ export const CITATIONS: Citation[] = [
     // "may cause image saturation". No per-material accuracy figure is
     // published for transparent or specular surfaces.
     id: 'realsense-d400-datasheet-2026',
-    title: 'Intel RealSense D400 Series Product Family Datasheet',
+    title: 'RealSense Product Family D400 Series Datasheet',
     authors: ['RealSense'],
     year: 2026,
     venue: 'RealSense, as of 2026-08-22',
@@ -7927,7 +8016,7 @@ export const CITATIONS: Citation[] = [
     // yields grainy images and therefore poor depth.
     id: 'realsense-tuning-2026',
     title: 'Tuning depth cameras for best performance',
-    authors: ['RealSense'],
+    authors: ['Anders Grunnet-Jepsen', 'John N. Sweetser', 'John Woodfill'],
     year: 2026,
     venue: 'RealSense documentation, as of 2026-08-22',
     url: 'https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/',
@@ -8347,14 +8436,14 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // IFR World Robotics 2025 press summary (public PDF); figures
-    // verified against the executive summary: 542,076 installations in
-    // 2024 and an operational stock of 4,663,698 units (+9%).
+    // IFR-hosted public executive-summary extract. The report's suggested
+    // citation names Christopher Müller; VDMA Services GmbH produces it.
+    // The extract establishes 2025, not a day-level publication date.
     id: 'ifr-world-robotics-2025',
-    title: 'World Robotics 2025: Industrial Robots (press summary)',
-    authors: ['International Federation of Robotics'],
+    title: 'World Robotics 2025 – Industrial Robots',
+    authors: ['Christopher Müller'],
     year: 2025,
-    venue: 'IFR, Frankfurt, published 2025-09-25',
+    venue: 'IFR Statistical Department, VDMA Services GmbH, Frankfurt am Main, Germany',
     url: 'https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf',
     type: 'docs',
   },
@@ -8398,44 +8487,34 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // Amazon company press, October 2023: Sequoia (75% faster inventory
-    // storage, 25% faster order processing), Digit pilot, 750,000+
-    // robots working collaboratively.
-    id: 'amazon-sequoia-digit-2023',
-    title:
-      "Amazon announces 2 new ways it's using robots to assist employees and deliver for customers",
-    authors: ['Scott Dress (About Amazon)'],
+    // Company announcement: >750,000 robots working with employees in October 2023. Sequoia operating at one Houston site; Digit testing planned. Inventory identification/storage speed and order-processing time are distinct bounded metrics.
+    id: "amazon-sequoia-digit-2023",
+    title: "Amazon announces 2 new ways it's using robots to assist employees and deliver for customers",
+    authors: ["Scott Dresser"],
     year: 2023,
-    venue: 'Amazon company press, 2023-10-18',
-    url: 'https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions',
-    type: 'press',
+    venue: "Amazon company press, published 2023-10-18",
+    url: "https://www.aboutamazon.com/news/operations/amazon-introduces-new-robotics-solutions",
+    type: "press",
   },
   {
-    // Amazon company press, June 2026: more than 1 million robots
-    // deployed across its operations network since 2012; fleet guide
-    // naming Sequoia, Hercules, Titan, Vulcan, Sparrow, Robin, Cardinal
-    // and Proteus. Blue Jay survives only in the page's meta description,
-    // so no wiki claim may rest on it through this entry (audit
-    // 2026-09-06, industrial-deployment).
-    id: 'amazon-robot-fleet-2026',
-    title: 'Amazon robotics: Meet the robots inside fulfillment centers',
-    authors: ['Tyler Greenawalt (About Amazon)'],
-    year: 2026,
-    venue: 'Amazon company press, as of 2026-06-04',
-    url: 'https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center',
-    type: 'press',
+    // Updated overview, not a simultaneous active-fleet census. More than one million deployed since 2012 is cumulative. Preserve the returned document title; the H1 differs. Named systems and next-generation Proteus pilot have distinct statuses. Stable citation ID retained.
+    id: "amazon-robot-fleet-2026",
+    title: "Amazon robotics: Meet the robots inside fulfillment centers",
+    authors: ["Tyler Greenawalt"],
+    year: 2024,
+    venue: "Amazon company press, published 2024-10-09; updated 2026-06-04",
+    url: "https://www.aboutamazon.com/news/operations/amazon-robotics-robots-fulfillment-center",
+    type: "press",
   },
   {
-    // Vulcan company press: touch-sensing arm that picks and stows
-    // approximately 75% of stored item types at speeds comparable to
-    // front-line employees.
-    id: 'amazon-vulcan-2026',
+    // Company-reported approximate item-type coverage and employee-comparable speed for pick/stow, not pick success or an independent reliability trial. Spokane/Hamburg pod work and further planned rollout are distinct. Stable citation ID retained.
+    id: "amazon-vulcan-2026",
     title: "Introducing Vulcan: Amazon's first robot with a sense of touch",
-    authors: ['About Amazon'],
-    year: 2026,
-    venue: 'Amazon company press, as of 2026-06-04',
-    url: 'https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch',
-    type: 'press',
+    authors: ["Alex Davies"],
+    year: 2025,
+    venue: "Amazon company press, published 2025-05-07; updated 2026-06-04",
+    url: "https://www.aboutamazon.com/news/operations/amazon-vulcan-robot-pick-stow-touch",
+    type: "press",
   },
   {
     id: 'acemoglu-restrepo-2020',

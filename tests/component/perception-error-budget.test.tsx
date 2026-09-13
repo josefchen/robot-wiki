@@ -14,6 +14,19 @@ const total = () =>
   );
 
 describe('PerceptionErrorBudget', () => {
+  it('labels the named-model reference without guaranteeing opaque-target accuracy', () => {
+    render(<PerceptionErrorBudget />);
+    expect(screen.getByTestId('perception-target-note')).toHaveTextContent(
+      'not a material-specific accuracy guarantee',
+    );
+    const budget = screen.getByTestId('perception-budget');
+    for (const text of ['D410/D415 and D43x', 'up to 2 m', '80% ROI',
+      'HD resolution', 'not a measurement of opaque objects']) {
+      expect(budget).toHaveTextContent(text);
+    }
+    expect(budget).not.toHaveTextContent('sensor meets its published spec');
+  });
+
   it('renders four sliders, the target selector, readouts, and reset', () => {
     render(<PerceptionErrorBudget />);
     expect(slider(/hand-eye rotation error/i)).toBeInTheDocument();

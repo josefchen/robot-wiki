@@ -29,12 +29,11 @@ test.describe('data-hardware industrial-deployment module', () => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
     await expect(
-      main.getByText(/4\.66 million|542,076/).filter({ visible: true }).first(),
+      main.getByText(/4,663,698|542,076/).filter({ visible: true }).first(),
     ).toBeVisible();
     // The citation chip resolves to a References entry with an external href.
     const chip = main
-      .locator('a, [data-cite], sup')
-      .filter({ hasText: /IFR|international federation/i })
+      .locator('[data-cite-id="ifr-world-robotics-2025"] a[target="_blank"]')
       .first();
     await expect(chip).toBeVisible();
     // The humanoid contrast in the same opening flow.
@@ -46,12 +45,12 @@ test.describe('data-hardware industrial-deployment module', () => {
     ).toBeVisible();
   });
 
-  test('names five task categories and the logistics stack, and links to the humanoid table instead of restating it', async ({
+  test('names OSHA use examples and the logistics stack, and links to the humanoid table instead of restating it', async ({
     page,
   }) => {
     await page.goto(ROUTE);
     const main = page.locator('#main-content');
-    for (const task of [/welding/i, /painting/i, /palletising/i, /machine tending/i, /assembly/i]) {
+    for (const task of [/welding/i, /painting/i, /machine-tool loading and unloading/i, /assembly/i, /materials handling and packaging/i]) {
       await expect(main.getByText(task).filter({ visible: true }).first()).toBeVisible();
     }
     for (const sys of [/storage and retrieval/i, /mobile robot/i, /goods-to-person/i, /piece picking/i]) {

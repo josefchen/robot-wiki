@@ -42,9 +42,10 @@
  */
 
 /**
- * Published Z-accuracy of the reference stereo camera, percent of range:
- * RealSense D400-series, +/- 2% at <= 2 m within 80% of the field of view
- * at HD resolution (datasheet 337029-017, table 4-15).
+ * Illustrative model reference: Table 4-15 lists +/- 2% Z-accuracy for
+ * D410/D415 and D43x at <= 2 m, 80% ROI, HD resolution.
+ * RealSense D400-series datasheet, Revision 023 (Mar 2026), 337029-017.
+ * This reference is not a measured accuracy bound for the toy target classes.
  */
 export const PUBLISHED_DEPTH_SPEC_PCT = 2;
 
@@ -92,7 +93,7 @@ export const TARGET_CLASSES: readonly TargetClass[] = [
     id: 'opaque',
     label: 'opaque box',
     specMultiple: 1,
-    failureMode: 'matte and textured, so the sensor meets its published spec',
+    failureMode: 'an illustrative opaque-target case, not a material-specific accuracy guarantee',
   },
   {
     id: 'specular',

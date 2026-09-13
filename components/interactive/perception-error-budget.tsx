@@ -455,9 +455,10 @@ export function PerceptionErrorBudget({ className }: { className?: string }) {
       />
 
       <p className="mt-2 font-sans text-xs leading-relaxed text-text-dim">
-        The opaque floor is the published Z-accuracy of the reference stereo
-        camera, {PUBLISHED_DEPTH_SPEC_PCT}% of range within 80% of the field
-        of view <CiteRef id="realsense-d400-datasheet-2026" />. The specular
+        The illustrative opaque-case floor borrows the
+        ±{PUBLISHED_DEPTH_SPEC_PCT}% Z-accuracy entry for D410/D415 and D43x
+        at ranges up to 2 m, 80% ROI and HD resolution. It is not a
+        measurement of opaque objects <CiteRef id="realsense-d400-datasheet-2026" />. The specular
         and transparent floors are illustrative multiples of it, not
         measurements: the datasheet publishes no per-material figure, and
         the research on transparent-object depth exists precisely because
