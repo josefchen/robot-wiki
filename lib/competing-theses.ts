@@ -97,7 +97,7 @@ const ROWS: Thesis[] = [
       'A vision-language model reasons about goals and decomposes them into subtasks; learned skills or a low-level policy execute the plan.',
     proponents: [
       'Google DeepMind (Gemini Robotics ER 2)',
-      'Figure (Helix S2/S1/S0)',
+      'Figure (Helix 02 S2/S1/S0)',
       'NVIDIA (GR00T dual-system)',
     ],
     evidenceFor: [
@@ -106,7 +106,7 @@ const ROWS: Thesis[] = [
         citationIds: ['gemini-robotics-er2-2026'],
       },
       {
-        text: 'Figure Helix 02 sequenced 61 loco-manipulation actions across a continuous four-minute dishwasher unload, ordered correctly, with implicit error recovery.',
+        text: 'Figure reports a continuous four-minute Helix 02 dishwasher unloading-and-reloading task without resets or human intervention, with 61 loco-manipulation actions described as ordered correctly with implicit error recovery.',
         citationIds: ['helix-02-2026'],
       },
       {
@@ -140,7 +140,7 @@ const ROWS: Thesis[] = [
         citationIds: ['vjepa2-2025'],
       },
       {
-        text: 'π0.7 already uses its world model to generate the visual subgoals that steer execution, a lightweight version of the bet.',
+        text: 'π0.7 can receive optional visual subgoals from a separate BAGEL-initialized world model, described as lightweight in the paper; the images condition the action policy.',
         citationIds: ['pi07-2026'],
       },
     ],
@@ -188,8 +188,8 @@ const ROWS: Thesis[] = [
         citationIds: ['pistar06-2025', 'rl-100-2025'],
       },
       {
-        text: 'The generalist comparison is sobering: π0.7 matches specialist throughput on exactly the Recap tasks, by distilling specialist experience into the generalist.',
-        citationIds: ['pi07-2026'],
+        text: 'Physical Intelligence reports that one π0.7 model matches the RL-trained specialists on the evaluated laundry-folding, espresso-making, and box-building tasks, sometimes exceeding their throughput, after distilling Recap experience with strategy metadata. Throughput means successful episodes per hour, not inference speed; the comparison does not establish failure on other tasks.',
+        citationIds: ['pi07-2026', 'pi07-blog-2026'],
       },
     ],
     falsification:

@@ -43857,5 +43857,395 @@
         "evidenceDigest": "607a87cf6849eeefd3fdbed59332ccbadd7abc205bd914dd153d24d440a7ed22"
       }
     ]
+  },
+  {
+    "id": "competing-theses-6-pi-helix-retained-20260913",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 6,
+    "originalCellsDigest": "4702bdc3edf36b7e905a21c8aaa24423afcfca493e5883112e6b27a9e092495c",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "bagel-mechanism",
+        "text": "The paper describes a separate BAGEL-initialized world model generating visual subgoal images conditioned on observations and subtask instructions.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      },
+      {
+        "id": "optional-prompts",
+        "text": "Visual subgoal images are optional prompt components; training dropout allows use with or without them.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      },
+      {
+        "id": "generation-execution-separation",
+        "text": "Subgoal generation and low-level VLA execution are distinct, asynchronous processes; generated images are conditioning, not executed actions.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      },
+      {
+        "id": "lightweight-attribution",
+        "text": "Lightweight is the paper’s description; its BAGEL world model is 14B and has explicit substantial inference costs, so the label is not low-cost or small-runtime proof.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+      "rationale": "Figure 2, visual prompting and Appendix D explicitly describe BAGEL initialization and observations/instruction-conditioned subgoal generation. This is a separate generator, not an action-execution world model. The prompt-conditioning prose and training dropout permit subgoal images but do not require them. Runtime descriptions distinguish use with and without visual prompts. Runtime and the asynchronous continuation paragraph describe generation separately from low-level VLA execution. Generated images condition the action policy; they are not robot actions. Lightweight is the authors’ label in the architecture prose. Appendix D identifies a 14B BAGEL world model and substantial measured inference costs, so the label cannot support cheap runtime.",
+      "planDigest": "26d7f65ee613857fbc9f4b8561d60c02d117d42e4775a5d9a4c17b636e0670e1"
+    },
+    "evidence": [
+      {
+        "partId": "bagel-mechanism",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "[Figure 2 caption; paper p4]\nFig. 2: Architecture overview. The π0.7 model is a 5B-parameter VLA consisting of a 4B VLM backbone, a MEM-style video history encoder and a 860M\nparameter action expert. The model’s context includes multiple distinct modalities, including language commands, episode metadata that describes the data\nquality and strategy, and multimodal inputs such as subgoal images. At runtime, the language commands are produced by a high-level semantic policy based\non the same architecture, and the subgoal images are produced by a lightweight world model based on the BAGEL image generation model [105].\n\n[Section V-B, paper p5]\nlightweight world model, which takes in the same subtask\ninstruction ℓ̂t as the main model, but benefits from webscale pre-training on videos and image editing tasks and is\nthus capable of generalizing to diverse tasks and scenarios.\nGenerated subgoal images that are grounded in the robot’s\ncurrent observation can often more clearly disambiguate the\nobjective for the policy than a language instruction, resulting\nin improvements in language following and generalization. We\ndenote this model as gψ and it is trained with the objective\nh\n\u0010\n\u0011i\nmax EDg LCFM gt⋆ , gψ (ot , ℓ̂t , m) ,\nψ\n\nwhere LCFM is the standard flow matching loss [102], gt⋆\nis the future subgoal image, m is the episode metadata\nfrom Sec. V-C, and the dataset Dg is a subset of segments\nfrom Sec. V-A that are annotated with especially high-quality\nsubtask labels ℓ̂t . The image frames at the end of the segments\nserve as the ground-truth subgoal, i.e., gt⋆ = otend .\nFollowing SuSIE [93], our world model is initialized using\nan off-the-shelf image generation and editing model with\nweb-scale pre-training. We initialize from BAGEL [105], a\n14B mixture-of-transformers model capable of image understanding, editing, and generation. By augmenting our world\nmodel training with web data, non-robot data sources such\nas egocentric human videos, and other video data, we can\nacquire semantic and physical concepts from these other data\nsources and then transfer them into π0.7 via subgoal images.\nImplementation details are in Appendix C.\n\n[Appendix C; interrupted by Figure 19 text in extraction]\nC. Training of the world model\nOur world model is initialized from BAGEL [105], and\nlargely uses the same training recipe. We use a subset of our\nrobot data and egocentric human video data with high-quality\nsegmented language labels, as we found that label quality\n(especially temporal segmentation quality) has a large impact\non subgoal quality. We additionally mix in several open-source\nimage editing datasets and open-source video datasets to better\npreserve the semantic knowledge of the model. Each training\nexample consists of a subtask instruction, ℓ̂, 3 camera inputs,"
+      },
+      {
+        "partId": "optional-prompts",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "[Section V-E, paper p5]\nDuring training, we randomly drop out each part of the\nprompt, which provides π0.7 with the flexibility to use any\nsubset of the prompt components at test time (e.g., running\nwith or without subgoal images). First, we find that the model\ntrains significantly faster when given the subgoal images —\nthe action prediction task essentially becomes an “inverse\ndynamics” problem inferring the robot action between the\ncurrent and future frames. Thus we only add the visual\nsubgoal images to 25% of the examples in each batch in\ntraining. Among the examples with subgoal images we also\ndrop out the subtask instruction ℓ̂t 30% of the time as often\nvisual subgoal can substitute the equivalent textual subtask\ndescription in richer details. For episode metadata, we drop\nit entirely 15% of the time, and additionally each component\n(overall speed, overall quality, and mistake label) is dropped\nwith 5% probability individually. We do not apply dropout for\nthe control mode.\n\n[Section VII, paper p7; last clause is extraction boundary, not extra claim]\nVII. P ROMPTING π0.7 AT RUNTIME\nAt runtime, we configure π0.7 to run with different forms\nof context depending on the desired behavior without any\ntask-specific post-training. For any task we always prompt\nthe model with the control mode and episode metadata. For\nchoosing the episode metadata, we follow\nth\n• Overall speed: set per-task to the 15\npercentile of the\nepisode length from the task.\n• Overall quality: always set to 5, which is the highest score.\n• Mistake: always set to false, meaning no mistake.\nThe subtask instruction ℓ̂t is provided either by a learned highlevel language policy or by a human supervisor for coaching\n(see Sec. V-A). When the subgoal images are used, we refresh\nthe subgoal images whenever the semantic intent changes (i.e.,\nnew ℓ̂t ), or after ∆ = 4 seconds have elapsed since the last\nsubgoal image was produced, whichever happens first. See\nAlgorithm 1 for the full workflow. We apply asynchronous inference: the visual subgoal and subtask instruction generation\nhappens in separate threads and the VLA inference always\nuses the latest ones available.\nFor all experiments we use 5 denoising steps to generate\nthe 50-step action chunks and execute Ĥ ∈ {15, 25} steps out\nof the chunk. Since each prompt component is trained with"
+      },
+      {
+        "partId": "generation-execution-separation",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "[Section VII, paper p7; last clause is extraction boundary, not extra claim]\nVII. P ROMPTING π0.7 AT RUNTIME\nAt runtime, we configure π0.7 to run with different forms\nof context depending on the desired behavior without any\ntask-specific post-training. For any task we always prompt\nthe model with the control mode and episode metadata. For\nchoosing the episode metadata, we follow\nth\n• Overall speed: set per-task to the 15\npercentile of the\nepisode length from the task.\n• Overall quality: always set to 5, which is the highest score.\n• Mistake: always set to false, meaning no mistake.\nThe subtask instruction ℓ̂t is provided either by a learned highlevel language policy or by a human supervisor for coaching\n(see Sec. V-A). When the subgoal images are used, we refresh\nthe subgoal images whenever the semantic intent changes (i.e.,\nnew ℓ̂t ), or after ∆ = 4 seconds have elapsed since the last\nsubgoal image was produced, whichever happens first. See\nAlgorithm 1 for the full workflow. We apply asynchronous inference: the visual subgoal and subtask instruction generation\nhappens in separate threads and the VLA inference always\nuses the latest ones available.\nFor all experiments we use 5 denoising steps to generate\nthe 50-step action chunks and execute Ĥ ∈ {15, 25} steps out\nof the chunk. Since each prompt component is trained with\n\n[Appendix D; preceding sentence ends in other text block]\nexecute using a naive asynchronous strategy, meaning that π0.7\ncontinues executing while the world model generates the next\nsubgoal."
+      },
+      {
+        "partId": "lightweight-attribution",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "[Figure 2 caption; paper p4]\nFig. 2: Architecture overview. The π0.7 model is a 5B-parameter VLA consisting of a 4B VLM backbone, a MEM-style video history encoder and a 860M\nparameter action expert. The model’s context includes multiple distinct modalities, including language commands, episode metadata that describes the data\nquality and strategy, and multimodal inputs such as subgoal images. At runtime, the language commands are produced by a high-level semantic policy based\non the same architecture, and the subgoal images are produced by a lightweight world model based on the BAGEL image generation model [105].\n\n[Section V-B, paper p5]\nlightweight world model, which takes in the same subtask\ninstruction ℓ̂t as the main model, but benefits from webscale pre-training on videos and image editing tasks and is\nthus capable of generalizing to diverse tasks and scenarios.\nGenerated subgoal images that are grounded in the robot’s\ncurrent observation can often more clearly disambiguate the\nobjective for the policy than a language instruction, resulting\nin improvements in language following and generalization. We\ndenote this model as gψ and it is trained with the objective\nh\n\u0010\n\u0011i\nmax EDg LCFM gt⋆ , gψ (ot , ℓ̂t , m) ,\nψ\n\nwhere LCFM is the standard flow matching loss [102], gt⋆\nis the future subgoal image, m is the episode metadata\nfrom Sec. V-C, and the dataset Dg is a subset of segments\nfrom Sec. V-A that are annotated with especially high-quality\nsubtask labels ℓ̂t . The image frames at the end of the segments\nserve as the ground-truth subgoal, i.e., gt⋆ = otend .\nFollowing SuSIE [93], our world model is initialized using\nan off-the-shelf image generation and editing model with\nweb-scale pre-training. We initialize from BAGEL [105], a\n14B mixture-of-transformers model capable of image understanding, editing, and generation. By augmenting our world\nmodel training with web data, non-robot data sources such\nas egocentric human videos, and other video data, we can\nacquire semantic and physical concepts from these other data\nsources and then transfer them into π0.7 via subgoal images.\nImplementation details are in Appendix C.\n\n[Appendix D; sentence continues in separate extracted block]\nGenerating subgoal images at a reasonable latency is challenging, due to the computational expense of iterative denoising with a 14B model and total sequence length of nearly\n10,000 tokens. In addition to the aforementioned optimizations, we also use 4-way tensor parallelism on 4xH100 GPUs,\nquantize all large matrix multiplications to 8-bit precision,\nand use a modified version of SageAttention [112] for the\nbackbone attention operations. This allows us to generate\nsubgoal images with 25 denoising steps (each including both\ntext and image CFG) in 1.25 seconds. At inference time, we"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "bagel-mechanism",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "Figure 2, visual prompting and Appendix D explicitly describe BAGEL initialization and observations/instruction-conditioned subgoal generation. This is a separate generator, not an action-execution world model.",
+        "evidenceDigest": "2948f4567fb4998602e6a4fc309711deec92f483cee849821a2970a126781d51"
+      },
+      {
+        "partId": "optional-prompts",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "The prompt-conditioning prose and training dropout permit subgoal images but do not require them. Runtime descriptions distinguish use with and without visual prompts.",
+        "evidenceDigest": "1408cd4e453d6398f305b8eaff617c50d1753d4f6f0cbb3209914e31a55422a9"
+      },
+      {
+        "partId": "generation-execution-separation",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "Runtime and the asynchronous continuation paragraph describe generation separately from low-level VLA execution. Generated images condition the action policy; they are not robot actions.",
+        "evidenceDigest": "cb7ce9d21e5574ace0507e12df09544354d1bb0d7991fdb54d761d65f46ebc9b"
+      },
+      {
+        "partId": "lightweight-attribution",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "Lightweight is the authors’ label in the architecture prose. Appendix D identifies a 14B BAGEL world model and substantial measured inference costs, so the label cannot support cheap runtime.",
+        "evidenceDigest": "1719d412b064d671fb5fa728e2c885e758465380610ea1899b7d556458974b26"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-15-pi-helix-retained-20260913",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "4ae59c64a8ce3c5c294e86add82101cb8055f3713d154c85d4e7bb21ac12dc41",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "edition",
+        "text": "Architecture attribution is to Figure’s Helix 02 announcement, not original Helix.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "s2-semantics",
+        "text": "S2 reasons about goals, scenes and language and produces semantic latents sequencing behaviors for S1.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "s1-targets",
+        "text": "S1 is conditioned on S2 latents and generates full-body joint targets at 200 Hz, not 1 kHz actuator execution.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "s0-execution",
+        "text": "S0 tracks targets and outputs joint-level actuator commands at 1 kHz, handling balance, contact and whole-body coordination.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+      "rationale": "The retained announcement is explicitly Helix 02. Its three-system architecture is not attributed backward to the original Helix. Figure’s three-system description assigns scene/language reasoning and behavior sequencing to S2, with the S1 connection carrying semantic intent into motion. Figure explicitly assigns full-body joint targets at 200 Hz to S1; targets are distinguished from joint-level actuation. The three-system and S0 output passages assign 1 kHz joint-level actuator execution, balance, contact and coordination to S0, not S1.",
+      "planDigest": "8e9d8efdd7e0fc57d865b60544277098dec8226ff990e812482d4ecedc912d34"
+    },
+    "evidence": [
+      {
+        "partId": "edition",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "[Returned heading/date]\n# Introducing Helix 02: Full-Body Autonomy\n\nJanuary 27, 2026\n\n[Helix02 unified VLA architecture]\nEach system operates at its natural timescale. **System 2 (S2)** reasons slowly about goals: interpreting scenes, understanding language, and sequencing behaviors. **System 1 (S1)** thinks fast, translating perception into full‑body joint targets at 200 Hz. **System 0 (S0)** executes at 1 kHz, handling balance, contact, and coordination across the entire body. Together, they form a tightly integrated hierarchy from pixels to torque."
+      },
+      {
+        "partId": "s2-semantics",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "[Helix02 unified VLA architecture]\nEach system operates at its natural timescale. **System 2 (S2)** reasons slowly about goals: interpreting scenes, understanding language, and sequencing behaviors. **System 1 (S1)** thinks fast, translating perception into full‑body joint targets at 200 Hz. **System 0 (S0)** executes at 1 kHz, handling balance, contact, and coordination across the entire body. Together, they form a tightly integrated hierarchy from pixels to torque.\n\n[System 1 continuation and complete System 2 section]\nS1 remains a transformer conditioned on System 2 latents, but now produces full‑body joint targets that S0 tracks at kHz rates.\n\n**System 2: Scene Understanding and Language**\n\nSystem 2 remains the semantic reasoning layer: processing scenes, understanding language, and producing latent goals for S1. Helix 02 dramatically expands the _scope_ of behaviors S2 can specify. Previously: _“Pick up the ketchup.”_ Now:\n\n- \"Walk to the dishwasher and open it\"\n\n- \"Carry the bowls to the counter\"\n\n- \"Go back to the top rack and pick up the cups\"\n\n\nS2 doesn't need to plan low-level footsteps or specify how to coordinate arms and legs. It produces a sequence of semantic latents that S1 interprets into motor commands, which S0 executes."
+      },
+      {
+        "partId": "s1-targets",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "[Helix02 unified VLA architecture]\nEach system operates at its natural timescale. **System 2 (S2)** reasons slowly about goals: interpreting scenes, understanding language, and sequencing behaviors. **System 1 (S1)** thinks fast, translating perception into full‑body joint targets at 200 Hz. **System 0 (S0)** executes at 1 kHz, handling balance, contact, and coordination across the entire body. Together, they form a tightly integrated hierarchy from pixels to torque.\n\n[System 1 continuation and complete System 2 section]\nS1 remains a transformer conditioned on System 2 latents, but now produces full‑body joint targets that S0 tracks at kHz rates.\n\n**System 2: Scene Understanding and Language**\n\nSystem 2 remains the semantic reasoning layer: processing scenes, understanding language, and producing latent goals for S1. Helix 02 dramatically expands the _scope_ of behaviors S2 can specify. Previously: _“Pick up the ketchup.”_ Now:\n\n- \"Walk to the dishwasher and open it\"\n\n- \"Carry the bowls to the counter\"\n\n- \"Go back to the top rack and pick up the cups\"\n\n\nS2 doesn't need to plan low-level footsteps or specify how to coordinate arms and legs. It produces a sequence of semantic latents that S1 interprets into motor commands, which S0 executes."
+      },
+      {
+        "partId": "s0-execution",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "[Helix02 unified VLA architecture]\nEach system operates at its natural timescale. **System 2 (S2)** reasons slowly about goals: interpreting scenes, understanding language, and sequencing behaviors. **System 1 (S1)** thinks fast, translating perception into full‑body joint targets at 200 Hz. **System 0 (S0)** executes at 1 kHz, handling balance, contact, and coordination across the entire body. Together, they form a tightly integrated hierarchy from pixels to torque.\n\n[System 0 architecture]\n**Architecture:** A 10M‑parameter neural network that takes full‑body joint state and base motion as input and outputs joint‑level actuator commands at 1 kHz.\n\n[System 1 continuation and complete System 2 section]\nS1 remains a transformer conditioned on System 2 latents, but now produces full‑body joint targets that S0 tracks at kHz rates.\n\n**System 2: Scene Understanding and Language**\n\nSystem 2 remains the semantic reasoning layer: processing scenes, understanding language, and producing latent goals for S1. Helix 02 dramatically expands the _scope_ of behaviors S2 can specify. Previously: _“Pick up the ketchup.”_ Now:\n\n- \"Walk to the dishwasher and open it\"\n\n- \"Carry the bowls to the counter\"\n\n- \"Go back to the top rack and pick up the cups\"\n\n\nS2 doesn't need to plan low-level footsteps or specify how to coordinate arms and legs. It produces a sequence of semantic latents that S1 interprets into motor commands, which S0 executes."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "edition",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "The retained announcement is explicitly Helix 02. Its three-system architecture is not attributed backward to the original Helix.",
+        "evidenceDigest": "3211896a19c05c74d0af25a6648d47340a277002261c013f47bd9d371812a6f6"
+      },
+      {
+        "partId": "s2-semantics",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "Figure’s three-system description assigns scene/language reasoning and behavior sequencing to S2, with the S1 connection carrying semantic intent into motion.",
+        "evidenceDigest": "e406910a96cf9c388c9bd33bd3b76dfa4b85a087cbbdf20b7046fb6774a34010"
+      },
+      {
+        "partId": "s1-targets",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "Figure explicitly assigns full-body joint targets at 200 Hz to S1; targets are distinguished from joint-level actuation.",
+        "evidenceDigest": "9d328efa4973e893eada7086cc18745cf2842d5d408b3d5e2adfbfa83294bd9a"
+      },
+      {
+        "partId": "s0-execution",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "The three-system and S0 output passages assign 1 kHz joint-level actuator execution, balance, contact and coordination to S0, not S1.",
+        "evidenceDigest": "591b27d4cb809ca57f1c45105d62c7db3d88fd0f03acf5c2ed8d0ef34094ade1"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-16-pi-helix-retained-20260913",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 16,
+    "originalCellsDigest": "cef979a9beb02816a59cd7908e72e78a61e0a0a98a2132a13faf5faccec82ef2",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "task-and-duration",
+        "text": "Figure reports a continuous four-minute kitchen task including both unloading and reloading the dishwasher; not unload-only.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "sequence-and-recovery",
+        "text": "Figure describes 61 loco-manipulation actions ordered correctly with implicit error recovery; this is attributed vendor prose, not independently counted actions.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "autonomy-protocol",
+        "text": "Figure reports no resets or human intervention and says shown videos are autonomous, not teleoperated; no independent timing/endurance/generalization claim follows.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+      "rationale": "Figure’s summary, caption and results describe a continuous four-minute 61-action dishwasher unloading-and-reloading task. These are vendor text claims, not my independent timing or counting. Figure’s results and early-results text claim correct action order and implicit recovery. The edited prose preserves vendor attribution and does not infer generalization or endurance. Figure states no resets and no human intervention for this demonstration. This establishes the attributed reported protocol only, without independent video review.",
+      "planDigest": "c00d57efb98c9f4cfbae8b8dd36d5022732ffd2753e345fc5a820f44b7aa7709"
+    },
+    "evidence": [
+      {
+        "partId": "task-and-duration",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "[Introduction; superlative retained as countercontext, not proposed]\n- **Autonomous, long‑horizon loco-manipulation:** Helix 02 unloads and reloads a dishwasher across a full-sized kitchen - a four-minute, end-to-end autonomous task that integrates walking, manipulation, and balance with no resets and no human intervention. We believe this is the longest horizon, most complex task completed autonomously by a humanoid robot to date.\n\n[Text caption only, video not inspected]\nVideo 1: A Figure robot executes a continuous 4-minute task: walking to a dishwasher, unloading dishes, navigating across a room, stacking items in cabinets, loading and starting the dishwasher - entirely from onboard sensors with no human intervention.\n\n[Complete returned long-horizon results section; vendor claims, no visual verification]\n## **Results: Autonomous Long‑Horizon Loco-Manipulation**\n\nHelix 02 performs continuous, multi‑minute tasks that demand the full integration of locomotion, dexterity, and sensing.\n\nWe evaluate Helix 02 on tasks that demand the full integration of locomotion, dexterity, and sensing. **All videos shown below are fully autonomous, not teleoperated.**\n\nIn video 1, we demonstrate Helix 02 on an extended loco-manipulation task: loading and unloading a dishwasher over a full sized kitchen. This 4-minute continuous behavior represents the most complex autonomous manipulation sequence demonstrated to date. This represents the first demonstration of such long horizon, end-to-end \"pixels-to-whole body\" control on a humanoid robot.\n\n**What this demonstrates**:\n\n- _Locomotion under manipulation constraints_ **.** The robot walks while holding delicate objects, maintaining stable grasps through every step.\n\n- _Making use of the whole body_: When its hands are occupied, the robot closes a drawer with its hip and lifts the dishwasher door with its foot - using the entire body as a tool rather than relying solely on the hands.\n\n- _Bimanual coordination throughout_: Objects are picked up, transferred between hands, stacked, and placed while both arms operate as a coordinated system.\n\n- _Motor range across scales._ The same neural network produces millimeter‑scale finger motions and room-scale locomotion - a dynamic range spanning four orders of magnitude.\n\n- _Long-horizon sequencing_: 61 loco-manipulation actions, ordered correctly, with implicit error recovery. The robot maintains task state across minutes of execution."
+      },
+      {
+        "partId": "sequence-and-recovery",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "[Complete returned long-horizon results section; vendor claims, no visual verification]\n## **Results: Autonomous Long‑Horizon Loco-Manipulation**\n\nHelix 02 performs continuous, multi‑minute tasks that demand the full integration of locomotion, dexterity, and sensing.\n\nWe evaluate Helix 02 on tasks that demand the full integration of locomotion, dexterity, and sensing. **All videos shown below are fully autonomous, not teleoperated.**\n\nIn video 1, we demonstrate Helix 02 on an extended loco-manipulation task: loading and unloading a dishwasher over a full sized kitchen. This 4-minute continuous behavior represents the most complex autonomous manipulation sequence demonstrated to date. This represents the first demonstration of such long horizon, end-to-end \"pixels-to-whole body\" control on a humanoid robot.\n\n**What this demonstrates**:\n\n- _Locomotion under manipulation constraints_ **.** The robot walks while holding delicate objects, maintaining stable grasps through every step.\n\n- _Making use of the whole body_: When its hands are occupied, the robot closes a drawer with its hip and lifts the dishwasher door with its foot - using the entire body as a tool rather than relying solely on the hands.\n\n- _Bimanual coordination throughout_: Objects are picked up, transferred between hands, stacked, and placed while both arms operate as a coordinated system.\n\n- _Motor range across scales._ The same neural network produces millimeter‑scale finger motions and room-scale locomotion - a dynamic range spanning four orders of magnitude.\n\n- _Long-horizon sequencing_: 61 loco-manipulation actions, ordered correctly, with implicit error recovery. The robot maintains task state across minutes of execution.\n\n[Conclusion]\nThe results are early - but they already show what continuous, whole-body autonomy makes possible. A 4-minute autonomous task with 61 fluidly executed loco-manipulation actions, dexterous behaviors enabled by tactile sensing and palm cameras, and whole-body coordination that uses hips and feet alongside hands and arms."
+      },
+      {
+        "partId": "autonomy-protocol",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "[Introduction; superlative retained as countercontext, not proposed]\n- **Autonomous, long‑horizon loco-manipulation:** Helix 02 unloads and reloads a dishwasher across a full-sized kitchen - a four-minute, end-to-end autonomous task that integrates walking, manipulation, and balance with no resets and no human intervention. We believe this is the longest horizon, most complex task completed autonomously by a humanoid robot to date.\n\n[Complete returned long-horizon results section; vendor claims, no visual verification]\n## **Results: Autonomous Long‑Horizon Loco-Manipulation**\n\nHelix 02 performs continuous, multi‑minute tasks that demand the full integration of locomotion, dexterity, and sensing.\n\nWe evaluate Helix 02 on tasks that demand the full integration of locomotion, dexterity, and sensing. **All videos shown below are fully autonomous, not teleoperated.**\n\nIn video 1, we demonstrate Helix 02 on an extended loco-manipulation task: loading and unloading a dishwasher over a full sized kitchen. This 4-minute continuous behavior represents the most complex autonomous manipulation sequence demonstrated to date. This represents the first demonstration of such long horizon, end-to-end \"pixels-to-whole body\" control on a humanoid robot.\n\n**What this demonstrates**:\n\n- _Locomotion under manipulation constraints_ **.** The robot walks while holding delicate objects, maintaining stable grasps through every step.\n\n- _Making use of the whole body_: When its hands are occupied, the robot closes a drawer with its hip and lifts the dishwasher door with its foot - using the entire body as a tool rather than relying solely on the hands.\n\n- _Bimanual coordination throughout_: Objects are picked up, transferred between hands, stacked, and placed while both arms operate as a coordinated system.\n\n- _Motor range across scales._ The same neural network produces millimeter‑scale finger motions and room-scale locomotion - a dynamic range spanning four orders of magnitude.\n\n- _Long-horizon sequencing_: 61 loco-manipulation actions, ordered correctly, with implicit error recovery. The robot maintains task state across minutes of execution."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "task-and-duration",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "Figure’s summary, caption and results describe a continuous four-minute 61-action dishwasher unloading-and-reloading task. These are vendor text claims, not my independent timing or counting.",
+        "evidenceDigest": "5d94609caf687c4aa6de757ed1dfbfbaf3af8ca844aaeb8cf9f95ff05207d183"
+      },
+      {
+        "partId": "sequence-and-recovery",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "Figure’s results and early-results text claim correct action order and implicit recovery. The edited prose preserves vendor attribution and does not infer generalization or endurance.",
+        "evidenceDigest": "cdbb9079df024dd03954d5df526ef55504704780348b7752bcd49cb4eca63212"
+      },
+      {
+        "partId": "autonomy-protocol",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "Figure states no resets and no human intervention for this demonstration. This establishes the attributed reported protocol only, without independent video review.",
+        "evidenceDigest": "a3dbef2499b9807b1f6c1b29e238227244bd27ccd88a7581d135a94834a3e70b"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-19-pi-helix-retained-20260913",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 19,
+    "originalCellsDigest": "56af786382e64df01b706f2ae7c8fee0e00c6d1ba6b5997d1cebf775d81c826f",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "specialist-result",
+        "text": "One pi07 generalist is reported competitive with RL specialists on evaluated laundry, espresso and box-building settings, sometimes higher in throughput; not an exclusive capability boundary.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      },
+      {
+        "id": "distillation-and-context",
+        "text": "The paper and original blog describe distilling prior Recap/RL experience into pi07 using episode/strategy metadata; no task-specific pi07 post-training at these evaluations does not mean no relevant training data.",
+        "requiredCitationIds": [
+          "pi07-2026",
+          "pi07-blog-2026"
+        ]
+      },
+      {
+        "id": "metric-and-protocol",
+        "text": "Raw throughput means successes per hour and Figure 6 normalizes to the specialist. Laundry T-shirts/shorts, diverse hardest-item laundry, espresso and box building have distinct success rubrics; other SFT task results use task progress.",
+        "requiredCitationIds": [
+          "pi07-2026"
+        ]
+      },
+      {
+        "id": "nonexclusivity-and-limits",
+        "text": "Original only and current exactly wording are not established by this comparison. Positive generalization/countercontext and the paper’s seen/unseen limitations must remain; the result does not establish a perpetual per-task deployment-cost law.",
+        "requiredCitationIds": [
+          "pi07-2026",
+          "pi07-blog-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+      "rationale": "The paper’s specialist comparisons and metric definitions support matching or exceeding evaluated specialists on laundry, espresso and box building, not universal specialist dominance. The paper’s runtime/distillation passages AND original blog describe distillation from Recap experiences with strategy and episode metadata. Both sources are required; no task-specific post-training in these evaluations does not mean no relevant training data. Specialist figures define throughput as successful episodes per hour, with task-specific success rubrics and different normalization baselines across figures. This is not inference speed or a deployment-cost measurement. Paper comparisons and generalization limits AND the blog’s distillation/positive-transfer account do not support only, exactly, or permanent per-task deployment cost. The correction is bounded to evaluated tasks and preserves unassigned Recap/RL100 assertions without certification.",
+      "planDigest": "e6c88e0080b522120e3bb4dd6070c54f7e1ef7c334032874f906ba4b633c4ece"
+    },
+    "evidence": [
+      {
+        "partId": "specialist-result",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "[Section IX-A, paper p8]\nA. Out-of-the-box performance on challenging tasks\nπ0.7 achieves high performance on dexterous tasks without\ntask-specific post-training. In our first set of experiments, we\nstudy how well π0.7 can master dexterous tasks that were seen\nin the training data, but where the goal is to perform these tasks\nas robustly and efficiently as possible. This is surprisingly\ndifficult for prior robotic foundation models: often the bestperforming policies are fine-tuned for specific downstream\ntasks, even if they use generalist pre-training [42, 50]. We\naim to answer: can the general-purpose π0.7 model match the\nperformance of task-specific fine-tuned models on a variety of\ndexterous manipulation tasks?\nWe use the tasks shown in Fig. 6. These include the espresso\nmaking, box building, and laundry folding tasks that we\n∗\nmodels [50],\npreviously used to evaluate the RL-trained π0.6\nwhere we can directly compare the speed and robustness of\nthe single general-purpose π0.7 model to the individual RL∗\nfinetuned specialist π0.6\nmodels. We also study a number\nof other dexterous tasks, including some tasks from our\nprevious “Robot Olympics” experiments (making a peanut\nbutter sandwich, turning a shirt inside-out, and driving through\na door) and a number of additional dexterous tasks, such as\nfully slicing up a zucchini, peeling a few fruits and vegetables\n(zucchini, cucumbers, and carrots), and a long-horizon task\nthat involves replacing a trash bag in a trash can. We find\nthat π0.7 achieves performance that is competitive with the\n∗\nRL specialists used in the π0.6\nrelease [50] for all of the\ntasks considered in the paper directly out of the box (Fig. 6,\nfirst row), and even outperform the specialists in throughput\nin the difficult laundry and box building tasks. Additionally,\nwe compare π0.7 to SFT specialists trained on top of π0.6 for\na number of other dexterous tasks, and find that π0.7 is again\nable to closely match the performance of all specialist policies\n(Fig. 6, second row).\n\n[Figure 6 caption, not chart bar extraction]\nFig. 6: Out-of-the-box dexterity: π0.7 can perform a wide range of highly dexterous tasks directly out of the box. We consider tasks from π0.6\n∗ , we report success\nrow) and a number of other dexterous tasks including ones from the “Robot Olympics” experiments (bottom row). For the tasks from π0.6\nrate and normalized throughput (relative to the specialist model; raw throughput means successes per hour), while for other tasks we report task progress. We\n∗\nfind that the same π0.7 model can match the performance of the task-specific post-trained specialist policy from π0.6\nor π0.6 for each of these tasks, and\neven achieve higher throughput than the RL specialists in diverse laundry folding and box building."
+      },
+      {
+        "partId": "distillation-and-context",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "[Section VI-A]\nIn a significant departure from classic VLA training\npipelines, we make heavy use of suboptimal robot data in\ntraining. This includes both lower quality demonstrations\n(failure episodes or success episodes with a substantial amount\nof mistakes) and data collected by prior versions of our\nmodels during model evaluation experiments1 . For example,\n∗\nwe use data collected by the π0.6\nmodel during RL training as\nadditional examples, effectively allowing π0.7 to distill their\nbehavior. Incorporating the episode metadata into the context\nallows our model to effectively use all of this evaluation data\nand, as we will see in Sec. IX-A, enables it to attain similar\nperformance as models that are specialized for high performance on individual tasks with RL. This corresponds to a kind\nof “distillation” process, where the generalist π0.7 model can\ninherit the capabilities of RL-trained specialists. Suboptimal\ndata also diversifies the possible states and scenarios in a given\ntask and leads to stronger robustness, enabling the model to\neven sometimes outperform RL-trained or generally, singletask post-trained policies, in highly dexterous tasks.\n\n[Section VII, paper p7; last clause is extraction boundary, not extra claim]\nVII. P ROMPTING π0.7 AT RUNTIME\nAt runtime, we configure π0.7 to run with different forms\nof context depending on the desired behavior without any\ntask-specific post-training. For any task we always prompt\nthe model with the control mode and episode metadata. For\nchoosing the episode metadata, we follow\nth\n• Overall speed: set per-task to the 15\npercentile of the\nepisode length from the task.\n• Overall quality: always set to 5, which is the highest score.\n• Mistake: always set to false, meaning no mistake.\nThe subtask instruction ℓ̂t is provided either by a learned highlevel language policy or by a human supervisor for coaching\n(see Sec. V-A). When the subgoal images are used, we refresh\nthe subgoal images whenever the semantic intent changes (i.e.,\nnew ℓ̂t ), or after ∆ = 4 seconds have elapsed since the last\nsubgoal image was produced, whichever happens first. See\nAlgorithm 1 for the full workflow. We apply asynchronous inference: the visual subgoal and subtask instruction generation\nhappens in separate threads and the VLA inference always\nuses the latest ones available.\nFor all experiments we use 5 denoising steps to generate\nthe 50-step action chunks and execute Ĥ ∈ {15, 25} steps out\nof the chunk. Since each prompt component is trained with"
+      },
+      {
+        "partId": "distillation-and-context",
+        "citationId": "pi07-blog-2026",
+        "sourceUrl": "https://www.pi.website/blog/pi07",
+        "supportingPassage": "[Conditioning on speed and optimality]\nBesides broad generalization, we also would like our models to achieve high success rates and to perform tasks quickly. In our recent work, we introduced [Recap](https://www.pi.website/blog/pistar06), an algorithm for training policies with RL to optimize for robustness and throughput. While Recap provided an effective way to optimize policies, with π0.7 we were able to have a single general-purpose model that could perform all of the tasks that we optimized with Recap with the same success rate and (sometimes even higher) throughput by _distilling_ experience generated during Recap training into the π0.7 model with strategy metadata. The same π0.7 model can perform the laundry folding, espresso making, and box folding tasks to the same or even higher level of performance as the best models trained with Recap:\n\n[Textual comparison caption; not chart values]\nA quantitative comparison of the single π0.7 model performing each of\nthe tasks introduced in our [Recap](https://www.pi.website/blog/pistar06) blog post, in comparison with the\nRL-trained specialist policy for each task. The y-axis is normalized by the throughput of the specialist. By training on diverse data,\nincluding autonomous data from the RL-trained models, the single π0.7 model\nattains similar or even stronger performance across tasks as the task-specific\nRL-trained specialists."
+      },
+      {
+        "partId": "metric-and-protocol",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "[Figure 6 caption, not chart bar extraction]\nFig. 6: Out-of-the-box dexterity: π0.7 can perform a wide range of highly dexterous tasks directly out of the box. We consider tasks from π0.6\n∗ , we report success\nrow) and a number of other dexterous tasks including ones from the “Robot Olympics” experiments (bottom row). For the tasks from π0.6\nrate and normalized throughput (relative to the specialist model; raw throughput means successes per hour), while for other tasks we report task progress. We\n∗\nfind that the same π0.7 model can match the performance of the task-specific post-trained specialist policy from π0.6\nor π0.6 for each of these tasks, and\neven achieve higher throughput than the RL specialists in diverse laundry folding and box building.\n\n[Appendix G; four RL-comparison settings and success definitions]\nG. Detailed task descriptions and scoring rubric\nLaundry (T-shirts and Shorts). Fold a single pair of shorts\nor a T-shirt taken from a laundry basket into a compact, neatly\naligned fold and place/stack it appropriately. Scoring: success\nif successfully folding the item and properly stacking it on top\nof other laundry.\nLaundry (Diverse — Hardest Item). Fold a single buttonup\nshirt taken from a laundry basket into a compact, neatly\naligned fold and place/stack it appropriately. Scoring: success\nif successfully folding the item and properly stacking it on top\nof other laundry.\nMake Espresso. Execute an espresso workflow to prepare and\nextract a doppio (double espresso) with correct sequencing and\nplacements. Scoring: success if completing the required steps\nin order: grounds dispensed and tamped, portafilter locked into\nthe correct grouphead, extraction performed, cup placed on\nsaucer and moved right.\nBox Building. Assemble a flat box into a 3D box. Scoring:\nsuccess if the box is folded correctly without major damage.\n\n[Section IX-A, paper p8]\nA. Out-of-the-box performance on challenging tasks\nπ0.7 achieves high performance on dexterous tasks without\ntask-specific post-training. In our first set of experiments, we\nstudy how well π0.7 can master dexterous tasks that were seen\nin the training data, but where the goal is to perform these tasks\nas robustly and efficiently as possible. This is surprisingly\ndifficult for prior robotic foundation models: often the bestperforming policies are fine-tuned for specific downstream\ntasks, even if they use generalist pre-training [42, 50]. We\naim to answer: can the general-purpose π0.7 model match the\nperformance of task-specific fine-tuned models on a variety of\ndexterous manipulation tasks?\nWe use the tasks shown in Fig. 6. These include the espresso\nmaking, box building, and laundry folding tasks that we\n∗\nmodels [50],\npreviously used to evaluate the RL-trained π0.6\nwhere we can directly compare the speed and robustness of\nthe single general-purpose π0.7 model to the individual RL∗\nfinetuned specialist π0.6\nmodels. We also study a number\nof other dexterous tasks, including some tasks from our\nprevious “Robot Olympics” experiments (making a peanut\nbutter sandwich, turning a shirt inside-out, and driving through\na door) and a number of additional dexterous tasks, such as\nfully slicing up a zucchini, peeling a few fruits and vegetables\n(zucchini, cucumbers, and carrots), and a long-horizon task\nthat involves replacing a trash bag in a trash can. We find\nthat π0.7 achieves performance that is competitive with the\n∗\nRL specialists used in the π0.6\nrelease [50] for all of the\ntasks considered in the paper directly out of the box (Fig. 6,\nfirst row), and even outperform the specialists in throughput\nin the difficult laundry and box building tasks. Additionally,\nwe compare π0.7 to SFT specialists trained on top of π0.6 for\na number of other dexterous tasks, and find that π0.7 is again\nable to closely match the performance of all specialist policies\n(Fig. 6, second row).\n\n[Figure 7 caption; different normalizer from Figure 6]\nFig. 7: Impact of prompt composition and evaluation data on out-of-the-box performance: We compare π0.7 with two ablations: one that does not\ninclude episode metadata in the context, π0.7 (no metadata), and another that does not include data from autonomous evaluation episodes during training, π0.7\n(no eval data). We find that π0.7 outperforms both π0.7 (no metadata) and π0.7 (no eval data) across the board, with the gap most prominent in throughput.\nThroughput (successes/hour) here is normalized relative to π0.7 ."
+      },
+      {
+        "partId": "nonexclusivity-and-limits",
+        "citationId": "pi07-2026",
+        "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+        "supportingPassage": "[Section IX-A, paper p8]\nA. Out-of-the-box performance on challenging tasks\nπ0.7 achieves high performance on dexterous tasks without\ntask-specific post-training. In our first set of experiments, we\nstudy how well π0.7 can master dexterous tasks that were seen\nin the training data, but where the goal is to perform these tasks\nas robustly and efficiently as possible. This is surprisingly\ndifficult for prior robotic foundation models: often the bestperforming policies are fine-tuned for specific downstream\ntasks, even if they use generalist pre-training [42, 50]. We\naim to answer: can the general-purpose π0.7 model match the\nperformance of task-specific fine-tuned models on a variety of\ndexterous manipulation tasks?\nWe use the tasks shown in Fig. 6. These include the espresso\nmaking, box building, and laundry folding tasks that we\n∗\nmodels [50],\npreviously used to evaluate the RL-trained π0.6\nwhere we can directly compare the speed and robustness of\nthe single general-purpose π0.7 model to the individual RL∗\nfinetuned specialist π0.6\nmodels. We also study a number\nof other dexterous tasks, including some tasks from our\nprevious “Robot Olympics” experiments (making a peanut\nbutter sandwich, turning a shirt inside-out, and driving through\na door) and a number of additional dexterous tasks, such as\nfully slicing up a zucchini, peeling a few fruits and vegetables\n(zucchini, cucumbers, and carrots), and a long-horizon task\nthat involves replacing a trash bag in a trash can. We find\nthat π0.7 achieves performance that is competitive with the\n∗\nRL specialists used in the π0.6\nrelease [50] for all of the\ntasks considered in the paper directly out of the box (Fig. 6,\nfirst row), and even outperform the specialists in throughput\nin the difficult laundry and box building tasks. Additionally,\nwe compare π0.7 to SFT specialists trained on top of π0.6 for\na number of other dexterous tasks, and find that π0.7 is again\nable to closely match the performance of all specialist policies\n(Fig. 6, second row).\n\n[Section X; lower unseen success and seen/unseen definition caveat]\nWhile π0.7 generalizes broadly, the success rate for\nzero-shot generalization is (unsurprisingly) lower than indistribution tasks: while seen tasks often have success rates in\nexcess of 90%, unseen tasks or unseen task-robot combinations\nhave success rates in the 60-80% range. An exciting direction\nfor future work is to leverage the high steerability of π0.7 to\nefficiently learn from data in the test task, for example with\n\nmore detailed language coaching or even with autonomous\nreinforcement learning.\nA perhaps surprising limitation of our experiments is that\nit’s practically difficult when training on such large and diverse\ndatasets to definitively determine which tasks are truly “seen”\nor “unseen”: while some of our generalization experiments\n(e.g., those in Sec. IX-D) use tasks for which we did not\ndeliberately collect data, our dataset contains so many different\nscenes and behaviors that potentially related skills may well\nbe present elsewhere in the data, either with a different\nlabel, or incidentally as part of performing other tasks. In\nmany ways this mirrors the challenge of understanding generalization with large language models: determining what is\ntruly novel becomes difficult, and the model may well be\nachieving generalization primarily by “remixing” skills and\nbehaviors from other situations. However, we would posit that\nthis in fact is the essence of compositional generalization.\nPractically, whether the behaviors are truly new or merely\nnovel combinations of seen parts, the ramifications are similar:\ninstead of deliberating collecting targeted data for each new\ntask that we want the robot to solve, a model that provides\ncompositional generalization would allow the user to simply\nprompt it to do the desired task. Models that can enable such\ncompositional generalization at scale would transform how we\napproach robotic learning, making it possible to prompt, coach,\nand explain things to a robot rather than needing to collect\nadditional action data."
+      },
+      {
+        "partId": "nonexclusivity-and-limits",
+        "citationId": "pi07-blog-2026",
+        "sourceUrl": "https://www.pi.website/blog/pi07",
+        "supportingPassage": "[Conditioning on speed and optimality]\nBesides broad generalization, we also would like our models to achieve high success rates and to perform tasks quickly. In our recent work, we introduced [Recap](https://www.pi.website/blog/pistar06), an algorithm for training policies with RL to optimize for robustness and throughput. While Recap provided an effective way to optimize policies, with π0.7 we were able to have a single general-purpose model that could perform all of the tasks that we optimized with Recap with the same success rate and (sometimes even higher) throughput by _distilling_ experience generated during Recap training into the π0.7 model with strategy metadata. The same π0.7 model can perform the laundry folding, espresso making, and box folding tasks to the same or even higher level of performance as the best models trained with Recap:\n\n[Cross-embodiment section; countercontext to exclusivity, not general transfer credit]\nOne of the most underrepresented embodiments in our training set is the bimanual UR5e system, consisting of two UR5e industrial arms with Robotiq parallel jaw grippers. This robot is hard to teleoperate: the heavy arms have a lot of inertia, and the grippers are relatively imprecise. We tasked π0.7 to control this robot to fold laundry, even though we did not collect any data of laundry folding with this robot, and to our surprise it could do this consistently. Note that the physical motion of the robot when folding t-shirts differs significantly from the (much smaller) robot that we used to collect t-shirt folding data:"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "specialist-result",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "The paper’s specialist comparisons and metric definitions support matching or exceeding evaluated specialists on laundry, espresso and box building, not universal specialist dominance.",
+        "evidenceDigest": "02551b4d507f355cb96fd9d25e9e31e828a461c99db9cf1e3afa5ac4b4d5c5cc"
+      },
+      {
+        "partId": "distillation-and-context",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "The paper’s runtime/distillation passages AND original blog describe distillation from Recap experiences with strategy and episode metadata. Both sources are required; no task-specific post-training in these evaluations does not mean no relevant training data.",
+        "evidenceDigest": "cbc817a01e75a127b9f7394191a1b94da64e405e63424922e53e912b364b8f71"
+      },
+      {
+        "partId": "metric-and-protocol",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "Specialist figures define throughput as successful episodes per hour, with task-specific success rubrics and different normalization baselines across figures. This is not inference speed or a deployment-cost measurement.",
+        "evidenceDigest": "8cc3b4099068a52270ebc96c3d18b21220f7982b3cd4962a58453a98bbe8ae38"
+      },
+      {
+        "partId": "nonexclusivity-and-limits",
+        "outcome": "supported",
+        "reviewedBy": "agent:0610ac94-e7c9-431a-aecb-c2b9695aec6a/source-auditor; review 2026-09-13T19:04:49.125520+00:00; native binding 2026-09-13T19:10:02.419Z; not independent acceptance",
+        "rationale": "Paper comparisons and generalization limits AND the blog’s distillation/positive-transfer account do not support only, exactly, or permanent per-task deployment cost. The correction is bounded to evaluated tasks and preserves unassigned Recap/RL100 assertions without certification.",
+        "evidenceDigest": "fb6f3f75516b7fa6214f69705fbf4f08140b287e4050547e3735ec3822e88b8c"
+      }
+    ]
   }
 ]

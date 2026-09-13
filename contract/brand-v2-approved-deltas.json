@@ -9861,6 +9861,57 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "pi-helix-theses-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/competing-theses",
+      "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+      "newHash": "da08b089142a4649e8ce859ab1301328b9ffc3e5ac7d2d1b61d3ccf1c138c8c3",
+      "reason": "Source-backed atomic correction of competing-theses originals6/15/16/19: optional separate BAGEL generator with author-attributed lightweight and cost countercontext; Helix02 system roles and rates; Figure-attributed unloading-and-reloading demo; evaluated specialist comparisons, successes/hour and metadata-conditioned distillation from the paper AND original blog. Four genuinely reviewed plans retain15 mandatory parts and17 part-source evidence items. Zero retrieval; no P1, source liveness, media, independent vendor, date or release credit.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals6/15/16/19 dispatch authorize routine source-backed correction, not personal source certification or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pi-helix-theses-20260913-2",
+      "manifest": "relationships",
+      "memberId": "article:frontier/competing-theses",
+      "oldHash": "9c77edeb862d21e0164fe59d47a73da05d9d8b18a29194a345e80891af2a6360",
+      "newHash": "e98ef5eb4fc557fcecd12adffab9a530344c79175ecbe33b20b1a4dd1a42863b",
+      "reason": "Source-backed atomic correction of competing-theses originals6/15/16/19: optional separate BAGEL generator with author-attributed lightweight and cost countercontext; Helix02 system roles and rates; Figure-attributed unloading-and-reloading demo; evaluated specialist comparisons, successes/hour and metadata-conditioned distillation from the paper AND original blog. Four genuinely reviewed plans retain15 mandatory parts and17 part-source evidence items. Zero retrieval; no P1, source liveness, media, independent vendor, date or release credit.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals6/15/16/19 dispatch authorize routine source-backed correction, not personal source certification or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "pi-helix-theses-20260913-3",
+      "manifest": "article-metadata",
+      "memberId": "article-fact-frontmatter:frontier/competing-theses",
+      "oldHash": "16953ed491209de5dd6c08da62023b8bb6928f224f9688faca706742bb6d81c5",
+      "newHash": "72b394ca45d102cb877f3b7a8691719d35276c8b989112d3459e59a504174a33",
+      "reason": "Source-backed atomic correction of competing-theses originals6/15/16/19: optional separate BAGEL generator with author-attributed lightweight and cost countercontext; Helix02 system roles and rates; Figure-attributed unloading-and-reloading demo; evaluated specialist comparisons, successes/hour and metadata-conditioned distillation from the paper AND original blog. Four genuinely reviewed plans retain15 mandatory parts and17 part-source evidence items. Zero retrieval; no P1, source liveness, media, independent vendor, date or release credit.",
+      "ownerApproval": "Josef’s recorded September7 fix-it-all authority and the parent’s exact originals6/15/16/19 dispatch authorize routine source-backed correction, not personal source certification or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -40,10 +40,18 @@ test.describe('frontier competing-theses module', () => {
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
 
+    const menu = page.getByRole('button', { name: 'Open navigation menu' });
+    const mobileMenu = await menu.isVisible();
+    if (mobileMenu) await menu.click();
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Competing Theses' }),
     ).toHaveAttribute('aria-current', 'page');
+    if (mobileMenu) {
+      await page.keyboard.press('Escape');
+      await expect(menu).toBeFocused();
+      await expect(nav).not.toBeVisible();
+    }
     expect(errors).toEqual([]);
   });
 
