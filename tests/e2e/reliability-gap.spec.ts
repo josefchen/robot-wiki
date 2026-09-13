@@ -66,7 +66,7 @@ test.describe('frontier reliability-gap module', () => {
     const main = page.locator('#main-content');
     // Headline sources named by the module brief.
     await expect(
-      main.getByRole('link', { name: 'Bessemer Venture Partners 2026' }).first(),
+      main.getByRole('link', { name: 'Levine 2026' }).first(),
     ).toHaveAttribute(
       'href',
       'https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai',

@@ -70,7 +70,7 @@ const ROWS: Thesis[] = [
     ],
     evidenceAgainst: [
       {
-        text: 'Rodney Brooks argues the celebrated vision and speech wins rode on human-engineered front ends (convolutional networks for translational invariance, telephone-derived spectral processing for speech), and that vision-only training gives a robot no tactile channel at all.',
+        text: 'Brooks argues that image-labeling uses a human-designed convolutional front end for translational invariance (2019). His 2025 account lists FFTs and Mel filter banks among implementation-dependent speech preprocessing steps with telephone-engineering roots, and argues that vision-only training gives a robot no tactile channel at all. His 2025 essay also acknowledges that leaving as much as possible to learning was critical to speech and image gains.',
         citationIds: ['brooks-better-lesson-2019', 'brooks-dexterity-2025'],
       },
       {
@@ -97,7 +97,7 @@ const ROWS: Thesis[] = [
       'A vision-language model reasons about goals and decomposes them into subtasks; learned skills or a low-level policy execute the plan.',
     proponents: [
       'Google DeepMind (Gemini Robotics ER 2)',
-      'Figure (Helix S2/S1/S0)',
+      'Figure (Helix 02 S2/S1/S0)',
       'NVIDIA (GR00T dual-system)',
     ],
     evidenceFor: [
@@ -106,7 +106,7 @@ const ROWS: Thesis[] = [
         citationIds: ['gemini-robotics-er2-2026'],
       },
       {
-        text: 'Figure Helix 02 sequenced 61 loco-manipulation actions across a continuous four-minute dishwasher unload, ordered correctly, with implicit error recovery.',
+        text: 'Figure reports a continuous four-minute Helix 02 dishwasher unloading-and-reloading task without resets or human intervention, with 61 loco-manipulation actions described as ordered correctly with implicit error recovery.',
         citationIds: ['helix-02-2026'],
       },
       {
@@ -140,7 +140,7 @@ const ROWS: Thesis[] = [
         citationIds: ['vjepa2-2025'],
       },
       {
-        text: 'π0.7 already uses its world model to generate the visual subgoals that steer execution, a lightweight version of the bet.',
+        text: 'π0.7 can receive optional visual subgoals from a separate BAGEL-initialized world model, described as lightweight in the paper; the images condition the action policy.',
         citationIds: ['pi07-2026'],
       },
     ],
@@ -188,8 +188,8 @@ const ROWS: Thesis[] = [
         citationIds: ['pistar06-2025', 'rl-100-2025'],
       },
       {
-        text: 'The generalist comparison is sobering: π0.7 matches specialist throughput on exactly the Recap tasks, by distilling specialist experience into the generalist.',
-        citationIds: ['pi07-2026'],
+        text: 'Physical Intelligence reports that one π0.7 model matches the RL-trained specialists on the evaluated laundry-folding, espresso-making, and box-building tasks, sometimes exceeding their throughput, after distilling Recap experience with strategy metadata. Throughput means successful episodes per hour, not inference speed; the comparison does not establish failure on other tasks.',
+        citationIds: ['pi07-2026', 'pi07-blog-2026'],
       },
     ],
     falsification:
@@ -255,7 +255,7 @@ const ROWS: Thesis[] = [
     ],
     evidenceAgainst: [
       {
-        text: 'Brooks calls practical humanoids within decades pure fantasy thinking, and notes that no human-like robot hand has yet survived real-world deployment.',
+        text: 'In his 2025 essay, Brooks calls plug-compatible humanoids replacing human manual work at lower prices and equal competence "pure fantasy thinking" within decades. His objections to articulated-finger robustness, force and lifetime, and to human-like hand deployment, are his assessments rather than an industry census. He also reports Baxter and Sawyer factory deployments and predicts differently shaped, task-specialized robots still called humanoids over the next fifteen years.',
         citationIds: ['brooks-dexterity-2025'],
       },
       {

@@ -28,7 +28,7 @@ import { RrtExplorer } from '@/components/interactive/rrt-explorer';
 
 Motion planning answers a deceptively simple question: given where the robot is and where it needs to be, what motion gets it there without hitting anything? [Kinematics](/classical/kinematics) tells you where the arm is for a given set of joint angles; planning finds the sequence of joint angles worth executing. It is the layer where geometry becomes a decision, and it is the layer most learned policies quietly replace or lean on, depending on whom you ask.
 
-Two algorithm families dominate the classical answer, and they start from opposite ends. Sampling-based planners build a graph of collision-free configurations by random exploration and search it for a route. <Term id="trajectory-optimization">Trajectory optimization</Term> starts with a whole candidate motion, often a bad one, and bends it downhill on a cost functional until it is smooth and collision-free. The first family is global and probabilistic; the second is local and deterministic. Practical systems use both.
+Sampling-based planning and <Term id="trajectory-optimization">trajectory optimization</Term> start differently. A sampling planner explores configurations and connections; an optimizer starts with a complete candidate trajectory and improves an objective. Neither a smoothness objective nor an initial guess guarantees that local optimization will find a collision-free motion. CHOMP and TrajOpt both examine planning from infeasible guesses as well as refining existing trajectories <Cite id="ratliff-2009" /><Cite id="schulman-2013" />.
 
 The sampling family is below, running for real: a 2D world, five obstacles between start and goal, one accepted extension per iteration from a fixed seed. Press Run, or drag the exploration iteration slider, and watch the tree flood open space, leak through the gap above the wall, and only then stumble into the goal region. Nothing in it knows where the goal is.
 
@@ -37,7 +37,7 @@ The sampling family is below, running for real: a 2D world, five obstacles betwe
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="RRT introduced" value="1998" note="LaValle's Iowa State tech report" />
   <Stat label="CHOMP" value="2009" note="covariant gradient refinement" />
-  <Stat label="RRT* optimality proof" value="2011" note="Karaman and Frazzoli" />
+  <Stat label="RRT* analysis" value="2011" note="Karaman and Frazzoli; conditional theorem" />
   <Stat label="demo scene below" value="2D" note="100 by 64 world, 5 obstacles" />
 </div>
 
@@ -51,11 +51,11 @@ $$
 \mathcal{C} = \mathcal{C}_{obs} \cup \mathcal{C}_{free}, \qquad \mathcal{C}_{free} = \mathcal{C} \setminus \mathcal{C}_{obs}
 $$
 
-The classical construction shrinks the robot to a point and grows each obstacle by the robot's shape, so collision checking reduces to point membership <Cite id="lozano-perez-1983" />. Planning is then a clean statement: find a continuous curve in $\mathcal{C}_{free}$ from $q_{start}$ to $q_{goal}$. The catch is dimensionality. For a real arm, $\mathcal{C}_{obs}$ is a complicated region of a 7-dimensional space that no one can mesh or visualize, and its volume explodes with the <Term id="degrees-of-freedom">degrees of freedom</Term>. Explicitly building $\mathcal{C}_{free}$ is hopeless beyond a few dimensions, which is exactly the wall the sampling-based family was invented to walk around <Cite id="lavalle-2006" />.
+The classical construction shrinks the robot to a point and grows each obstacle by the robot's shape, so collision checking reduces to point membership <Cite id="lozano-perez-1983" />. Planning is then a clean statement: find a continuous curve in $\mathcal{C}_{free}$ from $q_{start}$ to $q_{goal}$. The difficulty is constructing the collision-constrained space, not a universal cutoff at a few dimensions. LaValle describes explicit boundary or solid representations as difficult, but also gives constructive translational cases and explains that semi-algebraic models for chains and trees can be generated automatically. His PSPACE-hardness statement concerns the basic semi-algebraic mover problem when the number of <Term id="degrees-of-freedom">degrees of freedom</Term> is unbounded; it is not an impossibility result for every seven-joint arm <Cite id="lavalle-2006" />. Sampling-based methods avoid explicit obstacle construction by probing a collision module, while still needing to validate entire local paths. Closed-chain constraints can also make efficient sampling difficult <Cite id="lavalle-2006" />.
 
 ## Sampling-based planning
 
-The sampling idea replaces geometry with a collision oracle. You never build $\mathcal{C}_{free}$; you ask, for specific configurations and short local motions, whether they collide. The probabilistic roadmap (PRM) of Kavraki, Svestka, Latombe, and Overmars samples configurations uniformly at random, keeps the collision-free ones as milestones, connects nearby milestones with a local planner, and answers queries by searching the resulting graph <Cite id="kavraki-1996" />. It is a multi-query method: build the roadmap once, plan many start-goal pairs against it.
+Sampling-based planning can avoid an explicit configuration-space obstacle model by querying a collision-detection module for candidate configurations and validating local paths <Cite id="lavalle-2006" />. The probabilistic roadmap (PRM) of Kavraki, Svestka, Latombe, and Overmars samples configurations uniformly at random, keeps the collision-free ones as milestones, connects nearby milestones with a local planner, and answers queries by searching the resulting graph <Cite id="kavraki-1996" />. It is a multi-query method: build the roadmap once, plan many start-goal pairs against it.
 
 LaValle's rapidly-exploring random tree takes the single-query view <Cite id="lavalle-1998" />. Grow a tree from the start. Each iteration samples a random configuration, finds the nearest tree node, and extends a fixed step toward the sample, keeping the new branch only if the local motion is collision-free:
 
@@ -63,51 +63,114 @@ $$
 q_{new} = q_{near} + \epsilon \, \frac{q_{rand} - q_{near}}{\lVert q_{rand} - q_{near} \rVert}
 $$
 
-The extension rule is the whole trick. A point in unexplored space has a larger Voronoi region around the tree's frontier, so random samples pull the tree preferentially into territory it has not covered, and the canopy spreads through free space fast, without any grid, in any dimension. The same construction handles dynamics by steering with controls instead of straight lines, which is the kinodynamic version LaValle and Kuffner developed <Cite id="lavalle-kuffner-2001" />. Both RRT and PRM are probabilistically complete: if a path exists and you sample long enough, the probability of finding one goes to one. That guarantee says nothing about how good the path is.
+Nearest-neighbor selection gives RRT an exploration bias. In the report's planar holonomic example, frontier vertices have larger Voronoi regions and are more likely to be selected for expansion <Cite id="lavalle-1998" />. The book's step-size-free dense-tree construction assumes an infinite dense sample sequence; a random sequence, including a biased one, must be dense with probability one. Its obstacle-free construction reaches each sample, while collision checking limits extensions when obstacles are present. This is not a guarantee of fast coverage on every problem: the report leaves convergence-rate analysis open, and the book distinguishes exploring free space from solving a start-goal query <Cite id="lavalle-1998" /><Cite id="lavalle-2006" />. The same construction handles dynamics by steering with controls instead of straight lines, which is the kinodynamic version LaValle and Kuffner developed <Cite id="lavalle-kuffner-2001" />. Probabilistic completeness is a limiting-probability property, not an assurance that an arbitrary existing path will be found <Cite id="lavalle-2006" />. For a precise example, Karaman and Frazzoli state it for simplified PRM (sPRM) and their geometric RRT under the Euclidean model $X=(0,1)^d$, $d\geq2$, an open goal region, and robust feasibility: a solution path must have some positive clearance $\delta>0$. Their algorithms use independent uniform free-space samples, a fixed positive connection radius for sPRM, RRT steering capped by a positive distance parameter, and collision tests over entire straight-line connections. Under those assumptions the probability of finding a solution tends to one. The result does not automatically extend to implementation heuristics; their 1-nearest sPRM counterexample is not probabilistically complete <Cite id="karaman-frazzoli-2011" />.
 
 The Voronoi bias is what the scene at the top of this module is showing: the tree spreads because unexplored space claims more of the frontier, and the start-to-goal path lights up only once the goal region is reached.
 
 ## Optimality: RRT\*
 
-Basic RRT finds a path, not a good one. Karaman and Frazzoli made this precise in 2011, and the result stung: under mild technical conditions, the cost of the path RRT returns converges almost surely to a value strictly worse than optimal, and the same holds for PRM as originally specified <Cite id="karaman-frazzoli-2011" />. Random exploration alone does not refine.
+Karaman and Frazzoli's 2011 analysis separates finding a feasible path from improving its cost. Their RRT non-optimality proof includes an obstacle-free Euclidean example with a steering distance at least the domain diameter in which the best path cost converges almost surely to a suboptimal value. Their PRM result concerns the forest-building version that rejects connections within an already connected component; it is not a result about every roadmap planner. The same paper proves asymptotic optimality for fixed-radius simplified PRM, which allows those connections, at greater computational cost <Cite id="karaman-frazzoli-2011" />.
 
-Their fix keeps the RRT skeleton and adds two local operations. When a new node arrives, choose its parent not as the nearest node but as the cheapest-to-reach candidate inside a shrinking neighborhood, and then rewire the neighborhood: if routing a neighbor through the new node shortens its path from the root, reattach it. The neighborhood radius must shrink with the node count at a controlled rate,
-
-$$
-r(n) = \gamma \left( \frac{\log n}{n} \right)^{1/d}
-$$
-
-for dimension $d$ and a constant $\gamma$ above a computable threshold. With that schedule the tree asymptotically recovers the optimal path:
+RRT\* adds least-cost parent selection and rewiring; Algorithm 6 writes these costs additively. A new vertex keeps its feasible nearest parent unless a collision-free connection through a nearby vertex gives a cheaper path from the root. Neighbors are reattached only when a collision-free route through the new vertex lowers their cost. With $n$ vertices, Algorithm 6 uses
 
 $$
-\mathbb{P}\!\left( \lim_{n \to \infty} c_n = c^{*} \right) = 1
+r_n = \min\!\left\{\eta,\; \gamma\left(\frac{\log n}{n}\right)^{1/d}\right\},
 $$
 
-at a per-iteration cost within a constant factor of plain RRT <Cite id="karaman-frazzoli-2011" />. That algorithm is RRT\*, and the analysis that produced it, built on random geometric graph theory, is one of the cleaner theory results in robotics.
+where $\eta>0$ caps the local steering distance and $d\geq2$ is the Euclidean space dimension. The coefficient $\gamma$ must be sufficiently large for the problem: Theorem 38 and Appendix G's Lemma 71 print different sufficient bounds. The latter's conservative condition is $\gamma>4(\mu(X_{free})/\zeta_d)^{1/d}$, where $\mu(X_{free})$ is free-space volume and $\zeta_d$ is unit-ball volume; this is not a claim that the coefficient is minimal <Cite id="karaman-frazzoli-2011" />.
 
-The practical objection is that RRT\* spends its refinement budget everywhere, improving paths to every state in the domain when the query only cares about one. Informed RRT\* restricts sampling, once a first solution exists, to the prolate hyperspheroid of states that could still improve it, which sharpens convergence considerably in large or high-dimensional worlds <Cite id="gammell-2014" />. Most practitioners never implement any of this by hand: the Open Motion Planning Library ships tested versions of PRM, RRT, RRT\*, and their descendants, and it is the reference implementation the field benchmarks against <Cite id="ompl-2012" />.
+The convergence statement is conditional and concerns a bounded Euclidean domain. The paper uses independent uniform free-space samples, Euclidean distance and straight-line collision checking, not differential constraints. Its cost is positive on nontrivial paths, monotone under concatenation and bounded by a constant times path length. A finite-cost optimum must be robust: it has weak clearance, meaning it can be continuously deformed into paths with positive clearance, and the cost must be continuous for paths approaching that optimum in the paper's bounded-variation norm. Under this setup, its RRT\* result is
+
+$$
+\mathbb{P}\!\left(\lim_{n\to\infty}c_n=c^*\right)=1.
+$$
+
+Here $c_n$ is the best feasible solution cost after $n$ iterations. This is an asymptotic cost guarantee, not a promise of an exact optimum after a finite budget. The non-optimality analysis also assumes that the set of states traversed by optimal paths has measure zero <Cite id="karaman-frazzoli-2011" />.
+
+The computational comparison is narrower than a runtime promise: for fixed dimension and environment, the paper's efficient spatial-search model gives expected asymptotic processing work of order $n\log n$ for RRT\*, within a constant factor of RRT's processing order. It does not bound every iteration's elapsed time by the same factor. In particular, its collision-check count grows as $O(\log n)$ per iteration, while plain RRT makes one such check <Cite id="karaman-frazzoli-2011" />.
+
+RRT\* with global sampling also improves routes to states irrelevant to a particular start-goal query. Informed RRT\* addresses that work after a first solution is found. For Euclidean path length in $\mathbb{R}^d$ with fixed start and goal, it samples directly from the planning domain's intersection with
+
+$$
+\widehat{X}_f=\left\{x:\lVert x-x_{start}\rVert_2+\lVert x-x_{goal}\rVert_2\leq c_{best}\right\}.
+$$
+
+This is a prolate hyperspheroid with start and goal as its foci and current best path length $c_{best}$ as its transverse diameter. Writing $f(x)$ for the optimal start-goal cost constrained through $x$, the true improving set is $X_f=\{x:f(x)<c_{best}\}$. The distance sum is an admissible lower bound: the region contains every state on a strictly improving feasible path, but a state inside it need not be collision-free or belong to any improving path. The planner still performs collision checks. Before the first finite-cost solution, it samples globally like RRT\* <Cite id="gammell-2014" />.
+
+The paper reports the underlying RRT\* completeness and optimality guarantees, not a universal speedup. Its linear expected-cost convergence calculation assumes no obstacles and a rewiring radius larger than the informed subset's diameter. Its simulation comparisons used common unoptimized code and 100 runs per variation on shared maps and seeds, with random-world refinement measured for 60 seconds after an initial solution. Those experiments found faster refinement than RRT\*; when the informed set covers the planning domain, the heuristic supplies no focusing advantage <Cite id="gammell-2014" />.
+
+Section V describes the Sample routine more strongly, as if every sampled state admits an improving path. That wording exceeds the admissible-superset construction in Section III and Algorithm 2; geometric membership alone does not establish it. Section V-A also leaves the exact informed rewiring-radius expression as ongoing work, so the paper does not supply a settled new threshold here <Cite id="gammell-2014" />. The Open Motion Planning Library's project documentation lists implementations of PRM and RRT, along with benchmarking tools for comparing planners. The core library is designed to integrate with external collision-checking and visualization components <Cite id="ompl-2012" />.
 
 ## Trajectory optimization
 
-The second family refuses to search at all. Treat the trajectory itself, a whole time-parameterized curve $\xi(t)$, as the decision variable, write down a cost that penalizes what you dislike, and descend. The motion comes out smooth by construction, because smoothness is in the objective, and the machinery of numerical optimization brings decades of fast solvers with it.
+Trajectory optimization makes the trajectory the decision variable. Smoothness, obstacle clearance, and task requirements enter an objective or constraints; solving the local optimization problem is not the same as guaranteeing a feasible global route.
 
-CHOMP frames the objective as a sum of two functionals, one measuring smoothness, one measuring obstacle proximity <Cite id="ratliff-2009" />:
+### CHOMP: a smoothness metric, not a local step-size rule
 
-$$
-\mathcal{U}[\xi] = f_{smooth}[\xi] + \lambda \, f_{obs}[\xi], \qquad f_{smooth}[\xi] = \frac{1}{2} \int_{0}^{1} \left\lVert \frac{d}{dt} \xi(t) \right\rVert^{2} dt
-$$
-
-The obstacle term integrates a cost field along the path: distance to the nearest obstacle, read off a signed-distance field, mapped through a penalty that rises as clearance shrinks. CHOMP's contribution is how it descends: a covariant functional gradient, which takes large steps in regions where the trajectory is already cheap and small steps where it is not, so optimization polishes the middle of a motion without destroying its endpoints. It is fast enough to serve as a standalone planner on the paper's 6-DoF arm and quadruped experiments, and it needs no graph, no samples, and no roadmap <Cite id="ratliff-2009" />.
-
-TrajOpt, from Schulman and collaborators, replaces the soft penalty with explicit constraints and solves the result as sequential convex optimization <Cite id="schulman-2013" />. Collisions enter as a hinge loss on signed distance, penalized outside a safety margin and linearized inside it, and the collision test is swept over the motion between waypoints rather than at the waypoints alone, so thin obstacles cannot slip between samples:
+CHOMP combines an obstacle cost with an environment-independent prior on trajectory dynamics. In the paper's discrete formulation, $\xi$ contains the interior waypoints, $K_d$ computes finite differences, and $e_d$ accounts for the fixed endpoints:
 
 $$
-\min_{\xi} \; f(\xi) \quad \text{subject to} \quad g_i(\xi) \le 0
+\mathcal U(\xi)=f_{\mathrm{prior}}(\xi)+f_{\mathrm{obs}}(\xi), \qquad
+f_{\mathrm{prior}}(\xi)=\frac12\sum_{d=1}^{D} w_d\lVert K_d\xi+e_d\rVert^2.
 $$
 
-Each iteration convexifies the nonconvex constraints around the current trajectory and solves a convex subproblem, trusting the answer only within a shrinking region. In benchmarks on arm and full-body planning problems it outpaced both OMPL's sampling planners and CHOMP, solving more problems with smoother results <Cite id="schulman-2013" />.
+The retained CHOMP body is an eight-page preprint, distinct from the landing page's six-page ICRA publication. The first derivative term penalizes squared velocity; higher-order terms can penalize other dynamics. This discrete expression is the source's explicit half-weighted formula, rather than an assertion that its continuous prior is printed with the same normalization <Cite id="ratliff-2009" />.
 
-The family's weakness is structural, not incidental. Descent methods find local minima, and in a cluttered scene the nearest local minimum may route the elbow around the wrong side of a post. Trajectory optimization also needs an initial guess, and a naive straight-line seed in configuration space usually passes straight through the obstacle set. The standard industrial pipeline therefore pairs the two families: a sampling planner finds a globally sensible, jerky route, then optimization refines it into something a controller would actually track.
+The obstacle cost integrates over the robot's body elements and their arc length through the workspace. A workspace signed-distance field is negative inside an obstacle and positive outside; its penalty discourages low clearance. Arc-length weighting prevents merely moving faster through a costly region from reducing that obstacle cost. Covariant descent uses the inverse of a smoothness metric to distribute a gradient update along the trajectory while retaining smoothness. It is not a rule that selects large steps at cheap locations and small steps at expensive ones <Cite id="ratliff-2009" />.
+
+The arm experiment used the first six joints of a seven-DoF Barrett WAM. Its 15 endpoint configurations yielded 105 planning problems, of which CHOMP solved 99. The reported implementation used a $50\times50\times50$ voxel grid and Matlab distance-field computation; 400 optimization iterations took approximately 12 seconds, with the core optimization usually completed in the first 100 iterations, approximately 3 seconds. The inspected body does not name the processor. Those are setup-specific timings, not a processor-independent real-time claim. In the LittleDog experiment, CHOMP instead operated inside a footstep controller informed by a separate footstep planner. Trunk motion was initialized with a ZMP preview controller and swing-foot motion by interpolation, with stability and reachability criteria added. Its trajectories were generated before execution because worst-case optimization could take longer than the motion <Cite id="ratliff-2009" />.
+
+CHOMP can turn an infeasible initial guess into a useful trajectory without a separate motion planner on many queries. But the paper also implements a Hamiltonian Monte Carlo variant and records finite-time local-minimum failures. Neither “no samples” nor “no search” describes every variant or guarantees success <Cite id="ratliff-2009" />.
+
+### TrajOpt: penalties, trust regions, and collision limits
+
+TrajOpt solves a sequence of convex subproblems. Its kinematic objective sums squared displacements between successive waypoints. Nonlinear constraints enter an $\ell_1$ penalty method, with penalty coefficients increased in an outer loop as necessary; linear constraints are imposed directly. This does not eliminate soft penalties in favor of hard constraints from the first iteration. For a signed distance $\operatorname{sd}$ that is positive when objects are separated, the collision penalty is
+
+$$
+\max\!\left(d_{\mathrm{safe}}-\operatorname{sd},\,0\right).
+$$
+
+It is active below the safety margin. The collision checker considers nearby pairs out to $d_{\mathrm{check}}>d_{\mathrm{safe}}$, so the linearized subproblem can also account for some pairs that currently have zero penalty. A box trust region limits each proposed update; it expands when actual improvement sufficiently agrees with the local model and shrinks otherwise <Cite id="schulman-2013" />.
+
+Checking only waypoints can miss a collision in the motion between them. TrajOpt therefore considers a modeled swept volume. For the translational case its construction uses the convex hull of endpoint shapes; rotations require additional inflation. The paper states a bound with $d_{\mathrm{arc}}=r\phi^2/8$ added to the safety margin, but omitted this correction in its experiments because it was well under 1 cm. It also notes that its swept-volume gradient approximation is not guaranteed accurate in 3D. The implementation used Bullet and convex hulls of robot meshes, and its continuous-time collision cost did not cover self-collisions: those were penalized at discrete times. These qualifications rule out an unconditional claim that thin obstacles can never be missed, especially for an arbitrary interpolation executed by a controller <Cite id="schulman-2013" />.
+
+### What the TrajOpt benchmark measured
+
+The benchmark used four simulated MoveIt scenes with fixed start and goal configurations: 198 seven-DoF PR2 arm problems and 96 eighteen-DoF full-body problems. The arm trajectories had 11 timesteps and the full-body trajectories 41. A single initialization was a straight line; the arm multi-initialization condition used four manually selected intermediate configurations, while full-body planning used up to five collision-free base configurations sampled with the arms tucked. OMPL methods used default parameters and MoveIt's default smoother. Path length was normalized by the shortest path found for that problem across the compared planners; it was not a separate smoothness measurement <Cite id="schulman-2013" />.
+
+<div className="my-6 max-w-full overflow-x-auto" role="region" aria-label="TrajOpt arm benchmark results" tabIndex={0}>
+
+| Arm method | Success fraction | Average time (s) | Average normalized length |
+| --- | ---: | ---: | ---: |
+| TrajOpt | 0.84 | 0.20 | 1.2 |
+| TrajOpt, multiple initializations | 0.99 | 0.32 | 1.2 |
+| OMPL RRTConnect | 0.97 | 1.2 | 1.6 |
+| OMPL LBKPIECE | 0.96 | 3.1 | 1.7 |
+| CHOMP | 0.66 | 3.1 | 2.4 |
+| CHOMP, multiple initializations | 0.85 | 6.0 | 2.6 |
+
+</div>
+
+These are Table I's arm results. In particular, single-initialization TrajOpt solved a smaller fraction than either OMPL comparator; the multi-initialization result supports the stronger success comparison. The tested CHOMP implementation was supplied by its authors and is not established as identical to the earlier 2009 preprint <Cite id="schulman-2013" />.
+
+<div className="my-6 max-w-full overflow-x-auto" role="region" aria-label="TrajOpt full-body benchmark results" tabIndex={0}>
+
+| Full-body method | Success fraction | Average time (s) | Average normalized length |
+| --- | ---: | ---: | ---: |
+| TrajOpt | 0.63 | 2.1 | 1.08 |
+| TrajOpt, multiple initializations | 0.84 | 7.6 | 1.09 |
+| OMPL RRTConnect | 0.53 | 18.0 | 1.5 |
+| OMPL LBKPIECE | 0.50 | 18.7 | 1.5 |
+
+</div>
+
+Table II contains no CHOMP full-body result: the authors lacked the documentation or data needed to run that comparison. Its measured full-body times also qualify the introduction's subsecond characterization. The introduction says all planners had ten seconds, while the experimental section specifies three seconds per CHOMP initialization and a thirty-second full-body OMPL limit. Those statements should not be collapsed into a single matched-budget protocol. The inspected paper does not identify the processor used for these benchmark timings <Cite id="schulman-2013" />.
+
+### Initial guesses and the two-stage pattern
+
+Both methods need an initial trajectory and can remain trapped in a bad local minimum. That does not make a sampling-based preplanner mandatory. CHOMP compared straight-line and RRT initializations; among queries where collision removal succeeded, straight-line initialization often produced the better objective. TrajOpt likewise evaluated planning from infeasible seeds and found that multiple initializations changed success rates <Cite id="ratliff-2009" /><Cite id="schulman-2013" />.
+
+Ratliff and colleagues describe PRM and RRT as typically used in a two-phase process: first find a feasible path, then remove redundant or jerky motion. Schulman and colleagues distinguish two roles for trajectory optimization: refining a trajectory generated by another method, or planning from scratch. Those are the papers' accounts, not evidence that sampling followed by refinement is the standard industrial pipeline today <Cite id="ratliff-2009" /><Cite id="schulman-2013" />.
 
 ## Where this meets the learned stack
 

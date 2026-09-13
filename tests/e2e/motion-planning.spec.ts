@@ -1,5 +1,6 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test, type Page } from './helpers/motion-planning-offline-fixture';
 import AxeBuilder from '@axe-core/playwright';
+import { writeFileSync } from 'node:fs';
 
 const ROUTE = '/classical/motion-planning/';
 
@@ -44,11 +45,21 @@ test.describe('classical motion-planning module', () => {
       page.getByRole('heading', { level: 1, name: 'Motion Planning' }),
     ).toBeVisible();
 
-    // Sidebar shows the module active under the classical domain.
+    // The taxonomy is in the closed drawer at the compact breakpoint.
+    // Test the actual keyboard path rather than querying an inaccessible sidebar.
+    const menu = page.getByRole('button', { name: 'Open navigation menu' });
+    const compact = await menu.isVisible();
+    if (compact) { await menu.focus(); await page.keyboard.press('Enter'); }
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
-      nav.getByRole('link', { name: 'Motion Planning' }),
+      nav.getByRole('link', { name: 'Motion Planning', exact: true }),
     ).toHaveAttribute('aria-current', 'page');
+    await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
+    if (compact) {
+      await page.keyboard.press('Escape');
+      await expect(page.getByRole('dialog')).toHaveCount(0);
+      await expect(menu).toBeFocused();
+    }
 
     const main = page.locator('#main-content');
     // The required strands are all present as rendered prose. The glossary
@@ -76,11 +87,38 @@ test.describe('classical motion-planning module', () => {
       800,
     );
 
+    // Conditional trajectory-source correction coverage; execute only after
+    // the three original records and their coupled endpoints are integrated.
+    expect(visibleText).toContain('CHOMP: a smoothness metric, not a local step-size rule');
+    expect(visibleText).toContain('three seconds per CHOMP initialization');
+    expect(visibleText).toContain('thirty-second full-body OMPL limit');
+    expect(visibleText).toContain('Table II contains no CHOMP full-body result');
+    expect(visibleText).not.toContain('thin obstacles cannot slip between samples');
+    expect(visibleText).not.toContain('trusting the answer only within a shrinking region');
+    expect(visibleText).not.toContain('The standard industrial pipeline therefore');
+
     // No raw MDX or component source leaks into the rendered page.
     expect(visibleText).not.toContain('import {');
     expect(visibleText).not.toContain('<Cite');
     expect(visibleText).not.toContain('<RrtExplorer');
     expect(errors).toEqual([]);
+  });
+
+  test('OMPL prose states documented capabilities without adoption or testing claims', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    await expect(
+      prose.locator('a[href="https://ompl.kavrakilab.org/"]'),
+    ).toHaveCount(1);
+    const text = await visibleArticleText(page);
+    expect(text).toContain('lists implementations of PRM and RRT');
+    expect(text).toContain('benchmarking tools for comparing planners');
+    expect(text).toContain('external collision-checking and visualization components');
+    expect(text).not.toMatch(
+      /Most practitioners never implement|ships tested versions|reference implementation the field benchmarks against/,
+    );
   });
 
   test('citation chips resolve and link externally (VAL-CLASS-009, VAL-CLASS-010)', async ({
@@ -121,11 +159,15 @@ test.describe('classical motion-planning module', () => {
     // A chip is keyboard-focusable and reveals its metadata on focus.
     const rrtChip = main.getByRole('link', { name: 'LaValle 1998' }).first();
     await rrtChip.focus();
-    await expect(
-      main
-        .locator('span[role="tooltip"]')
-        .filter({ hasText: 'Rapidly-exploring Random Trees' }),
-    ).toBeVisible();
+    // Three legitimate current occurrences share this source title. Bind the
+    // popup to the focused chip rather than querying every hidden sibling.
+    await expect(main.locator('[data-cite-id="lavalle-1998"]')).toHaveCount(3);
+    const tooltipId = await rrtChip.getAttribute('aria-describedby');
+    expect(tooltipId).toBeTruthy();
+    const tooltip = main.locator(`[id="${tooltipId}"]`);
+    await expect(tooltip).toHaveCount(1);
+    await expect(tooltip).toBeVisible();
+    await expect(tooltip).toContainText('Rapidly-exploring Random Trees: A New Tool for Path Planning');
   });
 
   test('KaTeX renders with no raw math delimiters (VAL-CLASS-011)', async ({
@@ -307,9 +349,10 @@ test.describe('classical motion-planning module', () => {
     await context.close();
   });
 
-  test('zero axe violations', async ({ page }) => {
+  test('zero axe violations', async ({ page }, info) => {
     await page.goto(ROUTE);
     const results = await new AxeBuilder({ page }).analyze();
+    writeFileSync(info.outputPath('axe-observations.json'), JSON.stringify({ viewport: page.viewportSize(), violations: results.violations, incomplete: results.incomplete }, null, 2));
     expect(results.violations).toEqual([]);
   });
 });

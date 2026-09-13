@@ -156,8 +156,8 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'success-rate',
     term: 'success rate',
     definition:
-      'The standard headline metric of robot learning evaluation: the fraction of attempted episodes in which the policy completes the task. The number compresses the trial count, the time limit, and the scene distribution into one figure, and most papers measure it on 10 to 20 rollouts, where the confidence interval is wider than the differences being reported. Toyota Research Institute\'s Large Behavior Model study budgeted 1,800 real-world rollouts and concluded that underpowered evaluation, not method equivalence, explains many published comparisons.',
-    citations: ['tri-lbm-2025'],
+      'The standard headline metric of robot learning evaluation: the fraction of attempted episodes in which the policy completes the task. Trial count, time limit and scene distribution belong with the reported rate. Toyota Research Institute\'s Large Behavior Model study analyzed 1,800 real-world rollouts and warned of a significant risk of statistical noise from insufficient power, not a measured prevalence of incorrect papers. An inconclusive comparison does not establish policy equivalence.',
+    citations: ['tri-lbm-2025', 'optimal-stopping-2025'],
   },
   {
     id: 'ppo',
@@ -331,7 +331,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'trajectory-optimization',
     term: 'trajectory optimization',
     definition:
-      'Motion planning as numerical optimization over a whole trajectory at once: the trajectory is the decision variable, a cost functional scores smoothness and obstacle clearance, and a solver descends that cost from an initial guess. CHOMP descends a smoothness-plus-obstacle objective with covariant functional gradients; TrajOpt instead convexifies the collision constraints and solves a sequence of convex programs. The family produces smooth, locally optimal motions in high dimensions but can stall in local minima, so it often refines paths that a sampling-based planner found first.',
+      'Motion planning as numerical optimization over a candidate trajectory. CHOMP combines a dynamics prior with a workspace arc-length obstacle cost and uses inverse-metric covariant updates; TrajOpt uses sequential convex subproblems, nonlinear constraint penalties, and a trust region that can expand or shrink. Local optimization can fail and depends on its initial trajectory. Ratliff and colleagues describe a feasible-path-then-refinement pattern for PRM/RRT, while Schulman and colleagues also study planning from infeasible seeds. Neither source establishes that this is the standard industrial pipeline, and their collision-handling assumptions are not unconditional safety guarantees.',
     citations: ['ratliff-2009', 'schulman-2013'],
   },
   {
@@ -352,7 +352,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'slam',
     term: 'SLAM',
     definition:
-      'Simultaneous localization and mapping: the concurrent construction of a model of the environment and the estimation of the state of the robot moving within it. The two halves cannot be solved separately, since localizing against an unknown map and mapping from an unknown pose are coupled. The modern formulation is a factor graph over the trajectory and the landmarks; the Cadena et al. survey charts the field\'s move from filtering to smoothing.',
+      'Simultaneous localization and mapping: estimating a robot\'s state while building a model of its environment. In the landmark-based formulation studied by Square Root SAM, the unknowns include the robot trajectory and landmark map. With known data associations, Gaussian process and measurement models, a uniform landmark prior, and the initial reference frame fixed, joint MAP estimation becomes nonlinear least squares. Cadena and colleagues describe MAP estimation, often expressed with factor graphs, as a standard SLAM formulation while also noting high-performing EKF-based systems.',
     citations: ['cadena-2016', 'dellaert-kaess-2006'],
   },
   {
@@ -546,7 +546,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'point-cloud',
     term: 'point cloud',
     definition:
-      'A set of 3D points, usually with no ordering and no connectivity, which is what a depth camera or a lidar produces once its measurements are back-projected through the camera intrinsics. The awkwardness for learning is that the set is unordered, so a network reading it must be invariant to permutation of its own input. PointNet answered that with a shared per-point encoder followed by a symmetric pooling function, and PointNet++ added a hierarchy of local neighbourhoods so the representation captures fine geometry as well as global shape.',
+      'A set of 3D points, usually with no ordering and no connectivity, which is what a depth camera or a lidar produces once its measurements are back-projected through the camera intrinsics. The awkwardness for learning is that the set is unordered, so a network reading it must be invariant to permutation of its own input. PointNet answered that with a shared per-point encoder followed by a symmetric pooling function. PointNet++ groups metric-space neighbourhoods and applies local PointNets recursively to learn features at increasing scales. These are summaries, not a guarantee that all geometry survives pooling; density-adaptive grouping addresses sparsely sampled neighbourhoods.',
     citations: ['pointnet-2017', 'pointnet-plus-plus-2017'],
   },
   {
@@ -560,7 +560,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'promptable-segmentation',
     term: 'promptable segmentation',
     definition:
-      'Segmentation posed so the mask is produced in response to a prompt, a point, a box or a rough mask, rather than to a fixed label set decided at training time. The Segment Anything model was designed and trained for the task explicitly, on a dataset of over a billion masks, so it transfers to new image distributions without retraining, and SAM 2 extends the same interface across video frames with a streaming memory. That is what makes it usable as a grounding layer under a policy: the prompt can come from a detector, a language model, or a keypoint the robot already cares about.',
+      'Segmentation that predicts a mask from an image and prompts such as foreground/background points, a box or a mask. SAM was trained on SA-1B, reported as 1.1 billion automatically generated masks from 11 million images. The paper evaluates zero-shot transfer to new datasets, but an ambiguous prompt can produce multiple candidate masks and performance is not guaranteed on every image distribution. SAM 2 extends geometric prompting across video frames with streaming memory of predictions and prompted frames; masks can be refined with further prompts, but tracking can fail after shot changes, occlusion or confusion between similar objects. In the SAM instance-segmentation experiment, the box prompt comes from a separate ViTDet detector.',
     citations: ['segment-anything-2023', 'sam2-2024'],
   },
   {
@@ -581,7 +581,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'visual-servoing',
     term: 'visual servoing',
     definition:
-      'Using computer vision data to control a robot\'s motion. Image-based visual servoing (IBVS) uses image features in its error; position-based visual servoing (PBVS) uses estimated pose parameters. Espiau, Chaumette and Rives gave the task-function formulation the field still uses. IBVS is not universally pose- or calibration-free: its point-feature interaction matrix uses depth and camera intrinsics. Under the tutorial\'s local stability conditions, coarse estimates can perturb a convergent camera path without changing the final pose reached, but poor estimates can cause instability and large displacements can encounter singularities or local minima. PBVS pose errors can also affect final accuracy.',
+      'Using computer vision data to control a robot\'s motion. Image-based visual servoing (IBVS) uses image features in its error; position-based visual servoing (PBVS) uses estimated pose parameters. Espiau, Chaumette and Rives applied a task-function framework to visual control in their 1992 paper. Its camera-motion model uses translational and rotational velocity relative to the scene, expressed in the camera frame. IBVS is not universally pose- or calibration-free: its point-feature interaction matrix uses depth and camera intrinsics. Under the tutorial\'s local stability conditions, coarse estimates can perturb a convergent camera path without changing the final pose reached, but poor estimates can cause instability and large displacements can encounter singularities or local minima. PBVS pose errors can also affect final accuracy.',
     citations: ['espiau-1992', 'chaumette-hutchinson-2006'],
   },
   {

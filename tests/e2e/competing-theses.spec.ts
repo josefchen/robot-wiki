@@ -1,5 +1,11 @@
-import { expect, test } from '@playwright/test';
+import { test as base, expect } from '@playwright/test';
+import { test as evidenceTest } from './helpers/state-smoothing-fixture';
+import { writeFileSync } from 'node:fs';
 import AxeBuilder from '@axe-core/playwright';
+
+// Normal E2E remains runnable without Mission-only evidence inputs.
+// Guarded Mission runs retain the strict input-bound offline fixture.
+const test = process.env.ROBOT_WIKI_GATE_INPUTS ? evidenceTest : base;
 
 const ROUTE = '/frontier/competing-theses/';
 
@@ -34,10 +40,18 @@ test.describe('frontier competing-theses module', () => {
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
 
+    const menu = page.getByRole('button', { name: 'Open navigation menu' });
+    const mobileMenu = await menu.isVisible();
+    if (mobileMenu) await menu.click();
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'Competing Theses' }),
     ).toHaveAttribute('aria-current', 'page');
+    if (mobileMenu) {
+      await page.keyboard.press('Escape');
+      await expect(menu).toBeFocused();
+      await expect(nav).not.toBeVisible();
+    }
     expect(errors).toEqual([]);
   });
 
@@ -218,9 +232,10 @@ test.describe('frontier competing-theses module', () => {
     await context.close();
   });
 
-  test('zero axe violations', async ({ page }) => {
+  test('zero axe violations', async ({ page }, testInfo) => {
     await page.goto(ROUTE);
     const results = await new AxeBuilder({ page }).analyze();
+    writeFileSync(testInfo.outputPath('axe-existing.json'), JSON.stringify(results, null, 2));
     expect(results.violations).toEqual([]);
   });
 });
