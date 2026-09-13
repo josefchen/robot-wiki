@@ -176,6 +176,15 @@ test.describe('classical perception module', () => {
     await page.goto(ROUTE);
     const depth = sectionMatching(await sections(page), /depth sensing/i);
     expect(depth, 'the depth-sensing section').toBeDefined();
+    for (const text of ['D410/D415 and D43x', 'up to 2 m', '80%', 'HD resolution',
+      'valid pixels', 'ground truth', 'PhoXi 3D Scanner L', '0.200 mm (1 σ)',
+      '0.190 mm (1 σ)', '870 to 2150 mm', '250 to 2750 ms',
+      'May cause image saturation', 'D400f', 'Saturation mitigated',
+      'Mitigated does not mean eliminated']) expect(depth!.text).toContain(text);
+    expect(depth!.text).not.toMatch(/Three families of depth sensor|accurate option and the slow one|rules out closing a control loop/);
+    await expect(page.getByTestId('perception-target-note')).toContainText(
+      'not a material-specific accuracy guarantee',
+    );
     // Keep all named topics; do not certify five universal failure classes.
     for (const topic of [/transparent/i, /specular/i, /dark surfaces/i, /thin objects/i, /self-occlusion/i]) {
       expect(depth!.text).toMatch(topic);

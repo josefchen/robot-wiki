@@ -9467,6 +9467,57 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "perception-depth-specifications-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "28449457cfa77fb9da1c26efc5fa06ef7690945143746871ce08193557454e6c",
+      "reason": "Retained-source correction of exact perception originals 20, atomic 23/24 and 29: D400 model/ROI/HD/metric/KPI conditions, separate PhoXi L fields without family ranking or control-frequency inference, an evidence-limited attribution cut, and both D400/D400f saturation statements. D400 title follows the retained Revision 023 cover while current byline and identity are preserved. Calculator constants, held P4 originals 33/34 and article lastReviewed are unchanged. Whole P1 and independent acceptance remain open; zero new retrieval.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact four-original dispatch authorize routine source-backed repair, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-depth-specifications-20260913-2",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/perception-error-budget.tsx",
+      "oldHash": "c68e8f345412c4c56b538292cedfc12ba834df2ef85767a58d3d19a318c41b9b",
+      "newHash": "02dfd4f4becd247d248f8c3383cae4163d456b593a4b23f5fca6a732b3ed4886",
+      "reason": "Retained-source correction of exact perception originals 20, atomic 23/24 and 29: D400 model/ROI/HD/metric/KPI conditions, separate PhoXi L fields without family ranking or control-frequency inference, an evidence-limited attribution cut, and both D400/D400f saturation statements. D400 title follows the retained Revision 023 cover while current byline and identity are preserved. Calculator constants, held P4 originals 33/34 and article lastReviewed are unchanged. Whole P1 and independent acceptance remain open; zero new retrieval.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact four-original dispatch authorize routine source-backed repair, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-depth-specifications-20260913-3",
+      "manifest": "article-metadata",
+      "memberId": "citation:realsense-d400-datasheet-2026",
+      "oldHash": "62f192479f3151077b2ed23ec514a40c5a52762f651a1d1a533fd99557cb0f88",
+      "newHash": "730df3c8b54709698ce655282b784cf55a68d3be283d3d4d5153b5c1138e24a3",
+      "reason": "Retained-source correction of exact perception originals 20, atomic 23/24 and 29: D400 model/ROI/HD/metric/KPI conditions, separate PhoXi L fields without family ranking or control-frequency inference, an evidence-limited attribution cut, and both D400/D400f saturation statements. D400 title follows the retained Revision 023 cover while current byline and identity are preserved. Calculator constants, held P4 originals 33/34 and article lastReviewed are unchanged. Whole P1 and independent acceptance remain open; zero new retrieval.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact four-original dispatch authorize routine source-backed repair, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

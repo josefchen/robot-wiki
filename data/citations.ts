@@ -7998,7 +7998,7 @@ export const CITATIONS: Citation[] = [
     // "may cause image saturation". No per-material accuracy figure is
     // published for transparent or specular surfaces.
     id: 'realsense-d400-datasheet-2026',
-    title: 'Intel RealSense D400 Series Product Family Datasheet',
+    title: 'RealSense Product Family D400 Series Datasheet',
     authors: ['RealSense'],
     year: 2026,
     venue: 'RealSense, as of 2026-08-22',

@@ -41288,5 +41288,301 @@
         "evidenceDigest": "74a50b0fd129bb41e6b6fc92a4d96389fce6aff823c08c7469c4b6eb13857548"
       }
     ]
+  },
+  {
+    "id": "perception-depth-specifications-20-source-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 20,
+    "originalCellsDigest": "8b400377611a2ba345ad37b040a524d86919b4a77590c79800521f43284772f3",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "model-regimes",
+        "text": "Table 4-15: +/-2% Z-accuracy for D410/D415 and D43x under <=2m, 80% ROI and HD resolution; preserve different other-model ranges.",
+        "requiredCitationIds": [
+          "realsense-d400-datasheet-2026"
+        ]
+      },
+      {
+        "id": "metric-and-roi",
+        "text": "Depth accuracy concerns valid pixels relative to ground truth; Section4.7 defines the measurement ROI as within80% of depth FOV, not a whole-image guarantee.",
+        "requiredCitationIds": [
+          "realsense-d400-datasheet-2026"
+        ]
+      },
+      {
+        "id": "qualified-protocol",
+        "text": "KPIs reflect typical factory conditions and have model-specific target, illumination and exposure conditions; no material-class guarantee.",
+        "requiredCitationIds": [
+          "realsense-d400-datasheet-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+      "rationale": "Reviewed Revision 023, Mar 2026, 337029-017 cover, Section 4.7 and Table 4-15 with notes. D410/D415 and D43x use <=2 m, 80% ROI and HD; other columns differ. Depth accuracy uses valid pixels against ground truth. Typical factory KPIs can vary with environment. D405 uses a textured target at approximately 250 lux; other models use a texture-less white target, default 150 mW laser power and auto exposure. No opaque-material guarantee follows. Reviewed all mandatory parts and coupled endpoints; this is not independent acceptance.",
+      "planDigest": "922964cf1bc39f26c1e84f29e667747d7100aa0d2bdeb713c8da5b4c6aac0676"
+    },
+    "evidence": [
+      {
+        "partId": "model-regimes",
+        "citationId": "realsense-d400-datasheet-2026",
+        "sourceUrl": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+        "supportingPassage": "  Table 4-15. Depth Quality Specification\n\n                                     D410/D415                         D43x                       D450/D455/                  D401/D405\n\n              Metric           (<= 2 Meters and 80%       (<= 2 Meters and 80% ROI, HD            D455f/D456            (<= 0.5 Meters and 80%\n                                ROI, HD Resolution)                Resolution)                                            ROI, HD Resolution)\n                                                                                             (<= 4 Meters and 80%\n                                                                                              ROI, HD Resolution)\n\n       Z-accuracy (or\n                                        ± 2%                           ± 2%                           ± 2%                          ± 2%\n       Absolute Error)\n\n       Fill rate                        ≥ 99%                          ≥ 99%                         ≥ 99%                         ≥ 99.5%\n\n       RMS Error (or\n                                        ≤ 2%                           ≤ 2%                           ≤ 2%                          ≤ 1%\n       Spatial Noise)\n\n       Temporal Noise                   ≤ 1%                           ≤ 1%                           ≤ 1%                         ≤ 0.5%\n\n       Lifetime                        4 years                        5 years                       5 years                        5 years"
+      },
+      {
+        "partId": "metric-and-roi",
+        "citationId": "realsense-d400-datasheet-2026",
+        "sourceUrl": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+        "supportingPassage": "4.7                 Depth Quality Specification\n                    A set of standard metrics based on accuracy, data validity, and temporal stability are used to quantify the\n                    depth quality.\n\n                    Although the modules are designed for a specific depth FOV, the measurements are taken within 80% of\n                    this FOV, defined as the Region Of Interest (ROI). This ROI aligns with the practical usage area and the\n                    module’s qualified optical parameters.\n\n   Table 4-13. Depth Quality Metric\n\n               Metric                                                                Definition(1)\n\n Depth Accuracy                       Measures the difference for valid pixels relative to a ground truth surface\n\n Fill Rate                            Percentage of pixels that have valid depth values\n\n Depth Standard Deviation             Measures total spatial noise for each valid pixel relative to a best fit plane\n\n Pixel Temporal Noise                 Measures total temporal noise for each valid pixel relative to a best fit plane\n\n Note:\n (1)     Each measurement is taken from a predefined region of interest (ROI) which is within 80% of the depth field of view (FOV)"
+      },
+      {
+        "partId": "qualified-protocol",
+        "citationId": "realsense-d400-datasheet-2026",
+        "sourceUrl": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+        "supportingPassage": "                   Notes:\n\n                        1.   Key Performance Indicators (KPIs) are validated at the factory and reflect typical conditions\n\n                        2.   KPIs could be impacted by environmental factors over the camera/module’s lifetime\n\n                        3.   Please follow best-known methods to obtain optimal camera/module performance over its lifetime. Refer to\n                             white paper “RealSense™ Stereo Camera Best Known Methods to Get Optimal Camera Performance over\n                             Lifetime” - https://www.realsenseai.com/best-known-methods-for-optimal-camera-performance-over-\n                             lifetime\n\n\n\n\n337029-017                                                                                                                                   85\n\f                   4.   KPIs for D405, a passive camera, are measured using a textured target and typical ambient room light (~250\n                        Lux). All other models are active and measured using a texture-less (white) target with default laser power\n                        (150mW) and auto exposure enabled.\n\n                   5.   For Depth Quality metric definitions and test methodology details, refer to white paper “RealSense™ Camera\n                        Depth Testing Methodology”\n\n                   6.   Lifetime: operating in default settings within the supported temperature for up to 16 hours a day [66%]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "model-regimes",
+        "outcome": "supported",
+        "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported bounded claim: Table 4-15: +/-2% Z-accuracy for D410/D415 and D43x under <=2m, 80% ROI and HD resolution; preserve different other-model ranges. Reviewed Revision 023, Mar 2026, 337029-017 cover, Section 4.7 and Table 4-15 with notes. D410/D415 and D43x use <=2 m, 80% ROI and HD; other columns differ. Depth accuracy uses valid pixels against ground truth. Typical factory KPIs can vary with environment. D405 uses a textured target at approximately 250 lux; other models use a texture-less white target, default 150 mW laser power and auto exposure. No opaque-material guarantee follows.",
+        "evidenceDigest": "ccb496fa6d0232b9accd7b7a0be848c5b25d391dcc3dc4b98569df673417d14c"
+      },
+      {
+        "partId": "metric-and-roi",
+        "outcome": "supported",
+        "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported bounded claim: Depth accuracy concerns valid pixels relative to ground truth; Section4.7 defines the measurement ROI as within80% of depth FOV, not a whole-image guarantee. Reviewed Revision 023, Mar 2026, 337029-017 cover, Section 4.7 and Table 4-15 with notes. D410/D415 and D43x use <=2 m, 80% ROI and HD; other columns differ. Depth accuracy uses valid pixels against ground truth. Typical factory KPIs can vary with environment. D405 uses a textured target at approximately 250 lux; other models use a texture-less white target, default 150 mW laser power and auto exposure. No opaque-material guarantee follows.",
+        "evidenceDigest": "28f3d2e8cb55989f8301f11374ce5f6927ed49b24f67d91f237df2c1deb8619e"
+      },
+      {
+        "partId": "qualified-protocol",
+        "outcome": "supported",
+        "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported bounded claim: KPIs reflect typical factory conditions and have model-specific target, illumination and exposure conditions; no material-class guarantee. Reviewed Revision 023, Mar 2026, 337029-017 cover, Section 4.7 and Table 4-15 with notes. D410/D415 and D43x use <=2 m, 80% ROI and HD; other columns differ. Depth accuracy uses valid pixels against ground truth. Typical factory KPIs can vary with environment. D405 uses a textured target at approximately 250 lux; other models use a texture-less white target, default 150 mW laser power and auto exposure. No opaque-material guarantee follows.",
+        "evidenceDigest": "6e551fa7a2881354752c178e7e2cb16ebd3eea32d1dea68ac58587ffa9a158c9"
+      }
+    ]
+  },
+  {
+    "id": "perception-depth-specifications-23-source-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 23,
+    "originalCellsDigest": "d9ff4b5d7669e38f5ae9823176f094b76fbb024e9befe119337126af933f857a",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "exact-model-not-family",
+        "text": "The cited document names PhoXi 3D Scanner L; the unsupported structured-light-family attribution is cut atomically with original24 rather than accepted.",
+        "requiredCitationIds": [
+          "photoneo-phoxi-l-2026"
+        ]
+      },
+      {
+        "id": "calibration-one-sigma",
+        "text": "Calibration accuracy is separately listed as0.200mm(1sigma), not a universal all-material/all-range accuracy bound.",
+        "requiredCitationIds": [
+          "photoneo-phoxi-l-2026"
+        ]
+      },
+      {
+        "id": "temporal-one-sigma",
+        "text": "Temporal noise is separately listed as0.190mm(1sigma).",
+        "requiredCitationIds": [
+          "photoneo-phoxi-l-2026"
+        ]
+      },
+      {
+        "id": "scanning-range",
+        "text": "The model's separately listed scanning range is870–2150mm; do not infer uniform calibration accuracy at every range.",
+        "requiredCitationIds": [
+          "photoneo-phoxi-l-2026"
+        ]
+      },
+      {
+        "id": "scanning-time",
+        "text": "The separately listed scanning time is250–2750ms, not a robot control frequency or family-wide speed limit.",
+        "requiredCitationIds": [
+          "photoneo-phoxi-l-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+      "rationale": "Reviewed exact retained PhoXi 3D Scanner L product-page response. Calibration accuracy 0.200 mm (1 sigma) and temporal noise 0.190 mm (1 sigma) are separate fields; scanning range 870–2150 mm and scanning time 250–2750 ms are separate fields. No uniform-range accuracy, material guarantee, family ranking or control-frequency inference is accepted. No specification transfer to another model. Reviewed all mandatory parts and coupled endpoints; this is not independent acceptance.",
+      "planDigest": "d183d5c67c4035b0f5a59169d95486f8ab01af0d297b4e187865605066302978"
+    },
+    "evidence": [
+      {
+        "partId": "exact-model-not-family",
+        "citationId": "photoneo-phoxi-l-2026",
+        "sourceUrl": "https://www.photoneo.com/products/phoxi-scan-l/",
+        "supportingPassage": "# PhoXi 3D Scanner L\n\n![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20700'%3E%3C/svg%3E)\n\nScanner with high range especially useful for scanning of objects and bins of with a size of euro pallet. It found its use in vision-guided robotics projects especially in automotive. However\nthanks to its versatility it was used in a variety of industrial sectors, ranging from medical, logistics, agriculture, or heavy industries.\n\n## Datasheet\n\n| **Parameter** | **Value** |\n| --- | --- |\n| Resolution (3D Points) | Up to 3.2 M |\n| Scanning range | 870 – 2150 mm |\n| Optimal scanning distance | 1239 mm |\n| Scanning area at sweet spot | 1082 x 772 mm |\n| Point to point distance | 0.524 mm |\n| Calibration accuracy (1 σ) | 0.200 mm |\n| Temporal noise (1 σ) | 0.190 mm |\n| Scanning time | 250 – 2750 ms |\n| Dimensions | 86 x 68 x 616 mm |\n| Baseline | 550 mm |\n| Weight | 1100 g |\n| 3D points throughput | 16 Million points per second |\n| GPU | NVIDIA PascalTM Architecture GPU with 256 CUDA cores |"
+      },
+      {
+        "partId": "calibration-one-sigma",
+        "citationId": "photoneo-phoxi-l-2026",
+        "sourceUrl": "https://www.photoneo.com/products/phoxi-scan-l/",
+        "supportingPassage": "# PhoXi 3D Scanner L\n\n![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20700'%3E%3C/svg%3E)\n\nScanner with high range especially useful for scanning of objects and bins of with a size of euro pallet. It found its use in vision-guided robotics projects especially in automotive. However\nthanks to its versatility it was used in a variety of industrial sectors, ranging from medical, logistics, agriculture, or heavy industries.\n\n## Datasheet\n\n| **Parameter** | **Value** |\n| --- | --- |\n| Resolution (3D Points) | Up to 3.2 M |\n| Scanning range | 870 – 2150 mm |\n| Optimal scanning distance | 1239 mm |\n| Scanning area at sweet spot | 1082 x 772 mm |\n| Point to point distance | 0.524 mm |\n| Calibration accuracy (1 σ) | 0.200 mm |\n| Temporal noise (1 σ) | 0.190 mm |\n| Scanning time | 250 – 2750 ms |\n| Dimensions | 86 x 68 x 616 mm |\n| Baseline | 550 mm |\n| Weight | 1100 g |\n| 3D points throughput | 16 Million points per second |\n| GPU | NVIDIA PascalTM Architecture GPU with 256 CUDA cores |"
+      },
+      {
+        "partId": "temporal-one-sigma",
+        "citationId": "photoneo-phoxi-l-2026",
+        "sourceUrl": "https://www.photoneo.com/products/phoxi-scan-l/",
+        "supportingPassage": "# PhoXi 3D Scanner L\n\n![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20700'%3E%3C/svg%3E)\n\nScanner with high range especially useful for scanning of objects and bins of with a size of euro pallet. It found its use in vision-guided robotics projects especially in automotive. However\nthanks to its versatility it was used in a variety of industrial sectors, ranging from medical, logistics, agriculture, or heavy industries.\n\n## Datasheet\n\n| **Parameter** | **Value** |\n| --- | --- |\n| Resolution (3D Points) | Up to 3.2 M |\n| Scanning range | 870 – 2150 mm |\n| Optimal scanning distance | 1239 mm |\n| Scanning area at sweet spot | 1082 x 772 mm |\n| Point to point distance | 0.524 mm |\n| Calibration accuracy (1 σ) | 0.200 mm |\n| Temporal noise (1 σ) | 0.190 mm |\n| Scanning time | 250 – 2750 ms |\n| Dimensions | 86 x 68 x 616 mm |\n| Baseline | 550 mm |\n| Weight | 1100 g |\n| 3D points throughput | 16 Million points per second |\n| GPU | NVIDIA PascalTM Architecture GPU with 256 CUDA cores |"
+      },
+      {
+        "partId": "scanning-range",
+        "citationId": "photoneo-phoxi-l-2026",
+        "sourceUrl": "https://www.photoneo.com/products/phoxi-scan-l/",
+        "supportingPassage": "# PhoXi 3D Scanner L\n\n![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20700'%3E%3C/svg%3E)\n\nScanner with high range especially useful for scanning of objects and bins of with a size of euro pallet. It found its use in vision-guided robotics projects especially in automotive. However\nthanks to its versatility it was used in a variety of industrial sectors, ranging from medical, logistics, agriculture, or heavy industries.\n\n## Datasheet\n\n| **Parameter** | **Value** |\n| --- | --- |\n| Resolution (3D Points) | Up to 3.2 M |\n| Scanning range | 870 – 2150 mm |\n| Optimal scanning distance | 1239 mm |\n| Scanning area at sweet spot | 1082 x 772 mm |\n| Point to point distance | 0.524 mm |\n| Calibration accuracy (1 σ) | 0.200 mm |\n| Temporal noise (1 σ) | 0.190 mm |\n| Scanning time | 250 – 2750 ms |\n| Dimensions | 86 x 68 x 616 mm |\n| Baseline | 550 mm |\n| Weight | 1100 g |\n| 3D points throughput | 16 Million points per second |\n| GPU | NVIDIA PascalTM Architecture GPU with 256 CUDA cores |"
+      },
+      {
+        "partId": "scanning-time",
+        "citationId": "photoneo-phoxi-l-2026",
+        "sourceUrl": "https://www.photoneo.com/products/phoxi-scan-l/",
+        "supportingPassage": "# PhoXi 3D Scanner L\n\n![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20700'%3E%3C/svg%3E)\n\nScanner with high range especially useful for scanning of objects and bins of with a size of euro pallet. It found its use in vision-guided robotics projects especially in automotive. However\nthanks to its versatility it was used in a variety of industrial sectors, ranging from medical, logistics, agriculture, or heavy industries.\n\n## Datasheet\n\n| **Parameter** | **Value** |\n| --- | --- |\n| Resolution (3D Points) | Up to 3.2 M |\n| Scanning range | 870 – 2150 mm |\n| Optimal scanning distance | 1239 mm |\n| Scanning area at sweet spot | 1082 x 772 mm |\n| Point to point distance | 0.524 mm |\n| Calibration accuracy (1 σ) | 0.200 mm |\n| Temporal noise (1 σ) | 0.190 mm |\n| Scanning time | 250 – 2750 ms |\n| Dimensions | 86 x 68 x 616 mm |\n| Baseline | 550 mm |\n| Weight | 1100 g |\n| 3D points throughput | 16 Million points per second |\n| GPU | NVIDIA PascalTM Architecture GPU with 256 CUDA cores |"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "exact-model-not-family",
+        "outcome": "supported",
+        "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported bounded claim: The cited document names PhoXi 3D Scanner L; the unsupported structured-light-family attribution is cut atomically with original24 rather than accepted. Reviewed exact retained PhoXi 3D Scanner L product-page response. Calibration accuracy 0.200 mm (1 sigma) and temporal noise 0.190 mm (1 sigma) are separate fields; scanning range 870–2150 mm and scanning time 250–2750 ms are separate fields. No uniform-range accuracy, material guarantee, family ranking or control-frequency inference is accepted. No specification transfer to another model.",
+        "evidenceDigest": "497c9d672e7b186f119cfbf94d7d2c93a3b4d641f0e140d4805d8a3a38e39a12"
+      },
+      {
+        "partId": "calibration-one-sigma",
+        "outcome": "supported",
+        "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported bounded claim: Calibration accuracy is separately listed as0.200mm(1sigma), not a universal all-material/all-range accuracy bound. Reviewed exact retained PhoXi 3D Scanner L product-page response. Calibration accuracy 0.200 mm (1 sigma) and temporal noise 0.190 mm (1 sigma) are separate fields; scanning range 870–2150 mm and scanning time 250–2750 ms are separate fields. No uniform-range accuracy, material guarantee, family ranking or control-frequency inference is accepted. No specification transfer to another model.",
+        "evidenceDigest": "64aae9499f7c429c1c840fe59b7280fd93527838ccce85b03afc52ecab164654"
+      },
+      {
+        "partId": "temporal-one-sigma",
+        "outcome": "supported",
+        "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported bounded claim: Temporal noise is separately listed as0.190mm(1sigma). Reviewed exact retained PhoXi 3D Scanner L product-page response. Calibration accuracy 0.200 mm (1 sigma) and temporal noise 0.190 mm (1 sigma) are separate fields; scanning range 870–2150 mm and scanning time 250–2750 ms are separate fields. No uniform-range accuracy, material guarantee, family ranking or control-frequency inference is accepted. No specification transfer to another model.",
+        "evidenceDigest": "380b82648dca96f337ae1b2434c77674c940e2159a46464933a5f77bc410283c"
+      },
+      {
+        "partId": "scanning-range",
+        "outcome": "supported",
+        "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported bounded claim: The model's separately listed scanning range is870–2150mm; do not infer uniform calibration accuracy at every range. Reviewed exact retained PhoXi 3D Scanner L product-page response. Calibration accuracy 0.200 mm (1 sigma) and temporal noise 0.190 mm (1 sigma) are separate fields; scanning range 870–2150 mm and scanning time 250–2750 ms are separate fields. No uniform-range accuracy, material guarantee, family ranking or control-frequency inference is accepted. No specification transfer to another model.",
+        "evidenceDigest": "45bbb4b86e95e233774e247a4878b7e517afeff346911ef736f9cfed0272b08d"
+      },
+      {
+        "partId": "scanning-time",
+        "outcome": "supported",
+        "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported bounded claim: The separately listed scanning time is250–2750ms, not a robot control frequency or family-wide speed limit. Reviewed exact retained PhoXi 3D Scanner L product-page response. Calibration accuracy 0.200 mm (1 sigma) and temporal noise 0.190 mm (1 sigma) are separate fields; scanning range 870–2150 mm and scanning time 250–2750 ms are separate fields. No uniform-range accuracy, material guarantee, family ranking or control-frequency inference is accepted. No specification transfer to another model.",
+        "evidenceDigest": "68ab277061ed5adebb43f78c7c190c592e5f1dfa0b0e09ff391ff59211669993"
+      }
+    ]
+  },
+  {
+    "id": "perception-depth-specifications-24-source-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 24,
+    "originalCellsDigest": "869cdf2bc65ce9b28d5f7e9f16d17ea264ca7da3592834b79f924c8043366fba",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "cut-unsupported-page-attribution",
+        "text": "Cut the structured-light principle/family claim attached to this product page. Retain only the page's actual named industrial3D-scanner model and specifications; this cut does not assert the family claim is false.",
+        "requiredCitationIds": [
+          "photoneo-phoxi-l-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+      "rationale": "The cited product-page text supports the named industrial 3D scanner and its listed fields, not the attached structured-light principle/family claim. Cut that attribution atomically with original 23 and remove the shared Three families introduction. This is an evidence-limited editorial cut, not proof that the device uses a different principle or that the removed statement is false. Reviewed all mandatory parts and coupled endpoints; this is not independent acceptance.",
+      "planDigest": "488df2eedb8d0fa7959f6506d0dd2e4cf120613b9b474b4de2a1fd2d6920e1fc"
+    },
+    "evidence": [
+      {
+        "partId": "cut-unsupported-page-attribution",
+        "citationId": "photoneo-phoxi-l-2026",
+        "sourceUrl": "https://www.photoneo.com/products/phoxi-scan-l/",
+        "supportingPassage": "# PhoXi 3D Scanner L\n\n![](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20700%20700'%3E%3C/svg%3E)\n\nScanner with high range especially useful for scanning of objects and bins of with a size of euro pallet. It found its use in vision-guided robotics projects especially in automotive. However\nthanks to its versatility it was used in a variety of industrial sectors, ranging from medical, logistics, agriculture, or heavy industries.\n\n## Datasheet\n\n| **Parameter** | **Value** |\n| --- | --- |\n| Resolution (3D Points) | Up to 3.2 M |\n| Scanning range | 870 – 2150 mm |\n| Optimal scanning distance | 1239 mm |\n| Scanning area at sweet spot | 1082 x 772 mm |\n| Point to point distance | 0.524 mm |\n| Calibration accuracy (1 σ) | 0.200 mm |\n| Temporal noise (1 σ) | 0.190 mm |\n| Scanning time | 250 – 2750 ms |\n| Dimensions | 86 x 68 x 616 mm |\n| Baseline | 550 mm |\n| Weight | 1100 g |\n| 3D points throughput | 16 Million points per second |\n| GPU | NVIDIA PascalTM Architecture GPU with 256 CUDA cores |"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "cut-unsupported-page-attribution",
+        "outcome": "supported",
+        "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported editorial cut, not support for the deleted claim: Cut the structured-light principle/family claim attached to this product page. Retain only the page's actual named industrial3D-scanner model and specifications; this cut does not assert the family claim is false. The cited product-page text supports the named industrial 3D scanner and its listed fields, not the attached structured-light principle/family claim. Cut that attribution atomically with original 23 and remove the shared Three families introduction. This is an evidence-limited editorial cut, not proof that the device uses a different principle or that the removed statement is false.",
+        "evidenceDigest": "51b83ef8a3b4a8c11cd574a738d9b52fdd05747b4ee714b8341e47b3969aadee"
+      }
+    ]
+  },
+  {
+    "id": "perception-depth-specifications-29-source-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 29,
+    "originalCellsDigest": "f1bd389dd6518631164a4a0c6f83e18dcae7f7c4bf16bb00832ba4755d5f66d7",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "standard-d400-saturation",
+        "text": "In Table3-50 the D400 column states Specular reflections: May cause image saturation.",
+        "requiredCitationIds": [
+          "realsense-d400-datasheet-2026"
+        ]
+      },
+      {
+        "id": "d400f-contrast",
+        "text": "The same row's D400f column states Saturation mitigated; do not turn this into elimination, quantitative accuracy or immunity.",
+        "requiredCitationIds": [
+          "realsense-d400-datasheet-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+      "rationale": "Reviewed Table 3-50 including both columns: D400 May cause image saturation; D400f Saturation mitigated. Mitigation is not elimination or immunity and supplies no material accuracy number. The adjacent Azure saturated-IR invalidation statement and its own citation remain unchanged; retained displayed Azure text separately supports it. Reviewed all mandatory parts and coupled endpoints; this is not independent acceptance.",
+      "planDigest": "a6b89ef3f88f319ca121a37e1c5aa505e301692e04160354d4403033ba4b32ba"
+    },
+    "evidence": [
+      {
+        "partId": "standard-d400-saturation",
+        "citationId": "realsense-d400-datasheet-2026",
+        "sourceUrl": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+        "supportingPassage": "      Table 3-50. D400 and D400f product lines Comparison\n\n                            Items                               D400                                    D400f\n\n                   Ambient light spectrum            Both visible and IR light                       IR light only\n\n                     Repetitive pattern              May cause false depth                      False depth mitigated\n\n                     Specular reflections         May cause image saturation                     Saturation mitigated\n\n                   Indoor operating range                Long (unlimited)                   Limited by IR projector power\n\n                                                                                           Availability limited by ambient IR\n                         L/R images             Available in all lighting conditions\n                                                                                                         strength\n\n                         Calibration            Works in typical ambient lighting            May need additional IR light\n                    (OEM, Dynamic, Self)                   conditions"
+      },
+      {
+        "partId": "d400f-contrast",
+        "citationId": "realsense-d400-datasheet-2026",
+        "sourceUrl": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+        "supportingPassage": "      Table 3-50. D400 and D400f product lines Comparison\n\n                            Items                               D400                                    D400f\n\n                   Ambient light spectrum            Both visible and IR light                       IR light only\n\n                     Repetitive pattern              May cause false depth                      False depth mitigated\n\n                     Specular reflections         May cause image saturation                     Saturation mitigated\n\n                   Indoor operating range                Long (unlimited)                   Limited by IR projector power\n\n                                                                                           Availability limited by ambient IR\n                         L/R images             Available in all lighting conditions\n                                                                                                         strength\n\n                         Calibration            Works in typical ambient lighting            May need additional IR light\n                    (OEM, Dynamic, Self)                   conditions"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "standard-d400-saturation",
+        "outcome": "supported",
+        "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported bounded claim: In Table3-50 the D400 column states Specular reflections: May cause image saturation. Reviewed Table 3-50 including both columns: D400 May cause image saturation; D400f Saturation mitigated. Mitigation is not elimination or immunity and supplies no material accuracy number. The adjacent Azure saturated-IR invalidation statement and its own citation remain unchanged; retained displayed Azure text separately supports it.",
+        "evidenceDigest": "71f6fae237c787401c9f5ab2d583e88b56e9607c2129b9521b29c38d87771b92"
+      },
+      {
+        "partId": "d400f-contrast",
+        "outcome": "supported",
+        "reviewedBy": "Droid 1d19e2ff-b77c-4d6e-baf4-0c7f7c4c6c8d; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:50:38.171Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported bounded claim: The same row's D400f column states Saturation mitigated; do not turn this into elimination, quantitative accuracy or immunity. Reviewed Table 3-50 including both columns: D400 May cause image saturation; D400f Saturation mitigated. Mitigation is not elimination or immunity and supplies no material accuracy number. The adjacent Azure saturated-IR invalidation statement and its own citation remain unchanged; retained displayed Azure text separately supports it.",
+        "evidenceDigest": "c3e30a26f14fd18a9228fb8e9d2b326e5df230524c727fc0b02e87da8f641d1c"
+      }
+    ]
   }
 ]
