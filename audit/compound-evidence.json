@@ -37791,5 +37791,262 @@
         "evidenceDigest": "ff34da5040bd0706547e79941f42233d8b3585f1a45172a3a8941e7297e51af3"
       }
     ]
+  },
+  {
+    "id": "industrial-engineering-position-30-20260913",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 30,
+    "originalCellsDigest": "b3fa6bf8c73c209c809ba39f88811ab803281a271171c6269e28a4a18980d374",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "investor-identity",
+        "text": "The named seven-author Bessemer essay is an investor outlook published April 16, 2026, not an independent deployment experiment.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "deployment-requirements",
+        "text": "The authors state all four requirements: domain-specific data collection AND target-environment fine-tuning AND hardware integration AND operational infrastructure.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "near-term-prediction",
+        "text": "Full-stack, vertically integrated players rather than pure-play foundation-model companies are the authors’ near-term value prediction, not a demonstrated result.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "countercontext",
+        "text": "Retain the authors’ expensive-data/capital emphasis AND current model-generality limitation; do not recast the essay as deployment cost rather than model quality being the sole binding constraint.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+      "rationale": "2026-09-13T02:13:58.815Z: The complete retained investor essay names all seven authors and April16,2026. Its investment activity language and portfolio disclaimer establish an investor outlook, not independent experimental validation. Prediction4 states domain-specific data collection AND target-environment fine-tuning AND hardware integration AND operational infrastructure. The corrected sentence retains every requirement, without inferring a sole binding constraint. The six-prediction overview and Prediction4 frame vertically integrated near-term value as the authors forecast. Corrected prose says predicts, not demonstrated superiority or settled accrual. Prediction2 stresses expensive data and capital; Prediction4 explicitly says foundation models are not yet general enough out of the box. Both contexts are retained, rather than claiming model quality does not matter.",
+      "planDigest": "b15205ecfd6f0f21db8287d6288efc91e61069956da46ff4f2378504913943a1"
+    },
+    "evidence": [
+      {
+        "partId": "investor-identity",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Title: Bessemer Predicts: Robotics and physical AI | Bessemer Venture Partners\n\nJeremy Levine, Talia Goldberg, Janelle Teng Wade, Alexandra Sukin, Bhavik Nagda, Jason Scheller & Christine Deakers\n\nPublished on Apr 16, 2026\n\nBelow are the six predictions shaping our investment activity in 2026—and the founder perspectives that are shaping how we see what’s on the horizon."
+      },
+      {
+        "partId": "deployment-requirements",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "In software, the API changed everything. Once GPT-4 was callable via a single endpoint, a two-person team could build a product with frontier AI capability on day one. The stack separated cleanly, and quickly. Robotics doesn't work that way yet. Deployment requires domain-specific data collection, fine-tuning for the target environment, hardware integration, and operational infrastructure to manage robots in the field. The tasks are too varied, the environments too unpredictable, and the failure modes too consequential for a general-purpose model to handle without significant specialization."
+      },
+      {
+        "partId": "near-term-prediction",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "4. Near-term value will accrue to full-stack, vertically integrated players, not pure-play foundation model companies.\n\nBelow are the six predictions shaping our investment activity in 2026—and the founder perspectives that are shaping how we see what’s on the horizon."
+      },
+      {
+        "partId": "countercontext",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "2.  Scaling laws are emerging. Data is expensive, capital is the moat. World models may be the shortcut.\n\nUnlike the LLM era, where horizontal foundation model companies captured outsized value early, robotics foundation models aren't yet general enough to work out of the box—giving vertically integrated players a meaningful head start."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "investor-identity",
+        "outcome": "supported",
+        "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+        "rationale": "2026-09-13T02:13:58.815Z: The complete retained investor essay names all seven authors and April16,2026. Its investment activity language and portfolio disclaimer establish an investor outlook, not independent experimental validation.",
+        "evidenceDigest": "a04416983eae1f3c2838cd2b4594d7e8c13572272fcd6d70a5d92186277ab177"
+      },
+      {
+        "partId": "deployment-requirements",
+        "outcome": "supported",
+        "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+        "rationale": "2026-09-13T02:13:58.815Z: Prediction4 states domain-specific data collection AND target-environment fine-tuning AND hardware integration AND operational infrastructure. The corrected sentence retains every requirement, without inferring a sole binding constraint.",
+        "evidenceDigest": "f49eef03be0a5353caf5ea8c1e19c844dfbcfab7a308c5e788813a61b9338abf"
+      },
+      {
+        "partId": "near-term-prediction",
+        "outcome": "supported",
+        "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+        "rationale": "2026-09-13T02:13:58.815Z: The six-prediction overview and Prediction4 frame vertically integrated near-term value as the authors forecast. Corrected prose says predicts, not demonstrated superiority or settled accrual.",
+        "evidenceDigest": "d5226c8389cf15d80488df4378b189e7971493f80de0212a86347351add1e12f"
+      },
+      {
+        "partId": "countercontext",
+        "outcome": "supported",
+        "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+        "rationale": "2026-09-13T02:13:58.815Z: Prediction2 stresses expensive data and capital; Prediction4 explicitly says foundation models are not yet general enough out of the box. Both contexts are retained, rather than claiming model quality does not matter.",
+        "evidenceDigest": "6affe3e768fa240977b81c85e5b85205c6307746fb6885b3a94a607d2a898330"
+      }
+    ]
+  },
+  {
+    "id": "industrial-engineering-position-34-20260913",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 34,
+    "originalCellsDigest": "110c8520b725bc6908dbc8ddf9c1b93536b46c27c6d64f5bb87201ba52e1ff1b",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "bootstrap-mechanism",
+        "text": "Combining model-based engineering AND model-free learning can get robots doing useful work AND collecting real-world data AND improving performance and adjacent skills.",
+        "requiredCitationIds": [
+          "goldberg-data-gap-2025"
+        ]
+      },
+      {
+        "id": "not-engineering-instead-of-learning",
+        "text": "Goldberg retains an eventual model-free/general-purpose view; the paper does not make engineering a replacement for collecting data or learning.",
+        "requiredCitationIds": [
+          "goldberg-data-gap-2025"
+        ]
+      },
+      {
+        "id": "removed-numeric-gloss-context",
+        "text": "The removed 100,000-year prose gloss is an order-of-magnitude human reading/viewing-time comparison AND a current-robot-data-rate extrapolation, not an observed deployment or training measurement. Do not reintroduce it as a settled measured duration.",
+        "requiredCitationIds": [
+          "goldberg-data-gap-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+      "rationale": "2026-09-13T02:13:58.815Z: The model-based/model-free paragraph and conclusion propose useful real work AND data generation AND performance improvement AND adjacent-skill learning. This is Goldberg proposed bootstrap mechanism, not measured intervention-cost evidence. Goldberg explicitly agrees with the eventual model-free general-purpose direction. The correction preserves learning and data requirements rather than describing engineering as an alternative that removes them. The deleted gloss is not an observed duration. Goldberg converts text/image tokens into rough human reading/viewing time and extrapolates current robot-data collection rates. Reference2 itself calls its comparison a very silly, shallow thought experiment; those external slides/conversion metrics were not independently read or recomputed. The assumptions remain as source context in this record, not a new measured claim.",
+      "planDigest": "b8180b86eb3e5c91ff46528e60eb73b14ed5f7061b8337c50b164a56e2b261e0"
+    },
+    "evidence": [
+      {
+        "partId": "bootstrap-mechanism",
+        "citationId": "goldberg-data-gap-2025",
+        "sourceUrl": "https://doi.org/10.1126/scirobotics.aea7390",
+        "supportingPassage": "Whereas end-to-end AI methods are “model free,” GOFE is “model based.” GOFE segments problems into modules so that each module can be tested, fixed, and fine-tuned independently. Model-based methods can be combined with model-free methods to “kickstart” robots to achieve the levels of reliability required for adoption in real commercial environments, where they can then begin generating real robot data.\n\nWe can start closing the 100,000-year data gap by combining GOFE with model-free methods so that real robots can collect data as they perform useful work, such as driving taxis and sorting packages. Those data can be used to improve performance and enable robots to learn adjacent skills, spinning up real data flywheels until they collect enough data to enable general-purpose robots."
+      },
+      {
+        "partId": "not-engineering-instead-of-learning",
+        "citationId": "goldberg-data-gap-2025",
+        "sourceUrl": "https://doi.org/10.1126/scirobotics.aea7390",
+        "supportingPassage": "As noted at the beginning, I do not disagree with Rich Sutton—I believe that model-free AI will eventually surpass GOFE to enable fully general-purpose robots in the future. I look forward to that future and hope I get to see it.\n\nWe can start closing the 100,000-year data gap by combining GOFE with model-free methods so that real robots can collect data as they perform useful work, such as driving taxis and sorting packages. Those data can be used to improve performance and enable robots to learn adjacent skills, spinning up real data flywheels until they collect enough data to enable general-purpose robots."
+      },
+      {
+        "partId": "removed-numeric-gloss-context",
+        "citationId": "goldberg-data-gap-2025",
+        "sourceUrl": "https://doi.org/10.1126/scirobotics.aea7390",
+        "supportingPassage": "Using commonly accepted metrics for converting word and image tokens into time, the amount of internet-scale data (texts and images) used to train contemporary VLMs is on the order of 100,000 years—it would take a human that long to read or view these data\n\nHowever, the largest such dataset reported so far is on the order of 1 year of data (it was collected in less than 1 year by many human-robot systems). These data have been used to train large models, and initial results are intriguing. However, this suggests that at current data collection rates, a general-purpose robot, based on a ChatGPT-sized set of robot data, will be available in …100,000 years"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "bootstrap-mechanism",
+        "outcome": "supported",
+        "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+        "rationale": "2026-09-13T02:13:58.815Z: The model-based/model-free paragraph and conclusion propose useful real work AND data generation AND performance improvement AND adjacent-skill learning. This is Goldberg proposed bootstrap mechanism, not measured intervention-cost evidence.",
+        "evidenceDigest": "ab3ecad4b0c68ff2d1b65c2dc1f7c4ef49c0697fa0eca119ede21506cd410aca"
+      },
+      {
+        "partId": "not-engineering-instead-of-learning",
+        "outcome": "supported",
+        "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+        "rationale": "2026-09-13T02:13:58.815Z: Goldberg explicitly agrees with the eventual model-free general-purpose direction. The correction preserves learning and data requirements rather than describing engineering as an alternative that removes them.",
+        "evidenceDigest": "c90ece2015698be0be4d1f95ada026955ad4ffd9b7dc2576c30ea7fd53cb442e"
+      },
+      {
+        "partId": "removed-numeric-gloss-context",
+        "outcome": "supported",
+        "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+        "rationale": "2026-09-13T02:13:58.815Z: The deleted gloss is not an observed duration. Goldberg converts text/image tokens into rough human reading/viewing time and extrapolates current robot-data collection rates. Reference2 itself calls its comparison a very silly, shallow thought experiment; those external slides/conversion metrics were not independently read or recomputed. The assumptions remain as source context in this record, not a new measured claim.",
+        "evidenceDigest": "9046daafd62d49ce2a83b8ee9e548e9e5fe245b0dfde02c0ce02771189d19fdd"
+      }
+    ]
+  },
+  {
+    "id": "industrial-engineering-position-45-20260913",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "industrial-deployment",
+    "rowOrdinal": 45,
+    "originalCellsDigest": "a68c24cfaed88f506a862f308696b0076169f50fec493d2d9521862bef7a8496",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "title-and-full-byline",
+        "text": "The DOI journal article has the stated title and exactly one author, Ken Goldberg; the nearby eight-author companion debate is not this paper.",
+        "requiredCitationIds": [
+          "goldberg-data-gap-2025"
+        ]
+      },
+      {
+        "id": "venue-year-edition",
+        "text": "Science Robotics, volume 10, issue 105, article eaea7390, 2025, DOI 10.1126/scirobotics.aea7390; not a later interview edition.",
+        "requiredCitationIds": [
+          "goldberg-data-gap-2025"
+        ]
+      },
+      {
+        "id": "exact-publication-date",
+        "text": "PubMed PMID 40864731 records publication and Epub on August 27, 2025 for the exact same DOI and issue.",
+        "requiredCitationIds": [
+          "goldberg-data-gap-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+      "rationale": "2026-09-13T02:13:58.815Z: The actual journal Title and Cite as blocks identify the exact title and sole author Ken Goldberg. The neighboring eight-author debate and later two-author interview are different works. Existing ASCII quotation marks preserve title wording. Published In and Cite as establish Science Robotics10,issue105,eaea7390,2025 and exact DOI10.1126/scirobotics.aea7390. No registry metadata correction is needed. The preserved PubMed40864731 entry explicitly says 2025Aug27 for publication and Epub, with exact DOI,issue,article number and Goldberg K. It is metadata evidence only; body-dependent row34 is adjudicated from the complete journal text.",
+      "planDigest": "9ca1c2e2fb013abdfe501afe38be4f84d86ab25c06ce2dc0889682f4d053db84"
+    },
+    "evidence": [
+      {
+        "partId": "title-and-full-byline",
+        "citationId": "goldberg-data-gap-2025",
+        "sourceUrl": "https://doi.org/10.1126/scirobotics.aea7390",
+        "supportingPassage": "Title: Good old-fashioned engineering can close the 100,000-year “data gap” in robotics | Science Robotics\n\n- Ken Goldberg\n\n,\n\nGood old-fashioned engineering can close the 100,000-year “data gap” in robotics._Sci. Robot._**10**,eaea7390(2025).DOI: [10.1126/scirobotics.aea7390](https://doi.org/10.1126/scirobotics.aea7390)"
+      },
+      {
+        "partId": "venue-year-edition",
+        "citationId": "goldberg-data-gap-2025",
+        "sourceUrl": "https://doi.org/10.1126/scirobotics.aea7390",
+        "supportingPassage": "- Ken Goldberg\n\n,\n\nGood old-fashioned engineering can close the 100,000-year “data gap” in robotics._Sci. Robot._**10**,eaea7390(2025).DOI: [10.1126/scirobotics.aea7390](https://doi.org/10.1126/scirobotics.aea7390)\n\nScience Robotics\n\nVolume 10 \\| Issue 105\n\nAugust 2025"
+      },
+      {
+        "partId": "exact-publication-date",
+        "citationId": "goldberg-data-gap-2025",
+        "sourceUrl": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40864731&rettype=abstract&retmode=text",
+        "supportingPassage": "1. Sci Robot. 2025 Aug 27;10(105):eaea7390. doi: 10.1126/scirobotics.aea7390.\nEpub  2025 Aug 27.\n\nGood old-fashioned engineering can close the 100,000-year \"data gap\" in \nrobotics.\n\nGoldberg K(1)."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "title-and-full-byline",
+        "outcome": "supported",
+        "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+        "rationale": "2026-09-13T02:13:58.815Z: The actual journal Title and Cite as blocks identify the exact title and sole author Ken Goldberg. The neighboring eight-author debate and later two-author interview are different works. Existing ASCII quotation marks preserve title wording.",
+        "evidenceDigest": "72e8484c6cd86adf74a09f2215e810f8cb5efbd3162fa5004816096b744f77fc"
+      },
+      {
+        "partId": "venue-year-edition",
+        "outcome": "supported",
+        "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+        "rationale": "2026-09-13T02:13:58.815Z: Published In and Cite as establish Science Robotics10,issue105,eaea7390,2025 and exact DOI10.1126/scirobotics.aea7390. No registry metadata correction is needed.",
+        "evidenceDigest": "d9ea43b7589dcab8a761176d5fa4f1637dbd75826655bca50280ab861e1868f3"
+      },
+      {
+        "partId": "exact-publication-date",
+        "outcome": "supported",
+        "reviewedBy": "agent:6022dbd0-017a-4500-91aa-24a746f96a15/integrator",
+        "rationale": "2026-09-13T02:13:58.815Z: The preserved PubMed40864731 entry explicitly says 2025Aug27 for publication and Epub, with exact DOI,issue,article number and Goldberg K. It is metadata evidence only; body-dependent row34 is adjudicated from the complete journal text.",
+        "evidenceDigest": "7daa3681356ea189ca01447b9339f7ccc72b238d13e6cb0c2b643709cac1720c"
+      }
+    ]
   }
 ]

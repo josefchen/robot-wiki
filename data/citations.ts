@@ -6079,7 +6079,7 @@ export const CITATIONS: Citation[] = [
     // 80%-to-99.9% framing this module anchors on.
     id: 'bessemer-robotics-2026',
     title: 'Bessemer Predicts: Robotics and physical AI',
-    authors: ['Bessemer Venture Partners'],
+    authors: ['Jeremy Levine', 'Talia Goldberg', 'Janelle Teng Wade', 'Alexandra Sukin', 'Bhavik Nagda', 'Jason Scheller', 'Christine Deakers'],
     year: 2026,
     url: 'https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai',
     type: 'blog',
