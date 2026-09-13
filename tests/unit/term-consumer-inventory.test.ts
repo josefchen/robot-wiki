@@ -46,6 +46,7 @@ describe('bounded Term consumer identities', () => {
     const inventory = termConsumerInventory();
     expect(inventory.filter(a => a.occurrences.length)).toHaveLength(46);
     // 53d2cf8 added legged-locomotion/teleoperation occurrence 1.
+    // 6af0bdd removed competing-theses/imitation-learning occurrence 1.
     // Pin ordered members, not just a total that a replacement could preserve.
     assertPopulation(identities(inventory));
     expect(inventory.reduce((n, a) => n + a.rawOpeningTags, 0)).toBe(pinned.articles.reduce((n, a) => n + a.rawOpeningTags, 0));
@@ -63,4 +64,12 @@ describe('bounded Term consumer identities', () => {
     expect(() => assertPopulation(changed)).toThrow();
   });
 
+  it.each(['restored-trigger', 'reordered-triggers', 'same-count-thesis-substitution'])('rejects %s in the corrected thesis population', mutation => {
+    const changed = structuredClone(pinned.articles);
+    const thesis = changed.find(a => a.route === '/frontier/competing-theses/')!;
+    if (mutation === 'restored-trigger') { thesis.termIds.splice(4, 0, 'imitation-learning'); thesis.rawOpeningTags++; }
+    if (mutation === 'reordered-triggers') [thesis.termIds[3], thesis.termIds[4]] = [thesis.termIds[4], thesis.termIds[3]];
+    if (mutation === 'same-count-thesis-substitution') thesis.termIds[4] = 'imitation-learning';
+    expect(() => assertPopulation(changed)).toThrow();
+  });
 });

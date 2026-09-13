@@ -1,5 +1,6 @@
 import { expect, test, type Page } from './helpers/motion-planning-offline-fixture';
 import AxeBuilder from '@axe-core/playwright';
+import { writeFileSync } from 'node:fs';
 
 const ROUTE = '/classical/motion-planning/';
 
@@ -158,11 +159,15 @@ test.describe('classical motion-planning module', () => {
     // A chip is keyboard-focusable and reveals its metadata on focus.
     const rrtChip = main.getByRole('link', { name: 'LaValle 1998' }).first();
     await rrtChip.focus();
-    await expect(
-      main
-        .locator('span[role="tooltip"]')
-        .filter({ hasText: 'Rapidly-exploring Random Trees' }),
-    ).toBeVisible();
+    // Three legitimate current occurrences share this source title. Bind the
+    // popup to the focused chip rather than querying every hidden sibling.
+    await expect(main.locator('[data-cite-id="lavalle-1998"]')).toHaveCount(3);
+    const tooltipId = await rrtChip.getAttribute('aria-describedby');
+    expect(tooltipId).toBeTruthy();
+    const tooltip = main.locator(`[id="${tooltipId}"]`);
+    await expect(tooltip).toHaveCount(1);
+    await expect(tooltip).toBeVisible();
+    await expect(tooltip).toContainText('Rapidly-exploring Random Trees: A New Tool for Path Planning');
   });
 
   test('KaTeX renders with no raw math delimiters (VAL-CLASS-011)', async ({
@@ -344,9 +349,10 @@ test.describe('classical motion-planning module', () => {
     await context.close();
   });
 
-  test('zero axe violations', async ({ page }) => {
+  test('zero axe violations', async ({ page }, info) => {
     await page.goto(ROUTE);
     const results = await new AxeBuilder({ page }).analyze();
+    writeFileSync(info.outputPath('axe-observations.json'), JSON.stringify({ viewport: page.viewportSize(), violations: results.violations, incomplete: results.incomplete }, null, 2));
     expect(results.violations).toEqual([]);
   });
 });

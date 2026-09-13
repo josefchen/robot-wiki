@@ -9,7 +9,10 @@
       "MDX AST",
       "independent compiled MDX React SSR with inert imported interactives"
     ],
-    "runtimeLimit": "This fixture is not full browser or scientific acceptance."
+    "runtimeLimit": "This fixture is not full browser or scientific acceptance.",
+    "removalCommit": "6af0bdd73375f8c121a8830df20e247ce5dd2c67",
+    "removedIdentity": "/frontier/competing-theses/#imitation-learning:1",
+    "removalReason": "PI/Helix source-backed paragraph replacement removed the fifth authored trigger; teleoperation occurrence 1 moves from ordinal 6 to 5."
   },
   "articles": [
     {
@@ -215,13 +218,12 @@
     },
     {
       "route": "/frontier/competing-theses/",
-      "rawOpeningTags": 6,
+      "rawOpeningTags": 5,
       "termIds": [
         "vision-language-action-model",
         "world-model",
         "scaling-law",
         "whole-body-control",
-        "imitation-learning",
         "teleoperation"
       ]
     },

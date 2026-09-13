@@ -14,8 +14,9 @@ export const test = base.extend<{ motionOffline: void }>({
     const contexts: { viewport: object | null; external: string[]; errors: string[]; navigations: string[]; overflow: number[] }[] = [];
     const original = browser.newContext.bind(browser);
     browser.newContext = async options => {
-      const context = await original(options);
-      const record = { viewport: options?.viewport ?? null, external: [] as string[], errors: [] as string[], navigations: [] as string[], overflow: [] as number[] };
+      const effective = { ...options, viewport: options?.viewport ?? testInfo.project.use.viewport };
+      const context = await original(effective);
+      const record = { viewport: effective.viewport ?? null, external: [] as string[], errors: [] as string[], navigations: [] as string[], overflow: [] as number[] };
       contexts.push(record);
       await context.route('**/*', route => {
         const url = new URL(route.request().url());
