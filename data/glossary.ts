@@ -546,7 +546,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'point-cloud',
     term: 'point cloud',
     definition:
-      'A set of 3D points, usually with no ordering and no connectivity, which is what a depth camera or a lidar produces once its measurements are back-projected through the camera intrinsics. The awkwardness for learning is that the set is unordered, so a network reading it must be invariant to permutation of its own input. PointNet answered that with a shared per-point encoder followed by a symmetric pooling function, and PointNet++ added a hierarchy of local neighbourhoods so the representation captures fine geometry as well as global shape.',
+      'A set of 3D points, usually with no ordering and no connectivity, which is what a depth camera or a lidar produces once its measurements are back-projected through the camera intrinsics. The awkwardness for learning is that the set is unordered, so a network reading it must be invariant to permutation of its own input. PointNet answered that with a shared per-point encoder followed by a symmetric pooling function. PointNet++ groups metric-space neighbourhoods and applies local PointNets recursively to learn features at increasing scales. These are summaries, not a guarantee that all geometry survives pooling; density-adaptive grouping addresses sparsely sampled neighbourhoods.',
     citations: ['pointnet-2017', 'pointnet-plus-plus-2017'],
   },
   {

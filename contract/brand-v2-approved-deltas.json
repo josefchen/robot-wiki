@@ -9416,6 +9416,57 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "perception-geometric-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "a0396a42e2d19a529e10379946f74bfa08349bf6831b180d8571231edda791d1",
+      "reason": "Retained-primary-source correction of exact perception originals 36 and atomic 45/46, preserving 19 mandatory scientific parts. PointNet++ local summaries and density limitations are coupled to the point-cloud glossary; DON new-object timing includes collection and measured hardware; Dex-Net synthetic aligned crops and analytic labels are distinguished from physical success and retain geometry/sensor/collision assumptions. Added in-paragraph citations preserve source identity. Whole P1 and independent acceptance remain open; zero new retrieval.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact three-original dispatch authorize routine source-backed repair, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-geometric-20260913-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/perception",
+      "oldHash": "9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041",
+      "newHash": "8ce0ff43c7bfe5a5d809c3a7317dfa75ed2c48eae5a7fa0946106e57a7859743",
+      "reason": "Retained-primary-source correction of exact perception originals 36 and atomic 45/46, preserving 19 mandatory scientific parts. PointNet++ local summaries and density limitations are coupled to the point-cloud glossary; DON new-object timing includes collection and measured hardware; Dex-Net synthetic aligned crops and analytic labels are distinguished from physical success and retain geometry/sensor/collision assumptions. Added in-paragraph citations preserve source identity. Whole P1 and independent acceptance remain open; zero new retrieval.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact three-original dispatch authorize routine source-backed repair, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-geometric-20260913-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "6ff6250556a17eacbaa2cd6f1cb926caaa16a98d2477437b7d4f5861ae0df310",
+      "reason": "Retained-primary-source correction of exact perception originals 36 and atomic 45/46, preserving 19 mandatory scientific parts. PointNet++ local summaries and density limitations are coupled to the point-cloud glossary; DON new-object timing includes collection and measured hardware; Dex-Net synthetic aligned crops and analytic labels are distinguished from physical success and retain geometry/sensor/collision assumptions. Added in-paragraph citations preserve source identity. Whole P1 and independent acceptance remain open; zero new retrieval.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact three-original dispatch authorize routine source-backed repair, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

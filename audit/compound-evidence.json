@@ -40851,5 +40851,442 @@
         "evidenceDigest": "c7d0f9cb0fce2927ebbf126b232596a738e93ff1babfaae13bcf7d3647a9efab"
       }
     ]
+  },
+  {
+    "id": "perception-geometric-36-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 36,
+    "originalCellsDigest": "1b523680993e016cfd830a6e842654aa461fe3d987eeb8c2a56417f7171e7e43",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "pointnet-identity",
+        "text": "Qi, Yi, Su and Guibas, PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space, arXiv 1706.02413v1 (2017); this does not establish the registry venue.",
+        "requiredCitationIds": [
+          "pointnet-plus-plus-2017"
+        ]
+      },
+      {
+        "id": "local-hierarchy",
+        "text": "PointNet++ hierarchically groups metric-space neighborhoods and applies local PointNets to summarize progressively larger local regions, rather than guaranteeing that all geometry survives pooling.",
+        "requiredCitationIds": [
+          "pointnet-plus-plus-2017"
+        ]
+      },
+      {
+        "id": "grouping-and-coordinates",
+        "text": "Farthest-point-sampled centroids and radius-based ball neighborhoods define local sets; point coordinates are expressed relative to each centroid before local PointNet processing.",
+        "requiredCitationIds": [
+          "pointnet-plus-plus-2017"
+        ]
+      },
+      {
+        "id": "sampling-density-limits",
+        "text": "Small neighborhoods may have too few samples; multiscale or multiresolution grouping and random input dropout address density variation, while the single-scale ablation can fail under sparse sampling.",
+        "requiredCitationIds": [
+          "pointnet-plus-plus-2017"
+        ]
+      },
+      {
+        "id": "metric-context",
+        "text": "Euclidean neighborhoods can change under non-rigid deformation; the paper's non-rigid experiments use geodesic neighborhoods and intrinsic features rather than establish universal geometry preservation.",
+        "requiredCitationIds": [
+          "pointnet-plus-plus-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:01:51.276Z; implementation retained-source review, not independent acceptance",
+      "rationale": "Support metric neighborhoods and progressive local feature summaries, not lossless pooling. FPS/radius/relative coordinates and density-adaptive MSG/MRG are explicit in sections 3.2-3.3. SSG density failure and geodesic-vs-Euclidean nonrigid limits are retained from sections 4.1-4.3. Preserve completed PointNet35 and couple MDX/glossary. All mandatory scientific parts retained and reviewed against full paper text, including countercontext; endpoint conjunctions checked separately. No independent acceptance.",
+      "planDigest": "b75c81d7fb34a79566f50b1573a26acabc3a49e7a34e3176c1d37c541a0e7e02"
+    },
+    "evidence": [
+      {
+        "partId": "pointnet-identity",
+        "citationId": "pointnet-plus-plus-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1706.02413",
+        "supportingPassage": "PointNet++: Deep Hierarchical Feature Learning on\n                                                    Point Sets in a Metric Space\n\n\n                                                              Charles R. Qi       Li Yi Hao Su Leonidas J. Guibas\n                                                                                   Stanford University\narXiv:1706.02413v1 [cs.CV] 7 Jun 2017"
+      },
+      {
+        "partId": "local-hierarchy",
+        "citationId": "pointnet-plus-plus-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1706.02413",
+        "supportingPassage": "We introduce a hierarchical neural network, named as PointNet++, to process a set of points sampled\n                                        in a metric space in a hierarchical fashion. The general idea of PointNet++ is simple. We first\n                                        partition the set of points into overlapping local regions by the distance metric of the underlying\n                                        space. Similar to CNNs, we extract local features capturing fine geometric structures from small\n                                        neighborhoods; such local features are further grouped into larger units and processed to produce\n                                        higher level features.\n\nWhile PointNet uses a single max pooling operation to aggregate the whole point set, our new\narchitecture builds a hierarchical grouping of points and progressively abstract larger and larger local\nregions along the hierarchy.\nOur hierarchical structure is composed by a number of set abstraction levels (Fig. 2). At each level, a\nset of points is processed and abstracted to produce a new set with fewer elements. The set abstraction\nlevel is made of three key layers: Sampling layer, Grouping layer and PointNet layer. The Sampling\nlayer selects a set of points from input points, which defines the centroids of local regions. Grouping\nlayer then constructs local region sets by finding “neighboring” points around the centroids. PointNet\nlayer uses a mini-PointNet to encode local region patterns into feature vectors."
+      },
+      {
+        "partId": "grouping-and-coordinates",
+        "citationId": "pointnet-plus-plus-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1706.02413",
+        "supportingPassage": "Sampling layer. Given input points {x1 , x2 , ..., xn }, we use iterative farthest point sampling (FPS)\nto choose a subset of points {xi1 , xi2 , ..., xim }, such that xij is the most distant point (in metric\ndistance) from the set {xi1 , xi2 , ..., xij−1 } with regard to the rest points. Compared with random\nsampling, it has better coverage of the entire point set given the same number of centroids. In contrast\nto CNNs that scan the vector space agnostic of data distribution, our sampling strategy generates\nreceptive fields in a data dependent manner.\n\nBall query finds all points that are within a radius to the query point (an upper limit of K is set in\nimplementation). An alternative range query is K nearest neighbor (kNN) search which finds a fixed\n\n\n                                                                                                         3\n\fnumber of neighboring points. Compared with kNN, ball query’s local neighborhood guarantees\na fixed region scale thus making local region feature more generalizable across space, which is\npreferred for tasks requiring local pattern recognition (e.g. semantic point labeling).\n\nThe coordinates of points in a local region are firstly translated into a local frame relative to the\n                  (j)     (j)\ncentroid point: xi = xi − x̂(j) for i = 1, 2, ..., K and j = 1, 2, ..., d where x̂ is the coordinate of\nthe centroid. We use PointNet [20] as described in Sec. 3.1 as the basic building block for local pattern\nlearning. By using relative coordinates together with point features we can capture point-to-point\nrelations in the local region."
+      },
+      {
+        "partId": "sampling-density-limits",
+        "citationId": "pointnet-plus-plus-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1706.02413",
+        "supportingPassage": "Deciding the appropriate scale of local neighborhood balls, however, is a more challenging yet\nintriguing problem, due to the entanglement of feature scale and non-uniformity of input point\nset. We assume that the input point set may have variable density at different areas, which is quite\ncommon in real data such as Structure Sensor scanning [18] (see Fig. 1). Our input point set is thus\nvery different from CNN inputs which can be viewed as data defined on regular grids with uniform\nconstant density. In CNNs, the counterpart to local partition scale is the size of kernels. [25] shows\nthat using smaller kernels helps to improve the ability of CNNs. Our experiments on point set data,\nhowever, give counter evidence to this rule. Small neighborhood may consist of too few points due to\nsampling deficiency, which might be insufficient to allow PointNets to capture patterns robustly.\nA significant contribution of our paper is that PointNet++ leverages neighborhoods at multiple scales\nto achieve both robustness and detail capture. Assisted with random input dropout during training,\nthe network learns to adaptively weight patterns detected at different scales and combine multi-scale\nfeatures according to the input data.\n\nPointNet vanilla [20] is fairly robust under density\nvariation due to its focus on global abstraction rather than fine details. However loss of details\nalso makes it less powerful compared to our approach. SSG (ablated PointNet++ with single scale\ngrouping in each level) fails to generalize to sparse sampling density while SSG+DP amends the                                 Е       4                                                                              Е    5\n                                                                                      0.85                                                                                          0.85\nproblem by randomly dropping out points in training time."
+      },
+      {
+        "partId": "metric-context",
+        "citationId": "pointnet-plus-plus-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1706.02413",
+        "supportingPassage": "Comparing the second and third setting of our approach, we see using geodesic\nneighborhood is beneficial compared with Euclidean neighborhood. Euclidean neighborhood might\ninclude points far away on surfaces and this neighborhood could change dramatically when shape\naffords non-rigid deformation. This introduces difficulty for effective weight sharing since the local\nstructure could become combinatorially complicated. Geodesic neighborhood on surfaces, on the\nother hand, gets rid of this issue and improves the learning effectiveness."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "pointnet-identity",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:01:51.276Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: Qi, Yi, Su and Guibas, PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space, arXiv 1706.02413v1 (2017); this does not establish the registry venue. Context and limits: Support metric neighborhoods and progressive local feature summaries, not lossless pooling. FPS/radius/relative coordinates and density-adaptive MSG/MRG are explicit in sections 3.2-3.3. SSG density failure and geodesic-vs-Euclidean nonrigid limits are retained from sections 4.1-4.3. Preserve completed PointNet35 and couple MDX/glossary.",
+        "evidenceDigest": "4f3bb5ad3bf7d668957586a66dd4fe51406cfbe4b5b6289ab4daf81cb5e4936d"
+      },
+      {
+        "partId": "local-hierarchy",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:01:51.276Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: PointNet++ hierarchically groups metric-space neighborhoods and applies local PointNets to summarize progressively larger local regions, rather than guaranteeing that all geometry survives pooling. Context and limits: Support metric neighborhoods and progressive local feature summaries, not lossless pooling. FPS/radius/relative coordinates and density-adaptive MSG/MRG are explicit in sections 3.2-3.3. SSG density failure and geodesic-vs-Euclidean nonrigid limits are retained from sections 4.1-4.3. Preserve completed PointNet35 and couple MDX/glossary.",
+        "evidenceDigest": "15c67117d13786c8def0258be4944f360df38c46fbe9dc97ddf54acae04046b5"
+      },
+      {
+        "partId": "grouping-and-coordinates",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:01:51.276Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: Farthest-point-sampled centroids and radius-based ball neighborhoods define local sets; point coordinates are expressed relative to each centroid before local PointNet processing. Context and limits: Support metric neighborhoods and progressive local feature summaries, not lossless pooling. FPS/radius/relative coordinates and density-adaptive MSG/MRG are explicit in sections 3.2-3.3. SSG density failure and geodesic-vs-Euclidean nonrigid limits are retained from sections 4.1-4.3. Preserve completed PointNet35 and couple MDX/glossary.",
+        "evidenceDigest": "cecb4708852c8832449bdd5166b42e6003692c39de6796ee1365d77cc17dc740"
+      },
+      {
+        "partId": "sampling-density-limits",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:01:51.276Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: Small neighborhoods may have too few samples; multiscale or multiresolution grouping and random input dropout address density variation, while the single-scale ablation can fail under sparse sampling. Context and limits: Support metric neighborhoods and progressive local feature summaries, not lossless pooling. FPS/radius/relative coordinates and density-adaptive MSG/MRG are explicit in sections 3.2-3.3. SSG density failure and geodesic-vs-Euclidean nonrigid limits are retained from sections 4.1-4.3. Preserve completed PointNet35 and couple MDX/glossary.",
+        "evidenceDigest": "41cae5b10072f355c070b59f2c94b27ebfc0ab2459eacd9372ec648b2a18f580"
+      },
+      {
+        "partId": "metric-context",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:01:51.276Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: Euclidean neighborhoods can change under non-rigid deformation; the paper's non-rigid experiments use geodesic neighborhoods and intrinsic features rather than establish universal geometry preservation. Context and limits: Support metric neighborhoods and progressive local feature summaries, not lossless pooling. FPS/radius/relative coordinates and density-adaptive MSG/MRG are explicit in sections 3.2-3.3. SSG density failure and geodesic-vs-Euclidean nonrigid limits are retained from sections 4.1-4.3. Preserve completed PointNet35 and couple MDX/glossary.",
+        "evidenceDigest": "921fb6a13eee3f84333cc630e90ec6a9e64e3530f739eac3161159fbfb70d115"
+      }
+    ]
+  },
+  {
+    "id": "perception-geometric-45-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 45,
+    "originalCellsDigest": "e225aebd3aec134f1c6ac05ae93bbb05792dc6983bc716fdf915738337d3f763",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "don-identity",
+        "text": "Florence, Manuelli and Tedrake, Dense Object Nets: Learning Dense Visual Object Descriptors By and For Robotic Manipulation, arXiv 1806.08756v2 (2018); Florence and Manuelli are marked equal contributors. The PDF Subject labels Proceedings of the 2nd Conference on Robot Learning (CoRL 2018), while its Author metadata remains Anonymous Submission; use the printed ordered byline, not that stale template metadata.",
+        "requiredCitationIds": [
+          "dense-object-nets-2018"
+        ]
+      },
+      {
+        "id": "self-supervised-descriptor",
+        "text": "An RGB image maps to a descriptor vector at each pixel; training contrasts matches from the same 3D reconstruction vertex with nonmatches. The architecture starts from an ImageNet-pretrained ResNet, rather than claiming no prior labeled pretraining.",
+        "requiredCitationIds": [
+          "dense-object-nets-2018"
+        ]
+      },
+      {
+        "id": "viewpoint-and-deformation-limits",
+        "text": "Object-centric training techniques improve correspondence consistency across tested viewpoints/configurations and moderately deformable objects; static reconstructions alone were insufficient and correspondence accuracy depends on training sampling, not exact equality for every physical point.",
+        "requiredCitationIds": [
+          "dense-object-nets-2018"
+        ]
+      },
+      {
+        "id": "object-versus-class",
+        "text": "Class-consistent descriptors generalize across sufficiently similar hats, shoes and mugs under the consistent training mode; sufficiently different anthropomorphic toys fail. Instance-specific descriptors use a different training mode.",
+        "requiredCitationIds": [
+          "dense-object-nets-2018"
+        ]
+      },
+      {
+        "id": "twenty-minute-setting",
+        "text": "Appendix D reports 3500 optimization steps on one Nvidia 1080 Ti or Titan Xp, about 0.22 seconds per step/about 13 minutes, plus collecting a handful of scenes, so a new object can take 20 minutes; Appendix B describes about 70 seconds/about 2100 RGBD frames for one static scan. This is not a universal per-class neural-training time.",
+        "requiredCitationIds": [
+          "dense-object-nets-2018"
+        ]
+      },
+      {
+        "id": "data-hardware-and-human-work",
+        "text": "The demonstrated collection uses a calibrated Kuka IIWA LBR arm with end-effector Primesense Carmine 1.09 and Schunk two-finger gripper, camera poses from forward kinematics and TSDF fusion; humans often rearranged objects and still switched/identified objects in multi-object data collection.",
+        "requiredCitationIds": [
+          "dense-object-nets-2018"
+        ]
+      },
+      {
+        "id": "correspondence-to-grasp",
+        "text": "A reference-pixel match is thresholded and mapped through depth/point-cloud geometry to a grasp location; descriptors do not themselves constrain the gripper's 6DOF orientation.",
+        "requiredCitationIds": [
+          "dense-object-nets-2018"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+      "rationale": "Support RGB per-pixel correspondence learned from static RGB-D matching with ImageNet pretraining, not exact equality or no prior labels. Object-centric sampling is required; moderate deformation and sufficiently similar class instances are bounded demonstrations. Appendix D 3500 steps/about 13 minutes/1080 Ti or Titan Xp plus handful-scene collection produces the new-object 20-minute estimate, separate from Appendix B roughly 70 seconds per static scan. Preserve human rearrangement/switching/identity and calibrated hardware; descriptor location is not 6DoF orientation. All mandatory scientific parts retained and reviewed against full paper text, including countercontext; endpoint conjunctions checked separately. No independent acceptance.",
+      "planDigest": "b85f037ec8eb4a03696a84d6c8152d9339fc48055ccedfc607330861bb4d60f5"
+    },
+    "evidence": [
+      {
+        "partId": "don-identity",
+        "citationId": "dense-object-nets-2018",
+        "sourceUrl": "https://arxiv.org/pdf/1806.08756",
+        "supportingPassage": "Dense Object Nets: Learning Dense Visual\n                                           Object Descriptors By and For Robotic Manipulation\n                                                                  Peter R. Florence*, Lucas Manuelli*, Russ Tedrake\n                                                                      CSAIL, Massachusetts Institute of Technology\n                                                                    {peteflo,manuelli,russt}@csail.mit.edu\n                                                                     *These authors contributed equally to this work.\narXiv:1806.08756v2 [cs.RO] 7 Sep 2018\n\nSubject:         Proceedings of the 2nd Conference on Robot Learning (CoRL 2018)\nKeywords:        Visual Descriptor Learning, Self-Supervision, Robot Manipulation\nAuthor:          Anonymous Submission\n"
+      },
+      {
+        "partId": "self-supervised-descriptor",
+        "citationId": "dense-object-nets-2018",
+        "sourceUrl": "https://arxiv.org/pdf/1806.08756",
+        "supportingPassage": "We use self-supervised pixelwise contrastive loss, as developed in [7, 8]. This learns a dense visual descriptor\nmapping which maps a full-resolution RGB image, RW ×H×3 to a dense descriptor space, RW ×H×D ,\n\n\n                                                       2\n\fwhere for each pixel we have a D-dimensional descriptor vector. Training is performed in a Siamese\nfashion, where a pair of RGB images, Ia and Ib are sampled from one RGBD video, and many pixel\nmatches and non-matches are generated from the pair of images. A pixel ua ∈R2 from image Ia is a match\nwith pixel ub from image Ib if they correspond to the same vertex of the dense 3D reconstruction (Figure\n1 (c-f)). The dense descriptor mapping is trained via pixelwise contrastive loss. The loss function aims\nto minimize the distance between descriptors corresponding to a match, while descriptors corresponding to\na non-match should be at least a distance M apart, where M is a margin parameter.\n\nFor our network we use 34-layer, stride-8 ResNet (pretrained on ImageNet), and then bilinearly upsample\nto produce a full resolution 640x480 image."
+      },
+      {
+        "partId": "viewpoint-and-deformation-limits",
+        "citationId": "dense-object-nets-2018",
+        "sourceUrl": "https://arxiv.org/pdf/1806.08756",
+        "supportingPassage": "Using our robot mounted camera we are able to reliably collect high quality dense reconstructions for static\nscenes. Initially we applied only static-scene reconstruction to learn descriptors for specific objects, but we\nfound that the learned object descriptors were not naturally consistent for challenging datasets with objects\nin significantly different configurations. Subsequently we developed techniques that leverage 3D reconstruc-\ntion change detection, data augmentation, and loss function balancing to reliably produce consistent object\nrepresentations with only static-scene data association for the wide variety of objects we have tested.\n\nWe observe that with our training procedures described in Section 3.2, for a wide variety of objects we can\nacquire dense descriptors that are consistent across viewpoints and configurations. The variety of objects\nincludes moderately deformable objects such as soft plush toys, shoes, mugs, and hats, and can include very\nlow-texture objects (Figure 2).\n\nperformance can widely vary based on specific sampling of data associations and non-associations used dur-\ning training. One way to quantitatively evaluate correspondence precision is with human-labeled (used only\nfor evaluation; never for training) correspondences across two images of an object in different configurations.\nGiven two images Ia,Ib containing the same object and pixel locations u∗a ∈Ia,u∗b ∈Ib corresponding to\nthe same physical point on the object, we can use our dense descriptors to estimate u∗b as ûb:"
+      },
+      {
+        "partId": "object-versus-class",
+        "citationId": "dense-object-nets-2018",
+        "sourceUrl": "https://arxiv.org/pdf/1806.08756",
+        "supportingPassage": "Surprisingly we find that when trained simultaneously on similar items of a class using training mode\nconsistent, the learned descriptors naturally generalize well across sufficiently similar instances of the\nclass. This result of converging descriptors across a class is similar to the surprising generalization observed\nfor human datasets in [8, 9]. Here we show that we can obtain class consistent dense descriptors for 3\ndifferent classes of objects (hats, shoes, and mugs) trained with only static-scene data association. We\nobserve that the descriptors are consistent despite considerable differences in color, texture, deformation,\nand even to some extent underlying shape. The training requirements are reasonably modest – only 6\ninstances of hats were used for training yet the descriptors generalize well to unseen hats, including a blue\nhat, a color never observed during training. The generalization extends to instances that a priori we thought\nwould be failure modes: we expected the boot (Figure 6h) to be a failure mode but there is still reasonable\nconsistency with other shoes. Sufficiently different objects are not well generalized, however – for example\nBaymax and Starbot (Figure 2e,f) are both anthropomorphic toys but we do not attain general descriptors\nfor them.\n\nFor other applications, however, instance-specificity is desired. For example, what if you would like your\nrobot to recognize a certain point on hat A as distinct from the comparable point on hat B? Although we\ncould separate very distinct objects in multi-object settings as discussed in the previous section, it wasn’t\nobvious to us if we could satisfactorily separate objects of the same class. We observe, however, that\nby applying the multi-object techniques (specific in Figure 3) previously discussed, we can indeed learn\ndistinct descriptors even for very similar objects in a class (Figure 6iv)."
+      },
+      {
+        "partId": "twenty-minute-setting",
+        "citationId": "dense-object-nets-2018",
+        "sourceUrl": "https://arxiv.org/pdf/1806.08756",
+        "supportingPassage": "All the networks were trained with the same optimizer settings. Networks were trained for 3500 steps\nusing an Adam optimizer with a weight decay of 1e − 4. Training was performed on a single Nvidia\n1080 Ti or Titan Xp, a single step takes approximately 0.22 seconds, i.e. approximately 13 minutes, and\nso together with collecting a handful of scenes the entire training for a new object can take 20 minutes.\n\nThis procedure takes about 70 seconds during which approximately 2100 RGBD frames are captured\n(the sensor outputs at 30Hz)."
+      },
+      {
+        "partId": "data-hardware-and-human-work",
+        "citationId": "dense-object-nets-2018",
+        "sourceUrl": "https://arxiv.org/pdf/1806.08756",
+        "supportingPassage": "Data Collection and Pre-Processing. The minimum requirement for raw data is to collect an RGBD\nvideo of an object or objects. Figure 1 shows our experimental setup; we utilize a 7-DOF robot arm (Kuka\nIIWA LBR) with an RGBD sensor (Primesense Carmine 1.09) mounted at the end-effector. With the robot\narm, data collection can be highly automated, and we can achieve reliable camera poses by using forward\nkinematics along with knowledge of the camera extrinsic calibration. For dense reconstruction we use\nTSDF fusion [28] of the depth images with camera poses provided by forward kinematics. An alternative\nroute to collecting data which does not require a calibrated robot is to use a dense SLAM method (for\nexample, [29, 30]). In between collecting RGBD videos, the object of interest should be moved to a variety\nof configurations, and the lighting can be changed if desired. While for many of our data collections a\nhuman moved the object between configurations, we have also implemented and demonstrated (see our\nvideo) the robot autonomously rearranging the objects, which highly automates the object learning process.\nWe employ a Schunk two-finger gripper and plan grasps directly on the object point cloud (Appendix\nC). If multiple different objects are used, currently the human must still switch the objects for the robot\nand indicate which scenes correspond to which object, but even this information could be automated by\nthe robot picking objects from an auxiliary bin."
+      },
+      {
+        "partId": "correspondence-to-grasp",
+        "citationId": "dense-object-nets-2018",
+        "sourceUrl": "https://arxiv.org/pdf/1806.08756",
+        "supportingPassage": "image. Now the robot has the ability to autonomously identify the corresponding point in new scenes via\nEquation 6. Akin to other works with similarity learning in metric spaces [31], we set a simple threshold\nto determine whether a valid match exists. If a match is identified in the new scene we can instruct the\nrobot to autonomously grasp this point by looking up the corresponding location in the point cloud and\nusing simple geometric grasping techniques (details in Appendix C).\n\nWhile our learned visual descriptors can help us determine where to grasp, they can’t be used during the\nbootstrapping phase before visual learning has occurred, and they don’t constrain the 6DOF orientation\nof the gripper. Accordingly to choose grasps our pipeline employs simple geometric point cloud based\ntechniques."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "don-identity",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: Florence, Manuelli and Tedrake, Dense Object Nets: Learning Dense Visual Object Descriptors By and For Robotic Manipulation, arXiv 1806.08756v2 (2018); Florence and Manuelli are marked equal contributors. The PDF Subject labels Proceedings of the 2nd Conference on Robot Learning (CoRL 2018), while its Author metadata remains Anonymous Submission; use the printed ordered byline, not that stale template metadata. Context and limits: Support RGB per-pixel correspondence learned from static RGB-D matching with ImageNet pretraining, not exact equality or no prior labels. Object-centric sampling is required; moderate deformation and sufficiently similar class instances are bounded demonstrations. Appendix D 3500 steps/about 13 minutes/1080 Ti or Titan Xp plus handful-scene collection produces the new-object 20-minute estimate, separate from Appendix B roughly 70 seconds per static scan. Preserve human rearrangement/switching/identity and calibrated hardware; descriptor location is not 6DoF orientation.",
+        "evidenceDigest": "33babda2b8a755af2f07ce8e8917c18df9a87d6b97265d56aa5172a88bba80e9"
+      },
+      {
+        "partId": "self-supervised-descriptor",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: An RGB image maps to a descriptor vector at each pixel; training contrasts matches from the same 3D reconstruction vertex with nonmatches. The architecture starts from an ImageNet-pretrained ResNet, rather than claiming no prior labeled pretraining. Context and limits: Support RGB per-pixel correspondence learned from static RGB-D matching with ImageNet pretraining, not exact equality or no prior labels. Object-centric sampling is required; moderate deformation and sufficiently similar class instances are bounded demonstrations. Appendix D 3500 steps/about 13 minutes/1080 Ti or Titan Xp plus handful-scene collection produces the new-object 20-minute estimate, separate from Appendix B roughly 70 seconds per static scan. Preserve human rearrangement/switching/identity and calibrated hardware; descriptor location is not 6DoF orientation.",
+        "evidenceDigest": "f518212a4f1fce98f18b961bdcdae65d493eb70a54b34b42c860377947f31ba6"
+      },
+      {
+        "partId": "viewpoint-and-deformation-limits",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: Object-centric training techniques improve correspondence consistency across tested viewpoints/configurations and moderately deformable objects; static reconstructions alone were insufficient and correspondence accuracy depends on training sampling, not exact equality for every physical point. Context and limits: Support RGB per-pixel correspondence learned from static RGB-D matching with ImageNet pretraining, not exact equality or no prior labels. Object-centric sampling is required; moderate deformation and sufficiently similar class instances are bounded demonstrations. Appendix D 3500 steps/about 13 minutes/1080 Ti or Titan Xp plus handful-scene collection produces the new-object 20-minute estimate, separate from Appendix B roughly 70 seconds per static scan. Preserve human rearrangement/switching/identity and calibrated hardware; descriptor location is not 6DoF orientation.",
+        "evidenceDigest": "f549f695807b8177f012878b644e5d3c10596373f76d64bc5c4d2488c59da8c3"
+      },
+      {
+        "partId": "object-versus-class",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: Class-consistent descriptors generalize across sufficiently similar hats, shoes and mugs under the consistent training mode; sufficiently different anthropomorphic toys fail. Instance-specific descriptors use a different training mode. Context and limits: Support RGB per-pixel correspondence learned from static RGB-D matching with ImageNet pretraining, not exact equality or no prior labels. Object-centric sampling is required; moderate deformation and sufficiently similar class instances are bounded demonstrations. Appendix D 3500 steps/about 13 minutes/1080 Ti or Titan Xp plus handful-scene collection produces the new-object 20-minute estimate, separate from Appendix B roughly 70 seconds per static scan. Preserve human rearrangement/switching/identity and calibrated hardware; descriptor location is not 6DoF orientation.",
+        "evidenceDigest": "1044ffce95260fd0fa9256c52a183bdac2cf4be80692f3eda9ae13507a4a5390"
+      },
+      {
+        "partId": "twenty-minute-setting",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: Appendix D reports 3500 optimization steps on one Nvidia 1080 Ti or Titan Xp, about 0.22 seconds per step/about 13 minutes, plus collecting a handful of scenes, so a new object can take 20 minutes; Appendix B describes about 70 seconds/about 2100 RGBD frames for one static scan. This is not a universal per-class neural-training time. Context and limits: Support RGB per-pixel correspondence learned from static RGB-D matching with ImageNet pretraining, not exact equality or no prior labels. Object-centric sampling is required; moderate deformation and sufficiently similar class instances are bounded demonstrations. Appendix D 3500 steps/about 13 minutes/1080 Ti or Titan Xp plus handful-scene collection produces the new-object 20-minute estimate, separate from Appendix B roughly 70 seconds per static scan. Preserve human rearrangement/switching/identity and calibrated hardware; descriptor location is not 6DoF orientation.",
+        "evidenceDigest": "6d2eebbfa746ed75ebfd01830ef614059e00ae0f6d52677a1edbe79269d0a77f"
+      },
+      {
+        "partId": "data-hardware-and-human-work",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: The demonstrated collection uses a calibrated Kuka IIWA LBR arm with end-effector Primesense Carmine 1.09 and Schunk two-finger gripper, camera poses from forward kinematics and TSDF fusion; humans often rearranged objects and still switched/identified objects in multi-object data collection. Context and limits: Support RGB per-pixel correspondence learned from static RGB-D matching with ImageNet pretraining, not exact equality or no prior labels. Object-centric sampling is required; moderate deformation and sufficiently similar class instances are bounded demonstrations. Appendix D 3500 steps/about 13 minutes/1080 Ti or Titan Xp plus handful-scene collection produces the new-object 20-minute estimate, separate from Appendix B roughly 70 seconds per static scan. Preserve human rearrangement/switching/identity and calibrated hardware; descriptor location is not 6DoF orientation.",
+        "evidenceDigest": "333d83e981a71ba35a5ee095e89de2101b7b92a55efa2bbb841f8cf02d31f808"
+      },
+      {
+        "partId": "correspondence-to-grasp",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: A reference-pixel match is thresholded and mapped through depth/point-cloud geometry to a grasp location; descriptors do not themselves constrain the gripper's 6DOF orientation. Context and limits: Support RGB per-pixel correspondence learned from static RGB-D matching with ImageNet pretraining, not exact equality or no prior labels. Object-centric sampling is required; moderate deformation and sufficiently similar class instances are bounded demonstrations. Appendix D 3500 steps/about 13 minutes/1080 Ti or Titan Xp plus handful-scene collection produces the new-object 20-minute estimate, separate from Appendix B roughly 70 seconds per static scan. Preserve human rearrangement/switching/identity and calibrated hardware; descriptor location is not 6DoF orientation.",
+        "evidenceDigest": "90350cea02753a2a9d7358c09386434677fb03bdb67a6f23c56c8be9885667d5"
+      }
+    ]
+  },
+  {
+    "id": "perception-geometric-46-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 46,
+    "originalCellsDigest": "9baadfc4865f43ac68ec72cd5f943efb79cc145c088a95ffe986e0e59f0070f6",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "dexnet-identity",
+        "text": "Mahler, Liang, Niyaz, Laskey, Doan, Liu, Aparicio Ojea and Goldberg, Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics, arXiv 1703.09312v3 (2017).",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "synthetic-population-units",
+        "text": "The paper reports 6.7 million training datapoints associated with synthetic 2.5D point clouds, parallel-jaw grasps and analytic metrics from 1500 object models. Figure 3 calls the grasp-aligned 32x32 crops 'over 6.7 million grasp images'; this is not a measured robot-trial count or proof of exactly 6,700,000 distinct scene views.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "analytic-label-not-physical-success",
+        "text": "Labels use thresholded robust epsilon quality, threshold 0.002 and collision constraints for a custom YuMi gripper, with uncertainty/noise models; these analytic training labels are distinct from physical success or precision.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "candidate-and-depth-input",
+        "text": "GQ-CNN receives a grasp-centered/aligned depth image and the gripper depth relative to the camera, estimating candidate robustness rather than directly outputting an unrestricted grasp from a bare image.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "planning-model-assumptions",
+        "text": "The planner samples antipodal candidates from depth gradients, ranks candidates and checks reachability/table collision. It assumes a parallel-jaw gripper, rigid singulated objects on a planar worksurface, single-view 2.5D depth and known camera/gripper geometry; training uses object mesh models even though execution need not register a target-specific model.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "physical-results-context",
+        "text": "The separate 40-household-object experiment includes articulated/deformable objects and reports CEM-augmented 94% success and 99% precision (68 successes among 69 classified robust), average 2.5 seconds; these experimental results do not turn synthetic labels into measured successes.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "sensor-collision-clutter-limits",
+        "text": "Missing depth for thin parts and collisions cause failures; the order-fulfillment application first separates objects from a pile, consistent with the singulated-object assumption.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+      "rationale": "Support 6.7 million training datapoints and Figure 3 over 6.7 million aligned grasp images; neither counts unique full-scene views or physical successes. Keep 1500 models, analytic epsilon/collision/noise labeling, aligned depth plus gripper-depth inputs, antipodal ranking/reachability/table collision, rigid isolated-object and known-geometry assumptions. Separate CEM household-object physical evaluation; thin-part missing depth and collisions remain, piles are separated first. All mandatory scientific parts retained and reviewed against full paper text, including countercontext; endpoint conjunctions checked separately. No independent acceptance.",
+      "planDigest": "52db46c6a7e7cd74ada83785df800f1dabd1596461e767d4ff2b1bec439a425a"
+    },
+    "evidence": [
+      {
+        "partId": "dexnet-identity",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "Dex-Net 2.0: Deep Learning to Plan Robust\nGrasps with Synthetic Point Clouds\nand Analytic Grasp Metrics\nJeffrey Mahler∗ , Jacky Liang∗ , Sherdil Niyaz∗ , Michael Laskey∗ , Richard Doan∗ , Xinyu Liu∗ ,\nJuan Aparicio Ojea† , and Ken Goldberg∗\n\narXiv:1703.09312v3 [cs.RO] 8 Aug 2017\n\n∗ Dept. of EECS, University of California, Berkeley\n\nEmail: {jmahler, jackyliang, sniyaz, laskeymd, rdoan, xinyuliu, goldberg}@berkeley.edu\n† Siemens Corporation, Corporate Technology\nEmail: juan.aparicio@siemens.com"
+      },
+      {
+        "partId": "synthetic-population-units",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "Dex-Net 2.0, a training dataset of 6.7 million synthetic point\nclouds, parallel-jaw grasps, and robust analytic grasp metrics\nacross 1,500 3D models sampled from the graphical model in\nFig. 2.\n\n2) Database: Dex-Net 2.0 contains 6.7 million datapoints\ngenerated using the pipeline of Fig. 3.\n3D Models. The dataset contains a subset of 1,500 mesh\nmodels from Dex-Net 1.0: 1,371 synthetic models from\n\nFig. 3: Dex-Net 2.0 pipeline for training dataset generation. (Left) The database contains 1,500 3D object mesh models. (Top) For each object, we sample\nhundreds of parallel-jaw grasps to cover the surface and evaluate robust analytic grasp metrics using sampling. For each stable pose of the object we associate\na set of grasps that are perpendicular to the table and collision-free for a given gripper model. (Bottom) We also render point clouds of each object in each\nstable pose, with the planar object pose and camera pose sampled uniformly at random. Every grasp for a given stable pose is associated with a pixel location\nand orientation in the rendered image. (Right) Each image is rotated, translated, cropped, and scaled to align the grasp pixel location with the image center\nand the grasp axis with the middle row of the image, creating a 32 × 32 grasp image. The full dataset contains over 6.7 million grasp images.\n\n2) Training Dataset: GQ-CNN training datasets are generated by associating grasps with a pixel v, orientation ϕ,\nand depth z relative to rendered depth images as illustrated in\nFig. 3. We compute these parameters by transforming grasps\ninto the camera frame of reference using the camera pose\nTc and projecting the 3D grasp position and orientation onto\nthe imaging plane of the camera [18]. We then transform all\npairs of images and grasp configurations to a single image\ncentered on v and oriented along ϕ (see the left panel of\nFig. 4 for an illustration). The Dex-Net 2.0 training dataset\ncontains 6.7 million datapoints and approximately 21.2%\npositive examples for the thresholded robust epsilon quality\nwith threshold δ = 0.002 [25] and a custom YuMi gripper."
+      },
+      {
+        "partId": "analytic-label-not-physical-success",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "where EQ is the robust epsilon quality defined in [51], a\nvariant of the pose error robust metric [56] that includes\nuncertainty in friction and gripper pose, and collf ree(u, x)\nindicates that the gripper does not collide with the object or\ntable. The supplemental file details the parameters of these\ndistributions.\n\nwhere the distributions are detailed in Table I. Our grasp\ncandidate model p(u | x) is a uniform distribution over\npairs of antipodal contact points on the object surface that\nform a grasp axis parallel to the table plane. Our observation\nmodel is y = αŷ + \u000f where ŷ is a rendered depth image\nfor a given object in a given pose, α is a Gamma random\nvariable modeling depth-proportional noise, and \u000f is zero-mean\nGaussian Process noise over pixel coordinates with bandwidth\n` and measurement noise σ modeling additive noise [35]. We\nmodel grasp success as:\n\u001a\n1 EQ > δ and collf ree(u, x)\nS(u, x) =\n0\notherwise\n\n2) Training Dataset: GQ-CNN training datasets are generated by associating grasps with a pixel v, orientation ϕ,\nand depth z relative to rendered depth images as illustrated in\nFig. 3. We compute these parameters by transforming grasps\ninto the camera frame of reference using the camera pose\nTc and projecting the 3D grasp position and orientation onto\nthe imaging plane of the camera [18]. We then transform all\npairs of images and grasp configurations to a single image\ncentered on v and oriented along ϕ (see the left panel of\nFig. 4 for an illustration). The Dex-Net 2.0 training dataset\ncontains 6.7 million datapoints and approximately 21.2%\npositive examples for the thresholded robust epsilon quality\nwith threshold δ = 0.002 [25] and a custom YuMi gripper."
+      },
+      {
+        "partId": "candidate-and-depth-input",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "1) Architecture: The Grasp Quality Convolutional Neural\nNetwork (GQ-CNN) architecture, illustrated in Fig. 4 and\ndetailed in the caption, defines the set of parameters Θ used\nto represent the grasp robustness function Qθ . The GQ-CNN\ntakes as input the gripper depth from the camera z and a\ndepth image centered on the grasp center pixel v = (i, j) and\naligned with the grasp axis orientation ϕ.\n\n2) Training Dataset: GQ-CNN training datasets are generated by associating grasps with a pixel v, orientation ϕ,\nand depth z relative to rendered depth images as illustrated in\nFig. 3. We compute these parameters by transforming grasps\ninto the camera frame of reference using the camera pose\nTc and projecting the 3D grasp position and orientation onto\nthe imaging plane of the camera [18]. We then transform all\npairs of images and grasp configurations to a single image\ncentered on v and oriented along ϕ (see the left panel of\nFig. 4 for an illustration). The Dex-Net 2.0 training dataset\ncontains 6.7 million datapoints and approximately 21.2%\npositive examples for the thresholded robust epsilon quality\nwith threshold δ = 0.002 [25] and a custom YuMi gripper."
+      },
+      {
+        "partId": "planning-model-assumptions",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "V. G RASP P LANNING\nThe Dex-Net 2.0 grasp planner uses the robust grasping\npolicy πθ (y) = argmaxu∈C Qθ (u, y) illustrated in Fig. 1. The\nset C is a discrete set of antipodal candidate grasps [6] sampled\nuniformly at random in image space for surface normals\ndefined by the depth image gradients. Each grasp candidate\nis evaluated by the GQ-CNN, and the most robust grasp that\nis (a) kinematically reachable and (b) not in collision with the\ntable is executed. The supplemental file contains additional\ndetails.\n\nWe assume a parallel-jaw gripper, rigid objects singulated\non a planar worksurface, and single-view (2.5D) point clouds\ntaken with a depth camera. For generating datasets, we assume\na known gripper geometry and a single overhead depth camera\nwith known intrinsics.\n\n3DNet [57] and 129 laser scans from the KIT object\ndatabase [26]. Each mesh is aligned to a standard frame of\nreference using the principal axes, rescaled to fit within a\ngripper width of 5.0cm (the opening width of an ABB YuMi\ngripper), and assigned a mass of 1.0kg centered in the object\nbounding box since some meshes are nonclosed."
+      },
+      {
+        "partId": "physical-results-context",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "Fig. 7: (Left) The test set of 40 household objects used for evaluating the\ngeneralization performance of the Dex-Net 2.0 grasp planner. The dataset\ncontains rigid, articulated, and deformable objects. (Right) The experimental\nsetup for order fulfillment with the ABB YuMi. The goal is to grasp and\ntransport three target objects to a shipping container (box on right).\n\nfound in the supplemental file. The CEM-augmented Dex-Net\n2.0 grasp planner achieved 94% success and 99% precision\n(68 successes out of 69 grasps classified as robust), and it\ntook an average of 2.5s to plan grasps."
+      },
+      {
+        "partId": "sensor-collision-clutter-limits",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "Fig. 8: Four examples of failed grasps planned using the GQ-CNN from DexNet 2.0. The most common failure modes were related to: (left) missing sensor\ndata for an important part of the object geometry, such as thin parts of the\nobject surface, and (right) collisions with the object that are misclassified as\nrobust.\n\nnetwork was not able to fully distinguish collision-free grasps\nin narrow parts of the object geometry. This suggests that\nperformance could be improved with more accurate depth\nsensing and using analytic methods to prune grasps in collsion.\n\nSince the DexNet 2.0 grasp planner assumes singulated objects, the YuMi\nfirst separated the objects using a policy learned from human\ndemonstrations mapping binary images to push locations [30]."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "dexnet-identity",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: Mahler, Liang, Niyaz, Laskey, Doan, Liu, Aparicio Ojea and Goldberg, Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics, arXiv 1703.09312v3 (2017). Context and limits: Support 6.7 million training datapoints and Figure 3 over 6.7 million aligned grasp images; neither counts unique full-scene views or physical successes. Keep 1500 models, analytic epsilon/collision/noise labeling, aligned depth plus gripper-depth inputs, antipodal ranking/reachability/table collision, rigid isolated-object and known-geometry assumptions. Separate CEM household-object physical evaluation; thin-part missing depth and collisions remain, piles are separated first.",
+        "evidenceDigest": "b03db247df09ba9d5935a6a0a7b7dbbf077749cb6298afc86b5c6bf5568f2260"
+      },
+      {
+        "partId": "synthetic-population-units",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: The paper reports 6.7 million training datapoints associated with synthetic 2.5D point clouds, parallel-jaw grasps and analytic metrics from 1500 object models. Figure 3 calls the grasp-aligned 32x32 crops 'over 6.7 million grasp images'; this is not a measured robot-trial count or proof of exactly 6,700,000 distinct scene views. Context and limits: Support 6.7 million training datapoints and Figure 3 over 6.7 million aligned grasp images; neither counts unique full-scene views or physical successes. Keep 1500 models, analytic epsilon/collision/noise labeling, aligned depth plus gripper-depth inputs, antipodal ranking/reachability/table collision, rigid isolated-object and known-geometry assumptions. Separate CEM household-object physical evaluation; thin-part missing depth and collisions remain, piles are separated first.",
+        "evidenceDigest": "05bab6861ead56d21bd15f43a0acf0cde34a1b01b901699c1c64bcf2a5280f27"
+      },
+      {
+        "partId": "analytic-label-not-physical-success",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: Labels use thresholded robust epsilon quality, threshold 0.002 and collision constraints for a custom YuMi gripper, with uncertainty/noise models; these analytic training labels are distinct from physical success or precision. Context and limits: Support 6.7 million training datapoints and Figure 3 over 6.7 million aligned grasp images; neither counts unique full-scene views or physical successes. Keep 1500 models, analytic epsilon/collision/noise labeling, aligned depth plus gripper-depth inputs, antipodal ranking/reachability/table collision, rigid isolated-object and known-geometry assumptions. Separate CEM household-object physical evaluation; thin-part missing depth and collisions remain, piles are separated first.",
+        "evidenceDigest": "d84e2d56e1cacecaef6d024aedb2c4624785c86fa7022e7bee44339880f4c693"
+      },
+      {
+        "partId": "candidate-and-depth-input",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: GQ-CNN receives a grasp-centered/aligned depth image and the gripper depth relative to the camera, estimating candidate robustness rather than directly outputting an unrestricted grasp from a bare image. Context and limits: Support 6.7 million training datapoints and Figure 3 over 6.7 million aligned grasp images; neither counts unique full-scene views or physical successes. Keep 1500 models, analytic epsilon/collision/noise labeling, aligned depth plus gripper-depth inputs, antipodal ranking/reachability/table collision, rigid isolated-object and known-geometry assumptions. Separate CEM household-object physical evaluation; thin-part missing depth and collisions remain, piles are separated first.",
+        "evidenceDigest": "dffb2a13cc0235106db0071a190c2d6436707d738aa3410065517bd89275f647"
+      },
+      {
+        "partId": "planning-model-assumptions",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: The planner samples antipodal candidates from depth gradients, ranks candidates and checks reachability/table collision. It assumes a parallel-jaw gripper, rigid singulated objects on a planar worksurface, single-view 2.5D depth and known camera/gripper geometry; training uses object mesh models even though execution need not register a target-specific model. Context and limits: Support 6.7 million training datapoints and Figure 3 over 6.7 million aligned grasp images; neither counts unique full-scene views or physical successes. Keep 1500 models, analytic epsilon/collision/noise labeling, aligned depth plus gripper-depth inputs, antipodal ranking/reachability/table collision, rigid isolated-object and known-geometry assumptions. Separate CEM household-object physical evaluation; thin-part missing depth and collisions remain, piles are separated first.",
+        "evidenceDigest": "8ca89b928c4f4bbfe118d281c3d9cc908f13ca877f9c08253ff9f7d9c3ee80c2"
+      },
+      {
+        "partId": "physical-results-context",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: The separate 40-household-object experiment includes articulated/deformable objects and reports CEM-augmented 94% success and 99% precision (68 successes among 69 classified robust), average 2.5 seconds; these experimental results do not turn synthetic labels into measured successes. Context and limits: Support 6.7 million training datapoints and Figure 3 over 6.7 million aligned grasp images; neither counts unique full-scene views or physical successes. Keep 1500 models, analytic epsilon/collision/noise labeling, aligned depth plus gripper-depth inputs, antipodal ranking/reachability/table collision, rigid isolated-object and known-geometry assumptions. Separate CEM household-object physical evaluation; thin-part missing depth and collisions remain, piles are separated first.",
+        "evidenceDigest": "f578051c70b892615f6fc2ef29d9dacf2f171c4c453a74aa0e66d8480d6cec4d"
+      },
+      {
+        "partId": "sensor-collision-clutter-limits",
+        "outcome": "supported",
+        "reviewedBy": "Droid 3f981636-9bd8-4d9c-8902-f5000b95a016; custom:droidproxy:gpt-6-astra/max; 2026-09-13T09:02:02.104Z; implementation retained-source review, not independent acceptance",
+        "rationale": "Supported in this bounded setting: Missing depth for thin parts and collisions cause failures; the order-fulfillment application first separates objects from a pile, consistent with the singulated-object assumption. Context and limits: Support 6.7 million training datapoints and Figure 3 over 6.7 million aligned grasp images; neither counts unique full-scene views or physical successes. Keep 1500 models, analytic epsilon/collision/noise labeling, aligned depth plus gripper-depth inputs, antipodal ranking/reachability/table collision, rigid isolated-object and known-geometry assumptions. Separate CEM household-object physical evaluation; thin-part missing depth and collisions remain, piles are separated first.",
+        "evidenceDigest": "74a50b0fd129bb41e6b6fc92a4d96389fce6aff823c08c7469c4b6eb13857548"
+      }
+    ]
   }
 ]
