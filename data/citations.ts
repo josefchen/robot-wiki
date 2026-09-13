@@ -8013,7 +8013,7 @@ export const CITATIONS: Citation[] = [
     // yields grainy images and therefore poor depth.
     id: 'realsense-tuning-2026',
     title: 'Tuning depth cameras for best performance',
-    authors: ['RealSense'],
+    authors: ['Anders Grunnet-Jepsen', 'John N. Sweetser', 'John Woodfill'],
     year: 2026,
     venue: 'RealSense documentation, as of 2026-08-22',
     url: 'https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/',

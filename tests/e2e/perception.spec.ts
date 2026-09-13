@@ -170,28 +170,31 @@ test.describe('classical perception module', () => {
     await expect(tooltip).not.toContainText('skips pose estimation entirely');
   });
 
-  test('at least four depth failure surface classes are named with a chip in the same section (VAL-CLASS-041)', async ({
+  test('depth failure examples retain source-specific conditions (VAL-CLASS-041)', async ({
     page,
   }) => {
     await page.goto(ROUTE);
-    const all = await sections(page);
-    const depth = sectionMatching(all, /depth sensing/i);
+    const depth = sectionMatching(await sections(page), /depth sensing/i);
     expect(depth, 'the depth-sensing section').toBeDefined();
-
-    for (const surface of [
-      /transparent/i,
-      /specular/i,
-      /dark/i,
-      /thin/i,
-      /self-occluded/i,
-    ]) {
-      expect(depth!.text, `${surface} named in the depth section`).toMatch(
-        surface,
-      );
+    // Keep all named topics; do not certify five universal failure classes.
+    for (const topic of [/transparent/i, /specular/i, /dark surfaces/i, /thin objects/i, /self-occlusion/i]) {
+      expect(depth!.text).toMatch(topic);
     }
-    expect(depth!.citeIds.length).toBeGreaterThan(0);
-
-    // "not disclosed" rather than "n/a" for a figure no datasheet publishes.
+    expect(depth!.citeIds).toContain('realsense-tuning-2026');
+    expect(depth!.citeIds).toContain('azure-kinect-depth-docs-2026');
+    expect(depth!.text).toMatch(/D415 and D435/);
+    expect(depth!.text).toMatch(/staying outside the minimum operating distance, MinZ/);
+    for (const cause of ['outside the active IR illumination mask', 'saturated IR signal', 'low IR signal', 'filter outlier', 'multi-path interference']) {
+      expect(depth!.text.toLowerCase()).toContain(cause.toLowerCase());
+    }
+    expect(depth!.text).toMatch(/not a measured zero-distance surface/);
+    expect(depth!.text).toMatch(/underexposure and overexposure/);
+    expect(depth!.text).toMatch(/leaving the projector on/);
+    expect(depth!.text).toMatch(/not necessarily two exactly equal matches/);
+    expect(depth!.text).toMatch(/not a blanket failure claim for every thin object/);
+    expect(depth!.text).toMatch(/not a demonstration about generic self-occlusion/);
+    expect(depth!.text).not.toMatch(/which is why multi-view capture is a standard answer|return never clears the noise floor/);
+    // Preserved unassigned row34 display oracle, not source acceptance of absence.
     expect(depth!.text).toMatch(/not disclosed/i);
   });
 

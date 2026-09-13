@@ -9365,6 +9365,57 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "perception-depth-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "6886a582bf278df3ed3b7a8ca4be7d59b9f3c387869c53eaf2313991f9c3cd6a",
+      "reason": "Retained-primary-source correction of perception originals 21,25,26,30,31,32 in whole groups [21],[25,26],[30,31,32], with all 21 mandatory parts and 22 source pairs retained. Scope D415/D435 distance/MinZ, Azure invalidation/edge/motion, weak IR versus visible darkness, repetitive matching and viewpoint-dependent multipath. Correct RealSense authors only from explicit page metadata; Azure bibliography, conflicting MinZ values, unassigned ToF universals and whole P1 remain open. No new retrieval, shared renderer change or independent acceptance.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority plus parent’s bounded six-original integration dispatch authorizes routine source-backed corrections, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-depth-20260913-2",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e1dadc72fb980c3d8ab17b743dcf82f79f80232ad1bca2f50bbc81e997e61d76",
+      "reason": "Retained-primary-source correction of perception originals 21,25,26,30,31,32 in whole groups [21],[25,26],[30,31,32], with all 21 mandatory parts and 22 source pairs retained. Scope D415/D435 distance/MinZ, Azure invalidation/edge/motion, weak IR versus visible darkness, repetitive matching and viewpoint-dependent multipath. Correct RealSense authors only from explicit page metadata; Azure bibliography, conflicting MinZ values, unassigned ToF universals and whole P1 remain open. No new retrieval, shared renderer change or independent acceptance.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority plus parent’s bounded six-original integration dispatch authorizes routine source-backed corrections, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "perception-depth-20260913-3",
+      "manifest": "article-metadata",
+      "memberId": "citation:realsense-tuning-2026",
+      "oldHash": "3460a496c9c91ea9fafa3e432431299f274580f20189eb7403b30a9ec09563da",
+      "newHash": "409fb6427f4a50655d5190bcf3c49a24df96828af939eda28e29e861a074d7f1",
+      "reason": "Retained-primary-source correction of perception originals 21,25,26,30,31,32 in whole groups [21],[25,26],[30,31,32], with all 21 mandatory parts and 22 source pairs retained. Scope D415/D435 distance/MinZ, Azure invalidation/edge/motion, weak IR versus visible darkness, repetitive matching and viewpoint-dependent multipath. Correct RealSense authors only from explicit page metadata; Azure bibliography, conflicting MinZ values, unassigned ToF universals and whole P1 remain open. No new retrieval, shared renderer change or independent acceptance.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority plus parent’s bounded six-original integration dispatch authorizes routine source-backed corrections, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

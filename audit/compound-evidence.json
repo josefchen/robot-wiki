@@ -40310,5 +40310,546 @@
         "evidenceDigest": "5c86b7838eb2f7e250db863e8f1dcaaa4c9330dcfb438aa6283803c21b21ae6a"
       }
     ]
+  },
+  {
+    "id": "perception-depth-21-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 21,
+    "originalCellsDigest": "03ef5f08f3d590f3bb96208970a994e701ef2a329ab57f48dc039b9107bee962",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "device-scope",
+        "text": "The tuning checklist is for RealSense D415/D435, not all stereo models or materials.",
+        "requiredCitationIds": [
+          "realsense-tuning-2026"
+        ]
+      },
+      {
+        "id": "quadratic-and-minz",
+        "text": "The D400 guidance states squared-distance error scaling and approaching the object only outside MinZ.",
+        "requiredCitationIds": [
+          "realsense-tuning-2026"
+        ]
+      },
+      {
+        "id": "near-range-conditions",
+        "text": "Changing MinZ trades resolution/precision or far range; focus and different left/right views can still limit very-near-range depth.",
+        "requiredCitationIds": [
+          "realsense-tuning-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+      "rationale": "D415/D435 checklist and D400 range guidance, not a universal depth-camera law. Resolution trades depth precision; disparity shift sacrifices far range. Focus and differing left/right near views can still prevent matching. The same page gives D435 848x480 MinZ as both 16.8 cm and 19.5 cm: neither conflicting value is published in this correction. All required supporting and countercontext passages were directly read in the retained documents and literal provenance verified. Every original unsupported conjunct is narrowed or removed, never silently promoted. No new fetch or independent acceptance.",
+      "planDigest": "a6699175d022f91768a82d8ff46c1a7b3cddd5ab69733ab46393c8db58c77c4f"
+    },
+    "evidence": [
+      {
+        "partId": "device-scope",
+        "citationId": "realsense-tuning-2026",
+        "sourceUrl": "https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/",
+        "supportingPassage": "We present here a list of items that can be used to become familiar with, when trying to “tune” the RealSense D415 and D435 Depth Cameras for best performance. It is not meant to be exhaustive. It is also not a tutorial on depth sensors. It is a check-list to refer to when getting started."
+      },
+      {
+        "partId": "quadratic-and-minz",
+        "citationId": "realsense-tuning-2026",
+        "sourceUrl": "https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/",
+        "supportingPassage": "RealSense D400 depth cameras give most precise depth ranging data for objects that are near. The depth error scales as the square of the distance away. So where at all possible, try to get as close to the object as possible, but not so close that you are within the minimum operating distance, the MinZ."
+      },
+      {
+        "partId": "near-range-conditions",
+        "citationId": "realsense-tuning-2026",
+        "sourceUrl": "https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/",
+        "supportingPassage": "Lower resolutions can be used but will degrade the depth precision. Stereo depth sensors derive their depth ranging performance from the ability to match positions of objects in the left and right images. The higher the input resolution, the better the input image, the better the depth precision. If a lower resolution is required for the application for computational reasons, we recommend using post-processing algorithms to immediately subsample (decimate) the higher resolution depth map and color image AFTER the data has been received. The only compelling reason to set the D4xx cameras into a lower resolution mode would be to Reduce the minimum operating range, which will scale with the x-y resolution, Reduce the bandwidth on the USB3.0 bus, to allow, for example, more cameras to operate at the same time, if the bandwidth limit has been reached.\n\nIf MinZ becomes an issue (meaning you need to get closer than MinZ), you can reduce this by reducing the Resolution of the Depth imagers. The minZ will scale linearly with the X-resolution of the depth sensors. Note that for the D415 at 1280×720 the MinZ is ~43.8cm, while for D435 at 848×480 the MinZ is ~16.8cm. The formula is: An alternative approach to reducing the minZ is to use the “Disparity shift” parameter in the advanced mode api. Normally the depth sensor is set to generate depth for objects at distances ranging from minZ-to-infinity. By increasing the disparity shift from 0 to 128, for example, you will be able to shift that range to a NewMinZ-to-NewMaxZ. We normally only recommend doing this when it is known that there will be no objects farther away than MaxZ, such as having a depth camera mounted above a table pointing down at the table surface. Note that, because of the inverse relationship between disparity and depth, MaxZ will decrease much faster than minZ as the disparity shift is increased. Therefore, it is advised to not use a larger than necessary disparity shift. For example, if using a disparity shift of 128 then the newMaxZ is roughly equal to the original MinZ and the newMinZ is roughly equal to half of the original MinZ. Note that the tradeoff in reducing the MinZ this way is that objects at distances farther away than MaxZ will not be seen.\n\nWhile it is possible to get depth for really close objects by using disparity shift reducing the X-resolution and reducing the depth units, there will be other factors that will ultimately limit near-range performance. The RealSense D4xx cameras are currently focused at 50cm to infinity, so will start to go out of focus well below 20cm. Also, for really near objects that are not flat, like a wall, the views from the left and right cameras may be different at really close range and will therefore not give any depth range. To understand this, think of moving your index finger close to your eyes. At some point your left eye and right eye will actually see the opposite sides of the finger, so it will not be possible to do stereo matching at all."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "device-scope",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The tuning checklist is for RealSense D415/D435, not all stereo models or materials. Review context: D415/D435 checklist and D400 range guidance, not a universal depth-camera law. Resolution trades depth precision; disparity shift sacrifices far range. Focus and differing left/right near views can still prevent matching. The same page gives D435 848x480 MinZ as both 16.8 cm and 19.5 cm: neither conflicting value is published in this correction.",
+        "evidenceDigest": "7e2cb4b429c67dbf6666c0598b8437b6460f720eff5642121ab6ebb4d707dadb"
+      },
+      {
+        "partId": "quadratic-and-minz",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The D400 guidance states squared-distance error scaling and approaching the object only outside MinZ. Review context: D415/D435 checklist and D400 range guidance, not a universal depth-camera law. Resolution trades depth precision; disparity shift sacrifices far range. Focus and differing left/right near views can still prevent matching. The same page gives D435 848x480 MinZ as both 16.8 cm and 19.5 cm: neither conflicting value is published in this correction.",
+        "evidenceDigest": "5b17da750dce41f003e74c86cc2275807f343ff29a85fd12af9a4de49edea224"
+      },
+      {
+        "partId": "near-range-conditions",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: Changing MinZ trades resolution/precision or far range; focus and different left/right views can still limit very-near-range depth. Review context: D415/D435 checklist and D400 range guidance, not a universal depth-camera law. Resolution trades depth precision; disparity shift sacrifices far range. Focus and differing left/right near views can still prevent matching. The same page gives D435 848x480 MinZ as both 16.8 cm and 19.5 cm: neither conflicting value is published in this correction.",
+        "evidenceDigest": "e733792f676a5fa808f4ed57c7fdf7d456ef27f2e9155c15ab9dfd3e87e777b9"
+      }
+    ]
+  },
+  {
+    "id": "perception-depth-25-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 25,
+    "originalCellsDigest": "e0f1bbe1d4b6e97de2a706c7b9317497cba2d2129c79117249da5a6896e46688",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "invalid-zero",
+        "text": "For Azure Kinect DK, invalidated depth pixels are indicated by depth value0 rather than a valid zero-distance measurement.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026"
+        ]
+      },
+      {
+        "id": "mask",
+        "text": "The invalidation list includes outside of the active IR illumination mask.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026"
+        ]
+      },
+      {
+        "id": "saturation",
+        "text": "The invalidation list includes saturated IR signal.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026"
+        ]
+      },
+      {
+        "id": "weak-ir",
+        "text": "The invalidation list includes low IR signal.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026"
+        ]
+      },
+      {
+        "id": "filter",
+        "text": "The invalidation list includes filter outlier.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026"
+        ]
+      },
+      {
+        "id": "multipath",
+        "text": "The invalidation list includes multi-path interference.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+      "rationale": "All five Azure Kinect DK invalidation causes remain: illumination mask, saturation, weak IR, filter outlier and multipath. Depth 0 is the invalid-data code, not a valid surface distance. This does not establish the unassigned preceding claims of universal texture independence or cross-family exclusivity. All required supporting and countercontext passages were directly read in the retained documents and literal provenance verified. Every original unsupported conjunct is narrowed or removed, never silently promoted. No new fetch or independent acceptance.",
+      "planDigest": "aad9500293e73629da73131c36f69f5d1182419955e9939ed25c195ef783eda0"
+    },
+    "evidence": [
+      {
+        "partId": "invalid-zero",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "In certain situations, the depth camera may not provide correct values for some pixels. In these situations depth pixels are invalidated. Invalid pixels are indicated by the depth value equals to 0. Reasons for the depth engine being unable to produce correct values include: Outside of active IR illumination mask Saturated IR signal Low IR signal Filter outlier Multi-path interference\n\nThe Azure Kinect DK depth camera implements the Amplitude Modulated Continuous Wave (AMCW) Time-of-Flight (ToF) principle. The camera casts modulated illumination in the near-IR (NIR) spectrum onto the scene. It then records an indirect measurement of the time it takes the light to travel from the camera to the scene and back. These measurements are processed to generate a depth map. A depth map is a set of Z-coordinate values for every pixel of the image, measured in units of millimeters."
+      },
+      {
+        "partId": "mask",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "In certain situations, the depth camera may not provide correct values for some pixels. In these situations depth pixels are invalidated. Invalid pixels are indicated by the depth value equals to 0. Reasons for the depth engine being unable to produce correct values include: Outside of active IR illumination mask Saturated IR signal Low IR signal Filter outlier Multi-path interference"
+      },
+      {
+        "partId": "saturation",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "In certain situations, the depth camera may not provide correct values for some pixels. In these situations depth pixels are invalidated. Invalid pixels are indicated by the depth value equals to 0. Reasons for the depth engine being unable to produce correct values include: Outside of active IR illumination mask Saturated IR signal Low IR signal Filter outlier Multi-path interference"
+      },
+      {
+        "partId": "weak-ir",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "In certain situations, the depth camera may not provide correct values for some pixels. In these situations depth pixels are invalidated. Invalid pixels are indicated by the depth value equals to 0. Reasons for the depth engine being unable to produce correct values include: Outside of active IR illumination mask Saturated IR signal Low IR signal Filter outlier Multi-path interference"
+      },
+      {
+        "partId": "filter",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "In certain situations, the depth camera may not provide correct values for some pixels. In these situations depth pixels are invalidated. Invalid pixels are indicated by the depth value equals to 0. Reasons for the depth engine being unable to produce correct values include: Outside of active IR illumination mask Saturated IR signal Low IR signal Filter outlier Multi-path interference"
+      },
+      {
+        "partId": "multipath",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "In certain situations, the depth camera may not provide correct values for some pixels. In these situations depth pixels are invalidated. Invalid pixels are indicated by the depth value equals to 0. Reasons for the depth engine being unable to produce correct values include: Outside of active IR illumination mask Saturated IR signal Low IR signal Filter outlier Multi-path interference"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "invalid-zero",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: For Azure Kinect DK, invalidated depth pixels are indicated by depth value0 rather than a valid zero-distance measurement. Review context: All five Azure Kinect DK invalidation causes remain: illumination mask, saturation, weak IR, filter outlier and multipath. Depth 0 is the invalid-data code, not a valid surface distance. This does not establish the unassigned preceding claims of universal texture independence or cross-family exclusivity.",
+        "evidenceDigest": "f2f7d1591f05e2fb8e1f64a171f2fb51c02e3f96b382e1072765dc4d0ec57700"
+      },
+      {
+        "partId": "mask",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The invalidation list includes outside of the active IR illumination mask. Review context: All five Azure Kinect DK invalidation causes remain: illumination mask, saturation, weak IR, filter outlier and multipath. Depth 0 is the invalid-data code, not a valid surface distance. This does not establish the unassigned preceding claims of universal texture independence or cross-family exclusivity.",
+        "evidenceDigest": "1d8baf5f39c78aa2b662e053b53f2067af4f85db561d308b1925e41bec1851e3"
+      },
+      {
+        "partId": "saturation",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The invalidation list includes saturated IR signal. Review context: All five Azure Kinect DK invalidation causes remain: illumination mask, saturation, weak IR, filter outlier and multipath. Depth 0 is the invalid-data code, not a valid surface distance. This does not establish the unassigned preceding claims of universal texture independence or cross-family exclusivity.",
+        "evidenceDigest": "2df195f4e3486613ed90721dc55d220204df9ab7e051123afeed0a2025756c0d"
+      },
+      {
+        "partId": "weak-ir",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The invalidation list includes low IR signal. Review context: All five Azure Kinect DK invalidation causes remain: illumination mask, saturation, weak IR, filter outlier and multipath. Depth 0 is the invalid-data code, not a valid surface distance. This does not establish the unassigned preceding claims of universal texture independence or cross-family exclusivity.",
+        "evidenceDigest": "4498ef4374ccb15180fe2ca2ef26d27354648ccdd5950dda8539bdfa955bc7c9"
+      },
+      {
+        "partId": "filter",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The invalidation list includes filter outlier. Review context: All five Azure Kinect DK invalidation causes remain: illumination mask, saturation, weak IR, filter outlier and multipath. Depth 0 is the invalid-data code, not a valid surface distance. This does not establish the unassigned preceding claims of universal texture independence or cross-family exclusivity.",
+        "evidenceDigest": "f7db362b7a4d94af1c07be6f7b38516ced279a8b86ae62a8b7818678821f1a20"
+      },
+      {
+        "partId": "multipath",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The invalidation list includes multi-path interference. Review context: All five Azure Kinect DK invalidation causes remain: illumination mask, saturation, weak IR, filter outlier and multipath. Depth 0 is the invalid-data code, not a valid surface distance. This does not establish the unassigned preceding claims of universal texture independence or cross-family exclusivity.",
+        "evidenceDigest": "8f8da81010c77d79ddc385c79cbaaf2b70f6ede8becfab936d696568fbd95576"
+      }
+    ]
+  },
+  {
+    "id": "perception-depth-26-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 26,
+    "originalCellsDigest": "d267801a9a25a9300612ea8a2b266265a9ef86fc5384c78d1ccc915372c98b64",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "corners",
+        "text": "The described corner mechanism is IR light reflecting from one wall onto another, causing ambiguity and invalidation.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026"
+        ]
+      },
+      {
+        "id": "edges",
+        "text": "The page names mixed foreground/background signals around object edges as another common multipath case.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026"
+        ]
+      },
+      {
+        "id": "motion-exposure",
+        "text": "The page says fast motion may increase edge invalidations because of raw-depth exposure, not that every edge always fails.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+      "rationale": "Azure corner reflections and foreground/background edge mixtures are described as multipath ambiguity. Fast motion may increase invalidation because of raw-depth exposure, not every edge always failing. Review used actual text and captions, not unseen figure pixels. All required supporting and countercontext passages were directly read in the retained documents and literal provenance verified. Every original unsupported conjunct is narrowed or removed, never silently promoted. No new fetch or independent acceptance.",
+      "planDigest": "bb5ca57b83b25ee34e4c6f96d6772cfb56d408c41442186083221cfe9004bb1f"
+    },
+    "evidence": [
+      {
+        "partId": "corners",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "Pixels can also be invalidated if they received signals from more than one object in the scene. A common case where this sort of invalidation can be seen is in corners. Because of the scene geometry, the IR light from the camera reflected off one wall and onto the other. This reflected light causes ambiguity in the measured depth of the pixel. Filters in the depth algorithm detect these ambiguous signals and invalidate the pixels."
+      },
+      {
+        "partId": "edges",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "Another common case of multipath is pixels that contain the mixed signal from foreground and background (such as around object edges). During fast motion, you may see more invalidated pixels around the edges. The additional invalidated pixels are because of the exposure interval of the raw depth capture,"
+      },
+      {
+        "partId": "motion-exposure",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "Another common case of multipath is pixels that contain the mixed signal from foreground and background (such as around object edges). During fast motion, you may see more invalidated pixels around the edges. The additional invalidated pixels are because of the exposure interval of the raw depth capture,"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "corners",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The described corner mechanism is IR light reflecting from one wall onto another, causing ambiguity and invalidation. Review context: Azure corner reflections and foreground/background edge mixtures are described as multipath ambiguity. Fast motion may increase invalidation because of raw-depth exposure, not every edge always failing. Review used actual text and captions, not unseen figure pixels.",
+        "evidenceDigest": "dd2f445efcb86a42f283527770f69f4bd82bbbf1b6828a9b1b9d95839428f1f0"
+      },
+      {
+        "partId": "edges",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The page names mixed foreground/background signals around object edges as another common multipath case. Review context: Azure corner reflections and foreground/background edge mixtures are described as multipath ambiguity. Fast motion may increase invalidation because of raw-depth exposure, not every edge always failing. Review used actual text and captions, not unseen figure pixels.",
+        "evidenceDigest": "1a5e388c69615a3c362e8fa155361784aab5d0af3bcdeafcb53c4a2514122fd0"
+      },
+      {
+        "partId": "motion-exposure",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The page says fast motion may increase edge invalidations because of raw-depth exposure, not that every edge always fails. Review context: Azure corner reflections and foreground/background edge mixtures are described as multipath ambiguity. Fast motion may increase invalidation because of raw-depth exposure, not every edge always failing. Review used actual text and captions, not unseen figure pixels.",
+        "evidenceDigest": "63371490edfe49c31dc58182ab1d8f376bdfb17b9ae6a0df58a0f7cdb3edacc5"
+      }
+    ]
+  },
+  {
+    "id": "perception-depth-30-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 30,
+    "originalCellsDigest": "ead1e9b098dde8e7f6bb2f0117acd1038ade68ebf1a076dca4b89d5763263142",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "tof-low-ir",
+        "text": "Azure Kinect can invalidate a pixel when IR signal is not strong enough to generate depth.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026"
+        ]
+      },
+      {
+        "id": "stereo-low-light",
+        "text": "For the D415/D435 guidance, D4xx depth quality depends on input images; low light can produce grainy images.",
+        "requiredCitationIds": [
+          "realsense-tuning-2026"
+        ]
+      },
+      {
+        "id": "exposure",
+        "text": "RealSense warns that poor exposure, both over- and underexposure, can degrade performance.",
+        "requiredCitationIds": [
+          "realsense-tuning-2026"
+        ]
+      },
+      {
+        "id": "material-illumination-scope",
+        "text": "Retain both documents' different signal/setup conditions: weak IR is not a measured visible-color threshold, and the active projected-pattern case may benefit from less background light. The original automatic dark-surface/noise-floor equivalence is cut, not proved absent universally.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026",
+          "realsense-tuning-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+      "rationale": "Azure weak-IR invalidation and RealSense grainy low-light images have different measurement conditions. Both under- and overexposure matter. The projected-pattern white-wall setup may improve signal-to-noise by removing background light while retaining the projector. Visible darkness is not a measured universal IR threshold; the automatic dark-material/noise-floor equivalence is removed. All required supporting and countercontext passages were directly read in the retained documents and literal provenance verified. Every original unsupported conjunct is narrowed or removed, never silently promoted. No new fetch or independent acceptance.",
+      "planDigest": "41e1e20538d15a508dbd377680cae95372a1163bdd62ef2e2578116f01bf1bd7"
+    },
+    "evidence": [
+      {
+        "partId": "tof-low-ir",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "Invalidation can also occur when the IR signal isn't strong enough to generate depth. The below figure, shows the example of invalidation by a low IR signal. See the arrows pointed to example pixels in both the depth and IR images."
+      },
+      {
+        "partId": "stereo-low-light",
+        "citationId": "realsense-tuning-2026",
+        "sourceUrl": "https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/",
+        "supportingPassage": "We present here a list of items that can be used to become familiar with, when trying to “tune” the RealSense D415 and D435 Depth Cameras for best performance. It is not meant to be exhaustive. It is also not a tutorial on depth sensors. It is a check-list to refer to when getting started.\n\nMost depth cameras degrade dramatically in sunlight. By contrast, both the RealSense D415 and D435 tend to perform even better in bright light . The way to understand this is that the depth quality in the RealSense D4xx is directly related to the quality of the input images. It is well known that small cell phone cameras (and the ones used in the RealSense D4xx series) give poor quality grainy images under low light conditions, but provide excellent images in bright sunlight. Sunlight reduces the sensor noise and tend to “brings out” the texture in objects. Moreover, the exposure can be reduced to near 1ms which reduces motion artifacts as well. So the upshot is that the RealSense D4xx cameras actually perform very well in sunlight."
+      },
+      {
+        "partId": "exposure",
+        "citationId": "realsense-tuning-2026",
+        "sourceUrl": "https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/",
+        "supportingPassage": "Check whether auto-exposure works well, or switch to manual exposure to make sure you have good color or monochrome left and right images. Poor exposure is the number one reason for bad performance. Example: Good Example: Bad (under exposed) Normally, we recommend adjusting EXPOSURE first for best results, while keeping the GAIN=16 (lowest setting). Increasing the gain tends to introduce electronic noise and, while the color image may look better, the depth quality will degrade. The exposure units are microseconds, so 33000 is 33ms. Note that overexposing the images can be just as bad as under-exposing them, so be careful to find the right exposure."
+      },
+      {
+        "partId": "material-illumination-scope",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "Invalidation can also occur when the IR signal isn't strong enough to generate depth. The below figure, shows the example of invalidation by a low IR signal. See the arrows pointed to example pixels in both the depth and IR images.\n\nThe depth camera supports 2x2 binning modes to extend the Z-range in comparison to the corresponding unbinned modes . Binning is done at the cost of lowering image resolution. All modes can be run at up to 30 frames-per-second (fps) with exception of the 1 megapixel (MP) mode that runs at a maximum frame rate of 15 fps. The depth camera also provides a passive IR mode . In this mode, the illuminators on the camera aren't active and only ambient illumination is observed."
+      },
+      {
+        "partId": "material-illumination-scope",
+        "citationId": "realsense-tuning-2026",
+        "sourceUrl": "https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/",
+        "supportingPassage": "Both the RealSense D415 and D435 see all light in the visible and IR. The reason for this is that the RealSense vision processor D4 VPU does a very good job of extracting depth from purely passive scenes, without any projector and actually benefits from using Red, Green, Blue images. However, if the purpose is to see white walls indoors at a long distance, it may be necessary to enhance the SNR of the projected laser pattern. This can of course be accomplished by increasing the laser power, but it can also be done by placing an IR-bandpass filter in front of the Left+Right imager. To determine whether this will improve your performance, you can try to turn off all the lights instead while leaving the projector on, as this will effectively emulate the performance you will see with the IR filter on. The “white wall” range can increase from ~3m to 10m this way.\n\nWhile the internal projector is very good (shown below), it is really quite low power and is not designed to illuminate very large rooms. It is therefore sometimes beneficial to add one or more additional external projectors. The D4xx camera will benefit from any additional texture projected onto a scene that has no inherent texture, like a flat white wall. Ordinarily, no tuning needs to be done in the D4 VPU when you use any external projectors as long as it is on continuously or flickering at >50KHz, so as not to interfere with the rolling shutter or auto-exposure properties of the sensor."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "tof-low-ir",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: Azure Kinect can invalidate a pixel when IR signal is not strong enough to generate depth. Review context: Azure weak-IR invalidation and RealSense grainy low-light images have different measurement conditions. Both under- and overexposure matter. The projected-pattern white-wall setup may improve signal-to-noise by removing background light while retaining the projector. Visible darkness is not a measured universal IR threshold; the automatic dark-material/noise-floor equivalence is removed.",
+        "evidenceDigest": "e294bec7000fb2297664dfe208bed0ab56c34884762f58659e057a16d58022de"
+      },
+      {
+        "partId": "stereo-low-light",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: For the D415/D435 guidance, D4xx depth quality depends on input images; low light can produce grainy images. Review context: Azure weak-IR invalidation and RealSense grainy low-light images have different measurement conditions. Both under- and overexposure matter. The projected-pattern white-wall setup may improve signal-to-noise by removing background light while retaining the projector. Visible darkness is not a measured universal IR threshold; the automatic dark-material/noise-floor equivalence is removed.",
+        "evidenceDigest": "0bf7e1bce7d52ddf092ec64ed4df21129ba0414b132bf62452e285d98687f429"
+      },
+      {
+        "partId": "exposure",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: RealSense warns that poor exposure, both over- and underexposure, can degrade performance. Review context: Azure weak-IR invalidation and RealSense grainy low-light images have different measurement conditions. Both under- and overexposure matter. The projected-pattern white-wall setup may improve signal-to-noise by removing background light while retaining the projector. Visible darkness is not a measured universal IR threshold; the automatic dark-material/noise-floor equivalence is removed.",
+        "evidenceDigest": "bb48b3a741eddbfac8b7ffc28daf262590081dced182a36cb0446f5ab05a9be1"
+      },
+      {
+        "partId": "material-illumination-scope",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: Retain both documents' different signal/setup conditions: weak IR is not a measured visible-color threshold, and the active projected-pattern case may benefit from less background light. The original automatic dark-surface/noise-floor equivalence is cut, not proved absent universally. Review context: Azure weak-IR invalidation and RealSense grainy low-light images have different measurement conditions. Both under- and overexposure matter. The projected-pattern white-wall setup may improve signal-to-noise by removing background light while retaining the projector. Visible darkness is not a measured universal IR threshold; the automatic dark-material/noise-floor equivalence is removed.",
+        "evidenceDigest": "ed8397a9ee3e720145501f3dd9b632b10abdc0aab9762cb104328aed878492cd"
+      }
+    ]
+  },
+  {
+    "id": "perception-depth-31-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 31,
+    "originalCellsDigest": "f9c6435b27c55d4e13efc44473e58e78e623fdf1a66f7b29143c59f7406f5d5a",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "repetition",
+        "text": "The cited examples are fences/wire grids as repetitive structures that can make left/right correspondence ambiguous.",
+        "requiredCitationIds": [
+          "realsense-tuning-2026"
+        ]
+      },
+      {
+        "id": "similar-not-equal",
+        "text": "The D4 processor scores best and second-best matches; similar quality can indicate repetitive-pattern aliasing, not proven exact equality.",
+        "requiredCitationIds": [
+          "realsense-tuning-2026"
+        ]
+      },
+      {
+        "id": "threshold",
+        "text": "Increasing DSSecondPeakThreshold makes more results black/zero and reduces aliasing matches; it is not an accuracy guarantee for all thin structures.",
+        "requiredCitationIds": [
+          "realsense-tuning-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+      "rationale": "Fences and wire grids are repetitive-pattern examples, not all thin objects. Similar best and second-best scores can indicate aliasing without exact equality. DSSecondPeakThreshold can reject more results as black/zero depth. The unsupported sampling generalization is removed; Azure edge mixing remains separately sourced in originals 25/26. All required supporting and countercontext passages were directly read in the retained documents and literal provenance verified. Every original unsupported conjunct is narrowed or removed, never silently promoted. No new fetch or independent acceptance.",
+      "planDigest": "ebe1c3d734342223f563b440309465d282c8f791a248e9dffc62b9494c81d4f8"
+    },
+    "evidence": [
+      {
+        "partId": "repetition",
+        "citationId": "realsense-tuning-2026",
+        "sourceUrl": "https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/",
+        "supportingPassage": "Stereo depth computation depends on determining matches between left and right images. If there are repetitive structures in the scene, like fences or wire-grids, this determination can become ambiguous. One of the tools we have for determining confidence is the advanced API setting “DSSecondPeakThreshold.” The RealSense D4 VPU determines match scores for both the best match as well as the second best match – if the best match is of similar quality to the second best match, then it may well occur due to aliasing resulting from repetitive structures – how different the two matches need to be is determined by the “DSSecondPeakThreshold” parameter. By increasing its value, more depth results will appear as black, or zero, reducing the number of matches resulting from aliasing."
+      },
+      {
+        "partId": "similar-not-equal",
+        "citationId": "realsense-tuning-2026",
+        "sourceUrl": "https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/",
+        "supportingPassage": "Stereo depth computation depends on determining matches between left and right images. If there are repetitive structures in the scene, like fences or wire-grids, this determination can become ambiguous. One of the tools we have for determining confidence is the advanced API setting “DSSecondPeakThreshold.” The RealSense D4 VPU determines match scores for both the best match as well as the second best match – if the best match is of similar quality to the second best match, then it may well occur due to aliasing resulting from repetitive structures – how different the two matches need to be is determined by the “DSSecondPeakThreshold” parameter. By increasing its value, more depth results will appear as black, or zero, reducing the number of matches resulting from aliasing."
+      },
+      {
+        "partId": "threshold",
+        "citationId": "realsense-tuning-2026",
+        "sourceUrl": "https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/",
+        "supportingPassage": "Stereo depth computation depends on determining matches between left and right images. If there are repetitive structures in the scene, like fences or wire-grids, this determination can become ambiguous. One of the tools we have for determining confidence is the advanced API setting “DSSecondPeakThreshold.” The RealSense D4 VPU determines match scores for both the best match as well as the second best match – if the best match is of similar quality to the second best match, then it may well occur due to aliasing resulting from repetitive structures – how different the two matches need to be is determined by the “DSSecondPeakThreshold” parameter. By increasing its value, more depth results will appear as black, or zero, reducing the number of matches resulting from aliasing."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "repetition",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The cited examples are fences/wire grids as repetitive structures that can make left/right correspondence ambiguous. Review context: Fences and wire grids are repetitive-pattern examples, not all thin objects. Similar best and second-best scores can indicate aliasing without exact equality. DSSecondPeakThreshold can reject more results as black/zero depth. The unsupported sampling generalization is removed; Azure edge mixing remains separately sourced in originals 25/26.",
+        "evidenceDigest": "4219c9731aa7bc535ab7b1925b4174930d7a53bb4bbf9d1a896efcd06261e71d"
+      },
+      {
+        "partId": "similar-not-equal",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The D4 processor scores best and second-best matches; similar quality can indicate repetitive-pattern aliasing, not proven exact equality. Review context: Fences and wire grids are repetitive-pattern examples, not all thin objects. Similar best and second-best scores can indicate aliasing without exact equality. DSSecondPeakThreshold can reject more results as black/zero depth. The unsupported sampling generalization is removed; Azure edge mixing remains separately sourced in originals 25/26.",
+        "evidenceDigest": "151fcb22a6244580c98b87542edc00b5fac8e048e6677ea8046d3c0747708091"
+      },
+      {
+        "partId": "threshold",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: Increasing DSSecondPeakThreshold makes more results black/zero and reduces aliasing matches; it is not an accuracy guarantee for all thin structures. Review context: Fences and wire grids are repetitive-pattern examples, not all thin objects. Similar best and second-best scores can indicate aliasing without exact equality. DSSecondPeakThreshold can reject more results as black/zero depth. The unsupported sampling generalization is removed; Azure edge mixing remains separately sourced in originals 25/26.",
+        "evidenceDigest": "31520620d4a9197accb6544ae789120cfa05381d105e2a75125b5b5f513b46c9"
+      }
+    ]
+  },
+  {
+    "id": "perception-depth-32-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "perception",
+    "rowOrdinal": 32,
+    "originalCellsDigest": "80482fc24edbc9a1c5d7cb75d6355696b1add038d30b255c3caa0beda6640039",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "view-may",
+        "text": "The text describing the multipath example says the same invalidated surface area may appear from a different camera view.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026"
+        ]
+      },
+      {
+        "id": "mechanism-scope",
+        "text": "Retain the multipath/ambiguous-depth context and may qualifier; cut the generic self-occlusion and universal cure inference rather than treating it as a supported conjunct.",
+        "requiredCitationIds": [
+          "azure-kinect-depth-docs-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+      "rationale": "The Azure text describes view-dependent multipath invalidation and says may, not perfectly or always. It is not a generic self-occlusion experiment or proof of a universal multi-view cure. Figures themselves remain uninspected; no source-image acceptance is claimed. All required supporting and countercontext passages were directly read in the retained documents and literal provenance verified. Every original unsupported conjunct is narrowed or removed, never silently promoted. No new fetch or independent acceptance.",
+      "planDigest": "06da3438672d931d46d14dfc51248631ccb7b763c385eaa89f28af47ee0835c7"
+    },
+    "evidence": [
+      {
+        "partId": "view-may",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "The figures below show examples of invalidation by multi-path detection. You also can see how the same surface area that was invalidated from one camera view (top row) may appear again from a different camera view (bottom row). This image demonstrates that surfaces invalidated from one perspective may be visible from another."
+      },
+      {
+        "partId": "mechanism-scope",
+        "citationId": "azure-kinect-depth-docs-2026",
+        "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+        "supportingPassage": "Pixels can also be invalidated if they received signals from more than one object in the scene. A common case where this sort of invalidation can be seen is in corners. Because of the scene geometry, the IR light from the camera reflected off one wall and onto the other. This reflected light causes ambiguity in the measured depth of the pixel. Filters in the depth algorithm detect these ambiguous signals and invalidate the pixels.\n\nThe figures below show examples of invalidation by multi-path detection. You also can see how the same surface area that was invalidated from one camera view (top row) may appear again from a different camera view (bottom row). This image demonstrates that surfaces invalidated from one perspective may be visible from another.\n\nThe depth camera’s systematic error specification is excluding multi-path interference (MPI). MPI is when one sensor pixel integrates light that's reflected by more than one object. MPI is partly mitigated in our depth camera using higher modulation frequencies, along with the depth invalidation, which we'll introduce later."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "view-may",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: The text describing the multipath example says the same invalidated surface area may appear from a different camera view. Review context: The Azure text describes view-dependent multipath invalidation and says may, not perfectly or always. It is not a generic self-occlusion experiment or proof of a universal multi-view cure. Figures themselves remain uninspected; no source-image acceptance is claimed.",
+        "evidenceDigest": "93b1fadb2e685142c822af120ef063a867047d9b076ef4ffc400cf8e045cceb7"
+      },
+      {
+        "partId": "mechanism-scope",
+        "outcome": "supported",
+        "reviewedBy": "Droid 27982d1b-a5e3-43c0-be0b-ec1b9b342a76; custom:droidproxy:gpt-6-astra/max; 2026-09-13T08:18:48.121Z; retained-source implementation review, not independent acceptance",
+        "rationale": "Supported only as this bounded current claim: Retain the multipath/ambiguous-depth context and may qualifier; cut the generic self-occlusion and universal cure inference rather than treating it as a supported conjunct. Review context: The Azure text describes view-dependent multipath invalidation and says may, not perfectly or always. It is not a generic self-occlusion experiment or proof of a universal multi-view cure. Figures themselves remain uninspected; no source-image acceptance is claimed.",
+        "evidenceDigest": "c7d0f9cb0fce2927ebbf126b232596a738e93ff1babfaae13bcf7d3647a9efab"
+      }
+    ]
   }
 ]
