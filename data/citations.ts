@@ -5227,22 +5227,22 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // Verified against the arXiv abstract page (2026-08-11): IJRR 30(7),
-    // 2011. Proves RRT and PRM converge to non-optimal solutions and
-    // introduces the asymptotically optimal PRM* and RRT* variants.
+    // Source: arXiv:1105.1186v1, 5 May 2011; Karaman and Frazzoli.
+    // The landing page says IJRR is forthcoming; final issue metadata
+    // is not established by this preprint. Algorithm 1 PRM differs from sPRM.
     id: 'karaman-frazzoli-2011',
     title: 'Sampling-based Algorithms for Optimal Motion Planning',
     authors: ['Sertac Karaman', 'Emilio Frazzoli'],
     year: 2011,
-    venue: 'Int. J. Robotics Research',
+    venue: 'arXiv preprint',
     arxiv: '1105.1186',
     url: 'https://arxiv.org/abs/1105.1186',
     type: 'paper',
   },
   {
-    // Verified against the arXiv abstract page (2026-08-11): IROS 2014,
-    // pp. 2997-3004. Focuses RRT* sampling on the prolate hyperspheroid of
-    // states that can still improve the current solution.
+    // Source: arXiv:1404.2334v3, 28 November 2014; landing metadata
+    // records IROS 2014, pp. 2997-3004. The ellipsoidal path-length
+    // heuristic is an admissible superset, not exact feasible improving states.
     id: 'gammell-2014',
     title:
       'Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic',
@@ -5309,10 +5309,11 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // Verified against the project site (2026-08-11): the Kavraki Lab's
-    // Open Motion Planning Library, the reference implementation of PRM,
-    // RRT, RRT*, and their descendants (Sucan, Moll, Kavraki, IEEE RAM
-    // 19(4), 2012).
+    // This entry links to project documentation, not a version-pinned copy
+    // of the associated 2012 paper. The fetched project page lists PRM/RRT
+    // implementations and benchmarking/integration capabilities; it does
+    // not establish field-wide adoption or testing certification. The
+    // paper title, authors and year below remain a separate P1 identity check.
     id: 'ompl-2012',
     title: 'The Open Motion Planning Library',
     authors: ['Ioan A. Șucan', 'Mark Moll', 'Lydia E. Kavraki'],

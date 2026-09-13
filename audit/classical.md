@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 7
 - Claim rows: 187
-- Recorded verified: 114
-- Recorded corrected: 72
+- Recorded verified: 111
+- Recorded corrected: 75
 - Recorded cut: 0
 - Recorded source inconsistencies: 0
 - Unresolved or unrecognised verdicts: 1
-- Complete evidence records: 75
-- Incomplete evidence records: 112
+- Complete evidence records: 78
+- Incomplete evidence records: 109
 
 <!-- audit-summary:end -->
 
@@ -190,8 +190,8 @@ boxes and demo prose describe.
 
 ### motion-planning.mdx
 
-| Claim | Source checked | Verdict |
-| --- | --- | --- |
+| Claim | Source checked | Verdict | Citation ID | Source URL fetched | Supporting passage | Note | Evidence plan |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | Configuration-space reformulation due to Lozano-Perez 1983; robot shrunk to a point, obstacles grown | lozano-perez-1983; LaValle 2006 ch. 4 credits "the seminal work of Lozano-Perez" | V |
 | C = C_obs u C_free definitions | lozano-perez-1983 / standard | V |
 | Explicit C_free construction hopeless beyond a few dimensions | lavalle-2006 | V |
@@ -200,9 +200,9 @@ boxes and demo prose describe.
 | Voronoi bias: frontier nodes own large Voronoi regions, so uniform samples pull the tree outward; dense in the limit with probability one | lavalle-2006 sec. 5.5 | V |
 | Kinodynamic version steers with controls (LaValle-Kuffner) | lavalle-kuffner-2001 (title "Randomized Kinodynamic Planning"); lavalle-2006: RRT "originally developed for motion planning under differential constraints" | V |
 | PRM and RRT are probabilistically complete | lavalle-2006 (definition: probability of finding an existing solution converges to one) | V |
-| Karaman-Frazzoli 2011: RRT and PRM converge a.s. to non-optimal costs; RRT* asymptotically optimal; r(n) = gamma (log n / n)^{1/d}; per-iteration cost within a constant factor of RRT | karaman-frazzoli-2011 (arXiv:1105.1186 abs) | V |
-| Informed RRT*: after a first solution, sample only the prolate hyperspheroid of states that can still improve it | gammell-2014 (arXiv:1404.2334 abs) | V |
-| OMPL ships tested PRM/RRT/RRT* and is the reference implementation | ompl-2012 | V |
+| Karaman–Frazzoli 2011 v1: distinguish the paper’s non-optimal forest PRM/RRT analysis from asymptotically optimal fixed-radius sPRM; RRT* uses collision-free least-cost parent selection/rewiring and r_n=min{eta,gamma(log n/n)^(1/d)} for sufficiently large gamma. The a.s. finite-cost optimum guarantee assumes the stated Euclidean sampling, robust-optimum and cost hypotheses. Constant-factor processing is expected asymptotic fixed-environment work, not constant collision-check or per-iteration wall-clock cost. | karaman-frazzoli-2011; inspected same-work canonical PDF and registered arXiv landing metadata | C |  |  |  | PDF GET2026-09-13T09:41:15.701905–09:41:16.175297Z, HTTP200/no redirects, arXiv1105.1186v1 (5 May2011). Reviewed bounded Euclidean d>=2 problem/cost setup, Algorithms1/2/6, Theorems29/30/33/38, AppendixB, AppendixG/Lemma71 and Section4.3. Forest PRM is distinct from fixed-radius sPRM. The nonoptimality counterexample has no obstacles and large steering. Nearest-parent fallback, collision-free cheaper parents/rewiring and positive capped radius retained. Theorem38 and stronger Lemma71 bounds are not equated or called minimal. Robust optimum, weak-clearance homotopy, BV-cost continuity, sampling/cost assumptions and expected fixed-dimension/environment work remain explicit. No empirical equal-time claim. Current source-text review 2026-09-13T12:39:13.301Z; zero new retrieval. All required scientific parts and nine coupled article/stat/registry/test endpoints reviewed. Sampling OMPL-preservation dependency is rebound to corrected original11, never the unsupported old sentence. Article review date unchanged; source images, whole P1 and independent acceptance remain open. | motion-planning-optimal-9-20260913 |
+| Informed RRT* (2014 v3): after a first solution, directly sample the admissible Euclidean path-length hyperspheroid intersected with the planning domain. It contains all strictly improving feasible states but is not their exact set; collision checking remains necessary. Before a finite-cost solution it samples globally. Linear expected-cost analysis is obstacle-free with a large rewiring radius, and reported simulation improvements do not imply a universal high-dimensional speedup. | gammell-2014; inspected same-work canonical PDF and registered arXiv landing metadata | C |  |  |  | PDF GET2026-09-13T09:41:17.356864–09:41:18.062353Z, HTTP200/no redirects, arXiv1404.2334v3 (28 November2014). Reviewed the entire preserved Gammellv3 reading-order text, including SectionsII/III, Theorem1, Algorithms1/2, SectionV Sample gloss, V-A and simulations/conclusion. True strict improving set differs from closed admissible geometric superset; domain intersection, collisions, global sampling before finite first solution and fixed-start/goal Euclidean length remain. SectionV's stronger Sample gloss is explicitly contradistinguished, not accepted as exact feasibility. V-A's unfinished radius statement remains unfinished; no new threshold is asserted. Obstacle-free/large-radius expected-cost calculation and 100-run/60-second shared-code simulation protocol are separate from universal claims. Current source-text review 2026-09-13T12:39:13.301Z; zero new retrieval. All required scientific parts and nine coupled article/stat/registry/test endpoints reviewed. Sampling OMPL-preservation dependency is rebound to corrected original11, never the unsupported old sentence. Article review date unchanged; source images, whole P1 and independent acceptance remain open. | motion-planning-optimal-10-20260913 |
+| OMPL's official project documentation lists PRM and RRT implementations, offers benchmarking tools for comparing planners, and describes integration with external collision-checking and visualization components. | ompl-2012 | C |  |  |  | Project FetchUrl result2026-09-13T10:34:32.912Z (tool-reported200, raw HTTP/redirects unobserved); linked primer GET2026-09-13T10:37:49.947727–10:37:50.555205Z, HTTP200/no redirects; June19,2026 primer explicitly not updated for2.0. Reviewed retained full project homepage and primer title/version warning, Sections3.2/4.1/4.2 and4.5 in context. PRM/RRT implementations, comparison tools and external collision/visualization integration are documented capabilities. Homepage2.0.2 differs from June19,2026 pre-2.0 primer and unread2012paper. No practitioner census, testing certification, field-reference claim, RRT* absence inference or P1 completion. Current source-text review 2026-09-13T12:39:13.301Z; zero new retrieval. All required scientific parts and nine coupled article/stat/registry/test endpoints reviewed. Sampling OMPL-preservation dependency is rebound to corrected original11, never the unsupported old sentence. Article review date unchanged; source images, whole P1 and independent acceptance remain open. | source-prm-ompl-motion-planning-11-20260913 |
 | CHOMP: smoothness + obstacle functionals, f_smooth = half the integrated squared velocity; covariant functional gradient; standalone planner on a 6-DoF arm and a quadruped | ratliff-2009 (CMU RI page, abstract verbatim) | V |
 | TrajOpt: sequential convex optimization, hinge loss on signed distance, continuous-time swept-volume collision checking; faster than OMPL planners and CHOMP, solved more problems, higher-quality paths | schulman-2013 (RSS p31 PDF, abstract and sec. IV-V verbatim) | V |
 | Trajectory optimization finds local minima and needs an initial guess; standard pipeline pairs a sampling planner with refinement | consistent with ratliff-2009 / schulman-2013 framings | V |
@@ -1217,3 +1217,80 @@ Sequential NODE_DISABLE_COMPILE_CACHE=1: red-first keypoint units failed2/2, the
 Owned127.0.0.1:3255 runtime exited at11:44:58UTC: actual Next child and runner raw0, four saved identities exited, next.config.ts/tsconfig.json/next-env.d.ts byte-exactly restored and no live3255 listener. No unrelated process/controller was stopped. Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-keypoint-hierarchy-integration-20260913/`. Local commit, committed-native evidence and acyclic seal are recorded separately after creation, not guessed here.
 
 **Do not publish.** Formal307/331 and policy59be5d35 are unchanged. Full P1/source images, remaining hierarchy completeness, broader content/reference, production export/reading times,48-card corpus, independent Sol/high scrutiny and user testing remain owed. First actual Astra/max emission11:15:33.925UTC; fixed target11:50:33.925UTC, not reset. No fallback, push, deployment, features/Mission/controller/owner/security change.
+
+
+## 2026-09-13 optimal sampling and OMPL correction history
+
+Three selected originals9/10/11 retain15 mandatory scientific parts,15 required citation pairs and40 retained literal source items (7/21,5/15,3/4 parts/items), losslessly consolidated by exact part/citation/URL into native evidence bundles to obey the existing duplicate-source rule; […] explicitly marks excerpt separation. The four source documents are Karaman–Frazzoliv1, Gammellv3, the current OMPL project homepage and its explicitly pre-2.0 June19,2026 primer. PDF text conversions were reproduced locally against the retained original bytes; the project/landing tool texts match their original retained responses. No new retrieval or source-image inspection occurred. Retrieval times and current review times are distinct in every row. The original four-cell records below remain history, not source proof. The stronger Gammell Sample gloss is not accepted as exact feasibility, its new radius expression remains unsettled, and OMPL capabilities do not certify adoption/testing or the unread2012paper. Whole P1 and every unselected motion-planning row remain unassigned/incomplete as before. Article lastReviewed remains2026-08-17.
+
+```json
+[
+  {
+    "originalId": "audit/classical.md:motion-planning:9",
+    "rowOrdinal": 9,
+    "currentTupleDigest": "0ce224c9cc290271befa4dcb0122092a02321a0ed50d959f9dbe3fecdb8258ef",
+    "currentCells": {
+      "claim": "Karaman-Frazzoli 2011: RRT and PRM converge a.s. to non-optimal costs; RRT* asymptotically optimal; r(n) = gamma (log n / n)^{1/d}; per-iteration cost within a constant factor of RRT",
+      "sourceChecked": "karaman-frazzoli-2011 (arXiv:1105.1186 abs)",
+      "verdict": "V",
+      "note": ""
+    }
+  },
+  {
+    "originalId": "audit/classical.md:motion-planning:10",
+    "rowOrdinal": 10,
+    "currentTupleDigest": "e1ecfc9c56675107ea74ec410d667cfd0182b9bbd5565d292a079d00048ee782",
+    "currentCells": {
+      "claim": "Informed RRT*: after a first solution, sample only the prolate hyperspheroid of states that can still improve it",
+      "sourceChecked": "gammell-2014 (arXiv:1404.2334 abs)",
+      "verdict": "V",
+      "note": ""
+    }
+  },
+  {
+    "originalId": "audit/classical.md:motion-planning:11",
+    "rowOrdinal": 11,
+    "currentTupleDigest": "a541d334f67079fd9b3271f9f56da504db1aad7198be8620cd807353bc25f956",
+    "currentCells": {
+      "claim": "OMPL ships tested PRM/RRT/RRT* and is the reference implementation",
+      "sourceChecked": "ompl-2012",
+      "verdict": "V",
+      "note": ""
+    }
+  }
+]
+```
+
+
+## Verification checkpoint: three optimal-sampling and OMPL originals (2026-09-13)
+
+Motion-planning originals **9, 10 and 11: 3 applied / 0 assigned held / 0 assigned unattempted**, with 15 mandatory scientific parts, 15 required citation pairs and **40 retained literal excerpts in 16 native source bundles (7/5/4)**. Same-part/citation/URL excerpts retain explicit […] separators; no source text or native rule was dropped. PRM4, RRT5/6/8, trajectory12/13/14, RRT7, demo15, whole P1 and the learned-stack conclusion were not integrated.
+
+Fresh native collection at12:56:04UTC: **519 complete / 475 incomplete / 994 originals / 47 articles**; classical **78/109/187**, motion-planning **3/12/15** (complete/incomplete/originals). **425 plans / 503 approvals / 43 baseline failures**. Exact preservation passed for all994 original IDs/order,516 previous complete IDs/order,991 unselected semantic records,422 previous plans,499 previous approvals/metadata and two serialized prefixes. All43 inherited full baseline failure objects/order are unchanged. Four exact approvals cover motion-planning prose and citation relationships, derived citation rendering and the Karaman citation member. No baseline replacement or acceptance.
+
+**Zero new retrieval.** Four retained documents were reviewed: Karaman-Frazzoli arXiv1105.1186v1, Gammell arXiv1404.2334v3, the OMPL homepage and its June19,2026 primer explicitly not updated for2.0. PDF text conversions, literal offsets/hashes and original retrieval receipts were verified before reuse. September13 PDF GETs: Karaman09:41:15.701905–09:41:16.175297UTC, Gammell09:41:17.356864–09:41:18.062353UTC, OMPL primer10:37:49.947727–10:37:50.555205UTC, each historical HTTP200/no redirects. OMPL homepage10:34:32.912UTC remains a tool-reported result, not raw HTTP or fresh liveness. Original four-cell history and current identity preflight are retained. Zero source-image inspections.
+
+Karaman's conditions, forest PRM versus sPRM, feasible parent fallback, rewiring and asymptotic processing bounds are distinct. Gammell's admissible geometric superset is not exact feasible improvement; its stronger Sample gloss and unfinished radius remain explicit. OMPL supports documented capabilities, not adoption/testing certification. Nine coupled article/stat/registry/test endpoints are bound. Manual fidelity/no-hype reading was performed; no unavailable humanizer or independent review is claimed. Article lastReviewed remains2026-08-17; glossary, interactions and protected configuration bytes are unchanged.
+
+### Verification observed in this integration
+
+All commands used NODE_DISABLE_COMPILE_CACHE=1 and ran sequentially through the contained guarded runner.
+
+| Gate | Executed command | Actual result |
+| --- | --- | --- |
+| Retained source proof | `python3 source-proof.py` | exit0; four documents,15 parts,15 pairs,40 literal items; zero retrieval |
+| Focused unit | `npm run test -- motion-planning-optimal-source` | final48/48 pass; includes30 deleted/malformed-source and6 stale-review rejection cases |
+| Approval controls | `node prose-closeout.mjs` | eight missing/stale controls reject; four exact entries;43 full failure objects/order preserved |
+| Normal lint | `npm run lint` | final exit0 including normal prelint |
+| Types | `node node_modules/next/dist/bin/next typegen`, then `node node_modules/typescript/bin/tsc --noEmit --incremental false` | both exit0; configuration byte-exactly restored |
+| No-slop | `node scripts/lint-no-slop.ts` | final exit0;47 MDX and63 existing exported HTML, zero markers,14 existing quotation exceptions; this does not qualify a fresh export |
+| Preservation | `python3 preserve.py` | exit0; exact populations and source bundles above |
+| Native accounting | `node native-state.mjs native-final-working-second` | collector exit0; content/baseline acceptance remains RED |
+| Browser / changed existing E2E / runtime | not executed | zero runtime launches, browser runs, captures or pixel Reads for this integration |
+| Full content / build / export / card corpus | not executed | inherited495 findings plus9 citation gaps is historical, not a fresh count |
+
+Retained failures: pre-application42/42 red; two pre-write native format rejections;46/48 after application exposed JavaScript replacement-string `$$` collapse in three equations. Function replacement restored the reviewed delimiters, not the assertions. A missing tsx executable invocation failed; the native no-slop run then caught two prose en dashes, corrected to nonsemantic hyphens with matching tests. One transient unknown parent gh reader blocked native collection before action; the guard was not broadened and a later fresh run passed. Every failed helper/receipt remains retained.
+
+**Reader acceptance is unattempted here.** The changed existing E2E file, corrected math, source metadata/URLs, complete References, glossary keyboard/end reach, controls/reset, drawer/history, four font roles, overflow/errors and scoped Axe at375x812/1440x900 remain required. No owned runtime was launched or stopped. Whole P1, source images, broader reference/accessibility coverage, production export/reading times,48-card corpus and independent Sol/high scrutiny/user testing remain open.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-optimal-sampling-ompl-integration-20260913/`. First actual Astra/max emission12:23:32.515UTC; fixed checkpoint12:58:32.515UTC, not reset. Local commit/native qualification/seal follow only if actually created. **Do not publish.** Formal307/331,0 runnable/24 blocked/one authorized editorial repair remain unchanged. No fallback, push, deployment, feature/Mission/controller/security or owner-work changes.

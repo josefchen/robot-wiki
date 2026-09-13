@@ -37,7 +37,7 @@ The sampling family is below, running for real: a 2D world, five obstacles betwe
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
   <Stat label="RRT introduced" value="1998" note="LaValle's Iowa State tech report" />
   <Stat label="CHOMP" value="2009" note="covariant gradient refinement" />
-  <Stat label="RRT* optimality proof" value="2011" note="Karaman and Frazzoli" />
+  <Stat label="RRT* analysis" value="2011" note="Karaman and Frazzoli; conditional theorem" />
   <Stat label="demo scene below" value="2D" note="100 by 64 world, 5 obstacles" />
 </div>
 
@@ -69,23 +69,37 @@ The Voronoi bias is what the scene at the top of this module is showing: the tre
 
 ## Optimality: RRT\*
 
-Basic RRT finds a path, not a good one. Karaman and Frazzoli made this precise in 2011, and the result stung: under mild technical conditions, the cost of the path RRT returns converges almost surely to a value strictly worse than optimal, and the same holds for PRM as originally specified <Cite id="karaman-frazzoli-2011" />. Random exploration alone does not refine.
+Karaman and Frazzoli's 2011 analysis separates finding a feasible path from improving its cost. Their RRT non-optimality proof includes an obstacle-free Euclidean example with a steering distance at least the domain diameter in which the best path cost converges almost surely to a suboptimal value. Their PRM result concerns the forest-building version that rejects connections within an already connected component; it is not a result about every roadmap planner. The same paper proves asymptotic optimality for fixed-radius simplified PRM, which allows those connections, at greater computational cost <Cite id="karaman-frazzoli-2011" />.
 
-Their fix keeps the RRT skeleton and adds two local operations. When a new node arrives, choose its parent not as the nearest node but as the cheapest-to-reach candidate inside a shrinking neighborhood, and then rewire the neighborhood: if routing a neighbor through the new node shortens its path from the root, reattach it. The neighborhood radius must shrink with the node count at a controlled rate,
-
-$$
-r(n) = \gamma \left( \frac{\log n}{n} \right)^{1/d}
-$$
-
-for dimension $d$ and a constant $\gamma$ above a computable threshold. With that schedule the tree asymptotically recovers the optimal path:
+RRT\* adds least-cost parent selection and rewiring; Algorithm 6 writes these costs additively. A new vertex keeps its feasible nearest parent unless a collision-free connection through a nearby vertex gives a cheaper path from the root. Neighbors are reattached only when a collision-free route through the new vertex lowers their cost. With $n$ vertices, Algorithm 6 uses
 
 $$
-\mathbb{P}\!\left( \lim_{n \to \infty} c_n = c^{*} \right) = 1
+r_n = \min\!\left\{\eta,\; \gamma\left(\frac{\log n}{n}\right)^{1/d}\right\},
 $$
 
-at a per-iteration cost within a constant factor of plain RRT <Cite id="karaman-frazzoli-2011" />. That algorithm is RRT\*, and the analysis that produced it, built on random geometric graph theory, is one of the cleaner theory results in robotics.
+where $\eta>0$ caps the local steering distance and $d\geq2$ is the Euclidean space dimension. The coefficient $\gamma$ must be sufficiently large for the problem: Theorem 38 and Appendix G's Lemma 71 print different sufficient bounds. The latter's conservative condition is $\gamma>4(\mu(X_{free})/\zeta_d)^{1/d}$, where $\mu(X_{free})$ is free-space volume and $\zeta_d$ is unit-ball volume; this is not a claim that the coefficient is minimal <Cite id="karaman-frazzoli-2011" />.
 
-The practical objection is that RRT\* spends its refinement budget everywhere, improving paths to every state in the domain when the query only cares about one. Informed RRT\* restricts sampling, once a first solution exists, to the prolate hyperspheroid of states that could still improve it, which sharpens convergence considerably in large or high-dimensional worlds <Cite id="gammell-2014" />. Most practitioners never implement any of this by hand: the Open Motion Planning Library ships tested versions of PRM, RRT, RRT\*, and their descendants, and it is the reference implementation the field benchmarks against <Cite id="ompl-2012" />.
+The convergence statement is conditional and concerns a bounded Euclidean domain. The paper uses independent uniform free-space samples, Euclidean distance and straight-line collision checking, not differential constraints. Its cost is positive on nontrivial paths, monotone under concatenation and bounded by a constant times path length. A finite-cost optimum must be robust: it has weak clearance, meaning it can be continuously deformed into paths with positive clearance, and the cost must be continuous for paths approaching that optimum in the paper's bounded-variation norm. Under this setup, its RRT\* result is
+
+$$
+\mathbb{P}\!\left(\lim_{n\to\infty}c_n=c^*\right)=1.
+$$
+
+Here $c_n$ is the best feasible solution cost after $n$ iterations. This is an asymptotic cost guarantee, not a promise of an exact optimum after a finite budget. The non-optimality analysis also assumes that the set of states traversed by optimal paths has measure zero <Cite id="karaman-frazzoli-2011" />.
+
+The computational comparison is narrower than a runtime promise: for fixed dimension and environment, the paper's efficient spatial-search model gives expected asymptotic processing work of order $n\log n$ for RRT\*, within a constant factor of RRT's processing order. It does not bound every iteration's elapsed time by the same factor. In particular, its collision-check count grows as $O(\log n)$ per iteration, while plain RRT makes one such check <Cite id="karaman-frazzoli-2011" />.
+
+RRT\* with global sampling also improves routes to states irrelevant to a particular start-goal query. Informed RRT\* addresses that work after a first solution is found. For Euclidean path length in $\mathbb{R}^d$ with fixed start and goal, it samples directly from the planning domain's intersection with
+
+$$
+\widehat{X}_f=\left\{x:\lVert x-x_{start}\rVert_2+\lVert x-x_{goal}\rVert_2\leq c_{best}\right\}.
+$$
+
+This is a prolate hyperspheroid with start and goal as its foci and current best path length $c_{best}$ as its transverse diameter. Writing $f(x)$ for the optimal start-goal cost constrained through $x$, the true improving set is $X_f=\{x:f(x)<c_{best}\}$. The distance sum is an admissible lower bound: the region contains every state on a strictly improving feasible path, but a state inside it need not be collision-free or belong to any improving path. The planner still performs collision checks. Before the first finite-cost solution, it samples globally like RRT\* <Cite id="gammell-2014" />.
+
+The paper reports the underlying RRT\* completeness and optimality guarantees, not a universal speedup. Its linear expected-cost convergence calculation assumes no obstacles and a rewiring radius larger than the informed subset's diameter. Its simulation comparisons used common unoptimized code and 100 runs per variation on shared maps and seeds, with random-world refinement measured for 60 seconds after an initial solution. Those experiments found faster refinement than RRT\*; when the informed set covers the planning domain, the heuristic supplies no focusing advantage <Cite id="gammell-2014" />.
+
+Section V describes the Sample routine more strongly, as if every sampled state admits an improving path. That wording exceeds the admissible-superset construction in Section III and Algorithm 2; geometric membership alone does not establish it. Section V-A also leaves the exact informed rewiring-radius expression as ongoing work, so the paper does not supply a settled new threshold here <Cite id="gammell-2014" />. The Open Motion Planning Library's project documentation lists implementations of PRM and RRT, along with benchmarking tools for comparing planners. The core library is designed to integrate with external collision-checking and visualization components <Cite id="ompl-2012" />.
 
 ## Trajectory optimization
 

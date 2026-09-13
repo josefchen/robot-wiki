@@ -83,6 +83,23 @@ test.describe('classical motion-planning module', () => {
     expect(errors).toEqual([]);
   });
 
+  test('OMPL prose states documented capabilities without adoption or testing claims', async ({
+    page,
+  }) => {
+    await page.goto(ROUTE);
+    const prose = page.locator('div.prose[data-pagefind-body]');
+    await expect(
+      prose.locator('a[href="https://ompl.kavrakilab.org/"]'),
+    ).toHaveCount(1);
+    const text = await visibleArticleText(page);
+    expect(text).toContain('lists implementations of PRM and RRT');
+    expect(text).toContain('benchmarking tools for comparing planners');
+    expect(text).toContain('external collision-checking and visualization components');
+    expect(text).not.toMatch(
+      /Most practitioners never implement|ships tested versions|reference implementation the field benchmarks against/,
+    );
+  });
+
   test('citation chips resolve and link externally (VAL-CLASS-009, VAL-CLASS-010)', async ({
     page,
   }) => {

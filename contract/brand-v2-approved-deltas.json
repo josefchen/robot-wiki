@@ -9605,6 +9605,78 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "optimal-sampling-ompl-20260913-1",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
+      "newHash": "92134c47f943f912d3da7b167fb90043913179782343caa72bff5fe728003136",
+      "reason": "Source-backed correction of motion-planning originals 9, 10 and 11: conditional Karaman-Frazzoli v1 optimality and processing bounds, distinct PRM and sPRM, admissible Gammell v3 informed set and its stronger Sample gloss/unsettled radius, and documented OMPL capabilities without adoption or testing certification. Nine coupled article/stat/registry/test endpoints, 15 parts, 15 source pairs and all 40 literal excerpts reviewed against four retained documents. Citation repetition changes relationships but preserves the ten-source union. The Karaman venue is scoped to the retained arXiv preprint; its derived citation rendering changes with it. Zero retrieval; article date, glossary and interactions preserved; P1/source-image/browser/independent acceptance remain open.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact originals 9/10/11 dispatch authorize routine source-backed correction, not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "optimal-sampling-ompl-20260913-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "2de52b7ff8f01c0a9f9fbfbdf4523dbef95b1403a9d7cfacd56d703b0cf9b229",
+      "newHash": "0c2c2cc66b01c5c81bbcede0d3ebc3f2ea9dffb20357801704a31593fc0b8510",
+      "reason": "Source-backed correction of motion-planning originals 9, 10 and 11: conditional Karaman-Frazzoli v1 optimality and processing bounds, distinct PRM and sPRM, admissible Gammell v3 informed set and its stronger Sample gloss/unsettled radius, and documented OMPL capabilities without adoption or testing certification. Nine coupled article/stat/registry/test endpoints, 15 parts, 15 source pairs and all 40 literal excerpts reviewed against four retained documents. Citation repetition changes relationships but preserves the ten-source union. The Karaman venue is scoped to the retained arXiv preprint; its derived citation rendering changes with it. Zero retrieval; article date, glossary and interactions preserved; P1/source-image/browser/independent acceptance remain open.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact originals 9/10/11 dispatch authorize routine source-backed correction, not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "optimal-sampling-ompl-20260913-3",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "eab0d47adaa2cd995273dcf17f7434a8bfb75c37a899d7a0dd773402c61c32f3",
+      "reason": "Source-backed correction of motion-planning originals 9, 10 and 11: conditional Karaman-Frazzoli v1 optimality and processing bounds, distinct PRM and sPRM, admissible Gammell v3 informed set and its stronger Sample gloss/unsettled radius, and documented OMPL capabilities without adoption or testing certification. Nine coupled article/stat/registry/test endpoints, 15 parts, 15 source pairs and all 40 literal excerpts reviewed against four retained documents. Citation repetition changes relationships but preserves the ten-source union. The Karaman venue is scoped to the retained arXiv preprint; its derived citation rendering changes with it. Zero retrieval; article date, glossary and interactions preserved; P1/source-image/browser/independent acceptance remain open.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact originals 9/10/11 dispatch authorize routine source-backed correction, not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "optimal-sampling-ompl-20260913-4",
+      "manifest": "article-metadata",
+      "memberId": "citation:karaman-frazzoli-2011",
+      "oldHash": "c5cab28aefad5ee99ff88f0ce690c883d9cd502e868e2f822dac0611ddc54b42",
+      "newHash": "cb5a3e7f431fb52fce872b4f8e8c20c352644646e2388ed31ff79b9de988a3fc",
+      "reason": "Source-backed correction of motion-planning originals 9, 10 and 11: conditional Karaman-Frazzoli v1 optimality and processing bounds, distinct PRM and sPRM, admissible Gammell v3 informed set and its stronger Sample gloss/unsettled radius, and documented OMPL capabilities without adoption or testing certification. Nine coupled article/stat/registry/test endpoints, 15 parts, 15 source pairs and all 40 literal excerpts reviewed against four retained documents. Citation repetition changes relationships but preserves the ten-source union. The Karaman venue is scoped to the retained arXiv preprint; its derived citation rendering changes with it. Zero retrieval; article date, glossary and interactions preserved; P1/source-image/browser/independent acceptance remain open.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact originals 9/10/11 dispatch authorize routine source-backed correction, not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

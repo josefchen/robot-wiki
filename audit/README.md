@@ -1,6 +1,39 @@
 # Content-integrity audit trail
 
-## Current checkpoint: keypoint interfaces corrected with hierarchy consistency (2026-09-13)
+## Current checkpoint: three optimal-sampling and OMPL originals (2026-09-13)
+
+Motion-planning originals **9, 10 and 11: 3 applied / 0 assigned held / 0 assigned unattempted**, with 15 mandatory scientific parts, 15 required citation pairs and **40 retained literal excerpts in 16 native source bundles (7/5/4)**. Same-part/citation/URL excerpts retain explicit […] separators; no source text or native rule was dropped. PRM4, RRT5/6/8, trajectory12/13/14, RRT7, demo15, whole P1 and the learned-stack conclusion were not integrated.
+
+Fresh native collection at12:56:04UTC: **519 complete / 475 incomplete / 994 originals / 47 articles**; classical **78/109/187**, motion-planning **3/12/15** (complete/incomplete/originals). **425 plans / 503 approvals / 43 baseline failures**. Exact preservation passed for all994 original IDs/order,516 previous complete IDs/order,991 unselected semantic records,422 previous plans,499 previous approvals/metadata and two serialized prefixes. All43 inherited full baseline failure objects/order are unchanged. Four exact approvals cover motion-planning prose and citation relationships, derived citation rendering and the Karaman citation member. No baseline replacement or acceptance.
+
+**Zero new retrieval.** Four retained documents were reviewed: Karaman-Frazzoli arXiv1105.1186v1, Gammell arXiv1404.2334v3, the OMPL homepage and its June19,2026 primer explicitly not updated for2.0. PDF text conversions, literal offsets/hashes and original retrieval receipts were verified before reuse. September13 PDF GETs: Karaman09:41:15.701905–09:41:16.175297UTC, Gammell09:41:17.356864–09:41:18.062353UTC, OMPL primer10:37:49.947727–10:37:50.555205UTC, each historical HTTP200/no redirects. OMPL homepage10:34:32.912UTC remains a tool-reported result, not raw HTTP or fresh liveness. Original four-cell history and current identity preflight are retained. Zero source-image inspections.
+
+Karaman's conditions, forest PRM versus sPRM, feasible parent fallback, rewiring and asymptotic processing bounds are distinct. Gammell's admissible geometric superset is not exact feasible improvement; its stronger Sample gloss and unfinished radius remain explicit. OMPL supports documented capabilities, not adoption/testing certification. Nine coupled article/stat/registry/test endpoints are bound. Manual fidelity/no-hype reading was performed; no unavailable humanizer or independent review is claimed. Article lastReviewed remains2026-08-17; glossary, interactions and protected configuration bytes are unchanged.
+
+### Verification observed in this integration
+
+All commands used NODE_DISABLE_COMPILE_CACHE=1 and ran sequentially through the contained guarded runner.
+
+| Gate | Executed command | Actual result |
+| --- | --- | --- |
+| Retained source proof | `python3 source-proof.py` | exit0; four documents,15 parts,15 pairs,40 literal items; zero retrieval |
+| Focused unit | `npm run test -- motion-planning-optimal-source` | final48/48 pass; includes30 deleted/malformed-source and6 stale-review rejection cases |
+| Approval controls | `node prose-closeout.mjs` | eight missing/stale controls reject; four exact entries;43 full failure objects/order preserved |
+| Normal lint | `npm run lint` | final exit0 including normal prelint |
+| Types | `node node_modules/next/dist/bin/next typegen`, then `node node_modules/typescript/bin/tsc --noEmit --incremental false` | both exit0; configuration byte-exactly restored |
+| No-slop | `node scripts/lint-no-slop.ts` | final exit0;47 MDX and63 existing exported HTML, zero markers,14 existing quotation exceptions; this does not qualify a fresh export |
+| Preservation | `python3 preserve.py` | exit0; exact populations and source bundles above |
+| Native accounting | `node native-state.mjs native-final-working-second` | collector exit0; content/baseline acceptance remains RED |
+| Browser / changed existing E2E / runtime | not executed | zero runtime launches, browser runs, captures or pixel Reads for this integration |
+| Full content / build / export / card corpus | not executed | inherited495 findings plus9 citation gaps is historical, not a fresh count |
+
+Retained failures: pre-application42/42 red; two pre-write native format rejections;46/48 after application exposed JavaScript replacement-string `$$` collapse in three equations. Function replacement restored the reviewed delimiters, not the assertions. A missing tsx executable invocation failed; the native no-slop run then caught two prose en dashes, corrected to nonsemantic hyphens with matching tests. One transient unknown parent gh reader blocked native collection before action; the guard was not broadened and a later fresh run passed. Every failed helper/receipt remains retained.
+
+**Reader acceptance is unattempted here.** The changed existing E2E file, corrected math, source metadata/URLs, complete References, glossary keyboard/end reach, controls/reset, drawer/history, four font roles, overflow/errors and scoped Axe at375x812/1440x900 remain required. No owned runtime was launched or stopped. Whole P1, source images, broader reference/accessibility coverage, production export/reading times,48-card corpus and independent Sol/high scrutiny/user testing remain open.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-optimal-sampling-ompl-integration-20260913/`. First actual Astra/max emission12:23:32.515UTC; fixed checkpoint12:58:32.515UTC, not reset. Local commit/native qualification/seal follow only if actually created. **Do not publish.** Formal307/331,0 runnable/24 blocked/one authorized editorial repair remain unchanged. No fallback, push, deployment, feature/Mission/controller/security or owner-work changes.
+
+## Historical: keypoint interfaces corrected with hierarchy consistency (2026-09-13)
 
 Perception originals **42/43/44 applied atomically and newly complete**; hierarchical originals **3/4/5 corrected but incomplete, zero additional credit**. Six current ledger identities and five coupled prose endpoints changed. Three hierarchy completions are held for their own mandatory-AND mapping and original/current adjudication, not an asserted missing primary document. No assigned prose correction is unattempted. Three appended plans contain **15 scientific parts / 15 source pairs / 15 evidence items plus 3 separate endpoint conjunctions**.
 
