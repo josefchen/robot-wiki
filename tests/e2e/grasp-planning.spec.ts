@@ -1,4 +1,5 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, type Page } from '@playwright/test';
+import { test } from './grasp-reader-fixture';
 import AxeBuilder from '@axe-core/playwright';
 import {
   CONTACT_POSITION_MAX,
@@ -76,11 +77,21 @@ test.describe('classical grasp-planning module', () => {
       page.getByRole('heading', { level: 1, name: 'Grasp Planning' }),
     ).toBeVisible();
 
-    // Sidebar shows the module active under the classical domain.
-    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+    // The same current-route assertion applies to the real responsive surface.
+    const menu = page.getByRole('button', { name: 'Open navigation menu', exact: true });
+    const mobile = await menu.isVisible();
+    if (mobile) await menu.click();
+    const nav = mobile
+      ? page.getByRole('dialog', { name: 'Site navigation' })
+      : page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
+    await expect(nav).toBeVisible();
     await expect(
       nav.getByRole('link', { name: 'Grasp Planning', exact: true }),
     ).toHaveAttribute('aria-current', 'page');
+    if (mobile) {
+      await page.getByRole('button', { name: 'Close navigation menu', exact: true }).click();
+      await expect(nav).not.toBeVisible();
+    }
 
     const main = page.locator('#main-content');
     // The required strands are all present as rendered prose. The glossary
@@ -397,6 +408,10 @@ test.describe('classical grasp-planning module', () => {
       viewport: { width: 375, height: 812 },
     });
     const page = await context.newPage();
+    test.info().annotations.push({
+      type: 'actual-viewport-override',
+      description: 'This existing case explicitly creates 375x812 in every project.',
+    });
     await page.goto(ROUTE);
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - window.innerWidth,

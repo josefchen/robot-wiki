@@ -1802,3 +1802,61 @@ Non-counted exact before/current history:
   }
 ]
 ```
+
+
+## Grasp reader closeout, zero originals (2026-09-14)
+
+This append-only continuation of local commit `ce82653fbcf5043728a90e2e753d252b54608e3b` applies **0 originals / 0 scientific corrections / 0 cuts / 0 new approvals**. Article, source history, citation/glossary identities, defaults and dates are unchanged. All **994 semantic records and their order**, **552 complete / 442 incomplete / 47 articles**, **458 plans / 534 approvals**, and **43 unrelated full baseline failure objects/order** are preserved. Grasp remains 2 complete / 11 incomplete / 13 originals. Native preservation collection ran at 11:54:06-11:54:07 UTC; this is accounting, not renewed source review.
+
+### Actual terminal correction and original clock
+
+The predecessor handoff field `terminalAt: 2026-09-14T11:23:05.392471+00:00` was a **prewritten closeout timestamp**, not an actual terminal emission. The parent-qualified actual final assistant emission is **2026-09-14T11:24:14.301Z**, event `960dbdd1-ec60-4b8f-bd76-2a04f964b121`, LF SHA256 `5c2b65545ac4bad3f674d9c7b8f633cc7595472a0c06ee9ad177a8045c0e0344`. Its original seal `6a33f28ead9f71175e1cfd52fa1f1e58ef0cbd490e7332bced48a07c32ca5cb6` is untouched. First activation **10:36:52.790 UTC** and target **11:11:52.790 UTC** do not reset. This role resumed with actual Astra/max event `545bd70a-7013-417b-9e0d-1ab916e1b8d8` at11:28:44.735 UTC. Current artifact preparation times are not claimed to be future final assistant emissions.
+
+### Selected existing tests and fresh/composed results
+
+The checked-in grep matched grasp-route citation names, source text and route references. All **nine existing `tests/e2e/grasp-planning.spec.ts` cases** were selected: full prose/current navigation (VAL-CLASS-026); citation chips/keyboard metadata (027/028); KaTeX/no raw delimiters (029); lab views/defaults/stable boxes (030); hull/readout edits, reset and reload (031); keyboard operation; Greek-mu label; explicit375px overflow; zero Axe violations. Each ran under375x812 and1440x900 projects. The existing overflow case deliberately creates **375x812 in both projects**; these are two375px observations, not an invented1440px case. The new complete-text case independently measures1440px document overflow.
+
+| Fresh command / check | Actual outcome |
+| --- | --- |
+| `node node_modules/vitest/vitest.mjs run tests/unit/grasp-reader-inputs.test.ts` | **14 passed**, including24missing/stale-input rejection assertions; 11:39:25-11:39:26 UTC |
+| `node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-grasp-reader-closeout-20260914/playwright.config.ts` | **19 passed / 1 failed**, 20cases, 11:42:06-11:43:41 UTC; mobile prose case used a desktop-only navigation locator |
+| Same CLI with `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-grasp-reader-closeout-20260914/playwright.final.config.ts` | **4 passed**, 11:46:35-11:46:58 UTC; only changed prose/navigation and pixel/math cases, each at both widths |
+| Final `npm run lint`, normal prelint included | **exit0**, 11:53:14-11:53:31 UTC |
+| `node node_modules/typescript/bin/tsc --noEmit --incremental false` | **exit0**, 11:52:30-11:52:32 UTC, restored configs |
+| Native `node --experimental-strip-types --experimental-specifier-resolution=node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-grasp-reader-closeout-20260914/native-state.mjs native-preserved` | **exit0**, unchanged accounting and43full failure objects |
+
+The final matrix is **20 distinct passing case/viewport combinations**, composed from16unchanged first-run passes plus4final passes. The first run's failed case and repeated passes are not added into a fictitious single fresh20-pass run. The locator repair retains the exact `aria-current=page` assertion on the actual mobile dialog, adds visibility/open/close checks and preserves every original prose/science/default assertion. No product component or rendering fix was required.
+
+Reused parent-qualified evidence is separate:38affected unit/component passes (the final10-source subset overlaps, not48);34required-input/10review/4approval controls; prior source proof; prior lint/types; the known-red content chain at449findings; two historical reader cases and prior runtime terminal proof. **No science/source review, retrieval or known-red content rerun occurred.**
+
+### Full final-text pixels and actual apparatus
+
+**39 final fixed-viewport captures were Read at high quality**, comprising19required-text slices,11equation/start-end captures and9navigation/overview/control captures. Acceptance of the selected text relies on every non-whitespace rendered text position being fully inside the viewport and hit-tested unobstructed in at least one recorded slice—not merely on Read counts. Per viewport, all **3,202/3,202 positions** are covered:
+
+| Target | Positions per viewport | Mobile / desktop slices |
+| --- | ---: | ---: |
+| Entire final Roa paragraph |584|1 / 1|
+| Entire Dex-Net training paragraph |671|1 / 1|
+| Entire method/hardware/success paragraph |544|1 / 1|
+| Entire known/novel results, precision and failures paragraph |721|2 / 1|
+| Training Stat, value and note |99|1 / 1|
+| Roa short tooltip / full Reference |85 / 128|1+1 / 1+1|
+| Dex-Net short tooltip / full Reference |138 / 232|1+1 / 1+1|
+
+The mobile results captures are distinct consecutive slices. Both final full References show the complete registered author lists; short tooltips remain intentionally abbreviated. These postcommit captures close the predecessor's one-space timing gap; no source or layout change follows them.
+
+Before unrelated References/lab captures, real pointer movement, Escape and an ordinary heading click dismiss prior popups, followed by an assertion of0visible tooltips. Only the owned Next development portal is CSS-hidden. No citation/Term DOM or CSS hiding, error suppression, router redesign or false shared-behavior pass was introduced.
+
+Five actual display equations appear at each width. Mobile equation3 is393px wide inside335px; real keyboard ArrowRight input moves scrollLeft0to58, with start/end captures. Fitted equations and tooltips earn **no internal-scrolling credit**. Existing tests exercise friction/contact edits, add/remove/reset/reload, readouts, Greekmu and keyboard grid behavior. Mobile SVG labels remain small; full label/contrast/accessibility profiles are not accepted. Both final Axe analyses have0violations and **51+51=102contrast-incomplete node observations**, not102unique nodes. Back fails to restore chip focus in all4source-chip observations; Term Escape leaves its tooltip open at both widths. Those separately owned shared debts remain open.
+
+Unrun: unrelated chart-state whole-export population/design sweep, Pagefind/export search population, perception and other numeric-substring matches, full build/export/cards/corpus/source sweeps, full accessibility and navigation profiles. Chart-state descriptors/defaults and the search query/route were unchanged; actual affected controls were exercised through the existing grasp cases. No whole-P1/article or independent acceptance follows from this reader scope.
+
+### Runtime, failed attempts and preservation limits
+
+Exactly one fresh offline Next--webpack runtime used19byte-verified retained WOFF2fonts and loopback3268, running11:41:27.006295-11:47:23.607351 UTC. Identity-bound supervisor shutdown produced child0/runner0 and an independently observed waiter0. All owned runtime identities are absent and three configs are byte-restored. An immediate plain port-bind probe failed withEADDRINUSE; subsequent listener inspection found no listener and both Next identities absent. A later plain bind succeeded at2026-09-14T11:57:01.665060+00:00; no socket cleanup or foreign signal was used.
+
+Two early normal lint attempts caught the new fixture callback's React-hook-shaped names (`use`, then `usePage`). Renaming it `providePage` fixed this without a waiver; narrow checks and final normal lint passed. The first final-lint guard refused an unknown reparented sleep with125/no action; retry retained unchanged ownership criteria. All failed/refused receipts remain.
+
+Every reader/runtime consumer had explicit required test/helper/config/font manifests before execution, with actual input versions and durable child/supervisor/runner/waiter receipts. Historical34-manifest version resolution proves recorded versions, not complete dependency populations; predecessor direct-closeout population gaps are **not retroactively repaired**. Current documentation consumes a separately bound append-only helper and recorded measurements. Source packets remain immutable. No Brooks or ECoT/HiRobot proposal was incorporated.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-grasp-reader-closeout-20260914/`. Preservation records1233unchanged product/owner inputs. `PRODUCT_QUALITY.md`, `qa/`, `next-env.d.ts`, protected ancestors and frozen active status are untouched. No article prose changed, so no lastReviewed movement or humanizer pass applies. Formal **307/331**, M5, wholeP1, independent Sol/high scrutiny and release remain unaccepted. **Content/release RED at the inherited449findings: do not publish.**
