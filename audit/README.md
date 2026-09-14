@@ -1,6 +1,49 @@
 # Content-integrity audit trail
 
-## Current checkpoint: two grasp source originals (2026-09-14)
+## Current checkpoint: four Brooks dexterity originals; Figure15 held (2026-09-14)
+
+Exactly **4 applied / 1 assigned held / 0 assigned unattempted originals** from `audit/frontier.md:dexterity:2/3/5/6/15`. Originals **2, 3, 5 and 6** have complete reviewed evidence and corrected verdicts: three V-to-C changes and one existing C retained. **0 newly verified-verdict rows / 0 cut-verdict rows**; the unsupported victory sentence is a coupled prose cut, not another original. Four plans retain **11 mandatory AND parts / 11 evidence items**, and five atomic article endpoints. Original15 remains unchanged and incomplete: its qualified packet has one article endpoint (`d15-main-prose`) plus two source-item IDs, not the dispatch-required three article endpoints. Do not invent missing bindings or reapply completed records.
+
+Native checkpoint at **12:57:38-12:57:39 UTC**, entry HEAD `a6b5dceb6b5013362163b50df1b2f0337aad327a`: **556 complete / 438 incomplete / 994 originals / 47 articles**; frontier **21 complete / 126 incomplete / 147 originals**; dexterity **4 complete / 26 incomplete / 30 originals**. **462 plans / 535 approvals / 43 unchanged baseline failure objects**. Entry was552/442,458plans,534approvals. Application preserved all994original IDs/order,552prior complete IDs/order,990unselected semantic records,458old plans and534old approvals. Exactly one immutable-baseline-to-current prose approval was appended; parser, native gate, baseline and approval schema are unchanged. Final post-document/commit preservation and local commit IDs are in the sealed handoff.
+
+The shared demo body and Stat now attribute seven seconds/four-times-as-long to Brooks's essay-reported videos rather than an independent timing measurement. Unestablished intact-vision/unchanged-plan claims are removed; the source's described residual sensations remain. Historical medical/proprioception error notes survive only in non-counted row history. The scaling argument is his imagined inner dialogue, with acknowledged prior successes, engineered inputs and **likely** retained. The conclusion restores **It looks like**, match-task scope and the essay's then-current assessment, alongside its caveats and promising research. First touch-driven deployment is no longer asserted to prove touch necessary. Article `lastReviewed: "2026-08-18"`, all unassigned neighbor claims, glossary, citation registry and existing hand data are unchanged and unaccepted.
+
+**Zero source retrievals.** Rechecked seven retained provenance dependencies, exact original FetchUrl events and author-text boundary; verified **20 literal bindings / 12 unique passages / 11 source-part items**. These counts are distinct from the preparation packet's15context passages. Source URL: `https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/`. Original request **2026-09-13T15:12:35.617Z**, result **2026-09-13T15:12:43.252Z**, tool-reported200 only. Full response88799bytes/SHA256`46d726566d5d1ed25f846df73375a4888d9642b77298df7c8d37215b62bf68a5`; author text62634bytes/SHA256`523ce6c9c592f17353ff4c8f32c97ed8159119bac38b376a474722e99ba1cb28`, response byte interval[192,62826), excluding comments. September14 review is not a fetch date. No video timing/playback, image or linked-paper inspection, medical assessment, publication-day claim, current sensor census, fresh liveness, raw origin headers/status or redirect-chain proof is earned.
+
+| Executed check | Actual result |
+| --- | --- |
+| Red-first source regression |14failed/1passed before application |
+| Native source review |4whole claims;11supported AND parts/items;38refusal controls |
+| Exact approval controls |4passed; one exact prose member appended;43full prior failure objects preserved |
+| Affected unit/component coverage |98unchanged tests passed in4files; all15source tests passed after correcting the test-only guessed39-row expectation to native30 at entry and current. Initial combined run112passed/1failed is retained |
+| Reader input admission |Real Playwright discovery:1positive/6negative controls against177nonempty required dependencies; no browser cases in controls. Five genuinely empty producer stderr witnesses remain in the general immutable input population, not treated as nonempty substantive source inputs |
+| Final normal lint/prelint |`npm run lint`:exit0,13:21:44-13:22:01UTC; normal postinstall prelint retained |
+| Final types |`tsc --noEmit --incremental false`:exit0,13:22:15-13:22:17UTC, restored configuration |
+| Actual offline content chain |`npm run validate:content`:exit1 at13:00:37-13:00:38UTC; structure/no-slop/charts pass before audit coverage fails: **445findings /556of994complete**, nine separate unresolved citation checks |
+| Primary mounted readers |13passed/1failed at375x812 and1440x900,13:06:42-13:07:50UTC. Existing mobile nav assertion required naturally opening the menu; only that case reran and passed13:09:36-13:09:40UTC |
+| Missing endpoint closeout |Primary frame named victory-inference-removed targeted an earlier paragraph. It is not proof of the concluding cut. Locator corrected; only the missing concluding-cut case ran at both sizes,2passed13:19:46-13:20:00UTC |
+
+**25screenshots actually inspected at native viewport sizes**:22primary reader frames,1mobile navigation frame and2correct concluding-cut frames. Three primary wrongly targeted frames are preserved and excluded from cut-endpoint proof. Overlapping natural mobile scroll captures cover the complete corrected long paragraphs; no fitted/full-page image is claimed as full pixel coverage. Body and Stat attribution, complete qualifier, imagined dialogue/likely, actual concluding cut, Brooks citation hover/popover/Escape and visible full Brooks References entry are observed. Existing hand sorting/selection/reset and keyboard sort tests pass at both sizes; mobile menu opens and closes naturally. No source link was visited. Scoped fixtures recorded0page/console errors and0external requests. **Axe0violations, but color-contrast incompletes on68mobile and38desktop nodes** remain unaccepted; these106observations are not106unique nodes or proof of contrast compliance.
+
+A single fresh offline Next16.3`--webpack` cache with19verified retained WOFF2fonts was used on127.0.0.1:3271. The primary supervisor ran from2026-09-14T13:02:47.366157+00:00to2026-09-14T13:13:00.094708+00:00; after discovering the wrong cut-frame target, a narrowly scoped continuation reused that same task-created cache from2026-09-14T13:19:18.951441+00:00to2026-09-14T13:20:43.396367+00:00. No full-suite rerun or production build/export occurred. Both real Next/supervisor/runner/waiter exits were0; both sets of five owned PIDs are absent, port3271 is bindable and next.config.ts/tsconfig.json/next-env.d.ts are byte-exactly restored. Original runtime and all refusal/failure records remain. No foreign process was signalled and no cleanup was performed.
+
+Input snapshots bind actual Git blobs or run-scoped file copies before application/readers. The external inventory expanded106to131 before application, then161 before readers. Missing/stale populated inputs fail closed. This is a concrete declared population, **not proof that every transitive toolchain/source dependency has been exhaustively inventoried**. Earlier source-review provenance dependencies were verified by the proof script but some were only added to the external snapshot population before application; do not backdate that qualification. Current receipts do not retroactively repair predecessor input-population limitations.
+
+Still open: Figure15 dispatch reconciliation; all438incomplete originals and nine citation checks; unassigned dexterity claims (including earlier deployment-order framing), full article/P1 and source limitations; shared Back/focus and Term Escape debt, contrast/full accessibility/reference profiles; production export/reading-time/browser/OG corpus convergence; independent Sol/high scrutiny and user testing. **Formal307/331 unchanged. Content/release RED: do not publish.** No independent acceptance, features edit, new Mission/controller/worktree, fallback activation, credit exhaustion, push, deployment, billing, credential or security change.
+
+First actual Astra/max emission **12:22:19.253UTC** fixed the original **12:57:19.253UTC** checkpoint target. That checkpoint was reported and the bounded scientific/reader closeout continued; the target was not reset and is not a termination deadline. Actual final seal time and local commit/tree are recorded only after creation.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-five-integration-20260914/`.
+
+| OriginalId | Current native four-cell SHA256 | Disposition |
+| --- | --- | --- |
+| `audit/frontier.md:dexterity:2` | `6128534bdda1a3261b473d370127d99facc9dacafa8454f331035e57b1c1fbc2` | complete, corrected |
+| `audit/frontier.md:dexterity:3` | `94b60980f236ff13e1fd768819234eeb7c2274b761b0c7c6f3846da7f4982b54` | complete, corrected |
+| `audit/frontier.md:dexterity:5` | `d1d53cb5867ae915d8d8ee051f6a782db621b5c778ed53cce51e9dd6d547c183` | complete, corrected |
+| `audit/frontier.md:dexterity:6` | `08c23713c1c4378aaaa0af9439cb00f9d6e5ef7bf1344a2e91936c4362c57136` | complete, corrected |
+| `audit/frontier.md:dexterity:15` | `629066bada1f7ed772172e584effaba7754068e807958c6d28c780e06f55dffa` | held, unchanged |
+
+## Previous checkpoint: two grasp source originals (2026-09-14)
 
 Exactly **2 applied / 0 assigned held / 0 assigned unattempted originals**: `audit/classical.md:grasp-planning:11/13`. **2 corrected rows / 0 newly verified rows / 0 cuts**. Two reviewed compound plans bind **14 mandatory AND parts / 14 evidence items**, and five atomic article/comment endpoints. Originals3/Cutkosky,10/Ferrari-Canny,12/local example, glossary and unassigned conclusion remain untouched and unaccepted; no completed original was reapplied.
 

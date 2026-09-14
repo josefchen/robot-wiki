@@ -10213,6 +10213,24 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "dexterity-brooks-four-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "aa38e524616bee37d42d9350a7cc3a69d607928cb6d9c8f3cf3ba3bd595fedb8",
+      "reason": "Exact originals2/3/5/6: Brooks-reported match timing and residual sensation, imagined scaling counterargument with likely, qualified then-current touch conclusion, unsupported victory-inference cut. Original15 and unassigned neighbors unchanged.",
+      "ownerApproval": "Josef’s actual September7 fix-it-all authority and September14 exact integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

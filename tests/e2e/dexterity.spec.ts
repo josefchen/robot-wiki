@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './dexterity-reader-fixture';
 import AxeBuilder from '@axe-core/playwright';
 
 const ROUTE = '/frontier/dexterity/';
@@ -41,17 +41,33 @@ test.describe('frontier dexterity module', () => {
     expect(mainText).toMatch(/anesthetized/);
     expect(mainText).toMatch(/Johansson/);
     expect(mainText).toContain('Rodney Brooks');
+    expect(mainText).toContain("These are the essay's descriptions of the demonstration");
+    expect(mainText).toContain('an imagined inner dialogue');
+    expect(mainText).toContain('will likely require the right sensory data and the right thing to learn');
+    expect(mainText).toContain('his assessment at the time of the essay');
+    expect(mainText).not.toContain('Her vision is intact');
+    expect(mainText).not.toContain('Nothing about her plan changed');
+    expect(mainText).not.toContain('If touch-driven pipelines get there first');
+    expect(mainText).toContain('his reported first-video time; second described as four times as long');
 
     // No raw MDX or component syntax leaks into the rendered page.
     expect(mainText).not.toContain('import {');
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
 
+    const openMenu = page.getByRole("button", { name: "Open navigation menu" });
+    const mobileMenu = await openMenu.isVisible();
+    if (mobileMenu) await openMenu.click();
     const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(nav.getByRole('link', { name: 'Dexterity' })).toHaveAttribute(
       'aria-current',
       'page',
     );
+    if (mobileMenu) {
+      await page.screenshot({ path: test.info().outputPath("mobile-navigation.png") });
+      await page.keyboard.press("Escape");
+      await expect(nav).toBeHidden();
+    }
     expect(errors).toEqual([]);
   });
 
@@ -249,6 +265,7 @@ test.describe('frontier dexterity module', () => {
   test('zero axe violations', async ({ page }) => {
     await page.goto(ROUTE);
     const results = await new AxeBuilder({ page }).analyze();
+    test.info().attach('axe-results', { body: JSON.stringify(results), contentType: 'application/json' });
     expect(results.violations).toEqual([]);
   });
 });

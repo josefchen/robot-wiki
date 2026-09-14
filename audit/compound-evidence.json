@@ -46403,5 +46403,301 @@
         "evidenceDigest": "fd8621d6b4a40d67e4b90569550ab0d12694907693dc4702613179a65e1d642e"
       }
     ]
+  },
+  {
+    "id": "dexterity-brooks-2-source-20260914",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "6128534bdda1a3261b473d370127d99facc9dacafa8454f331035e57b1c1fbc2",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "lab-and-first-time",
+        "text": "The corrected text attributes the Johansson-lab match-lighting description and seven-second first task to Brooks.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "anesthesia-and-ratio",
+        "text": "Brooks describes the same person’s fingertip anesthesia, unsuccessful attempts and orientation fumbling, and taking four times as long.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "reported-timing-scope",
+        "text": "The body and Stat carry the same source-reported comparison; no independent measurement or universal timing inference is asserted.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+      "rationale": "Reviewed whole current article and five coupled correction endpoints against actual retained author text and original retrieval provenance. Complete mandatory AND population retained; essay attribution only, historical notes non-counted. No owner personal source certification or independent acceptance.",
+      "planDigest": "1b55110c50a8d41f51b937ef39fe0b6f17c099cf7c2d36642c6603f14dc1f9f9"
+    },
+    "evidence": [
+      {
+        "partId": "lab-and-first-time",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "The following two videos are from Roland Johansson’s lab at Umeå University in Sweden where he has studied human touch for decades. In the first video the person picks a match out of a box and lights it. The task takes seven seconds. In the second video the same person tries again but this time the tips of her fingers have been anesthetized so she no longer has any sense of touch right at her fingertips. She can still sense many other things in the rest of her fingers and hand, and all the forces that she can ordinarily feel with her skeletal muscle system."
+      },
+      {
+        "partId": "anesthesia-and-ratio",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "[Retained excerpt: §4.1, before embedded videos]\nThe following two videos are from Roland Johansson’s lab at Umeå University in Sweden where he has studied human touch for decades. In the first video the person picks a match out of a box and lights it. The task takes seven seconds. In the second video the same person tries again but this time the tips of her fingers have been anesthetized so she no longer has any sense of touch right at her fingertips. She can still sense many other things in the rest of her fingers and hand, and all the forces that she can ordinarily feel with her skeletal muscle system.\n\n[Retained excerpt: §4.1, after embedded videos]\nWithout a sense of touch in her fingertips the person makes many unsuccessful attempts to pick up a match from the box, then fails to pickup an isolated match that had fallen on the table, then goes back to the box and straightens up the matches, manages to pick one up, then fumbles with the match trying to get it into the right orientation between her fingers, and successfully lights it after taking four times as long as she took with sensitive fingertips."
+      },
+      {
+        "partId": "reported-timing-scope",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "[Retained excerpt: §4.1, before embedded videos]\nThe following two videos are from Roland Johansson’s lab at Umeå University in Sweden where he has studied human touch for decades. In the first video the person picks a match out of a box and lights it. The task takes seven seconds. In the second video the same person tries again but this time the tips of her fingers have been anesthetized so she no longer has any sense of touch right at her fingertips. She can still sense many other things in the rest of her fingers and hand, and all the forces that she can ordinarily feel with her skeletal muscle system.\n\n[Retained excerpt: §4.1, after embedded videos]\nWithout a sense of touch in her fingertips the person makes many unsuccessful attempts to pick up a match from the box, then fails to pickup an isolated match that had fallen on the table, then goes back to the box and straightens up the matches, manages to pick one up, then fumbles with the match trying to get it into the right orientation between her fingers, and successfully lights it after taking four times as long as she took with sensitive fingertips.\n\n[Retained excerpt: §4, before §4.1]\nHuman dexterity relies on a rich sense of touch. And dexterity for humans involves more than just their hands; it often involves their elbows, the fronts of the bodies, legs, and feet (many machines have foot pedals). I am not going to present a comprehensive complete case for it here, as one might expect if this were a formal peer reviewed academic research paper. But I will show you results from a somewhat random selection of solid peer reviewed academic work stretching over fifty years which together demonstrate that humans use touch and force sensing extensively."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "lab-and-first-time",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+        "rationale": "The author names Johansson’s lab, the first video’s match-lighting task and seven seconds. This supports only attribution of his account, not independent timing or a trial statistic.",
+        "evidenceDigest": "95002350426f6833990de5be77cc085672e015b5b87f85bb45e6548c9d7cdc9b"
+      },
+      {
+        "partId": "anesthesia-and-ratio",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+        "rationale": "The before/after-video passages name the same person, fingertip anesthesia, unsuccessful pickup/orientation and four times as long. No second duration, ratio across a population or medical mechanism is derived.",
+        "evidenceDigest": "6618cdd3f69778cf866f191091b7eec9b4027599e04e995a82fef4fae2171d63"
+      },
+      {
+        "partId": "reported-timing-scope",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+        "rationale": "The body and Stat explicitly describe essay-reported times. The author disclaims a comprehensive formal case; no video was measured here and the lost feedback does not establish an unchanged plan.",
+        "evidenceDigest": "78b70974da1e67d116dd7df3e9b455fe28df3f576c71426a708238c4e8c2e8a5"
+      }
+    ]
+  },
+  {
+    "id": "dexterity-brooks-3-source-20260914",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "94b60980f236ff13e1fd768819234eeb7c2274b761b0c7c6f3846da7f4982b54",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "fingertip-loss-reported",
+        "text": "The corrected current claim is Brooks’s report that the fingertips were anesthetized and fingertip touch absent.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "residual-sensation-reported",
+        "text": "The corrected current claim preserves his separate residual sensations in the rest of fingers/hand and all ordinarily felt skeletal-muscle forces, without claiming intact vision or all proprioception.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+      "rationale": "Reviewed whole current article and five coupled correction endpoints against actual retained author text and original retrieval provenance. Complete mandatory AND population retained; essay attribution only, historical notes non-counted. No owner personal source certification or independent acceptance.",
+      "planDigest": "2a0e5808bb491a520fe392ac0d7810a1c8d9ff54e26dff6282897690e221ed43"
+    },
+    "evidence": [
+      {
+        "partId": "fingertip-loss-reported",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "The following two videos are from Roland Johansson’s lab at Umeå University in Sweden where he has studied human touch for decades. In the first video the person picks a match out of a box and lights it. The task takes seven seconds. In the second video the same person tries again but this time the tips of her fingers have been anesthetized so she no longer has any sense of touch right at her fingertips. She can still sense many other things in the rest of her fingers and hand, and all the forces that she can ordinarily feel with her skeletal muscle system."
+      },
+      {
+        "partId": "residual-sensation-reported",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "The following two videos are from Roland Johansson’s lab at Umeå University in Sweden where he has studied human touch for decades. In the first video the person picks a match out of a box and lights it. The task takes seven seconds. In the second video the same person tries again but this time the tips of her fingers have been anesthetized so she no longer has any sense of touch right at her fingertips. She can still sense many other things in the rest of her fingers and hand, and all the forces that she can ordinarily feel with her skeletal muscle system."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "fingertip-loss-reported",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+        "rationale": "The source says the fingertip tips were anesthetized and touch right at the fingertips absent. This is the author’s description, not an independently examined clinical record.",
+        "evidenceDigest": "9eb07ed6ad95f24f7925ef28c841838ee0d05f2180037ed12942776bd6dd37bc"
+      },
+      {
+        "partId": "residual-sensation-reported",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+        "rationale": "The same paragraph preserves sensations in the rest of fingers/hand and ordinarily sensed skeletal-muscle forces. It never establishes intact vision or every proprioceptive channel; the old nerve-block explanation is retained only as non-counted history.",
+        "evidenceDigest": "cf46cc5d6061f3f947b0a5027a7b984142fc41d82edd609fc6c899e7f6bd63de"
+      }
+    ]
+  },
+  {
+    "id": "dexterity-brooks-5-source-20260914",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "d1d53cb5867ae915d8d8ee051f6a782db621b5c778ed53cce51e9dd6d547c183",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "imagined-not-quoted",
+        "text": "Brooks labels the counterargument an imagined inner dialogue.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "successes-and-scaling-rationale",
+        "text": "That dialogue cites speech-to-text, image labeling and LLM success and proposes human hand-use data yielding dexterous control; he also acknowledges the earlier successes outside the dialogue.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "actual-reply",
+        "text": "His reply concerns engineered front ends and likely needing the right data and right thing to learn, not denial of prior end-to-end successes.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+      "rationale": "Reviewed whole current article and five coupled correction endpoints against actual retained author text and original retrieval provenance. Complete mandatory AND population retained; essay attribution only, historical notes non-counted. No owner personal source certification or independent acceptance.",
+      "planDigest": "f5710bd0dbe08991f8042a486aff1df7529156291908a815ffaac4c00c866da1"
+    },
+    "evidence": [
+      {
+        "partId": "imagined-not-quoted",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Well gosh, what are we to do? How are we going to get humanoid robots to be dexterous? Here’s my imagined inner dialog that so many people must have gone through."
+      },
+      {
+        "partId": "successes-and-scaling-rationale",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "[Retained excerpt: §2.2, imagined dialogue]\n_End to end learning has worked well over the past 20 years in at least three domains, speech to text, labeling images, and now large language models. So instead of trying to figure dexterity stuff out mathematically, how about we just do end to end learning? We’ll collect lots of data about how humans use their hands to do tasks, and feed it into a learning system, and out will pop dexterous robot control. And our companies will be worth billions of dollars._\n\n[Retained excerpt: §3, opening]\nIn the last two decades speech to text, image labeling, and fluid language generated by Large Language Models (LLMs) have all been transformed, in spectacular ways, by end-to-end learning, using linear threshold neural models."
+      },
+      {
+        "partId": "actual-reply",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "[Retained excerpt: §4, opening]\nThe center piece of my argument is that the brute force learning approaches that everyone rightfully touts as great achievements relied on case-specific very carefully engineered front-ends to extract the right data from the cacophony of raw signals that the real-world presents.\n\n[Retained excerpt: §4, second paragraph]\nIf it is the case for the big successes it is likely also the case for learning dexterity by brute force. If any one or any group is to succeed they will likely have to collect the both the **_right data_**, and learn the **_right thing_**. Most of the projects to teach humanoids dexterity are doing neither of these things. There are some exciting and promising experiments going on in academic laboratories, but they have not yet gotten close to demonstrating any real dexterity. By [my third law of robotics](https://rodneybrooks.com/rodney-brooks-three-laws-of-robotics/) that says that we are more than ten years away from the first profitable deployment of humanoid robots even with minimal dexterity."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "imagined-not-quoted",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+        "rationale": "Section2.2 explicitly labels the speech an imagined inner dialog. Strongest/fairly are not source findings or a statement by the neighboring named companies.",
+        "evidenceDigest": "bc4a6c4e5d48346ca62e60e421cf5a905b3987f0866163ccd0cf94e3d4d76c84"
+      },
+      {
+        "partId": "successes-and-scaling-rationale",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+        "rationale": "The imagined passage proposes human hand-use data after three learning successes; section3 independently acknowledges those successes and says leaving much to learning was critical. The correction does not portray Brooks as denying them.",
+        "evidenceDigest": "694add5b5052d77857a3d1362b6061a5f0792e5cb6486ebba785f0aaac0182c9"
+      },
+      {
+        "partId": "actual-reply",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+        "rationale": "Sections3–4 argue for engineered front ends, the right data and the right learning target, explicitly with likely. The correction attributes his argument without endorsing every architecture/history statement in it.",
+        "evidenceDigest": "5c6c6504ee6defd52016cf047e5ae14e4c69343adfd524bcde48d7167e91fc98"
+      }
+    ]
+  },
+  {
+    "id": "dexterity-brooks-6-source-20260914",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 6,
+    "originalCellsDigest": "08c23713c1c4378aaaa0af9439cb00f9d6e5ef7bf1344a2e91936c4362c57136",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "qualified-task-bound-conclusion",
+        "text": "The article preserves It looks like and tasks like the match example in Brooks’s touch-sensing conclusion.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "then-assessment-not-census",
+        "text": "The reader encounters Brooks’s assessment at the time of his essay, not an independently verified present-day census of tactile sensing.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "countercontext-preserved",
+        "text": "The interpretation does not erase his acknowledged promising academic experiments, corrected joint-level-feedback example or remaining-research framing.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+      "rationale": "Reviewed whole current article and five coupled correction endpoints against actual retained author text and original retrieval provenance. Complete mandatory AND population retained; essay attribution only, historical notes non-counted. No owner personal source certification or independent acceptance.",
+      "planDigest": "6ccd49eca9c61526f2581997201aee924308b642ce681522d4663940455fc0f9"
+    },
+    "evidence": [
+      {
+        "partId": "qualified-task-bound-conclusion",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "It looks like humanoid robots will need a sense of touch, and a level of touch sensing that no one has yet built in the lab in order for them to do tasks like the one above which is of the same order of difficulty that millions of workers do all day everyday in some parts of the world. \\[\\[I have visited well over 100 factories in the US, China, Japan, Korea, Taiwan, and Germany, some where my companies have been building my five major families of robots: Roomba, PackBot, Baxter, Sawyer, and Carter, and some where I have been selling robots to make workers in the factories more productive, and some where I was on technology advisory boards for the companies that ran the factories. I have seen this and many other types of dexterity of humans beings applied to complex tasks in all these factories.\\]\\]"
+      },
+      {
+        "partId": "then-assessment-not-census",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "[Retained excerpt: §4.1, immediately after comparison]\nIt looks like humanoid robots will need a sense of touch, and a level of touch sensing that no one has yet built in the lab in order for them to do tasks like the one above which is of the same order of difficulty that millions of workers do all day everyday in some parts of the world. \\[\\[I have visited well over 100 factories in the US, China, Japan, Korea, Taiwan, and Germany, some where my companies have been building my five major families of robots: Roomba, PackBot, Baxter, Sawyer, and Carter, and some where I have been selling robots to make workers in the factories more productive, and some where I was on technology advisory boards for the companies that ran the factories. I have seen this and many other types of dexterity of humans beings applied to complex tasks in all these factories.\\]\\]\n\n[Retained excerpt: §4.2]\nApart from Figure and Tesla which are explicitly claim not to be doing so, the other big companies are not saying. And there are lots of big companies working on humanoid robots, and you can sort of tell by seeing which of your friends are getting hired by which company.\n\n[Retained excerpt: §4, before §4.1]\nHuman dexterity relies on a rich sense of touch. And dexterity for humans involves more than just their hands; it often involves their elbows, the fronts of the bodies, legs, and feet (many machines have foot pedals). I am not going to present a comprehensive complete case for it here, as one might expect if this were a formal peer reviewed academic research paper. But I will show you results from a somewhat random selection of solid peer reviewed academic work stretching over fifty years which together demonstrate that humans use touch and force sensing extensively."
+      },
+      {
+        "partId": "countercontext-preserved",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "[Retained excerpt: §4, second paragraph]\nIf it is the case for the big successes it is likely also the case for learning dexterity by brute force. If any one or any group is to succeed they will likely have to collect the both the **_right data_**, and learn the **_right thing_**. Most of the projects to teach humanoids dexterity are doing neither of these things. There are some exciting and promising experiments going on in academic laboratories, but they have not yet gotten close to demonstrating any real dexterity. By [my third law of robotics](https://rodneybrooks.com/rodney-brooks-three-laws-of-robotics/) that says that we are more than ten years away from the first profitable deployment of humanoid robots even with minimal dexterity.\n\n[Retained excerpt: §4.2]\nIn academia though, there is still a healthy set of experiments going on. Here is just one example, from the “ [best paper](https://dex-op.github.io/)” from the May 2025 _Dexterous Human Manipulation_ workshop at the _Robotics Systems and Science_ conference. It comes from Pulkit Agrawal’s group centered in CSAIL at MIT. It involves a newly invented way to collect the **right data** to feed to machine learning. As you can see in the two pictures below the human essentially has their hand in a glove. There is a robot hand rigidly attached to the glove so the robot hand is roughly 10cm away from the human hand and completely parallel to it. The human moves their fingers to control the robot hand fingers and the human moves their arm to place the robot hand in contact with objects to be manipulated.. The robot fingers and palm have touch sensors which feed to the data collection system _and to the actuators which stimulate the human’s finger tips and palm_. \\[\\[This was the original wording when I posted this, but I misunderstood something, and prompted by a reader I reached out to Pulkit to clarify. The part now in italics is not true in the sense of there being active actuators stimulating the person. It is true in the lesser sense that the human feels joint-level force feedback.\\]\\] So while this system doesn’t record the forces that the human directly feels and controls with their arms, it does get to associate finger motions generated by a human with touch sensations that the human is sensing as they decide how to control the robot hand.\n\n[Retained excerpt: §4.3, close]\nThere is still plenty of research to be done to figure all this out. And then years to get to solid lab demos, then years more to get to deployable systems that bring value to customers."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "qualified-task-bound-conclusion",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+        "rationale": "The conclusion starts It looks like and explicitly limits its motivating task to examples like match lighting. The full hedge and match-task scope remain; first deployment is not proof that touch was necessary.",
+        "evidenceDigest": "dbaded3333da914bb6f14090f4fa5db75b38c99c27ede2fd74ef9e3abe83ac2c"
+      },
+      {
+        "partId": "then-assessment-not-census",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+        "rationale": "The essay’s yet is its then-current assessment, not a present-day survey; the author calls his evidence non-comprehensive and notes that other companies do not disclose their approaches. No publication day is inferred.",
+        "evidenceDigest": "97ecaa070368b3f56f5b953f0b72d23c8c16b1bd57a548fab2e6fc6f2eb126fb"
+      },
+      {
+        "partId": "countercontext-preserved",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-source review2026-09-14",
+        "rationale": "The author acknowledges promising academic experiments, corrects his active-actuator description to joint-level force feedback, and closes with remaining research. These contexts preclude treating the paragraph as an impossibility proof or current all-lab census.",
+        "evidenceDigest": "860a3a8cacc349b4e528faffecf29855a0cf3f2c47e9efa5c5417c738785ee01"
+      }
+    ]
   }
 ]

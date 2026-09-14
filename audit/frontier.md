@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 6
 - Claim rows: 147
-- Recorded verified: 110
-- Recorded corrected: 34
+- Recorded verified: 107
+- Recorded corrected: 37
 - Recorded cut: 0
 - Recorded source inconsistencies: 3
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 17
-- Incomplete evidence records: 130
+- Complete evidence records: 21
+- Incomplete evidence records: 126
 
 <!-- audit-summary:end -->
 
@@ -41,14 +41,14 @@ Conventions: verdicts count **ledger rows**; the summary also states **distinct 
 
 ## dexterity.mdx
 
-| # | Claim (quoted) | Source checked | Verdict | Note |
-|---|---|---|---|---|
+| # | Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
+|---|---|---|---|---|---|---|---|---|
 | D1 | "By 1961 Heinrich Ernst had connected a computer-controlled arm and hand to MIT's TX-0 and had it stacking blocks" | rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity (fetched) | V | "By 1961 Heinrich Ernst had produced a PhD thesis describing a computer controlled arm and hand that he had connected to the TX-0 computer at MIT, and had it picking up blocks and stacking them" |
-| D2 | Match-lighting: task takes seven seconds; anesthetized "four times as long"; "visible fumbling to get the match oriented between fingers" | Brooks essay (fetched) | V | "The task takes seven seconds"; "successfully lights it after taking four times as long"; "fumbles with the match trying to get it into the right orientation between her fingers" |
-| D3 | "Her vision is intact, her proprioception is intact" (anesthetized video) | Brooks essay (fetched) | C | Source says fingertip touch is gone but "she can still sense many other things in the rest of her fingers and hand, and all the forces that she can ordinarily feel with her skeletal muscle system". It never states proprioception is intact (digital-nerve blocks also cut proprioceptive afferents). Weakened to the source's own description. |
+| D2 | Brooks's account of two Johansson-lab match-lighting videos: seven seconds in the first; four times as long after fingertip anesthesia, with difficulty picking up and orienting the match. The body and Stat identify these as his reported timings, not an independent measurement. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | Source-reported demonstration only. No video playback or independent timing in this recovery; no derived second duration, trial average, clinical mechanism or general performance ratio. Coupled sensation/body/Stat correction required; original cells retained in explicit history. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-2-source-20260914 |
+| D3 | In Brooks's description, fingertip touch is absent after anesthesia, while sensations in the rest of the fingers and hand and the forces ordinarily felt with the skeletal muscle system remain. This is not a claim of intact vision or all proprioception. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | The retained source describes residual sensation; it does not establish intact vision, blanket intact proprioception or the inherited note's digital-nerve-block mechanism. That medical explanation is not asserted in the current row. The original C row and its unsupported medical note are preserved below as non-counted history, not evidence. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-3-source-20260914 |
 | D4 | Tesla: "workers wear camera rigs of helmets and backpacks with five cameras, record mundane tasks like folding a t-shirt... according to an eWeek report Brooks quotes" | Brooks essay (fetched) | V | eWeek quote reproduced verbatim inside the essay; attribution chain stated correctly |
-| D5 | Brooks: scaling counterargument (speech, image labeling, LLM) "states it fairly before rejecting it" | Brooks essay (fetched) | V | §2.2 inner-dialog framing matches |
-| D6 | Brooks conclusion: "humanoid robots will need a sense of touch, and a level of touch sensing that no one has yet built in the lab" | Brooks essay (fetched) | V | verbatim: "It looks like humanoid robots will need a sense of touch, and a level of touch sensing that no one has yet built in the lab" |
+| D5 | Brooks frames a scaling counterargument as an imagined inner dialogue, drawing on end-to-end successes in speech-to-text, image labeling and language models to propose learning dexterous control from human hand-use data; his reply stresses engineered inputs and likely needing the right data and learning target. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | The imagined dialogue is Brooks’s construction, not a verbatim statement by Tesla, Figure or all scaling proponents. Strongest and fairly are not source findings. Preserve the acknowledgment of end-to-end successes and his actual engineered-input/data/target reply; leave neighboring named company claims and citations untouched. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-5-source-20260914 |
+| D6 | Brooks’s touch-sensing conclusion is qualified by “It looks like,” scoped to tasks such as his match-lighting example, and an assessment at the time of the essay rather than a current census or universal impossibility proof. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | Retain the complete qualifier and then-current sense of yet. Registry year 2025 is existing context, not a newly verified publication day. The essay acknowledges promising academic work and corrects its own feedback description. No sensor specification, all-lab census or inference that first deployment proves necessity is certified. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-6-source-20260914 |
 | D7 | Brooks: practical humanoid dexterity "within decades" = "pure fantasy thinking" | Brooks essay (fetched) | V | "believing that this will happen any time within decades is pure fantasy thinking" |
 | D8 | Holson pipeline limits: no wrist force feedback, open/close finger control, no touch, "roughly 1 to 3 cm of precision" | Brooks essay quoting Holson; generalrobots.substack.com (fetched) | V | Holson's own post carries all four verbatim ("No force feedback at the wrists", "Limited finger control", "No sense of touch", "Medium precision... about 1-3 cm precision"); Brooks quotes the same list |
 
@@ -443,3 +443,97 @@ Historical guard/input proof is reused by exact bytes, not rerun for ownership. 
 **Remaining/limits:**450 corpus originals,13 Competing Theses originals, excluded23’s interview obligation, inherited RRT unresolved verdict, whole-P1/current-liveness/edition work, TermEscape/Back-focus, typography/caveat/small-label/contrast debt, production export/reading times/cards, full browser corpus, independent Sol/high scrutiny/user testing and release acceptance. No production build/export or full-browser corpus was run while content remains **RED at457 findings**. Inherited Mission307/331 is unadvanced, not freshly certified. No feature-file edit, push, deployment, controller/security/credentials/billing change, cleanup or model-credit fallback.
 
 First assistant emission **06:22:11.881UTC**; actual Astra/max metadata verified before writes/tests. Fixed checkpoint **06:57:11.881UTC** was exceeded during guarded shutdown, preserved-input recovery and safe closeout; it was not reset or treated as an application quota. Local commit IDs and the actual subsequent terminal timestamp are bound only after creation in the final evidence seal. **Do not publish.**
+
+
+## 2026-09-14 Brooks dexterity originals 2, 3, 5 and 6
+
+Four source-backed corrected originals, eleven mandatory AND parts/items, five atomic article endpoints. Original2/3 body and Stat travel together; original6 includes removal of the unsupported first-deployment-proves-necessity sentence. Source is Rodney Brooks’s author essay, not an independent measurement, clinical report or current sensor census. Retained FetchUrl request2026-09-13T15:12:35.617Z, result2026-09-13T15:12:43.252Z, tool-reported200. Full response88799bytes/SHA25646d726566d5d1ed25f846df73375a4888d9642b77298df7c8d37215b62bf68a5; author body62634bytes/SHA256523ce6c9c592f17353ff4c8f32c97ed8159119bac38b376a474722e99ba1cb28. Exact author boundary excludes all comments. Original event and full tool-artifact bytes checked; current review2026-09-14 is not retrieval. No video, image, linked-paper, publication-day, raw-origin-header/redirect or current-liveness proof. Historical intact-vision/proprioception and nerve-block explanations below are original error history, not current truth or supporting passages. Source countercontext includes prior learning successes, likely, promising academic experiments and the author’s joint-level-feedback correction.
+
+Original15 is HELD: its hash-qualified packet supplies one article endpoint d15-main-prose and two source items d15-figure03-item/d15-helix02-item, not the three article endpoints required by the dispatch. Its explicit dependencies exclude adjacent threshold/superlative changes. No missing endpoint was invented, no Figure source claim was adjudicated, and no Figure text or original15 cell changed. Originals1/4/13/14 and every other unassigned original, glossary, prices/receptors/in-hand impossibility, all prior plans/approvals and the2026-08-18 article date remain preserved. This group does not certify any neighboring claim, full P1/article or independent acceptance.
+
+Non-counted exact before/current row history:
+
+```json
+[
+  {
+    "originalId": "audit/frontier.md:dexterity:2",
+    "rowOrdinal": 2,
+    "currentCells": {
+      "claim": "Match-lighting: task takes seven seconds; anesthetized \"four times as long\"; \"visible fumbling to get the match oriented between fingers\"",
+      "sourceChecked": "Brooks essay (fetched)",
+      "verdict": "V",
+      "note": "\"The task takes seven seconds\"; \"successfully lights it after taking four times as long\"; \"fumbles with the match trying to get it into the right orientation between her fingers\""
+    },
+    "currentTupleDigest": "f50a90671331cbb8daa7f7a0e4de1021b1e6ae396d7ae9bec84be06b6adb882c",
+    "proposedCells": {
+      "claim": "Brooks's account of two Johansson-lab match-lighting videos: seven seconds in the first; four times as long after fingertip anesthesia, with difficulty picking up and orienting the match. The body and Stat identify these as his reported timings, not an independent measurement.",
+      "sourceChecked": "Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof.",
+      "verdict": "C",
+      "note": "Source-reported demonstration only. No video playback or independent timing in this recovery; no derived second duration, trial average, clinical mechanism or general performance ratio. Coupled sensation/body/Stat correction required; original cells retained in explicit history. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance."
+    },
+    "proposedTupleDigest": "6128534bdda1a3261b473d370127d99facc9dacafa8454f331035e57b1c1fbc2",
+    "oldRaw": "| D2 | Match-lighting: task takes seven seconds; anesthetized \"four times as long\"; \"visible fumbling to get the match oriented between fingers\" | Brooks essay (fetched) | V | \"The task takes seven seconds\"; \"successfully lights it after taking four times as long\"; \"fumbles with the match trying to get it into the right orientation between her fingers\" |",
+    "newRaw": "| D2 | Brooks's account of two Johansson-lab match-lighting videos: seven seconds in the first; four times as long after fingertip anesthesia, with difficulty picking up and orienting the match. The body and Stat identify these as his reported timings, not an independent measurement. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | Source-reported demonstration only. No video playback or independent timing in this recovery; no derived second duration, trial average, clinical mechanism or general performance ratio. Coupled sensation/body/Stat correction required; original cells retained in explicit history. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-2-source-20260914 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:3",
+    "rowOrdinal": 3,
+    "currentCells": {
+      "claim": "\"Her vision is intact, her proprioception is intact\" (anesthetized video)",
+      "sourceChecked": "Brooks essay (fetched)",
+      "verdict": "C",
+      "note": "Source says fingertip touch is gone but \"she can still sense many other things in the rest of her fingers and hand, and all the forces that she can ordinarily feel with her skeletal muscle system\". It never states proprioception is intact (digital-nerve blocks also cut proprioceptive afferents). Weakened to the source's own description."
+    },
+    "currentTupleDigest": "d93c6f8665242f8cffb64e093930dc8d3bebf4c1bdd431744cf0e594b34a076a",
+    "proposedCells": {
+      "claim": "In Brooks's description, fingertip touch is absent after anesthesia, while sensations in the rest of the fingers and hand and the forces ordinarily felt with the skeletal muscle system remain. This is not a claim of intact vision or all proprioception.",
+      "sourceChecked": "Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof.",
+      "verdict": "C",
+      "note": "The retained source describes residual sensation; it does not establish intact vision, blanket intact proprioception or the inherited note's digital-nerve-block mechanism. That medical explanation is not asserted in the current row. The original C row and its unsupported medical note are preserved below as non-counted history, not evidence. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance."
+    },
+    "proposedTupleDigest": "94b60980f236ff13e1fd768819234eeb7c2274b761b0c7c6f3846da7f4982b54",
+    "oldRaw": "| D3 | \"Her vision is intact, her proprioception is intact\" (anesthetized video) | Brooks essay (fetched) | C | Source says fingertip touch is gone but \"she can still sense many other things in the rest of her fingers and hand, and all the forces that she can ordinarily feel with her skeletal muscle system\". It never states proprioception is intact (digital-nerve blocks also cut proprioceptive afferents). Weakened to the source's own description. |",
+    "newRaw": "| D3 | In Brooks's description, fingertip touch is absent after anesthesia, while sensations in the rest of the fingers and hand and the forces ordinarily felt with the skeletal muscle system remain. This is not a claim of intact vision or all proprioception. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | The retained source describes residual sensation; it does not establish intact vision, blanket intact proprioception or the inherited note's digital-nerve-block mechanism. That medical explanation is not asserted in the current row. The original C row and its unsupported medical note are preserved below as non-counted history, not evidence. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-3-source-20260914 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:5",
+    "rowOrdinal": 5,
+    "currentCells": {
+      "claim": "Brooks: scaling counterargument (speech, image labeling, LLM) \"states it fairly before rejecting it\"",
+      "sourceChecked": "Brooks essay (fetched)",
+      "verdict": "V",
+      "note": "§2.2 inner-dialog framing matches"
+    },
+    "currentTupleDigest": "8a901f6d972fe1e1dbcf2d7ffab4218553157496cb5272e8cd058f4827161676",
+    "proposedCells": {
+      "claim": "Brooks frames a scaling counterargument as an imagined inner dialogue, drawing on end-to-end successes in speech-to-text, image labeling and language models to propose learning dexterous control from human hand-use data; his reply stresses engineered inputs and likely needing the right data and learning target.",
+      "sourceChecked": "Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof.",
+      "verdict": "C",
+      "note": "The imagined dialogue is Brooks’s construction, not a verbatim statement by Tesla, Figure or all scaling proponents. Strongest and fairly are not source findings. Preserve the acknowledgment of end-to-end successes and his actual engineered-input/data/target reply; leave neighboring named company claims and citations untouched. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance."
+    },
+    "proposedTupleDigest": "d1d53cb5867ae915d8d8ee051f6a782db621b5c778ed53cce51e9dd6d547c183",
+    "oldRaw": "| D5 | Brooks: scaling counterargument (speech, image labeling, LLM) \"states it fairly before rejecting it\" | Brooks essay (fetched) | V | §2.2 inner-dialog framing matches |",
+    "newRaw": "| D5 | Brooks frames a scaling counterargument as an imagined inner dialogue, drawing on end-to-end successes in speech-to-text, image labeling and language models to propose learning dexterous control from human hand-use data; his reply stresses engineered inputs and likely needing the right data and learning target. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | The imagined dialogue is Brooks’s construction, not a verbatim statement by Tesla, Figure or all scaling proponents. Strongest and fairly are not source findings. Preserve the acknowledgment of end-to-end successes and his actual engineered-input/data/target reply; leave neighboring named company claims and citations untouched. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-5-source-20260914 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:6",
+    "rowOrdinal": 6,
+    "currentCells": {
+      "claim": "Brooks conclusion: \"humanoid robots will need a sense of touch, and a level of touch sensing that no one has yet built in the lab\"",
+      "sourceChecked": "Brooks essay (fetched)",
+      "verdict": "V",
+      "note": "verbatim: \"It looks like humanoid robots will need a sense of touch, and a level of touch sensing that no one has yet built in the lab\""
+    },
+    "currentTupleDigest": "578ade73be4f494b6c9a245a243dbd55d77059d13dbeee4618d2a2e7ca5769af",
+    "proposedCells": {
+      "claim": "Brooks’s touch-sensing conclusion is qualified by “It looks like,” scoped to tasks such as his match-lighting example, and an assessment at the time of the essay rather than a current census or universal impossibility proof.",
+      "sourceChecked": "Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof.",
+      "verdict": "C",
+      "note": "Retain the complete qualifier and then-current sense of yet. Registry year 2025 is existing context, not a newly verified publication day. The essay acknowledges promising academic work and corrects its own feedback description. No sensor specification, all-lab census or inference that first deployment proves necessity is certified. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance."
+    },
+    "proposedTupleDigest": "08c23713c1c4378aaaa0af9439cb00f9d6e5ef7bf1344a2e91936c4362c57136",
+    "oldRaw": "| D6 | Brooks conclusion: \"humanoid robots will need a sense of touch, and a level of touch sensing that no one has yet built in the lab\" | Brooks essay (fetched) | V | verbatim: \"It looks like humanoid robots will need a sense of touch, and a level of touch sensing that no one has yet built in the lab\" |",
+    "newRaw": "| D6 | Brooks’s touch-sensing conclusion is qualified by “It looks like,” scoped to tasks such as his match-lighting example, and an assessment at the time of the essay rather than a current census or universal impossibility proof. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | Retain the complete qualifier and then-current sense of yet. Registry year 2025 is existing context, not a newly verified publication day. The essay acknowledges promising academic work and corrects its own feedback description. No sensor specification, all-lab census or inference that first deployment proves necessity is certified. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-6-source-20260914 |"
+  }
+]
+```
