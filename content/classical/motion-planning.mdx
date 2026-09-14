@@ -35,7 +35,7 @@ The sampling family is below, running for real: a 2D world, five obstacles betwe
 <RrtExplorer className="my-6" />
 
 <div className="my-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-  <Stat label="RRT introduced" value="1998" note="LaValle's Iowa State tech report" />
+  <Stat label="RRT introduced" value="1998" note="Iowa State TR 98-11; date in LaValle's bibliography" />
   <Stat label="CHOMP" value="2009" note="covariant gradient refinement" />
   <Stat label="RRT* analysis" value="2011" note="Karaman and Frazzoli; conditional theorem" />
   <Stat label="demo scene below" value="2D" note="100 by 64 world, 5 obstacles" />
@@ -57,11 +57,17 @@ The classical construction shrinks the robot to a point and grows each obstacle 
 
 Sampling-based planning can avoid an explicit configuration-space obstacle model by querying a collision-detection module for candidate configurations and validating local paths <Cite id="lavalle-2006" />. The probabilistic roadmap (PRM) of Kavraki, Svestka, Latombe, and Overmars samples configurations uniformly at random, keeps the collision-free ones as milestones, connects nearby milestones with a local planner, and answers queries by searching the resulting graph <Cite id="kavraki-1996" />. It is a multi-query method: build the roadmap once, plan many start-goal pairs against it.
 
-LaValle's rapidly-exploring random tree takes the single-query view <Cite id="lavalle-1998" />. Grow a tree from the start. Each iteration samples a random configuration, finds the nearest tree node, and extends a fixed step toward the sample, keeping the new branch only if the local motion is collision-free:
+LaValle's report introduces the rapidly-exploring random tree at Iowa State University <Cite id="lavalle-1998" />. His textbook bibliography identifies it as Computer Science Technical Report 98-11, October 1998 <Cite id="lavalle-2006" />. The report starts a tree at an initial state. Each iteration samples a state in a bounded space, finds the nearest tree vertex under the chosen metric, selects a control input, and integrates the system over a fixed time interval. The vertices and the entire local paths represented by edges must remain in free state space <Cite id="lavalle-1998" />.
+
+For dynamics $\dot{x}=f(x,u)$, the report gives the Euler approximation
 
 $$
-q_{new} = q_{near} + \epsilon \, \frac{q_{rand} - q_{near}}{\lVert q_{rand} - q_{near} \rVert}
+x_{new} \approx x + f(x,u)\Delta t
 $$
+
+where $x$ is the starting state and $u$ is the chosen input. The report says a higher-order integrator such as Runge-Kutta is usually preferable. A fixed integration interval does not impose a fixed geometric extension distance for arbitrary dynamics <Cite id="lavalle-1998" />.
+
+LaValle's 2006 Section 5.5 explicitly removes the original step-size parameter. Its initial obstacle-free construction connects each sample to the nearest point in the tree's swath, the union of its edge paths. That point can lie inside an edge; Figure 5.18 splits the edge and inserts a vertex there. This construction is distinct from the original fixed-time control-integration rule <Cite id="lavalle-2006" />.
 
 Nearest-neighbor selection gives RRT an exploration bias. In the report's planar holonomic example, frontier vertices have larger Voronoi regions and are more likely to be selected for expansion <Cite id="lavalle-1998" />. The book's step-size-free dense-tree construction assumes an infinite dense sample sequence; a random sequence, including a biased one, must be dense with probability one. Its obstacle-free construction reaches each sample, while collision checking limits extensions when obstacles are present. This is not a guarantee of fast coverage on every problem: the report leaves convergence-rate analysis open, and the book distinguishes exploring free space from solving a start-goal query <Cite id="lavalle-1998" /><Cite id="lavalle-2006" />. The same construction handles dynamics by steering with controls instead of straight lines, which is the kinodynamic version LaValle and Kuffner developed <Cite id="lavalle-kuffner-2001" />. Probabilistic completeness is a limiting-probability property, not an assurance that an arbitrary existing path will be found <Cite id="lavalle-2006" />. For a precise example, Karaman and Frazzoli state it for simplified PRM (sPRM) and their geometric RRT under the Euclidean model $X=(0,1)^d$, $d\geq2$, an open goal region, and robust feasibility: a solution path must have some positive clearance $\delta>0$. Their algorithms use independent uniform free-space samples, a fixed positive connection radius for sPRM, RRT steering capped by a positive distance parameter, and collision tests over entire straight-line connections. Under those assumptions the probability of finding a solution tends to one. The result does not automatically extend to implementation heuristics; their 1-nearest sPRM counterexample is not probabilistically complete <Cite id="karaman-frazzoli-2011" />.
 

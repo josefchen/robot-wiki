@@ -229,6 +229,7 @@ test.describe('classical scene-representation module', () => {
     const visible = await visibleArticleText(page);
     expect(visible).toMatch(/loop closure/i);
     expect(visible).toMatch(/place recognition/i);
+    for (const caveat of ['geometric and covisibility checks', 'gravity-direction checks', 'This is not a guarantee that every revisit removes all error', 'This is not a universal ranking of the cost of every false match']) expect(visible).toContain(caveat);
     // Corrected source boundaries must survive MDX rendering, with each
     // supporting chip attached to the paragraph carrying its claim.
     const correctedSources = [
@@ -244,7 +245,7 @@ test.describe('classical scene-representation module', () => {
     }
     const correctedProse = await page.locator('.prose').evaluate((prose) => {
       const clone = prose.cloneNode(true) as HTMLElement;
-      // Glossary tooltip wording is an explicitly unselected obligation.
+      // Keep the article assertion separate from glossary tooltip text.
       for (const tooltip of clone.querySelectorAll('[role="tooltip"]')) tooltip.remove();
       return clone.textContent ?? '';
     });
@@ -480,6 +481,12 @@ test.describe('classical scene-representation module', () => {
     await trigger.focus();
     await expect(trigger).toBeFocused();
     await expect(term.locator('[role="tooltip"]')).toBeVisible();
+    for (const id of ['loop-closure', 'place-recognition']) {
+      const owned = page.locator(`[data-term-id="${id}"]`);
+      await owned.locator('a').focus();
+      await expect(owned.getByRole('tooltip')).toBeVisible();
+      await expect(owned.getByRole('tooltip')).toContainText(id === 'loop-closure' ? 'every revisit removes all error' : 'every false match against every missed match');
+    }
   });
 
   test('the module is discoverable from the sidebar, the domain landing and A-Z (VAL-CLASS-046)', async ({

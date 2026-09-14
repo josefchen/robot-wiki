@@ -126,12 +126,15 @@ const DEFAULT_STATIC_ROUTES = [
 // and math spans, but never fenced code, inline code spans, or JSX attribute
 // strings, so those three are masked before scanning. An unescaped dollar
 // sign immediately followed by a digit is the currency pattern ($269, $1.4B,
-// $20,000); genuine math delimiters start with letters or symbols
-// ($O(\varepsilon T^2)$, $$...$$) and do not match.
+// $20,000). Most math begins with letters/symbols, but numeric products such
+// as the CHOMP voxel dimensions also begin with a digit. Exempt only a closed
+// numeric product, not arbitrary dollar-paired prose (which may be two prices).
 const FENCED_CODE = /```[\s\S]*?```/g;
 const INLINE_CODE = /`[^`\n]*`/g;
 const JSX_ATTR_STRING = /\b[A-Za-z_][\w-]*\s*=\s*(["'])[\s\S]*?\1/g;
 const UNESCAPED_CURRENCY = /(?<!\\)\$(?=\d)/g;
+const NUMERIC_PRODUCT_MATH =
+  /(?<![\\$])\$\d+(?:\.\d+)?(?:[ \t]*\\times[ \t]*\d+(?:\.\d+)?)+\$(?!\$)/g;
 
 // Blank (not remove) masked regions so match indices keep their line numbers.
 const blankOut = (match: string) => match.replace(/[^\n]/g, ' ');
@@ -145,7 +148,7 @@ function maskCode(body: string): string {
 
 /** 1-based line numbers of unescaped currency dollar signs in an MDX body. */
 export function unescapedCurrencyLines(body: string): number[] {
-  const masked = maskCode(body);
+  const masked = maskCode(body).replace(NUMERIC_PRODUCT_MATH, blankOut);
   const lines: number[] = [];
   for (const match of masked.matchAll(UNESCAPED_CURRENCY)) {
     lines.push(masked.slice(0, match.index).split('\n').length);

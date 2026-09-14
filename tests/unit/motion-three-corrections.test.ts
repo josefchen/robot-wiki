@@ -34,11 +34,11 @@ describe('motion originals 3, 6 and 8', () => {
     }
     expect(article).not.toContain('Both RRT and PRM are probabilistically complete: if a path exists');
   });
-  it('retains a meaningful ordered DoF trigger and preserves the unassigned extension equation', () => {
+  it('retains a meaningful ordered DoF trigger and retains the subsequently corrected original-5 equation', () => {
     expect(article).toContain('number of <Term id="degrees-of-freedom">degrees of freedom</Term> is unbounded');
     expect([...article.matchAll(/<Term id="([^"]+)"/g)].map(m => m[1]))
       .toEqual(['trajectory-optimization', 'configuration-space', 'degrees-of-freedom']);
-    expect(article).toContain(String.raw`q_{new} = q_{near} + \epsilon \, \frac{q_{rand} - q_{near}}{\lVert q_{rand} - q_{near} \rVert}`);
+    expect(article).toContain(String.raw`x_{new} \approx x + f(x,u)\Delta t`);
     expect(article).toContain('lastReviewed: "2026-08-17"');
     expect(article).toContain('aria-label="TrajOpt arm benchmark results" tabIndex={0}');
     expect(article).toContain('aria-label="TrajOpt full-body benchmark results" tabIndex={0}');

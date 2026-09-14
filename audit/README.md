@@ -1,6 +1,308 @@
 # Content-integrity audit trail
 
-## Current checkpoint: three motion-foundation originals (2026-09-13)
+## Current checkpoint: Figure15 closes the five-original dexterity group (2026-09-14)
+
+This continuation applied **1 original / 0 held / 0 unattempted**: `audit/frontier.md:dexterity:15`, one V-to-C correction. Together with local Brooks commit `be0cc9107d0b60354ff96378ec0fc22e3c34d143`, the original five-member group is now **5 applied / 0 held / 0 unattempted**. Brooks2/3/5/6 were not reapplied. Parent corrections explicitly resolved the earlier one-versus-three article-endpoint mistake and confirmed **535**, not536, entry approvals. Those administrative corrections supplied no source truth or acceptance; the historical holds and count refusal remain preserved.
+
+Actual native collection at **14:40:19UTC**, entry HEAD `be0cc9107d0b60354ff96378ec0fc22e3c34d143`: **557 complete / 437 incomplete / 994 originals / 47 articles**. Frontier **22 complete / 125 incomplete / 147**; dexterity **5 complete / 25 incomplete / 30**. **463 plans / 536 approvals / 43 unchanged full baseline failure objects**. Entry was556/438,462plans,535approvals. All556 prior complete IDs/order,993 unselected semantic records,462 prior plans and535 prior approval objects/order are preserved. Exactly one native plan and one immutable-baseline-to-current prose approval were appended. Figure15 current four-cell SHA256: `bed95a50c6f13c3e0854f07edc5f10bfdae491512066000610b5fd6a7a4eb25f`.
+
+The atomic original is **one article span plus two source-level evidence containers**, mapped without schema changes to **four mandatory native parts and five mandatory evidence pairs**. Both Figure03 AND Helix02 support the sensitivity part; the latter pair is not dropped merely because the preparation container's parts label omitted it. Each hand's embedded palm camera belongs to the Figure03 hardware announcement. Head/palm cameras, fingertip tactile sensors and full-body proprioception are Helix02 System1 inputs. The first-time quotation is Figure's combined-modality demonstration claim, not an independent historical first or proof of touch-only necessity.
+
+**Zero source retrievals.** Complete retained tool-returned documents, original request/result events and **16 literal bindings / six unique passages** were verified. Both documents are Figure AI first-party material, not independent publishers:
+
+- Figure03, `https://www.figure.ai/news/introducing-figure-03`, visible publication October09,2025; original FetchUrl request **2026-09-13T03:39:52.471Z**, result **03:39:56.393Z**. **10949bytes**, SHA256`b9c5b1a3f30f115250d32b4c42e4a3a104bd3ff256513a5a1c08b0d1ba092628`.
+- Helix02, `https://www.figure.ai/news/helix-02`, visible publication January27,2026; original request **2026-09-07T16:06:58.990Z**, result **16:07:28.926Z**. **12101bytes**, SHA256`9d42b081418a20a1b4b118520a76512ad615a2510c737a23d97665a3f6f55021`.
+
+Both results report200 through FetchUrl; no raw origin headers/status, redirect chain or current-liveness proof is claimed. September14 review is not a fetch date. Figure03 says **three grams of pressure** and compares it with a paperclip; Helix02 repeats three grams/paperclip without of pressure. Grams are not dimensionally specified pressure. The quotation supports vendor wording, not calibrated force resolution, an SI conversion, a threshold ranking or universal precision. The quality-library resolution exclusion remains unchanged. No embedded media or linked material was inspected. Registry, glossary, comparison data, all unassigned claims and `lastReviewed: "2026-08-18"` remain unchanged and unaccepted.
+
+| Executed check | Actual result |
+| --- | --- |
+| Red-first Figure source regression |16failed before article/row/plan application |
+| Scientific review and native controls |1whole original;4supported adjudications/5evidence pairs;26controls |
+| Application input admission |1positive/14negative controls; missing, empty, stale or unexpected required inputs refuse |
+| Exact prose approval |1appended/4mutation controls;535prior approvals and43baseline failures preserved |
+| Affected unit/component tests |**163passed/5files**,14:24:17-14:24:20UTC: Figure16, Brooks15, native ledger77, baseline47, hand comparison8 |
+| Normal lint/prelint |`npm run lint`:exit0,14:28:37-14:28:54UTC; normal postinstall prelint retained |
+| Nonincremental types |exit0 before runtime and again on byte-restored configurations at14:40:00-14:40:03UTC |
+| Actual offline content chain |`npm run validate:content`:exit1,14:29:22-14:29:23UTC; structure/no-slop/charts pass before **444 audit findings /557of994complete**; nine separately unresolved citation checks remain |
+| Reader input admission |Actual discovery:1positive/6negative controls;1401nonempty required inputs. Four empty retained diagnostics remain in the general captured population, not substantive requirements |
+| Mounted readers |**14passed/0failed/0skipped/0flaky**,375x812 and1440x900,14:34:40-14:35:37UTC; one fresh runtime generation |
+
+**12screenshots actually inspected**: complete corrected paragraph at both native viewport sizes, two source popovers per viewport, full References entries including issuer/year/URL, and natural mobile navigation. Metadata popovers are separate from unobstructed paragraph/reference frames. Native reference jumps and Escape, existing hand sorting/selection/reset/keyboard sorting, current navigation and overflow checks passed. Neighboring visible claims are not certified. The scoped page fixture observed12cases with0page/console errors and0external requests; two pre-existing overflow-only cases construct contexts directly and are not counted in that fixture observation. All14retained network traces contain476recorded requests and no outside-owned-origin request; Next's exact loopback HMR WebSocket is local, not source retrieval. **Axe0violations, but68mobile/38desktop color-contrast incomplete-node observations remain unresolved**, not106unique nodes or contrast acceptance.
+
+Nineteen retained WOFF2files were hash-qualified. Tektur, IBM Plex Sans, Newsreader and IBM Plex Mono primary families loaded. Local IBM Plex Sans Fallback and Newsreader Fallback faces reported error; unused subsets remained unloaded. This is not a claim that every declared face loaded or a font/accessibility acceptance. No font change was made.
+
+One fresh Next16.3 `dev --webpack` cache, `node_modules/.cache/dexterity-figure15-reader-20260914`, ran on127.0.0.1:3271 from **14:33:58.493568** to **14:38:12.249320UTC**. Actual Next/supervisor/runner/waiter exits were0; all five owned identities are absent, port3271 is bindable, and next.config.ts/tsconfig.json/next-env.d.ts are byte-exactly restored. Only the verified owned supervisor was signalled. No production build/export, duplicate browser generation, disk cleanup or foreign process signal occurred.
+
+Preserved failures distinguish action from outcome: old worker/passive MCP pins refused before action until exact restarted identities were qualified; a transient bridge child refused preparation; the first application refused the continued table's unextended header before any product write, then the actual native header was extended without relaxing the parser; initial discovery failed the Mission config's CommonJS/import.meta mismatch, corrected before any browser ran; the first trace classifier mistook the exact local HMR WebSocket for external traffic. No failed artifact is relabeled as a pass.
+
+All command snapshots retain declared Git-blob or run-scoped input versions. The direct external inventory was123members before application and expanded for qualified fonts and reader/closure evidence. This is a concrete captured population, **not exhaustive certification of actual transitive dependencies**. The sealed Brooks root is untouched; its successful evidence is composed only where its exact source/product inputs remain applicable. Fresh163tests and14reader cases above do not pretend to rerun every Brooks pixel endpoint. Final snapshot resolution, file counts, local commit/tree and seal identity are recorded in this continuation's handoff only after creation.
+
+Still open:437incomplete originals; nine citation checks; unassigned dexterity threshold/superlative and other source claims; full article/P1, embedded-source and current-liveness limits; shared Back/focus and Term Escape debt; contrast, fallback-face, complete accessibility/reference/distribution profiles; production export/reading-time/OG corpus convergence and independent Sol/high scrutiny/user testing. **Formal307/331 unchanged; content/release RED: do not publish.** No personal source certification, independent acceptance, features edit, new Mission/controller/worktree, fallback activation, credit exhaustion, push, deployment, billing, credential or security change.
+
+Original first Astra/max emission **12:22:19.253UTC** and checkpoint target **12:57:19.253UTC** remain unchanged; the target was not a termination deadline. Same-Task continuation activation after the count correction was13:53:16.895UTC. Seal time is not the terminal assistant-emission time; the parent records the latter afterward.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-figure15-closeout-20260914/`.
+
+## Previous checkpoint: four Brooks dexterity originals; Figure15 held (2026-09-14)
+
+Exactly **4 applied / 1 assigned held / 0 assigned unattempted originals** from `audit/frontier.md:dexterity:2/3/5/6/15`. Originals **2, 3, 5 and 6** have complete reviewed evidence and corrected verdicts: three V-to-C changes and one existing C retained. **0 newly verified-verdict rows / 0 cut-verdict rows**; the unsupported victory sentence is a coupled prose cut, not another original. Four plans retain **11 mandatory AND parts / 11 evidence items**, and five atomic article endpoints. Original15 remains unchanged and incomplete: its qualified packet has one article endpoint (`d15-main-prose`) plus two source-item IDs, not the dispatch-required three article endpoints. Do not invent missing bindings or reapply completed records.
+
+Native checkpoint at **12:57:38-12:57:39 UTC**, entry HEAD `a6b5dceb6b5013362163b50df1b2f0337aad327a`: **556 complete / 438 incomplete / 994 originals / 47 articles**; frontier **21 complete / 126 incomplete / 147 originals**; dexterity **4 complete / 26 incomplete / 30 originals**. **462 plans / 535 approvals / 43 unchanged baseline failure objects**. Entry was552/442,458plans,534approvals. Application preserved all994original IDs/order,552prior complete IDs/order,990unselected semantic records,458old plans and534old approvals. Exactly one immutable-baseline-to-current prose approval was appended; parser, native gate, baseline and approval schema are unchanged. Final post-document/commit preservation and local commit IDs are in the sealed handoff.
+
+The shared demo body and Stat now attribute seven seconds/four-times-as-long to Brooks's essay-reported videos rather than an independent timing measurement. Unestablished intact-vision/unchanged-plan claims are removed; the source's described residual sensations remain. Historical medical/proprioception error notes survive only in non-counted row history. The scaling argument is his imagined inner dialogue, with acknowledged prior successes, engineered inputs and **likely** retained. The conclusion restores **It looks like**, match-task scope and the essay's then-current assessment, alongside its caveats and promising research. First touch-driven deployment is no longer asserted to prove touch necessary. Article `lastReviewed: "2026-08-18"`, all unassigned neighbor claims, glossary, citation registry and existing hand data are unchanged and unaccepted.
+
+**Zero source retrievals.** Rechecked seven retained provenance dependencies, exact original FetchUrl events and author-text boundary; verified **20 literal bindings / 12 unique passages / 11 source-part items**. These counts are distinct from the preparation packet's15context passages. Source URL: `https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/`. Original request **2026-09-13T15:12:35.617Z**, result **2026-09-13T15:12:43.252Z**, tool-reported200 only. Full response88799bytes/SHA256`46d726566d5d1ed25f846df73375a4888d9642b77298df7c8d37215b62bf68a5`; author text62634bytes/SHA256`523ce6c9c592f17353ff4c8f32c97ed8159119bac38b376a474722e99ba1cb28`, response byte interval[192,62826), excluding comments. September14 review is not a fetch date. No video timing/playback, image or linked-paper inspection, medical assessment, publication-day claim, current sensor census, fresh liveness, raw origin headers/status or redirect-chain proof is earned.
+
+| Executed check | Actual result |
+| --- | --- |
+| Red-first source regression |14failed/1passed before application |
+| Native source review |4whole claims;11supported AND parts/items;38refusal controls |
+| Exact approval controls |4passed; one exact prose member appended;43full prior failure objects preserved |
+| Affected unit/component coverage |98unchanged tests passed in4files; all15source tests passed after correcting the test-only guessed39-row expectation to native30 at entry and current. Initial combined run112passed/1failed is retained |
+| Reader input admission |Real Playwright discovery:1positive/6negative controls against177nonempty required dependencies; no browser cases in controls. Five genuinely empty producer stderr witnesses remain in the general immutable input population, not treated as nonempty substantive source inputs |
+| Final normal lint/prelint |`npm run lint`:exit0,13:21:44-13:22:01UTC; normal postinstall prelint retained |
+| Final types |`tsc --noEmit --incremental false`:exit0,13:22:15-13:22:17UTC, restored configuration |
+| Actual offline content chain |`npm run validate:content`:exit1 at13:00:37-13:00:38UTC; structure/no-slop/charts pass before audit coverage fails: **445findings /556of994complete**, nine separate unresolved citation checks |
+| Primary mounted readers |13passed/1failed at375x812 and1440x900,13:06:42-13:07:50UTC. Existing mobile nav assertion required naturally opening the menu; only that case reran and passed13:09:36-13:09:40UTC |
+| Missing endpoint closeout |Primary frame named victory-inference-removed targeted an earlier paragraph. It is not proof of the concluding cut. Locator corrected; only the missing concluding-cut case ran at both sizes,2passed13:19:46-13:20:00UTC |
+
+**25screenshots actually inspected at native viewport sizes**:22primary reader frames,1mobile navigation frame and2correct concluding-cut frames. Three primary wrongly targeted frames are preserved and excluded from cut-endpoint proof. Overlapping natural mobile scroll captures cover the complete corrected long paragraphs; no fitted/full-page image is claimed as full pixel coverage. Body and Stat attribution, complete qualifier, imagined dialogue/likely, actual concluding cut, Brooks citation hover/popover/Escape and visible full Brooks References entry are observed. Existing hand sorting/selection/reset and keyboard sort tests pass at both sizes; mobile menu opens and closes naturally. No source link was visited. Scoped fixtures recorded0page/console errors and0external requests. **Axe0violations, but color-contrast incompletes on68mobile and38desktop nodes** remain unaccepted; these106observations are not106unique nodes or proof of contrast compliance.
+
+A single fresh offline Next16.3`--webpack` cache with19verified retained WOFF2fonts was used on127.0.0.1:3271. The primary supervisor ran from2026-09-14T13:02:47.366157+00:00to2026-09-14T13:13:00.094708+00:00; after discovering the wrong cut-frame target, a narrowly scoped continuation reused that same task-created cache from2026-09-14T13:19:18.951441+00:00to2026-09-14T13:20:43.396367+00:00. No full-suite rerun or production build/export occurred. Both real Next/supervisor/runner/waiter exits were0; both sets of five owned PIDs are absent, port3271 is bindable and next.config.ts/tsconfig.json/next-env.d.ts are byte-exactly restored. Original runtime and all refusal/failure records remain. No foreign process was signalled and no cleanup was performed.
+
+Input snapshots bind actual Git blobs or run-scoped file copies before application/readers. The external inventory expanded106to131 before application, then161 before readers. Missing/stale populated inputs fail closed. This is a concrete declared population, **not proof that every transitive toolchain/source dependency has been exhaustively inventoried**. Earlier source-review provenance dependencies were verified by the proof script but some were only added to the external snapshot population before application; do not backdate that qualification. Current receipts do not retroactively repair predecessor input-population limitations.
+
+Still open: Figure15 dispatch reconciliation; all438incomplete originals and nine citation checks; unassigned dexterity claims (including earlier deployment-order framing), full article/P1 and source limitations; shared Back/focus and Term Escape debt, contrast/full accessibility/reference profiles; production export/reading-time/browser/OG corpus convergence; independent Sol/high scrutiny and user testing. **Formal307/331 unchanged. Content/release RED: do not publish.** No independent acceptance, features edit, new Mission/controller/worktree, fallback activation, credit exhaustion, push, deployment, billing, credential or security change.
+
+First actual Astra/max emission **12:22:19.253UTC** fixed the original **12:57:19.253UTC** checkpoint target. That checkpoint was reported and the bounded scientific/reader closeout continued; the target was not reset and is not a termination deadline. Actual final seal time and local commit/tree are recorded only after creation.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-five-integration-20260914/`.
+
+| OriginalId | Current native four-cell SHA256 | Disposition |
+| --- | --- | --- |
+| `audit/frontier.md:dexterity:2` | `6128534bdda1a3261b473d370127d99facc9dacafa8454f331035e57b1c1fbc2` | complete, corrected |
+| `audit/frontier.md:dexterity:3` | `94b60980f236ff13e1fd768819234eeb7c2274b761b0c7c6f3846da7f4982b54` | complete, corrected |
+| `audit/frontier.md:dexterity:5` | `d1d53cb5867ae915d8d8ee051f6a782db621b5c778ed53cce51e9dd6d547c183` | complete, corrected |
+| `audit/frontier.md:dexterity:6` | `08c23713c1c4378aaaa0af9439cb00f9d6e5ef7bf1344a2e91936c4362c57136` | complete, corrected |
+| `audit/frontier.md:dexterity:15` | `629066bada1f7ed772172e584effaba7754068e807958c6d28c780e06f55dffa` | held, unchanged |
+
+## Previous checkpoint: two grasp source originals (2026-09-14)
+
+Exactly **2 applied / 0 assigned held / 0 assigned unattempted originals**: `audit/classical.md:grasp-planning:11/13`. **2 corrected rows / 0 newly verified rows / 0 cuts**. Two reviewed compound plans bind **14 mandatory AND parts / 14 evidence items**, and five atomic article/comment endpoints. Originals3/Cutkosky,10/Ferrari-Canny,12/local example, glossary and unassigned conclusion remain untouched and unaccepted; no completed original was reapplied.
+
+Fresh native collection at11:05:33-11:05:34UTC: **552 complete / 442 incomplete / 994 originals / 47 articles**; classical **94 complete / 93 incomplete / 187 originals**. **458 plans / 534 approvals / 43 unchanged baseline failure objects**. Entry550/444,456plans,532approvals. Final preservation retains all994IDs/order,550prior complete records,992unselected semantic records,456old plans and532old approvals. Exactly two immutable-baseline-to-current approvals; no parser, baseline or gate weakening.
+
+Roa-Suarez now describes review/simple-example scope, torque origin, force/torque scaling, separate per-finger versus total-force limits, task dependence and quasi-static scope. Dex-Net distinguishes6.7M synthetic training datapoints/1500models from physical trials; expected-epsilon>0.002 plus modeled collisions from raw-epsilon regression; aligned-depth classification from constrained planning/execution; GQ-L-Adv93%/80trials/eight known objects from CEM GQ94%overall/100trials/40novel objects and reported99%precision=68/69robust grasps. Binary threshold is not the local lab epsilon; protocols, hardware, success criterion and failure limits remain explicit. Historical original cells and misleading source labels survive only as non-counted history.
+
+**Zero new retrievals.** Verified43quality sealed members/854496bytes and69Dex-Net indexed payloads/2109556bytes,27Roa-Suarez and25Dex-Net literal bindings; inspected retained Dex-Net v3 pages7/8. Roa-Suarez DOI FetchUrl request/result2026-09-13T13:32:06.497Z/13:32:13.497Z reported200 without raw origin headers/redirect chain. Dex-Net retained GET2026-09-13T07:04:26.713370-07:04:28.833697UTC,HTTP200/no redirects; PDF prints arXiv1703.09312v3,8August2017. Current review is not a fetch date, origin liveness or unseen-page certification.
+
+| Executed check | Actual result |
+| --- | --- |
+| Red-first scientific regression |9failed/1passed before application |
+| Final focused unit/component tests |38passed/4files at11:05:20-11:05:22UTC; includes10source,17grasp,9lab,2Stat tests |
+| Required-input controls |34passed; missing/stale/unknown inputs refuse before application |
+| Review/application/approvals |2whole originals;14supported parts/items;10review refusal controls;4exact-approval controls |
+| Normal lint/prelint |exit0 at11:05:37-11:05:55UTC |
+| Nonincremental types |exit0 at11:06:00-11:06:02UTC |
+| Actual offline content chain |`npm run validate:content -- --offline`:exit1, **449findings**,552/994complete; nine separate unresolved citation checks remain |
+| Readers |2passed at375x812/1440x900,11:07:34-11:08:05UTC;22screenshots actually inspected |
+
+Reader success is bounded:0page/console errors and external requests; slider0.7to0.75; one existing math state; corrected Stat and selected prose; citation hover/focus and reference jumps. **Back restores no chip focus; Term Escape leaves its tooltip visible at both widths.** Axe0violations but **61+53=114contrast-incomplete node observations**. Persistent citation tooltips obstruct other References/mobile lab pixels. Narrow paragraph captures omit text; the training-method paragraph, all math, tooltip scrolling, complete existing grasp E2E/nav/reference/corpus checks remain unproved. No full build/export/card sweep was run. No full pixel/accessibility/interaction acceptance is claimed.
+
+One fresh offline Next--webpack runtime used19verified retained WOFF2fonts and loopback3266. Its first guard refused a transient unknown process; retry started11:07:10UTC. Exact-owned supervisor shutdown11:08:22UTC yielded child0/runner0/waiter0, all four owned identities absent, port reusable and next.config.ts/tsconfig.json/next-env.d.ts byte-restored. No controller/source task signal or cleanup. Initialization/ownership/loader/header failures, timeout/section-filter test failures and accidental helper-path failure remain in evidence, not erased by passes.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-grasp-quality-dexnet-integration-20260914/`. Final preservation covers1229unchanged product/owner inputs. A final single trailing-space removal after `absorb.` postdates captures; no words or paragraph boundaries changed, but the exact native prose digest did change. Only this task's prose approval was rebound; all532prior entries remain intact. The interim native result44failures is retained; final native verification must restore the exact43failure objects. No post-whitespace pixel recapture is claimed. Final scientific regression and native receipts are recorded in the handoff. Article review date remains17August2026; whole-P1/article, retained-source limits, independent Sol/high scrutiny/user testing and release acceptance remain open. Formal **307/331 unchanged**. **Content/release RED: do not publish.** First actual Astra/max10:36:52.790UTC fixes the original11:11:52.790UTC checkpoint target; no clock reset, fallback, new Mission, features edit, push or deployment. Local commit/tree and exact terminal time are recorded after creation in the sealed handoff.
+
+## Previous checkpoint: four ORB scene originals (2026-09-14)
+
+Exactly **4 applied / 0 assigned held / 0 assigned unattempted originals**, in the two complete groups **26/27 and 31/33** of `audit/classical.md:scene-representation`. **4 corrected rows / 0 newly verified rows / 0 cuts**. Four reviewed compound plans retain **13 mandatory AND parts / 13 source-part pairs / 13 evidence items**. Six coupled endpoints cover both shared article paragraphs, the `loop-closure` and `place-recognition` definitions, and the two ORB publication identities. No completed original was reapplied.
+
+Final native collection at **2026-09-14T09:35:20-09:35:21 UTC**, precommit HEAD `51f413de78c30f137f19390f5a5212cdf794f3cc`: **550 complete / 444 incomplete / 994 originals / 47 articles**; classical **92 complete / 95 incomplete / 187 originals**; scene-representation **38 complete / 11 incomplete / 49 originals**. **456 plans / 532 approvals / 43 unchanged unrelated baseline failure objects**. Entry was 546/448, 452 plans and 526 approvals. Final preservation compares all 994 IDs/order, 546 prior complete records, 990 unselected semantic records, 452 prior plans and 526 prior approvals, including their serialized prefixes. Six exact immutable-baseline approvals cover prose, citation relationships, canonical glossary metadata, resolved citation labels and both ORB citation members. No baseline, parser, assertion or approval schema was weakened.
+
+**Zero new retrieval.** The retained publication-identity packet was verified as **86 payloads / 13,046,516 bytes / 89 files**, with **27 literal manuscript bindings / 12 publisher metadata literals / 13 mandatory source-part pairs**. Both retained ORB PDFs were locally rederived with `pdftotext` and were byte-equal to the retained text. The retained packet seal SHA256 is `34bf901dfa038f5fb5a677eb8fdca560494785c11332e35cc9c2d8c15059ea3c`; index SHA256 `53dca5f783aa9ea1f9321d97c02a467f7373ef248837ea0feb5901d799182538`; four-row binding SHA256 `81b88aa150e042160da8c367620091df7ed72a7939300c7d90e6b674c1b79257`. `source-bindings.json` preserves original retrieval events, source identities, exact supporting excerpts and offsets; current review on September 14 is not a fetch date. Cadena's historical extraction limitation and publisher tool-reported-200/transport limitations remain explicit; no fresh origin status, redirect trace or version-of-record body equivalence is claimed.
+
+Original26 separates monocular feature roles, mapping and DBoW2 candidates from geometric validation. Original27 qualifies visual/inertial modalities, MAP initialization, recovery before new maps, immature-map discard, geometric/covisibility/gravity merging prerequisites and low-texture/poor-observability limits. Original31 requires Cadena for qualified drift reduction AND ORB2015 for similarity alignment/Essential Graph error distribution. Original33 preserves false-positive/false-negative context and robust-estimation/initialization limits without a universal ranking; its historical II-C locator is corrected to the retained survey's Section III robustness discussion. ORB3's historical abstract 2-5x/3.6cm versus retained v2 body 2-10x/3.5cm remains a version distinction, not a promoted numerical claim.
+
+The IEEE identities are **ORB-SLAM: A Versatile and Accurate Monocular SLAM System**, Raúl Mur-Artal, J. M. M. Montiel, Juan D. Tardós, IEEE Transactions on Robotics 31(5):1147-1163 (2015), and **ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual–Inertial, and Multimap SLAM**, Carlos Campos, Richard Elvira, Juan J. Gómez Rodríguez, José M. M. Montiel, Juan D. Tardós, 37(6):1874-1890 (2021). Canonical DOI URLs remain `https://doi.org/10.1109/TRO.2015.2463671` and `https://doi.org/10.1109/TRO.2021.3075644`; no arxiv registry properties were added. Publisher/manuscript punctuation, diacritics, Multi-Map/Multimap and the ORB3 cover typo remain documented. Completed Lowry article text and DSO tail, citations/frontmatter and `lastReviewed: "2026-08-22"` are preserved. Lowry glossary reuse was checked against retained text and earns zero new-original credit.
+
+### Executed gates and checkpoint limits
+
+All commands ran sequentially through the Mission-local guarded runner with `NODE_DISABLE_COMPILE_CACHE=1`. The table distinguishes workflow controls from product gates.
+
+| Gate | Actual command/result |
+| --- | --- |
+| Required-input workflow | `node --test required-inputs.test.mjs`: **34 passed**; exact eight-input membership, byte/hash/manifest checks; missing, stale, malformed and unknown inputs refuse before action |
+| Retained source/review | `python3 source-proof.py`; `node integrate.mjs review`: exit0; **13 supported adjudications / 13 source-identity refusal controls** |
+| Red-first source tests | `npm test -- tests/unit/orb-scene-source-fidelity.test.ts`: **13 failed / 1 passed** before application |
+| Application/approval | `node integrate.mjs apply`; `node integrate.mjs approve`: final exit0; **4 originals / 6 exact approvals / 12 approval controls** |
+| Final affected tests | `node node_modules/vitest/vitest.mjs run tests/unit/orb-scene-source-fidelity.test.ts tests/unit/place-slam-source-corrections.test.ts tests/unit/citations.test.ts --maxWorkers=1`: **54 passed / 3 files**, 09:34:40-09:34:45UTC |
+| Normal lint | `npm run lint`: exit0 including normal prelint, 09:34:49-09:35:05UTC |
+| Types | `node node_modules/typescript/bin/tsc --noEmit --incremental false`: exit0, 09:35:10-09:35:11UTC; no typegen/config change |
+| Content chain | `npm run validate:content`: **exit1 / 451 findings**, 09:35:15-09:35:16UTC; structural, no-slop and chart stages passed before native audit coverage failed at550/994. Nine separate unresolved citation checks remain |
+| Final native/preservation | `node native-state.mjs <absolute native-final.json>`: exit0; collector appended another `.json`, retained as `native-final.json.json` and byte-identically copied to `native-final.json`; counts above are observed, not inferred |
+| Browser/build/export/cards | **Not executed**; zero owned runtimes, reader navigations, product captures or current screenshot inspections |
+
+Failed/refused receipts remain: initial native process qualification exit125/no action; unavailable tsx exit1; wrong ledger column ordering exit1 before product application; two pre-write approval failures; first post-change unit run50 passed/4 failed because the new test expected display text `corrected` rather than native verdict enum `C`. The enum-only correction retained all source assertions and the final54 passed. No advancing command was killed, no model switch or credit fallback occurred. Closeout initially refused a replacement passive Pangram process; its complete argv/executable/parent/cgroup/cwd matched the prior exact pin and stdin was /dev/null, so only that new identity was added; no process was signalled. The first invoked closeout then caught its helper's mistaken catalog-object assumption before writes; array-aware prefix comparison corrected it. Earlier SayCan/CaP missing-input and reader-receipt gaps are not retroactively repaired by these new controls.
+
+The prepared Mission reader test and `prepare-quality.py` were **not executed or installed**. Final Cite/References bylines, both glossary caveats and keyboard/hover/focus/scroll behavior at375x812/1440x900 still require an owned runtime and actual screenshot inspection. No runtime was launched, so no runtime-stop/exit/free-port acceptance is claimed. Inherited Back/Glossary/BODY focus, Term Escape and contrast incompletes remain; whole-article/P1, full reference/accessibility/corpus checks, independent scrutiny/user testing and release acceptance are unearned. Formal307/331 is unchanged. **Content and release gates remain RED: do not publish.**
+
+First actual Astra/max emission was09:00:05.950UTC; the original09:35:05.950UTC target was not reset. The already-started sequential gates finished naturally at09:35:21UTC, followed only by documentation, preservation and local checkpoint closeout. Owner PRODUCT_QUALITY.md/qa/, next-env.d.ts and ancestor commits d282a83/2cf7d6b are preserved; no features, Mission/controller, deployment, billing, credentials or security changes.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-orb-scene-four-integration-20260914/`. Local commit ID/tree are recorded in its final sealed handoff after commit; this is an implementation checkpoint, not independent acceptance.
+
+| Exact originalId | Final native four-cell tuple SHA256 |
+| --- | --- |
+| `audit/classical.md:scene-representation:26` | `3046b7b7df26e9aec432435a11e21a49086a56c9f754404837c96ae162695fe3` |
+| `audit/classical.md:scene-representation:27` | `4f022463df05c93103d76036f6e14e63960b60e67e5e6bc2ffa7461d25b08094` |
+| `audit/classical.md:scene-representation:31` | `13d5451d9426d917750c566414f7563a3ba5f5a0e4304d45a1cb1cf4c80eaa9e` |
+| `audit/classical.md:scene-representation:33` | `7fae78aed5462d81f86a2abfdb88583ab523045880d2d8df04bd62c8cf52f840` |
+
+## Previous checkpoint: SayCan and Code as Policies (2026-09-14)
+
+Exactly **2 applied /0 assigned held /0 assigned unattempted originals**: `audit/manipulation.md:hierarchical:1/2`. Both original verified labels become **corrected**; **2 corrected rows /0 newly verified rows /0 cuts**. Two integrator-reviewed plans contain **16 mandatory AND parts /17 URL evidence items**: SayCan7/7 and CaP9/10. Both metadata URLs are required for CaP. Article sections and complete `hierarchical-policy`/`affordance` glossary definitions were corrected atomically; exact original/current four-cell history remains in the ledger. No completed original was replayed.
+
+Fresh native collection at **2026-09-14T08:40:23–08:40:24 UTC**, entry HEAD `ac4db1e3fbb724e8a936e75bd78b5f2a17a94c39`: **546 complete /448 incomplete /994 originals /47 articles**, **452 plans /526 approvals /43 inherited full baseline failure objects**. Manipulation is **216 complete /9 incomplete /225 originals**; hierarchical **12 complete /4 incomplete /16 originals**. These are native evidence-completion counts, not whole-article/P1, independent scrutiny, user-testing or release acceptance.
+
+SayCan now distinguishes selected-description history from confirmed success, calibrated learned picking values from hand-designed navigation/placement components, and current-step value feedback from general recovery. CaP retains example-conditioned Python/API recursion, perception/depth/registered geometry, inaccurate detections, feasibility/correctness limitations and tabletop-simulation versus physical-demonstration scope. Unsupported universal weakest-link and canonical/survival claims were removed only from the assigned sections. CaP's initial arXiv submission **16 September2022**, v4 revision **25 May2023**, and IEEE ICRA published-print metadata **29 May2023** remain separate facts. No v1-byline or published-body-equivalence assertion is earned. Article `lastReviewed: "2026-08-17"`, the2022 Stat, VLM Term occurrence, registry population, other hierarchy systems and all existing interactive defaults are preserved.
+
+**Zero new retrievals.** Three retained envelopes (48+23+13 indexed payloads), **51 literal passages /16 metadata passages**, and a byte-equal local `pdftotext` re-derivation were verified. Eight unchanged CaP science items retain19 literal passages. Original source-worker retrieval completions, not current HTTP observations:
+
+| Retained source | Historical completion UTC | Response identity |
+| --- | --- | --- |
+| `https://arxiv.org/html/2204.01691v2` | 2026-09-14T03:50:45.347512Z | 200, zero redirects;627244bytes;SHA256 `6f4b0480b5aff43d7f82b9bed05cf502e18e3a7e301c8bd2946f80ee1ab8de6e` |
+| `https://arxiv.org/pdf/2209.07753` | 2026-09-14T03:50:45.852955Z | 200, zero redirects;3200561bytes;SHA256 `e36857fa13746da031444ec59549e61204ca92d599b1d048ac1c55aaf1f6d0a3` |
+| `https://arxiv.org/abs/2209.07753` | 2026-09-14T06:29:00.871124Z | 200, zero redirects;44028bytes;SHA256 `d1704b0aae51d5902df32503500c7a8e7c45c5a70411ec689b748d13ca7b501e` |
+| `https://doi.org/10.1109/ICRA48891.2023.10160591` | 2026-09-14T06:47:39.930499Z | 200, one HTTPS redirect to Crossref transform;10753bytes;SHA256 `bdf843141afe586e965aa271c0a9284b482ddd9cb255efd7edc92ccee398def2` |
+
+Selected source text/context is inspected, not every page, figure pixel, video, linked code/prompt file or edition. Original GET metadata remains historical. Parent exact IDs, ordinals, four cells, current tuple digests and packet hashes were rechecked immediately before application. Final tuple digests: original1 `2e3faaa4da0127edfe2253b71fd2790e4a35547ae58750ef69a63cb7633d69d8`; original2 `f1d552e2be1140eb2ecaaef94a67ae954a8e7e7230942b8fc01481809fe4912b`.
+
+### Executed verification and limitations
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-saycan-cap-two-integration-20260914`. Commands ran sequentially through the fail-closed runner with `NODE_DISABLE_COMPILE_CACHE=1`. Raw failed/refused attempts are retained separately;125 means no action invoked.
+
+| Gate | Actual command and observed result |
+| --- | --- |
+| Source/adjudication | `python3 source-proof.py`, `node integrate.mjs review`: exit0;2 whole-current-claim conjunctions,16 parts/17 items;13 refusal controls. Earlier normalization and invented-passage control failures retained; shared parser not weakened |
+| Red first | `npm test -- tests/unit/saycan-cap-source-fidelity.test.ts`:26 failed before application |
+| Application/approvals | `node integrate.mjs apply`, `node integrate.mjs approve`:2 originals applied;3 exact member approvals. Failed eight-cell serialization attempt wrote no product output |
+| Affected regressions | `npm test -- tests/unit/saycan-cap-source-fidelity.test.ts tests/unit/glossary.test.ts tests/unit/rrt-hierarchy-corrections.test.ts tests/unit/hierarchy-timescales.test.ts tests/component/hierarchy-timescales.test.tsx tests/unit/audit-ledger.test.ts tests/unit/validate-content.test.ts tests/unit/audit-citation-coverage.test.ts tests/unit/citations.test.ts`:266 passed /9 files |
+| Ordered Term inventory | `npm test -- tests/unit/term-consumer-inventory.test.ts`:15 passed, unchanged fixture/population |
+| Final scoped regression | Same focused source-fidelity command after final punctuation correction:26 passed at08:38:19–08:38:24UTC |
+| Normal lint | `npm run lint`:exit0, normal prelint included,08:33:44–08:34:01UTC after runtime restoration; subsequent MDX-only punctuation/approval/documentation edits are outside ESLint's code inputs |
+| Types | `node node_modules/typescript/bin/tsc --noEmit --incremental false`:exit0 at08:34:01–08:34:03UTC with restored config; an earlier active-runtime type check also passed |
+| Content chain | `npm run validate:content`:final exit1 at08:38:25–08:38:26UTC, **455 findings /546 of994 complete rows**, after structural/no-slop/chart checks passed; nine separate unresolved citation checks remain. The first run caught this task's en dash; exactly one `instruction–program` became `instruction-program`, with no new waiver |
+| Normal reader collection | Standard non-Mission `--list` with both gate variables unset:1 test/1 file, exit0; this is collection, not browser acceptance |
+| Readers | `node node_modules/@playwright/test/cli.js test --config .../playwright.retry-05.config.ts`:2 passed at375×812 and1440×900,08:30:10–08:30:22UTC. Final test records shared Back/Term debt rather than certifying it |
+| Preservation | `python3 closeout.py preserve native-final-before-docs preservation-before-docs`:exit0,994 IDs/order,544 prior complete IDs/order,992 unselected semantic records,450 old plans,523 old approval objects/metadata,two serialized prefixes,43 full failure objects/order,1224 unchanged product/owner inputs and167 unchanged external entry inputs |
+
+Reader history is not collapsed into a clean run: first2 cases failed connection-refused after a runtime guard refusal; next2 exposed the test's incorrect array lookup; next2 exposed its missing author-expansion step; a later2-case run reached both glossary definitions but timed out waiting for article body restoration after Back. The outer Execute240-second timeout left `scoped-readers-04` without a completed runner receipt; no raw exit is invented. All case artifacts remain. The final2 passing cases cover the bounded content assertions; they do **not** erase these failures or grant navigation acceptance.
+
+**Reader observations:** final2 contexts/2 full-document navigations; client glossary navigation is separate. External requests, console/page errors and document overflow0.20 final screenshots were actually read at high quality against the already-loaded literal brand references. Full glossary definitions, correction/caveat text, source-link identities, citation hover/focus/Escape, reference jumps,45-author expansion and8-author CaP reference, overlay selection, playhead keyboard input and reset are exercised. Some narrow captures contain only part of a long paragraph; DOM evidence is not full pixel coverage. Both Axe analyses have0 violations and37+37=**74 color-contrast incomplete-node observations**, not74 unique nodes or accessibility acceptance.
+
+At both widths **Term Escape leaves the tooltip visible and its link focused**. The affordance tooltip is256×238.5px; mobile x107/right363 fits375px. It fits without internal scrolling in these cases, so the conditional internal-scroll branch is **not exercised**. **Back changes the URL to the hierarchical article but leaves the mounted Glossary body; activeElement is BODY and articleBodyPresent is false at both widths.** Shared Back body/focus and Term Escape repair remain separately owned. No source-backed completion waives them.
+
+Exactly one fresh owned Next `--webpack` runtime actually launched, at08:19:08UTC on127.0.0.1:3262, using19 byte-verified retained WOFF2 files and `node_modules/.cache/saycan-cap-two-20260914`. Earlier launch attempts returned125/no server. Identity-bound supervisor shutdown at08:30:49UTC produced child0/runner0/waiter-observed0; all four saved owned identities exited, port3262 is free, and next.config.ts/tsconfig.json/next-env.d.ts are byte-exactly restored. No other process was signalled and no cache cleanup occurred.
+
+The final punctuation edit postdates screenshots. Its exact single-character substitution is proven in `punctuation-approval-review.json`; final punctuation pixels were **not recaptured**. Final prose approval binds immutable baseline `1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46` to `c438f16829f3bc8ac358c6d6a1001e08c5fa13cda6bad5b6713e89e7af192142`. Relationships bind `17fdefd8a4628affab609602bf455b9f03dbbddbcd7605ed3e05773f41777b4b` to `2cef62ba9cf14995e933f9c87c9a29a6bbd9607e6919bd7463580ac32d389699`; glossary metadata binds `c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc` to `c6265b6fb157858cf2824eccb84a2a2ba05dbd5c635d5d20e505943c6c1c0e71`. Only this worker's uncommitted prose approval was updated; its earlier bytes remain retained, and all523 inherited entries remain unchanged.
+
+**Input qualification is bounded.** Initial54-manifest/77951-reference/52-receipt inspection found two references to one missing1672-byte binder version. Exact inverse-edit reconstruction matched SHA256 `eb1c82fa7b5777a767dd5b5f811849d244d36857e4555fa271383fdf1dc23db8`; it is not a contemporaneous saved copy. Native-entry.json and reviewed-endpoints.json were omitted direct application dependencies in the early manifest; later binding does not retroactively certify that input population. Initial external list176 became212 before readers, with explicit final dependencies added afterward. Inherited predecessor late-binding limitations remain unchanged. Final version resolution, direct input limits, terminal receipts and commit identities are recorded separately in the closeout/seal, not inferred here.
+
+Manual source-fidelity/plain-language review is distinct from the machine no-slop pass. Humanizer is absent from the exposed skill list and Mission skill inventory; no invocation is claimed. The contract's authored-example question is unchanged. **448 corpus originals, four hierarchical originals, whole-P1/liveness/edition/figure work, shared reader and typography/contrast debt, full export/reading-time/card/browser corpus, independent scrutiny and user testing remain owed.** Content is **RED at455 findings**. Formal Mission307/331 and M5 unaccepted remain unadvanced.
+
+First actual Astra/max emission07:39:07.838UTC; fixed checkpoint08:14:07.838UTC was exceeded, not reset. Final local commit and actual terminal timestamp are bound only after creation. No further source dispatch/retrieval, unrelated correction, model/credit fallback, feature-file edit, controller intervention, push, deployment, billing, credentials or security change. **Do not publish. Parent qualification is required before another sole writer starts.**
+
+## Previous checkpoint: two thesis-economics originals (2026-09-14)
+
+Exactly **2 applied /0 assigned held /0 assigned unattempted originals**: `audit/frontier.md:competing-theses:21/22`. Counting unit is immutable original ledger rows: **2 corrected-verdict rows /0 verified-verdict rows /0 cuts**. Original21 remains **C**; original22 changes **V→C** for its coupled prose correction. Two integrator-authored native plans contain **9 mandatory AND parts /9 part-source evidence items /17 literal bindings**. Four article/explorer endpoints travel with the two original rows and their exact non-counted four-cell history. **Original23/Goldberg is excluded, untouched and held**; its missing Berkeley-interview body is not completed by scientific-body support.
+
+Fresh native collection at **2026-09-14T07:05:24.344Z**, on entry HEAD `20ab70d8a1920acd1cbdfb9b37109875a9140cc6`: **544 complete /450 incomplete /994 originals /47 articles**, **450 plans /523 approvals /43 inherited full baseline failure objects**. Frontier is **17 complete /130 incomplete /147 originals**; Competing Theses **12 complete /13 incomplete /25 originals**. These are native evidence-completion counts, not source truth inferred from labels, article/P1 acceptance or release approval.
+
+Brian Moore/Voxel51 and Adrian Macneil/Foxglove replace anonymous flywheel attribution; “better model improvements” is restored, both portfolio interests are disclosed, and deployment-revenue financing/guaranteed autonomy are not asserted as demonstrated. Ian Glow’s **scale and diversity /teleop alone** argument retains his internet-data or simulator/RL recommendation plus expensive-world-model/open sim-to-real limitations. The unsupported generic “expensive and slow” attribution is removed. Six thesis choices, controls/defaults, citation IDs/population, prior Brooks/PI/Helix records and article **lastReviewed2026-08-18** are preserved. No whole-article date promise is earned.
+
+**Zero new retrievals.** Source: https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai, Bessemer’s seven-author investor essay publishedApril16,2026. Original FetchUrl request/result **2026-09-13T00:13:15.389Z /00:13:23.491Z**, source session4345bf0d-001d-402e-87b4-a84f2079d6da, lines24/25 with LF-inclusive event hashes. Original tool artifact `/home/remy-simpc4/.factory/artifacts/tool-outputs/fetch_url-call_YmijrxaVz6x9ktB5TLGHaL5c-58400760.log`; retained representation **40,352bytes /SHA25665f745dc9974c7ee90082d6d35ede401e07fc0095fc850b95d24cc7695cf62fc**. All represented essay text, both flywheel quotations, full Glow quotation, disclosures and nearby countercontext were read. Linked media and the excluded interview were not inspected. Historical tool-reported200 is not fresh origin/redirect/cache-age evidence. Packet rows.json **58,068bytes /cab3e151cc9dcdbcbe4c24916805027a0703d2b095037923f9b55511478e8333** and all35 source payloads/456,466bytes were verified before reuse; exact entry originalId/ordinal/four-cell digests were rechecked at application.
+
+### Verification actually executed
+
+Commands ran sequentially through the fail-closed runner with `NODE_DISABLE_COMPILE_CACHE=1`. In the command table, `EVIDENCE=/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-thesis-economics-two-integration-20260914`. Raw inputs/logs/receipts and every refusal/failure remain separate; the table contains actual executions, not planned gates.
+
+| Gate | Actual command | Observed result |
+| --- | --- | --- |
+| Scientific red | `npm test -- tests/unit/thesis-economics-source-fidelity.test.ts` | exit1, **8 failed /2 passed** against unchanged prose/plans; retained expected red |
+| Source/atomic review | `node $EVIDENCE/integrate.mjs review` | exit0, **2 originals /9 required AND parts /9 evidence items /17 literal bindings**; **1 valid +16 rejection controls** |
+| Narrow guard controls | `python3 $EVIDENCE/guard-adaptation.py` | exit0, **11 controls**; subsequent passive instances use inspected exact argv/PID/start/cwd/exe/cgroup bindings, not wildcard allowances |
+| Atomic application | `node $EVIDENCE/integrate.mjs apply` | exit0, originals21/22 and their four article/explorer endpoints; no other original applied |
+| Exact approval | `node $EVIDENCE/integrate.mjs approve` | exit0, **1 appended approval /523 total**; **43 inherited full failure objects/order preserved**, none removed |
+| Focused units/components | `npm test -- tests/unit/thesis-economics-source-fidelity.test.ts tests/unit/competing-theses.test.ts tests/component/thesis-explorer.test.tsx tests/unit/pi-helix-theses-corrections.test.ts tests/unit/brooks-theses-corrections.test.ts tests/unit/audit-ledger.test.ts tests/unit/validate-content.test.ts` | exit0, **178 passed /7 files** |
+| Ordered Term inventory | `npm test -- tests/unit/term-consumer-inventory.test.ts` | exit0, **15 passed**; fixture/count unchanged |
+| Final normal lint | `npm run lint` | exit0 including normal prelint, **07:03:09–07:03:26 UTC**, after the final reader wiring and config restoration |
+| Final TypeScript | `node node_modules/typescript/bin/tsc --noEmit --incremental false` | exit0, **07:03:27–07:03:29 UTC**, nonincremental with restored config/existing types, not fresh isolated-route-type proof |
+| Content chain | `npm run validate:content` | exit1, **457 findings /544 of994 complete evidence rows** after structural/no-slop/chart checks passed; nine separately owned unresolved citation checks remain; no repeated currency/CHOMP regression |
+| First affected readers | `node node_modules/@playwright/test/cli.js test --config $EVIDENCE/playwright.config.ts` | exit1, **16 passed /2 failed** at375×812 and1440×900; all8 existing Competing Theses cases pass at both widths. Both new failures are the retained glossary-boundary paragraph locator defect |
+| Corrected economics readers | `node node_modules/@playwright/test/cli.js test --config $EVIDENCE/playwright.retry.config.ts` | exit0, **2 passed**, only the failed cases rerun in separate output paths. Overall20 executions =18 passes +2 failures; final coverage **18 distinct passing viewport-cases by composition**, not a full-corpus pass |
+| Normal non-Mission collection | `env -u ROBOT_WIKI_GATE_INPUTS -u ROBOT_WIKI_EVIDENCE_ROOT node node_modules/@playwright/test/cli.js test tests/e2e/thesis-economics-readers.spec.ts --list` | exit0, **1 test /1 file**, collection only; no browser/server launch |
+| Preservation | `python3 $EVIDENCE/closeout.py preserve native-final-before-docs preservation-before-docs` | exit0, **994 IDs/order,542 prior complete IDs/order,992 unselected full semantic records,448 old plans,522 old approvals/metadata,two serialized prefixes,43 full failure objects/order,1221 unchanged product/owner inputs and40 frozen entry external inputs** |
+| Reader artifact closeout | `python3 $EVIDENCE/closeout.py readers` | exit0, **20 contexts /20 document navigations**,9 at1440×900 and11 at375×812; external requests,console/page errors and positive document overflow0 |
+| Historical input qualification | `python3 $EVIDENCE/closeout.py qualify input-qualification-before-docs-02` | exit0, **41 current manifests /9 inherited required manifests /40 completed receipts /555 predecessor payloads (48,857,015bytes)**; all recorded input identities resolvable, using exact historical versions and run-scoped Mission copies |
+
+Only native member `prose:article:frontier/competing-theses` changed. Approval `thesis-economics-two-20260914-1` binds immutable baseline old hash `27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895` to current `1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de`. The failed entry-current old-hash attempt remains retained; it wrote no approval.
+
+**Pixels and interactions:**16 final captures,16 actual high-quality Reads; bounded comparison with both approved literal references. Correct names/quotes/caveats wrap at both widths, explorer selection/reset works, citation hover/focus/Escape retains focus, source links and full seven-author References are visible, and glossary navigation returns to the article. Mobile article tooltips have x/right **20/276px** and **93/349px**, inside375px. Two added scoped Axe analyses have **0 violations and10+18=28 color-contrast incomplete-node observations**, not28 unique nodes or accessibility acceptance. Back returns the article URL but activeElement remains **BODY at both widths**. Manual source-fidelity/no-hype prose review is separate from machine no-slop; the humanizer skill was unavailable, so no invocation is claimed. No shared design change or complete VAL-B2 acceptance.
+
+The new reader now selects the standard fixture without Mission gate inputs and the same strict offline/input-bound fixture with them, matching existing thesis readers. The final import-selection-only portability edit follows the browser evidence; its complete test body is byte-identical to the executed version. Final lint/types and non-Mission collection pass; no post-wiring browser run is claimed or duplicated.
+
+Owned runtime started06:43:11UTC, stopped normally **06:58:02UTC** after identity-bound supervisor1913180 SIGTERM. Child exit0, supervisor/guarded-runner exit0, and the separate waiter recorded **rawRunnerWaitExit0**. Allsix owned process identities are absent, port3260 is free, and **next.config.ts,tsconfig.json,next-env.d.ts restored byte-exactly**. One fresh cache `node_modules/.cache/thesis-economics-two-20260914`,19 byte-verified retained WOFF2 files, no cleanup. The earlier shutdown refusals invoked no action and remain distinct from terminal receipts.
+
+Historical guard/input proof is reused by exact bytes, not rerun for ownership. Two missing helper versions were reconstructed from the recorded inverse edits only after matching their pre-execution hashes; these are not contemporaneous saved copies. The initial qualification missed four inherited references to two explicit older versions; reading the predecessor seal’s actual substitutions resolved them without altering inherited evidence. **Direct source/native/review inputs added at06:42 remain absent from earlier manifests**; current binding does not retroactively certify those earlier input populations. All recorded stage bytes are nevertheless resolvable. Mutable process pins/external-input lists use their immutable run-scoped copies, not final-path equality. Unknown processes return125/no action; passive parent commands were fully inspected and only concrete exact instances pinned. The unqualified sibling PID1918731 exited without any exception or signal. The source-only CaP sibling’s separately assigned scope was preserved.
+
+**Remaining/limits:**450 corpus originals,13 Competing Theses originals, excluded23’s interview obligation, inherited RRT unresolved verdict, whole-P1/current-liveness/edition work, TermEscape/Back-focus, typography/caveat/small-label/contrast debt, production export/reading times/cards, full browser corpus, independent Sol/high scrutiny/user testing and release acceptance. No production build/export or full-browser corpus was run while content remains **RED at457 findings**. Inherited Mission307/331 is unadvanced, not freshly certified. No feature-file edit, push, deployment, controller/security/credentials/billing change, cleanup or model-credit fallback.
+
+First assistant emission **06:22:11.881UTC**; actual Astra/max metadata verified before writes/tests. Fixed checkpoint **06:57:11.881UTC** was exceeded during guarded shutdown, preserved-input recovery and safe closeout; it was not reset or treated as an application quota. Local commit IDs and the actual subsequent terminal timestamp are bound only after creation in the final evidence seal. **Do not publish.**
+
+## Previous checkpoint: RRT and hierarchy retained-source integration (2026-09-14)
+
+Exactly **4 applied / 0 held / 0 unattempted originals**: `audit/classical.md:motion-planning:5` and `audit/manipulation.md:hierarchical:3/4/5`. Four independently reviewed current-claim native plans have **25 mandatory AND parts / 25 part-source evidence items**, backed by **40 hierarchy and 16 RRT retained passages**. This counts native evidence completion, not four renamed verdicts: the hierarchy rows retain **C/C/C**, and the RRT row retains **unresolved**. The latter label is not silently promoted; exact protected, prior and applied four-cell tuples remain in non-counted history.
+
+Fresh native collection at **2026-09-14T05:00:25.435Z**, on entry HEAD `904d310ea71f93ff533ac4db88438d560e2f7cab`: **542 complete / 452 incomplete / 994 originals / 47 articles**, **448 plans / 522 approvals / 43 inherited full baseline failure objects**. Classical is **88/99/187**, manipulation **214/11/225**, motion-planning **10/5/15**, hierarchy **10/6/16** (complete/incomplete/originals). Only the four assigned records receive new completeness credit; perception originals42/43/44 and all previously completed records were not replayed.
+
+RRT's three reader endpoints compose atomically: report algorithm/equation, the bibliography-attributed 1998 Stat, and the configuration-space glossary closing qualification/citation. October1998/TR98-11 comes from LaValle's bibliography [103], not the rejected Kalos/Whitlock1986 text. Fixed **time** control integration and whole-edge feasibility replace a universal geometric-step account. Euler is explicitly approximate; the 2006 obstacle-free nearest-swath construction and edge splitting remain distinct. Toy code/defaults, neighboring claims, the glossary's earlier clauses and hierarchy article bytes are preserved, not newly certified. `lastReviewed` remains **2026-08-17** for motion-planning; no article date changes.
+
+MOKA retains conditional keypoint roles, calibration/separate execution, in-context versus trained-distillation distinctions, three-versus-two examples, SAM-reference mismatch and screening/manual scoring. ReKep retains finite-penalty versus feasibility limits, rigidity/fixed stages, annotated/tracking-disabled/collision-disabled evaluations, cosine versus Euclidean/PCA and normalization disagreements. RoboPoint retains real-image training alongside synthetic references and **Where2Place46.77% ±0.45 versus29.06% ±1.33 on100 real images/three runs**, a point-in-mask result, not grasp success. Its abstract30.5% versus body/Figure5 39.5% and trial-arithmetic disagreements remain explicit.
+
+**Zero new retrieval.** Original hierarchy FetchUrl responses: MOKA `https://arxiv.org/html/2403.03174` at2026-09-13T05:18:16.303Z (displayed v3), ReKep `https://arxiv.org/html/2409.01652` at05:18:28.972Z (v2), RoboPoint `https://arxiv.org/html/2406.10721` at05:18:37.357Z (v1). The retained response bodies were compared with original tool artifacts; tool-reported200 is not raw-wire/current-liveness evidence. RRT chapter `https://lavalle.pl/planning/ch5.pdf`: original GET11:30:32.413106–11:30:33.587043Z; report `https://lavalle.pl/papers/Lav98c.pdf`:11:30:33.601118–11:30:34.593909Z, both September13/HTTP200/no redirects. Current authored review completed2026-09-14T04:15:44.315327Z. Verified spans and selected context/images are not whole-document, edition-equivalence or P1 certification.
+
+### Verification actually executed in this continuation
+
+Every command below ran sequentially through `guarded_runner.py` with `NODE_DISABLE_COMPILE_CACHE=1`; raw inputs, logs, receipts and refusals remain separate under `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hierarchy-rrt-repair-integration-20260914/continuation-0403`.
+
+| Gate | Actual command and observed result |
+| --- | --- |
+| Scientific red/green | `npm run test -- rrt-hierarchy-corrections motion-three-corrections hierarchy-timescales`: final **58/58 pass, four files** at04:49:55–04:49:58Z. Initial15 failures and subsequent delimiter14-pass/1-fail regression remain historical |
+| Scientific/atomic preflight | `node scientific-preflight.mjs`: **4 accepted synthetic fixtures /89 refusal cases**, exit0; these are in-process controls, not89 separate OS executions |
+| Exact approvals | `node approve-baseline-bound.mjs`: **3 appended entries /2 refusal controls**,522 total; sealed-baseline old hashes, not entry-current chaining; all43 full prior failure objects/order unchanged |
+| Normal lint | `npm run lint`: exit0 including `prelint` at04:59:25–04:59:42Z, after final test edits and runtime restoration |
+| TypeScript | `node node_modules/typescript/bin/tsc --noEmit --incremental false`: exit0 at05:00:22–05:00:24Z; restored original config/existing types, not a claim that final tsc consumed the isolated dev route types |
+| Content | `npm run validate:content`: exit1 before its later chained checks; unchanged CHOMP `$50\times50\times50$` is flagged by the currency detector at body line102 (physical127). No out-of-scope text or gate repair |
+| Prose floor | `node scripts/lint-no-slop.ts --source-only`: exit0;47MDX, zero banned/placeholder markers,14 existing quotation exceptions; export scan skipped |
+| Charts | `node scripts/check-chart-descriptions.ts`: exit0;48 mounts from43 component files,48 registered descriptions |
+| Audit coverage | `node scripts/check-audit-coverage.ts`: exit1;542/994 complete evidence rows,459 findings;9 unresolved citation checks remain separately owned |
+| Mounted readers | `node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hierarchy-rrt-repair-integration-20260914/continuation-0403/playwright.config.ts`: **2/2 pass**, one case each at375×812 and1440×900,04:53:35–04:54:03Z. One fresh runtime,2 contexts,2 document navigations,0 external requests/console/page errors/overflow |
+| Pixels/manual prose | **20 captures /20 actual high-quality Reads**. Correct report/date/approximation/Runge-Kutta/swath text, bibliography Stat, complete glossary closing sentence and both source tooltips are readable at both widths. Full References authors/URLs are DOM-asserted, not newly source-certified. Loaded humanizer rules; manually reviewed all changed prose for overstatement, vague attribution, filler and paraphrase drift, separately from no-slop; no further wording change needed |
+| Preservation | `python3 preserve-final.py native-before-report preservation-before-report`: exit0 at05:04:45Z;994 IDs/order,538 previous complete IDs/order,990 unselected full semantic records,444 old plans,519 old approvals/metadata and both serialized prefixes,43 full failures/order,1215 unmodified product/owner inputs,38 retained source dependencies |
+| Historical envelope | Same preservation run verifies all48 old payloads/15,898,172bytes and the unchanged old seal, excluding **only** the new `continuation-0403/` subtree |
+| Full corpus/export/cards/liveness | Not run; no full build, second browser run, external source follow, fresh export/reading-time/card evidence, whole-P1/article/feature/release acceptance |
+
+The reader case checks the final display equation,5 report/7 book chips, full configuration-space definition and geometry, **Tab** exit, keyboard slider1→2 and Reset→1. It does not repair TermEscape or Back-to-BODY. Two affected predecessor specs have updated literal glossary/citation expectations, but their full suites were not rerun and their historical executions are not relabelled current green. Prior motion-three reader-closeout evidence remains historical; current independent Term identity work at entry HEAD is preserved, not re-earned here.
+
+Runtime supervisor1713581, Next child1713582 and runner1713567 exited0 at04:54:34Z after signalling only the identity-verified owned supervisor. `next.config.ts`, `tsconfig.json` and `next-env.d.ts` restored byte-exactly. The isolated generated cache stays at `node_modules/.cache/rrt-hierarchy-0403`, inside the project per installed Next guidance; no cleanup or prior-cache reuse. The attempted contact-sheet helpers failed before generating files (PIL/sharp import paths); all20 original screenshots were read directly instead.
+
+Ownership remains fail-closed: inherited34 controls, continuation22 bounded/detached controls, and9 narrow0–1-tick direct-fork controls are separate evidence sets. Concrete instances of fully inspected passive parent metadata-command hashes are pinned by PID/start/argv/cwd/exe/cgroup; no generic descendant exception. Unknown parent variants and bridge children returned125/no action, were inspected or allowed to exit, and were never signalled. Earlier manifests did not capture every direct reviewed JSON input; later manifests explicitly add the missing review/candidate/passive/preservation inputs. This is not a retroactive claim about those earlier manifests.
+
+**Remaining/limits:**452 corpus originals, the retained RRT unresolved verdict, whole-P1/current-liveness/edition checks, mobile TrajOpt typography/final-caveat pixels, small RRT SVG labels, contrast incompletes, Back-to-BODY and TermEscape, affected predecessor full-reader suites, fresh production export/reading times/cards, independent validation and release acceptance. Global content and inherited Mission **307/331 remain RED**; Mission status was not rerun. Protected d282a83/2cf7d6b, owner `PRODUCT_QUALITY.md`/`qa/`, source packets and frozen active-correction-status remain untouched.
+
+Same Task/clock: first emitted Astra/max03:18:38.384Z; checkpoint03:53:38.384Z was not reset. The owner explicitly authorized safe continuation beyond it. The earlier zero-applied held checkpoint remains sealed history, superseded for application status by this continuation. Local commit and final evidence seal are recorded only after creation. **Do not publish.** No push, deployment, controller/service restart, new Mission, fallback activation, credentials/security changes or source expansion.
+
+## Previous checkpoint: three motion-foundation originals (2026-09-13)
 
 Motion-planning originals **3/6/8: 3 applied / 0 assigned held / 0 assigned unattempted**, all three corrected-verdict records. Four exact article spans and three current-tuple-bound native plans contain **14 mandatory AND parts / 15 evidence items / 22 retained contexts**. Original IDs and four-cell history remain intact. No other original was reapplied.
 
@@ -3185,3 +3487,274 @@ Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2c
 ## 2026-09-13 visual-servo origin pair checkpoint (content gate RED)
 
 Perception originals10/55 were integrated atomically: two corrections, seven parts and eight evidence items. Fresh native-state.mjs accounting is **513 complete / 481 incomplete / 994 originals / 47 articles**, classical **72/115/187**, **419 plans / 497 approval entries**. preserve.mjs confirms all 511 prior completions, 992 unselected records, 417 old plans, 494 old approvals/metadata/prefixes and all 43 unrelated failure objects in order. Rows9/16/17/18/33/34 remain held. Full command/raw-exit evidence and source provenance are in the final verification section of audit/classical.md; immutable receipts are under /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-servo-origins-integration-20260913. Mounted cases passed4 at 375/1440; eight screenshots were read, but mobile equation grouping and exact tooltip bottom reach remain readability follow-ups. No full P1, release, independent scrutiny or user-testing acceptance is claimed; no publication.
+
+### Zero-original reader/input closeout — 2026-09-14
+
+This closes the existing-reader execution and historical input-reproducibility
+obligations after `bda5ef239875c5a438c524fdab71ab6b6de074d2`; it applies,
+re-audits and promotes **zero originals**. The RRT original 5 verdict remains
+`unresolved`, independently of its existing evidence-complete status.
+Hierarchy originals 3/4/5 remain C/C/C. No article, source passage, plan,
+approval, date, catalog, default, or scientific four-cell tuple changed.
+
+- Both existing reader files, `tests/e2e/motion-planning-optimal-readers.spec.ts`
+  (four cases) and `tests/e2e/motion-three-reader-closeout.spec.ts` (three),
+  executed at 375×812 and 1440×900: **14/14 passed**, zero skipped, flaky or
+  unexpected results, 2026-09-14 05:49:33–05:52:58 UTC. No fixture or locked
+  oracle was changed. This is new execution, not relabelled RRT-only evidence.
+- The fresh owned offline Next 16.3.0 webpack runtime used loopback 3266,
+  a new in-project cache, the retained 19 font inputs and strict offline
+  contexts. **14 contexts / 18 document navigations / zero external requests,
+  console/page errors or recorded overflow**. The run captured 275 screenshots;
+  **18 direct high-quality Reads** cover every case at both widths plus
+  RRT*/CHOMP math views. This sample is not full visual, reference, contrast,
+  tiny-SVG, global keyboard-debt, accessibility-profile or release acceptance.
+- The owned Next child and supervisor returned 0 and all owned runtime PIDs
+  are absent. The runner emitted its propagated exitCode 0; no separate
+  post-hoc OS wait status was captured. `next.config.ts`, `tsconfig.json` and
+  `next-env.d.ts` restored byte-exactly; port 3266 is closed.
+- The inherited structural failure was a currency-detector false positive
+  on the unchanged closed CHOMP product `$50\times50\times50$`. Separate
+  tooling commit `5641d861e1c5406c68ce16a30f2a568f6e4e79d4` masks only closed
+  numeric products with literal TeX times operators. Genuine currency,
+  malformed/unclosed products and same-line display-fence refusals remain.
+  Twelve red-first cases produced **7 failed / 50 passed**, then **57/57
+  passed**. Normal prelint/lint and nonincremental TypeScript passed.
+- The normal content chain now clears structural, no-slop and chart stages
+  and still exits 1 at audit coverage: **542/994 complete, 459 findings**.
+  Fresh native preservation confirms **47 articles / 994 originals / 542
+  complete / 452 incomplete / 448 plans / 522 approvals**, with all **43 full
+  baseline failure objects and their order** unchanged. Protected ancestors,
+  owner inputs and both historical envelopes remain intact.
+- The old native input manifest had exactly two later Mission bookkeeping
+  differences: `continuation-0403/external-inputs.json` gained two output
+  paths, and `process-pins.json` gained two closeout observer pins. Recovered
+  pre-state copies match both historical hashes and compose all **1,347
+  historical inputs**. Final live-path equality remains false for those two
+  files; the parent's inner hashcheck exit 1 was not a pass. No old manifest
+  or payload was rewritten. The current reader run separately has **1,284
+  input identities** reproduced with explicit configuration/Mission pre-state
+  copies, rather than a blanket claim about final live paths.
+
+All new closeout evidence is under `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hierarchy-rrt-repair-integration-20260914/reader-input-closeout-0519`:
+`historical-input-recovery.json`, `reader-report.json`, `reader-review.json`,
+per-run `.inputs.json` / `.receipt.json`, `input-states/`, and the final native,
+preservation and seal artifacts. The broader Mission remains RED at inherited
+307/331 (not rerun). Source retrieval, P1/feature/release credit, full build,
+production/export/full-corpus checks and publication were not attempted.
+The original clock is not reset; this is bounded local closeout only.
+
+## Zero-original ORB scene reader closeout (2026-09-14)
+
+**0 originals applied / 0 held / 0 unattempted; no science replay, source retrieval, new adjudication, source-neutral product repair or approval.** This follows the four-original implementation commit `1155e93a603e6f4607a532571ea1efe176aceae5` (tree `9fd3cb33cde4de70c7189ba0c77497bc320a06b7`), not another source integration. All994 native records and all550 completed identities are identical; **550 complete /444 incomplete /994 originals /47 articles;456 plans /532 approvals /43 full baseline failure objects and order unchanged**. Both catalogs are byte-exact, including immutable prefixes; article/Lowry/DSO text, both complete glossary definitions, exact ORB author/source facts, DOI URLs and review dates are unchanged.
+
+### Actual finite reader coverage
+
+The exact affected browser routes are `/classical/scene-representation/` and `/glossary/`. Source/fixture inventory finds two inline ORB2015 chips, one ORB3 chip and one occurrence of each selected Term, all on the scene article. The glossary is the other mounted definition consumer and renders the ORB2015 source title/label/link. The existing SLAM test additionally performs a local HTTP200 link check to `/classical/state-estimation/`; that is not a browser-reading pass for that page.
+
+**22 distinct cases:11 at375x812 and11 at1440x900.** Per viewport: four existing scene cases (qualified SLAM, keyboard slider/reset, article apparatus, inline Term), two existing References population/agreement cases extended to scene, two existing glossary population/source-link cases, and three new focused reader cases (prose/Cite/footnotes, complete definitions/history, drawer/defaults). The glossary's normal static-export fixture is preserved; its explicit loopback reader override requires the bound runtime manifest and four exact current consumer inputs. This dev-mode execution does not earn static-export acceptance.
+
+| Executed run | Actual outcome |
+| --- | --- |
+| Initial selected suite, `node node_modules/@playwright/test/cli.js test --config <root>/playwright.config.ts` |22 passed;11+11;10:06:30-10:08:21UTC |
+| Added text-occlusion regression, `--config <root>/playwright.occlusion.config.ts --project=375` |1 failed at10:11:34-10:11:46UTC: the last mobile place-recognition caveat was obstructed by `NEXTJS-PORTAL` |
+| Final affected recapture, `--config <root>/playwright.final.config.ts` |6 passed;3+3;10:12:34-10:13:21UTC;the16 unchanged existing cases retain their initial results |
+
+Totals are **29 case executions:28 passed /1 retained failed /0 skipped /0 flaky**, across three finite browser runs and one runtime.375px contributes15 executions(14pass/1fail),1440px14(allpass). Final unique-case coverage is22; the initial six focused passes are not double-counted as new coverage. All executions used a single worker, no automatic retries, sequential `NODE_DISABLE_COMPILE_CACHE=1`, bounded per-test deadlines and durable waiters.
+
+The first12 inspected definition/history captures exposed a development-only indicator occluding the final word despite geometry assertions. The new regression reproduced that failure. Only the test fixture now hides `nextjs-portal`; first-party presentation is untouched, page/console error assertions remain and a text-range hit-test now rejects obstruction. Final recapture covers all six affected focused cases. No scientific text or production component was changed to satisfy an oracle.
+
+### Pixels, interactions and limits
+
+**35 final captures;29 unique PNGs directly read at high quality;6 byte-identical duplicates bound to those Reads.** Capture paths/hashes and actual Read bindings are in `reader-verification.json`. Final source-qualified ORB3/false-match prose, both complete definitions/final caveats, all three ORB Cite occurrences and both complete3/5-author References lines are readable at the two actual viewports. ORB3's tooltip intentionally renders first-three-et-al; References renders all five authors, without a collapse button because collapse starts above eight. Both primary DOI links and footnote targets match exactly. The new occlusion regression prevents the prior development-indicator overlap. Locked typography, lime active-navigation marker and blue source/focus paths guided this scoped inspection; it is not a full visual-reference profile.
+
+Cite hover and keyboard text agree; footnote keyboard Enter lands at the correct reference; Cite Escape hides all6 observed tooltips. The mobile drawer opens with its close control focused, closes with Escape and restores the opener; inert state clears. Existing keyboard slider/representation/reset assertions pass at both widths, and default occupancy-grid/20cm remains unchanged. The mobile default-control capture is the lower instrument, not a whole-diagram profile.
+
+**Do not call every interaction passed.** Term Escape leaves the tooltip visible in4/4 observations. In this fresh run Back returns the scene URL AND article h1 in4/4, but focus is BODY in4/4; the older Glossary-mounted observation is not a reproduced current failure or a certified global repair. All four definitions fit naturally with scrollHeight==clientHeight, so no scrollable-tooltip/End case is earned. Page horizontal overflow is0 at both widths; the article has zero displayed math nodes in these captured states, so no math-scroll claim is earned.
+
+Final Axe: **10 scans /0 violations**. Four glossary scans have0 incompletes. Six article scans retain `color-contrast` incompletes: resting44nodes at each width; loop-closure revealed46at375/48at1440; place-recognition revealed49at each width. These280 node observations are not280 unique defects and are not contrast acceptance. Page/console errors are0 in the focused proofs. Broader reference/accessibility/corpus, default static-export, build/export/cards, whole article/P1, independent scrutiny/user testing and release acceptance remain unrun/unearned.
+
+### Runtime and verification receipts
+
+One fresh Next16.3.0 `dev --webpack --hostname127.0.0.1 --port3264` runtime used19 hash-bound retained WOFF2 files and fresh task-owned cache `node_modules/.cache/orb-scene-readers-20260914`. Supervisor2324771 owned Next2324772 under runner2323336 and waiter2323319. Start10:05:45.468UTC; verified supervisor-only SIGTERM at10:16:44; Next raw exit0, supervisor/runner exit0, waiter child-wait/exit0 with returned wait. The runtime receipt ended10:16:44.896UTC and waiter10:16:44.910UTC. Actual process absence and successful loopback bind prove port3264free. `next.config.ts`, `tsconfig.json` and `next-env.d.ts` were restored byte-for-byte; Next's temporary cache-type include additions are not committed. No unrelated process was signalled, no runtime was restarted, no disk cleanup occurred.
+
+| Other executed check | Actual result |
+| --- | --- |
+| New fixture unit `node node_modules/vitest/vitest.mjs run tests/unit/owned-reader-base.test.ts --maxWorkers=1` |6 passed; export-default and target/membership/staleness refusal behavior |
+| Current required-boundary controls `python3 input-boundary-controls.py` |6passed:1 valid action plus5 exact125/no-action in-memory controls using the actual current guard body |
+| Normal `npm run lint` |exit0 including normal prelint;10:17:24-10:17:41UTC |
+| `node node_modules/typescript/bin/tsc --noEmit --incremental false` |final exit0 with restored config;10:17:45-10:17:47UTC |
+| `node native-state.mjs native-final` |exit0;10:17:50-10:17:51UTC;unchanged native records/counts/catalog hashes/baseline objects |
+
+Other retained failures/refusals: installer quoting SyntaxError before writes; initial type check8fixture-only ProcessEnv errors, corrected by a narrow environment type; collection125/no-action for a transient bridge gh child; first runtime attempt125/no-action for an unrelated transient Docker child. Both transient children were left alone; unchanged guards succeeded later. No partial browser report or missing terminal receipt was promoted to success.
+
+Required populations were bound **before first consumer**:20 installation inputs,40 runtime inputs,49 initial reader inputs,50 occlusion-run inputs and51 final reader inputs. Per-run current/frozen bytes and actual HEAD-versus-untracked identities are retained; no historical population was backfilled. Qualification checked **1246 unchanged product inputs /10 unchanged external inputs**,21 completed receipt/log/manifest identities and25758 immutable Git substitutions at that point. Later documentation/commit receipts are added to the final seal. The old integration's absent historical pre-action receipt remains absent, not reconstructed.
+
+Retained, not rerun: original54source-unit/34workflow/13source/12approval controls and content-chain **451 findings plus9 separate citation gaps**. Fresh native preservation is separate evidence. The original sealed integration packet was rechecked in full: **858 payloads /285021137bytes**, indexSHA256 `675e9d08c58d706f3cf286de0fb5c45493b341563f2dcf5cccf5f1f57b295175`, handoffSHA256 `834da4dd0171266a5cc07baebf958deacfeca6f5bdec756b09e08d445cffaae7`, sealSHA256 `928881207b9c7af4a915cd559c788af0b0db7417b5d6ee74ee931108f7bd60f5`. None was modified.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-orb-scene-reader-closeout-20260914/`. Its sealed final handoff records the new local commit/tree and exact file population. This same Task resumed with actual Astra/max event `1d736f66-5475-4f12-9e70-0d1821f70518` at09:51:20.125UTC and revalidated worker2284827 under the unchanged controller1480923. Original first emission09:00:05.950UTC and target09:35:05.950UTC were not reset; continued reader work was explicitly authorized after the late prior terminal event. Seal time is not terminal emission time. Protected commits/owner work, feature criteria and service ownership remain untouched. **Content/release gate remains RED; do not publish.**
+
+
+## Grasp reader closeout, zero originals (2026-09-14)
+
+This append-only continuation of local commit `ce82653fbcf5043728a90e2e753d252b54608e3b` applies **0 originals / 0 scientific corrections / 0 cuts / 0 new approvals**. Article, source history, citation/glossary identities, defaults and dates are unchanged. All **994 semantic records and their order**, **552 complete / 442 incomplete / 47 articles**, **458 plans / 534 approvals**, and **43 unrelated full baseline failure objects/order** are preserved. Grasp remains 2 complete / 11 incomplete / 13 originals. Native preservation collection ran at 11:54:06-11:54:07 UTC; this is accounting, not renewed source review.
+
+### Actual terminal correction and original clock
+
+The predecessor handoff field `terminalAt: 2026-09-14T11:23:05.392471+00:00` was a **prewritten closeout timestamp**, not an actual terminal emission. The parent-qualified actual final assistant emission is **2026-09-14T11:24:14.301Z**, event `960dbdd1-ec60-4b8f-bd76-2a04f964b121`, LF SHA256 `5c2b65545ac4bad3f674d9c7b8f633cc7595472a0c06ee9ad177a8045c0e0344`. Its original seal `6a33f28ead9f71175e1cfd52fa1f1e58ef0cbd490e7332bced48a07c32ca5cb6` is untouched. First activation **10:36:52.790 UTC** and target **11:11:52.790 UTC** do not reset. This role resumed with actual Astra/max event `545bd70a-7013-417b-9e0d-1ab916e1b8d8` at11:28:44.735 UTC. Current artifact preparation times are not claimed to be future final assistant emissions.
+
+### Selected existing tests and fresh/composed results
+
+The checked-in grep matched grasp-route citation names, source text and route references. All **nine existing `tests/e2e/grasp-planning.spec.ts` cases** were selected: full prose/current navigation (VAL-CLASS-026); citation chips/keyboard metadata (027/028); KaTeX/no raw delimiters (029); lab views/defaults/stable boxes (030); hull/readout edits, reset and reload (031); keyboard operation; Greek-mu label; explicit375px overflow; zero Axe violations. Each ran under375x812 and1440x900 projects. The existing overflow case deliberately creates **375x812 in both projects**; these are two375px observations, not an invented1440px case. The new complete-text case independently measures1440px document overflow.
+
+| Fresh command / check | Actual outcome |
+| --- | --- |
+| `node node_modules/vitest/vitest.mjs run tests/unit/grasp-reader-inputs.test.ts` | **14 passed**, including24missing/stale-input rejection assertions; 11:39:25-11:39:26 UTC |
+| `node node_modules/@playwright/test/cli.js test --config /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-grasp-reader-closeout-20260914/playwright.config.ts` | **19 passed / 1 failed**, 20cases, 11:42:06-11:43:41 UTC; mobile prose case used a desktop-only navigation locator |
+| Same CLI with `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-grasp-reader-closeout-20260914/playwright.final.config.ts` | **4 passed**, 11:46:35-11:46:58 UTC; only changed prose/navigation and pixel/math cases, each at both widths |
+| Final `npm run lint`, normal prelint included | **exit0**, 11:53:14-11:53:31 UTC |
+| `node node_modules/typescript/bin/tsc --noEmit --incremental false` | **exit0**, 11:52:30-11:52:32 UTC, restored configs |
+| Native `node --experimental-strip-types --experimental-specifier-resolution=node /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-grasp-reader-closeout-20260914/native-state.mjs native-preserved` | **exit0**, unchanged accounting and43full failure objects |
+
+The final matrix is **20 distinct passing case/viewport combinations**, composed from16unchanged first-run passes plus4final passes. The first run's failed case and repeated passes are not added into a fictitious single fresh20-pass run. The locator repair retains the exact `aria-current=page` assertion on the actual mobile dialog, adds visibility/open/close checks and preserves every original prose/science/default assertion. No product component or rendering fix was required.
+
+Reused parent-qualified evidence is separate:38affected unit/component passes (the final10-source subset overlaps, not48);34required-input/10review/4approval controls; prior source proof; prior lint/types; the known-red content chain at449findings; two historical reader cases and prior runtime terminal proof. **No science/source review, retrieval or known-red content rerun occurred.**
+
+### Full final-text pixels and actual apparatus
+
+**39 final fixed-viewport captures were Read at high quality**, comprising19required-text slices,11equation/start-end captures and9navigation/overview/control captures. Acceptance of the selected text relies on every non-whitespace rendered text position being fully inside the viewport and hit-tested unobstructed in at least one recorded slice—not merely on Read counts. Per viewport, all **3,202/3,202 positions** are covered:
+
+| Target | Positions per viewport | Mobile / desktop slices |
+| --- | ---: | ---: |
+| Entire final Roa paragraph |584|1 / 1|
+| Entire Dex-Net training paragraph |671|1 / 1|
+| Entire method/hardware/success paragraph |544|1 / 1|
+| Entire known/novel results, precision and failures paragraph |721|2 / 1|
+| Training Stat, value and note |99|1 / 1|
+| Roa short tooltip / full Reference |85 / 128|1+1 / 1+1|
+| Dex-Net short tooltip / full Reference |138 / 232|1+1 / 1+1|
+
+The mobile results captures are distinct consecutive slices. Both final full References show the complete registered author lists; short tooltips remain intentionally abbreviated. These postcommit captures close the predecessor's one-space timing gap; no source or layout change follows them.
+
+Before unrelated References/lab captures, real pointer movement, Escape and an ordinary heading click dismiss prior popups, followed by an assertion of0visible tooltips. Only the owned Next development portal is CSS-hidden. No citation/Term DOM or CSS hiding, error suppression, router redesign or false shared-behavior pass was introduced.
+
+Five actual display equations appear at each width. Mobile equation3 is393px wide inside335px; real keyboard ArrowRight input moves scrollLeft0to58, with start/end captures. Fitted equations and tooltips earn **no internal-scrolling credit**. Existing tests exercise friction/contact edits, add/remove/reset/reload, readouts, Greekmu and keyboard grid behavior. Mobile SVG labels remain small; full label/contrast/accessibility profiles are not accepted. Both final Axe analyses have0violations and **51+51=102contrast-incomplete node observations**, not102unique nodes. Back fails to restore chip focus in all4source-chip observations; Term Escape leaves its tooltip open at both widths. Those separately owned shared debts remain open.
+
+Unrun: unrelated chart-state whole-export population/design sweep, Pagefind/export search population, perception and other numeric-substring matches, full build/export/cards/corpus/source sweeps, full accessibility and navigation profiles. Chart-state descriptors/defaults and the search query/route were unchanged; actual affected controls were exercised through the existing grasp cases. No whole-P1/article or independent acceptance follows from this reader scope.
+
+### Runtime, failed attempts and preservation limits
+
+Exactly one fresh offline Next--webpack runtime used19byte-verified retained WOFF2fonts and loopback3268, running11:41:27.006295-11:47:23.607351 UTC. Identity-bound supervisor shutdown produced child0/runner0 and an independently observed waiter0. All owned runtime identities are absent and three configs are byte-restored. An immediate plain port-bind probe failed withEADDRINUSE; subsequent listener inspection found no listener and both Next identities absent. A later plain bind succeeded at2026-09-14T11:57:01.665060+00:00; no socket cleanup or foreign signal was used.
+
+Two early normal lint attempts caught the new fixture callback's React-hook-shaped names (`use`, then `usePage`). Renaming it `providePage` fixed this without a waiver; narrow checks and final normal lint passed. The first final-lint guard refused an unknown reparented sleep with125/no action; retry retained unchanged ownership criteria. All failed/refused receipts remain.
+
+Every reader/runtime consumer had explicit required test/helper/config/font manifests before execution, with actual input versions and durable child/supervisor/runner/waiter receipts. Historical34-manifest version resolution proves recorded versions, not complete dependency populations; predecessor direct-closeout population gaps are **not retroactively repaired**. Current documentation consumes a separately bound append-only helper and recorded measurements. Source packets remain immutable. No Brooks or ECoT/HiRobot proposal was incorporated.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-grasp-reader-closeout-20260914/`. Preservation records1233unchanged product/owner inputs. `PRODUCT_QUALITY.md`, `qa/`, `next-env.d.ts`, protected ancestors and frozen active status are untouched. No article prose changed, so no lastReviewed movement or humanizer pass applies. Formal **307/331**, M5, wholeP1, independent Sol/high scrutiny and release remain unaccepted. **Content/release RED at the inherited449findings: do not publish.**
+
+
+## ECoT and Hi Robot originals 6/7 (2026-09-14)
+
+Exactly **2 original records applied, 0 held records, 0 unattempted assigned records**:
+`audit/manipulation.md:hierarchical:6` and `:7`. The source-only packet was a
+proposal, not an approval. Current-HEAD native original IDs, ordinals, four cells,
+tuple digests and the three article endpoints were rechecked at application;
+completed originals were excluded. The resulting native totals are **559 complete /
+435 incomplete / 994 originals / 47 articles**, **465 plans / 538 approvals**.
+Manipulation is **218 complete / 7 incomplete / 225 originals**. All **557 prior
+complete originals/order, 992 unselected semantic records/order, 463 prior plan
+objects/order and 536 prior approval objects/order** are preserved. The 43 unrelated
+baseline failures remain unresolved; the baseline itself was not replaced.
+
+The reviewed plans contain **15 mandatory parts, 15 required part/citation pairs,
+15 native evidence items and 15 source-specific adjudications**. ECoT now separates
+synthetic reasoning annotations from new physical demonstrations; the paper's
+28-percentage-point absolute gain is against matched OpenVLA (Bridge), not relative
+percent or the released OXE model. Table 1's 66/44 ID and 64/30 OOD means, 314 trials
+per approach, per-view one standard error and five-step high-level freeze stay
+separate from the four-future-position/106-trial v3 variant. No per-view denominator,
+seed count, pooled uncertainty, action guarantee or broad transfer reliability is
+invented. Hi Robot remains two separately trained PaliGemma-initialized policies,
+with a scheduling trigger rather than measured latency, user-signalled resumption,
+task-specific training/evaluation and reported memory/instruction/recovery limits.
+Figure 2's caption conflicts with the diagram and section 4.2 on optional verbal
+responses; no unqualified owner is asserted. The Stat changes only to **learned
+hierarchies**, preserving **2025** and **Hi Robot, π0.5**. Unassigned synthesis,
+completed neighbors, canonical citation/glossary data and `lastReviewed: 2026-08-17`
+are unchanged. Exact original/current four-cell history remains non-counted.
+
+### Actual source provenance, not new retrieval
+
+The integrator performed **0 retrievals**. It verified **56 retained indexed files /
+13 original event bindings**, the primary PDFs and their derived text, and **42
+prepared literal records / 39 unique spans**. It found that the prepared numeric
+pair lacked the abstract's literal 28% sentence and bound that actual retained
+source passage: **43 reviewed literal records / 40 unique spans**. Nothing was
+copied from article prose as source proof. ECoT is arXiv2407.08693v3, printed
+6 March 2025, six authors; observed GET **2026-09-14 10:39:32.166849–10:39:32.644153
+UTC**, HTTP200/zero redirects, PDF SHA256
+`f1bed12bbeb45f9ba25433217420ea8eeac160c697ca277241245341d945f7f8`.
+Hi Robot is arXiv2502.19417v2, printed 15 July 2025, fifteen authors; observed GET
+**10:39:32.807681–10:39:33.434864 UTC**, HTTP200/zero redirects, PDF SHA256
+`a6400a0353705ae3974dec493bb21867885159133586d53da98bacf055fa4333`.
+Review time is not retrieval time. The retained source task used one WebSearch
+invocation with two queries plus two GETs: three invocations or four conservative
+query/GET units. Hashes and native completeness do not independently certify truth.
+
+### Fresh checks and bounded reader proof
+
+- New source test: **8 red-first failures**, then included in **254 passing tests
+  across 14 affected unit/component files**. Native scientific controls: **52**;
+  exact approval controls: **8**; required-input negative controls: **34**;
+  fail-closed ownership/exception controls: **6 negative / 1 positive**.
+- Normal `npm run lint`, including prelint: **exit0**. Nonincremental
+  `node node_modules/typescript/bin/tsc --noEmit --incremental false`: **exit0**.
+- Existing offline `npm run validate:content`: schema/style/chart stages pass,
+  final audit stage **exit1, 442 findings**, plus **9 separately owned unresolved
+  citation checks**. This is not a green content or release gate.
+- One fresh offline Next16.3 webpack runtime, loopback **3272**, retained19font
+  setup and task-owned cache. Initial mounted run: **8 passed / 2 failed** because
+  the new system-button locator also counted Reset. Only those two control cases
+  reran after narrowing to `button[aria-pressed]`: **2 passed**. Thus **10 unique
+  reader cases are supported at 375×812 and 1440×900**, not a claimed all-green
+  initial run or duplicate whole-reader rerun. One earlier reader invocation was
+  refused with125/no action for an unknown transient bridge child, left untouched.
+- **26 final screenshots inspected through10 native-pixel contact sheets**:
+  complete final prose including both mobile Hi Robot slices, Stat, short metadata,
+  full six/fifteen-author References, affected VLA Term and hierarchy controls.
+  Four systems, keyboard End2000/reset0, citation Escape/jump and glossary/Back
+  behavior were exercised. No new page/console errors or horizontal document
+  overflow; no external browser requests. Primary font families loaded, while
+  local fallback-face errors remain visible in the observations.
+- Exact owned supervisor3149129 shutdown at15:52:41UTC produced **Next0 /
+  supervisor0 / runner0 / waiter0**. All observed owned runtime identities,
+  including server child3149142, are absent. `next.config.ts`, `tsconfig.json` and
+  protected `next-env.d.ts` are restored byte-for-byte; port3272 is free.
+
+Shared Term Escape still leaves its tooltip visible and Back still focuses BODY
+at both widths. Development indicators remain in these dev captures. No new Axe
+or contrast release measurement, full reference/profile census, export/Pagefind,
+OG/build, whole-corpus, independent Sol/high scrutiny or user acceptance is claimed.
+The unassigned broader inside-the-network heading/synthesis is not certified.
+
+Retained failures also include the task-local15-versus16 population assertion,
+two pre-write serializer/header failures, a second125/no-action transient bridge
+child refusal during evidence review, and an unavailable Pillow import before
+contact-sheet creation (the installed sharp library was used). No gate was weakened,
+source verdict silently promoted, owner file cleaned up, or model/effort switched.
+The actual first emission15:11:45.592UTC and checkpoint target15:46:45.592UTC remain;
+continued progress does not reset them. Seal/commit times are not final assistant
+emission times. Recorded input-version resolution is not a certification of an
+exhaustive transitive dependency population.
+
+Evidence root:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-ecot-hirobot-integration-20260914/`.
+The finite handoff/seal records exact local commit IDs, files and test receipts.
+Protected commits `d282a83`/`2cf7d6b`, `PRODUCT_QUALITY.md`, `qa/`, feature state,
+controller and source-only Task work are preserved. **Content/release RED; do not publish.**
+
+Final follow-up: the actual checked-in reader admission body passed **42 negative /
+1 positive controls over13required inputs**, without a browser or product mutation.
+The corrected reader selector passed focused ESLint, and final nonincremental
+TypeScript passed with restored configuration. All43 baseline failure objects/order
+are compared directly in the native preservation proof, not only by count.

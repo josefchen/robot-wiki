@@ -8,6 +8,7 @@ import { modules } from '../../data/modules';
 import { inlineTermIds } from '../../lib/glossary';
 import { moduleBody } from '../../lib/references';
 import { startStaticExportServer, type StaticExportServer } from './static-export-server';
+import { ownedReaderBase } from './owned-reader-base';
 
 /**
  * Glossary and inline <Term> definitions (VAL-GLOSS-001 through VAL-GLOSS-011).
@@ -31,6 +32,9 @@ const DEMO_ARTICLES = [
 let server: StaticExportServer | null = null;
 
 test.beforeAll(async () => {
+  // Explicit source-reader mode is not static-export acceptance; default is unchanged.
+  const owned = ownedReaderBase();
+  if (owned) { BASE = owned; return; }
   const outDir = join(process.cwd(), 'out');
   expect(
     existsSync(join(outDir, 'index.html')),
