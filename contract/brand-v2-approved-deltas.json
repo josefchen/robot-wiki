@@ -9946,6 +9946,345 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rrt-hierarchy-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
+      "newHash": "1733d4f3f828c55652401a56b1959beaeb648555f5296fd96d708139f82b5f30",
+      "reason": "Source-backed original motion-planning 5 correction: 1998 report state/control fixed-time integration and approximate Euler update; entire-edge feasibility; bibliography [103] October 1998 attribution; distinct 2006 nearest-swath construction; atomic configuration-space glossary closing-sentence/citation correction. Three exact reader endpoints, unchanged toy/defaults/article date. Hierarchy originals 3/4/5 add independent six-part reviews without changing their already-corrected article bullets. No whole-P1, article, independent or release acceptance.",
+      "ownerApproval": "Josef's recorded September 7 fix-it-all correction authority and the parent's exact motion5/hierarchy3/4/5 dispatch authorize these routine source-backed changes, not personal source certification, wildcard approvals or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rrt-hierarchy-20260914-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "2de52b7ff8f01c0a9f9fbfbdf4523dbef95b1403a9d7cfacd56d703b0cf9b229",
+      "newHash": "4421ceb5ad6ad10cf989665734cd6814ac5119f3a2fc2e0619d59f1680e36757",
+      "reason": "Source-backed original motion-planning 5 correction: 1998 report state/control fixed-time integration and approximate Euler update; entire-edge feasibility; bibliography [103] October 1998 attribution; distinct 2006 nearest-swath construction; atomic configuration-space glossary closing-sentence/citation correction. Three exact reader endpoints, unchanged toy/defaults/article date. Hierarchy originals 3/4/5 add independent six-part reviews without changing their already-corrected article bullets. No whole-P1, article, independent or release acceptance.",
+      "ownerApproval": "Josef's recorded September 7 fix-it-all correction authority and the parent's exact motion5/hierarchy3/4/5 dispatch authorize these routine source-backed changes, not personal source certification, wildcard approvals or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rrt-hierarchy-20260914-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "03b171d31c22ab29248e1ee7e63f639a61b00fc1b3c8ad8b5d4b65e574aa147e",
+      "reason": "Source-backed original motion-planning 5 correction: 1998 report state/control fixed-time integration and approximate Euler update; entire-edge feasibility; bibliography [103] October 1998 attribution; distinct 2006 nearest-swath construction; atomic configuration-space glossary closing-sentence/citation correction. Three exact reader endpoints, unchanged toy/defaults/article date. Hierarchy originals 3/4/5 add independent six-part reviews without changing their already-corrected article bullets. No whole-P1, article, independent or release acceptance.",
+      "ownerApproval": "Josef's recorded September 7 fix-it-all correction authority and the parent's exact motion5/hierarchy3/4/5 dispatch authorize these routine source-backed changes, not personal source certification, wildcard approvals or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "thesis-economics-two-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/competing-theses",
+      "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+      "newHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+      "reason": "Exact original competing-theses 21/22 source-backed article AND explorer corrections: named Moore/Voxel51 and Macneil/Foxglove flywheel quotations with model improvements and portfolio disclosure; Ian Glow scale AND diversity from teleop ALONE with alternatives and limitations. Remove unsupported financing and generic cost/speed extensions. No original23, date, source-union or whole-P1/article acceptance.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact two-original assignment authorize routine source-backed repair, not personal source certification, wildcard deltas or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "saycan-cap-two-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+      "newHash": "c438f16829f3bc8ac358c6d6a1001e08c5fa13cda6bad5b6713e89e7af192142",
+      "reason": "Exact original hierarchical 1/2 retained-source correction and both SayCan glossary definitions: calibrated multitask/mixed skills, selected-not-success history, Python/API recursion and perception/simulation limitations; preserve original dates and source identities.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact two-original assignment authorize routine source-backed repair, not personal source certification, wildcard deltas or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "saycan-cap-two-20260914-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "17fdefd8a4628affab609602bf455b9f03dbbddbcd7605ed3e05773f41777b4b",
+      "newHash": "2cef62ba9cf14995e933f9c87c9a29a6bbd9607e6919bd7463580ac32d389699",
+      "reason": "Exact original hierarchical 1/2 retained-source correction and both SayCan glossary definitions: calibrated multitask/mixed skills, selected-not-success history, Python/API recursion and perception/simulation limitations; preserve original dates and source identities.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact two-original assignment authorize routine source-backed repair, not personal source certification, wildcard deltas or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "saycan-cap-two-20260914-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "c6265b6fb157858cf2824eccb84a2a2ba05dbd5c635d5d20e505943c6c1c0e71",
+      "reason": "Exact original hierarchical 1/2 retained-source correction and both SayCan glossary definitions: calibrated multitask/mixed skills, selected-not-success history, Python/API recursion and perception/simulation limitations; preserve original dates and source identities.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact two-original assignment authorize routine source-backed repair, not personal source certification, wildcard deltas or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "orb-scene-four-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "f8ecd6a28a7586930cab854d814bcc97b450b86f69e1b602bd9c5eaa7f1d74cd",
+      "reason": "Exact scene originals26/27 and31/33 retained-source correction: conditional ORB recovery/validation, source-specific drift distribution, non-universal outlier costs, two glossary definitions and IEEE publication title/byline/venue identity; preserve DOI URLs and article dates.",
+      "ownerApproval": "Josef’s actual September 7 fix-it-all authority and the exact four-original parent assignment authorize routine source-backed correction, not personal source certification, wildcard deltas or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "orb-scene-four-20260914-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31",
+      "newHash": "9a65c31a6059f709e48179a0dc92ae2be7f63a63acbbab34073d1efec3fd0ff9",
+      "reason": "Exact scene originals26/27 and31/33 retained-source correction: conditional ORB recovery/validation, source-specific drift distribution, non-universal outlier costs, two glossary definitions and IEEE publication title/byline/venue identity; preserve DOI URLs and article dates.",
+      "ownerApproval": "Josef’s actual September 7 fix-it-all authority and the exact four-original parent assignment authorize routine source-backed correction, not personal source certification, wildcard deltas or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "orb-scene-four-20260914-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "b0edba9547f2d96bc4476c0a5ae7995321187b06e81e5fe73253061b55325c3c",
+      "reason": "Exact scene originals26/27 and31/33 retained-source correction: conditional ORB recovery/validation, source-specific drift distribution, non-universal outlier costs, two glossary definitions and IEEE publication title/byline/venue identity; preserve DOI URLs and article dates.",
+      "ownerApproval": "Josef’s actual September 7 fix-it-all authority and the exact four-original parent assignment authorize routine source-backed correction, not personal source certification, wildcard deltas or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "orb-scene-four-20260914-4",
+      "manifest": "article-metadata",
+      "memberId": "citation-rendering:label-and-meta",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "65553c74d026e7397f9cb0b678224af3a8c78eb48b1f96c4674f020fcb79a56e",
+      "reason": "Exact scene originals26/27 and31/33 retained-source correction: conditional ORB recovery/validation, source-specific drift distribution, non-universal outlier costs, two glossary definitions and IEEE publication title/byline/venue identity; preserve DOI URLs and article dates.",
+      "ownerApproval": "Josef’s actual September 7 fix-it-all authority and the exact four-original parent assignment authorize routine source-backed correction, not personal source certification, wildcard deltas or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "orb-scene-four-20260914-5",
+      "manifest": "article-metadata",
+      "memberId": "citation:orb-slam-2015",
+      "oldHash": "197f1857285de54385282cfd6f88016234acfedf97366d20243af01efb3ff2bf",
+      "newHash": "36cc977c77b80f818723fc5a1d530cef0c67cd6f253af293171d94d852c5229a",
+      "reason": "Exact scene originals26/27 and31/33 retained-source correction: conditional ORB recovery/validation, source-specific drift distribution, non-universal outlier costs, two glossary definitions and IEEE publication title/byline/venue identity; preserve DOI URLs and article dates.",
+      "ownerApproval": "Josef’s actual September 7 fix-it-all authority and the exact four-original parent assignment authorize routine source-backed correction, not personal source certification, wildcard deltas or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "orb-scene-four-20260914-6",
+      "manifest": "article-metadata",
+      "memberId": "citation:orb-slam3-2021",
+      "oldHash": "ab5a3274c2155b94db31261c42088fce57cf84b018cb5318840932ac5d379c24",
+      "newHash": "9b8518c0403491f58e8da9f95f04b5bebec855c5f493e8deff9a65842ee9f110",
+      "reason": "Exact scene originals26/27 and31/33 retained-source correction: conditional ORB recovery/validation, source-specific drift distribution, non-universal outlier costs, two glossary definitions and IEEE publication title/byline/venue identity; preserve DOI URLs and article dates.",
+      "ownerApproval": "Josef’s actual September 7 fix-it-all authority and the exact four-original parent assignment authorize routine source-backed correction, not personal source certification, wildcard deltas or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "grasp-quality-dexnet-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:classical/grasp-planning",
+      "oldHash": "156f690191b0e7fb9e4619c870c8ec1501b1d6be800312d91aa4e0c5fc8b56b6",
+      "newHash": "1c15d22439324446fc28291802042d344796476f9b4db4d3829692b4ad074cb5",
+      "reason": "Exact grasp originals11/13: scope Roa–Suárez review/caveats and Dex-Net training labels, classifier role and separate physical evaluation populations; preserve all unassigned science and citation identities.",
+      "ownerApproval": "Josef’s actual September7 fix-it-all authority and exact two-original parent assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "grasp-quality-dexnet-20260914-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/grasp-planning",
+      "oldHash": "ea77f7b5c834ad99bb8c708166d53409f9134176e0d8057ec5882b413b4a5844",
+      "newHash": "ead3701c231a6c4d79ce11ba4e8c29d59125a4ade4d15d9c580bb818e3efb8fb",
+      "reason": "Exact grasp originals11/13: scope Roa–Suárez review/caveats and Dex-Net training labels, classifier role and separate physical evaluation populations; preserve all unassigned science and citation identities.",
+      "ownerApproval": "Josef’s actual September7 fix-it-all authority and exact two-original parent assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "dexterity-brooks-four-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "aa38e524616bee37d42d9350a7cc3a69d607928cb6d9c8f3cf3ba3bd595fedb8",
+      "reason": "Exact originals2/3/5/6: Brooks-reported match timing and residual sensation, imagined scaling counterargument with likely, qualified then-current touch conclusion, unsupported victory-inference cut. Original15 and unassigned neighbors unchanged.",
+      "ownerApproval": "Josef’s actual September7 fix-it-all authority and September14 exact integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "dexterity-figure15-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "191c0065fb6913e9c987df66bca3465522fe47fbb7f02d7ee9083e33f7035876",
+      "reason": "Exact original15 only: Figure03 manufacturer quotation and announcement date, palm cameras, Helix02 System1 sensory inputs and Figure-scoped combined-modality first-time statement. No calibrated resolution, numeric conversion, sibling threshold/ranking, registry or comparison-data change.",
+      "ownerApproval": "Josef’s September7 fix-it-all authority and September14 corrected exact original15 continuation authorize routine evidence-backed correction, not personal source certification, deployment or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "hierarchical-ecot-hirobot-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+      "newHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223",
+      "reason": "Exact hierarchy originals6/7 only: ECoT matched Bridge baseline, protocol/annotation/five-step/trace/execution scope; Hi Robot separate policies, feedback/training/evaluation/limitations and coupled learned hierarchies Stat label. Date/year/note/registry/neighbors/synthesis unchanged.",
+      "ownerApproval": "Josef September7 fix-it-all and parent September14 fixed two-original assignment authorize exact routine evidence-backed corrections, not personal source certification, deployment or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "hierarchical-ecot-hirobot-20260914-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "17fdefd8a4628affab609602bf455b9f03dbbddbcd7605ed3e05773f41777b4b",
+      "newHash": "969ca0af100d7e56570a56b3b8896569fb686321be9e8b02375fe877273f5c96",
+      "reason": "Exact hierarchy originals6/7 only: ECoT matched Bridge baseline, protocol/annotation/five-step/trace/execution scope; Hi Robot separate policies, feedback/training/evaluation/limitations and coupled learned hierarchies Stat label. Date/year/note/registry/neighbors/synthesis unchanged.",
+      "ownerApproval": "Josef September7 fix-it-all and parent September14 fixed two-original assignment authorize exact routine evidence-backed corrections, not personal source certification, deployment or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

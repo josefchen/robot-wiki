@@ -135,7 +135,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'hierarchical-policy',
     term: 'hierarchical policy',
     definition:
-      'A control architecture split across levels of abstraction: a high-level policy decides what to do next in semantic terms, and low-level policies turn each decision into motor commands. SayCan made the split concrete by scoring candidate skills twice, once by a language model\'s estimate of how useful the skill is for the instruction and once by a learned affordance function\'s estimate of whether the robot can execute it in the current scene, and running the skill that scores well on both.',
+      'A control architecture split across levels of abstraction: a high-level policy selects what to do next, and low-level policies execute its choices. SayCan scores a supplied library of skills using language-model relevance and estimated affordance, multiplies the scores, and executes the highest-scoring skill. Its mobile-robot implementation combines learned picking with hand-designed navigation and placement components.',
     citations: ['saycan-2022'],
   },
   {
@@ -275,7 +275,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'affordance',
     term: 'affordance',
     definition:
-      'In robot learning, a learned estimate of whether a skill can succeed in the current situation, scored from the robot\'s own observations. SayCan grounded language-model planning in affordances by scoring every candidate skill twice, once by the language model\'s estimate of how useful the skill is for the instruction and once by the affordance function\'s estimate of whether the robot can execute it here and now, and running the skill that scores well on both.',
+      'An estimate of whether an available skill can succeed in the current situation. SayCan combines this estimate with a language model\'s score for the skill\'s usefulness to the instruction. Its learned picking value functions require empirical calibration, and its navigation and placement affordances also use hand-designed rules; a high score is not confirmation of successful execution.',
     citations: ['saycan-2022'],
   },
   {
@@ -324,8 +324,8 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'configuration-space',
     term: 'configuration space',
     definition:
-      'The space of all configurations of a robot: one point per complete joint assignment, so a 7-DoF arm moves through a 7-dimensional space whose coordinates are its joint angles. Lozano-Pérez introduced the planning formulation in 1983: shrink the robot to a point and grow every obstacle by the robot\'s shape, so collision-free motion becomes a path through the free region of that space. Motion planners, sampling-based or optimization-based, all search this space rather than the physical workspace directly.',
-    citations: ['lozano-perez-1983', 'lavalle-2006'],
+      'The space of all configurations of a robot: one point per complete joint assignment, so a 7-DoF arm moves through a 7-dimensional space whose coordinates are its joint angles. Lozano-Pérez introduced the planning formulation in 1983: shrink the robot to a point and grow every obstacle by the robot\'s shape, so collision-free motion becomes a path through the free region of that space. Geometric motion planning searches for paths in configuration space. A kinodynamic planner can instead use a state that includes both configuration and velocity.',
+    citations: ['lozano-perez-1983', 'lavalle-2006', 'lavalle-1998'],
   },
   {
     id: 'trajectory-optimization',
@@ -616,14 +616,14 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'loop-closure',
     term: 'loop closure',
     definition:
-      'Recognising that the robot has returned to a place it has mapped before, and adding the resulting constraint to the map so accumulated drift is corrected globally rather than allowed to grow. It is the property that separates SLAM from odometry: odometry integrates motion and its error grows without bound, while a closed loop redistributes that error across the whole trajectory. Cadena and colleagues place it in the back end of the standard SLAM decomposition, and it is the reason smoothing formulations displaced filtering, since relinearising the past is only possible if the past is still in the graph.',
+      'Recognising a previously mapped place and adding a validated constraint between its observations. Cadena and colleagues explain that revisiting mapped landmarks can reduce and possibly correct odometric drift, whose magnitude depends on the odometry method. In monocular ORB-SLAM, similarity alignment and Essential Graph optimization distribute loop-closing error along the graph. This is not a guarantee that every revisit removes all error.',
     citations: ['cadena-2016', 'orb-slam-2015'],
   },
   {
     id: 'place-recognition',
     term: 'place recognition',
     definition:
-      'Deciding, from the current sensor data alone, whether the robot is somewhere it has been before, without relying on its estimated position. Lowry and colleagues survey the problem and its difficulty: the same place changes appearance with viewpoint, illumination, weather and season, while different places can look alike. It is the front-end machinery a loop closure depends on, and a false match is more damaging than a missed one, because a wrong constraint corrupts the map that the constraint was meant to correct.',
+      'For visual navigation, deciding whether the current image depicts a place already in the map. Motion information can also inform that belief. Lowry and colleagues survey the difficulty: the same place can change appearance while different places can look alike. In Cadena and colleagues\' robustness argument, false-positive data associations can lead to wrong back-end estimates; false negatives discard useful measurements and reduce estimation accuracy. Geometric verification and robust estimation can mitigate outliers, but do not establish a universal ranking of every false match against every missed match.',
     citations: ['lowry-2016-place-recognition', 'cadena-2016'],
   },
   {

@@ -537,6 +537,42 @@ describe('validateContent currency hygiene (remark-math gotcha)', () => {
     expect(run()).toEqual([]);
   });
 
+  it('accepts the closed CHOMP numeric product without changing its scientific math', () => {
+    writeModule(`${frontmatter()}\nThe voxel grid is $50\\times50\\times50$.\n`);
+    expect(run()).toEqual([]);
+  });
+
+  it('accepts closed numeric products with decimal factors and horizontal spacing', () => {
+    writeModule(`${frontmatter()}\nThe dimensions are $2.5 \\times 4\\times 10$.\n`);
+    expect(run()).toEqual([]);
+  });
+
+  it('keeps the real currency line number after a scientific numeric product', () => {
+    writeModule(`${frontmatter()}\nGrid: $50\\times50\\times50$.\nIt cost $269.\n`);
+    const hits = run().filter(issue => issue.message.includes('currency'));
+    expect(hits).toHaveLength(1);
+    expect(hits[0].message).toContain('line 3');
+  });
+
+  it.each([
+    ['$269', 1],
+    ['$1.4B at a valuation above $14B.', 2],
+    [String.raw`$50\times50`, 1],
+    [String.raw`$50\times50 million$`, 1],
+    [String.raw`$50\times50\text{ million}$`, 1],
+    [String.raw`$50\times50$ and $269`, 1],
+    [String.raw`$50\times50$ then $3.00 and $4.00`, 2],
+    [String.raw`$50\times50$ then $50\times50 million$`, 1],
+  ] as const)('retains bare or malformed currency refusals: %s', (body, count) => {
+    writeModule(`${frontmatter()}\n${body}\n`);
+    expect(run().filter(issue => issue.message.includes('currency'))).toHaveLength(count);
+  });
+
+  it('does not waive same-line display fences for numeric products', () => {
+    writeModule(`${frontmatter()}\n$$50\\times50\\times50$$\n`);
+    expect(messages()).toContain('display equation written on one line');
+  });
+
   it('ignores currency inside inline code spans', () => {
     writeModule(`${frontmatter()}\nThe shell sees \`$1.00\` as a variable.\n`);
     expect(run()).toEqual([]);
