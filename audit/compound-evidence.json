@@ -45385,5 +45385,369 @@
         "evidenceDigest": "d0447185ddec5ac85c1604e616606c8a971190baa50ba6ee8d0cf8fb69044340"
       }
     ]
+  },
+  {
+    "id": "hierarchical-saycan-v2-source-proposal-20260914",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "hierarchical",
+    "rowOrdinal": 1,
+    "originalCellsDigest": "2e3faaa4da0127edfe2253b71fd2790e4a35547ae58750ef69a63cb7633d69d8",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "s1",
+        "text": "The LLM scores descriptions of a supplied skill repertoire for usefulness as a next step.",
+        "requiredCitationIds": [
+          "saycan-2022"
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Affordance estimates success in the current state; learned picking values require empirical calibration, not universal feasibility.",
+        "requiredCitationIds": [
+          "saycan-2022"
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Selection multiplies language and affordance scores and chooses their argmax.",
+        "requiredCitationIds": [
+          "saycan-2022"
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "The chosen policy executes; its selected description is appended before the next selection, until termination; selection is not confirmation of success.",
+        "requiredCitationIds": [
+          "saycan-2022"
+        ]
+      },
+      {
+        "id": "s5",
+        "text": "The mobile implementation uses multitask language-conditioned learned picking and hand-designed navigation/placement policies or affordances, not separately trained value models for every skill.",
+        "requiredCitationIds": [
+          "saycan-2022"
+        ]
+      },
+      {
+        "id": "s6",
+        "text": "Available skill capabilities and limited value-function feedback constrain the system; high values can accompany failed skills.",
+        "requiredCitationIds": [
+          "saycan-2022"
+        ]
+      },
+      {
+        "id": "s7",
+        "text": "The named work is Ahn and the complete 45-author byline, Do As I Can, Not As I Say: Grounding Language in Robotic Affordances, arXiv v2 dated 16 Aug 2022.",
+        "requiredCitationIds": [
+          "saycan-2022"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+      "rationale": "All current claim parts AND atomic article/glossary endpoints reviewed against actual retained source context; all required URL items are necessary. Selected-skill history is not success; simulation is not physical benchmarking; metadata is not body equivalence. No whole-P1, article, independent or release acceptance.",
+      "planDigest": "25d4307323f31a89c8b9934dfdbcfc3242fb568c20a76a64948b6412af89c43d"
+    },
+    "evidence": [
+      {
+        "partId": "s1",
+        "citationId": "saycan-2022",
+        "sourceUrl": "https://arxiv.org/html/2204.01691v2",
+        "supportingPassage": "Problem Statement . Our system receives a user-provided natural language instruction i i that describes a task that the robot should execute. The instruction can be long, abstract, or ambiguous. We also assume that we are given a set of skills Π \\Pi , where each skill π ∈ Π \\pi\\in\\Pi performs a short task, such as picking up a particular object, and comes with a short language description ℓ π \\ell_{\\pi} (e.g., “find a sponge”) and an affordance function p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) , which indicates the probability of c c -ompleting the skill with description ℓ π \\ell_{\\pi} successfully from state s s . Intuitively, p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) means “if I ask the robot to do ℓ π \\ell_{\\pi} , will it do it?”. In RL terminology, p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) is the value function for the skill if we take the reward to be 1 1 for successful completion and 0 0 otherwise.\n\nAs mentioned above, ℓ π \\ell_{\\pi} denotes the textual label of skill π \\pi and p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) denotes the probability that skill π \\pi with textual label ℓ π \\ell_{\\pi} successfully completes if executed from state s s , where c π c_{\\pi} is a Bernoulli random variable. The LLM provides us with p ⁡ ( ℓ π | i ) p(\\ell_{\\pi}|i) , the probability that a skill’s textual label is a valid next step for the user’s instruction. However, what we are interested in is the probability that a given skill successfully makes progress toward actually completing the instruction, which we denote as p ⁡ ( c i | i , s , ℓ π ) p(c_{i}|i,s,\\ell_{\\pi}) . Assuming that a skill that succeeds makes progress on i i with probability p ⁡ ( ℓ π | i ) p(\\ell_{\\pi}|i) (i.e., its probability of being the right skill), and a skill that fails makes progress with probability zero, we can factorize this as p ⁡ ( c i | i , s , ℓ π ) ∝ p ⁡ ( c π | s , ℓ π ) ​ p ​ ( ℓ π | i ) p(c_{i}|i,s,\\ell_{\\pi})\\propto p(c_{\\pi}|s,\\ell_{\\pi})p(\\ell_{\\pi}|i) . This corresponds to multiplying the probability of the language description of the skill given the instruction p ⁡ ( ℓ π | i ) p(\\ell_{\\pi}|i) , which we refer to as task-grounding, and the probability of the skill being possible in the current state of the world p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) , which we refer to as world-grounding."
+      },
+      {
+        "partId": "s2",
+        "citationId": "saycan-2022",
+        "sourceUrl": "https://arxiv.org/html/2204.01691v2",
+        "supportingPassage": "Problem Statement . Our system receives a user-provided natural language instruction i i that describes a task that the robot should execute. The instruction can be long, abstract, or ambiguous. We also assume that we are given a set of skills Π \\Pi , where each skill π ∈ Π \\pi\\in\\Pi performs a short task, such as picking up a particular object, and comes with a short language description ℓ π \\ell_{\\pi} (e.g., “find a sponge”) and an affordance function p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) , which indicates the probability of c c -ompleting the skill with description ℓ π \\ell_{\\pi} successfully from state s s . Intuitively, p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) means “if I ask the robot to do ℓ π \\ell_{\\pi} , will it do it?”. In RL terminology, p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) is the value function for the skill if we take the reward to be 1 1 for successful completion and 0 0 otherwise.\n\nRecall that we wish to find the affordance function p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) , which indicates the probability of c c -ompleting the skill with description ℓ π \\ell_{\\pi} successfully from state s s . Our learned policies produce a Q-function, Q π ​ ( s , a ) Q^{\\pi}(s,a) . Given Q π ​ ( s , a ) Q^{\\pi}(s,a) with action a a and state s s , value v ⁡ ( s ) = max a ⁡ Q π ​ ( s , a ) v(s)=\\max_{a}Q^{\\pi}(s,a) is found through optimization via the cross entropy method, similar to MT-Opt. For brevity below we refer to the value functions by their skill-text description ℓ π \\ell_{\\pi} as v ℓ π v^{\\ell_{\\pi}} and the affordance function as p ℓ π affordance p^{\\mathrm{affordance}}_{\\ell_{\\pi}} . Due to artifacts of training and each implementation, the value functions require calibration to be directly applied as a probability. The parameters used for calibration are determined empirically. Furthermore, SayCan enforces logic that if a skill that has already been completed and the reward received (e.g., navigating to the table the robot is already in front of) then it should not be performed.\n\np pick affordance = clamp ⁡ ( v pick − v min pick v max pick − v min pick , 0 , 1 ) , where ​ v max pick = 0.5 , v min pick = 0.2 . p_{\\mathrm{pick}}^{\\mathrm{affordance}}=\\mathrm{clamp}(\\frac{v^{\\mathrm{pick}}-v^{\\mathrm{pick}}_{\\mathrm{min}}}{v^{\\mathrm{pick}}_{\\mathrm{max}}-v^{\\mathrm{pick}}_{\\mathrm{min}}},0,1),\\mathrm{where}\\;v^{\\mathrm{pick}}_{\\mathrm{max}}=0.5,v^{\\mathrm{pick}}_{\\mathrm{min}}=0.2."
+      },
+      {
+        "partId": "s3",
+        "citationId": "saycan-2022",
+        "sourceUrl": "https://arxiv.org/html/2204.01691v2",
+        "supportingPassage": "As mentioned above, ℓ π \\ell_{\\pi} denotes the textual label of skill π \\pi and p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) denotes the probability that skill π \\pi with textual label ℓ π \\ell_{\\pi} successfully completes if executed from state s s , where c π c_{\\pi} is a Bernoulli random variable. The LLM provides us with p ⁡ ( ℓ π | i ) p(\\ell_{\\pi}|i) , the probability that a skill’s textual label is a valid next step for the user’s instruction. However, what we are interested in is the probability that a given skill successfully makes progress toward actually completing the instruction, which we denote as p ⁡ ( c i | i , s , ℓ π ) p(c_{i}|i,s,\\ell_{\\pi}) . Assuming that a skill that succeeds makes progress on i i with probability p ⁡ ( ℓ π | i ) p(\\ell_{\\pi}|i) (i.e., its probability of being the right skill), and a skill that fails makes progress with probability zero, we can factorize this as p ⁡ ( c i | i , s , ℓ π ) ∝ p ⁡ ( c π | s , ℓ π ) ​ p ​ ( ℓ π | i ) p(c_{i}|i,s,\\ell_{\\pi})\\propto p(c_{\\pi}|s,\\ell_{\\pi})p(\\ell_{\\pi}|i) . This corresponds to multiplying the probability of the language description of the skill given the instruction p ⁡ ( ℓ π | i ) p(\\ell_{\\pi}|i) , which we refer to as task-grounding, and the probability of the skill being possible in the current state of the world p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) , which we refer to as world-grounding.\n\nSayCan. The key idea of SayCan is to ground large language models through value functions – affordance functions that capture the log likelihood that a particular skill will be able to succeed in the current state. Given a skill π ∈ Π \\pi\\in\\Pi , its language description ℓ π \\ell_{\\pi} and its corresponding value function, which provides p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) , the probability of c c -ompletion for the skill described by ℓ π \\ell_{\\pi} in state s s , we form an affordance space { p ⁡ ( c π | s , ℓ π ) } π ∈ Π \\{p(c_{\\pi}|s,\\ell_{\\pi})\\}_{\\pi\\in\\Pi} . This value function space captures affordances across all skills [ 12 ] (see Figure 2 ). For each skill, the affordance function and the LLM probability are then multiplied together and ultimately the most probable skill is selected, i.e. π = arg ​ max π ∈ Π ⁡ p ​ ( c π | s , ℓ π ) ​ p ​ ( ℓ π | i ) \\pi=\\argmax_{\\pi\\in\\Pi}p(c_{\\pi}|s,\\ell_{\\pi})p(\\ell_{\\pi}|i) . Once the skill is selected, the corresponding policy is executed by the agent and the LLM query is amended to include ℓ π \\ell_{\\pi} and the process is run again until a termination token (e.g., “done”) is chosen. This process is shown in Figure 5 and described in Algorithm 1 . These two mirrored processes together lead to a probabilistic interpretation of SayCan, where the LLM provides probabilities of a skill being useful for the high-level instruction and the affordances provide probabilities of successfully executing each skill. Combining these two probabilities together provides a probability that this skill furthers the execution of the high-level instruction commanded by the user."
+      },
+      {
+        "partId": "s4",
+        "citationId": "saycan-2022",
+        "sourceUrl": "https://arxiv.org/html/2204.01691v2",
+        "supportingPassage": "SayCan. The key idea of SayCan is to ground large language models through value functions – affordance functions that capture the log likelihood that a particular skill will be able to succeed in the current state. Given a skill π ∈ Π \\pi\\in\\Pi , its language description ℓ π \\ell_{\\pi} and its corresponding value function, which provides p ⁡ ( c π | s , ℓ π ) p(c_{\\pi}|s,\\ell_{\\pi}) , the probability of c c -ompletion for the skill described by ℓ π \\ell_{\\pi} in state s s , we form an affordance space { p ⁡ ( c π | s , ℓ π ) } π ∈ Π \\{p(c_{\\pi}|s,\\ell_{\\pi})\\}_{\\pi\\in\\Pi} . This value function space captures affordances across all skills [ 12 ] (see Figure 2 ). For each skill, the affordance function and the LLM probability are then multiplied together and ultimately the most probable skill is selected, i.e. π = arg ​ max π ∈ Π ⁡ p ​ ( c π | s , ℓ π ) ​ p ​ ( ℓ π | i ) \\pi=\\argmax_{\\pi\\in\\Pi}p(c_{\\pi}|s,\\ell_{\\pi})p(\\ell_{\\pi}|i) . Once the skill is selected, the corresponding policy is executed by the agent and the LLM query is amended to include ℓ π \\ell_{\\pi} and the process is run again until a termination token (e.g., “done”) is chosen. This process is shown in Figure 5 and described in Algorithm 1 . These two mirrored processes together lead to a probabilistic interpretation of SayCan, where the LLM provides probabilities of a skill being useful for the high-level instruction and the affordances provide probabilities of successfully executing each skill. Combining these two probabilities together provides a probability that this skill furthers the execution of the high-level instruction commanded by the user.\n\nClosed-Loop Planning . As presented herein, SayCan only receives environmental feedback through value functions at the current decision step, meaning if a skill fails or the environment changes, the necessary feedback may not be available. Owing to the extendibility and the natural language interface, Huang et al. [25] builds upon SayCan to enable closed-loop planning by leveraging environment feedback (from e.g., success detectors, scene descriptors, or even human feedback) through an inner monologue .\n\nWhile SayCan presents a viable way to ground language models in agents’ affordances, it has a number of limitations. First, we expect this method to inherit the limitations and biases of LLMs [ 82 , 83 ] , including the dependence on the training data. Secondly, we observe that even though SayCan allows the users to interact with the agents using natural language commands, the primary bottleneck of the system is in the range and capabilities of the underlying skills. To illustrate this, we present representative failure cases in Appendix E . Future work that extends the repertoire of skills and improves their robustness would mitigate this limitation. In addition, at the current stage, the system is not easily able to react to situations where individual skills fail despite reporting a high value, though this could potentially be addressed by appropriate prompting of the language model for a correction."
+      },
+      {
+        "partId": "s5",
+        "citationId": "saycan-2022",
+        "sourceUrl": "https://arxiv.org/html/2204.01691v2",
+        "supportingPassage": "Language-Conditioned Robotic Control Policies. To instantiate SayCan, we must provide it with a set of skills, each of which has a policy, a value function, and a short language description (e.g., “pick up the can”). These skills, value functions, and descriptions can be obtained in a variety of different ways. In our implementation, we train the individual skills either with image-based behavioral cloning, following the BC-Z method [ 13 ] , or reinforcement learning, following MT-Opt [ 14 ] . Regardless of how the skill’s policy is obtained, we utilize value functions trained via TD backups as the affordance model for that skill. While we find that the BC policies achieve higher success rates at the current stage of our data collection process, the value functions provided by the RL policies are crucial as an abstraction to translate control capabilities to a semantic understanding of the scene. In order to amortize the cost of training many skills, we utilize multi-task BC and multi-task RL, respectively, where instead of training a separate policy and value function per skill, we train multi-task policies and models that are conditioned on the language description. Note, however, that this description only corresponds to low level skills – it is still the role of the LLM in SayCan to interpret the high-level instruction and break it up into individual low level skill descriptions.\n\nWe also note a few practical considerations for setting up our affordance functions and policies. The flexibility of our approach allows us to mix and match policies and affordances from different methods. For the pick manipulation skills we use a single multi-task, language-conditioned policy, for the place manipulation skills we use a scripted policy with an affordance based on the gripper state, and for navigation policies we use a planning-based approach which is aware of the locations where specific objects can be found and a distance measure. In order to avoid a situation where a skill is chosen but has already been performed or will have no effect, we set a cap for the affordances indicating that the skill has been completed and the reward received.\n\nPick. For pick we use the learned policies in Appendix C and Section 4 with actions from BC and value functions from RL trained on the same skill. In natural language these are specified as “pick up the object ”.\n\nGo to. Since the focus of this work is mainly on planning, we assume the location of objects are known. Thus any navigation skill maps to the coordinate of the object with a classical planning-based navigation stack. In natural language these are specified as “go to location ” and “find object ”.\n\nPlace. Though our manipulation policies have a “place upright” skill, this skill only applies to objects that have a canonical upright direction, e.g., a water bottle but not a bag of chips. One could also train a universal “place” command, but our current policies are trained in a setup-free environment and thus are not amenable to an initial pick. Thus to have a consistent place policy across all objects we use a classical motion planning policy. We use Cartesian space motion planning to plan a path from pre-grasp pose shown in Figure 6 to a gripper release pose. The robot executes that path until the gripper is in contact with a supporting surface, and then the gripper opens and releases the object. In natural language these are specified as “put down the object ”.\n\nPlace. We assume place is always possible, p place affordance = 1.0 p_{\\mathrm{place}}^{\\mathrm{affordance}}=1.0 , since we find language is sufficient to understand place is only possible after a pick. In the future work having an affordance function module for place could further improve the performance of SayCan."
+      },
+      {
+        "partId": "s6",
+        "citationId": "saycan-2022",
+        "sourceUrl": "https://arxiv.org/html/2204.01691v2",
+        "supportingPassage": "Closed-Loop Planning . As presented herein, SayCan only receives environmental feedback through value functions at the current decision step, meaning if a skill fails or the environment changes, the necessary feedback may not be available. Owing to the extendibility and the natural language interface, Huang et al. [25] builds upon SayCan to enable closed-loop planning by leveraging environment feedback (from e.g., success detectors, scene descriptors, or even human feedback) through an inner monologue .\n\nWhile SayCan presents a viable way to ground language models in agents’ affordances, it has a number of limitations. First, we expect this method to inherit the limitations and biases of LLMs [ 82 , 83 ] , including the dependence on the training data. Secondly, we observe that even though SayCan allows the users to interact with the agents using natural language commands, the primary bottleneck of the system is in the range and capabilities of the underlying skills. To illustrate this, we present representative failure cases in Appendix E . Future work that extends the repertoire of skills and improves their robustness would mitigate this limitation. In addition, at the current stage, the system is not easily able to react to situations where individual skills fail despite reporting a high value, though this could potentially be addressed by appropriate prompting of the language model for a correction."
+      },
+      {
+        "partId": "s7",
+        "citationId": "saycan-2022",
+        "sourceUrl": "https://arxiv.org/html/2204.01691v2",
+        "supportingPassage": "Do As I Can, Not As I Say: Grounding Language in Robotic Affordances\n\nMichael Ahn ∗ , Anthony Brohan ∗ , Noah Brown ∗ , Yevgen Chebotar ∗ , Omar Cortes ∗ , Byron David ∗ , Chelsea Finn ∗ , Chuyuan Fu † , Keerthana Gopalakrishnan ∗ , Karol Hausman ∗ , Alex Herzog † , Daniel Ho † , Jasmine Hsu ∗ , Julian Ibarz ∗ , Brian Ichter ∗ , Alex Irpan ∗ , Eric Jang ∗ , Rosario Jauregui Ruano ∗ , Kyle Jeffrey ∗ , Sally Jesmonth ∗ , Nikhil J Joshi ∗ , Ryan Julian ∗ , Dmitry Kalashnikov ∗ , Yuheng Kuang ∗ , Kuang-Huei Lee ∗ , Sergey Levine ∗ , Yao Lu ∗ , Linda Luu ∗ , Carolina Parada ∗ , Peter Pastor † , Jornell Quiambao ∗ , Kanishka Rao ∗ , Jarek Rettinghouse ∗ , Diego Reyes ∗ , Pierre Sermanet ∗ , Nicolas Sievers ∗ , Clayton Tan ∗ , Alexander Toshev ∗ , Vincent Vanhoucke ∗ , Fei Xia ∗ , Ted Xiao ∗ , Peng Xu ∗ , Sichun Xu ∗ , Mengyuan Yan † , Andy Zeng ∗\n\narXiv:2204.01691v2 [cs.RO] 16 Aug 2022"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "s1",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "Section 3 scores fixed skill-description candidates rather than unconstrained action generation. The supplied repertoire is an explicit assumption.",
+        "evidenceDigest": "c9d8a13b524cf56c3cd00f6d45838eb97e87f5864240c61ac7db96424321234b"
+      },
+      {
+        "partId": "s2",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "Read the sparse-success-value intuition in Section 2 together with Appendix D.2: picking values need empirical calibration. An estimated affordance is not a physical feasibility guarantee.",
+        "evidenceDigest": "7fe91b5ff6de1b3e39a5b9986338c73c2792c6bc4899d9fb181a70bb0aa78f97"
+      },
+      {
+        "partId": "s3",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "Section 3 explicitly multiplies the language and affordance scores and takes argmax. Its probabilistic factorization has assumptions; the replacement claims the selection rule, not guaranteed progress.",
+        "evidenceDigest": "34297b96c5ba5e2ffc55f257c4127e4c0e60b361bbdfe1d2f0024d2d4ed177cd"
+      },
+      {
+        "partId": "s4",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "Section 3 executes the chosen policy and amends the query with its description until termination. Section 5.2 and Section 8 distinguish this selected-skill history from confirmed success.",
+        "evidenceDigest": "360731e91d82b316e1cd1726f454da4addaf2f650d9b86ea8dfc3380aec7684e"
+      },
+      {
+        "partId": "s5",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "Section 4 uses multitask language-conditioned BC and RL instead of separate models per skill. Appendix D.2 uses BC picking actions, RL picking values, known-location navigation and classical placing. The gripper-state description and constant-place-affordance example are not flattened into one learned formula.",
+        "evidenceDigest": "4be4eac00af9661dc2594763c9ec0b4a75603e8a587fd76afcf599cfe7a864a7"
+      },
+      {
+        "partId": "s6",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "Section 5.2 restricts environmental feedback to current-step values. Section 8 identifies the underlying repertoire and high-value failures as limitations. Unsupported survival, absent-sponge and expensive-recovery extensions are removed.",
+        "evidenceDigest": "90aa805f22d4519413be2a093fa0b2eb3eb08259eb461703aab1ee4a7dbd2dc2"
+      },
+      {
+        "partId": "s7",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "Read the exact title and all 45 names in the HTML byline, and verify its retained version/date marker against raw HTML. This is v2 in 2022, not whole-article P1 acceptance.",
+        "evidenceDigest": "aaac635d3929a72955bf8df9ad1b1865f02ea3d6575744e08161c3cf8fc54330"
+      }
+    ]
+  },
+  {
+    "id": "hierarchical-cap-v4-publication-metadata-proposal-20260914",
+    "ledgerPath": "audit/manipulation.md",
+    "articleSlug": "hierarchical",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "f1d552e2be1140eb2ecaaef94a67ae954a8e7e7230942b8fc01481809fe4912b",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "c1",
+        "text": "Few-shot instruction–program examples prompt Python programs that call supplied perception and control APIs.",
+        "requiredCitationIds": [
+          "code-as-policies-2022"
+        ]
+      },
+      {
+        "id": "c2",
+        "text": "Hierarchical generation finds undefined functions in the AST and recursively creates their implementations depth-first.",
+        "requiredCitationIds": [
+          "code-as-policies-2022"
+        ]
+      },
+      {
+        "id": "c3",
+        "text": "Programs compose primitives, conditional and loop control, library arithmetic over spatial quantities, and perceptual feedback loops.",
+        "requiredCitationIds": [
+          "code-as-policies-2022"
+        ]
+      },
+      {
+        "id": "c4",
+        "text": "Runtime APIs and execution scope are supplied; source-described code checks and Python exec are implementation details, not a general safety certificate.",
+        "requiredCitationIds": [
+          "code-as-policies-2022"
+        ]
+      },
+      {
+        "id": "c5",
+        "text": "Real-robot perception uses ViLD or MDETR and depth deprojection with a pre-registered transform; inaccurate detections cause many real-world failures, without a universal weakest-link ranking.",
+        "requiredCitationIds": [
+          "code-as-policies-2022"
+        ]
+      },
+      {
+        "id": "c6",
+        "text": "Robot-system quantitative evaluation is limited to constrained tabletop simulation; real-robot sections demonstrate supported commands without quantitative evaluation.",
+        "requiredCitationIds": [
+          "code-as-policies-2022"
+        ]
+      },
+      {
+        "id": "c7",
+        "text": "Feasible instructions are assumed; response correctness is not known a priori; prompt/API scope and coding errors restrict capabilities.",
+        "requiredCitationIds": [
+          "code-as-policies-2022"
+        ]
+      },
+      {
+        "id": "c8",
+        "text": "The fetched document title and complete eight-author byline match the registry; the PDF prints arXiv v4 dated 25 May 2023.",
+        "requiredCitationIds": [
+          "code-as-policies-2022"
+        ]
+      },
+      {
+        "id": "c9",
+        "text": "Primary arXiv history records first submission on 16 September 2022 and v4 revision on 25 May 2023; matching IEEE DOI registration metadata binds this exact title and eight-author work to ICRA 2023, with published-print date 29 May 2023. Initial preprint, revision and conference publication dates are distinct; metadata identity does not establish v1 authorship or equivalence of the published body and retained arXiv v4.",
+        "requiredCitationIds": [
+          "code-as-policies-2022"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+      "rationale": "All current claim parts AND atomic article/glossary endpoints reviewed against actual retained source context; all required URL items are necessary. Selected-skill history is not success; simulation is not physical benchmarking; metadata is not body equivalence. No whole-P1, article, independent or release acceptance.",
+      "planDigest": "aec8f70d5974b9f86e2ffda0c54e9d4348359007ce8aae9fa9a5842bc618658b"
+    },
+    "evidence": [
+      {
+        "partId": "c1",
+        "citationId": "code-as-policies-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2209.07753",
+        "supportingPassage": "III. METHOD\nIn this section, we characterize the extent to which pretrained\nLLMs can be prompted to generate code as policies – represented\nas a set of language model programs (LMPs). Broadly, we use the\nterm LMP to refer to any program generated by a language model\nand executed on a system. This work investigates Code as Policies,\na class of LMPs that maps from language instructions to code snippets that (i) react to perceptual inputs (i.e., from sensors or modules\non top of sensors), (ii) parameterize control primitive APIs, and\n(iii) are directly compiled and executed on a robot, for example:\n# stack the blocks in the empty bowl.\nempty_bowl_name = parse_obj(’empty bowl’)\nblock_names = parse_obj(’blocks’)\nobj_names = [empty_bowl_name] + block_names\nstack_objs_in_order(obj_names=obj_names)\n\n2. Examples are instruction-to-code pairs that present few-shot\n\"demonstrations\" of how natural language instructions should be\nconverted into code. These may include performing arithmetic,\ncalling other APIs, and other features of the programming\nlanguage. Instructions are written as comments directly preceding\na block of corresponding solution code. We can maintain an\nLMP \"session\" by incrementally appending new instructions and\nresponses to the prompt, allowing later instructions to refer back\nto previous instructions, like \"undo the last action\".\nB. Example Language Model Programs (Low-Level)\nLMPs are perhaps best understood through examples, to\nwhich the following section builds up from simple pure-Python\ninstructions to more complex ones that can complete robot\ntasks. All examples and experiments in this paper, unless\notherwise stated, use OpenAI Codex code-davinci-002 with\ntemperature 0 (i.e., deterministic greedy token decoding). Here,\nthe prompt (in gray) starts with a Hint to indicate we are writing\nPython. It then gives one Example to specify the format of the\nreturn values, to be assigned to a variable called ret_val. Input\ninstructions are green, and generated outputs are highlighted:\n# Python script\n# get the variable a.\nret_val = a\n# find the sum of variables a and b.\nret_val = a + b\n# see if any number is divisible by 3 in a list called xs.\nret_val = any(x % 3 == 0 for x in xs)\n\nD. Language Model Programs as Policies\nIn the context of robot policies, LMPs can compose perceptionto-control feedback logic given natural language instructions,\nwhere the high-level outputs of perception model(s) (states)\ncan be programmatically manipulated and used to inform the\nparameters of low-level control APIs (actions). Prior information\nabout available perception and control APIs can be guided\nthrough Examples and Hints. These APIs \"ground\" the LMPs\nto a real-world robot system, and improvements in perception\nand control algorithms can directly lead to improved capabilities\nof LMP-based policies. For example, in real-world experiments\nbelow, we use recently developed open-vocabulary object\ndetection models like ViLD [3] and MDETR [2] off-the-shelf to\nobtain object positions and bounding boxes.\nThe benefits of LMP-based policies are threefold: they (i) can\nadapt policy code and parameters to new tasks and behaviors\nspecified by unseen natural language instructions, (ii) can\ngeneralize to new objects and environments by bootstrapping off\nof open-vocabulary perception systems and/or saliency models,\nand (iii) do not require any additional data collection or model\ntraining. The generated plans and policies are also interpretable\nas they are represented in code, allowing for easy modification\nand reuse. Using LMPs for high-level user interactions inherits\nthe benefits of LLMs, including parsing expressive natural\nlanguage with commonsense knowledge, taking prior context\ninto account, multilingual capabilities, and engaging in dialog.\nIn the experiment section that follows, we demonstrate multiple\ninstantiations of LMPs across different robots and different tasks,\nshowcasing the approach’s flexible capabilities and ease of use.\n"
+      },
+      {
+        "partId": "c2",
+        "citationId": "code-as-policies-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2209.07753",
+        "supportingPassage": "In Python, we implement hierarchical function generation\nby parsing a code block’s abstract syntax tree and checking for\nfunctions that do not exist in the given scope. We use the functiongenerating LMP to write these undefined functions and add them\nto the scope. This procedure is repeated on the generated function\nbody, hierarchically creating new functions in a depth-first manner.\n"
+      },
+      {
+        "partId": "c3",
+        "citationId": "code-as-policies-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2209.07753",
+        "supportingPassage": "We present Code as Policies (CaP): a robot-centric formulation\nof language model generated programs (LMPs) executed on real\nsystems. Pythonic LMPs can express complex policies using:\n• Classic logic structures e.g., sequences, selection (if/else), and\nloops (for/while) to assemble new behaviors at runtime.\n• Third-party libraries to interpolate points (NumPy), analyze and\ngenerate shapes (Shapely) for spatial-geometric reasoning, etc.\nLMPs can be hierarchical: prompted to recursively define new\nfunctions, accumulate their own libraries over time, and selfarchitect a dynamic codebase. We demonstrate across several robot\nsystems that LLMs can autonomously interpret language commands to generate LMPs that represent reactive low-level policies\n(e.g., PD or impedance controllers), and waypoint-based policies\n(e.g., for vision-based pick and place, or trajectory-based control).\n\n\nThird-party libraries. Python code-writing LLMs store\nknowledge of many popular libraries. LMPs can be prompted to\nuse these libraries to perform complex instructions without writing\nall of the code e.g., using NumPy to elicit spatial reasoning with\ncoordinates. Hints here include import statements, and Examples\ndefine cardinal directions. Variable names are also important to\nindicate that pts_np and pt_np are NumPy arrays. Operations\nwith 2D vectors imply that the points are also 2D. Example:\nimport numpy as np\n# move all points in pts_np toward the right.\nret_val = pts_np + [0.3, 0]\n# move a pt_np toward the top.\nret_val = pt_np + [0, 0.3]\n# get the left most point in pts_np.\nret_val = pts_np[np.argmin(pts_np[:, 0]), :]\n# get the center of pts_np.\nret_val = np.mean(pts_np, axis=0)\n# the closest point in pts_np to pt_np.\nret_val = pts_np[np.argmin(np.sum((pts_np - pt_np)**2, axis=1))]\n\nC. Example Language Model Programs (High-Level)\nControl flows. Programming languages allow using control\nstructures such as if-else and loop statements. Previously\nwe showed LMPs can express for-loops in the form of list\ncomprehensions. Here we show how they can write a while-loop\ncan form a simple feedback policy. Note that the prompt (same\nas the one in B.2) does not contain such Examples:\n# while the red block is to the left of the blue bowl, move it to the\nright 5cm at a time.\nwhile get_pos(’red block’)[0] < get_pos(’blue bowl’)[0]:\ntarget_pos = get_pos(’red block’) + [0.05, 0]\nput_first_on_second(’red block’, target_pos)"
+      },
+      {
+        "partId": "c4",
+        "citationId": "code-as-policies-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2209.07753",
+        "supportingPassage": "To execute an LMP, we first check that it is safe to run by\nensuring there are no import statements, special variables that\nbegin with __, or calls to exec and eval. Then, we call Python’s\nexec function with the code as the input string and two dictionaries\nthat form the scope of that code execution: (i) globals, containing\nall APIs that the generated code might call, and (ii) locals, an\nempty dictionary which will be populated with variables and new\nfunctions defined during exec. If the LMP is expected to return\na value, we obtain it from locals after exec finishes.\n\nV. DISCUSSION AND LIMITATIONS\nCaP generalizes at a specific layer in the robot stack:\ninterpreting natural language instructions, processing perception\noutputs, then parameterizing low-dimensional inputs to control\nprimitives. This fits into systems with factorized perception\nand control, and it imparts a degree of generalization (acquired\nfrom pretrained LLMs) without the magnitude of data collection\nneeded for end-to-end learning. Our method also inherits LLM\ncapabilities unrelated to code writing e.g., supporting instructions\nwith non-English languages or emojis (Appendix L. CaP can\nalso express cross-embodied plans that perform the same task\ndifferently depending on the available APIs (Appendix M).\nHowever, this ability is brittle with existing LLMs, and it may\nrequire larger ones trained on domain-specific code.\nCaP today are restricted by the scope of (i) what the perception\nAPIs can describe (e.g., no visual-language models to date can\ndescribe whether a trajectory is \"bumpy\" or \"more C-shaped\"),\nand (ii) which control primitives are available. Only a handful\nof named primitive parameters can be adjusted without oversaturating the prompts. CaP also struggle to interpret commands\nthat are significantly longer or more complex, or operate at a\ndifferent abstraction level than the given Examples. In the tabletop\ndomain, it would be difficult for LMPs to \"build a house with the\nblocks,\" since there are no Examples on building complex 3D\nstructures. Our approach also assumes all given instructions are\nfeasible, and we cannot tell if a response will be correct a priori.\n"
+      },
+      {
+        "partId": "c5",
+        "citationId": "code-as-policies-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2209.07753",
+        "supportingPassage": "G. Visual Language Models\nFor real-world experiments, we use off-the-shelf openvocabulary object detection models, ViLD [3] and MDETR [2]\nto perform object detection, localization, and segmentation. These\nare called visual language models because they take as input a\nnatural language description (caption) of the image and try to\nfind objects in that description. ViLD is used for the mobile robot\ndomain, while MDETR is used for the tabletop manipulation and\nwhiteboard drawing domains. Both models give an axis-aligned\nbounding box in the image along with per-pixel segmentation\nmasks of the detected objects. To convert these detections to\n\n3D coordinates for both perception and action (e.g., scripted\npicking primitives), we deproject the corresponding pixels from\na depth camera, whose transform to the robot frame is registered\na priori. The robustness of today’s vision language models\ncould still be improved, and many real-world failures could be\nattributed to inaccurate detections. In addition, a degree of prompt\nengineering is also required for VLMs. For example, MDETR\ndetects blocks more reliably with the word “square\" than \"block,\"\nand applying our approach to a new domain will require some\nprompt engineering for the vision language model.\n"
+      },
+      {
+        "partId": "c6",
+        "citationId": "code-as-policies-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2209.07753",
+        "supportingPassage": "Due to the difficulty of evaluating open-ended tasks and\na lack of comparable baselines, quantitative evaluations of a robot\nsystem using CaP is limited to a constrained set of simulated tasks\nin IV-D, while in IV-B, IV-C, andIV-E we demonstrate the system’s\nfull range of supported commands without quantitative evaluations.\n\nD. CaP: Table-Top Manipulation Simulation Evaluations\nWe evaluate CaP on a simulated table-top manipulation\nenvironment from [16], [18]. The setup tasks a UR5e arm and\nRobotiq 2F85 gripper to manipulate 10 colored blocks and 10\ncolored bowls. We inherit all 8 tasks, referred as \"long-horizon\"\ntasks due to their multi-step nature (e.g., \"put the blocks in\nmatching bowls\"). We define 6 new tasks that require more\nchallenging and precise spatial-geometric reasoning capabilities\n(e.g., \"place the blocks in a diagonal line\"). Each task is\nparameterized by some attributes (e.g., \"pick up <obj> and place\nit in <corner>\"), which are sampled during each trial. We split the\ntask instructions (I) and the attributes (A) into \"seen\" (SI, SA) and\n\"unseen\" categories (UI, UA), where \"seen\" means it’s allowed to\nappear in the prompts or be trained on (in the case of supervised\nbaseline). More details in Appendix K. We consider two baselines:\n(i) language-conditioned multi-task CLIPort [36] policies trained\nvia imitation learning on 30k demonstrations, and (ii) few-shot\nprompted LLM planner using natural language instead of code.\n\nA total of 50 trials are\nperformed per task, each with sampled attributes and initial scene\nconfigurations (block and bowl types, numbers, and positions).\nNote that CLIPort by itself (no oracle) is just a feedback policy\nand it does not know when to stop — in this case we run 10\nactions from the CLIPort policy and evaluate success at the end.\nTo improve CLIPort performance, we use a variant that uses\noracle information from the simulation to stop the policy when\nsuccess is detected (oracle termination).\nL. Additional LLM Capabilities\nUsing a large pretrained LLM also means we can leverage its\ncapabilities beyond code-writing. For example, Code as Policies\ncan parse commands from non-English languages as well as\nemojis. See Figure 7.\nM. Cross Embodiment Example\nCaP exhibit a degree of cross-embodiment support [59], [60]\nby performing the same task differently depending on the action\nAPIs. In the example below, we give Hints of the action APIs, and\nthe resultant plan changes depending on the whether or not the\nrobot is omnidirectional or unidirectional. We note that this ability\nis brittle with existing LLMs and cannot reliably adapt to APIs\nthat are very different. More robustness may require larger ones\ntrained on domain-specific code."
+      },
+      {
+        "partId": "c7",
+        "citationId": "code-as-policies-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2209.07753",
+        "supportingPassage": "V. DISCUSSION AND LIMITATIONS\nCaP generalizes at a specific layer in the robot stack:\ninterpreting natural language instructions, processing perception\noutputs, then parameterizing low-dimensional inputs to control\nprimitives. This fits into systems with factorized perception\nand control, and it imparts a degree of generalization (acquired\nfrom pretrained LLMs) without the magnitude of data collection\nneeded for end-to-end learning. Our method also inherits LLM\ncapabilities unrelated to code writing e.g., supporting instructions\nwith non-English languages or emojis (Appendix L. CaP can\nalso express cross-embodied plans that perform the same task\ndifferently depending on the available APIs (Appendix M).\nHowever, this ability is brittle with existing LLMs, and it may\nrequire larger ones trained on domain-specific code.\nCaP today are restricted by the scope of (i) what the perception\nAPIs can describe (e.g., no visual-language models to date can\ndescribe whether a trajectory is \"bumpy\" or \"more C-shaped\"),\nand (ii) which control primitives are available. Only a handful\nof named primitive parameters can be adjusted without oversaturating the prompts. CaP also struggle to interpret commands\nthat are significantly longer or more complex, or operate at a\ndifferent abstraction level than the given Examples. In the tabletop\ndomain, it would be difficult for LMPs to \"build a house with the\nblocks,\" since there are no Examples on building complex 3D\nstructures. Our approach also assumes all given instructions are\nfeasible, and we cannot tell if a response will be correct a priori.\n\n\nOne type of LMP failures are related to code generation\ncorrectness. For example, minor coding mistakes when calling\ninternal or external APIs, such as missing arguments, can be\nfixed with an Hint or Example demonstrating the correct usage.\nIncorrect assumptions on variable types can also be fixed in\nsimilar fashions. Other coding failures may be addressed by\ndescriptive function names to encourage appropriate library\nusage (perform_function_with_np()) or succinct code logic (#\nimplement in one line.) While it is possible to use LLMs to\nedit code and fix bugs (e.g., by using OpenAI’s code edit API), in\nour experience this yielded inconsistent results (not always able to\ncorrect mistakes, and sometimes changed what the function was\ndoing), so we did not employ this method in our experiments.\n\n\nto move a robot arm end-effector towards a goal position with joint\ntorques. The controller is functional in that it can control a UR5e\nrobot in PyBullet, but simplified in that it does not compensate\nfor Coriolis or gravity forces. Note the need to include extra\ninformation about the expected direction output as well as the hint\nto use PD control in the function signature. Without these hints,\nthe resultant function may still look reasonable (e.g. it may output\ncontinuous values for control instead of discrete), but it will not\nwork for this specific environment API. For the names of the input\ngains, _mat was needed for the LMP to treat them as matrices\ninstead of scalars, and _x was needed to indicate these gains were\nfor the end-effector, not the joints. We demonstrate the use of\nthis controller by commanding the end-effector 3D positions of\na UR5e robot in PyBullet. The default PD gains of 1 also work in\nthis domain without additional tuning as the CartPole environment\nis relatively simple. More complex continuous control tasks may\nrequire actually tuning the gains based on execution feedback,\nsomething our method does not support at the moment.\nBoth examples show it is possible to generate simple reactive\ncontrollers, but more work is needed to express more complex\nones.\n\n\nCurrently, the prompt only\nsupports having a set of unique objects. This is not a limitation of\nCaP but rather of the perception system - we do not have a good\nway of persisting the identity of duplicate objects across VLM\ndetections. A more sophisticated system of keeping track of the\nperceived world state can resolve this issue.\nPrompts.\n• tabletop_ui: the high-level\nUI for parsing user commands and calling other functions\nhttps://code-as-policies.github.io/prompts/tabletop_ui.txt\n• parse_obj_name:\nreturn names of objects from natural language descriptions\nhttps://codeas-policies.github.io/prompts/parse_obj_name.txt\n• parse_position:\nreturn a 2D position from natural language descriptions\nhttps://code-as-policies.github.io/prompts/parse_position.txt\n• parse_question: return a response (could be a number,\na boolean, or a string) to a natural language question\nhttps://codeas-policies.github.io/prompts/parse_question.txt\n• function_generation: define functions from comments\nhttps://code-as-policies.github.io/prompts/fgen.txt\nAPIs.\n• get_obj_names() - gets list of available objects in the scene.\nthese are prespecified.\n• get_obj_pos(name) - gets the 2D position of the center of\nan object by name.\n• is_obj_visible(name) - checks if an object is visible by\nname.\n• get_bbox(name) - gets the 2D axis-aligned bounding box\nof an object by name. This is in robot base coordinates, not\nin pixels.\n• get_segmask(name) - gets the segmentation mask of an\nobject detection by name. This is in pixels."
+      },
+      {
+        "partId": "c8",
+        "citationId": "code-as-policies-2022",
+        "sourceUrl": "https://arxiv.org/pdf/2209.07753",
+        "supportingPassage": "Code as Policies: Language Model Programs for Embodied Control\nJacky Liang, Wenlong Huang, Fei Xia, Peng Xu, Karol Hausman, Brian Ichter, Pete Florence, Andy Zeng\n\narXiv:2209.07753v4 [cs.RO] 25 May 2023"
+      },
+      {
+        "partId": "c9",
+        "citationId": "code-as-policies-2022",
+        "sourceUrl": "https://arxiv.org/abs/2209.07753",
+        "supportingPassage": "[Submitted on 16 Sep 2022 (v1), last revised 25 May 2023 (this version, v4)]\n\nSubmission history From: Jacky Liang [view email] [v1] Fri, 16 Sep 2022 07:17:23 UTC (9,117 KB) [v2] Mon, 19 Sep 2022 23:31:52 UTC (9,117 KB) [v3] Wed, 1 Mar 2023 04:02:50 UTC (9,117 KB) [v4] Thu, 25 May 2023 03:50:11 UTC (9,117 KB)"
+      },
+      {
+        "partId": "c9",
+        "citationId": "code-as-policies-2022",
+        "sourceUrl": "https://doi.org/10.1109/ICRA48891.2023.10160591",
+        "supportingPassage": "\"title\":\"Code as Policies: Language Model Programs for Embodied Control\"\n\n\"author\":[{\"given\":\"Jacky\",\"family\":\"Liang\",\"sequence\":\"first\",\"affiliation\":[],\"role\":[{\"vocabulary\":\"crossref\",\"role\":\"author\"}]},{\"given\":\"Wenlong\",\"family\":\"Huang\",\"sequence\":\"additional\",\"affiliation\":[],\"role\":[{\"vocabulary\":\"crossref\",\"role\":\"author\"}]},{\"given\":\"Fei\",\"family\":\"Xia\",\"sequence\":\"additional\",\"affiliation\":[],\"role\":[{\"vocabulary\":\"crossref\",\"role\":\"author\"}]},{\"given\":\"Peng\",\"family\":\"Xu\",\"sequence\":\"additional\",\"affiliation\":[],\"role\":[{\"vocabulary\":\"crossref\",\"role\":\"author\"}]},{\"given\":\"Karol\",\"family\":\"Hausman\",\"sequence\":\"additional\",\"affiliation\":[],\"role\":[{\"vocabulary\":\"crossref\",\"role\":\"author\"}]},{\"given\":\"Brian\",\"family\":\"Ichter\",\"sequence\":\"additional\",\"affiliation\":[],\"role\":[{\"vocabulary\":\"crossref\",\"role\":\"author\"}]},{\"given\":\"Pete\",\"family\":\"Florence\",\"sequence\":\"additional\",\"affiliation\":[],\"role\":[{\"vocabulary\":\"crossref\",\"role\":\"author\"}]},{\"given\":\"Andy\",\"family\":\"Zeng\",\"sequence\":\"additional\",\"affiliation\":[],\"role\":[{\"vocabulary\":\"crossref\",\"role\":\"author\"}]}]\n\n\"publisher\":\"IEEE\"\n\n\"DOI\":\"10.1109\\/icra48891.2023.10160591\"\n\n\"type\":\"proceedings-article\"\n\n\"event\":\"2023 IEEE International Conference on Robotics and Automation (ICRA)\"\n\n\"container-title\":\"2023 IEEE International Conference on Robotics and Automation (ICRA)\"\n\n\"published-print\":{\"date-parts\":[[2023,5,29]]}\n\n\"issued\":{\"date-parts\":[[2023,5,29]]}\n\n\"published\":{\"date-parts\":[[2023,5,29]]}\n\n\"resource\":{\"primary\":{\"URL\":\"https:\\/\\/ieeexplore.ieee.org\\/document\\/10160591\\/\"}}"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "c1",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "Method Section III defines executable LMPs over supplied perception/control APIs and few-shot instruction-code examples. The replacement does not imply robot geometry or APIs are discovered from nothing.",
+        "evidenceDigest": "ad025669ebbca63f3f969109aaf425f3a1ee1f056fbeb317899376d6bccd6a0b"
+      },
+      {
+        "partId": "c2",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "Section III parses the AST for missing functions, generates them and recurses depth-first. This is a code-generation procedure, not a correctness theorem.",
+        "evidenceDigest": "2756327bc85a4a936caade889838dd238c2ac0e3795cc028a8d11d5d6413e034"
+      },
+      {
+        "partId": "c3",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "The introduction and Section III show if/else, for/while, NumPy spatial arithmetic and perceptual feedback. These are executable-code capabilities, not a field-wide dominance ranking.",
+        "evidenceDigest": "7988b188daef4244fbae651511aaefa0b79828ee61ce761eebd53c11d8c2ebf3"
+      },
+      {
+        "partId": "c4",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "The source reports import/dunder/exec/eval checks followed by Python exec with supplied globals/locals. These are implementation details, not a certified sandbox or physical-safety guarantee.",
+        "evidenceDigest": "e548dcd79ed90d2601559f055ba8287ea645628f9791bca06637af5bee6e0173"
+      },
+      {
+        "partId": "c5",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "Appendix G names ViLD/MDETR, depth deprojection and a pre-registered robot transform; many failures are attributed to inaccurate detections. It does not establish the original universal weakest-link ranking.",
+        "evidenceDigest": "e1be91332cb408dc580f18b393194369e872b6be371287727c40d4440bb54e0c"
+      },
+      {
+        "partId": "c6",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "Section IV explicitly confines quantitative robot-system evaluation to constrained tabletop simulation and labels the real-system sections as demonstrations. Code-generation benchmark success is not physical robot success.",
+        "evidenceDigest": "b27b82a88d519242085190658241c75d0e7ab6625152fdfaebebcd0034b17821"
+      },
+      {
+        "partId": "c7",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "Section V assumes feasible instructions and cannot establish correctness a priori. Appendix A describes API/type errors and unreliable automatic repair; controller and object-identity examples retain their limited scope.",
+        "evidenceDigest": "2b27110831bc3ccbcecbb3af48584ee9b6557c44a4e4d86e742b15fea5b0fa51"
+      },
+      {
+        "partId": "c8",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "The retained PDF text begins with the exact title and eight-author byline and prints arXiv v4, 25 May 2023. No inference about the uninspected v1 byline or published body is made.",
+        "evidenceDigest": "bf59e2edb18ef186990b8c52bf52431380f981a5e238fcd51539c0e22bf485c5"
+      },
+      {
+        "partId": "c9",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 22939cbb-8a74-4101-9136-ac77ebe940ea; retained-source review 2026-09-14",
+        "rationale": "The arXiv raw dateline/history proves initial submission 16 September 2022 and v4 revision 25 May 2023. The separately retrieved IEEE DOI registration binds the same title/eight authors to ICRA 2023 with published-print 29 May 2023. Both URL items are mandatory; metadata does not prove body equivalence.",
+        "evidenceDigest": "141838ab20b707eb163fdfd9a22bc4ffd7b3fdb755b906504c2b86caa6241a70"
+      }
+    ]
   }
 ]

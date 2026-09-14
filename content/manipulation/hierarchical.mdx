@@ -41,15 +41,19 @@ The interactive below draws four 2025 to 2026 systems on a schematic two-second 
   <Stat label="multi-rate stacks" value="2026" note="Helix 02, GO-2, π0.7" />
 </div>
 
-## SayCan: grounding a language model in what is physically possible
+## SayCan: scoring usefulness and affordance
 
-SayCan (2022) is the canonical separate-planner system. An LLM scores how *useful* each skill in a fixed library is for the instruction; a learned <Term id="affordance">affordance</Term> value function, trained per skill, scores how *possible* that skill is right now, given the scene and the robot's state. The two scores multiply, the argmax executes, and the loop repeats with the completed skill appended to the prompt <Cite id="saycan-2022" />.
+SayCan (2022) scores candidate skills from a supplied library. The LLM scores each skill description as a next step for the instruction; an <Term id="affordance">affordance</Term> score estimates whether that skill can succeed in the current state. SayCan multiplies the scores, executes the highest-scoring skill's policy, appends the selected skill description to the prompt, and repeats until a termination option is selected <Cite id="saycan-2022" />.
 
-The affordance half is the contribution that survived. An LLM asked to "clean up the spill" will happily plan around a sponge that is not in the room; the value function is what ties the plan to the current scene. The limitation is the other half: the planner can only choose among skills someone already trained, and it re-plans one skill at a time, so recovery from a failed skill means another expensive pass through the loop.
+In the mobile-manipulator implementation, picking uses a multitask, language-conditioned behavioral-cloning policy and RL-trained value functions, not a separately trained model for every skill. The value functions require empirical calibration before use as probabilities. Navigation and placing also use hand-designed policies or affordance rules <Cite id="saycan-2022" />.
+
+The available skills limit what the system can do. Environmental feedback reaches this version's planner only through the value functions at the current decision step, and the paper reports difficulty reacting when a skill fails despite a high value. Appending a selected skill is therefore not confirmation that it succeeded <Cite id="saycan-2022" />.
 
 ## Code as Policies: the planner writes programs
 
-Code as Policies (2022) replaced skill selection with code generation. The LLM writes executable Python that calls perception and control APIs, recursively defining any function it references but has not been given. That buys loops, conditionals, arithmetic over spatial quantities, and composition of primitives, an expressiveness a flat skill selector cannot reach <Cite id="code-as-policies-2022" />. The failure modes moved too: the generated program is only as good as the APIs it calls, and a <Term id="vision-language-model">VLM</Term>'s spatial estimates were the weakest link in the chain.
+Code as Policies (2022) prompts a code-writing LLM with example instruction-program pairs to generate Python that calls supplied perception and control APIs. A function-generation prompt recursively expands functions missing from the execution scope. The programs can combine loops, conditionals and library calls for spatial arithmetic, and can express feedback loops over perceptual outputs <Cite id="code-as-policies-2022" />.
+
+These capabilities depend on the supplied APIs and prompts. The paper assumes the instructions are feasible and cannot establish in advance whether a generated response is correct. Its real-robot systems use ViLD or MDETR <Term id="vision-language-model">VLM</Term> detections, with depth and a camera-to-robot transform registered in advance to lift detections into 3D. The authors attribute many real-world failures to inaccurate detections. Quantitative robot-system evaluation is confined to the specified tabletop simulation; the real-robot systems are demonstrations <Cite id="code-as-policies-2022" />.
 
 ## The keypoint turn: VLMs emit geometry, not skill names
 

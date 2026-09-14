@@ -10015,6 +10015,60 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "saycan-cap-two-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+      "newHash": "c438f16829f3bc8ac358c6d6a1001e08c5fa13cda6bad5b6713e89e7af192142",
+      "reason": "Exact original hierarchical 1/2 retained-source correction and both SayCan glossary definitions: calibrated multitask/mixed skills, selected-not-success history, Python/API recursion and perception/simulation limitations; preserve original dates and source identities.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact two-original assignment authorize routine source-backed repair, not personal source certification, wildcard deltas or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "saycan-cap-two-20260914-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "17fdefd8a4628affab609602bf455b9f03dbbddbcd7605ed3e05773f41777b4b",
+      "newHash": "2cef62ba9cf14995e933f9c87c9a29a6bbd9607e6919bd7463580ac32d389699",
+      "reason": "Exact original hierarchical 1/2 retained-source correction and both SayCan glossary definitions: calibrated multitask/mixed skills, selected-not-success history, Python/API recursion and perception/simulation limitations; preserve original dates and source identities.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact two-original assignment authorize routine source-backed repair, not personal source certification, wildcard deltas or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "saycan-cap-two-20260914-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "c6265b6fb157858cf2824eccb84a2a2ba05dbd5c635d5d20e505943c6c1c0e71",
+      "reason": "Exact original hierarchical 1/2 retained-source correction and both SayCan glossary definitions: calibrated multitask/mixed skills, selected-not-success history, Python/API recursion and perception/simulation limitations; preserve original dates and source identities.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact two-original assignment authorize routine source-backed repair, not personal source certification, wildcard deltas or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

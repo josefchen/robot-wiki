@@ -135,7 +135,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'hierarchical-policy',
     term: 'hierarchical policy',
     definition:
-      'A control architecture split across levels of abstraction: a high-level policy decides what to do next in semantic terms, and low-level policies turn each decision into motor commands. SayCan made the split concrete by scoring candidate skills twice, once by a language model\'s estimate of how useful the skill is for the instruction and once by a learned affordance function\'s estimate of whether the robot can execute it in the current scene, and running the skill that scores well on both.',
+      'A control architecture split across levels of abstraction: a high-level policy selects what to do next, and low-level policies execute its choices. SayCan scores a supplied library of skills using language-model relevance and estimated affordance, multiplies the scores, and executes the highest-scoring skill. Its mobile-robot implementation combines learned picking with hand-designed navigation and placement components.',
     citations: ['saycan-2022'],
   },
   {
@@ -275,7 +275,7 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'affordance',
     term: 'affordance',
     definition:
-      'In robot learning, a learned estimate of whether a skill can succeed in the current situation, scored from the robot\'s own observations. SayCan grounded language-model planning in affordances by scoring every candidate skill twice, once by the language model\'s estimate of how useful the skill is for the instruction and once by the affordance function\'s estimate of whether the robot can execute it here and now, and running the skill that scores well on both.',
+      'An estimate of whether an available skill can succeed in the current situation. SayCan combines this estimate with a language model\'s score for the skill\'s usefulness to the instruction. Its learned picking value functions require empirical calibration, and its navigation and placement affordances also use hand-designed rules; a high score is not confirmation of successful execution.',
     citations: ['saycan-2022'],
   },
   {
