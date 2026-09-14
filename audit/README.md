@@ -3228,3 +3228,59 @@ Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2c
 ## 2026-09-13 visual-servo origin pair checkpoint (content gate RED)
 
 Perception originals10/55 were integrated atomically: two corrections, seven parts and eight evidence items. Fresh native-state.mjs accounting is **513 complete / 481 incomplete / 994 originals / 47 articles**, classical **72/115/187**, **419 plans / 497 approval entries**. preserve.mjs confirms all 511 prior completions, 992 unselected records, 417 old plans, 494 old approvals/metadata/prefixes and all 43 unrelated failure objects in order. Rows9/16/17/18/33/34 remain held. Full command/raw-exit evidence and source provenance are in the final verification section of audit/classical.md; immutable receipts are under /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-servo-origins-integration-20260913. Mounted cases passed4 at 375/1440; eight screenshots were read, but mobile equation grouping and exact tooltip bottom reach remain readability follow-ups. No full P1, release, independent scrutiny or user-testing acceptance is claimed; no publication.
+
+### Zero-original reader/input closeout — 2026-09-14
+
+This closes the existing-reader execution and historical input-reproducibility
+obligations after `bda5ef239875c5a438c524fdab71ab6b6de074d2`; it applies,
+re-audits and promotes **zero originals**. The RRT original 5 verdict remains
+`unresolved`, independently of its existing evidence-complete status.
+Hierarchy originals 3/4/5 remain C/C/C. No article, source passage, plan,
+approval, date, catalog, default, or scientific four-cell tuple changed.
+
+- Both existing reader files, `tests/e2e/motion-planning-optimal-readers.spec.ts`
+  (four cases) and `tests/e2e/motion-three-reader-closeout.spec.ts` (three),
+  executed at 375×812 and 1440×900: **14/14 passed**, zero skipped, flaky or
+  unexpected results, 2026-09-14 05:49:33–05:52:58 UTC. No fixture or locked
+  oracle was changed. This is new execution, not relabelled RRT-only evidence.
+- The fresh owned offline Next 16.3.0 webpack runtime used loopback 3266,
+  a new in-project cache, the retained 19 font inputs and strict offline
+  contexts. **14 contexts / 18 document navigations / zero external requests,
+  console/page errors or recorded overflow**. The run captured 275 screenshots;
+  **18 direct high-quality Reads** cover every case at both widths plus
+  RRT*/CHOMP math views. This sample is not full visual, reference, contrast,
+  tiny-SVG, global keyboard-debt, accessibility-profile or release acceptance.
+- The owned Next child and supervisor returned 0 and all owned runtime PIDs
+  are absent. The runner emitted its propagated exitCode 0; no separate
+  post-hoc OS wait status was captured. `next.config.ts`, `tsconfig.json` and
+  `next-env.d.ts` restored byte-exactly; port 3266 is closed.
+- The inherited structural failure was a currency-detector false positive
+  on the unchanged closed CHOMP product `$50\times50\times50$`. Separate
+  tooling commit `5641d861e1c5406c68ce16a30f2a568f6e4e79d4` masks only closed
+  numeric products with literal TeX times operators. Genuine currency,
+  malformed/unclosed products and same-line display-fence refusals remain.
+  Twelve red-first cases produced **7 failed / 50 passed**, then **57/57
+  passed**. Normal prelint/lint and nonincremental TypeScript passed.
+- The normal content chain now clears structural, no-slop and chart stages
+  and still exits 1 at audit coverage: **542/994 complete, 459 findings**.
+  Fresh native preservation confirms **47 articles / 994 originals / 542
+  complete / 452 incomplete / 448 plans / 522 approvals**, with all **43 full
+  baseline failure objects and their order** unchanged. Protected ancestors,
+  owner inputs and both historical envelopes remain intact.
+- The old native input manifest had exactly two later Mission bookkeeping
+  differences: `continuation-0403/external-inputs.json` gained two output
+  paths, and `process-pins.json` gained two closeout observer pins. Recovered
+  pre-state copies match both historical hashes and compose all **1,347
+  historical inputs**. Final live-path equality remains false for those two
+  files; the parent's inner hashcheck exit 1 was not a pass. No old manifest
+  or payload was rewritten. The current reader run separately has **1,284
+  input identities** reproduced with explicit configuration/Mission pre-state
+  copies, rather than a blanket claim about final live paths.
+
+All new closeout evidence is under `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hierarchy-rrt-repair-integration-20260914/reader-input-closeout-0519`:
+`historical-input-recovery.json`, `reader-report.json`, `reader-review.json`,
+per-run `.inputs.json` / `.receipt.json`, `input-states/`, and the final native,
+preservation and seal artifacts. The broader Mission remains RED at inherited
+307/331 (not rerun). Source retrieval, P1/feature/release credit, full build,
+production/export/full-corpus checks and publication were not attempted.
+The original clock is not reset; this is bounded local closeout only.
