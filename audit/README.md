@@ -3429,3 +3429,53 @@ preservation and seal artifacts. The broader Mission remains RED at inherited
 307/331 (not rerun). Source retrieval, P1/feature/release credit, full build,
 production/export/full-corpus checks and publication were not attempted.
 The original clock is not reset; this is bounded local closeout only.
+
+## Zero-original ORB scene reader closeout (2026-09-14)
+
+**0 originals applied / 0 held / 0 unattempted; no science replay, source retrieval, new adjudication, source-neutral product repair or approval.** This follows the four-original implementation commit `1155e93a603e6f4607a532571ea1efe176aceae5` (tree `9fd3cb33cde4de70c7189ba0c77497bc320a06b7`), not another source integration. All994 native records and all550 completed identities are identical; **550 complete /444 incomplete /994 originals /47 articles;456 plans /532 approvals /43 full baseline failure objects and order unchanged**. Both catalogs are byte-exact, including immutable prefixes; article/Lowry/DSO text, both complete glossary definitions, exact ORB author/source facts, DOI URLs and review dates are unchanged.
+
+### Actual finite reader coverage
+
+The exact affected browser routes are `/classical/scene-representation/` and `/glossary/`. Source/fixture inventory finds two inline ORB2015 chips, one ORB3 chip and one occurrence of each selected Term, all on the scene article. The glossary is the other mounted definition consumer and renders the ORB2015 source title/label/link. The existing SLAM test additionally performs a local HTTP200 link check to `/classical/state-estimation/`; that is not a browser-reading pass for that page.
+
+**22 distinct cases:11 at375x812 and11 at1440x900.** Per viewport: four existing scene cases (qualified SLAM, keyboard slider/reset, article apparatus, inline Term), two existing References population/agreement cases extended to scene, two existing glossary population/source-link cases, and three new focused reader cases (prose/Cite/footnotes, complete definitions/history, drawer/defaults). The glossary's normal static-export fixture is preserved; its explicit loopback reader override requires the bound runtime manifest and four exact current consumer inputs. This dev-mode execution does not earn static-export acceptance.
+
+| Executed run | Actual outcome |
+| --- | --- |
+| Initial selected suite, `node node_modules/@playwright/test/cli.js test --config <root>/playwright.config.ts` |22 passed;11+11;10:06:30-10:08:21UTC |
+| Added text-occlusion regression, `--config <root>/playwright.occlusion.config.ts --project=375` |1 failed at10:11:34-10:11:46UTC: the last mobile place-recognition caveat was obstructed by `NEXTJS-PORTAL` |
+| Final affected recapture, `--config <root>/playwright.final.config.ts` |6 passed;3+3;10:12:34-10:13:21UTC;the16 unchanged existing cases retain their initial results |
+
+Totals are **29 case executions:28 passed /1 retained failed /0 skipped /0 flaky**, across three finite browser runs and one runtime.375px contributes15 executions(14pass/1fail),1440px14(allpass). Final unique-case coverage is22; the initial six focused passes are not double-counted as new coverage. All executions used a single worker, no automatic retries, sequential `NODE_DISABLE_COMPILE_CACHE=1`, bounded per-test deadlines and durable waiters.
+
+The first12 inspected definition/history captures exposed a development-only indicator occluding the final word despite geometry assertions. The new regression reproduced that failure. Only the test fixture now hides `nextjs-portal`; first-party presentation is untouched, page/console error assertions remain and a text-range hit-test now rejects obstruction. Final recapture covers all six affected focused cases. No scientific text or production component was changed to satisfy an oracle.
+
+### Pixels, interactions and limits
+
+**35 final captures;29 unique PNGs directly read at high quality;6 byte-identical duplicates bound to those Reads.** Capture paths/hashes and actual Read bindings are in `reader-verification.json`. Final source-qualified ORB3/false-match prose, both complete definitions/final caveats, all three ORB Cite occurrences and both complete3/5-author References lines are readable at the two actual viewports. ORB3's tooltip intentionally renders first-three-et-al; References renders all five authors, without a collapse button because collapse starts above eight. Both primary DOI links and footnote targets match exactly. The new occlusion regression prevents the prior development-indicator overlap. Locked typography, lime active-navigation marker and blue source/focus paths guided this scoped inspection; it is not a full visual-reference profile.
+
+Cite hover and keyboard text agree; footnote keyboard Enter lands at the correct reference; Cite Escape hides all6 observed tooltips. The mobile drawer opens with its close control focused, closes with Escape and restores the opener; inert state clears. Existing keyboard slider/representation/reset assertions pass at both widths, and default occupancy-grid/20cm remains unchanged. The mobile default-control capture is the lower instrument, not a whole-diagram profile.
+
+**Do not call every interaction passed.** Term Escape leaves the tooltip visible in4/4 observations. In this fresh run Back returns the scene URL AND article h1 in4/4, but focus is BODY in4/4; the older Glossary-mounted observation is not a reproduced current failure or a certified global repair. All four definitions fit naturally with scrollHeight==clientHeight, so no scrollable-tooltip/End case is earned. Page horizontal overflow is0 at both widths; the article has zero displayed math nodes in these captured states, so no math-scroll claim is earned.
+
+Final Axe: **10 scans /0 violations**. Four glossary scans have0 incompletes. Six article scans retain `color-contrast` incompletes: resting44nodes at each width; loop-closure revealed46at375/48at1440; place-recognition revealed49at each width. These280 node observations are not280 unique defects and are not contrast acceptance. Page/console errors are0 in the focused proofs. Broader reference/accessibility/corpus, default static-export, build/export/cards, whole article/P1, independent scrutiny/user testing and release acceptance remain unrun/unearned.
+
+### Runtime and verification receipts
+
+One fresh Next16.3.0 `dev --webpack --hostname127.0.0.1 --port3264` runtime used19 hash-bound retained WOFF2 files and fresh task-owned cache `node_modules/.cache/orb-scene-readers-20260914`. Supervisor2324771 owned Next2324772 under runner2323336 and waiter2323319. Start10:05:45.468UTC; verified supervisor-only SIGTERM at10:16:44; Next raw exit0, supervisor/runner exit0, waiter child-wait/exit0 with returned wait. The runtime receipt ended10:16:44.896UTC and waiter10:16:44.910UTC. Actual process absence and successful loopback bind prove port3264free. `next.config.ts`, `tsconfig.json` and `next-env.d.ts` were restored byte-for-byte; Next's temporary cache-type include additions are not committed. No unrelated process was signalled, no runtime was restarted, no disk cleanup occurred.
+
+| Other executed check | Actual result |
+| --- | --- |
+| New fixture unit `node node_modules/vitest/vitest.mjs run tests/unit/owned-reader-base.test.ts --maxWorkers=1` |6 passed; export-default and target/membership/staleness refusal behavior |
+| Current required-boundary controls `python3 input-boundary-controls.py` |6passed:1 valid action plus5 exact125/no-action in-memory controls using the actual current guard body |
+| Normal `npm run lint` |exit0 including normal prelint;10:17:24-10:17:41UTC |
+| `node node_modules/typescript/bin/tsc --noEmit --incremental false` |final exit0 with restored config;10:17:45-10:17:47UTC |
+| `node native-state.mjs native-final` |exit0;10:17:50-10:17:51UTC;unchanged native records/counts/catalog hashes/baseline objects |
+
+Other retained failures/refusals: installer quoting SyntaxError before writes; initial type check8fixture-only ProcessEnv errors, corrected by a narrow environment type; collection125/no-action for a transient bridge gh child; first runtime attempt125/no-action for an unrelated transient Docker child. Both transient children were left alone; unchanged guards succeeded later. No partial browser report or missing terminal receipt was promoted to success.
+
+Required populations were bound **before first consumer**:20 installation inputs,40 runtime inputs,49 initial reader inputs,50 occlusion-run inputs and51 final reader inputs. Per-run current/frozen bytes and actual HEAD-versus-untracked identities are retained; no historical population was backfilled. Qualification checked **1246 unchanged product inputs /10 unchanged external inputs**,21 completed receipt/log/manifest identities and25758 immutable Git substitutions at that point. Later documentation/commit receipts are added to the final seal. The old integration's absent historical pre-action receipt remains absent, not reconstructed.
+
+Retained, not rerun: original54source-unit/34workflow/13source/12approval controls and content-chain **451 findings plus9 separate citation gaps**. Fresh native preservation is separate evidence. The original sealed integration packet was rechecked in full: **858 payloads /285021137bytes**, indexSHA256 `675e9d08c58d706f3cf286de0fb5c45493b341563f2dcf5cccf5f1f57b295175`, handoffSHA256 `834da4dd0171266a5cc07baebf958deacfeca6f5bdec756b09e08d445cffaae7`, sealSHA256 `928881207b9c7af4a915cd559c788af0b0db7417b5d6ee74ee931108f7bd60f5`. None was modified.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-orb-scene-reader-closeout-20260914/`. Its sealed final handoff records the new local commit/tree and exact file population. This same Task resumed with actual Astra/max event `1d736f66-5475-4f12-9e70-0d1821f70518` at09:51:20.125UTC and revalidated worker2284827 under the unchanged controller1480923. Original first emission09:00:05.950UTC and target09:35:05.950UTC were not reset; continued reader work was explicitly authorized after the late prior terminal event. Seal time is not terminal emission time. Protected commits/owner work, feature criteria and service ownership remain untouched. **Content/release gate remains RED; do not publish.**

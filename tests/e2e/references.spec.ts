@@ -14,6 +14,8 @@ import { inlineCitationIds, moduleBody } from '../../lib/references';
  */
 
 const ARTICLES = [
+  // Source-corrected ORB bibliography: same existing population/order assertions.
+  { domain: 'classical', slug: 'scene-representation' },
   { domain: 'manipulation', slug: 'action-chunking' },
   { domain: 'classical', slug: 'kinematics' },
   // Citation-dense (22 entries) with declared-but-not-inline entries, which
@@ -133,7 +135,7 @@ test.describe('References bibliography', () => {
   }) => {
     // One article per domain, including entries without a venue
     // (mobile-aloha-2024) to prove absent fields are omitted, not invented.
-    for (const { domain, slug } of [ARTICLES[0], ARTICLES[1]]) {
+    for (const { domain, slug } of [ARTICLES[1], ARTICLES[2]]) {
       await page.goto(`/${domain}/${slug}/`);
       const ids = declaredIds(domain, slug);
       const items = page.locator('ol [data-reference-id]');
