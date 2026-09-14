@@ -9997,6 +9997,24 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "thesis-economics-two-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/competing-theses",
+      "oldHash": "27a6045c2f6b4a550ad70e2f2d619449a87ac7dac90d049f471a306c342cf895",
+      "newHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+      "reason": "Exact original competing-theses 21/22 source-backed article AND explorer corrections: named Moore/Voxel51 and Macneil/Foxglove flywheel quotations with model improvements and portfolio disclosure; Ian Glow scale AND diversity from teleop ALONE with alternatives and limitations. Remove unsupported financing and generic cost/speed extensions. No original23, date, source-union or whole-P1/article acceptance.",
+      "ownerApproval": "Josef’s recorded September 7 fix-it-all authority and the parent’s exact two-original assignment authorize routine source-backed repair, not personal source certification, wildcard deltas or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

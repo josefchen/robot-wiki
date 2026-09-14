@@ -45167,5 +45167,223 @@
         "evidenceDigest": "077083bfe4d2df1dea6c33ba60cb59d2b40497f8113e2f57586e1b77ff366327"
       }
     ]
+  },
+  {
+    "id": "frontier-competing-theses-21-economics-20260913",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 21,
+    "originalCellsDigest": "a0b588b8af0b540605f715f6f8b4e0172c1aebaa1d7c545fadc56dc3b4b5730e",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "issuer-and-speakers",
+        "text": "The seven-author Bessemer investor essay names Brian Moore of Voxel51 and Adrian Macneil of Foxglove; both companies are disclosed portfolio interests.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "moore-flywheel",
+        "text": "Moore emphasizes data quality and a flywheel turning robot data into better decisions, better model improvements and better deployments faster than competitors.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "macneil-flywheel",
+        "text": "Macneil separately makes the same data-infrastructure/flywheel argument; do not misattribute a named quotation as Bessemer own empirical finding.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "financing-correction",
+        "text": "Replace the unsupported deployment-revenue-funds-collection-funds-autonomy chain with the stated data-improvement thesis; capital costs are not a demonstrated revenue causal chain.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "forecast-not-law",
+        "text": "Investor predictions and quoted competitive advantages are not guaranteed autonomy or independently established economics; retain disclosed interests and open questions.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max content-auditor integrator 840f6623-2521-4306-8238-5f2f574f0ace; retained-source review 2026-09-14",
+      "rationale": "Reviewed all required original/current claim parts against the complete retained Bessemer essay, actual supporting text and countercontext. Both article AND explorer endpoints are mandatory. No personal source certification by Josef, whole-P1/article or independent acceptance.",
+      "planDigest": "63cd3c184dd01bc7c2f82dfc0f2b8a3975b6a3ad4b64036660320c649bfd8c3f"
+    },
+    "evidence": [
+      {
+        "partId": "issuer-and-speakers",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Jeremy Levine, Talia Goldberg, Janelle Teng Wade, Alexandra Sukin, Bhavik Nagda, Jason Scheller & Christine Deakers\n\nPublished on Apr 16, 2026\n\nAt Bessemer, we often invest in new categories when we see the intersection of three forces: talent migration, technology breakthroughs, and structural tailwinds. In robotics and physical AI, all three are accelerating simultaneously. Already, we’ve invested in breakthrough teams, as our portfolio spans software, full systems, and foundation models: [Waymo](https://www.bvp.com/news/waymo-drives-the-next-chapter-of-autonomous-mobility), [Mind Robotics](https://www.mindrobotics.com/), [Foxglove](https://foxglove.dev/), [Breaker](https://breakerindustries.com/), [Noda](https://www.bvp.com/news/noda-ai-building-the-future-of-operational-collaborative-autonomy-at-the-frontlines), [Voxel51](https://www.bvp.com/news/powering-the-ai-data-workflow-with-voxel51), [DroneDeploy](https://www.dronedeploy.com/), [Auterion](https://www.bvp.com/news/the-future-of-defense-is-software-defined-autonomy-our-investment-in-auterion), [Perceptron](http://perceptron.inc/), and [ANYbotics](https://www.anybotics.com/). But we're just getting started, especially after identifying the [top 50 startups](https://www.bvp.com/atlas/50-startups-transforming-industries-with-physical-ai) building in the space. **Below are the six predictions shaping our investment activity in 2026—and the founder perspectives that are shaping how we see what’s on the horizon.**\n\n> \"What separates the leaders from the hype in physical AI is this: they don't chase scale, they obsess over data quality. When you're building systems that operate in the physical world, bad data isn't just inefficient—it's dangerous. The defining advantage will be the companies with the strongest data flywheel, turning robot data into better decisions, better model improvements, and better deployments faster than everyone else.\"   **— Brian Moore, CEO & Founder, Voxel51**\n\n> \"The defining advantage in physical AI will not be model novelty, but the quality of the data infrastructure behind it. As models converge, the companies that win will be the ones with the strongest data flywheel that turns robot data into better decisions, better model improvements, and better deployments faster than everyone else.\"   — **Adrian Macneil, Co-Founder & CEO, Foxglove**"
+      },
+      {
+        "partId": "moore-flywheel",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "> \"What separates the leaders from the hype in physical AI is this: they don't chase scale, they obsess over data quality. When you're building systems that operate in the physical world, bad data isn't just inefficient—it's dangerous. The defining advantage will be the companies with the strongest data flywheel, turning robot data into better decisions, better model improvements, and better deployments faster than everyone else.\"   **— Brian Moore, CEO & Founder, Voxel51**"
+      },
+      {
+        "partId": "macneil-flywheel",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "> \"The defining advantage in physical AI will not be model novelty, but the quality of the data infrastructure behind it. As models converge, the companies that win will be the ones with the strongest data flywheel that turns robot data into better decisions, better model improvements, and better deployments faster than everyone else.\"   — **Adrian Macneil, Co-Founder & CEO, Foxglove**"
+      },
+      {
+        "partId": "financing-correction",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "The cost consequence is direct. Bessemer estimates aggregate robotic data costs across the industry will exceed $3 billion over the next two years, spanning teleoperation, egocentric video, simulation, and physical demonstration collection. Robot data cannot be scraped or purchased from a broker. It has to be generated, task by task, environment by environment. The teams that close this gap fastest will be the ones with the capital to sustain that effort—the same dynamic that gave Waymo and Tesla structural advantages in autonomous driving, where data moats were built on miles and edge cases, not just algorithms.\n\n> \"What separates the leaders from the hype in physical AI is this: they don't chase scale, they obsess over data quality. When you're building systems that operate in the physical world, bad data isn't just inefficient—it's dangerous. The defining advantage will be the companies with the strongest data flywheel, turning robot data into better decisions, better model improvements, and better deployments faster than everyone else.\"   **— Brian Moore, CEO & Founder, Voxel51**\n\n> \"The defining advantage in physical AI will not be model novelty, but the quality of the data infrastructure behind it. As models converge, the companies that win will be the ones with the strongest data flywheel that turns robot data into better decisions, better model improvements, and better deployments faster than everyone else.\"   — **Adrian Macneil, Co-Founder & CEO, Foxglove**"
+      },
+      {
+        "partId": "forecast-not-law",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "At Bessemer, we often invest in new categories when we see the intersection of three forces: talent migration, technology breakthroughs, and structural tailwinds. In robotics and physical AI, all three are accelerating simultaneously. Already, we’ve invested in breakthrough teams, as our portfolio spans software, full systems, and foundation models: [Waymo](https://www.bvp.com/news/waymo-drives-the-next-chapter-of-autonomous-mobility), [Mind Robotics](https://www.mindrobotics.com/), [Foxglove](https://foxglove.dev/), [Breaker](https://breakerindustries.com/), [Noda](https://www.bvp.com/news/noda-ai-building-the-future-of-operational-collaborative-autonomy-at-the-frontlines), [Voxel51](https://www.bvp.com/news/powering-the-ai-data-workflow-with-voxel51), [DroneDeploy](https://www.dronedeploy.com/), [Auterion](https://www.bvp.com/news/the-future-of-defense-is-software-defined-autonomy-our-investment-in-auterion), [Perceptron](http://perceptron.inc/), and [ANYbotics](https://www.anybotics.com/). But we're just getting started, especially after identifying the [top 50 startups](https://www.bvp.com/atlas/50-startups-transforming-industries-with-physical-ai) building in the space. **Below are the six predictions shaping our investment activity in 2026—and the founder perspectives that are shaping how we see what’s on the horizon.**\n\nBut two hard questions remain unanswered: how much more data, and what kinds, will be needed to close the gap between lab performance and the 99.9% reliability threshold that production deployment demands? And what does the ChatGPT moment for robotics actually look like when it arrives?\n\nDisclaimer:The information presented here is for general informational and educational purposes only and does not constitute investment advice, a recommendation, or an offer or solicitation to buy or sell any securities or investment products. Certain companies discussed may be current or former portfolio companies of Bessemer Venture Partners. Past performance is not indicative of future results. All investments involve risk, including possible loss of principal."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "issuer-and-speakers",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 840f6623-2521-4306-8238-5f2f574f0ace; retained-source review 2026-09-14",
+        "rationale": "Read the actual byline/date, opening portfolio disclosure, and both named quotations. The seven authors belong to Bessemer; Moore is Voxel51 CEO/founder and Macneil Foxglove cofounder/CEO. Both companies are listed in the portfolio. No independent-publisher claim is made.",
+        "evidenceDigest": "3bb1ff7987a97ee3aa46fecc459a39c882bba0db85f78741bd29e53d0bbd3675"
+      },
+      {
+        "partId": "moore-flywheel",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 840f6623-2521-4306-8238-5f2f574f0ace; retained-source review 2026-09-14",
+        "rationale": "Prediction 2 directly quotes Moore on data quality and the complete better-decisions/model-improvements/deployments phrase. The replacement restores the omitted model-improvements words and names the speaker rather than turning the quotation into an empirical economic finding.",
+        "evidenceDigest": "4430a479128c28562a6535175e8bc933190a02c1898c4e9c70f97869e816ad15"
+      },
+      {
+        "partId": "macneil-flywheel",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 840f6623-2521-4306-8238-5f2f574f0ace; retained-source review 2026-09-14",
+        "rationale": "Prediction 4 separately quotes Macneil using the same improvement sequence, with a data-infrastructure argument. The source does not make him the author of Moore’s entire quotation; the shared quoted fragment is present in both.",
+        "evidenceDigest": "7cdb98d14ac661ab5dafc9fa8762d9558370c7acc29bd87b0acf46c1f8e93d8a"
+      },
+      {
+        "partId": "financing-correction",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 840f6623-2521-4306-8238-5f2f574f0ace; retained-source review 2026-09-14",
+        "rationale": "Read all six predictions and the closing discussion. The essay discusses capital sustaining data collection and deployment feedback, but does not establish the original deployment-revenue-funds-collection-funds-autonomy causal chain. Its capital paragraph is context, not positive proof of that absent chain. The replacement states the actual attributed flywheel thesis.",
+        "evidenceDigest": "f4882db7be4bcc9d32705deba6a5b363ee85a09c98e2a014fd7f9f5585382b13"
+      },
+      {
+        "partId": "forecast-not-law",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 840f6623-2521-4306-8238-5f2f574f0ace; retained-source review 2026-09-14",
+        "rationale": "The opening explicitly calls these investment predictions; the ending retains open reliability, inference-cost and timing questions, differing Porter/Wu views, and the investment-risk disclaimer. Portfolio interests remain visible. Neither source nor replacement certifies guaranteed autonomy.",
+        "evidenceDigest": "1942ea02d5c4bf1749033449f48abbfd7097c440b35ee5997fbb8464999711ef"
+      }
+    ]
+  },
+  {
+    "id": "frontier-competing-theses-22-economics-20260913",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 22,
+    "originalCellsDigest": "b872010d9d3edfd68f305f87844740b86a441997ab13243519108be3b4b84677",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "glow-scale-and-diversity",
+        "text": "Bessemer quotes Ian Glow, CEO of Zeromatter, criticizing teleop alone for BOTH insufficient scale AND insufficient diversity.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "glow-alternatives",
+        "text": "The same quotation recommends internet data OR simulators with reinforcement learning; it is not a claim that all teleoperation is useless.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "cost-and-speed-scope",
+        "text": "Remove the current unattributed expensive-and-slow generalization; the essay discusses costly collection, not a measured universal teleop speed or cost law.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "alternative-limitations",
+        "text": "Bessemer calls world models costly and generalization unproven, and sim-to-real manipulation an open problem; Glow advice does not establish solved alternatives.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max content-auditor integrator 840f6623-2521-4306-8238-5f2f574f0ace; retained-source review 2026-09-14",
+      "rationale": "Reviewed all required original/current claim parts against the complete retained Bessemer essay, actual supporting text and countercontext. Both article AND explorer endpoints are mandatory. No personal source certification by Josef, whole-P1/article or independent acceptance.",
+      "planDigest": "430ee30b1de13a7be573ee220358b1a6bdf404fdbae755f40753539f2a426b24"
+    },
+    "evidence": [
+      {
+        "partId": "glow-scale-and-diversity",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "> \"Teleop alone will not be a successful data strategy. You should pull data from the internet or from simulators with reinforcement learning — you'll never get the scale or diversity you need from teleop alone.\"   — **Ian Glow, CEO, Zeromatter**"
+      },
+      {
+        "partId": "glow-alternatives",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "> \"Teleop alone will not be a successful data strategy. You should pull data from the internet or from simulators with reinforcement learning — you'll never get the scale or diversity you need from teleop alone.\"   — **Ian Glow, CEO, Zeromatter**"
+      },
+      {
+        "partId": "cost-and-speed-scope",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "The cost consequence is direct. Bessemer estimates aggregate robotic data costs across the industry will exceed $3 billion over the next two years, spanning teleoperation, egocentric video, simulation, and physical demonstration collection. Robot data cannot be scraped or purchased from a broker. It has to be generated, task by task, environment by environment. The teams that close this gap fastest will be the ones with the capital to sustain that effort—the same dynamic that gave Waymo and Tesla structural advantages in autonomous driving, where data moats were built on miles and edge cases, not just algorithms.\n\n> \"Teleop alone will not be a successful data strategy. You should pull data from the internet or from simulators with reinforcement learning — you'll never get the scale or diversity you need from teleop alone.\"   — **Ian Glow, CEO, Zeromatter**"
+      },
+      {
+        "partId": "alternative-limitations",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Two partial paths exist for reducing dependence on expensive real-world collection. The first is [world models](https://www.bvp.com/atlas/can-world-models-unlock-general-purpose-robotics)—neural networks trained on internet-scale video that learn physics through observation. The results are promising: Meta's V-JEPA 2, trained on over a million hours of internet video, achieved 80% zero-shot pick-and-place success on real robot arms with just 62 hours of additional robot-specific data. But world models are themselves expensive to train—NVIDIA's Cosmos required 10,000 H100 GPUs over three months. This is not a free shortcut. It is a capital-intensive bet that physics learned from video generalizes to physical manipulation. The early results are encouraging; full generalization remains unproven.\n\nThe second path is simulation and reinforcement learning. Sim-to-real transfer works well for locomotion, but manipulation is harder. How a robot hand interacts with a soft object, how fabric slides between fingers, how liquids behave — these require a fidelity that current simulators don't achieve. Sim-to-real for manipulation is an open research problem, not a solved one."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "glow-scale-and-diversity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 840f6623-2521-4306-8238-5f2f574f0ace; retained-source review 2026-09-14",
+        "rationale": "The complete Prediction 2 quotation names Ian Glow, CEO of Zeromatter, and explicitly says scale OR diversity cannot be obtained from teleop ALONE. This is his position encompassing both requirements, not a measured ranking of teleoperation against alternatives.",
+        "evidenceDigest": "38fce666c211ec6e628c72f97e166c1fa8b76509855e6b443b7b0789869d1412"
+      },
+      {
+        "partId": "glow-alternatives",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 840f6623-2521-4306-8238-5f2f574f0ace; retained-source review 2026-09-14",
+        "rationale": "The same quotation recommends data from the internet OR simulators with reinforcement learning. Its criticism targets teleop alone, not all teleoperation. The replacement keeps those alternatives and the alone qualification.",
+        "evidenceDigest": "92cf5e83f6adb2daa65d5b4f13c1272bc904b31cfb81b54c167f1d6591c0cdb4"
+      },
+      {
+        "partId": "cost-and-speed-scope",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 840f6623-2521-4306-8238-5f2f574f0ace; retained-source review 2026-09-14",
+        "rationale": "The adjacent capital-cost paragraph concerns aggregate data collection across several modalities. It does not establish the current generic expensive-and-slow teleoperation law. The article and explorer both remove that unsupported extension while retaining the named position.",
+        "evidenceDigest": "c6b5bb7c731e8d0f1c0106fa051fc72869e0391b823e56c3ef8fde6a3f170387"
+      },
+      {
+        "partId": "alternative-limitations",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max content-auditor integrator 840f6623-2521-4306-8238-5f2f574f0ace; retained-source review 2026-09-14",
+        "rationale": "The immediately following paragraphs call world models expensive, full generalization unproven, and sim-to-real manipulation an open research problem. The replacement keeps the material limits instead of treating Glow’s recommendations as solved substitutes.",
+        "evidenceDigest": "d0447185ddec5ac85c1604e616606c8a971190baa50ba6ee8d0cf8fb69044340"
+      }
+    ]
   }
 ]

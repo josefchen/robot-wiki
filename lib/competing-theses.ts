@@ -216,13 +216,13 @@ const ROWS: Thesis[] = [
         citationIds: ['technology-org-deployed-2026'],
       },
       {
-        text: 'Bessemer\'s data-flywheel thesis, in its words: turning robot data into better decisions, better models, and better deployments.',
+        text: "Bessemer’s investor outlook quotes Voxel51’s Brian Moore and Foxglove’s Adrian Macneil on a data flywheel: “better decisions, better model improvements, and better deployments faster than everyone else.” Both are disclosed portfolio companies. This is an attributed investment thesis, not evidence that deployment revenue funds collection or guarantees autonomy.",
         citationIds: ['bessemer-robotics-2026'],
       },
     ],
     evidenceAgainst: [
       {
-        text: 'Teleoperation is expensive and slow, and Bessemer\'s own sources doubt it scales: Ian Glow argues you will never get the scale or diversity you need from teleop alone.',
+        text: "Bessemer quotes Ian Glow, CEO of Zeromatter: \"you'll never get the scale or diversity you need from teleop alone.\" He recommends internet data or simulators with reinforcement learning. The essay also cautions that world models are expensive and sim-to-real manipulation remains an open research problem; this is an attributed strategy argument, not a measured teleop cost or speed law.",
         citationIds: ['bessemer-robotics-2026'],
       },
       {
