@@ -10249,6 +10249,42 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "hierarchical-ecot-hirobot-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "1503d12aa633df9cc5bffa0d3b1383b5cd62f8ceb7e6bfdfd08d79236acd2a46",
+      "newHash": "0099fefeabfd63e0069bd671ffe7caee84c6c0398f90d8004a695cf4f9a61223",
+      "reason": "Exact hierarchy originals6/7 only: ECoT matched Bridge baseline, protocol/annotation/five-step/trace/execution scope; Hi Robot separate policies, feedback/training/evaluation/limitations and coupled learned hierarchies Stat label. Date/year/note/registry/neighbors/synthesis unchanged.",
+      "ownerApproval": "Josef September7 fix-it-all and parent September14 fixed two-original assignment authorize exact routine evidence-backed corrections, not personal source certification, deployment or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "hierarchical-ecot-hirobot-20260914-2",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/hierarchical",
+      "oldHash": "17fdefd8a4628affab609602bf455b9f03dbbddbcd7605ed3e05773f41777b4b",
+      "newHash": "969ca0af100d7e56570a56b3b8896569fb686321be9e8b02375fe877273f5c96",
+      "reason": "Exact hierarchy originals6/7 only: ECoT matched Bridge baseline, protocol/annotation/five-step/trace/execution scope; Hi Robot separate policies, feedback/training/evaluation/limitations and coupled learned hierarchies Stat label. Date/year/note/registry/neighbors/synthesis unchanged.",
+      "ownerApproval": "Josef September7 fix-it-all and parent September14 fixed two-original assignment authorize exact routine evidence-backed corrections, not personal source certification, deployment or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

@@ -3651,3 +3651,110 @@ Two early normal lint attempts caught the new fixture callback's React-hook-shap
 Every reader/runtime consumer had explicit required test/helper/config/font manifests before execution, with actual input versions and durable child/supervisor/runner/waiter receipts. Historical34-manifest version resolution proves recorded versions, not complete dependency populations; predecessor direct-closeout population gaps are **not retroactively repaired**. Current documentation consumes a separately bound append-only helper and recorded measurements. Source packets remain immutable. No Brooks or ECoT/HiRobot proposal was incorporated.
 
 Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-grasp-reader-closeout-20260914/`. Preservation records1233unchanged product/owner inputs. `PRODUCT_QUALITY.md`, `qa/`, `next-env.d.ts`, protected ancestors and frozen active status are untouched. No article prose changed, so no lastReviewed movement or humanizer pass applies. Formal **307/331**, M5, wholeP1, independent Sol/high scrutiny and release remain unaccepted. **Content/release RED at the inherited449findings: do not publish.**
+
+
+## ECoT and Hi Robot originals 6/7 (2026-09-14)
+
+Exactly **2 original records applied, 0 held records, 0 unattempted assigned records**:
+`audit/manipulation.md:hierarchical:6` and `:7`. The source-only packet was a
+proposal, not an approval. Current-HEAD native original IDs, ordinals, four cells,
+tuple digests and the three article endpoints were rechecked at application;
+completed originals were excluded. The resulting native totals are **559 complete /
+435 incomplete / 994 originals / 47 articles**, **465 plans / 538 approvals**.
+Manipulation is **218 complete / 7 incomplete / 225 originals**. All **557 prior
+complete originals/order, 992 unselected semantic records/order, 463 prior plan
+objects/order and 536 prior approval objects/order** are preserved. The 43 unrelated
+baseline failures remain unresolved; the baseline itself was not replaced.
+
+The reviewed plans contain **15 mandatory parts, 15 required part/citation pairs,
+15 native evidence items and 15 source-specific adjudications**. ECoT now separates
+synthetic reasoning annotations from new physical demonstrations; the paper's
+28-percentage-point absolute gain is against matched OpenVLA (Bridge), not relative
+percent or the released OXE model. Table 1's 66/44 ID and 64/30 OOD means, 314 trials
+per approach, per-view one standard error and five-step high-level freeze stay
+separate from the four-future-position/106-trial v3 variant. No per-view denominator,
+seed count, pooled uncertainty, action guarantee or broad transfer reliability is
+invented. Hi Robot remains two separately trained PaliGemma-initialized policies,
+with a scheduling trigger rather than measured latency, user-signalled resumption,
+task-specific training/evaluation and reported memory/instruction/recovery limits.
+Figure 2's caption conflicts with the diagram and section 4.2 on optional verbal
+responses; no unqualified owner is asserted. The Stat changes only to **learned
+hierarchies**, preserving **2025** and **Hi Robot, π0.5**. Unassigned synthesis,
+completed neighbors, canonical citation/glossary data and `lastReviewed: 2026-08-17`
+are unchanged. Exact original/current four-cell history remains non-counted.
+
+### Actual source provenance, not new retrieval
+
+The integrator performed **0 retrievals**. It verified **56 retained indexed files /
+13 original event bindings**, the primary PDFs and their derived text, and **42
+prepared literal records / 39 unique spans**. It found that the prepared numeric
+pair lacked the abstract's literal 28% sentence and bound that actual retained
+source passage: **43 reviewed literal records / 40 unique spans**. Nothing was
+copied from article prose as source proof. ECoT is arXiv2407.08693v3, printed
+6 March 2025, six authors; observed GET **2026-09-14 10:39:32.166849–10:39:32.644153
+UTC**, HTTP200/zero redirects, PDF SHA256
+`f1bed12bbeb45f9ba25433217420ea8eeac160c697ca277241245341d945f7f8`.
+Hi Robot is arXiv2502.19417v2, printed 15 July 2025, fifteen authors; observed GET
+**10:39:32.807681–10:39:33.434864 UTC**, HTTP200/zero redirects, PDF SHA256
+`a6400a0353705ae3974dec493bb21867885159133586d53da98bacf055fa4333`.
+Review time is not retrieval time. The retained source task used one WebSearch
+invocation with two queries plus two GETs: three invocations or four conservative
+query/GET units. Hashes and native completeness do not independently certify truth.
+
+### Fresh checks and bounded reader proof
+
+- New source test: **8 red-first failures**, then included in **254 passing tests
+  across 14 affected unit/component files**. Native scientific controls: **52**;
+  exact approval controls: **8**; required-input negative controls: **34**;
+  fail-closed ownership/exception controls: **6 negative / 1 positive**.
+- Normal `npm run lint`, including prelint: **exit0**. Nonincremental
+  `node node_modules/typescript/bin/tsc --noEmit --incremental false`: **exit0**.
+- Existing offline `npm run validate:content`: schema/style/chart stages pass,
+  final audit stage **exit1, 442 findings**, plus **9 separately owned unresolved
+  citation checks**. This is not a green content or release gate.
+- One fresh offline Next16.3 webpack runtime, loopback **3272**, retained19font
+  setup and task-owned cache. Initial mounted run: **8 passed / 2 failed** because
+  the new system-button locator also counted Reset. Only those two control cases
+  reran after narrowing to `button[aria-pressed]`: **2 passed**. Thus **10 unique
+  reader cases are supported at 375×812 and 1440×900**, not a claimed all-green
+  initial run or duplicate whole-reader rerun. One earlier reader invocation was
+  refused with125/no action for an unknown transient bridge child, left untouched.
+- **26 final screenshots inspected through10 native-pixel contact sheets**:
+  complete final prose including both mobile Hi Robot slices, Stat, short metadata,
+  full six/fifteen-author References, affected VLA Term and hierarchy controls.
+  Four systems, keyboard End2000/reset0, citation Escape/jump and glossary/Back
+  behavior were exercised. No new page/console errors or horizontal document
+  overflow; no external browser requests. Primary font families loaded, while
+  local fallback-face errors remain visible in the observations.
+- Exact owned supervisor3149129 shutdown at15:52:41UTC produced **Next0 /
+  supervisor0 / runner0 / waiter0**. All observed owned runtime identities,
+  including server child3149142, are absent. `next.config.ts`, `tsconfig.json` and
+  protected `next-env.d.ts` are restored byte-for-byte; port3272 is free.
+
+Shared Term Escape still leaves its tooltip visible and Back still focuses BODY
+at both widths. Development indicators remain in these dev captures. No new Axe
+or contrast release measurement, full reference/profile census, export/Pagefind,
+OG/build, whole-corpus, independent Sol/high scrutiny or user acceptance is claimed.
+The unassigned broader inside-the-network heading/synthesis is not certified.
+
+Retained failures also include the task-local15-versus16 population assertion,
+two pre-write serializer/header failures, a second125/no-action transient bridge
+child refusal during evidence review, and an unavailable Pillow import before
+contact-sheet creation (the installed sharp library was used). No gate was weakened,
+source verdict silently promoted, owner file cleaned up, or model/effort switched.
+The actual first emission15:11:45.592UTC and checkpoint target15:46:45.592UTC remain;
+continued progress does not reset them. Seal/commit times are not final assistant
+emission times. Recorded input-version resolution is not a certification of an
+exhaustive transitive dependency population.
+
+Evidence root:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-ecot-hirobot-integration-20260914/`.
+The finite handoff/seal records exact local commit IDs, files and test receipts.
+Protected commits `d282a83`/`2cf7d6b`, `PRODUCT_QUALITY.md`, `qa/`, feature state,
+controller and source-only Task work are preserved. **Content/release RED; do not publish.**
+
+Final follow-up: the actual checked-in reader admission body passed **42 negative /
+1 positive controls over13required inputs**, without a browser or product mutation.
+The corrected reader selector passed focused ESLint, and final nonincremental
+TypeScript passed with restored configuration. All43 baseline failure objects/order
+are compared directly in the native preservation proof, not only by count.
