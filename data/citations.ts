@@ -5788,11 +5788,18 @@ export const CITATIONS: Citation[] = [
     // IEEE Trans. Robotics 31(5):1147-1163, Crossref read 2026-08-22. The
     // reference feature-based visual SLAM system: ORB features reused
     // across tracking, mapping, relocalisation and loop closing.
+    // IEEE DOI landing metadata returned by FetchUrl on 2026-09-14;
+    // publisher identity only, not certification of version-of-record body equality.
+    // Retained printed arXiv v2 scientific passages keep their original source URLs/history.
     id: 'orb-slam-2015',
     title: 'ORB-SLAM: A Versatile and Accurate Monocular SLAM System',
-    authors: ['Raul Mur-Artal', 'J. M. M. Montiel', 'Juan D. Tardos'],
+    authors: [
+      'Raúl Mur-Artal',
+      'J. M. M. Montiel',
+      'Juan D. Tardós',
+    ],
     year: 2015,
-    venue: 'IEEE Trans. Robotics',
+    venue: 'IEEE Transactions on Robotics',
     url: 'https://doi.org/10.1109/TRO.2015.2463671',
     type: 'paper',
   },
@@ -5800,18 +5807,20 @@ export const CITATIONS: Citation[] = [
     // IEEE Trans. Robotics 37(6):1874-1890, Crossref read 2026-08-22. The
     // multi-map, visual-inertial successor, where a lost session becomes a
     // new map that is merged back when the place is recognised again.
+    // IEEE DOI landing metadata returned by FetchUrl on 2026-09-14;
+    // publisher identity only, not certification of version-of-record body equality.
+    // Retained printed arXiv v2 scientific passages keep their original source URLs/history.
     id: 'orb-slam3-2021',
-    title:
-      'ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual-Inertial, and Multimap SLAM',
+    title: 'ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual–Inertial, and Multimap SLAM',
     authors: [
       'Carlos Campos',
       'Richard Elvira',
-      'Juan J. Gomez Rodriguez',
-      'Jose M. M. Montiel',
-      'Juan D. Tardos',
+      'Juan J. Gómez Rodríguez',
+      'José M. M. Montiel',
+      'Juan D. Tardós',
     ],
     year: 2021,
-    venue: 'IEEE Trans. Robotics',
+    venue: 'IEEE Transactions on Robotics',
     url: 'https://doi.org/10.1109/TRO.2021.3075644',
     type: 'paper',
   },

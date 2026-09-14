@@ -45749,5 +45749,341 @@
         "evidenceDigest": "141838ab20b707eb163fdfd9a22bc4ffd7b3fdb755b906504c2b86caa6241a70"
       }
     ]
+  },
+  {
+    "id": "classical-slam-scene-26-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 26,
+    "originalCellsDigest": "3046b7b7df26e9aec432435a11e21a49086a56c9f754404837c96ae162695fe3",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "monocular-shared-features",
+        "text": "The named 2015 monocular system uses ORB across the four named tasks.",
+        "requiredCitationIds": [
+          "orb-slam-2015"
+        ]
+      },
+      {
+        "id": "tracking-mapping",
+        "text": "Tracking matches/refines pose; mapping triangulates and performs local bundle adjustment.",
+        "requiredCitationIds": [
+          "orb-slam-2015"
+        ]
+      },
+      {
+        "id": "recognition-validation",
+        "text": "ORB-based DBoW2 supplies candidates; relocalisation and loop closing require geometric support.",
+        "requiredCitationIds": [
+          "orb-slam-2015"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+      "rationale": "Reviewed the entire corrected claim and its atomic article/glossary/publication endpoints against retained source bodies and counterpassages. Every required source/part pair remains mandatory. Metadata identifies publication only; no publisher-body equality, new liveness, personal owner certification or independent acceptance.",
+      "planDigest": "d2c8b55b2de8011f60f39c86007975d9109411350a0da5aa39dcedcbbdae2108"
+    },
+    "evidence": [
+      {
+        "partId": "monocular-shared-features",
+        "citationId": "orb-slam-2015",
+        "sourceUrl": "https://arxiv.org/pdf/1502.00956",
+        "supportingPassage": "This paper has been accepted for publication in IEEE Transactions on Robotics.\nDOI: 10.1109/TRO.2015.2463671\nIEEE Xplore: http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7219438\n\narXiv:1502.00956v2 [cs.RO] 18 Sep 2015\n\nc 2015 IEEE. Personal use of this material is permitted. Permission from IEEE must be obtained for all other uses, in any\ncurrent or future media, including reprinting /republishing this material for advertising or promotional purposes, creating new\ncollective works, for resale or redistribution to servers or lists, or reuse of any copyrighted component of this work in other\nworks.\n\n\fIEEE TRANSACTIONS ON ROBOTICS\n\n1\n\nORB-SLAM: a Versatile and Accurate\nMonocular SLAM System\nRaúl Mur-Artal*, J. M. M. Montiel, Member, IEEE, and Juan D. Tardós, Member, IEEE,\n\n\nIII. S YSTEM OVERVIEW\nA. Feature Choice\nOne of the main design ideas in our system is that the\nsame features used by the mapping and tracking are used\nfor place recognition to perform frame-rate relocalization and\nloop detection. This makes our system efficient and avoids\nthe need to interpolate the depth of the recognition features\nfrom near SLAM features as in previous works [6], [7]. We\nrequiere features that need for extraction much less than 33ms\nper image, which excludes the popular SIFT (∼ 300ms) [19],\nSURF (∼ 300ms) [18] or the recent A-KAZE (∼ 100ms) [35].\nTo obtain general place recognition capabilities, we require\nrotation invariance, which excludes BRIEF [16] and LDB [36].\nWe chose ORB [9], which are oriented multi-scale FAST\ncorners with a 256 bits descriptor associated. They are extremely fast to compute and match, while they have good\ninvariance to viewpoint. This allows to match them from wide\nbaselines, boosting the accuracy of BA. We already shown the\ngood performance of ORB for place recognition in [11]. While\nour current implementation make use of ORB, the techniques\nproposed are not restricted to these features.\n\n\nB. Three Threads: Tracking, Local Mapping and Loop Closing\nOur system, see an overview in Fig. 1, incorporates three\nthreads that run in parallel: tracking, local mapping and loop\n\n\fIEEE TRANSACTIONS ON ROBOTICS\n\nclosing. The tracking is in charge of localizing the camera\nwith every frame and deciding when to insert a new keyframe.\nWe perform first an initial feature matching with the previous\nframe and optimize the pose using motion-only BA. If the\ntracking is lost (e.g. due to occlusions or abrupt movements),\nthe place recognition module is used to perform a global\nrelocalization. Once there is an initial estimation of the camera\npose and feature matchings, a local visible map is retrieved\nusing the covisibility graph of keyframes that is maintained\nby the system, see Fig. 2(a) and Fig. 2(b). Then matches with\nthe local map points are searched by reprojection, and camera\npose is optimized again with all matches. Finally the tracking\nthread decides if a new keyframe is inserted. All the tracking\nsteps are explained in detail in Section V. The novel procedure\nto create an initial map is presented in Section IV.\nThe local mapping processes new keyframes and performs\nlocal BA to achieve an optimal reconstruction in the surroundings of the camera pose. New correspondences for unmatched ORB in the new keyframe are searched in connected\nkeyframes in the covisibility graph to triangulate new points.\nSome time after creation, based on the information gathered\nduring the tracking, an exigent point culling policy is applied\nin order to retain only high quality points. The local mapping\nis also in charge of culling redundant keyframes. We explain\nin detail all local mapping steps in Section VI.\nThe loop closing searches for loops with every new\nkeyframe. If a loop is detected, we compute a similarity transformation that informs about the drift accumulated in the loop.\nThen both sides of the loop are aligned and duplicated points\nare fused. Finally a pose graph optimization over similarity\nconstraints [6] is performed to achieve global consistency. The\nmain novelty is that we perform the optimization over the\nEssential Graph, a sparser subgraph of the covisibility graph\nwhich is explained in Section III-D. The loop detection and\ncorrection steps are explained in detail in Section VII.\n"
+      },
+      {
+        "partId": "tracking-mapping",
+        "citationId": "orb-slam-2015",
+        "sourceUrl": "https://arxiv.org/pdf/1502.00956",
+        "supportingPassage": "B. Three Threads: Tracking, Local Mapping and Loop Closing\nOur system, see an overview in Fig. 1, incorporates three\nthreads that run in parallel: tracking, local mapping and loop\n\n\fIEEE TRANSACTIONS ON ROBOTICS\n\nclosing. The tracking is in charge of localizing the camera\nwith every frame and deciding when to insert a new keyframe.\nWe perform first an initial feature matching with the previous\nframe and optimize the pose using motion-only BA. If the\ntracking is lost (e.g. due to occlusions or abrupt movements),\nthe place recognition module is used to perform a global\nrelocalization. Once there is an initial estimation of the camera\npose and feature matchings, a local visible map is retrieved\nusing the covisibility graph of keyframes that is maintained\nby the system, see Fig. 2(a) and Fig. 2(b). Then matches with\nthe local map points are searched by reprojection, and camera\npose is optimized again with all matches. Finally the tracking\nthread decides if a new keyframe is inserted. All the tracking\nsteps are explained in detail in Section V. The novel procedure\nto create an initial map is presented in Section IV.\nThe local mapping processes new keyframes and performs\nlocal BA to achieve an optimal reconstruction in the surroundings of the camera pose. New correspondences for unmatched ORB in the new keyframe are searched in connected\nkeyframes in the covisibility graph to triangulate new points.\nSome time after creation, based on the information gathered\nduring the tracking, an exigent point culling policy is applied\nin order to retain only high quality points. The local mapping\nis also in charge of culling redundant keyframes. We explain\nin detail all local mapping steps in Section VI.\nThe loop closing searches for loops with every new\nkeyframe. If a loop is detected, we compute a similarity transformation that informs about the drift accumulated in the loop.\nThen both sides of the loop are aligned and duplicated points\nare fused. Finally a pose graph optimization over similarity\nconstraints [6] is performed to achieve global consistency. The\nmain novelty is that we perform the optimization over the\nEssential Graph, a sparser subgraph of the covisibility graph\nwhich is explained in Section III-D. The loop detection and\ncorrection steps are explained in detail in Section VII.\n\n\nC. New Map Point Creation\nNew map points are created by triangulating ORB from\nconnected keyframes Kc in the covisibility graph. For each\nunmatched ORB in Ki we search a match with other unmatched point in other keyframe. This matching is done as\nexplained in Section III-E and discard those matches that do\nnot fulfill the epipolar constraint. ORB pairs are triangulated,\nand to accept the new points, positive depth in both cameras,\nparallax, reprojection error and scale consistency are checked.\nInitially a map point is observed from two keyframes but\nit could be matched in others, so it is projected in the rest\nof connected keyframes, and correspondences are searched as\ndetailed in section V-D.\nD. Local Bundle Adjustment\nThe local BA optimizes the currently processed keyframe\nKi , all the keyframes connected to it in the covisibility graph\nKc , and all the map points seen by those keyframes. All other\nkeyframes that see those points but are not connected to the\n\n\fIEEE TRANSACTIONS ON ROBOTICS\n\ncurrently processed keyframe are included in the optimization\nbut remain fixed. Observations that are marked as outliers are\ndiscarded at the middle and at the end of the optimization.\nSee the Appendix for more details about this optimization.\n"
+      },
+      {
+        "partId": "recognition-validation",
+        "citationId": "orb-slam-2015",
+        "sourceUrl": "https://arxiv.org/pdf/1502.00956",
+        "supportingPassage": "The system has embedded a bags of words place recognition\nmodule, based on DBoW22 [5], to perform loop detection and\nrelocalization. Visual words are just a discretization of the\ndescriptor space, which is known as the visual vocabulary.\nThe vocabulary is created offline with the ORB descriptors\nextracted from a large set of images. If the images are general\nenough, the same vocabulary can be used for different environments getting a good performance, as shown in our previous\nwork [11]. The system builds incrementally a database that\ncontains an invert index, which stores for each visual word\nin the vocabulary, in which keyframes it has been seen, so\nthat querying the database can be done very efficiently. The\ndatabase is also updated when a keyframe is deleted by the\nculling procedure.\nBecause there exists visual overlap between keyframes,\nwhen querying the database there will not exist a unique\nkeyframe with a high score. The original DBoW2 took this\noverlapping into account, adding up the score of images that\nare close in time. This has the limitation of not including\nkeyframes viewing the same place but inserted at a different\ntime. Instead we group those keyframes that are connected\nin the covisibility graph. In addition our database returns all\nkeyframe matches whose scores are higher than the 75% of\nthe best score.\nAn additional benefit of the bags of words representation\nfor feature matching was reported in [5]. When we want\nto compute the correspondences between two sets of ORB\nfeatures, we can constraint the brute force matching only to\nthose features that belong to the same node in the vocabulary\ntree at a certain level (we select the second out of six),\nspeeding up the search. We use this trick when searching\nmatches for triangulating new points, and at loop detection\nand relocalization. We also refine the correspondences with an\norientation consistency test, see [11] for details, that discards\noutliers ensuring a coherent rotation for all correspondences.\n\n\nC. Initial Pose Estimation via Global Relocalization\nIf the tracking is lost, we convert the frame into bag\nof words and query the recognition database for keyframe\ncandidates for global relocalization. We compute correspondences with ORB associated to map points in each keyframe,\nas explained in section III-E. We then perform alternatively\nRANSAC iterations for each keyframe and try to find a camera\npose using the PnP algorithm [41]. If we find a camera\npose with enough inliers, we optimize the pose and perform\na guided search of more matches with the map points of\nthe candidate keyframe. Finally the camera pose is again\noptimized, and if supported with enough inliers, tracking\nprocedure continues.\n\n\nVII. L OOP C LOSING\nThe loop closing thread takes Ki , the last keyframe processed by the local mapping, and tries to detect and close\nloops. The steps are next described.\nA. Loop Candidates Detection\nAt first we compute the similarity between the bag of\nwords vector of Ki and all its neighbors in the covisibility\ngraph (θmin = 30) and retain the lowest score smin . Then we\nquery the recognition database and discard all those keyframes\nwhose score is lower than smin . This is a similar operation\nto gain robustness as the normalizing score in DBoW2,\nwhich is computed from the previous image, but here we\nuse covisibility information. In addition all those keyframes\ndirectly connected to Ki are discarded from the results. To\naccept a loop candidate we must detect consecutively three\nloop candidates that are consistent (keyframes connected in\nthe covisibility graph). There can be several loop candidates\nif there are several places with similar appearance to Ki .\nB. Compute the Similarity Transformation\nIn monocular SLAM there are seven degrees of freedom\nin which the map can drift, three translations, three rotations\nand a scale factor [6]. Therefore to close a loop we need to\ncompute a similarity transformation from the current keyframe\nKi to the loop keyframe Kl that informs us about the error\naccumulated in the loop. The computation of this similarity\nwill serve also as geometrical validation of the loop.\nWe first compute correspondences between ORB associated\nto map points in the current keyframe and the loop candidate\nkeyframes, following the procedure explained in section III-E.\nAt this point we have 3D to 3D correspondences for each\nloop candidate. We alternatively perform RANSAC iterations\nwith each candidate, trying to find a similarity transformation\nusing the method of Horn [42]. If we find a similarity Sil with\nenough inliers, we optimize it (see the Appendix), and perform\n\nTo effectively close the loop, we perform a pose graph\noptimization over the Essential Graph, described in Section\nIII-D, that distributes the loop closing error along the graph.\nThe optimization is performed over similarity transformations\nto correct the scale drift [6]. The error terms and cost function\nare detailed in the Appendix. After the optimization each map\npoint is transformed according to the correction of one of the\nkeyframes that observes it.\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "monocular-shared-features",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "ORB2015 cover identifies the monocular system; III-A and III-B explicitly reuse ORB in all four tasks. This does not claim all feature-based systems share this implementation.",
+        "evidenceDigest": "858158ad19af7067e1c971052d29b7c2397cc7e0f692c3faadff1776f030c2b0"
+      },
+      {
+        "partId": "tracking-mapping",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "III-B and VI-C/D distinguish pose-only tracking refinement, triangulation with validity tests and local bundle adjustment. Mapping is not a detector-only operation.",
+        "evidenceDigest": "b71493d98c5cfc0d9f589c7f20a346bffc2e61fa7c5bf5832e5945fb3f8e6884"
+      },
+      {
+        "partId": "recognition-validation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "III-E, V-C and VII distinguish the ORB DBoW2 candidate stage from PnP/RANSAC/inlier validation and similarity-based loop validation. A word match is not an accepted loop.",
+        "evidenceDigest": "03be9274858ca3b1b3c483b7353d7cb09496480e3c514d13c1e3b471235cb85f"
+      }
+    ]
+  },
+  {
+    "id": "classical-slam-scene-27-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 27,
+    "originalCellsDigest": "4f022463df05c93103d76036f6e14e63960b60e67e5e6bc2ffa7461d25b08094",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "modalities",
+        "text": "Visual monocular/stereo/RGB-D; explicitly described visual-inertial monocular/stereo modes; pinhole/fisheye.",
+        "requiredCitationIds": [
+          "orb-slam3-2021"
+        ]
+      },
+      {
+        "id": "initialization",
+        "text": "Uncertainty-aware MAP initialization and joint refinement; slow-motion observability limit.",
+        "requiredCitationIds": [
+          "orb-slam3-2021"
+        ]
+      },
+      {
+        "id": "loss-recovery",
+        "text": "Recovery precedes new-map creation, and early inertial loss may discard the map.",
+        "requiredCitationIds": [
+          "orb-slam3-2021"
+        ]
+      },
+      {
+        "id": "conditional-merging",
+        "text": "Place-recognition validation uses geometry/covisibility and mature-inertial gravity checks; not guaranteed seamless recovery.",
+        "requiredCitationIds": [
+          "orb-slam3-2021"
+        ]
+      },
+      {
+        "id": "failure-limits",
+        "text": "Low texture remains a failure case; slow-motion initialization is not guaranteed.",
+        "requiredCitationIds": [
+          "orb-slam3-2021"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+      "rationale": "Reviewed the entire corrected claim and its atomic article/glossary/publication endpoints against retained source bodies and counterpassages. Every required source/part pair remains mandatory. Metadata identifies publication only; no publisher-body equality, new liveness, personal owner certification or independent acceptance.",
+      "planDigest": "111e0519e4a24f7f9c3c98a1df748b52bab695d307c343b9322b016ac301ecb2"
+    },
+    "evidence": [
+      {
+        "partId": "modalities",
+        "citationId": "orb-slam3-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2007.11898",
+        "supportingPassage": "Abstract—This paper presents ORB-SLAM3, the first system\nable to perform visual, visual-inertial and multi-map SLAM\nwith monocular, stereo and RGB-D cameras, using pin-hole and\nfisheye lens models.\nThe first main novelty is a feature-based tightly-integrated\nvisual-inertial SLAM system that fully relies on Maximum-aPosteriori (MAP) estimation, even during the IMU initialization\nphase. The result is a system that operates robustly in real time,\nin small and large, indoor and outdoor environments, and is two\n\n\nV. V ISUAL -I NERTIAL SLAM\nORB-SLAM-VI [4] was the first true visual-inertial SLAM\nsystem capable of map reusing. However, it was limited to\npin-hole monocular cameras, and its initialization was too\nslow, failing in some challenging scenarios. In this work, we\nbuild on ORB-SLAM-VI providing a fast an accurate IMU\ninitialization technique, and an open-source SLAM library\ncapable of monocular-inertial and stereo-inertial SLAM, with\npin-hole and fisheye cameras.\n\n\nwith monocular, stereo or RGB-D sensors, using pin-hole\nand fisheye camera models. Figure 1 shows the main system\ncomponents, that are parallel to those of ORB-SLAM2 with\nsome significant novelties, that are summarized next:\nAtlas is a multi-map representation composed of a set\nof disconnected maps. There is an active map where\nthe tracking thread localizes the incoming frames, and is\ncontinuously optimized and grown with new keyframes\nby the local mapping thread. We refer to the other maps\nin the Atlas as the non-active maps. The system builds\na unique DBoW2 database of keyframes that is used for\nrelocalization, loop closing and map merging.\n• Tracking thread processes sensor information and computes the pose of the current frame with respect to the\nactive map in real-time, minimizing the reprojection error\nof the matched map features. It also decides whether\nthe current frame becomes a keyframe. In visual-inertial\nmode, the body velocity and IMU biases are estimated by\nincluding the inertial residuals in the optimization. When\ntracking is lost, the tracking thread tries to relocalize\nthe current frame in all the Atlas’ maps. If relocalized,\ntracking is resumed, switching the active map if needed.\nOtherwise, after a certain time, the active map is stored\nas non-active, and a new active map is initialized from\nscratch.\n• Local mapping thread adds keyframes and points to\nthe active map, removes the redundant ones, and refines\nthe map using visual or visual-inertial bundle adjustment,\noperating in a local window of keyframes close to the\ncurrent frame. Additionally, in the inertial case, the IMU\nparameters are initialized and refined by the mapping\nthread using our novel MAP-estimation technique.\n• Loop and map merging thread detects common regions\nbetween the active map and the whole Atlas at keyframe\nrate. If the common area belongs to the active map, it\n•\n\n\f6\n\nperforms loop correction; if it belongs to a different map,\nboth maps are seamlessly merged into a single one, that\nbecomes the active map. After a loop correction, a full\nBA is launched in an independent thread to further refine\nthe map without affecting real-time performance.\n"
+      },
+      {
+        "partId": "initialization",
+        "citationId": "orb-slam3-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2007.11898",
+        "supportingPassage": "be adapted for efficiency during tracking and mapping, but\nmore importantly, it requires good initial seeds to converge to\naccurate solutions.\nB. IMU Initialization\nThe goal of this step is to obtain good initial values for\nthe inertial variables: body velocities, gravity direction, and\nIMU biases. Some systems like VI-DSO [46] try to solve from\nscratch visual-inertial BA, sidestepping a specific initialization\nprocess, obtaining slow convergence for inertial parameters (up\nto 30 seconds).\nIn this work we propose a fast and accurate initialization\nmethod based on three key insights:\n• Pure monocular SLAM can provide very accurate initial\nmaps [2], whose main problem is that scale is unknown.\nSolving first the vision-only problem will enhance IMU\ninitialization.\n• As shown in [56], scale converges much faster when it is\nexplicitly represented as an optimization variable, instead\nof using the implicit representation of BA.\n\nIgnoring sensor uncertainties during IMU initialization\nproduces large unpredictable errors [64].\nSo, taking properly into account sensor uncertainties, we\nstate the IMU initialization as a MAP estimation problem,\nsplit in three steps:\n1) Vision-only MAP Estimation: We initialize pure\nmonocular SLAM [2] and run it during 2 seconds,\ninserting keyframes at 4Hz. After this period, we have an\nup-to-scale map composed of k = 10 camera poses and\nhundreds of points, that is optimized using visual-only\nBA (figure 2b). These poses are transformed to body reference, obtaining the trajectory T̄0:k = [R, p̄]0:k where\nthe bar denotes up-to-scale variables in the monocular\ncase.\n2) Inertial-only MAP Estimation: In this step we aim to\nobtain the optimal estimation of the inertial variables,\nin the sense of MAP estimation, using only T̄0:k and\ninertial measurements between these keyframes. These\ninertial variables may be stacked in the inertial-only state\n\n\n3) Visual-Inertial MAP Estimation: Once we have a good\nestimation for inertial and visual parameters, we can\nperform a joint visual-inertial optimization for further\nrefining the solution. This optimization may be represented as figure 2a but having common biases for all\nkeyframes and including the same prior information for\nbiases than in the inertial-only step.\nOur exhaustive initialization experiments on the EuRoC\ndataset [6] show that this initialization is very efficient, achieving 5% scale error with trajectories of 2 seconds. To improve\nthe initial estimation, visual-inertial BA is performed 5 and\n15 seconds after initialization, converging to 1% scale error as\nshown in section VII. After these BAs, we say that the map\nis mature, meaning that scale, IMU parameters and gravity\ndirections are already accurately estimated.\nOur initialization is much more accurate than joint initialization methods that solve a set of algebraic equations [62]–[64],\nand much faster than the initialization used in ORB-SLAMVI [4] that needed 15 seconds to get the first scale estimation,\nor that used in VI-DSO [46], that starts with a huge scale\nerror and requires 20-30 seconds to converge to 1% error.\nComparisons between different initialization methods may be\nfound at [6].\nIn some specific cases, when slow motion does not provide\ngood observability of the inertial parameters, initialization\nmay fail to converge to accurate solutions in just 15 seconds.\nTo get robustness against this situation, we propose a novel\n\nscale refinement technique, based on a modified inertial-only\noptimization, where all inserted keyframes are included but\nscale and gravity direction are the only parameters to be\nestimated (figure 2d). Notice that in that case, the assumption\nof constant biases would not be correct. Instead, we use the\nvalues estimated from mapping, and we fix them. This optimization, which is very computationally efficient, is performed\nin the Local Mapping thread every ten seconds, until the map\nhas more than 100 keyframes, or more than 75 seconds have\npassed since initialization.\nFinally, we have easily extended our monocular-inertial\ninitialization to stereo-inertial by fixing the scale factor to one\nand taking it out from the inertial-only optimization variables,\n"
+      },
+      {
+        "partId": "loss-recovery",
+        "citationId": "orb-slam3-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2007.11898",
+        "supportingPassage": "with monocular, stereo or RGB-D sensors, using pin-hole\nand fisheye camera models. Figure 1 shows the main system\ncomponents, that are parallel to those of ORB-SLAM2 with\nsome significant novelties, that are summarized next:\nAtlas is a multi-map representation composed of a set\nof disconnected maps. There is an active map where\nthe tracking thread localizes the incoming frames, and is\ncontinuously optimized and grown with new keyframes\nby the local mapping thread. We refer to the other maps\nin the Atlas as the non-active maps. The system builds\na unique DBoW2 database of keyframes that is used for\nrelocalization, loop closing and map merging.\n• Tracking thread processes sensor information and computes the pose of the current frame with respect to the\nactive map in real-time, minimizing the reprojection error\nof the matched map features. It also decides whether\nthe current frame becomes a keyframe. In visual-inertial\nmode, the body velocity and IMU biases are estimated by\nincluding the inertial residuals in the optimization. When\ntracking is lost, the tracking thread tries to relocalize\nthe current frame in all the Atlas’ maps. If relocalized,\ntracking is resumed, switching the active map if needed.\nOtherwise, after a certain time, the active map is stored\nas non-active, and a new active map is initialized from\nscratch.\n• Local mapping thread adds keyframes and points to\nthe active map, removes the redundant ones, and refines\nthe map using visual or visual-inertial bundle adjustment,\noperating in a local window of keyframes close to the\ncurrent frame. Additionally, in the inertial case, the IMU\nparameters are initialized and refined by the mapping\nthread using our novel MAP-estimation technique.\n• Loop and map merging thread detects common regions\nbetween the active map and the whole Atlas at keyframe\nrate. If the common area belongs to the active map, it\n•\n\n\f6\n\nperforms loop correction; if it belongs to a different map,\nboth maps are seamlessly merged into a single one, that\nbecomes the active map. After a loop correction, a full\nBA is launched in an independent thread to further refine\nthe map without affecting real-time performance.\n\n\nD. Robustness to tracking loss\nIn pure visual SLAM or VO systems, temporal camera\nocclusion and fast motions result in losing track of visual\nelements, getting the system lost. ORB-SLAM pioneered the\nuse of fast relocalization techniques based on bag-of-words\nplace recognition, but they proved insufficient to solve difficult\nsequences in the EuRoC dataset [3]. Our visual-inertial system\nenters into visually lost state when less than 15 point maps are\ntracked, and achieves robustness in two stages:\n• Short-term lost: the current body state is estimated from\nIMU readings, and map points are projected in the\nestimated camera pose and searched for matches within a\nlarge image window. The resulting matches are included\nin visual-inertial optimization. In most cases this allows\nto recover visual tracking. Otherwise, after 5 seconds, we\npass to the next stage.\n• Long-term lost: A new visual-inertial map is initialized\nas explained above, and it becomes the active map.\n\n\f9\n\nIf the system gets lost within 15 seconds after IMU initialization, the map is discarded. This prevents to accumulate\ninaccurate and meaningless maps.\n"
+      },
+      {
+        "partId": "conditional-merging",
+        "citationId": "orb-slam3-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2007.11898",
+        "supportingPassage": "with monocular, stereo or RGB-D sensors, using pin-hole\nand fisheye camera models. Figure 1 shows the main system\ncomponents, that are parallel to those of ORB-SLAM2 with\nsome significant novelties, that are summarized next:\nAtlas is a multi-map representation composed of a set\nof disconnected maps. There is an active map where\nthe tracking thread localizes the incoming frames, and is\ncontinuously optimized and grown with new keyframes\nby the local mapping thread. We refer to the other maps\nin the Atlas as the non-active maps. The system builds\na unique DBoW2 database of keyframes that is used for\nrelocalization, loop closing and map merging.\n• Tracking thread processes sensor information and computes the pose of the current frame with respect to the\nactive map in real-time, minimizing the reprojection error\nof the matched map features. It also decides whether\nthe current frame becomes a keyframe. In visual-inertial\nmode, the body velocity and IMU biases are estimated by\nincluding the inertial residuals in the optimization. When\ntracking is lost, the tracking thread tries to relocalize\nthe current frame in all the Atlas’ maps. If relocalized,\ntracking is resumed, switching the active map if needed.\nOtherwise, after a certain time, the active map is stored\nas non-active, and a new active map is initialized from\nscratch.\n• Local mapping thread adds keyframes and points to\nthe active map, removes the redundant ones, and refines\nthe map using visual or visual-inertial bundle adjustment,\noperating in a local window of keyframes close to the\ncurrent frame. Additionally, in the inertial case, the IMU\nparameters are initialized and refined by the mapping\nthread using our novel MAP-estimation technique.\n• Loop and map merging thread detects common regions\nbetween the active map and the whole Atlas at keyframe\nrate. If the common area belongs to the active map, it\n•\n\n\f6\n\nperforms loop correction; if it belongs to a different map,\nboth maps are seamlessly merged into a single one, that\nbecomes the active map. After a loop correction, a full\nBA is launched in an independent thread to further refine\nthe map without affecting real-time performance.\n\n\nA. Place Recognition\nTo achieve higher recall, for every new active keyframe\nwe query the DBoW2 database for several similar keyframes\nin the Atlas. To achieve 100 % precision, each of these\ncandidates goes through several steps of geometric verification.\nThe elementary operation of all the geometrical verification\nsteps consists in checking whether there is an ORB keypoint\ninside an image window whose descriptor matches the ORB\ndescriptor of a map point, using a threshold for the Hamming\ndistance between them. If there are several candidates in the\nsearch window, to discard ambiguous matches, we check the\n\ndistance ratio to the second-closest match [76]. The steps of\nour place recognition algorithm are:\n1) DBoW2 candidate keyframes. We query the Atlas\nDBoW2 database with the active keyframe Ka to\nretrieve the three most similar keyframes, excluding\nkeyframes covisible with Ka . We refer to each matching\ncandidate for place recognition as Km .\n2) Local window. For each Km we define a local window\nthat includes Km , its best covisible keyframes, and\nthe map points observed by all of them. The DBoW2\ndirect index provides a set of putative matches between\nkeypoints in Ka and in the local window keyframes. For\neach of these 2D-2D matches we have also available the\n3D-3D match between their corresponding map points.\n3) 3D aligning transformation. We compute using\nRANSAC the transformation Tam that better aligns the\nmap points in Km local window with those of Ka .\nIn pure monocular, or in monocular-inertial when the\nmap is still not mature, we compute Tam ∈ Sim(3),\notherwise Tam ∈ SE(3). In both cases we use Horn\nalgorithm [77] using a minimal set of three 3D-3D\nmatches to find each hypothesis for Tam . The putative\nmatches that, after transforming the map point in Ka\nby Tam , achieve a reprojection error in Ka below a\nthreshold, give a positive vote to the hypothesis. The\nhypothesis with more votes is selected, provided the\nnumber is over a threshold.\n4) Guided matching refinement. All the map points in the\nlocal window are transformed with Tam to find more\nmatches with the keypoints in Ka . The search is also\nreversed, finding matches for Ka map points in all the\nkeyframes of the local window. Using all the matchings\nfound, Tam is refined by non-linear optimization, where\nthe goal function is the bidirectional reprojection error,\nusing Huber influence function to provide robustness\nto spurious matches. If the number of inliers after the\noptimization is over a threshold, a second iteration of\nguided matching and non-linear refinement is launched,\nusing a smaller image search window.\n5) Verification in three covisible keyframes. To avoid\nfalse positives, DBoW2 waited for place recognition to\nfire in three consecutive keyframes, delaying or missing\nplace recognition. Our crucial insight is that, most of the\ntime, the information required for verification is already\nin the map. To verify place recognition, we search in\nthe active part of the map two keyframes covisible with\nKa where the number of matches with points in the\nlocal window is over a threshold. If they are not found,\nthe validation is further tried with the new incoming\nkeyframes, without requiring the bag-of-words to fire\nagain. The validation continues until three keyframes\nverify Tam , or two consecutive new keyframes fail to\nverify it.\n6) VI Gravity direction verification. In the visual-inertial\ncase, if the active map is mature, we have estimated\nTam ∈ SE(3). We further check whether the pitch and\nroll angles are below a threshold to definitively accept\n\n"
+      },
+      {
+        "partId": "failure-limits",
+        "citationId": "orb-slam3-2021",
+        "sourceUrl": "https://arxiv.org/pdf/2007.11898",
+        "supportingPassage": "The main failure case of ORB-SLAM3 is low-texture environments. Direct methods are more robust to low-texture,\nbut are limited to short-term [27] and mid-term [31] data\nassociation. On the other hand, matching feature descriptors\nsuccessfully solves long-term and multi-map data association,\nbut seems to be less robust for tracking than Lucas-Kanade,\nthat uses photometric information. An interesting line of\nresearch could be developing photometric techniques adequate\nfor the four data association problems. We are currently\nexploring this idea for map building from endoscope images\n\n\n3) Visual-Inertial MAP Estimation: Once we have a good\nestimation for inertial and visual parameters, we can\nperform a joint visual-inertial optimization for further\nrefining the solution. This optimization may be represented as figure 2a but having common biases for all\nkeyframes and including the same prior information for\nbiases than in the inertial-only step.\nOur exhaustive initialization experiments on the EuRoC\ndataset [6] show that this initialization is very efficient, achieving 5% scale error with trajectories of 2 seconds. To improve\nthe initial estimation, visual-inertial BA is performed 5 and\n15 seconds after initialization, converging to 1% scale error as\nshown in section VII. After these BAs, we say that the map\nis mature, meaning that scale, IMU parameters and gravity\ndirections are already accurately estimated.\nOur initialization is much more accurate than joint initialization methods that solve a set of algebraic equations [62]–[64],\nand much faster than the initialization used in ORB-SLAMVI [4] that needed 15 seconds to get the first scale estimation,\nor that used in VI-DSO [46], that starts with a huge scale\nerror and requires 20-30 seconds to converge to 1% error.\nComparisons between different initialization methods may be\nfound at [6].\nIn some specific cases, when slow motion does not provide\ngood observability of the inertial parameters, initialization\nmay fail to converge to accurate solutions in just 15 seconds.\nTo get robustness against this situation, we propose a novel\n\nscale refinement technique, based on a modified inertial-only\noptimization, where all inserted keyframes are included but\nscale and gravity direction are the only parameters to be\nestimated (figure 2d). Notice that in that case, the assumption\nof constant biases would not be correct. Instead, we use the\nvalues estimated from mapping, and we fix them. This optimization, which is very computationally efficient, is performed\nin the Local Mapping thread every ten seconds, until the map\nhas more than 100 keyframes, or more than 75 seconds have\npassed since initialization.\nFinally, we have easily extended our monocular-inertial\ninitialization to stereo-inertial by fixing the scale factor to one\nand taking it out from the inertial-only optimization variables,\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "modalities",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "ORB3 abstract and III name visual monocular/stereo/RGB-D; V specifically names monocular-inertial and stereo-inertial with pinhole/fisheye models. No RGB-D-inertial mode is inferred.",
+        "evidenceDigest": "76f75331cdbbade0c44a5baed3c438dcbca2c5879f6587167e1d4c47466b8465"
+      },
+      {
+        "partId": "initialization",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "V-B uses uncertainty-aware vision-only and inertial-only MAP followed by joint refinement. Poor inertial observability with slow motion explicitly limits convergence.",
+        "evidenceDigest": "b2d32aafdf96d83acdd480ff41685cb8e7c5217db8ffdf01ccfc2f6f94cfdafe"
+      },
+      {
+        "partId": "loss-recovery",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "III attempts relocalization across maps before starting a new active map; V-D distinguishes short/long loss and discards maps lost soon after inertial initialization. Recovery is not guaranteed.",
+        "evidenceDigest": "a58eb29304e70cacdfbc7c7cd85bcca88d1cd7b3d78bcd35740316761b49bce9"
+      },
+      {
+        "partId": "conditional-merging",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "III and VI-A require a common region plus RANSAC alignment, guided refinement and covisibility validation; mature inertial maps receive gravity-direction checks. Candidate retrieval alone does not merge maps.",
+        "evidenceDigest": "77d5780fffa18ad60673a9206bf9699aa25b760dd0988965ee3b15a839ccc8e5"
+      },
+      {
+        "partId": "failure-limits",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "The conclusion names low texture as the main failure case; V-B preserves slow-motion initialization failure. No zero-drift, universal recovery or quantitative accuracy promise is added.",
+        "evidenceDigest": "f745a981b02aa9aed8b91b8394da4cecd70b846ed23be70ae835cfa47f79e329"
+      }
+    ]
+  },
+  {
+    "id": "classical-slam-scene-31-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 31,
+    "originalCellsDigest": "13d5451d9426d917750c566414f7563a3ba5f5a0e4304d45a1cb1cf4c80eaa9e",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "bounded-drift",
+        "text": "Odometry type and setup matter; revisiting landmarks can reduce and possibly correct trajectory drift.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "specific-distribution",
+        "text": "ORB-SLAM geometric validation, similarity alignment and Essential Graph error distribution, not universal guaranteed correction.",
+        "requiredCitationIds": [
+          "orb-slam-2015"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+      "rationale": "Reviewed the entire corrected claim and its atomic article/glossary/publication endpoints against retained source bodies and counterpassages. Every required source/part pair remains mandatory. Metadata identifies publication only; no publisher-body equality, new liveness, personal owner certification or independent acceptance.",
+      "planDigest": "44d4054853906c036546ffbd1f897010788d01fb4154060c61307743ba84c426"
+    },
+    "evidence": [
+      {
+        "partId": "bounded-drift",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Answering the question “Do autonomous robots really need\nSLAM?” requires understanding what makes SLAM unique.\nSLAM aims at building a globally consistent representation\nof the environment, leveraging both ego-motion measurements\nand loop closures. The keyword here is “loop closure”: if we\nsacrifice loop closures, SLAM reduces to odometry. In early\napplications, odometry was obtained by integrating wheel\nencoders. The pose estimate obtained from wheel odometry\nquickly drifts, making the estimate unusable after few meters [128, Ch. 6]; this was one of the main thrusts behind the\ndevelopment of SLAM: the observation of external landmarks\nis useful to reduce the trajectory drift and possibly correct\nit [185]. However, more recent odometry algorithms are based\non visual and inertial information, and have very small drift\n(< 0.5% of the trajectory length [82]). Hence the question\nbecomes legitimate: do we really need SLAM? Our answer is\nthree-fold.\nFirst of all, we observe that the SLAM research done\nover the last decade has itself produced the visual-inertial\nodometry algorithms that currently represent the state of the\nart, e.g., [163, 175]; in this sense Visual-Inertial Navigation\n(VIN) is SLAM: VIN can be considered a reduced SLAM\nsystem, in which the loop closure (or place recognition) module is disabled. More generally, SLAM has directly led to the\n\n\nThe second answer regards the true topology of the environment. A robot performing odometry and neglecting loop\nclosures interprets the world as an “infinite corridor” (Fig. 1left) in which the robot keeps exploring new areas indefinitely.\nA loop closure event informs the robot that this “corridor”\nkeeps intersecting itself (Fig. 1-right). The advantage of loop\nclosure now becomes clear: by finding loop closures, the\nrobot understands the real topology of the environment, and\nis able to find shortcuts between locations (e.g., point B\nand C in the map). Therefore, if getting the right topology\nof the environment is one of the merits of SLAM, why\nnot simply drop the metric information and just do place\nrecognition? The answer is simple: the metric information\nmakes place recognition much simpler and more robust; the\nmetric reconstruction informs the robot about loop closure opportunities and allows discarding spurious loop closures [150].\nTherefore, while SLAM might be redundant in principle (an\noracle place recognition module would suffice for topological\nmapping), SLAM offers a natural defense against wrong data\nassociation and perceptual aliasing, where similarly looking\nscenes, corresponding to distinct locations in the environment,\nwould deceive place recognition. In this sense, the SLAM map\n"
+      },
+      {
+        "partId": "specific-distribution",
+        "citationId": "orb-slam-2015",
+        "sourceUrl": "https://arxiv.org/pdf/1502.00956",
+        "supportingPassage": "B. Three Threads: Tracking, Local Mapping and Loop Closing\nOur system, see an overview in Fig. 1, incorporates three\nthreads that run in parallel: tracking, local mapping and loop\n\n\fIEEE TRANSACTIONS ON ROBOTICS\n\nclosing. The tracking is in charge of localizing the camera\nwith every frame and deciding when to insert a new keyframe.\nWe perform first an initial feature matching with the previous\nframe and optimize the pose using motion-only BA. If the\ntracking is lost (e.g. due to occlusions or abrupt movements),\nthe place recognition module is used to perform a global\nrelocalization. Once there is an initial estimation of the camera\npose and feature matchings, a local visible map is retrieved\nusing the covisibility graph of keyframes that is maintained\nby the system, see Fig. 2(a) and Fig. 2(b). Then matches with\nthe local map points are searched by reprojection, and camera\npose is optimized again with all matches. Finally the tracking\nthread decides if a new keyframe is inserted. All the tracking\nsteps are explained in detail in Section V. The novel procedure\nto create an initial map is presented in Section IV.\nThe local mapping processes new keyframes and performs\nlocal BA to achieve an optimal reconstruction in the surroundings of the camera pose. New correspondences for unmatched ORB in the new keyframe are searched in connected\nkeyframes in the covisibility graph to triangulate new points.\nSome time after creation, based on the information gathered\nduring the tracking, an exigent point culling policy is applied\nin order to retain only high quality points. The local mapping\nis also in charge of culling redundant keyframes. We explain\nin detail all local mapping steps in Section VI.\nThe loop closing searches for loops with every new\nkeyframe. If a loop is detected, we compute a similarity transformation that informs about the drift accumulated in the loop.\nThen both sides of the loop are aligned and duplicated points\nare fused. Finally a pose graph optimization over similarity\nconstraints [6] is performed to achieve global consistency. The\nmain novelty is that we perform the optimization over the\nEssential Graph, a sparser subgraph of the covisibility graph\nwhich is explained in Section III-D. The loop detection and\ncorrection steps are explained in detail in Section VII.\n\n\nVII. L OOP C LOSING\nThe loop closing thread takes Ki , the last keyframe processed by the local mapping, and tries to detect and close\nloops. The steps are next described.\nA. Loop Candidates Detection\nAt first we compute the similarity between the bag of\nwords vector of Ki and all its neighbors in the covisibility\ngraph (θmin = 30) and retain the lowest score smin . Then we\nquery the recognition database and discard all those keyframes\nwhose score is lower than smin . This is a similar operation\nto gain robustness as the normalizing score in DBoW2,\nwhich is computed from the previous image, but here we\nuse covisibility information. In addition all those keyframes\ndirectly connected to Ki are discarded from the results. To\naccept a loop candidate we must detect consecutively three\nloop candidates that are consistent (keyframes connected in\nthe covisibility graph). There can be several loop candidates\nif there are several places with similar appearance to Ki .\nB. Compute the Similarity Transformation\nIn monocular SLAM there are seven degrees of freedom\nin which the map can drift, three translations, three rotations\nand a scale factor [6]. Therefore to close a loop we need to\ncompute a similarity transformation from the current keyframe\nKi to the loop keyframe Kl that informs us about the error\naccumulated in the loop. The computation of this similarity\nwill serve also as geometrical validation of the loop.\nWe first compute correspondences between ORB associated\nto map points in the current keyframe and the loop candidate\nkeyframes, following the procedure explained in section III-E.\nAt this point we have 3D to 3D correspondences for each\nloop candidate. We alternatively perform RANSAC iterations\nwith each candidate, trying to find a similarity transformation\nusing the method of Horn [42]. If we find a similarity Sil with\nenough inliers, we optimize it (see the Appendix), and perform\n\nTo effectively close the loop, we perform a pose graph\noptimization over the Essential Graph, described in Section\nIII-D, that distributes the loop closing error along the graph.\nThe optimization is performed over similarity transformations\nto correct the scale drift [6]. The error terms and cost function\nare detailed in the Appendix. After the optimization each map\npoint is transformed according to the correction of one of the\nkeyframes that observes it.\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "bounded-drift",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "Cadena Introduction contrasts wheel-odometry drift with lower-drift visual-inertial methods and says landmark observation reduces and possibly corrects drift. It does not prove universal unbounded error or perfect loop correction.",
+        "evidenceDigest": "d90fe45c58600fb3a851cfdc04edb3a473767f685356c923bc28b62e45ab70c7"
+      },
+      {
+        "partId": "specific-distribution",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "ORB2015 III-B and VII supply the specific similarity alignment and Essential Graph distribution mechanism. Cadena is not substituted for this mandatory ORB source.",
+        "evidenceDigest": "e311d3a0a3063d6db961ad4236821d5ad6f65329dd1857a7862480d7f5edff7c"
+      }
+    ]
+  },
+  {
+    "id": "classical-slam-scene-33-20260908",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "scene-representation",
+    "rowOrdinal": 33,
+    "originalCellsDigest": "7fae78aed5462d81f86a2abfdb88583ab523045880d2d8df04bd62c8cf52f840",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "conditional-comparison",
+        "text": "Survey distinguishes false positives from false negatives in data association without universal loss ordering.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "mitigation",
+        "text": "Robust losses and front-/back-end validation can mitigate spurious matches.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      },
+      {
+        "id": "remaining-failure",
+        "text": "Nonconvex optimization/outlier-rejection depend on the initial estimate and can remain fragile.",
+        "requiredCitationIds": [
+          "cadena-2016"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+      "rationale": "Reviewed the entire corrected claim and its atomic article/glossary/publication endpoints against retained source bodies and counterpassages. Every required source/part pair remains mandatory. Metadata identifies publication only; no publisher-body equality, new liveness, personal owner certification or independent acceptance.",
+      "planDigest": "8e0128776e8b6375ad37b75813e9d45a1d178e8bbfff3646f86dc9678ebbf6c2"
+    },
+    "evidence": [
+      {
+        "partId": "conditional-comparison",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "One of the main sources of algorithmic failures is data association. As mentioned in Section II data association matches\neach measurement to the portion of the state the measurement\nrefers to. For instance, in feature-based visual SLAM, it\nassociates each visual feature to a specific landmark. Perceptual aliasing, the phenomenon in which different sensory\ninputs lead to the same sensor signature, makes this problem\nparticularly hard. In the presence of perceptual aliasing, data\nassociation establishes erroneous measurement-state matches\n(outliers, or false positives), which in turn result in wrong\nestimates from the back-end. On the other hand, when data\nassociation decides to incorrectly reject a sensor measurement\nas spurious (false negatives), fewer measurements are used for\nestimation, at the expense of estimation accuracy.\n"
+      },
+      {
+        "partId": "mitigation",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Note that the formulation (4) follows from the assumption of\nNormally distributed noise. Other assumptions for the noise\ndistribution lead to different cost functions; for instance, if the\nnoise follows a Laplace distribution, the squared `2 -norm in (4)\nis replaced by the `1 -norm. To increase resilience to outliers, it\nis also common to substitute the squared `2 -norm in (4) with\nrobust loss functions (e.g., Huber or Tukey loss) [112].\n\n\npropose FLIRT features for 2D laser scans.\nLoop closure validation, instead, consists of additional geometric verification steps to ascertain the quality of the loop\nclosure. In vision-based applications, RANSAC is commonly\nused for geometric verification and outlier rejection, see [218]\nand the references therein. In laser-based approaches, one can\nvalidate a loop closure by checking how well the current laser\nscan matches the existing map (i.e., how small is the residual\nerror resulting from scan matching).\nDespite the progress made to robustify loop closure detection at the front-end, in presence of perceptual aliasing, it is\nunavoidable that wrong loop closures are fed to the backend. Wrong loop closures can severely corrupt the quality\nof the MAP estimate [238]. In order to deal with this issue, a recent line of research [33, 150, 191, 238] proposes\ntechniques to make the SLAM back-end resilient against\nspurious measurements. These methods reason on the validity\nof loop closure constraints by looking at the residual error\ninduced by the constraints during optimization. Other methods,\ninstead, attempt to detect outliers a priori, that is, before any\noptimization takes place, by identifying incorrect loop closures\nthat are not supported by the odometry [215].\n"
+      },
+      {
+        "partId": "remaining-failure",
+        "citationId": "cadena-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1606.05830v4",
+        "supportingPassage": "Failsafe SLAM and recovery: Despite the progress made on\nthe SLAM back-end, current SLAM solvers are still vulnerable\nin the presence of outliers. This is mainly due to the fact that\nvirtually all robust SLAM techniques are based on iterative\noptimization of nonconvex costs. This has two consequences:\n\n\f7\n\nfirst, the outlier rejection outcome depends on the quality of\nthe initial guess fed to the optimization; second, the system is\ninherently fragile: the inclusion of a single outlier degrades the\nquality of the estimate, which in turn degrades the capability\nof discerning outliers later on. These types of failures lead\nto an incorrect linearization point from which recovery is not\ntrivial, especially in an incremental setup. An ideal SLAM\nsolution should be fail-safe and failure-aware, i.e., the system\nneeds to be aware of imminent failure (e.g., due to outliers\nor degeneracies) and provide recovery mechanisms that can\nre-establish proper operation. None of the existing SLAM\napproaches provides these capabilities. A possible way to\nachieve this is a tighter integration between the front-end and\nthe back-end, but how to achieve that is still an open question.\n"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "conditional-comparison",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "Cadena III distinguishes false-positive data associations leading to wrong estimates from false negatives losing useful measurements. The source does not establish a universal ordering of every error cost.",
+        "evidenceDigest": "82c794b66c83228d5a05c06e48e71ff65aa9a3719f3211e6e63c682470cb7f70"
+      },
+      {
+        "partId": "mitigation",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "Cadena II gives robust loss functions; III describes geometric verification and robust back-end constraints. These can mitigate outliers without making outlier rejection infallible.",
+        "evidenceDigest": "6626bec8033156f332f11fe46b5793982d5177f2664a338cfb8f12e1ddf1bb42"
+      },
+      {
+        "partId": "remaining-failure",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator af4ecd68-0ee5-4fa4-a1a7-c669ab408df1; retained-source whole-current-claim review 2026-09-14",
+        "rationale": "Cadena III describes nonconvex iterative optimization, dependence on the initial estimate and cascading outlier failures. The corrected claim preserves these conditions rather than every-false-match corruption.",
+        "evidenceDigest": "b759178051ec0d0a7c379fa63a99f02513d1e2ad15da6dd3dfb5f57dde7522ea"
+      }
+    ]
   }
 ]

@@ -1,6 +1,50 @@
 # Content-integrity audit trail
 
-## Current checkpoint: SayCan and Code as Policies (2026-09-14)
+## Current checkpoint: four ORB scene originals (2026-09-14)
+
+Exactly **4 applied / 0 assigned held / 0 assigned unattempted originals**, in the two complete groups **26/27 and 31/33** of `audit/classical.md:scene-representation`. **4 corrected rows / 0 newly verified rows / 0 cuts**. Four reviewed compound plans retain **13 mandatory AND parts / 13 source-part pairs / 13 evidence items**. Six coupled endpoints cover both shared article paragraphs, the `loop-closure` and `place-recognition` definitions, and the two ORB publication identities. No completed original was reapplied.
+
+Final native collection at **2026-09-14T09:35:20-09:35:21 UTC**, precommit HEAD `51f413de78c30f137f19390f5a5212cdf794f3cc`: **550 complete / 444 incomplete / 994 originals / 47 articles**; classical **92 complete / 95 incomplete / 187 originals**; scene-representation **38 complete / 11 incomplete / 49 originals**. **456 plans / 532 approvals / 43 unchanged unrelated baseline failure objects**. Entry was 546/448, 452 plans and 526 approvals. Final preservation compares all 994 IDs/order, 546 prior complete records, 990 unselected semantic records, 452 prior plans and 526 prior approvals, including their serialized prefixes. Six exact immutable-baseline approvals cover prose, citation relationships, canonical glossary metadata, resolved citation labels and both ORB citation members. No baseline, parser, assertion or approval schema was weakened.
+
+**Zero new retrieval.** The retained publication-identity packet was verified as **86 payloads / 13,046,516 bytes / 89 files**, with **27 literal manuscript bindings / 12 publisher metadata literals / 13 mandatory source-part pairs**. Both retained ORB PDFs were locally rederived with `pdftotext` and were byte-equal to the retained text. The retained packet seal SHA256 is `34bf901dfa038f5fb5a677eb8fdca560494785c11332e35cc9c2d8c15059ea3c`; index SHA256 `53dca5f783aa9ea1f9321d97c02a467f7373ef248837ea0feb5901d799182538`; four-row binding SHA256 `81b88aa150e042160da8c367620091df7ed72a7939300c7d90e6b674c1b79257`. `source-bindings.json` preserves original retrieval events, source identities, exact supporting excerpts and offsets; current review on September 14 is not a fetch date. Cadena's historical extraction limitation and publisher tool-reported-200/transport limitations remain explicit; no fresh origin status, redirect trace or version-of-record body equivalence is claimed.
+
+Original26 separates monocular feature roles, mapping and DBoW2 candidates from geometric validation. Original27 qualifies visual/inertial modalities, MAP initialization, recovery before new maps, immature-map discard, geometric/covisibility/gravity merging prerequisites and low-texture/poor-observability limits. Original31 requires Cadena for qualified drift reduction AND ORB2015 for similarity alignment/Essential Graph error distribution. Original33 preserves false-positive/false-negative context and robust-estimation/initialization limits without a universal ranking; its historical II-C locator is corrected to the retained survey's Section III robustness discussion. ORB3's historical abstract 2-5x/3.6cm versus retained v2 body 2-10x/3.5cm remains a version distinction, not a promoted numerical claim.
+
+The IEEE identities are **ORB-SLAM: A Versatile and Accurate Monocular SLAM System**, Raúl Mur-Artal, J. M. M. Montiel, Juan D. Tardós, IEEE Transactions on Robotics 31(5):1147-1163 (2015), and **ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual–Inertial, and Multimap SLAM**, Carlos Campos, Richard Elvira, Juan J. Gómez Rodríguez, José M. M. Montiel, Juan D. Tardós, 37(6):1874-1890 (2021). Canonical DOI URLs remain `https://doi.org/10.1109/TRO.2015.2463671` and `https://doi.org/10.1109/TRO.2021.3075644`; no arxiv registry properties were added. Publisher/manuscript punctuation, diacritics, Multi-Map/Multimap and the ORB3 cover typo remain documented. Completed Lowry article text and DSO tail, citations/frontmatter and `lastReviewed: "2026-08-22"` are preserved. Lowry glossary reuse was checked against retained text and earns zero new-original credit.
+
+### Executed gates and checkpoint limits
+
+All commands ran sequentially through the Mission-local guarded runner with `NODE_DISABLE_COMPILE_CACHE=1`. The table distinguishes workflow controls from product gates.
+
+| Gate | Actual command/result |
+| --- | --- |
+| Required-input workflow | `node --test required-inputs.test.mjs`: **34 passed**; exact eight-input membership, byte/hash/manifest checks; missing, stale, malformed and unknown inputs refuse before action |
+| Retained source/review | `python3 source-proof.py`; `node integrate.mjs review`: exit0; **13 supported adjudications / 13 source-identity refusal controls** |
+| Red-first source tests | `npm test -- tests/unit/orb-scene-source-fidelity.test.ts`: **13 failed / 1 passed** before application |
+| Application/approval | `node integrate.mjs apply`; `node integrate.mjs approve`: final exit0; **4 originals / 6 exact approvals / 12 approval controls** |
+| Final affected tests | `node node_modules/vitest/vitest.mjs run tests/unit/orb-scene-source-fidelity.test.ts tests/unit/place-slam-source-corrections.test.ts tests/unit/citations.test.ts --maxWorkers=1`: **54 passed / 3 files**, 09:34:40-09:34:45UTC |
+| Normal lint | `npm run lint`: exit0 including normal prelint, 09:34:49-09:35:05UTC |
+| Types | `node node_modules/typescript/bin/tsc --noEmit --incremental false`: exit0, 09:35:10-09:35:11UTC; no typegen/config change |
+| Content chain | `npm run validate:content`: **exit1 / 451 findings**, 09:35:15-09:35:16UTC; structural, no-slop and chart stages passed before native audit coverage failed at550/994. Nine separate unresolved citation checks remain |
+| Final native/preservation | `node native-state.mjs <absolute native-final.json>`: exit0; collector appended another `.json`, retained as `native-final.json.json` and byte-identically copied to `native-final.json`; counts above are observed, not inferred |
+| Browser/build/export/cards | **Not executed**; zero owned runtimes, reader navigations, product captures or current screenshot inspections |
+
+Failed/refused receipts remain: initial native process qualification exit125/no action; unavailable tsx exit1; wrong ledger column ordering exit1 before product application; two pre-write approval failures; first post-change unit run50 passed/4 failed because the new test expected display text `corrected` rather than native verdict enum `C`. The enum-only correction retained all source assertions and the final54 passed. No advancing command was killed, no model switch or credit fallback occurred. Closeout initially refused a replacement passive Pangram process; its complete argv/executable/parent/cgroup/cwd matched the prior exact pin and stdin was /dev/null, so only that new identity was added; no process was signalled. The first invoked closeout then caught its helper's mistaken catalog-object assumption before writes; array-aware prefix comparison corrected it. Earlier SayCan/CaP missing-input and reader-receipt gaps are not retroactively repaired by these new controls.
+
+The prepared Mission reader test and `prepare-quality.py` were **not executed or installed**. Final Cite/References bylines, both glossary caveats and keyboard/hover/focus/scroll behavior at375x812/1440x900 still require an owned runtime and actual screenshot inspection. No runtime was launched, so no runtime-stop/exit/free-port acceptance is claimed. Inherited Back/Glossary/BODY focus, Term Escape and contrast incompletes remain; whole-article/P1, full reference/accessibility/corpus checks, independent scrutiny/user testing and release acceptance are unearned. Formal307/331 is unchanged. **Content and release gates remain RED: do not publish.**
+
+First actual Astra/max emission was09:00:05.950UTC; the original09:35:05.950UTC target was not reset. The already-started sequential gates finished naturally at09:35:21UTC, followed only by documentation, preservation and local checkpoint closeout. Owner PRODUCT_QUALITY.md/qa/, next-env.d.ts and ancestor commits d282a83/2cf7d6b are preserved; no features, Mission/controller, deployment, billing, credentials or security changes.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-orb-scene-four-integration-20260914/`. Local commit ID/tree are recorded in its final sealed handoff after commit; this is an implementation checkpoint, not independent acceptance.
+
+| Exact originalId | Final native four-cell tuple SHA256 |
+| --- | --- |
+| `audit/classical.md:scene-representation:26` | `3046b7b7df26e9aec432435a11e21a49086a56c9f754404837c96ae162695fe3` |
+| `audit/classical.md:scene-representation:27` | `4f022463df05c93103d76036f6e14e63960b60e67e5e6bc2ffa7461d25b08094` |
+| `audit/classical.md:scene-representation:31` | `13d5451d9426d917750c566414f7563a3ba5f5a0e4304d45a1cb1cf4c80eaa9e` |
+| `audit/classical.md:scene-representation:33` | `7fae78aed5462d81f86a2abfdb88583ab523045880d2d8df04bd62c8cf52f840` |
+
+## Previous checkpoint: SayCan and Code as Policies (2026-09-14)
 
 Exactly **2 applied /0 assigned held /0 assigned unattempted originals**: `audit/manipulation.md:hierarchical:1/2`. Both original verified labels become **corrected**; **2 corrected rows /0 newly verified rows /0 cuts**. Two integrator-reviewed plans contain **16 mandatory AND parts /17 URL evidence items**: SayCan7/7 and CaP9/10. Both metadata URLs are required for CaP. Article sections and complete `hierarchical-policy`/`affordance` glossary definitions were corrected atomically; exact original/current four-cell history remains in the ledger. No completed original was replayed.
 
