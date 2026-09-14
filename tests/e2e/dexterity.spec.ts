@@ -96,7 +96,11 @@ test.describe('frontier dexterity module', () => {
 
     // The intermediate 2026 state: tactile hardware ships, but no tactile
     // training pipeline at vision scale exists yet.
-    expect(mainText).toMatch(/Figure 03 ships fingertip tactile sensors/);
+    expect(mainText).toContain("Figure's October 2025 announcement describes a palm camera in each Figure 03 hand");
+    expect(mainText).toContain('can detect "three grams of pressure"');
+    expect(mainText).toContain('full-body proprioception as System 1 inputs');
+    expect(mainText).toContain("the first time we've demonstrated neural network policies that depend on these modalities");
+    expect(mainText).not.toContain('the first Figure has shown that consumes touch directly');
     expect(mainText).toMatch(/Gemini Robotics 2 drives the 22-DoF SharpaWave hand/);
     expect(mainText).toMatch(/does not exist yet is a tactile training pipeline/);
 

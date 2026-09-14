@@ -46699,5 +46699,111 @@
         "evidenceDigest": "860a3a8cacc349b4e528faffecf29855a0cf3f2c47e9efa5c5417c738785ee01"
       }
     ]
+  },
+  {
+    "id": "dexterity-figure15-source-20260914",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "bed95a50c6f13c3e0854f07edc5f10bfdae491512066000610b5fd6a7a4eb25f",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "d15-tactile-sensitivity",
+        "text": "Figure describes fingertip tactile sensing with the vendor wording three grams of pressure, compared with a paperclip's weight; no calibrated resolution or SI conversion is asserted.",
+        "requiredCitationIds": [
+          "figure-03-2025",
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "d15-palm-cameras",
+        "text": "Figure 03 has an embedded palm camera in each hand.",
+        "requiredCitationIds": [
+          "figure-03-2025"
+        ]
+      },
+      {
+        "id": "d15-touch-inputs",
+        "text": "Helix 02 System 1 inputs include head and palm cameras, fingertip tactile sensors and full-body proprioception.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "d15-first-scope",
+        "text": "Figure calls this the first time it has demonstrated neural network policies depending on these modalities. Preserve the combined-modality, Figure-announcement scope, not an independent history census.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-document review2026-09-14",
+      "rationale": "Actual retained full Figure03 and Helix02 tool-returned documents, publication headings, literal byte bindings and original FetchUrl events reviewed. One authorized article span plus two source containers form one atomic original, mapped to four mandatory native parts/five native evidence pairs. Helix sensitivity pair is mandatory even though the preparation source-container parts label omitted it. Distinct hardware/System1/combined-modality and vendor-quotation scopes preserve the quality-library resolution exclusion. No schema weakening, sibling certification, personal owner source certification or independent acceptance.",
+      "planDigest": "7f676c3957a738a605cb62594f4430ba24b0d2fa6ee585fed11b9ab60d826a82"
+    },
+    "evidence": [
+      {
+        "partId": "d15-tactile-sensitivity",
+        "citationId": "figure-03-2025",
+        "sourceUrl": "https://www.figure.ai/news/introducing-figure-03",
+        "supportingPassage": "Each fingertip sensor can detect forces as small as three grams of pressure - sensitive enough to register the weight of a paperclip resting on your finger. This precision enables Helix to distinguish between a secure grip and an impending slip before it occurs, allowing fine-grained, dexterous control over fragile, irregular, or moving objects."
+      },
+      {
+        "partId": "d15-tactile-sensitivity",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "**Palm cameras** provide in‑hand visual feedback when objects are occluded from the head camera. **Tactile sensors** embedded in each fingertip detect forces as small as three grams - sensitive enough to feel a paperclip - enabling contact‑aware, force‑modulated grasping. These sensing modalities enable Helix to unlock the full dexterity potential of five-fingered hands, tackling intricate manipulation tasks which demand the fine motor control of multi-fingered grasping."
+      },
+      {
+        "partId": "d15-palm-cameras",
+        "citationId": "figure-03-2025",
+        "sourceUrl": "https://www.figure.ai/news/introducing-figure-03",
+        "supportingPassage": "# Introducing Figure 03\n\nOctober 09, 2025\n\nEach hand now integrates an embedded palm camera with a wide field of view and low-latency sensing, which offers redundant, close-range visual feedback during grasps. These cameras allow Helix to maintain visual awareness even when the main cameras are occluded (i.e. when reaching into a cabinet or working in confined spaces) and enable continuous, adaptive control in real time."
+      },
+      {
+        "partId": "d15-touch-inputs",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "# Introducing Helix 02: Full-Body Autonomy\n\nJanuary 27, 2026\n\nIn the original Helix, S1 controlled the upper body and read from joint state and images. In Helix 02, it connects to all sensors, and controls the entire robot.\n\n- **Inputs**: Head cameras, palm cameras, fingertip tactile sensors, and full‑body proprioception.\n\n- **Outputs**: Complete joint-level control of the entire robot - legs, torso, head, arms, wrists, and individual fingers.\n\n\nThis **pixels‑to‑whole‑body** architecture allows S1 to reason about the complete state of the robot and environment as a single coupled system. The palm cameras and tactile sensors are new hardware capabilities from [Figure 03](https://www.figure.ai/news/introducing-figure-03). This is the first time we've demonstrated neural network policies that depend on these modalities."
+      },
+      {
+        "partId": "d15-first-scope",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "In the original Helix, S1 controlled the upper body and read from joint state and images. In Helix 02, it connects to all sensors, and controls the entire robot.\n\n- **Inputs**: Head cameras, palm cameras, fingertip tactile sensors, and full‑body proprioception.\n\n- **Outputs**: Complete joint-level control of the entire robot - legs, torso, head, arms, wrists, and individual fingers.\n\n\nThis **pixels‑to‑whole‑body** architecture allows S1 to reason about the complete state of the robot and environment as a single coupled system. The palm cameras and tactile sensors are new hardware capabilities from [Figure 03](https://www.figure.ai/news/introducing-figure-03). This is the first time we've demonstrated neural network policies that depend on these modalities."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "d15-tactile-sensitivity",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-document review2026-09-14",
+        "rationale": "The Figure03 manufacturer announcement says three grams of pressure and compares it to a paperclip. The separately retained Helix02 announcement repeats three grams and paperclip, but not of pressure. Both same-issuer sources are mandatory here; the latter corroborates wording, not independent measurement. Neither supplies a calibrated resolution protocol, loading geometry, area, noise floor or uncertainty in the returned text. Preserve the explicit vendor quotation; do not convert mass to pressure/force or certify the neighboring threshold/ranking. The pre-existing resolution exclusion remains unchanged.",
+        "evidenceDigest": "87695071e99890128793a0e3b882daed0d7c868aa9482916a88f3b0a96511142"
+      },
+      {
+        "partId": "d15-palm-cameras",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-document review2026-09-14",
+        "rationale": "The Figure03 Designed for Helix section says each hand now integrates an embedded palm camera, providing close-range feedback under main-camera occlusion. The document visibly dates itself October09,2025. This supports what the hardware announcement describes, not shipping availability, a benchmark or a present deployment claim.",
+        "evidenceDigest": "9584e21d91eae9f7d156bd0086de120c0ee963ccb16ecf41686745a139b7eb7c"
+      },
+      {
+        "partId": "d15-touch-inputs",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-document review2026-09-14",
+        "rationale": "The January27,2026 Helix02 System1 subsection lists head cameras, palm cameras, fingertip tactile sensors and full-body proprioception as Inputs. Distinguish System1 from the separate S0/S2 layers and the prior Figure03 hardware announcement. This is an attributed model-input description, not an independently inspected network or autonomous-reliability finding.",
+        "evidenceDigest": "6ddca55b2f910f1d4075ec9a55d208313ef58c8d62ed5326f175931a100eb68a"
+      },
+      {
+        "partId": "d15-first-scope",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator f4c0263c-dcee-4b3a-a70e-903ccafaeefb; retained-document review2026-09-14",
+        "rationale": "The same S1 context identifies palm cameras and tactile sensors as Figure03 hardware and says This is the first time we've demonstrated neural network policies that depend on these modalities. Preserve Figure as speaker and the combined-modality demonstration scope. Do not promote this into a first touch-consuming policy anywhere, a touch-only ablation, a census of competitors, or proof that touch was necessary. The document calls its results early; videos and linked sources were not inspected.",
+        "evidenceDigest": "c1eddd305f8d0ff27eea48959f290e82b02bddad78a9dc6e2a60f543c1a50a30"
+      }
+    ]
   }
 ]

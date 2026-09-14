@@ -65,10 +65,10 @@ describe('Brooks dexterity source corrections', () => {
     expect(records()[2].note).not.toContain('digital-nerve blocks also cut');
     expect(records()).toHaveLength(30);
   });
-  test('does not promote held Figure15 or change the article date', () => {
-    expect(records()[14].evidenceFailures.length).toBeGreaterThan(0);
+  test('preserves the article date and historical Figure15 hold', () => {
     expect(text).toContain('lastReviewed: "2026-08-18"');
-    expect(text).toContain('Figure 03 ships fingertip tactile sensors that detect forces as small as three grams');
+    expect(ledger).toContain('Original15 is HELD:');
+    // The separately tested Figure15 continuation supersedes the hold, not its history.
   });
   test.each(['review', 'adjudication', 'item', 'source', 'stale'] as const)(
     'native gate rejects missing or stale %s on every assigned original', mutation => {

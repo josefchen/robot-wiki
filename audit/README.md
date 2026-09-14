@@ -1,6 +1,50 @@
 # Content-integrity audit trail
 
-## Current checkpoint: four Brooks dexterity originals; Figure15 held (2026-09-14)
+## Current checkpoint: Figure15 closes the five-original dexterity group (2026-09-14)
+
+This continuation applied **1 original / 0 held / 0 unattempted**: `audit/frontier.md:dexterity:15`, one V-to-C correction. Together with local Brooks commit `be0cc9107d0b60354ff96378ec0fc22e3c34d143`, the original five-member group is now **5 applied / 0 held / 0 unattempted**. Brooks2/3/5/6 were not reapplied. Parent corrections explicitly resolved the earlier one-versus-three article-endpoint mistake and confirmed **535**, not536, entry approvals. Those administrative corrections supplied no source truth or acceptance; the historical holds and count refusal remain preserved.
+
+Actual native collection at **14:40:19UTC**, entry HEAD `be0cc9107d0b60354ff96378ec0fc22e3c34d143`: **557 complete / 437 incomplete / 994 originals / 47 articles**. Frontier **22 complete / 125 incomplete / 147**; dexterity **5 complete / 25 incomplete / 30**. **463 plans / 536 approvals / 43 unchanged full baseline failure objects**. Entry was556/438,462plans,535approvals. All556 prior complete IDs/order,993 unselected semantic records,462 prior plans and535 prior approval objects/order are preserved. Exactly one native plan and one immutable-baseline-to-current prose approval were appended. Figure15 current four-cell SHA256: `bed95a50c6f13c3e0854f07edc5f10bfdae491512066000610b5fd6a7a4eb25f`.
+
+The atomic original is **one article span plus two source-level evidence containers**, mapped without schema changes to **four mandatory native parts and five mandatory evidence pairs**. Both Figure03 AND Helix02 support the sensitivity part; the latter pair is not dropped merely because the preparation container's parts label omitted it. Each hand's embedded palm camera belongs to the Figure03 hardware announcement. Head/palm cameras, fingertip tactile sensors and full-body proprioception are Helix02 System1 inputs. The first-time quotation is Figure's combined-modality demonstration claim, not an independent historical first or proof of touch-only necessity.
+
+**Zero source retrievals.** Complete retained tool-returned documents, original request/result events and **16 literal bindings / six unique passages** were verified. Both documents are Figure AI first-party material, not independent publishers:
+
+- Figure03, `https://www.figure.ai/news/introducing-figure-03`, visible publication October09,2025; original FetchUrl request **2026-09-13T03:39:52.471Z**, result **03:39:56.393Z**. **10949bytes**, SHA256`b9c5b1a3f30f115250d32b4c42e4a3a104bd3ff256513a5a1c08b0d1ba092628`.
+- Helix02, `https://www.figure.ai/news/helix-02`, visible publication January27,2026; original request **2026-09-07T16:06:58.990Z**, result **16:07:28.926Z**. **12101bytes**, SHA256`9d42b081418a20a1b4b118520a76512ad615a2510c737a23d97665a3f6f55021`.
+
+Both results report200 through FetchUrl; no raw origin headers/status, redirect chain or current-liveness proof is claimed. September14 review is not a fetch date. Figure03 says **three grams of pressure** and compares it with a paperclip; Helix02 repeats three grams/paperclip without of pressure. Grams are not dimensionally specified pressure. The quotation supports vendor wording, not calibrated force resolution, an SI conversion, a threshold ranking or universal precision. The quality-library resolution exclusion remains unchanged. No embedded media or linked material was inspected. Registry, glossary, comparison data, all unassigned claims and `lastReviewed: "2026-08-18"` remain unchanged and unaccepted.
+
+| Executed check | Actual result |
+| --- | --- |
+| Red-first Figure source regression |16failed before article/row/plan application |
+| Scientific review and native controls |1whole original;4supported adjudications/5evidence pairs;26controls |
+| Application input admission |1positive/14negative controls; missing, empty, stale or unexpected required inputs refuse |
+| Exact prose approval |1appended/4mutation controls;535prior approvals and43baseline failures preserved |
+| Affected unit/component tests |**163passed/5files**,14:24:17-14:24:20UTC: Figure16, Brooks15, native ledger77, baseline47, hand comparison8 |
+| Normal lint/prelint |`npm run lint`:exit0,14:28:37-14:28:54UTC; normal postinstall prelint retained |
+| Nonincremental types |exit0 before runtime and again on byte-restored configurations at14:40:00-14:40:03UTC |
+| Actual offline content chain |`npm run validate:content`:exit1,14:29:22-14:29:23UTC; structure/no-slop/charts pass before **444 audit findings /557of994complete**; nine separately unresolved citation checks remain |
+| Reader input admission |Actual discovery:1positive/6negative controls;1401nonempty required inputs. Four empty retained diagnostics remain in the general captured population, not substantive requirements |
+| Mounted readers |**14passed/0failed/0skipped/0flaky**,375x812 and1440x900,14:34:40-14:35:37UTC; one fresh runtime generation |
+
+**12screenshots actually inspected**: complete corrected paragraph at both native viewport sizes, two source popovers per viewport, full References entries including issuer/year/URL, and natural mobile navigation. Metadata popovers are separate from unobstructed paragraph/reference frames. Native reference jumps and Escape, existing hand sorting/selection/reset/keyboard sorting, current navigation and overflow checks passed. Neighboring visible claims are not certified. The scoped page fixture observed12cases with0page/console errors and0external requests; two pre-existing overflow-only cases construct contexts directly and are not counted in that fixture observation. All14retained network traces contain476recorded requests and no outside-owned-origin request; Next's exact loopback HMR WebSocket is local, not source retrieval. **Axe0violations, but68mobile/38desktop color-contrast incomplete-node observations remain unresolved**, not106unique nodes or contrast acceptance.
+
+Nineteen retained WOFF2files were hash-qualified. Tektur, IBM Plex Sans, Newsreader and IBM Plex Mono primary families loaded. Local IBM Plex Sans Fallback and Newsreader Fallback faces reported error; unused subsets remained unloaded. This is not a claim that every declared face loaded or a font/accessibility acceptance. No font change was made.
+
+One fresh Next16.3 `dev --webpack` cache, `node_modules/.cache/dexterity-figure15-reader-20260914`, ran on127.0.0.1:3271 from **14:33:58.493568** to **14:38:12.249320UTC**. Actual Next/supervisor/runner/waiter exits were0; all five owned identities are absent, port3271 is bindable, and next.config.ts/tsconfig.json/next-env.d.ts are byte-exactly restored. Only the verified owned supervisor was signalled. No production build/export, duplicate browser generation, disk cleanup or foreign process signal occurred.
+
+Preserved failures distinguish action from outcome: old worker/passive MCP pins refused before action until exact restarted identities were qualified; a transient bridge child refused preparation; the first application refused the continued table's unextended header before any product write, then the actual native header was extended without relaxing the parser; initial discovery failed the Mission config's CommonJS/import.meta mismatch, corrected before any browser ran; the first trace classifier mistook the exact local HMR WebSocket for external traffic. No failed artifact is relabeled as a pass.
+
+All command snapshots retain declared Git-blob or run-scoped input versions. The direct external inventory was123members before application and expanded for qualified fonts and reader/closure evidence. This is a concrete captured population, **not exhaustive certification of actual transitive dependencies**. The sealed Brooks root is untouched; its successful evidence is composed only where its exact source/product inputs remain applicable. Fresh163tests and14reader cases above do not pretend to rerun every Brooks pixel endpoint. Final snapshot resolution, file counts, local commit/tree and seal identity are recorded in this continuation's handoff only after creation.
+
+Still open:437incomplete originals; nine citation checks; unassigned dexterity threshold/superlative and other source claims; full article/P1, embedded-source and current-liveness limits; shared Back/focus and Term Escape debt; contrast, fallback-face, complete accessibility/reference/distribution profiles; production export/reading-time/OG corpus convergence and independent Sol/high scrutiny/user testing. **Formal307/331 unchanged; content/release RED: do not publish.** No personal source certification, independent acceptance, features edit, new Mission/controller/worktree, fallback activation, credit exhaustion, push, deployment, billing, credential or security change.
+
+Original first Astra/max emission **12:22:19.253UTC** and checkpoint target **12:57:19.253UTC** remain unchanged; the target was not a termination deadline. Same-Task continuation activation after the count correction was13:53:16.895UTC. Seal time is not the terminal assistant-emission time; the parent records the latter afterward.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-figure15-closeout-20260914/`.
+
+## Previous checkpoint: four Brooks dexterity originals; Figure15 held (2026-09-14)
 
 Exactly **4 applied / 1 assigned held / 0 assigned unattempted originals** from `audit/frontier.md:dexterity:2/3/5/6/15`. Originals **2, 3, 5 and 6** have complete reviewed evidence and corrected verdicts: three V-to-C changes and one existing C retained. **0 newly verified-verdict rows / 0 cut-verdict rows**; the unsupported victory sentence is a coupled prose cut, not another original. Four plans retain **11 mandatory AND parts / 11 evidence items**, and five atomic article endpoints. Original15 remains unchanged and incomplete: its qualified packet has one article endpoint (`d15-main-prose`) plus two source-item IDs, not the dispatch-required three article endpoints. Do not invent missing bindings or reapply completed records.
 

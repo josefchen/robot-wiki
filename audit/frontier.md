@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 6
 - Claim rows: 147
-- Recorded verified: 107
-- Recorded corrected: 37
+- Recorded verified: 106
+- Recorded corrected: 38
 - Recorded cut: 0
 - Recorded source inconsistencies: 3
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 21
-- Incomplete evidence records: 126
+- Complete evidence records: 22
+- Incomplete evidence records: 125
 
 <!-- audit-summary:end -->
 
@@ -95,15 +95,15 @@ Conventions: verdicts count **ledger rows**; the summary also states **distinct 
 
 ## dexterity.mdx (continued)
 
-| # | Claim (quoted) | Source checked | Verdict | Note |
-|---|---|---|---|---|
+| # | Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
+|---|---|---|---|---|---|---|---|---|
 | D9 | "about 17,000 low-threshold mechanoreceptors... roughly 1,000 of them at each fingertip" (cited to macefield-touch-2022) | Brooks essay (fetched, quoting the review) + Crossref for the DOI | V | Brooks: "In a review of Johansson's earlier work from 1979 it is reported that a human hand has about 17,000... with about 1,000 of them right at the tip of each finger", linking the Macefield review. Wiley bot-walls direct fetch; Crossref confirms registry title/author/year (Macefield, J Physiol 2022). |
 | D10 | Holson pipeline limits: no wrist force feedback / open-close finger control / no touch / "roughly 1 to 3 cm of precision" | generalrobots.substack.com (fetched) | V | all four in Holson's own post, bolded headings "No force feedback at the wrists", "Limited finger control", "No sense of touch", "Medium precision... about 1-3 cm precision" |
 | D11 | "the 2025 tactile robotics outlook identifies exactly this sensing and integration gap as the field's open problem" | arXiv 2508.11261 HTML (fetched) | C | the outlook examines "several challenges" and defines the field as "development and integration of tactile-sensing technologies into robotic systems"; it never ties itself to the article's stick-slip amplification argument. Reworded to the paper's own framing ("frames integrating touch sensing into working robotic systems as the field's defining challenge"). |
 | D12 | Go-Big: 100% egocentric human video, no robot demonstrations, Brookfield 100,000+ residential units, zero-shot video-to-robot navigation as first result | figure.ai/news/project-go-big (fetched) | V | all four stated; article correctly hedges the navigation claim as Figure's claim |
 | D13 | Fishel: video alone does not reveal touch "until well after the collision has physically moved the object"; Wells: touch "the key enabler for human-level dexterity" | sanctuary.ai tactile announcement (fetched, 2025-02-26) | V | both stated; Fishel is "Principal Researcher", Wells "CEO at Sanctuary AI" |
 | D14 | Phoenix hands: hydraulic actuation, "fingertip arrays of micro-barometer cells sensitive to about five millinewtons, against roughly three for a human fingertip" | sanctuary.ai announcement + blog.robozaps.com Phoenix review (both fetched) | V | RoboZaps: "seven-cell tactile array to each fingerpad, built on micro-barometers... sensitive to about five millinewtons against a human finger's roughly three" (Feb 2025, matching the announcement date); hydraulics from Sanctuary's own pages |
-| D15 | Figure 03 "fingertip tactile sensors that detect forces as small as three grams, plus cameras in the palms"; Helix 02 "the first Figure has shown that consumes touch directly" | figure.ai/news/introducing-figure-03 + /news/helix-02 (both fetched) | V | "Each fingertip sensor can detect forces as small as three grams"; "embedded palm camera"; "This is the first time we've demonstrated neural network policies that depend on these modalities" |
+| D15 | Figure's October 9, 2025 announcement describes an embedded palm camera in each Figure 03 hand and says each fingertip sensor can detect "three grams of pressure", compared with a paperclip's weight. Figure's January 27, 2026 Helix 02 announcement lists head cameras, palm cameras, fingertip tactile sensors and full-body proprioception as System 1 inputs, stating "This is the first time we've demonstrated neural network policies that depend on these modalities." Both are vendor descriptions, not calibrated force-resolution measurements or an independently established historical first. | Figure AI first-party announcements; retained FetchUrl Figure03 request2026-09-13T03:39:52.471Z/result2026-09-13T03:39:56.393Z and Helix02 request2026-09-07T16:06:58.990Z/result2026-09-07T16:07:28.926Z, tool-reported200. Exact original events and returned bytes verified; review2026-09-14 is not retrieval. | C | Corrected2026-09-14: four mandatory parts and five part-source pairs in the native plan, including Helix02 sensitivity corroboration. Figure03 says three grams of pressure; Helix02 says three grams. Both compare to a paperclip; no calibrated force resolution, SI conversion or independently established first. Figure-scoped combined-modality demonstration, not touch-only necessity. Existing quality-library resolution exclusion and unassigned threshold/superlative/data/date remain unchanged. Original V and erroneous note retained below as non-counted history. No source retrieval, media/liveness/P1/article seal or independent acceptance. |  |  |  | dexterity-figure15-source-20260914 |
 | D16 | Shadow: "more than 100 sensors at 1 kHz"; "€110,000 including support" (2022); "each finger has an independent side-to-side motion" | shadowrobot.com product page + cost blog (both fetched) | V | "over 100 sensors running at up to 1KHz"; "€110k including shipping, installation, training and support" (blog dated Dec 5, 2022); side-to-side sentence verbatim |
 | D17 | Sparsh-X "pretrained on about a million contact-rich interactions from Meta's Digit 360 sensor and lifted policy success rates by 63%" | arXiv 2506.14754 HTML (fetched) | V | "∼1M contact-rich interactions collected with the Digit 360 sensor"; "boosts policy success rates by 63% over an end-to-end model using tactile images" |
 | D18 | TouchWorld "65% success on six long-horizon contact-rich tasks, 15.7 points over the strongest baseline" | arXiv 2607.07287 HTML (fetched) | V | "six long-horizon and contact-rich dexterous manipulation tasks... 65.0% success... outperforming the strongest baseline by 15.7... percentage points" |
@@ -536,4 +536,40 @@ Non-counted exact before/current row history:
     "newRaw": "| D6 | Brooks’s touch-sensing conclusion is qualified by “It looks like,” scoped to tasks such as his match-lighting example, and an assessment at the time of the essay rather than a current census or universal impossibility proof. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | Retain the complete qualifier and then-current sense of yet. Registry year 2025 is existing context, not a newly verified publication day. The essay acknowledges promising academic work and corrects its own feedback description. No sensor specification, all-lab census or inference that first deployment proves necessity is certified. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-6-source-20260914 |"
   }
 ]
+```
+
+
+## 2026-09-14 Figure dexterity original15 closeout
+
+The earlier Brooks checkpoint and its original15 hold remain immutable history. The parent corrected its endpoint-count requirement and confirmed535 existing approvals before this continuation. Exactly one Figure original is now corrected: four mandatory parts, five mandatory native evidence pairs and one article span. The two source-level evidence containers are not a two-entry native-schema limit; Helix02 also supplies the mandatory sensitivity pair. Figure AI is the issuer of both documents, not two independent publishers. Figure03 visible publication date October09,2025; original FetchUrl request2026-09-13T03:39:52.471Z/result2026-09-13T03:39:56.393Z;10949bytes/SHA256b9c5b1a3f30f115250d32b4c42e4a3a104bd3ff256513a5a1c08b0d1ba092628. Helix02 visible date January27,2026; original request2026-09-07T16:06:58.990Z/result2026-09-07T16:07:28.926Z;12101bytes/SHA2569d42b081418a20a1b4b118520a76512ad615a2510c737a23d97665a3f6f55021. Original tool events and retained complete returned text verified, tool-reported200 only. Current review is not a new retrieval or current-liveness proof.
+
+The source says three grams of pressure; quoting this manufacturer wording is not a calibrated force-resolution measurement or an SI conversion. Helix02 repeats three grams and paperclip without of pressure. The quality-library resolution exclusion remains unchanged. Palm cameras are Figure03 hardware; the four sensory inputs and first-time combined-modality demonstration are Figure’s Helix02 System1 description. No independent historical first or touch-only necessity is certified. No embedded media, linked source, raw-origin headers/redirects, shipment, full article/P1 or independent acceptance. All556 prior complete originals,993 unselected semantic records,462 prior plans,535 prior approvals, the citation registry, comparison data, glossary, neighboring threshold/superlative claims and2026-08-18 article date remain preserved.
+
+Non-counted exact original/current row history:
+
+```json
+{
+  "originalId": "audit/frontier.md:dexterity:15",
+  "oldCells": {
+    "claim": "Figure 03 \"fingertip tactile sensors that detect forces as small as three grams, plus cameras in the palms\"; Helix 02 \"the first Figure has shown that consumes touch directly\"",
+    "sourceChecked": "figure.ai/news/introducing-figure-03 + /news/helix-02 (both fetched)",
+    "verdict": "V",
+    "note": "\"Each fingertip sensor can detect forces as small as three grams\"; \"embedded palm camera\"; \"This is the first time we've demonstrated neural network policies that depend on these modalities\""
+  },
+  "currentCells": {
+    "claim": "Figure's October 9, 2025 announcement describes an embedded palm camera in each Figure 03 hand and says each fingertip sensor can detect \"three grams of pressure\", compared with a paperclip's weight. Figure's January 27, 2026 Helix 02 announcement lists head cameras, palm cameras, fingertip tactile sensors and full-body proprioception as System 1 inputs, stating \"This is the first time we've demonstrated neural network policies that depend on these modalities.\" Both are vendor descriptions, not calibrated force-resolution measurements or an independently established historical first.",
+    "sourceChecked": "Figure AI first-party announcements; retained FetchUrl Figure03 request2026-09-13T03:39:52.471Z/result2026-09-13T03:39:56.393Z and Helix02 request2026-09-07T16:06:58.990Z/result2026-09-07T16:07:28.926Z, tool-reported200. Exact original events and returned bytes verified; review2026-09-14 is not retrieval.",
+    "verdict": "C",
+    "note": "Corrected2026-09-14: four mandatory parts and five part-source pairs in the native plan, including Helix02 sensitivity corroboration. Figure03 says three grams of pressure; Helix02 says three grams. Both compare to a paperclip; no calibrated force resolution, SI conversion or independently established first. Figure-scoped combined-modality demonstration, not touch-only necessity. Existing quality-library resolution exclusion and unassigned threshold/superlative/data/date remain unchanged. Original V and erroneous note retained below as non-counted history. No source retrieval, media/liveness/P1/article seal or independent acceptance."
+  },
+  "oldRaw": "| D15 | Figure 03 \"fingertip tactile sensors that detect forces as small as three grams, plus cameras in the palms\"; Helix 02 \"the first Figure has shown that consumes touch directly\" | figure.ai/news/introducing-figure-03 + /news/helix-02 (both fetched) | V | \"Each fingertip sensor can detect forces as small as three grams\"; \"embedded palm camera\"; \"This is the first time we've demonstrated neural network policies that depend on these modalities\" |",
+  "newRaw": "| D15 | Figure's October 9, 2025 announcement describes an embedded palm camera in each Figure 03 hand and says each fingertip sensor can detect \"three grams of pressure\", compared with a paperclip's weight. Figure's January 27, 2026 Helix 02 announcement lists head cameras, palm cameras, fingertip tactile sensors and full-body proprioception as System 1 inputs, stating \"This is the first time we've demonstrated neural network policies that depend on these modalities.\" Both are vendor descriptions, not calibrated force-resolution measurements or an independently established historical first. | Figure AI first-party announcements; retained FetchUrl Figure03 request2026-09-13T03:39:52.471Z/result2026-09-13T03:39:56.393Z and Helix02 request2026-09-07T16:06:58.990Z/result2026-09-07T16:07:28.926Z, tool-reported200. Exact original events and returned bytes verified; review2026-09-14 is not retrieval. | C | Corrected2026-09-14: four mandatory parts and five part-source pairs in the native plan, including Helix02 sensitivity corroboration. Figure03 says three grams of pressure; Helix02 says three grams. Both compare to a paperclip; no calibrated force resolution, SI conversion or independently established first. Figure-scoped combined-modality demonstration, not touch-only necessity. Existing quality-library resolution exclusion and unassigned threshold/superlative/data/date remain unchanged. Original V and erroneous note retained below as non-counted history. No source retrieval, media/liveness/P1/article seal or independent acceptance. |  |  |  | dexterity-figure15-source-20260914 |",
+  "headerChange": {
+    "line": 98,
+    "before": "| # | Claim (quoted) | Source checked | Verdict | Note |",
+    "separatorBefore": "|---|---|---|---|---|",
+    "after": "| # | Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |",
+    "separatorAfter": "|---|---|---|---|---|---|---|---|---|"
+  }
+}
 ```

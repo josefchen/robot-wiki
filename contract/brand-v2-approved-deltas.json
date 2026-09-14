@@ -10231,6 +10231,24 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "dexterity-figure15-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "191c0065fb6913e9c987df66bca3465522fe47fbb7f02d7ee9083e33f7035876",
+      "reason": "Exact original15 only: Figure03 manufacturer quotation and announcement date, palm cameras, Helix02 System1 sensory inputs and Figure-scoped combined-modality first-time statement. No calibrated resolution, numeric conversion, sibling threshold/ranking, registry or comparison-data change.",
+      "ownerApproval": "Josef’s September7 fix-it-all authority and September14 corrected exact original15 continuation authorize routine evidence-backed correction, not personal source certification, deployment or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
