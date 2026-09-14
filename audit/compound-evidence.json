@@ -46085,5 +46085,323 @@
         "evidenceDigest": "b759178051ec0d0a7c379fa63a99f02513d1e2ad15da6dd3dfb5f57dde7522ea"
       }
     ]
+  },
+  {
+    "id": "grasp-planning-original-11-review-caveats-draft-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "grasp-planning",
+    "rowOrdinal": 11,
+    "originalCellsDigest": "59456c0ba94245f6d417795453c1e468b933aba1f362c1fd6c8c4eb100499943",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "p11-review-scope",
+        "text": "Roa and Suárez review contact-location and hand-configuration measures and illustrate their behavior with simple examples, rather than benchmark a generally dominant metric.",
+        "requiredCitationIds": [
+          "roa-suarez-2015"
+        ]
+      },
+      {
+        "id": "p11-torque-origin",
+        "text": "Their largest-minimum resisted wrench measure depends on the origin/reference system used to compute torques; the review distinguishes named alternative constructions rather than declaring epsilon globally frame invariant.",
+        "requiredCitationIds": [
+          "roa-suarez-2015"
+        ]
+      },
+      {
+        "id": "p11-force-torque-scaling",
+        "text": "A wrench-space metric is needed to compare force and torque components; the review uses a scaling factor rho and discusses possible length conventions.",
+        "requiredCitationIds": [
+          "roa-suarez-2015"
+        ]
+      },
+      {
+        "id": "p11-force-budget",
+        "text": "Independent normalized per-finger force bounds and a common bound on the sum of force magnitudes are distinct; a grasp optimal under one force constraint need not be optimal under another.",
+        "requiredCitationIds": [
+          "roa-suarez-2015"
+        ]
+      },
+      {
+        "id": "p11-task-comparability",
+        "text": "No general recommendation of the best grasp-quality measure follows from the review; the relevant contact and gripper factors and task assumptions must accompany interpretation.",
+        "requiredCitationIds": [
+          "roa-suarez-2015"
+        ]
+      },
+      {
+        "id": "p11-quasistatic-scope",
+        "text": "Most reviewed analysis is quasi-static; a value of this metric does not by itself certify dynamic stability or the excluded compliance behavior.",
+        "requiredCitationIds": [
+          "roa-suarez-2015"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+      "rationale": "Reviewed whole current grasp article, complete assigned atomic endpoints and actual retained source contexts/counterevidence. All mandatory parts retained; supporting literals verified against original source bytes. Preparation is not acceptance; no owner personal source certification or local mechanics certification.",
+      "planDigest": "4e8e6b5e65e0ca0b790cda2e55be890593f33918f62e382c2cb5ce8f344f2d71"
+    },
+    "evidence": [
+      {
+        "partId": "p11-review-scope",
+        "citationId": "roa-suarez-2015",
+        "sourceUrl": "https://doi.org/10.1007/s10514-014-9402-3",
+        "supportingPassage": "\n\n[BEGIN DISTINCT LITERAL r01-scope; Abstract]\nThis article reviews the quality measures proposed in the literature to evaluate grasp quality. The quality measures are classified into two groups according to the main aspect they evaluate: location of contact points on the object and hand configuration. The approaches that combine different measures from the two previous groups to obtain a global quality measure are also reviewed, as well as some measures related to human hand studies and grasp performance. Several examples are presented to illustrate and compare the performance of the reviewed measures.\n[END DISTINCT LITERAL r01-scope]\n\n[BEGIN DISTINCT LITERAL r19-contact-experiment; §3.4 own simple rectangle example]\nIn order to facilitate their interpretation, the measures presented above were implemented and applied to a simple 2D object, a 4 cm by 2 cm rectangle grasped with 4 frictionless fingers (unless indicated otherwise). The object contour was discretized with 64 points, 11 per each short side and 21 per each long side. For simplicity, it is assumed that a force can be punctually applied in the direction normal to a side of the rectangle, even at the vertices (in practice, a security distance must be considered). As the contacts are frictionless, each finger must lie on a different side of the rectangle, leading to 21\\*21\\*11\\*11=53,361 different grasp combinations, 23,100 of which are force closure grasps. For the FC grasps, different quality measures were computed. Due to the symmetric and discrete nature of the problem, several globally optimal grasps (i.e. same minimum or maximum value for different finger locations) were obtained for a given quality measure. The total number of solutions reported includes symmetric grasps due to symmetries on the finger locations.\n[END DISTINCT LITERAL r19-contact-experiment]\n\n[BEGIN DISTINCT LITERAL r21-hand-experiment; §4.2 own planar gripper/ellipse example]\nSeveral quality measures that do not depend on a particular task were implemented for a 2-finger planar gripper. Each finger has two links and two degrees of freedom. The gripper must grasp an ellipse of 1 cm by 0.5 cm by its major axis. The gripper base and all the finger links are 1 cm long, and all joints are able to span 135∘, as shown in Fig. [15](https://link.springer.com/article/10.1007/s10514-014-9402-3#Fig15). The workspace for the left finger has been approximated by discretizing each joint’s movement with 12 different positions. Then, for each configuration of the left finger, the configurations of the right finger that allow the grasp of the object at the predefined contact points were computed. 132 valid configurations were obtained in this way, and the following quality measures were considered:\n[END DISTINCT LITERAL r21-hand-experiment]\n\n[BEGIN DISTINCT LITERAL r22-no-universal-ranking; §7 comparison scope and no general recommendation]\nAlthough some studies compare the optimal grasps obtained according to different criteria for different objects in 2-dimensional (Bone and Du [2001](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR11 \"Bone, G., & Du, Y. (2001). Multi-metric comparison of optimal 2D grasp planning algorithms. In Proceedings of IEEE International Conference on Robotics and Automation—ICRA (pp. 3061–3066).\"); Morales et al. [2002](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR78 \"Morales, A., Sanz, P., del Pobil, A., & Fagg, A. (2002). An experiment in constraining vision-based finger contact selection with gripper geometry. In Proceedings of IEEE/RSJ International Conference on Intelligent Robots and Systems—IROS (pp. 1693–1698).\"); Borst et al. [2004](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR15 \"Borst, C., Fischer, M., & Hirzinger, G. (2004). Grasp planning: How to choose a suitable task wrench space. In Proceedings of IEEE International Conference on Robotics and Automation—ICRA (pp. 319–325).\")) and 3-dimensional grasps (Miller and Allen [1999](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR72 \"Miller, A., & Allen, P. (1999). Examples of 3D grasp quality computations. In Proceedings of IEEE International Conference on Robotics and Automation—ICRA (pp. 1240–1246).\")), the selection of the best criterion in each real case is not always trivial. Besides, even knowing the criterion to be applied, the complexity of real cases often makes the computational cost of any grasp optimization really high. In order to provide an idea of the behavior of each quality measure, Sects. [3.4](https://link.springer.com/article/10.1007/s10514-014-9402-3#Sec23) and [4.2](https://link.springer.com/article/10.1007/s10514-014-9402-3#Sec31) present application examples on simple cases that allow the intuitive interpretation of the measure. In fact, it is not possible to provide a general recommendation for the use of any grasp quality measure, as the quality value depends on several aspects of the grasp. In general, quality measures may consider: (a) locations of the contact points on the object, (b)  directions of the forces applied at the contact points, (c)  magnitudes of the applied forces at the contact points, and (d) gripper configuration. The consideration of these elements may provide a better idea on the most convenient quality measure for a particular task.\n[END DISTINCT LITERAL r22-no-universal-ranking]"
+      },
+      {
+        "partId": "p11-torque-origin",
+        "citationId": "roa-suarez-2015",
+        "sourceUrl": "https://doi.org/10.1007/s10514-014-9402-3",
+        "supportingPassage": "\n\n[BEGIN DISTINCT LITERAL r14-frame-and-scale; §3.3.1 torque origin, rho, and named alternative]\nQLRW has a clear and useful physical meaning for general purpose grasps, but depends on the reference system used to compute torques. Selecting the object’s center of mass as the origin of the reference system is coherent with the system dynamics, but as stated above for other measures, in some cases it may be difficult to know the center of mass accurately. Besides, it is necessary to establish a metric in the wrench space to simultaneously consider pure forces and torques, as defined by the factor ρ introduced in Sect. [2.1](https://link.springer.com/article/10.1007/s10514-014-9402-3#Sec3) (Roa and Suárez [2009a](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR94 \"Roa, M. A., & Suárez, R. (2009a). Computation of independent contact regions for grasping 3D objects. IEEE Transactions on Robotics, 25(4), 839–850.\")). QLRW can be normalized with respect to the maximum value that it can reach for a given object, which indicates how far the grasp is from being optimum. However, this requires the computation of the maximum value, implying an additional computational cost. A recent attempt to overcome the dependence of QLRW on the reference frame was proposed by setting the moment origin at the centroid of contact positions so that the grasp wrench sets are frame independent (Zheng and Qian [2009](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR127 \"Zheng, Y., & Qian, W. (2009). Improving grasp quality evaluation. Robotics and Autonomous Systems, 57, 665–673.\")). In that work, instead of dividing the torque component by a factor ρ it is proposed to multiply the force components by the average distance from the contacts to their centroid, which makes that the grasp wrench sets have the same scale in all wrench directions, and sets the scale factor of the ball in the wrench space directly proportional to the same average distance.\n[END DISTINCT LITERAL r14-frame-and-scale]\n\n[BEGIN DISTINCT LITERAL r15-volume-counterpoint; §3.3.2 different invariant measure is not epsilon]\nQVOP is independent of the reference system used to compute torques, but it does not indicate whether the grasp has a poor capacity of compensating perturbation wrenches in some particular directions, i.e. with the same QVOP a given grasp could stand a much lower force than another one in a certain direction. As in the case of QLRW, it is necessary to establish a suitable metric in the wrench space to simultaneously consider pure forces and torques.\n[END DISTINCT LITERAL r15-volume-counterpoint]"
+      },
+      {
+        "partId": "p11-force-torque-scaling",
+        "citationId": "roa-suarez-2015",
+        "sourceUrl": "https://doi.org/10.1007/s10514-014-9402-3",
+        "supportingPassage": "\n\n[BEGIN DISTINCT LITERAL r02-contacts-and-scaling; §2.1 wrench coordinates and rho]\nA force FFi applied on the object at a point ppi generates a torque ττi=ppi×FFi with respect to the object’s center of mass ( _CM_ ). The force and the torque are grouped in a wrench vector ωωi=(FFi,ττi/ρ)T, with ρ being a constant that defines the metric of the wrench space. Possible choices for this parameter include the object’s radius of gyration and the largest distance from _CM_ to any point on the object’s surface. A detailed explanation of the implications of such choices can be found in Roa and Suárez ( [2009a](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR94 \"Roa, M. A., & Suárez, R. (2009a). Computation of independent contact regions for grasping 3D objects. IEEE Transactions on Robotics, 25(4), 839–850.\")). The dimension of ωω is d=3 for 2D and d=6 for 3D objects.\n[END DISTINCT LITERAL r02-contacts-and-scaling]\n\n[BEGIN DISTINCT LITERAL r14-frame-and-scale; §3.3.1 torque origin, rho, and named alternative]\nQLRW has a clear and useful physical meaning for general purpose grasps, but depends on the reference system used to compute torques. Selecting the object’s center of mass as the origin of the reference system is coherent with the system dynamics, but as stated above for other measures, in some cases it may be difficult to know the center of mass accurately. Besides, it is necessary to establish a metric in the wrench space to simultaneously consider pure forces and torques, as defined by the factor ρ introduced in Sect. [2.1](https://link.springer.com/article/10.1007/s10514-014-9402-3#Sec3) (Roa and Suárez [2009a](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR94 \"Roa, M. A., & Suárez, R. (2009a). Computation of independent contact regions for grasping 3D objects. IEEE Transactions on Robotics, 25(4), 839–850.\")). QLRW can be normalized with respect to the maximum value that it can reach for a given object, which indicates how far the grasp is from being optimum. However, this requires the computation of the maximum value, implying an additional computational cost. A recent attempt to overcome the dependence of QLRW on the reference frame was proposed by setting the moment origin at the centroid of contact positions so that the grasp wrench sets are frame independent (Zheng and Qian [2009](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR127 \"Zheng, Y., & Qian, W. (2009). Improving grasp quality evaluation. Robotics and Autonomous Systems, 57, 665–673.\")). In that work, instead of dividing the torque component by a factor ρ it is proposed to multiply the force components by the average distance from the contacts to their centroid, which makes that the grasp wrench sets have the same scale in all wrench directions, and sets the scale factor of the ball in the wrench space directly proportional to the same average distance.\n[END DISTINCT LITERAL r14-frame-and-scale]"
+      },
+      {
+        "partId": "p11-force-budget",
+        "citationId": "roa-suarez-2015",
+        "sourceUrl": "https://doi.org/10.1007/s10514-014-9402-3",
+        "supportingPassage": "\n\n[BEGIN DISTINCT LITERAL r05-independent-budget; §3.3.1 independent force bounds]\nThere are two common constraints on finger forces ffi. The first one is that the module of the force applied by each finger is individually limited, which corresponds to a limited independent power source (or transmission) for each finger. In order to simplify the formalism, and without loss of generality, it is assumed that all finger forces have the same limit and that it is normalized to 1, i.e. ‖ffi‖≤1,i=1,...,n.\n[END DISTINCT LITERAL r05-independent-budget]\n\n[BEGIN DISTINCT LITERAL r08-total-budget; §3.3.1 total force bound]\nThe second common constraint in the finger forces is that the sum of modules of the forces applied by n fingers is limited, which corresponds to a limited common power source for all the fingers. Assuming a normalized limit of 1, the constraint is ∑i=1n‖ffi‖≤1.\n[END DISTINCT LITERAL r08-total-budget]\n\n[BEGIN DISTINCT LITERAL r11-change-budget; §3.3.1 comparison caveat]\nAn optimal grasp under a force constraint is not necessarily optimal under another one. Figure [5](https://link.springer.com/article/10.1007/s10514-014-9402-3#Fig5) qualitatively illustrates the constraints on the finger forces described in Eqs. ( [20](https://link.springer.com/article/10.1007/s10514-014-9402-3#Equ20)) and ( [22](https://link.springer.com/article/10.1007/s10514-014-9402-3#Equ22)), the sets of possible wrenches, and the resulting qualities in each case.\n[END DISTINCT LITERAL r11-change-budget]"
+      },
+      {
+        "partId": "p11-task-comparability",
+        "citationId": "roa-suarez-2015",
+        "sourceUrl": "https://doi.org/10.1007/s10514-014-9402-3",
+        "supportingPassage": "\n\n[BEGIN DISTINCT LITERAL r22-no-universal-ranking; §7 comparison scope and no general recommendation]\nAlthough some studies compare the optimal grasps obtained according to different criteria for different objects in 2-dimensional (Bone and Du [2001](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR11 \"Bone, G., & Du, Y. (2001). Multi-metric comparison of optimal 2D grasp planning algorithms. In Proceedings of IEEE International Conference on Robotics and Automation—ICRA (pp. 3061–3066).\"); Morales et al. [2002](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR78 \"Morales, A., Sanz, P., del Pobil, A., & Fagg, A. (2002). An experiment in constraining vision-based finger contact selection with gripper geometry. In Proceedings of IEEE/RSJ International Conference on Intelligent Robots and Systems—IROS (pp. 1693–1698).\"); Borst et al. [2004](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR15 \"Borst, C., Fischer, M., & Hirzinger, G. (2004). Grasp planning: How to choose a suitable task wrench space. In Proceedings of IEEE International Conference on Robotics and Automation—ICRA (pp. 319–325).\")) and 3-dimensional grasps (Miller and Allen [1999](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR72 \"Miller, A., & Allen, P. (1999). Examples of 3D grasp quality computations. In Proceedings of IEEE International Conference on Robotics and Automation—ICRA (pp. 1240–1246).\")), the selection of the best criterion in each real case is not always trivial. Besides, even knowing the criterion to be applied, the complexity of real cases often makes the computational cost of any grasp optimization really high. In order to provide an idea of the behavior of each quality measure, Sects. [3.4](https://link.springer.com/article/10.1007/s10514-014-9402-3#Sec23) and [4.2](https://link.springer.com/article/10.1007/s10514-014-9402-3#Sec31) present application examples on simple cases that allow the intuitive interpretation of the measure. In fact, it is not possible to provide a general recommendation for the use of any grasp quality measure, as the quality value depends on several aspects of the grasp. In general, quality measures may consider: (a) locations of the contact points on the object, (b)  directions of the forces applied at the contact points, (c)  magnitudes of the applied forces at the contact points, and (d) gripper configuration. The consideration of these elements may provide a better idea on the most convenient quality measure for a particular task.\n[END DISTINCT LITERAL r22-no-universal-ranking]"
+      },
+      {
+        "partId": "p11-quasistatic-scope",
+        "citationId": "roa-suarez-2015",
+        "sourceUrl": "https://doi.org/10.1007/s10514-014-9402-3",
+        "supportingPassage": "\n\n[BEGIN DISTINCT LITERAL r03-quasistatic; §2.2 scope and mobility assumptions]\nNote that the above analysis relies on a quasi-static approach, as dynamics is not typically considered to play a major role in grasping tasks, although interesting dynamic grasping and manipulation behaviors have been reported (Senoo et al. [2009](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR103 \"Senoo, T., Yamakawa, Y., Mizusawa, S., Namiki, A., Ishikawa, M., & Shimojo, M. (2009). Skillful manipulation based on high-speed sensory-motor fusion. In Proceedings of IEEE International Conference on Robotics and Automation—ICRA (pp. 1611–1612).\")). Also, it is assumed that every finger has full mobility in its task space, which is not true for _defective systems_, i.e. systems that have links with limited mobility, such as the palm in a hand that performs a power grasp. For these systems, specific solutions to the problem of distributing perturbation forces to the contact points can be obtained (Bicchi [1994](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR6 \"Bicchi, A. (1994). On the problem of decomposing grasp and manipulation forces in multiple whole-limb manipulation. International Journal of Robotics and Autonomous Systems, 13(2), 127–147.\")).\n[END DISTINCT LITERAL r03-quasistatic]\n\n[BEGIN DISTINCT LITERAL r23-quasistatic-conclusion; §7 dynamic scope]\nMost of the presented grasp analysis is based on quasi-static considerations. Dynamic manipulability was originally proposed for serial manipulators (Yoshikawa [1985a](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR119 \"Yoshikawa, T. (1985a). Dynamic manipulability of robot manipulators. International Journal of Robotic Systems, 2(1), 113–124.\"), [2000](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR121 \"Yoshikawa, T. (2000). Erratum to dynamic manipulability of robot manipulators. Journal of Robotic Systems, 17(8), 449.\")), and was formulated for cooperative robots as the ratio between an input torque and the resultant acceleration of the grasped object (Bicchi et al. [1997](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR9 \"Bicchi, A., Prattichizzo, D., & Melchiorri, C. (1997). Force and dynamic manipulability for cooperating robot systems. In Proceedings of IEEE International Conference on Robotics and Automation—ICRA (pp. 1479–1484).\")). The concept has been recently extended to the field of multifingered grasping (Yokokohji et al. [2009](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR117 \"Yokokohji, Y., Sanmartin, J., & Fujiwara, M. (2009). Dynamic manipulability of multifingered grasping. IEEE Transactions on Robotics, 25(4), 947–954.\")).\n[END DISTINCT LITERAL r23-quasistatic-conclusion]\n\n[BEGIN DISTINCT LITERAL r24-compliance; §7 compliance limit and separate stiffness metrics]\nThe grasp quality measures reported in this survey do not consider the effect of compliance. For analyzing compliant grasps a grasp stiffness matrix K is required; the grasp is stable if the stiffness matrix is positive definite (Howard and Kumar [1996](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR40 \"Howard, W., & Kumar, V. (1996). On the stability of grasped objects. IEEE Transactions on Robotics and Automation, 12(6), 904– 917.\")). A measure of grasp stability is based on the eigenvalue decomposition of the generalized matrix M−1K, with M a metric that allows that twists and wrenches lie on the same vector space (Bruyninckx et al. [1998](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR20 \"Bruyninckx, H., Demey, S., & Kumar, V. (1998). Generalized stability of compliant grasps. In Proceedings of IEEE International Conference on Robotics and Automation—ICRA (pp. 2396–2402).\")). However, this measure depends on the choice of the metric M. A frame-invariant quality measure can also be developed based on the computation of principal rotational and translational stiffnesses for a grasp with stiffness matrix K (Lin et al. [2000](https://link.springer.com/article/10.1007/s10514-014-9402-3#ref-CR60 \"Lin, Q., Burdick, J., & Rimon, E. (2000). A stiffness-based quality measure for compliant grasps and fixtures. IEEE Transactions on Robotics and Automation, 16(6), 675–688.\")).\n[END DISTINCT LITERAL r24-compliance]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "p11-review-scope",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "Abstract, §§3.4/4.2 and §7 illustrate contact-location and hand-configuration criteria on a rectangle and planar gripper/ellipse. This is not a broad benchmark, exhaustive census or generally best measure.",
+        "evidenceDigest": "dd769fa817be520b960640056c810415285a48baf851200bd8709db274c9e560"
+      },
+      {
+        "partId": "p11-torque-origin",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "§3.3.1 explicitly makes largest-minimum resisted wrench quality depend on the torque reference system; its centroid alternative and §3.3.2 volume invariance are different constructions, not global epsilon invariance.",
+        "evidenceDigest": "180a92aff7a0b391eb3519ecc67456a900fe87e8cdf3201a4889f4c4f7f59c03"
+      },
+      {
+        "partId": "p11-force-torque-scaling",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "§2.1 defines torque/rho coordinates and possible length choices; §3.3.1 requires a metric for comparing forces and torques. Wrench norm and finger-force constraints are not conflated.",
+        "evidenceDigest": "dbe5f3ff94f34f827749c1e4916f0aad937639152f5f06a650280df203788665"
+      },
+      {
+        "partId": "p11-force-budget",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "§3.3.1 distinguishes individually bounded force magnitudes from the sum bound and states optimality need not survive a changed constraint. Neither is silently equated to the unreviewed lab unit-normal-force convention.",
+        "evidenceDigest": "753f423116efe98e48fd69d2256b347e25dfdf4dde82fc014bae2b015e4c384a"
+      },
+      {
+        "partId": "p11-task-comparability",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "§7 says no general recommendation is possible and lists contacts, directions, magnitudes and hand configuration; examples cannot establish universal rankings.",
+        "evidenceDigest": "aad9b02ea2ee05e202be895bb780ce4a6700ea19907770b9212c7dfe9faa12b1"
+      },
+      {
+        "partId": "p11-quasistatic-scope",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "§§2.2/7 explicitly limit most analysis to quasi-static considerations and exclude compliance. Mentioned dynamic/stiffness alternatives are not a guarantee from the metric.",
+        "evidenceDigest": "7bf7781bfdadeba846f527db7f7e8bc87f9e3895742056c4863741a19ea657c0"
+      }
+    ]
+  },
+  {
+    "id": "grasp-dexnet13-20260913",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "grasp-planning",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "ac5752fdaaaac77feb41a411f4d6838c832afe1963e1c6e61dd4244cc44d710b",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "population",
+        "text": "6.7 million synthetic training datapoints over1500models; Figure3 over6.7million aligned32x32graspimages, not exact unique views or physical trials.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "analytic-label",
+        "text": "Positive label requires expected epsilon above0.002 and collision-free object/table; uncertainty over object/gripper pose and friction.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "learned-prediction",
+        "text": "Aligned depth crop plus gripper-depth input; binary-success robustness classifier, not raw-epsilon regression nor direct learned execution policy.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "planner",
+        "text": "Antipodal candidates from image gradients, ranking, reachability/table-collision check and execution; isolated rigid single-view planar assumptions with known dataset geometry/intrinsics.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "physical-protocol",
+        "text": "ABB YuMi custom silicone fingertips/Carmine1.08; lift-transport-shake success, >50%estimated-robustness precision, distinguish classification and planning time.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "known-objects",
+        "text": "GQ-L-Adv synthetic-large pretraining+Adv-Synth finetuning; eight known3Dprinted adversarial objects/80trials10each/93%success, not Cornell93recognition or27attempt order-fulfillment93%.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "household",
+        "text": "Separate CEM GQ100trials40novel household objects including articulated/deformable;94%overall success and99%precision68of69robust classifications. Not tenobject50trial experiment.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      },
+      {
+        "id": "limits",
+        "text": "Thin-part missing depth and object-collision failures prevent extrapolated broad perception superiority/sim-to-real or universal manipulation claims.",
+        "requiredCitationIds": [
+          "dexnet-2-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+      "rationale": "Reviewed whole current grasp article, complete assigned atomic endpoints and actual retained source contexts/counterevidence. All mandatory parts retained; supporting literals verified against original source bytes. Preparation is not acceptance; no owner personal source certification or local mechanics certification.",
+      "planDigest": "6dcb90dac75ae1130a087fe54e9d31b88726aa621bc53b7747c3749a1d16b74c"
+    },
+    "evidence": [
+      {
+        "partId": "population",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "Our primary contributions are: 1) the Dexterity Network\n(Dex-Net) 2.0, a dataset associating 6.7 million point clouds\nand analytic grasp quality metrics with parallel-jaw grasps\nplanned using robust quasi-static GWS analysis on a dataset\nof 1,500 3D object models, 2) a Grasp Quality Convolutional\nNeural Network (GQ-CNN) model trained to classify robust\ngrasps in depth images using expected epsilon quality as\nsupervision, where each grasp is specified as a planar pose\nand depth relative to a camera, and 3) a grasp planning method\nthat samples antipodal grasp candidates and ranks them with\na GQ-CNN.\n\nFig. 3: Dex-Net 2.0 pipeline for training dataset generation. (Left) The database contains 1,500 3D object mesh models. (Top) For each object, we sample\nhundreds of parallel-jaw grasps to cover the surface and evaluate robust analytic grasp metrics using sampling. For each stable pose of the object we associate\na set of grasps that are perpendicular to the table and collision-free for a given gripper model. (Bottom) We also render point clouds of each object in each\nstable pose, with the planar object pose and camera pose sampled uniformly at random. Every grasp for a given stable pose is associated with a pixel location\nand orientation in the rendered image. (Right) Each image is rotated, translated, cropped, and scaled to align the grasp pixel location with the image center\nand the grasp axis with the middle row of the image, creating a 32 × 32 grasp image. The full dataset contains over 6.7 million grasp images.\n\n2) Training Dataset: GQ-CNN training datasets are generated by associating grasps with a pixel v, orientation ϕ,\nand depth z relative to rendered depth images as illustrated in\nFig. 3. We compute these parameters by transforming grasps\ninto the camera frame of reference using the camera pose\nTc and projecting the 3D grasp position and orientation onto\nthe imaging plane of the camera [18]. We then transform all\npairs of images and grasp configurations to a single image\ncentered on v and oriented along ϕ (see the left panel of\nFig. 4 for an illustration). The Dex-Net 2.0 training dataset\ncontains 6.7 million datapoints and approximately 21.2%\npositive examples for the thresholded robust epsilon quality\nwith threshold δ = 0.002 [25] and a custom YuMi gripper."
+      },
+      {
+        "partId": "analytic-label",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "where the distributions are detailed in Table I. Our grasp\ncandidate model p(u | x) is a uniform distribution over\npairs of antipodal contact points on the object surface that\nform a grasp axis parallel to the table plane. Our observation\nmodel is y = αŷ + \u000f where ŷ is a rendered depth image\nfor a given object in a given pose, α is a Gamma random\nvariable modeling depth-proportional noise, and \u000f is zero-mean\nGaussian Process noise over pixel coordinates with bandwidth\n` and measurement noise σ modeling additive noise [35]. We\nmodel grasp success as:\n\u001a\n1 EQ > δ and collf ree(u, x)\nS(u, x) =\n0\notherwise\n\nParallel-Jaw Grasps. Each object is labeled with a set of up\nto 100 parallel-jaw grasps. The grasps are sampled using the\nrejection sampling method for antipodal point pairs developed\nin Dex-Net 1.0 [34] with constraints to ensure coverage\nof the object surface [33]. For each grasp we evaluate the\nexpected epsilon quality EQ [42] under object pose, gripper\npose, and friction coefficient uncertainty using Monte-Carlo\nsampling [51],\n\nwhere EQ is the robust epsilon quality defined in [51], a\nvariant of the pose error robust metric [56] that includes\nuncertainty in friction and gripper pose, and collf ree(u, x)\nindicates that the gripper does not collide with the object or\ntable. The supplemental file details the parameters of these\ndistributions.\n2) Database: Dex-Net 2.0 contains 6.7 million datapoints\ngenerated using the pipeline of Fig. 3.\n3D Models. The dataset contains a subset of 1,500 mesh\nmodels from Dex-Net 1.0: 1,371 synthetic models from\n\n2) Training Dataset: GQ-CNN training datasets are generated by associating grasps with a pixel v, orientation ϕ,\nand depth z relative to rendered depth images as illustrated in\nFig. 3. We compute these parameters by transforming grasps\ninto the camera frame of reference using the camera pose\nTc and projecting the 3D grasp position and orientation onto\nthe imaging plane of the camera [18]. We then transform all\npairs of images and grasp configurations to a single image\ncentered on v and oriented along ϕ (see the left panel of\nFig. 4 for an illustration). The Dex-Net 2.0 training dataset\ncontains 6.7 million datapoints and approximately 21.2%\npositive examples for the thresholded robust epsilon quality\nwith threshold δ = 0.002 [25] and a custom YuMi gripper."
+      },
+      {
+        "partId": "learned-prediction",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "B. Grasp Quality Convolutional Neural Network\n1) Architecture: The Grasp Quality Convolutional Neural\nNetwork (GQ-CNN) architecture, illustrated in Fig. 4 and\ndetailed in the caption, defines the set of parameters Θ used\nto represent the grasp robustness function Qθ . The GQ-CNN\ntakes as input the gripper depth from the camera z and a\ndepth image centered on the grasp center pixel v = (i, j) and\naligned with the grasp axis orientation ϕ.\n\nwhere L is the cross-entropy loss function and Θ defines the\nparameters of the Grasp Quality Convolutional Network (GQCNN) described in Section IV-B. This objective is motivated\nby that fact that Qθ∗ = Q for all possible grasps and images\nwhen there exists some θ ∈ Θ such that Qθ = Q [36]. The\nestimated robustness function can be used in a grasping policy\nthat maximizes Qθ∗ over a set of candidate grasps: πθ (y) =\nargmaxu∈C Qθ (u, y), where C specifies constraints on the set\nof available grasps, such as collisions or kinematic feasibility.\nLearning Q rather than directly learning the policy allows us\nto enforce task-specific constraints without having to update\nthe learned model.\n\n2) Training Dataset: GQ-CNN training datasets are generated by associating grasps with a pixel v, orientation ϕ,\nand depth z relative to rendered depth images as illustrated in\nFig. 3. We compute these parameters by transforming grasps\ninto the camera frame of reference using the camera pose\nTc and projecting the 3D grasp position and orientation onto\nthe imaging plane of the camera [18]. We then transform all\npairs of images and grasp configurations to a single image\ncentered on v and oriented along ϕ (see the left panel of\nFig. 4 for an illustration). The Dex-Net 2.0 training dataset\ncontains 6.7 million datapoints and approximately 21.2%\npositive examples for the thresholded robust epsilon quality\nwith threshold δ = 0.002 [25] and a custom YuMi gripper."
+      },
+      {
+        "partId": "planner",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "A. Assumptions\nWe assume a parallel-jaw gripper, rigid objects singulated\non a planar worksurface, and single-view (2.5D) point clouds\ntaken with a depth camera. For generating datasets, we assume\na known gripper geometry and a single overhead depth camera\nwith known intrinsics.\n\nV. G RASP P LANNING\nThe Dex-Net 2.0 grasp planner uses the robust grasping\npolicy πθ (y) = argmaxu∈C Qθ (u, y) illustrated in Fig. 1. The\nset C is a discrete set of antipodal candidate grasps [6] sampled\nuniformly at random in image space for surface normals\ndefined by the depth image gradients. Each grasp candidate\nis evaluated by the GQ-CNN, and the most robust grasp that\nis (a) kinematically reachable and (b) not in collision with the\ntable is executed. The supplemental file contains additional\ndetails."
+      },
+      {
+        "partId": "physical-protocol",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "VI. E XPERIMENTS\nWe evaluated clasification performance on both real and\nsynthetic data and performed extensive physical evaluations\non an ABB YuMi with custom silicone gripper tips designed\nby Guo et al. [16] to benchmark the performance of grasping\na single object. All experiments ran on a Desktop running\nUbuntu 14.04 with a 2.7 GHz Intel Core i5-6400 Quad-Core\nCPU and an NVIDIA GeForce 980, and we used an NVIDIA\nGeForce GTX 1080 for training large models.\nA. Physical Benchmark Description\nWe created a benchmark for grasping single objects on a\ntabletop to compare grasp planning methods. The setup is illustrated in Fig. 5 and the experimental procedure is described\nin the caption and shown in the supplemental video1 . Each\ngrasp planner received as input a color image, depth image,\nbounding box containing the object, and camera intrinsics,\nand output a target grasping pose for the gripper. A human\noperator was required to reset the object in the workspace on\neach trial, and therefore blinded operators from which grasp\nplanning method was being tested in order to remove bias.\nWe compared performance on this benchmark with the\nfollowing metrics:\n\nFig. 5: (Left) The experimental platform for benchmarking grasping with the\nABB YuMi. We registered the camera to the robot with a chessboard before\neach experiment. In each trial a human operator sampled an object pose by\nshaking the object in a box and placing it upside down in the workspace.\nWe then took an RGB-D image with a Primsense Carmine 1.08, filled in the\nimage using inpainting [24], segmented the object using color background\nsubtraction, and formed a bounding box for the detected object. The grasp\nplanner under evaluation then planned a gripper pose and the YuMi executed\nthe grasp. Grasps were considered successful if the gripper held the object\nafter lifting, transporting, and shaking the object. (Top-Right) The training\nset of 8 objects with adversarial geometric features such as smooth curved\nsurfaces and narrow openings for grasping known objects. (Bottom-Right)\nThe test set of 10 household objects not seen during training.\n\n1) Success Rate: The percentage of grasps that were able\nto lift, transport, and hold a desired object after shaking.\n2) Precision: The success rate on grasps that are have an\nestimated robustness higher than 50%. This measures\nperformance when the robot can decide not to grasp an\nobject, which could be useful when the robot has other\nactions (e.g. pushing) available.\n3) Robust Grasp Rate: The percentage of planned grasps\nwith an estimated robustness higher than 50%.\n4) Planning Time: The time in seconds between receiving\nan image and returning a planned grasp."
+      },
+      {
+        "partId": "known-objects",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "B. Datasets\nFig. 5 illustrates the physical object datasets used in the\nbenchmark:\n1) Train: A validation set of 8 3D-printed objects with\nadversarial geometric features such as smooth, curved\nsurfaces. This is used to set model parameters and to\nevaluate performance on known objects.\n2) Test: A set of 10 household objects similar to models in\nDex-Net 2.0 with various material, geometric, and specular properties. This is used to evaluate generalization\nto unknown objects.\nWe chose objects based on geometric features under three\nconstraints: (a) small enough to fit within the workspace, (b)\nweight less than 0.25kg, the payload of the YuMi, and (c)\nheight from the table greater than 1.0cm due to a limitation\nof the silicone gripper fingertips.\nWe used four different GQ-CNN training datasets to study\nthe effect on performance, each with a 80-20 image-wise\ntraining and validation split:\n1) Adv-Synth: Synthetic images and grasps for the adversarial objects in Train (189k datapoints).\n\nGrasp Quality CNNs (GQ). We trained the GQ-CNN\n(abbrev. GQ) using the thresholded robust epsilon metric with\nδ = 0.002 [25] for 5 epochs on Dex-Net-Large (all of Dex-Net\n2.0) using Gaussian process image noise with standard deviation σ = 0.005. We used TensorFlow [1] with a batch size of\n128, a momentum term of 0.9, and an exponentially decaying\nlearning rate with step size 0.95. Training took approximately\n48 hours on an NVIDIA GeForce 1080.\n\nAmount of Pretraining We trained three GQ-CNNs on the\nsynthetic dataset of adversarial training objects (Adv-Synth)\nto study the effect of pretraining with Dex-Net for a new,\nknown set of objects. The model GQ-Adv was trained on only\nAdv-Synth for 25 epochs. The models GQ-L-Adv and GQS-Adv were initialized with the weights of GQ and GQ-S,\nrespectively, and finetuned for 5 epochs on Adv-Synth.\n\n                                            Comparions of Methods                                               GQ-CNN Parameter Sensitivity\n\n                          Random    IGQ     ML-RF     ML-SVM        REG     GQ-L-Adv   GQ-S-Adv   GQ-Adv   GQ-Adv-Phys     GQ-Adv-FC     GQ-Adv-LowU   GQ-Adv-HighU\n\n       Success Rate (%)   58±11    70±10    75±9      80±9          95±5    93±6       85±8       83±8     80±9            83±8          78±9          86±8\n          Precision (%)     N/A      N/A      100       100          N/A       94         90         91        80            89            90             92\n Robust Grasp Rate (%)      N/A      N/A        5         0          N/A       43         60         44      100             89            53             64\n    Planning Time (sec)     N/A       1.9     0.8       0.9           2.6     0.8        0.9        0.8       0.8            0.7           0.8           0.9\n\n\nTABLE III: Performance of grasp planning methods on the Train dataset with 95% confidence intervals for the success rate. Each method was tested for 80\ntrials (10 trials per object). Details on the methods used for comparison can be found in Section VI-C. We see that REG (point cloud registration) has the\nhighest success rate at 95% but the GQ-L-Adv performs comparably at 93% and is 3× faster. Performance of the GQ-CNN drops to 80% when trained on\nthe Adv-Phys dataset (GQ-Adv-Phys), likely due to the small number of training examples, and drops to 78% when no noise is added to the images during\ntraining (GQ-Adv-LowU).\n\nE. Performance Comparison on Known Objects\nWe evaluated the performance of the grasp planning methods on known objects from Train. Each grasp planner had 80\ntrials (10 per object). The left half of Table III compares the\nperformance with other grasp planning methods and the right\nhalf compares the performance of the GQ-CNN varations.\nWe found that GQ planned grasps 3× faster than REG and\nachieved a high 93% success rate and 94% precision. The\nresults also suggest that training on the full Dex-Net 2.0 dataset\nwas necessary to achieve higher than 90% success.\n\nH. Application: Order Fulfillment\nTo demonstrate the modularity of the Dex-Net 2.0 grasp\nplanner, we used it in an order fulfillment application with\nthe ABB YuMi. The goal was to grasp and transport a set\nof three target objects to a shipping box in the presence of\nthree distractor objects when starting with the objects in a pile\non a planar worksurface, illustrated in Fig. 7. Since the DexNet 2.0 grasp planner assumes singulated objects, the YuMi\nfirst separated the objects using a policy learned from human\ndemonstrations mapping binary images to push locations [30].\nWhen the robot detected an object with sufficient clearance\nfrom the pile, it identified the object based on color and used\nGQ-L-Adv to plan a robust grasp. The robot then transported\nthe object to either the shipping box or a reject box, depending\non whether or not the object was a distractor. The system\nsuccessfully placed the correct objects in the box on 4 out of\n5 attempts and was successful in grasping on 93% of 27 total\nattempts."
+      },
+      {
+        "partId": "household",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "G. Generalization Ability of the Dex-Net 2.0 Grasp Planner\nWe evaluated the generalization performance of GQ in 100\ngrasping trials on the 40 object test set illustrated in Fig. 7,\nwhich contains articulated (e.g. can opener) and deformable\n(e.g. washcloth) objects. We used the cross entropy method\n(CEM) [32], which iteratively samples a set of candidate\ngrasps and re-fits the candidate grasp distribution to the grasps\nwith the highest predicted robustness, in order to find better\nmaxima of the robust grasping policy.\n\nfound in the supplemental file. The CEM-augmented Dex-Net\n2.0 grasp planner achieved 94% success and 99% precision\n(68 successes out of 69 grasps classified as robust), and it\ntook an average of 2.5s to plan grasps.\n\n1) Success Rate: The percentage of grasps that were able\nto lift, transport, and hold a desired object after shaking.\n2) Precision: The success rate on grasps that are have an\nestimated robustness higher than 50%. This measures\nperformance when the robot can decide not to grasp an\nobject, which could be useful when the robot has other\nactions (e.g. pushing) available.\n3) Robust Grasp Rate: The percentage of planned grasps\nwith an estimated robustness higher than 50%.\n4) Planning Time: The time in seconds between receiving\nan image and returning a planned grasp.\n\nF. Performance Comparison on Novel Objects\nWe also compared the performance of the methods on the\nten novel test objects from Test to evaluate generalization to\nnovel objects. Each method was run for 50 trials (5 per object).\nThe parameters of each method were set based on Train object\nperformance without knowledge of the performance on Test.\nTable IV details the results. GQ performed best with an 80%\nsuccess rate and 100% precision (zero false positives over 29\ngrasps classified as robust)."
+      },
+      {
+        "partId": "limits",
+        "citationId": "dexnet-2-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1703.09312",
+        "supportingPassage": "Fig. 8: Four examples of failed grasps planned using the GQ-CNN from DexNet 2.0. The most common failure modes were related to: (left) missing sensor\ndata for an important part of the object geometry, such as thin parts of the\nobject surface, and (right) collisions with the object that are misclassified as\nrobust.\n\nH. Application: Order Fulfillment\nTo demonstrate the modularity of the Dex-Net 2.0 grasp\nplanner, we used it in an order fulfillment application with\nthe ABB YuMi. The goal was to grasp and transport a set\nof three target objects to a shipping box in the presence of\nthree distractor objects when starting with the objects in a pile\non a planar worksurface, illustrated in Fig. 7. Since the DexNet 2.0 grasp planner assumes singulated objects, the YuMi\nfirst separated the objects using a policy learned from human\ndemonstrations mapping binary images to push locations [30].\nWhen the robot detected an object with sufficient clearance\nfrom the pile, it identified the object based on color and used\nGQ-L-Adv to plan a robust grasp. The robot then transported\nthe object to either the shipping box or a reject box, depending\non whether or not the object was a distractor. The system\nsuccessfully placed the correct objects in the box on 4 out of\n5 attempts and was successful in grasping on 93% of 27 total\nattempts."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "population",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "IV-A2/IV-B2 state 6.7M datapoints/1500models; Figure3 says over6.7M aligned grasp images. These are training examples, not robot trials or a count of unique scene views. Figure3 hundreds and IV-A2 up to100grasps/object remain distinct.",
+        "evidenceDigest": "7cdaafde31f3830ca60de75831d58219560431d4c59d27c76026beac6f309419"
+      },
+      {
+        "partId": "analytic-label",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "IV-A1 defines EQ>delta AND collision-free object/table; IV-B2 gives delta0.002. Expected epsilon incorporates pose/friction uncertainty. This is not raw epsilon regression or calibration of local lab units.",
+        "evidenceDigest": "cda97b9905a33ffacd174d775e41ad75ce04272e1378118ca48f249b6e41a0c9"
+      },
+      {
+        "partId": "learned-prediction",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "III-C/IV-B and Figure4 use cross-entropy binary success with a grasp-aligned depth image and separate gripper-depth input. Robustness prediction is distinct from policy constraints and physical outcomes.",
+        "evidenceDigest": "4be4c761c7ae88f66f4320c5ff0505e90d5c980e444663fabc7cf98c754dd58c"
+      },
+      {
+        "partId": "planner",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "III-A and V name singulated rigid objects, planar surface, single-view depth and known generation geometry/intrinsics; antipodal sampling/ranking still checks reachability/table collision. Broader household evaluation does not retroactively generalize assumptions.",
+        "evidenceDigest": "0943a4ced94be93fa49bc71ac81a0736ce3c09252e73ec46f27cae1265d0383d"
+      },
+      {
+        "partId": "physical-protocol",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "VI-A/Figure5 identify ABB YuMi, silicone tips, Carmine1.08 and lift-transport-shake success. Precision conditions on predicted robustness>50%; classification accuracy and planning latency are not physical success.",
+        "evidenceDigest": "ee5e4610445cb225cb71ff113af8b35f095e377243458d0e6b420d0d1860472b"
+      },
+      {
+        "partId": "known-objects",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "VI-C pretraining definitions and visually inspected TableIII identify GQ-L-Adv, 93% over80trials/eightknown3Dprintedobjects. VI-E shorthand GQ does not replace the model-specific table. No74/80 or75/80 numerator invented; Cornell93.0% and27attempt order-fulfillment result are separate.",
+        "evidenceDigest": "e74f40ab0a3eb67ce7412782f5db112a74acc04540dc816a5d209415ff763e6a"
+      },
+      {
+        "partId": "household",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "VI-G and inspected page8 state separate CEM GQ100trials/40objects,94%overall success and paper-rounded99%precision68/69robustgrasps. This is not99/100 or the separate tenobject50trial evaluation. Rigid setup assumptions coexist with broader articulated/deformable evaluation.",
+        "evidenceDigest": "416ec3f0e1d2cb2f019490cd840279b9de4a07f37dbae0321ea2f389802ed3a5"
+      },
+      {
+        "partId": "limits",
+        "outcome": "supported",
+        "reviewedBy": "Astra/max source-auditor integrator e4fa900a-b214-4c5d-9b82-230e417bcfb5; retained-source review 2026-09-14",
+        "rationale": "VI-I/Figure8 show missing thin-part depth and object collisions misclassified robust. Order fulfillment requires separate singulation. AppendixB CEM prose and incomplete-looking Algorithm2 updates do not certify local implementation or universal superiority.",
+        "evidenceDigest": "fd8621d6b4a40d67e4b90569550ab0d12694907693dc4702613179a65e1d642e"
+      }
+    ]
   }
 ]

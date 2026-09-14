@@ -10177,6 +10177,42 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "grasp-quality-dexnet-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:classical/grasp-planning",
+      "oldHash": "156f690191b0e7fb9e4619c870c8ec1501b1d6be800312d91aa4e0c5fc8b56b6",
+      "newHash": "1c15d22439324446fc28291802042d344796476f9b4db4d3829692b4ad074cb5",
+      "reason": "Exact grasp originals11/13: scope Roa–Suárez review/caveats and Dex-Net training labels, classifier role and separate physical evaluation populations; preserve all unassigned science and citation identities.",
+      "ownerApproval": "Josef’s actual September7 fix-it-all authority and exact two-original parent assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "grasp-quality-dexnet-20260914-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/grasp-planning",
+      "oldHash": "ea77f7b5c834ad99bb8c708166d53409f9134176e0d8057ec5882b413b4a5844",
+      "newHash": "ead3701c231a6c4d79ce11ba4e8c29d59125a4ade4d15d9c580bb818e3efb8fb",
+      "reason": "Exact grasp originals11/13: scope Roa–Suárez review/caveats and Dex-Net training labels, classifier role and separate physical evaluation populations; preserve all unassigned science and citation identities.",
+      "ownerApproval": "Josef’s actual September7 fix-it-all authority and exact two-original parent assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

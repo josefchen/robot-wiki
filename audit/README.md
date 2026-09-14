@@ -1,6 +1,33 @@
 # Content-integrity audit trail
 
-## Current checkpoint: four ORB scene originals (2026-09-14)
+## Current checkpoint: two grasp source originals (2026-09-14)
+
+Exactly **2 applied / 0 assigned held / 0 assigned unattempted originals**: `audit/classical.md:grasp-planning:11/13`. **2 corrected rows / 0 newly verified rows / 0 cuts**. Two reviewed compound plans bind **14 mandatory AND parts / 14 evidence items**, and five atomic article/comment endpoints. Originals3/Cutkosky,10/Ferrari-Canny,12/local example, glossary and unassigned conclusion remain untouched and unaccepted; no completed original was reapplied.
+
+Fresh native collection at11:05:33-11:05:34UTC: **552 complete / 442 incomplete / 994 originals / 47 articles**; classical **94 complete / 93 incomplete / 187 originals**. **458 plans / 534 approvals / 43 unchanged baseline failure objects**. Entry550/444,456plans,532approvals. Final preservation retains all994IDs/order,550prior complete records,992unselected semantic records,456old plans and532old approvals. Exactly two immutable-baseline-to-current approvals; no parser, baseline or gate weakening.
+
+Roa-Suarez now describes review/simple-example scope, torque origin, force/torque scaling, separate per-finger versus total-force limits, task dependence and quasi-static scope. Dex-Net distinguishes6.7M synthetic training datapoints/1500models from physical trials; expected-epsilon>0.002 plus modeled collisions from raw-epsilon regression; aligned-depth classification from constrained planning/execution; GQ-L-Adv93%/80trials/eight known objects from CEM GQ94%overall/100trials/40novel objects and reported99%precision=68/69robust grasps. Binary threshold is not the local lab epsilon; protocols, hardware, success criterion and failure limits remain explicit. Historical original cells and misleading source labels survive only as non-counted history.
+
+**Zero new retrievals.** Verified43quality sealed members/854496bytes and69Dex-Net indexed payloads/2109556bytes,27Roa-Suarez and25Dex-Net literal bindings; inspected retained Dex-Net v3 pages7/8. Roa-Suarez DOI FetchUrl request/result2026-09-13T13:32:06.497Z/13:32:13.497Z reported200 without raw origin headers/redirect chain. Dex-Net retained GET2026-09-13T07:04:26.713370-07:04:28.833697UTC,HTTP200/no redirects; PDF prints arXiv1703.09312v3,8August2017. Current review is not a fetch date, origin liveness or unseen-page certification.
+
+| Executed check | Actual result |
+| --- | --- |
+| Red-first scientific regression |9failed/1passed before application |
+| Final focused unit/component tests |38passed/4files at11:05:20-11:05:22UTC; includes10source,17grasp,9lab,2Stat tests |
+| Required-input controls |34passed; missing/stale/unknown inputs refuse before application |
+| Review/application/approvals |2whole originals;14supported parts/items;10review refusal controls;4exact-approval controls |
+| Normal lint/prelint |exit0 at11:05:37-11:05:55UTC |
+| Nonincremental types |exit0 at11:06:00-11:06:02UTC |
+| Actual offline content chain |`npm run validate:content -- --offline`:exit1, **449findings**,552/994complete; nine separate unresolved citation checks remain |
+| Readers |2passed at375x812/1440x900,11:07:34-11:08:05UTC;22screenshots actually inspected |
+
+Reader success is bounded:0page/console errors and external requests; slider0.7to0.75; one existing math state; corrected Stat and selected prose; citation hover/focus and reference jumps. **Back restores no chip focus; Term Escape leaves its tooltip visible at both widths.** Axe0violations but **61+53=114contrast-incomplete node observations**. Persistent citation tooltips obstruct other References/mobile lab pixels. Narrow paragraph captures omit text; the training-method paragraph, all math, tooltip scrolling, complete existing grasp E2E/nav/reference/corpus checks remain unproved. No full build/export/card sweep was run. No full pixel/accessibility/interaction acceptance is claimed.
+
+One fresh offline Next--webpack runtime used19verified retained WOFF2fonts and loopback3266. Its first guard refused a transient unknown process; retry started11:07:10UTC. Exact-owned supervisor shutdown11:08:22UTC yielded child0/runner0/waiter0, all four owned identities absent, port reusable and next.config.ts/tsconfig.json/next-env.d.ts byte-restored. No controller/source task signal or cleanup. Initialization/ownership/loader/header failures, timeout/section-filter test failures and accidental helper-path failure remain in evidence, not erased by passes.
+
+Evidence: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-grasp-quality-dexnet-integration-20260914/`. Final preservation covers1229unchanged product/owner inputs. A final single trailing-space removal after `absorb.` postdates captures; no words or paragraph boundaries changed, but the exact native prose digest did change. Only this task's prose approval was rebound; all532prior entries remain intact. The interim native result44failures is retained; final native verification must restore the exact43failure objects. No post-whitespace pixel recapture is claimed. Final scientific regression and native receipts are recorded in the handoff. Article review date remains17August2026; whole-P1/article, retained-source limits, independent Sol/high scrutiny/user testing and release acceptance remain open. Formal **307/331 unchanged**. **Content/release RED: do not publish.** First actual Astra/max10:36:52.790UTC fixes the original11:11:52.790UTC checkpoint target; no clock reset, fallback, new Mission, features edit, push or deployment. Local commit/tree and exact terminal time are recorded after creation in the sealed handoff.
+
+## Previous checkpoint: four ORB scene originals (2026-09-14)
 
 Exactly **4 applied / 0 assigned held / 0 assigned unattempted originals**, in the two complete groups **26/27 and 31/33** of `audit/classical.md:scene-representation`. **4 corrected rows / 0 newly verified rows / 0 cuts**. Four reviewed compound plans retain **13 mandatory AND parts / 13 source-part pairs / 13 evidence items**. Six coupled endpoints cover both shared article paragraphs, the `loop-closure` and `place-recognition` definitions, and the two ORB publication identities. No completed original was reapplied.
 

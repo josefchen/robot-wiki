@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 7
 - Claim rows: 187
-- Recorded verified: 97
-- Recorded corrected: 88
+- Recorded verified: 95
+- Recorded corrected: 90
 - Recorded cut: 0
 - Recorded source inconsistencies: 0
 - Unresolved or unrecognised verdicts: 2
-- Complete evidence records: 92
-- Incomplete evidence records: 95
+- Complete evidence records: 94
+- Incomplete evidence records: 93
 
 <!-- audit-summary:end -->
 
@@ -256,8 +256,8 @@ boxes and demo prose describe.
 
 ### grasp-planning.mdx
 
-| Claim | Source checked | Verdict |
-| --- | --- | --- |
+| Claim | Source checked | Verdict | Citation ID | Source URL fetched | Supporting passage | Note | Evidence plan |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | Coulomb friction cone norm(f^t) <= mu f^n; half-angle arctan mu; polyhedral approximation | murray-li-sastry-1994 ch. 5; prattichizzo-trinkle-2016 | V |
 | Soft-finger contact adds a bounded torsional channel | murray-li-sastry-1994 | V |
 | Cutkosky taxonomy: power grasps vs precision grasps | cutkosky-1989 (title + canonical content) | V |
@@ -268,9 +268,9 @@ boxes and demo prose describe.
 | With friction, 3 planar and 4 spatial contacts are necessary and sufficient | markenscoff-1990 (abstract, verbatim); murray-li-sastry-1994 Table 5.3 | V |
 | Nguyen's antipodal theorem: planar two-finger frictional grasp is force closure iff the connecting line lies strictly inside both friction cones | nguyen-1988; murray-li-sastry-1994 Thm 5.6 | V |
 | Ferrari-Canny epsilon = radius of the largest origin-centered ball in the hull = distance to the nearest facet; worst-case disturbance per unit normal force | ferrari-canny-1992 (via roa-suarez-2015 review's definition and standard usage) | V |
-| Roa-Suarez caveat: epsilon depends on the torque reference frame and the force/moment scaling | roa-suarez-2015 (PMC full text) | V |
+| Roa–Suárez review: largest-minimum resisted wrench quality depends on the torque origin and force/torque metric. Independent per-finger and common total-force constraints are distinct; the review illustrates contact-location and hand-configuration measures with simple examples, offers no generally best measure, and is mostly quasi-static. | roa-suarez-2015; preserved Springer publisher HTML at registered DOI; FetchUrl request/result 2026-09-13T13:32:06.497Z / 13:32:13.497Z, tool-reported200; no origin transport details inferred. | C |  |  |  | Source-backed correction with all 6 parts conjunctively supported. Retained-source review 2026-09-14 is not a fresh fetch, whole article/P1 or independent acceptance. Original four cells: {"claim":"Roa-Suarez caveat: epsilon depends on the torque reference frame and the force/moment scaling","sourceChecked":"roa-suarez-2015 (PMC full text)","verdict":"V","note":""}. Source distinctions and exact atomic endpoint history are recorded below. | grasp-planning-original-11-review-caveats-draft-20260913 |
 | Lab defaults and walkthrough: tripod [0.125, 0.875, 0.625] at mu 0.7 is force closure; top+right pair fails (45 deg vs arctan 0.7 ~ 35 deg); bottom-antipodal pair recovers; epsilon falls with mu | lib/grasp.ts, components/interactive/grasp-wrench-lab.tsx, tests/e2e/grasp-planning.spec.ts (internal) | V |
-| Dex-Net 2.0: 6.7M synthetic grasps scored with a robust epsilon metric, GQ-CNN from depth, 93% on 8 known adversarial objects, 99% precision on 40 novel household objects | dexnet-2-2017 (arXiv:1703.09312 abs, verbatim figures) | V |
+| Dex-Net 2.0 reports 6.7 million synthetic training datapoints from1500models; Figure3 says over6.7million aligned grasp images, not physical trials or necessarily unique scene views. Binary analytic labels threshold expected epsilon above0.002 with object/table collision checks; GQ-CNN predicts robustness from aligned depth and gripper depth. Basic antipodal ranking retains reachability/table checks and isolated single-view planar assumptions. ABB YuMi/Carmine1.08 lift-transport-shake trials: GQ-L-Adv synthetic pretraining+adversarial finetuning gives93%success over80trials/eightknownobjects; separate CEM GQ100trials/40novelhouseholdobjects gives94%success and99%precision68of69robustgrasps (>50%predictedrobustness). Missing thin-part depth/collisions remain failure modes; no broad superiority claim. | dexnet-2-2017; retained arXiv1703.09312v3 full PDF/text, original GET2026-09-13T07:04:26.713370+00:00–07:04:28.833697+00:00 HTTP200/no redirects; current source review separate, zero new Dex-Net retrieval. | C |  |  |  | Source-backed correction with all 8 parts conjunctively supported. Retained-source review 2026-09-14 is not a fresh fetch, whole article/P1 or independent acceptance. Original four cells: {"claim":"Dex-Net 2.0: 6.7M synthetic grasps scored with a robust epsilon metric, GQ-CNN from depth, 93% on 8 known adversarial objects, 99% precision on 40 novel household objects","sourceChecked":"dexnet-2-2017 (arXiv:1703.09312 abs, verbatim figures)","verdict":"V","note":""}. Source distinctions and exact atomic endpoint history are recorded below. | grasp-dexnet13-20260913 |
 
 ### perception.mdx
 
@@ -1750,3 +1750,55 @@ Required populations were bound **before first consumer**:20 installation inputs
 Retained, not rerun: original54source-unit/34workflow/13source/12approval controls and content-chain **451 findings plus9 separate citation gaps**. Fresh native preservation is separate evidence. The original sealed integration packet was rechecked in full: **858 payloads /285021137bytes**, indexSHA256 `675e9d08c58d706f3cf286de0fb5c45493b341563f2dcf5cccf5f1f57b295175`, handoffSHA256 `834da4dd0171266a5cc07baebf958deacfeca6f5bdec756b09e08d445cffaae7`, sealSHA256 `928881207b9c7af4a915cd559c788af0b0db7417b5d6ee74ee931108f7bd60f5`. None was modified.
 
 Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-orb-scene-reader-closeout-20260914/`. Its sealed final handoff records the new local commit/tree and exact file population. This same Task resumed with actual Astra/max event `1d736f66-5475-4f12-9e70-0d1821f70518` at09:51:20.125UTC and revalidated worker2284827 under the unchanged controller1480923. Original first emission09:00:05.950UTC and target09:35:05.950UTC were not reset; continued reader work was explicitly authorized after the late prior terminal event. Seal time is not terminal emission time. Protected commits/owner work, feature criteria and service ownership remain untouched. **Content/release gate remains RED; do not publish.**
+
+
+## 2026-09-14 grasp originals 11 and 13: retained-source corrections
+
+Two independent originals, fourteen mandatory parts/items, five atomic endpoints. Roa–Suárez is primary for its own review/example scope, not proof of the missing Ferrari–Canny1992 body. Springer FetchUrl request/result: 2026-09-13T13:32:06.497Z / 13:32:13.497Z, tool-reported200 without origin headers/redirect-chain evidence. Online publication31July2014 and January2015 issue remain distinct. Dex-Net retained PDF prints arXiv1703.09312v3,8August2017; original GET2026-09-13T07:04:26.713370+00:00–07:04:28.833697+00:00,HTTP200/no redirects. Review2026-09-14 is not retrieval. Source literals were checked against retained fetched bytes; PDF images7/8 inspected, other10images/media/code uninspected. Figure3 hundreds versus IV-A2 up to100grasps/object, TableIII GQ-L-Adv versus VI-E shorthand GQ, rigid setup versus broader household evaluation, and incomplete-looking Algorithm2 updates remain distinctions, not local pseudocode proof. The93% row has no invented numerator; household99% is paper-rounded68/69precision, distinct from94%overall success. Threshold0.002 is not mapped to local lab units. Originals3/10/12, glossary, conclusion, dates, registry identities and perception45/46 remain unchanged/unaccepted where previously incomplete. No whole P1/article, independent scrutiny or release acceptance.
+
+Non-counted exact before/current history:
+
+```json
+[
+  {
+    "originalId": "audit/classical.md:grasp-planning:11",
+    "rowOrdinal": 11,
+    "currentCells": {
+      "claim": "Roa-Suarez caveat: epsilon depends on the torque reference frame and the force/moment scaling",
+      "sourceChecked": "roa-suarez-2015 (PMC full text)",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "1bf27e780e9cd7161ea10d9debf039481afa4c7281fdfd9d06326d6e6b4a93fd",
+    "proposedCells": {
+      "claim": "Roa–Suárez review: largest-minimum resisted wrench quality depends on the torque origin and force/torque metric. Independent per-finger and common total-force constraints are distinct; the review illustrates contact-location and hand-configuration measures with simple examples, offers no generally best measure, and is mostly quasi-static.",
+      "sourceChecked": "roa-suarez-2015; preserved Springer publisher HTML at registered DOI; FetchUrl request/result 2026-09-13T13:32:06.497Z / 13:32:13.497Z, tool-reported200; no origin transport details inferred.",
+      "verdict": "C",
+      "note": "Source-backed correction with all 6 parts conjunctively supported. Retained-source review 2026-09-14 is not a fresh fetch, whole article/P1 or independent acceptance. Original four cells: {\"claim\":\"Roa-Suarez caveat: epsilon depends on the torque reference frame and the force/moment scaling\",\"sourceChecked\":\"roa-suarez-2015 (PMC full text)\",\"verdict\":\"V\",\"note\":\"\"}. Source distinctions and exact atomic endpoint history are recorded below."
+    },
+    "proposedTupleDigest": "59456c0ba94245f6d417795453c1e468b933aba1f362c1fd6c8c4eb100499943",
+    "oldRaw": "| Roa-Suarez caveat: epsilon depends on the torque reference frame and the force/moment scaling | roa-suarez-2015 (PMC full text) | V |",
+    "newRaw": "| Roa–Suárez review: largest-minimum resisted wrench quality depends on the torque origin and force/torque metric. Independent per-finger and common total-force constraints are distinct; the review illustrates contact-location and hand-configuration measures with simple examples, offers no generally best measure, and is mostly quasi-static. | roa-suarez-2015; preserved Springer publisher HTML at registered DOI; FetchUrl request/result 2026-09-13T13:32:06.497Z / 13:32:13.497Z, tool-reported200; no origin transport details inferred. | C |  |  |  | Source-backed correction with all 6 parts conjunctively supported. Retained-source review 2026-09-14 is not a fresh fetch, whole article/P1 or independent acceptance. Original four cells: {\"claim\":\"Roa-Suarez caveat: epsilon depends on the torque reference frame and the force/moment scaling\",\"sourceChecked\":\"roa-suarez-2015 (PMC full text)\",\"verdict\":\"V\",\"note\":\"\"}. Source distinctions and exact atomic endpoint history are recorded below. | grasp-planning-original-11-review-caveats-draft-20260913 |"
+  },
+  {
+    "originalId": "audit/classical.md:grasp-planning:13",
+    "rowOrdinal": 13,
+    "currentCells": {
+      "claim": "Dex-Net 2.0: 6.7M synthetic grasps scored with a robust epsilon metric, GQ-CNN from depth, 93% on 8 known adversarial objects, 99% precision on 40 novel household objects",
+      "sourceChecked": "dexnet-2-2017 (arXiv:1703.09312 abs, verbatim figures)",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "18b6a4db32e0c0be042c3c8bcaf2d6373da89598a91d7834b2e14fcae27a2754",
+    "proposedCells": {
+      "claim": "Dex-Net 2.0 reports 6.7 million synthetic training datapoints from1500models; Figure3 says over6.7million aligned grasp images, not physical trials or necessarily unique scene views. Binary analytic labels threshold expected epsilon above0.002 with object/table collision checks; GQ-CNN predicts robustness from aligned depth and gripper depth. Basic antipodal ranking retains reachability/table checks and isolated single-view planar assumptions. ABB YuMi/Carmine1.08 lift-transport-shake trials: GQ-L-Adv synthetic pretraining+adversarial finetuning gives93%success over80trials/eightknownobjects; separate CEM GQ100trials/40novelhouseholdobjects gives94%success and99%precision68of69robustgrasps (>50%predictedrobustness). Missing thin-part depth/collisions remain failure modes; no broad superiority claim.",
+      "sourceChecked": "dexnet-2-2017; retained arXiv1703.09312v3 full PDF/text, original GET2026-09-13T07:04:26.713370+00:00–07:04:28.833697+00:00 HTTP200/no redirects; current source review separate, zero new Dex-Net retrieval.",
+      "verdict": "C",
+      "note": "Source-backed correction with all 8 parts conjunctively supported. Retained-source review 2026-09-14 is not a fresh fetch, whole article/P1 or independent acceptance. Original four cells: {\"claim\":\"Dex-Net 2.0: 6.7M synthetic grasps scored with a robust epsilon metric, GQ-CNN from depth, 93% on 8 known adversarial objects, 99% precision on 40 novel household objects\",\"sourceChecked\":\"dexnet-2-2017 (arXiv:1703.09312 abs, verbatim figures)\",\"verdict\":\"V\",\"note\":\"\"}. Source distinctions and exact atomic endpoint history are recorded below."
+    },
+    "proposedTupleDigest": "ac5752fdaaaac77feb41a411f4d6838c832afe1963e1c6e61dd4244cc44d710b",
+    "oldRaw": "| Dex-Net 2.0: 6.7M synthetic grasps scored with a robust epsilon metric, GQ-CNN from depth, 93% on 8 known adversarial objects, 99% precision on 40 novel household objects | dexnet-2-2017 (arXiv:1703.09312 abs, verbatim figures) | V |",
+    "newRaw": "| Dex-Net 2.0 reports 6.7 million synthetic training datapoints from1500models; Figure3 says over6.7million aligned grasp images, not physical trials or necessarily unique scene views. Binary analytic labels threshold expected epsilon above0.002 with object/table collision checks; GQ-CNN predicts robustness from aligned depth and gripper depth. Basic antipodal ranking retains reachability/table checks and isolated single-view planar assumptions. ABB YuMi/Carmine1.08 lift-transport-shake trials: GQ-L-Adv synthetic pretraining+adversarial finetuning gives93%success over80trials/eightknownobjects; separate CEM GQ100trials/40novelhouseholdobjects gives94%success and99%precision68of69robustgrasps (>50%predictedrobustness). Missing thin-part depth/collisions remain failure modes; no broad superiority claim. | dexnet-2-2017; retained arXiv1703.09312v3 full PDF/text, original GET2026-09-13T07:04:26.713370+00:00–07:04:28.833697+00:00 HTTP200/no redirects; current source review separate, zero new Dex-Net retrieval. | C |  |  |  | Source-backed correction with all 8 parts conjunctively supported. Retained-source review 2026-09-14 is not a fresh fetch, whole article/P1 or independent acceptance. Original four cells: {\"claim\":\"Dex-Net 2.0: 6.7M synthetic grasps scored with a robust epsilon metric, GQ-CNN from depth, 93% on 8 known adversarial objects, 99% precision on 40 novel household objects\",\"sourceChecked\":\"dexnet-2-2017 (arXiv:1703.09312 abs, verbatim figures)\",\"verdict\":\"V\",\"note\":\"\"}. Source distinctions and exact atomic endpoint history are recorded below. | grasp-dexnet13-20260913 |"
+  }
+]
+```

@@ -6105,10 +6105,12 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // CrossRef metadata verified (2026-08-11): Autonomous Robots
-    // 38:65-88, 2015 (online first 2014). Reviews grasp quality metrics and
-    // benchmarks their behavior, including the epsilon metric's
-    // frame-dependence pitfall.
+    // Publisher HTML retrieved 2026-09-13: published 31 July 2014;
+    // Autonomous Robots 38:65-88, January 2015 issue. Byline: Máximo A. Roa
+    // and Raúl Suárez. Reviews contact-location and hand-configuration
+    // measures using simple examples, with no generally best criterion;
+    // largest-minimum resisted wrench values depend on torque origin,
+    // wrench scaling and the selected force constraint.
     id: 'roa-suarez-2015',
     title: 'Grasp Quality Measures: Review and Performance',
     authors: ['Máximo A. Roa', 'Raúl Suárez'],
@@ -6118,11 +6120,13 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
-    // arXiv metadata verified (2026-08-11): RSS 2017. Trains a GQ-CNN on
-    // 6.7M synthetic grasps scored with an analytic robustness metric
-    // (Ferrari-Canny-style epsilon under uncertainty): 93% success on eight
-    // known adversarial objects, 99% precision on forty novel household
-    // objects. The bridge from classical metrics to learned grasping.
+    // arXiv v3: 6.7M synthetic training datapoints, not physical trials or
+    // necessarily unique scene views; Figure 3 says over 6.7M grasp images.
+    // Binary labels combine thresholded expected epsilon with collision checks;
+    // GQ-CNN predicts robustness from an aligned depth crop and gripper depth.
+    // Table III: GQ-L-Adv, 93% success in 80 trials on eight known objects.
+    // Separate CEM experiment: 100 trials/40 novel household objects,
+    // 94% overall success and 99% precision (68/69 robust classifications).
     id: 'dexnet-2-2017',
     title:
       'Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics',
