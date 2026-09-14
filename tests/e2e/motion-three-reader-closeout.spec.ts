@@ -10,8 +10,8 @@ const PROSE = 'div.prose[data-pagefind-body]';
 // Literal reader expectations from the preserved article/registry. Not source certification.
 const SOURCES = [
   { id: 'lozano-perez-1983', count: 2, title: 'Spatial Planning: A Configuration Space Approach', authors: ['Tomás Lozano-Pérez'], meta: 'Tomás Lozano-Pérez, IEEE Trans. Computers, 1983', url: 'https://doi.org/10.1109/TC.1983.1676196' },
-  { id: 'lavalle-2006', count: 5, title: 'Planning Algorithms', authors: ['Steven M. LaValle'], meta: 'Steven M. LaValle, Cambridge University Press, 2006', url: 'https://lavalle.pl/planning/' },
-  { id: 'lavalle-1998', count: 3, title: 'Rapidly-exploring Random Trees: A New Tool for Path Planning', authors: ['Steven M. LaValle'], meta: 'Steven M. LaValle, Iowa State University TR 98-11, 1998', url: 'https://lavalle.pl/papers/Lav98c.pdf' },
+  { id: 'lavalle-2006', count: 7, title: 'Planning Algorithms', authors: ['Steven M. LaValle'], meta: 'Steven M. LaValle, Cambridge University Press, 2006', url: 'https://lavalle.pl/planning/' },
+  { id: 'lavalle-1998', count: 5, title: 'Rapidly-exploring Random Trees: A New Tool for Path Planning', authors: ['Steven M. LaValle'], meta: 'Steven M. LaValle, Iowa State University TR 98-11, 1998', url: 'https://lavalle.pl/papers/Lav98c.pdf' },
   { id: 'kavraki-1996', count: 1, title: 'Probabilistic Roadmaps for Path Planning in High-Dimensional Configuration Spaces', authors: ['Lydia E. Kavraki', 'P. Švestka', 'J.-C. Latombe', 'M. H. Overmars'], meta: 'Lydia E. Kavraki, P. Švestka, J.-C. Latombe et al., IEEE Trans. Robotics and Automation, 1996', url: 'https://doi.org/10.1109/70.508439' },
 ] as const;
 
@@ -92,7 +92,7 @@ test('three foundation originals retain construction, density and probabilistic-
   await expect(stats).toHaveCount(1);
   for (const text of ['RRT introduced', '1998', 'CHOMP', '2009', 'RRT* analysis', '2011', 'conditional theorem', '2D', '100 by 64 world, 5 obstacles']) await expect(stats).toContainText(text);
   await e.slices(stats, 'preserved-stats');
-  e.record({ name: 'scope', correctedOriginals: [3, 6, 8], sourceOriginal5StillIncomplete: true, selfChecks: await page.locator('[data-self-check]').count(), authoredScientificTextChanged: false });
+  e.record({ name: 'scope', correctedOriginals: [3, 6, 8], sourceOriginal5StillIncomplete: false, original5ReaderProof: 'rrt-date-readers.spec.ts', selfChecks: await page.locator('[data-self-check]').count(), authoredScientificTextChanged: false });
   await e.axe();
 });
 

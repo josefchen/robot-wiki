@@ -9946,6 +9946,57 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "rrt-hierarchy-20260914-1",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
+      "newHash": "1733d4f3f828c55652401a56b1959beaeb648555f5296fd96d708139f82b5f30",
+      "reason": "Source-backed original motion-planning 5 correction: 1998 report state/control fixed-time integration and approximate Euler update; entire-edge feasibility; bibliography [103] October 1998 attribution; distinct 2006 nearest-swath construction; atomic configuration-space glossary closing-sentence/citation correction. Three exact reader endpoints, unchanged toy/defaults/article date. Hierarchy originals 3/4/5 add independent six-part reviews without changing their already-corrected article bullets. No whole-P1, article, independent or release acceptance.",
+      "ownerApproval": "Josef's recorded September 7 fix-it-all correction authority and the parent's exact motion5/hierarchy3/4/5 dispatch authorize these routine source-backed changes, not personal source certification, wildcard approvals or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rrt-hierarchy-20260914-2",
+      "manifest": "relationships",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "2de52b7ff8f01c0a9f9fbfbdf4523dbef95b1403a9d7cfacd56d703b0cf9b229",
+      "newHash": "4421ceb5ad6ad10cf989665734cd6814ac5119f3a2fc2e0619d59f1680e36757",
+      "reason": "Source-backed original motion-planning 5 correction: 1998 report state/control fixed-time integration and approximate Euler update; entire-edge feasibility; bibliography [103] October 1998 attribution; distinct 2006 nearest-swath construction; atomic configuration-space glossary closing-sentence/citation correction. Three exact reader endpoints, unchanged toy/defaults/article date. Hierarchy originals 3/4/5 add independent six-part reviews without changing their already-corrected article bullets. No whole-P1, article, independent or release acceptance.",
+      "ownerApproval": "Josef's recorded September 7 fix-it-all correction authority and the parent's exact motion5/hierarchy3/4/5 dispatch authorize these routine source-backed changes, not personal source certification, wildcard approvals or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rrt-hierarchy-20260914-3",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "03b171d31c22ab29248e1ee7e63f639a61b00fc1b3c8ad8b5d4b65e574aa147e",
+      "reason": "Source-backed original motion-planning 5 correction: 1998 report state/control fixed-time integration and approximate Euler update; entire-edge feasibility; bibliography [103] October 1998 attribution; distinct 2006 nearest-swath construction; atomic configuration-space glossary closing-sentence/citation correction. Three exact reader endpoints, unchanged toy/defaults/article date. Hierarchy originals 3/4/5 add independent six-part reviews without changing their already-corrected article bullets. No whole-P1, article, independent or release acceptance.",
+      "ownerApproval": "Josef's recorded September 7 fix-it-all correction authority and the parent's exact motion5/hierarchy3/4/5 dispatch authorize these routine source-backed changes, not personal source certification, wildcard approvals or publication acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-005",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

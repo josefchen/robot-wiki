@@ -324,8 +324,8 @@ export const GLOSSARY: readonly GlossaryTerm[] = [
     id: 'configuration-space',
     term: 'configuration space',
     definition:
-      'The space of all configurations of a robot: one point per complete joint assignment, so a 7-DoF arm moves through a 7-dimensional space whose coordinates are its joint angles. Lozano-Pérez introduced the planning formulation in 1983: shrink the robot to a point and grow every obstacle by the robot\'s shape, so collision-free motion becomes a path through the free region of that space. Motion planners, sampling-based or optimization-based, all search this space rather than the physical workspace directly.',
-    citations: ['lozano-perez-1983', 'lavalle-2006'],
+      'The space of all configurations of a robot: one point per complete joint assignment, so a 7-DoF arm moves through a 7-dimensional space whose coordinates are its joint angles. Lozano-Pérez introduced the planning formulation in 1983: shrink the robot to a point and grow every obstacle by the robot\'s shape, so collision-free motion becomes a path through the free region of that space. Geometric motion planning searches for paths in configuration space. A kinodynamic planner can instead use a state that includes both configuration and velocity.',
+    citations: ['lozano-perez-1983', 'lavalle-2006', 'lavalle-1998'],
   },
   {
     id: 'trajectory-optimization',
