@@ -4065,3 +4065,77 @@ below. Known shared debts remain open and are not claimed here.
 | Readers | owned offline Next runtime (`next dev` 127.0.0.1:3273, mocked offline fonts), 375x812 and 1440x900 | 2 passed / 0 failed; screenshots for both widths in lane `readers/`; configs byte-restored (see lane `runtime-stop.json`) |
 
 Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-osha-modes-38-integration-20260915/`.
+
+## Park bounding locomotion original 7 (2026-09-15)
+
+Exactly **1 original applied / 0 held / 0 unattempted** from the frozen
+legacy packet (`convergence-lane-a-locomotion-stats-gaits-20260908/plan.json`,
+36,070 bytes, SHA-256
+`73ed6a2f50089719a121d28bf3a1600e2695f0f3a50cc86aef8c4b38adedfc01`),
+pointer `/records/2`, **zero retrieval**. Packet SHA, rowOrdinal 7 and the
+current four-cell digest `b1fd52f8…` were recomputed at application against
+HEAD `2444290824fa139f5a28da4fd2666a684de776fa` and matched (the parent's
+`legacy-identity-check.json` records identityValid/recheckValid true; the
+packet uses the older id/cellsDigest/original schema the standard preflight
+script does not accept, so this lane's apply step recomputed the native
+comparison itself).
+
+**Honesty boundary kept.** The packet's proposedCurrent/rawProposedRow is
+PROPOSAL ONLY and was adjudicated part by part, never copied. Applied from
+preserved evidence only: the legacy 2cf7d6b audit note (Sec. 4.3 is literally
+"Duty cycle modulation via vertical impulse scaling"; stance time
+T_st = L/v_d; 6.4 m/s and CoT 0.47 from the abstract), the packet's
+metadataFindings (§7 speed-dependent stride length below 3 m/s, fixed above;
+the 6.4 m/s experiment qualified by side-wall contact and roll instability),
+and the registered citation identity. **Held/excluded:** the proposal's
+gravity-impulse-over-a-full-period gloss (not preserved evidence), its
+"up to3m/s"-class spacing artifacts (normalized with §7 provenance), and its
+named-classical-controller framing (weakened to "one classical controller's
+schedule"; no controller name is preserved). Ordinals 1, 6 and 8 stay held;
+localProofRequired is false for row 7.
+
+Resulting native totals: **571 complete / 423 incomplete / 994 originals /
+47 articles**, **477 plans / 551 approvals / 43 unchanged full baseline
+failures** (288 approved differences; this member's anchor
+`0f26e397… → cfa28af7…` lawfully supersedes the prior same-member
+reward-mpc-20260912 anchor from the same immutable baseline hash). All 570
+prior complete originals/order, 993 unselected semantic records, 476 prior
+plan objects/order and 550 prior approval objects/order are preserved;
+exactly one native plan (`locomotion-park7-20260915-legged-locomotion-7`)
+and one approval entry (`locomotion-park7-7-20260915-1`, prose member
+`article:rl-sim2real/legged-locomotion`) were appended. Protected neighbors
+(rows 1, 6, 8 and applied rows 2-5) are byte-untouched. The
+`park-2017-bounding-registry` endpoint was verified, not edited: the
+citation is already registered (data/citations.ts, title/authors/venue/URL
+match the packet union); nothing duplicated. The `e2e-park-timing-test`
+endpoint is a new two-width test in `tests/e2e/legged-locomotion.spec.ts`
+following the neighboring Lee-citation pattern, plus a lane-local reader.
+
+The derived `audit/rl-sim2real.md` summary block was regenerated from the
+new tree only: 167 claim rows unchanged, complete 115→116, incomplete
+52→51 — exactly this one conversion. Article prose changed within the one
+bound span, so `lastReviewed` did **not** move (row-scoped correction, not
+a finished article audit; house precedent from the 20260909 integrations).
+Humanizer carve-out stated: the corrected span deliberately reproduces the
+source's own section title verbatim ("Duty cycle modulation via vertical
+impulse scaling"), which is exempt; the remaining sentences were kept
+minimal and number-bearing, and the no-slop source gate passes green in
+`validate:content`. No source retrieval, production build/export, push or
+independent scrutiny/user-testing acceptance is claimed; the content gate
+remains red with the honest count below. Known shared debts remain open and
+are not claimed here.
+
+| Gate | Command | Result |
+|---|---|---|
+| Ownership guard | `python3 live-guard.py` (role start, pre-apply, pre-e2e, pre-readers, pre-readme) | pass each run; 0 unknown processes; controller MainPID 765730 / InvocationID 1a44aabaf0384e359dd344a4f0d40caa exact; worker 949848 bound by /proc identity and shared service cgroup |
+| Red-first unit | `NODE_DISABLE_COMPILE_CACHE=1 npx vitest run tests/unit/legged-locomotion-park7-source.test.ts` (before application) | 5 failed / 1 passed (failures are the missing plan and drift sentence, as designed) |
+| Unit | same, after application | 6 passed |
+| Affected units | `NODE_DISABLE_COMPILE_CACHE=1 npx vitest run` legged-locomotion-park7-source, learned-locomotion-integration, audit-ledger, citations, citation-audit | 164 passed / 5 files |
+| Prelint | `NODE_DISABLE_COMPILE_CACHE=1 npm run prelint` | exit 0 |
+| Lint | `NODE_DISABLE_COMPILE_CACHE=1 npm run lint` | exit 0 |
+| Typecheck (non-incremental) | `NODE_DISABLE_COMPILE_CACHE=1 npm run typecheck` | exit 0; next-env.d.ts/tsconfig.json/next.config.ts byte-identical |
+| Baseline | `NODE_DISABLE_COMPILE_CACHE=1 npm run baseline:brand-v2` | exit 1, expected red: 43 pre-existing failures (unchanged), 288 approved differences (now including `locomotion-park7-7-20260915-1`, superseding the prior same-member anchor) |
+| Content | `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` | exit 1, expected red: **571/994 complete** (+1 lawful, this row), 430 findings (was 431; −1 lawful); 9 known unresolved citation rows unchanged |
+| Readers | owned offline Next runtime (`next dev` 127.0.0.1:3274, mocked offline fonts), 375x812 and 1440x900 | lane reader 2 passed / 0 failed; committed `tests/e2e/legged-locomotion.spec.ts` 10 passed / 0 failed against the same runtime (includes the new two-width Park timing test); screenshots for both widths in lane `readers/`; configs byte-restored (lane `runtime-stop.json` byteExact true) |
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-locomotion-park7-integration-20260915/`.

@@ -31,6 +31,31 @@ for (const width of [375, 1440]) {
   });
 }
 
+for (const width of [375, 1440]) {
+  test(`Park bound timing correction renders at ${width}`, async ({ page }) => {
+    await page.setViewportSize({ width, height: width === 375 ? 812 : 900 });
+    await page.goto(ROUTE);
+    const paragraph = page.locator('p').filter({ hasText: 'In the MIT Cheetah 2 control design' });
+    await expect(paragraph).toHaveCount(1);
+    await expect(paragraph).toContainText('Park, Wensing and Kim plan stance time from stride length and desired speed');
+    await expect(paragraph).toContainText('modulate the duty cycle via vertical impulse scaling');
+    await expect(paragraph).toContainText('only up to 3 m/s and is fixed above it');
+    await expect(paragraph).toContainText('6.4 m/s bounding result with cost of transport 0.47');
+    await expect(paragraph).toContainText('qualified by side-wall contact and roll instability');
+    // The drift gloss is gone: the paper's own impulse-scaling mechanism and
+    // the Sec. 7 stride schedule replace the all-speed duty-cycle scaling.
+    await expect(paragraph).not.toContainText('scaling the duty cycle with speed');
+    const chip = paragraph.locator('[data-cite-id="park-2017-bounding"]');
+    await expect(chip).toHaveCount(1);
+    await expect(chip.locator('a').first()).toHaveAttribute(
+      'href',
+      'https://journals.sagepub.com/doi/10.1177/0278364917694244',
+    );
+    await chip.locator('a').first().scrollIntoViewIfNeeded();
+    await page.screenshot({ path: `${process.env.DR_READER_OUT ?? 'test-results'}/park-timing-${process.env.DR_READER_RUN ?? 'test'}-${width}.png` });
+  });
+}
+
 test.describe('legged-locomotion module', () => {
   test('renders the lineage and sidebar state', async ({ page }) => {
     await page.goto(ROUTE);

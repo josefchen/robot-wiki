@@ -48572,5 +48572,104 @@
       "evidenceDigest": "95f03db8dede35664ed06818c047903f5323abeea01a243039c17af55c6b708b"
     }
   ]
+},
+{
+  "id": "locomotion-park7-20260915-legged-locomotion-7",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "legged-locomotion",
+  "rowOrdinal": 7,
+  "originalCellsDigest": "837910e7c12d343fc82ee66ddf695a9b6457901da156c7a411f988b350190683",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "paper-identity",
+      "text": "Registered citation park-2017-bounding is Park, Wensing and Kim, IJRR 36(2) 2017, 'High-Speed Bounding with the MIT Cheetah 2: Control Design and Experiments', bound to https://journals.sagepub.com/doi/10.1177/0278364917694244; packet-preserved publisher metadata confirms three authors and 2017 (sentence-case title, Patrick M Wensing without an initial period).",
+      "requiredCitationIds": [
+        "park-2017-bounding"
+      ]
+    },
+    {
+      "id": "bounding-model-and-limits",
+      "text": "Bounding alternates front-pair stance against hind-pair stance with a suspension interval; the plan sets stance time from stride length and desired speed, T_st = L/v_d, with swing duration fixed. Stride length grows with speed only up to 3 m/s, so the inverse stance-time scaling is not an all-speed law; no mechanism gloss beyond the preserved Sec. 4.3 title is asserted.",
+      "requiredCitationIds": [
+        "park-2017-bounding"
+      ]
+    },
+    {
+      "id": "timing-versus-duty-factor",
+      "text": "Sec. 4.3 is literally titled 'Duty cycle modulation via vertical impulse scaling': duty-cycle modulation is via vertical impulse scaling, not a bare speed-proportional duty-cycle knob, and the T_st = L/v_d stance-time relation is the timing schedule of this one classical controller, not a universal timing law.",
+      "requiredCitationIds": [
+        "park-2017-bounding"
+      ]
+    },
+    {
+      "id": "experimental-schedule",
+      "text": "The Sec. 7 experimental schedule uses speed-dependent stride length below 3 m/s and fixed stride length above 3 m/s; 6.4 m/s and CoT 0.47 are abstract-level figures, and the 6.4 m/s experiment is qualified by side-wall contact and roll instability; no unqualified max-speed stat is made.",
+      "requiredCitationIds": [
+        "park-2017-bounding"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c69d451a-749d-41d6-bb5e-381a1d1425c9; preserved-packet review 2026-09-15",
+    "planDigest": "a685cba29917be86de23a97f0f8b1966a57d5e435b486ebab2faebc9b0ac8275",
+    "rationale": "Reviewed the parent hash-verified legacy packet (SHA-256 73ed6a2f…, /records/2) at HEAD 2444290: row binding, rowOrdinal 7 and the current four-cell digest b1fd52f8… were recomputed against the live ledger immediately before application and matched. All 4 mandatory parts were adjudicated part by part against the packet's preserved verified facts (Sec. 4.3 title, T_st = L/v_d, fixed swing duration, §7 stride schedule, 6.4 m/s, CoT 0.47, side-wall/roll qualification) and the registered citation identity; the raw proposal row was not copied (its 'up to3m/s' artifact and unproven gravity-impulse gloss excluded). Zero retrieval; preserved-packet preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "paper-identity",
+      "citationId": "park-2017-bounding",
+      "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
+      "supportingPassage": "Registered registry record (data/citations.ts, park-2017-bounding): title 'High-Speed Bounding with the MIT Cheetah 2: Control Design and Experiments'; authors Hae-Won Park, Patrick M. Wensing, Sangbae Kim; year 2017; venue 'International Journal of Robotics Research 36(2)'; url https://journals.sagepub.com/doi/10.1177/0278364917694244. Packet-preserved publisher metadata check (frozen packet 2026-09-08, SHA-256 73ed6a2f…): 'Park publisher title is sentence case and displays Patrick M Wensing without an initial period; three authors and2017 match identity.' Preserved-evidence review, zero new retrieval."
+    },
+    {
+      "partId": "bounding-model-and-limits",
+      "citationId": "park-2017-bounding",
+      "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
+      "supportingPassage": "Packet-preserved verified facts (legacy audit note at originalCommit 2cf7d6b, frozen packet 2026-09-08): 'Sec. 4.3 is literally \"Duty cycle modulation via vertical impulse scaling\"; stance time T_st = L/v_d scales inversely with speed' plus the packet's 'fixed swing duration vs stride-length growth' record; packet metadataFinding: 'Park §7 uses speed-dependent stride length below3m/s; do not misstate all-speed inverse stance-time scaling.' Preserved-evidence review, zero new retrieval."
+    },
+    {
+      "partId": "timing-versus-duty-factor",
+      "citationId": "park-2017-bounding",
+      "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
+      "supportingPassage": "Packet-preserved verified fact (legacy audit note at originalCommit 2cf7d6b): Sec. 4.3's literal title is 'Duty cycle modulation via vertical impulse scaling'; stance time T_st = L/v_d scales inversely with speed. The packet proposal's added mechanism gloss ('vertical force scales to balance gravity impulse over a full period') is NOT preserved evidence and was held, not applied. Preserved-evidence review, zero new retrieval."
+    },
+    {
+      "partId": "experimental-schedule",
+      "citationId": "park-2017-bounding",
+      "sourceUrl": "https://journals.sagepub.com/doi/10.1177/0278364917694244",
+      "supportingPassage": "Packet-preserved metadataFindings (frozen packet 2026-09-08): 'Park §7 uses speed-dependent stride length below3m/s; do not misstate all-speed inverse stance-time scaling. The6.4m/s experiment is qualified by side-wall contact and roll instability; no unqualified max-speed stat is proposed.' Legacy audit note at 2cf7d6b: '6.4 m/s and CoT 0.47 verified from abstract.' Preserved-evidence review, zero new retrieval."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "paper-identity",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c69d451a-749d-41d6-bb5e-381a1d1425c9; preserved-packet review 2026-09-15",
+      "rationale": "The registry entry and packet-preserved publisher metadata agree on the three authors, the year and the sentence-case title; the URL binding matches the packet's sourceUrlUnion. No duplicate registry entry added.",
+      "evidenceDigest": "41321aa0b53630e9b733d2033288a007a3cace21ee9ee4e2ddc993f8b214a6d9"
+    },
+    {
+      "partId": "bounding-model-and-limits",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c69d451a-749d-41d6-bb5e-381a1d1425c9; preserved-packet review 2026-09-15",
+      "rationale": "Alternating front/hind stance with a suspension interval survives from the original verified claim; the T_st = L/v_d stance-time relation and fixed swing duration are preserved facts, and the packet's §7 finding bounds the stride-length growth to below 3 m/s, so no all-speed scaling claim is made.",
+      "evidenceDigest": "d814e07aba3cd03dac0485a1b617fbedaf5242e73f01b006da84182d51c948b9"
+    },
+    {
+      "partId": "timing-versus-duty-factor",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c69d451a-749d-41d6-bb5e-381a1d1425c9; preserved-packet review 2026-09-15",
+      "rationale": "Duty-cycle modulation is stated only as the preserved Sec. 4.3 title has it, via vertical impulse scaling; the proposal's gravity-impulse-over-period gloss was held as unproven, and the timing schedule is scoped to this one classical controller rather than a universal law.",
+      "evidenceDigest": "cc9227ff7ddda2875fe8bd63305e49042a2b2aead062c8c27680a025210afa11"
+    },
+    {
+      "partId": "experimental-schedule",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c69d451a-749d-41d6-bb5e-381a1d1425c9; preserved-packet review 2026-09-15",
+      "rationale": "The §7 schedule (speed-dependent stride length below 3 m/s, fixed above) and the abstract-level 6.4 m/s and CoT 0.47 with the side-wall/roll qualification are packet-preserved; the 'up to3m/s' spacing artifact was normalized and no unqualified max-speed stat was applied.",
+      "evidenceDigest": "326a3b6900d3419bd91fe32964c401b0cc56840f57d28f874c2fa87d4a0e3920"
+    }
+  ]
 }
 ]
