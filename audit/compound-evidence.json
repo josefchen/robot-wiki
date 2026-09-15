@@ -54807,5 +54807,1018 @@
         "evidenceDigest": "04e315404392d91389e90d2cce06dd8d8c9f894ef5e3e765eae764d9239c664c"
       }
     ]
+  },
+  {
+    "id": "bear-case-b1-brooks-essay-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 1,
+    "originalCellsDigest": "cccf8aec2898c3efbadc80249970fba9e6907983fc0e554a024f2d6c4847eab2",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b1-fantasy-thinking",
+        "text": "Brooks's September 2025 essay calls belief in near-term practical humanoid dexterity 'pure fantasy thinking'.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "b1-tactile-grounds",
+        "text": "The essay grounds that judgment in tactile sensing: human manipulation strategies depend on tactile feedback, and dexterity needs sensing at the tactile level to modulate plans.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:1 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Two parts (fantasy-thinking; tactile grounds) are each fully carried by the fetched author essay; the row claim cell is unchanged from HEAD. Evidence-only completion; no article endpoint.",
+      "planDigest": "cc1dd0c5d2bd5f02e977f34c96b3d89e7f73cd91d151bd54846d81c2f4a521d0"
+    },
+    "evidence": [
+      {
+        "partId": "b1-fantasy-thinking",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "In my opinion, believing that this will happen any time within decades is pure fantasy thinking."
+      },
+      {
+        "partId": "b1-tactile-grounds",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Thus to be truly successful at dexterity there needs to be a way to learn both how to plan in some weird space of subtasks, and how sensing at the tactile level should modulate those plans."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b1-fantasy-thinking",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained essay prints the sentence verbatim; claim as written stands.",
+        "evidenceDigest": "9c1a9fe13b222eacce11a49dee531527987543bf3e62375298db5ef2f2556a76"
+      },
+      {
+        "partId": "b1-tactile-grounds",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained essay prints the tactile-modulation sentence; the tactile grounding is explicit.",
+        "evidenceDigest": "5d715a699e002492e4eb4f6919c7f03b946d74230c7f5aa5fbf29acf5444c37b"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b2-scorecard-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "3d833ab6997ad7f57e8fd811c03af534bb5edae1aa911fbf6f7cb3321b7468ba",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b2-dexterity-pathetic",
+        "text": "Brooks predicts deployable dexterity will remain pathetic compared to human hands beyond 2036.",
+        "requiredCitationIds": [
+          "brooks-scorecard-2026"
+        ]
+      },
+      {
+        "id": "b2-walking-unsafe",
+        "text": "He predicts walking humanoids will remain too unsafe to be near people without new types of mechanical systems.",
+        "requiredCitationIds": [
+          "brooks-scorecard-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:2 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Both predictions verbatim in the fetched scorecard (Humanoid Robots prediction #3). The article's unquoted \"too dangerous near people\" is a faithful paraphrase of \"too unsafe to be in close proximity to real humans\"; no article change required.",
+      "planDigest": "cc22490c5b2153ef4799913b4224941cef159f9cb47d53cba950ecbe30d56580"
+    },
+    "evidence": [
+      {
+        "partId": "b2-dexterity-pathetic",
+        "citationId": "brooks-scorecard-2026",
+        "sourceUrl": "https://rodneybrooks.com/predictions-scorecard-2026-january-01/",
+        "supportingPassage": "Deployable dexterity will remain pathetic compared to human hands beyond 2036. Without new types of mechanical systems walking humanoids will remain too unsafe to be in close proximity to real humans."
+      },
+      {
+        "partId": "b2-walking-unsafe",
+        "citationId": "brooks-scorecard-2026",
+        "sourceUrl": "https://rodneybrooks.com/predictions-scorecard-2026-january-01/",
+        "supportingPassage": "Without new types of mechanical systems walking humanoids will remain too unsafe to be in close proximity to real humans."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b2-dexterity-pathetic",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Verbatim in the retained scorecard text.",
+        "evidenceDigest": "0a4513c729eab6361c4b416b925fa947eb0a031ca8853737dc01e1de1d6d2f32"
+      },
+      {
+        "partId": "b2-walking-unsafe",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Verbatim in the retained scorecard text.",
+        "evidenceDigest": "af4d5b1892b3d1a46f945c18983b1d1f2f75f343d5bdaf3ce73e1e8150834ed2"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b3-cnbc-morgan-stanley-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "06ba06a5636c960527b58f47d8e49316c19473e75eb167955939d2bc13f1f271",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b3-pr-problem",
+        "text": "Morgan Stanley's July 2026 note says the industry has a PR problem: humanoids framed publicly as direct substitutes for workers rather than tools for hazardous, repetitive or labor-constrained tasks.",
+        "requiredCitationIds": [
+          "morgan-stanley-pr-problem-2026"
+        ]
+      },
+      {
+        "id": "b3-social-license",
+        "text": "The note states the industry's social license to deploy may matter just as much as technical performance.",
+        "requiredCitationIds": [
+          "morgan-stanley-pr-problem-2026"
+        ]
+      },
+      {
+        "id": "b3-roi-evidence",
+        "text": "Investors are increasingly looking for tangible evidence of real-world return on investment rather than polished videos and one-off demonstrations.",
+        "requiredCitationIds": [
+          "morgan-stanley-pr-problem-2026"
+        ]
+      },
+      {
+        "id": "b3-import-ban",
+        "text": "The US ban on Chinese humanoid imports risks raising research and development costs because inexpensive China-made humanoids are relied on for model research in the United States.",
+        "requiredCitationIds": [
+          "morgan-stanley-pr-problem-2026"
+        ]
+      },
+      {
+        "id": "b3-50k-kept",
+        "text": "Morgan Stanley retains its 50,000-unit target for Chinese humanoid shipments by the end of 2026.",
+        "requiredCitationIds": [
+          "morgan-stanley-pr-problem-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:3 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. One binding correction: the packet inserted a space before the closing quote (\"tasks, \\\" the analysts wrote\"); the retained FetchUrl excerpt prints \"tasks,\\\" the analysts wrote\" - the recorded passage is the retained verbatim span. All six claim elements verified in the fetched page (plain curl 403 documented; FetchUrl tool-reported 200).",
+      "planDigest": "b7945a1bbcf52f5d0c37c5a976371968f812f68225f8fe3203003c18c61f77cd"
+    },
+    "evidence": [
+      {
+        "partId": "b3-pr-problem",
+        "citationId": "morgan-stanley-pr-problem-2026",
+        "sourceUrl": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
+        "supportingPassage": "Even before any meaningful deployment, humanoids are often framed publicly – by both investors and companies – as direct substitutes for workers rather than tools for hazardous, repetitive or labor-constrained tasks,\" the analysts wrote. \"The industry's social license to deploy may matter just as much as technical performance.\""
+      },
+      {
+        "partId": "b3-social-license",
+        "citationId": "morgan-stanley-pr-problem-2026",
+        "sourceUrl": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
+        "supportingPassage": "The industry's social license to deploy may matter just as much as technical performance."
+      },
+      {
+        "partId": "b3-roi-evidence",
+        "citationId": "morgan-stanley-pr-problem-2026",
+        "sourceUrl": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
+        "supportingPassage": "In our recent experience, investors have become harder to impress with polished videos and one-off demonstrations alone and are increasingly looking for tangible evidence of real-world return on investment,"
+      },
+      {
+        "partId": "b3-import-ban",
+        "citationId": "morgan-stanley-pr-problem-2026",
+        "sourceUrl": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
+        "supportingPassage": "Morgan Stanley said the ban risks raising research and development costs, as inexpensive China-made humanoids are relied upon for model research in the United States."
+      },
+      {
+        "partId": "b3-50k-kept",
+        "citationId": "morgan-stanley-pr-problem-2026",
+        "sourceUrl": "https://www.cnbc.com/2026/07/29/morgan-stanley-humanoid-robots-pr-problem.html",
+        "supportingPassage": "Despite the potential headwinds, Morgan Stanley retains its 50k target for Chinese humanoid shipments by the end of 2026."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b3-pr-problem",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained excerpt carries the framing sentence verbatim.",
+        "evidenceDigest": "0665c2bf06d6acab3e25baf22285dd7ca075ed6383c0db899cf442e3739ce053"
+      },
+      {
+        "partId": "b3-social-license",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained excerpt carries the sentence verbatim.",
+        "evidenceDigest": "ee513833d3e230c6e56337fe9abc5199bef6e48ad4db9379f5a884d3801f98a2"
+      },
+      {
+        "partId": "b3-roi-evidence",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained excerpt carries the investor-evidence sentence verbatim.",
+        "evidenceDigest": "64b2309f4c6cd79ac9c532415dfcc2a4d5435b927f290886645ffca65020c359"
+      },
+      {
+        "partId": "b3-import-ban",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained excerpt carries the ban/R&D-cost sentences verbatim.",
+        "evidenceDigest": "9d4461bd8a1a6f846ebae32597306307392e9b668c0a3e1b390b8e0240647315"
+      },
+      {
+        "partId": "b3-50k-kept",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained excerpt carries the retained-50k-target sentence verbatim.",
+        "evidenceDigest": "bc3bbab919f52c04e5f16338f8211b4f1021dafecd47f3c7aa8cd4f80ae7ac22"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b4-unitree-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 4,
+    "originalCellsDigest": "a3cf4fdf6ab98712eee314863262246a481b3ba61d0df03a04d241879c99a52d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b4-volume",
+        "text": "Unitree shipped roughly 5,500 humanoids in 2025, more than any Western competitor.",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      },
+      {
+        "id": "b4-profit",
+        "text": "Unitree's Q1 2026 adjusted net profit fell 52.55% year over year.",
+        "requiredCitationIds": [
+          "unitree-profit-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:4 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Volume leg (technology.org) and profit leg (TechTimes) each carried by its own fetched source; the article already carried the earlier adjusted-net-profit correction, so this pass completes evidence only.",
+      "planDigest": "97a3cfd4e1132f9459c89f550b10483ef4c60f97ae717929b2ae3fd609d3dcab"
+    },
+    "evidence": [
+      {
+        "partId": "b4-volume",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025 – more than Figure has shipped in its entire history – and targets 10,000 to 20,000 units in 2026."
+      },
+      {
+        "partId": "b4-profit",
+        "citationId": "unitree-profit-2026",
+        "sourceUrl": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
+        "supportingPassage": "The latest financial data in Unitree's prospectus covers Q1 2026, and it tells a substantially different story from the full-year 2025 results. Unitree reported Q1 2026 operating revenue of 423 million yuan (approximately $62.5 million) — year-on-year growth of 68.49%, down sharply from the 332.64% growth rate reported for full-year 2025. Adjusted net profit fell to 40.25 million yuan (approximately $5.9 million) from 84.84 million yuan in the same quarter last year, a year-on-year decline of 52.55%."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b4-volume",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained technology.org text states ~5,500 units in 2025 and the any-Western-competitor takeaway.",
+        "evidenceDigest": "640edef742342953240d5a1957f30f3c63d948a9dcf49e796b548a2e116ebcb2"
+      },
+      {
+        "partId": "b4-profit",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained TechTimes text states adjusted net profit -52.55% (¥40.25M from ¥84.84M), Q1 2026.",
+        "evidenceDigest": "cde09c84342bf462a65d2b0c20c05bbbf6bfd6f4de40d4920638a0ae3940189e"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b5-figure-goldman-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "ccd5fa004b7eabb84d5dddcf9eefbaa02996b0bc2448e2aa7d3e45d5e97661a0",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b5-valuation-vs-market",
+        "text": "Figure's $39B private valuation (September 2025) exceeds Goldman Sachs' $38B projection for the entire humanoid market in 2035.",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      },
+      {
+        "id": "b5-goldman-38b",
+        "text": "Goldman Sachs projects the humanoid market at $38 billion by 2035.",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:5 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Both the $39B-vs-$38B comparison sentence and the Goldman $38B-by-2035 sentence are printed by the retained technology.org text.",
+      "planDigest": "78c9ef6a98480869a10a4173b55f2ddfd97ddcd946e3c1c3286f6fb026531ad3"
+    },
+    "evidence": [
+      {
+        "partId": "b5-valuation-vs-market",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Figure held a $39 billion private valuation as of September 2025 – higher than Goldman’s projection for the entire humanoid market nine years out."
+      },
+      {
+        "partId": "b5-goldman-38b",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Goldman Sachs projects the humanoid market at $38 billion by 2035; Morgan Stanley projects $152 billion by 2040."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b5-valuation-vs-market",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained text states the comparison directly.",
+        "evidenceDigest": "44695a53ea351a78fc1fea0893b14d574755a8acdef690ed1399e161729ca889"
+      },
+      {
+        "partId": "b5-goldman-38b",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained text states the projection directly.",
+        "evidenceDigest": "1199aff04d0dc7227c60deeb2a8bd28c88c33dd13518fea540b9362504008098"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b6-bessemer-data-costs-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 6,
+    "originalCellsDigest": "e2b1df6a22d170d84dd1af6f09692ce001a097b9f22d3a24eae0777dac9d7bb2",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b6-3b-costs",
+        "text": "Bessemer estimates aggregate robot data costs across the industry will exceed $3 billion over the next two years.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "b6-moat",
+        "text": "The essay frames that spend as the moat: 'Data is expensive, capital is the moat.'",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:6 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. The >$3B aggregate-cost sentence and the Prediction 2 heading sentence are printed verbatim by the retained Bessemer essay.",
+      "planDigest": "b9ab992f6a8383a4709d3773caedc7fe14f05ea9800cc2fc23cd086714165b77"
+    },
+    "evidence": [
+      {
+        "partId": "b6-3b-costs",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Bessemer estimates aggregate robotic data costs across the industry will exceed $3 billion over the next two years, spanning teleoperation, egocentric video, simulation, and physical demonstration collection."
+      },
+      {
+        "partId": "b6-moat",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Prediction 2: Scaling laws are emerging. Data is expensive, capital is the moat—and world models may be the shortcut."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b6-3b-costs",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Verbatim in the retained essay text.",
+        "evidenceDigest": "42cb777959d8c05a0f429156de5abee010819a52de5d7637b5ad609b15c48109"
+      },
+      {
+        "partId": "b6-moat",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Prediction 2 heading sentence verbatim in the retained essay text.",
+        "evidenceDigest": "46b240b5126e41b95f820ccac80610ad0bb251c2aa2e14dc58bb1d728a9b368a"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b7-computex-collapse-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 7,
+    "originalCellsDigest": "19e4862e8388b364972dd0881f674514d6258a2903d835f3b04cc293afacd13d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b7-collapse",
+        "text": "At Computex 2026 a Qualcomm-powered humanoid fell face-first moments after reaching the stage during the live keynote.",
+        "requiredCitationIds": [
+          "computex-collapse-2026"
+        ]
+      },
+      {
+        "id": "b7-glitch-carryoff",
+        "text": "The failure was attributed to a communication glitch; handlers covered the robot with a cloth and carried it off stage.",
+        "requiredCitationIds": [
+          "computex-collapse-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:7 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. The fall sequence and the glitch attribution (including Qualcomm's own attribution) are printed by the retained interestingengineering.com text.",
+      "planDigest": "bf68e01c0be16918ebaf1ed7055a75dd3c29063c49846fb6171fd70f605d03b1"
+    },
+    "evidence": [
+      {
+        "partId": "b7-collapse",
+        "citationId": "computex-collapse-2026",
+        "sourceUrl": "https://interestingengineering.com/ai-robotics/qualcomm-robot-unexpected-collapse",
+        "supportingPassage": "The robot, powered by Qualcomm’s Dragonwing IQ10 AI platform, fell face-first moments after reaching the stage during a live demonstration at Computex 2026 in Taiwan."
+      },
+      {
+        "partId": "b7-glitch-carryoff",
+        "citationId": "computex-collapse-2026",
+        "sourceUrl": "https://interestingengineering.com/ai-robotics/qualcomm-robot-unexpected-collapse",
+        "supportingPassage": "prompting handlers to rush in, cover it with a cloth, and carry it away. The incident, reportedly caused by a communication glitch, has since gone viral on social media."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b7-collapse",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained text describes the face-first fall during the live Computex 2026 demonstration.",
+        "evidenceDigest": "162546f5d5c31c9c3a538c32605ad0c262926080b1bf337b975ac01d5ec89485"
+      },
+      {
+        "partId": "b7-glitch-carryoff",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained text describes the cloth cover, carry-off and communication-glitch attribution.",
+        "evidenceDigest": "71b1659f9ab1fbb72375b93f56e7b9db61c3f84272b823dfc0894dd9697c0e5f"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b8-lisa-yan-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "d5d71d90cc9b100d725d87f9943dc65961ebe5acf71c2ef315773eee159cf4d7",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b8-yan-steep",
+        "text": "Lisa Yan, quoted in Bessemer's analysis, describes the climb from 99% to 99.9% reliability as a steep hill climb that takes longer than most people realize.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "b8-waymo-attribution-cut",
+        "text": "The article currently attributes her framing to 'her Waymo experience'; the fetched essay introduces her as Founder of Argus Systems and does not connect the quote to Waymo, so that attribution should be removed or separately sourced.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:8 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. One binding correction: the packet transcribed the expert-list lead-in as \"thank the following founders...\"; the retained essay prints \"Thank you to the following founders and experts featured in this report, for sharing their perspectives on the market:\" - the recorded passage is the retained verbatim span, ended at a word boundary (the packet truncated mid-name). The Waymo-experience attribution is unsupported by the fetched essay; the article span correction is applied in this same commit.",
+      "planDigest": "786d1cd2b69379a76bb62c7908616ff94f1f56cd057205e3efe87fc5e2a08a3e"
+    },
+    "evidence": [
+      {
+        "partId": "b8-yan-steep",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Closing the gap between 99% and 99.9% reliability is a steep hill climb that takes longer than most people realize.\" — Lisa Yan, Co-Founder & CEO, Argus Systems"
+      },
+      {
+        "partId": "b8-waymo-attribution-cut",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Thank you to the following founders and experts featured in this report, for sharing their perspectives on the market: Armen Aghajanyan (Co-Founder & CEO, Perceptron), Ian Glow (CEO, Zeromatter), Brian Moore (CEO & Founder, Voxel51), Mike Winn (CEO & Co-founder, DroneDeploy), Lisa Yan (Founder, Argus Systems), Adrian Macneil (Co-Founder & CEO, Foxglove)"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b8-yan-steep",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained essay prints the 99%-to-99.9% quote verbatim with the Argus Systems attribution.",
+        "evidenceDigest": "7a71aed0feb26bcf420642d98680071051b65dc273a0e7e640afcc8c6c83f523"
+      },
+      {
+        "partId": "b8-waymo-attribution-cut",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained expert list introduces Lisa Yan as Founder, Argus Systems; nothing in the retained essay ties the quote to Waymo experience, so the attribution was cut from the article.",
+        "evidenceDigest": "3589d74d5e9b8285664530892b6be7cc5f01daccf35f2387e86893b224f80d78"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b9-funding-23b-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 9,
+    "originalCellsDigest": "ef26989c9c86b88fe9212d64b3838704281c6a530b8b43df616998d33d3b7395",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b9-23b-26b",
+        "text": "Robotics startups raised over $23 billion globally in 2026, nearly matching the $26 billion raised in all of 2025.",
+        "requiredCitationIds": [
+          "robotics-funding-23b-2026"
+        ]
+      },
+      {
+        "id": "b9-pitchbook-tally",
+        "text": "The tally is PitchBook data, reported by early June 2026.",
+        "requiredCitationIds": [
+          "robotics-funding-23b-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:9 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Figures verified; the packet's precise scoping correction (2026-to-date at Jun 2, 2026 publication, not \"first five months\") is sound and applied to the article body in this same commit, aligned with the stat box.",
+      "planDigest": "4da03049b6a1e3af6912c27f9cc22de08557e0270bd114c4174c0f0734416b7d"
+    },
+    "evidence": [
+      {
+        "partId": "b9-23b-26b",
+        "citationId": "robotics-funding-23b-2026",
+        "sourceUrl": "https://www.briefs.co/news/robotics-startups-raised-23-billion-in-2026-closing-in-on-all-of-2025/",
+        "supportingPassage": "Robotics startups have raised over $23 billion globally in 2026, nearly matching the full-year 2025 total of $26 billion with weeks still remaining."
+      },
+      {
+        "partId": "b9-pitchbook-tally",
+        "citationId": "robotics-funding-23b-2026",
+        "sourceUrl": "https://www.briefs.co/news/robotics-startups-raised-23-billion-in-2026-closing-in-on-all-of-2025/",
+        "supportingPassage": "PitchBook data shows the global robotics space raised about $4 billion in 2019, climbing to $26 billion by 2025 - and 2026 is now on pace to lap that figure entirely"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b9-23b-26b",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained briefs.co text states both tallies verbatim.",
+        "evidenceDigest": "6aaf880dd4746e9133704025f60d8944bb242d81ba1e145391be795080b38a89"
+      },
+      {
+        "partId": "b9-pitchbook-tally",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained text names PitchBook data and the 2019/$26B-by-2025 trajectory.",
+        "evidenceDigest": "e96896d58dfee84b70517b09b413d5ad65df64e2e0b066a28d5812ecfe696be4"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b10-crunchbase-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 10,
+    "originalCellsDigest": "78038df0070818cb352594f5800ab52d374d5b2b76d3211f4872d840db7d3694",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b10-188-141",
+        "text": "Crunchbase's venture tally puts robotics startup funding at $18.8 billion in 2026 so far, surpassing the $14.1 billion raised in the peak venture funding year of 2021.",
+        "requiredCitationIds": [
+          "crunchbase-robotics-funding-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:10 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. The $18.8B/$15B/$14.1B sentences are printed verbatim by the retained Crunchbase News text (first-party for the Crunchbase tally; both-tallies policy satisfied alongside B9).",
+      "planDigest": "054f91fda063c2956e315016951ec5c8e0a5099396325e13a71fab5d1ec23a9e"
+    },
+    "evidence": [
+      {
+        "partId": "b10-188-141",
+        "citationId": "crunchbase-robotics-funding-2026",
+        "sourceUrl": "https://news.crunchbase.com/robotics/startup-venture-funding-surges-2026-data/",
+        "supportingPassage": "Globally, robotics startups have so far raised $18.8 billion in 2026, compared to $15 billion in the full year of 2025. The figure also handily surpasses the $14.1 billion raised in the peak venture funding year of 2021, and we still have more than six months of fundraising left."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b10-188-141",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained Crunchbase News text states the figures directly.",
+        "evidenceDigest": "45c390b78e9d0740aecb9943fd7ddcc510bb6c394f9f6f27da68f981ae929e6f"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b11-bessemer-bubble-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 11,
+    "originalCellsDigest": "9274f3055f0bc3e626e934db2c1f60848e1d1f8f63d4af830759bd239edc6a82",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b11-no-bubble",
+        "text": "Bessemer argues there is no robotics bubble and that not enough capital is flowing into the industry.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "b11-underinvested",
+        "text": "The essay calls robotics structurally underinvested relative to its addressable opportunity.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "b11-stretched",
+        "text": "It concedes that not every company being funded will succeed and some valuations are stretched.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:11 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. All three quoted positions carried by Prediction 6 of the retained Bessemer essay.",
+      "planDigest": "9c8fa943e54c019cada10e135d402225ca3cca89ff98a3ca3e60c8f352d772ac"
+    },
+    "evidence": [
+      {
+        "partId": "b11-no-bubble",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Prediction 6: There is no robotics bubble. There is not enough money going into this space."
+      },
+      {
+        "partId": "b11-underinvested",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "robotics is structurally underinvested relative to its addressable opportunity. What looks like a bubble is, in aggregate, catch-up capita"
+      },
+      {
+        "partId": "b11-stretched",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "None of this means every company being funded will succeed. Some valuations are stretched."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b11-no-bubble",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Prediction 6 heading sentence verbatim.",
+        "evidenceDigest": "7b069b9a9abb50cf2771140a7eccb63cb4a70746036deb35e8f5c5a3f681a38c"
+      },
+      {
+        "partId": "b11-underinvested",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "The structurally-underinvested sentence is in the retained text.",
+        "evidenceDigest": "2cb3fddfc360ed13bc11735e55e70ceaf48d6f693f5db5f7ee180f9156b2b754"
+      },
+      {
+        "partId": "b11-stretched",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "The stretched-valuations concession is verbatim.",
+        "evidenceDigest": "d96d694a2e1b12f37b47bc1ace4bb5d209f3785047f21b1e80c3dc3dcddc5543"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b13-reality-gap-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "38c265387ee5e5d74f75d573198c33250b4949e1ca4fc131edf1281e6dd557c2",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b13-contradiction",
+        "text": "The cited reality-gap survey itself lists sim-to-real successes on more complex and contact-rich tasks such as table-top rearrangement and assembly, contradicting an absolute 'never been shown' claim.",
+        "requiredCitationIds": [
+          "reality-gap-survey-2026"
+        ]
+      },
+      {
+        "id": "b13-contact-modeling",
+        "text": "The survey names inaccurate modeling of physical contact, where contact states alternate between sticking, slipping, and separation, as a key contributor to the dynamics gap.",
+        "requiredCitationIds": [
+          "reality-gap-survey-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:13 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Both legs needle-verified against the retained pdftotext extraction of the survey PDF (the abs page and PDF were both fetched by the source worker; passages are from the PDF text layer). The previously applied lib statusDetail correction stands; this pass records the passages.",
+      "planDigest": "5f87cad22131a1177415c352b9265e23ecafd6f88fba2a46852dbe26918b6418"
+    },
+    "evidence": [
+      {
+        "partId": "b13-contradiction",
+        "citationId": "reality-gap-survey-2026",
+        "sourceUrl": "https://arxiv.org/pdf/2510.20808",
+        "supportingPassage": "ranging from simple 3D reaching to more complex and contact-rich tasks such as table-top rearrangement (25) and assembly (26, 5)"
+      },
+      {
+        "partId": "b13-contact-modeling",
+        "citationId": "reality-gap-survey-2026",
+        "sourceUrl": "https://arxiv.org/pdf/2510.20808",
+        "supportingPassage": "Contact Dynamics. A key contributor to the dynamics gap in robotics is the inaccurate modeling of physical contact. Real-world contact interactions are inherently complex and nonlinear. Materials deform under pressure, friction varies with relative velocity, and contact states can alternate between sticking, slipping, and separation."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b13-contradiction",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained survey text lists sim-to-real successes on contact-rich tasks (table-top rearrangement, assembly).",
+        "evidenceDigest": "2017cf68cab6abf7020a302537dea399cdfc48e1c22edca3b7fd8af6d08e0e25"
+      },
+      {
+        "partId": "b13-contact-modeling",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained survey Contact Dynamics passage quoted verbatim.",
+        "evidenceDigest": "59ab2543df6da05484d43c7b73861bc70ee3771e60543d1d891a6fc7b1fda417"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b14-watchlist-legs-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "d5c5c16ed2d46755e238543ead77e47642281c16f5d54762ccb866a7529950cc",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b14-pi05-homes",
+        "text": "pi0.5's most realistic final evaluation ran in three real homes absent from its training set, with bedroom and kitchen cleaning tasks in each.",
+        "requiredCitationIds": [
+          "pi05-2025"
+        ]
+      },
+      {
+        "id": "b14-units-agility-unitree",
+        "text": "The strongest verified deployment records are Agility's more than 65,000 operating hours across nine customer facilities and Unitree's roughly 5,500 units shipped in 2025; the \"no manufacturer has documented more than 1,000 deployed units\" status call is the milestone's own editorial framing on top of these records.",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      },
+      {
+        "id": "b14-open-benchmark",
+        "text": "RoboArena deliberately crowd-sources double-blind pairwise evaluations across a distributed network of evaluators instead of standardizing fixed tasks, RoboChallenge provides a reproducible online evaluation system, and ManipulationNet delivers reproducible task setups through standardized hardware kits.",
+        "requiredCitationIds": [
+          "roboarena-2025",
+          "robochallenge-2025",
+          "manipulationnet-2026"
+        ]
+      },
+      {
+        "id": "b14-rl-reliability",
+        "text": "RL-100 attains 100 percent success across 1,000 of 1,000 evaluation episodes on eight diverse real-robot tasks; the final pi*0.6 model is in the 90%+ range on all tasks except diverse laundry.",
+        "requiredCitationIds": [
+          "rl-100-2025",
+          "pistar06-2025"
+        ]
+      },
+      {
+        "id": "b14-tactile",
+        "text": "Sparsh-X is trained on roughly one million contact-rich interactions collected with the Digit 360 sensor, and TouchWorld is a predictive-and-reactive tactile foundation model for dexterous manipulation; the \"outside every major VLA pipeline\" half of the status call is the milestone's own editorial framing, not a source-certified absence.",
+        "requiredCitationIds": [
+          "sparsh-x-2025",
+          "touchworld-2026"
+        ]
+      },
+      {
+        "id": "b14-egoscale",
+        "text": "EgoScale trains a VLA on over 20,854 hours of action-labeled egocentric human video and uncovers a log-linear scaling law between human data scale and validation loss, which correlates with downstream real-robot performance; the R² = 0.9983 constant in the statusDetail is not re-verified by this pass (the retained base holds the abs page only).",
+        "requiredCitationIds": [
+          "egoscale-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:14 (disposition ready-source-correction): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Restructured from the packet: the units/tactile part texts now separate the sourced facts from the milestone's own editorial status calls (the packet itself flagged \"outside every major VLA pipeline\" as editorial), and the open-benchmark part carries the per-benchmark correction applied to lib/bear-case.ts in this same commit (RoboArena's abstract replaces task standardization with crowd-sourced evaluation). The pistar06 sentence is needle-verified by fragments: pdftotext emits its runs reordered (a lone ∗ line; \"of the final π0.6\" after \"This makes it\") - all words verbatim in the retained text layer (see passage-verification.json artifact note). The EgoScale R² constant stands on the same-day generalization lane's PDF verification, not re-verified here.",
+      "planDigest": "b591821a68621514eace1f170eff49bf89fae28b6160815f64051a8d7b11cea5"
+    },
+    "evidence": [
+      {
+        "partId": "b14-pi05-homes",
+        "citationId": "pi05-2025",
+        "sourceUrl": "https://arxiv.org/pdf/2504.16054",
+        "supportingPassage": "For quantitative comparisons, we use a set of mock home environments to provide a controlled and reproducible setup, while the most realistic final evaluation is conducted in three real homes that were not part of the training set (see Figure 6)."
+      },
+      {
+        "partId": "b14-units-agility-unitree",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Agility Robotics has the broader commercial footprint. The company says its Digit robot has accumulated more than 65,000 operating hours across nine customer facilities, naming GXO, Schaeffler, Toyota Motor Manufacturing Canada and Mercado Libre as commercial customers."
+      },
+      {
+        "partId": "b14-open-benchmark",
+        "citationId": "roboarena-2025",
+        "sourceUrl": "https://arxiv.org/abs/2506.18123",
+        "supportingPassage": "Instead of standardizing evaluations around fixed tasks, environments, or locations, we propose to crowd-source evaluations across a distributed network of evaluators."
+      },
+      {
+        "partId": "b14-open-benchmark",
+        "citationId": "robochallenge-2025",
+        "sourceUrl": "https://arxiv.org/abs/2510.17950",
+        "supportingPassage": "In this report, we describe our methodology for constructing RoboChallenge, an online evaluation system to test robotic control algorithms, and our survey of recent state-of-the-art VLA models using our initial benchmark Table30."
+      },
+      {
+        "partId": "b14-open-benchmark",
+        "citationId": "manipulationnet-2026",
+        "sourceUrl": "https://arxiv.org/abs/2603.04363",
+        "supportingPassage": "ManipulationNet delivers reproducible task setups through standardized hardware kits, and enables distributed performance evaluation via a unified software client that delivers real-time task instructions and collects benchmarking results."
+      },
+      {
+        "partId": "b14-rl-reliability",
+        "citationId": "rl-100-2025",
+        "sourceUrl": "https://arxiv.org/abs/2510.14830",
+        "supportingPassage": "We evaluate RL-100 on eight diverse real-robot tasks, from dynamic pushing and agile bowling to pouring, cloth folding, unscrewing, multi-stage juicing, and long-horizon box folding. RL-100 attains 100 percent success across evaluated trials, for a total of 1000 out of 1000 episodes, including up to 250 out of 250 consecutive trials on one task."
+      },
+      {
+        "partId": "b14-rl-reliability",
+        "citationId": "pistar06-2025",
+        "sourceUrl": "https://www.pi.website/download/pistar06.pdf",
+        "supportingPassage": "On all of the tasks except diverse laundry, the success rate of the final π*0.6 model is in the 90%+ range. This makes it feasible to use in practical settings, such as making espresso drinks at the office or assembling boxes in a factory, as shown in the accompanying videos."
+      },
+      {
+        "partId": "b14-tactile",
+        "citationId": "sparsh-x-2025",
+        "sourceUrl": "https://arxiv.org/abs/2506.14754",
+        "supportingPassage": "We present Sparsh-X, the first multisensory touch representations across four tactile modalities: image, audio, motion, and pressure. Trained on ~1M contact-rich interactions collected with the Digit 360 sensor, Sparsh-X captures complementary touch signals at diverse temporal and spatial scales."
+      },
+      {
+        "partId": "b14-tactile",
+        "citationId": "touchworld-2026",
+        "sourceUrl": "https://arxiv.org/abs/2607.07287",
+        "supportingPassage": "We introduce TouchWorld, a predictive-and-reactive tactile foundation model for dexterous manipulation."
+      },
+      {
+        "partId": "b14-egoscale",
+        "citationId": "egoscale-2026",
+        "sourceUrl": "https://arxiv.org/abs/2602.16710",
+        "supportingPassage": "We train a Vision Language Action (VLA) model on over 20,854 hours of action labeled egocentric human video, more than 20 times larger than prior efforts, and uncover a log linear scaling law between human data scale and validation loss. This validation loss strongly correlates with downstream real robot performance, establishing large scale human data as a predictable supervision source."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b14-pi05-homes",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained pi05 PDF text states the three-unseen-homes final evaluation.",
+        "evidenceDigest": "366c5b533307637da281f5d501e36f0c779f60ea8ba846317df406a5ee6fd12d"
+      },
+      {
+        "partId": "b14-units-agility-unitree",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained technology.org text states the Agility 65,000+ hour record; the Unitree ~5,500 figure is carried by the same fetched page (see row 4).",
+        "evidenceDigest": "37da78fb5be5de9b8d798958d4f503d89b88eea2bf0553222b83d283194af20d"
+      },
+      {
+        "partId": "b14-open-benchmark",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "All three abstracts needle-verified; the statusDetail rewording applied to lib/bear-case.ts matches them.",
+        "evidenceDigest": "ad5ac93b2bcd183402372d5d0d61f96298f3ee7211bf50a71cf39af760620e08"
+      },
+      {
+        "partId": "b14-rl-reliability",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "RL-100 abs passage verbatim; pistar06 sentence fragment-verified with the documented pdftotext reordering artifact.",
+        "evidenceDigest": "94b51a6226226758fbe4a0b051fdb583b3b0273dfa6f988e1d7f1d5a15757939"
+      },
+      {
+        "partId": "b14-tactile",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Both abstracts verbatim in the retained fetch text; the editorial half is labelled as such.",
+        "evidenceDigest": "2b2aca21357487e58856da1eb67de5c6bf1a93df6ac620171180c0f45900f541"
+      },
+      {
+        "partId": "b14-egoscale",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Abs passage verbatim; the R² constant explicitly not re-verified by this pass.",
+        "evidenceDigest": "cf767213775ef08673303b7f904fdcd0b3cff07f097100a58cfef7a4b6a63781"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b15-board-count-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "6f8fa05b4f9b498083bddd67e95ea5d001b5e1ebf061dfab35c2d77e97a6f541",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b15-board-count",
+        "text": "The board's unit-deployment status base is the fetched Agility 65,000+ operating-hour and Unitree ~5,500-unit deployment record (one of the eight status bases fetched under rows 13-14); over the schema-validated eight-row MILESTONES array in lib/bear-case.ts the local count reads four not met, four partial, zero met.",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:15 (disposition ready-source-correction-with-local-AND): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Restructured from the packet (local-AND): the locked compound schema fail-closes on a part with zero required citations, so the packet's empty-requirement part was restructured to cite one genuinely-fetched status base, while the count itself is local arithmetic over lib/bear-case.ts that this integrator re-ran at application time via node import of MILESTONES (four partial: unseen-homes-policy, open-benchmark, broad-rl-reliability, data-scaling-law; four not-met: ten-thousand-unit-deployment, tactile-foundation-model, sim-to-real-contact, cost-per-task-parity; zero met) AND-ed with rows 13-14's fetched status bases. No fetch exists or is claimed for a local count.",
+      "planDigest": "4e2e901fe632e1cdd30f8bac1d11b1021960da2dc4c0264b8ba7ace8ff8a9e40"
+    },
+    "evidence": [
+      {
+        "partId": "b15-board-count",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Agility Robotics has the broader commercial footprint. The company says its Digit robot has accumulated more than 65,000 operating hours across nine customer facilities, naming GXO, Schaeffler, Toyota Motor Manufacturing Canada and Mercado Libre as commercial customers."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b15-board-count",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Citation leg needle-verified in the retained technology.org text; count leg proven by the integrator's own local import of the schema-validated array at application time.",
+        "evidenceDigest": "7394f25243484b32aecd7e1e71132b811034a8bbb707093181f9442f28336d9e"
+      }
+    ]
+  },
+  {
+    "id": "bear-case-b16-closing-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "bear-case",
+    "rowOrdinal": 16,
+    "originalCellsDigest": "fef4261fd5f32fdd57addaedca2253b04e78e18b6659551eb3db3503b0481622",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "b16-23b",
+        "text": "The closing restates the fetched tally: more than $23 billion raised globally in 2026 by early June, nearly matching the $26 billion raised in all of 2025.",
+        "requiredCitationIds": [
+          "robotics-funding-23b-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator plan review of packet record bear-case:16 (disposition ready-source-correction-with-local-AND): every part's citation id confirmed registered; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see lane passage-verification.json); no retrieval performed by this integrator. Restructured from the packet (local-AND): the scoreboard half of the closing (\"against that scoreboard\" = the local 4/4/0 count of row 15) is local arithmetic, not a fetchable fact, so the plan carries the fetched funding leg as its one citation-backed part and documents the scoreboard half as the row-15 local-AND basis; the packet's empty-requirement part could not lawfully pass the locked schema. The closing's scoping was aligned with B9 in this same commit (now \"by early June against that scoreboard\").",
+      "planDigest": "8b5906ab206be15a9a5e5c7a8d92b7a10d4699ff82f479f8183060c4841a290b"
+    },
+    "evidence": [
+      {
+        "partId": "b16-23b",
+        "citationId": "robotics-funding-23b-2026",
+        "sourceUrl": "https://www.briefs.co/news/robotics-startups-raised-23-billion-in-2026-closing-in-on-all-of-2025/",
+        "supportingPassage": "Robotics startups have raised over $23 billion globally in 2026, nearly matching the full-year 2025 total of $26 billion with weeks still remaining."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "b16-23b",
+        "outcome": "supported",
+        "reviewedBy": "bear-case-integrator-20260915 (session b557a4f8, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Retained briefs.co text states the tally verbatim; scoreboard half is the local count proven under row 15.",
+        "evidenceDigest": "40f11ddcf5844fcff66847e2436a420d27068d9413e1846632c8e39de541aa18"
+      }
+    ]
   }
 ]

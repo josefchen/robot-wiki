@@ -78,7 +78,7 @@ const ROWS: Milestone[] = [
       'The evaluation crisis: until labs publish comparable numbers on shared tasks, every demo is its own benchmark and progress claims cannot be arbitrated.',
     status: 'partial',
     statusDetail:
-      'RoboArena, RoboChallenge, and ManipulationNet all launched with standardized tasks or hardware kits, but none has yet drawn convergent numbers from multiple independent labs.',
+      'RoboArena crowd-sources double-blind pairwise evaluations across a distributed network of evaluators instead of standardizing fixed tasks, RoboChallenge runs a reproducible online evaluation system, and ManipulationNet delivers reproducible task setups through standardized hardware kits; none has yet drawn convergent numbers from multiple independent labs.',
     howWeKnow:
       'Multiple independent labs publishing comparable results on the same benchmark, with agreement on what the numbers mean.',
     citationIds: ['roboarena-2025', 'robochallenge-2025', 'manipulationnet-2026'],

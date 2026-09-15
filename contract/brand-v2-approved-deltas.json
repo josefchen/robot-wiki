@@ -12330,6 +12330,261 @@
       "VAL-AUDIT-009"
     ],
     "disposition": "permanent"
+  },
+  {
+    "id": "bc-b1-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 1: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b2-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 2: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b3-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 3: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b4-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 4: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b5-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 5: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b6-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 6: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b7-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 7: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b8-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 8: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b9-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 9: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b10-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 10: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b11-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 11: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b13-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 13: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b14-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 14: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b15-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 15: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "bc-b16-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/bear-case",
+    "oldHash": "f4917703127a43bf9f6073327d2f1a16a8ee6ab5a6576bc6a4c8396447b729a6",
+    "newHash": "1f2f46bb18ac77e9310c3b1f504fca29a33fa2c70a6af5866ba6bf6ab798ba06",
+    "reason": "Exactly frontier/bear-case original 16: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json, including the documented binding corrections for records 3 and 8 and the pistar06 pdftotext artifact for record 14). Records 8/9/16 correct article spans (Waymo attribution dropped; funding tally rescoped to the source's own early-June framing) and record 14 corrects the lib/bear-case.ts open-benchmark statusDetail, all in this same commit; records 15/16 document their local-AND bases (re-run by the integrator). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
   }
   ]
 }
