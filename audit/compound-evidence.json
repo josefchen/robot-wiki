@@ -48671,5 +48671,963 @@
       "evidenceDigest": "326a3b6900d3419bd91fe32964c401b0cc56840f57d28f874c2fa87d4a0e3920"
     }
   ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-3",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 3,
+  "originalCellsDigest": "da9b62b359dce6dfe0707915ab5003e631c37f9613faa6756d15ad571ac08a2a",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa3-catalogue",
+      "text": "ISO/TS 15066:2016 is a Technical Specification (Edition 1, published 2016-02, CHF 179, 33 pages) whose abstract states it specifies safety requirements for collaborative industrial robot systems and supplements, not replaces, ISO 10218-1 and ISO 10218-2; stage 90.92 (reached 2025-06-26) and replacement ISO/AWI 15066-1 under development are page facts the article does not claim.",
+      "requiredCitationIds": [
+        "iso-ts-15066"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "d8d71d2e6e08ea384759829d86a5755737e6e3c8ef9ecb230c7843ed591e6c23",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa3-catalogue",
+      "citationId": "iso-ts-15066",
+      "sourceUrl": "https://www.iso.org/standard/62996.html",
+      "supportingPassage": "ISO/TS 15066:2016 specifies safety requirements for collaborative industrial robot systems and the work environment, and supplements the requirements and guidance on collaborative industrial robot operation given in ISO 10218‑1 and ISO 10218‑2. | Page facts read: Technical Specification, Edition 1, publication date 2016-02, CHF 179, 33 pages; 'This publication was last reviewed and confirmed in 2022. Therefore this version remains current.'; Stage 90.92 'International Standard to be revised' (reached 2025-06-26); replacement ISO/AWI 15066-1 under development."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa3-catalogue",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "50a0ca85ade5875455c624b513f5a245350b797e4aebd5e551a8becbc1a6c129"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-10",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 10,
+  "originalCellsDigest": "167667620f2dd60d77f9eda4a5853f80933fa8bb91b6705d199102826398285f",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa10-abstract",
+      "text": "ISO 12100 (Edition 1, 2010-11, confirmed 2022, still the published edition; stage 90.92 with ISO/DIS 12100.3 expected within months) describes procedures for identifying hazards, estimating and evaluating risks, and for elimination or sufficient risk reduction, with guidance on documentation and verification of that process.",
+      "requiredCitationIds": [
+        "iso-12100"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "18c1772f5f6320a91104a8d12cda716ec4d5175a2f9e738573ea9a8da6ff0d83",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa10-abstract",
+      "citationId": "iso-12100",
+      "sourceUrl": "https://www.iso.org/standard/51528.html",
+      "supportingPassage": "Procedures are described for identifying hazards and estimating and evaluating risks during relevant phases of the machine life cycle, and for the elimination of hazards or sufficient risk reduction. Guidance is given on the documentation and verification of the risk assessment and risk reduction process. | Page facts read: International Standard, Edition 1, publication date 2010-11, CHF 225; 'This publication was last reviewed and confirmed in 2022. Therefore this version remains current.'; Stage 90.92 (to be revised); 'Expected to be replaced by ISO/DIS 12100.3 within the coming months.'"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa10-abstract",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "83726ec5bcdb89c937b661d35537a8cc05a2406eadda93b50d451080b0dbf21f"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-11",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 11,
+  "originalCellsDigest": "60191cf95fe5193df37dd4f8178c0e3f732fbe2fa5223c16dcc3223d7abac9b3",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa11-iso-elimination-first",
+      "text": "The ISO 12100 abstract itself states hazard identification, risk estimation and evaluation, then elimination of hazards or sufficient risk reduction, establishing elimination-first risk reduction.",
+      "requiredCitationIds": [
+        "iso-12100"
+      ]
+    },
+    {
+      "id": "sa11-osha-ordering",
+      "text": "OSHA OTM IV:4 (Appendix 2 Example RA Step 5, RIA TR R15.306-2016 context) states inherently safe design (elimination, substitution, limiting interaction) or safeguarding should be the primary means to reduce very high, high or medium risks, and that complementary protective measures or information for use should not be the primary risk-reduction measure, corroborating the three-tier ordering without any clause number.",
+      "requiredCitationIds": [
+        "osha-otm-robots"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "0e9d9d6658624320f8c9c6169075e3acf04ef2e17cb35889ab0f2fe40e64a760",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa11-iso-elimination-first",
+      "citationId": "iso-12100",
+      "sourceUrl": "https://www.iso.org/standard/51528.html",
+      "supportingPassage": "Procedures are described for identifying hazards and estimating and evaluating risks during relevant phases of the machine life cycle, and for the elimination of hazards or sufficient risk reduction. Guidance is given on the documentation and verification of the risk assessment and risk reduction process. | Page facts read: International Standard, Edition 1, publication date 2010-11, CHF 225; 'This publication was last reviewed and confirmed in 2022. Therefore this version remains current.'; Stage 90.92 (to be revised); 'Expected to be replaced by ISO/DIS 12100.3 within the coming months.'"
+    },
+    {
+      "partId": "sa11-osha-ordering",
+      "citationId": "osha-otm-robots",
+      "sourceUrl": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+      "supportingPassage": "For all risks with a very high, high or medium initial risk level, inherently safe design (elimination, substitution, or limiting interaction) or safeguarding should be used as a primary means to reduce risks. Complementary protective measures or information for use should not be used as the primary risk reduction measure for very high, high or medium initial risk levels."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa11-iso-elimination-first",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "e177bfff7e4856e3cd3cf1219497a372208c1bfed434d4e50ea34fc9ae7d4f94"
+    },
+    {
+      "partId": "sa11-osha-ordering",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "bcdf4ed15b4c51c050135947fd017f6d38cc6ac1fba00acd45236736b6ed3ee7"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-12",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 12,
+  "originalCellsDigest": "4088d4e0f7cae5389511bc8c2530e87405f2288850ba344bbd7f46d1f10ab2ee",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa12-part1",
+      "text": "ISO 10218-1 (Edition 3, 2025-02, stage 60.60) establishes safety requirements specific to industrial robots, addressing them as partly completed machinery, with hazards reasonably foreseeable by the manufacturer.",
+      "requiredCitationIds": [
+        "iso-10218-1-2025"
+      ]
+    },
+    {
+      "id": "sa12-part2",
+      "text": "ISO 10218-2 (Edition 2, 2025-02, stage 60.60) specifies requirements for the integration of industrial robot applications and industrial robot cells, with hazards reasonably foreseeable by the integrator.",
+      "requiredCitationIds": [
+        "iso-10218-2-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "0e4d1cc57fdbbd7e765c61a2cc8a9db9924321c361132faa4a05e7e020800c46",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa12-part1",
+      "citationId": "iso-10218-1-2025",
+      "sourceUrl": "https://www.iso.org/standard/73933.html",
+      "supportingPassage": "ISO 10218-1 establishes guidelines for the safety requirements specific to industrial robots, addressing them as partly completed machinery. This document deals with the significant hazards, hazardous situations or hazardous events when used as intended and under specified conditions of misuse which are reasonably foreseeable by the manufacturer. | Page facts read: Edition 3, publication date 2025-02, stage 60.60 published 2025-02-05, 95 pages; previous edition ISO 10218-1:2011 (withdrawn)."
+    },
+    {
+      "partId": "sa12-part2",
+      "citationId": "iso-10218-2-2025",
+      "sourceUrl": "https://www.iso.org/standard/73934.html",
+      "supportingPassage": "This document specifies requirements for the integration of industrial robot applications and industrial robot cells. This document deals with the significant hazards, hazardous situations or hazardous events when used as intended and under specified conditions of misuse which are reasonably foreseeable by the integrator. | Page facts read: Edition 2, publication date 2025-02, stage 60.60 published 2025-02-05, 223 pages; previous edition ISO 10218-2:2011 (withdrawn)."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa12-part1",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "3a72a48cc55de123967acf054a079a88369331a15ba7a1cd6abf90a3b6f55233"
+    },
+    {
+      "partId": "sa12-part2",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "282310a375d5cbddf243778d606e31c8f435dee4aeb111f51d6a7dc91f6d80c1"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-13",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 13,
+  "originalCellsDigest": "81129ecb0a88cdda98e54df938c654a26d2a66e03b473c15ed6d060494c9bbc8",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa13-editions",
+      "text": "ISO 10218-1 catalogue facts: Edition 3, publication date 2025-02, previous edition ISO 10218-1:2011 withdrawn.",
+      "requiredCitationIds": [
+        "iso-10218-1-2025"
+      ]
+    },
+    {
+      "id": "sa13-editions-2",
+      "text": "ISO 10218-2 catalogue facts: Edition 2, publication date 2025-02, previous edition ISO 10218-2:2011 withdrawn; together establishing the February 2025 revision as the first since 2011 at editions 3 and 2.",
+      "requiredCitationIds": [
+        "iso-10218-2-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "bf99ca261f0b4fbf9f0f2ce1d699d01434c5f01b8818da8e332ee5bef891c6f9",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa13-editions",
+      "citationId": "iso-10218-1-2025",
+      "sourceUrl": "https://www.iso.org/standard/73933.html",
+      "supportingPassage": "ISO 10218-1 establishes guidelines for the safety requirements specific to industrial robots, addressing them as partly completed machinery. This document deals with the significant hazards, hazardous situations or hazardous events when used as intended and under specified conditions of misuse which are reasonably foreseeable by the manufacturer. | Page facts read: Edition 3, publication date 2025-02, stage 60.60 published 2025-02-05, 95 pages; previous edition ISO 10218-1:2011 (withdrawn)."
+    },
+    {
+      "partId": "sa13-editions-2",
+      "citationId": "iso-10218-2-2025",
+      "sourceUrl": "https://www.iso.org/standard/73934.html",
+      "supportingPassage": "This document specifies requirements for the integration of industrial robot applications and industrial robot cells. This document deals with the significant hazards, hazardous situations or hazardous events when used as intended and under specified conditions of misuse which are reasonably foreseeable by the integrator. | Page facts read: Edition 2, publication date 2025-02, stage 60.60 published 2025-02-05, 223 pages; previous edition ISO 10218-2:2011 (withdrawn)."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa13-editions",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "3cc9187790ef4cf53d5e9b5287d3d5a5a7d588496941f30911b2cc33244b23c0"
+    },
+    {
+      "partId": "sa13-editions-2",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "396296a672d3d90128bc891417ead8e9a1b8cd9a7ac8590f6b19eab6cbc06335"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-14",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 14,
+  "originalCellsDigest": "3d86f675d63a1f44843e10fd5c2e2f59a4d99165dc2cbf253e3439d5d032604a",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa14-catalogue",
+      "text": "IEC 61508-1:2010 (Edition 2.0, 2010-04-30, replacing the 1998 first edition) covers aspects to be considered when electrical/electronic/programmable electronic (E/E/PE) systems are used to carry out safety functions; the same catalogue page lists sibling IEC 61508-5:2010 on determination of safety integrity levels, the series-level basis for the SIL rating.",
+      "requiredCitationIds": [
+        "iec-61508-1-2010"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "500847daacdcf1ccaa4415edb911bb0a288cb71aba1a6b114d521de985ae2261",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa14-catalogue",
+      "citationId": "iec-61508-1-2010",
+      "sourceUrl": "https://webstore.iec.ch/en/publication/5515",
+      "supportingPassage": "IEC 61508-1:2010 covers those aspects to be considered when electrical/electronic/programmable electronic (E/E/PE) systems are used to carry out safety functions. This second edition cancels and replaces the first edition published in 1998. | Page facts read: Publication date 2010-04-30, Edition 2.0, 127 pages; same page lists sibling entry 'IEC 61508-5:2010 ... Part 5: Examples of methods for the determination of safety integrity levels'."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa14-catalogue",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "9c67a650fe2c15757155e63a862a007243c28fa770e90628f1612c768accc6de"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-15",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 15,
+  "originalCellsDigest": "86ac26e6e09cd626909bc22e0d2f7c727d9e93ce3f736cf1e8cc056ac3619c8d",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa15-abstract",
+      "text": "ISO 13849-1 (Edition 4, 2023-04, stage 60.60) specifies a methodology for design and integration of safety-related parts of control systems (SRP/CS) performing safety functions including the design of software, names required performance levels (PLr), and does not apply to low demand mode, deferring to the IEC 61508 series by its own NOTE 1.",
+      "requiredCitationIds": [
+        "iso-13849-1-2023"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "69733a9775c3f91df01afb70cea58ccb07c9b5ee2e0538a7d92ba661887c765f",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa15-abstract",
+      "citationId": "iso-13849-1-2023",
+      "sourceUrl": "https://www.iso.org/standard/73481.html",
+      "supportingPassage": "This document specifies a methodology and provides related requirements, recommendations and guidance for the design and integration of safety‐related parts of control systems (SRP/CS) that perform safety functions, including the design of software. This document does not apply to low demand mode of operation. NOTE 1 See 3.1.44 and the IEC 61508 series for low demand mode of operation. This document does not specify the safety functions or required performance levels (PLr) that are to be used in particular applications. | Page facts read: Edition 4, publication date 2023-04, stage 60.60 published 2023-04-26; previous edition ISO 13849-1:2015 (withdrawn)."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa15-abstract",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "6da6c8b81943e0e0354cc48f9785fbd76c0454446f8396fc2580374db25dbca6"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-16",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 16,
+  "originalCellsDigest": "d28de216b214205cfacb397b051092b60da8982ba4a3cc89fd136b2d1ce8f655",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa16-iso13850",
+      "text": "ISO 13850 (Edition 3, 2015-11, CHF 100, confirmed 2020, now stage 90.60 under review) specifies functional requirements and design principles for the emergency stop function on machinery, independent of the type of energy used, and its NOTE names IEC 60204-1 for the electrical/electronic realization.",
+      "requiredCitationIds": [
+        "iso-13850-2015"
+      ]
+    },
+    {
+      "id": "sa16-iec60204",
+      "text": "IEC 60204-1:2016 is Edition 6.0 published 2016-10-13 (a consolidated Edition 6.1 with AMD1:2021 also validly listed), applying to electrical, electronic and programmable electronic equipment and systems of machines, with Clause 9 reorganized to include safe torque off of PDS, emergency stop and control circuit protection.",
+      "requiredCitationIds": [
+        "iec-60204-1-2016"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "99696327ba2e5a0dd0089d988437a1f0ceec63eb7538d08a72ad2a44eee72f92",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa16-iso13850",
+      "citationId": "iso-13850-2015",
+      "sourceUrl": "https://www.iso.org/standard/59970.html",
+      "supportingPassage": "ISO 13850:2015 Standard specifies functional requirements and design principles for the emergency stop function on machinery, independent of the type of energy used. NOTE The requirements for the realization of the emergency stop function based on electrical/electronic technology are described in IEC 60204‑1. | Page facts read: Edition 3, publication date 2015-11, CHF 100, 11 pages; confirmed 2020, stage 90.60 (under review, close of review 2026-03-05)."
+    },
+    {
+      "partId": "sa16-iec60204",
+      "citationId": "iec-60204-1-2016",
+      "sourceUrl": "https://webstore.iec.ch/en/publication/26037",
+      "supportingPassage": "IEC 60204-1:2016 applies to electrical, electronic and programmable electronic equipment and systems to machines not portable by hand while working... This sixth edition cancels and replaces the fifth edition published in 2005. ... reorganization and revision to Clause 9, including requirements pertaining to safe torque off of PDS, emergency stop, and control circuit protection. | Page facts read: Publication date 2016-10-13, Edition 6.0, 277 pages; consolidated Edition 6.1 (IEC 60204-1:2016+AMD1:2021 CSV, 2021-09-15) also listed as valid."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa16-iso13850",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "6d61b9017ff90f0802524f17224f9a7a8c6a159c88dd4d47c7d14b178e541986"
+    },
+    {
+      "partId": "sa16-iec60204",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "66c32fe851e557813ce467d20c0a23cfb82e6c24b46baffc8af28842e5c83ff5"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-17",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 17,
+  "originalCellsDigest": "1ed7f04fab1701f7f066fc0e54f1d2b831eb4d56e1df22ea8e67224b38f287c1",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa17-iso13850-abstract-scope",
+      "text": "The ISO 13850 public catalogue abstract stops at functional requirements and design principles for the emergency stop function; the paywalled normative text was not fetched, so no free primary source states a complement-versus-substitute classification for the abstract.",
+      "requiredCitationIds": [
+        "iso-13850-2015"
+      ]
+    },
+    {
+      "id": "sa17-iso12100-abstract-scope",
+      "text": "The ISO 12100 public abstract, where the complementary-protective-measure category lives, does not name emergency stop at all, confirming the 2026-09-06 correction that removed the unsourced normative classification rather than leaving it standing on secondary blogs.",
+      "requiredCitationIds": [
+        "iso-12100"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "9131845f9d107954fdbf0a1513414aaf205d931f7cba70655376a298e7e20655",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa17-iso13850-abstract-scope",
+      "citationId": "iso-13850-2015",
+      "sourceUrl": "https://www.iso.org/standard/59970.html",
+      "supportingPassage": "ISO 13850:2015 Standard specifies functional requirements and design principles for the emergency stop function on machinery, independent of the type of energy used. NOTE The requirements for the realization of the emergency stop function based on electrical/electronic technology are described in IEC 60204‑1. | Page facts read: Edition 3, publication date 2015-11, CHF 100, 11 pages; confirmed 2020, stage 90.60 (under review, close of review 2026-03-05)."
+    },
+    {
+      "partId": "sa17-iso12100-abstract-scope",
+      "citationId": "iso-12100",
+      "sourceUrl": "https://www.iso.org/standard/51528.html",
+      "supportingPassage": "Procedures are described for identifying hazards and estimating and evaluating risks during relevant phases of the machine life cycle, and for the elimination of hazards or sufficient risk reduction. Guidance is given on the documentation and verification of the risk assessment and risk reduction process. | Page facts read: International Standard, Edition 1, publication date 2010-11, CHF 225; 'This publication was last reviewed and confirmed in 2022. Therefore this version remains current.'; Stage 90.92 (to be revised); 'Expected to be replaced by ISO/DIS 12100.3 within the coming months.'"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa17-iso13850-abstract-scope",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "b2fcfc6744dc39c42c87c8e25d8409052447e47b8d28cba8386ab56c1b1af5bd"
+    },
+    {
+      "partId": "sa17-iso12100-abstract-scope",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "386bd93697a3a1027cfe2b245669633928200c2da139d1022b0b292e1159f04a"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-19",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 19,
+  "originalCellsDigest": "6fbf55c010e9523b47cec62acb37fe1f3605fb0c641ee2e71e0a89a0a7883712",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa19-abstract",
+      "text": "ISO 3691-4 (Edition 2, 2023-06, previous edition 2020 withdrawn, now stage 90.92 with ISO/DIS in development) specifies safety requirements for driverless industrial trucks and their systems, with examples including 'automated guided vehicle' and 'autonomous mobile robot'.",
+      "requiredCitationIds": [
+        "iso-3691-4-2023"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "1cd4263ae7818905c0f2024e65bc1e9d5d1ffba36d6585220afd97fbaf33fd58",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa19-abstract",
+      "citationId": "iso-3691-4-2023",
+      "sourceUrl": "https://www.iso.org/standard/83545.html",
+      "supportingPassage": "This document specifies safety requirements and the means for their verification for driverless industrial trucks (hereafter referred to as trucks) and their systems. Examples of driverless industrial trucks (trucks as defined in ISO5053‑1:2020) include: 'automated guided vehicle', 'autonomous mobile robot', 'bots', 'automated guided cart', 'tunnel tugger', 'under cart', etc. | Page facts read: Edition 2, publication date 2023-06, stage 60.60 published 2023-06-12 (now 90.92 to be revised); previous edition ISO 3691-4:2020 (withdrawn); ISO/DIS 3691-4 under development."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa19-abstract",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "ba6f874d9fd168c21798de8460adb71708bcbf7f3e06635d64c67e9bc692c081"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-20",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 20,
+  "originalCellsDigest": "a3289fa5d5781d217c3b64eb25e738e9e8be38e1b96b0f0985137b81374d095a",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa20-a3-listing",
+      "text": "The A3 page lists ANSI/RIA R15.08-1-2020 Part 1: Requirements for the Industrial Mobile Robot and ANSI/A3 R15.08-2-2023 Part 2: Requirements for IMR system(s) and IMR application(s); a Part 3 for users is listed as coming soon, which the article does not claim.",
+      "requiredCitationIds": [
+        "a3-robot-safety-standards"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "d9fb12d0ed5a314bbd28cefe30b6997513dd26f15e0b5b08acf2ee9cd5f7f8ae",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa20-a3-listing",
+      "citationId": "a3-robot-safety-standards",
+      "sourceUrl": "https://www.automate.org/robotics/safety/robot-safety-standard-documents",
+      "supportingPassage": "Page headings read verbatim: 'ANSI/A3 R15.08-2-2023 — American National Standard for Industrial Mobile Robots – Safety Requirements – Part 2: Requirements for IMR system(s) and IMR application(s). This new standard provides the IMR systems and systems integration requirements for industrial mobile robots (IMRs).' and 'ANSI/RIA R15.08-1-2020 — American National Standard for Industrial Mobile Robots - Safety Requirements - Part 1: Requirements for the Industrial Mobile Robot. R15.08-1 is a document providing technical requirements for the design and integration of industrial mobile robots.' | Page also lists R15.08 Part 3 as '*COMING SOON' and a newly revised ANSI/A3 R15.06-2025; the article claims neither."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa20-a3-listing",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "bb0a242107b40687768605773cf7a44db4ead30930acb2a9fed327408d57f238"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-21",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 21,
+  "originalCellsDigest": "329118ce3e613ffcbccbbc0a96fc04ded8e60b832f1975b38d8a32a546a69979",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa21-abstract",
+      "text": "The ISO/CD 25785-1 abstract defines 'actively controlled stability' verbatim as a robot that requires an active control in order to remain balanced and could become unstable in the absence of power, with Note 1 including quadrupedal, bipedal, or wheeled balancing robots.",
+      "requiredCitationIds": [
+        "iso-cd-25785-1"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "7d762832afd29c6d63338db15d4ce5d67e96cf58223631d300bb1c780987b2e5",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa21-abstract",
+      "citationId": "iso-cd-25785-1",
+      "sourceUrl": "https://www.iso.org/standard/91469.html",
+      "supportingPassage": "This document states safety requirements for industrial mobile robots with actively controlled stability and their systems, which include robots that have an unspecified number of legs, wheels, or other types of mobility. These robots are sometimes referred to as 'self-balancing'. For the purpose of this document, 'actively controlled stability' refers to a robot that requires an active control in order to remain balanced and could become unstable in the absence of power. Note 1: Industrial mobile robots with actively controlled stability can include quadrupedal, bipedal, or wheeled balancing robots."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa21-abstract",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "c98ac82b0a62a944140fc44fb060be430758a6cb1134f34f5bda3b2df59beea7"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-22",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 22,
+  "originalCellsDigest": "f192e0c4299e75e2ce11b2173229c19b9b848b6876cd04f5ecf30f0c128bedfb",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa22-stage",
+      "text": "The catalogue shows ISO/CD 25785-1 under development at stage 30.60 close of comment period (reached 2026-07-08), Edition 1, no publication date, stages 40/50/60 unreached: a committee draft, not a published standard.",
+      "requiredCitationIds": [
+        "iso-cd-25785-1"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "3edb934f5378557ad6ae97f03cecd186a49ea0dc0689d7edbaafeb23f68a30cc",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa22-stage",
+      "citationId": "iso-cd-25785-1",
+      "sourceUrl": "https://www.iso.org/standard/91469.html",
+      "supportingPassage": "This document states safety requirements for industrial mobile robots with actively controlled stability and their systems, which include robots that have an unspecified number of legs, wheels, or other types of mobility. These robots are sometimes referred to as 'self-balancing'. For the purpose of this document, 'actively controlled stability' refers to a robot that requires an active control in order to remain balanced and could become unstable in the absence of power. Note 1: Industrial mobile robots with actively controlled stability can include quadrupedal, bipedal, or wheeled balancing robots. | Page facts read: Status 'Under development'; 'Stage: Close of comment period [30.60]'; Edition 1; no publication date; lifecycle shows 30.60 reached 2026-07-08; stages 40.00/50.00/60.60 unreached."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa22-stage",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "b3623d0498a2f8966b359e6861bda2a581ad3b674a29ea88f3e0cda63f2ed137"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-24",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 24,
+  "originalCellsDigest": "3d717730462b35d46b0332bfe03a2af90e94ae9176bfeb7ceede6839730a3a08",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa24-rand",
+      "text": "RAND RR1478 (published Apr 12 2016, Kalra and Paddock, DOI 10.7249/RR1478) states verbatim that autonomous vehicles would have to be driven hundreds of millions and sometimes hundreds of billions of miles, and that under even aggressive testing assumptions existing fleets would take tens and sometimes hundreds of years, an impossible proposition; the journal version was not fetched this pass and the RAND page is the cited public page.",
+      "requiredCitationIds": [
+        "kalra-paddock-2016"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "93367504e70e597bbcee4141dffc254d1b4560048ac473fcce11a19c26be06a5",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa24-rand",
+      "citationId": "kalra-paddock-2016",
+      "sourceUrl": "https://www.rand.org/pubs/research_reports/RR1478.html",
+      "supportingPassage": "Key takeaways read verbatim: 'Autonomous vehicles would have to be driven hundreds of millions of miles and sometimes hundreds of billions of miles to demonstrate their reliability in terms of fatalities and injuries.' and 'Under even aggressive testing assumptions, existing fleets would take tens and sometimes hundreds of years to drive these miles — an impossible proposition if the aim is to demonstrate their performance prior to releasing them on the roads for consumer use.' | Page facts read: 'Research Published Apr 12, 2016'; authors Nidhi Kalra, Susan M. Paddock; DOI 10.7249/RR1478. The journal version (Transportation Research Part A, registered DOI 10.1016/j.tra.2016.09.010) was not fetched this pass; the RAND page is the cited public page."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa24-rand",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "aedb7aece6a58442e9a10648813a33a664ad221a8b6463e615209ddde32fa481"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-27",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 27,
+  "originalCellsDigest": "400338ed178b599de45da2032865a3b4dce328bd133c37e9b1e70da1a226d36d",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa27-ul",
+      "text": "The UL standards product page shows UL 4600 Standard for Evaluation of Autonomous Products, Edition 3, Published and ANSI Approved March 17 2023, with scope 2.1.1 covering safety principles, risk mitigation, tools, techniques and lifecycle processes for building and evaluating a safety argument for vehicles that can operate in an autonomous mode; an Edition 2-1 also listed is not claimed by the article.",
+      "requiredCitationIds": [
+        "ul-4600-2023"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "f47ed9841d518beb7f8dd264b5f6bed7a830bf9d09e37f2f3be501b7e75e6aae",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa27-ul",
+      "citationId": "ul-4600-2023",
+      "sourceUrl": "https://www.shopulstandards.com/ProductDetail.aspx?productid=UL4600",
+      "supportingPassage": "Page facts and scope read verbatim: 'UL 4600 ACTIVE ... Standard for Evaluation of Autonomous Products ... Edition 3 (Active) ... Published Date: March 17, 2023; ANSI Approved: March 17, 2023'; '2.1.1 This standard covers the safety principles, risk mitigation, tools, techniques, and lifecycle processes for building and evaluating a safety argument for vehicles that can operate in an autonomous mode, whether the item is individual or part of a team such as a platoon.' | Page also lists Edition 2-1 (Active); the article's 'edition 3, published in March 2023' matches the current edition banner."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa27-ul",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "02f7b6d444b8effdc77af95a6d4592a4c9cfb0b1e088a3845d28d2050d715d51"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-28",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 28,
+  "originalCellsDigest": "a384702cf68f20e1e9fa6f724af8df9ca59eb5d4a20bca88b3381897f12432b9",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa28-gsn",
+      "text": "The GSN community standard (document history: Version 3, May 2021) defines an argument as a connected series of claims intended to establish an overall claim, giving rise to a hierarchy of claims ultimately supported by reference to evidence, with claims documented as goals, evidence cited in solutions, and the top goal presenting the overall claim.",
+      "requiredCitationIds": [
+        "gsn-standard-v3"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "bd91bdcf41df2bdc35d702ae2b464b236140083f00027be335157efb9c3dbf3b",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa28-gsn",
+      "citationId": "gsn-standard-v3",
+      "sourceUrl": "https://scsc.uk/scsc-141c",
+      "supportingPassage": "Document history read verbatim: '| 3 | User Community | May 2021 | For use |'. §0:3.1: 'an argument is defined as a connected series of claims intended to establish an overall claim. ... Ultimately, claims should be supported by reference to evidence. This gives rise to a hierarchy of claims'. §0:4.1: 'the claims of the argument are documented as goals and items of evidence are cited in solutions'; 'The top goal presents the overall claim'."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa28-gsn",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "8c4463998cb02d11f5064e1003658bb12d478bcca46a13c43c63e5f8dd31e0c0"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-29",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 29,
+  "originalCellsDigest": "8b1f217f17a0704766b2a7824446ad07a6beb97a311216ecb2d5e6d5ddee73dc",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa29-gsn",
+      "text": "The GSN standard defines an assurance case as a reasoned and compelling argument supported by a body of evidence that a system, service or organisation will operate as intended for a defined application in a defined environment, and states a safety case will demonstrate that a given system is acceptably safe in a given context.",
+      "requiredCitationIds": [
+        "gsn-standard-v3"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "391bab043b2a9a9bdaa4eb409952684f4fad3e4258beea622a7d7e13afd798e9",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa29-gsn",
+      "citationId": "gsn-standard-v3",
+      "sourceUrl": "https://scsc.uk/scsc-141c",
+      "supportingPassage": "§0:2.2: an assurance case 'can be defined as: A reasoned and compelling argument, supported by a body of evidence, that a system, service or organisation will operate as intended for a defined application in a defined environment.' §0:2.3: 'a safety case will demonstrate that a given system is acceptably safe in a given context'."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa29-gsn",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "1a53f49bbf8a92997e68db1e81d60beabb9bd203eb7febba747e7d709a6495e0"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-30",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 30,
+  "originalCellsDigest": "40235851c9d37ce5f5b7aa5e99ea1f26386c1bd809386d2335adc3cdd4d358eb",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa30-koopman",
+      "text": "Koopman's May 31 2026 post is subtitled 'Safe Enough' means more than crashes divided by miles, quotes the robotaxi industry's severe-crashes-per-mile position and his reply that there is more to societally acceptable safety than crashes/mile, and its own bonus bibliography lists a 2022 keynote, the 2022 book How Safe is Safe Enough? and the 2025 book Embodied AI Safety, supporting 'spent years'.",
+      "requiredCitationIds": [
+        "koopman-safe-enough-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "b05094269aedfd95b8da08420f6764643abbc134294bd966d9de99d23c00e3a4",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa30-koopman",
+      "citationId": "koopman-safe-enough-2026",
+      "sourceUrl": "https://philkoopman.substack.com/p/whats-the-deal-with-safe-enough-autonomous",
+      "supportingPassage": "Post facts read verbatim: dated May 31, 2026; subtitle \"'Safe Enough' means more than crashes divided by miles, and that explains a lot of why this topic has been getting messy\"; body: 'The robotaxi industry is adamant that the only type of metric that matters for safety is severe crashes per mile.' and 'The reality is that there is more to societally acceptable safety than crashes/mile.' Bonus material lists: 'Keynote talk: How Safe Is Safe Enough for Autonomous Vehicles' (2022), 'Book: Koopman, How Safe is Safe Enough? Measuring and Predicting Autonomous Vehicle Safety, 2022' and 'Book: Koopman, Embodied AI Safety, 2025'."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa30-koopman",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "a85271548887206fcafa44d6eb15a8c7da5913381f03e59a4c583a4798042cee"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-31",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 31,
+  "originalCellsDigest": "a5a204d3c05d5d7c8972a62521e747cc14be540cc2a299be4cc345b9ed09d8c3",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa31-rss",
+      "text": "The arXiv 1708.06374 abstract (three authors Shalev-Shwartz, Shammah, Shashua, submitted 21 Aug 2017) proposes a white-box, interpretable, mathematical model for safety assurance called Responsibility-Sensitive Safety (RSS), a rule set formal enough to check.",
+      "requiredCitationIds": [
+        "rss-2017"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "5b2d75fca7099aac70e876422857cf84af6ab3471dd067815088d691f4c0418f",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa31-rss",
+      "citationId": "rss-2017",
+      "sourceUrl": "https://arxiv.org/abs/1708.06374",
+      "supportingPassage": "In the first part of the paper we propose a white-box, interpretable, mathematical model for safety assurance, which we call Responsibility-Sensitive Safety (RSS). | Page facts read: three authors Shai Shalev-Shwartz, Shaked Shammah, Amnon Shashua; submitted 21 Aug 2017 (v1), last revised 27 Oct 2018 (v6)."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa31-rss",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "66f6b14dad341838e5474c14f47f8be3c76ee68cc2dbc7bc89af86bdad5dcadc"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-34",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 34,
+  "originalCellsDigest": "4267b9bab56b632da489daa573f0372713eae591b90ddbb50e60ce2710332f0c",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa34-knowno",
+      "text": "The arXiv 2307.01928 abstract (Allen Z. Ren with thirteen co-authors, CoRL 2023 oral) states KnowNo builds on the theory of conformal prediction to provide statistical guarantees on task completion while minimizing human help in complex multi-step planning settings, measuring and aligning LLM planner uncertainty so the robot knows when it does not know and asks for help when needed.",
+      "requiredCitationIds": [
+        "knowno-2023"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "8d2d8bd1fe67464fa7c22a72f76c161387f4811bdac4c2bd7c7ba860f38150ad",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa34-knowno",
+      "citationId": "knowno-2023",
+      "sourceUrl": "https://arxiv.org/abs/2307.01928",
+      "supportingPassage": "KnowNo builds on the theory of conformal prediction to provide statistical guarantees on task completion while minimizing human help in complex multi-step planning settings. ... we present KnowNo, which is a framework for measuring and aligning the uncertainty of LLM-based planners such that they know when they don't know and ask for help when needed. | Page facts read: first author Allen Z. Ren with thirteen co-authors (14 total); 'Conference on Robot Learning (CoRL) 2023, Oral Presentation'; submitted 4 Jul 2023."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa34-knowno",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "a02f7055bbad4166643adff4f6f32b519221cda7f49ed03463df3decb8c0ed96"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-35",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 35,
+  "originalCellsDigest": "8c50865509a82ecfb7caea1b37bf1a7cd85c17d2a9580909d0e2f75c110f3adc",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa35-sinha",
+      "text": "The arXiv 2407.08735 abstract (six authors, RSS 2024) describes a fast binary anomaly classifier analyzing observations in an LLM embedding space which may then trigger a slower fallback selection stage using generative-LLM reasoning, maintaining joint feasibility of fallback plans to account for the slow reasoner's latency as soon as an anomaly is detected.",
+      "requiredCitationIds": [
+        "sinha-anomaly-2024"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "38940902c125ba397f146230d0ba0f87db2c84bddf013c1a89afb40b488a3d71",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa35-sinha",
+      "citationId": "sinha-anomaly-2024",
+      "sourceUrl": "https://arxiv.org/abs/2407.08735",
+      "supportingPassage": "First is a fast binary anomaly classifier that analyzes observations in an LLM embedding space, which may then trigger a slower fallback selection stage that utilizes the reasoning capabilities of generative LLMs. These stages correspond to branch points in a model predictive control strategy that maintains the joint feasibility of continuing along various fallback plans to account for the slow reasoner's latency as soon as an anomaly is detected, thus ensuring safety. | Page facts read: six authors (Sinha, Elhafsi, Agia, Foutter, Schmerling, Pavone); 'Accepted to Robotics: Science and Systems (RSS) 2024'; submitted 11 Jul 2024."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa35-sinha",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "bc18408ed2795bb2a12644de9fe36a6eee5e4b890c2fba64550d7b3010dbe7d8"
+    }
+  ]
+},
+{
+  "id": "safety-assurance-20260915-safety-and-assurance-37",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "safety-and-assurance",
+  "rowOrdinal": 37,
+  "originalCellsDigest": "dbc35da8c43e02ecdd2b45b5ccc5cc00896dc871146427637b2acdf273b8a23e",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "sa37-asimov",
+      "text": "The cited HF dataset page publicly describes ASIMOV as an evaluation harness for testing agentic AI systems on safety-critical robotics tasks, with tasks including decision-making under physical constraints (payload, reach limits), safety-critical monitor decisions scored by an LLM autorater, and human proximity detection from stereo camera images where the agent calls stop_robot() or continue() based on a distance threshold; the README is public while the dataset files are gated, and the article's corrected wording matches this description.",
+      "requiredCitationIds": [
+        "asimov-agentic-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+    "planDigest": "5f5c8f37b53cf0b36aac1b4e2b5befd167398db30cf71695beca5d0d6f67c1e5",
+    "rationale": "Reviewed the parent hash-verified frozen packet (SHA-256 9ea754c6..., rows.json) at HEAD b1ece69: row binding, ordinal, currentTupleDigest and currentCells rechecked against the live ledger immediately before application and matched. Every evidence item was adjudicated against its own fresh 2026-09-15 passage (packet fetch log, tool-reported HTTP 200, uncredentialed public URL) and the registered citation identity was verified per-id in data/citations.ts. Ledger-only completion; article endpoint byte-unchanged. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "sa37-asimov",
+      "citationId": "asimov-agentic-2026",
+      "sourceUrl": "https://huggingface.co/datasets/google/asimov_agentic",
+      "supportingPassage": "Page reads verbatim: '# Asimov Agentic Safety Evaluation — Evaluation harness for testing agentic AI systems on safety-critical robotics tasks.' Tasks table: 'agent_physical_constraints_eval | Decision-making under physical constraints (payload, reach limits)'; 'agent_safety_monitor_eval | Safety-critical monitor decisions scored by LLM autorater'. Human safety monitoring: 'Evaluates human proximity detection from stereo camera images for robot safety.'; protocol: 'tool_use | Agent calls stop_robot() or continue() based on distance threshold'. | Access fact: page banner 'You need to agree to share your contact information to access this dataset' — the descriptive README is public; the dataset files themselves are gated. The current article text (already corrected 2026-09-06 to the page's own description) is supported as written."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "sa37-asimov",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator c5e87a8c-817a-425a-baca-bf7bea6fa7ae; preserved-packet review 2026-09-15",
+      "rationale": "The 2026-09-15 fresh passage for this part states exactly what the part text records; verified against the packet's preserved fetch (HTTP 200) with no reliance on inherited September 6 wording.",
+      "evidenceDigest": "ec2aaf1a010a112e9430d2e5796447cca2df4bbecf8c93b46b801f48bb02e3e7"
+    }
+  ]
 }
 ]

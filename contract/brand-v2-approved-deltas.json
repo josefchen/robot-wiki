@@ -10518,6 +10518,380 @@
     "VAL-AUDIT-009"
   ],
   "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa3-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 3: the ISO/TS 15066 catalogue identity (Technical Specification, Edition 1, 2016-02, paywalled CHF 179, supplementing not replacing ISO 10218-1/-2) bound to the registered iso-ts-15066 citation with the 2026-09-15 fresh catalogue passage. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa10-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 10: the ISO 12100 abstract procedure (identify hazards, estimate and evaluate risks, eliminate or reduce, document and verify) bound to the registered iso-12100 citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa11-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 11: the three-tier hierarchy ordering bound to two registered citations (iso-12100 elimination-first abstract; osha-otm-robots primary-means ordering), with no clause number asserted. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa12-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 12: ISO 10218-1 partly-completed-machinery/manufacturer and ISO 10218-2 application-and-cell/integrator split bound to both registered citations. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa13-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 13: February 2025 revision at editions 3 and 2, first since the withdrawn 2011 editions, bound to both registered catalogue citations. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa14-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 14: IEC 61508-1:2010 Edition 2.0 E/E/PE scope with series-level SIL attribution via the sibling 61508-5 catalogue listing, bound to the registered citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa15-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 15: ISO 13849-1 Edition 4 (2023) SRP/CS methodology including software, PLr rating, and the abstract's own low-demand deferral to IEC 61508, bound to the registered citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa16-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 16: ISO 13850 Edition 3 (2015) energy-independent emergency stop naming IEC 60204-1, and IEC 60204-1:2016 Edition 6.0, bound to both registered citations. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa17-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 17: the 2026-09-06 correction of the unsourced complement-versus-substitute classification stands on the two public abstracts' actual limits; the article edit predates this integration and is byte-unchanged here. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa19-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 19: ISO 3691-4 Edition 2 (2023) driverless industrial trucks naming AGVs and AMRs among its examples, bound to the registered citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa20-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 20: ANSI/RIA R15.08-1-2020 and ANSI/A3 R15.08-2-2023 as listed by A3, bound to the registered citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa21-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 21: the ISO/CD 25785-1 abstract's verbatim actively-controlled-stability definition including bipedal machines, bound to the registered citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa22-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 22: the committee-draft status at stage 30.60 close of comment period with edition 1 unpublished, bound to the registered citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa24-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 24: RAND's hundreds-of-millions/billions of miles and tens-to-hundreds-of-years fleet takeaways, bound to the registered kalra-paddock-2016 citation via the cited public RAND page. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa27-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 27: UL 4600 Edition 3 published and ANSI approved March 17 2023 with the safety-argument scope, bound to the registered citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa28-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 28: the GSN community standard version 3 (May 2021) goal-to-solution decomposition with cited evidence, bound to the registered citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa29-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 29: the GSN standard's assurance-case and acceptably-safe definitions, bound to the registered citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa30-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 30: Koopman's safe-enough position in his own May 31 2026 post with its bibliography, bound to the registered citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa31-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 31: RSS as a white-box interpretable mathematical model proposed by Shalev-Shwartz, Shammah and Shashua, bound to the registered rss-2017 citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa34-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 34: KnowNo's conformal calibration with statistical guarantees on task completion, bound to the registered knowno-2023 citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa35-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 35: the fast anomaly classifier triggering slower fallback under reasoner latency, bound to the registered sinha-anomaly-2024 citation. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "safety-assurance-sa37-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/safety-and-assurance",
+  "oldHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "newHash": "3c5c643004662b1961f6b20a95ecb0930404a2d2e29615770dd2a1fb99ebafda",
+  "reason": "Exactly safety-and-assurance original 37: the 2026-09-06 ASIMOV correction (evaluation harness for agentic AI systems on safety-critical robotics tasks) confirmed by the fresh public README read; the article edit predates this integration and is byte-unchanged here. The guarded article endpoint is byte-unchanged by this ledger-only completion, so the prose member hash is unchanged from its approved state and this approval records the completion against that hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 safety-and-assurance integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
 }
   ]
 }
