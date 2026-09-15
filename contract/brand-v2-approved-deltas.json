@@ -13197,6 +13197,210 @@
       "VAL-AUDIT-009"
     ],
     "disposition": "permanent"
+  },
+  {
+    "id": "hwbc-r1-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/humanoid-wbc",
+    "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+    "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+    "reason": "Exactly rl-sim2real/humanoid-wbc original 1: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). This row carries one of the six applied article spans. All 13 selected records are humanoid-wbc rows from frozen packet convergence-source-b-humanoid-wbc-20260915 (sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6); six article spans were applied and the sole remaining body use of gr00t-n1-2025 was re-pointed to isaac-gr00t-repo-2026 + groot-wbc-2026 (both already registered and already cited), with the now-unused frontmatter id removed in the same change. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-b-humanoid-wbc-20260915, sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "hwbc-r9-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/humanoid-wbc",
+    "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+    "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+    "reason": "Exactly rl-sim2real/humanoid-wbc original 9: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). This row carries one of the six applied article spans. All 13 selected records are humanoid-wbc rows from frozen packet convergence-source-b-humanoid-wbc-20260915 (sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6); six article spans were applied and the sole remaining body use of gr00t-n1-2025 was re-pointed to isaac-gr00t-repo-2026 + groot-wbc-2026 (both already registered and already cited), with the now-unused frontmatter id removed in the same change. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-b-humanoid-wbc-20260915, sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "hwbc-r10-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/humanoid-wbc",
+    "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+    "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+    "reason": "Exactly rl-sim2real/humanoid-wbc original 10: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). All 13 selected records are humanoid-wbc rows from frozen packet convergence-source-b-humanoid-wbc-20260915 (sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6); six article spans were applied and the sole remaining body use of gr00t-n1-2025 was re-pointed to isaac-gr00t-repo-2026 + groot-wbc-2026 (both already registered and already cited), with the now-unused frontmatter id removed in the same change. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-b-humanoid-wbc-20260915, sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "hwbc-r11-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/humanoid-wbc",
+    "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+    "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+    "reason": "Exactly rl-sim2real/humanoid-wbc original 11: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). This row carries one of the six applied article spans. All 13 selected records are humanoid-wbc rows from frozen packet convergence-source-b-humanoid-wbc-20260915 (sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6); six article spans were applied and the sole remaining body use of gr00t-n1-2025 was re-pointed to isaac-gr00t-repo-2026 + groot-wbc-2026 (both already registered and already cited), with the now-unused frontmatter id removed in the same change. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-b-humanoid-wbc-20260915, sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "hwbc-r12-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/humanoid-wbc",
+    "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+    "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+    "reason": "Exactly rl-sim2real/humanoid-wbc original 12: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). All 13 selected records are humanoid-wbc rows from frozen packet convergence-source-b-humanoid-wbc-20260915 (sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6); six article spans were applied and the sole remaining body use of gr00t-n1-2025 was re-pointed to isaac-gr00t-repo-2026 + groot-wbc-2026 (both already registered and already cited), with the now-unused frontmatter id removed in the same change. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-b-humanoid-wbc-20260915, sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "hwbc-r13-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/humanoid-wbc",
+    "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+    "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+    "reason": "Exactly rl-sim2real/humanoid-wbc original 13: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). All 13 selected records are humanoid-wbc rows from frozen packet convergence-source-b-humanoid-wbc-20260915 (sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6); six article spans were applied and the sole remaining body use of gr00t-n1-2025 was re-pointed to isaac-gr00t-repo-2026 + groot-wbc-2026 (both already registered and already cited), with the now-unused frontmatter id removed in the same change. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-b-humanoid-wbc-20260915, sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "hwbc-r14-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/humanoid-wbc",
+    "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+    "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+    "reason": "Exactly rl-sim2real/humanoid-wbc original 14: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). This row carries one of the six applied article spans. All 13 selected records are humanoid-wbc rows from frozen packet convergence-source-b-humanoid-wbc-20260915 (sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6); six article spans were applied and the sole remaining body use of gr00t-n1-2025 was re-pointed to isaac-gr00t-repo-2026 + groot-wbc-2026 (both already registered and already cited), with the now-unused frontmatter id removed in the same change. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-b-humanoid-wbc-20260915, sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "hwbc-r15-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/humanoid-wbc",
+    "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+    "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+    "reason": "Exactly rl-sim2real/humanoid-wbc original 15: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). This row carries one of the six applied article spans. All 13 selected records are humanoid-wbc rows from frozen packet convergence-source-b-humanoid-wbc-20260915 (sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6); six article spans were applied and the sole remaining body use of gr00t-n1-2025 was re-pointed to isaac-gr00t-repo-2026 + groot-wbc-2026 (both already registered and already cited), with the now-unused frontmatter id removed in the same change. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-b-humanoid-wbc-20260915, sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "hwbc-r16-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/humanoid-wbc",
+    "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+    "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+    "reason": "Exactly rl-sim2real/humanoid-wbc original 16: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Reuses the registration already bound by compound plan generalization-g15-gr2-ondevice-20260915 (consistency verified read-only; see reuse-check.json). All 13 selected records are humanoid-wbc rows from frozen packet convergence-source-b-humanoid-wbc-20260915 (sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6); six article spans were applied and the sole remaining body use of gr00t-n1-2025 was re-pointed to isaac-gr00t-repo-2026 + groot-wbc-2026 (both already registered and already cited), with the now-unused frontmatter id removed in the same change. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-b-humanoid-wbc-20260915, sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "hwbc-r17-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/humanoid-wbc",
+    "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+    "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+    "reason": "Exactly rl-sim2real/humanoid-wbc original 17: ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). This row carries one of the six applied article spans. All 13 selected records are humanoid-wbc rows from frozen packet convergence-source-b-humanoid-wbc-20260915 (sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6); six article spans were applied and the sole remaining body use of gr00t-n1-2025 was re-pointed to isaac-gr00t-repo-2026 + groot-wbc-2026 (both already registered and already cited), with the now-unused frontmatter id removed in the same change. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-b-humanoid-wbc-20260915, sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "hwbc-r18-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/humanoid-wbc",
+    "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+    "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+    "reason": "Exactly rl-sim2real/humanoid-wbc original 18: local-AND row completed with the integrator-side conjunct (see local-proof.json); ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). All 13 selected records are humanoid-wbc rows from frozen packet convergence-source-b-humanoid-wbc-20260915 (sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6); six article spans were applied and the sole remaining body use of gr00t-n1-2025 was re-pointed to isaac-gr00t-repo-2026 + groot-wbc-2026 (both already registered and already cited), with the now-unused frontmatter id removed in the same change. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-b-humanoid-wbc-20260915, sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "hwbc-r19-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:rl-sim2real/humanoid-wbc",
+    "oldHash": "4895f2a747dfc4d608373b800d5d134a9d4c7802fd7c24796c54f9a0d61e7a13",
+    "newHash": "7c8af6e633e636f4983dedecdc8bd6513051e4a578f448dbc36081f9e7b562e5",
+    "reason": "Exactly rl-sim2real/humanoid-wbc original 19: local-AND row completed with the integrator-side conjunct (see local-proof.json); ledger evidence completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). All 13 selected records are humanoid-wbc rows from frozen packet convergence-source-b-humanoid-wbc-20260915 (sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6); six article spans were applied and the sole remaining body use of gr00t-n1-2025 was re-pointed to isaac-gr00t-repo-2026 + groot-wbc-2026 (both already registered and already cited), with the now-unused frontmatter id removed in the same change. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-b-humanoid-wbc-20260915, sha256 ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-002",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
   }
   ]
 }

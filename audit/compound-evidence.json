@@ -57991,5 +57991,1093 @@
       }
     ],
     "originalCellsDigest": "f3a90d3dde97dd2bf72b56739cc839a5e73f6eb80cb10b5b219763cf42784801"
+  },
+  {
+    "id": "humanoid-wbc-original-1-20260915",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 1,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "hw1-s0-10m-1khz",
+        "text": "The Helix 02 S0 whole-body controller is a 10M-parameter network running at 1 kHz.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "hw1-sim-fleet",
+        "text": "S0 was trained in simulation across more than 200,000 parallel environments.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "hw1-three-embodiments",
+        "text": "Gemini Robotics 2 controls three different embodiments using the same model checkpoint.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      },
+      {
+        "id": "hw1-sharpawave-22dof",
+        "text": "The dexterous hand is the five-fingered, 22 degree-of-freedom SharpaWave hand.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record humanoid-wbc:1 (ready-source-correction): four Stat-grid figures over two vendor posts (S0 10M/1 kHz and 200,000+ envs on the Figure post; three embodiments one checkpoint and 22-DoF SharpaWave on the GR2 post); vendor-reported status retained; endpoint adds attribution beneath the uncited Stat grid. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane (34 verbatim FULL, 3 folded for renderer artifacts only, 3 absence-observation passages re-proved as absences by this integrator; see integration lane needle-verification.json) with every pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "1093eb79afdd15e681b3071122bf2b3ec92ca6b50e0eb25c32e1f0b4af8e2a84"
+    },
+    "evidence": [
+      {
+        "partId": "hw1-s0-10m-1khz",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "**Architecture:** A 10M\u2011parameter neural network that takes full\u2011body joint state and base motion as input and outputs joint\u2011level actuator commands at 1 kHz."
+      },
+      {
+        "partId": "hw1-sim-fleet",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "**Simulation training:** S0 is trained entirely in simulation across more than 200,000 parallel environments with extensive domain randomization, enabling direct transfer to real robots and generalization across the fleet."
+      },
+      {
+        "partId": "hw1-three-embodiments",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "Gemini Robotics 2 controlling three different embodiments, using the same model checkpoint \u2014 the Apptronik Apollo 2 robot with SharpaWave hands, the Apollo 2 robot with Inspire hands, and the Franka Duo with the Robotiq gripper \u2014 on a wide variety of whole-body and dexterous manipulation tasks."
+      },
+      {
+        "partId": "hw1-sharpawave-22dof",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "The model can now control the five-fingered, 22 degree-of-freedom SharpaWave hand on the Apollo 2 robot to complete delicate actions like tying knots or sealing a ziplock bag."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "hw1-s0-10m-1khz",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw1-s0-10m-1khz (record audit/rl-sim2real.md:humanoid-wbc:1): supported. needle-verified verbatim (FULL) against the retained sources/figure-helix-02.md render; pin sha256 verified. Evidence: https://www.figure.ai/news/helix-02",
+        "evidenceDigest": "735c3da5f452523abfbc088ee9d3c8e475066997e66e367be9a4f7ae5a6227cb"
+      },
+      {
+        "partId": "hw1-sim-fleet",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw1-sim-fleet (record audit/rl-sim2real.md:humanoid-wbc:1): supported. needle-verified verbatim (FULL) against the retained sources/figure-helix-02.md render; pin sha256 verified. Evidence: https://www.figure.ai/news/helix-02",
+        "evidenceDigest": "e20dd1c2913fc2f1dc570eefb84deca5aae3bbf8fabbb4bf53f5514fff5a9b90"
+      },
+      {
+        "partId": "hw1-three-embodiments",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw1-three-embodiments (record audit/rl-sim2real.md:humanoid-wbc:1): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "5169c5acbb468aaa171f762517fcac5538e9e5a2422d35d54913cedd5d3da7c1"
+      },
+      {
+        "partId": "hw1-sharpawave-22dof",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw1-sharpawave-22dof (record audit/rl-sim2real.md:humanoid-wbc:1): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "682182156d8388d8a830433983955d5d6e6f3608d17659405cbd3fb7924ed8ae"
+      }
+    ],
+    "originalCellsDigest": "1098555d0987fd85cfa2b25df8a1cb1e72b31614879b08fd09436f54737c36a3"
+  },
+  {
+    "id": "humanoid-wbc-original-9-20260915",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 9,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "hw9-noisy-references",
+        "text": "Reference motions can arrive noisy and inconsistent after transfer to the robot domain, and closed-loop execution can amplify local defects.",
+        "requiredCitationIds": [
+          "robust-tracking-2026"
+        ]
+      },
+      {
+        "id": "hw9-aggregation-framework",
+        "text": "The paper's remedy is a dynamics-conditioned command aggregation framework in which a multi-head cross-attention command encoder selectively aggregates a context window based on current dynamics.",
+        "requiredCitationIds": [
+          "robust-tracking-2026"
+        ]
+      },
+      {
+        "id": "hw9-fall-recovery-curriculum",
+        "text": "A fall recovery curriculum uses random unstable initialization and an annealed upward assistance force.",
+        "requiredCitationIds": [
+          "robust-tracking-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record humanoid-wbc:9 (ready-source-correction): abstract-only evidence, no claim beyond the abstract certified; endpoint splits the framework (dynamics-conditioned command aggregation) from its mechanism (multi-head cross-attention command encoder). Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane (34 verbatim FULL, 3 folded for renderer artifacts only, 3 absence-observation passages re-proved as absences by this integrator; see integration lane needle-verification.json) with every pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "8a70f452370d84fff77a921ba842688522fb5a5158bdfee42678b9e02571dddb"
+    },
+    "evidence": [
+      {
+        "partId": "hw9-noisy-references",
+        "citationId": "robust-tracking-2026",
+        "sourceUrl": "https://arxiv.org/abs/2601.23080",
+        "supportingPassage": "Learning a general humanoid whole-body controller is challenging because practical reference motions can exhibit noise and inconsistencies after being transferred to the robot domain, and local defects may be amplified by closed-loop execution, causing drift or failure in highly dynamic and contact-rich behaviors."
+      },
+      {
+        "partId": "hw9-aggregation-framework",
+        "citationId": "robust-tracking-2026",
+        "sourceUrl": "https://arxiv.org/abs/2601.23080",
+        "supportingPassage": "We propose a dynamics-conditioned command aggregation framework that uses a causal temporal encoder to summarize recent proprioception and a multi-head cross-attention command encoder to selectively aggregate a context window based on the current dynamics."
+      },
+      {
+        "partId": "hw9-fall-recovery-curriculum",
+        "citationId": "robust-tracking-2026",
+        "sourceUrl": "https://arxiv.org/abs/2601.23080",
+        "supportingPassage": "We further integrate a fall recovery curriculum with random unstable initialization and an annealed upward assistance force to improve robustness and disturbance rejection."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "hw9-noisy-references",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw9-noisy-references (record audit/rl-sim2real.md:humanoid-wbc:9): supported. needle-verified verbatim (FULL) against the retained sources/arxiv-2601.23080-abs.md render; pin sha256 verified. Evidence: https://arxiv.org/abs/2601.23080",
+        "evidenceDigest": "28f5548f2e94cd291d7166d321fa45053fb6d428b3dd5fdabd46e32d3f78b99b"
+      },
+      {
+        "partId": "hw9-aggregation-framework",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw9-aggregation-framework (record audit/rl-sim2real.md:humanoid-wbc:9): supported. needle-verified verbatim (FULL) against the retained sources/arxiv-2601.23080-abs.md render; pin sha256 verified. Evidence: https://arxiv.org/abs/2601.23080",
+        "evidenceDigest": "709958dc8aa6362ff1f5b9ad2d3256a048750596370ffc1bef848ee018dda293"
+      },
+      {
+        "partId": "hw9-fall-recovery-curriculum",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw9-fall-recovery-curriculum (record audit/rl-sim2real.md:humanoid-wbc:9): supported. needle-verified verbatim (FULL) against the retained sources/arxiv-2601.23080-abs.md render; pin sha256 verified. Evidence: https://arxiv.org/abs/2601.23080",
+        "evidenceDigest": "d05d6250559689efa84f716f585b645ea9063bbf2733a82c5d6a4330ffba638d"
+      }
+    ],
+    "originalCellsDigest": "923f79b0d763dffc3900b02f7ef9ccb9ddafa95a6e9b1d7aa1c0ba25f3bcb245"
+  },
+  {
+    "id": "humanoid-wbc-original-10-20260915",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 10,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "hw10-s2-latents",
+        "text": "S2 is the semantic-reasoning layer that produces latent goals for S1.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "hw10-s1-200hz",
+        "text": "S1 is a visuomotor transformer running at 200 Hz that takes all sensors in and emits full-body joint targets.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "hw10-s0-arch",
+        "text": "S0 is a 10M-parameter whole-body controller at 1 kHz converting joint state and base motion into actuator commands.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "hw10-training",
+        "text": "S0 was trained on over 1,000 hours of joint-level retargeted human motion plus sim-to-real RL across more than 200,000 parallel environments.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "hw10-cpp-replacement",
+        "text": "Figure states System 0 replaced 109,504 lines of hand-engineered C++.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "hw10-dishwasher",
+        "text": "The headline demo is a four-minute autonomous dishwasher task of 61 loco-manipulation actions, vendor-reported with no paper and no success rates.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record humanoid-wbc:10 (ready-source-correction): every Helix 02 figure verified on the live page (10M/1 kHz/200 Hz/1,000+ h/200,000+/109,504 lines/4-minute/61 actions); evidence completion only, vendor-reported framing intact. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane (34 verbatim FULL, 3 folded for renderer artifacts only, 3 absence-observation passages re-proved as absences by this integrator; see integration lane needle-verification.json) with every pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "12773f66d6a9d1bef3e951d1ca6ec244f70b96e0aba9fdd5fc0853dec6259770"
+    },
+    "evidence": [
+      {
+        "partId": "hw10-s2-latents",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "System 2 remains the semantic reasoning layer: processing scenes, understanding language, and producing latent goals for S1. [...] S2 doesn't need to plan low-level footsteps or specify how to coordinate arms and legs. It produces a sequence of semantic latents that S1 interprets into motor commands, which S0 executes."
+      },
+      {
+        "partId": "hw10-s1-200hz",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "Each system operates at its natural timescale. **System 2 (S2)** reasons slowly about goals: interpreting scenes, understanding language, and sequencing behaviors. **System 1 (S1)** thinks fast, translating perception into full\u2011body joint targets at 200 Hz. **System 0 (S0)** executes at 1 kHz, handling balance, contact, and coordination across the entire body."
+      },
+      {
+        "partId": "hw10-s0-arch",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "**Architecture:** A 10M\u2011parameter neural network that takes full\u2011body joint state and base motion as input and outputs joint\u2011level actuator commands at 1 kHz."
+      },
+      {
+        "partId": "hw10-training",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "**Training data:** Over 1,000 hours of joint\u2011level retargeted human motion data.\n\n**Architecture:** A 10M\u2011parameter neural network that takes full\u2011body joint state and base motion as input and outputs joint\u2011level actuator commands at 1 kHz.\n\n**Simulation training:** S0 is trained entirely in simulation across more than 200,000 parallel environments with extensive domain randomization, enabling direct transfer to real robots and generalization across the fleet."
+      },
+      {
+        "partId": "hw10-cpp-replacement",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "All results are enabled by **System 0**, a learned whole\u2011body controller trained on over 1,000 hours of human motion data and sim\u2011to\u2011real reinforcement learning. System 0 replaces 109,504 lines of hand\u2011engineered C++ with a single neural prior for stable, natural motion."
+      },
+      {
+        "partId": "hw10-dishwasher",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "Helix 02 unloads and reloads a dishwasher across a full-sized kitchen - a four-minute, end-to-end autonomous task that integrates walking, manipulation, and balance with no resets and no human intervention. [...] _Long\u2011horizon sequencing_: 61 loco-manipulation actions, ordered correctly, with implicit error recovery. The robot maintains task state across minutes of execution."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "hw10-s2-latents",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw10-s2-latents (record audit/rl-sim2real.md:humanoid-wbc:10): supported. needle-verified verbatim (FULL) against the retained sources/figure-helix-02.md render; pin sha256 verified. Evidence: https://www.figure.ai/news/helix-02",
+        "evidenceDigest": "399c6f246d2e4aa928e7d64cb70f2f7257309f567146a9de53749f87ce6b5fd8"
+      },
+      {
+        "partId": "hw10-s1-200hz",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw10-s1-200hz (record audit/rl-sim2real.md:humanoid-wbc:10): supported. needle-verified verbatim (FULL) against the retained sources/figure-helix-02.md render; pin sha256 verified. Evidence: https://www.figure.ai/news/helix-02",
+        "evidenceDigest": "42fa75d4c722444a29e970c8c42638a405b9463fd38d1543f5aaec6385e0edc4"
+      },
+      {
+        "partId": "hw10-s0-arch",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw10-s0-arch (record audit/rl-sim2real.md:humanoid-wbc:10): supported. needle-verified verbatim (FULL) against the retained sources/figure-helix-02.md render; pin sha256 verified. Evidence: https://www.figure.ai/news/helix-02",
+        "evidenceDigest": "4de3921e896064765a696f5db96f5d13c223cbe81f997bc0245abe0bed876550"
+      },
+      {
+        "partId": "hw10-training",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw10-training (record audit/rl-sim2real.md:humanoid-wbc:10): supported. needle-verified verbatim (FULL) against the retained sources/figure-helix-02.md render; pin sha256 verified. Evidence: https://www.figure.ai/news/helix-02",
+        "evidenceDigest": "62df5197301acb6d019e60e849b9295f1e20f4b8b0edfc9895d24cc6f2d82009"
+      },
+      {
+        "partId": "hw10-cpp-replacement",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw10-cpp-replacement (record audit/rl-sim2real.md:humanoid-wbc:10): supported. needle-verified verbatim (FULL) against the retained sources/figure-helix-02.md render; pin sha256 verified. Evidence: https://www.figure.ai/news/helix-02",
+        "evidenceDigest": "e0edb1942366a801f9c64d72ecba3399bd85ca4c3eeca528ed9385b74f1c26a5"
+      },
+      {
+        "partId": "hw10-dishwasher",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw10-dishwasher (record audit/rl-sim2real.md:humanoid-wbc:10): supported. needle-verified after sentence-level elision split + renderer-artifact folding only (typographic quotes/dashes/NBSP/markdown emphasis/permalink line; zero wording or figure changes) against the retained sources/figure-helix-02.md render; pin sha256 verified. Evidence: https://www.figure.ai/news/helix-02",
+        "evidenceDigest": "91331dbe8448bc8d94c1be05162122ba2e4f3e4e481a034b59b32c8011fcaeb5"
+      }
+    ],
+    "originalCellsDigest": "89e5a5d8ca3c38f1d1c64145a406a54df23d75ad3b8cad5ee966b4dc1a39c515"
+  },
+  {
+    "id": "humanoid-wbc-original-11-20260915",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 11,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "hw11-3b-vla",
+        "text": "GR00T N1.7 is a 3B-parameter VLA (nvidia/GR00T-N1.7-3B base model).",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "hw11-backbone",
+        "text": "Its VLM backbone is Cosmos-Reason2-2B (Qwen3-VL architecture).",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "hw11-action-head",
+        "text": "Its action head remains a flow-matching DiT.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "hw11-sonic-decode",
+        "text": "The VLA predicts compact latent action tokens; the learned GEAR-SONIC whole-body controller, exposed via the UNITREE_G1_SONIC embodiment tag, decodes them into full-body joint commands including legs, arms, and hands.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "hw11-gear-sonic-series",
+        "text": "GEAR-SONIC is NVIDIA's generalist humanoid whole-body controller series hosted in the GR00T-WholeBodyControl repository.",
+        "requiredCitationIds": [
+          "groot-wbc-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record humanoid-wbc:11 (ready-source-correction): both repo READMEs verified; endpoint refines the backbone name to Cosmos-Reason2-2B as the README prints it. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane (34 verbatim FULL, 3 folded for renderer artifacts only, 3 absence-observation passages re-proved as absences by this integrator; see integration lane needle-verification.json) with every pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Integrator plan repair: packet part hw11-sonic-decode required groot-wbc-2026 alongside isaac-gr00t-repo-2026, but the decode sentence rests on the Isaac-GR00T README passage alone (the WBC README does not print it; verified against the retained snapshot), so the required set was narrowed to the citation that actually carries the sentence; the GEAR-SONIC series facts remain in hw11-gear-sonic-series over groot-wbc-2026. No evidence passage or wording changed.",
+      "planDigest": "cf9c93f6c38c9acc18dffc9e5c2cb8e9e4c508dbc41685ddc4d163b641248205"
+    },
+    "evidence": [
+      {
+        "partId": "hw11-3b-vla",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "| [`nvidia/GR00T-N1.7-3B`](https://huggingface.co/nvidia/GR00T-N1.7-3B) | Base | See [pretrain tags](https://github.com/NVIDIA/Isaac-GR00T/blob/main/getting_started/policy.md#--embodiment-tag) | Base model (3B params) \u2014 zero-shot inference on pretrain embodiments, or finetune for new tasks |"
+      },
+      {
+        "partId": "hw11-backbone",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "- **New VLM backbone:** Cosmos-Reason2-2B (Qwen3-VL architecture), replacing the Eagle backbone used in N1.6. Supports flexible resolution and encodes images in their native aspect ratio without padding."
+      },
+      {
+        "partId": "hw11-action-head",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "- Action head remains flow-matching DiT, but changes from `32` to `16` diffusion layers and adds newer N1.7 behavior options."
+      },
+      {
+        "partId": "hw11-sonic-decode",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "GR00T N1.7 supports whole-body humanoid control via the `UNITREE_G1_SONIC` embodiment tag and the [GEAR-SONIC](https://github.com/NVlabs/GR00T-WholeBodyControl) controller. In this workflow, the VLA predicts compact latent action tokens that a learned whole-body controller decodes into full-body joint commands \u2014 including legs, arms, and hands. A single policy produces language-conditioned, coordinated manipulation and locomotion end-to-end."
+      },
+      {
+        "partId": "hw11-gear-sonic-series",
+        "citationId": "groot-wbc-2026",
+        "sourceUrl": "https://github.com/NVlabs/GR00T-WholeBodyControl",
+        "supportingPassage": "- **GEAR-SONIC Series**: our latest iteration of generalist humanoid whole-body controllers (see our [whitepaper](https://nvlabs.github.io/GEAR-SONIC/));"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "hw11-3b-vla",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw11-3b-vla (record audit/rl-sim2real.md:humanoid-wbc:11): supported. needle-verified verbatim (FULL) against the retained sources/isaac-groot-readme.md render; pin sha256 verified. Evidence: https://github.com/NVIDIA/Isaac-GR00T",
+        "evidenceDigest": "44130f1fad2d51cc45d58a4bb669591e2f28e820e9022ab95907c0d7121d2962"
+      },
+      {
+        "partId": "hw11-backbone",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw11-backbone (record audit/rl-sim2real.md:humanoid-wbc:11): supported. needle-verified verbatim (FULL) against the retained sources/isaac-groot-readme.md render; pin sha256 verified. Evidence: https://github.com/NVIDIA/Isaac-GR00T",
+        "evidenceDigest": "6cc640dc09c3c05bf8df11fdd0fd2b342cefba8b152a5a0ab4f25892d4185493"
+      },
+      {
+        "partId": "hw11-action-head",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw11-action-head (record audit/rl-sim2real.md:humanoid-wbc:11): supported. needle-verified verbatim (FULL) against the retained sources/isaac-groot-readme.md render; pin sha256 verified. Evidence: https://github.com/NVIDIA/Isaac-GR00T",
+        "evidenceDigest": "03dde691f3e634b377fc0e659b1dd5cdbdad1d2db766b1f6fe717886008641f3"
+      },
+      {
+        "partId": "hw11-sonic-decode",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw11-sonic-decode (record audit/rl-sim2real.md:humanoid-wbc:11): supported. needle-verified verbatim (FULL) against the retained sources/isaac-groot-readme.md render; pin sha256 verified. Evidence: https://github.com/NVIDIA/Isaac-GR00T",
+        "evidenceDigest": "a46fa9842b7d54d0715251bb511a3a6c8047a66ee1c2cd6ff6546f310b22be68"
+      },
+      {
+        "partId": "hw11-gear-sonic-series",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw11-gear-sonic-series (record audit/rl-sim2real.md:humanoid-wbc:11): supported. needle-verified verbatim (FULL) against the retained sources/groot-wbc-readme.md render; pin sha256 verified. Evidence: https://github.com/NVlabs/GR00T-WholeBodyControl",
+        "evidenceDigest": "704b3e0bfde3997dcdfda0dfb7f823af2b70203338311afc5f7ee51bf3cfb1e2"
+      }
+    ],
+    "originalCellsDigest": "cb7ea6a8b641a67307a7687fcf61d012ae065a3b1fa02d5040c2b470ff6361eb"
+  },
+  {
+    "id": "humanoid-wbc-original-12-20260915",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 12,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "hw12-latent-vocabulary",
+        "text": "A vision-language policy learns a latent action vocabulary from synthetically rendered kinematic demonstrations.",
+        "requiredCitationIds": [
+          "leverb-2025"
+        ]
+      },
+      {
+        "id": "hw12-rl-wbc-consumes",
+        "text": "A reinforcement-learned WBC policy consumes these latent verbs to generate dynamics-level commands.",
+        "requiredCitationIds": [
+          "leverb-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record humanoid-wbc:12 (ready-source-correction): abstract-only evidence; the LeVERB hierarchical split verified verbatim; unused abstract benchmark numbers not certified. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane (34 verbatim FULL, 3 folded for renderer artifacts only, 3 absence-observation passages re-proved as absences by this integrator; see integration lane needle-verification.json) with every pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "342a897954fbe9a43e1f842a1581c72564d2e1283f6b45eed1d3bcdbc04c1cce"
+    },
+    "evidence": [
+      {
+        "partId": "hw12-latent-vocabulary",
+        "citationId": "leverb-2025",
+        "sourceUrl": "https://arxiv.org/abs/2506.13751",
+        "supportingPassage": "At the top level, a vision-language policy learns a latent action vocabulary from synthetically rendered kinematic demonstrations; at the low level, a reinforcement-learned WBC policy consumes these latent verbs to generate dynamics-level commands."
+      },
+      {
+        "partId": "hw12-rl-wbc-consumes",
+        "citationId": "leverb-2025",
+        "sourceUrl": "https://arxiv.org/abs/2506.13751",
+        "supportingPassage": "At the top level, a vision-language policy learns a latent action vocabulary from synthetically rendered kinematic demonstrations; at the low level, a reinforcement-learned WBC policy consumes these latent verbs to generate dynamics-level commands."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "hw12-latent-vocabulary",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw12-latent-vocabulary (record audit/rl-sim2real.md:humanoid-wbc:12): supported. needle-verified verbatim (FULL) against the retained sources/arxiv-2506.13751-abs.md render; pin sha256 verified. Evidence: https://arxiv.org/abs/2506.13751",
+        "evidenceDigest": "23145022662162777719266baa61c8a2dce9d9ac6db5060e0bd179daed1ae297"
+      },
+      {
+        "partId": "hw12-rl-wbc-consumes",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw12-rl-wbc-consumes (record audit/rl-sim2real.md:humanoid-wbc:12): supported. needle-verified verbatim (FULL) against the retained sources/arxiv-2506.13751-abs.md render; pin sha256 verified. Evidence: https://arxiv.org/abs/2506.13751",
+        "evidenceDigest": "08706e7b2b24ec148029d6ff9824f0fbafa24c1d3c00c4d95ab7ec6c3c529094"
+      }
+    ],
+    "originalCellsDigest": "a8d9d14887176c7c6e1d3d79b5a5eecfd5e7136ea7f63ae2eff1191257b4888e"
+  },
+  {
+    "id": "humanoid-wbc-original-13-20260915",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 13,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "hw13-actionfree-video",
+        "text": "WholeBodyVLA's unified latent learning framework enables a VLA system to learn from low-cost action-free egocentric videos.",
+        "requiredCitationIds": [
+          "wholebodyvla-2025"
+        ]
+      },
+      {
+        "id": "hw13-locomanipulation",
+        "text": "WholeBodyVLA is introduced as a unified framework for humanoid loco-manipulation.",
+        "requiredCitationIds": [
+          "wholebodyvla-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record humanoid-wbc:13 (ready-source-correction): abstract-only evidence; registry venue ICLR 2026 left unconfirmed as the abs page does not state it (uncertainty stays uncertainty). Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane (34 verbatim FULL, 3 folded for renderer artifacts only, 3 absence-observation passages re-proved as absences by this integrator; see integration lane needle-verification.json) with every pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "4a88c5eb7199897eace6e8f285cf10d44cff74fc4bb5a45651897e99eb0a017a"
+    },
+    "evidence": [
+      {
+        "partId": "hw13-actionfree-video",
+        "citationId": "wholebodyvla-2025",
+        "sourceUrl": "https://arxiv.org/abs/2512.11047",
+        "supportingPassage": "To acquire richer loco-manipulation knowledge, we propose a unified latent learning framework that enables Vision-Language-Action (VLA) system to learn from low-cost action-free egocentric videos."
+      },
+      {
+        "partId": "hw13-locomanipulation",
+        "citationId": "wholebodyvla-2025",
+        "sourceUrl": "https://arxiv.org/abs/2512.11047",
+        "supportingPassage": "Building on these components, we introduce WholeBodyVLA, a unified framework for humanoid loco-manipulation."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "hw13-actionfree-video",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw13-actionfree-video (record audit/rl-sim2real.md:humanoid-wbc:13): supported. needle-verified verbatim (FULL) against the retained sources/arxiv-2512.11047-abs.md render; pin sha256 verified. Evidence: https://arxiv.org/abs/2512.11047",
+        "evidenceDigest": "9ae3175d6f0d6307bd13c0432ae618b1697925e867d9bceebb6a16f39f288966"
+      },
+      {
+        "partId": "hw13-locomanipulation",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw13-locomanipulation (record audit/rl-sim2real.md:humanoid-wbc:13): supported. needle-verified verbatim (FULL) against the retained sources/arxiv-2512.11047-abs.md render; pin sha256 verified. Evidence: https://arxiv.org/abs/2512.11047",
+        "evidenceDigest": "e2433b477e3202482f0b2467ff11d9135f38dc14aa0d0e6a7cae88871a45ff13"
+      }
+    ],
+    "originalCellsDigest": "6fd9b05cb129cff8f2971e58d54f28a8b2fd28cb7e15980ead9e7de1a3a5dd50"
+  },
+  {
+    "id": "humanoid-wbc-original-14-20260915",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 14,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "hw14-isaac-license",
+        "text": "Isaac-GR00T code is Apache 2.0 and its model weights are under the NVIDIA Open Model License.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "hw14-wbc-license",
+        "text": "GR00T-WholeBodyControl is dual-licensed: source code under Apache License 2.0, model weights under the NVIDIA Open Model License, with released model checkpoints.",
+        "requiredCitationIds": [
+          "groot-wbc-2026"
+        ]
+      },
+      {
+        "id": "hw14-figure-absence",
+        "text": "The Figure Helix 02 announcement publishes no code repository or model weights (absence observed in the full announcement text fetched 2026-09-15).",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "hw14-gr2-absence",
+        "text": "The Gemini Robotics 2 announcement publishes no code repository or model weights (absence observed in the full announcement text fetched 2026-09-15).",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record humanoid-wbc:14 (ready-source-correction): license names verified verbatim in both READMEs (Apache 2.0 / Apache License 2.0 code; NVIDIA Open Model License weights); code/weights absence re-proved by this integrator over both complete fetched announcements scoped to the 2026-09-15 fetches; endpoint re-points the citation from gr00t-n1-2025 to the two repos and the now-unused frontmatter id was removed with it. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane (34 verbatim FULL, 3 folded for renderer artifacts only, 3 absence-observation passages re-proved as absences by this integrator; see integration lane needle-verification.json) with every pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "7a1ca4e1631c9e3d28cba505e185d14144c78fc28c5578e0fbe21b0e125f7b29"
+    },
+    "evidence": [
+      {
+        "partId": "hw14-isaac-license",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "## License\n\n- **Code:** Apache 2.0 \u2014 see [LICENSE](https://github.com/NVIDIA/Isaac-GR00T/blob/main/LICENSE)\n- **Model weights:** [NVIDIA Open Model License](https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-open-model-license/)"
+      },
+      {
+        "partId": "hw14-wbc-license",
+        "citationId": "groot-wbc-2026",
+        "sourceUrl": "https://github.com/NVlabs/GR00T-WholeBodyControl",
+        "supportingPassage": "This project uses dual licensing:\n\n- **Source Code**: Licensed under Apache License 2.0 - applies to all code, scripts, and software components in this repository\n- **Model Weights**: Licensed under NVIDIA Open Model License - applies to all trained model checkpoints and weights"
+      },
+      {
+        "partId": "hw14-figure-absence",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "Absence observation: the complete announcement text (fetched 2026-09-15T19:57:43Z, FetchUrl 200; full snapshot in sources/figure-helix-02.md) contains no code repository link, no weights link, and no software artifact of any kind; its outbound links are Figure's own pages only (figure.ai/news/helix, figure.ai/news/introducing-figure-03, figure.ai/news/botq, figure.ai/careers)."
+      },
+      {
+        "partId": "hw14-gr2-absence",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "Absence observation: the complete announcement text (fetched 2026-09-15T19:57:43Z, FetchUrl 200; full snapshot in sources/gr2-post.md) contains no code repository link and no model-weights download; its resource links are Google AI Studio, Gemini Enterprise Agent Platform, ER 2 / On-Device 2 model cards, the developer blog, a Trusted Tester form, the ASIMOV-Agentic dataset, and the Safety Technical Report PDF. Model access is early-access-partner gated."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "hw14-isaac-license",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw14-isaac-license (record audit/rl-sim2real.md:humanoid-wbc:14): supported. needle-verified after renderer-artifact folding only (typographic quotes/dashes/NBSP/markdown emphasis/permalink line; zero wording or figure changes) against the retained sources/isaac-groot-readme.md render; pin sha256 verified. Evidence: https://github.com/NVIDIA/Isaac-GR00T",
+        "evidenceDigest": "46527053b8e8cef755264b1cb583565d30e1f86ead40ae00d07e0cc7cb2b9395"
+      },
+      {
+        "partId": "hw14-wbc-license",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw14-wbc-license (record audit/rl-sim2real.md:humanoid-wbc:14): supported. needle-verified verbatim (FULL) against the retained sources/groot-wbc-readme.md render; pin sha256 verified. Evidence: https://github.com/NVlabs/GR00T-WholeBodyControl",
+        "evidenceDigest": "dd6267ce0e7e6f2304f43a0619c4799a8605ac15a3a659412bf941f85c494bc9"
+      },
+      {
+        "partId": "hw14-figure-absence",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw14-figure-absence (record audit/rl-sim2real.md:humanoid-wbc:14): supported. absence re-proved by the integrator over the complete retained sources/figure-helix-02.md render (term-level search + link enumeration); pin sha256 verified. Evidence: https://www.figure.ai/news/helix-02",
+        "evidenceDigest": "92c8dac1e30648799a00467910925af6a28586df419da1edc73d6e8b631ee129"
+      },
+      {
+        "partId": "hw14-gr2-absence",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw14-gr2-absence (record audit/rl-sim2real.md:humanoid-wbc:14): supported. absence re-proved by the integrator over the complete retained sources/gr2-post.md render (term-level search + link enumeration); pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "73b46ca86d166ab738df5b5b494e645716ea1dad8e8e9357446a484bab280300"
+      }
+    ],
+    "originalCellsDigest": "a666471323a2c0a5fae0df4686f34d6a6ab50bf77eb52e3c2aa550527a631db8"
+  },
+  {
+    "id": "humanoid-wbc-original-15-20260915",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 15,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "hw15-picking-by-height",
+        "text": "Whole-body picking succeeds 76.3% from a shelf, 68.4% from a table, and 45.7% from the floor, measured on Apollo 2 with Inspire hands.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      },
+      {
+        "id": "hw15-insertion",
+        "text": "Gripper-based precise insertion reaches 89.6%, measured on the Franka Duo.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      },
+      {
+        "id": "hw15-multifinger-spread",
+        "text": "Multi-finger dexterity on the Apollo 2 Sharpa hand spans 92% (unscrewing a bulb) down to 32% (dustpan), a 60-point spread that is arithmetic on the vendor's own chart values.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      },
+      {
+        "id": "hw15-vendor-caveat",
+        "text": "The vendor's own caption states that multi-finger dexterous manipulation remains challenging while whole-body and gripper-based tasks reach medium to high success rates.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record humanoid-wbc:15 (ready-source-correction): all eight chart figures verified in the live chart alt-texts; endpoint adds the embodiment qualifiers the charts carry (Inspire hands / Sharpa hand / Franka Duo) and removes the unsupported getting-down-and-back-up mechanism gloss; 60-point spread is arithmetic on sourced values. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane (34 verbatim FULL, 3 folded for renderer artifacts only, 3 absence-observation passages re-proved as absences by this integrator; see integration lane needle-verification.json) with every pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "9e9dca8ac404c553e5e18cf337a77aa794c783cd368d88ffa1ef18acdaf6bad5"
+    },
+    "evidence": [
+      {
+        "partId": "hw15-picking-by-height",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "A bar chart titled \"General whole body manipulation\" with subtitle \"Apollo with Inspire hands\" displaying accuracy percentages with error bars across three tasks: \"Pick up from table\" at 68.4%, \"Pick up from floor\" at 45.7%, and \"Pick up from shelf\" at 76.3%."
+      },
+      {
+        "partId": "hw15-insertion",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "A bar chart titled \"Gripper dexterity\" with subtitle \"Franka Duo\" displaying accuracy percentages with error bars across three tasks: \"General pick and place\" at 74.2%, \"Diverse tool kitting\" at 78.9%, and \"Precise insertion tasks\" at 89.6%."
+      },
+      {
+        "partId": "hw15-multifinger-spread",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "A bar chart titled \"Multi-finger dexterity\" with subtitle \"Apollo with Sharpa hands\" displaying accuracy percentages with error bars across five tasks: \"Screw bulb\" at 36%, \"Unscrew bulb\" at 92%, \"Tie trash bag\" at 44%, \"Dustpan\" at 32%, and \"Ziplock\" at 40%."
+      },
+      {
+        "partId": "hw15-vendor-caveat",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "Gemini Robotics 2 controlling three different embodiments, using the same model checkpoint \u2014 the Apptronik Apollo 2 robot with SharpaWave hands, the Apollo 2 robot with Inspire hands, and the Franka Duo with the Robotiq gripper \u2014 on a wide variety of whole-body and dexterous manipulation tasks. Each bar represents the average success rate over multiple tasks within the same skill category. For multifinger tasks we show individual task performance. While Gemini Robotics 2 achieves a medium to high success rate for whole-body and gripper-based dexterous tasks, the multi-finger dexterous manipulation remains challenging."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "hw15-picking-by-height",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw15-picking-by-height (record audit/rl-sim2real.md:humanoid-wbc:15): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "ddd689199b81ac96597a512792669d5be3cfd092c196b7255a80048f7704e253"
+      },
+      {
+        "partId": "hw15-insertion",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw15-insertion (record audit/rl-sim2real.md:humanoid-wbc:15): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "7777baf02b8826f62f820fc99254b5fbb36ae6803eb70f0b1f4fd9e731c92d18"
+      },
+      {
+        "partId": "hw15-multifinger-spread",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw15-multifinger-spread (record audit/rl-sim2real.md:humanoid-wbc:15): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "b4235f94479d1aa4954d7d222513a4510512253889ab7a1a653b59fcf19877f3"
+      },
+      {
+        "partId": "hw15-vendor-caveat",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw15-vendor-caveat (record audit/rl-sim2real.md:humanoid-wbc:15): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "f7c4ca4153be438e371cf306c7ac30ea8830867ea3be55ee8b9feb05dd979164"
+      }
+    ],
+    "originalCellsDigest": "a61dcc23955d193f4ca121be94e2490ba4bbc9d4efbd2b562cc1046a100bde22"
+  },
+  {
+    "id": "humanoid-wbc-original-16-20260915",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 16,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "hw16-ondevice-scope",
+        "text": "The fast-adaptation capability belongs to Gemini Robotics On-Device 2, the efficiency model announced alongside GR2.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      },
+      {
+        "id": "hw16-adapt-figures",
+        "text": "Adapting to a new bi-arm robot embodiment takes a few hours of adaptation time, typically with less than 200 examples, and works for embodiments with different shapes, sensors and degrees of freedom.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record humanoid-wbc:16 (ready-source-correction): reuses the gemini-robotics-2-2026 registration already bound by integrator-reviewed plan generalization-g15-gr2-ondevice-20260915; same-citation/same-URL consistency re-verified read-only (see reuse-check.json); both passages still printed. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane (34 verbatim FULL, 3 folded for renderer artifacts only, 3 absence-observation passages re-proved as absences by this integrator; see integration lane needle-verification.json) with every pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "28039495ff069e662d849a7e548befa080e7e1871ddea5d5e815e2afe89cf4ef"
+    },
+    "evidence": [
+      {
+        "partId": "hw16-ondevice-scope",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "Gemini Robotics On-Device 2: Our most efficient vision-language-action model (VLA) optimized to run locally on robotic devices. This model can now achieve fast adaptation to completely new robot embodiments with a few hours of data."
+      },
+      {
+        "partId": "hw16-adapt-figures",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "This model is natively multi-embodiment and inherits our advanced \"motion transfer\" techniques from Gemini Robotics 1.5. We can now adapt to new bi-arm robot embodiments with just a few hours of adaptation time, typically with less than 200 examples. This works even with new embodiments with drastically different shapes, sensors and degrees of freedom, as shown below with a diverse set of tasks being performed by the Dexmate, SO101, and Trossen platforms."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "hw16-ondevice-scope",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw16-ondevice-scope (record audit/rl-sim2real.md:humanoid-wbc:16): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "797d8e0216df62f031c556887f398f0e93459849dde7ee0af192fec093538f69"
+      },
+      {
+        "partId": "hw16-adapt-figures",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw16-adapt-figures (record audit/rl-sim2real.md:humanoid-wbc:16): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "9718de948e0c159dc445b1f43aca5c8aeabcef64bfb30da85ceb28c1d65deee0"
+      }
+    ],
+    "originalCellsDigest": "1c1690bd29c9771738dd73c470eb1387f8a03efc323a4e285d9dd557c2f88d96"
+  },
+  {
+    "id": "humanoid-wbc-original-17-20260915",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 17,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "hw17-arch-undisclosed",
+        "text": "The announcement discloses no action representation, no control frequency, and no parameter count for any of the three announced models.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      },
+      {
+        "id": "hw17-what-is-published",
+        "text": "What the announcement publishes instead is capability description, per-task success-rate charts, and embodiment lists; its only linked technical document is a safety report.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      },
+      {
+        "id": "hw17-speed-flag",
+        "text": "DeepMind's own caption flags movement speed as an area with more to advance.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record humanoid-wbc:17 (ready-source-correction): absence of action representation / control frequency / parameter counts re-proved by this integrator over the complete fetched announcement (term-level + link enumeration over the retained render); endpoint scopes the undisclosed claim to in the announcement; movement-speed flag sentence verified. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane (34 verbatim FULL, 3 folded for renderer artifacts only, 3 absence-observation passages re-proved as absences by this integrator; see integration lane needle-verification.json) with every pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "8129ded7536e688ccb1ae021ada185500e5fd283bc5a443e4336c786769856a1"
+    },
+    "evidence": [
+      {
+        "partId": "hw17-arch-undisclosed",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "Absence observation: the complete announcement text (fetched 2026-09-15T19:57:43Z, FetchUrl 200; full snapshot in sources/gr2-post.md) nowhere states an action representation, control frequency, or parameter count for Gemini Robotics 2, ER 2, or On-Device 2."
+      },
+      {
+        "partId": "hw17-what-is-published",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "Additionally, with enhanced embodied reasoning, Gemini Robotics ER 2 is our safest robotics model to date in safety constraint following and human proximity benchmarks. It can better detect when humans are nearby, trigger safety tool calls and bring the robot to a safe stop if someone approaches too closely. This is a key requirement in collaborative safety standards. Read our Gemini Robotics 2: Safety Technical Report for more details."
+      },
+      {
+        "partId": "hw17-speed-flag",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "While our robots have more to advance in movement speed, this is an important step towards the skills needed to complete more complex, real-world tasks that require whole-body coordination."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "hw17-arch-undisclosed",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw17-arch-undisclosed (record audit/rl-sim2real.md:humanoid-wbc:17): supported. absence re-proved by the integrator over the complete retained sources/gr2-post.md render (term-level search + link enumeration); pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "1bf2b4f23cb7bcbfbfd717e30438ead8c4d62d43e121cfc5dab4c06cf4a89124"
+      },
+      {
+        "partId": "hw17-what-is-published",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw17-what-is-published (record audit/rl-sim2real.md:humanoid-wbc:17): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "21c35335f368b084ef4699ea191733d380aced764c996733eb9880861e31e251"
+      },
+      {
+        "partId": "hw17-speed-flag",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw17-speed-flag (record audit/rl-sim2real.md:humanoid-wbc:17): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "0de238f0bed5d7bba7d735e408bb3c2d04e5928a28791384cd4902d31cce6d0e"
+      }
+    ],
+    "originalCellsDigest": "d070a25f822258efbbe880be5fbc04269b0421090bb8e0f8072e20dae946c289"
+  },
+  {
+    "id": "humanoid-wbc-original-18-20260915",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 18,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "hw18-gr2-table",
+        "text": "The eleven GR2_RESULTS rows in lib/wbc-decomposition.ts equal the vendor chart alt-text values: 68.4/45.7/76.3 whole-body pick, 92/44/40/36/32 multi-finger, 89.6/78.9/74.2 gripper, with the embodiments the charts name.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      },
+      {
+        "id": "hw18-tracking-panel",
+        "text": "The tracking-rl panel stats (10M params, 1000 Hz, 1000+ h motion data, 200,000+ sim envs) equal the Figure post's S0 bullets.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "hw18-latent-panel",
+        "text": "The latent-action panel stats (3B params, action horizon 40, state/action 132, 20,000 h human video) equal the Isaac-GR00T README.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "hw18-vla-panel",
+        "text": "The end-to-end-vla panel stats (3 embodiments, 22 hand DoF, <200 examples, architecture 'not disclosed') equal the GR2 post, with the null consistent with the announcement's non-disclosure.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record humanoid-wbc:18 (ready-source-correction-with-local-AND): local-AND row; this integrator re-executed the import proof at application-time HEAD (lib/wbc-decomposition.ts: GR2_RESULTS length 11 and per-value equality with the three chart alt-texts; WBC_APPROACHES panel stats 10M/1000 Hz/1000+ h/200,000+, 3B/40/132/20,000 h, 3 embodiments/22 DoF/<200 examples/not disclosed; see local-proof.json); paired with the fetched passages before completion. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane (34 verbatim FULL, 3 folded for renderer artifacts only, 3 absence-observation passages re-proved as absences by this integrator; see integration lane needle-verification.json) with every pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "392a9020634aa7ba94af7a8557e5c067b7bf9f238e2b19fca9ddbf6d3af114e5"
+    },
+    "evidence": [
+      {
+        "partId": "hw18-gr2-table",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "A bar chart titled \"General whole body manipulation\" with subtitle \"Apollo with Inspire hands\" displaying accuracy percentages with error bars across three tasks: \"Pick up from table\" at 68.4%, \"Pick up from floor\" at 45.7%, and \"Pick up from shelf\" at 76.3%. [...] A bar chart titled \"Multi-finger dexterity\" with subtitle \"Apollo with Sharpa hands\" displaying accuracy percentages with error bars across five tasks: \"Screw bulb\" at 36%, \"Unscrew bulb\" at 92%, \"Tie trash bag\" at 44%, \"Dustpan\" at 32%, and \"Ziplock\" at 40%. [...] A bar chart titled \"Gripper dexterity\" with subtitle \"Franka Duo\" displaying accuracy percentages with error bars across three tasks: \"General pick and place\" at 74.2%, \"Diverse tool kitting\" at 78.9%, and \"Precise insertion tasks\" at 89.6%."
+      },
+      {
+        "partId": "hw18-tracking-panel",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "**Training data:** Over 1,000 hours of joint\u2011level retargeted human motion data.\n\n**Architecture:** A 10M\u2011parameter neural network that takes full\u2011body joint state and base motion as input and outputs joint\u2011level actuator commands at 1 kHz.\n\n**Simulation training:** S0 is trained entirely in simulation across more than 200,000 parallel environments with extensive domain randomization, enabling direct transfer to real robots and generalization across the fleet."
+      },
+      {
+        "partId": "hw18-latent-panel",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "- State and action dimensions expanded from `29` to `132`, and `action_horizon` expanded from `16` to `40`. [...] 2. **Human Video Pretraining** \u2014 N1.7 is pretrained on 20K hours of EgoScale human video data alongside diverse robot demonstrations. [...] | [`nvidia/GR00T-N1.7-3B`] | Base | [...] | Base model (3B params) \u2014 zero-shot inference on pretrain embodiments, or finetune for new tasks |"
+      },
+      {
+        "partId": "hw18-vla-panel",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "Gemini Robotics 2 controlling three different embodiments, using the same model checkpoint \u2014 the Apptronik Apollo 2 robot with SharpaWave hands, the Apollo 2 robot with Inspire hands, and the Franka Duo with the Robotiq gripper \u2014 [...] The model can now control the five-fingered, 22 degree-of-freedom SharpaWave hand on the Apollo 2 robot [...] We can now adapt to new bi-arm robot embodiments with just a few hours of adaptation time, typically with less than 200 examples."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "hw18-gr2-table",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw18-gr2-table (record audit/rl-sim2real.md:humanoid-wbc:18): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "4c33959095b00765607e3e00db751fa415ec56b3144225a19f07c241709a7931"
+      },
+      {
+        "partId": "hw18-tracking-panel",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw18-tracking-panel (record audit/rl-sim2real.md:humanoid-wbc:18): supported. needle-verified verbatim (FULL) against the retained sources/figure-helix-02.md render; pin sha256 verified. Evidence: https://www.figure.ai/news/helix-02",
+        "evidenceDigest": "242bfeb385efb7a52bfff8ffefe9816253d695e0c7dd760540617c1614160076"
+      },
+      {
+        "partId": "hw18-latent-panel",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw18-latent-panel (record audit/rl-sim2real.md:humanoid-wbc:18): supported. needle-verified after sentence-level elision split + renderer-artifact folding only (typographic quotes/dashes/NBSP/markdown emphasis/permalink line; zero wording or figure changes) against the retained sources/isaac-groot-readme.md render; pin sha256 verified. Evidence: https://github.com/NVIDIA/Isaac-GR00T",
+        "evidenceDigest": "9b313c7d41dd00eb0fcd66ce67bcc3c04d44873c5accac6a3fea86f2f1301d6d"
+      },
+      {
+        "partId": "hw18-vla-panel",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw18-vla-panel (record audit/rl-sim2real.md:humanoid-wbc:18): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "50a9bc82bce9d90a211e1c34717e3cdbdabeb73e2aaba7a941090723bd8c03fd"
+      }
+    ],
+    "originalCellsDigest": "37185f312d5c8f7894158437fccdcfe398c8f659a64c343c0774731a374ed468"
+  },
+  {
+    "id": "humanoid-wbc-original-19-20260915",
+    "ledgerPath": "audit/rl-sim2real.md",
+    "articleSlug": "humanoid-wbc",
+    "rowOrdinal": 19,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "hw19-figure-beneath",
+        "text": "Figure's own architecture places balance, contact, and coordination in a learned S0 controller at 1 kHz beneath the S1/S2 layers.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "hw19-nvidia-beneath",
+        "text": "NVIDIA's own README places a separately learned whole-body controller (GEAR-SONIC) beneath the VLA, which emits latent action tokens the controller decodes.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "hw19-deepmind-inside",
+        "text": "DeepMind's model list describes Gemini Robotics 2 as one VLA controlling full humanoids from feet to fingertips; the announcement names no separate whole-body controller.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      },
+      {
+        "id": "hw19-number-contrast",
+        "text": "The contrast of whole-body success at 45.7-76.3% versus specialized gripper insertion at 89.6% is arithmetic on the vendor's published chart values.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record humanoid-wbc:19 (ready-source-correction-with-local-AND): local-AND row; this integrator re-confirmed each vendor position clause-by-clause in the vendor own words from the packet same-day fetches (Figure S0-at-1 kHz beneath S1/S2; NVIDIA separately learned GEAR-SONIC beneath the VLA; DeepMind feet-to-fingertips single VLA; see local-proof.json); the number contrast is arithmetic on row-15 values; the disagree-only-on-the-interface-form compression stays the article framing. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane (34 verbatim FULL, 3 folded for renderer artifacts only, 3 absence-observation passages re-proved as absences by this integrator; see integration lane needle-verification.json) with every pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "655002b5912c528e37443475df2b216d29295a2869f5c3a4b40bd9e2f202fbf8"
+    },
+    "evidence": [
+      {
+        "partId": "hw19-figure-beneath",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "Each system operates at its natural timescale. **System 2 (S2)** reasons slowly about goals: interpreting scenes, understanding language, and sequencing behaviors. **System 1 (S1)** thinks fast, translating perception into full\u2011body joint targets at 200 Hz. **System 0 (S0)** executes at 1 kHz, handling balance, contact, and coordination across the entire body."
+      },
+      {
+        "partId": "hw19-nvidia-beneath",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+        "supportingPassage": "GR00T N1.7 supports whole-body humanoid control via the `UNITREE_G1_SONIC` embodiment tag and the [GEAR-SONIC](https://github.com/NVlabs/GR00T-WholeBodyControl) controller. In this workflow, the VLA predicts compact latent action tokens that a learned whole-body controller decodes into full-body joint commands \u2014 including legs, arms, and hands."
+      },
+      {
+        "partId": "hw19-deepmind-inside",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "Gemini Robotics 2: Our most advanced vision-language-action model (VLA) that converts vision and language input into motor control, enabling a robot to take action. This model is capable of controlling full humanoids, from feet to fingertips, and other bi-arm robots."
+      },
+      {
+        "partId": "hw19-number-contrast",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "A bar chart titled \"General whole body manipulation\" with subtitle \"Apollo with Inspire hands\" displaying accuracy percentages with error bars across three tasks: \"Pick up from table\" at 68.4%, \"Pick up from floor\" at 45.7%, and \"Pick up from shelf\" at 76.3%. [...] A bar chart titled \"Gripper dexterity\" with subtitle \"Franka Duo\" displaying accuracy percentages with error bars across three tasks: \"General pick and place\" at 74.2%, \"Diverse tool kitting\" at 78.9%, and \"Precise insertion tasks\" at 89.6%."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "hw19-figure-beneath",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw19-figure-beneath (record audit/rl-sim2real.md:humanoid-wbc:19): supported. needle-verified verbatim (FULL) against the retained sources/figure-helix-02.md render; pin sha256 verified. Evidence: https://www.figure.ai/news/helix-02",
+        "evidenceDigest": "fe0ae7b76eeeff535bee2d0a9303c397c7f3f636af095d9de98358ea9c0bcf80"
+      },
+      {
+        "partId": "hw19-nvidia-beneath",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw19-nvidia-beneath (record audit/rl-sim2real.md:humanoid-wbc:19): supported. needle-verified verbatim (FULL) against the retained sources/isaac-groot-readme.md render; pin sha256 verified. Evidence: https://github.com/NVIDIA/Isaac-GR00T",
+        "evidenceDigest": "f0ab04e40e56957f820a835372ffd94a4e46f3ffe7d2b85cafb7e3f1f535ceda"
+      },
+      {
+        "partId": "hw19-deepmind-inside",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw19-deepmind-inside (record audit/rl-sim2real.md:humanoid-wbc:19): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "9166a56496a7722ae76305faf8e1664962ae2d7ce0366b924efe449c44253d0f"
+      },
+      {
+        "partId": "hw19-number-contrast",
+        "outcome": "supported",
+        "reviewedBy": "humanoid-wbc-integrator-20260915 (session 0d846716-e638-4e8e-816b-b7992423581e, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part hw19-number-contrast (record audit/rl-sim2real.md:humanoid-wbc:19): supported. needle-verified verbatim (FULL) against the retained sources/gr2-post.md render; pin sha256 verified. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "95894db66c8e5e6a273297b7a655313faee611c8a269307204155406b01dedd9"
+      }
+    ],
+    "originalCellsDigest": "184b400f4af1cadfcf3db5cfbd4ab378f5ccc6559acdd289723eb0ec7e84bf31"
   }
 ]

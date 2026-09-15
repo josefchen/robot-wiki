@@ -4255,3 +4255,84 @@ are not claimed here.
 | Readers | owned offline Next runtime (`next dev` 127.0.0.1:3274, mocked offline fonts), 375x812 and 1440x900 | lane reader 2 passed / 0 failed; committed `tests/e2e/legged-locomotion.spec.ts` 10 passed / 0 failed against the same runtime (includes the new two-width Park timing test); screenshots for both widths in lane `readers/`; configs byte-restored (lane `runtime-stop.json` byteExact true) |
 
 Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-locomotion-park7-integration-20260915/`.
+
+### Humanoid WBC twelve-original integration — 2026-09-15
+
+Applied exactly 12 of the 13 selected `humanoid-wbc` originals from frozen
+packet `convergence-source-b-humanoid-wbc-20260915` (rows.json sha256
+`ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6`);
+row 20 is held with the precise reason below. Six article spans were
+applied to `content/rl-sim2real/humanoid-wbc.mdx`: the Stat-grid
+attribution sentence (row 1), the encoder/aggregation split (row 9), the
+`Cosmos-Reason2-2B` backbone precision (row 11), the licensing re-point
+from `gr00t-n1-2025` to `isaac-gr00t-repo-2026` + `groot-wbc-2026` with
+the September 2026 absence scoping (row 14), the embodiment qualifiers on
+the GR2 numbers paragraph with the mechanism gloss removed (row 15), and
+the "undisclosed in the announcement" scoping (row 17). The now-unused
+`gr00t-n1-2025` frontmatter id was removed in the same change (its only
+body use was re-pointed); both repo ids were already registered and
+already cited. `lastReviewed` did not move (row-scoped correction, not a
+finished article audit; house precedent from the 20260909 integrations).
+Humanizer carve-out stated: the corrected spans deliberately carry the
+vendors' own figure wording; the no-slop source gate inside
+`validate:content` passes over the file.
+
+Integrator-side verification before adjudication: all 40 packet passages
+needle-verified against the retained source-lane snapshots (34 verbatim
+FULL, 3 folded for renderer artifacts only, 3 absence-observations
+re-proved as absences over the complete retained renders); every pin
+cross-checked by sha256; every cited id confirmed registered; zero
+retrieval by this integrator. Row 16 reuses the registration already
+bound by `generalization-g15-gr2-ondevice-20260915` (consistency
+re-verified read-only). Row 18's local AND was re-executed at the
+application-time tree (GR2_RESULTS 11/11 per-value equality with the
+chart alt-texts; all three panel stat blocks equal the fetched passages).
+Row 19's synthesis was re-confirmed clause-by-clause in the vendors' own
+words. One integrator plan repair: packet part `hw11-sonic-decode`
+required `groot-wbc-2026` alongside `isaac-gr00t-repo-2026`, but the
+decode sentence rests on the Isaac-GR00T README passage alone (the WBC
+README does not print it), so the required set was narrowed to the
+citation that carries the sentence; no evidence passage or wording
+changed.
+
+Row 20 HELD, not silently promoted: its claim text matches the audit
+checker's `P1_BATCH` pattern, which fail-closed requires kind
+`frontmatter-p1` with the required set exactly equal to the declared
+batch and the canonical frontmatter set plus a fetched evidence pair for
+every (part, citation). This packet carries fresh evidence for 7 of the
+now-15 identities; the other 9 rest on retained integrator-reviewed
+records. Completing the row would require weakening the P1 fail-closed
+semantics or fabricating coverage; neither is lawful. The local basis
+itself was re-proved and passes (15 frontmatter ids == 15 body Cite ids,
+all registered exactly once; `gr00t-n1-2025` residue-free).
+
+Observed at the new tree (this commit): **738 complete / 256 incomplete /
+994 originals / 47 articles** (was 726/268), **644 compound plans** (was
+632) and **718 approved-delta entries** (was 706) — exactly the 12 lawful
+conversions plus their approvals; `humanoid-wbc` is 19/20 complete. All
+632 prior plans, 706 prior approvals, the 981 unselected semantic
+records, the citations registry, glossary, dates, defaults and neighbors
+are preserved byte-for-byte; derived ledger summary blocks were
+regenerated only through `check:audit-coverage --write-summaries`.
+
+| Gate | Command | Result |
+|---|---|---|
+| Ownership guard | `python3 role-guard.py` (role start) | pass; 0 unknown processes; service MainPID 2097754 / InvocationID e160675f7026425ba60b7f3620a6a3cf exact; worker 2224023 bound by /proc identity and shared service cgroup |
+| Ledger preflight | fail-closed packet-vs-live digest checks in `apply_humanoid_wbc.mjs` | 13/13 current tuple digests matched before any write |
+| Prelint | `NODE_DISABLE_COMPILE_CACHE=1 npm run prelint` | exit 0 |
+| Lint | `NODE_DISABLE_COMPILE_CACHE=1 npm run lint` | exit 0 |
+| Typecheck (non-incremental) | `NODE_DISABLE_COMPILE_CACHE=1 npm run typecheck` | exit 0; next-env.d.ts/tsconfig.json/next.config.ts byte-identical |
+| Affected units | `NODE_DISABLE_COMPILE_CACHE=1 npx vitest run` wbc-decomposition, citations, citation-audit, audit-ledger, audit-citation-coverage, proseCitationYears | 175 passed / 6 files |
+| Summaries | `NODE_DISABLE_COMPILE_CACHE=1 node scripts/check-audit-coverage.ts --write-summaries` | exit 1, expected red: 263 findings; 738/994 complete; derived blocks regenerated |
+| Content | `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` | exit 1, expected red: **738/994 complete**, 263 findings (−12 lawful); 9 known unresolved citation rows unchanged |
+| Readers | owned offline Next runtime (`next dev` 127.0.0.1:3277, mocked offline fonts), 375x812 and 1440x900 | 4 passed / 0 failed; both widths render all six applied spans, no mobile overflow; configs restored byte-exact |
+
+No new unit-test coverage was added for the applied spans (no unit spec
+file exists for this article's prose; the two-width reader spec covers the
+rendered spans, and the ledger invariants are covered by the six suites
+above). No production build/export, push, or independent acceptance is
+claimed; the content gate remains red with the honest count above. Known
+shared debts (brand-v2-enforcement token-renderer mismatch;
+comparison-current-audit 2/3) remain open and are not claimed here.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915/`.
