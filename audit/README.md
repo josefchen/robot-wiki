@@ -4396,3 +4396,82 @@ Known shared debts (brand-v2-enforcement token-renderer mismatch;
 comparison-current-audit 2/3) remain open and are not claimed here.
 
 Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915/`.
+
+
+## 2026-09-15 — dexterity originals integration (15 selected records)
+
+Applied exactly the 15 selected `frontier.md:dexterity` originals
+(rows 9, 13, 14, 16, 17, 18, 19, 20, 21, 22, 24, 26, 27, 29, 30) from
+frozen packet `convergence-source-c-dexterity-20260915/rows.json`
+(SHA-256 `ea13d24ca8f791186161f5564a9f5b5f1a73786d51ba722541d865dd1eeb9af9`),
+zero retrieval by this integrator. Eleven rows are source corrections,
+three evidence completions (rows 20, 26, 30), one
+correction-with-local-AND (row 24). Four article endpoints were applied
+together with their rows: the Wells clause now reads "calls touch a key
+enabler for creating human-level dexterity in robots" (indefinite
+article, "creating", "in robots", exactly as printed), "fingerpad
+arrays" replaces "fingertip arrays" (the source prints "seven-cell
+tactile array to each fingerpad"), "raw" is dropped from the Sparsh-X
+sentence, and TouchWorld's reactive component is named the paper's way
+("a fast tactile refinement policy"). Row 30's endpoint ("under nine
+hours of data for most tasks") was already applied by the earlier
+dexterity pass and is verified at target, not rewritten. Row 24's
+local-AND conjunct was re-proved by this integrator at application
+time (python3: 3 g × 9.80665 m/s² = 29.41995 mN → 29.4, and 29.42/5 =
+5.88 ≈ 6×; all five `lib/dexterous-hands.ts` table rows' source ids
+re-checked). Row 20 keeps the Teslarati/DROIDS provenance distinction:
+the Musk admission is the Apr 19 X post embedded in full by Teslarati,
+while the Apr 17 DROIDS writeup itself does not contain it (it appears
+there only in the author's Apr 21 comment). All 38 packet passages
+were needle-verified against a 16-document SHA-256-pinned retained
+fetch store before adjudication (16 FULL; 19 FOLDED on renderer
+artifacts only — markdown markers, typographic quotes, the LaTeXML
+doubled ∼\sim macro, U+2011, terminal punctuation at chart-embed
+breaks; 2 compressed-quote FRAGMENTS; 1 Crossref metadata-only item by
+design; zero MISS, zero wording changes), re-verified at application
+time by `apply.py`; all 32 binding pins cross-checked by SHA-256; all
+16 cited ids already registered. Rows 19/21/22/27/29/30 carry multiple
+same-URL passages for one (part, citation) pair and are stitched under
+one item with `<br>` (hardware-taxonomy precedent; the compound schema
+rejects duplicate (part, citation, URL) triples).
+
+Observed at the new tree (this commit): **766 complete / 228 incomplete
+/ 994 originals / 47 articles** (was 751/243), **672 compound plans**
+(was 657) and **746 approved-delta entries** (was 731) — exactly the 15
+lawful conversions plus their approvals. All 657 prior plans, 731 prior
+approvals, the 979 unselected semantic records, the citations registry
+(no new registrations), glossary, dates, defaults and neighbors are
+preserved (pure-insertion appends verified byte-prefix-identical);
+derived ledger summary blocks were regenerated only through
+`check-audit-coverage --write-summaries`. The four endpoint approvals
+bind the sealed prose member hash `4d026108…` to this pass's final
+member hash `0d8fca0a…`; the 11 ledger-only approvals record
+oldHash=newHash against that same pass-committed hash.
+
+| Gate | Command | Result |
+|---|---|---|
+| Ownership binding | `role-start.json` (task-worker-role-start-v1, integrator role) | pass; 12 service-cgroup procs, 0 unknown-unreadable, panopticon daemons pre-classified benign foreign; GLM/Anthropic-2 max route verified from own session log; content-auditor skill absent from catalog (contract/content-audit.md + skills/content-auditor/SKILL.md read directly, recorded here per skill-honesty rule) |
+| Ledger preflight | fail-closed packet-vs-live digest checks in `apply.py` | 15/15 current tuple digests matched the live `(continued)`-section cells before any write; written rows round-trip to the digested cells; restore-on-failure wrapper |
+| Red-first suite | `NODE_DISABLE_COMPILE_CACHE=1 npx vitest run tests/unit/dexterity-originals.test.ts` | pre-application: exit 1, 20 failed / 1 passed (only the pure-arithmetic row-24 proof); post: exit 0, 21/21 |
+| Prelint + lint | `npm run prelint` then `npm run lint` | exit 0 (one unused-var warning in the new suite fixed before commit) |
+| Typecheck (non-incremental) | `NODE_DISABLE_COMPILE_CACHE=1 npm run typecheck` | exit 0, twice (before readers and after dev-server teardown); next-env.d.ts/tsconfig/next.config byte-identical after restoring the dev-server's side-effect flip |
+| Full unit corpus | `NODE_DISABLE_COMPILE_CACHE=1 npm test` vs stash-run at clean HEAD 8629cce | same 34 pre-existing red files; HEAD 209 failed / this tree 210 — the single delta is `manipulation-rl-integration` failing only under full-corpus load and passing 41/41 in isolation; the two stale `toHaveLength(475)` dexterity-remaining suites were already red at HEAD (catalog 657) and are not this batch's debt |
+| Summaries | `NODE_DISABLE_COMPILE_CACHE=1 node scripts/check-audit-coverage.ts --write-summaries` | exit 1, expected red: **235 findings** (−15 lawful); 766/994 complete |
+| Content | `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` | exit 1, expected red: 766/994 complete, 235 findings; 9 known unresolved citation rows unchanged |
+| Baseline | `NODE_DISABLE_COMPILE_CACHE=1 npm run baseline:brand-v2` | exit 1 with exactly the same **24** pre-existing failures as HEAD (12 perception-lane entries × 2 hash fields); the dexterity prose transition produced no new failure — it is covered by the four endpoint approvals. Honest observation recorded: the dispatch stated 43 baseline failures; 24 reproduces at both HEAD and this tree |
+| Readers | owned offline Next runtime (`next dev` 127.0.0.1:3200, started/stopped by this lane), 375×812 and 1440×900 | 2 passed / 0 failed: zero horizontal overflow, console/page errors, KaTeX errors at both widths; all four endpoint spans plus row 30's verified span render, all four removed wordings absent, four untouched anchors intact; screenshots `readers/mobile-375x812.png` / `readers/desktop-1440x900.png` |
+
+No unit or e2e spec asserts the old endpoint strings (rg over `tests/`
+found only this batch's own negative assertions). `lastReviewed` did
+not move (row-scoped corrections, not a finished article audit; house
+precedent from the 20260909/20260915 integrations). Dev-server
+side-effect writes (`next-env.d.ts` type-path flip,
+`evidence/brand-v2/token-renderer-parity.json` fingerprint rewrite by
+the corpus run) were restored byte-exact; neither is part of this
+batch. No production build/export, push, or independent acceptance is
+claimed; the content gate remains red with the honest count above.
+Known shared debts (brand-v2-enforcement token-renderer mismatch;
+perception-lane invalid-approved-delta fields; comparison-current-audit
+2/3) remain open and are not claimed here.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915/`.

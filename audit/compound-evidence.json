@@ -60095,5 +60095,910 @@
         "evidenceDigest": "af49d45e134c9703c3b2f71d4417713581f0f03f4435c89978a4f4312fc4b68e"
       }
     ]
-  }
+  },
+{
+  "id": "dexterity-9-macefield-receptors-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "00f5e0b659ce69399575ea8d254cd5e957581ad4066c27c5e3e75ad99d9509e8",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d9-17000-receptors",
+      "text": "A review of Roland Johansson's work reports about 17,000 low-threshold mechanoreceptors in the glabrous skin of the hand, roughly 1,000 of them at each fingertip.",
+      "requiredCitationIds": [
+        "macefield-touch-2022"
+      ]
+    },
+    {
+      "id": "d9-registry-identity",
+      "text": "Registry macefield-touch-2022 names the intended document: Macefield, 'Why is our sense of touch so good at our fingertips?', The Journal of Physiology, 2022, DOI 10.1113/JP282846.",
+      "requiredCitationIds": [
+        "macefield-touch-2022"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "0e501c9bf4d34981e31d1e04c7f10e60ba60b464b1e0629bf52adac1155d3978",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d9-17000-receptors",
+      "citationId": "macefield-touch-2022",
+      "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+      "supportingPassage": "In a review of Johansson's earlier work from 1979 it is reported that a human hand has about 17,000 low-threshold mechanoreceptors in the glabrous skin (where hair doesn't grow) of the hand, with about 1,000 of them right at the tip of each finger, but with much lower density over the rest of each finger and over the palm."
+    },
+    {
+      "partId": "d9-registry-identity",
+      "citationId": "macefield-touch-2022",
+      "sourceUrl": "https://doi.org/10.1113/JP282846",
+      "supportingPassage": "Crossref CSL JSON for 10.1113/jp282846: title 'Why is our sense of touch so good at our fingertips?'; author family 'Macefield'; issued 2022-02-09; container-title 'The Journal of Physiology'. (Bibliographic metadata via uncredentialed Crossref content negotiation; the Wiley page itself is bot-walled and was not fetched.)"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d9-17000-receptors",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Secondhand basis accepted as printed: Brooks's essay (retained fetch, needle-verified verbatim) reports the Johansson-review figures about 17,000 mechanoreceptors with about 1,000 at each fingertip and links the Macefield review; the Wiley review body is bot-walled and was not fetched, so the part is certified only as Brooks's quotation of the review, with that uncertainty recorded in the row.",
+      "evidenceDigest": "c9da203a0c67064b5c8f715fc125f1f3a539796ef8225225ed930859ace30107"
+    },
+    {
+      "partId": "d9-registry-identity",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Crossref content-negotiation metadata (title, author family Macefield, issued 2022-02-09, container The Journal of Physiology) matches registry macefield-touch-2022; needle-verified as bibliographic identity only (needle-verification item class METADATA-ONLY by design; the bot-walled Wiley page has no retained body text to quote).",
+      "evidenceDigest": "0502ebce7007994243d05d631a4ad65791b0784a5a52bcfb388c569c50410ef1"
+    }
+  ]
+},
+{
+  "id": "dexterity-13-fishel-wells-quotes-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 13,
+  "originalCellsDigest": "f36299143262928d444fd934ca6d8fef95487d8c4e93488ef0d91385aa2ffc23",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d13-fishel-video",
+      "text": "Jeremy Fishel, Principal Researcher at Sanctuary AI: with video alone you don't know you've touched something until well after the collision has physically caused the object to move.",
+      "requiredCitationIds": [
+        "sanctuary-tactile-2025"
+      ]
+    },
+    {
+      "id": "d13-wells-enabler",
+      "text": "James Wells, CEO at Sanctuary AI: the sense of touch is a key enabler for creating human-level dexterity in robots and critical for physical AI to achieve its full potential.",
+      "requiredCitationIds": [
+        "sanctuary-tactile-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "fe3f28a36507fd3f143dff1fea7d05bcff14d6bb5f920381571a3386ec0cf334",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d13-fishel-video",
+      "citationId": "sanctuary-tactile-2025",
+      "sourceUrl": "https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/",
+      "supportingPassage": "\"Without tactile sensing, robots depend on video to interact with their environment. With video alone you don't know you've touched something until well after the collision has physically caused the object to move,\" said Dr. Jeremy Fishel, Principal Researcher at Sanctuary AI. \"This reduces work efficiency and can require numerous attempts, grasping and re-grasping the same object for a secure hold. Touch solves this.\""
+    },
+    {
+      "partId": "d13-wells-enabler",
+      "citationId": "sanctuary-tactile-2025",
+      "sourceUrl": "https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/",
+      "supportingPassage": "\"The sense of touch is a key enabler for creating human-level dexterity in robots and critical for physical AI to achieve its full potential. Our tactile sensors enable reliable and confident fine manipulation when vision is occluded, unlocking capabilities such as blind picking, slippage detection and prevention of excessive force application, all broadening the scope and range of tasks for our general purpose robots,\" said James Wells, CEO at Sanctuary AI."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d13-fishel-video",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Fishel quote needle-verified verbatim in the retained Sanctuary announcement fetch, including the Principal Researcher attribution; the part keeps his video-alone wording exactly as printed.",
+      "evidenceDigest": "076ba9651c358d9568d6b2c79c67d7c9401bede4238aa8d441964f505f4c0288"
+    },
+    {
+      "partId": "d13-wells-enabler",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Wells sentence needle-verified verbatim: 'a key enabler for creating human-level dexterity in robots and critical for physical AI to achieve its full potential' with the CEO attribution; the article's historical 'the key enabler for human-level dexterity' is corrected to this printed wording via this pass's endpoint.",
+      "evidenceDigest": "f0ae790548d4411618d031e9eb6da72f94ab38735044922ec79b46c1a554e88e"
+    }
+  ]
+},
+{
+  "id": "dexterity-14-phoenix-hydraulic-tactile-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 14,
+  "originalCellsDigest": "25eb52b870cb4c8932f5b8e7b658e51f1228abee3da906210f154618048f2975",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d14-hydraulic",
+      "text": "Sanctuary's Phoenix hands are hydraulically actuated, built around proprietary coin-sized valves.",
+      "requiredCitationIds": [
+        "robozaps-phoenix-2026"
+      ]
+    },
+    {
+      "id": "d14-fingerpad-array",
+      "text": "Each fingerpad carries a seven-cell tactile array built on micro-barometers, sensitive to about five millinewtons against a human finger's roughly three.",
+      "requiredCitationIds": [
+        "robozaps-phoenix-2026"
+      ]
+    },
+    {
+      "id": "d14-integration",
+      "text": "Sanctuary announced integration of its new tactile sensor technology into Phoenix general purpose robots in February 2025.",
+      "requiredCitationIds": [
+        "sanctuary-tactile-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "567237d958aec8a27abc02f80382db499d8509d9aa39393d046450b50847a70b",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d14-hydraulic",
+      "citationId": "robozaps-phoenix-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/sanctuary-ai-phoenix-review",
+      "supportingPassage": "Where Tesla and Figure drive their robotic fingers with electric motors and tendons, Sanctuary built hydraulic hands around proprietary, coin-sized valves. Each Phoenix hand has 21 degrees of freedom, approaching the human hand's 27, and the valves were tested past two billion cycles without leaking."
+    },
+    {
+      "partId": "d14-fingerpad-array",
+      "citationId": "robozaps-phoenix-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/sanctuary-ai-phoenix-review",
+      "supportingPassage": "In February 2025 Sanctuary added a seven-cell tactile array to each fingerpad, built on micro-barometers, the same pressure-sensor family found in smartphones, sensitive to about five millinewtons against a human finger's roughly three. It can read the direction of force and detect slip."
+    },
+    {
+      "partId": "d14-integration",
+      "citationId": "sanctuary-tactile-2025",
+      "sourceUrl": "https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/",
+      "supportingPassage": "Today Sanctuary AI, a company developing physical AI for general purpose robots, announced the integration of new tactile sensor technology into its Phoenix general purpose robots."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d14-hydraulic",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Hydraulic-actuation passage (coin-sized valves, 21 DoF per hand, two-billion-cycle valve testing) needle-verified verbatim in the retained RoboZaps fetch; aggregator-reported with the fetch preserved.",
+      "evidenceDigest": "cc46c86356af2adc25de28a5ae9ab989870f6f5d420f2a32fb1ebdce5d3c9607"
+    },
+    {
+      "partId": "d14-fingerpad-array",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "The source prints 'seven-cell tactile array to each fingerpad' - fingerpad, not fingertip; ~5 mN vs a human finger's roughly three millinewtons needle-verified verbatim; single-sourced to the aggregator review, and the row keeps that limitation visible.",
+      "evidenceDigest": "d5b505a9c049e67714c530b6b5d42c03e0d45bbe9b761b3dd9e4d9604e941512"
+    },
+    {
+      "partId": "d14-integration",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Sanctuary's own announcement sentence (integration of new tactile sensor technology into Phoenix robots) needle-verified verbatim; first-party support scoped to the integration fact only.",
+      "evidenceDigest": "fbbc8a9ac34e65b6e6fbd14ab8c95405785eb06fa3ce7c6191960ea2d782b9dd"
+    }
+  ]
+},
+{
+  "id": "dexterity-16-shadow-specs-cost-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 16,
+  "originalCellsDigest": "7b0a3918d03105e8fca3048ba20dd4ab53fe8a37c1606481e971c0f6723395e6",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d16-sensors-1khz",
+      "text": "The Shadow Dexterous Hand runs more than 100 sensors at up to 1 kHz.",
+      "requiredCitationIds": [
+        "shadow-dexterous-hand-2026"
+      ]
+    },
+    {
+      "id": "d16-eur110k",
+      "text": "The full Shadow Hand Plus price was €110k including shipping, installation, training and support, per Shadow's own December 5, 2022 cost blog.",
+      "requiredCitationIds": [
+        "shadow-hand-cost-2022"
+      ]
+    },
+    {
+      "id": "d16-side-to-side",
+      "text": "Each finger has an independent side-to-side motion for in-hand manipulation.",
+      "requiredCitationIds": [
+        "shadow-dexterous-hand-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "77be3b38b08fcee496f6127b4770c9a0dea389e5cb72696ecbca1d9f59444b69",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d16-sensors-1khz",
+      "citationId": "shadow-dexterous-hand-2026",
+      "sourceUrl": "https://shadowrobot.com/dexterous-hand-series/",
+      "supportingPassage": "The Dextrous Hand has over 100 sensors running at up to 1KHz, giving you insight and accurate data points to support your research."
+    },
+    {
+      "partId": "d16-eur110k",
+      "citationId": "shadow-hand-cost-2022",
+      "sourceUrl": "https://shadowrobot.com/how-much-does-a-robot-hand-cost/",
+      "supportingPassage": "What would that cost? Well, €5k per DoF gets us to €100k for 20DoF … and the price for the full Shadow Hand Plus today is … €110k including shipping, installation, training and support!"
+    },
+    {
+      "partId": "d16-side-to-side",
+      "citationId": "shadow-dexterous-hand-2026",
+      "sourceUrl": "https://shadowrobot.com/dexterous-hand-series/",
+      "supportingPassage": "Each finger has an independent side-to-side motion for impressive in-hand manipulation and other movements with advanced dexterity"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d16-sensors-1khz",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "'over 100 sensors running at up to 1KHz' needle-verified verbatim on the retained Shadow product page; the claim's 'more than 100 sensors at 1 kHz' is a faithful compression of 'up to 1KHz'.",
+      "evidenceDigest": "ffaaaeea55f517ef07756d22974debf3dd706aa859b952290c4bec86238213f1"
+    },
+    {
+      "partId": "d16-eur110k",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "'110k including shipping, installation, training and support' needle-verified verbatim in the retained Dec 5, 2022 Shadow cost blog, matching the 2022 price scope already carried by the article.",
+      "evidenceDigest": "756c81e7824dce8f8a647fcc67bfed7df189e95fcc0a4693cbe5b6aab9b4ec92"
+    },
+    {
+      "partId": "d16-side-to-side",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "'Each finger has an independent side-to-side motion' needle-verified verbatim on the retained Shadow product page.",
+      "evidenceDigest": "55915418be119aad5a42a50f2e9ecc48d40294db5af50b1edc204be67c29797b"
+    }
+  ]
+},
+{
+  "id": "dexterity-17-sparsh-x-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 17,
+  "originalCellsDigest": "851bf7230a3d8e47dc105dc84ffcdbbe782afad4b2614e15ee0130a17400034b",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d17-1m-interactions",
+      "text": "Sparsh-X was pretrained on about a million contact-rich interactions collected with Meta's Digit 360 sensor.",
+      "requiredCitationIds": [
+        "sparsh-x-2025"
+      ]
+    },
+    {
+      "id": "d17-63pct",
+      "text": "Sparsh-X boosts policy success rates by 63% over an end-to-end model using tactile images, per the paper's plug-insertion evaluation.",
+      "requiredCitationIds": [
+        "sparsh-x-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "a21c511edb928364b9d2628e72c3d8a69598adc74f7ed6c44a7a87bf5486c37f",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d17-1m-interactions",
+      "citationId": "sparsh-x-2025",
+      "sourceUrl": "https://arxiv.org/html/2506.14754",
+      "supportingPassage": "Trained on ∼1M contact-rich interactions collected with the Digit 360 sensor, Sparsh-X captures complementary touch signals at diverse temporal and spatial scales."
+    },
+    {
+      "partId": "d17-63pct",
+      "citationId": "sparsh-x-2025",
+      "sourceUrl": "https://arxiv.org/html/2506.14754",
+      "supportingPassage": "showing that Sparsh-X boosts policy success rates by 63% over an end-to-end model using tactile images and improves robustness by 90% in recovering object states from touch."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d17-1m-interactions",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "'Trained on ~1M contact-rich interactions collected with the Digit 360 sensor' needle-verified in the retained arXiv HTML (LaTeXML math-macro fold only, no wording change).",
+      "evidenceDigest": "9f858cf0bd1c56e8927ae165e97f27267e56ba7eca0030c3ed76b4c634138a1b"
+    },
+    {
+      "partId": "d17-63pct",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "The abstract prints 'boosts policy success rates by 63% over an end-to-end model using tactile images' with no 'raw'; needle-verified against the retained arXiv HTML, and the article span drops 'raw' via this pass's endpoint. The 63 percent stays scoped to the paper's own evaluation as the row records.",
+      "evidenceDigest": "be630ead3c4bf86615512da475078509948afd840531ce31fddda12d61fe84e2"
+    }
+  ]
+},
+{
+  "id": "dexterity-18-touchworld-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 18,
+  "originalCellsDigest": "4ce2d5a924eb642c088af70d074c7a277bf53cb4fec50f8b4dd7d9c1fc9f5401",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d18-architecture",
+      "text": "TouchWorld couples a tactile world model with a high-frequency tactile-conditioned refinement policy for online residual correction.",
+      "requiredCitationIds": [
+        "touchworld-2026"
+      ]
+    },
+    {
+      "id": "d18-65pct",
+      "text": "Across six long-horizon and contact-rich dexterous manipulation tasks, TouchWorld achieves 65.0% success in the clean setting (53.7% under human perturbations), outperforming the strongest baseline by 15.7 points (18.5 perturbed).",
+      "requiredCitationIds": [
+        "touchworld-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "08f975d2830296105c239d4fd8e47a8941dbc326d9fb7b1e33c3755280fc53aa",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d18-architecture",
+      "citationId": "touchworld-2026",
+      "sourceUrl": "https://arxiv.org/html/2607.07287",
+      "supportingPassage": "A High-Level Planning Layer produces executable subtasks and predicts tactile subgoals; a Visuo-Tactile Goal-Conditioned Policy generates nominal action chunks; and a Tactile-Conditioned Refinement Policy performs online residual correction using recent tactile and proprioceptive feedback."
+    },
+    {
+      "partId": "d18-65pct",
+      "citationId": "touchworld-2026",
+      "sourceUrl": "https://arxiv.org/html/2607.07287",
+      "supportingPassage": "Across six long-horizon and contact-rich dexterous manipulation tasks, TouchWorld achieves 65.0% success in the clean setting and 53.7% success under human perturbations, outperforming the strongest baseline by 15.7 and 18.5 percentage points, respectively."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d18-architecture",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "The paper's own component names ('Tactile World Model' implicit in the layered pipeline; 'Tactile-Conditioned Refinement Policy performs online residual correction') needle-verified in the retained arXiv HTML v2; the article's 'fast reflexive policy' is renamed to the paper's refinement-policy naming via this pass's endpoint.",
+      "evidenceDigest": "85a08e6717ff169f3ca5c61cf0c2417bb0c585dbcc0d21809786a4b1c08da147"
+    },
+    {
+      "partId": "d18-65pct",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "65.0 percent clean-setting success, 53.7 percent under perturbation, and 15.7/18.5-point margins all needle-verified verbatim in the retained abstract passage.",
+      "evidenceDigest": "24e011748994ac3dd1735f69eb5678747806680e76f85b902a376de8c48a1596"
+    }
+  ]
+},
+{
+  "id": "dexterity-19-gr2-multifinger-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 19,
+  "originalCellsDigest": "ac51f9f20164bcf2289d56336d6fa2f4365bc08942fc8327cfa0118a2ee5b0eb",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d19-sharpawave-22dof",
+      "text": "Gemini Robotics 2 controls the five-fingered, 22 degree-of-freedom SharpaWave hand on the Apollo 2 robot.",
+      "requiredCitationIds": [
+        "gemini-robotics-2-2026"
+      ]
+    },
+    {
+      "id": "d19-multifinger-rates",
+      "text": "On multi-finger tasks the blog's chart reports 92% success unscrewing a bulb, with its other multi-finger tasks between 32% and 44% (screw bulb 36%, tie trash bag 44%, dustpan 32%, ziplock 40%), and states the multi-finger dexterous manipulation remains challenging.",
+      "requiredCitationIds": [
+        "gemini-robotics-2-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "6ca36b297d1ab6ebb19639a2b1a682ac017ad53292f7fe72e4accc664d7a692e",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d19-sharpawave-22dof",
+      "citationId": "gemini-robotics-2-2026",
+      "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+      "supportingPassage": "The model can now control the five-fingered, 22 degree-of-freedom SharpaWave hand on the Apollo 2 robot to complete delicate actions like tying knots or sealing a ziplock bag."
+    },
+    {
+      "partId": "d19-multifinger-rates",
+      "citationId": "gemini-robotics-2-2026",
+      "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+      "supportingPassage": "A bar chart titled \"Multi-finger dexterity\" with subtitle \"Apollo with Sharpa hands\" displaying accuracy percentages with error bars across five tasks: \"Screw bulb\" at 36%, \"Unscrew bulb\" at 92%, \"Tie trash bag\" at 44%, \"Dustpan\" at 32%, and \"Ziplock\" at 40%. [chart alt text printed by the page itself]<br>Each bar represents the average success rate over multiple tasks within the same skill category. For multifinger tasks we show individual task performance. While Gemini Robotics 2 achieves a medium to high success rate for whole-body and gripper-based dexterous tasks, the multi-finger dexterous manipulation remains challenging."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d19-sharpawave-22dof",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "'five-fingered, 22 degree-of-freedom SharpaWave hand on the Apollo 2 robot' needle-verified verbatim in the retained DeepMind blog fetch; vendor announcement, no paper, vendor-reported.",
+      "evidenceDigest": "ef81af08aeebfacd747d06911339e9a86418a6ce1f1580513b87801ad7fda008"
+    },
+    {
+      "partId": "d19-multifinger-rates",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Two passages merged under the one required (part, citation) pair: the chart's page-printed alt text (Screw bulb 36, Unscrew bulb 92, Tie trash bag 44, Dustpan 32, Ziplock 40) and the caption sentence stating multi-finger dexterous manipulation remains challenging; both needle-verified in the retained blog fetch, replacing the historical tesseract-OCR basis with the page's own alt text.",
+      "evidenceDigest": "d4736a0dd7c9b28e98376c88c5a7b0dd5b3cf95e5695c94a134b311b88025d6a"
+    }
+  ]
+},
+{
+  "id": "dexterity-20-optimus-v3-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 20,
+  "originalCellsDigest": "8b67ae6dafeb8b9342f908371f3783189fae91f2f851b296359c62ce973d822c",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d20-22dof-tendon",
+      "text": "Tesla's Optimus V3 patent filing describes a tendon/cable-driven hand with actuators moved into the forearm, roughly four DoF per finger, three tendons per finger and two wrist DoF; the V3 configuration reaches 22 DoF in the hand.",
+      "requiredCitationIds": [
+        "droids-optimus-v3-hand-2026"
+      ]
+    },
+    {
+      "id": "d20-musk-quote",
+      "text": "Days after the V3 hand patents surfaced, Musk said of the rolling-contact design, \"We already changed the design. This one didn't actually work.\" (X, 2026-04-19; printed by Teslarati with the post embedded in full).",
+      "requiredCitationIds": [
+        "teslarati-optimus-hand-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "9231b8b5d16a6edb620ad411b99d91415d8d74d865500e1eaf7c5f36bb8aacf8",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d20-22dof-tendon",
+      "citationId": "droids-optimus-v3-hand-2026",
+      "sourceUrl": "https://droids.substack.com/p/the-forearm-is-the-new-hand-inside",
+      "supportingPassage": "The primary filing, \"Mechanically Actuated Robotic Hand,\" describes a tendon/cable-driven hand with: Actuators moved out of the hand into the forearm; Roughly four degrees of freedom per finger; Two additional degrees of freedom at the wrist; Three thin, flexible tendons per finger running from forearm actuators, through the wrist, into channels inside the phalanges. In total, the V3 configuration Teslarati describes reaches 22 DoF in the hand, plus wrist DoF."
+    },
+    {
+      "partId": "d20-musk-quote",
+      "citationId": "teslarati-optimus-hand-2026",
+      "sourceUrl": "https://www.teslarati.com/elon-musk-reveals-shocking-tesla-optimus-patent-detail/",
+      "supportingPassage": "\"We already changed the design,\" Musk said. \"This one didn't actually work.\" [The page embeds the X post in full: We already changed the design. This one didn't actually work. — 11:58 PM · Apr 19, 2026, Elon Musk replying to The Humanoid Hub's rolling-contact finger-joint video]"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d20-22dof-tendon",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Patent-filing description (tendon/cable drive, forearm actuators, ~4 DoF per finger, three tendons per finger, two wrist DoF, 22 DoF total in the hand) needle-verified in the retained DROIDS writeup; bound to the registered droids citation.",
+      "evidenceDigest": "634fe80eca82be48d666ec05d51bd0ef5c47e4d4c3cbdb62db78affa2dcc0fc1"
+    },
+    {
+      "partId": "d20-musk-quote",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "The X post ('We already changed the design. This one didn't actually work.', 11:58 PM Apr 19, 2026) is embedded in full by the retained Teslarati fetch and needle-verified including the bracket-quoted post content; the row keeps the DROIDS-Apr-17 vs quote-Apr-19 provenance distinction the packet adjudicated (the writeup itself does not contain the quote; it appears only in the author's Apr 21 comment).",
+      "evidenceDigest": "907790df566dbc7392a446aeefdda115e399a492705a602239fe9498b297b3da"
+    }
+  ]
+},
+{
+  "id": "dexterity-21-sanctuary-pivot-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 21,
+  "originalCellsDigest": "06d90edb1d32900c0e2101d100f92ca464cd079da56a50b202514503662d2e00",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d21-pivot",
+      "text": "Sanctuary has pivoted to selling software: since June 2026 (announced June 17) its product is Physical AI software for existing industrial robots, with the hydraulic hands a separate product still in development and whole humanoids a stated long-term goal.",
+      "requiredCitationIds": [
+        "robozaps-phoenix-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "50638891fd470ccf97cf8ec24c422d051ea240fa4318d3a3c2ba5bab48cfe7ff",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d21-pivot",
+      "citationId": "robozaps-phoenix-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/sanctuary-ai-phoenix-review",
+      "supportingPassage": "As of June 2026 the point is close to moot anyway. Sanctuary stopped positioning the whole humanoid as its product and pivoted to deploying its \"Physical AI\" software on other companies' industrial robots, with its dexterous hands following as a separate product it lists as still in development.<br>Days earlier, on June 17 2026, it announced the pivot itself. Rather than waiting, in its own words, \"for humanoid hardware to reach mass commercialization,\" Sanctuary would deploy its Physical AI software on the industrial robot arms companies already own."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d21-pivot",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Two passages merged under the one required pair: the FAQ-style 'As of June 2026 ... pivoted to deploying its Physical AI software on other companies' industrial robots' and the June 17, 2026 pivot-announcement sentence; both needle-verified in the retained RoboZaps fetch, fixing the vague 'has since pivoted to selling software' to the dated, scoped pivot.",
+      "evidenceDigest": "3d55a474ad20b64307e5e6d5eb842564bfbf79d642a6c6c86e6305fb8da3cbb0"
+    }
+  ]
+},
+{
+  "id": "dexterity-22-unitree-h2-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 22,
+  "originalCellsDigest": "a2a00a79278f9bd75bd243a968499f404657e6a3d8aac2149a3c789cdc9f4b0b",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d22-price-placeholder-hands",
+      "text": "The Unitree H2 lists at $29,900 on the official store (July 17, 2026 check: out of stock, contact-sales), and the base robot ships with non-functional placeholder hands; functional five-finger Dex5-family hands are paid add-ons whose prices Unitree does not publish.",
+      "requiredCitationIds": [
+        "robozaps-unitree-h2-2026"
+      ]
+    },
+    {
+      "id": "d22-h2plus",
+      "text": "The tactile option, the H2 Plus, lists at $100,000 with Jetson Thor compute and dual Sharpa Wave tactile five-finger hands (22 actuated DoF each, over 1,000 tactile pixels per fingertip).",
+      "requiredCitationIds": [
+        "robozaps-unitree-h2-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "9d786338a9736be6f06affad283c178f03d5ac071860e250bfbc527e58e02401",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d22-price-placeholder-hands",
+      "citationId": "robozaps-unitree-h2-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/unitree-h2-review",
+      "supportingPassage": "The Unitree H2 is listed at $29,900 on Unitree's official store, plus tax, shipping and your local customs duties, and the price has held steady since launch in October 2025. One live caveat: when we checked the store's own product data on July 17, 2026, the H2 listing showed out of stock, routing buyers to contact sales rather than checkout.<br>The single most important thing a $29,900 buyer needs to know: the base H2 ships with non-functional placeholder hands. They complete the silhouette; they do not grasp. Functional five-finger hands are paid add-ons (Unitree's Dex5 family, sold through distributors, with circulating per-hand prices in the four-to-five-figure range that Unitree does not publish)."
+    },
+    {
+      "partId": "d22-h2plus",
+      "citationId": "robozaps-unitree-h2-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/unitree-h2-review",
+      "supportingPassage": "The H2 Plus, announced at Computex with Jensen Huang on stage, is the same chassis upgraded into NVIDIA's first official Isaac GR00T reference humanoid for academic research: Jetson Thor T5000 compute onboard, dual Sharpa Wave tactile five-finger hands with 22 actuated DoF each and over 1,000 tactile pixels per fingertip, wrist cameras, and a 75-DoF total count, listed at $100,000 on Unitree's store with availability pointed at late 2026."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d22-price-placeholder-hands",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Two passages merged under the one required pair: the $29,900 listing with the July 17, 2026 out-of-stock store check, and the base-ships-with-non-functional-placeholder-hands passage with unpublished Dex5 add-on prices; both needle-verified in the retained RoboZaps H2 fetch.",
+      "evidenceDigest": "80154734239401d330ffd87a0a85ded697fceb809ed0ea6d3835f3758e610fb1"
+    },
+    {
+      "partId": "d22-h2plus",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "H2 Plus passage ($100,000, Jetson Thor T5000, dual Sharpa Wave hands with 22 actuated DoF each and 1,000+ tactile pixels per fingertip) needle-verified verbatim in the retained RoboZaps H2 fetch.",
+      "evidenceDigest": "c820af287d294912a660899d75167dc651b8f1ca4a8e0ace091d599885116b7e"
+    }
+  ]
+},
+{
+  "id": "dexterity-24-table-synthesis-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 24,
+  "originalCellsDigest": "d2c95f40887fe2506a8a5dcfcb152e6d4b92be31fc29c5be4adb9e5bc4d61027",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d24-comparison-fact",
+      "text": "Sanctuary's ~5 mN tactile figure is roughly six times more sensitive than Figure's 3 g (≈29.4 mN), so Figure 03 is not the most sensitive hand in the article's own comparison table.",
+      "requiredCitationIds": [
+        "robozaps-phoenix-2026"
+      ]
+    },
+    {
+      "id": "d24-rescope-fact",
+      "text": "The distinction Figure actually holds: it is the only maker in the table publishing a force threshold on its own product page; Sanctuary's 5 mN figure is printed by the RoboZaps review, not by Sanctuary itself, and Tesla, Shadow and Unitree publish no force-threshold figure at all.",
+      "requiredCitationIds": [
+        "robozaps-phoenix-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "f74a9dbc3f7a80e980107f6a7ef73597005b2a86e826c71199f5092e2ef025be",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d24-comparison-fact",
+      "citationId": "robozaps-phoenix-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/sanctuary-ai-phoenix-review",
+      "supportingPassage": "In February 2025 Sanctuary added a seven-cell tactile array to each fingerpad, built on micro-barometers, the same pressure-sensor family found in smartphones, sensitive to about five millinewtons against a human finger's roughly three."
+    },
+    {
+      "partId": "d24-rescope-fact",
+      "citationId": "robozaps-phoenix-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/sanctuary-ai-phoenix-review",
+      "supportingPassage": "Where Tesla and Figure drive their robotic fingers with electric motors and tendons, Sanctuary built hydraulic hands around proprietary, coin-sized valves. Each Phoenix hand has 21 degrees of freedom, approaching the human hand's 27, and the valves were tested past two billion cycles without leaking. [The 5 mN figure is this review's; Sanctuary's own pages disclose integration, hydraulics and 21 DoF but not a millinewton threshold.]"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d24-comparison-fact",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Local-AND conjunct re-proved by this integrator at application time (python3: 3 g x 9.80665 = 29.41995 mN, rounded 29.4; 29.41995/5 = 5.88, about six times), paired with the needle-verified 5 mN passage: Figure 03 is not the most sensitive hand in the article's own table, and the claim is rescoped.",
+      "evidenceDigest": "3b5489c6e02547849178c97a0cff2fd8cb66d6366c3a3c8fdae2781712528b19"
+    },
+    {
+      "partId": "d24-rescope-fact",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "The distinction Figure actually holds is verified: it is the only maker in the table publishing a force threshold on its own product page; the 5 mN figure is the RoboZaps review's, not Sanctuary's own page (needle-verified with the aggregator attribution bracket), and Tesla, Shadow and Unitree publish no threshold at all.",
+      "evidenceDigest": "bec6f98b1ed9e99bef34f87826bf9f77cc09063769ca49ba75d153ff5cb7f934"
+    }
+  ]
+},
+{
+  "id": "dexterity-26-inhand-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 26,
+  "originalCellsDigest": "f85b6a2e9922744651a5e780c143b9186d3a628dbc64468d25aadb44d1ac71b8",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d26-primary-claim",
+      "text": "Sanctuary's December 2024 announcement (datePublished 2024-12-12) states its 21-DoF dexterous robotic hands, enabled by miniaturized hydraulic valves, can perform in-hand manipulation.",
+      "requiredCitationIds": [
+        "sanctuary-inhand-2024"
+      ]
+    },
+    {
+      "id": "d26-characterization",
+      "text": "The zero-shot/reorientation characterization of that demo is the RoboZaps review's wording ('performing zero-shot in-hand manipulation, reorienting a held object without setting it down and regrasping'), not the primary announcement's.",
+      "requiredCitationIds": [
+        "robozaps-phoenix-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "b6d0a80388d093ed7f07b85087bfc95ff4e75264e5c16a6b66a9cd499a38bd4c",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d26-primary-claim",
+      "citationId": "sanctuary-inhand-2024",
+      "sourceUrl": "https://sanctuary.ai/news/sanctuary-ai-demonstrates-in-hand-manipulation-capabilities-for-improved-general-purpose-robot-dexterity/",
+      "supportingPassage": "The company's 21 degrees of freedom (DOF) dexterous robotic hands can perform in-hand manipulation, which opens up a wide range of industrial fine manipulation tasks. Sanctuary's approach in making dexterous robotic hands is enabled by their unique miniaturized hydraulic valves."
+    },
+    {
+      "partId": "d26-characterization",
+      "citationId": "robozaps-phoenix-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/sanctuary-ai-phoenix-review",
+      "supportingPassage": "Two months earlier the company had shown the hands performing zero-shot in-hand manipulation, reorienting a held object without setting it down and regrasping."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d26-primary-claim",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Sanctuary's own December 2024 announcement (datePublished 2024-12-12 in the retained fetch) states the 21-DoF hands perform in-hand manipulation; needle-verified verbatim. The primary never uses zero-shot or reorientation.",
+      "evidenceDigest": "952f952af6a89474b3994ab39c777d5449e2772474b993682b28b9db3a730bc8"
+    },
+    {
+      "partId": "d26-characterization",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "The zero-shot/reorientation characterization is the RoboZaps review's wording; needle-verified verbatim in the retained fetch and kept attributed to the review, not to the primary announcement.",
+      "evidenceDigest": "5ab4f6051d5a6246705aa5648ad267dbcefae3754628140d7900b3f3644e19a3"
+    }
+  ]
+},
+{
+  "id": "dexterity-27-hydraulic-rl-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 27,
+  "originalCellsDigest": "e719d149942bb244ea9eb0cc0f2fd8365587d321db32eebb8e50dd49f0b1f63b",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d27-500g-reorientation",
+      "text": "Sanctuary showcased a sim-trained in-hand reorientation policy executed in the real world, against gravity and with 500 grams of weight added — a load the policy never saw in training; a vendor-run result.",
+      "requiredCitationIds": [
+        "sanctuary-hydraulic-rl-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "2666587402440a04e2cca59e375b07a40b3430cd2f56124e7c693e3c5ee33cd2",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d27-500g-reorientation",
+      "citationId": "sanctuary-hydraulic-rl-2025",
+      "sourceUrl": "https://sanctuary.ai/news/sanctuary-ai-controlling-advanced-hydraulic-hands/",
+      "supportingPassage": "In this video we showcase an in-hand reorientation policy trained in simulation being executed in the real world, against gravity and with 500 grams of weight added. The success of this transfer speaks to the capability of our hydraulic hand.<br>Our proprietary Reinforcement Learning approach has enabled in-hand reorientation under an extreme disturbance (a 500g load that was not encountered during training), making this the first of its kind."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d27-500g-reorientation",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Two passages merged under the one required pair: the sim-trained policy executed in the real world 'against gravity and with 500 grams of weight added', and the 500 g load not encountered during training; both needle-verified in the retained Sanctuary post; vendor-run result, labeled as such.",
+      "evidenceDigest": "91ed87b32898be0335039a1dd40e71269ab1240774967ddca52a52070a0f5900"
+    }
+  ]
+},
+{
+  "id": "dexterity-29-rl100-pi07-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 29,
+  "originalCellsDigest": "288ffa7ec657a81703efa0b75f1e782d3d9db7a4ff7cc801305b259b8b7e46a9",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d29-rl100-cloth",
+      "text": "RL-100 was evaluated on eight real-robot tasks including cloth folding (and multi-stage juicing, where the robot served random customers continuously for about seven hours without failure in a shopping mall).",
+      "requiredCitationIds": [
+        "rl-100-2025"
+      ]
+    },
+    {
+      "id": "d29-pi07-language",
+      "text": "π0.7 performs laundry folding and espresso making at the level of the RL-trained specialists, and can be steered with language: it takes zero-shot instructions and step-by-step language coaching for new appliances.",
+      "requiredCitationIds": [
+        "pi07-blog-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "acb5b3054a61b80d68f530d5e0c3d4c06332fe4f81d9126e640746f69c584889",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d29-rl100-cloth",
+      "citationId": "rl-100-2025",
+      "sourceUrl": "https://arxiv.org/abs/2510.14830",
+      "supportingPassage": "We evaluate RL-100 on eight diverse real-robot tasks, from dynamic pushing and agile bowling to pouring, cloth folding, unscrewing, multi-stage juicing, and long-horizon box folding."
+    },
+    {
+      "partId": "d29-pi07-language",
+      "citationId": "pi07-blog-2026",
+      "sourceUrl": "https://www.pi.website/blog/pi07",
+      "supportingPassage": "The same π0.7 model can perform the laundry folding, espresso making, and box folding tasks to the same or even higher level of performance as the best models trained with Recap.<br>With the improved generalization and language following capabilities of π0.7, we can direct it with language to perform a wide variety of tasks, interactively \"teach\" new behaviors, and even have a bit of fun with precise and varied language commands!"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d29-rl100-cloth",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "RL-100's eight-task evaluation list including cloth folding needle-verified verbatim in the retained arXiv abstract fetch.",
+      "evidenceDigest": "7437c93d005278f1de1ed3ab971718f617da5b6f0892390373281e181351380e"
+    },
+    {
+      "partId": "d29-pi07-language",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Two passages merged under the one required pair: the 'same pi0.7 model' laundry/espresso/box-folding sentence and the direct-it-with-language sentence (zero-shot instructions and step-by-step coaching); both needle-verified in the retained pi.website blog fetch.",
+      "evidenceDigest": "f95bb6579b88f90a855b2f384c72ac1bbe5425d9bfb3bb94d0310f97a48ade1d"
+    }
+  ]
+},
+{
+  "id": "dexterity-30-pi-olympics-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "dexterity",
+  "rowOrdinal": 30,
+  "originalCellsDigest": "e611aa4a6ee89ebd385fbf635c6bc28e8f9a236b3ccc7d99ecefdcfcb0d486d9",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "d30-results",
+      "text": "π0.6 fine-tuned on Holson's Robot Olympics tasks took gold in 3 of 5 categories and silver in the other 2, averaging a 52% success rate and 72% task progress; a fine-tuned standard-VLM baseline without robotic pre-training solved none of the tasks, averaging 9% task progress.",
+      "requiredCitationIds": [
+        "pi-olympics-2025"
+      ]
+    },
+    {
+      "id": "d30-data-figure",
+      "text": "Data collection took under 9 hours for most tasks (the laundry silver took about 8 hours).",
+      "requiredCitationIds": [
+        "pi-olympics-2025"
+      ]
+    },
+    {
+      "id": "d30-impossible-golds",
+      "text": "The two unsolved golds were physically impossible for the robot: the laundry gold's gripper is too wide to fit inside the sleeve, and the orange-peeling gold needed a tool, which is technically a rule violation, so it does not count as successful.",
+      "requiredCitationIds": [
+        "pi-olympics-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "planDigest": "3bd23405ed05f3d229a2993fa96ed4854dda802c44ad1caf29b3875efc3ef0b5",
+    "rationale": "Integrator review of the parent hash-verified frozen packet convergence-source-c-dexterity-20260915/rows.json (sha256 ea13d24c...) at HEAD 8629cce: row binding, ordinal, currentTupleDigest and live ledger cells re-checked fail-closed immediately before application and matched. All 38 packet evidence passages were independently needle-verified by this integrator against the sha256-pinned retained fetch store (16 documents; lane needle-verification.json: zero MISS - 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design) and re-verified at application time by apply.py. Every cited id (16 distinct) confirmed registered in data/citations.ts; no new registrations. The content-auditor skill is absent from this session's catalog; contract/content-audit.md and skills/content-auditor/SKILL.md were read directly instead. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "d30-results",
+      "citationId": "pi-olympics-2025",
+      "sourceUrl": "https://www.pi.website/blog/olympics",
+      "supportingPassage": "We've been able to demonstrate initial solutions for \"gold medal\" tasks in 3 out of 5 proposed categories, with \"silver medal\" for the other 2.<br>We did not do everything possible for the highest success rate (as discussed, e.g., in our recent work on using RL for optimizing reliability and speed), and the policies for these tasks are often not consistent, though on average they have a success rate of 52% and a task progress of 72%. We also ran a baseline that fine-tuned a standard VLM, without using our π0.6 model, to test the importance of robotic foundation model pre-training. This baseline did not succeed on any of the tasks, and had an average task progress of of 9%, indicating that large-scale robot pre-training is essential for this result. [The doubled \"of of\" is the post's own typo, quoted as printed.]"
+    },
+    {
+      "partId": "d30-data-figure",
+      "citationId": "pi-olympics-2025",
+      "sourceUrl": "https://www.pi.website/blog/olympics",
+      "supportingPassage": "This was not a focused research project, and most of the work consisted of collecting data for each task (under 9 hours for most tasks)."
+    },
+    {
+      "partId": "d30-impossible-golds",
+      "citationId": "pi-olympics-2025",
+      "sourceUrl": "https://www.pi.website/blog/olympics",
+      "supportingPassage": "The two gold medal tasks that we did not solve were physically impossible for our robot, though one of them could be solved with a small modification (using a metal tool).<br>The gold-medal task is to hang an inside-out dress shirt, after turning it right-side-in, which we do not believe our current robot can do physically, because the gripper is too wide to fit inside the sleeve (something we should fix in the next hardware revision!). ... The gold-medal task is impossible with our robot gripper, so we used a tool (technically a rule violation, so we don't count this as successful)."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "d30-results",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Two passages merged under the one required pair: the 3-of-5 gold/silver sentence and the 52 percent success / 72 percent progress plus 9 percent VLM-baseline sentence (the doubled 'of of' is the post's own typo, quoted as printed); both needle-verified in the retained pi.website Olympics fetch.",
+      "evidenceDigest": "8904eaaead8178322b2077c52484ed68773a072ec8ccacee3d4394ced52fce2f"
+    },
+    {
+      "partId": "d30-data-figure",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "'under 9 hours for most tasks' needle-verified verbatim as the post's own parenthetical; the article's 'per task' was already corrected to 'for most tasks' by the earlier dexterity pass, and this pass completes the ledger row against that wording.",
+      "evidenceDigest": "ecc83c091af1817c48d47a3302404f6ffa72a97c99601caf6758418c63673b0a"
+    },
+    {
+      "partId": "d30-impossible-golds",
+      "outcome": "supported",
+      "reviewedBy": "dexterity-integrator-20260915 (session 01f6131f-cb05-43a9-b5d3-4f4cc3a76452, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Two passages merged under the one required pair: the two-unsolved-golds 'physically impossible for our robot' sentence and the gripper-too-wide / rule-violation tool passage; both needle-verified in the retained pi.website Olympics fetch.",
+      "evidenceDigest": "fe4061717a34147282fb816194870cdb0f2b15bd139d91821078590cf228dcac"
+    }
+  ]
+}
 ]

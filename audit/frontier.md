@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 6
 - Claim rows: 147
-- Recorded verified: 95
-- Recorded corrected: 49
+- Recorded verified: 91
+- Recorded corrected: 53
 - Recorded cut: 0
 - Recorded source inconsistencies: 3
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 116
-- Incomplete evidence records: 31
+- Complete evidence records: 131
+- Incomplete evidence records: 16
 
 <!-- audit-summary:end -->
 
@@ -96,28 +96,28 @@ Conventions: verdicts count **ledger rows**; the summary also states **distinct 
 
 | # | Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
 |---|---|---|---|---|---|---|---|---|
-| D9 | "about 17,000 low-threshold mechanoreceptors... roughly 1,000 of them at each fingertip" (cited to macefield-touch-2022) | Brooks essay (fetched, quoting the review) + Crossref for the DOI | V | Brooks: "In a review of Johansson's earlier work from 1979 it is reported that a human hand has about 17,000... with about 1,000 of them right at the tip of each finger", linking the Macefield review. Wiley bot-walls direct fetch; Crossref confirms registry title/author/year (Macefield, J Physiol 2022). |
+| D9 | "about 17,000 low-threshold mechanoreceptors... roughly 1,000 of them at each fingertip" (cited to macefield-touch-2022) | Brooks essay quoting the review, https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/ (FetchUrl 200, completed by 2026-09-15T21:28Z) + Crossref content negotiation for https://doi.org/10.1113/JP282846 (preparer's 2026-09-15 source session, uncredentialed); Wiley review body still bot-walled, not fetched | V | Preparer verified in the 2026-09-15 source session, integrator needle-verified against the retained fetch: Brooks prints 'about 17,000 low-threshold mechanoreceptors in the glabrous skin ... with about 1,000 of them right at the tip of each finger' linking the Macefield review; Crossref confirms the review's identity (title/author/2022-02-09/J Physiol) against registry macefield-touch-2022. Passage is secondhand via Brooks because the Wiley page bot-walls direct fetch; uncertainty preserved. |  |  |  | dexterity-9-macefield-receptors-20260915 |
 | D10 | In his September 8, 2025 post, Holson describes exception-qualified learning-from-demonstration limitations involving operator wrist-force feedback, finger control and human-like touch for the puppeteer. About 1–3 cm task precision is his guess from videos, likely more a teleoperation than a model limitation, with an explicitly described sub-cm counterexample. | https://generalrobots.substack.com/p/benjies-humanoid-olympic-games; FetchUrl tool-reported 200 on 2026-09-14 | C | Source-only proposal. Human-operator feedback is distinct from robot sensing; articulated-finger control is not restricted hardware. The 1–3 cm figure is an author guess, not a measured bound. Exceptions and the likely teleoperation-versus-model caveat are retained. Historical original cells remain separately preserved; original 8 is a separate unassigned duplicate and earns no credit. |  |  |  | dexterity-holson-pipeline-source-20260915 |
 | D11 | Luo and colleagues’ 2025 arXiv v1 outlook defines tactile robotics as development and integration of tactile-sensing technologies into robotic systems and discusses multiple challenges across sensing, processing, simulation, benchmarking, multimodal learning and active touch; it is not attributed the article’s stick-slip amplification argument. | https://arxiv.org/html/2508.11261; FetchUrl tool-reported 200 on 2026-09-14; identity/version/accepted-venue metadata from https://arxiv.org/abs/2508.11261 | C | Source-only proposal. The current article’s definition is closer to the source than the historical ledger note’s single-defining-challenge gloss. The unsupported adjoining stick-slip amplification claim is proposed for removal, not certified. Explicit six-author byline and v1 marker are retained; accepted-to-T-RO is metadata, not VOR equivalence. |  |  |  | dexterity-tactile-outlook-source-20260915 |
 | D12 | Figure's September 2025 Go-Big announcement describes a pretraining data-collection initiative and an initial Helix navigation result using 100% egocentric human video with no robot demonstrations for that approach. Figure calls images/language-to-SE(2)-velocity transfer zero-shot. Collection in Brookfield environments had begun and would expand; over 100,000 residential units describes Brookfield's portfolio, not collected homes or trajectories. The unsupported coupled full-scale/funding lead was removed; all-Helix human-video-only training is not established. | Figure AI, https://www.figure.ai/news/project-go-big; retained FetchUrl request2026-09-14T19:12:24.304Z/result2026-09-14T19:12:40.199Z, tool-reported200. Entire retained returned substantive text read inline; zero new retrieval. | C | Corrected2026-09-15: narrower navigation/collection scope plus the coupled-lead cut. The human-video-only initial result is navigation, mapped from images and language to low-level SE(2) velocity commands, not all-Helix or general dexterity; 'no robot demonstrations' is scoped to that approach. Brookfield collection had begun and would scale in coming months; over 100,000 residential units is a portfolio bound, not collected homes or trajectories. Zero-shot and the 'To our knowledge' first are Figure's own qualifications. The unassigned Tesla sentence is unchanged; neighbor funding claims remain out of scope. Reviewed2026-09-15 against the retained tool text; all six mandatory AND parts supported. No linked-source, media, model-card or general-dexterity verification. |  |  |  | dexterity-gobig-navigation-12-20260915 |
-| D13 | Fishel: video alone does not reveal touch "until well after the collision has physically moved the object"; Wells: touch "the key enabler for human-level dexterity" | sanctuary.ai tactile announcement (fetched, 2025-02-26) | V | both stated; Fishel is "Principal Researcher", Wells "CEO at Sanctuary AI" |
-| D14 | Phoenix hands: hydraulic actuation, "fingertip arrays of micro-barometer cells sensitive to about five millinewtons, against roughly three for a human fingertip" | sanctuary.ai announcement + blog.robozaps.com Phoenix review (both fetched) | V | RoboZaps: "seven-cell tactile array to each fingerpad, built on micro-barometers... sensitive to about five millinewtons against a human finger's roughly three" (Feb 2025, matching the announcement date); hydraulics from Sanctuary's own pages |
+| D13 | Fishel: video alone does not reveal touch "until well after the collision has physically moved the object"; Wells: touch "the key enabler for human-level dexterity" | Sanctuary AI tactile announcement, https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/; FetchUrl 200, completed by 2026-09-15T21:28Z | C | Precise correction on the Wells clause: source prints 'The sense of touch is a key enabler for creating human-level dexterity in robots and critical for physical AI to achieve its full potential' — indefinite article, 'creating', 'in robots'. Article span should read 'calls touch a key enabler for creating human-level dexterity in robots'. Fishel clause verified verbatim; both attributions (Principal Researcher / CEO) verified on the live page. |  |  |  | dexterity-13-fishel-wells-quotes-20260915 |
+| D14 | Phoenix hands: hydraulic actuation, "fingerpad arrays of micro-barometer cells sensitive to about five millinewtons, against roughly three for a human fingertip" | RoboZaps Phoenix review, https://blog.robozaps.com/b/sanctuary-ai-phoenix-review (FetchUrl 200, completed by 2026-09-15T21:28Z); Sanctuary tactile announcement, https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/ (FetchUrl 200, completed by 2026-09-15T21:28Z) | C | Precise correction: source prints 'seven-cell tactile array to each fingerpad' (fingerpad, not fingertip); the ~5 mN vs ~3 mN sensitivity and the hydraulic-actuation description are both documented by the RoboZaps review (aggregator; no first-party page states 5 mN per the registry's own annotation); Sanctuary's announcement supports only the tactile-integration fact. Article span: 'fingerpad arrays' and aggregator attribution preserved. |  |  |  | dexterity-14-phoenix-hydraulic-tactile-20260915 |
 | D15 | Figure's October 9, 2025 announcement describes an embedded palm camera in each Figure 03 hand and says each fingertip sensor can detect "three grams of pressure", compared with a paperclip's weight. Figure's January 27, 2026 Helix 02 announcement lists head cameras, palm cameras, fingertip tactile sensors and full-body proprioception as System 1 inputs, stating "This is the first time we've demonstrated neural network policies that depend on these modalities." Both are vendor descriptions, not calibrated force-resolution measurements or an independently established historical first. | Figure AI first-party announcements; retained FetchUrl Figure03 request2026-09-13T03:39:52.471Z/result2026-09-13T03:39:56.393Z and Helix02 request2026-09-07T16:06:58.990Z/result2026-09-07T16:07:28.926Z, tool-reported200. Exact original events and returned bytes verified; review2026-09-14 is not retrieval. | C | Corrected2026-09-14: four mandatory parts and five part-source pairs in the native plan, including Helix02 sensitivity corroboration. Figure03 says three grams of pressure; Helix02 says three grams. Both compare to a paperclip; no calibrated force resolution, SI conversion or independently established first. Figure-scoped combined-modality demonstration, not touch-only necessity. Existing quality-library resolution exclusion and unassigned threshold/superlative/data/date remain unchanged. Original V and erroneous note retained below as non-counted history. No source retrieval, media/liveness/P1/article seal or independent acceptance. |  |  |  | dexterity-figure15-source-20260914 |
-| D16 | Shadow: "more than 100 sensors at 1 kHz"; "€110,000 including support" (2022); "each finger has an independent side-to-side motion" | shadowrobot.com product page + cost blog (both fetched) | V | "over 100 sensors running at up to 1KHz"; "€110k including shipping, installation, training and support" (blog dated Dec 5, 2022); side-to-side sentence verbatim |
-| D17 | Sparsh-X "pretrained on about a million contact-rich interactions from Meta's Digit 360 sensor and lifted policy success rates by 63%" | arXiv 2506.14754 HTML (fetched) | V | "∼1M contact-rich interactions collected with the Digit 360 sensor"; "boosts policy success rates by 63% over an end-to-end model using tactile images" |
-| D18 | TouchWorld "65% success on six long-horizon contact-rich tasks, 15.7 points over the strongest baseline" | arXiv 2607.07287 HTML (fetched) | V | "six long-horizon and contact-rich dexterous manipulation tasks... 65.0% success... outperforming the strongest baseline by 15.7... percentage points" |
-| D19 | GR2 "drives the 22-DoF SharpaWave hand"; "92% success unscrewing a light bulb but 32 to 44% on its other multi-finger tasks" | GR2 blog (fetched; figure SVGs OCR'd) | V | "five-fingered, 22 degree-of-freedom SharpaWave hand"; bar labels in the blog's multi-finger chart read 92 / 44 / 36 / 32 across Unscrew bulb, Tie trash bag, Dustpan, Ziplock (tesseract OCR of the chart SVG); "the multi-finger dexterous manipulation remains challenging" |
-| D20 | Tesla 22-DoF tendon V3; "days after the V3 hand patents surfaced, Musk said of the design, 'this one didn't actually work'" | droids.substack.com (fetched) + teslarati.com (fetched) | C | the quote is real (Musk on X, 2026-04-19: "We already changed the design. This one didn't actually work.") but the DROIDS writeup is dated Apr 17 and does not contain it. Registered `teslarati-optimus-hand-2026` (press report embedding the X post) and cited it alongside DROIDS (patents, 22 DoF); table row's secondary source re-pointed the same way. |
-| D21 | Sanctuary "has since pivoted to selling software" | RoboZaps Phoenix review (fetched) | V | "In June 2026 Sanctuary pivoted to selling its Physical AI software for other robots" |
-| D22 | Unitree H2 "\$29,900... base model ships with non-functional placeholder hands, and its tactile option, the H2 Plus with Sharpa Wave hands, lists at \$100,000" | RoboZaps H2 review (fetched) | V | all three stated (July 17, 2026 store check); table row specs verified incl. Dex5-1 10-12 DoF via Wikipedia's Humanoid hand article |
+| D16 | Shadow: "more than 100 sensors at 1 kHz"; "€110,000 including support" (2022); "each finger has an independent side-to-side motion" | Shadow Dexterous Hand Series product page, https://shadowrobot.com/dexterous-hand-series/ (FetchUrl 200, completed by 2026-09-15T21:28Z); Shadow cost blog, https://shadowrobot.com/how-much-does-a-robot-hand-cost/ (FetchUrl 200, dated Dec 5, 2022 on page) | V | All three elements verified verbatim on live pages in the preparer's 2026-09-15 source session and needle-verified by this integrator against the retained fetches: 'over 100 sensors running at up to 1KHz'; '€110k including shipping, installation, training and support' (Dec 5, 2022 byline); 'Each finger has an independent side-to-side motion for impressive in-hand manipulation'. Article's 'more than 100 sensors at 1 kHz' is a faithful compression of 'up to 1KHz'. Claim unchanged; evidence fields completed. |  |  |  | dexterity-16-shadow-specs-cost-20260915 |
+| D17 | Sparsh-X "pretrained on about a million contact-rich interactions from Meta's Digit 360 sensor and lifted policy success rates by 63%" | arXiv 2506.14754 HTML v1, https://arxiv.org/html/2506.14754; FetchUrl 200, completed by 2026-09-15T21:33Z | C | Precise correction: abstract prints 'boosts policy success rates by 63% over an end-to-end model using tactile images' (no 'raw'); article span should drop 'raw'. The 63% is scoped by the paper to its plug-insertion imitation-learning evaluation. The ∼1M figure and Digit 360 basis verified verbatim. |  |  |  | dexterity-17-sparsh-x-20260915 |
+| D18 | TouchWorld "65% success on six long-horizon contact-rich tasks, 15.7 points over the strongest baseline" | arXiv 2607.07287 HTML v2, https://arxiv.org/html/2607.07287; FetchUrl 200, completed by 2026-09-15T21:33Z | C | Numbers verified verbatim (65.0% clean-setting success across six long-horizon contact-rich tasks; 15.7 points over the strongest baseline; 53.7% under human perturbations). Naming precision proposed: the paper's reactive component is the 'Tactile-Conditioned Refinement Policy' doing online residual correction; article's 'fast reflexive policy' should read 'fast tactile refinement policy' or 'reactive tactile policy'. |  |  |  | dexterity-18-touchworld-20260915 |
+| D19 | GR2 "drives the 22-DoF SharpaWave hand"; "92% success unscrewing a light bulb but 32 to 44% on its other multi-finger tasks" | Gemini Robotics 2 blog, https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/; FetchUrl 200, completed by 2026-09-15T21:33Z | V | Verified from the live page's own text: 'five-fingered, 22 degree-of-freedom SharpaWave hand'; the multi-finger chart's alt text prints 'Unscrew bulb' 92%, 'Screw bulb' 36%, 'Tie trash bag' 44%, 'Dustpan' 32%, 'Ziplock' 40% (page-printed alt text, not OCR); caption prints 'the multi-finger dexterous manipulation remains challenging'. Vendor-reported, no paper. |  |  |  | dexterity-19-gr2-multifinger-20260915 |
+| D20 | Tesla 22-DoF tendon V3; "days after the V3 hand patents surfaced, Musk said of the design, 'this one didn't actually work'" | droids.substack.com/p/the-forearm-is-the-new-hand-inside + teslarati.com/elon-musk-reveals-shocking-tesla-optimus-patent-detail/; both FetchUrl 200, completed by 2026-09-15T21:33Z | C | the quote is real (Musk on X, 2026-04-19: "We already changed the design. This one didn't actually work.") but the DROIDS writeup is dated Apr 17 and does not contain it (it appears there only in the author's Apr 21 comment). Registered `teslarati-optimus-hand-2026` (press report embedding the X post in full) and cited it alongside DROIDS (patents, 22 DoF); table row's secondary source re-pointed the same way. |  |  |  | dexterity-20-optimus-v3-20260915 |
+| D21 | Sanctuary "has since pivoted to selling software" | RoboZaps Phoenix review, https://blog.robozaps.com/b/sanctuary-ai-phoenix-review; FetchUrl 200, completed by 2026-09-15T21:33Z | V | "Since June 2026 Sanctuary's product is Physical AI software for existing industrial robots; its hydraulic hands are a separate product it lists as in development." (FAQ; body adds the pivot was announced June 17, 2026, with Daniel Friedmann appointed CEO that month) |  |  |  | dexterity-21-sanctuary-pivot-20260915 |
+| D22 | Unitree H2 "\$29,900... base model ships with non-functional placeholder hands, and its tactile option, the H2 Plus with Sharpa Wave hands, lists at \$100,000" | RoboZaps H2 review, https://blog.robozaps.com/b/unitree-h2-review; FetchUrl 200, completed by 2026-09-15T21:33Z | V | all three stated verbatim on the live page (July 17, 2026 store check: listing out of stock, contact-sales); H2 Plus adds Jetson Thor compute and dual Sharpa Wave five-finger hands (22 actuated DoF each, 1,000+ tactile pixels per fingertip); Dex5-family hands are paid add-ons with unpublished prices; North-American partner pricing from $40,900 |  |  |  | dexterity-22-unitree-h2-20260915 |
 | D23 | Figure AI Inc.'s August 6, 2024 Figure 02 release, hosted by PRNewswire, describes the second-generation humanoid's '4th generation hands' as equipped with 16 degrees of freedom. The release does not explicitly specify per-hand versus combined DoF or give an actuator count. These are vendor-declared specifications, not hand-level measured manipulation results, and no Figure 03 value follows. | Figure AI Inc. release hosted by PRNewswire, https://www.prnewswire.com/news-releases/figure-unveils-figure-02-its-second-generation-humanoid-setting-new-standards-in-ai-and-robotics-302214889.html; retained FetchUrl request2026-09-14T19:12:24.304Z/result2026-09-14T19:12:40.199Z, tool-reported200. Entire retained returned substantive text read inline; zero new retrieval. | C | Corrected2026-09-15: quote-and-disclose. The release's plural wording ('4th generation hands' 'equipped with 16 degrees of freedom') is quoted without silently resolving per-hand versus combined DoF or inventing an actuator count. The August 6, 2024 dateline with 'SOURCE Figure AI Inc.' identifies the issuer; PRNewswire is the host, so this is a first-party vendor declaration, not independent corroboration. Second-generation robot, fourth-generation hands; no Figure 03 specification follows. The mixed Figure02/Figure03 dataset claim stays untouched and separate. Reviewed2026-09-15 against the retained tool text; all four mandatory AND parts supported. No Figure 03 value, actuator arithmetic or measured manipulation claim. |  |  |  | dexterity-figure02-dof-23-20260915 |
-| D24 | "on Figure 03 the most sensitive fingertip spec any maker has published directly" | table sources (all fetched) | C | false within the article's own table: Sanctuary's ~5 mN is ~6x more sensitive than 3 g (≈29.4 mN); the real distinction is that Figure is the only maker here publishing a force threshold on its own product page. Rescoped accordingly in prose and in `lib/dexterous-hands.ts`. |
+| D24 | "on Figure 03 the most sensitive fingertip spec any maker has published directly" | lib/dexterous-hands.ts (read-only) + the five table rows' own sources (Tesla/DROIDS+Teslarati, Figure/helix-02-2026+figure-02-2024, Sanctuary/RoboZaps+in-hand, Shadow/product+cost pages, Unitree/RoboZaps H2), all fetched in the preparer's 2026-09-15 source session except the Figure product page (not fetched; read via the article's own table row) | C | false within the article's own table: Sanctuary's ~5 mN is ~6x more sensitive than 3 g (≈29.4 mN, from 3 g × 9.80665 m/s²); the real distinction is that Figure is the only maker here publishing a force threshold on its own product page (Tesla/Shadow/Unitree cells null; Sanctuary's 5 mN figure printed by the RoboZaps aggregator). Rescoped accordingly in prose and in `lib/dexterous-hands.ts`. |  |  |  | dexterity-24-table-synthesis-20260915 |
 | D25 | Figure's Helix 02 announcement presents four Figure 03 demonstrations: bottle-cap removal, extracting a single pill from an organizer, a syringe task titled "Push exactly 5 ml from a syringe", and picking small metal components from clutter. Figure calls the videos autonomous, not teleoperated, and describes the manipulation class as previously out of reach. The returned text supplies no task-level success rates, volume calibration or modality-ablation results. | Figure AI, https://www.figure.ai/news/helix-02; retained FetchUrl request2026-09-07T16:06:58.990Z/result2026-09-07T16:07:28.926Z, tool-reported200. Retained 12,101-byte response verified byte-exact (SHA-256 9d42b081418a20a1b4b118520a76512ad615a2510c737a23d97665a3f6f55021); zero new retrieval. | C | Corrected2026-09-15: the four tasks are Figure 03 demonstrations Figure describes as manipulation previously out of reach, its scoped characterization rather than a universal first. Task titles retained ('Unscrew a bottle cap', locate/extract a single small pill from an organizer, 'Push exactly 5 ml from a syringe', pick metal pieces from a cluttered box); 5 ml is a stated task value, not a calibrated accuracy result. Videos are called fully autonomous, not teleoperated (vendor statement); the returned text supplies no task-level success rates, volume calibration or modality-ablation results, so sensor necessity is not proven. System 2/System 1/System 0 roles and System 1 inputs remain as stated in the announcement. The neighboring per-task-training assertion remains out-of-scope debt, unchanged. Reviewed2026-09-15 against the retained response; all seven mandatory AND parts supported. No video inspection, fresh liveness, whole-P1 or independent acceptance. |  |  |  | dexterity-helix02-tasks-25-20260915 |
-| D26 | "Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in December 2024" | sanctuary.ai in-hand announcement (fetched; datePublished 2024-12-12) | C | the announcement states 21-DoF hands performing in-hand manipulation in Dec 2024, but never uses "zero-shot" or "reorientation"; that characterization is the RoboZaps review's ("performing zero-shot in-hand manipulation, reorienting a held object"). Reworded to the primary's claim with the review cited for the characterization. |
-| D27 | Sanctuary RL demo: "sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result" | sanctuary.ai hydraulic-RL post (fetched) | V | "an in-hand reorientation policy trained in simulation... executed in the real world, against gravity and with 500 grams of weight added" |
+| D26 | "Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in December 2024" | sanctuary.ai in-hand announcement (https://sanctuary.ai/news/sanctuary-ai-demonstrates-in-hand-manipulation-capabilities-for-improved-general-purpose-robot-dexterity/; FetchUrl 200 + datePublished meta 2024-12-12, completed by 2026-09-15T21:33Z) + RoboZaps Phoenix review for the characterization | C | the announcement states 21-DoF hands performing in-hand manipulation in Dec 2024 (datePublished meta 2024-12-12), but never uses "zero-shot" or "reorientation"; that characterization is the RoboZaps review's ("performing zero-shot in-hand manipulation, reorienting a held object"). Reworded to the primary's claim with the review cited for the characterization. |  |  |  | dexterity-26-inhand-20260915 |
+| D27 | Sanctuary RL demo: "sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result" | sanctuary.ai hydraulic-RL post, https://sanctuary.ai/news/sanctuary-ai-controlling-advanced-hydraulic-hands/; FetchUrl 200, completed by 2026-09-15T21:33Z | V | "an in-hand reorientation policy trained in simulation being executed in the real world, against gravity and with 500 grams of weight added"; also "in-hand reorientation under an extreme disturbance (a 500g load that was not encountered during training)". Vendor-run result, correctly labeled. |  |  |  | dexterity-27-hydraulic-rl-20260915 |
 | D28 | Holson’s gold-medal Basic Tool Use event starts with a keyring containing at least two keys and a keychain dropped into the robot’s waiting palm/gripper; without putting the keys down, the correct key must be aligned, inserted and turned in a lock. This describes challenge rules, not observed robot performance or an unclaimed-medal census. | https://generalrobots.substack.com/p/benjies-humanoid-olympic-games; FetchUrl tool-reported 200 on 2026-09-14 | C | Source-only proposal. Initial keyring/keychain condition, alignment/insertion/turning and no-setting-down constraint are retained. The attached universal sensing-necessity and unclaimed-status claims are proposed for removal, not disproved by unavailable evidence. General time/video/autonomy rules, author discretion and mobility ambiguity remain in the source context. |  |  |  | dexterity-keyring-rules-source-20260915 |
-| D29 | RL-100 folds cloth; π0.7 "does laundry and espresso tasks with language steering" | arXiv 2510.14830 abstract (fetched); pi07 blog (fetched) | V | cloth folding among RL-100's eight tasks; coaching sections of the blog |
-| D30 | π Olympics: gold in 3 of 5 categories, "under nine hours of data per task", 52% success / 72% progress, 9% baseline progress, two golds physically impossible, orange "needed a tool and did not count" | pi.website/blog/olympics (fetched) | C | all figures verified ("success rate of 52% and a task progress of 72%"; baseline "average task progress of 9%"; "3 out of 5"; "physically impossible for our robot"; orange "technically a rule violation, so we don't count this as successful") except the data figure, which the post states as "under 9 hours **for most tasks**". Corrected "per task" → "for most tasks". |
+| D29 | RL-100 folds cloth; π0.7 "does laundry and espresso tasks with language steering" | arXiv 2510.14830 abstract (v4, https://arxiv.org/abs/2510.14830) + pi07 blog (https://www.pi.website/blog/pi07); both FetchUrl 200, completed by 2026-09-15T21:33Z | V | cloth folding among RL-100's eight tasks verbatim; π0.7 blog: 'The same π0.7 model can perform the laundry folding, espresso making, and box folding tasks to the same or even higher level of performance as the best models trained with Recap'; language steering via zero-shot prompting and step-by-step language coaching (air-fryer section) |  |  |  | dexterity-29-rl100-pi07-20260915 |
+| D30 | π Olympics: gold in 3 of 5 categories, "under nine hours of data for most tasks", 52% success / 72% progress, 9% baseline progress, two golds physically impossible, orange "needed a tool and did not count" | pi.website/blog/olympics, https://www.pi.website/blog/olympics; FetchUrl 200, completed by 2026-09-15T21:33Z | C | all figures verified ("success rate of 52% and a task progress of 72%"; baseline "average task progress of 9%" and 'did not succeed on any of the tasks'; "3 out of 5"; "physically impossible for our robot"; orange "technically a rule violation, so we don't count this as successful") and the data figure prints as "under 9 hours for most tasks" (post's own wording; laundry silver took 'about 8 hours'). Corrected "per task" → "for most tasks". |  |  |  | dexterity-30-pi-olympics-20260915 |
 
 ## generalization.mdx (continued)
 
@@ -1312,6 +1312,364 @@ Applied from the frozen packet `convergence-source-b-generalization-20260915/row
     "appliedTupleDigest": "30e9bc47cb9213ba7954a925e9d22d61cde95a45846f286531c710b7264c4745",
     "oldRaw": "| G21 | \"The optimistic extrapolation crosses the bar only near 111k hours\" | arithmetic over lib/egoscale-law.ts fit | V | least-squares fit through the five published points crosses 0.90 at 111k h; chart labels it extrapolation |",
     "newRaw": "| G21 | \"The optimistic extrapolation crosses the bar only near 111k hours\" | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Local-AND row: integrator re-ran the node import: solvedBarCrossingHours() = 110,850.77 h (\"near 111k hours\"); completionFitScore(111000) = 0.9002; 111k/20k ≈ 5.55× past the measured range, matching \"five times past the end\". Source basis (the five completion points) re-read in full in the retained hash-verified fetch; the paper's no-extrapolation sentence preserved. Article text already states the crossing as extrapolation. |  |  |  | generalization-g21-local-bar-crossing-20260915 |"
+  }
+]
+```
+
+## 2026-09-15 Dexterity originals (continued-section rows 9-30, 15 selected)
+
+Applied from the frozen packet `convergence-source-c-dexterity-20260915/rows.json` (sha256 ea13d24c...) with zero retrieval by this integrator. Fifteen ledger evidence-plan bindings with integrator plan review and per-part adjudications; four article endpoints (r13 Wells enabler wording; r14 fingerpad arrays; r17 drop 'raw'; r18 tactile refinement policy) with exact before/after spans below, plus r30's span verified already at target ('for most tasks', corrected by the earlier dexterity pass). All 38 packet passages were independently needle-verified against the sha256-pinned retained fetch store before adjudication (zero MISS: 16 FULL, 19 FOLDED on renderer artifacts only, 2 FRAGMENTS, 1 Crossref metadata-only by design; see the lane's needle-verification.json) and re-verified at application time. Row 24 is the local-AND row: this integrator re-proved 3 g = 29.4 mN (29.4/5 = 5.88, about 6x) in python and re-checked all five dexterous-hands table rows' source ids. Row 20 keeps the Teslarati/DROIDS provenance distinction (the Musk quote is the Apr 19 X post embedded by Teslarati; the Apr 17 DROIDS writeup itself does not contain it). Rows 19/21/22/27/29/30 carry multiple same-URL passages for one (part, citation) pair and are stitched under one item with <br>, per the hardware-taxonomy precedent. The exact before/current row history follows, non-counted.
+
+```json
+[
+  {
+    "originalId": "audit/frontier.md:dexterity:9",
+    "rowOrdinal": 9,
+    "currentCells": {
+      "claim": "\"about 17,000 low-threshold mechanoreceptors... roughly 1,000 of them at each fingertip\" (cited to macefield-touch-2022)",
+      "sourceChecked": "Brooks essay (fetched, quoting the review) + Crossref for the DOI",
+      "verdict": "V",
+      "note": "Brooks: \"In a review of Johansson's earlier work from 1979 it is reported that a human hand has about 17,000... with about 1,000 of them right at the tip of each finger\", linking the Macefield review. Wiley bot-walls direct fetch; Crossref confirms registry title/author/year (Macefield, J Physiol 2022)."
+    },
+    "currentTupleDigest": "e0ebad5af5888405481e0cf4a7ff1b48f37a0febab199d142a6187d56e045007",
+    "appliedCells": {
+      "claim": "\"about 17,000 low-threshold mechanoreceptors... roughly 1,000 of them at each fingertip\" (cited to macefield-touch-2022)",
+      "sourceChecked": "Brooks essay quoting the review, https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/ (FetchUrl 200, completed by 2026-09-15T21:28Z) + Crossref content negotiation for https://doi.org/10.1113/JP282846 (preparer's 2026-09-15 source session, uncredentialed); Wiley review body still bot-walled, not fetched",
+      "verdict": "V",
+      "note": "Preparer verified in the 2026-09-15 source session, integrator needle-verified against the retained fetch: Brooks prints 'about 17,000 low-threshold mechanoreceptors in the glabrous skin ... with about 1,000 of them right at the tip of each finger' linking the Macefield review; Crossref confirms the review's identity (title/author/2022-02-09/J Physiol) against registry macefield-touch-2022. Passage is secondhand via Brooks because the Wiley page bot-walls direct fetch; uncertainty preserved."
+    },
+    "appliedTupleDigest": "00f5e0b659ce69399575ea8d254cd5e957581ad4066c27c5e3e75ad99d9509e8",
+    "integratorAdjustments": [
+      [
+        "Verified this session: Brooks prints",
+        "Preparer verified in the 2026-09-15 source session, integrator needle-verified against the retained fetch: Brooks prints"
+      ],
+      [
+        "Crossref content negotiation for https://doi.org/10.1113/JP282846 (this session)",
+        "Crossref content negotiation for https://doi.org/10.1113/JP282846 (preparer's 2026-09-15 source session, uncredentialed)"
+      ]
+    ],
+    "planId": "dexterity-9-macefield-receptors-20260915",
+    "oldRaw": "| D9 | \"about 17,000 low-threshold mechanoreceptors... roughly 1,000 of them at each fingertip\" (cited to macefield-touch-2022) | Brooks essay (fetched, quoting the review) + Crossref for the DOI | V | Brooks: \"In a review of Johansson's earlier work from 1979 it is reported that a human hand has about 17,000... with about 1,000 of them right at the tip of each finger\", linking the Macefield review. Wiley bot-walls direct fetch; Crossref confirms registry title/author/year (Macefield, J Physiol 2022). |",
+    "newRaw": "| D9 | \"about 17,000 low-threshold mechanoreceptors... roughly 1,000 of them at each fingertip\" (cited to macefield-touch-2022) | Brooks essay quoting the review, https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/ (FetchUrl 200, completed by 2026-09-15T21:28Z) + Crossref content negotiation for https://doi.org/10.1113/JP282846 (preparer's 2026-09-15 source session, uncredentialed); Wiley review body still bot-walled, not fetched | V | Preparer verified in the 2026-09-15 source session, integrator needle-verified against the retained fetch: Brooks prints 'about 17,000 low-threshold mechanoreceptors in the glabrous skin ... with about 1,000 of them right at the tip of each finger' linking the Macefield review; Crossref confirms the review's identity (title/author/2022-02-09/J Physiol) against registry macefield-touch-2022. Passage is secondhand via Brooks because the Wiley page bot-walls direct fetch; uncertainty preserved. |  |  |  | dexterity-9-macefield-receptors-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:13",
+    "rowOrdinal": 13,
+    "currentCells": {
+      "claim": "Fishel: video alone does not reveal touch \"until well after the collision has physically moved the object\"; Wells: touch \"the key enabler for human-level dexterity\"",
+      "sourceChecked": "sanctuary.ai tactile announcement (fetched, 2025-02-26)",
+      "verdict": "V",
+      "note": "both stated; Fishel is \"Principal Researcher\", Wells \"CEO at Sanctuary AI\""
+    },
+    "currentTupleDigest": "1565dfd740706ce8b80f0d59ca23db7306327c946b5ec0c446fb4907e0cd32e1",
+    "appliedCells": {
+      "claim": "Fishel: video alone does not reveal touch \"until well after the collision has physically moved the object\"; Wells: touch \"the key enabler for human-level dexterity\"",
+      "sourceChecked": "Sanctuary AI tactile announcement, https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/; FetchUrl 200, completed by 2026-09-15T21:28Z",
+      "verdict": "C",
+      "note": "Precise correction on the Wells clause: source prints 'The sense of touch is a key enabler for creating human-level dexterity in robots and critical for physical AI to achieve its full potential' — indefinite article, 'creating', 'in robots'. Article span should read 'calls touch a key enabler for creating human-level dexterity in robots'. Fishel clause verified verbatim; both attributions (Principal Researcher / CEO) verified on the live page."
+    },
+    "appliedTupleDigest": "f36299143262928d444fd934ca6d8fef95487d8c4e93488ef0d91385aa2ffc23",
+    "integratorAdjustments": [],
+    "planId": "dexterity-13-fishel-wells-quotes-20260915",
+    "oldRaw": "| D13 | Fishel: video alone does not reveal touch \"until well after the collision has physically moved the object\"; Wells: touch \"the key enabler for human-level dexterity\" | sanctuary.ai tactile announcement (fetched, 2025-02-26) | V | both stated; Fishel is \"Principal Researcher\", Wells \"CEO at Sanctuary AI\" |",
+    "newRaw": "| D13 | Fishel: video alone does not reveal touch \"until well after the collision has physically moved the object\"; Wells: touch \"the key enabler for human-level dexterity\" | Sanctuary AI tactile announcement, https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/; FetchUrl 200, completed by 2026-09-15T21:28Z | C | Precise correction on the Wells clause: source prints 'The sense of touch is a key enabler for creating human-level dexterity in robots and critical for physical AI to achieve its full potential' — indefinite article, 'creating', 'in robots'. Article span should read 'calls touch a key enabler for creating human-level dexterity in robots'. Fishel clause verified verbatim; both attributions (Principal Researcher / CEO) verified on the live page. |  |  |  | dexterity-13-fishel-wells-quotes-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:14",
+    "rowOrdinal": 14,
+    "currentCells": {
+      "claim": "Phoenix hands: hydraulic actuation, \"fingertip arrays of micro-barometer cells sensitive to about five millinewtons, against roughly three for a human fingertip\"",
+      "sourceChecked": "sanctuary.ai announcement + blog.robozaps.com Phoenix review (both fetched)",
+      "verdict": "V",
+      "note": "RoboZaps: \"seven-cell tactile array to each fingerpad, built on micro-barometers... sensitive to about five millinewtons against a human finger's roughly three\" (Feb 2025, matching the announcement date); hydraulics from Sanctuary's own pages"
+    },
+    "currentTupleDigest": "86ed862a17d614c2e3be6e8ed47c8bb963b538074753b37926b2674aa5b8c16d",
+    "appliedCells": {
+      "claim": "Phoenix hands: hydraulic actuation, \"fingerpad arrays of micro-barometer cells sensitive to about five millinewtons, against roughly three for a human fingertip\"",
+      "sourceChecked": "RoboZaps Phoenix review, https://blog.robozaps.com/b/sanctuary-ai-phoenix-review (FetchUrl 200, completed by 2026-09-15T21:28Z); Sanctuary tactile announcement, https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/ (FetchUrl 200, completed by 2026-09-15T21:28Z)",
+      "verdict": "C",
+      "note": "Precise correction: source prints 'seven-cell tactile array to each fingerpad' (fingerpad, not fingertip); the ~5 mN vs ~3 mN sensitivity and the hydraulic-actuation description are both documented by the RoboZaps review (aggregator; no first-party page states 5 mN per the registry's own annotation); Sanctuary's announcement supports only the tactile-integration fact. Article span: 'fingerpad arrays' and aggregator attribution preserved."
+    },
+    "appliedTupleDigest": "25eb52b870cb4c8932f5b8e7b658e51f1228abee3da906210f154618048f2975",
+    "integratorAdjustments": [],
+    "planId": "dexterity-14-phoenix-hydraulic-tactile-20260915",
+    "oldRaw": "| D14 | Phoenix hands: hydraulic actuation, \"fingertip arrays of micro-barometer cells sensitive to about five millinewtons, against roughly three for a human fingertip\" | sanctuary.ai announcement + blog.robozaps.com Phoenix review (both fetched) | V | RoboZaps: \"seven-cell tactile array to each fingerpad, built on micro-barometers... sensitive to about five millinewtons against a human finger's roughly three\" (Feb 2025, matching the announcement date); hydraulics from Sanctuary's own pages |",
+    "newRaw": "| D14 | Phoenix hands: hydraulic actuation, \"fingerpad arrays of micro-barometer cells sensitive to about five millinewtons, against roughly three for a human fingertip\" | RoboZaps Phoenix review, https://blog.robozaps.com/b/sanctuary-ai-phoenix-review (FetchUrl 200, completed by 2026-09-15T21:28Z); Sanctuary tactile announcement, https://sanctuary.ai/news/sanctuary-ai-equips-general-purpose-robots/ (FetchUrl 200, completed by 2026-09-15T21:28Z) | C | Precise correction: source prints 'seven-cell tactile array to each fingerpad' (fingerpad, not fingertip); the ~5 mN vs ~3 mN sensitivity and the hydraulic-actuation description are both documented by the RoboZaps review (aggregator; no first-party page states 5 mN per the registry's own annotation); Sanctuary's announcement supports only the tactile-integration fact. Article span: 'fingerpad arrays' and aggregator attribution preserved. |  |  |  | dexterity-14-phoenix-hydraulic-tactile-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:16",
+    "rowOrdinal": 16,
+    "currentCells": {
+      "claim": "Shadow: \"more than 100 sensors at 1 kHz\"; \"€110,000 including support\" (2022); \"each finger has an independent side-to-side motion\"",
+      "sourceChecked": "shadowrobot.com product page + cost blog (both fetched)",
+      "verdict": "V",
+      "note": "\"over 100 sensors running at up to 1KHz\"; \"€110k including shipping, installation, training and support\" (blog dated Dec 5, 2022); side-to-side sentence verbatim"
+    },
+    "currentTupleDigest": "09007892656fd58799b88d5b840c164d6c057a61f08aefc0b247d06aac7f2c8e",
+    "appliedCells": {
+      "claim": "Shadow: \"more than 100 sensors at 1 kHz\"; \"€110,000 including support\" (2022); \"each finger has an independent side-to-side motion\"",
+      "sourceChecked": "Shadow Dexterous Hand Series product page, https://shadowrobot.com/dexterous-hand-series/ (FetchUrl 200, completed by 2026-09-15T21:28Z); Shadow cost blog, https://shadowrobot.com/how-much-does-a-robot-hand-cost/ (FetchUrl 200, dated Dec 5, 2022 on page)",
+      "verdict": "V",
+      "note": "All three elements verified verbatim on live pages in the preparer's 2026-09-15 source session and needle-verified by this integrator against the retained fetches: 'over 100 sensors running at up to 1KHz'; '€110k including shipping, installation, training and support' (Dec 5, 2022 byline); 'Each finger has an independent side-to-side motion for impressive in-hand manipulation'. Article's 'more than 100 sensors at 1 kHz' is a faithful compression of 'up to 1KHz'. Claim unchanged; evidence fields completed."
+    },
+    "appliedTupleDigest": "7b0a3918d03105e8fca3048ba20dd4ab53fe8a37c1606481e971c0f6723395e6",
+    "integratorAdjustments": [
+      [
+        "All three elements verified verbatim on live pages this session:",
+        "All three elements verified verbatim on live pages in the preparer's 2026-09-15 source session and needle-verified by this integrator against the retained fetches:"
+      ]
+    ],
+    "planId": "dexterity-16-shadow-specs-cost-20260915",
+    "oldRaw": "| D16 | Shadow: \"more than 100 sensors at 1 kHz\"; \"€110,000 including support\" (2022); \"each finger has an independent side-to-side motion\" | shadowrobot.com product page + cost blog (both fetched) | V | \"over 100 sensors running at up to 1KHz\"; \"€110k including shipping, installation, training and support\" (blog dated Dec 5, 2022); side-to-side sentence verbatim |",
+    "newRaw": "| D16 | Shadow: \"more than 100 sensors at 1 kHz\"; \"€110,000 including support\" (2022); \"each finger has an independent side-to-side motion\" | Shadow Dexterous Hand Series product page, https://shadowrobot.com/dexterous-hand-series/ (FetchUrl 200, completed by 2026-09-15T21:28Z); Shadow cost blog, https://shadowrobot.com/how-much-does-a-robot-hand-cost/ (FetchUrl 200, dated Dec 5, 2022 on page) | V | All three elements verified verbatim on live pages in the preparer's 2026-09-15 source session and needle-verified by this integrator against the retained fetches: 'over 100 sensors running at up to 1KHz'; '€110k including shipping, installation, training and support' (Dec 5, 2022 byline); 'Each finger has an independent side-to-side motion for impressive in-hand manipulation'. Article's 'more than 100 sensors at 1 kHz' is a faithful compression of 'up to 1KHz'. Claim unchanged; evidence fields completed. |  |  |  | dexterity-16-shadow-specs-cost-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:17",
+    "rowOrdinal": 17,
+    "currentCells": {
+      "claim": "Sparsh-X \"pretrained on about a million contact-rich interactions from Meta's Digit 360 sensor and lifted policy success rates by 63%\"",
+      "sourceChecked": "arXiv 2506.14754 HTML (fetched)",
+      "verdict": "V",
+      "note": "\"∼1M contact-rich interactions collected with the Digit 360 sensor\"; \"boosts policy success rates by 63% over an end-to-end model using tactile images\""
+    },
+    "currentTupleDigest": "a7765eeccec6f48bc3a11781bef69c9be73b73fbbc8da7f0aeec417eed1c9452",
+    "appliedCells": {
+      "claim": "Sparsh-X \"pretrained on about a million contact-rich interactions from Meta's Digit 360 sensor and lifted policy success rates by 63%\"",
+      "sourceChecked": "arXiv 2506.14754 HTML v1, https://arxiv.org/html/2506.14754; FetchUrl 200, completed by 2026-09-15T21:33Z",
+      "verdict": "C",
+      "note": "Precise correction: abstract prints 'boosts policy success rates by 63% over an end-to-end model using tactile images' (no 'raw'); article span should drop 'raw'. The 63% is scoped by the paper to its plug-insertion imitation-learning evaluation. The ∼1M figure and Digit 360 basis verified verbatim."
+    },
+    "appliedTupleDigest": "851bf7230a3d8e47dc105dc84ffcdbbe782afad4b2614e15ee0130a17400034b",
+    "integratorAdjustments": [],
+    "planId": "dexterity-17-sparsh-x-20260915",
+    "oldRaw": "| D17 | Sparsh-X \"pretrained on about a million contact-rich interactions from Meta's Digit 360 sensor and lifted policy success rates by 63%\" | arXiv 2506.14754 HTML (fetched) | V | \"∼1M contact-rich interactions collected with the Digit 360 sensor\"; \"boosts policy success rates by 63% over an end-to-end model using tactile images\" |",
+    "newRaw": "| D17 | Sparsh-X \"pretrained on about a million contact-rich interactions from Meta's Digit 360 sensor and lifted policy success rates by 63%\" | arXiv 2506.14754 HTML v1, https://arxiv.org/html/2506.14754; FetchUrl 200, completed by 2026-09-15T21:33Z | C | Precise correction: abstract prints 'boosts policy success rates by 63% over an end-to-end model using tactile images' (no 'raw'); article span should drop 'raw'. The 63% is scoped by the paper to its plug-insertion imitation-learning evaluation. The ∼1M figure and Digit 360 basis verified verbatim. |  |  |  | dexterity-17-sparsh-x-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:18",
+    "rowOrdinal": 18,
+    "currentCells": {
+      "claim": "TouchWorld \"65% success on six long-horizon contact-rich tasks, 15.7 points over the strongest baseline\"",
+      "sourceChecked": "arXiv 2607.07287 HTML (fetched)",
+      "verdict": "V",
+      "note": "\"six long-horizon and contact-rich dexterous manipulation tasks... 65.0% success... outperforming the strongest baseline by 15.7... percentage points\""
+    },
+    "currentTupleDigest": "dd38d54ab29c9c3c1e175a9aab748101085fe718fb2c9a3ce2db350988995ffc",
+    "appliedCells": {
+      "claim": "TouchWorld \"65% success on six long-horizon contact-rich tasks, 15.7 points over the strongest baseline\"",
+      "sourceChecked": "arXiv 2607.07287 HTML v2, https://arxiv.org/html/2607.07287; FetchUrl 200, completed by 2026-09-15T21:33Z",
+      "verdict": "C",
+      "note": "Numbers verified verbatim (65.0% clean-setting success across six long-horizon contact-rich tasks; 15.7 points over the strongest baseline; 53.7% under human perturbations). Naming precision proposed: the paper's reactive component is the 'Tactile-Conditioned Refinement Policy' doing online residual correction; article's 'fast reflexive policy' should read 'fast tactile refinement policy' or 'reactive tactile policy'."
+    },
+    "appliedTupleDigest": "4ce2d5a924eb642c088af70d074c7a277bf53cb4fec50f8b4dd7d9c1fc9f5401",
+    "integratorAdjustments": [],
+    "planId": "dexterity-18-touchworld-20260915",
+    "oldRaw": "| D18 | TouchWorld \"65% success on six long-horizon contact-rich tasks, 15.7 points over the strongest baseline\" | arXiv 2607.07287 HTML (fetched) | V | \"six long-horizon and contact-rich dexterous manipulation tasks... 65.0% success... outperforming the strongest baseline by 15.7... percentage points\" |",
+    "newRaw": "| D18 | TouchWorld \"65% success on six long-horizon contact-rich tasks, 15.7 points over the strongest baseline\" | arXiv 2607.07287 HTML v2, https://arxiv.org/html/2607.07287; FetchUrl 200, completed by 2026-09-15T21:33Z | C | Numbers verified verbatim (65.0% clean-setting success across six long-horizon contact-rich tasks; 15.7 points over the strongest baseline; 53.7% under human perturbations). Naming precision proposed: the paper's reactive component is the 'Tactile-Conditioned Refinement Policy' doing online residual correction; article's 'fast reflexive policy' should read 'fast tactile refinement policy' or 'reactive tactile policy'. |  |  |  | dexterity-18-touchworld-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:19",
+    "rowOrdinal": 19,
+    "currentCells": {
+      "claim": "GR2 \"drives the 22-DoF SharpaWave hand\"; \"92% success unscrewing a light bulb but 32 to 44% on its other multi-finger tasks\"",
+      "sourceChecked": "GR2 blog (fetched; figure SVGs OCR'd)",
+      "verdict": "V",
+      "note": "\"five-fingered, 22 degree-of-freedom SharpaWave hand\"; bar labels in the blog's multi-finger chart read 92 / 44 / 36 / 32 across Unscrew bulb, Tie trash bag, Dustpan, Ziplock (tesseract OCR of the chart SVG); \"the multi-finger dexterous manipulation remains challenging\""
+    },
+    "currentTupleDigest": "0d8637bbe897ade373b82716e3bc38312dc43a23b56a55793831768b20c4c47f",
+    "appliedCells": {
+      "claim": "GR2 \"drives the 22-DoF SharpaWave hand\"; \"92% success unscrewing a light bulb but 32 to 44% on its other multi-finger tasks\"",
+      "sourceChecked": "Gemini Robotics 2 blog, https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/; FetchUrl 200, completed by 2026-09-15T21:33Z",
+      "verdict": "V",
+      "note": "Verified from the live page's own text: 'five-fingered, 22 degree-of-freedom SharpaWave hand'; the multi-finger chart's alt text prints 'Unscrew bulb' 92%, 'Screw bulb' 36%, 'Tie trash bag' 44%, 'Dustpan' 32%, 'Ziplock' 40% (page-printed alt text, not OCR); caption prints 'the multi-finger dexterous manipulation remains challenging'. Vendor-reported, no paper."
+    },
+    "appliedTupleDigest": "ac51f9f20164bcf2289d56336d6fa2f4365bc08942fc8327cfa0118a2ee5b0eb",
+    "integratorAdjustments": [],
+    "planId": "dexterity-19-gr2-multifinger-20260915",
+    "oldRaw": "| D19 | GR2 \"drives the 22-DoF SharpaWave hand\"; \"92% success unscrewing a light bulb but 32 to 44% on its other multi-finger tasks\" | GR2 blog (fetched; figure SVGs OCR'd) | V | \"five-fingered, 22 degree-of-freedom SharpaWave hand\"; bar labels in the blog's multi-finger chart read 92 / 44 / 36 / 32 across Unscrew bulb, Tie trash bag, Dustpan, Ziplock (tesseract OCR of the chart SVG); \"the multi-finger dexterous manipulation remains challenging\" |",
+    "newRaw": "| D19 | GR2 \"drives the 22-DoF SharpaWave hand\"; \"92% success unscrewing a light bulb but 32 to 44% on its other multi-finger tasks\" | Gemini Robotics 2 blog, https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/; FetchUrl 200, completed by 2026-09-15T21:33Z | V | Verified from the live page's own text: 'five-fingered, 22 degree-of-freedom SharpaWave hand'; the multi-finger chart's alt text prints 'Unscrew bulb' 92%, 'Screw bulb' 36%, 'Tie trash bag' 44%, 'Dustpan' 32%, 'Ziplock' 40% (page-printed alt text, not OCR); caption prints 'the multi-finger dexterous manipulation remains challenging'. Vendor-reported, no paper. |  |  |  | dexterity-19-gr2-multifinger-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:20",
+    "rowOrdinal": 20,
+    "currentCells": {
+      "claim": "Tesla 22-DoF tendon V3; \"days after the V3 hand patents surfaced, Musk said of the design, 'this one didn't actually work'\"",
+      "sourceChecked": "droids.substack.com (fetched) + teslarati.com (fetched)",
+      "verdict": "C",
+      "note": "the quote is real (Musk on X, 2026-04-19: \"We already changed the design. This one didn't actually work.\") but the DROIDS writeup is dated Apr 17 and does not contain it. Registered `teslarati-optimus-hand-2026` (press report embedding the X post) and cited it alongside DROIDS (patents, 22 DoF); table row's secondary source re-pointed the same way."
+    },
+    "currentTupleDigest": "d14d39c10dc5c7e111d4d457a11989918854da368cadb42520b0724d5888082a",
+    "appliedCells": {
+      "claim": "Tesla 22-DoF tendon V3; \"days after the V3 hand patents surfaced, Musk said of the design, 'this one didn't actually work'\"",
+      "sourceChecked": "droids.substack.com/p/the-forearm-is-the-new-hand-inside + teslarati.com/elon-musk-reveals-shocking-tesla-optimus-patent-detail/; both FetchUrl 200, completed by 2026-09-15T21:33Z",
+      "verdict": "C",
+      "note": "the quote is real (Musk on X, 2026-04-19: \"We already changed the design. This one didn't actually work.\") but the DROIDS writeup is dated Apr 17 and does not contain it (it appears there only in the author's Apr 21 comment). Registered `teslarati-optimus-hand-2026` (press report embedding the X post in full) and cited it alongside DROIDS (patents, 22 DoF); table row's secondary source re-pointed the same way."
+    },
+    "appliedTupleDigest": "8b67ae6dafeb8b9342f908371f3783189fae91f2f851b296359c62ce973d822c",
+    "integratorAdjustments": [],
+    "planId": "dexterity-20-optimus-v3-20260915",
+    "oldRaw": "| D20 | Tesla 22-DoF tendon V3; \"days after the V3 hand patents surfaced, Musk said of the design, 'this one didn't actually work'\" | droids.substack.com (fetched) + teslarati.com (fetched) | C | the quote is real (Musk on X, 2026-04-19: \"We already changed the design. This one didn't actually work.\") but the DROIDS writeup is dated Apr 17 and does not contain it. Registered `teslarati-optimus-hand-2026` (press report embedding the X post) and cited it alongside DROIDS (patents, 22 DoF); table row's secondary source re-pointed the same way. |",
+    "newRaw": "| D20 | Tesla 22-DoF tendon V3; \"days after the V3 hand patents surfaced, Musk said of the design, 'this one didn't actually work'\" | droids.substack.com/p/the-forearm-is-the-new-hand-inside + teslarati.com/elon-musk-reveals-shocking-tesla-optimus-patent-detail/; both FetchUrl 200, completed by 2026-09-15T21:33Z | C | the quote is real (Musk on X, 2026-04-19: \"We already changed the design. This one didn't actually work.\") but the DROIDS writeup is dated Apr 17 and does not contain it (it appears there only in the author's Apr 21 comment). Registered `teslarati-optimus-hand-2026` (press report embedding the X post in full) and cited it alongside DROIDS (patents, 22 DoF); table row's secondary source re-pointed the same way. |  |  |  | dexterity-20-optimus-v3-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:21",
+    "rowOrdinal": 21,
+    "currentCells": {
+      "claim": "Sanctuary \"has since pivoted to selling software\"",
+      "sourceChecked": "RoboZaps Phoenix review (fetched)",
+      "verdict": "V",
+      "note": "\"In June 2026 Sanctuary pivoted to selling its Physical AI software for other robots\""
+    },
+    "currentTupleDigest": "0d4e2ebceade22400b7a533453a613c2a7f9805d48e10ec9413c4c8aad7a32a1",
+    "appliedCells": {
+      "claim": "Sanctuary \"has since pivoted to selling software\"",
+      "sourceChecked": "RoboZaps Phoenix review, https://blog.robozaps.com/b/sanctuary-ai-phoenix-review; FetchUrl 200, completed by 2026-09-15T21:33Z",
+      "verdict": "V",
+      "note": "\"Since June 2026 Sanctuary's product is Physical AI software for existing industrial robots; its hydraulic hands are a separate product it lists as in development.\" (FAQ; body adds the pivot was announced June 17, 2026, with Daniel Friedmann appointed CEO that month)"
+    },
+    "appliedTupleDigest": "06d90edb1d32900c0e2101d100f92ca464cd079da56a50b202514503662d2e00",
+    "integratorAdjustments": [],
+    "planId": "dexterity-21-sanctuary-pivot-20260915",
+    "oldRaw": "| D21 | Sanctuary \"has since pivoted to selling software\" | RoboZaps Phoenix review (fetched) | V | \"In June 2026 Sanctuary pivoted to selling its Physical AI software for other robots\" |",
+    "newRaw": "| D21 | Sanctuary \"has since pivoted to selling software\" | RoboZaps Phoenix review, https://blog.robozaps.com/b/sanctuary-ai-phoenix-review; FetchUrl 200, completed by 2026-09-15T21:33Z | V | \"Since June 2026 Sanctuary's product is Physical AI software for existing industrial robots; its hydraulic hands are a separate product it lists as in development.\" (FAQ; body adds the pivot was announced June 17, 2026, with Daniel Friedmann appointed CEO that month) |  |  |  | dexterity-21-sanctuary-pivot-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:22",
+    "rowOrdinal": 22,
+    "currentCells": {
+      "claim": "Unitree H2 \"\\$29,900... base model ships with non-functional placeholder hands, and its tactile option, the H2 Plus with Sharpa Wave hands, lists at \\$100,000\"",
+      "sourceChecked": "RoboZaps H2 review (fetched)",
+      "verdict": "V",
+      "note": "all three stated (July 17, 2026 store check); table row specs verified incl. Dex5-1 10-12 DoF via Wikipedia's Humanoid hand article"
+    },
+    "currentTupleDigest": "32adb1892dbb74b29c646c23abfee1e64b623e7be2cbd0defb3dde862a8b5238",
+    "appliedCells": {
+      "claim": "Unitree H2 \"\\$29,900... base model ships with non-functional placeholder hands, and its tactile option, the H2 Plus with Sharpa Wave hands, lists at \\$100,000\"",
+      "sourceChecked": "RoboZaps H2 review, https://blog.robozaps.com/b/unitree-h2-review; FetchUrl 200, completed by 2026-09-15T21:33Z",
+      "verdict": "V",
+      "note": "all three stated verbatim on the live page (July 17, 2026 store check: listing out of stock, contact-sales); H2 Plus adds Jetson Thor compute and dual Sharpa Wave five-finger hands (22 actuated DoF each, 1,000+ tactile pixels per fingertip); Dex5-family hands are paid add-ons with unpublished prices; North-American partner pricing from $40,900"
+    },
+    "appliedTupleDigest": "a2a00a79278f9bd75bd243a968499f404657e6a3d8aac2149a3c789cdc9f4b0b",
+    "integratorAdjustments": [],
+    "planId": "dexterity-22-unitree-h2-20260915",
+    "oldRaw": "| D22 | Unitree H2 \"\\$29,900... base model ships with non-functional placeholder hands, and its tactile option, the H2 Plus with Sharpa Wave hands, lists at \\$100,000\" | RoboZaps H2 review (fetched) | V | all three stated (July 17, 2026 store check); table row specs verified incl. Dex5-1 10-12 DoF via Wikipedia's Humanoid hand article |",
+    "newRaw": "| D22 | Unitree H2 \"\\$29,900... base model ships with non-functional placeholder hands, and its tactile option, the H2 Plus with Sharpa Wave hands, lists at \\$100,000\" | RoboZaps H2 review, https://blog.robozaps.com/b/unitree-h2-review; FetchUrl 200, completed by 2026-09-15T21:33Z | V | all three stated verbatim on the live page (July 17, 2026 store check: listing out of stock, contact-sales); H2 Plus adds Jetson Thor compute and dual Sharpa Wave five-finger hands (22 actuated DoF each, 1,000+ tactile pixels per fingertip); Dex5-family hands are paid add-ons with unpublished prices; North-American partner pricing from $40,900 |  |  |  | dexterity-22-unitree-h2-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:24",
+    "rowOrdinal": 24,
+    "currentCells": {
+      "claim": "\"on Figure 03 the most sensitive fingertip spec any maker has published directly\"",
+      "sourceChecked": "table sources (all fetched)",
+      "verdict": "C",
+      "note": "false within the article's own table: Sanctuary's ~5 mN is ~6x more sensitive than 3 g (≈29.4 mN); the real distinction is that Figure is the only maker here publishing a force threshold on its own product page. Rescoped accordingly in prose and in `lib/dexterous-hands.ts`."
+    },
+    "currentTupleDigest": "5f8be27934066a2dc3fe5fab6cf7b5b162692db2cd37ee85cc0defffc9b91342",
+    "appliedCells": {
+      "claim": "\"on Figure 03 the most sensitive fingertip spec any maker has published directly\"",
+      "sourceChecked": "lib/dexterous-hands.ts (read-only) + the five table rows' own sources (Tesla/DROIDS+Teslarati, Figure/helix-02-2026+figure-02-2024, Sanctuary/RoboZaps+in-hand, Shadow/product+cost pages, Unitree/RoboZaps H2), all fetched in the preparer's 2026-09-15 source session except the Figure product page (not fetched; read via the article's own table row)",
+      "verdict": "C",
+      "note": "false within the article's own table: Sanctuary's ~5 mN is ~6x more sensitive than 3 g (≈29.4 mN, from 3 g × 9.80665 m/s²); the real distinction is that Figure is the only maker here publishing a force threshold on its own product page (Tesla/Shadow/Unitree cells null; Sanctuary's 5 mN figure printed by the RoboZaps aggregator). Rescoped accordingly in prose and in `lib/dexterous-hands.ts`."
+    },
+    "appliedTupleDigest": "d2c95f40887fe2506a8a5dcfcb152e6d4b92be31fc29c5be4adb9e5bc4d61027",
+    "integratorAdjustments": [
+      [
+        "all fetched this session except the Figure product page",
+        "all fetched in the preparer's 2026-09-15 source session except the Figure product page (not fetched; read via the article's own table row)"
+      ]
+    ],
+    "planId": "dexterity-24-table-synthesis-20260915",
+    "oldRaw": "| D24 | \"on Figure 03 the most sensitive fingertip spec any maker has published directly\" | table sources (all fetched) | C | false within the article's own table: Sanctuary's ~5 mN is ~6x more sensitive than 3 g (≈29.4 mN); the real distinction is that Figure is the only maker here publishing a force threshold on its own product page. Rescoped accordingly in prose and in `lib/dexterous-hands.ts`. |",
+    "newRaw": "| D24 | \"on Figure 03 the most sensitive fingertip spec any maker has published directly\" | lib/dexterous-hands.ts (read-only) + the five table rows' own sources (Tesla/DROIDS+Teslarati, Figure/helix-02-2026+figure-02-2024, Sanctuary/RoboZaps+in-hand, Shadow/product+cost pages, Unitree/RoboZaps H2), all fetched in the preparer's 2026-09-15 source session except the Figure product page (not fetched; read via the article's own table row) | C | false within the article's own table: Sanctuary's ~5 mN is ~6x more sensitive than 3 g (≈29.4 mN, from 3 g × 9.80665 m/s²); the real distinction is that Figure is the only maker here publishing a force threshold on its own product page (Tesla/Shadow/Unitree cells null; Sanctuary's 5 mN figure printed by the RoboZaps aggregator). Rescoped accordingly in prose and in `lib/dexterous-hands.ts`. |  |  |  | dexterity-24-table-synthesis-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:26",
+    "rowOrdinal": 26,
+    "currentCells": {
+      "claim": "\"Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in December 2024\"",
+      "sourceChecked": "sanctuary.ai in-hand announcement (fetched; datePublished 2024-12-12)",
+      "verdict": "C",
+      "note": "the announcement states 21-DoF hands performing in-hand manipulation in Dec 2024, but never uses \"zero-shot\" or \"reorientation\"; that characterization is the RoboZaps review's (\"performing zero-shot in-hand manipulation, reorienting a held object\"). Reworded to the primary's claim with the review cited for the characterization."
+    },
+    "currentTupleDigest": "643955f8457e13348d06e7ae3787708ba7b96905d8df6901741099a2ac9d4bf0",
+    "appliedCells": {
+      "claim": "\"Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in December 2024\"",
+      "sourceChecked": "sanctuary.ai in-hand announcement (https://sanctuary.ai/news/sanctuary-ai-demonstrates-in-hand-manipulation-capabilities-for-improved-general-purpose-robot-dexterity/; FetchUrl 200 + datePublished meta 2024-12-12, completed by 2026-09-15T21:33Z) + RoboZaps Phoenix review for the characterization",
+      "verdict": "C",
+      "note": "the announcement states 21-DoF hands performing in-hand manipulation in Dec 2024 (datePublished meta 2024-12-12), but never uses \"zero-shot\" or \"reorientation\"; that characterization is the RoboZaps review's (\"performing zero-shot in-hand manipulation, reorienting a held object\"). Reworded to the primary's claim with the review cited for the characterization."
+    },
+    "appliedTupleDigest": "f85b6a2e9922744651a5e780c143b9186d3a628dbc64468d25aadb44d1ac71b8",
+    "integratorAdjustments": [],
+    "planId": "dexterity-26-inhand-20260915",
+    "oldRaw": "| D26 | \"Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in December 2024\" | sanctuary.ai in-hand announcement (fetched; datePublished 2024-12-12) | C | the announcement states 21-DoF hands performing in-hand manipulation in Dec 2024, but never uses \"zero-shot\" or \"reorientation\"; that characterization is the RoboZaps review's (\"performing zero-shot in-hand manipulation, reorienting a held object\"). Reworded to the primary's claim with the review cited for the characterization. |",
+    "newRaw": "| D26 | \"Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in December 2024\" | sanctuary.ai in-hand announcement (https://sanctuary.ai/news/sanctuary-ai-demonstrates-in-hand-manipulation-capabilities-for-improved-general-purpose-robot-dexterity/; FetchUrl 200 + datePublished meta 2024-12-12, completed by 2026-09-15T21:33Z) + RoboZaps Phoenix review for the characterization | C | the announcement states 21-DoF hands performing in-hand manipulation in Dec 2024 (datePublished meta 2024-12-12), but never uses \"zero-shot\" or \"reorientation\"; that characterization is the RoboZaps review's (\"performing zero-shot in-hand manipulation, reorienting a held object\"). Reworded to the primary's claim with the review cited for the characterization. |  |  |  | dexterity-26-inhand-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:27",
+    "rowOrdinal": 27,
+    "currentCells": {
+      "claim": "Sanctuary RL demo: \"sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result\"",
+      "sourceChecked": "sanctuary.ai hydraulic-RL post (fetched)",
+      "verdict": "V",
+      "note": "\"an in-hand reorientation policy trained in simulation... executed in the real world, against gravity and with 500 grams of weight added\""
+    },
+    "currentTupleDigest": "10f174e242caa211028b79d5ab24dc7a0368b594a8198285b5627d9f5d912cab",
+    "appliedCells": {
+      "claim": "Sanctuary RL demo: \"sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result\"",
+      "sourceChecked": "sanctuary.ai hydraulic-RL post, https://sanctuary.ai/news/sanctuary-ai-controlling-advanced-hydraulic-hands/; FetchUrl 200, completed by 2026-09-15T21:33Z",
+      "verdict": "V",
+      "note": "\"an in-hand reorientation policy trained in simulation being executed in the real world, against gravity and with 500 grams of weight added\"; also \"in-hand reorientation under an extreme disturbance (a 500g load that was not encountered during training)\". Vendor-run result, correctly labeled."
+    },
+    "appliedTupleDigest": "e719d149942bb244ea9eb0cc0f2fd8365587d321db32eebb8e50dd49f0b1f63b",
+    "integratorAdjustments": [],
+    "planId": "dexterity-27-hydraulic-rl-20260915",
+    "oldRaw": "| D27 | Sanctuary RL demo: \"sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result\" | sanctuary.ai hydraulic-RL post (fetched) | V | \"an in-hand reorientation policy trained in simulation... executed in the real world, against gravity and with 500 grams of weight added\" |",
+    "newRaw": "| D27 | Sanctuary RL demo: \"sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result\" | sanctuary.ai hydraulic-RL post, https://sanctuary.ai/news/sanctuary-ai-controlling-advanced-hydraulic-hands/; FetchUrl 200, completed by 2026-09-15T21:33Z | V | \"an in-hand reorientation policy trained in simulation being executed in the real world, against gravity and with 500 grams of weight added\"; also \"in-hand reorientation under an extreme disturbance (a 500g load that was not encountered during training)\". Vendor-run result, correctly labeled. |  |  |  | dexterity-27-hydraulic-rl-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:29",
+    "rowOrdinal": 29,
+    "currentCells": {
+      "claim": "RL-100 folds cloth; π0.7 \"does laundry and espresso tasks with language steering\"",
+      "sourceChecked": "arXiv 2510.14830 abstract (fetched); pi07 blog (fetched)",
+      "verdict": "V",
+      "note": "cloth folding among RL-100's eight tasks; coaching sections of the blog"
+    },
+    "currentTupleDigest": "b4b1bd2ff7ab110a439798db72307f8af07a3e0527209d9a8a6203f48aca6a6c",
+    "appliedCells": {
+      "claim": "RL-100 folds cloth; π0.7 \"does laundry and espresso tasks with language steering\"",
+      "sourceChecked": "arXiv 2510.14830 abstract (v4, https://arxiv.org/abs/2510.14830) + pi07 blog (https://www.pi.website/blog/pi07); both FetchUrl 200, completed by 2026-09-15T21:33Z",
+      "verdict": "V",
+      "note": "cloth folding among RL-100's eight tasks verbatim; π0.7 blog: 'The same π0.7 model can perform the laundry folding, espresso making, and box folding tasks to the same or even higher level of performance as the best models trained with Recap'; language steering via zero-shot prompting and step-by-step language coaching (air-fryer section)"
+    },
+    "appliedTupleDigest": "288ffa7ec657a81703efa0b75f1e782d3d9db7a4ff7cc801305b259b8b7e46a9",
+    "integratorAdjustments": [],
+    "planId": "dexterity-29-rl100-pi07-20260915",
+    "oldRaw": "| D29 | RL-100 folds cloth; π0.7 \"does laundry and espresso tasks with language steering\" | arXiv 2510.14830 abstract (fetched); pi07 blog (fetched) | V | cloth folding among RL-100's eight tasks; coaching sections of the blog |",
+    "newRaw": "| D29 | RL-100 folds cloth; π0.7 \"does laundry and espresso tasks with language steering\" | arXiv 2510.14830 abstract (v4, https://arxiv.org/abs/2510.14830) + pi07 blog (https://www.pi.website/blog/pi07); both FetchUrl 200, completed by 2026-09-15T21:33Z | V | cloth folding among RL-100's eight tasks verbatim; π0.7 blog: 'The same π0.7 model can perform the laundry folding, espresso making, and box folding tasks to the same or even higher level of performance as the best models trained with Recap'; language steering via zero-shot prompting and step-by-step language coaching (air-fryer section) |  |  |  | dexterity-29-rl100-pi07-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:30",
+    "rowOrdinal": 30,
+    "currentCells": {
+      "claim": "π Olympics: gold in 3 of 5 categories, \"under nine hours of data per task\", 52% success / 72% progress, 9% baseline progress, two golds physically impossible, orange \"needed a tool and did not count\"",
+      "sourceChecked": "pi.website/blog/olympics (fetched)",
+      "verdict": "C",
+      "note": "all figures verified (\"success rate of 52% and a task progress of 72%\"; baseline \"average task progress of 9%\"; \"3 out of 5\"; \"physically impossible for our robot\"; orange \"technically a rule violation, so we don't count this as successful\") except the data figure, which the post states as \"under 9 hours **for most tasks**\". Corrected \"per task\" → \"for most tasks\"."
+    },
+    "currentTupleDigest": "08bafe053d675dcb6ac011ad5b2841001dc27417895b110770c282ef5587cde2",
+    "appliedCells": {
+      "claim": "π Olympics: gold in 3 of 5 categories, \"under nine hours of data for most tasks\", 52% success / 72% progress, 9% baseline progress, two golds physically impossible, orange \"needed a tool and did not count\"",
+      "sourceChecked": "pi.website/blog/olympics, https://www.pi.website/blog/olympics; FetchUrl 200, completed by 2026-09-15T21:33Z",
+      "verdict": "C",
+      "note": "all figures verified (\"success rate of 52% and a task progress of 72%\"; baseline \"average task progress of 9%\" and 'did not succeed on any of the tasks'; \"3 out of 5\"; \"physically impossible for our robot\"; orange \"technically a rule violation, so we don't count this as successful\") and the data figure prints as \"under 9 hours for most tasks\" (post's own wording; laundry silver took 'about 8 hours'). Corrected \"per task\" → \"for most tasks\"."
+    },
+    "appliedTupleDigest": "e611aa4a6ee89ebd385fbf635c6bc28e8f9a236b3ccc7d99ecefdcfcb0d486d9",
+    "integratorAdjustments": [],
+    "planId": "dexterity-30-pi-olympics-20260915",
+    "oldRaw": "| D30 | π Olympics: gold in 3 of 5 categories, \"under nine hours of data per task\", 52% success / 72% progress, 9% baseline progress, two golds physically impossible, orange \"needed a tool and did not count\" | pi.website/blog/olympics (fetched) | C | all figures verified (\"success rate of 52% and a task progress of 72%\"; baseline \"average task progress of 9%\"; \"3 out of 5\"; \"physically impossible for our robot\"; orange \"technically a rule violation, so we don't count this as successful\") except the data figure, which the post states as \"under 9 hours **for most tasks**\". Corrected \"per task\" → \"for most tasks\". |",
+    "newRaw": "| D30 | π Olympics: gold in 3 of 5 categories, \"under nine hours of data for most tasks\", 52% success / 72% progress, 9% baseline progress, two golds physically impossible, orange \"needed a tool and did not count\" | pi.website/blog/olympics, https://www.pi.website/blog/olympics; FetchUrl 200, completed by 2026-09-15T21:33Z | C | all figures verified (\"success rate of 52% and a task progress of 72%\"; baseline \"average task progress of 9%\" and 'did not succeed on any of the tasks'; \"3 out of 5\"; \"physically impossible for our robot\"; orange \"technically a rule violation, so we don't count this as successful\") and the data figure prints as \"under 9 hours for most tasks\" (post's own wording; laundry silver took 'about 8 hours'). Corrected \"per task\" → \"for most tasks\". |  |  |  | dexterity-30-pi-olympics-20260915 |"
   }
 ]
 ```

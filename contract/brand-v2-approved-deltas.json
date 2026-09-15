@@ -13622,6 +13622,261 @@
       "VAL-AUDIT-009"
     ],
     "disposition": "permanent"
-  }
+  },
+{
+  "id": "dex-r9-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 9: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. This pass commits four other endpoint corrections, so no record in this batch rewrites an article span; this approval records the completion against the prose member hash this pass commits (0d8fca0aa44f...). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r13-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 13: this pass's article-endpoint correction, bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Following the established per-pass convention, the approval binds the sealed migration-baseline member hash 4d026108b528... to this pass's final member hash 0d8fca0aa44f..., which the four endpoint corrections (r13 Wells enabler wording, r14 fingerpad arrays, r17 drop raw, r18 tactile refinement policy) produced together from the previously approved state bd901726bf90...; exact before/after spans in the ledger history block. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r14-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 14: this pass's article-endpoint correction, bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Following the established per-pass convention, the approval binds the sealed migration-baseline member hash 4d026108b528... to this pass's final member hash 0d8fca0aa44f..., which the four endpoint corrections (r13 Wells enabler wording, r14 fingerpad arrays, r17 drop raw, r18 tactile refinement policy) produced together from the previously approved state bd901726bf90...; exact before/after spans in the ledger history block. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r16-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 16: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. This pass commits four other endpoint corrections, so no record in this batch rewrites an article span; this approval records the completion against the prose member hash this pass commits (0d8fca0aa44f...). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r17-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 17: this pass's article-endpoint correction, bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Following the established per-pass convention, the approval binds the sealed migration-baseline member hash 4d026108b528... to this pass's final member hash 0d8fca0aa44f..., which the four endpoint corrections (r13 Wells enabler wording, r14 fingerpad arrays, r17 drop raw, r18 tactile refinement policy) produced together from the previously approved state bd901726bf90...; exact before/after spans in the ledger history block. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r18-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 18: this pass's article-endpoint correction, bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Following the established per-pass convention, the approval binds the sealed migration-baseline member hash 4d026108b528... to this pass's final member hash 0d8fca0aa44f..., which the four endpoint corrections (r13 Wells enabler wording, r14 fingerpad arrays, r17 drop raw, r18 tactile refinement policy) produced together from the previously approved state bd901726bf90...; exact before/after spans in the ledger history block. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r19-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 19: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. This pass commits four other endpoint corrections, so no record in this batch rewrites an article span; this approval records the completion against the prose member hash this pass commits (0d8fca0aa44f...). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r20-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 20: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. This pass commits four other endpoint corrections, so no record in this batch rewrites an article span; this approval records the completion against the prose member hash this pass commits (0d8fca0aa44f...). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r21-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 21: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. This pass commits four other endpoint corrections, so no record in this batch rewrites an article span; this approval records the completion against the prose member hash this pass commits (0d8fca0aa44f...). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r22-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 22: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. This pass commits four other endpoint corrections, so no record in this batch rewrites an article span; this approval records the completion against the prose member hash this pass commits (0d8fca0aa44f...). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r24-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 24: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. This pass commits four other endpoint corrections, so no record in this batch rewrites an article span; this approval records the completion against the prose member hash this pass commits (0d8fca0aa44f...). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r26-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 26: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. This pass commits four other endpoint corrections, so no record in this batch rewrites an article span; this approval records the completion against the prose member hash this pass commits (0d8fca0aa44f...). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r27-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 27: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. This pass commits four other endpoint corrections, so no record in this batch rewrites an article span; this approval records the completion against the prose member hash this pass commits (0d8fca0aa44f...). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r29-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 29: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. This pass commits four other endpoint corrections, so no record in this batch rewrites an article span; this approval records the completion against the prose member hash this pass commits (0d8fca0aa44f...). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "dex-r30-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/dexterity",
+  "oldHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "newHash": "0d8fca0aa44f11e5b51f88c98567f2117eaf442e1d8521824448e4d8f2b45bd6",
+  "reason": "Exactly frontier/dexterity original 30: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. This pass commits four other endpoint corrections, so row 30's article span was already corrected by the earlier dexterity pass and is verified at target by this pass; this approval records the completion against the prose member hash this pass commits (0d8fca0aa44f...). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 15 selected records of frozen packet convergence-source-c-dexterity-20260915, sha256 ea13d24c...) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+}
   ]
 }
