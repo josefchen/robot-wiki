@@ -12993,6 +12993,210 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
-    }
+    },
+  {
+    "id": "db-r1-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/data-bottleneck",
+    "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "newHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "reason": "Exactly data-hardware/data-bottleneck original 1: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). The two held rows (3 OXE and 5 DROID, locked by orchestration-droid-oxe-hold-20260912.md pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and byte-untouched. All 12 selected records are ledger-only evidence-plan completions with zero article endpoints (proposedArticleEndpointIds empty for every record), so content/data-hardware/data-bottleneck.mdx and its prose member hash are byte-unchanged by this pass and this approval records the completion against that hash. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 12 selected records of frozen packet convergence-source-a-data-bottleneck-20260915, sha256 b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "db-r2-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/data-bottleneck",
+    "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "newHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "reason": "Exactly data-hardware/data-bottleneck original 2: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). The two held rows (3 OXE and 5 DROID, locked by orchestration-droid-oxe-hold-20260912.md pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and byte-untouched. All 12 selected records are ledger-only evidence-plan completions with zero article endpoints (proposedArticleEndpointIds empty for every record), so content/data-hardware/data-bottleneck.mdx and its prose member hash are byte-unchanged by this pass and this approval records the completion against that hash. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 12 selected records of frozen packet convergence-source-a-data-bottleneck-20260915, sha256 b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "db-r4-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/data-bottleneck",
+    "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "newHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "reason": "Exactly data-hardware/data-bottleneck original 4: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Derived-duration part carries the integrator-side arithmetic re-proof in this lane's local-proof.json. The two held rows (3 OXE and 5 DROID, locked by orchestration-droid-oxe-hold-20260912.md pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and byte-untouched. All 12 selected records are ledger-only evidence-plan completions with zero article endpoints (proposedArticleEndpointIds empty for every record), so content/data-hardware/data-bottleneck.mdx and its prose member hash are byte-unchanged by this pass and this approval records the completion against that hash. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 12 selected records of frozen packet convergence-source-a-data-bottleneck-20260915, sha256 b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "db-r6-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/data-bottleneck",
+    "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "newHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "reason": "Exactly data-hardware/data-bottleneck original 6: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). The two held rows (3 OXE and 5 DROID, locked by orchestration-droid-oxe-hold-20260912.md pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and byte-untouched. All 12 selected records are ledger-only evidence-plan completions with zero article endpoints (proposedArticleEndpointIds empty for every record), so content/data-hardware/data-bottleneck.mdx and its prose member hash are byte-unchanged by this pass and this approval records the completion against that hash. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 12 selected records of frozen packet convergence-source-a-data-bottleneck-20260915, sha256 b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "db-r7-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/data-bottleneck",
+    "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "newHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "reason": "Exactly data-hardware/data-bottleneck original 7: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Overlapping EgoScale/Llama passages reuse byte-exactly the citations/passages already bound in compound-evidence.json (see reuse-check.json). The two held rows (3 OXE and 5 DROID, locked by orchestration-droid-oxe-hold-20260912.md pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and byte-untouched. All 12 selected records are ledger-only evidence-plan completions with zero article endpoints (proposedArticleEndpointIds empty for every record), so content/data-hardware/data-bottleneck.mdx and its prose member hash are byte-unchanged by this pass and this approval records the completion against that hash. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 12 selected records of frozen packet convergence-source-a-data-bottleneck-20260915, sha256 b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "db-r8-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/data-bottleneck",
+    "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "newHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "reason": "Exactly data-hardware/data-bottleneck original 8: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). The two held rows (3 OXE and 5 DROID, locked by orchestration-droid-oxe-hold-20260912.md pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and byte-untouched. All 12 selected records are ledger-only evidence-plan completions with zero article endpoints (proposedArticleEndpointIds empty for every record), so content/data-hardware/data-bottleneck.mdx and its prose member hash are byte-unchanged by this pass and this approval records the completion against that hash. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 12 selected records of frozen packet convergence-source-a-data-bottleneck-20260915, sha256 b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "db-r9-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/data-bottleneck",
+    "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "newHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "reason": "Exactly data-hardware/data-bottleneck original 9: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). The two held rows (3 OXE and 5 DROID, locked by orchestration-droid-oxe-hold-20260912.md pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and byte-untouched. All 12 selected records are ledger-only evidence-plan completions with zero article endpoints (proposedArticleEndpointIds empty for every record), so content/data-hardware/data-bottleneck.mdx and its prose member hash are byte-unchanged by this pass and this approval records the completion against that hash. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 12 selected records of frozen packet convergence-source-a-data-bottleneck-20260915, sha256 b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "db-r10-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/data-bottleneck",
+    "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "newHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "reason": "Exactly data-hardware/data-bottleneck original 10: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). The two held rows (3 OXE and 5 DROID, locked by orchestration-droid-oxe-hold-20260912.md pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and byte-untouched. All 12 selected records are ledger-only evidence-plan completions with zero article endpoints (proposedArticleEndpointIds empty for every record), so content/data-hardware/data-bottleneck.mdx and its prose member hash are byte-unchanged by this pass and this approval records the completion against that hash. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 12 selected records of frozen packet convergence-source-a-data-bottleneck-20260915, sha256 b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "db-r11-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/data-bottleneck",
+    "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "newHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "reason": "Exactly data-hardware/data-bottleneck original 11: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). The two held rows (3 OXE and 5 DROID, locked by orchestration-droid-oxe-hold-20260912.md pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and byte-untouched. All 12 selected records are ledger-only evidence-plan completions with zero article endpoints (proposedArticleEndpointIds empty for every record), so content/data-hardware/data-bottleneck.mdx and its prose member hash are byte-unchanged by this pass and this approval records the completion against that hash. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 12 selected records of frozen packet convergence-source-a-data-bottleneck-20260915, sha256 b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "db-r12-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/data-bottleneck",
+    "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "newHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "reason": "Exactly data-hardware/data-bottleneck original 12: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Local-AND row: integrator-side arithmetic re-proof over the article chart module in this lane's local-proof.json. Overlapping EgoScale/Llama passages reuse byte-exactly the citations/passages already bound in compound-evidence.json (see reuse-check.json). The two held rows (3 OXE and 5 DROID, locked by orchestration-droid-oxe-hold-20260912.md pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and byte-untouched. All 12 selected records are ledger-only evidence-plan completions with zero article endpoints (proposedArticleEndpointIds empty for every record), so content/data-hardware/data-bottleneck.mdx and its prose member hash are byte-unchanged by this pass and this approval records the completion against that hash. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 12 selected records of frozen packet convergence-source-a-data-bottleneck-20260915, sha256 b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "db-r13-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/data-bottleneck",
+    "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "newHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "reason": "Exactly data-hardware/data-bottleneck original 13: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). The two held rows (3 OXE and 5 DROID, locked by orchestration-droid-oxe-hold-20260912.md pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and byte-untouched. All 12 selected records are ledger-only evidence-plan completions with zero article endpoints (proposedArticleEndpointIds empty for every record), so content/data-hardware/data-bottleneck.mdx and its prose member hash are byte-unchanged by this pass and this approval records the completion against that hash. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 12 selected records of frozen packet convergence-source-a-data-bottleneck-20260915, sha256 b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "db-r14-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:data-hardware/data-bottleneck",
+    "oldHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "newHash": "91589a5dda8fa29675e14e55b04a45c2b42b1dd1aaaba55f894b6bc7f1bd54e2",
+    "reason": "Exactly data-hardware/data-bottleneck original 14: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). The two held rows (3 OXE and 5 DROID, locked by orchestration-droid-oxe-hold-20260912.md pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and byte-untouched. All 12 selected records are ledger-only evidence-plan completions with zero article endpoints (proposedArticleEndpointIds empty for every record), so content/data-hardware/data-bottleneck.mdx and its prose member hash are byte-unchanged by this pass and this approval records the completion against that hash. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 12 selected records of frozen packet convergence-source-a-data-bottleneck-20260915, sha256 b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  }
   ]
 }

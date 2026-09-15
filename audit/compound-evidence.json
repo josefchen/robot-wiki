@@ -57276,5 +57276,720 @@
         "evidenceDigest": "c3fc73923b8bedc9b098068defc4a61f5042492b7b549142be990f8b22ff88dc"
       }
     ]
+  },
+  {
+    "id": "data-bottleneck-db1-gpt3-300b-20260915",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 1,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "db1-300b",
+        "text": "GPT-3 (2020) was trained on 300 billion tokens.",
+        "requiredCitationIds": [
+          "gpt3-2020"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record data-bottleneck:1 (ready-source-correction): the registered gpt3-2020 abs page prints no token count (175B parameters only), so the evidence item points at the full-paper HTML v4; claim unchanged, sourceChecked precisely corrected. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane with every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "88f587cdc8a819f9269af9585924424a8a9e313607b756a940704c603d7851ad"
+    },
+    "evidence": [
+      {
+        "partId": "db1-300b",
+        "citationId": "gpt3-2020",
+        "sourceUrl": "https://arxiv.org/html/2005.14165v4",
+        "supportingPassage": "All models were trained for a total of 300 billion tokens."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "db1-300b",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained gpt3-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db1-300b (record audit/data-hardware.md:data-bottleneck:1).",
+        "evidenceDigest": "bf81ab9c9c8462804ab81922cfadadb28ad76a220bd4b4aab4cc46bcfc099c91"
+      }
+    ],
+    "originalCellsDigest": "bb936205f5fbb7322104c7e53688344a670bd8c2adaba67b97fbc4b9ee2fe4be"
+  },
+  {
+    "id": "data-bottleneck-db2-llama-fineweb-20260915",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 2,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "db2-llama-15t",
+        "text": "Llama 3 (2024) was pretrained on over 15 trillion tokens.",
+        "requiredCitationIds": [
+          "llama-3-2024"
+        ]
+      },
+      {
+        "id": "db2-fineweb-96",
+        "text": "FineWeb is a 15-trillion-token dataset derived from 96 Common Crawl snapshots.",
+        "requiredCitationIds": [
+          "fineweb-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record data-bottleneck:2 (ready-source-correction): two-part compound (Meta blog + FineWeb abstract), both elements verified verbatim. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane with every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "30669202ee9d61a61805a1ebbfaea9e135520d6025d6e2efd03a1cd74aa37b38"
+    },
+    "evidence": [
+      {
+        "partId": "db2-llama-15t",
+        "citationId": "llama-3-2024",
+        "sourceUrl": "https://ai.meta.com/blog/meta-llama-3/",
+        "supportingPassage": "Llama 3 is pretrained on over 15T tokens that were all collected from publicly available sources."
+      },
+      {
+        "partId": "db2-fineweb-96",
+        "citationId": "fineweb-2024",
+        "sourceUrl": "https://arxiv.org/abs/2406.17557",
+        "supportingPassage": "In this work, we introduce FineWeb, a 15-trillion token dataset derived from 96 Common Crawl snapshots that produces better-performing LLMs than other open pretraining datasets."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "db2-llama-15t",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained llama-blog2); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db2-llama-15t (record audit/data-hardware.md:data-bottleneck:2).",
+        "evidenceDigest": "a850a07fbf1d9de62a025ea99908fe453b89237ea51c6d5b5515ed0ff97de867"
+      },
+      {
+        "partId": "db2-fineweb-96",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained fineweb-abs); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db2-fineweb-96 (record audit/data-hardware.md:data-bottleneck:2).",
+        "evidenceDigest": "2b16a79a42599cb5367971e92f0eed3104d2098ca2ba82b0c7e1786da62c25de"
+      }
+    ],
+    "originalCellsDigest": "286e3971fb73dcf165866bd995ca6dd10560637c46ca446112428ae98734400f"
+  },
+  {
+    "id": "data-bottleneck-db4-agibot-counts-20260915",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 4,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "db4-published-counts",
+        "text": "AgiBot World's latest version contains 1,001,552 trajectories totaling 2,976.4 hours, covering 217 tasks, 87 skills and 106 scenes, collected by more than 100 homogeneous robots.",
+        "requiredCitationIds": [
+          "agibot-world-2025"
+        ]
+      },
+      {
+        "id": "db4-derived-duration",
+        "text": "The published operands imply about 10.7 seconds per trajectory (2,976.4 h x 3,600 s / 1,001,552), which the article rounds to about 11 seconds.",
+        "requiredCitationIds": [
+          "agibot-world-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record data-bottleneck:4 (ready-source-correction): the applied C verdict confirmed live against the v4 HTML; the derived-duration part is arithmetic over the published operands, re-proven integrator-side in node (2976.4*3600/1,001,552 = 10.6984 s; see local-proof.json), never a fetch. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane with every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "603bf6d2c708772d8fbcbef8d290032b7b76627e41234c382e1032b2d499424e"
+    },
+    "evidence": [
+      {
+        "partId": "db4-published-counts",
+        "citationId": "agibot-world-2025",
+        "sourceUrl": "https://arxiv.org/html/2503.06669v4",
+        "supportingPassage": "The latest version contains 1,001,552 trajectories, with a total duration of 2976.4 hours, covering 217 specific tasks, 87 skills, and 106 scenes."
+      },
+      {
+        "partId": "db4-derived-duration",
+        "citationId": "agibot-world-2025",
+        "sourceUrl": "https://arxiv.org/html/2503.06669v4",
+        "supportingPassage": "The latest version contains 1,001,552 trajectories, with a total duration of 2976.4 hours, covering 217 specific tasks, 87 skills, and 106 scenes."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "db4-published-counts",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained agibot-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db4-published-counts (record audit/data-hardware.md:data-bottleneck:4).",
+        "evidenceDigest": "28f9d1a83ff976265e1068a0543460511ac1256aabbe4890f0e70aeefbd0256a"
+      },
+      {
+        "partId": "db4-derived-duration",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained agibot-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db4-derived-duration (record audit/data-hardware.md:data-bottleneck:4).",
+        "evidenceDigest": "099a1e0fd8a83462f35d7652b44b74f8cd2c5925046334eb0e5a843a69950249"
+      }
+    ],
+    "originalCellsDigest": "d42ef0e37ef234482ea18840c1fc97f95c1db2a742ad0dd060e0daf770631104"
+  },
+  {
+    "id": "data-bottleneck-db6-tri-ramen-20260915",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 6,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "db6-total",
+        "text": "TRI trained multiple LBMs on approximately 1,700 hours of robot demonstrations.",
+        "requiredCitationIds": [
+          "tri-lbm-2025"
+        ]
+      },
+      {
+        "id": "db6-breakdown",
+        "text": "The Ramen pretraining mixture totals ~1,695 hours: ~545 h TRI-Ramen (468 real + 45 sim + 32 UMI, the UMI collected with the Universal Manipulation Interface) plus ~1,150 h curated OXE-Ramen.",
+        "requiredCitationIds": [
+          "tri-lbm-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record data-bottleneck:6 (ready-source-correction): abstract total plus the Sec. 4.4 Ramen breakdown; the breakdown passage matched the retained tri-html render after folding the LaTeXML doubled math-macro artifact only (the render prints the unicode symbol AND the literal macro, e.g. \"~\\sim1695\" for the paper's ~1695), zero wording or figure changes. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane with every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "cc45fb4cf1c85df21464dca55bc2fe028efc53db55097bb565fc5b270e6cb661"
+    },
+    "evidence": [
+      {
+        "partId": "db6-total",
+        "citationId": "tri-lbm-2025",
+        "sourceUrl": "https://arxiv.org/html/2507.05331",
+        "supportingPassage": "To rigorously study the impact of multitask pretraining, we train multiple LBMs on approximately 1,700 hours of robot demonstrations comprised of over 500 internally collected high-diversity tasks as well as publicly available robot data."
+      },
+      {
+        "partId": "db6-breakdown",
+        "citationId": "tri-lbm-2025",
+        "sourceUrl": "https://arxiv.org/html/2507.05331",
+        "supportingPassage": "Our pretraining mixture, called Ramen, consists of a large-scale dataset of robot demonstrations totaling ∼1695 hours of demonstration, including high-quality data collected at TRI (∼545 hours; TRI-Ramen) combined with curated external robot data (∼1150 hours; OXE-Ramen). TRI-Ramen data consists of a total of 545 hours of real data over 532 tasks for a total of 64,262 demonstrations. This is made up of: TRI-Ramen-Real - 468 hours, 362 tasks and 46063 demonstrations collected across 9 hardware stations; TRI-Ramen-Sim - 45 hours, 41 tasks and 7348 demonstrations collected across 2 simulation stations; and TRI-Ramen-UMI (32 hours, 129 tasks, 10851 demonstrations) collected with the Universal Manipulation Interface [48] using 7 pairs of handheld devices in “in-the-wild” environments."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "db6-total",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained tri-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db6-total (record audit/data-hardware.md:data-bottleneck:6).",
+        "evidenceDigest": "0eb7fa645816a84df1339188b468c02db5cd10a4ee91214e321f80b6b9d5899e"
+      },
+      {
+        "partId": "db6-breakdown",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage after renderer-artifact folding only (tri-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db6-breakdown (record audit/data-hardware.md:data-bottleneck:6).",
+        "evidenceDigest": "a3b4eab15c972acb4776d4f298c55c39377e42ed4b018d5a6f16a7d565596dc4"
+      }
+    ],
+    "originalCellsDigest": "62a84feabf30dcd2f31065dba66f9eda3ec4c10cdddcba3a524155fa9173b3db"
+  },
+  {
+    "id": "data-bottleneck-db7-egoscale-20260915",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 7,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "db7-hours",
+        "text": "EgoScale trains a VLA on over 20,854 hours of action-labeled egocentric human video, more than 20x prior efforts, and uncovers a log-linear scaling law between human data scale and validation loss.",
+        "requiredCitationIds": [
+          "egoscale-2026"
+        ]
+      },
+      {
+        "id": "db7-correlation",
+        "text": "That validation loss strongly correlates with downstream real-robot performance.",
+        "requiredCitationIds": [
+          "egoscale-2026"
+        ]
+      },
+      {
+        "id": "db7-54pct",
+        "text": "The final two-stage policy improves average success rate by 54% over a no-pretraining baseline on a 22-DoF dexterous hand and transfers to robots with lower-DoF hands.",
+        "requiredCitationIds": [
+          "egoscale-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record data-bottleneck:7 (ready-source-correction): hours and 54% passages reuse byte-exactly the egoscale-2026 citations/passages already bound in generalization plans g12/g20 (verified read-only; see reuse-check.json); no parallel binding created. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane with every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "8aa07e67ae54a0006bffee454c9d4fb8a5c18998d0b5b25558562fee81d57c34"
+    },
+    "evidence": [
+      {
+        "partId": "db7-hours",
+        "citationId": "egoscale-2026",
+        "sourceUrl": "https://arxiv.org/html/2602.16710",
+        "supportingPassage": "We train a Vision–Language–Action (VLA) model on over 20,854 hours of action-labeled egocentric human video—more than 20× larger than prior efforts—and uncover a log-linear scaling law between human data scale and validation loss."
+      },
+      {
+        "partId": "db7-correlation",
+        "citationId": "egoscale-2026",
+        "sourceUrl": "https://arxiv.org/html/2602.16710",
+        "supportingPassage": "This validation loss strongly correlates with downstream real-robot performance, establishing large-scale human data as a predictable supervision source."
+      },
+      {
+        "partId": "db7-54pct",
+        "citationId": "egoscale-2026",
+        "sourceUrl": "https://arxiv.org/html/2602.16710",
+        "supportingPassage": "Our final policy improves average success rate by 54% over a no-pretraining baseline using a 22-DoF dexterous robotic hand, and transfers effectively to robots with lower-DoF hands, indicating that large-scale human motion provides a reusable, embodiment-agnostic motor prior."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "db7-hours",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained egoscale-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db7-hours (record audit/data-hardware.md:data-bottleneck:7).",
+        "evidenceDigest": "1db52164ded4a1e1bd89a4d660ac5ccbcd7b3914e277958892bdd0fd531b1c37"
+      },
+      {
+        "partId": "db7-correlation",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained egoscale-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db7-correlation (record audit/data-hardware.md:data-bottleneck:7).",
+        "evidenceDigest": "e009ebae21b85ac299141607f4faea9220a882f1b83d8b5a4ee7b10b43c7e158"
+      },
+      {
+        "partId": "db7-54pct",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained egoscale-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db7-54pct (record audit/data-hardware.md:data-bottleneck:7).",
+        "evidenceDigest": "41c44c3526c444b1651ee165642cf2098368b37c62cd98e66599f4f1e71ef62e"
+      }
+    ],
+    "originalCellsDigest": "4123593d57381dc6db7f36336a1628aafb9e84216f137c10f25a98a20f831dd3"
+  },
+  {
+    "id": "data-bottleneck-db8-ego4d-20260915",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 8,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "db8-scale",
+        "text": "Ego4D offers 3,670 hours of daily-life activity video captured by 931 unique camera wearers from 74 worldwide locations.",
+        "requiredCitationIds": [
+          "ego4d-2022"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record data-bottleneck:8 (ready-source-correction): single-part Ego4D scale claim verified verbatim in the retained abs render. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane with every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "5e7f81c90c392d064dd7d4962e3740ec540ae4b4cdeec54a8490ea6f52a87638"
+    },
+    "evidence": [
+      {
+        "partId": "db8-scale",
+        "citationId": "ego4d-2022",
+        "sourceUrl": "https://arxiv.org/abs/2110.07058",
+        "supportingPassage": "It offers 3,670 hours of daily-life activity video spanning hundreds of scenarios (household, outdoor, workplace, leisure, etc.) captured by 931 unique camera wearers from 74 worldwide locations and 9 different countries."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "db8-scale",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained ego4d-abs); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db8-scale (record audit/data-hardware.md:data-bottleneck:8).",
+        "evidenceDigest": "d341dbf4a6e8e1f0c825c88a769fee96486a0e5e6ca8717168c79ef633792451"
+      }
+    ],
+    "originalCellsDigest": "d550b02aed93554170fbc7c1462c6114bc1e15eeb6ec3d2aa4d95e5aae9ea318"
+  },
+  {
+    "id": "data-bottleneck-db9-egodex-20260915",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 9,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "db9-visionpro",
+        "text": "EgoDex was collected with Apple Vision Pro.",
+        "requiredCitationIds": [
+          "egodex-2025"
+        ]
+      },
+      {
+        "id": "db9-scale",
+        "text": "EgoDex has 829 hours of egocentric video with paired 3D hand and finger tracking (per-joint pose of each hand) across 194 different tabletop tasks.",
+        "requiredCitationIds": [
+          "egodex-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record data-bottleneck:9 (ready-source-correction): Vision Pro provenance plus the 829 h / per-joint 3D pose / 194-task scale, both verbatim in the retained abs render. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane with every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "cdbc79f3b6afe8640f73514177b7733261edbf1499447d223e87c985dba885a9"
+    },
+    "evidence": [
+      {
+        "partId": "db9-visionpro",
+        "citationId": "egodex-2025",
+        "sourceUrl": "https://arxiv.org/abs/2505.11709",
+        "supportingPassage": "To this end, we use Apple Vision Pro to collect EgoDex: the largest and most diverse dataset of dexterous human manipulation to date."
+      },
+      {
+        "partId": "db9-scale",
+        "citationId": "egodex-2025",
+        "sourceUrl": "https://arxiv.org/abs/2505.11709",
+        "supportingPassage": "EgoDex has 829 hours of egocentric video with paired 3D hand and finger tracking data collected at the time of recording, where multiple calibrated cameras and on-device SLAM can be used to precisely track the pose of every joint of each hand. The dataset covers a wide range of diverse manipulation behaviors with everyday household objects in 194 different tabletop tasks ranging from tying shoelaces to folding laundry."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "db9-visionpro",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained egodex-abs); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db9-visionpro (record audit/data-hardware.md:data-bottleneck:9).",
+        "evidenceDigest": "427241d6bc1cbdeb6133a9a5c475c243f5c6a3e431c982156dfd22bbdc7eab20"
+      },
+      {
+        "partId": "db9-scale",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained egodex-abs); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db9-scale (record audit/data-hardware.md:data-bottleneck:9).",
+        "evidenceDigest": "9abeea95584d3cb88cf990b5c294a71eb3b9ee59bc2b1193e95cbb5955529eef"
+      }
+    ],
+    "originalCellsDigest": "7b17e850083399f134a9f46e254a8a346ae7c2dec55cc8c3fae6a8cd0c80bba4"
+  },
+  {
+    "id": "data-bottleneck-db10-lin-scaling-20260915",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 10,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "db10-corpus",
+        "text": "Lin et al. collected over 40,000 demonstrations and executed more than 15,000 real-world robot rollouts.",
+        "requiredCitationIds": [
+          "lin-data-scaling-laws-2024"
+        ]
+      },
+      {
+        "id": "db10-recipe",
+        "text": "Collecting data across 32 environments with 50 demonstrations each trains policies reaching about 90% success in novel environments with unseen objects.",
+        "requiredCitationIds": [
+          "lin-data-scaling-laws-2024"
+        ]
+      },
+      {
+        "id": "db10-threshold",
+        "text": "Performance plateaus with more demonstrations per environment (400/800/1600 demos at 8/16/32 pairs); the authors recommend about 50 demonstrations per environment-object pair.",
+        "requiredCitationIds": [
+          "lin-data-scaling-laws-2024"
+        ]
+      },
+      {
+        "id": "db10-afternoon",
+        "text": "With four data collectors working one afternoon, the efficient recipe for two tasks reaches approximately 90% success on unseen environments and objects.",
+        "requiredCitationIds": [
+          "lin-data-scaling-laws-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record data-bottleneck:10 (ready-source-correction): four-part plan over the corpus, recipe, plateau threshold and four-collectors-afternoon findings, verified verbatim in the retained abs and v4 HTML renders. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane with every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "4401099a67dfd536901db3bb3db350a8e73cad5691eddbce21d36f8cf821f2a5"
+    },
+    "evidence": [
+      {
+        "partId": "db10-corpus",
+        "citationId": "lin-data-scaling-laws-2024",
+        "sourceUrl": "https://arxiv.org/abs/2410.18647",
+        "supportingPassage": "Throughout our research, we collect over 40,000 demonstrations and execute more than 15,000 real-world robot rollouts under a rigorous evaluation protocol."
+      },
+      {
+        "partId": "db10-recipe",
+        "citationId": "lin-data-scaling-laws-2024",
+        "sourceUrl": "https://arxiv.org/html/2410.18647v4",
+        "supportingPassage": "Collecting data in as many environments as possible (e.g., 32 environments), each with one unique manipulation object and 50 demonstrations, allows training a policy that generalizes well (90% success rate) to any new environment and new object."
+      },
+      {
+        "partId": "db10-threshold",
+        "citationId": "lin-data-scaling-laws-2024",
+        "sourceUrl": "https://arxiv.org/html/2410.18647v4",
+        "supportingPassage": "Specifically, for 8, 16, and 32 pairs, performance plateaus at 400, 800, and 1600 demonstrations, respectively. Based on these findings, we recommend collecting 50 demonstrations per environment-object pair"
+      },
+      {
+        "partId": "db10-afternoon",
+        "citationId": "lin-data-scaling-laws-2024",
+        "sourceUrl": "https://arxiv.org/abs/2410.18647",
+        "supportingPassage": "With four data collectors working for one afternoon, we collect sufficient data to enable the policies for two tasks to achieve approximately 90% success rates in novel environments with unseen objects."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "db10-corpus",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained lin-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db10-corpus (record audit/data-hardware.md:data-bottleneck:10).",
+        "evidenceDigest": "fcaa2af77f630e822803df278aef1f8c2aed755222e549fb983abc22eb83857b"
+      },
+      {
+        "partId": "db10-recipe",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained lin-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db10-recipe (record audit/data-hardware.md:data-bottleneck:10).",
+        "evidenceDigest": "a5869827b3986e5d40f00c19514b2a4ccbf893451300a5cf309db5c7c0bbcb44"
+      },
+      {
+        "partId": "db10-threshold",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained lin-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db10-threshold (record audit/data-hardware.md:data-bottleneck:10).",
+        "evidenceDigest": "1b65f4419bb08fce4484eb36f814c9b7af2fa8e5ba4e6c5792889867fcac9c62"
+      },
+      {
+        "partId": "db10-afternoon",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained lin-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db10-afternoon (record audit/data-hardware.md:data-bottleneck:10).",
+        "evidenceDigest": "6100db8b03f3fb1a19c6d35de6eddba3b63bea87b70d146b66fa28cc3ab29a39"
+      }
+    ],
+    "originalCellsDigest": "dc9b1427b739c9a66e089d9b18698c574c771ff443fdc5db5022735fd06c35bb"
+  },
+  {
+    "id": "data-bottleneck-db11-diversity-20260915",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 11,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "db11-three-axes",
+        "text": "Task diversity proves more critical than per-task demonstration count; multi-embodiment pretraining is optional for cross-embodiment transfer (high-quality single-embodiment data transfers and scales better in fine-tuning); expert diversity is confounding, with velocity multimodality a key contributing factor.",
+        "requiredCitationIds": [
+          "diversity-scaling-2025"
+        ]
+      },
+      {
+        "id": "db11-go1pro",
+        "text": "The distribution-debiasing method yields GO-1-Pro, a 15% performance gain the authors state is equivalent to using 2.5 times pre-training data.",
+        "requiredCitationIds": [
+          "diversity-scaling-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record data-bottleneck:11 (ready-source-correction): the abstract's three diversity findings and the GO-1-Pro 15% / 2.5x sentence, verbatim in the retained abs render. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane with every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "a2cfc1bb9e8fa83b4e94b2357b094b5e51021598bd7b2a75933ecd6b5ac22fd4"
+    },
+    "evidence": [
+      {
+        "partId": "db11-three-axes",
+        "citationId": "diversity-scaling-2025",
+        "sourceUrl": "https://arxiv.org/abs/2507.06219",
+        "supportingPassage": "Throughout extensive experiments on various robot platforms, we reveal that (1) task diversity proves more critical than per-task demonstration quantity, benefiting transfer from diverse pre-training tasks to novel downstream scenarios; (2) multi-embodiment pre-training data is optional for cross-embodiment transfer-models trained on high-quality single-embodiment data can efficiently transfer to different platforms, showing more desirable scaling property during fine-tuning than multi-embodiment pre-trained models; and (3) expert diversity, arising from individual operational preferences and stochastic variations in human demonstrations, can be confounding to policy learning, with velocity multimodality emerging as a key contributing factor."
+      },
+      {
+        "partId": "db11-go1pro",
+        "citationId": "diversity-scaling-2025",
+        "sourceUrl": "https://arxiv.org/abs/2507.06219",
+        "supportingPassage": "Based on this insight, we propose a distribution debiasing method to mitigate velocity ambiguity, the yielding GO-1-Pro achieves substantial performance gains of 15%, equivalent to using 2.5 times pre-training data."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "db11-three-axes",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained diversity-abs); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db11-three-axes (record audit/data-hardware.md:data-bottleneck:11).",
+        "evidenceDigest": "effc78e4350a56d83d2a73d07254f4ea1e84418026cd40fd6a4dd1df91d68c61"
+      },
+      {
+        "partId": "db11-go1pro",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained diversity-abs); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db11-go1pro (record audit/data-hardware.md:data-bottleneck:11).",
+        "evidenceDigest": "bbad7694d0b93b16a5963c99ead46890f879585c9717e49cdbc029e50476d49b"
+      }
+    ],
+    "originalCellsDigest": "5cf72e82893f0d1355af76041dd583f01db31ded74353b783c8b0b5b18d39ec3"
+  },
+  {
+    "id": "data-bottleneck-db12-gapdecades-20260915",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 12,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "db12-operands",
+        "text": "The chart's gap is computed from the largest entries on each lane: Llama 3 at over 15 trillion tokens and EgoScale at 20,854 hours of human video.",
+        "requiredCitationIds": [
+          "llama-3-2024",
+          "egoscale-2026"
+        ]
+      },
+      {
+        "id": "db12-arithmetic",
+        "text": "Local arithmetic over those published operands: round(log10(1.5e13 / 20,854)) = round(8.8569) = 9, the \"nine orders of magnitude apart\" heading and chart label.",
+        "requiredCitationIds": [
+          "egoscale-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record data-bottleneck:12 (ready-source-correction-with-local-AND): local-AND row; the integrator re-proved the arithmetic from the article's own chart module at HEAD (components/interactive/data-scale-chart.tsx:162 over lib/data-scaling.ts operands llama3 1.5e13 and egoscale 20,854: log10(1.5e13/20854)=8.85690 rounds to 9; see local-proof.json); operands reuse byte-exactly the registered llama-3-2024 and egoscale-2026 passages (see reuse-check.json); zero retrieval. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane with every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "d05659f72a0576be91c12c838b65afcd8b82e479b6f32ef1ceeb4fcd4a37c664"
+    },
+    "evidence": [
+      {
+        "partId": "db12-operands",
+        "citationId": "llama-3-2024",
+        "sourceUrl": "https://ai.meta.com/blog/meta-llama-3/",
+        "supportingPassage": "Llama 3 is pretrained on over 15T tokens that were all collected from publicly available sources."
+      },
+      {
+        "partId": "db12-operands",
+        "citationId": "egoscale-2026",
+        "sourceUrl": "https://arxiv.org/html/2602.16710",
+        "supportingPassage": "We train a Vision–Language–Action (VLA) model on over 20,854 hours of action-labeled egocentric human video—more than 20× larger than prior efforts—and uncover a log-linear scaling law between human data scale and validation loss."
+      },
+      {
+        "partId": "db12-arithmetic",
+        "citationId": "egoscale-2026",
+        "sourceUrl": "https://arxiv.org/html/2602.16710",
+        "supportingPassage": "We train a Vision–Language–Action (VLA) model on over 20,854 hours of action-labeled egocentric human video—more than 20× larger than prior efforts—and uncover a log-linear scaling law between human data scale and validation loss."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "db12-operands",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained llama-blog2) and verbatim (FULL, retained egoscale-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db12-operands (record audit/data-hardware.md:data-bottleneck:12).",
+        "evidenceDigest": "4781ab4a4059b24c54cc691ff5a05df75cff3ba50ae779d91371046a41ebaf29"
+      },
+      {
+        "partId": "db12-arithmetic",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained egoscale-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db12-arithmetic (record audit/data-hardware.md:data-bottleneck:12).",
+        "evidenceDigest": "d73c511e65e090fb6899e054ef98710f8c788e21685ccb84d57b9b53c3cd802b"
+      }
+    ],
+    "originalCellsDigest": "e12000c88e738d073d03e6558d4d6cef18f0bdf3a70bd98f2e0d33e7856f67ad"
+  },
+  {
+    "id": "data-bottleneck-db13-umi-20260915",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 13,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "db13-hardware",
+        "text": "UMI's collection hardware is a trigger-activated handheld 3D-printed parallel-jaw gripper with a GoPro as its only sensor and recording device.",
+        "requiredCitationIds": [
+          "umi-2024"
+        ]
+      },
+      {
+        "id": "db13-zeroshot",
+        "text": "Policies learned via UMI zero-shot generalize to novel environments and objects, and are hardware-agnostic and deployable across multiple robot platforms.",
+        "requiredCitationIds": [
+          "umi-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record data-bottleneck:13 (ready-source-correction): zero-shot element from the abs (folded typographic quotes only), collection-hardware element from the v3 HTML body, verbatim. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane with every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "16aa5d04f102e5a1a210d8483127081696b55fccb35fb367c57e2938306691c4"
+    },
+    "evidence": [
+      {
+        "partId": "db13-hardware",
+        "citationId": "umi-2024",
+        "sourceUrl": "https://arxiv.org/html/2402.10329v3",
+        "supportingPassage": "UMI’s data collection hardware takes the form of a trigger-activated, handheld 3D printed parallel jaw gripper with soft fingers, mounted with a GoPro camera as the only sensor and recording device (see HD1)."
+      },
+      {
+        "partId": "db13-zeroshot",
+        "citationId": "umi-2024",
+        "sourceUrl": "https://arxiv.org/abs/2402.10329",
+        "supportingPassage": "We demonstrate UMI's versatility and efficacy with comprehensive real-world experiments, where policies learned via UMI zero-shot generalize to novel environments and objects when trained on diverse human demonstrations."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "db13-hardware",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained umi-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db13-hardware (record audit/data-hardware.md:data-bottleneck:13).",
+        "evidenceDigest": "17342f7081b8084d0936f6b31d51c1cd2ee8fc5dd61c44a9060d484f571e1f3c"
+      },
+      {
+        "partId": "db13-zeroshot",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage after renderer-artifact folding only (umi-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db13-zeroshot (record audit/data-hardware.md:data-bottleneck:13).",
+        "evidenceDigest": "070c66844f889b24f749d10ddf5fa70a4bb70530d9f7a108c0932752aef5a51a"
+      }
+    ],
+    "originalCellsDigest": "48d51ff8a7b253250660c2c1e74654bcd72a955df02c0c3c9092054dce999ca8"
+  },
+  {
+    "id": "data-bottleneck-db14-agibot-30pct-20260915",
+    "ledgerPath": "audit/data-hardware.md",
+    "articleSlug": "data-bottleneck",
+    "rowOrdinal": 14,
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "db14-30pct",
+        "text": "AgiBot World's authors report that policies pre-trained on their dataset achieve an average performance improvement of 30% over Open X-Embodiment-trained policies, in-domain and out-of-distribution.",
+        "requiredCitationIds": [
+          "agibot-world-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record data-bottleneck:14 (ready-source-correction): the 30% sentence verified verbatim in both the retained abs and v4 HTML renders; the vendor-reported characterization and the no-independent-replication absence stay exactly as prepared - the absence claim remains an editorial absence statement, not a fetch-evidenced fact. Integrator review: packet plan reviewed in full against the frozen packet; every passage of this record needle-verified against the retained fetch text preserved in the source lane with every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator.",
+      "planDigest": "a65f9cc126d1444b16124de9a13d22dfab07b80b5d38f25dbb67ca1b81d064f5"
+    },
+    "evidence": [
+      {
+        "partId": "db14-30pct",
+        "citationId": "agibot-world-2025",
+        "sourceUrl": "https://arxiv.org/abs/2503.06669",
+        "supportingPassage": "Policies pre-trained on our dataset achieve an average performance improvement of 30% over those trained on Open X-Embodiment, both in in-domain and out-of-distribution scenarios."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "db14-30pct",
+        "outcome": "supported",
+        "reviewedBy": "data-bottleneck-integrator-20260915 (session 0ab5015f-10cc-4b48-a049-c2d5714ca8dd, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage verbatim (FULL, retained agibot-html); pin cross-checked by sha256; citation id registered. Integrator adjudication of packet part db14-30pct (record audit/data-hardware.md:data-bottleneck:14).",
+        "evidenceDigest": "4aec3023ca554c9c2f172d96e6b9c7d3a63b424fe9516adbb7df13c82d099d48"
+      }
+    ],
+    "originalCellsDigest": "f3a90d3dde97dd2bf72b56739cc839a5e73f6eb80cb10b5b219763cf42784801"
   }
 ]
