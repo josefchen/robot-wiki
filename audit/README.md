@@ -3882,3 +3882,108 @@ are not claimed here.
 Evidence root:
 `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-brooks-dexterity-remaining-integration-20260915/`.
 Content/release RED; do not publish.
+
+## Figure/Holson dexterity originals 8, 12, 23 and 25 (2026-09-15)
+
+Exactly **4 originals applied / 0 held / 0 unattempted** from three frozen
+parent-qualified packets (`convergence-lane-a-holson-original8-20260914`
+plan.json SHA-256 `0484bd9536716d79df12f020d63c2dfa4b5117ce61032a4ee6bf2a0559ab8653`;
+`convergence-lane-a-figure-dexterity-two-bodies-supplement-20260914`
+rows.json SHA-256 `2044958f9d6c5e1532c34052ccfbca19ae92ce241332f7100dd188f017bbd23d`;
+`convergence-lane-a-figure-dexterity-three-20260914` rows.json SHA-256
+`6b67202f378efc70b7107906faecbe33679b4c8cc38e65d352e2203a651ef756`),
+**zero retrieval**. Packet SHAs, each record's
+originalId/rowOrdinal/current four-cell digest and cells, the 25 mandatory
+parts, 25 part/citation pairs and 25 native evidence items were rechecked at
+application against HEAD `00ec640e748132c56444979b11be5f60d3e72086`; every
+quoted passage was verified verbatim inside the hash-matched retained source
+bodies (Holson retained rendered text; Go-Big tool text 6,180 bytes
+`9dd8324aeeddb69a7d8d99848a0882316aad0a4db4db0aa7335a2cfee8a1b2a4`;
+Figure 02 PRNewswire tool text 6,468 bytes
+`97efc185dbc5f068e67ed0845df352ae25d9f55f9200957d188825ed21e2067a`;
+Helix 02 retained response 12,101 bytes
+`9d42b081418a20a1b4b118520a76512ad615a2510c737a23d97665a3f6f55021`).
+The packets' UTF-8 offsets were computed against September 14/15 article
+states, so every span was relocated by exact current content (each exactly
+one occurrence).
+
+Resulting native totals: **569 complete / 425 incomplete / 994 originals /
+47 articles**, **475 plans / 549 approvals / 43 unchanged full baseline
+failures**. All **565 prior complete originals/order, 990 unselected semantic
+records, 471 prior plan objects/order and 545 prior approval objects/order**
+are preserved; exactly four native plans and four exact baseline-to-current
+prose approvals were appended. The prose manifest member moved
+`64e29b28…` → `bd901726…` with the approval chain correctly anchored at the
+immutable baseline hash (`4d026108…`); the first approval write used the
+previous current hash as `oldHash` and was corrected before commit after the
+baseline gate exposed it (44 failures → lawful 43 / 288 approved). Citation
+multiset, see-also links, glossary, dates, defaults, neighbors and the
+just-integrated Holson/Brooks rows are unchanged. Two registry-comment
+endpoints (`figure-go-big-2025` overstatement narrowed, `figure-02-2024`
+ambiguity comment added) are audit notes outside the parsed citation
+records, which are byte-identical.
+
+- **Original8** (V→C, 8 parts, 0 new ARTICLE endpoints): distinct whole-claim
+  correction over the `article-holson-pipeline` span original10 already
+  applied byte-identically at `f061812`; dated author commentary, general
+  trend with exceptions, operator-interface scope (wrist force to the human
+  teleoperator, puppeteer-usable touch), finger-control finesse beyond
+  open/close, video-guessed 1–3 cm precision with the likely-teleoperation
+  attribution and the author-described sub-centimeter counterexample. The
+  historical Brooks-quotes-the-same-list assertion remains unverified and is
+  not asserted. Zero second article writes.
+- **Original12** (V→C, 6 parts, 2 ARTICLE endpoints): Go-Big rescoped to a
+  pretraining data-collection initiative whose initial human-video result is
+  navigation (images/language to low-level SE(2) velocity commands, no robot
+  demonstrations for that approach, zero-shot and "to our knowledge" first
+  as Figure's own qualifications); Brookfield collection begun-and-expanding
+  with over 100,000 residential units as a portfolio bound; the unsupported
+  coupled best-funded/full-scale lead cut; Tesla sentence unchanged.
+- **Original23** (V→C, 4 parts, 1 ARTICLE endpoint): quote-and-disclose of
+  the August 6, 2024 Figure 02 release (Figure AI Inc. issuer, PRNewswire
+  host; second-generation robot, fourth-generation hands) — "4th generation
+  hands" "equipped with 16 degrees of freedom" without resolving per-hand
+  versus combined DoF or actuator count. The mixed Figure02/Figure03
+  dataset claim stays untouched and separate.
+- **Original25** (V→C, 7 parts, 1 ARTICLE endpoint): the four Helix 02
+  demonstrations scoped to Figure's previously-out-of-reach characterization
+  with autonomous-not-teleoperated as a vendor statement; the syringe task
+  is titled "Push exactly 5 ml from a syringe" and 5 ml is a task value, not
+  calibrated accuracy; no task-level success rates, volume calibration or
+  modality-ablation results exist in the returned text; System 2/System 1/
+  System 0 roles unchanged. The neighboring per-task-training assertion
+  remains out-of-scope debt, untouched.
+
+`lastReviewed` is unchanged (2026-08-18): the dexterity article remains
+mid-audit. New plan IDs `dexterity-holson-original8-20260915`,
+`dexterity-gobig-navigation-12-20260915`, `dexterity-figure02-dof-23-20260915`,
+`dexterity-helix02-tasks-25-20260915`. No source retrieval, full browser
+corpus, production build/export, push or independent scrutiny/user-testing
+acceptance is claimed; the content gate remains red with the honest count
+below. Shared debts (Term Escape popup visibility, Back BODY focus, fallback
+fonts, full profiles) remain open and are not claimed here.
+
+Exact-text-lawful extra delta, documented: regenerating the frontier ledger
+summary exposed that the block committed at `00ec640` was already stale by
+three rows — `withLedgerSummary` over `00ec640`'s own committed
+`audit/frontier.md` and `audit/compound-evidence.json` yields **101 V /
+43 C / 28 complete**, not the committed 104 / 40 / 25. The current block
+(97 / 47 / 32 / 115) equals that canonical HEAD recomputation plus exactly
+this checkpoint's four V→C completions; no row outside the four selected
+originals was edited, and the mission-wide census (565→569 complete, all
+prior complete IDs preserved, all 990 unselected semantic records
+byte-identical) is unchanged by the correction.
+
+| Gate | Command | Result |
+|---|---|---|
+| Red-first unit | `npx vitest run tests/unit/dexterity-figure-holson-remaining-source.test.ts` (before application) | 16 failed / 1 passed, 08:34 UTC |
+| Unit | same, after application | 17 passed |
+| Affected units | `npx vitest run` dexterity-figure-holson-remaining (new), dexterity-brooks-remaining (1 lawful count-oracle update 471→475), dexterity-brooks, dexterity-figure15, dexterity-holson-outlook, audit-ledger, dexterous-hands, citations | 198 passed / 8 files |
+| Prelint | `npm run prelint` | exit 0 |
+| Lint | `npm run lint` | exit 0 |
+| Typecheck (non-incremental) | `NODE_DISABLE_COMPILE_CACHE=1 npm run typecheck` | exit 0; next-env.d.ts/tsconfig.json/next.config.ts byte-identical |
+| Baseline | `NODE_DISABLE_COMPILE_CACHE=1 npm run baseline:brand-v2` | exit 1, expected red: 43 pre-existing failures (including `source:components/interactive/hand-comparison.tsx`, verified pre-existing at pristine HEAD `00ec640` in a temp worktree), 288 approved differences |
+| Content | `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` | exit 1, expected red: **569/994 complete**, 432 findings; 9 known unresolved citation rows unchanged |
+| Readers | owned offline Next runtime, 375x812 and 1440x900 | 2 passed / 0 failed / 0 flaky; 10 screenshots (3 spans × 2 widths); configs byte-restored; see lane `convergence-dexterity-figure-holson-remaining-integration-20260915/readers-results.json` |
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-figure-holson-remaining-integration-20260915/`.

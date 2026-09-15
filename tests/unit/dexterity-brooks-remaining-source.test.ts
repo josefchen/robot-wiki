@@ -145,6 +145,6 @@ describe('reviewed plans and adjudications are internally consistent', () => {
     ]) {
       expect(plans.some(p => p.id === id)).toBe(true);
     }
-    expect(plans).toHaveLength(471);
+    expect(plans).toHaveLength(475);
   });
 });

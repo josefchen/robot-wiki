@@ -32,9 +32,11 @@ test('Brooks remaining readers: corrected Ernst and eWeek spans, Cite metadata a
   expect(eweekText).toContain('train Optimus to mimic those actions');
   expect(eweekText).toContain("This is the report as reproduced in Brooks's essay, not a verified account of Tesla's complete training pipeline or evidence of tested dexterity.");
   expect(eweekText).not.toContain('Tesla has shifted Optimus training to a vision-only approach');
-  // Neighboring out-of-scope claims are untouched.
-  expect(eweekText).toContain('Two of the best-funded humanoid programs are running that experiment at full scale');
-  expect(eweekText).toContain("Figure's Project Go-Big trains its Helix model");
+  // Neighboring out-of-scope claims for Brooks4 are untouched; the Go-Big
+  // sentence and coupled full-scale lead were corrected by original12.
+  expect(eweekText).toContain('Brooks reproduces an eWeek report that describes Tesla as moving Optimus training toward a "vision-only approach"');
+  expect(eweekText).toContain("Figure's September 2025 Project Go-Big announcement describes a pretraining data-collection initiative");
+  expect(eweekText).not.toContain('running that experiment at full scale');
 
   // Original7 has no article endpoint: the forecast never appears.
   const bodyText = await prose.innerText();

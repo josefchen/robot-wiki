@@ -47897,5 +47897,581 @@
         "evidenceDigest": "13738bc49e7b470f635a786d04d156661dd5c253e10f46df312a59010ec97573"
       }
     ]
+  },
+  {
+    "id": "dexterity-holson-original8-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "c77770dffef51e3956c9173d8a406af00097956fcc0fda0569920782d7bf08b9",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "dated-author-account",
+        "text": "The named post is Benjie Holson's commentary in a post dated September 8, 2025, not an independently measured benchmark.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "setups-and-exceptions",
+        "text": "His learning-from-demonstration account describes the setups he was seeing and explicitly states that each limitation has exceptions forming a general trend, not a universal current pipeline census.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "human-wrist-feedback",
+        "text": "The wrist-force limitation concerns lack of good standard ways to convey force information to the human teleoperator; it does not establish missing robot wrist sensors.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "finger-control-not-hardware",
+        "text": "The finger limitation is difficulty seeing and controlling fingers with finesse beyond open/close, not a claim that robot finger hardware can only open and close.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "humanlike-touch-to-puppeteer",
+        "text": "The touch limitation is Holson's assessment of obtaining human-like hand sensing usable by a human puppeteer, not proof that no robot tactile sensors exist.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "video-guessed-task-precision",
+        "text": "About 1 to 3 cm is Holson's guess from videos for task precision, not a measured error bound, benchmark result, guaranteed range or current specification.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "likely-teleoperation-not-model",
+        "text": "Holson says the precision limitation is likely more a teleoperation limitation than a model limitation; preserve the tentative causal attribution.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "author-described-subcm-exception",
+        "text": "Holson points to a video he describes as Generalist Robotics doing sub-centimeter tasks; this packet does not watch or independently measure that video.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+      "planDigest": "4b31865b95d188bb49a7391fdc3e3e6b4435ce3454b3de8df6d62831dfb1b39a",
+      "rationale": "Reviewed the parent-qualified packet at HEAD 00ec640: row binding, originalId/ordinal/four-cell digest and cells rechecked against the live ledger; every literal passage re-verified verbatim in the hash-matched retained source text (Holson substack rendered body). All 8 mandatory parts and part-citation pairs are AND-required for this corrected whole current claim. Source preparation is not acceptance; zero retrieval."
+    },
+    "evidence": [
+      {
+        "partId": "dated-author-account",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "Excerpt (Title, author byline and publication date):\n# Benjie's Humanoid Olympic Games\n\n### A gauntlet thrown\n\n[![Benjie Holson's avatar](https://substackcdn.com/image/fetch/$s_!tglM!,w_36,h_36,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ad2174a-ba2c-4f3e-918a-60c417d8020f_1118x1184.png)](https://substack.com/@generalrobots)\n\n[Benjie Holson](https://substack.com/@generalrobots)\n\nSep 08, 2025\n\nExcerpt (Limitation 4):\n4. Medium precision. [5](https://generalrobots.substack.com/p/benjies-humanoid-olympic-games#footnote-5) Guessing based on videos I think we’ve got about 1-3 cm precision for tasks."
+      },
+      {
+        "partId": "setups-and-exceptions",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "Excerpt (Brief intro: Current state of the art; introductory paragraph):\nIn order to talk about why each of these challenges pushes the state of the art, let's talk about what's working now. What I’m seeing working is learning-from-demonstration. Folks get some robots and some puppeteering interfaces (standard seems to be two copies of the robot where you grab & move one of them and the other matches, or an Oculus headset + controllers or hand tracking) and record some 10-30 second activity over and over again (100s of times). We can then train a neural network to mimic those examples. This has unlocked tasks that have steps that are somewhat chaotic (like pulling a corner of a towel to see if it lays flat) or high state space (like how a wooden block is on one of 6 sides but a towel can be bunched up in myriad different ways). But thinking about it, it should be clear what some of the limitations are. Each of these has exceptions, but form a general trend."
+      },
+      {
+        "partId": "human-wrist-feedback",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "Excerpt (Limitation 1):\n1. No force feedback at the wrists. [2](https://generalrobots.substack.com/p/benjies-humanoid-olympic-games#footnote-2) The robot can only ever perform as well as the human teleoperation and we don’t yet have good standard ways of getting force information to the human teleoperator."
+      },
+      {
+        "partId": "finger-control-not-hardware",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "Excerpt (Limitation 2):\n2. Limited finger control. [3](https://generalrobots.substack.com/p/benjies-humanoid-olympic-games#footnote-3) It's hard for the teleoperator (and AI foundation model) to see and control all the robot fingers with more finesse than just open/close."
+      },
+      {
+        "partId": "humanlike-touch-to-puppeteer",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "Excerpt (Limitation 3):\n3. No sense of touch. [4](https://generalrobots.substack.com/p/benjies-humanoid-olympic-games#footnote-4) Human hands are packed absolutely full of sensors. Getting anywhere near that kind of sensing out of robot hands and usable by a human puppeteer is not currently possible."
+      },
+      {
+        "partId": "video-guessed-task-precision",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "Excerpt (Limitation 4):\n4. Medium precision. [5](https://generalrobots.substack.com/p/benjies-humanoid-olympic-games#footnote-5) Guessing based on videos I think we’ve got about 1-3 cm precision for tasks."
+      },
+      {
+        "partId": "likely-teleoperation-not-model",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "Excerpt (Footnote 5 prose before embedded video):\nThis is likely more a teleoperation precision limitation than a model limitation. Here is a video of Generalist Robotics doing sub-cm precision tasks:"
+      },
+      {
+        "partId": "author-described-subcm-exception",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "Excerpt (Footnote 5 prose before embedded video):\nThis is likely more a teleoperation precision limitation than a model limitation. Here is a video of Generalist Robotics doing sub-cm precision tasks:"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "dated-author-account",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The retained title, Benjie Holson byline and Sep 08, 2025 date identify author commentary, not an independently measured benchmark.",
+        "evidenceDigest": "95e707c969bc9e015a33e8caba163b88cd5a4208fc5238fdf903cdff793a0d9c"
+      },
+      {
+        "partId": "setups-and-exceptions",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The retained intro describes the learning-from-demonstration setups he was seeing and explicitly says each limitation has exceptions but forms a general trend; not a universal pipeline census.",
+        "evidenceDigest": "5a0cda8d0258887a984aeb0ad0b6155c9e4777f6cae6af0ffadd302bd8e0cefe"
+      },
+      {
+        "partId": "human-wrist-feedback",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "Limitation 1 says there are no good standard ways of getting force information to the human teleoperator; that is an operator-interface limit, not absent robot wrist sensors.",
+        "evidenceDigest": "b660218282c078b1ea0c55854db25cf81ddaa4c1ff131e5c54dd3629033d0ce8"
+      },
+      {
+        "partId": "finger-control-not-hardware",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "Limitation 2 says it is hard for the teleoperator and AI foundation model to see and control the fingers with more finesse than just open/close; not a claim that finger hardware only opens and closes.",
+        "evidenceDigest": "2cced5b4ec3f5c0c84483ca042ac32e8cfd79c405b7583fc724d51006f0b6234"
+      },
+      {
+        "partId": "humanlike-touch-to-puppeteer",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "Limitation 3 says getting anywhere near human-like sensing out of robot hands and usable by a human puppeteer is not currently possible; not proof that no robot tactile sensors exist.",
+        "evidenceDigest": "98371605d821cf4a0397e16489534da2470eff657a5083782b2f57761b11869e"
+      },
+      {
+        "partId": "video-guessed-task-precision",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "Limitation 4 introduces 1-3 cm as guessing based on videos; not a measured error bound, benchmark result or specification.",
+        "evidenceDigest": "7488b7753122f546fbfef7981bf767250caa63ad8bc9b1d2778f655f316eada2"
+      },
+      {
+        "partId": "likely-teleoperation-not-model",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "Footnote 5 says this is likely more a teleoperation precision limitation than a model limitation; the tentative causal attribution is preserved.",
+        "evidenceDigest": "37cc2622638a59c20e9c5f91898f0187a67638363b4a1a5ef36a65ba64af158d"
+      },
+      {
+        "partId": "author-described-subcm-exception",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "Footnote 5 points to a video the author describes as Generalist Robotics doing sub-centimeter tasks; the video was not watched or measured here.",
+        "evidenceDigest": "87a3ceacd948641c86bb793052687224dc6c789bb2a1c717117992176d371889"
+      }
+    ]
+  },
+  {
+    "id": "dexterity-gobig-navigation-12-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 12,
+    "originalCellsDigest": "814bb66d03d97f4562465b0c6bbc38395818bc759d4f96a511b25da0e277f623",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "d12-human-video",
+        "text": "The September 2025 Go-Big post is a pretraining/data-collection announcement whose initial human-video transfer result is navigation in Helix; it does not establish all-Helix training history.",
+        "requiredCitationIds": [
+          "figure-go-big-2025"
+        ]
+      },
+      {
+        "id": "d12-no-robot-demonstrations",
+        "text": "Figure reports no robot demonstrations for the described human-navigation-video approach; do not extend that assertion to every Helix task or training stage.",
+        "requiredCitationIds": [
+          "figure-go-big-2025"
+        ]
+      },
+      {
+        "id": "d12-brookfield-access",
+        "text": "Figure says data collection in Brookfield environments had begun and would scale in coming months; portfolio access is not evidence of already collecting every unit.",
+        "requiredCitationIds": [
+          "figure-go-big-2025"
+        ]
+      },
+      {
+        "id": "d12-residential-units",
+        "text": "Brookfield owns over 100,000 residential units; retain the bound and unit as a portfolio figure, not a count of collected homes or trajectories.",
+        "requiredCitationIds": [
+          "figure-go-big-2025"
+        ]
+      },
+      {
+        "id": "d12-zero-shot-navigation",
+        "text": "Figure reports navigation from images/language to low-level SE(2) velocity commands using only human video, calls it zero-shot, and qualifies historical priority with 'To our knowledge'.",
+        "requiredCitationIds": [
+          "figure-go-big-2025"
+        ]
+      },
+      {
+        "id": "d12-coupled-full-scale",
+        "text": "Remove the coupled 'Two of the best-funded ... at full scale' lead, which is not established by the Go-Big announcement; retain the unassigned Tesla sentence unchanged.",
+        "requiredCitationIds": [
+          "figure-go-big-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+      "planDigest": "60a393a9e83e38af87e5b3742599278b87993c1a441f1750177c63fe088a43ee",
+      "rationale": "Reviewed the parent-qualified packet at HEAD 00ec640: row binding, originalId/ordinal/four-cell digest and cells rechecked against the live ledger; every literal passage re-verified verbatim in the hash-matched retained source text (Go-Big tool text). All 6 mandatory parts and part-citation pairs are AND-required for this corrected whole current claim. Source preparation is not acceptance; zero retrieval."
+    },
+    "evidence": [
+      {
+        "partId": "d12-human-video",
+        "citationId": "figure-go-big-2025",
+        "sourceUrl": "https://www.figure.ai/news/project-go-big",
+        "supportingPassage": "# Project Go-Big: Internet-Scale Humanoid Pretraining and Direct Human-to-Robot Transfer\n\nSeptember 18, 2025\n\nHelix previously focused on upper-body manipulation tasks like [laundry folding](https://www.figure.ai/news/helix-learns-to-fold-laundry), [dishwasher loading](https://www.figure.ai/news/helix-loads-the-dishwasher), and [package reorientation](https://www.figure.ai/news/scaling-helix-logistics). But in addition to manipulation, humanoids need to be able to intelligently _navigate_ to be useful in homes—finding paths through clutter, repositioning for tasks, and moving fluidly around people and objects.\n\nWe’re excited to share that Project Go-Big has already delivered a promising initial learning result for Helix: **direct transfer from human video to robot behavior**. Using **100% egocentric human video data,** collected passively as people do behaviors in real Brookfield homes, we trained Helix to translate human navigation strategies directly into robot control. Remarkably, this approach required **no robot demonstrations** whatsoever.\n\nVideo 3: After training on 100% human video only, Helix has learned to navigate cluttered spaces from natural language input."
+      },
+      {
+        "partId": "d12-no-robot-demonstrations",
+        "citationId": "figure-go-big-2025",
+        "sourceUrl": "https://www.figure.ai/news/project-go-big",
+        "supportingPassage": "We’re excited to share that Project Go-Big has already delivered a promising initial learning result for Helix: **direct transfer from human video to robot behavior**. Using **100% egocentric human video data,** collected passively as people do behaviors in real Brookfield homes, we trained Helix to translate human navigation strategies directly into robot control. Remarkably, this approach required **no robot demonstrations** whatsoever.\n\n- **Zero-shot human-to-robot transfer**: To our knowledge, this is the first time a humanoid robot has learned end-to-end—from images and language to low-level SE(2) velocity commands—using only human video. No robot-specific data or training was required."
+      },
+      {
+        "partId": "d12-brookfield-access",
+        "citationId": "figure-go-big-2025",
+        "sourceUrl": "https://www.figure.ai/news/project-go-big",
+        "supportingPassage": "- **Project Go-Big: Internet-Scale Humanoid Pretraining.** Figure is building the world’s largest and most diverse humanoid pretraining dataset, accelerated by an unprecedented [partnership with Brookfield](https://www.figure.ai/news/figure-announces-strategic-partnership-with-brookfield), which owns over 100,000 residential units worldwide.\n\nThis is the vision behind **Project Go-Big,** Figure’s large-scale humanoid pretraining data-collection initiative (Video 2).Yesterday, we announced a first-of-its-kind partnership with Brookfield Asset Management. Brookfield's $1 trillion global asset base— **over 100,000 diverse residential units**, 500 million square feet of commercial office space, and 160 million square feet of logistics space—will help accelerate Project Go-Big by capturing human goal-directed behavior at an unprecedented scale and diversity of real-world environments.\n\nFigure has already begun data collection efforts in Brookfield environments and will continue to scale this program in the coming months.\n\nOur partnership with Brookfield positions us to explore the full potential of internet-scale embodied datasets for locomotion and manipulation. We’re already seeing the benefits: a first-of-its-kind, zero-shot cross-embodiment transfer from human video to robotic navigation in the real world."
+      },
+      {
+        "partId": "d12-residential-units",
+        "citationId": "figure-go-big-2025",
+        "sourceUrl": "https://www.figure.ai/news/project-go-big",
+        "supportingPassage": "- **Project Go-Big: Internet-Scale Humanoid Pretraining.** Figure is building the world’s largest and most diverse humanoid pretraining dataset, accelerated by an unprecedented [partnership with Brookfield](https://www.figure.ai/news/figure-announces-strategic-partnership-with-brookfield), which owns over 100,000 residential units worldwide.\n\nThis is the vision behind **Project Go-Big,** Figure’s large-scale humanoid pretraining data-collection initiative (Video 2).Yesterday, we announced a first-of-its-kind partnership with Brookfield Asset Management. Brookfield's $1 trillion global asset base— **over 100,000 diverse residential units**, 500 million square feet of commercial office space, and 160 million square feet of logistics space—will help accelerate Project Go-Big by capturing human goal-directed behavior at an unprecedented scale and diversity of real-world environments.\n\nFigure has already begun data collection efforts in Brookfield environments and will continue to scale this program in the coming months."
+      },
+      {
+        "partId": "d12-zero-shot-navigation",
+        "citationId": "figure-go-big-2025",
+        "sourceUrl": "https://www.figure.ai/news/project-go-big",
+        "supportingPassage": "- **Speech-to-nav**: Helix now responds intuitively to conversational commands such as \"Walk to the kitchen table\" or \"Go water the plants,\" autonomously generating closed-loop control from pixels to navigate complex, cluttered home environments (Video 3).\n\n- **A single, unified model**: One Helix network now outputs both high rate dexterous manipulation and navigation commands—eliminating the need for separate, task-specific or data source-specific systems (Figure 1).\n\n- **Zero-shot human-to-robot transfer**: To our knowledge, this is the first time a humanoid robot has learned end-to-end—from images and language to low-level SE(2) velocity commands—using only human video. No robot-specific data or training was required.\n\nFigure 1: A single Helix neural network now outputs both manipulation and navigation, end-to-end from language and pixel input."
+      },
+      {
+        "partId": "d12-coupled-full-scale",
+        "citationId": "figure-go-big-2025",
+        "sourceUrl": "https://www.figure.ai/news/project-go-big",
+        "supportingPassage": "This is the vision behind **Project Go-Big,** Figure’s large-scale humanoid pretraining data-collection initiative (Video 2).Yesterday, we announced a first-of-its-kind partnership with Brookfield Asset Management. Brookfield's $1 trillion global asset base— **over 100,000 diverse residential units**, 500 million square feet of commercial office space, and 160 million square feet of logistics space—will help accelerate Project Go-Big by capturing human goal-directed behavior at an unprecedented scale and diversity of real-world environments.\n\nFigure has already begun data collection efforts in Brookfield environments and will continue to scale this program in the coming months.\n\nOur partnership with Brookfield positions us to explore the full potential of internet-scale embodied datasets for locomotion and manipulation. We’re already seeing the benefits: a first-of-its-kind, zero-shot cross-embodiment transfer from human video to robotic navigation in the real world."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "d12-human-video",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The September 18, 2025 post is a pretraining/data-collection announcement; its initial human-video transfer result for Helix is navigation, and Helix previously focused on upper-body manipulation tasks, so all-Helix training history is not established.",
+        "evidenceDigest": "db0a961d025ad58f4a0fd02ccce0f2d43ee0382d4cb93fa9ff8d302193610f77"
+      },
+      {
+        "partId": "d12-no-robot-demonstrations",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The retained text says the navigation approach required no robot demonstrations whatsoever; scoped to that approach, not extended to every Helix task or training stage.",
+        "evidenceDigest": "7902a7663572d385e8aa2eb966fdc078d932a868fc32018850a02dc70e7fde7c"
+      },
+      {
+        "partId": "d12-brookfield-access",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The post says Figure has already begun data collection efforts in Brookfield environments and will continue to scale the program in coming months; begun-and-expanding, not every unit.",
+        "evidenceDigest": "48429ae66e4e4c3b4a7a452c310c1cedc211ec48a498154caf1936a767fc760b"
+      },
+      {
+        "partId": "d12-residential-units",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The post says Brookfield owns over 100,000 diverse residential units worldwide, inside a portfolio description also covering office and logistics space; a portfolio bound, not collected homes or trajectories.",
+        "evidenceDigest": "c2a8689de579d5b9f014d8c221504e6ce07ad6ee83ca5218091d6f10899040f3"
+      },
+      {
+        "partId": "d12-zero-shot-navigation",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The post reports learning end-to-end from images and language to low-level SE(2) velocity commands using only human video, calls it zero-shot, and qualifies the first with To our knowledge.",
+        "evidenceDigest": "9bd5433455a537e14986fceb0f2bd522e7a32626db558cdc7a2f4d6f37e315c0"
+      },
+      {
+        "partId": "d12-coupled-full-scale",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The coupled two-best-funded/full-scale lead is not established by the Go-Big announcement; removed while the unassigned Tesla sentence stays unchanged.",
+        "evidenceDigest": "28478baeb326f8c855c645309ee79d0b969b7a2fd77bffb7060641ae63a061ce"
+      }
+    ]
+  },
+  {
+    "id": "dexterity-figure02-dof-23-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 23,
+    "originalCellsDigest": "94a8fd1c7820f850093a3434958d655f1ac92b60c899be696da7cdcae004d864",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "d23-sixteen-dof",
+        "text": "Attribute the release's plural wording: Figure 02's '4th generation hands' are 'equipped with 16 degrees of freedom'; do not silently turn it into an explicit per-hand or combined total.",
+        "requiredCitationIds": [
+          "figure-02-2024"
+        ]
+      },
+      {
+        "id": "d23-generation",
+        "text": "The August 6, 2024 release names Figure 02 as the second-generation humanoid and labels the hands fourth generation; it is not a Figure 03 specification.",
+        "requiredCitationIds": [
+          "figure-02-2024"
+        ]
+      },
+      {
+        "id": "d23-hand-and-actuation",
+        "text": "Preserve the textual ambiguity: this release does not explicitly identify a per-hand versus combined DoF count or give an actuator count. Do not calculate either.",
+        "requiredCitationIds": [
+          "figure-02-2024"
+        ]
+      },
+      {
+        "id": "d23-capability-provenance",
+        "text": "This is Figure AI Inc.'s own release hosted by PRNewswire, not independent corroboration; its hand specifications and capability wording are vendor declarations, not manipulation measurements.",
+        "requiredCitationIds": [
+          "figure-02-2024"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+      "planDigest": "7d353423dcf407caffc9e4b6038c0680339a1636c9bf0edb3f4f4293de5475df",
+      "rationale": "Reviewed the parent-qualified packet at HEAD 00ec640: row binding, originalId/ordinal/four-cell digest and cells rechecked against the live ledger; every literal passage re-verified verbatim in the hash-matched retained source text (Figure 02 PRNewswire tool text). All 4 mandatory parts and part-citation pairs are AND-required for this corrected whole current claim. Source preparation is not acceptance; zero retrieval."
+    },
+    "evidence": [
+      {
+        "partId": "d23-sixteen-dof",
+        "citationId": "figure-02-2024",
+        "sourceUrl": "https://www.prnewswire.com/news-releases/figure-unveils-figure-02-its-second-generation-humanoid-setting-new-standards-in-ai-and-robotics-302214889.html",
+        "supportingPassage": "- **4th generation hands**: the latest human-scale hands are equipped with 16 degrees of freedom and human-equivalent strength which enables a wide range of human-like tasks."
+      },
+      {
+        "partId": "d23-generation",
+        "citationId": "figure-02-2024",
+        "sourceUrl": "https://www.prnewswire.com/news-releases/figure-unveils-figure-02-its-second-generation-humanoid-setting-new-standards-in-ai-and-robotics-302214889.html",
+        "supportingPassage": "Title: Figure unveils Figure 02, its second-generation humanoid, setting new standards in AI and robotics\n\nSUNNYVALE, Calif., Aug. 6, 2024 /PRNewswire/ -- Figure, an AI robotics company, [unveils its second-generation humanoid, Figure 02](https://c212.net/c/link/?t=0&l=en&o=4226366-1&h=2933345156&u=https%3A%2F%2Fyoutu.be%2F0SRVJaOg9Co&a=unveils+its+second-generation+humanoid%2C+Figure+02), and introduces the highest performing humanoid robot to market. Figure's robot combines the dexterity of the human form with advanced AI to perform a wide range of tasks across commercial applications and, in the near future, the home.\n\n- **4th generation hands**: the latest human-scale hands are equipped with 16 degrees of freedom and human-equivalent strength which enables a wide range of human-like tasks."
+      },
+      {
+        "partId": "d23-hand-and-actuation",
+        "citationId": "figure-02-2024",
+        "sourceUrl": "https://www.prnewswire.com/news-releases/figure-unveils-figure-02-its-second-generation-humanoid-setting-new-standards-in-ai-and-robotics-302214889.html",
+        "supportingPassage": "- **4th generation hands**: the latest human-scale hands are equipped with 16 degrees of freedom and human-equivalent strength which enables a wide range of human-like tasks.\n\nFigure 02 recently tested these new capabilities at BMW Manufacturing, where it performed AI data collection and use case training."
+      },
+      {
+        "partId": "d23-capability-provenance",
+        "citationId": "figure-02-2024",
+        "sourceUrl": "https://www.prnewswire.com/news-releases/figure-unveils-figure-02-its-second-generation-humanoid-setting-new-standards-in-ai-and-robotics-302214889.html",
+        "supportingPassage": "SUNNYVALE, Calif., Aug. 6, 2024 /PRNewswire/ -- Figure, an AI robotics company, [unveils its second-generation humanoid, Figure 02](https://c212.net/c/link/?t=0&l=en&o=4226366-1&h=2933345156&u=https%3A%2F%2Fyoutu.be%2F0SRVJaOg9Co&a=unveils+its+second-generation+humanoid%2C+Figure+02), and introduces the highest performing humanoid robot to market. Figure's robot combines the dexterity of the human form with advanced AI to perform a wide range of tasks across commercial applications and, in the near future, the home.\n\n- **4th generation hands**: the latest human-scale hands are equipped with 16 degrees of freedom and human-equivalent strength which enables a wide range of human-like tasks.\n\nFigure 02 recently tested these new capabilities at BMW Manufacturing, where it performed AI data collection and use case training.\n\n**About Figure** Figure is an AI Robotics company developing autonomous general purpose humanoid robots. Figure's mission is to expand human capabilities through advanced AI. Our humanoid is designed to perform human-like tasks within the workforce and in the home. Figure is a Sunnyvale, California-based company with a team of 120 employees. For more information about Figure, please visit: [www.figure.ai](https://c212.net/c/link/?t=0&l=en&o=4226366-1&h=1778634437&u=http%3A%2F%2Fwww.figure.ai%2F&a=www.figure.ai)\n\nSOURCE Figure AI Inc."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "d23-sixteen-dof",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The retained bullet reads 4th generation hands: the latest human-scale hands are equipped with 16 degrees of freedom; plural wording quoted without a silent per-hand or combined resolution.",
+        "evidenceDigest": "bb45c1e5dbe3fd0ca1c6ba19672034a51f8de7632ed0e18aa949673f4523e20b"
+      },
+      {
+        "partId": "d23-generation",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The dateline and first sentence name Figure 02 as the second-generation humanoid unveiled August 6, 2024, with fourth-generation hands; not a Figure 03 specification.",
+        "evidenceDigest": "cdcc8588ea0066f72f7f45ce1a31b187f21c77fa187e4a353dc6a0f3f77b294b"
+      },
+      {
+        "partId": "d23-hand-and-actuation",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The retained text does not explicitly state per-hand versus combined DoF and gives no actuator count; the ambiguity is disclosed, not calculated.",
+        "evidenceDigest": "9845bca60ea3228693060f55603020e7e43a40986c3c75e3f1813f4cf3022f88"
+      },
+      {
+        "partId": "d23-capability-provenance",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "SOURCE Figure AI Inc. and the About Figure boilerplate identify the issuer; PRNewswire hosts the release. First-party vendor declaration, not independent corroboration or manipulation measurement.",
+        "evidenceDigest": "af8e5fc7078a9b007a81bfc3d1dcec17c21ec1d458b95be99411d3f20085208c"
+      }
+    ]
+  },
+  {
+    "id": "dexterity-helix02-tasks-25-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 25,
+    "originalCellsDigest": "84c52cbeb6531d243249f35f252bf8027e42a85accdf34721dfc9c8af31c66f9",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "d25-version-sensors",
+        "text": "Figure's Helix 02 announcement describes Figure 03 hardware inputs; modality context is not experimental proof of necessity.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "d25-prior-reach",
+        "text": "Previously-out-of-reach manipulation is Figure's scoped characterization, not a universal first or a measured statement about all policies.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "d25-protocol-limits",
+        "text": "Figure describes four demonstrations and says their videos are autonomous, not teleoperated; the returned text supplies no task-level success rate, volume calibration or modality ablation.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "d25-cap",
+        "text": "Stabilize a bottle while applying controlled rotation to remove its cap; source describes tactile-regulated grip and torque, not a quantified success-rate experiment.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "d25-pill",
+        "text": "Locate and extract a single small pill from an organizer, often occluded from the head camera; source describes palm-level vision and tactile-guided grasping.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "d25-syringe",
+        "text": "The task is titled 'Push exactly 5 ml from a syringe'; this is a stated task value, not a published measured precision/calibration result.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      },
+      {
+        "id": "d25-metal",
+        "text": "Extract small metal components from an overlapping, shifting cluttered pile; Figure identifies Figure 03 and its BotQ manufacturing parts.",
+        "requiredCitationIds": [
+          "helix-02-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+      "planDigest": "e942ffd925baaf07dbbaf51060733e5421a63c4e9d8fba7256e9e7fb93f520af",
+      "rationale": "Reviewed the parent-qualified packet at HEAD 00ec640: row binding, originalId/ordinal/four-cell digest and cells rechecked against the live ledger; every literal passage re-verified verbatim in the hash-matched retained source text (Helix 02 retained response). All 7 mandatory parts and part-citation pairs are AND-required for this corrected whole current claim. Source preparation is not acceptance; zero retrieval."
+    },
+    "evidence": [
+      {
+        "partId": "d25-version-sensors",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "# Introducing Helix 02: Full-Body Autonomy\n\nJanuary 27, 2026\n\nIn the original Helix, S1 controlled the upper body and read from joint state and images. In Helix 02, it connects to all sensors, and controls the entire robot.\n\n- **Inputs**: Head cameras, palm cameras, fingertip tactile sensors, and full‑body proprioception.\n\n- **Outputs**: Complete joint-level control of the entire robot - legs, torso, head, arms, wrists, and individual fingers.\n\n\nThis **pixels‑to‑whole‑body** architecture allows S1 to reason about the complete state of the robot and environment as a single coupled system. The palm cameras and tactile sensors are new hardware capabilities from [Figure 03](https://www.figure.ai/news/introducing-figure-03). This is the first time we've demonstrated neural network policies that depend on these modalities."
+      },
+      {
+        "partId": "d25-prior-reach",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "- **New classes of dexterity:** With Figure 03’s embedded tactile sensing and palm cameras, Helix 02 performs manipulation that was previously out of reach: extracting individual pills, dispensing precise syringe volumes, and singulating small, irregular objects from clutter despite self‑occlusion."
+      },
+      {
+        "partId": "d25-protocol-limits",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "## **Results: Dexterous Manipulation with Touch and In‑Hand Vision**\n\nHelix 02’s tactile sensing and palm cameras unlock manipulation tasks beyond pure vision‑based policies. We demonstrate four tasks at the frontier of multi-fingered dexterity. **All videos shown below are fully autonomous, not teleoperated.**"
+      },
+      {
+        "partId": "d25-cap",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "**Dexterity Task 1: Unscrew a bottle cap**\n\nThe robot must stabilize a bottle while applying continuous, controlled rotation to remove the cap without slipping or crushing the container. This requires bimanual coordination with tactile-regulated grip force and torque control."
+      },
+      {
+        "partId": "d25-pill",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "**Dexterity Task 2: Locate and pick out the pill from the medicine box**\n\nThe robot must locate and extract a single small pill from an organizer, often when the pill is occluded from the head camera. This requires palm-level visual feedback and tactile-guided precision grasping."
+      },
+      {
+        "partId": "d25-syringe",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "**Dexterity Task 3: Push exactly 5 ml from a syringe**\n\nThe robot must advance a syringe plunger to dispense a precise volume despite variable resistance and tight tolerances. This requires force-controlled actuation with tactile feedback and coordinated multi-finger stabilization."
+      },
+      {
+        "partId": "d25-metal",
+        "citationId": "helix-02-2026",
+        "sourceUrl": "https://www.figure.ai/news/helix-02",
+        "supportingPassage": "**Dexterity Task 4: Pick metal pieces from a cluttered box**\n\nThe robot must extract small metal components from a pile where objects overlap, occlude each other, and shift during interaction. This requires robust visual grasp selection with tactile confirmation of secure contact in clutter.\n\nHere, Figure 03 is unloading real metal pieces from our [BotQ manufacturing facility](https://www.figure.ai/news/botq)."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "d25-version-sensors",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The announcement describes Figure 03 embedded tactile sensing and palm cameras and System 1 inputs (head cameras, palm cameras, fingertip tactile sensors, full-body proprioception) under System 2/System 1/System 0 roles; modality context is not experimental proof of necessity.",
+        "evidenceDigest": "6fe5507df476a55e674f43df7cded4d6cf16ac86553ed90b30346fcd78cd0588"
+      },
+      {
+        "partId": "d25-prior-reach",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "Previously out of reach is Figure scoped characterization of manipulation its stack could not do before, not a universal first or a measured statement about all policies.",
+        "evidenceDigest": "12af517378a651302eec18e20ae57a8f68bb6b18753c7ec781a074d7b969bcb6"
+      },
+      {
+        "partId": "d25-protocol-limits",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "The announcement states all videos shown below are fully autonomous, not teleoperated, and supplies no task-level success rate, volume calibration or modality ablation.",
+        "evidenceDigest": "8a761279b09b74bd8beea8678e759d5e1f6d77ee30a3b59f5cd96d593c73a9de"
+      },
+      {
+        "partId": "d25-cap",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "Dexterity Task 1 (Unscrew a bottle cap) requires stabilizing a bottle with controlled rotation, tactile-regulated grip force and torque control; a task description, not a quantified success-rate experiment.",
+        "evidenceDigest": "7cb409920184fae73aff808c4c2e544cd5bfa5c293223a4358a53952f8aeaf57"
+      },
+      {
+        "partId": "d25-pill",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "Dexterity Task 2 requires locating and extracting a single small pill from an organizer, often occluded from the head camera, using palm-level visual feedback and tactile-guided precision grasping.",
+        "evidenceDigest": "d1a8a36a8a5c7b1dacc263dc980b709ec45eca0c8dc2e00722005ad3fe7d5373"
+      },
+      {
+        "partId": "d25-syringe",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "Dexterity Task 3 is titled Push exactly 5 ml from a syringe; a stated task value, not a published measured precision or calibration result.",
+        "evidenceDigest": "b58f8312bf6076195f7cd5ccd0c791b12b6a8f582eb4539cd24169d767a56bce"
+      },
+      {
+        "partId": "d25-metal",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 96b648b8-5f83-4891-a505-a1422e8d0d17; retained-source review2026-09-15",
+        "rationale": "Dexterity Task 4 requires extracting small metal components from an overlapping, shifting cluttered pile; Figure identifies Figure 03 and its BotQ manufacturing parts.",
+        "evidenceDigest": "67fb7c54f0ddae9b6724cf8ba8745cb776fb220450ded49d95ba31c85a6f5c8b"
+      }
+    ]
   }
 ]
