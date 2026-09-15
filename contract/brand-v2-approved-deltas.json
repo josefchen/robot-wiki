@@ -13401,6 +13401,227 @@
       "VAL-AUDIT-009"
     ],
     "disposition": "permanent"
+  },
+  {
+    "id": "ct-r1-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 1: ledger evidence completion bound to its registered citation(s) sutton-bitter-lesson-2019; packet-adjudicated verified against retained fetch passages needle-verified this session. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "ct-r2-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 2: ledger evidence completion bound to its registered citation(s) brooks-better-lesson-2019; packet-adjudicated verified against retained fetch passages needle-verified this session. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "ct-r9-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 9: ledger evidence completion bound to its registered citation(s) brooks-better-lesson-2019; packet-adjudicated verified against retained fetch passages needle-verified this session. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "ct-r7-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 7: ledger evidence completion bound to its registered citation(s) cosmos-3-2026, bessemer-robotics-2026; packet-adjudicated verified against retained fetch passages needle-verified this session. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "ct-r8-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 8: ledger evidence completion bound to its registered citation(s) sutton-bitter-lesson-2019; packet-adjudicated verified against retained fetch passages needle-verified this session. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "ct-r12-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 12: ledger evidence completion bound to its registered citation(s) bessemer-robotics-2026; packet-adjudicated verified against retained fetch passages needle-verified this session. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "ct-r13-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 13: ledger evidence completion bound to its registered citation(s) saycan-2022; packet-adjudicated verified against retained fetch passages needle-verified this session. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "ct-r14-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 14: ledger evidence completion bound to its registered citation(s) gemini-robotics-er2-2026; packet-adjudicated verified against retained fetch passages needle-verified this session. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "ct-r17-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 17: ledger evidence completion bound to its registered citation(s) vjepa2-2025; packet-adjudicated verified against retained fetch passages needle-verified this session. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "ct-r18-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 18: ledger evidence completion bound to its registered citation(s) pistar06-2025, rl-100-2025, enpire-2026; packet-adjudicated corrected against retained fetch passages needle-verified this session. This row carries the two applied article spans. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "ct-r20-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 20: ledger evidence completion bound to its registered citation(s) nucleus-supervised-2026; packet-adjudicated verified against retained fetch passages needle-verified this session. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "ct-r23-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 23: ledger evidence completion bound to its registered citation(s) goldberg-data-gap-2025; packet-adjudicated verified against retained fetch passages needle-verified this session. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "ct-r25-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:frontier/competing-theses",
+    "oldHash": "1a73d1accfafb73a408b0c28035d86e43f5e85323037be97ca5ba7df8a5eb0de",
+    "newHash": "8bf02eef3d649951016a4933df3e93fd25b8cd318e3d94dc061b9d84d2afb1c0",
+    "reason": "Exactly frontier/competing-theses original 25: local-AND row completed with the integrator-side conjunct (see local-proof.json); ledger evidence completion bound to its registered citation(s) pistar06-2025, rl-100-2025, enpire-2026; packet-adjudicated corrected against retained fetch passages needle-verified this session. This row carries the two applied lib evidenceFor spans and the re-run local mirror proof. All 13 selected records are competing-theses rows from frozen packet convergence-source-d-competing-theses-20260915 (sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b); two article spans and two lib evidenceFor spans were applied together (90% scoping to the paper’s except-diverse-laundry wording; “about seven hours” restored), and the row-25 local mirror proof was re-run by this integrator (local-proof.json). No asserting test referenced the old strings. lastReviewed did not move (row-scoped correction, not a finished article audit; house precedent from the 20260909/20260915 integrations). Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 13 selected records of frozen packet convergence-source-d-competing-theses-20260915, sha256 c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-AUDIT-006",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
   }
   ]
 }

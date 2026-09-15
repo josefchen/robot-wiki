@@ -4336,3 +4336,63 @@ shared debts (brand-v2-enforcement token-renderer mismatch;
 comparison-current-audit 2/3) remain open and are not claimed here.
 
 Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915/`.
+
+## 2026-09-15 — competing-theses originals integration (13 selected records)
+
+Applied exactly the 13 selected `frontier.md:competing-theses` originals
+(rows 1, 2, 7, 8, 9, 12, 13, 14, 17, 18, 20, 23, 25) from frozen packet
+`convergence-source-d-competing-theses-20260915/rows.json` (SHA-256
+`c48c9c45956bd0a6279315919f45c7f3eb2c6a8fb1d7c4c965ceae4f4f477a9b`),
+zero retrieval by this integrator. Eleven rows are evidence completion
+over corrections already applied in prior batches (Bitter Lesson mirror
+byline; Brooks six-days; Cosmos 3 report figures vs the Bessemer sentence
+that was the old figure's home; registry-live closure; Bessemer 300k h /
+Apr 16, 2026; SayCan framing; ER 2 high-level brain; V-JEPA 2 62-hour
+zero-shot; Nucleus supervised operations; Goldberg reading-time gap +
+bootstrap). Two rows carry the batch's real corrections, applied to
+article prose, `lib/competing-theses.ts` evidenceFor strings and the
+ledger together: the 90% leg is now scoped to the paper's own wording
+(90%+ on all tasks except diverse laundry; laundry's first Recap
+iteration already over 90%; box folding/labeling about 90%) and RL-100's
+juicing robot serves "for about seven hours". The row-25 local-AND
+conjunct was re-proved by this integrator at application time
+(`local-proof.json`: six THESES rows mirror corrected prose). Rows 2 and
+9 (same Brooks cells) were adjudicated independently against their own
+article spans, as two distinct originals. All 36 packet passages were
+needle-verified against the retained fetch corpus before adjudication
+(24 direct; 12 via tag-stripped HTML / pdftotext normalization), every
+passage SHA-256 matched its binding, every fetch entry matched its
+retained bytes, and all 12 cited ids are registered in
+`data/citations.ts`. The ct25 mirror-proof part was completed with the
+same packet passages already bound for those citations (per-citation
+items, per the sealed strict pair-coverage rule; no new evidence).
+
+Observed at the new tree (this commit): **751 complete / 243 incomplete
+/ 994 originals / 47 articles** (was 738/256), **657 compound plans**
+(was 644) and **731 approved-delta entries** (was 718) — exactly the 13
+lawful conversions plus their approvals. All 644 prior plans (pure
+insertion, byte-untouched), 718 prior approvals, the 981 unselected
+semantic records, the citations registry, glossary, dates, defaults and
+neighbors are preserved; derived ledger summary blocks were regenerated
+only through `check-audit-coverage --write-summaries`.
+
+| Gate | Command | Result |
+|---|---|---|
+| Ownership binding | `task-worker-role-start.json` (role start, exec-worker variant) | pass; 0 unknown processes; service MainPID 2097754 active; GLM/Anthropic-2 max route verified in own session log and controller spawn log |
+| Ledger preflight | fail-closed packet-vs-live digest checks in `apply_competing_theses.mjs` | 13/13 current tuple digests matched before any write; proposed tuples verified under the packet's Python-convention digest, bound with the canonical TS digest |
+| Prelint + lint | `NODE_DISABLE_COMPILE_CACHE=1 npm run lint` (prelint via hook) | exit 0 |
+| Typecheck (non-incremental) | `NODE_DISABLE_COMPILE_CACHE=1 npm run typecheck` | exit 0; next-env.d.ts/tsconfig.json/next.config.ts byte-identical |
+| Affected units | `NODE_DISABLE_COMPILE_CACHE=1 npx vitest run` competing-theses, brooks-theses-corrections, pi-helix-theses-corrections, thesis-economics-source-fidelity, thesis-explorer, term-consumer-inventory | 58 passed / 1 failed — the failure is `term-consumer-inventory` on `/frontier/dexterity/` (`proprioception` raw count), verified pre-existing at clean HEAD 85c47f7 by stash-run (1 failed / 14 passed there); not a new failure and not caused by this batch |
+| Summaries | `NODE_DISABLE_COMPILE_CACHE=1 node scripts/check-audit-coverage.ts --write-summaries` | exit 1, expected red: 250 findings; 751/994 complete; derived blocks regenerated |
+| Content | `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` | exit 1, expected red: **751/994 complete**, 250 findings (−13 lawful); 9 known unresolved citation rows unchanged |
+| Readers | owned offline Next runtime (`next dev` 127.0.0.1:3277, webpack, mocked offline fonts), 375x812 and 1440x900 | 2 passed / 0 failed per width set; both corrected spans render, old unscoped wording absent, no mobile overflow; screenshots `ct-375.png` / `ct-1440.png`; configs restored byte-exact |
+
+No unit spec asserts the old strings (rg over tests/ found none), so no
+test edits were required; the reader spec covers the rendered spans.
+lastReviewed did not move (row-scoped correction, not a finished article
+audit). No production build/export, push, or independent acceptance is
+claimed; the content gate remains red with the honest count above.
+Known shared debts (brand-v2-enforcement token-renderer mismatch;
+comparison-current-audit 2/3) remain open and are not claimed here.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-competing-theses-integration-20260915/`.

@@ -59079,5 +59079,1021 @@
       }
     ],
     "originalCellsDigest": "184b400f4af1cadfcf3db5cfbd4ab378f5ccc6559acdd289723eb0ec7e84bf31"
+  },
+  {
+    "id": "competing-theses-ct1-sutton-bitter-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 1,
+    "originalCellsDigest": "8d116c8d92898c0d475cdf2ad0ae6e99c5d20879ef3ade580e3ee002538a365f",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct1-thesis-quote",
+        "text": "Sutton's 2019 essay states that general methods that leverage computation are ultimately the most effective, by a large margin.",
+        "requiredCitationIds": [
+          "sutton-bitter-lesson-2019"
+        ]
+      },
+      {
+        "id": "ct1-date",
+        "text": "The essay is dated March 13, 2019 and authored by Rich Sutton.",
+        "requiredCitationIds": [
+          "sutton-bitter-lesson-2019"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:1 (ready-source-correction) integrator-reviewed and applied. Full-context archival-mirror HTML read this session (tag-stripped needle match). Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "3aa9e4a67bd54aa45e01376bf648c91bd8000c0b312a6a5f84138027dd04c37d"
+    },
+    "evidence": [
+      {
+        "partId": "ct1-thesis-quote",
+        "citationId": "sutton-bitter-lesson-2019",
+        "sourceUrl": "https://web.archive.org/web/20241231102234/http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+        "supportingPassage": "The biggest lesson that can be read from 70 years of AI research is that general methods that leverage computation are ultimately the most effective, and by a large margin."
+      },
+      {
+        "partId": "ct1-date",
+        "citationId": "sutton-bitter-lesson-2019",
+        "sourceUrl": "https://web.archive.org/web/20241231102234/http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+        "supportingPassage": "The Bitter Lesson The Bitter Lesson Rich Sutton March 13, 2019"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct1-thesis-quote",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct1-thesis-quote (record audit/frontier.md:competing-theses:1): supported by the needle-verified retained passage bound to sutton-bitter-lesson-2019. Full-context archival-mirror HTML read this session (tag-stripped needle match).",
+        "evidenceDigest": "593e1280fb49f551f1487ebfa1390a6cef825f13e169707c492ddf2043f5afb8"
+      },
+      {
+        "partId": "ct1-date",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct1-date (record audit/frontier.md:competing-theses:1): supported by the needle-verified retained passage bound to sutton-bitter-lesson-2019. Full-context archival-mirror HTML read this session (tag-stripped needle match).",
+        "evidenceDigest": "106fd510656db22324ac335b687094ffb6be3f8eabdd9683b58ef0e8d8fb2f22"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-ct2-brooks-six-days-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "c8740947160688b05d203da7bae8ffd4f0501c0f3b75c0e008e203010df2b62a",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct2-dated",
+        "text": "A Better Lesson is dated March 19, 2019, six days after Sutton's March 13, 2019 post.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      },
+      {
+        "id": "ct2-last-week",
+        "text": "The reply opens by saying Sutton published The Bitter Lesson just last week.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      },
+      {
+        "id": "ct2-seventy-six",
+        "text": "The reply describes itself, including its closing comment, as seventy six words shorter than Sutton's post.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:2 (ready-source-correction) integrator-reviewed and applied. Live author page read this session; three dated/verbatim needle matches (opening, self-description, dateline). Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "2db63d09d598017714d5fe4a50daddd8b3b2dca83435e0e64b47f28a02258c46"
+    },
+    "evidence": [
+      {
+        "partId": "ct2-dated",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "Post: A Better Lesson March 19, 2019 — Reviews A Better Lesson --> rodneybrooks.com/a-better-lesson/"
+      },
+      {
+        "partId": "ct2-last-week",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "Just last week Rich Sutton published a very short blog post titled The Bitter Lesson . I’m going to try to keep this review shorter than his post."
+      },
+      {
+        "partId": "ct2-seventy-six",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "This review, including this comment, is seventy six words shorter than Sutton’s post."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct2-dated",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct2-dated (record audit/frontier.md:competing-theses:2): supported by the needle-verified retained passage bound to brooks-better-lesson-2019. Live author page read this session; three dated/verbatim needle matches (opening, self-description, dateline).",
+        "evidenceDigest": "87243370c4132032b4696e591e967fbf7e056b07c6dbcd2a5e2b4a6bd993ac76"
+      },
+      {
+        "partId": "ct2-last-week",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct2-last-week (record audit/frontier.md:competing-theses:2): supported by the needle-verified retained passage bound to brooks-better-lesson-2019. Live author page read this session; three dated/verbatim needle matches (opening, self-description, dateline).",
+        "evidenceDigest": "0b47d2dffd4bd3729df353ed531c8aca69f1773e4fc24c6af1ce0f05a8b04e43"
+      },
+      {
+        "partId": "ct2-seventy-six",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct2-seventy-six (record audit/frontier.md:competing-theses:2): supported by the needle-verified retained passage bound to brooks-better-lesson-2019. Live author page read this session; three dated/verbatim needle matches (opening, self-description, dateline).",
+        "evidenceDigest": "37271fd3dc305216d6938a62ededd94abaefe311a6341cb5de9be07e76281ed4"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-ct9-brooks-six-days-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 9,
+    "originalCellsDigest": "c8740947160688b05d203da7bae8ffd4f0501c0f3b75c0e008e203010df2b62a",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct9-dated",
+        "text": "A Better Lesson is dated March 19, 2019, six days after Sutton's March 13, 2019 post.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      },
+      {
+        "id": "ct9-last-week",
+        "text": "The reply opens by saying Sutton published The Bitter Lesson just last week.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      },
+      {
+        "id": "ct9-seventy-six",
+        "text": "The reply describes itself, including its closing comment, as seventy six words shorter than Sutton's post.",
+        "requiredCitationIds": [
+          "brooks-better-lesson-2019"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:9 (ready-source-correction) integrator-reviewed and applied. Independent re-adjudication of the same author page against this row’s own article span (row 2 and row 9 concern distinct originals). Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "1140381e8adef4e30d4967ef3312e4e494e430f40d88d7740291e59952401288"
+    },
+    "evidence": [
+      {
+        "partId": "ct9-dated",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "Post: A Better Lesson March 19, 2019 — Reviews A Better Lesson --> rodneybrooks.com/a-better-lesson/"
+      },
+      {
+        "partId": "ct9-last-week",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "Just last week Rich Sutton published a very short blog post titled The Bitter Lesson . I’m going to try to keep this review shorter than his post."
+      },
+      {
+        "partId": "ct9-seventy-six",
+        "citationId": "brooks-better-lesson-2019",
+        "sourceUrl": "https://rodneybrooks.com/a-better-lesson/",
+        "supportingPassage": "This review, including this comment, is seventy six words shorter than Sutton’s post."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct9-dated",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct9-dated (record audit/frontier.md:competing-theses:9): supported by the needle-verified retained passage bound to brooks-better-lesson-2019. Independent re-adjudication of the same author page against this row’s own article span (row 2 and row 9 concern distinct originals).",
+        "evidenceDigest": "9dbd5153bc9386e7de5d471d93a99962b20ec4a2c535ef2b11dad413ec81076f"
+      },
+      {
+        "partId": "ct9-last-week",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct9-last-week (record audit/frontier.md:competing-theses:9): supported by the needle-verified retained passage bound to brooks-better-lesson-2019. Independent re-adjudication of the same author page against this row’s own article span (row 2 and row 9 concern distinct originals).",
+        "evidenceDigest": "26a63a703e19c9f3f3722c7effc94282e440a607ba0fdf4a6830e61c360cc5ae"
+      },
+      {
+        "partId": "ct9-seventy-six",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct9-seventy-six (record audit/frontier.md:competing-theses:9): supported by the needle-verified retained passage bound to brooks-better-lesson-2019. Independent re-adjudication of the same author page against this row’s own article span (row 2 and row 9 concern distinct originals).",
+        "evidenceDigest": "91026d1064f6098d879067048c65827d14e7a405727e4d4c277351baee2535be"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-ct7-cosmos3-figures-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 7,
+    "originalCellsDigest": "4853a8d389a8ee72a478b87c237aba62069889c55dde4e0da90817a5776ceb7c",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct7-tokens",
+        "text": "Cosmos3-Nano was pretrained on 31.05T tokens (article: up to 31 trillion tokens).",
+        "requiredCitationIds": [
+          "cosmos-3-2026"
+        ]
+      },
+      {
+        "id": "ct7-gpus",
+        "text": "Cosmos3-Super used 2,048 NVIDIA GB200 GPUs (article: clusters as large as 2,048 GB200 GPUs).",
+        "requiredCitationIds": [
+          "cosmos-3-2026"
+        ]
+      },
+      {
+        "id": "ct7-bessemer-earlier-cosmos",
+        "text": "The 10,000-H100/three-months figure is Bessemer's description of the earlier Cosmos, not of Cosmos 3.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:7 (ready-source-correction) integrator-reviewed and applied. Tech-report PDF read via pdftotext this session plus the Bessemer sentence that was the old figure’s actual home. Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "943e4be8478a7a31a42db0ca9cf694c2f4e2e5c9692bb751efb0334270e4d9c3"
+    },
+    "evidence": [
+      {
+        "partId": "ct7-tokens",
+        "citationId": "cosmos-3-2026",
+        "sourceUrl": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf",
+        "supportingPassage": "Tokens trained. In the pre-training stage, Cosmos3-Nano was trained on 31.05T tokens using 1024 NVIDIA GB200 GPUs, while Cosmos3-Super was trained on 17.86T tokens using 2048 NVIDIA GB200 GPUs."
+      },
+      {
+        "partId": "ct7-gpus",
+        "citationId": "cosmos-3-2026",
+        "sourceUrl": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf",
+        "supportingPassage": "Tokens trained. In the pre-training stage, Cosmos3-Nano was trained on 31.05T tokens using 1024 NVIDIA GB200 GPUs, while Cosmos3-Super was trained on 17.86T tokens using 2048 NVIDIA GB200 GPUs."
+      },
+      {
+        "partId": "ct7-bessemer-earlier-cosmos",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "But world models are themselves expensive to train—NVIDIA's Cosmos required 10,000 H100 GPUs over three months."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct7-tokens",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct7-tokens (record audit/frontier.md:competing-theses:7): supported by the needle-verified retained passage bound to cosmos-3-2026. Tech-report PDF read via pdftotext this session plus the Bessemer sentence that was the old figure’s actual home.",
+        "evidenceDigest": "24cd39d78172e71a6ac94c4d54b7c926dd28ff6f78126524518d7973d540ca26"
+      },
+      {
+        "partId": "ct7-gpus",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct7-gpus (record audit/frontier.md:competing-theses:7): supported by the needle-verified retained passage bound to cosmos-3-2026. Tech-report PDF read via pdftotext this session plus the Bessemer sentence that was the old figure’s actual home.",
+        "evidenceDigest": "38873063fa3ae0a00c4fadcd2c1a8ad3491830744fcca01af633410839c847eb"
+      },
+      {
+        "partId": "ct7-bessemer-earlier-cosmos",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct7-bessemer-earlier-cosmos (record audit/frontier.md:competing-theses:7): supported by the needle-verified retained passage bound to bessemer-robotics-2026. Tech-report PDF read via pdftotext this session plus the Bessemer sentence that was the old figure’s actual home.",
+        "evidenceDigest": "6156d654eafc5cf000551a74e9cba21d73f338b96c91f7a74b44378f4244f94b"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-ct8-bitter-citation-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "a3255ca6cdf3fe9beb478865b1fde198f98a69818036dd739dc3bafd433ffc98",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct8-registry-live",
+        "text": "The registered sutton-bitter-lesson-2019 URL resolves to the live Bitter Lesson document.",
+        "requiredCitationIds": [
+          "sutton-bitter-lesson-2019"
+        ]
+      },
+      {
+        "id": "ct8-prose-linked",
+        "text": "The prose discussion of The Bitter Lesson carries the registered citation in the current article.",
+        "requiredCitationIds": [
+          "sutton-bitter-lesson-2019"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:8 (ready-source-correction) integrator-reviewed and applied. Registry-live check plus archival-mirror byline; registration gap verified closed at HEAD. Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "db520901e90a76466326dc465c81073d09a11cca588059974bc0fca9f68f87d5"
+    },
+    "evidence": [
+      {
+        "partId": "ct8-registry-live",
+        "citationId": "sutton-bitter-lesson-2019",
+        "sourceUrl": "https://web.archive.org/web/20241231102234/http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+        "supportingPassage": "The biggest lesson that can be read from 70 years of AI research is that general methods that leverage computation are ultimately the most effective, and by a large margin."
+      },
+      {
+        "partId": "ct8-prose-linked",
+        "citationId": "sutton-bitter-lesson-2019",
+        "sourceUrl": "https://web.archive.org/web/20241231102234/http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+        "supportingPassage": "The Bitter Lesson The Bitter Lesson Rich Sutton March 13, 2019"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct8-registry-live",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct8-registry-live (record audit/frontier.md:competing-theses:8): supported by the needle-verified retained passage bound to sutton-bitter-lesson-2019. Registry-live check plus archival-mirror byline; registration gap verified closed at HEAD.",
+        "evidenceDigest": "097c98c2e287b89b651679344c61cc4988700e36e4e27096bfc5311e2f3cbb4b"
+      },
+      {
+        "partId": "ct8-prose-linked",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct8-prose-linked (record audit/frontier.md:competing-theses:8): supported by the needle-verified retained passage bound to sutton-bitter-lesson-2019. Registry-live check plus archival-mirror byline; registration gap verified closed at HEAD.",
+        "evidenceDigest": "bbb185e200a79c0a32c85e7694971adef1538b735fce160162575f20567777cb"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-ct12-300k-stat-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 12,
+    "originalCellsDigest": "8a6d4895c6df4f51cb896d3e33f052d46ad65fe52bd41b79d98361c65ee52287",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct12-300k",
+        "text": "Bessemer's essay prints the roughly-300,000-hours global robot-manipulation-data estimate the stat box carries.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "ct12-apr2026",
+        "text": "The page prints a publication date of Apr 16, 2026, matching the stat note's Apr 2026.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:12 (ready-source-correction) integrator-reviewed and applied. Live investor-essay page read this session; figure and publication date both verbatim. Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "668955a29e0d3526e1f5f45e3dd37600a5d4d1a1a2021a083820d799b9cf0537"
+    },
+    "evidence": [
+      {
+        "partId": "ct12-300k",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Total global robot manipulation data is estimated at roughly 300,000 hours—compared to approximately 1 billion hours of internet video and 300 trillion tokens of text."
+      },
+      {
+        "partId": "ct12-apr2026",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Published on Apr 16, 2026"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct12-300k",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct12-300k (record audit/frontier.md:competing-theses:12): supported by the needle-verified retained passage bound to bessemer-robotics-2026. Live investor-essay page read this session; figure and publication date both verbatim.",
+        "evidenceDigest": "200d6858b8f1cd9ca4ee56e6b0cea2f0e942f22fa994d76f0e059372517e6bfc"
+      },
+      {
+        "partId": "ct12-apr2026",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct12-apr2026 (record audit/frontier.md:competing-theses:12): supported by the needle-verified retained passage bound to bessemer-robotics-2026. Live investor-essay page read this session; figure and publication date both verbatim.",
+        "evidenceDigest": "ee130ea1d4f0672f5c68fbab815d0e6ff0e01dcff92e874ec995196ae28a871a"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-ct13-saycan-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "94d428160d04324054cff93e52bbc436ae4778c44e4ea804127c574982aaf298",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct13-pretrained-skills",
+        "text": "SayCan grounds the language model by means of pretrained skills that constrain which actions are proposed.",
+        "requiredCitationIds": [
+          "saycan-2022"
+        ]
+      },
+      {
+        "id": "ct13-llm-highlevel",
+        "text": "The language model provides high-level knowledge about procedures; skill value functions provide the environment grounding.",
+        "requiredCitationIds": [
+          "saycan-2022"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:13 (ready-source-correction) integrator-reviewed and applied. arXiv abstract page read this session; the paper’s own framing of pretrained skills and LLM high-level knowledge. Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "8256014a65f8419119ff663c5a9168ebe34048e098c931c584f39fd1b9460df5"
+    },
+    "evidence": [
+      {
+        "partId": "ct13-pretrained-skills",
+        "citationId": "saycan-2022",
+        "sourceUrl": "https://arxiv.org/abs/2204.01691",
+        "supportingPassage": "We propose to provide real-world grounding by means of pretrained skills, which are used to constrain the model to propose natural language actions that are both feasible and contextually appropriate."
+      },
+      {
+        "partId": "ct13-llm-highlevel",
+        "citationId": "saycan-2022",
+        "sourceUrl": "https://arxiv.org/abs/2204.01691",
+        "supportingPassage": "We show how low-level skills can be combined with large language models so that the language model provides high-level knowledge about the procedures for performing complex and temporally-extended instructions, while value functions associated with these skills provide the grounding necessary to connect this knowledge to a particular physical environment."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct13-pretrained-skills",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct13-pretrained-skills (record audit/frontier.md:competing-theses:13): supported by the needle-verified retained passage bound to saycan-2022. arXiv abstract page read this session; the paper’s own framing of pretrained skills and LLM high-level knowledge.",
+        "evidenceDigest": "0ecc430ba521d59431e3f919ca69a2c8fcab5fd57ac695b40012636a985443db"
+      },
+      {
+        "partId": "ct13-llm-highlevel",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct13-llm-highlevel (record audit/frontier.md:competing-theses:13): supported by the needle-verified retained passage bound to saycan-2022. arXiv abstract page read this session; the paper’s own framing of pretrained skills and LLM high-level knowledge.",
+        "evidenceDigest": "cecf8f7b21d9c30e97701b89c0d31d67096b5e211560419220dd58b24da317c2"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-ct14-er2-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "4e00894ae98c3ab2d0766015050ff8db1b54d38940e93e2e29d645c12ac05e65",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct14-brain",
+        "text": "DeepMind's own page describes ER 2 as a high-level brain for robots that plans multi-step tasks.",
+        "requiredCitationIds": [
+          "gemini-robotics-er2-2026"
+        ]
+      },
+      {
+        "id": "ct14-hands-off",
+        "text": "The page states ER 2 hands off motor execution to any given lower-level VLA model.",
+        "requiredCitationIds": [
+          "gemini-robotics-er2-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:14 (ready-source-correction) integrator-reviewed and applied. Vendor first-party model page read this session; sentence confirmed nearly word-for-word; vendor-reported status retained. Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "7de287d53619067272b7743f7b0f6477786616c7c2a413e627e7385bebc46fc6"
+    },
+    "evidence": [
+      {
+        "partId": "ct14-brain",
+        "citationId": "gemini-robotics-er2-2026",
+        "sourceUrl": "https://deepmind.google/models/gemini-robotics/embodied-reasoning/",
+        "supportingPassage": "Gemini Robotics ER 2 is a high-level brain for robots. It allows robots to chat with humans, understand the physical world, and plan multi-step tasks. It then hands off motor execution to any given lower level vision-language-action (VLA) model."
+      },
+      {
+        "partId": "ct14-hands-off",
+        "citationId": "gemini-robotics-er2-2026",
+        "sourceUrl": "https://deepmind.google/models/gemini-robotics/embodied-reasoning/",
+        "supportingPassage": "Gemini Robotics ER 2 is a high-level brain for robots. It allows robots to chat with humans, understand the physical world, and plan multi-step tasks. It then hands off motor execution to any given lower level vision-language-action (VLA) model."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct14-brain",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct14-brain (record audit/frontier.md:competing-theses:14): supported by the needle-verified retained passage bound to gemini-robotics-er2-2026. Vendor first-party model page read this session; sentence confirmed nearly word-for-word; vendor-reported status retained.",
+        "evidenceDigest": "1ac7a2583f605f9ae2e355c120375c7438f73c5e6b28e0ae9d8aa0c2caee77f7"
+      },
+      {
+        "partId": "ct14-hands-off",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct14-hands-off (record audit/frontier.md:competing-theses:14): supported by the needle-verified retained passage bound to gemini-robotics-er2-2026. Vendor first-party model page read this session; sentence confirmed nearly word-for-word; vendor-reported status retained.",
+        "evidenceDigest": "301398a15ac57e09328bb14413af737192fa31547dd9e72aadca8770d609397d"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-ct17-vjepa2-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 17,
+    "originalCellsDigest": "3ed384018e51e9c9e0818e120ee52e3590e8fda4be8c98437350320f057c73ad",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct17-62h",
+        "text": "V-JEPA 2-AC is action-conditioned post-trained on less than 62 hours of unlabeled robot videos (Droid dataset).",
+        "requiredCitationIds": [
+          "vjepa2-2025"
+        ]
+      },
+      {
+        "id": "ct17-zero-shot-labs",
+        "text": "V-JEPA 2-AC deploys zero-shot on Franka arms in two different labs, without collecting any data from the robots in those environments.",
+        "requiredCitationIds": [
+          "vjepa2-2025"
+        ]
+      },
+      {
+        "id": "ct17-skills",
+        "text": "The demonstrated skills are reaching, grasping, and pick-and-place via model-predictive control, generalizing zero-shot to new environments.",
+        "requiredCitationIds": [
+          "vjepa2-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:17 (ready-source-correction) integrator-reviewed and applied. Abstract plus paper body read this session; 62-hour figure, two-lab zero-shot deployment and the reaching/grasping/pick-and-place skill list all verbatim. Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "1403a5ed6660de55785294e96dcd6d122e8928782887148df051a0891415948b"
+    },
+    "evidence": [
+      {
+        "partId": "ct17-62h",
+        "citationId": "vjepa2-2025",
+        "sourceUrl": "https://arxiv.org/abs/2506.09985",
+        "supportingPassage": "we show how self-supervised learning can be applied to robotic planning tasks by post-training a latent action-conditioned world model, V-JEPA 2-AC, using less than 62 hours of unlabeled robot videos from the Droid dataset. We deploy V-JEPA 2-AC zero-shot on Franka arms in two different labs and enable picking and placing of objects using planning with image goals. Notably, this is achieved without collecting any data from the robots in these environments, and without any task-specific training or reward."
+      },
+      {
+        "partId": "ct17-zero-shot-labs",
+        "citationId": "vjepa2-2025",
+        "sourceUrl": "https://arxiv.org/abs/2506.09985",
+        "supportingPassage": "we show how self-supervised learning can be applied to robotic planning tasks by post-training a latent action-conditioned world model, V-JEPA 2-AC, using less than 62 hours of unlabeled robot videos from the Droid dataset. We deploy V-JEPA 2-AC zero-shot on Franka arms in two different labs and enable picking and placing of objects using planning with image goals. Notably, this is achieved without collecting any data from the robots in these environments, and without any task-specific training or reward."
+      },
+      {
+        "partId": "ct17-skills",
+        "citationId": "vjepa2-2025",
+        "sourceUrl": "https://arxiv.org/pdf/2506.09985",
+        "supportingPassage": "In this section we demonstrate how V-JEPA 2-AC can be used to implement basic robot skills like reaching, grasping, and pick-and-place via model-predictive control. We focus on tasks with visual goal specification and show that V-JEPA 2-AC generalizes zero-shot to new environments."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct17-62h",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct17-62h (record audit/frontier.md:competing-theses:17): supported by the needle-verified retained passage bound to vjepa2-2025. Abstract plus paper body read this session; 62-hour figure, two-lab zero-shot deployment and the reaching/grasping/pick-and-place skill list all verbatim.",
+        "evidenceDigest": "3e413b2999c2cc1201f0e005fdf013b56d168965cc8caa49cedcc17bbb251894"
+      },
+      {
+        "partId": "ct17-zero-shot-labs",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct17-zero-shot-labs (record audit/frontier.md:competing-theses:17): supported by the needle-verified retained passage bound to vjepa2-2025. Abstract plus paper body read this session; 62-hour figure, two-lab zero-shot deployment and the reaching/grasping/pick-and-place skill list all verbatim.",
+        "evidenceDigest": "ba3279777e3fb2bce494481cd7bea44e2d164e771735ac61c386c374564d01ba"
+      },
+      {
+        "partId": "ct17-skills",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct17-skills (record audit/frontier.md:competing-theses:17): supported by the needle-verified retained passage bound to vjepa2-2025. Abstract plus paper body read this session; 62-hour figure, two-lab zero-shot deployment and the reaching/grasping/pick-and-place skill list all verbatim.",
+        "evidenceDigest": "9a79915498bc3ff8fc0a2f198f4255a49d0280f17c41256acb80153b1b0ade91"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-ct18-rl-evidence-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 18,
+    "originalCellsDigest": "def3a33d9109014da1a79c9f31bff3e4039ffe5e06be3ae6999576d8f18e9fa3",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct18-recap-throughput",
+        "text": "Training π*0.6 with Recap on autonomous experience more than doubles throughput on some of the hardest tasks.",
+        "requiredCitationIds": [
+          "pistar06-2025"
+        ]
+      },
+      {
+        "id": "ct18-90-scoping",
+        "text": "The final π*0.6 model is in the 90%+ success range on all tasks except diverse laundry; laundry's first Recap iteration already exceeds 90%, and box folding/labeling is about 90%.",
+        "requiredCitationIds": [
+          "pistar06-2025"
+        ]
+      },
+      {
+        "id": "ct18-rl100-1000",
+        "text": "RL-100 attains 100 percent success across 1,000 of 1,000 episodes on eight diverse real-robot tasks.",
+        "requiredCitationIds": [
+          "rl-100-2025"
+        ]
+      },
+      {
+        "id": "ct18-rl100-seven-hours",
+        "text": "The juicing robot served random customers continuously for about seven hours without failure, zero-shot in a shopping mall.",
+        "requiredCitationIds": [
+          "rl-100-2025"
+        ]
+      },
+      {
+        "id": "ct18-enpire-99",
+        "text": "ENPIRE's coding agents autonomously train a policy to a 99% success rate on dexterous tasks such as pin-box organizing.",
+        "requiredCitationIds": [
+          "enpire-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:18 (ready-source-correction) integrator-reviewed and applied. Blog, paper PDF and two arXiv abstracts read this session; two precision corrections applied to prose and lib together (90% scoping to except-diverse-laundry wording; “about seven hours” restored). Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "40e6a6ffc968af8b0134fb66b98cf07a92801f71bcc34ce6ea53ac23b7eb0c57"
+    },
+    "evidence": [
+      {
+        "partId": "ct18-recap-throughput",
+        "citationId": "pistar06-2025",
+        "sourceUrl": "https://www.pi.website/blog/pistar06",
+        "supportingPassage": "esulting RL-trained model π * 0.6 . Training π * 0.6 with R ecap on autonomous experience more than doubles the throughput on some of the hardest tasks, and can decrease failure rates by 2x or more. This enables π * 0.6 to reach p"
+      },
+      {
+        "partId": "ct18-90-scoping",
+        "citationId": "pistar06-2025",
+        "sourceUrl": "https://www.pi.website/download/pistar06.pdf",
+        "supportingPassage": "On all of the tasks except diverse laundry, the success rate ∗ model is in the 90%+ range."
+      },
+      {
+        "partId": "ct18-rl100-1000",
+        "citationId": "rl-100-2025",
+        "sourceUrl": "https://arxiv.org/abs/2510.14830",
+        "supportingPassage": "RL-100 attains 100 percent success across evaluated trials, for a total of 1000 out of 1000 episodes, including up to 250 out of 250 consecutive trials on one task."
+      },
+      {
+        "partId": "ct18-rl100-seven-hours",
+        "citationId": "rl-100-2025",
+        "sourceUrl": "https://arxiv.org/abs/2510.14830",
+        "supportingPassage": "Notably, our juicing robot served random customers continuously for about seven hours without failure when deployed zero-shot in a shopping mall."
+      },
+      {
+        "partId": "ct18-enpire-99",
+        "citationId": "enpire-2026",
+        "sourceUrl": "https://arxiv.org/abs/2606.19980",
+        "supportingPassage": "Powered by ENPIRE, frontier coding agents can autonomously train a policy to achieve a 99% success rate on challenging, dexterous manipulation tasks, such as organizing a pin box, fastening a zip tie, and tool use, a process that further accelerates when we dispatch an agent team on a robot fleet."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct18-recap-throughput",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct18-recap-throughput (record audit/frontier.md:competing-theses:18): supported by the needle-verified retained passage bound to pistar06-2025. Blog, paper PDF and two arXiv abstracts read this session; two precision corrections applied to prose and lib together (90% scoping to except-diverse-laundry wording; “about seven hours” restored).",
+        "evidenceDigest": "734c7fb0f6270dfd76a27344d1303f9795b7c937f7f7568648f14ec5df08f794"
+      },
+      {
+        "partId": "ct18-90-scoping",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct18-90-scoping (record audit/frontier.md:competing-theses:18): supported by the needle-verified retained passage bound to pistar06-2025. Blog, paper PDF and two arXiv abstracts read this session; two precision corrections applied to prose and lib together (90% scoping to except-diverse-laundry wording; “about seven hours” restored).",
+        "evidenceDigest": "fb69937177fc34467bb78db2af995929379eed55075c313a82ff37b8e564c77e"
+      },
+      {
+        "partId": "ct18-rl100-1000",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct18-rl100-1000 (record audit/frontier.md:competing-theses:18): supported by the needle-verified retained passage bound to rl-100-2025. Blog, paper PDF and two arXiv abstracts read this session; two precision corrections applied to prose and lib together (90% scoping to except-diverse-laundry wording; “about seven hours” restored).",
+        "evidenceDigest": "2a90095d7a14df28f28bf5de3b358e77203de8372e33cdf0344b27fe5653aea4"
+      },
+      {
+        "partId": "ct18-rl100-seven-hours",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct18-rl100-seven-hours (record audit/frontier.md:competing-theses:18): supported by the needle-verified retained passage bound to rl-100-2025. Blog, paper PDF and two arXiv abstracts read this session; two precision corrections applied to prose and lib together (90% scoping to except-diverse-laundry wording; “about seven hours” restored).",
+        "evidenceDigest": "91d7c7c3965bee850f86c99fef894b766ba9875ebdfbadba74d290a1f7c52f3c"
+      },
+      {
+        "partId": "ct18-enpire-99",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct18-enpire-99 (record audit/frontier.md:competing-theses:18): supported by the needle-verified retained passage bound to enpire-2026. Blog, paper PDF and two arXiv abstracts read this session; two precision corrections applied to prose and lib together (90% scoping to except-diverse-laundry wording; “about seven hours” restored).",
+        "evidenceDigest": "cc6ef1d91c9a27c3cf1bcaf21b024dd9e1b2499a8b742407049b6a391948e6ab"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-ct20-nucleus-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 20,
+    "originalCellsDigest": "8ddf383df4340c4f8fcd18b9691568df1e8466839eac226b6387831fec1a36cd",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct20-supervision",
+        "text": "Nucleus combines AI with human supervision during the early stages of deployment rather than waiting for full autonomy.",
+        "requiredCitationIds": [
+          "nucleus-supervised-2026"
+        ]
+      },
+      {
+        "id": "ct20-data-logic",
+        "text": "The supervised robots perform useful work while generating the real-world data needed to improve the underlying models, which is the teleop-bridge logic the article attributes to them.",
+        "requiredCitationIds": [
+          "nucleus-supervised-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:20 (ready-source-correction) integrator-reviewed and applied. Press page read this session; supervised-deployment and data-harvest sentences verbatim; press-reported tier disclosed. Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "66d61e1f028c7f28daf284b516ff9a4383eb1ab7154a9d23a6093a6a2f8701d7"
+    },
+    "evidence": [
+      {
+        "partId": "ct20-supervision",
+        "citationId": "nucleus-supervised-2026",
+        "sourceUrl": "https://www.rockingrobots.com/nucleus-robotics-emerges-from-stealth-with-humanoids-on-the-german-factory-floor/",
+        "supportingPassage": "Instead, Nucleus combines AI with human supervision during the early stages of deployment. This allows robots to perform useful work while generating the real-world data needed to improve the underlying models."
+      },
+      {
+        "partId": "ct20-data-logic",
+        "citationId": "nucleus-supervised-2026",
+        "sourceUrl": "https://www.rockingrobots.com/nucleus-robotics-emerges-from-stealth-with-humanoids-on-the-german-factory-floor/",
+        "supportingPassage": "Instead, Nucleus combines AI with human supervision during the early stages of deployment. This allows robots to perform useful work while generating the real-world data needed to improve the underlying models."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct20-supervision",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct20-supervision (record audit/frontier.md:competing-theses:20): supported by the needle-verified retained passage bound to nucleus-supervised-2026. Press page read this session; supervised-deployment and data-harvest sentences verbatim; press-reported tier disclosed.",
+        "evidenceDigest": "530d7279f90f078d8748662d0d032633e2f9ec1f08e8ec3e7b5d8a3d47416223"
+      },
+      {
+        "partId": "ct20-data-logic",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct20-data-logic (record audit/frontier.md:competing-theses:20): supported by the needle-verified retained passage bound to nucleus-supervised-2026. Press page read this session; supervised-deployment and data-harvest sentences verbatim; press-reported tier disclosed.",
+        "evidenceDigest": "8544cd098b93671a734c2da8c25582747b13824f5c178b305b6d0c8e95a135d3"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-ct23-goldberg-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 23,
+    "originalCellsDigest": "d97312acbf213424278526ac9b85913a2c6bd8c888756a430df7e31ba56ef84d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct23-gap-reading-time",
+        "text": "The 100,000-year figure is the time it would take a human to read the text corpus used to train LLMs; robot data collection has nothing comparable.",
+        "requiredCitationIds": [
+          "goldberg-data-gap-2025"
+        ]
+      },
+      {
+        "id": "ct23-bootstrap",
+        "text": "Goldberg argues engineering, math and science get robots functional so they can collect the needed data, bootstrapping the data collection process, not that engineering closes the gap faster than collection.",
+        "requiredCitationIds": [
+          "goldberg-data-gap-2025"
+        ]
+      },
+      {
+        "id": "ct23-identity",
+        "text": "The registered DOI is Goldberg's Science Robotics editorial (vol 10, issue 105, 2025-08-27), whose title states good old-fashioned engineering can close the 100,000-year data gap.",
+        "requiredCitationIds": [
+          "goldberg-data-gap-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:23 (ready-source-correction) integrator-reviewed and applied. Publicly fetchable Berkeley interview (200, full body) plus Crossref identity record read this session; reading-time gap definition and bootstrap position verbatim. Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "325b222db54085b3248918ab70dad176aa7da9d077390a52765af64b38c08d6c"
+    },
+    "evidence": [
+      {
+        "partId": "ct23-gap-reading-time",
+        "citationId": "goldberg-data-gap-2025",
+        "sourceUrl": "https://news.berkeley.edu/2025/08/27/are-we-truly-on-the-verge-of-the-humanoid-robot-revolution/",
+        "supportingPassage": "To calculate this data gap, I looked at how much text data exists on the internet and calculated how long it would take a human to sit down and read it all. I found it would take about 100,000 years. That’s the amount of text used to train LLMs. We don’t have anywhere near that amount of data to train robots, and 100,000 years is just the amount of text that we have to train language models."
+      },
+      {
+        "partId": "ct23-bootstrap",
+        "citationId": "goldberg-data-gap-2025",
+        "sourceUrl": "https://news.berkeley.edu/2025/08/27/are-we-truly-on-the-verge-of-the-humanoid-robot-revolution/",
+        "supportingPassage": "I’ve been advocating that engineering, math and science are still important because they allow us to get these robots functional so that they can collect the data that we need. This is a way to bootstrap the data collection process."
+      },
+      {
+        "partId": "ct23-identity",
+        "citationId": "goldberg-data-gap-2025",
+        "sourceUrl": "https://api.crossref.org/works/10.1126/scirobotics.aea7390",
+        "supportingPassage": "\"title\":[\"Good old-fashioned engineering can close the 100,000-year \\u201cdata gap\\u201d in robotics\"]"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct23-gap-reading-time",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct23-gap-reading-time (record audit/frontier.md:competing-theses:23): supported by the needle-verified retained passage bound to goldberg-data-gap-2025. Publicly fetchable Berkeley interview (200, full body) plus Crossref identity record read this session; reading-time gap definition and bootstrap position verbatim.",
+        "evidenceDigest": "1bca8d219dd650659b0751aded641aafa554384566fb71e2bd9e19171b32e1f0"
+      },
+      {
+        "partId": "ct23-bootstrap",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct23-bootstrap (record audit/frontier.md:competing-theses:23): supported by the needle-verified retained passage bound to goldberg-data-gap-2025. Publicly fetchable Berkeley interview (200, full body) plus Crossref identity record read this session; reading-time gap definition and bootstrap position verbatim.",
+        "evidenceDigest": "3b34285c06134920a23ff43fb166531a05a150fde76ace7a79dcee70226d971f"
+      },
+      {
+        "partId": "ct23-identity",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct23-identity (record audit/frontier.md:competing-theses:23): supported by the needle-verified retained passage bound to goldberg-data-gap-2025. Publicly fetchable Berkeley interview (200, full body) plus Crossref identity record read this session; reading-time gap definition and bootstrap position verbatim.",
+        "evidenceDigest": "4d2af79123903323b930f5606800e10fa07748f48bbd27a1685d088e568ba4e5"
+      }
+    ]
+  },
+  {
+    "id": "competing-theses-ct25-thesis-mirror-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "competing-theses",
+    "rowOrdinal": 25,
+    "originalCellsDigest": "bd459457252a2ad266a8c6ac2b44a1095d790b22cbf89f415ffa53be8595102e",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ct25-mirror-proof",
+        "text": "Every thesis-table evidence string in lib/competing-theses.ts mirrors the corrected article prose at HEAD (integrator re-runs this local proof).",
+        "requiredCitationIds": [
+          "cosmos-3-2026",
+          "vjepa2-2025",
+          "gemini-robotics-er2-2026",
+          "goldberg-data-gap-2025",
+          "saycan-2022",
+          "pistar06-2025",
+          "rl-100-2025",
+          "enpire-2026"
+        ]
+      },
+      {
+        "id": "ct25-laundry-precision",
+        "text": "The rl-finetuning 90% evidence string must be scoped to the paper's wording (90%+ on all tasks except diverse laundry).",
+        "requiredCitationIds": [
+          "pistar06-2025"
+        ]
+      },
+      {
+        "id": "ct25-seven-hours-precision",
+        "text": "The RL-100 evidence string must read about seven hours, matching the source.",
+        "requiredCitationIds": [
+          "rl-100-2025"
+        ]
+      },
+      {
+        "id": "ct25-enpire-proponents",
+        "text": "The ENPIRE proponents line (NVIDIA, CMU, UC Berkeley) matches the paper's printed affiliation line.",
+        "requiredCitationIds": [
+          "enpire-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record competing-theses:25 (ready-source-correction-with-local-AND) integrator-reviewed and applied. Local-AND conjunct re-proved by this integrator at application time (local-proof.json: six THESES rows mirror corrected prose); ENPIRE affiliation line verified against the paper PDF’s printed author list. Integrator-side review 2026-09-15: every packet currentTupleDigest/currentCells pair re-verified fail-closed against the live ledger before the write; all 36 evidence passages needle-verified against the retained fetch corpus preserved in convergence-source-d-competing-theses-20260915/sources (fetchlog byte-identical); every cited id confirmed registered in data/citations.ts; Bessemer/registry metadata reuse is consistency-checked read-only against the plans already bound in audit/compound-evidence.json.",
+      "planDigest": "52395b10a5f41363dccef1d67655f1632614de3bd39e18aa6a3a23927956216c"
+    },
+    "evidence": [
+      {
+        "partId": "ct25-mirror-proof",
+        "citationId": "pistar06-2025",
+        "sourceUrl": "https://www.pi.website/download/pistar06.pdf",
+        "supportingPassage": "On all of the tasks except diverse laundry, the success rate ∗ model is in the 90%+ range."
+      },
+      {
+        "partId": "ct25-laundry-precision",
+        "citationId": "pistar06-2025",
+        "sourceUrl": "https://www.pi.website/download/pistar06.pdf",
+        "supportingPassage": "On all of the tasks except diverse laundry, the success rate ∗ model is in the 90%+ range."
+      },
+      {
+        "partId": "ct25-seven-hours-precision",
+        "citationId": "rl-100-2025",
+        "sourceUrl": "https://arxiv.org/abs/2510.14830",
+        "supportingPassage": "Notably, our juicing robot served random customers continuously for about seven hours without failure when deployed zero-shot in a shopping mall."
+      },
+      {
+        "partId": "ct25-enpire-proponents",
+        "citationId": "enpire-2026",
+        "sourceUrl": "https://arxiv.org/pdf/2606.19980",
+        "supportingPassage": "1 NVIDIA\n\n2 CMU\n\n3 UC Berkeley"
+      },
+      {
+        "partId": "ct25-mirror-proof",
+        "citationId": "cosmos-3-2026",
+        "sourceUrl": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf",
+        "supportingPassage": "Tokens trained. In the pre-training stage, Cosmos3-Nano was trained on 31.05T tokens using 1024 NVIDIA GB200 GPUs, while Cosmos3-Super was trained on 17.86T tokens using 2048 NVIDIA GB200 GPUs."
+      },
+      {
+        "partId": "ct25-mirror-proof",
+        "citationId": "vjepa2-2025",
+        "sourceUrl": "https://arxiv.org/abs/2506.09985",
+        "supportingPassage": "we show how self-supervised learning can be applied to robotic planning tasks by post-training a latent action-conditioned world model, V-JEPA 2-AC, using less than 62 hours of unlabeled robot videos from the Droid dataset. We deploy V-JEPA 2-AC zero-shot on Franka arms in two different labs and enable picking and placing of objects using planning with image goals. Notably, this is achieved without collecting any data from the robots in these environments, and without any task-specific training or reward."
+      },
+      {
+        "partId": "ct25-mirror-proof",
+        "citationId": "gemini-robotics-er2-2026",
+        "sourceUrl": "https://deepmind.google/models/gemini-robotics/embodied-reasoning/",
+        "supportingPassage": "Gemini Robotics ER 2 is a high-level brain for robots. It allows robots to chat with humans, understand the physical world, and plan multi-step tasks. It then hands off motor execution to any given lower level vision-language-action (VLA) model."
+      },
+      {
+        "partId": "ct25-mirror-proof",
+        "citationId": "goldberg-data-gap-2025",
+        "sourceUrl": "https://news.berkeley.edu/2025/08/27/are-we-truly-on-the-verge-of-the-humanoid-robot-revolution/",
+        "supportingPassage": "I’ve been advocating that engineering, math and science are still important because they allow us to get these robots functional so that they can collect the data that we need. This is a way to bootstrap the data collection process."
+      },
+      {
+        "partId": "ct25-mirror-proof",
+        "citationId": "saycan-2022",
+        "sourceUrl": "https://arxiv.org/abs/2204.01691",
+        "supportingPassage": "We show how low-level skills can be combined with large language models so that the language model provides high-level knowledge about the procedures for performing complex and temporally-extended instructions, while value functions associated with these skills provide the grounding necessary to connect this knowledge to a particular physical environment."
+      },
+      {
+        "partId": "ct25-mirror-proof",
+        "citationId": "rl-100-2025",
+        "sourceUrl": "https://arxiv.org/abs/2510.14830",
+        "supportingPassage": "Notably, our juicing robot served random customers continuously for about seven hours without failure when deployed zero-shot in a shopping mall."
+      },
+      {
+        "partId": "ct25-mirror-proof",
+        "citationId": "enpire-2026",
+        "sourceUrl": "https://arxiv.org/pdf/2606.19980",
+        "supportingPassage": "1 NVIDIA\n\n2 CMU\n\n3 UC Berkeley"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ct25-mirror-proof",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct25-mirror-proof (record audit/frontier.md:competing-theses:25): supported by the needle-verified retained passage bound to cosmos-3-2026, vjepa2-2025, gemini-robotics-er2-2026, goldberg-data-gap-2025, saycan-2022, pistar06-2025, rl-100-2025, enpire-2026. Local-AND conjunct re-proved by this integrator at application time (local-proof.json: six THESES rows mirror corrected prose); ENPIRE affiliation line verified against the paper PDF’s printed author list.",
+        "evidenceDigest": "2bc28f00a3f42d24560a3799d022f95b5006be2a0ab8009047b873e9eb3639be"
+      },
+      {
+        "partId": "ct25-laundry-precision",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct25-laundry-precision (record audit/frontier.md:competing-theses:25): supported by the needle-verified retained passage bound to pistar06-2025. Local-AND conjunct re-proved by this integrator at application time (local-proof.json: six THESES rows mirror corrected prose); ENPIRE affiliation line verified against the paper PDF’s printed author list.",
+        "evidenceDigest": "b405c21edce208b41cf9b91687c2ece1c3cdc5a5d7c9d0323b7d78518f4e4ae3"
+      },
+      {
+        "partId": "ct25-seven-hours-precision",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct25-seven-hours-precision (record audit/frontier.md:competing-theses:25): supported by the needle-verified retained passage bound to rl-100-2025. Local-AND conjunct re-proved by this integrator at application time (local-proof.json: six THESES rows mirror corrected prose); ENPIRE affiliation line verified against the paper PDF’s printed author list.",
+        "evidenceDigest": "4d8cb891e4a22bdcf697e7d2fc28b30cd0b3df03501ca26316cbba09c17399c4"
+      },
+      {
+        "partId": "ct25-enpire-proponents",
+        "outcome": "supported",
+        "reviewedBy": "competing-theses-integrator-20260915 (session a4488ea0-8d19-47ac-b264-761b13564990, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Integrator adjudication of packet part ct25-enpire-proponents (record audit/frontier.md:competing-theses:25): supported by the needle-verified retained passage bound to enpire-2026. Local-AND conjunct re-proved by this integrator at application time (local-proof.json: six THESES rows mirror corrected prose); ENPIRE affiliation line verified against the paper PDF’s printed author list.",
+        "evidenceDigest": "af49d45e134c9703c3b2f71d4417713581f0f03f4435c89978a4f4312fc4b68e"
+      }
+    ]
   }
 ]

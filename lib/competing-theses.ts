@@ -170,11 +170,11 @@ const ROWS: Thesis[] = [
     ],
     evidenceFor: [
       {
-        text: 'π*0.6 with Recap more than doubled throughput and passed 90% success on espresso, laundry, and box assembly after RL on the robot\'s own experience.',
+        text: 'π*0.6 with Recap more than doubled throughput and reached the 90%+ success range on all tasks except diverse laundry after RL on the robot\'s own experience; on laundry the first Recap iteration already lifts the success rate over 90%, and box assembly finishes at about 90% for folding and labeling.',
         citationIds: ['pistar06-2025'],
       },
       {
-        text: 'RL-100 reports 100% success across 1,000 evaluation episodes on eight tasks, including a juicing robot serving customers for seven hours without failure.',
+        text: 'RL-100 reports 100% success across 1,000 evaluation episodes on eight tasks, including a juicing robot serving customers for about seven hours without failure.',
         citationIds: ['rl-100-2025'],
       },
       {
