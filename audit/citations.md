@@ -260,6 +260,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | robopoint-2024 | https://arxiv.org/abs/2406.10721 | ok | match | none (verified as cited) |  |
 | rekep-2024 | https://arxiv.org/abs/2409.01652 | ok | match | none (verified as cited) |  |
 | ecot-2024 | https://arxiv.org/abs/2407.08693 | ok | match | none (verified as cited) |  |
+| horaud-dornaika-1995 | https://inria.hal.science/inria-00590039/document | ok (retained) | match (retained) | registered 2026-09-15 from the frozen perception packet (convergence-source-a-perception-20260915); preparer curl GET 200 2026-09-15T14:35:56Z, 424,977 bytes, sha256 4fd19eeb...; integrator needle-verified the retained PDF passages; no fresh fetch |  |
 | hi-robot-2025 | https://arxiv.org/abs/2502.19417 | ok | match | none (verified as cited) |  |
 | pi05-2025 | https://arxiv.org/html/2504.16054v1 | ok | match | explicit retained identity/edition reconciliation | Original FetchUrl response recorded 2026-09-07T16:08:29.437Z; tool-reported 200. Reused text/hash checked, zero new requests. Scope and full metadata: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/act-five-source-records-integration/source-proof.json; no independent acceptance. |
 | knowledge-insulation-paper-2025 | https://arxiv.org/abs/2505.23705 | ok | match | none (verified as cited) |  |

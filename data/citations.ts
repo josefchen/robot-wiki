@@ -6389,6 +6389,11 @@ export const CITATIONS: Citation[] = [
   {
     // First-party release, verified 2026-08-12: "4th generation hands ...
     // 16 degrees of freedom and human-equivalent strength".
+    // Figure AI Inc. release hosted by PRNewswire (Aug 6, 2024 dateline,
+    // SOURCE Figure AI Inc.): second-generation humanoid, "4th generation
+    // hands" "equipped with 16 degrees of freedom"; the release does not
+    // explicitly resolve per-hand versus combined DoF or give an actuator
+    // count. Retained FetchUrl text 2026-09-14, tool-reported 200.
     id: 'figure-02-2024',
     title:
       'Figure unveils Figure 02, its second-generation humanoid, setting new standards in AI and robotics',
@@ -6398,9 +6403,11 @@ export const CITATIONS: Citation[] = [
     type: 'press',
   },
   {
-    // Verified against the live post (2026-08-12): Helix trained on 100%
-    // egocentric human video with no robot demonstrations; Brookfield
-    // partnership for internet-scale pretraining data.
+    // Retained FetchUrl text (2026-09-14, tool-reported 200): the initial
+    // Go-Big human-video result is navigation (images/language to low-level
+    // SE(2) velocity commands, no robot demonstrations for that approach);
+    // Brookfield owns 100,000+ residential units (portfolio bound) and
+    // collection had begun and would expand.
     id: 'figure-go-big-2025',
     title:
       'Project Go-Big: Internet-Scale Humanoid Pretraining and Direct Human-to-Robot Transfer',
@@ -7656,6 +7663,21 @@ export const CITATIONS: Citation[] = [
     year: 1989,
     venue: 'IEEE Trans. Robotics and Automation',
     url: 'https://doi.org/10.1109/70.34770',
+    type: 'paper',
+  },
+  {
+    // HAL author-deposited PDF (inria-00590039) fetched 2026-09-15:
+    // IJRR 14(3), pp. 195-210, June 1995; the HAL cover prints the
+    // citation and DOI 10.1177/027836499501400301. Registered exactly
+    // as the frozen perception packet proposed; integrator needle-
+    // verified the retained PDF passages (shared-form listing,
+    // classical-linear naming, eq. 18/16, rank deficiency).
+    id: 'horaud-dornaika-1995',
+    title: 'Hand-Eye Calibration',
+    authors: ['Radu Horaud', 'Fadi Dornaika'],
+    year: 1995,
+    venue: 'The International Journal of Robotics Research 14(3), pp. 195-210',
+    url: 'https://inria.hal.science/inria-00590039/document',
     type: 'paper',
   },
   {

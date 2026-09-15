@@ -1,6 +1,122 @@
 # Content-integrity audit trail
 
-## Current checkpoint: Figure15 closes the five-original dexterity group (2026-09-14)
+## Current checkpoint: data-bottleneck integrates all 12 dispatched originals (2026-09-15)
+
+This continuation applied **12 originals complete / 0 held by this lane / 0 unattempted** of the 12 selected records from the frozen packet `convergence-source-a-data-bottleneck-20260915/rows.json` (SHA-256 `b57e9e0dc5e6c0be6567fbbb0d58ff51ecc737d163e45c84142add6671b76fa1`, 93,295 bytes, zero retrieval by this integrator). Applied ordinals: 1, 2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14 — each a ledger evidence-plan completion binding its row to an explicit-parts compound plan (22 mandatory parts, 25 paired evidence items) with integrator plan review and per-part supported adjudications. All 12 records are ledger-only: no article endpoint is proposed (`proposedArticleEndpointIds` empty for every record), so `content/data-hardware/data-bottleneck.mdx` and its prose member hash `91589a5d…` are byte-unchanged and each of the 12 approvals records the completion against that unchanged hash. The packet's 2 held records (row 3 OXE and row 5 DROID, locked by `orchestration-droid-oxe-hold-20260912.md` pending the owner's P2/VAL-AUDIT-009 authored-local answer) are excluded from selection and their ledger rows are byte-untouched.
+
+All 25 evidence passages were needle-verified by the integrator against the retained fetch text preserved in the source lane (`sources/` snapshots and the fetch log): **23 verbatim FULL, 2 after folding renderer artifacts only** (the `tri-html` LaTeXML render prints the math macro twice beside its own unicode symbol, e.g. `∼\sim1695` for the paper's `∼1695`; the UMI zero-shot abstract span needed typographic-quote folding) — zero wording or figure changes; every `evidenceItemBindings` pin cross-checked by SHA-256. All 11 cited ids (`gpt3-2020`, `llama-3-2024`, `fineweb-2024`, `agibot-world-2025`, `tri-lbm-2025`, `egoscale-2026`, `ego4d-2022`, `egodex-2025`, `lin-data-scaling-laws-2024`, `diversity-scaling-2025`, `umi-2024`) verified registered; no new registrations. Compound reuse honored: the EgoScale hours/54% passages and the row-12 operands reuse byte-exactly the `egoscale-2026`/`llama-3-2024` citations and passages already bound in `generalization-g12`/`g20` and `vla-generalist-closeout-9` (read-only check in the lane's `reuse-check.json`). Row 12 is the local-AND row: the integrator re-proved `gapDecades = Math.round(Math.log10(1.5e13 / 20,854)) = round(8.85690188985079) = 9` from the article's own chart module at HEAD (`components/interactive/data-scale-chart.tsx:162` over `lib/data-scaling.ts` operands llama3 `1.5e13`, egoscale `20_854`; the gap uses the LAST entry on each lane, EgoScale, not AgiBot 2,976) and row 4's derived duration `2976.4 × 3600 / 1,001,552 = 10.698436027285652 s ≈ 10.7` integrator-side in node (`local-proof.json`), never a fetch. AgiBot's 30%-over-OXE stays vendor-reported with the uncertainty note exactly as prepared, and the no-independent-replication clause remains an editorial absence statement, not a fetch-evidenced fact.
+
+Observed before → after from the canonical gate (`check:audit-coverage --write-summaries`): **714 complete / 280 incomplete → 726 complete / 268 incomplete / 994 originals / 47 articles**; findings **287 → 275** (−12 lawful, zero new by line diff); **620 → 632 compound plans; 694 → 706 approvals** (append-only; prior objects byte-identical — both file splices are textual, 715 and 206 insertions / 0 deletions). Baseline `npm run baseline:brand-v2` observed **24** failures at the starting HEAD (the dispatch prompt stated 43; 24 reproduces at this HEAD, all pre-existing perception-lane invalid-approved-delta hash fields, zero db- entries), unchanged after application (exit 1 before and after for the same 24).
+
+Red-first unit proof: the new suite `tests/unit/data-bottleneck-originals.test.ts` failed **4/6 before application** (the two passing assertions are the pre-existing chart/operand arithmetic pinned by design) and passes **6/6** after; affected units (data-bottleneck-originals, audit-ledger, audit-citation-coverage, citation-audit, citations: **156 passed / 5 files**; table-agreement, egoscale-law, data-scale-chart component: **54 passed / 3 files**). Gates this session: prelint+lint exit 0, restored non-incremental typecheck (`NODE_DISABLE_COMPILE_CACHE=1`) exit 0. `validate:content` remains honestly red at exit 1 with the 275 audit-coverage findings (268 incomplete rows across the corpus; expected and recorded in the lane logs). No two-width readers ran: the dispatched reader condition was "for content/data-hardware/data-bottleneck.mdx changes" and zero MDX bytes changed, so there is no rendered delta to read. No `lastReviewed` bump (no article prose changed; the humanizer does not apply for the same reason — no reader-facing prose was written by this pass).
+
+Honest process notes: the dispatched content-auditor skill was absent from the session skill catalog; the mission-local `contract/content-audit.md` and `skills/content-auditor/SKILL.md` were read and followed instead. The role-start ownership binding (`task-worker-role-start-v1`, worker PID 2179395, controller MainPID 2097754, shared `robot-wiki-droid-mission.service` cgroup) runs with the fail-closed classifier (`role-guard.py`, exit 125 semantics; panopticon bridge daemons pre-classified; the classifier's same-service branch distinguishes controller-owned harness children from owned worker descendants and refuses any unreadable-scope unknown). Lane evidence: `validation/brand-v2-editorial/source-recovery-20260906/convergence-data-bottleneck-integration-20260915/`. Not acceptance; independent scrutiny and user testing remain owed.
+
+## Current checkpoint: reliability-gap integrates all 14 dispatched originals (2026-09-15)
+
+This continuation applied **14 originals complete / 0 held by this lane / 0 unattempted** of the 14 selected records from the frozen packet `convergence-source-b-reliability-gap-20260915/rows.json` (SHA-256 `6be17fb6605ca821b167650798fdeda57d45fdf7af50aef5ab1a82be3a041bb5`, 113,543 bytes, zero retrieval by this integrator). Applied ordinals: 1-5 and 7-15 — each a ledger evidence-plan completion binding its row to an explicit-parts compound plan (29 parts, 29 paired evidence items) with integrator plan review and per-part supported adjudications. The packet's held record (row 6, the universal ">1,000h documented MTBF; no system publishes one" absence claim) is excluded from selection and its row is byte-untouched. All 29 evidence passages were needle-verified by the integrator against the retained FetchUrl renders sha256-recorded in the integration lane (extracted from preparer session 0d31ddb8; **22 verbatim FULL, 7 after folding renderer artifacts only** — markdown link/emphasis markers and typographic quotes, zero wording or figure changes); every `evidenceItemBindings` pin cross-checked by SHA-256, including the row-7 `asimov-card-uq` pin resolved from the retained card's task table. The three arithmetic rows (1/2/3) carry the integrator-side local-AND re-proofs run in node this session (`0.95^30=0.214639→21%`, `0.99^30=0.739700→74%`, `0.999^30=0.970431→97%`, `1-0.999^30=0.029569` = one failure per 33.82 runs, `0.99^(1/50)=99.97990%`), never a fetch.
+
+**Article corrections applied in the same commit (`content/frontier/reliability-gap.mdx`):** R4 restores the source's own magnitude and scope — "with a 2x throughput improvement" → "with more than 2x throughput on some of the hardest tasks" (π*0.6 blog: "more than doubles the throughput on some of the hardest tasks"); R5's coaching span is re-pointed from the PDF twin `pi07-2026` to the fetched blog `pi07-blog-2026` per the packet's reconciliation instruction (frontmatter updated; the `pi07-2026` registry entry stays, now unreferenced by this article). **Bear-case overlap rule honored:** rows 9/10/13/14 bind the same registered citations and byte-identical passages already in `audit/compound-evidence.json` (row 11 as a verbatim sub-span of the registered b4-profit excerpt), verified read-only against the registered plans. Honest flags kept in the plans: row 3's trailing editorial clause "a figure no generalist policy publishes" is inherited unchanged under the same policy as the held row 6; row 12's "no published success rate" stays absence-in-source; row 14's "previously at Waymo" rests on the quote's own first-person sentence, with the optional tightening left flagged for the owner, not applied.
+
+Observed before → after from the canonical gate (`check:audit-coverage --write-summaries`): **700 complete / 294 incomplete → 714 complete / 280 incomplete / 994 originals / 47 articles**; findings **301 → 287** (−14 lawful, zero new by line diff); **606 → 620 compound plans; 680 → 694 approvals** (append-only; prior objects byte-identical — the deltas file splice is textual, 238 insertions / 0 deletions). Baseline `npm run baseline:brand-v2` observed **24** failures at the starting HEAD (the dispatch prompt stated 43; 24 is what reproduced, all pre-existing perception-lane invalid-approved-delta hash fields, zero rg- entries), unchanged after application.
+
+Red-first unit proof: the new suite `tests/unit/reliability-gap-originals.test.ts` failed **5/6 before application** (the passing assertion is the pre-existing arithmetic pinned by design) and passes **6/6** after; affected units (reliability-gap-originals, reliability, audit-ledger, audit-citation-coverage, citation-audit, citations) **169 passed / 6 files**. Gates this session: prelint+lint exit 0, non-incremental typecheck (NODE_DISABLE_COMPILE_CACHE=1) exit 0. `validate:content` remains honestly red on the 280 incomplete rows (expected; recorded in the lane logs). No `lastReviewed` bump: the reliability-gap audit is now 14/15 with row 6 still held, so the date would promise a finished check this pass did not deliver; the humanizer carve-out applies to the one corrected span, which deliberately carries the source's own "more than doubles ... on some of the hardest tasks" wording.
+
+Honest process notes: the dispatched content-auditor skill was absent from the session skill catalog; the mission-local `contract/content-audit.md` and `skills/content-auditor/SKILL.md` were read and followed instead. The role-start ownership binding (`task-worker-role-start-v1`, worker PID 2045619, controller MainPID 1913894, shared `robot-wiki-droid-mission.service` cgroup) runs with the fail-closed classifier (`role-guard.py`, exit 125 semantics; panopticon bridge daemons pre-classified). Lane evidence: `validation/brand-v2-editorial/source-recovery-20260906/convergence-reliability-gap-integration-20260915/`. Not acceptance; independent scrutiny and user testing remain owed.
+
+## Current checkpoint: kinematics integrates all 10 dispatched originals (2026-09-15)
+
+This continuation applied **10 originals complete / 0 held by this lane / 0 unattempted** of the 10 selected records from the frozen packet `convergence-source-a-kinematics-20260915/rows.json` (SHA-256 `c7d78c382ca8ffe86401952d77082a2b4a08e10b0145e67919af4fd471b53f30`, 85,317 bytes, zero retrieval by this integrator). Applied ordinals: 1, 2, 4, 6, 7, 8, 9, 13, 14, 15 — each a ledger evidence-plan completion binding its row to an explicit-parts compound plan (21 mandatory parts, 21 paired evidence items) with integrator plan review and per-part supported adjudications. The packet's 5 held records (3, 5, 10, 11, 12: DH 1955 body paywalled with abstract silent on the four-parameter claim; the Modern Robotics full-book PDF now 404 at the registered domain so the DH discontinuity claim has no fetchable statement; Wampler 1986 twice with the abstract elided at both IEEE and Semantic Scholar; Levenberg/Marquardt paywalled with the free-archive PDF returning 403) are excluded and their ledger rows left byte-untouched. All 21 evidence passages were needle-verified against the retained fetch text preserved in the source lane (20 FULL; the `so101-six-revolute` item is a compressed quote-list whose every joint-declaration fragment is verbatim in the sha256-matched retained URDF receipt `3a65d2d3…`, 16,231 bytes). All 7 cited ids (`modern-robotics-2017`, `denavit-hartenberg-1955`, `so-arm100-repo-2026`, `whitney-1969`, `wampler-1986`, `act-aloha-2023`, `isaac-gr00t-repo-2026`) verified registered; no new registrations.
+
+**Local-AND rows re-proven integrator-side at HEAD b082ad8 (never by fetch):** K2 (planar demo cumulative-angle identity recomputed numerically for link lengths 1.00/0.75/0.55 plus component wiring); K4 (DH four-factor product vs the article's displayed `A_i`, 5 random quadruples, worst abs diff 0 < 1e-12); K6 (retained repo URDF vs worktree `public/models/so101/so101.urdf` joint declarations identical — only mesh `stl`→`glb` filenames differ — plus the `lib/so101-kinematics.ts` load path that rejects non-serial chains); K7 (`lib/ik.ts` line 371 builds each revolute Jacobian column as `cross(joint.axisWorld, sub(eePosition, joint.position))`); K13 (`lib/ik.ts` LM acceptance, `DEFAULT_TOLERANCE = 5e-4` 0.5 mm, joint-limit clamps, 0.3 rad step clamp). All five are pinned in the new red-first suite.
+
+**Article correction applied in the same commit (K9 only):** the Whitney span no longer pins Jacobian inversion to the 1969 paper — the fetched abstract supports the RMRC derivation and operator-commanded hand motion only, so the article now reads "the operator commands desired hand motion along axes relevant to the task" with `J⁻¹`/`J⁺` presented as "the classical rate-control relations", and the row records a C verdict with the original four-cell tuple preserved in the plan review. K14's correction ("7-DoF arms" → "6-DoF arms and their grippers") was already present in the article at HEAD b082ad8, so only its verdict history completed, with no article edit.
+
+Observed before → after from the canonical gate: **690 complete / 304 incomplete → 700 complete / 294 incomplete / 994 originals / 47 articles**; findings **311 → 301** (−10 lawful member removals, zero new findings by line-level diff); **596 → 606 compound plans; 670 → 680 approvals** (exactly the 10 applied records); classical-domain incomplete evidence records 70 → 60. Content gate honestly red: 700/994, 301 findings. Baseline `npm run baseline:brand-v2` observed **24** failures at the starting HEAD (not the 43 stated in the dispatch prompt; the same 24-not-43 discrepancy was already documented by the bear-case checkpoint — all 24 are pre-existing `perception-r*` invalid-approved-delta hash fields), re-checked unchanged at **24** after application; a transient +10 during this session from a placeholder-hash bug in a first application attempt was caught by the same gate and fixed before commit (the faulty first application was fully reverted and never committed).
+
+Red-first unit proof: the new suite `tests/unit/kinematics-originals.test.ts` failed **5/9 before application** (the 4 passing assertions are the pre-existing local-AND facts pinned by design) and passes **9/9** after. Verification gates this session: prelint exit 0, lint exit 0, typecheck exit 0 (non-incremental, `NODE_DISABLE_COMPILE_CACHE=1`), `validate:content` exit 1 as expected (content audit red; honest counts above), focused two-width readers for the changed `content/classical/kinematics.mdx` at 375×812 and 1440×900 (screenshots and results in the lane). No `lastReviewed` bump: the article's kinematics audit is 10/15 with five rows still held, so the date would promise a finished check this pass did not deliver; the humanizer carve-out applies (the one rewritten span deliberately holds the source's own abstract wording).
+
+Honest process notes: the dispatched content-auditor skill was absent from the session skill catalog; the mission-local `contract/content-audit.md` and `skills/content-auditor/SKILL.md` were read and followed instead. The role-start ownership binding (`task-worker-role-start-v1`) classified 12 controller-lineage scope members with zero unknown-unreadable (3 panopticon processes pre-classified benign foreign); the exec worker's spawning shell had exited, so the binding records the re-parented PPID chain plus the shared `robot-wiki-droid-mission.service` cgroup as the controller-linkage proof. Lane evidence: `validation/brand-v2-editorial/source-recovery-20260906/convergence-kinematics-integration-20260915/`. Not acceptance; independent scrutiny and user testing remain owed.
+
+## Previous checkpoint: bear-case integrates all 15 dispatched originals (2026-09-15)
+
+This continuation applied **15 originals complete / 0 held by this lane / 0 unattempted** of the 15 selected records from the frozen packet `convergence-source-d-bear-case-20260915/rows.json` (SHA-256 `ce56f28ebbad11735d760550d0fe38b5c7a0f4f2aa4d32f70aae5d5b6e68638a`, 121,000 bytes, zero retrieval by this integrator). Applied ordinals: 1-11, 13, 14, 15, 16 — each a ledger evidence-plan completion binding its row to an explicit-parts compound plan with integrator plan review and per-part supported adjudications. The packet's 16th record, ordinal 12 (Ken Goldberg / Berkeley interview), is held by the separate mission hold (economics23) and its ledger row was left byte-untouched. All 49 unique packet passage needles were verified against the retained fetch base (20 retained fetch documents in the source lane, sha-pinned in this lane's `passage-verification.json`), with two documented integrator binding corrections where the preparer's transcription drifted from the retained text: **b3** carries the retained verbatim CNBC span (the packet had inserted a space before a closing quote) and **b8** carries the retained Bessemer expert-list lead-in ("Thank you to the following founders...", ended at a word boundary; the packet truncated mid-name), plus one documented pdftotext artifact on **b14** (the pistar06 sentence's runs are emitted reordered by the text layer; every word is present verbatim and the needle runs by fragments).
+
+**Article and lib corrections applied in the same commit:** B8 drops the unsupported "from her Waymo experience" attribution (the fetched Bessemer essay introduces Lisa Yan as Founder, Argus Systems and never ties her quote to Waymo); B9 rescopes the funding sentence from "in the first five months of 2026" to the source's own "by early June 2026" framing (briefs.co scopes >$23B as 2026-to-date at its Jun 2, 2026 publication; the stat box already said "by early June"); B16 aligns the closing to "by early June against that scoreboard"; B14 rewords the `lib/bear-case.ts` open-benchmark statusDetail per-benchmark (RoboArena's abstract replaces task standardization with crowd-sourced double-blind pairwise evaluation; RoboChallenge a reproducible online evaluation system; ManipulationNet standardized hardware kits). Records 15 and 16 are the local-AND rows: the 4-not-met/4-partial/0-met board count was re-proven by this integrator via node import of the schema-validated `MILESTONES` array at application time (no fetch exists or is claimed for a local count), AND-ed with rows 13-14's fetched status bases; the locked compound schema fail-closes on zero-citation parts, so those parts were restructured to cite genuinely-fetched status bases with the local basis documented in the plan review and adjudication rationales. The EgoScale R² = 0.9983 constant was not re-verified by this pass (the retained base holds the abs page only) and stands on the same-day generalization lane's PDF verification; "outside every major VLA pipeline" is labelled in the plan as the milestone's own editorial status call, not a source-certified absence.
+
+Observed before → after from the canonical gate: **675 complete / 319 incomplete → 690 complete / 304 incomplete / 994 originals / 47 articles**; findings **326 → 311** (−15 lawful); **581 → 596 compound plans; 655 → 670 approvals** (exactly the 15 applied records); citations coverage **417/417** unchanged (no new registration; every evidence citation id verified to exist in `data/citations.ts`). The catalog and approvals were spliced append-only (prior 581 plans and 655 approvals byte-identical; `git diff` shows additions only). Content gate honestly red: 690/994, 311 findings. Baseline `npm run baseline:brand-v2` observed **24** failures at the starting HEAD (not the 43 stated in the dispatch prompt; all 24 are pre-existing `perception-r*` invalid-approved-delta hash fields from the perception lane), re-checked unchanged after application with zero bc- entries.
+
+Red-first unit proof: the new suite `tests/unit/bear-case-originals.test.ts` failed **4/5 before application** (the fifth assertion, the B15 local 4/4/0 count basis, held before and after by design) and passes after; affected units (`bear-case-originals`, `bear-case`, `milestones-watchlist`, `audit-ledger`) pass. Prelint, lint and the restored non-incremental typecheck exit 0 (`NODE_DISABLE_COMPILE_CACHE=1`). Focused two-width readers on the owned offline Next runtime (`run-readers.mjs`, 375×812 and 1440×900 against the article route): exit 0, zero horizontal overflow, zero console/page/KaTeX errors at both widths, all endpoint markers green. The dispatched content-auditor skill was absent from the session skill catalog; the mission-local `contract/content-audit.md` and `skills/content-auditor/SKILL.md` were read and followed instead. No `lastReviewed` bump (the article's domain audit remains red overall); the humanizer carve-out applies to the corrected spans that reproduce the sources' own wording. The role-start ownership binding (`task-worker-role-start-v1`) live-verified controller MainPID 1487661 under `robot-wiki-droid-mission.service` (exec worker 1775363 and controller as siblings under the systemd user manager, same observed transport as the control lane); the fail-closed classifier scanned the controller lineage and found no unknown non-systemd-session process (panopticon bridge daemon pre-classified benign), so no refusal fired. Out-of-scope flag recorded for the reliability-gap lane: its R14 row may carry the same Waymo attribution corrected here. Lane evidence: `validation/brand-v2-editorial/source-recovery-20260906/convergence-bear-case-integration-20260915/`. Not acceptance; independent scrutiny and user testing remain owed.
+
+## Previous checkpoint: autonomous-vehicles integrates 18 of 19 dispatched originals (2026-09-15)
+
+This continuation applied **18 originals complete / 1 held / 0 unattempted** of the 19 dispatched records from the frozen packet `convergence-source-c-autonomous-vehicles-20260915/rows.json` (SHA-256 `78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a`, zero retrieval by this integrator). Applied ordinals: 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 — each a ledger evidence-plan completion binding its row to an explicit-parts compound plan with integrator plan review and per-part supported adjudications. All 70 packet evidence items (48 plan parts + 19 ledger passages + row-2 items) were needle-verified against the retained fetch base (23 FetchUrl tool_result captures recovered from the source session's own log plus 8 curl-PDF pdftotext extractions, sha256-pinned in the lane's `retained-fetch-store.json`; results in `passage-verification.json`), with two documented integrator binding corrections where the preparer's transcription imprecisely quoted the retained source: **av11** reads "Level 5 (full **driving** automation)" and **av18** carries the linear-in-ε factor ("as many as T²ε mistakes in expectation") — both carried verbatim in the catalog. Thirteen rows are evidence-only completions; all 18 applied source cells were corrected (mostly binding registered arXiv PDFs rather than abstract pages); verdict cells corrected on 9, 11, 14, 18 (and 2, held); article spans corrected on **1, 11, 14** in `content/adjacent/autonomous-vehicles.mdx`: the ALVINN second sensor is a laser range finder (not a "road-following sensor"), SAE's 2021 revision renamed levels 1–2 "Driver Support Systems" and clarified the level 3-vs-4 boundary (taxonomy otherwise unchanged from 2019), and Koopman's dimensions are the post's actual list (net statistical safety, risk hot spots, standards conformance, accountability, stakeholder constraints — not "architecture, redundancy, and process").
+
+**The held record:** original 2 (ALVINN "drove it across America"). The packet's correction is real and fully needle-verified against the retained live CMU fetches — the 1995 No Hands Across America tour was steered by RALPH, 2797/2849 miles (98.2%), not by the 1988 network — but its one required new registration `no-hands-across-america-1995` serves over plain `http://www.cs.cmu.edu/~tjochem/nhaa/` only, and the locked registry schema (`data/schemas/citation.ts`) admits https URLs and dated `web.archive.org` captures alone. Constructing a capture URL without observing the capture would invent a URL identity, and this integrator performs zero retrieval. The row keeps its original claim/verdict with an explicit HOLD note in the ledger; the P3 defect (cross-America tour attributed to `alvinn-1988`) remains open pending an owner-sanctioned registration route. Row 1's sensor correction was applied independently and lawfully.
+
+Observed before → after from the canonical gate: **657 complete / 337 incomplete → 675 complete / 319 incomplete / 994 originals / 47 articles**; findings **344 → 326** (−18 lawful); **563 → 581 compound plans; 637 → 655 approvals** (exactly the 18 applied records); citations coverage **417/417** unchanged (no new registration; the packet's single proposal is the held record). Baseline `npm run baseline:brand-v2` exit 1 lists 24 failures, all pre-existing `perception-r*` invalid-approved-delta hash fields (12 deltas × 2 fields) from this morning's perception lane; zero av entries, nothing added or removed by this pass. Content gate honestly red: 675/994, 326 findings. The parent's all-19 expectation is **not** met exactly; 18/19 with the precise blocker above is the honest result.
+
+Red-first unit proof: the new suite `tests/unit/autonomous-vehicles-originals.test.ts` failed **2/2 before application** and passes after; affected units (new suite + `audit-ledger`, `citation-audit`, `citations`, `audit-citation-coverage`, `citation-links`, `proseCitationYears`) total **207 passed / 0 failed**. Prelint, lint and typecheck exit 0 (`NODE_DISABLE_COMPILE_CACHE=1`, re-run after the reader cycle). Focused two-width readers on the owned offline Next runtime (`run-readers.mjs`, 375×812 and 1440×900): **exit 0**, zero horizontal overflow, zero console/page/KaTeX errors at both widths, all endpoint markers green (including "RALPH absent by hold"); screenshots in the lane's `readers/`. `check:brand-v2-enforcement:release:counts` exit 1 on the documented pre-existing token-renderer mismatch (out of scope, unclaimed); comparison-current-audit 2/3 likewise pre-existing. No e2e spec matches any changed string (grepped all five old phrasings); the full corpus was not repeated while the content gate is red, per instruction. No `lastReviewed` bump: the article's audit is 18/19 with record 2 open, so the date would promise a finished check this pass did not deliver; the humanizer carve-out applies (the three rewritten spans are bound to the sources' own wording, kept verbatim by design).
+
+Honest process notes: the dispatched content-auditor skill was absent from the session skill catalog; the mission-local `contract/content-audit.md` and `skills/content-auditor/SKILL.md` were read and followed instead. One application-formatting defect was caught by the red-first suite before commit: the first catalog write mixed scalar evidence columns with paired plan items and used hand-computed digests; both files were restored from HEAD and re-spliced with the repo parser's own `originalClaimDigest`/`compoundPlanDigest`/`compoundPartDigest` (the row-1 digest independently reproduced the packet's `proposedTupleDigest`, validating the chain), and row 14's duplicate same-URL evidence pair was merged into one stitched passage. The role-start ownership binding (`task-worker-role-start-v1`) live-verified controller MainPID 1487661 under `robot-wiki-droid-mission.service` with the same observed sibling-transport as the control lane (exec worker 1715666 and controller under the systemd user manager); fail-closed classifier scanned the controller lineage and found no unknown non-systemd-session process (panopticon bridge daemon pre-classified benign), so no refusal fired. Lane evidence: `validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/`. Not acceptance; independent scrutiny and user testing remain owed.
+
+## Previous checkpoint: control integrates all 11 dispatched originals (2026-09-15)
+
+This continuation applied **11 originals complete / 0 held / 0 unattempted** — every record in the frozen selection — from the packet `convergence-source-b-control-20260915/rows.json` (SHA-256 `9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af`, zero retrieval by this integrator). Applied ordinals: 5, 6, 7, 8, 9, 12, 14, 15, 17, 18, 19 — each a ledger evidence-plan completion binding its row to an explicit-parts compound plan with integrator plan review and per-part supported adjudications. All 14 packet evidence passages were needle-verified against the retained sha256-verified fetch text before any part was adjudicated, with two documented binding corrections recorded in the lane's `passage-verification.json`: **control:8 part c8-pd**'s retained needle target is the packet's `ted-lqr-policy` excerpt of the same fetched `lqr.html` page (the preparer's binding pointed at the `ted-lqr-balancing` section-lead excerpt, which does not contain the quote; no fetch was made or needed), and **control:19**'s part needle-verifies against `bd-blog-rl` with the same page's retained `bd-blog-mpc` excerpt as the existing-MPC context half. Four rows are local-AND (5, 6, 8, 18): the integrator re-derived the upright-shift substitution turning Tedrake's EOM into the article's plant and matched `lib/pendulum.ts`'s exact `stepPendulum`; re-derived the `K_p > m g l = 9.81` Hurwitz threshold and re-ran the read-only module numerically (kp 9.5 → 50.4° excursion, cannot hold; kp 12 → settling; mgl computed 9.81; `u = -(K_p θ + K_d θ̇ + K_i ∫θ)` identity observed −5.235987755982988); verified the `u = -Kx` PD structure on the linearized state; and symbolically checked the article's displayed whole-body QP (decision variables exactly q̈/τ/f, rigid-body dynamics equality with selection and contact Jacobians, torque bounds, friction cones; lane `local-proof.json`).
+
+**Scope honesty:** rows 7 (PID share), 14 (MPC refinery lineage), 16 (Khatib CoM correction) and the packet's 8 own-held records (1, 2, 3, 10, 11, 13, 16 — paywalled or abstract-scope-insufficient sources such as Ziegler-Nichols 1942, Khatib 1987, Qin-Badgwell 2003, astrom-murray's unreachable fbswiki body — plus row 16) were not dispatched in `selection.json` and are untouched. Row 7's evidence now honestly records that the Kalman half is verified at catalogue scope (the registered DOI is the Wiley reprint-chapter of the 1960 Bol. Soc. Mat. Mexicana paper) and the astrom-murray half could not be re-fetched (fbswiki timeout, pre-existing and separately flagged in the citations ledger's unresolved checks). Row 9 is verified at its own existing title-level scope; its terminal-cost/set specifics stay body-scoped and uncertified. All 8 cited ids were verified registered per-id; no new registrations (the packet proposed none).
+
+Observed before → after from the canonical gate (`npm run check:audit-coverage`): **646 complete / 348 incomplete → 657 complete / 337 incomplete / 994 originals / 47 articles**; findings **355 → 344** (−11 lawful); **552 → 563 compound plans; 626 → 637 approvals** (exactly the 11 applied records); citations coverage **417/417** unchanged. Classical section: **106 → 117 complete / 187 rows**. All packet article endpoints are ledger-row-evidence (no article span), so `content/classical/control.mdx` is **byte-unchanged** and its prose member hash (`0d55c8a2…`, integrator-computed the canonical way) backs all eleven ledger-only approvals. Content gate honestly red: 657/994, 344 findings. The parent's all-11 expectation **is met exactly**.
+
+Red-first unit proof: the new suite `tests/unit/control-originals.test.ts` failed **2/2 before application** (plans absent, rows unevidenced) and passes after. Affected units (new suite + `audit-ledger` + `pendulum`): see the gates table below. Prelint, lint and non-incremental typecheck exit 0 (`NODE_DISABLE_COMPILE_CACHE=1`). `content/classical/control.mdx` is byte-unchanged by this pass, so the focused two-width readers (375×812, 1440×900) were not run: no route rendering surface changed (ledger-, catalog- and approvals-only pass). No e2e spec is affected (no article prose string changed). The full corpus was not repeated while the content gate is red, per the pass instruction. Known open shared debts remain out of scope and unclaimed (brand-v2-enforcement token-renderer mismatch; comparison-current-audit 2/3).
+
+Honest process notes: the dispatched content-auditor skill was absent from the session skill catalog; the mission-local `contract/content-audit.md` and `skills/content-auditor/SKILL.md` were read and followed instead. One application-formatting defect was caught and corrected before commit: the first catalog write reserialized `compound-evidence.json`/`brand-v2-approved-deltas.json` wholesale; both files were restored from HEAD and re-spliced append-only (0 deleted lines in the committed diff; every prior object byte-identical, verified programmatically). The role-start ownership binding initially refused under a strict PPID-only walk (the controller, MainPID 1487661 live-verified, is a sibling of the exec worker under the systemd user manager, both inside `robot-wiki-droid-mission.service`); the binding records that observed transport with unchanged fail-closed classifier semantics — no unknown process was present. Lane evidence: `validation/brand-v2-editorial/source-recovery-20260906/convergence-control-integration-20260915/`. Not acceptance; independent scrutiny and user testing remain owed.
+
+## Previous checkpoint: perception integrates 12 of 18 dispatched originals (2026-09-15)
+
+This continuation applied **12 originals complete / 6 held / 0 unattempted** from the frozen packet `convergence-source-a-perception-20260915/rows.json` (SHA-256 `fa80d51bfa3ebd9286eb8a44b104fac37e32511bcbd12bda187dfaea19a25d80`, zero retrieval by this integrator). Applied ordinals: 4, 5, 6, 16, 18, 22, 33, 34, 47, 48, 49, 50 — each a ledger evidence-plan completion binding its row to an explicit-parts compound plan with integrator plan review and per-part supported adjudications. Every packet passage was independently needle-verified against the retained sha256-verified fetches first (normalized-substring or ordered-fragment checks; results in the lane's `passage-verification.json`); the Azure Kinect leg of row 34 reuses the retained 2026-09-06 retrieval identity-checked against bound compound plan `perception-depth-25-20260913` per the preserved-source override (its registered URL 404'd three times in the preparer's session; no fresh fetch is claimed). Rows 4 and 6 are the local-AND rows: the integrator re-ran the read-only `lib/perception-error.ts` import at application time (composed default total 11.3155 mm, verdict `within`; 11.3155/0.5 = 22.631; near-standoff share 1.548%, far 61.121%; totals 10.5221 `within` / 16.7438 `marginal`; `handEyeErrorMm(1°)` 1.7455/17.4551 mm; lane `local-proof.json`) and bound the genuinely-required citation to each arithmetic part (D400 Table 4-15 ±2% spec integrator-read from the retained datasheet text layer; Play2Perfect 0.5 mm), per the same convention as the hardware R25 and generalization G10–G21 local-AND rows.
+
+**Held: 1, 2, 3, 7 (evidence), 19, 59** — repo-internal/article-internal rows. The compound catalog schema (`lib/audit-ledger.ts` `compoundPlanSchema`) requires every part to name at least one **registered** citation id and every evidence item to carry a registered id + HTTP(S) URL + substantive passage; no registered citation states a repo-internal fact (the packet's own missingDependencies say the same), so completing them would require fabricating a citation binding — same convention as the safety-assurance pass's SA9/32/39. Their local basis was nevertheless verified by the integrator (module import reproduces every figure; six stage sections re-verified). **Row 7's precise source-cell correction was applied while the row stays incomplete**: the near-standoff variance share is the computed 1.5% (1.548%), not the printed 1.7%; the packet's exact corrected cells are recorded in the ledger history block. Both packet-proposed article endpoints resolve to **zero article byte changes**: `perception-p7-note-span` is ledger-only by the packet's own missingDependencies ("the article span needs no change"), and `perception-p16-article-span`'s corrected wording is already live in `perception.mdx` (verified against the fetched Horaud listing); the row-16 ledger correction fixes the source cell's five-name parenthetical to the **four** groups the paper prints (Shiu & Ahmad, Tsai & Lenz, Chou & Kamel, Wang — Chen 1991 is discussed separately for the screw-motion result). The packet's two own-held records (rows 9 and 17, unreachable Tsai-Lenz IEEE abstract: HTTP 202/zero-byte, Semantic Scholar abstract null, Crossref none) were excluded from selection and their rows are untouched.
+
+`horaud-dornaika-1995` was **genuinely unregistered and genuinely required** (rows 16/18 bind their passages to the HAL author-deposited PDF, IJRR 14(3) 1995) and was registered exactly as the packet proposed (`data/citations.ts` + a retained-fetch-dated coverage row in `audit/citations.md`; DOI 10.1177/027836499501400301 in the entry comment). All other cited ids were verified registered per-id.
+
+Observed before → after from the canonical gate (`npm run check:audit-coverage`): **634 complete / 360 incomplete → 646 complete / 348 incomplete / 994 originals / 47 articles**; findings **367 → 355** (−12 lawful); **540 → 552 compound plans; 614 → 626 approvals** (exactly the 12 applied records); citations coverage **417/417** including the new entry. Classical section: **94 → 106 complete / 187 rows**. The perception prose member hash is byte-unchanged (`36a15b41640c…`), so all twelve approvals are ledger-only and record the completion against that hash. Content gate honestly red: 646/994, 355 findings. The parent's all-18 expectation (652/342, 558 plans, 632 approvals) is not met, honestly: the six repo-internal rows cannot lawfully carry registered-citation evidence under the current schema, and no verdict was invented to force them through.
+
+Red-first unit proof: the affected suite `tests/unit/perception-servo-origins.test.ts` failed exactly as expected before its stale incompleteness snapshot was shrunk (it asserted rows 9/16/17/18/33/34 all incomplete; 16/18/33/34 are lawfully complete now, 9/17 remain held) — **1 failed / 224 passed before → 225 passed after** (12 files, perception/citations/audit-ledger/audit-citation suites). Prelint, lint and non-incremental typecheck exit 0 (`NODE_DISABLE_COMPILE_CACHE=1`). `content/classical/perception.mdx` is byte-unchanged by this pass, so the focused two-width readers (375×812, 1440×900) were not run: no route rendering surface changed (ledger-, registry- and catalog-only pass; the corrected row-7 figure appears nowhere in the article). No e2e spec is affected (no article prose string changed). The full corpus was not repeated while the content gate is red, per the pass instruction. Known open shared debts remain out of scope and unclaimed (brand-v2-enforcement token-renderer mismatch; comparison-current-audit 2/3).
+
+Honest process notes: four apply-script crashes occurred before any product write (packet ordinal-set assertion, a tsx output key, a percent-share double-multiplication, a generator not JSON-serializable) — `git status` was verified clean after each and the final apply ran clean on the untouched tree. The dispatched content-auditor skill was absent from the session skill catalog; the mission-local `contract/content-audit.md` and `skills/content-auditor/SKILL.md` were read and followed instead. Lane evidence: `validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915/`. Not acceptance; independent scrutiny and user testing remain owed.
+
+## Previous checkpoint: hardware-taxonomy integrates all 21 dispatched originals (2026-09-15)
+
+This continuation applied **21 originals / 0 held / 0 unattempted** (ordinals 1–20 and 25), all from the frozen packet `convergence-source-c-hardware-taxonomy-20260915/rows.json` (SHA-256 `a4d77342be7ab3c2197ffd425baeb8d73be47661ca44f68debfcc2d5619e85ad`, zero retrieval by this integrator). Each is a ledger evidence-plan completion binding its row to an explicit-parts compound plan with integrator plan review and per-part supported adjudications. Two article endpoints were applied exactly to `content/data-hardware/hardware-taxonomy.mdx`: the **R4** SO-101 follower-BOM price span ("about \$100 in core parts and \$122 including the US accessory list" → the README's printed "totals \$121.94 in the US column, \$110.94 of that in core parts"; applied in the article's MDX-escaped dollar form, recorded in the lane), and the **R14** Figure 03 sale-model span ("not for individual sale" — stated by no fetched page — → the cited page's own "Figure builds it for high-volume manufacturing at its BotQ facility"). **R25** is the local-AND row: the integrator re-ran the arithmetic at application time (python3: 314.4/19.0 = 16.54736842105263, floor 16.0) and paired it with the vla-perf Table 3 endpoints (19.0 Hz Jetson Thor … 314.4 Hz B100) re-read as a contiguous span of this packet's own retained sha-verified fetch; no fetch was made for that row by either worker.
+
+All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches before any part was adjudicated (normalized-substring, ordered-fragment checks for `…`-compressed table excerpts, unicode-escape decoding for Seeed's literal `\u00b7` middle dot, and the DROID PDF/HTML pair merged under the PDF text layer, which carries both sentences; results in the lane's `passage-verification.json` / `evidence-verification.json`). Where a part is evidenced by several passages of one citation, the passages merge under a single URL that verifies every one of them, per the compound schema's one-item-per-required-pair rule. Vendor prices appear exactly as the fetched pages print them (Trossen \$4,545.95/\$11,385.95/\$23,995.95/\$33,695.95; Seeed \$295/\$299; Unitree \$29,900), vendor-reported with the preparer's fetch dates; the robozaps live page now printing "(June 17)" where the ledger said "(June)" was the preparer-adjudicated cosmetic case and the packet's exact proposed cells were applied. All 22 distinct cited ids were verified registered per-id; the packet's optional `trossen-widowx-ai-2026` registry proposal was **not** required (row 3 binds to registered `trossen-ai-2026`) and was not applied.
+
+Observed before → after from the canonical gate (`npm run check:audit-coverage`): **613 complete / 381 incomplete → 634 complete / 360 incomplete / 994 originals / 47 articles**; findings **388 → 367** (−21 lawful); **519 → 540 compound plans; 593 → 614 approvals** (exactly the 21 applied records). Baseline collector failures **43 → 43 unchanged** (288 approved differences, +1: `hardware-taxonomy-r4-20260915-1`); the nine separately unresolved citation checks are pre-existing. The hardware-taxonomy prose member hash moved `754695d0…` → `e02c49d8…`; the two endpoint approvals bind sealed baseline `c87aa9d0…` → `e02c49d8…` following the established per-pass convention, and the nineteen ledger-only approvals record the completion against the pass-committed member hash. Content gate honestly red: 634/994, 367 findings.
+
+Red-first unit suite `tests/unit/hardware-taxonomy-source.test.ts`: **4 failed / 2 passed before application → 6 passed after** (bindings and digests, registered citations/URLs/substantive passages, exact vendor price strings, both endpoint spans, local-AND arithmetic + retained Table 3 endpoints, protected performance-worldmodels rows 21–24 and teleop-rigs rows untouched). Affected units **272 passed / 8 files** (new suite, hardware, citations, citation-links, citation-audit, audit-ledger, audit-citation-coverage, validate-content). Prelint, lint and non-incremental typecheck exit 0. The full corpus was not repeated while the content gate is red, per the pass instruction; no e2e spec references any changed prose string (grep-verified: `not for individual sale`, `\$100 in core parts`, `\$122 including`, `BotQ`, `\$121.94`, `\$110.94`, `Sixteen times the throughput` — zero hits in `tests/e2e/`). Focused two-width readers for `/data-hardware/hardware-taxonomy/` at 375×812 and 1440×900 against the mission-owned dev runtime on :3200: **2 passed / 0 failed**, zero horizontal overflow, zero console/page errors, zero katex errors, all seven content markers (both endpoints applied, both old phrasings gone, R25 anchor, Trossen and Seeed price anchors) present at both widths; full-page screenshots captured in the lane.
+
+Honest process notes: three partial-apply/restore cycles occurred while hardening the lane script (an endpoint before-span that needed the article's MDX-escaped dollar form; a header-row scan bug; an approval oldHash that had to bind the sealed baseline per the collector's matching rule) — in every case the partially written product files were restored via `git checkout` before the final clean apply, and nothing partial was committed. The dispatched content-auditor skill was absent from the session skill catalog; the mission-local `contract/content-audit.md` and `skills/content-auditor/SKILL.md` were read and followed instead. Lane evidence: `validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915/`. Not acceptance; independent scrutiny and user testing remain owed.
+
+## Previous checkpoint: generalization integrates 20 of 21 dispatched originals (2026-09-15)
+
+This continuation applied **20 originals / 1 held / 0 unattempted**, all from the frozen packet `convergence-source-b-generalization-20260915/rows.json` (SHA-256 `8d8780066ca4297d18d984a4aa41723b0fb350d92d623e2039fa9f64ca8b2ba9`, zero retrieval this pass). Applied ordinals: 1–16 and 18–21 — each a ledger evidence-plan completion binding its row to an explicit-parts compound plan with integrator plan review and per-part supported adjudications; three article endpoints were applied exactly (`content/frontier/generalization.mdx`): the **G2** 97.6% first-training-phase qualifier, the **G15** Gemini Robotics On-Device 2 attribution (vendor-reported, few hours of adaptation, typically fewer than 200 examples) and the **G18** Bessemer own-terms gloss ("scaling laws are beginning to show up in robotics data", "not years away"). **G17** (Goldberg/Berkeley interview) is held by a separate mission hold and its row is untouched and still incomplete. G11/G13 keep their S verdicts exactly, and the S1 EgoScale quirk register (D in thousands of hours; do-not-correct note) is preserved verbatim. The six local-AND rows (10/11/13/19/20/21) carry the integrator-executed node import of `lib/egoscale-law.ts` reproducing the packet arithmetic (solvedBarCrossingHours 110,850.77 h, the 1.0 crossing at 249,735.98 h, scores 0.9002/1.0001, e^8 ≈ 2,981 h literal zero-crossing, figure-consistent 0.0240→0.0150 span) rather than any fetch claim.
+
+Where the packet's passage table sliced a fetched PDF at a mid-number window boundary (the fragments "5 (97.", "7 achieves 85.", "The human operators achieved 90.", "Average task completion rises monotonically from 0."), the applied evidence carries the full sentence integrator-read from the retained sha256-verified fetches preserved in the source-B lane (π0.5 PDF, π0.7 HTML, EgoScale HTML; every fetch hash re-verified against the packet fetch log before reading), and each fragment was first confirmed a substring of the same retained text. All nine citation ids used (including goldberg-2025 for the held row) were verified registered; no registry additions.
+
+Observed before → after from the canonical gate (`npm run check:audit-coverage`): **593 complete / 401 incomplete → 613 complete / 381 incomplete / 994 originals / 47 articles**; findings **408 → 388** (−20 lawful); **499 → 519 compound plans; 573 → 593 approvals** (exactly the 20 applied records). Frontier section: **54 → 74 complete / 93 → 73 incomplete** of 147. The generalization prose member hash moved `982d1976…` → `f60229c9…`; the three endpoint approvals bind sealed baseline `1fee3143…` → `f60229c9…` following the established per-pass convention, and the seventeen ledger-only approvals record the completion against the pass-committed member hash. Content gate honestly red: 613/994, 388 findings.
+
+Red-first unit suite `tests/unit/generalization-g-source.test.ts`: **6 failed / 1 passed before application → 7 passed after** (bindings and digests, registered citations/URLs/substantive passages, full-sentence requirements for every load-bearing figure, G17 unbound, S-verdict/S1-register preservation, exact endpoint spans). Affected units 225 passed / 9 files (new suite, egoscale-law, citations, generalist-policies, vla-generalist-closeouts, audit-ledger, validate-content, safety-assurance probe). `brand-v2-baseline` tree-grading collector passes with the new approvals (47/47). Prelint, lint and non-incremental typecheck exit 0. Full `npm test` baseline: **202 failures pre-existing at starting HEAD b669ea1 in this environment, byte-identical failure set with this pass's changes applied** (zero regressions, zero fixes; the committed 43-object baseline debt and the known brand-v2-enforcement token-renderer / comparison-current-audit failures are pre-existing, not touched here). Focused two-width readers for `/frontier/generalization/` at 375×812 and 1440×900 against the mission-owned dev runtime on :3200: **2 passed / 0 failed**, zero horizontal overflow, zero console/page errors, zero katex errors, all five content markers (three endpoints, S1 register, EgoScale figures) present at both widths; full-page screenshots captured in the lane.
+
+Honest process notes: two partial-apply/restore cycles occurred while hardening the lane script (a header-locator crash after the article was written; a JSON tail mismatch) — in both cases the partially written product files were verified against the expected exact state and restored via `git checkout` before the final clean apply; no partial state was committed. The dispatched content-auditor skill was absent from the session skill catalog; the mission-local `contract/content-audit.md` and `skills/content-auditor/SKILL.md` were read and followed instead. Lane evidence: `validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915/`. Not acceptance; independent scrutiny and user testing remain owed.
+
+## Previous checkpoint: safety assurance integrates 22 of 30 dispatched originals (2026-09-15)
+
+This continuation applied **22 originals complete / 1 partial (SA40 note-cell correction 28→29 verified against the live frontmatter count of 29) / 7 held**, all from the frozen packet `convergence-source-a-safety-assurance-20260915/rows.json` (SHA-256 `9ea754c602f0e2dc6c5f1356c0ae97ac700bf226a966cb73e4a81026e7b1afc5`, 24 fresh HTTP-200 fetches preserved in its preparation report; zero retrieval this pass). Applied ordinals: 3, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20, 21, 22, 24, 27, 28, 29, 30, 31, 34, 35, 37 — each a ledger-only evidence completion binding the row to an explicit-parts compound plan with per-part supported adjudications; the article endpoint `content/frontier/safety-and-assurance.mdx` is byte-unchanged (the SA17 and SA37 corrections predate this pass and their corrected article text was re-verified live). Held with precise reasons: SA25/33/36/38 carry flagged load-bearing phrases (CBF forward-invariance mechanics, exchangeability wording, statistical-guarantees wording, semantic-safety phrasing) that the packet's fresh passages do not state, so their rows stay incomplete rather than inherit unverified September 6 wording silently; SA9/32/39 are repo-internal claims whose local basis was verified this pass (shared `lib/force-limits.ts` through `lib/safety-modes.ts`/`lib/impedance.ts`, both AV-module positions with both citations, zero pattern-scan matches) but the evidence gate requires registered citation ids, which repo-internal rows cannot honestly carry. Ordinals 5/6 (mission holds safety5/6), 7/8/26 (unattempted) were never selected and their ledger rows are untouched.
+
+Observed before → after from the canonical gate (`npm run check:audit-coverage`): **571 complete / 423 incomplete → 593 complete / 401 incomplete / 994 originals / 47 articles**; findings **430 → 408** (−22 lawful); **477 → 499 compound plans; 551 → 573 approvals** (exactly the 22 applied records; article prose-member hash unchanged at its approved state `3c5c6430…`). Safety-and-assurance section: 27 complete / 13 incomplete of 40 rows. Frontier derived summary regenerated from the new tree only (97 V / 47 C / 3 S). The 43 baseline failure objects are unchanged by this pass; `npm run check:brand-v2-enforcement` was observed failing at the starting HEAD b1ece69 with a pre-existing token-renderer evidence mismatch ("re-run npm test"), a known shared debt outside this lane, and `tests/unit/comparison-current-audit.test.ts` was likewise observed failing 2/3 at pristine HEAD (rows 17/18). Content gate honestly red: 593/994, 408 findings. New unit suite red-first 5F → 5P (`tests/unit/safety-assurance-sa-source.test.ts`); affected units 178 passed / 6 files; prelint, lint, non-incremental typecheck exit 0; focused two-width readers 375x812 and 1440x900 2P/0F (zero overflow, zero console/page errors, zero katex errors, all content markers) plus committed `safety-and-assurance.spec.ts` 14 passed. Lane evidence: `validation/brand-v2-editorial/source-recovery-20260906/convergence-safety-assurance-integration-20260915/`. Not acceptance; independent scrutiny and user testing remain owed.
+
+## Previous checkpoint: Figure15 closes the five-original dexterity group (2026-09-14)
 
 This continuation applied **1 original / 0 held / 0 unattempted**: `audit/frontier.md:dexterity:15`, one V-to-C correction. Together with local Brooks commit `be0cc9107d0b60354ff96378ec0fc22e3c34d143`, the original five-member group is now **5 applied / 0 held / 0 unattempted**. Brooks2/3/5/6 were not reapplied. Parent corrections explicitly resolved the earlier one-versus-three article-endpoint mistake and confirmed **535**, not536, entry approvals. Those administrative corrections supplied no source truth or acceptance; the historical holds and count refusal remain preserved.
 
@@ -3758,3 +3874,465 @@ Final follow-up: the actual checked-in reader admission body passed **42 negativ
 The corrected reader selector passed focused ESLint, and final nonincremental
 TypeScript passed with restored configuration. All43 baseline failure objects/order
 are compared directly in the native preservation proof, not only by count.
+
+## Holson pipeline, tactile outlook and keyring originals 10/11/28 (2026-09-15)
+
+Exactly **3 original records applied, 0 held records, 0 unattempted assigned
+records**: `audit/frontier.md:dexterity:10`, `:11` and `:28`, from the frozen
+parent-qualified packet `convergence-lane-a-holson-tactile-outlook-20260914`
+(SHA-256 `06a0b77074bbd05e6c91f5ed8a80fcea8c354539a1b3852eee568abff59e4594`)
+with **zero retrieval**; the packet's retained passages are the source basis.
+Current-HEAD row IDs, ordinals, four-cell tuple digests, all four article
+endpoint before-spans and hashes were rechecked at application. The resulting
+native totals are **562 complete / 432 incomplete / 994 originals /
+47 articles**, **468 plans / 542 approvals**. All **559 prior complete
+originals/order, 991 unselected semantic records/order, 465 prior plan
+objects/order and 538 prior approval objects/order** are preserved; the 43
+unrelated baseline failures remain unresolved and the baseline was not
+replaced. Approval objects are 542, one above the packet's anticipated 541:
+the three per-original prose deltas plus one relationships delta
+(`dexterity-holson-relationships-20260915-1`) honestly required because the
+packet's exact D28 after-text drops the `proprioception` Term usage carried by
+the cut unsupported necessity clause; no other relationship changed.
+
+The reviewed plans contain **20 mandatory parts, 20 required part/citation
+pairs, 20 native evidence items and 20 source-specific supported
+adjudications** across 38 literal passages and two retained source containers.
+D10 keeps Holson's dated (September 8, 2025), exception-qualified
+learning-from-demonstration limitations scoped to the human teleoperator
+interface: wrist-force feedback to the operator, open/close finger control,
+puppeteer-usable touch; the 1-3 cm figure stays an explicit guess from videos
+with his teleoperation-versus-model caveat and described sub-cm counterexample.
+The fingertip-anesthesia analogy and blanket tactile categorization are
+removed. D11 keeps Luo and colleagues' outlook definition (development and
+integration of tactile-sensing technologies) with multiple challenge areas
+(materials, networks, simulation, benchmarking, data interpretation,
+multimodal learning, active touch) and cuts the unsupported stick-slip
+amplification attribution; v1/accepted-to-T-RO is metadata scope, not VOR.
+D28's two article endpoints were applied atomically: keyring with at least two
+keys and keychain dropped into the waiting palm/gripper, never put down,
+align/insert/turn the correct key, framed as challenge rules rather than
+observed performance; the unclaimed-medal status clause is cut because the
+post's update promise does not prove a negative scoreboard state. Original 8
+remains a separate unassigned duplicate earning no credit; D28's two endpoints
+travel together per the packet's coupling rule.
+
+`lastReviewed` is unchanged (2026-08-18): the dexterity article remains
+mid-audit. No source retrieval, full browser corpus, production build, push or
+independent Sol/high scrutiny/user-testing acceptance is claimed; the content
+gate remains red with the honest finding count recorded in the verification
+section of `audit/frontier.md`'s sibling ledgers.
+
+## Brooks dexterity originals 1, 4 and 7 close the remaining lane-A group (2026-09-15)
+
+Exactly **3 originals applied / 0 held / 0 unattempted** from the frozen
+parent-qualified packet `convergence-lane-a-brooks-dexterity-remaining-20260914`
+(rows.json, 40,173 bytes, SHA-256
+`9fa59add045376c1f1e69445d3db8079b349bb973890a12cc2dc35fc86020816`),
+**zero retrieval**. Packet SHA, each record's originalId/rowOrdinal/current
+four-cell digest and cells, the 12 mandatory parts, 12 part/citation pairs,
+12 native evidence items and 19 retained literal/context records were
+rechecked at application; every quoted passage was verified verbatim inside
+the hash-matched retained author text (`brooks-dexterity-2025.author-text.md`,
+62,634 bytes, SHA-256 `523ce6c9c592f17353ff4c8f32c97ed8159119bac38b376a474722e99ba1cb28`;
+tool response 88,799 bytes, `46d726566d5d1ed25f846df73375a4888d9642b77298df7c8d37215b62bf68a5`).
+The packet's UTF-8 offsets were computed against the September 14 frozen
+article, so both ARTICLE before-spans were relocated by exact current content
+at HEAD `f0618120f8a5c9070f2af534200b80756b820cfc` (each exactly one
+occurrence, byte hashes `b1a77465…` and `189d8913…` matching the packet).
+
+Resulting native totals: **565 complete / 429 incomplete / 994 originals /
+47 articles**, **471 plans / 545 approvals / 43 unchanged full baseline
+failures**. All **562 prior complete originals/order, 991 unselected semantic
+records, 468 prior plan objects/order and 542 prior approval objects/order**
+are preserved; exactly three native plans and three exact prose approvals were
+appended, and no relationships delta was required (the D1/D4 after-texts keep
+the same single `brooks-dexterity-2025` citation; citation multiset, see-also
+links, glossary, dates, defaults and neighbors unchanged, including the
+just-integrated Holson rows). No exact-text-lawful extra deltas arose.
+
+- **Original1** (V→C, 3 parts, 1 ARTICLE endpoint): Brooks-attributed 1961
+  Ernst thesis account with TX-0 arm and hand and picking-and-stacking; the
+  age-equivalence sentence and universal-researcher inference are cut. The
+  linked MIT thesis and video remain uninspected; no independent history,
+  publication-day or whole-P1 credit.
+- **Original4** (V→C, 5 parts, 1 ARTICLE endpoint): eWeek report as
+  reproduced and labeled by Brooks, "moving toward" vision-only (not a
+  completed shift), helmet-and-backpack rigs with five in-house cameras,
+  task examples and mimic-training purpose, with an explicit not-Tesla-
+  specification sentence. The inherited verbatim-versus-eWeek-original claim
+  stays unverified; Hubicki's nested likely and the sandbagging caveat remain
+  source context; neighboring funding/full-scale/Go-Big claims unchanged.
+- **Original7** (V→C, 4 parts, 0 ARTICLE endpoints): historical-ledger
+  correction only. The forecast is scoped to Brooks's explicitly-owned
+  opinion about plug-compatible human-worker replacement at lower prices and
+  just as well, with Baxter/Sawyer deployment and specialized-future
+  countercontext retained in the ledger. Literal scans confirm no forecast
+  text exists in the article; no paragraph was fabricated and completed
+  original6 was not reapplied. Related bear-case wording remains separate
+  out-of-scope debt.
+
+`lastReviewed` is unchanged (2026-08-18): the dexterity article remains
+mid-audit. The new plan IDs follow the lane convention
+(`dexterity-brooks-ernst-1-source-20260915`, `dexterity-brooks-eweek-4-source-20260915`,
+`dexterity-brooks-forecast-7-source-20260915`), mapping to the packet's
+native draft IDs `brooks-dexterity-remaining-original-{1,4,7}-20260914`.
+No source retrieval, full browser corpus, production build/export, push or
+independent Sol/high scrutiny/user-testing acceptance is claimed; the content
+gate remains red with the honest count below. Shared debts (Term Escape popup
+visibility, Back BODY focus, fallback fonts, full profiles) remain open and
+are not claimed here.
+
+| Gate | Command | Result |
+|---|---|---|
+| Red-first unit | `npx vitest run tests/unit/dexterity-brooks-remaining-source.test.ts` (before application) | 10 failed / 1 passed, 07:48:11 UTC |
+| Unit | same, after application | 11 passed |
+| Sibling units | `npx vitest run` dexterity-brooks-source, dexterity-figure15-source, dexterity-holson-outlook-source, audit-ledger (+ new file) | 141 passed / 5 files; 110 passed / 3 files after history append |
+| Prelint | `npm run prelint` | exit 0 |
+| Lint | `npm run lint` | exit 0 |
+| Typecheck (non-incremental) | `NODE_DISABLE_COMPILE_CACHE=1 npm run typecheck` | exit 0; next-env.d.ts/tsconfig.json/next.config.ts byte-identical |
+| Baseline | `NODE_DISABLE_COMPILE_CACHE=1 npm run baseline:brand-v2` | exit 1, expected red: 43 pre-existing failures, 0 dexterity members, 288 approved differences |
+| Content | `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` | exit 1, expected red: **565/994 complete**, 437 findings; 9 known unresolved citation rows unchanged |
+| Readers | owned offline Next runtime, 375x812 and 1440x900 | see lane `convergence-brooks-dexterity-remaining-integration-20260915/readers-results.json` |
+
+Evidence root:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-brooks-dexterity-remaining-integration-20260915/`.
+Content/release RED; do not publish.
+
+## Figure/Holson dexterity originals 8, 12, 23 and 25 (2026-09-15)
+
+Exactly **4 originals applied / 0 held / 0 unattempted** from three frozen
+parent-qualified packets (`convergence-lane-a-holson-original8-20260914`
+plan.json SHA-256 `0484bd9536716d79df12f020d63c2dfa4b5117ce61032a4ee6bf2a0559ab8653`;
+`convergence-lane-a-figure-dexterity-two-bodies-supplement-20260914`
+rows.json SHA-256 `2044958f9d6c5e1532c34052ccfbca19ae92ce241332f7100dd188f017bbd23d`;
+`convergence-lane-a-figure-dexterity-three-20260914` rows.json SHA-256
+`6b67202f378efc70b7107906faecbe33679b4c8cc38e65d352e2203a651ef756`),
+**zero retrieval**. Packet SHAs, each record's
+originalId/rowOrdinal/current four-cell digest and cells, the 25 mandatory
+parts, 25 part/citation pairs and 25 native evidence items were rechecked at
+application against HEAD `00ec640e748132c56444979b11be5f60d3e72086`; every
+quoted passage was verified verbatim inside the hash-matched retained source
+bodies (Holson retained rendered text; Go-Big tool text 6,180 bytes
+`9dd8324aeeddb69a7d8d99848a0882316aad0a4db4db0aa7335a2cfee8a1b2a4`;
+Figure 02 PRNewswire tool text 6,468 bytes
+`97efc185dbc5f068e67ed0845df352ae25d9f55f9200957d188825ed21e2067a`;
+Helix 02 retained response 12,101 bytes
+`9d42b081418a20a1b4b118520a76512ad615a2510c737a23d97665a3f6f55021`).
+The packets' UTF-8 offsets were computed against September 14/15 article
+states, so every span was relocated by exact current content (each exactly
+one occurrence).
+
+Resulting native totals: **569 complete / 425 incomplete / 994 originals /
+47 articles**, **475 plans / 549 approvals / 43 unchanged full baseline
+failures**. All **565 prior complete originals/order, 990 unselected semantic
+records, 471 prior plan objects/order and 545 prior approval objects/order**
+are preserved; exactly four native plans and four exact baseline-to-current
+prose approvals were appended. The prose manifest member moved
+`64e29b28…` → `bd901726…` with the approval chain correctly anchored at the
+immutable baseline hash (`4d026108…`); the first approval write used the
+previous current hash as `oldHash` and was corrected before commit after the
+baseline gate exposed it (44 failures → lawful 43 / 288 approved). Citation
+multiset, see-also links, glossary, dates, defaults, neighbors and the
+just-integrated Holson/Brooks rows are unchanged. Two registry-comment
+endpoints (`figure-go-big-2025` overstatement narrowed, `figure-02-2024`
+ambiguity comment added) are audit notes outside the parsed citation
+records, which are byte-identical.
+
+- **Original8** (V→C, 8 parts, 0 new ARTICLE endpoints): distinct whole-claim
+  correction over the `article-holson-pipeline` span original10 already
+  applied byte-identically at `f061812`; dated author commentary, general
+  trend with exceptions, operator-interface scope (wrist force to the human
+  teleoperator, puppeteer-usable touch), finger-control finesse beyond
+  open/close, video-guessed 1–3 cm precision with the likely-teleoperation
+  attribution and the author-described sub-centimeter counterexample. The
+  historical Brooks-quotes-the-same-list assertion remains unverified and is
+  not asserted. Zero second article writes.
+- **Original12** (V→C, 6 parts, 2 ARTICLE endpoints): Go-Big rescoped to a
+  pretraining data-collection initiative whose initial human-video result is
+  navigation (images/language to low-level SE(2) velocity commands, no robot
+  demonstrations for that approach, zero-shot and "to our knowledge" first
+  as Figure's own qualifications); Brookfield collection begun-and-expanding
+  with over 100,000 residential units as a portfolio bound; the unsupported
+  coupled best-funded/full-scale lead cut; Tesla sentence unchanged.
+- **Original23** (V→C, 4 parts, 1 ARTICLE endpoint): quote-and-disclose of
+  the August 6, 2024 Figure 02 release (Figure AI Inc. issuer, PRNewswire
+  host; second-generation robot, fourth-generation hands) — "4th generation
+  hands" "equipped with 16 degrees of freedom" without resolving per-hand
+  versus combined DoF or actuator count. The mixed Figure02/Figure03
+  dataset claim stays untouched and separate.
+- **Original25** (V→C, 7 parts, 1 ARTICLE endpoint): the four Helix 02
+  demonstrations scoped to Figure's previously-out-of-reach characterization
+  with autonomous-not-teleoperated as a vendor statement; the syringe task
+  is titled "Push exactly 5 ml from a syringe" and 5 ml is a task value, not
+  calibrated accuracy; no task-level success rates, volume calibration or
+  modality-ablation results exist in the returned text; System 2/System 1/
+  System 0 roles unchanged. The neighboring per-task-training assertion
+  remains out-of-scope debt, untouched.
+
+`lastReviewed` is unchanged (2026-08-18): the dexterity article remains
+mid-audit. New plan IDs `dexterity-holson-original8-20260915`,
+`dexterity-gobig-navigation-12-20260915`, `dexterity-figure02-dof-23-20260915`,
+`dexterity-helix02-tasks-25-20260915`. No source retrieval, full browser
+corpus, production build/export, push or independent scrutiny/user-testing
+acceptance is claimed; the content gate remains red with the honest count
+below. Shared debts (Term Escape popup visibility, Back BODY focus, fallback
+fonts, full profiles) remain open and are not claimed here.
+
+Exact-text-lawful extra delta, documented: regenerating the frontier ledger
+summary exposed that the block committed at `00ec640` was already stale by
+three rows — `withLedgerSummary` over `00ec640`'s own committed
+`audit/frontier.md` and `audit/compound-evidence.json` yields **101 V /
+43 C / 28 complete**, not the committed 104 / 40 / 25. The current block
+(97 / 47 / 32 / 115) equals that canonical HEAD recomputation plus exactly
+this checkpoint's four V→C completions; no row outside the four selected
+originals was edited, and the mission-wide census (565→569 complete, all
+prior complete IDs preserved, all 990 unselected semantic records
+byte-identical) is unchanged by the correction.
+
+| Gate | Command | Result |
+|---|---|---|
+| Red-first unit | `npx vitest run tests/unit/dexterity-figure-holson-remaining-source.test.ts` (before application) | 16 failed / 1 passed, 08:34 UTC |
+| Unit | same, after application | 17 passed |
+| Affected units | `npx vitest run` dexterity-figure-holson-remaining (new), dexterity-brooks-remaining (1 lawful count-oracle update 471→475), dexterity-brooks, dexterity-figure15, dexterity-holson-outlook, audit-ledger, dexterous-hands, citations | 198 passed / 8 files |
+| Prelint | `npm run prelint` | exit 0 |
+| Lint | `npm run lint` | exit 0 |
+| Typecheck (non-incremental) | `NODE_DISABLE_COMPILE_CACHE=1 npm run typecheck` | exit 0; next-env.d.ts/tsconfig.json/next.config.ts byte-identical |
+| Baseline | `NODE_DISABLE_COMPILE_CACHE=1 npm run baseline:brand-v2` | exit 1, expected red: 43 pre-existing failures (including `source:components/interactive/hand-comparison.tsx`, verified pre-existing at pristine HEAD `00ec640` in a temp worktree), 288 approved differences |
+| Content | `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` | exit 1, expected red: **569/994 complete**, 432 findings; 9 known unresolved citation rows unchanged |
+| Readers | owned offline Next runtime, 375x812 and 1440x900 | 2 passed / 0 failed / 0 flaky; 10 screenshots (3 spans × 2 widths); configs byte-restored; see lane `convergence-dexterity-figure-holson-remaining-integration-20260915/readers-results.json` |
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-figure-holson-remaining-integration-20260915/`.
+
+## Industrial OSHA modes original 38 (2026-09-15)
+
+Exactly **1 original applied / 0 held / 0 unattempted** from the frozen
+parent-qualified packet (`convergence-lane-b-industrial-osha-modes-20260913`
+rows.json, 88,529 bytes, SHA-256
+`9f13c4b682d4226bffe35da4af9b9f8eb86545f41005797c8604cb6a803c39db`),
+**zero retrieval**. Packet SHA, the record's originalId/rowOrdinal 38, the
+current four-cell digest `f314dae5…` and all four cells were rechecked at
+application against HEAD `ee95d0a625762fd4e6379196bf7386cd0d53618b`; all 18
+packet passages were re-verified verbatim inside the hash-matched retained
+OSHA Technical Manual bodies (the lane's four read events, joined 109,236
+bytes SHA-256 `8bf48403…`, and the 20260913 review body, 144,692 bytes
+SHA-256 `f40d2f5f…`). One context-only passage (`collaborative-automatic`)
+differs from the review body by a single space before footnote digit 8
+(`mode: 8` vs `mode:8`); words identical, and it supports no mandatory part.
+The packet's UTF-8 offsets were computed against an earlier article state, so
+the guard span was relocated by exact current content: exactly one
+occurrence, SHA-256 `25f65364…`, and the frozen article (SHA-256 `415b7573…`)
+is byte-identical to the current one.
+
+Resulting native totals: **570 complete / 424 incomplete / 994 originals /
+47 articles**, **476 plans / 550 approvals / 43 unchanged full baseline
+failures** (288 approved differences, unchanged). All 569 prior complete
+originals/order, 985 unselected semantic records, 475 prior plan
+objects/order and 549 prior approval objects/order are preserved; exactly
+one native plan (`osha-industrial-modes-20260915-industrial-deployment-38`)
+and one approval entry (`osha-industrial-modes-38-20260915-1`, prose member
+`article:data-hardware/industrial-deployment` anchored at the immutable
+baseline hash `2bc62cf7…` → unchanged current `aed44cd3…`) were appended.
+The guarded article endpoint is byte-unchanged (action guard-only; no
+article or glossary edit), so no prose/relationships manifest member moved.
+Protected neighbor original 39 and every other industrial-deployment
+original are untouched. Citation multiset, see-also links, glossary, dates,
+defaults, neighbors and the just-integrated dexterity rows are unchanged.
+
+**Original 38** (V→C, 4 mandatory parts / 4 citation pairs / 4 evidence
+items, 0 ARTICLE endpoints): OSHA's terms are guards — fixed
+barrier/perimeter guards, interlocked barrier guards and presence-sensing
+safeguarding devices — not a claim that every application specifically needs
+a gate; the physical-separation guidance is the Non-Collaborative Robot
+Application Risk Reduction subsection and applies during automatic operation;
+manual teaching inside the safeguarded space carries manual mode, an
+enabling device (typically 3-position, held center-ON, with conditional
+inhibition of interconnected equipment), reduced speed, adequate clearance
+and teacher control; and the teach-mode speed limit is preserved exactly as
+the source prints it — Section VIII "not greater than 10 inches/second
+(250mm/second)", Section VI's first teacher paragraph and the Appendix
+manual-mode glossary "less than", Section VI's next paragraph "or less on
+any part of the application" — never converted to a bare "less than", with
+no universal-safe-boundary or universal-cap claim. Collaborative automatic
+operation and attended program verification stay distinct context.
+
+The derived `audit/data-hardware.md` summary block was regenerated with
+`check-audit-coverage --write-summaries` from the new tree only: 128 claim
+rows unchanged, verified 65→64, corrected 60→61, complete evidence records
+42→43, incomplete 86→85 — exactly this one conversion, no other row touched.
+No article prose changed, so no `lastReviewed` moved and the humanizer does
+not apply (carve-out stated). The OSHA registry entry's 2026 publication
+year remains an open P1 gap, not claimed here. No source retrieval,
+production build/export, push or independent scrutiny/user-testing
+acceptance is claimed; the content gate remains red with the honest count
+below. Known shared debts remain open and are not claimed here.
+
+| Gate | Command | Result |
+|---|---|---|
+| Ownership guard | `python3 live-guard.py` (role start, pre-apply, pre-readers) | pass each run; 0 unknown processes; HEAD/lineage/service identity exact |
+| Red-first unit | `NODE_DISABLE_COMPILE_CACHE=1 npx vitest run tests/unit/industrial-osha-modes-source.test.ts` (before application) | 4 failed / 2 passed |
+| Unit | same, after application | 6 passed |
+| Affected units | `npx vitest run` industrial-osha-modes-source (new), symbotic-a3-originals, ifr-industrial-originals, audit-ledger, citations | 134 passed / 5 files |
+| Prelint | `npm run prelint` | exit 0 |
+| Lint | `npm run lint` | exit 0 |
+| Typecheck (non-incremental) | `NODE_DISABLE_COMPILE_CACHE=1 npm run typecheck` | exit 0; next-env.d.ts/tsconfig.json/next.config.ts byte-identical |
+| Baseline | `NODE_DISABLE_COMPILE_CACHE=1 npm run baseline:brand-v2` | exit 1, expected red: 43 pre-existing failures (unchanged), 288 approved differences |
+| Content | `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` | exit 1, expected red: **570/994 complete**, 431 findings (was 432; −1 lawful, this row); 9 known unresolved citation rows unchanged |
+| Readers | owned offline Next runtime (`next dev` 127.0.0.1:3273, mocked offline fonts), 375x812 and 1440x900 | 2 passed / 0 failed; screenshots for both widths in lane `readers/`; configs byte-restored (see lane `runtime-stop.json`) |
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-osha-modes-38-integration-20260915/`.
+
+## Park bounding locomotion original 7 (2026-09-15)
+
+Exactly **1 original applied / 0 held / 0 unattempted** from the frozen
+legacy packet (`convergence-lane-a-locomotion-stats-gaits-20260908/plan.json`,
+36,070 bytes, SHA-256
+`73ed6a2f50089719a121d28bf3a1600e2695f0f3a50cc86aef8c4b38adedfc01`),
+pointer `/records/2`, **zero retrieval**. Packet SHA, rowOrdinal 7 and the
+current four-cell digest `b1fd52f8…` were recomputed at application against
+HEAD `2444290824fa139f5a28da4fd2666a684de776fa` and matched (the parent's
+`legacy-identity-check.json` records identityValid/recheckValid true; the
+packet uses the older id/cellsDigest/original schema the standard preflight
+script does not accept, so this lane's apply step recomputed the native
+comparison itself).
+
+**Honesty boundary kept.** The packet's proposedCurrent/rawProposedRow is
+PROPOSAL ONLY and was adjudicated part by part, never copied. Applied from
+preserved evidence only: the legacy 2cf7d6b audit note (Sec. 4.3 is literally
+"Duty cycle modulation via vertical impulse scaling"; stance time
+T_st = L/v_d; 6.4 m/s and CoT 0.47 from the abstract), the packet's
+metadataFindings (§7 speed-dependent stride length below 3 m/s, fixed above;
+the 6.4 m/s experiment qualified by side-wall contact and roll instability),
+and the registered citation identity. **Held/excluded:** the proposal's
+gravity-impulse-over-a-full-period gloss (not preserved evidence), its
+"up to3m/s"-class spacing artifacts (normalized with §7 provenance), and its
+named-classical-controller framing (weakened to "one classical controller's
+schedule"; no controller name is preserved). Ordinals 1, 6 and 8 stay held;
+localProofRequired is false for row 7.
+
+Resulting native totals: **571 complete / 423 incomplete / 994 originals /
+47 articles**, **477 plans / 551 approvals / 43 unchanged full baseline
+failures** (288 approved differences; this member's anchor
+`0f26e397… → cfa28af7…` lawfully supersedes the prior same-member
+reward-mpc-20260912 anchor from the same immutable baseline hash). All 570
+prior complete originals/order, 993 unselected semantic records, 476 prior
+plan objects/order and 550 prior approval objects/order are preserved;
+exactly one native plan (`locomotion-park7-20260915-legged-locomotion-7`)
+and one approval entry (`locomotion-park7-7-20260915-1`, prose member
+`article:rl-sim2real/legged-locomotion`) were appended. Protected neighbors
+(rows 1, 6, 8 and applied rows 2-5) are byte-untouched. The
+`park-2017-bounding-registry` endpoint was verified, not edited: the
+citation is already registered (data/citations.ts, title/authors/venue/URL
+match the packet union); nothing duplicated. The `e2e-park-timing-test`
+endpoint is a new two-width test in `tests/e2e/legged-locomotion.spec.ts`
+following the neighboring Lee-citation pattern, plus a lane-local reader.
+
+The derived `audit/rl-sim2real.md` summary block was regenerated from the
+new tree only: 167 claim rows unchanged, complete 115→116, incomplete
+52→51 — exactly this one conversion. Article prose changed within the one
+bound span, so `lastReviewed` did **not** move (row-scoped correction, not
+a finished article audit; house precedent from the 20260909 integrations).
+Humanizer carve-out stated: the corrected span deliberately reproduces the
+source's own section title verbatim ("Duty cycle modulation via vertical
+impulse scaling"), which is exempt; the remaining sentences were kept
+minimal and number-bearing, and the no-slop source gate passes green in
+`validate:content`. No source retrieval, production build/export, push or
+independent scrutiny/user-testing acceptance is claimed; the content gate
+remains red with the honest count below. Known shared debts remain open and
+are not claimed here.
+
+| Gate | Command | Result |
+|---|---|---|
+| Ownership guard | `python3 live-guard.py` (role start, pre-apply, pre-e2e, pre-readers, pre-readme) | pass each run; 0 unknown processes; controller MainPID 765730 / InvocationID 1a44aabaf0384e359dd344a4f0d40caa exact; worker 949848 bound by /proc identity and shared service cgroup |
+| Red-first unit | `NODE_DISABLE_COMPILE_CACHE=1 npx vitest run tests/unit/legged-locomotion-park7-source.test.ts` (before application) | 5 failed / 1 passed (failures are the missing plan and drift sentence, as designed) |
+| Unit | same, after application | 6 passed |
+| Affected units | `NODE_DISABLE_COMPILE_CACHE=1 npx vitest run` legged-locomotion-park7-source, learned-locomotion-integration, audit-ledger, citations, citation-audit | 164 passed / 5 files |
+| Prelint | `NODE_DISABLE_COMPILE_CACHE=1 npm run prelint` | exit 0 |
+| Lint | `NODE_DISABLE_COMPILE_CACHE=1 npm run lint` | exit 0 |
+| Typecheck (non-incremental) | `NODE_DISABLE_COMPILE_CACHE=1 npm run typecheck` | exit 0; next-env.d.ts/tsconfig.json/next.config.ts byte-identical |
+| Baseline | `NODE_DISABLE_COMPILE_CACHE=1 npm run baseline:brand-v2` | exit 1, expected red: 43 pre-existing failures (unchanged), 288 approved differences (now including `locomotion-park7-7-20260915-1`, superseding the prior same-member anchor) |
+| Content | `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` | exit 1, expected red: **571/994 complete** (+1 lawful, this row), 430 findings (was 431; −1 lawful); 9 known unresolved citation rows unchanged |
+| Readers | owned offline Next runtime (`next dev` 127.0.0.1:3274, mocked offline fonts), 375x812 and 1440x900 | lane reader 2 passed / 0 failed; committed `tests/e2e/legged-locomotion.spec.ts` 10 passed / 0 failed against the same runtime (includes the new two-width Park timing test); screenshots for both widths in lane `readers/`; configs byte-restored (lane `runtime-stop.json` byteExact true) |
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-locomotion-park7-integration-20260915/`.
+
+### Humanoid WBC twelve-original integration — 2026-09-15
+
+Applied exactly 12 of the 13 selected `humanoid-wbc` originals from frozen
+packet `convergence-source-b-humanoid-wbc-20260915` (rows.json sha256
+`ba40b1bbd140bf3741846b74ea242f7bb0cb84c050021c84363f896c363ed6a6`);
+row 20 is held with the precise reason below. Six article spans were
+applied to `content/rl-sim2real/humanoid-wbc.mdx`: the Stat-grid
+attribution sentence (row 1), the encoder/aggregation split (row 9), the
+`Cosmos-Reason2-2B` backbone precision (row 11), the licensing re-point
+from `gr00t-n1-2025` to `isaac-gr00t-repo-2026` + `groot-wbc-2026` with
+the September 2026 absence scoping (row 14), the embodiment qualifiers on
+the GR2 numbers paragraph with the mechanism gloss removed (row 15), and
+the "undisclosed in the announcement" scoping (row 17). The now-unused
+`gr00t-n1-2025` frontmatter id was removed in the same change (its only
+body use was re-pointed); both repo ids were already registered and
+already cited. `lastReviewed` did not move (row-scoped correction, not a
+finished article audit; house precedent from the 20260909 integrations).
+Humanizer carve-out stated: the corrected spans deliberately carry the
+vendors' own figure wording; the no-slop source gate inside
+`validate:content` passes over the file.
+
+Integrator-side verification before adjudication: all 40 packet passages
+needle-verified against the retained source-lane snapshots (34 verbatim
+FULL, 3 folded for renderer artifacts only, 3 absence-observations
+re-proved as absences over the complete retained renders); every pin
+cross-checked by sha256; every cited id confirmed registered; zero
+retrieval by this integrator. Row 16 reuses the registration already
+bound by `generalization-g15-gr2-ondevice-20260915` (consistency
+re-verified read-only). Row 18's local AND was re-executed at the
+application-time tree (GR2_RESULTS 11/11 per-value equality with the
+chart alt-texts; all three panel stat blocks equal the fetched passages).
+Row 19's synthesis was re-confirmed clause-by-clause in the vendors' own
+words. One integrator plan repair: packet part `hw11-sonic-decode`
+required `groot-wbc-2026` alongside `isaac-gr00t-repo-2026`, but the
+decode sentence rests on the Isaac-GR00T README passage alone (the WBC
+README does not print it), so the required set was narrowed to the
+citation that carries the sentence; no evidence passage or wording
+changed.
+
+Row 20 HELD, not silently promoted: its claim text matches the audit
+checker's `P1_BATCH` pattern, which fail-closed requires kind
+`frontmatter-p1` with the required set exactly equal to the declared
+batch and the canonical frontmatter set plus a fetched evidence pair for
+every (part, citation). This packet carries fresh evidence for 7 of the
+now-15 identities; the other 9 rest on retained integrator-reviewed
+records. Completing the row would require weakening the P1 fail-closed
+semantics or fabricating coverage; neither is lawful. The local basis
+itself was re-proved and passes (15 frontmatter ids == 15 body Cite ids,
+all registered exactly once; `gr00t-n1-2025` residue-free).
+
+Observed at the new tree (this commit): **738 complete / 256 incomplete /
+994 originals / 47 articles** (was 726/268), **644 compound plans** (was
+632) and **718 approved-delta entries** (was 706) — exactly the 12 lawful
+conversions plus their approvals; `humanoid-wbc` is 19/20 complete. All
+632 prior plans, 706 prior approvals, the 981 unselected semantic
+records, the citations registry, glossary, dates, defaults and neighbors
+are preserved byte-for-byte; derived ledger summary blocks were
+regenerated only through `check:audit-coverage --write-summaries`.
+
+| Gate | Command | Result |
+|---|---|---|
+| Ownership guard | `python3 role-guard.py` (role start) | pass; 0 unknown processes; service MainPID 2097754 / InvocationID e160675f7026425ba60b7f3620a6a3cf exact; worker 2224023 bound by /proc identity and shared service cgroup |
+| Ledger preflight | fail-closed packet-vs-live digest checks in `apply_humanoid_wbc.mjs` | 13/13 current tuple digests matched before any write |
+| Prelint | `NODE_DISABLE_COMPILE_CACHE=1 npm run prelint` | exit 0 |
+| Lint | `NODE_DISABLE_COMPILE_CACHE=1 npm run lint` | exit 0 |
+| Typecheck (non-incremental) | `NODE_DISABLE_COMPILE_CACHE=1 npm run typecheck` | exit 0; next-env.d.ts/tsconfig.json/next.config.ts byte-identical |
+| Affected units | `NODE_DISABLE_COMPILE_CACHE=1 npx vitest run` wbc-decomposition, citations, citation-audit, audit-ledger, audit-citation-coverage, proseCitationYears | 175 passed / 6 files |
+| Summaries | `NODE_DISABLE_COMPILE_CACHE=1 node scripts/check-audit-coverage.ts --write-summaries` | exit 1, expected red: 263 findings; 738/994 complete; derived blocks regenerated |
+| Content | `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` | exit 1, expected red: **738/994 complete**, 263 findings (−12 lawful); 9 known unresolved citation rows unchanged |
+| Readers | owned offline Next runtime (`next dev` 127.0.0.1:3277, mocked offline fonts), 375x812 and 1440x900 | 4 passed / 0 failed; both widths render all six applied spans, no mobile overflow; configs restored byte-exact |
+
+No new unit-test coverage was added for the applied spans (no unit spec
+file exists for this article's prose; the two-width reader spec covers the
+rendered spans, and the ledger invariants are covered by the six suites
+above). No production build/export, push, or independent acceptance is
+claimed; the content gate remains red with the honest count above. Known
+shared debts (brand-v2-enforcement token-renderer mismatch;
+comparison-current-audit 2/3) remain open and are not claimed here.
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-humanoid-wbc-integration-20260915/`.
