@@ -10892,6 +10892,346 @@
     "VAL-AUDIT-009"
   ],
   "disposition": "permanent"
+},
+{
+  "id": "generalization-g1-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 1: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g2-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 2: the 97.6% first-training-phase qualifier correction, bound to the registered pi05-2025 citation with the full sentence from the retained hash-verified fetch. This is one of the three article-endpoint corrections of this pass; like every prior integration pass, the approval binds the sealed migration-baseline member hash 1fee314336a4... to this pass's final member hash f60229c9158e..., which the three endpoint corrections produced together (G2 first-training-phase qualifier, G15 On-Device 2 attribution, G18 Bessemer own-terms gloss; exact before/after spans in the ledger history block). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g3-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 3: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g4-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 4: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g5-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 5: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g6-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 6: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g7-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 7: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g8-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 8: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g9-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 9: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g10-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 10: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g11-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 11: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g12-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 12: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g13-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 13: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g14-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 14: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g15-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 15: the Gemini Robotics On-Device 2 attribution correction, bound to the registered gemini-robotics-2-2026 citation with hash-bound vendor passages. This is one of the three article-endpoint corrections of this pass; like every prior integration pass, the approval binds the sealed migration-baseline member hash 1fee314336a4... to this pass's final member hash f60229c9158e..., which the three endpoint corrections produced together (G2 first-training-phase qualifier, G15 On-Device 2 attribution, G18 Bessemer own-terms gloss; exact before/after spans in the ledger history block). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g16-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 16: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g18-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "1fee314336a48372c330af41a4f53293ca8b8c209ea8cd149ce90fff26f0e433",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 18: the Bessemer own-terms gloss correction, bound to the registered bessemer-robotics-2026 citation with hash-bound investor-essay passages. This is one of the three article-endpoint corrections of this pass; like every prior integration pass, the approval binds the sealed migration-baseline member hash 1fee314336a4... to this pass's final member hash f60229c9158e..., which the three endpoint corrections produced together (G2 first-training-phase qualifier, G15 On-Device 2 attribution, G18 Bessemer own-terms gloss; exact before/after spans in the ledger history block). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g19-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 19: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g20-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 20: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "generalization-g21-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:frontier/generalization",
+  "oldHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "newHash": "f60229c9158e693c2d4ffbebf70b8b086bb5475c557f73e0728f4f996ba83592",
+  "reason": "Exactly generalization original 21: ledger-only evidence completion bound to its registered citation(s) with preserved/retained-hash-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (f60229c9158e..., after the three endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-generalization-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 generalization integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-006",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
 }
   ]
 }

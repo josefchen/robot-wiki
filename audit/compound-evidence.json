@@ -49629,5 +49629,1265 @@
       "evidenceDigest": "ec2aaf1a010a112e9430d2e5796447cca2df4bbecf8c93b46b801f48bb02e3e7"
     }
   ]
+},
+{
+  "id": "generalization-g1-pi05-eval-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "90d29b34d423ddfa3a8db88aa2716d1177a4b0e8b232c8acc13ba5f7d5f58f9f",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g1-three-homes",
+      "text": "The final evaluation ran in three real homes absent from the training data.",
+      "requiredCitationIds": [
+        "pi05-2025"
+      ]
+    },
+    {
+      "id": "g1-kitchens-bedrooms",
+      "text": "The Fig. 7 caption states three kitchens and three bedrooms in real homes not seen during training.",
+      "requiredCitationIds": [
+        "pi05-2025"
+      ]
+    },
+    {
+      "id": "g1-ten-trials",
+      "text": "Per-task results are averaged over 10 trials.",
+      "requiredCitationIds": [
+        "pi05-2025"
+      ]
+    },
+    {
+      "id": "g1-episode-minutes",
+      "text": "Tasks last about 2 to 5 minutes, with long-horizon cleanups of 10 to 15 minutes.",
+      "requiredCitationIds": [
+        "pi05-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "55a78ade872f103d8695b71640db4b6c299333a2a83aadc16349a170bb4fa5bc",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g1-three-homes",
+      "citationId": "pi05-2025",
+      "sourceUrl": "https://arxiv.org/pdf/2504.16054",
+      "supportingPassage": "For quantitative comparisons, we use a set of mock home environments to provide a controlled and reproducible setup, while the most realistic final evaluation is conducted in three real homes that were not part of the training set (see Figure 6)."
+    },
+    {
+      "partId": "g1-kitchens-bedrooms",
+      "citationId": "pi05-2025",
+      "sourceUrl": "https://arxiv.org/pdf/2504.16054",
+      "supportingPassage": "three kitchens and three bedrooms in real homes that were not seen during training."
+    },
+    {
+      "partId": "g1-ten-trials",
+      "citationId": "pi05-2025",
+      "sourceUrl": "https://arxiv.org/pdf/2504.16054",
+      "supportingPassage": "The human instruction for each is given on the left, environment averaged over 10 trials."
+    },
+    {
+      "partId": "g1-episode-minutes",
+      "citationId": "pi05-2025",
+      "sourceUrl": "https://arxiv.org/pdf/2504.16054",
+      "supportingPassage": ", moving multiple objects) lasting about 2 to 5 minutes."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g1-three-homes",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Passage (retained fetch, integrator-read): final evaluation in three real homes not part of the training set. Supports the part exactly; no breadth beyond three homes inferred.",
+      "evidenceDigest": "0745024937c9e602986b283fcae3dcf6366209b5072f9b04d9900be161107bb2"
+    },
+    {
+      "partId": "g1-kitchens-bedrooms",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Fig. 7 caption sentence states three kitchens and three bedrooms in unseen real homes; matches the part.",
+      "evidenceDigest": "bf0f542990daf51a803991059b79930c203de183c6400d8228363c888b5eb860"
+    },
+    {
+      "partId": "g1-ten-trials",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Fig. 7 caption fragment states scores averaged over 10 trials; awkward extraction but the load-bearing fact is present verbatim.",
+      "evidenceDigest": "54f899e48082838fa0f934fb6ed0b1480b596d9108996a457d1d8575e1318f8c"
+    },
+    {
+      "partId": "g1-episode-minutes",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Truncated-left slice still carries the load-bearing \"lasting about 2 to 5 minutes\"; the 10-15 min long-horizon span is carried by the full-context passage p05-long-horizon in the packet.",
+      "evidenceDigest": "61edd32272ede48614e65472437e236989d9b68d1a51425360b6f55d37f3442c"
+    }
+  ]
+},
+{
+  "id": "generalization-g2-pi05-mixture-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 2,
+  "originalCellsDigest": "f9446e02e3994e91ee0c67209b44749de38b7b7d1904841e11b67e1c5c476831",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g2-400h",
+      "text": "About 400 hours of mobile-manipulator data collected in about 100 different home environments.",
+      "requiredCitationIds": [
+        "pi05-2025"
+      ]
+    },
+    {
+      "id": "g2-976",
+      "text": "97.6% of training examples during the first training phase come from sources other than mobile manipulators.",
+      "requiredCitationIds": [
+        "pi05-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "aefa0a627ba7c086813773aebbe5fd49c2a1d4c99086a94f6cc7d18f126c9569",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g2-400h",
+      "citationId": "pi05-2025",
+      "sourceUrl": "https://arxiv.org/pdf/2504.16054",
+      "supportingPassage": "We use about 400 hours of data of mobile manipulators performing household tasks in about 100 different home environments, some of which are shown in Figure 7, using the robots in Section IV-E."
+    },
+    {
+      "partId": "g2-976",
+      "citationId": "pi05-2025",
+      "sourceUrl": "https://arxiv.org/pdf/2504.16054",
+      "supportingPassage": "The overwhelming majority of training examples provided to π0.5 (97.6% during the first training phase) do not come from mobile manipulators performing household tasks, but from these other sources, such as other robots or data from the web."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g2-400h",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete sentence: about 400 hours in about 100 different home environments; supports both figures.",
+      "evidenceDigest": "a61bb61f6e322e3ad36c34515cc4cbc97261c85d0272f683a7e6272115f155a6"
+    },
+    {
+      "partId": "g2-976",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Packet passage-table slice ended mid-number (\"5 (97.\"); integrator re-read the full sentence in the retained sha256-verified pdftotext layer: \"The overwhelming majority of training examples provided to π0.5 (97.6% during the first training phase) do not come from mobile manipulators...\". Supports the first-phase-qualified part exactly.",
+      "evidenceDigest": "f8ac115371c5ee903476c7eb13e1e70c874a13e2f4341ead2cf8edd7cab0efc3"
+    }
+  ]
+},
+{
+  "id": "generalization-g3-pi05-control-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 3,
+  "originalCellsDigest": "c99b6f32c17ad28e82199edb4c5656edf7936af25f12404bd28b8d51b47ac341",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g3-control",
+      "text": "A control trained directly on test-home data attains similar performance to the final 104-location model.",
+      "requiredCitationIds": [
+        "pi05-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "b4aab79b6bda4eb86e0bfe6296b7d8cb7d62aeeeb90d578e371f70e8918daa87",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g3-control",
+      "citationId": "pi05-2025",
+      "sourceUrl": "https://arxiv.org/pdf/2504.16054",
+      "supportingPassage": "To quantify how much the final model (with 104 locations) bridges the generalization gap, we include a control (shown in green) that is trained directly on data from the test homes. This control attains similar performance as the final 104-location model, suggesting that our co-training recipe effectively enables broad generalization, reaching similar performance to a model trained on the test environment."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g3-control",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: control trained directly on test-home data attains similar performance to the final 104-location model; supports the part.",
+      "evidenceDigest": "a3fdac07152ce4e58c0daa04d91cfd08c6795749f02b0a5e6e36ec82732dec08"
+    }
+  ]
+},
+{
+  "id": "generalization-g4-pi05-ablation-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "d97b5ac3e0d8aabc568f894530995b87e1f81b8a9e8b1a37f4cf08aee8253212",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g4-ablation",
+      "text": "Removing the non-mobile-manipulator data sources makes open-world performance significantly worse; those sources are essential for good generalization.",
+      "requiredCitationIds": [
+        "pi05-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "73b50399dcb425d3124447baa622426d83a24935e14e7349586883dbde77a968",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g4-ablation",
+      "citationId": "pi05-2025",
+      "sourceUrl": "https://arxiv.org/pdf/2504.16054",
+      "supportingPassage": "The performance for both those baselines is significantly worse — this indicates that the other data sources leveraged by our full training recipe are essential for good generalization, even when the policy has seen robot data from test homes."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g4-ablation",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: baselines significantly worse; other data sources essential for good generalization; supports the part.",
+      "evidenceDigest": "d90b736ddd6eb4b47ccc6175be0d9413b5774381854efb7f395702b40cc124b9"
+    }
+  ]
+},
+{
+  "id": "generalization-g5-pi07blog-airfryer-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "c53575c5a3f36748f9520af816fd34f19e925498872694098348e9d3301700e6",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g5-airfryer-quote",
+      "text": "Physical Intelligence's own account of the zero-shot air-fryer attempt: a reasonable attempt, part of the task after a few false starts, not finishing it fully.",
+      "requiredCitationIds": [
+        "pi07-blog-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "4e785f04854c10654fe9258816d66bb8f69d53e99009adb301a499394e01cc49",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g5-airfryer-quote",
+      "citationId": "pi07-blog-2026",
+      "sourceUrl": "https://www.pi.website/blog/pi07",
+      "supportingPassage": "When we ask the robot to do a new task, using an air fryer appliance to cook a sweet potato, it makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully:"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g5-airfryer-quote",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Blog sentence quoted verbatim in the hash-bound passage; the article's quotation matches word for word.",
+      "evidenceDigest": "db11a68306fe65d473cda54d327ff6dac31581af32b373830a5a8b09d4ce00fd"
+    }
+  ]
+},
+{
+  "id": "generalization-g6-pi07blog-earlysigns-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 6,
+  "originalCellsDigest": "9591a942fa4374aa3c053e4dfd82edd924d807effec2061c3d8f7abd6e041ef9",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g6-earlysigns",
+      "text": "The blog states π0.7 shows early signs of compositional task generalization.",
+      "requiredCitationIds": [
+        "pi07-blog-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "374c61a013c4498a6c4f8f9c69d4fbb7798ed9e295f0b88f1c90c8f3b5dfceb9",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g6-earlysigns",
+      "citationId": "pi07-blog-2026",
+      "sourceUrl": "https://www.pi.website/blog/pi07",
+      "supportingPassage": "π0.7 shows early signs of compositional task generalization through a combination of diverse language instructions, language coaching, and visual subgoals."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g6-earlysigns",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Blog sentence quoted verbatim; first-person vendor voice, so attributing \"early signs\" to the authors is faithful.",
+      "evidenceDigest": "75034395687324fccaf12609efceedadff8c49468cfe256d3234f62b8a871ce8"
+    }
+  ]
+},
+{
+  "id": "generalization-g7-pi07-laundry-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 7,
+  "originalCellsDigest": "0a35abb5403614f9c464babeda3a06002b18a23554b1eb961f3cca2b5361db80",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g7-model-figures",
+      "text": "π0.7 achieves 85.6% task progress and an 80% success rate on UR5e laundry folding without folding data from that platform.",
+      "requiredCitationIds": [
+        "pi07-2026"
+      ]
+    },
+    {
+      "id": "g7-human-figures",
+      "text": "Expert teleoperators first attempting the task on the UR5e achieve 90.9% task progress and an 80.6% success rate.",
+      "requiredCitationIds": [
+        "pi07-2026"
+      ]
+    },
+    {
+      "id": "g7-operator-panel",
+      "text": "The comparison panel is 10 experienced teleoperators, mean 375 hours of experience, all within the top 2% by experience.",
+      "requiredCitationIds": [
+        "pi07-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "b100f7511833486809bf3109833947202f077d70fccb69fe19ee80f24686a511",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g7-model-figures",
+      "citationId": "pi07-2026",
+      "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+      "supportingPassage": "π0.7 achieves 85.6% task progress and an 80% success rate, demonstrating performance comparable to these expert operators despite not trained with any folding data from the UR5e platforms."
+    },
+    {
+      "partId": "g7-human-figures",
+      "citationId": "pi07-2026",
+      "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+      "supportingPassage": "The human operators achieved 90.9% task progress and an 80.6% success rate, while π0.7 achieved 85.6% task progress and an 80% success rate, demonstrating performance comparable to these expert operators."
+    },
+    {
+      "partId": "g7-operator-panel",
+      "citationId": "pi07-2026",
+      "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+      "supportingPassage": "To contextualize these results, we conducted a human subject study with 10 experienced teleoperators (mean 375 hours of teleoperation experience across all robots, all within the top 2% by experience)."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g7-model-figures",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Slice ended at \"achieves 85.\"; integrator re-read the full sentence in the retained hash-verified fetch: \"π0.7 achieves 85.6% task progress and an 80% success rate... despite not trained with any folding data from the UR5e platforms.\" Both figures and the no-folding-data scope are stated.",
+      "evidenceDigest": "27f24bdaabbc2ca8357c72390900610097a219bc9a40eabd3b619d971086032e"
+    },
+    {
+      "partId": "g7-human-figures",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Slice ended at \"achieved 90.\"; integrator re-read the full sentence in the retained hash-verified fetch: \"The human operators achieved 90.9% task progress and an 80.6% success rate...\" Both figures stated.",
+      "evidenceDigest": "fd1a60c635cf4d374c4c543d9245afacc8f0f2a0b7ff8a942ce11860dac56c28"
+    },
+    {
+      "partId": "g7-operator-panel",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: 10 experienced teleoperators, mean 375 hours, all within the top 2% by experience; supports the panel description.",
+      "evidenceDigest": "ccbcaf47b9620789ac5c9f1e70e39854aceb5f19a7b6ce0709f01050da2d3932"
+    }
+  ]
+},
+{
+  "id": "generalization-g8-pi07-bag-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 8,
+  "originalCellsDigest": "4acbc300e12c86d4fe37ded1a57ff9e205cceb37c1c15d967a0d64a597db9a16",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g8-strategy-split",
+      "text": "Source-robot teleoperators hold the bag open with one arm; the taller UR5e can do the task with a single-arm pick-and-place.",
+      "requiredCitationIds": [
+        "pi07-2026"
+      ]
+    },
+    {
+      "id": "g8-discovery",
+      "text": "π0.7 discovers the single-arm strategy suited to its greater reach.",
+      "requiredCitationIds": [
+        "pi07-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "fa740371bcf28859c31cd3fadf7c4351d1e4fbf0fe4da5e218e135db853e3a2a",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g8-strategy-split",
+      "citationId": "pi07-2026",
+      "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+      "supportingPassage": "For example, the shorter static bimanual robot must use one arm to hold the bag open while the other performs insertion, whereas the taller UR5e arm can accomplish the same task with a single-arm pick-and-place (Fig."
+    },
+    {
+      "partId": "g8-discovery",
+      "citationId": "pi07-2026",
+      "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+      "supportingPassage": "7 instead discovers a single-arm pick-and-place strategy suited to the robot’s greater reach."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g8-strategy-split",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: bimanual hold-open+insert versus taller UR5e single-arm pick-and-place; supports the strategy split.",
+      "evidenceDigest": "b7be3a32b347b045191db4b0da1538f2b514fa98e4bcabce914c3f207ddd37ba"
+    },
+    {
+      "partId": "g8-discovery",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: π0.7 instead discovers a single-arm pick-and-place strategy suited to greater reach; supports the discovery claim.",
+      "evidenceDigest": "36508e9a1ae23bbe225af89909d034caab6a3978062b7ba0781e5ec05d5136c4"
+    }
+  ]
+},
+{
+  "id": "generalization-g9-pi07-embodiment-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "3876930fc5062ce14b9d13d828a95c5a7aba9beea5a6756af8662b27be62d588",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g9-degrades",
+      "text": "As the embodiment gap widens, π0.5 degrades significantly while π0.6 and π0.7 retain strong performance.",
+      "requiredCitationIds": [
+        "pi07-2026"
+      ]
+    },
+    {
+      "id": "g9-recovers",
+      "text": "At the largest embodiment gap π0.7 significantly outperforms the prior models.",
+      "requiredCitationIds": [
+        "pi07-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "dfb0ab4eda5efb83c059ebb429d422545c173f8990d203dab04e3a8f149068e5",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g9-degrades",
+      "citationId": "pi07-2026",
+      "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+      "supportingPassage": "However, when we increase the embodiment gap more significantly and test policies on the smaller static bimanual platform when all data was collected on the larger UR5e bimanual platform (“Bag In Backpack” and “Organize Tupperware” tasks), we find that the performance of π0.5 degrades significantly, while both π0.6 and π0.7 still are able to achieve strong performance."
+    },
+    {
+      "partId": "g9-recovers",
+      "citationId": "pi07-2026",
+      "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+      "supportingPassage": "Here, π0.7 significantly outperforms the prior models."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g9-degrades",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: at the widened gap π0.5 degrades significantly while π0.6 and π0.7 retain strong performance; supports the degradation half.",
+      "evidenceDigest": "8f2094afa7bb6da4e25b87170e65b0394dcfbcf5bc530d64df610f1f92df8a1d"
+    },
+    {
+      "partId": "g9-recovers",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: at the largest gap π0.7 significantly outperforms the prior models; supports the recovery half.",
+      "evidenceDigest": "c2c94bbf5e6f1bd6f7f46b4484472f57692ef8bfba0578bfbef2d1936eb2368c"
+    }
+  ]
+},
+{
+  "id": "generalization-g10-local-crossings-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 10,
+  "originalCellsDigest": "b86bc431d3df19818b1c57958b5fdac50288ef772bf0f08124a0f5338ab4fc99",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g10-points",
+      "text": "The five completion points the fit passes through are the paper's reported 0.30 at 1k hours to 0.71 at 20k hours, monotonic with no saturation.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    },
+    {
+      "id": "g10-noextrap",
+      "text": "The paper itself does not extrapolate beyond the measured range, which the article states explicitly.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "0f79674637f3c694128f39274e5ba3a54a4fd4acc6c6aef0ca784138a6a3ae62",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g10-points",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "Average task completion rises monotonically from 0.30 at 1k hours to 0.71 at 20k hours, with no signs of saturation in the explored regime."
+    },
+    {
+      "partId": "g10-noextrap",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "While we do not extrapolate beyond the measured range, this trend suggests substantial headroom for further gains as both human data scale and model capacity continue to increase."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g10-points",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Slice ended at \"from 0.\"; integrator re-read the full sentence in the retained hash-verified fetch: rises monotonically from 0.30 at 1k hours to 0.71 at 20k hours, no signs of saturation. The five fit inputs are the paper's reported scores.",
+      "evidenceDigest": "ae5fb3cd8f928caa5cef431ae1fd122220865f21e3580e13808a55909d1ec757"
+    },
+    {
+      "partId": "g10-noextrap",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: the paper does not extrapolate beyond the measured range; the crossing labels are the article's own extrapolation, stated as such.",
+      "evidenceDigest": "19ed47b4e0774ac747b1f9f6c26a0f369e1505d69e3fbeae08decf6d4e6dccde"
+    }
+  ]
+},
+{
+  "id": "generalization-g11-egoscale-law-quirk-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 11,
+  "originalCellsDigest": "eef9fc53063e5aa196aa0a6f9d0796adcf985e215b98b97f31506a32c3b378ff",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g11-equation",
+      "text": "Display equation (1) with D described as number of hours and fit R²=0.9983.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    },
+    {
+      "id": "g11-scales",
+      "text": "Five pretraining scales: 1k, 2k, 4k, 10k, 20k hours.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "d22bf821c17fafe85838ea785b69c79b2eb6d4ce367102e23d1b2a66bbe89897",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g11-equation",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "Strikingly, when we plot the optimal validation loss achieved at convergence against data scale (Figure 5 , center), we observe a remarkably clean log-linear scaling law: 𝐋 = 0.024 − 0.003 ⋅ ln ⁡ ( 𝐃 ) , \\mathbf{L=0.024-0.003\\cdot\\ln(D)}, (1) where D D denotes the number of hours of human pretraining data. The fitted curve achieves an R 2 R^{2} of 0.9983 , indicating an almost perfect linear relationship in log space."
+    },
+    {
+      "partId": "g11-scales",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "We pretrain models using 1k, 2k, 4k, 10k, and 20k hours of human data."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g11-equation",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete contiguous span carries display equation (1), the units sentence and R²=0.9983; the literal/figure-consistent tension is preserved as S per the S1 register, not resolved by editing.",
+      "evidenceDigest": "3e8bafbdbc452aa001519deab99bc962b4b3464620efbec2ec11aae2a52dd2ac"
+    },
+    {
+      "partId": "g11-scales",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: five scales 1k, 2k, 4k, 10k, 20k hours; supports the part.",
+      "evidenceDigest": "69a1651e99635c15516cf4e753344caa066866eaaa21f670b6c7b13fab2cf581"
+    }
+  ]
+},
+{
+  "id": "generalization-g12-egoscale-figures-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 12,
+  "originalCellsDigest": "67d5a5078fd05f7ee6645bdbbd08572b5dc007c6a0249955024f8f85b68a823e",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g12-hours",
+      "text": "20,854 hours of action-labeled egocentric human video, more than 20× prior efforts, with a log-linear scaling law.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    },
+    {
+      "id": "g12-completion",
+      "text": "Downstream completion rises monotonically 0.30→0.71 from 1k to 20k hours with no saturation.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    },
+    {
+      "id": "g12-54pct",
+      "text": "Final policy improves average success rate by 54% over no pretraining on a 22-DoF dexterous hand.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    },
+    {
+      "id": "g12-robot",
+      "text": "Real-world experiments on Galaxea R1Pro with 22-DoF Sharpa hands.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "7484144c67a4c204684781ea22f3258d53bb95a0841fa5b3464792244c4b483f",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g12-hours",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "We train a Vision–Language–Action (VLA) model on over 20,854 hours of action-labeled egocentric human video—more than 20× larger than prior efforts—and uncover a log-linear scaling law between human data scale and validation loss."
+    },
+    {
+      "partId": "g12-completion",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "Average task completion rises monotonically from 0.30 at 1k hours to 0.71 at 20k hours, with no signs of saturation in the explored regime."
+    },
+    {
+      "partId": "g12-54pct",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "Our final policy improves average success rate by 54% over a no-pretraining baseline using a 22-DoF dexterous robotic hand, and transfers effectively to robots with lower-DoF hands, indicating that large-scale human motion provides a reusable, embodiment-agnostic motor prior."
+    },
+    {
+      "partId": "g12-robot",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "5 Robot Systems and Control The real world experiments are conducted on the Galaxea R1Pro humanoid robot with 22-DoF Sharpa dexterous robot hands."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g12-hours",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: over 20,854 hours, >20× prior efforts, log-linear law; supports the part.",
+      "evidenceDigest": "64ff6c83ce6288efb7d901b3679bcb6b583887d66dcfe04d5aa4f56bbaa43ef6"
+    },
+    {
+      "partId": "g12-completion",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Slice ended at \"from 0.\"; integrator re-read the full sentence (0.30 at 1k to 0.71 at 20k, no saturation); supports the completion span.",
+      "evidenceDigest": "366547783ead8e36c4d57023911e234d8e18435e976ec48fc951b05c24b1f7a9"
+    },
+    {
+      "partId": "g12-54pct",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: improves average success rate by 54% over no pretraining on a 22-DoF dexterous hand; supports the part.",
+      "evidenceDigest": "16122cdbaca9f9a4710a8b225a4be88100c86169d0858c6dbf77a5f5daf69cc6"
+    },
+    {
+      "partId": "g12-robot",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: Galaxea R1Pro with 22-DoF Sharpa hands; supports the robot identity.",
+      "evidenceDigest": "a8914acb7cad817b3d1724d9ef143a2b48a2d2d0541b6e3505afd96172431398"
+    }
+  ]
+},
+{
+  "id": "generalization-g13-egoscale-display-units-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 13,
+  "originalCellsDigest": "7c22be26d385414631beeb904b3fe93679d97185a8de3857d11e14737d73b549",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g13-units",
+      "text": "Equation (1) sentence describes D as the number of hours of human pretraining data.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    },
+    {
+      "id": "g13-scales",
+      "text": "The five measured scales are 1k, 2k, 4k, 10k, and 20k hours.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "42815a23377db3bdfed00594ee086fa92b31aec155c2d4e15ff4a9299afc16a3",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g13-units",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "Strikingly, when we plot the optimal validation loss achieved at convergence against data scale (Figure 5 , center), we observe a remarkably clean log-linear scaling law: 𝐋 = 0.024 − 0.003 ⋅ ln ⁡ ( 𝐃 ) , \\mathbf{L=0.024-0.003\\cdot\\ln(D)}, (1) where D D denotes the number of hours of human pretraining data. The fitted curve achieves an R 2 R^{2} of 0.9983 , indicating an almost perfect linear relationship in log space."
+    },
+    {
+      "partId": "g13-scales",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "We pretrain models using 1k, 2k, 4k, 10k, and 20k hours of human data."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g13-units",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Same equation span as G11: paper text says D denotes the number of hours; the figure-consistent reading stays documented in the S1 register and the module. Recorded, not corrected.",
+      "evidenceDigest": "906d2736597391002ab162a1a2d26f3b71db32ab3b543c1ab28b301e668c8f63"
+    },
+    {
+      "partId": "g13-scales",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: five scales; consistent with the figure-consistent reading documented in the module.",
+      "evidenceDigest": "715296b87bbb04c67efcb652a8a1f7af86d8716caf8dd8e2b813609e77414392"
+    }
+  ]
+},
+{
+  "id": "generalization-g14-gr00t-egoscale-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 14,
+  "originalCellsDigest": "cb9a41ba7b009e0acab1e6d7f80ec1beb55b62fac43edd0c192e944a15f7cd72",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g14-20k",
+      "text": "GR00T N1.7 pretraining includes 20K hours of EgoScale human video data.",
+      "requiredCitationIds": [
+        "isaac-gr00t-repo-2026"
+      ]
+    },
+    {
+      "id": "g14-eef",
+      "text": "Because the relative EEF representation is consistent across human and robot data, human-video priors transfer to robot control.",
+      "requiredCitationIds": [
+        "isaac-gr00t-repo-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "bb0a7f4880e35e09e997511de7fd2ed3adbe75bd9f9d395a1c06af0a502eddb3",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g14-20k",
+      "citationId": "isaac-gr00t-repo-2026",
+      "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+      "supportingPassage": "GR00T N1.7 is fully commercially licensable under Apache 2.0. It delivers comparable performance to N1.6, with improved generalization and language-following capabilities driven by the inclusion of 20K hours of EgoScale human video data in pretraining."
+    },
+    {
+      "partId": "g14-eef",
+      "citationId": "isaac-gr00t-repo-2026",
+      "sourceUrl": "https://github.com/NVIDIA/Isaac-GR00T",
+      "supportingPassage": "N1.7 is pretrained on 20K hours of EgoScale human video data alongside diverse robot demonstrations. Because the relative EEF action representation is consistent across both human and robot data, the model can transfer manipulation priors learned from human video directly to robot control."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g14-20k",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Retained raw README (sha256-verified): 20K hours of EgoScale human video data in pretraining; vendor first-party; reading bound to the retained 2026-09-15 fetch of a moving document.",
+      "evidenceDigest": "1aeb20dfeff24ce55f3aaef838dbcb3dbceb64b806ebe8ce8599229d8e6b5718"
+    },
+    {
+      "partId": "g14-eef",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Retained raw README: relative EEF representation consistent across human and robot data, priors transfer to robot control; supports the mechanism.",
+      "evidenceDigest": "b1c54638cdd1debacca01448420b28345975594b39d0be2d56b8055471efc2c7"
+    }
+  ]
+},
+{
+  "id": "generalization-g15-gr2-ondevice-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 15,
+  "originalCellsDigest": "cff3cf2aef61d1d50d56e80500bc5a75bade9a66ba3bd4c374df52bd3b9d943e",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g15-adapt-quote",
+      "text": "Few hours of adaptation time, typically less than 200 examples, for new bi-arm embodiments.",
+      "requiredCitationIds": [
+        "gemini-robotics-2-2026"
+      ]
+    },
+    {
+      "id": "g15-model-scope",
+      "text": "The announcement assigns this fast-adaptation capability to Gemini Robotics On-Device 2, one of three announced models.",
+      "requiredCitationIds": [
+        "gemini-robotics-2-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "e9fe77a2e609f6b0373b473044863c4a6ef0e19c2a1228887036ab6b46627d9d",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g15-adapt-quote",
+      "citationId": "gemini-robotics-2-2026",
+      "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+      "supportingPassage": "This model is natively multi-embodiment and inherits our advanced “motion transfer” techniques from Gemini Robotics 1.5. We can now adapt to new bi-arm robot embodiments with just a few hours of adaptation time, typically with less than 200 examples."
+    },
+    {
+      "partId": "g15-model-scope",
+      "citationId": "gemini-robotics-2-2026",
+      "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+      "supportingPassage": "Gemini Robotics On-Device 2: Our most efficient vision-language-action model (VLA) optimized to run locally on robotic devices. This model can now achieve fast adaptation to completely new robot embodiments with a few hours of data."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g15-adapt-quote",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Blog passage: adapt to new bi-arm robot embodiments with just a few hours of adaptation time, typically with less than 200 examples; supports the figures.",
+      "evidenceDigest": "d14e3c434dc810a01a1ddeb9f0a2b32aa485492522bcb93b14ba10a63084f1f0"
+    },
+    {
+      "partId": "g15-model-scope",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Model-list bullet assigns the fast-adaptation capability to Gemini Robotics On-Device 2 within the same three-model announcement; supports the corrected attribution.",
+      "evidenceDigest": "fe3dfdd58093d0230e0183a298cff1c99675ba060686f52a1e113fa20ee29d4b"
+    }
+  ]
+},
+{
+  "id": "generalization-g16-karcini-position-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 16,
+  "originalCellsDigest": "caf1c4e0e47e2a86bbe5b26ec997d2285090111aa6ef4bc36439d96e675c6c16",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g16-central",
+      "text": "The missing layer is not another policy architecture alone but components that transform physical experience into robot-usable supervision.",
+      "requiredCitationIds": [
+        "karcini-position-2026"
+      ]
+    },
+    {
+      "id": "g16-bottleneck",
+      "text": "The bottleneck is not only scaling policies but converting unstructured physical experience into grounded robot supervision.",
+      "requiredCitationIds": [
+        "karcini-position-2026"
+      ]
+    },
+    {
+      "id": "g16-pillars",
+      "text": "Four missing pillars: physical data engine, task-preserving retargeting, physics-grounded world models, task-conditioned reward grounding.",
+      "requiredCitationIds": [
+        "karcini-position-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "c1c29644163e6b13db6fec5d9e31d9bd3b51734fb452036d83a9f169ac333efa",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g16-central",
+      "citationId": "karcini-position-2026",
+      "sourceUrl": "https://arxiv.org/html/2606.06556",
+      "supportingPassage": "This organisation leads to our central claim: the missing layer in robotics is not another policy architecture alone, but a set of components that transform physical experience into robot-usable supervision."
+    },
+    {
+      "partId": "g16-bottleneck",
+      "citationId": "karcini-position-2026",
+      "sourceUrl": "https://arxiv.org/html/2606.06556",
+      "supportingPassage": "The central bottleneck for future robotics is therefore not only how to scale policies, but how to convert unstructured physical experience into grounded robot supervision."
+    },
+    {
+      "partId": "g16-pillars",
+      "citationId": "karcini-position-2026",
+      "sourceUrl": "https://arxiv.org/html/2606.06556",
+      "supportingPassage": "We argue that this requires four missing pillars: a physical data engine for embodied autolabelling, task-preserving retargeting across embodiments, physics-grounded world models for consequence prediction, and task-conditioned reward grounding through deployment loops."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g16-central",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: the missing layer is not another policy architecture alone but components transforming physical experience into robot-usable supervision; supports the central claim.",
+      "evidenceDigest": "a1def96dcfdc5e369cb126aa2cf64796e1a4e487d540ec48fb0ae2eefb32b9a0"
+    },
+    {
+      "partId": "g16-bottleneck",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: not only how to scale policies but how to convert unstructured physical experience into grounded robot supervision; supports the bottleneck part.",
+      "evidenceDigest": "ccb848035a8f92a4f2caf708bc3151148428c9a8b8c57f03ce9f3843f8f10622"
+    },
+    {
+      "partId": "g16-pillars",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage lists the four missing pillars; all are data-engine components; supports the pillars part.",
+      "evidenceDigest": "a38c380661a7a9a0a0ab2fd61ca1fce8ba7a8cbdaaea4a6ec417eb195a3c905a"
+    }
+  ]
+},
+{
+  "id": "generalization-g18-bessemer-scaling-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 18,
+  "originalCellsDigest": "16e6487e12b3ebcc0c20a3f99edd328a84adef3adfa6984e48ed78f4e45cedd3",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g18-scaling-laws",
+      "text": "The essay says LLM-era scaling laws are beginning to show up in robotics data while reliable deployment remains ahead.",
+      "requiredCitationIds": [
+        "bessemer-robotics-2026"
+      ]
+    },
+    {
+      "id": "g18-moment",
+      "text": "The ChatGPT moment for robotics is \"not years away\" but \"not here yet\".",
+      "requiredCitationIds": [
+        "bessemer-robotics-2026"
+      ]
+    },
+    {
+      "id": "g18-egoscale-read",
+      "text": "Bessemer reads EgoScale as policy performance scaling predictably with pretraining data size.",
+      "requiredCitationIds": [
+        "bessemer-robotics-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "f970ae26359f7ef5d82a25d7d42f5416b695318786670abc9ea7d9ad59a0e798",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g18-scaling-laws",
+      "citationId": "bessemer-robotics-2026",
+      "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+      "supportingPassage": "Robotics is at an analogous moment. The demos are real. The underlying models are improving. The scaling laws that defined the LLM era are beginning to show up in robotics data. But generalized, reliable deployment in the physical world? That’s still ahead of us."
+    },
+    {
+      "partId": "g18-moment",
+      "citationId": "bessemer-robotics-2026",
+      "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+      "supportingPassage": "We don’t think that moment is years away. But it’s not here yet."
+    },
+    {
+      "partId": "g18-egoscale-read",
+      "citationId": "bessemer-robotics-2026",
+      "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+      "supportingPassage": "The EgoScale paper, published in February 2026, showed that policy performance scales predictably with pretraining data size—the first strong evidence that robotics foundation models follow the same data-driven improvement curves that defined LLMs."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g18-scaling-laws",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Essay passage verbatim: LLM-era scaling laws beginning to show up in robotics data while reliable deployment stays ahead; supports the scaling-camp framing.",
+      "evidenceDigest": "84f484161724462d41cc9421528ae33316ebde66c7425338aef2a222bb1cbc72"
+    },
+    {
+      "partId": "g18-moment",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Essay passage verbatim: moment not years away but not here yet; supports the timeline quote with its caveat.",
+      "evidenceDigest": "7f409099db527d751bb0568fd6f10d596d857d857bf3c6ecb3820b17fee96bd8"
+    },
+    {
+      "partId": "g18-egoscale-read",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Essay passage: Bessemer reads EgoScale as policy performance scaling predictably with pretraining data size; investor reading, attributed as such.",
+      "evidenceDigest": "272ddcdce1e9d48e4fc185d99e1c27648588918ffd6a47569f44e6ca678a3512"
+    }
+  ]
+},
+{
+  "id": "generalization-g19-editorial-scoping-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 19,
+  "originalCellsDigest": "5782a7d05190019fb6df78b81da1814dd74c790167f242b83f2a2833877ca0ca",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g19-pi05-basis",
+      "text": "Strongest open-world evaluation covers three real homes, ten trials per task.",
+      "requiredCitationIds": [
+        "pi05-2025"
+      ]
+    },
+    {
+      "id": "g19-pi07-basis",
+      "text": "π0.7 UR5e laundry: 80% success, below the 95% line.",
+      "requiredCitationIds": [
+        "pi07-2026"
+      ]
+    },
+    {
+      "id": "g19-ego-basis",
+      "text": "EgoScale best measured downstream completion is 0.71 at 20k hours, a proxy metric, not unseen-home success.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "9c5455396e54fc633686cf906da9afa517594fe0592b6c528c6fe1eb7975f618",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g19-pi05-basis",
+      "citationId": "pi05-2025",
+      "sourceUrl": "https://arxiv.org/pdf/2504.16054",
+      "supportingPassage": "For quantitative comparisons, we use a set of mock home environments to provide a controlled and reproducible setup, while the most realistic final evaluation is conducted in three real homes that were not part of the training set (see Figure 6)."
+    },
+    {
+      "partId": "g19-pi07-basis",
+      "citationId": "pi07-2026",
+      "sourceUrl": "https://www.pi.website/download/pi07.pdf",
+      "supportingPassage": "π0.7 achieves 85.6% task progress and an 80% success rate, demonstrating performance comparable to these expert operators despite not trained with any folding data from the UR5e platforms."
+    },
+    {
+      "partId": "g19-ego-basis",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "Average task completion rises monotonically from 0.30 at 1k hours to 0.71 at 20k hours, with no signs of saturation in the explored regime."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g19-pi05-basis",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Strongest open-world evaluation passage: three real homes, ten trials per task; no >95% broad-distribution result here.",
+      "evidenceDigest": "cc510501a2c6617c3efbbf7e4e624d67235af842da1e8ea9d682aca3b2f1db0a"
+    },
+    {
+      "partId": "g19-pi07-basis",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Full sentence re-read from the retained fetch: π0.7 UR5e laundry 80% success; below the 95% line.",
+      "evidenceDigest": "033ac1b3924a11d3ee1d9a5db0ab2b38abdcae27f6f0fdead3aba535c7916fa8"
+    },
+    {
+      "partId": "g19-ego-basis",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Full sentence re-read from the retained fetch: best measured completion 0.71 at 20k hours; a proxy metric, not unseen-home success.",
+      "evidenceDigest": "2aa436f20032e5c7231b699b1ec11832be80bc4ecbe87dd8f0d1275e26fa563e"
+    }
+  ]
+},
+{
+  "id": "generalization-g20-statbox-and-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 20,
+  "originalCellsDigest": "c78e49437dc2c3d0e63919e05e49f902a33969c18f4a7dcfe3e3257e27720412",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g20-source",
+      "text": "20,854 hours, >20× prior efforts, log-linear law discovered.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    },
+    {
+      "id": "g20-completion",
+      "text": "Completion 0.30→0.71 from 1k to 20k hours, no saturation.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "9bf4c0f2b68d9a2e166b2868bda77b34a80ad8a6cacb2b5a94d93bc2371ca0ab",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g20-source",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "We train a Vision–Language–Action (VLA) model on over 20,854 hours of action-labeled egocentric human video—more than 20× larger than prior efforts—and uncover a log-linear scaling law between human data scale and validation loss."
+    },
+    {
+      "partId": "g20-completion",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "Average task completion rises monotonically from 0.30 at 1k hours to 0.71 at 20k hours, with no signs of saturation in the explored regime."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g20-source",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: 20,854 hours, >20×, log-linear law discovered; supports the stat-box source figures.",
+      "evidenceDigest": "355761e9d98da8048e5b143f852ea316e8218f40f72e1c3ec3094e1eb3c03423"
+    },
+    {
+      "partId": "g20-completion",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Full sentence re-read from the retained fetch (0.30→0.71); supports the stat-box completion figure.",
+      "evidenceDigest": "b1d0cc1b6c0e7d7ed7f8cfb9bf218c6375393a09d3884d4e4c362aae4c52098a"
+    }
+  ]
+},
+{
+  "id": "generalization-g21-local-bar-crossing-20260915",
+  "ledgerPath": "audit/frontier.md",
+  "articleSlug": "generalization",
+  "rowOrdinal": 21,
+  "originalCellsDigest": "30e9bc47cb9213ba7954a925e9d22d61cde95a45846f286531c710b7264c4745",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "g21-points",
+      "text": "The fit's five input points are the paper's 0.30→0.71 completion scores at 1k→20k hours.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    },
+    {
+      "id": "g21-noextrap",
+      "text": "The paper does not extrapolate beyond 20k hours; the crossing label is the article's extrapolation, stated as such.",
+      "requiredCitationIds": [
+        "egoscale-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+    "planDigest": "65c0d1c1a121890361f6e3d8121a88a9cb96cb48708ac9c70a88ffb0e9b905ea",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 8d878006...) at HEAD b669ea1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every evidence item was adjudicated against its own preserved passage; where the packet's passage table sliced a fetched PDF at a mid-number window boundary, the integrator re-read the full sentence in the retained sha256-verified fetch (curl 200 timestamps per the packet fetch log; retrieval time 2026-09-15T10:45-10:46Z kept distinct from this review) and the load-bearing figures are carried in the applied passage. Registered citation identity verified per-id in data/citations.ts; no registry additions. Local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. Zero retrieval. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "g21-points",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "Average task completion rises monotonically from 0.30 at 1k hours to 0.71 at 20k hours, with no signs of saturation in the explored regime."
+    },
+    {
+      "partId": "g21-noextrap",
+      "citationId": "egoscale-2026",
+      "sourceUrl": "https://arxiv.org/html/2602.16710",
+      "supportingPassage": "While we do not extrapolate beyond the measured range, this trend suggests substantial headroom for further gains as both human data scale and model capacity continue to increase."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "g21-points",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Full sentence re-read from the retained fetch: the five fit inputs are the paper's reported completion scores.",
+      "evidenceDigest": "42a4662cf44143187805558b810d3612e09131445c753cc8d4a3ff22f3947e09"
+    },
+    {
+      "partId": "g21-noextrap",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator b2e9a429-401d-486e-bb76-6511c09ffc36; preserved-packet + retained-hash-verified-source review 2026-09-15",
+      "rationale": "Complete passage: paper does not extrapolate; the crossing is the article's labelled extrapolation.",
+      "evidenceDigest": "90b86ceeb59cc7489888ef6ab1355079f8d2c48142990c3266045b73bf92f78d"
+    }
+  ]
 }
 ]

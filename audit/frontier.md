@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 6
 - Claim rows: 147
-- Recorded verified: 97
-- Recorded corrected: 47
+- Recorded verified: 94
+- Recorded corrected: 50
 - Recorded cut: 0
 - Recorded source inconsistencies: 3
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 54
-- Incomplete evidence records: 93
+- Complete evidence records: 74
+- Incomplete evidence records: 73
 
 <!-- audit-summary:end -->
 
@@ -54,19 +54,19 @@ Conventions: verdicts count **ledger rows**; the summary also states **distinct 
 
 ## generalization.mdx
 
-| # | Claim (quoted) | Source checked | Verdict | Note |
-|---|---|---|---|---|
-| G1 | π0.5 evaluation: "three real homes, three kitchens and three bedrooms, with ten trials per task... each episode spanning minutes" | arXiv 2504.16054 PDF (fetched) | V | Fig. 7: "three kitchens and three bedrooms in real homes that were not seen during training"; tasks 'items in drawer', 'laundry basket', 'dishes in sink'; "averaged over 10 trials"; tasks "lasting about 2 to 5 minutes" (full cleanups 10-15 min) |
-| G2 | "Only about 400 hours... mobile-manipulator data collected in real homes; 97.6% of the training examples come from somewhere else" | π0.5 PDF | V | "about 400 hours"; "The overwhelming majority of training examples provided to π0.5 (97.6% during the first training phase) do not come from mobile manipulators" |
-| G3 | Control trained on test-home data "scores about the same as the 104-location model" | π0.5 PDF | V | "a control... trained directly on data from the test homes. This control attains similar performance as the final 104-location model" |
-| G4 | "strip the non-action data and the open-world result disappears" | π0.5 PDF | V | baselines without co-training tasks "significantly worse"; other data sources "essential for good generalization" |
-| G5 | π0.7 blog quote: "makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully" | pi.website/blog/pi07 (fetched) | V | verbatim |
-| G6 | Authors describe "early signs of compositional task generalization" | pi07 blog (fetched) | V | "π0.7 shows early signs of compositional task generalization" |
-| G7 | UR5e laundry: π0.7 85.6% progress / 80% success; teleoperators 90.9% / 80.6%; "top 2% by experience with a mean of 375 hours" | pi.website/download/pi07.pdf (fetched, pdftotext) | V | all five figures verbatim from the human-subject study section |
-| G8 | Bag-packing: teleoperators two-arm hold-open+insert; π0.7 "discovers a single-arm pick-and-place suited to its reach" | π0.7 PDF | V | "the shorter static bimanual robot must use one arm to hold the bag open while the other performs insertion, whereas the taller UR5e arm can accomplish the same task with a single-arm pick-and-place" |
-| G9 | "the π0.7 paper's own ablations show performance degrading as the embodiment gap widens before the latest model recovers it" | π0.7 PDF | V | Fig. 12 narrative: π0.5 "degrades significantly" at larger gaps; π0.7 "significantly outperforms the prior models" |
-| G10 | Completion-fit crossings: solved bar near 111k hours; "crosses 100% near 250k hours" | arithmetic over lib/egoscale-law.ts COMPLETION_POINTS | V | least-squares fit crosses 0.90 at 111k h, 1.0 at 250k h; chart labels both as extrapolation, which the article states |
-| G11 | EgoScale law `L = 0.024 - 0.003 ln D` (D in thousands of hours), five scales 1k-20k, R²=0.9983 | arXiv 2602.16710 (fetched; see S1) | S | see source-quirk register; figure-consistent reading reproduces Figure 5's 0.0150-0.0240 loss span, literal hours-reading crosses zero at 2,981 h |
+| # | Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
+|---|---|---|---|---|---|---|---|---|
+| G1 | π0.5 evaluation: "three real homes, three kitchens and three bedrooms, with ten trials per task... each episode spanning minutes" | π0.5 paper PDF, https://arxiv.org/pdf/2504.16054; retained fetch curl GET 200 2026-09-15T10:45:22Z, sha256 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Verified against the retained hash-verified fetch, integrator-read 2026-09-15: "the most realistic final evaluation is conducted in three real homes that were not part of the training set"; Fig. 7 caption "three kitchens and three bedrooms in real homes that were not seen during training"; "averaged over 10 trials"; tasks "lasting about 2 to 5 minutes"; long-horizon cleanups "durations of 10 to 15 minutes". Claim unchanged; evidence fields completed. |  |  |  | generalization-g1-pi05-eval-20260915 |
+| G2 | "Only about 400 hours... mobile-manipulator data collected in real homes; 97.6% of the training examples come from somewhere else" | π0.5 paper PDF, https://arxiv.org/pdf/2504.16054; retained fetch curl GET 200 2026-09-15T10:45:22Z, sha256 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | C | Corrected2026-09-15: the 97.6% figure is scoped by the paper to the first training phase. Integrator re-read the full sentence in the retained hash-verified fetch: "The overwhelming majority of training examples provided to π0.5 (97.6% during the first training phase) do not come from mobile manipulators"; the article's unqualified phrasing corrected to "97.6% of the training examples in the first training phase". The about-400-hours figure verified verbatim in the same retained text. |  |  |  | generalization-g2-pi05-mixture-20260915 |
+| G3 | Control trained on test-home data "scores about the same as the 104-location model" | π0.5 paper PDF, https://arxiv.org/pdf/2504.16054; retained fetch curl GET 200 2026-09-15T10:45:22Z, sha256 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Preparer verified against the PDF fetched 2026-09-15T10:45:22Z; integrator re-read the passage in the retained hash-verified fetch: "we include a control (shown in green) that is trained directly on data from the test homes. This control attains similar performance as the final 104-location model". Claim unchanged; evidence fields completed. |  |  |  | generalization-g3-pi05-control-20260915 |
+| G4 | "strip the non-action data and the open-world result disappears" | π0.5 paper PDF, https://arxiv.org/pdf/2504.16054; retained fetch curl GET 200 2026-09-15T10:45:22Z, sha256 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Preparer verified against the PDF fetched 2026-09-15T10:45:22Z; integrator re-read the passage in the retained hash-verified fetch: "The performance for both those baselines is significantly worse — this indicates that the other data sources leveraged by our full training recipe are essential for good generalization, even when the policy has seen robot data from test homes." Claim unchanged; evidence fields completed. |  |  |  | generalization-g4-pi05-ablation-20260915 |
+| G5 | π0.7 blog quote: "makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully" | π0.7 blog, https://www.pi.website/blog/pi07; preparer FetchUrl tool-reported 200 2026-09-15T10:45:22.681Z; passage hash-bound in the frozen packet (no retained document file; zero new retrieval) | V | Verbatim in the blog preparer-fetched 2026-09-15T10:45:22.681Z: "When we ask the robot to do a new task, using an air fryer appliance to cook a sweet potato, it makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully". Claim unchanged; evidence fields completed. |  |  |  | generalization-g5-pi07blog-airfryer-20260915 |
+| G6 | Authors describe "early signs of compositional task generalization" | π0.7 blog, https://www.pi.website/blog/pi07; preparer FetchUrl tool-reported 200 2026-09-15T10:45:22.681Z; passage hash-bound in the frozen packet (no retained document file; zero new retrieval) | V | Verbatim in the blog preparer-fetched 2026-09-15T10:45:22.681Z: "π0.7 shows early signs of compositional task generalization through a combination of diverse language instructions, language coaching, and visual subgoals." Claim unchanged; evidence fields completed. |  |  |  | generalization-g6-pi07blog-earlysigns-20260915 |
+| G7 | UR5e laundry: π0.7 85.6% progress / 80% success; teleoperators 90.9% / 80.6%; "top 2% by experience with a mean of 375 hours" | π0.7 paper PDF, https://www.pi.website/download/pi07.pdf; retained fetch curl GET 200 2026-09-15T10:45:24Z, sha256 d718dbcfcf294f87a2179052dcd2e783ea1f542f484d05dfa2ce139bc00d7d5b; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | All five figures verified against the retained hash-verified fetch, integrator-read 2026-09-15: "π0.7 achieves 85.6% task progress and an 80% success rate"; "The human operators achieved 90.9% task progress and an 80.6% success rate"; "a human subject study with 10 experienced teleoperators (mean 375 hours of teleoperation experience across all robots, all within the top 2% by experience)". Claim unchanged; evidence fields completed. |  |  |  | generalization-g7-pi07-laundry-20260915 |
+| G8 | Bag-packing: teleoperators two-arm hold-open+insert; π0.7 "discovers a single-arm pick-and-place suited to its reach" | π0.7 paper PDF, https://www.pi.website/download/pi07.pdf; retained fetch curl GET 200 2026-09-15T10:45:24Z, sha256 d718dbcfcf294f87a2179052dcd2e783ea1f542f484d05dfa2ce139bc00d7d5b; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Preparer verified against the PDF fetched 2026-09-15T10:45:24Z; integrator re-read the passage in the retained hash-verified fetch: "the shorter static bimanual robot must use one arm to hold the bag open while the other performs insertion, whereas the taller UR5e arm can accomplish the same task with a single-arm pick-and-place"; "π0.7 instead discovers a single-arm pick-and-place strategy suited to the robot’s greater reach." Claim unchanged; evidence fields completed. |  |  |  | generalization-g8-pi07-bag-20260915 |
+| G9 | "the π0.7 paper's own ablations show performance degrading as the embodiment gap widens before the latest model recovers it" | π0.7 paper PDF, https://www.pi.website/download/pi07.pdf; retained fetch curl GET 200 2026-09-15T10:45:24Z, sha256 d718dbcfcf294f87a2179052dcd2e783ea1f542f484d05dfa2ce139bc00d7d5b; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Preparer verified against the PDF fetched 2026-09-15T10:45:24Z; integrator re-read the passage in the retained hash-verified fetch: "when we increase the embodiment gap more significantly ... the performance of π0.5 degrades significantly, while both π0.6 and π0.7 still are able to achieve strong performance. We then increase the embodiment gap even more ..."; "Here, π0.7 significantly outperforms the prior models." Claim unchanged; evidence fields completed. |  |  |  | generalization-g9-pi07-embodiment-20260915 |
+| G10 | Completion-fit crossings: solved bar near 111k hours; "crosses 100% near 250k hours" | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Local-AND row, no fetch of its own: integrator re-ran the node import of lib/egoscale-law.ts at application time (COMPLETION_FIT intercept 0.32033, slope 0.12312; solvedBarCrossingHours 110,850.77 h; 1.0 crossing 249,735.98 h; completionFitScore(111000)=0.9002, (250000)=1.0001). Source basis re-read in the retained hash-verified fetch: "Average task completion rises monotonically from 0.30 at 1k hours to 0.71 at 20k hours, with no signs of saturation in the explored regime"; the paper "do not extrapolate" sentence is preserved beside the crossings. Article already labels both crossings as extrapolation. |  |  |  | generalization-g10-local-crossings-20260915 |
+| G11 | EgoScale law `L = 0.024 - 0.003 ln D` (D in thousands of hours), five scales 1k-20k, R²=0.9983 | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval; see S1 source-quirk register | S | S verdict preserved exactly (S1 register): paper equation L = 0.024 − 0.003·ln(D) with "D denotes the number of hours" (verbatim in the retained hash-verified fetch), R²=0.9983, five scales 1k-20k. Integrator re-derived locally: the literal hours reading crosses zero at e^8 ≈ 2,981 h (impossible for a loss); the figure-consistent reading (D in thousands of hours) reproduces the 0.0240→0.0150 loss span across 1k→20k and is what lib/egoscale-law.ts implements and what generalization.mdx states. Figure 5 axis tick values are figure-internal and remain S1-register/module documented, not passage-verified. Recorded, not "corrected". |  |  |  | generalization-g11-egoscale-law-quirk-20260915 |
 
 ## competing-theses.mdx
 
@@ -122,18 +122,18 @@ Conventions: verdicts count **ledger rows**; the summary also states **distinct 
 
 ## generalization.mdx (continued)
 
-| # | Claim (quoted) | Source checked | Verdict | Note |
-|---|---|---|---|---|
-| G12 | EgoScale: 20,854 h, "more than twenty times prior efforts", R²=0.9983 law, completion 0.30→0.71, +54% on a 22-DoF hand | arXiv 2602.16710 HTML (fetched) | V | every figure stated in §3.3 and Fig. 5 text; the 22-DoF hand is the Sharpa hand on Galaxea R1 Pro |
-| G13 | EgoScale display equation, "D in thousands of hours" | arXiv 2602.16710 §3.3 (fetched) | S | see source-quirk register. Paper text says "D denotes the number of hours"; the figure-consistent reading (loss span 0.0150-0.0240 at 1k-20k hours; literal reading crosses zero at 2,981 h) is what `lib/egoscale-law.ts` implements and documents. Article and module agree; recorded, not "corrected". |
-| G14 | "20K hours of EgoScale video enter GR00T N1.7 pretraining" through the shared relative-EEF space | github.com/NVIDIA/Isaac-GR00T README (fetched) | V | "20K hours of EgoScale human video data in pretraining"; "relative EEF action representation is consistent across both human and robot data" |
-| G15 | GR2 "adapts to new bi-arm embodiments with fewer than 200 examples in a few hours, a vendor-reported figure" | GR2 blog (fetched) | V | "adapt to new bi-arm robot embodiments with just a few hours of adaptation time, typically with less than 200 examples" |
-| G16 | "Karcini and co-authors argue policy scaling alone misses architectural pillars entirely" | arXiv 2606.06556 HTML (fetched) | C | the position paper argues the missing layer is **supervision infrastructure**, explicitly "not another policy architecture alone": converting "unstructured physical experience into grounded robot supervision". Its "four missing pillars" are data-engine components. Reworded to the paper's own framing. |
+| # | Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
+|---|---|---|---|---|---|---|---|---|
+| G12 | EgoScale: 20,854 h, "more than twenty times prior efforts", R²=0.9983 law, completion 0.30→0.71, +54% on a 22-DoF hand | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | All figures verified against the retained hash-verified fetch, integrator-read 2026-09-15: 20,854 hours ">20× larger than prior efforts"; R²=0.9983; "Average task completion rises monotonically from 0.30 at 1k hours to 0.71 at 20k hours, with no signs of saturation in the explored regime"; +54% over a no-pretraining baseline on a 22-DoF dexterous hand; experiments on "the Galaxea R1Pro humanoid robot with 22-DoF Sharpa dexterous robot hands". Claim unchanged; evidence fields completed. |  |  |  | generalization-g12-egoscale-figures-20260915 |
+| G13 | EgoScale display equation, "D in thousands of hours" | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval; see S1 source-quirk register | S | S verdict preserved exactly (S1 register): paper text says "D denotes the number of hours"; the figure-consistent reading (loss span 0.0240 at 1k h to 0.0150 at 20k h, integrator re-derived from lib/egoscale-law.ts) is what the module implements and the article states. Article and module agree; recorded, not "corrected". Figure-axis span stays register-documented. |  |  |  | generalization-g13-egoscale-display-units-20260915 |
+| G14 | "20K hours of EgoScale video enter GR00T N1.7 pretraining" through the shared relative-EEF space | NVIDIA Isaac GR00T README, https://github.com/NVIDIA/Isaac-GR00T; retained raw README curl GET 200 2026-09-15T10:46:15Z, sha256 62f6c55a356be039287416f97e03a3b5541052d038a3daec208ea9ff8045a067; integrator-read from the retained hash-verified fetch 2026-09-15; moving vendor document (first-party) | V | Verified verbatim in the retained hash-verified raw README, integrator-read 2026-09-15: "20K hours of EgoScale human video data in pretraining"; relative end-effector action space "shared across robot and human embodiments"; "the relative EEF action representation is consistent across both human and robot data". Vendor first-party repository statement on a moving document; reading bound to the 2026-09-15T10:46:15Z retained fetch, not a live re-retrieval. Claim unchanged; evidence fields completed. |  |  |  | generalization-g14-gr00t-egoscale-20260915 |
+| G15 | GR2 "adapts to new bi-arm embodiments with fewer than 200 examples in a few hours, a vendor-reported figure" | Gemini Robotics 2 announcement, https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/; preparer FetchUrl tool-reported 200 2026-09-15T10:46:14.287Z; passages hash-bound in the frozen packet (vendor first-party; zero new retrieval) | C | Corrected2026-09-15 attribution: the <200-examples / few-hours adaptation sentence sits in the announcement's on-device section and its model-list bullet assigns the fast-adaptation capability to Gemini Robotics On-Device 2 ("This model can now achieve fast adaptation to completely new robot embodiments with a few hours of data"), not to the Gemini Robotics 2 VLA named by the old sentence. Article span corrected to name On-Device 2 within the same announcement; vendor-reported qualifier retained. |  |  |  | generalization-g15-gr2-ondevice-20260915 |
+| G16 | "Karcini and co-authors argue policy scaling alone misses architectural pillars entirely" | Karcini et al. position paper, https://arxiv.org/html/2606.06556; retained fetch curl GET 2026-09-15T10:46:15Z, sha256 5ebe2d8837d962084a11da85c4d04e4cc50591f6a72e328b85c5f1d230f38fcd; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | C | Historical C re-verified 2026-09-15 against the retained hash-verified text: central claim "the missing layer in robotics is not another policy architecture alone"; bottleneck "how to convert unstructured physical experience into grounded robot supervision"; "four missing pillars" are data-engine components. Article already carries the corrected framing; evidence fields completed. "Supervision infrastructure" in the old note is our gloss, not a paper quotation. |  |  |  | generalization-g16-karcini-position-20260915 |
 | G17 | Goldberg "frames the shortfall as a 100,000-year data gap and argues good old-fashioned engineering... closes it" | Crossref (title/abstract) + UC Berkeley interview via techxplore (fetched) | V | title: "Good old-fashioned engineering can close the 100,000-year 'data gap' in robotics"; the gap is the ~100,000 years of human reading needed to cover LLM training text, which robot data lacks |
-| G18 | Bessemer "arguing the capability curve is steep" | Bessemer (fetched) | V | "We don't think that moment is years away. But it's not here yet" |
-| G19 | "No published result shows a generalist policy sustaining better than 95% success across a broad task distribution in unseen environments" | editorial scoping across fetched sources | V | negative scoping claim, dated by context; nothing in π0.5/π0.7/EgoScale/GR2 contradicts it |
-| G20 | Stat box: 20,854 h / R²=0.9983 / 0.71 at 20k / ">90% on N unseen homes; unmet" | EgoScale paper + arithmetic | V | covered by G12; the solved bar is the article's own definition |
-| G21 | "The optimistic extrapolation crosses the bar only near 111k hours" | arithmetic over lib/egoscale-law.ts fit | V | least-squares fit through the five published points crosses 0.90 at 111k h; chart labels it extrapolation |
+| G18 | Bessemer "arguing the capability curve is steep" | Bessemer Predicts: Robotics and physical AI, https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai; preparer FetchUrl tool-reported 200 2026-09-15T10:46:50.773Z; passages hash-bound in the frozen packet (investor first-party essay; zero new retrieval) | C | Corrected2026-09-15 gloss: "capability curve is steep" replaced by the essay's own terms, quotes verbatim in the hash-bound passages: "The scaling laws that defined the LLM era are beginning to show up in robotics data" and "We don't think that moment is years away. But it's not here yet." The ChatGPT-moment framing rides on the essay's own "analogous moment" passage and the committed R15 framing of the same essay. Investor first-party position statement, not a measured result. |  |  |  | generalization-g18-bessemer-scaling-20260915 |
+| G19 | "No published result shows a generalist policy sustaining better than 95% success across a broad task distribution in unseen environments" | editorial scoping across the retained/hash-bound fetches for rows 1, 7, 12 and 15 (π0.5 PDF, π0.7 PDF, EgoScale HTML, GR2 blog); local AND over the coupled passages; no separate fetch | V | Negative scoping claim, dated by context, re-checked 2026-09-15 by local AND over the coupled retained passages: π0.5's headline evaluation covers three real homes / ten trials per task; π0.7's UR5e laundry success is 80%; EgoScale's best measured completion is 0.71 at 20k hours (a proxy metric, not unseen-home success). None of the fetched corpus sustains >95% across a broad task distribution in unseen environments; no broad literature sweep was performed or claimed. Kept dated-by-context; no article change. |  |  |  | generalization-g19-editorial-scoping-20260915 |
+| G20 | Stat box: 20,854 h / R²=0.9983 / 0.71 at 20k / ">90% on N unseen homes; unmet" | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Stat-box values each trace to the retained hash-verified fetch (20,854 h; R²=0.9983; completion sentence 0.30→0.71 re-read in full) or to the module constants (FULL_DATASET_HOURS 20_854, R_SQUARED 0.9983, final COMPLETION_POINTS score 0.71, SOLVED_BAR_SCORE 0.9), integrator re-imported at application time. The ">90% on N unseen homes; unmet" label is the article's own solved-bar definition, not a paper claim. |  |  |  | generalization-g20-statbox-and-20260915 |
+| G21 | "The optimistic extrapolation crosses the bar only near 111k hours" | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Local-AND row: integrator re-ran the node import: solvedBarCrossingHours() = 110,850.77 h ("near 111k hours"); completionFitScore(111000) = 0.9002; 111k/20k ≈ 5.55× past the measured range, matching "five times past the end". Source basis (the five completion points) re-read in full in the retained hash-verified fetch; the paper's no-extrapolation sentence preserved. Article text already states the crossing as extrapolation. |  |  |  | generalization-g21-local-bar-crossing-20260915 |
 
 ## competing-theses.mdx (continued)
 
@@ -905,6 +905,415 @@ before/current row history follows, non-counted.
     "noteOnDigests": "proposedTupleDigest binds the applied active tuple; the frozen packet draft (its not-applied note text) differs only in note wording and stays in the lane.",
     "oldRaw": "| D25 | Helix 02 four tasks: bottle cap, single pill from an organizer, exactly 5 ml syringe, small metal parts from clutter | figure.ai/news/helix-02 (fetched) | V | Dexterity Tasks 1-4 verbatim (\"Unscrew a bottle cap\"; \"locate and extract a single small pill from an organizer\"; \"Push exactly 5 ml from a syringe\"; \"Pick metal pieces from a cluttered box\") |",
     "newRaw": "| D25 | Figure's Helix 02 announcement presents four Figure 03 demonstrations: bottle-cap removal, extracting a single pill from an organizer, a syringe task titled \"Push exactly 5 ml from a syringe\", and picking small metal components from clutter. Figure calls the videos autonomous, not teleoperated, and describes the manipulation class as previously out of reach. The returned text supplies no task-level success rates, volume calibration or modality-ablation results. | Figure AI, https://www.figure.ai/news/helix-02; retained FetchUrl request2026-09-07T16:06:58.990Z/result2026-09-07T16:07:28.926Z, tool-reported200. Retained 12,101-byte response verified byte-exact (SHA-256 9d42b081418a20a1b4b118520a76512ad615a2510c737a23d97665a3f6f55021); zero new retrieval. | C | Corrected2026-09-15: the four tasks are Figure 03 demonstrations Figure describes as manipulation previously out of reach, its scoped characterization rather than a universal first. Task titles retained ('Unscrew a bottle cap', locate/extract a single small pill from an organizer, 'Push exactly 5 ml from a syringe', pick metal pieces from a cluttered box); 5 ml is a stated task value, not a calibrated accuracy result. Videos are called fully autonomous, not teleoperated (vendor statement); the returned text supplies no task-level success rates, volume calibration or modality-ablation results, so sensor necessity is not proven. System 2/System 1/System 0 roles and System 1 inputs remain as stated in the announcement. The neighboring per-task-training assertion remains out-of-scope debt, unchanged. Reviewed2026-09-15 against the retained response; all seven mandatory AND parts supported. No video inspection, fresh liveness, whole-P1 or independent acceptance. |  |  |  | dexterity-helix02-tasks-25-20260915 |"
+  }
+]
+```
+
+## 2026-09-15 Generalization originals 1-16 and 18-21 (G17 held)
+
+Applied from the frozen packet `convergence-source-b-generalization-20260915/rows.json` (sha256 8d878006...) with zero retrieval. Twenty ledger evidence-plan bindings with integrator plan review and per-part adjudications; three article endpoints (G2 first-training-phase qualifier, G15 On-Device 2 attribution, G18 Bessemer own-terms gloss) with exact before/after spans in the record below. Where the packet's passage table sliced a fetched PDF at a mid-number window boundary (97.6 / 85.6 / 90.9 / 0.30→0.71), the applied evidence carries the full sentence integrator-read from the retained sha256-verified fetch; the slice itself was first confirmed a substring of the same retained text. G11/G13 keep their S verdicts exactly (S1 register); the local-AND rows carry the integrator-executed node import of lib/egoscale-law.ts. G17 (Goldberg/Berkeley interview) is held by a separate mission hold and was not touched. The exact before/current row history follows, non-counted.
+
+```json
+[
+  {
+    "originalId": "audit/frontier.md:generalization:1",
+    "rowOrdinal": 1,
+    "currentCells": {
+      "claim": "π0.5 evaluation: \"three real homes, three kitchens and three bedrooms, with ten trials per task... each episode spanning minutes\"",
+      "sourceChecked": "arXiv 2504.16054 PDF (fetched)",
+      "verdict": "V",
+      "note": "Fig. 7: \"three kitchens and three bedrooms in real homes that were not seen during training\"; tasks 'items in drawer', 'laundry basket', 'dishes in sink'; \"averaged over 10 trials\"; tasks \"lasting about 2 to 5 minutes\" (full cleanups 10-15 min)"
+    },
+    "currentTupleDigest": "5fbcb697a7d9413fdf8259d1e7408e2c8892d0a4c8a13acdd322fbc64d1f4a11",
+    "proposedCells": {
+      "claim": "π0.5 evaluation: \"three real homes, three kitchens and three bedrooms, with ten trials per task... each episode spanning minutes\"",
+      "sourceChecked": "π0.5 paper PDF, https://arxiv.org/pdf/2504.16054; retained fetch curl GET 200 2026-09-15T10:45:22Z, sha256 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval",
+      "verdict": "V",
+      "note": "Verified against the retained hash-verified fetch, integrator-read 2026-09-15: \"the most realistic final evaluation is conducted in three real homes that were not part of the training set\"; Fig. 7 caption \"three kitchens and three bedrooms in real homes that were not seen during training\"; \"averaged over 10 trials\"; tasks \"lasting about 2 to 5 minutes\"; long-horizon cleanups \"durations of 10 to 15 minutes\". Claim unchanged; evidence fields completed."
+    },
+    "appliedTupleDigest": "90d29b34d423ddfa3a8db88aa2716d1177a4b0e8b232c8acc13ba5f7d5f58f9f",
+    "oldRaw": "| G1 | π0.5 evaluation: \"three real homes, three kitchens and three bedrooms, with ten trials per task... each episode spanning minutes\" | arXiv 2504.16054 PDF (fetched) | V | Fig. 7: \"three kitchens and three bedrooms in real homes that were not seen during training\"; tasks 'items in drawer', 'laundry basket', 'dishes in sink'; \"averaged over 10 trials\"; tasks \"lasting about 2 to 5 minutes\" (full cleanups 10-15 min) |",
+    "newRaw": "| G1 | π0.5 evaluation: \"three real homes, three kitchens and three bedrooms, with ten trials per task... each episode spanning minutes\" | π0.5 paper PDF, https://arxiv.org/pdf/2504.16054; retained fetch curl GET 200 2026-09-15T10:45:22Z, sha256 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Verified against the retained hash-verified fetch, integrator-read 2026-09-15: \"the most realistic final evaluation is conducted in three real homes that were not part of the training set\"; Fig. 7 caption \"three kitchens and three bedrooms in real homes that were not seen during training\"; \"averaged over 10 trials\"; tasks \"lasting about 2 to 5 minutes\"; long-horizon cleanups \"durations of 10 to 15 minutes\". Claim unchanged; evidence fields completed. |  |  |  | generalization-g1-pi05-eval-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:2",
+    "rowOrdinal": 2,
+    "currentCells": {
+      "claim": "\"Only about 400 hours... mobile-manipulator data collected in real homes; 97.6% of the training examples come from somewhere else\"",
+      "sourceChecked": "π0.5 PDF",
+      "verdict": "V",
+      "note": "\"about 400 hours\"; \"The overwhelming majority of training examples provided to π0.5 (97.6% during the first training phase) do not come from mobile manipulators\""
+    },
+    "currentTupleDigest": "ce2a4a83bf391f61e185e65f86ecbc62595d286667d903337e4cc5aa0ab623d8",
+    "proposedCells": {
+      "claim": "\"Only about 400 hours... mobile-manipulator data collected in real homes; 97.6% of the training examples come from somewhere else\"",
+      "sourceChecked": "π0.5 paper PDF, https://arxiv.org/pdf/2504.16054; retained fetch curl GET 200 2026-09-15T10:45:22Z, sha256 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval",
+      "verdict": "C",
+      "note": "Corrected2026-09-15: the 97.6% figure is scoped by the paper to the first training phase. Integrator re-read the full sentence in the retained hash-verified fetch: \"The overwhelming majority of training examples provided to π0.5 (97.6% during the first training phase) do not come from mobile manipulators\"; the article's unqualified phrasing corrected to \"97.6% of the training examples in the first training phase\". The about-400-hours figure verified verbatim in the same retained text."
+    },
+    "appliedTupleDigest": "f9446e02e3994e91ee0c67209b44749de38b7b7d1904841e11b67e1c5c476831",
+    "oldRaw": "| G2 | \"Only about 400 hours... mobile-manipulator data collected in real homes; 97.6% of the training examples come from somewhere else\" | π0.5 PDF | V | \"about 400 hours\"; \"The overwhelming majority of training examples provided to π0.5 (97.6% during the first training phase) do not come from mobile manipulators\" |",
+    "newRaw": "| G2 | \"Only about 400 hours... mobile-manipulator data collected in real homes; 97.6% of the training examples come from somewhere else\" | π0.5 paper PDF, https://arxiv.org/pdf/2504.16054; retained fetch curl GET 200 2026-09-15T10:45:22Z, sha256 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | C | Corrected2026-09-15: the 97.6% figure is scoped by the paper to the first training phase. Integrator re-read the full sentence in the retained hash-verified fetch: \"The overwhelming majority of training examples provided to π0.5 (97.6% during the first training phase) do not come from mobile manipulators\"; the article's unqualified phrasing corrected to \"97.6% of the training examples in the first training phase\". The about-400-hours figure verified verbatim in the same retained text. |  |  |  | generalization-g2-pi05-mixture-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:3",
+    "rowOrdinal": 3,
+    "currentCells": {
+      "claim": "Control trained on test-home data \"scores about the same as the 104-location model\"",
+      "sourceChecked": "π0.5 PDF",
+      "verdict": "V",
+      "note": "\"a control... trained directly on data from the test homes. This control attains similar performance as the final 104-location model\""
+    },
+    "currentTupleDigest": "e6efc3be8b2a5127ebdc0e0300b990d7ad412366c9de60f4935cffd912998a28",
+    "proposedCells": {
+      "claim": "Control trained on test-home data \"scores about the same as the 104-location model\"",
+      "sourceChecked": "π0.5 paper PDF, https://arxiv.org/pdf/2504.16054; retained fetch curl GET 200 2026-09-15T10:45:22Z, sha256 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval",
+      "verdict": "V",
+      "note": "Preparer verified against the PDF fetched 2026-09-15T10:45:22Z; integrator re-read the passage in the retained hash-verified fetch: \"we include a control (shown in green) that is trained directly on data from the test homes. This control attains similar performance as the final 104-location model\". Claim unchanged; evidence fields completed."
+    },
+    "appliedTupleDigest": "c99b6f32c17ad28e82199edb4c5656edf7936af25f12404bd28b8d51b47ac341",
+    "oldRaw": "| G3 | Control trained on test-home data \"scores about the same as the 104-location model\" | π0.5 PDF | V | \"a control... trained directly on data from the test homes. This control attains similar performance as the final 104-location model\" |",
+    "newRaw": "| G3 | Control trained on test-home data \"scores about the same as the 104-location model\" | π0.5 paper PDF, https://arxiv.org/pdf/2504.16054; retained fetch curl GET 200 2026-09-15T10:45:22Z, sha256 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Preparer verified against the PDF fetched 2026-09-15T10:45:22Z; integrator re-read the passage in the retained hash-verified fetch: \"we include a control (shown in green) that is trained directly on data from the test homes. This control attains similar performance as the final 104-location model\". Claim unchanged; evidence fields completed. |  |  |  | generalization-g3-pi05-control-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:4",
+    "rowOrdinal": 4,
+    "currentCells": {
+      "claim": "\"strip the non-action data and the open-world result disappears\"",
+      "sourceChecked": "π0.5 PDF",
+      "verdict": "V",
+      "note": "baselines without co-training tasks \"significantly worse\"; other data sources \"essential for good generalization\""
+    },
+    "currentTupleDigest": "a173ba213f3db4dfcc552a106aa16ac90e71a706b33f14dd729f59b12851f89e",
+    "proposedCells": {
+      "claim": "\"strip the non-action data and the open-world result disappears\"",
+      "sourceChecked": "π0.5 paper PDF, https://arxiv.org/pdf/2504.16054; retained fetch curl GET 200 2026-09-15T10:45:22Z, sha256 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval",
+      "verdict": "V",
+      "note": "Preparer verified against the PDF fetched 2026-09-15T10:45:22Z; integrator re-read the passage in the retained hash-verified fetch: \"The performance for both those baselines is significantly worse — this indicates that the other data sources leveraged by our full training recipe are essential for good generalization, even when the policy has seen robot data from test homes.\" Claim unchanged; evidence fields completed."
+    },
+    "appliedTupleDigest": "d97b5ac3e0d8aabc568f894530995b87e1f81b8a9e8b1a37f4cf08aee8253212",
+    "oldRaw": "| G4 | \"strip the non-action data and the open-world result disappears\" | π0.5 PDF | V | baselines without co-training tasks \"significantly worse\"; other data sources \"essential for good generalization\" |",
+    "newRaw": "| G4 | \"strip the non-action data and the open-world result disappears\" | π0.5 paper PDF, https://arxiv.org/pdf/2504.16054; retained fetch curl GET 200 2026-09-15T10:45:22Z, sha256 6a1029fd8ab6944b74cf22f5e5d30e60bc15699d964b2900af799b807a34b64c; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Preparer verified against the PDF fetched 2026-09-15T10:45:22Z; integrator re-read the passage in the retained hash-verified fetch: \"The performance for both those baselines is significantly worse — this indicates that the other data sources leveraged by our full training recipe are essential for good generalization, even when the policy has seen robot data from test homes.\" Claim unchanged; evidence fields completed. |  |  |  | generalization-g4-pi05-ablation-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:5",
+    "rowOrdinal": 5,
+    "currentCells": {
+      "claim": "π0.7 blog quote: \"makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully\"",
+      "sourceChecked": "pi.website/blog/pi07 (fetched)",
+      "verdict": "V",
+      "note": "verbatim"
+    },
+    "currentTupleDigest": "57b21343e99fbf90bd999911d5f15dab1cae3a986ddcdf4d996e2b942cdd29a6",
+    "proposedCells": {
+      "claim": "π0.7 blog quote: \"makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully\"",
+      "sourceChecked": "π0.7 blog, https://www.pi.website/blog/pi07; preparer FetchUrl tool-reported 200 2026-09-15T10:45:22.681Z; passage hash-bound in the frozen packet (no retained document file; zero new retrieval)",
+      "verdict": "V",
+      "note": "Verbatim in the blog preparer-fetched 2026-09-15T10:45:22.681Z: \"When we ask the robot to do a new task, using an air fryer appliance to cook a sweet potato, it makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully\". Claim unchanged; evidence fields completed."
+    },
+    "appliedTupleDigest": "c53575c5a3f36748f9520af816fd34f19e925498872694098348e9d3301700e6",
+    "oldRaw": "| G5 | π0.7 blog quote: \"makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully\" | pi.website/blog/pi07 (fetched) | V | verbatim |",
+    "newRaw": "| G5 | π0.7 blog quote: \"makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully\" | π0.7 blog, https://www.pi.website/blog/pi07; preparer FetchUrl tool-reported 200 2026-09-15T10:45:22.681Z; passage hash-bound in the frozen packet (no retained document file; zero new retrieval) | V | Verbatim in the blog preparer-fetched 2026-09-15T10:45:22.681Z: \"When we ask the robot to do a new task, using an air fryer appliance to cook a sweet potato, it makes a reasonable attempt, performing part of the task after a few false starts, but not finishing it fully\". Claim unchanged; evidence fields completed. |  |  |  | generalization-g5-pi07blog-airfryer-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:6",
+    "rowOrdinal": 6,
+    "currentCells": {
+      "claim": "Authors describe \"early signs of compositional task generalization\"",
+      "sourceChecked": "pi07 blog (fetched)",
+      "verdict": "V",
+      "note": "\"π0.7 shows early signs of compositional task generalization\""
+    },
+    "currentTupleDigest": "1cdee3f0a4de157d1779510c2755b371c7b7468919b7f8cf2d5e9f1fbfd519dd",
+    "proposedCells": {
+      "claim": "Authors describe \"early signs of compositional task generalization\"",
+      "sourceChecked": "π0.7 blog, https://www.pi.website/blog/pi07; preparer FetchUrl tool-reported 200 2026-09-15T10:45:22.681Z; passage hash-bound in the frozen packet (no retained document file; zero new retrieval)",
+      "verdict": "V",
+      "note": "Verbatim in the blog preparer-fetched 2026-09-15T10:45:22.681Z: \"π0.7 shows early signs of compositional task generalization through a combination of diverse language instructions, language coaching, and visual subgoals.\" Claim unchanged; evidence fields completed."
+    },
+    "appliedTupleDigest": "9591a942fa4374aa3c053e4dfd82edd924d807effec2061c3d8f7abd6e041ef9",
+    "oldRaw": "| G6 | Authors describe \"early signs of compositional task generalization\" | pi07 blog (fetched) | V | \"π0.7 shows early signs of compositional task generalization\" |",
+    "newRaw": "| G6 | Authors describe \"early signs of compositional task generalization\" | π0.7 blog, https://www.pi.website/blog/pi07; preparer FetchUrl tool-reported 200 2026-09-15T10:45:22.681Z; passage hash-bound in the frozen packet (no retained document file; zero new retrieval) | V | Verbatim in the blog preparer-fetched 2026-09-15T10:45:22.681Z: \"π0.7 shows early signs of compositional task generalization through a combination of diverse language instructions, language coaching, and visual subgoals.\" Claim unchanged; evidence fields completed. |  |  |  | generalization-g6-pi07blog-earlysigns-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:7",
+    "rowOrdinal": 7,
+    "currentCells": {
+      "claim": "UR5e laundry: π0.7 85.6% progress / 80% success; teleoperators 90.9% / 80.6%; \"top 2% by experience with a mean of 375 hours\"",
+      "sourceChecked": "pi.website/download/pi07.pdf (fetched, pdftotext)",
+      "verdict": "V",
+      "note": "all five figures verbatim from the human-subject study section"
+    },
+    "currentTupleDigest": "cffbb30685f53d70fd306ff9bd9d1a94861c7edbb2080ed4d6c6a8eca7cb9d9a",
+    "proposedCells": {
+      "claim": "UR5e laundry: π0.7 85.6% progress / 80% success; teleoperators 90.9% / 80.6%; \"top 2% by experience with a mean of 375 hours\"",
+      "sourceChecked": "π0.7 paper PDF, https://www.pi.website/download/pi07.pdf; retained fetch curl GET 200 2026-09-15T10:45:24Z, sha256 d718dbcfcf294f87a2179052dcd2e783ea1f542f484d05dfa2ce139bc00d7d5b; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval",
+      "verdict": "V",
+      "note": "All five figures verified against the retained hash-verified fetch, integrator-read 2026-09-15: \"π0.7 achieves 85.6% task progress and an 80% success rate\"; \"The human operators achieved 90.9% task progress and an 80.6% success rate\"; \"a human subject study with 10 experienced teleoperators (mean 375 hours of teleoperation experience across all robots, all within the top 2% by experience)\". Claim unchanged; evidence fields completed."
+    },
+    "appliedTupleDigest": "0a35abb5403614f9c464babeda3a06002b18a23554b1eb961f3cca2b5361db80",
+    "oldRaw": "| G7 | UR5e laundry: π0.7 85.6% progress / 80% success; teleoperators 90.9% / 80.6%; \"top 2% by experience with a mean of 375 hours\" | pi.website/download/pi07.pdf (fetched, pdftotext) | V | all five figures verbatim from the human-subject study section |",
+    "newRaw": "| G7 | UR5e laundry: π0.7 85.6% progress / 80% success; teleoperators 90.9% / 80.6%; \"top 2% by experience with a mean of 375 hours\" | π0.7 paper PDF, https://www.pi.website/download/pi07.pdf; retained fetch curl GET 200 2026-09-15T10:45:24Z, sha256 d718dbcfcf294f87a2179052dcd2e783ea1f542f484d05dfa2ce139bc00d7d5b; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | All five figures verified against the retained hash-verified fetch, integrator-read 2026-09-15: \"π0.7 achieves 85.6% task progress and an 80% success rate\"; \"The human operators achieved 90.9% task progress and an 80.6% success rate\"; \"a human subject study with 10 experienced teleoperators (mean 375 hours of teleoperation experience across all robots, all within the top 2% by experience)\". Claim unchanged; evidence fields completed. |  |  |  | generalization-g7-pi07-laundry-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:8",
+    "rowOrdinal": 8,
+    "currentCells": {
+      "claim": "Bag-packing: teleoperators two-arm hold-open+insert; π0.7 \"discovers a single-arm pick-and-place suited to its reach\"",
+      "sourceChecked": "π0.7 PDF",
+      "verdict": "V",
+      "note": "\"the shorter static bimanual robot must use one arm to hold the bag open while the other performs insertion, whereas the taller UR5e arm can accomplish the same task with a single-arm pick-and-place\""
+    },
+    "currentTupleDigest": "0b27fdaa0d780e08386080451fb2be53e25849898e88378c456705182b045eb8",
+    "proposedCells": {
+      "claim": "Bag-packing: teleoperators two-arm hold-open+insert; π0.7 \"discovers a single-arm pick-and-place suited to its reach\"",
+      "sourceChecked": "π0.7 paper PDF, https://www.pi.website/download/pi07.pdf; retained fetch curl GET 200 2026-09-15T10:45:24Z, sha256 d718dbcfcf294f87a2179052dcd2e783ea1f542f484d05dfa2ce139bc00d7d5b; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval",
+      "verdict": "V",
+      "note": "Preparer verified against the PDF fetched 2026-09-15T10:45:24Z; integrator re-read the passage in the retained hash-verified fetch: \"the shorter static bimanual robot must use one arm to hold the bag open while the other performs insertion, whereas the taller UR5e arm can accomplish the same task with a single-arm pick-and-place\"; \"π0.7 instead discovers a single-arm pick-and-place strategy suited to the robot’s greater reach.\" Claim unchanged; evidence fields completed."
+    },
+    "appliedTupleDigest": "4acbc300e12c86d4fe37ded1a57ff9e205cceb37c1c15d967a0d64a597db9a16",
+    "oldRaw": "| G8 | Bag-packing: teleoperators two-arm hold-open+insert; π0.7 \"discovers a single-arm pick-and-place suited to its reach\" | π0.7 PDF | V | \"the shorter static bimanual robot must use one arm to hold the bag open while the other performs insertion, whereas the taller UR5e arm can accomplish the same task with a single-arm pick-and-place\" |",
+    "newRaw": "| G8 | Bag-packing: teleoperators two-arm hold-open+insert; π0.7 \"discovers a single-arm pick-and-place suited to its reach\" | π0.7 paper PDF, https://www.pi.website/download/pi07.pdf; retained fetch curl GET 200 2026-09-15T10:45:24Z, sha256 d718dbcfcf294f87a2179052dcd2e783ea1f542f484d05dfa2ce139bc00d7d5b; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Preparer verified against the PDF fetched 2026-09-15T10:45:24Z; integrator re-read the passage in the retained hash-verified fetch: \"the shorter static bimanual robot must use one arm to hold the bag open while the other performs insertion, whereas the taller UR5e arm can accomplish the same task with a single-arm pick-and-place\"; \"π0.7 instead discovers a single-arm pick-and-place strategy suited to the robot’s greater reach.\" Claim unchanged; evidence fields completed. |  |  |  | generalization-g8-pi07-bag-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:9",
+    "rowOrdinal": 9,
+    "currentCells": {
+      "claim": "\"the π0.7 paper's own ablations show performance degrading as the embodiment gap widens before the latest model recovers it\"",
+      "sourceChecked": "π0.7 PDF",
+      "verdict": "V",
+      "note": "Fig. 12 narrative: π0.5 \"degrades significantly\" at larger gaps; π0.7 \"significantly outperforms the prior models\""
+    },
+    "currentTupleDigest": "1b543d9904bdb36d5f2f5c7f702064103ed3bd9452ebe30e4d31a1ae512e3ce3",
+    "proposedCells": {
+      "claim": "\"the π0.7 paper's own ablations show performance degrading as the embodiment gap widens before the latest model recovers it\"",
+      "sourceChecked": "π0.7 paper PDF, https://www.pi.website/download/pi07.pdf; retained fetch curl GET 200 2026-09-15T10:45:24Z, sha256 d718dbcfcf294f87a2179052dcd2e783ea1f542f484d05dfa2ce139bc00d7d5b; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval",
+      "verdict": "V",
+      "note": "Preparer verified against the PDF fetched 2026-09-15T10:45:24Z; integrator re-read the passage in the retained hash-verified fetch: \"when we increase the embodiment gap more significantly ... the performance of π0.5 degrades significantly, while both π0.6 and π0.7 still are able to achieve strong performance. We then increase the embodiment gap even more ...\"; \"Here, π0.7 significantly outperforms the prior models.\" Claim unchanged; evidence fields completed."
+    },
+    "appliedTupleDigest": "3876930fc5062ce14b9d13d828a95c5a7aba9beea5a6756af8662b27be62d588",
+    "oldRaw": "| G9 | \"the π0.7 paper's own ablations show performance degrading as the embodiment gap widens before the latest model recovers it\" | π0.7 PDF | V | Fig. 12 narrative: π0.5 \"degrades significantly\" at larger gaps; π0.7 \"significantly outperforms the prior models\" |",
+    "newRaw": "| G9 | \"the π0.7 paper's own ablations show performance degrading as the embodiment gap widens before the latest model recovers it\" | π0.7 paper PDF, https://www.pi.website/download/pi07.pdf; retained fetch curl GET 200 2026-09-15T10:45:24Z, sha256 d718dbcfcf294f87a2179052dcd2e783ea1f542f484d05dfa2ce139bc00d7d5b; pdftotext layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Preparer verified against the PDF fetched 2026-09-15T10:45:24Z; integrator re-read the passage in the retained hash-verified fetch: \"when we increase the embodiment gap more significantly ... the performance of π0.5 degrades significantly, while both π0.6 and π0.7 still are able to achieve strong performance. We then increase the embodiment gap even more ...\"; \"Here, π0.7 significantly outperforms the prior models.\" Claim unchanged; evidence fields completed. |  |  |  | generalization-g9-pi07-embodiment-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:10",
+    "rowOrdinal": 10,
+    "currentCells": {
+      "claim": "Completion-fit crossings: solved bar near 111k hours; \"crosses 100% near 250k hours\"",
+      "sourceChecked": "arithmetic over lib/egoscale-law.ts COMPLETION_POINTS",
+      "verdict": "V",
+      "note": "least-squares fit crosses 0.90 at 111k h, 1.0 at 250k h; chart labels both as extrapolation, which the article states"
+    },
+    "currentTupleDigest": "9aa7ca5d88a528517471496c5ad51f351d15abc525c1d1f4d60cce6f0573f96e",
+    "proposedCells": {
+      "claim": "Completion-fit crossings: solved bar near 111k hours; \"crosses 100% near 250k hours\"",
+      "sourceChecked": "EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval",
+      "verdict": "V",
+      "note": "Local-AND row, no fetch of its own: integrator re-ran the node import of lib/egoscale-law.ts at application time (COMPLETION_FIT intercept 0.32033, slope 0.12312; solvedBarCrossingHours 110,850.77 h; 1.0 crossing 249,735.98 h; completionFitScore(111000)=0.9002, (250000)=1.0001). Source basis re-read in the retained hash-verified fetch: \"Average task completion rises monotonically from 0.30 at 1k hours to 0.71 at 20k hours, with no signs of saturation in the explored regime\"; the paper \"do not extrapolate\" sentence is preserved beside the crossings. Article already labels both crossings as extrapolation."
+    },
+    "appliedTupleDigest": "b86bc431d3df19818b1c57958b5fdac50288ef772bf0f08124a0f5338ab4fc99",
+    "oldRaw": "| G10 | Completion-fit crossings: solved bar near 111k hours; \"crosses 100% near 250k hours\" | arithmetic over lib/egoscale-law.ts COMPLETION_POINTS | V | least-squares fit crosses 0.90 at 111k h, 1.0 at 250k h; chart labels both as extrapolation, which the article states |",
+    "newRaw": "| G10 | Completion-fit crossings: solved bar near 111k hours; \"crosses 100% near 250k hours\" | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Local-AND row, no fetch of its own: integrator re-ran the node import of lib/egoscale-law.ts at application time (COMPLETION_FIT intercept 0.32033, slope 0.12312; solvedBarCrossingHours 110,850.77 h; 1.0 crossing 249,735.98 h; completionFitScore(111000)=0.9002, (250000)=1.0001). Source basis re-read in the retained hash-verified fetch: \"Average task completion rises monotonically from 0.30 at 1k hours to 0.71 at 20k hours, with no signs of saturation in the explored regime\"; the paper \"do not extrapolate\" sentence is preserved beside the crossings. Article already labels both crossings as extrapolation. |  |  |  | generalization-g10-local-crossings-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:11",
+    "rowOrdinal": 11,
+    "currentCells": {
+      "claim": "EgoScale law `L = 0.024 - 0.003 ln D` (D in thousands of hours), five scales 1k-20k, R²=0.9983",
+      "sourceChecked": "arXiv 2602.16710 (fetched; see S1)",
+      "verdict": "S",
+      "note": "see source-quirk register; figure-consistent reading reproduces Figure 5's 0.0150-0.0240 loss span, literal hours-reading crosses zero at 2,981 h"
+    },
+    "currentTupleDigest": "6da803a0542e7621896ec63424deee3f265649c4154f90b28fc9f740ecb33dd9",
+    "proposedCells": {
+      "claim": "EgoScale law `L = 0.024 - 0.003 ln D` (D in thousands of hours), five scales 1k-20k, R²=0.9983",
+      "sourceChecked": "EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval; see S1 source-quirk register",
+      "verdict": "S",
+      "note": "S verdict preserved exactly (S1 register): paper equation L = 0.024 − 0.003·ln(D) with \"D denotes the number of hours\" (verbatim in the retained hash-verified fetch), R²=0.9983, five scales 1k-20k. Integrator re-derived locally: the literal hours reading crosses zero at e^8 ≈ 2,981 h (impossible for a loss); the figure-consistent reading (D in thousands of hours) reproduces the 0.0240→0.0150 loss span across 1k→20k and is what lib/egoscale-law.ts implements and what generalization.mdx states. Figure 5 axis tick values are figure-internal and remain S1-register/module documented, not passage-verified. Recorded, not \"corrected\"."
+    },
+    "appliedTupleDigest": "eef9fc53063e5aa196aa0a6f9d0796adcf985e215b98b97f31506a32c3b378ff",
+    "oldRaw": "| G11 | EgoScale law `L = 0.024 - 0.003 ln D` (D in thousands of hours), five scales 1k-20k, R²=0.9983 | arXiv 2602.16710 (fetched; see S1) | S | see source-quirk register; figure-consistent reading reproduces Figure 5's 0.0150-0.0240 loss span, literal hours-reading crosses zero at 2,981 h |",
+    "newRaw": "| G11 | EgoScale law `L = 0.024 - 0.003 ln D` (D in thousands of hours), five scales 1k-20k, R²=0.9983 | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval; see S1 source-quirk register | S | S verdict preserved exactly (S1 register): paper equation L = 0.024 − 0.003·ln(D) with \"D denotes the number of hours\" (verbatim in the retained hash-verified fetch), R²=0.9983, five scales 1k-20k. Integrator re-derived locally: the literal hours reading crosses zero at e^8 ≈ 2,981 h (impossible for a loss); the figure-consistent reading (D in thousands of hours) reproduces the 0.0240→0.0150 loss span across 1k→20k and is what lib/egoscale-law.ts implements and what generalization.mdx states. Figure 5 axis tick values are figure-internal and remain S1-register/module documented, not passage-verified. Recorded, not \"corrected\". |  |  |  | generalization-g11-egoscale-law-quirk-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:12",
+    "rowOrdinal": 12,
+    "currentCells": {
+      "claim": "EgoScale: 20,854 h, \"more than twenty times prior efforts\", R²=0.9983 law, completion 0.30→0.71, +54% on a 22-DoF hand",
+      "sourceChecked": "arXiv 2602.16710 HTML (fetched)",
+      "verdict": "V",
+      "note": "every figure stated in §3.3 and Fig. 5 text; the 22-DoF hand is the Sharpa hand on Galaxea R1 Pro"
+    },
+    "currentTupleDigest": "bd578ef3b1ce7c6f7d18d78e53909d177720197770d4c0855b0148f86c3b5a4f",
+    "proposedCells": {
+      "claim": "EgoScale: 20,854 h, \"more than twenty times prior efforts\", R²=0.9983 law, completion 0.30→0.71, +54% on a 22-DoF hand",
+      "sourceChecked": "EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval",
+      "verdict": "V",
+      "note": "All figures verified against the retained hash-verified fetch, integrator-read 2026-09-15: 20,854 hours \">20× larger than prior efforts\"; R²=0.9983; \"Average task completion rises monotonically from 0.30 at 1k hours to 0.71 at 20k hours, with no signs of saturation in the explored regime\"; +54% over a no-pretraining baseline on a 22-DoF dexterous hand; experiments on \"the Galaxea R1Pro humanoid robot with 22-DoF Sharpa dexterous robot hands\". Claim unchanged; evidence fields completed."
+    },
+    "appliedTupleDigest": "67d5a5078fd05f7ee6645bdbbd08572b5dc007c6a0249955024f8f85b68a823e",
+    "oldRaw": "| G12 | EgoScale: 20,854 h, \"more than twenty times prior efforts\", R²=0.9983 law, completion 0.30→0.71, +54% on a 22-DoF hand | arXiv 2602.16710 HTML (fetched) | V | every figure stated in §3.3 and Fig. 5 text; the 22-DoF hand is the Sharpa hand on Galaxea R1 Pro |",
+    "newRaw": "| G12 | EgoScale: 20,854 h, \"more than twenty times prior efforts\", R²=0.9983 law, completion 0.30→0.71, +54% on a 22-DoF hand | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | All figures verified against the retained hash-verified fetch, integrator-read 2026-09-15: 20,854 hours \">20× larger than prior efforts\"; R²=0.9983; \"Average task completion rises monotonically from 0.30 at 1k hours to 0.71 at 20k hours, with no signs of saturation in the explored regime\"; +54% over a no-pretraining baseline on a 22-DoF dexterous hand; experiments on \"the Galaxea R1Pro humanoid robot with 22-DoF Sharpa dexterous robot hands\". Claim unchanged; evidence fields completed. |  |  |  | generalization-g12-egoscale-figures-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:13",
+    "rowOrdinal": 13,
+    "currentCells": {
+      "claim": "EgoScale display equation, \"D in thousands of hours\"",
+      "sourceChecked": "arXiv 2602.16710 §3.3 (fetched)",
+      "verdict": "S",
+      "note": "see source-quirk register. Paper text says \"D denotes the number of hours\"; the figure-consistent reading (loss span 0.0150-0.0240 at 1k-20k hours; literal reading crosses zero at 2,981 h) is what `lib/egoscale-law.ts` implements and documents. Article and module agree; recorded, not \"corrected\"."
+    },
+    "currentTupleDigest": "ae16a190e05e9c8bc55260d84dc1a298cb4324d72f1fd4544a665527949215ec",
+    "proposedCells": {
+      "claim": "EgoScale display equation, \"D in thousands of hours\"",
+      "sourceChecked": "EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval; see S1 source-quirk register",
+      "verdict": "S",
+      "note": "S verdict preserved exactly (S1 register): paper text says \"D denotes the number of hours\"; the figure-consistent reading (loss span 0.0240 at 1k h to 0.0150 at 20k h, integrator re-derived from lib/egoscale-law.ts) is what the module implements and the article states. Article and module agree; recorded, not \"corrected\". Figure-axis span stays register-documented."
+    },
+    "appliedTupleDigest": "7c22be26d385414631beeb904b3fe93679d97185a8de3857d11e14737d73b549",
+    "oldRaw": "| G13 | EgoScale display equation, \"D in thousands of hours\" | arXiv 2602.16710 §3.3 (fetched) | S | see source-quirk register. Paper text says \"D denotes the number of hours\"; the figure-consistent reading (loss span 0.0150-0.0240 at 1k-20k hours; literal reading crosses zero at 2,981 h) is what `lib/egoscale-law.ts` implements and documents. Article and module agree; recorded, not \"corrected\". |",
+    "newRaw": "| G13 | EgoScale display equation, \"D in thousands of hours\" | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval; see S1 source-quirk register | S | S verdict preserved exactly (S1 register): paper text says \"D denotes the number of hours\"; the figure-consistent reading (loss span 0.0240 at 1k h to 0.0150 at 20k h, integrator re-derived from lib/egoscale-law.ts) is what the module implements and the article states. Article and module agree; recorded, not \"corrected\". Figure-axis span stays register-documented. |  |  |  | generalization-g13-egoscale-display-units-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:14",
+    "rowOrdinal": 14,
+    "currentCells": {
+      "claim": "\"20K hours of EgoScale video enter GR00T N1.7 pretraining\" through the shared relative-EEF space",
+      "sourceChecked": "github.com/NVIDIA/Isaac-GR00T README (fetched)",
+      "verdict": "V",
+      "note": "\"20K hours of EgoScale human video data in pretraining\"; \"relative EEF action representation is consistent across both human and robot data\""
+    },
+    "currentTupleDigest": "99125210fa2d7213d0267f52a378d6fa079e02153505636859463531666738bb",
+    "proposedCells": {
+      "claim": "\"20K hours of EgoScale video enter GR00T N1.7 pretraining\" through the shared relative-EEF space",
+      "sourceChecked": "NVIDIA Isaac GR00T README, https://github.com/NVIDIA/Isaac-GR00T; retained raw README curl GET 200 2026-09-15T10:46:15Z, sha256 62f6c55a356be039287416f97e03a3b5541052d038a3daec208ea9ff8045a067; integrator-read from the retained hash-verified fetch 2026-09-15; moving vendor document (first-party)",
+      "verdict": "V",
+      "note": "Verified verbatim in the retained hash-verified raw README, integrator-read 2026-09-15: \"20K hours of EgoScale human video data in pretraining\"; relative end-effector action space \"shared across robot and human embodiments\"; \"the relative EEF action representation is consistent across both human and robot data\". Vendor first-party repository statement on a moving document; reading bound to the 2026-09-15T10:46:15Z retained fetch, not a live re-retrieval. Claim unchanged; evidence fields completed."
+    },
+    "appliedTupleDigest": "cb9a41ba7b009e0acab1e6d7f80ec1beb55b62fac43edd0c192e944a15f7cd72",
+    "oldRaw": "| G14 | \"20K hours of EgoScale video enter GR00T N1.7 pretraining\" through the shared relative-EEF space | github.com/NVIDIA/Isaac-GR00T README (fetched) | V | \"20K hours of EgoScale human video data in pretraining\"; \"relative EEF action representation is consistent across both human and robot data\" |",
+    "newRaw": "| G14 | \"20K hours of EgoScale video enter GR00T N1.7 pretraining\" through the shared relative-EEF space | NVIDIA Isaac GR00T README, https://github.com/NVIDIA/Isaac-GR00T; retained raw README curl GET 200 2026-09-15T10:46:15Z, sha256 62f6c55a356be039287416f97e03a3b5541052d038a3daec208ea9ff8045a067; integrator-read from the retained hash-verified fetch 2026-09-15; moving vendor document (first-party) | V | Verified verbatim in the retained hash-verified raw README, integrator-read 2026-09-15: \"20K hours of EgoScale human video data in pretraining\"; relative end-effector action space \"shared across robot and human embodiments\"; \"the relative EEF action representation is consistent across both human and robot data\". Vendor first-party repository statement on a moving document; reading bound to the 2026-09-15T10:46:15Z retained fetch, not a live re-retrieval. Claim unchanged; evidence fields completed. |  |  |  | generalization-g14-gr00t-egoscale-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:15",
+    "rowOrdinal": 15,
+    "currentCells": {
+      "claim": "GR2 \"adapts to new bi-arm embodiments with fewer than 200 examples in a few hours, a vendor-reported figure\"",
+      "sourceChecked": "GR2 blog (fetched)",
+      "verdict": "V",
+      "note": "\"adapt to new bi-arm robot embodiments with just a few hours of adaptation time, typically with less than 200 examples\""
+    },
+    "currentTupleDigest": "cf6a7ed1f34b42ea843f6a05e27b433cc34da8525a534c9bb4a611ebdb0d1cee",
+    "proposedCells": {
+      "claim": "GR2 \"adapts to new bi-arm embodiments with fewer than 200 examples in a few hours, a vendor-reported figure\"",
+      "sourceChecked": "Gemini Robotics 2 announcement, https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/; preparer FetchUrl tool-reported 200 2026-09-15T10:46:14.287Z; passages hash-bound in the frozen packet (vendor first-party; zero new retrieval)",
+      "verdict": "C",
+      "note": "Corrected2026-09-15 attribution: the <200-examples / few-hours adaptation sentence sits in the announcement's on-device section and its model-list bullet assigns the fast-adaptation capability to Gemini Robotics On-Device 2 (\"This model can now achieve fast adaptation to completely new robot embodiments with a few hours of data\"), not to the Gemini Robotics 2 VLA named by the old sentence. Article span corrected to name On-Device 2 within the same announcement; vendor-reported qualifier retained."
+    },
+    "appliedTupleDigest": "cff3cf2aef61d1d50d56e80500bc5a75bade9a66ba3bd4c374df52bd3b9d943e",
+    "oldRaw": "| G15 | GR2 \"adapts to new bi-arm embodiments with fewer than 200 examples in a few hours, a vendor-reported figure\" | GR2 blog (fetched) | V | \"adapt to new bi-arm robot embodiments with just a few hours of adaptation time, typically with less than 200 examples\" |",
+    "newRaw": "| G15 | GR2 \"adapts to new bi-arm embodiments with fewer than 200 examples in a few hours, a vendor-reported figure\" | Gemini Robotics 2 announcement, https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/; preparer FetchUrl tool-reported 200 2026-09-15T10:46:14.287Z; passages hash-bound in the frozen packet (vendor first-party; zero new retrieval) | C | Corrected2026-09-15 attribution: the <200-examples / few-hours adaptation sentence sits in the announcement's on-device section and its model-list bullet assigns the fast-adaptation capability to Gemini Robotics On-Device 2 (\"This model can now achieve fast adaptation to completely new robot embodiments with a few hours of data\"), not to the Gemini Robotics 2 VLA named by the old sentence. Article span corrected to name On-Device 2 within the same announcement; vendor-reported qualifier retained. |  |  |  | generalization-g15-gr2-ondevice-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:16",
+    "rowOrdinal": 16,
+    "currentCells": {
+      "claim": "\"Karcini and co-authors argue policy scaling alone misses architectural pillars entirely\"",
+      "sourceChecked": "arXiv 2606.06556 HTML (fetched)",
+      "verdict": "C",
+      "note": "the position paper argues the missing layer is **supervision infrastructure**, explicitly \"not another policy architecture alone\": converting \"unstructured physical experience into grounded robot supervision\". Its \"four missing pillars\" are data-engine components. Reworded to the paper's own framing."
+    },
+    "currentTupleDigest": "1f599490b677f91ffd793a8121459d375c81655ebcc7ad4e3f55783a0cf5c97a",
+    "proposedCells": {
+      "claim": "\"Karcini and co-authors argue policy scaling alone misses architectural pillars entirely\"",
+      "sourceChecked": "Karcini et al. position paper, https://arxiv.org/html/2606.06556; retained fetch curl GET 2026-09-15T10:46:15Z, sha256 5ebe2d8837d962084a11da85c4d04e4cc50591f6a72e328b85c5f1d230f38fcd; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval",
+      "verdict": "C",
+      "note": "Historical C re-verified 2026-09-15 against the retained hash-verified text: central claim \"the missing layer in robotics is not another policy architecture alone\"; bottleneck \"how to convert unstructured physical experience into grounded robot supervision\"; \"four missing pillars\" are data-engine components. Article already carries the corrected framing; evidence fields completed. \"Supervision infrastructure\" in the old note is our gloss, not a paper quotation."
+    },
+    "appliedTupleDigest": "caf1c4e0e47e2a86bbe5b26ec997d2285090111aa6ef4bc36439d96e675c6c16",
+    "oldRaw": "| G16 | \"Karcini and co-authors argue policy scaling alone misses architectural pillars entirely\" | arXiv 2606.06556 HTML (fetched) | C | the position paper argues the missing layer is **supervision infrastructure**, explicitly \"not another policy architecture alone\": converting \"unstructured physical experience into grounded robot supervision\". Its \"four missing pillars\" are data-engine components. Reworded to the paper's own framing. |",
+    "newRaw": "| G16 | \"Karcini and co-authors argue policy scaling alone misses architectural pillars entirely\" | Karcini et al. position paper, https://arxiv.org/html/2606.06556; retained fetch curl GET 2026-09-15T10:46:15Z, sha256 5ebe2d8837d962084a11da85c4d04e4cc50591f6a72e328b85c5f1d230f38fcd; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | C | Historical C re-verified 2026-09-15 against the retained hash-verified text: central claim \"the missing layer in robotics is not another policy architecture alone\"; bottleneck \"how to convert unstructured physical experience into grounded robot supervision\"; \"four missing pillars\" are data-engine components. Article already carries the corrected framing; evidence fields completed. \"Supervision infrastructure\" in the old note is our gloss, not a paper quotation. |  |  |  | generalization-g16-karcini-position-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:18",
+    "rowOrdinal": 18,
+    "currentCells": {
+      "claim": "Bessemer \"arguing the capability curve is steep\"",
+      "sourceChecked": "Bessemer (fetched)",
+      "verdict": "V",
+      "note": "\"We don't think that moment is years away. But it's not here yet\""
+    },
+    "currentTupleDigest": "f2a34dc9102490c91b3aced4f1a0df10c13878cc2123e95c5a66de215b35b40c",
+    "proposedCells": {
+      "claim": "Bessemer \"arguing the capability curve is steep\"",
+      "sourceChecked": "Bessemer Predicts: Robotics and physical AI, https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai; preparer FetchUrl tool-reported 200 2026-09-15T10:46:50.773Z; passages hash-bound in the frozen packet (investor first-party essay; zero new retrieval)",
+      "verdict": "C",
+      "note": "Corrected2026-09-15 gloss: \"capability curve is steep\" replaced by the essay's own terms, quotes verbatim in the hash-bound passages: \"The scaling laws that defined the LLM era are beginning to show up in robotics data\" and \"We don't think that moment is years away. But it's not here yet.\" The ChatGPT-moment framing rides on the essay's own \"analogous moment\" passage and the committed R15 framing of the same essay. Investor first-party position statement, not a measured result."
+    },
+    "appliedTupleDigest": "16e6487e12b3ebcc0c20a3f99edd328a84adef3adfa6984e48ed78f4e45cedd3",
+    "oldRaw": "| G18 | Bessemer \"arguing the capability curve is steep\" | Bessemer (fetched) | V | \"We don't think that moment is years away. But it's not here yet\" |",
+    "newRaw": "| G18 | Bessemer \"arguing the capability curve is steep\" | Bessemer Predicts: Robotics and physical AI, https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai; preparer FetchUrl tool-reported 200 2026-09-15T10:46:50.773Z; passages hash-bound in the frozen packet (investor first-party essay; zero new retrieval) | C | Corrected2026-09-15 gloss: \"capability curve is steep\" replaced by the essay's own terms, quotes verbatim in the hash-bound passages: \"The scaling laws that defined the LLM era are beginning to show up in robotics data\" and \"We don't think that moment is years away. But it's not here yet.\" The ChatGPT-moment framing rides on the essay's own \"analogous moment\" passage and the committed R15 framing of the same essay. Investor first-party position statement, not a measured result. |  |  |  | generalization-g18-bessemer-scaling-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:19",
+    "rowOrdinal": 19,
+    "currentCells": {
+      "claim": "\"No published result shows a generalist policy sustaining better than 95% success across a broad task distribution in unseen environments\"",
+      "sourceChecked": "editorial scoping across fetched sources",
+      "verdict": "V",
+      "note": "negative scoping claim, dated by context; nothing in π0.5/π0.7/EgoScale/GR2 contradicts it"
+    },
+    "currentTupleDigest": "8ef2e6c163f2db1ed5580b75f74b05af8210a144696ef480756207daf4f8e678",
+    "proposedCells": {
+      "claim": "\"No published result shows a generalist policy sustaining better than 95% success across a broad task distribution in unseen environments\"",
+      "sourceChecked": "editorial scoping across the retained/hash-bound fetches for rows 1, 7, 12 and 15 (π0.5 PDF, π0.7 PDF, EgoScale HTML, GR2 blog); local AND over the coupled passages; no separate fetch",
+      "verdict": "V",
+      "note": "Negative scoping claim, dated by context, re-checked 2026-09-15 by local AND over the coupled retained passages: π0.5's headline evaluation covers three real homes / ten trials per task; π0.7's UR5e laundry success is 80%; EgoScale's best measured completion is 0.71 at 20k hours (a proxy metric, not unseen-home success). None of the fetched corpus sustains >95% across a broad task distribution in unseen environments; no broad literature sweep was performed or claimed. Kept dated-by-context; no article change."
+    },
+    "appliedTupleDigest": "5782a7d05190019fb6df78b81da1814dd74c790167f242b83f2a2833877ca0ca",
+    "oldRaw": "| G19 | \"No published result shows a generalist policy sustaining better than 95% success across a broad task distribution in unseen environments\" | editorial scoping across fetched sources | V | negative scoping claim, dated by context; nothing in π0.5/π0.7/EgoScale/GR2 contradicts it |",
+    "newRaw": "| G19 | \"No published result shows a generalist policy sustaining better than 95% success across a broad task distribution in unseen environments\" | editorial scoping across the retained/hash-bound fetches for rows 1, 7, 12 and 15 (π0.5 PDF, π0.7 PDF, EgoScale HTML, GR2 blog); local AND over the coupled passages; no separate fetch | V | Negative scoping claim, dated by context, re-checked 2026-09-15 by local AND over the coupled retained passages: π0.5's headline evaluation covers three real homes / ten trials per task; π0.7's UR5e laundry success is 80%; EgoScale's best measured completion is 0.71 at 20k hours (a proxy metric, not unseen-home success). None of the fetched corpus sustains >95% across a broad task distribution in unseen environments; no broad literature sweep was performed or claimed. Kept dated-by-context; no article change. |  |  |  | generalization-g19-editorial-scoping-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:20",
+    "rowOrdinal": 20,
+    "currentCells": {
+      "claim": "Stat box: 20,854 h / R²=0.9983 / 0.71 at 20k / \">90% on N unseen homes; unmet\"",
+      "sourceChecked": "EgoScale paper + arithmetic",
+      "verdict": "V",
+      "note": "covered by G12; the solved bar is the article's own definition"
+    },
+    "currentTupleDigest": "7d81bbd5e147056e15781da41efaf279caff1956e43043e5e15c0d674c0a49e0",
+    "proposedCells": {
+      "claim": "Stat box: 20,854 h / R²=0.9983 / 0.71 at 20k / \">90% on N unseen homes; unmet\"",
+      "sourceChecked": "EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval",
+      "verdict": "V",
+      "note": "Stat-box values each trace to the retained hash-verified fetch (20,854 h; R²=0.9983; completion sentence 0.30→0.71 re-read in full) or to the module constants (FULL_DATASET_HOURS 20_854, R_SQUARED 0.9983, final COMPLETION_POINTS score 0.71, SOLVED_BAR_SCORE 0.9), integrator re-imported at application time. The \">90% on N unseen homes; unmet\" label is the article's own solved-bar definition, not a paper claim."
+    },
+    "appliedTupleDigest": "c78e49437dc2c3d0e63919e05e49f902a33969c18f4a7dcfe3e3257e27720412",
+    "oldRaw": "| G20 | Stat box: 20,854 h / R²=0.9983 / 0.71 at 20k / \">90% on N unseen homes; unmet\" | EgoScale paper + arithmetic | V | covered by G12; the solved bar is the article's own definition |",
+    "newRaw": "| G20 | Stat box: 20,854 h / R²=0.9983 / 0.71 at 20k / \">90% on N unseen homes; unmet\" | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Stat-box values each trace to the retained hash-verified fetch (20,854 h; R²=0.9983; completion sentence 0.30→0.71 re-read in full) or to the module constants (FULL_DATASET_HOURS 20_854, R_SQUARED 0.9983, final COMPLETION_POINTS score 0.71, SOLVED_BAR_SCORE 0.9), integrator re-imported at application time. The \">90% on N unseen homes; unmet\" label is the article's own solved-bar definition, not a paper claim. |  |  |  | generalization-g20-statbox-and-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:generalization:21",
+    "rowOrdinal": 21,
+    "currentCells": {
+      "claim": "\"The optimistic extrapolation crosses the bar only near 111k hours\"",
+      "sourceChecked": "arithmetic over lib/egoscale-law.ts fit",
+      "verdict": "V",
+      "note": "least-squares fit through the five published points crosses 0.90 at 111k h; chart labels it extrapolation"
+    },
+    "currentTupleDigest": "52530a4b570898d0226009cbfe46fcc151aa5f790550436ec61af0ab7d62a6c1",
+    "proposedCells": {
+      "claim": "\"The optimistic extrapolation crosses the bar only near 111k hours\"",
+      "sourceChecked": "EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval",
+      "verdict": "V",
+      "note": "Local-AND row: integrator re-ran the node import: solvedBarCrossingHours() = 110,850.77 h (\"near 111k hours\"); completionFitScore(111000) = 0.9002; 111k/20k ≈ 5.55× past the measured range, matching \"five times past the end\". Source basis (the five completion points) re-read in full in the retained hash-verified fetch; the paper's no-extrapolation sentence preserved. Article text already states the crossing as extrapolation."
+    },
+    "appliedTupleDigest": "30e9bc47cb9213ba7954a925e9d22d61cde95a45846f286531c710b7264c4745",
+    "oldRaw": "| G21 | \"The optimistic extrapolation crosses the bar only near 111k hours\" | arithmetic over lib/egoscale-law.ts fit | V | least-squares fit through the five published points crosses 0.90 at 111k h; chart labels it extrapolation |",
+    "newRaw": "| G21 | \"The optimistic extrapolation crosses the bar only near 111k hours\" | EgoScale paper, https://arxiv.org/html/2602.16710; retained fetch curl GET 200 2026-09-15T10:46:15Z, sha256 e1521620ed43c33b33d1e7099861847f3468dd0214df8b5ba71b50b7b09b0906; text layer integrator-read from the retained hash-verified fetch 2026-09-15, zero new retrieval | V | Local-AND row: integrator re-ran the node import: solvedBarCrossingHours() = 110,850.77 h (\"near 111k hours\"); completionFitScore(111000) = 0.9002; 111k/20k ≈ 5.55× past the measured range, matching \"five times past the end\". Source basis (the five completion points) re-read in full in the retained hash-verified fetch; the paper's no-extrapolation sentence preserved. Article text already states the crossing as extrapolation. |  |  |  | generalization-g21-local-bar-crossing-20260915 |"
   }
 ]
 ```
