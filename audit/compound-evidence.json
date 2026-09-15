@@ -55820,5 +55820,615 @@
         "evidenceDigest": "40f11ddcf5844fcff66847e2436a420d27068d9413e1846632c8e39de541aa18"
       }
     ]
+  },
+  {
+    "id": "kinematics-1-mr-fk-product-20260915",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "kinematics",
+    "rowOrdinal": 1,
+    "originalCellsDigest": "efb4b08747f1400215b1e1034afc6ae56e0acf0fa6ce8799c60cc1b070d9ca9f",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "fk-map-unique",
+        "text": "Forward kinematics is the problem of finding the end-effector configuration given the joint-angle vector; T of theta is a single-valued function of the joint variables.",
+        "requiredCitationIds": [
+          "modern-robotics-2017"
+        ]
+      },
+      {
+        "id": "fk-ordered-product",
+        "text": "The configuration is computed by ordered left-multiplication of the per-joint transformations; in Modern Robotics this is the product-of-exponentials formula.",
+        "requiredCitationIds": [
+          "modern-robotics-2017"
+        ]
+      },
+      {
+        "id": "fk-cheap-arithmetic",
+        "text": "The cost claim (n matrix multiplications for n joints, cheap enough for every control cycle) is arithmetic from the product form, not a sentence in the fetched passage.",
+        "requiredCitationIds": [
+          "modern-robotics-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record kinematics:1 (ready-source-correction): 3 parts, each with one MR 4.1.1 companion-page evidence item, all needle-verified FULL; 'cheap' carried explicitly as arithmetic (n joints = n matrix factors), not a fetched sentence; fetched surface is the authors' official chapter companion at the registered domain (book PDF 404), recorded as such. Integrator review 2026-09-15T18:58:29Z: packet plan reviewed; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see integration lane needle-verification.json; 20/21 FULL, the so101-six-revolute item verified literally against the sha256-matched retained URDF receipt); citation ids confirmed registered; zero retrieval by this integrator. Zero retrieval performed by this integrator.",
+      "planDigest": "dd5bb96593ecbea9f8b710011d5e0e85e5928fcf84c9c26065c4eee7ad71a2ba"
+    },
+    "evidence": [
+      {
+        "partId": "fk-map-unique",
+        "citationId": "modern-robotics-2017",
+        "sourceUrl": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/4-1-1-product-of-exponentials-formula-in-the-space-frame/",
+        "supportingPassage": "The forward kinematics problem is to find the configuration of the {b}-frame relative to the {s}-frame given the vector of joint angles theta. The transformation matrix representing the {b}-frame in the {s}-frame is T_sb of theta, or just T of theta for short."
+      },
+      {
+        "partId": "fk-ordered-product",
+        "citationId": "modern-robotics-2017",
+        "sourceUrl": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/4-1-1-product-of-exponentials-formula-in-the-space-frame/",
+        "supportingPassage": "The new configuration of the {b}-frame, T of theta, is obtained by left-multiplying the previous configuration by the new space-frame transformation."
+      },
+      {
+        "partId": "fk-cheap-arithmetic",
+        "citationId": "modern-robotics-2017",
+        "sourceUrl": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/4-1-1-product-of-exponentials-formula-in-the-space-frame/",
+        "supportingPassage": "Second, define the {s}-frame screw axes S_1 to S_n for each of the n joint axes when the joint variables are zero. Finally, for the given joint values, evaluate the product of exponentials formula in the space frame."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "fk-map-unique",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/4-1-1-product-of-exponentials-formula-in-the-space-frame/",
+        "evidenceDigest": "997e0b2b82c71eadbe595a65987d34bf7b1ee0418d5d642ea93f0f50492f5ea1"
+      },
+      {
+        "partId": "fk-ordered-product",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/4-1-1-product-of-exponentials-formula-in-the-space-frame/",
+        "evidenceDigest": "35816dae016374d437935f3317af91a18bf758c861d5d9622f43809204015abc"
+      },
+      {
+        "partId": "fk-cheap-arithmetic",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/4-1-1-product-of-exponentials-formula-in-the-space-frame/",
+        "evidenceDigest": "0bfac94a1377bf3e0345a90ef2e5d8694120045b1f550b9dd985db1e1787c6d1"
+      }
+    ]
+  },
+  {
+    "id": "kinematics-2-planar-demo-20260915",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "kinematics",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "74669d3f3435e47fdae060dbc655138cbb150e46869eba99038dd6145a76d973",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "planar-basis",
+        "text": "Modern Robotics chapter 4.1.1 builds forward kinematics on a planar three-joint arm example.",
+        "requiredCitationIds": [
+          "modern-robotics-2017"
+        ]
+      },
+      {
+        "id": "planar-demo-local",
+        "text": "The wiki demo implements a three-link planar chain with cumulative relative angles and a running-sum end-effector readout; equality with the article's closed form is a local-AND proof the integrator must run.",
+        "requiredCitationIds": [
+          "modern-robotics-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record kinematics:2 (ready-source-correction-with-local-AND): planar-basis part needle-verified FULL; planar-demo-local is the local-AND leg proven integrator-side this session (demo wiring plus numeric closed-form identity). Integrator review 2026-09-15T18:58:29Z: packet plan reviewed; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see integration lane needle-verification.json; 20/21 FULL, the so101-six-revolute item verified literally against the sha256-matched retained URDF receipt); citation ids confirmed registered; zero retrieval by this integrator. Local-AND re-proven this session at HEAD b082ad8: components/interactive/planar-fk-arm.tsx renders planarForwardKinematics(LINK_LENGTHS, angles) with cumulative-angle running sums (docblock and state wiring); closed-form identity recomputed numerically (3 random angle triples) for link lengths 1.00/0.75/0.55. Zero retrieval performed by this integrator.",
+      "planDigest": "edc13f8bbd6ecb16d697569bfdb506af0b39b3178ef0dbf85f83c7f082fef7fb"
+    },
+    "evidence": [
+      {
+        "partId": "planar-basis",
+        "citationId": "modern-robotics-2017",
+        "sourceUrl": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/4-1-1-product-of-exponentials-formula-in-the-space-frame/",
+        "supportingPassage": "To derive a procedure to calculate T of theta, let's use a simple robot arm that moves in a plane. This robot has three joints: a revolute joint, a prismatic joint, and another revolute joint."
+      },
+      {
+        "partId": "planar-demo-local",
+        "citationId": "modern-robotics-2017",
+        "sourceUrl": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/4-1-1-product-of-exponentials-formula-in-the-space-frame/",
+        "supportingPassage": "The 3-vector theta is a list of the three joint variables, and T of theta represents the configuration of the {b} frame relative to the {s} frame."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "planar-basis",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/4-1-1-product-of-exponentials-formula-in-the-space-frame/",
+        "evidenceDigest": "fa357f24cbe9308e216584675bed7730973188514e1153de5ccdb7dd86bfcd9e"
+      },
+      {
+        "partId": "planar-demo-local",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/4-1-1-product-of-exponentials-formula-in-the-space-frame/",
+        "evidenceDigest": "6f6883bbf1cdd888eeee6b2324282a0d4dc36eb9ee9241c0fd833abf7e42d1b1"
+      }
+    ]
+  },
+  {
+    "id": "kinematics-4-dh-symbolic-20260915",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "kinematics",
+    "rowOrdinal": 4,
+    "originalCellsDigest": "4a937cfbd6828b2580faa4da7a0d8b6252303d730314d85ebb2c4fb933cfb8fd",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "dh-matrix-lineage",
+        "text": "The DH 1955 notation provides a matrix-algebra method for studying lower-pair mechanisms (catalogue-abstract scope only).",
+        "requiredCitationIds": [
+          "denavit-hartenberg-1955"
+        ]
+      },
+      {
+        "id": "dh-matrix-local",
+        "text": "The article's displayed A_i equals Rot_z(theta) Trans_z(d) Trans_x(a) Rot_x(alpha); verified this session by numeric check at HEAD b082ad88 and requiring integrator re-derivation, not by any fetched source text.",
+        "requiredCitationIds": [
+          "denavit-hartenberg-1955"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record kinematics:4 (ready-source-correction-with-local-AND): dh-matrix-lineage needle-verified FULL at the DH 1955 fetched catalogue scope (title/authors/venue; body paywalled, recorded); dh-matrix-local is the local-AND leg re-proven numerically at 1e-12. Integrator review 2026-09-15T18:58:29Z: packet plan reviewed; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see integration lane needle-verification.json; 20/21 FULL, the so101-six-revolute item verified literally against the sha256-matched retained URDF receipt); citation ids confirmed registered; zero retrieval by this integrator. Local-AND re-proven this session at HEAD b082ad8: Rot_z(theta)Trans_z(d)Trans_x(a)Rot_x(alpha) recomputed numerically against the article-displayed A_i over 5 random quadruples, worst abs diff 0 (< 1e-12); pinned in tests/unit/kinematics-originals.test.ts. Zero retrieval performed by this integrator.",
+      "planDigest": "4af70c6738644038ea96e0c1205e6862fab589ffed8b405bd76a68db34851437"
+    },
+    "evidence": [
+      {
+        "partId": "dh-matrix-lineage",
+        "citationId": "denavit-hartenberg-1955",
+        "sourceUrl": "https://doi.org/10.1115/1.4011045",
+        "supportingPassage": "The symbolic notation also yields a method for studying lower-pair mechanisms by means of matrix algebra; two examples of application to space mechanisms are given."
+      },
+      {
+        "partId": "dh-matrix-local",
+        "citationId": "denavit-hartenberg-1955",
+        "sourceUrl": "https://doi.org/10.1115/1.4011045",
+        "supportingPassage": "A reconsideration of the problem leads to a symbolic notation which permits the complete description of the kinematic properties of all lower-pair mechanisms by means of equations."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "dh-matrix-lineage",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://doi.org/10.1115/1.4011045",
+        "evidenceDigest": "5b04dccbbec3fbdbef77cfacad7691ceb80d1868846e7005c5451785456c9f36"
+      },
+      {
+        "partId": "dh-matrix-local",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://doi.org/10.1115/1.4011045",
+        "evidenceDigest": "d17af0286adc6433fec609efa9e5e9378be33c749480b46ece544549bb0f9c4d"
+      }
+    ]
+  },
+  {
+    "id": "kinematics-6-so101-urdf-20260915",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "kinematics",
+    "rowOrdinal": 6,
+    "originalCellsDigest": "53b76d932ca33f487693a3b5392e328eb99d9f36f146facba701acb2f73d1c1a",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "so101-six-revolute",
+        "text": "The SO-ARM100 repository's SO-101 URDF declares exactly six revolute joints (shoulder_pan, shoulder_lift, elbow_flex, wrist_flex, wrist_roll, gripper) and one fixed gripper-frame joint.",
+        "requiredCitationIds": [
+          "so-arm100-repo-2026"
+        ]
+      },
+      {
+        "id": "so101-playground-local",
+        "text": "The wiki playground reads its own copy (public/models/so101/so101.urdf) via lib/so101-kinematics.ts; joint-list identity with the repo URDF is a local-AND proof the integrator must run.",
+        "requiredCitationIds": [
+          "so-arm100-repo-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record kinematics:6 (ready-source-correction-with-local-AND): so101-six-revolute verified literally against the sha256-matched retained URDF receipt (the passage is a compressed quote-list with parenthetical annotation; every joint-declaration fragment is verbatim in the receipt); so101-playground-local anchored by the retained README fetch (needle FULL) plus the integrator-side URDF identity and load-path proof. Integrator review 2026-09-15T18:58:29Z: packet plan reviewed; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see integration lane needle-verification.json; 20/21 FULL, the so101-six-revolute item verified literally against the sha256-matched retained URDF receipt); citation ids confirmed registered; zero retrieval by this integrator. Local-AND re-proven this session at HEAD b082ad8: retained repo URDF receipt (sha256 3a65d2d35e68a8d2f0c2cc176d19b884506543c93ba72980145b80abe276022c, 16231 bytes) declares exactly 6 revolute joints plus fixed gripper_frame_joint; worktree public/models/so101/so101.urdf joint declarations identical (only mesh stl->glb filenames differ); playground loads through lib/so101-kinematics.ts parseUrdfJoints/so101HomeChain which rejects non-serial chains; pinned in tests/unit/kinematics-originals.test.ts. Zero retrieval performed by this integrator.",
+      "planDigest": "b25aac9a357e83c608e15979d43b167353f540cdb58e06dba9f50371f9dcd42f"
+    },
+    "evidence": [
+      {
+        "partId": "so101-six-revolute",
+        "citationId": "so-arm100-repo-2026",
+        "sourceUrl": "https://raw.githubusercontent.com/TheRobotStudio/SO-ARM100/main/Simulation/SO101/so101_new_calib.urdf",
+        "supportingPassage": "<joint name=\"gripper\" type=\"revolute\">, <joint name=\"wrist_roll\" type=\"revolute\">, <joint name=\"wrist_flex\" type=\"revolute\">, <joint name=\"elbow_flex\" type=\"revolute\">, <joint name=\"shoulder_lift\" type=\"revolute\">, <joint name=\"shoulder_pan\" type=\"revolute\"> (six revolute joints declared; seventh joint gripper_frame_joint is type=\"fixed\")."
+      },
+      {
+        "partId": "so101-playground-local",
+        "citationId": "so-arm100-repo-2026",
+        "sourceUrl": "https://raw.githubusercontent.com/TheRobotStudio/SO-ARM100/main/README.md",
+        "supportingPassage": "Standard Open SO-100 & SO-101 Arms. The SO-101 is the next-generation version of the SO-100 robot arm, originally designed by the RobotStudio in collaboration with Hugging Face."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "so101-six-revolute",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage fragments verified literally against the sha256-matched retained URDF receipt (compressed quote-list, each fragment verbatim). Evidence: https://raw.githubusercontent.com/TheRobotStudio/SO-ARM100/main/Simulation/SO101/so101_new_calib.urdf",
+        "evidenceDigest": "b402fcb118b2e2f9de724d670f03a2273b8847d1b3695ae9226077da33a0a549"
+      },
+      {
+        "partId": "so101-playground-local",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://raw.githubusercontent.com/TheRobotStudio/SO-ARM100/main/README.md",
+        "evidenceDigest": "5ffefc69477a1d86bb2896b597d889cf93d1dd553c2523bbf16225901322db1b"
+      }
+    ]
+  },
+  {
+    "id": "kinematics-7-jacobian-20260915",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "kinematics",
+    "rowOrdinal": 7,
+    "originalCellsDigest": "d8ec00f25a189c05295e19712abd7096523899deb4b847a8680f898396901fa7",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "jacobian-linear-map",
+        "text": "The Jacobian maps joint velocities to end-effector velocity, one column per joint, each column the contribution of that joint at unit speed with all others zero.",
+        "requiredCitationIds": [
+          "modern-robotics-2017"
+        ]
+      },
+      {
+        "id": "jacobian-column-form-local",
+        "text": "The article's geometric column form (revolute: z_i x (p_ee - p_i) stacked over z_i; prismatic: its axis) is consistent with lib/ik.ts and with the 5.1.1 screw-axis column derivation, but the cross-product form itself is a local-AND item, not a verbatim fetched sentence.",
+        "requiredCitationIds": [
+          "modern-robotics-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record kinematics:7 (ready-source-correction-with-local-AND): jacobian-linear-map needle-verified FULL; jacobian-column-form-local re-proven against lib/ik.ts at HEAD b082ad8. Integrator review 2026-09-15T18:58:29Z: packet plan reviewed; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see integration lane needle-verification.json; 20/21 FULL, the so101-six-revolute item verified literally against the sha256-matched retained URDF receipt); citation ids confirmed registered; zero retrieval by this integrator. Local-AND re-proven this session at HEAD b082ad8: lib/ik.ts builds each revolute Jacobian column as cross(joint.axisWorld, sub(eePosition, joint.position)), i.e. z_i x (p_ee - p_i); pinned in tests/unit/kinematics-originals.test.ts. Zero retrieval performed by this integrator.",
+      "planDigest": "6eb198f88587472152ca198b513f8ef2f264e1f641ff9084f57501aa2b025836"
+    },
+    "evidence": [
+      {
+        "partId": "jacobian-linear-map",
+        "citationId": "modern-robotics-2017",
+        "sourceUrl": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-1-1-space-jacobian/",
+        "supportingPassage": "The Jacobian J maps the joint velocities to v_tip. For this 2R robot, the Jacobian has two columns, one for each joint, which we call J_1 and J_2. Each column is the contribution to v_tip when the speed at that joint is 1 and the speed at all other joints is zero."
+      },
+      {
+        "partId": "jacobian-column-form-local",
+        "citationId": "modern-robotics-2017",
+        "sourceUrl": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-1-1-space-jacobian/",
+        "supportingPassage": "Any other column i of the space Jacobian is given by the screw axis S_i premultiplied by the transformation that expresses the screw axis in the {s} frame for arbitrary joint positions."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "jacobian-linear-map",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-1-1-space-jacobian/",
+        "evidenceDigest": "513b977df88eb4576440adbfef347ebc3fa956d73c23565256af8d03e6424c69"
+      },
+      {
+        "partId": "jacobian-column-form-local",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-1-1-space-jacobian/",
+        "evidenceDigest": "a904096515e718f362441f46dcf26d4d61db09780ba14c67a6ade287ce358c25"
+      }
+    ]
+  },
+  {
+    "id": "kinematics-8-statics-dual-20260915",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "kinematics",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "00621089b8bdda6d622c91b9454428fbcee955906a96bd98c3d8e39151e69d93",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "statics-dual-result",
+        "text": "Joint torques and forces balancing an end-effector wrench satisfy tau = J(theta)^T F, independent of the frame the Jacobian and wrench are expressed in.",
+        "requiredCitationIds": [
+          "modern-robotics-2017"
+        ]
+      },
+      {
+        "id": "statics-power-derivation",
+        "text": "The relation is derived by power balance: motor power tau . theta-dot equals hand power F . V, using J theta-dot = V.",
+        "requiredCitationIds": [
+          "modern-robotics-2017"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record kinematics:8 (ready-source-correction): both statics parts needle-verified FULL against the retained MR chapter-page fetch. Integrator review 2026-09-15T18:58:29Z: packet plan reviewed; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see integration lane needle-verification.json; 20/21 FULL, the so101-six-revolute item verified literally against the sha256-matched retained URDF receipt); citation ids confirmed registered; zero retrieval by this integrator. Zero retrieval performed by this integrator.",
+      "planDigest": "52baac72c4ac5a98b9a69e8b3790620ed99cc27622b9a68520b64890c1dd43b5"
+    },
+    "evidence": [
+      {
+        "partId": "statics-dual-result",
+        "citationId": "modern-robotics-2017",
+        "sourceUrl": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-2-statics-of-open-chains/",
+        "supportingPassage": "To resist a wrench minus F applied to the end-effector at a configuration theta, the joint torques and forces tau must be J of theta transposed times F. This result holds no matter what frame the Jacobian and wrench are expressed in."
+      },
+      {
+        "partId": "statics-power-derivation",
+        "citationId": "modern-robotics-2017",
+        "sourceUrl": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-2-statics-of-open-chains/",
+        "supportingPassage": "recall from physics that force times velocity is power. In the {b} frame, the wrench F_b created by the motors multiplies the twist V_b to get the mechanical power produced or consumed at the hand. This power must be coming from the motors, and we know that the power produced or consumed by the motors is the joint torques dotted with the joint velocities."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "statics-dual-result",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-2-statics-of-open-chains/",
+        "evidenceDigest": "7cc00cb84360ad234f81f39b344bdf4d8ff1c528f24c93ac3534383f00bd094e"
+      },
+      {
+        "partId": "statics-power-derivation",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://modernrobotics.northwestern.edu/nu-gm-book-resource/5-2-statics-of-open-chains/",
+        "evidenceDigest": "f15fd6b94beec97dab73735fe4f4599dab488d8a377a2edfa1e9dd30117df3d9"
+      }
+    ]
+  },
+  {
+    "id": "kinematics-9-whitney-rmrc-20260915",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "kinematics",
+    "rowOrdinal": 9,
+    "originalCellsDigest": "2c46567a2e0e053aacff79ce7ae3de93234972a61c7a659e0bce42008a9c142e",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "whitney-rmrc-derivation",
+        "text": "Whitney 1969 analyzes manipulator and prosthesis kinematics for the purpose of deriving resolved motion rate control, enabling the operator to call for desired hand motion along task-relevant axes.",
+        "requiredCitationIds": [
+          "whitney-1969"
+        ]
+      },
+      {
+        "id": "whitney-1969-formula-unattributed",
+        "text": "The q-dot = J^-1 x-dot relation and the J+ = J^T(JJ^T)^-1 pseudoinverse for redundant arms are presented as the standard classical rate-control relations, not as sentences certified in the fetched 1969 abstract; the paywalled body was not read.",
+        "requiredCitationIds": [
+          "whitney-1969"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record kinematics:9 (ready-source-correction): whitney-rmrc-derivation needle-verified FULL (fetched abstract states the RMRC derivation and operator-commanded hand motion); whitney-1969-formula-unattributed is a scope-honest negative whose evidence documents the paywall ('Sign In or Purchase') in the retained text, not a body claim; the packet's de-attribution article span is applied in this same commit and the verdict history preserves the original attribution cell. Integrator review 2026-09-15T18:58:29Z: packet plan reviewed; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see integration lane needle-verification.json; 20/21 FULL, the so101-six-revolute item verified literally against the sha256-matched retained URDF receipt); citation ids confirmed registered; zero retrieval by this integrator. Original row cells before this correction: [\"Whitney 1969 resolved motion rate control inverts the Jacobian; pseudoinverse J+ = J^T(JJ^T)^-1 for redundancy\",\"whitney-1969 (title + canonical content)\",\"V\"]. Article span corrected in this same commit per the packet endpoint kinematics-9-article-span: Whitney attribution scoped to the abstract-supported operator-commanded hand motion; J^-1 and J+ presented as the classical rate-control relations without 1969 pinning. Zero retrieval performed by this integrator.",
+      "planDigest": "a204513d465119d4899214683e486f0f59bb4c297181b9504ff7a977fa7eff33"
+    },
+    "evidence": [
+      {
+        "partId": "whitney-rmrc-derivation",
+        "citationId": "whitney-1969",
+        "sourceUrl": "https://doi.org/10.1109/TMMS.1969.299896",
+        "supportingPassage": "The kinematics of remote manipulators and human prostheses is analyzed for the purpose of deriving resolved motion rate control. That is, the operator is enabled to call for the desired hand motion directly along axes relevant to the task environment. The approach suggests solutions to problems of coordination, motion under task constraints, and appreciation of forces encountered by the controlled hand."
+      },
+      {
+        "partId": "whitney-1969-formula-unattributed",
+        "citationId": "whitney-1969",
+        "sourceUrl": "https://doi.org/10.1109/TMMS.1969.299896",
+        "supportingPassage": "Published in: IEEE Transactions on Man-Machine Systems (Volume: 10, Issue: 2, June 1969), Page(s): 47 - 53. Sign In or Purchase."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "whitney-rmrc-derivation",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://doi.org/10.1109/TMMS.1969.299896",
+        "evidenceDigest": "5b8f1840c7386925691a505be61ada9d9e06240e491f1ec55a1489b9d89d9a96"
+      },
+      {
+        "partId": "whitney-1969-formula-unattributed",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://doi.org/10.1109/TMMS.1969.299896",
+        "evidenceDigest": "5266be8272b7f55fd6adc4b0a2269c24e1b09d72e26bca3962b1e3d6993d52b4"
+      }
+    ]
+  },
+  {
+    "id": "kinematics-13-ik-solver-20260915",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "kinematics",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "ca3a04d969b9206e80c830b60a79989f816d06149b42166933e3cf25196ab133",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ik-dls-lineage",
+        "text": "The damped least-squares inverse-kinematics lineage is the subject of Wampler 1986 (catalogue-title scope).",
+        "requiredCitationIds": [
+          "wampler-1986"
+        ]
+      },
+      {
+        "id": "ik-solver-local",
+        "text": "The playground solver in lib/ik.ts is DLS with LM acceptance (accept only on residual decrease, damping down on success, up on rejection), joint-limit clamps, and a 0.5 mm default residual tolerance; verified read-only at HEAD b082ad88 and requiring integrator-side re-verification.",
+        "requiredCitationIds": [
+          "wampler-1986"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record kinematics:13 (ready-source-correction-with-local-AND): ik-dls-lineage needle-verified FULL at catalogue scope (Wampler 1986 bibliographic identity; the DLS formula itself stays body-held per the packet's separate row-10/11 holds and is not certified here); ik-solver-local is the local-AND leg re-proven in lib/ik.ts this session. Integrator review 2026-09-15T18:58:29Z: packet plan reviewed; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see integration lane needle-verification.json; 20/21 FULL, the so101-six-revolute item verified literally against the sha256-matched retained URDF receipt); citation ids confirmed registered; zero retrieval by this integrator. Local-AND re-proven this session at HEAD b082ad8: lib/ik.ts LM docblock (accept-on-residual-decrease, lambda /0.5 on accept, *4 on reject), DEFAULT_TOLERANCE = 5e-4 (0.5 mm), joint-limit clamps and 0.3 rad per-step clamp; pinned in tests/unit/kinematics-originals.test.ts. Zero retrieval performed by this integrator.",
+      "planDigest": "42ccaf8ff0a7a8b8c0b398b8ce49846f1a724f191414c74df748bede8a13d7f6"
+    },
+    "evidence": [
+      {
+        "partId": "ik-dls-lineage",
+        "citationId": "wampler-1986",
+        "sourceUrl": "https://doi.org/10.1109/TSMC.1986.289285",
+        "supportingPassage": "Manipulator Inverse Kinematic Solutions Based on Vector Formulations and Damped Least-Squares Methods | IEEE Journals & Magazine | IEEE Xplore"
+      },
+      {
+        "partId": "ik-solver-local",
+        "citationId": "wampler-1986",
+        "sourceUrl": "https://doi.org/10.1109/TSMC.1986.289285",
+        "supportingPassage": "Published in: IEEE Transactions on Systems, Man and Cybernetics (fetched catalogue metadata; the solver behavior itself is repo-internal, see the note)."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ik-dls-lineage",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://doi.org/10.1109/TSMC.1986.289285",
+        "evidenceDigest": "cdd3fbd30af7f396470c18b372e7c5f447890919863d34594564b38686550492"
+      },
+      {
+        "partId": "ik-solver-local",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://doi.org/10.1109/TSMC.1986.289285",
+        "evidenceDigest": "db7816f5a737eec4c5cf2422277cc54f853094456e2aa82f8c908347dc8cea02"
+      }
+    ]
+  },
+  {
+    "id": "kinematics-14-act-dims-20260915",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "kinematics",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "d9d834535cd59466b9eb5d1d987e6a7e53c246ce172785547759211d0465f3c3",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "act-6dof-arms",
+        "text": "ACT's hardware is a bimanual parallel-jaw gripper setup with two ViperX 6-DoF robot arms.",
+        "requiredCitationIds": [
+          "act-aloha-2023"
+        ]
+      },
+      {
+        "id": "act-14-dims",
+        "text": "The observation/action space is 14-dimensional: joint positions for two robot arms, 7+7=14 DoF in total, with actions as absolute joint positions for two robots.",
+        "requiredCitationIds": [
+          "act-aloha-2023"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record kinematics:14 (ready-source-correction): both ACT parts needle-verified FULL against the retained arXiv PDF text receipt ('two ViperX 6-DoF robot arms' and '(7+7=14 DoF in total)' verbatim); 'and their grippers' is an arithmetic conjunction recorded as such; the article already carried the corrected span at HEAD b082ad8, so no article edit this commit and the correction history is preserved. Integrator review 2026-09-15T18:58:29Z: packet plan reviewed; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see integration lane needle-verification.json; 20/21 FULL, the so101-six-revolute item verified literally against the sha256-matched retained URDF receipt); citation ids confirmed registered; zero retrieval by this integrator. Original row cells before this completion: [\"ACT predicts joint-space targets, 14 dims across two arms\",\"act-aloha-2023\",\"C (\\\"7-DoF arms\\\" -> \\\"6-DoF arms and their grippers\\\")\"]. Article already carried the corrected span at HEAD b082ad8 (fourteen dimensions across two 6-DoF arms and their grippers); no article edit required in this commit. Zero retrieval performed by this integrator.",
+      "planDigest": "da8ac7e4b714280aeba7ae07eb764dfd2f452d5223da1da73f470a1309be5a46"
+    },
+    "evidence": [
+      {
+        "partId": "act-6dof-arms",
+        "citationId": "act-aloha-2023",
+        "sourceUrl": "https://arxiv.org/pdf/2304.13705",
+        "supportingPassage": "When choosing the robot to use, principles 1, 4, and 5 lead us to build a bimanual parallel-jaw grippers setup with two ViperX 6-DoF robot arms [1, 66]. We do not employ dexterous hands due to price and maintenance considerations."
+      },
+      {
+        "partId": "act-14-dims",
+        "citationId": "act-aloha-2023",
+        "sourceUrl": "https://arxiv.org/pdf/2304.13705",
+        "supportingPassage": "at 480 × 640 resolution, and joint positions for two robot arms (7+7=14 DoF in total). The action space is the absolute joint positions for two robots, a 14-dimensional vector. Thus with action chunking, the policy outputs a k × 14 tensor given the current observation."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "act-6dof-arms",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://arxiv.org/pdf/2304.13705",
+        "evidenceDigest": "55d57ac558da445ab6c558989c14f4f69160d5305b1e8da896edb2987286fba5"
+      },
+      {
+        "partId": "act-14-dims",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://arxiv.org/pdf/2304.13705",
+        "evidenceDigest": "11a0fe27e5c0ff766cb0614a56f334fd587b0facce60ac57fa6713b9887d83a0"
+      }
+    ]
+  },
+  {
+    "id": "kinematics-15-gr00t-eef-20260915",
+    "ledgerPath": "audit/classical.md",
+    "articleSlug": "kinematics",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "e6fc813bbc9ae75826d2672c112425afafe71e0fa452161a9ae267739c97e8f3",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "gr00t-relative-eef",
+        "text": "GR00T N1.7 adopts a relative end-effector action space shared across robot and human embodiments, representing actions as deltas from the current pose.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      },
+      {
+        "id": "gr00t-cross-embodiment",
+        "text": "NVIDIA presents the relative EEF representation as improving generalization and being key to cross-embodiment performance, with human-video priors transferring because the representation is consistent across human and robot data.",
+        "requiredCitationIds": [
+          "isaac-gr00t-repo-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record kinematics:15 (ready-source-correction): both GR00T parts needle-verified FULL against the retained README/releases fetch; 'recent releases' evidenced for N1.7 only and recorded as such. Integrator review 2026-09-15T18:58:29Z: packet plan reviewed; every evidence passage needle-verified against the retained fetch text preserved in the source lane (see integration lane needle-verification.json; 20/21 FULL, the so101-six-revolute item verified literally against the sha256-matched retained URDF receipt); citation ids confirmed registered; zero retrieval by this integrator. Zero retrieval performed by this integrator.",
+      "planDigest": "f340c79f3e6651a860697a97d96d1d4a93d4183b9d32781c79c96faf5a33ec6f"
+    },
+    "evidence": [
+      {
+        "partId": "gr00t-relative-eef",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/README.md",
+        "supportingPassage": "Relative EEF Action Space — N1.7 adopts a relative end-effector action space shared across robot and human embodiments. Representing actions as deltas from the current pose (rather than absolute targets) improves generalization and is a key factor in the model's cross-embodiment performance."
+      },
+      {
+        "partId": "gr00t-cross-embodiment",
+        "citationId": "isaac-gr00t-repo-2026",
+        "sourceUrl": "https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/README.md",
+        "supportingPassage": "Human Video Pretraining — N1.7 is pretrained on 20K hours of EgoScale human video data alongside diverse robot demonstrations. Because the relative EEF action representation is consistent across both human and robot data, the model can transfer manipulation priors learned from human video directly to robot control."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "gr00t-relative-eef",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/README.md",
+        "evidenceDigest": "dc63f3867c3c3de305d0713678a4b6dc035947c2c80f418a2b84b71220d74d4a"
+      },
+      {
+        "partId": "gr00t-cross-embodiment",
+        "outcome": "supported",
+        "reviewedBy": "kinematics-integrator-20260915 (session 6692d993-9b0b-4883-b0b6-22f967a5e12f, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified FULL against the retained fetch text in the source lane. Evidence: https://raw.githubusercontent.com/NVIDIA/Isaac-GR00T/main/README.md",
+        "evidenceDigest": "944fde9a0565d5167535fb192d99efc3e0abc5dc2d963fbacb82399d54f651fb"
+      }
+    ]
   }
 ]

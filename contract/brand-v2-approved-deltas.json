@@ -12585,6 +12585,176 @@
       "VAL-AUDIT-009"
     ],
     "disposition": "permanent"
-  }
+  },
+    {
+      "id": "kin-r1-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "d3a98457a2565f4212169fb229e012bea2385c548d7896e1fb4230f2de98a5a2",
+      "newHash": "92ebc64f18672434e776df7c95a66286cfdc69f093ef4c3b42e2a3f0bd811154",
+      "reason": "Exactly classical/kinematics original 1: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Record 9 corrects one article span in this same commit (Whitney 1969 attribution scoped to the abstract-supported operator-commanded hand motion; J^-1/J+ presented as classical relations without 1969 pinning); records 2/4/6/7/13 document their local-AND bases re-proven by the integrator at HEAD b082ad8; record 14 correction was already present in the article at HEAD b082ad8 and only its verdict history is completed. The five held rows (3/5/10/11/12) are byte-untouched per the packet paywall/scope holds. Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-kinematics-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 10 ready records of frozen packet convergence-source-a-kinematics-20260915, sha256 c7d78c382ca8ffe86401952d77082a2b4a08e10b0145e67919af4fd471b53f30) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kin-r2-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "d3a98457a2565f4212169fb229e012bea2385c548d7896e1fb4230f2de98a5a2",
+      "newHash": "92ebc64f18672434e776df7c95a66286cfdc69f093ef4c3b42e2a3f0bd811154",
+      "reason": "Exactly classical/kinematics original 2: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Record 9 corrects one article span in this same commit (Whitney 1969 attribution scoped to the abstract-supported operator-commanded hand motion; J^-1/J+ presented as classical relations without 1969 pinning); records 2/4/6/7/13 document their local-AND bases re-proven by the integrator at HEAD b082ad8; record 14 correction was already present in the article at HEAD b082ad8 and only its verdict history is completed. The five held rows (3/5/10/11/12) are byte-untouched per the packet paywall/scope holds. Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-kinematics-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 10 ready records of frozen packet convergence-source-a-kinematics-20260915, sha256 c7d78c382ca8ffe86401952d77082a2b4a08e10b0145e67919af4fd471b53f30) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kin-r4-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "d3a98457a2565f4212169fb229e012bea2385c548d7896e1fb4230f2de98a5a2",
+      "newHash": "92ebc64f18672434e776df7c95a66286cfdc69f093ef4c3b42e2a3f0bd811154",
+      "reason": "Exactly classical/kinematics original 4: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Record 9 corrects one article span in this same commit (Whitney 1969 attribution scoped to the abstract-supported operator-commanded hand motion; J^-1/J+ presented as classical relations without 1969 pinning); records 2/4/6/7/13 document their local-AND bases re-proven by the integrator at HEAD b082ad8; record 14 correction was already present in the article at HEAD b082ad8 and only its verdict history is completed. The five held rows (3/5/10/11/12) are byte-untouched per the packet paywall/scope holds. Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-kinematics-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 10 ready records of frozen packet convergence-source-a-kinematics-20260915, sha256 c7d78c382ca8ffe86401952d77082a2b4a08e10b0145e67919af4fd471b53f30) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kin-r6-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "d3a98457a2565f4212169fb229e012bea2385c548d7896e1fb4230f2de98a5a2",
+      "newHash": "92ebc64f18672434e776df7c95a66286cfdc69f093ef4c3b42e2a3f0bd811154",
+      "reason": "Exactly classical/kinematics original 6: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Record 9 corrects one article span in this same commit (Whitney 1969 attribution scoped to the abstract-supported operator-commanded hand motion; J^-1/J+ presented as classical relations without 1969 pinning); records 2/4/6/7/13 document their local-AND bases re-proven by the integrator at HEAD b082ad8; record 14 correction was already present in the article at HEAD b082ad8 and only its verdict history is completed. The five held rows (3/5/10/11/12) are byte-untouched per the packet paywall/scope holds. Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-kinematics-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 10 ready records of frozen packet convergence-source-a-kinematics-20260915, sha256 c7d78c382ca8ffe86401952d77082a2b4a08e10b0145e67919af4fd471b53f30) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kin-r7-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "d3a98457a2565f4212169fb229e012bea2385c548d7896e1fb4230f2de98a5a2",
+      "newHash": "92ebc64f18672434e776df7c95a66286cfdc69f093ef4c3b42e2a3f0bd811154",
+      "reason": "Exactly classical/kinematics original 7: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Record 9 corrects one article span in this same commit (Whitney 1969 attribution scoped to the abstract-supported operator-commanded hand motion; J^-1/J+ presented as classical relations without 1969 pinning); records 2/4/6/7/13 document their local-AND bases re-proven by the integrator at HEAD b082ad8; record 14 correction was already present in the article at HEAD b082ad8 and only its verdict history is completed. The five held rows (3/5/10/11/12) are byte-untouched per the packet paywall/scope holds. Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-kinematics-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 10 ready records of frozen packet convergence-source-a-kinematics-20260915, sha256 c7d78c382ca8ffe86401952d77082a2b4a08e10b0145e67919af4fd471b53f30) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kin-r8-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "d3a98457a2565f4212169fb229e012bea2385c548d7896e1fb4230f2de98a5a2",
+      "newHash": "92ebc64f18672434e776df7c95a66286cfdc69f093ef4c3b42e2a3f0bd811154",
+      "reason": "Exactly classical/kinematics original 8: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Record 9 corrects one article span in this same commit (Whitney 1969 attribution scoped to the abstract-supported operator-commanded hand motion; J^-1/J+ presented as classical relations without 1969 pinning); records 2/4/6/7/13 document their local-AND bases re-proven by the integrator at HEAD b082ad8; record 14 correction was already present in the article at HEAD b082ad8 and only its verdict history is completed. The five held rows (3/5/10/11/12) are byte-untouched per the packet paywall/scope holds. Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-kinematics-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 10 ready records of frozen packet convergence-source-a-kinematics-20260915, sha256 c7d78c382ca8ffe86401952d77082a2b4a08e10b0145e67919af4fd471b53f30) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kin-r9-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "d3a98457a2565f4212169fb229e012bea2385c548d7896e1fb4230f2de98a5a2",
+      "newHash": "92ebc64f18672434e776df7c95a66286cfdc69f093ef4c3b42e2a3f0bd811154",
+      "reason": "Exactly classical/kinematics original 9: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Record 9 corrects one article span in this same commit (Whitney 1969 attribution scoped to the abstract-supported operator-commanded hand motion; J^-1/J+ presented as classical relations without 1969 pinning); records 2/4/6/7/13 document their local-AND bases re-proven by the integrator at HEAD b082ad8; record 14 correction was already present in the article at HEAD b082ad8 and only its verdict history is completed. The five held rows (3/5/10/11/12) are byte-untouched per the packet paywall/scope holds. Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-kinematics-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 10 ready records of frozen packet convergence-source-a-kinematics-20260915, sha256 c7d78c382ca8ffe86401952d77082a2b4a08e10b0145e67919af4fd471b53f30) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kin-r13-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "d3a98457a2565f4212169fb229e012bea2385c548d7896e1fb4230f2de98a5a2",
+      "newHash": "92ebc64f18672434e776df7c95a66286cfdc69f093ef4c3b42e2a3f0bd811154",
+      "reason": "Exactly classical/kinematics original 13: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Record 9 corrects one article span in this same commit (Whitney 1969 attribution scoped to the abstract-supported operator-commanded hand motion; J^-1/J+ presented as classical relations without 1969 pinning); records 2/4/6/7/13 document their local-AND bases re-proven by the integrator at HEAD b082ad8; record 14 correction was already present in the article at HEAD b082ad8 and only its verdict history is completed. The five held rows (3/5/10/11/12) are byte-untouched per the packet paywall/scope holds. Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-kinematics-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 10 ready records of frozen packet convergence-source-a-kinematics-20260915, sha256 c7d78c382ca8ffe86401952d77082a2b4a08e10b0145e67919af4fd471b53f30) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kin-r14-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "d3a98457a2565f4212169fb229e012bea2385c548d7896e1fb4230f2de98a5a2",
+      "newHash": "92ebc64f18672434e776df7c95a66286cfdc69f093ef4c3b42e2a3f0bd811154",
+      "reason": "Exactly classical/kinematics original 14: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Record 9 corrects one article span in this same commit (Whitney 1969 attribution scoped to the abstract-supported operator-commanded hand motion; J^-1/J+ presented as classical relations without 1969 pinning); records 2/4/6/7/13 document their local-AND bases re-proven by the integrator at HEAD b082ad8; record 14 correction was already present in the article at HEAD b082ad8 and only its verdict history is completed. The five held rows (3/5/10/11/12) are byte-untouched per the packet paywall/scope holds. Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-kinematics-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 10 ready records of frozen packet convergence-source-a-kinematics-20260915, sha256 c7d78c382ca8ffe86401952d77082a2b4a08e10b0145e67919af4fd471b53f30) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "kin-r15-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "d3a98457a2565f4212169fb229e012bea2385c548d7896e1fb4230f2de98a5a2",
+      "newHash": "92ebc64f18672434e776df7c95a66286cfdc69f093ef4c3b42e2a3f0bd811154",
+      "reason": "Exactly classical/kinematics original 15: ledger evidence-plan completion bound to its registered citation(s) with integrator plan review and per-part supported adjudications; all part passages needle-verified against the retained fetch text preserved in the source lane by the integrator before adjudication (see integration lane needle-verification.json). Record 9 corrects one article span in this same commit (Whitney 1969 attribution scoped to the abstract-supported operator-commanded hand motion; J^-1/J+ presented as classical relations without 1969 pinning); records 2/4/6/7/13 document their local-AND bases re-proven by the integrator at HEAD b082ad8; record 14 correction was already present in the article at HEAD b082ad8 and only its verdict history is completed. The five held rows (3/5/10/11/12) are byte-untouched per the packet paywall/scope holds. Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-kinematics-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-15 (apply exactly the 10 ready records of frozen packet convergence-source-a-kinematics-20260915, sha256 c7d78c382ca8ffe86401952d77082a2b4a08e10b0145e67919af4fd471b53f30) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    }
   ]
 }
