@@ -10483,6 +10483,23 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
-    }
+    },
+{
+  "id": "osha-industrial-modes-38-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/industrial-deployment",
+  "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+  "newHash": "aed44cd347de1f632a70f66416d400ff9d8b35097d2fd54ab78e1f2f8d7089f8",
+  "reason": "Exactly industrial original 38: OSHA guards terminology (guards, interlocked guards, presence-sensing devices) for non-collaborative automatic operation, distinct manual-teaching safeguards, and the teach-mode speed limit preserved with the source's own not-greater-than, less-than and or-less formulations. The guarded article endpoint already carries the qualified automatic/manual distinction, so the prose member hash is unchanged and no article or glossary edit was made; this approval records the ledger-only completion against the immutable baseline hash. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-osha-modes-38-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 exact single-original integrator assignment (industrial OSHA modes 38) authorize routine source-backed correction, not personal source certification or acceptance.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+}
   ]
 }

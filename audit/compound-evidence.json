@@ -48473,5 +48473,104 @@
         "evidenceDigest": "67fb7c54f0ddae9b6724cf8ba8745cb776fb220450ded49d95ba31c85a6f5c8b"
       }
     ]
-  }
+  },
+{
+  "id": "osha-industrial-modes-20260915-industrial-deployment-38",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "industrial-deployment",
+  "rowOrdinal": 38,
+  "originalCellsDigest": "04fc77f27985510462e9ab10354a6f591901e7161f395186aefc36343fb453b1",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "guards-and-presence",
+      "text": "OSHA describes fixed barrier/perimeter guards, interlocked barrier guards and presence-sensing safeguards. Its terms are guards, not a claim that every application specifically needs a gate.",
+      "requiredCitationIds": [
+        "osha-otm-robots"
+      ]
+    },
+    {
+      "id": "automatic-population",
+      "text": "The physical-separation guidance is in Non-Collaborative Robot Application Risk Reduction and applies during automatic operation; automatic operator safeguards are distinct from manual teaching.",
+      "requiredCitationIds": [
+        "osha-otm-robots"
+      ]
+    },
+    {
+      "id": "manual-teaching-safeguards",
+      "text": "For active teaching inside safeguarded space: manual mode, enabling device, reduced speed, adequate clearance and teacher control. The typical three-position device must be held center-ON; other equipment inhibition is conditional on interconnection.",
+      "requiredCitationIds": [
+        "osha-otm-robots"
+      ]
+    },
+    {
+      "id": "speed-condition-and-textual-limits",
+      "text": "Section VIII identifies manual/teach/T1 operation and speed slow enough to avoid hazardous contact, not greater than the printed 10 inches/second (250mm/second). Section VI and Appendix 1 also say less than, while the adjacent Section VI paragraph says or less. Preserve these formulations, not an assertion that the boundary value is universally safe or all modes share a universal speed cap.",
+      "requiredCitationIds": [
+        "osha-otm-robots"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator f6733708-9f65-4434-9591-b942aa63369c; retained-source review 2026-09-15",
+    "planDigest": "13062196c40603c449ec03d4393f9d7423df1edabfa4538a450c4f7922ded9e5",
+    "rationale": "Reviewed the parent-qualified packet at HEAD ee95d0a: row binding, originalId/ordinal/four-cell digest and cells rechecked against the live ledger; every literal passage re-verified verbatim in the hash-matched retained OSHA Technical Manual body (one context-only footnote-digit spacing difference noted in the lane review). All 4 mandatory parts and part-citation pairs are AND-required for this corrected whole current claim. Source preparation is not acceptance; zero retrieval."
+  },
+  "evidence": [
+    {
+      "partId": "guards-and-presence",
+      "citationId": "osha-otm-robots",
+      "sourceUrl": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+      "supportingPassage": "Excerpt (Section V, safeguarding the restricted space):\nWorkers should be safeguarded from hazards associated with the restricted space through the use of one or more safeguarding devices such as: \n Presence-sensing safeguarding devices \n Fixed barrier/perimeter guards (which prevent access and contact with moving parts) \n Interlocked barrier guards\n\nExcerpt (Section VI, Non-Collaborative Robot Application Risk Reduction):\nRisks are reduced by physically separating workers from robot applications during automatic operation (in automatic mode). This risk reduction is achieved through safeguards such as guards (fences, barriers), interlocked guards, and presence-sensing devices (e.g., light curtains, safety mats, safety scanners, and safety vision systems) (Figure IV-6)."
+    },
+    {
+      "partId": "automatic-population",
+      "citationId": "osha-otm-robots",
+      "sourceUrl": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+      "supportingPassage": "Excerpt (Section VI, Non-Collaborative Robot Application Risk Reduction):\nRisks are reduced by physically separating workers from robot applications during automatic operation (in automatic mode). This risk reduction is achieved through safeguards such as guards (fences, barriers), interlocked guards, and presence-sensing devices (e.g., light curtains, safety mats, safety scanners, and safety vision systems) (Figure IV-6).\n\nExcerpt (Section VI, operator safeguarding during automatic operation):\nThe operator should be protected from all hazards during automatic operation. When in automatic mode, all safeguarding devices should be activated, and at no time should the operator have access to or be exposed to hazards. For additional operator safeguarding information, see the ANSI/RIA R15.06-2012 Part 2 standard, Section 5.10."
+    },
+    {
+      "partId": "manual-teaching-safeguards",
+      "citationId": "osha-otm-robots",
+      "sourceUrl": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+      "supportingPassage": "Excerpt (Section VI, entering/working inside the safeguarded space):\nIn most circumstances, the robot application automatically achieves a safe state when a worker enters the safeguarded space (Figure IV-7). However, there are some circumstances in which a worker needs to perform a task that will require them to interact with a robot application that is still active (e.g., programming or teaching the system). In an industrial robot application, worker safety while within the safeguarded space is based on the application being in manual mode while using an enabling device (often integrated into the teach pendant) with the robot operating at a reduced speed. The application layout design needs to provide adequate clearance. Because the enabling device is typically a 3-position device, the worker must hold it in the center-ON position, otherwise the robot system's motion will be inhibited. If the enabling device is interconnected with other equipment in the application, then the other equipment will be similarly inhibited from operation.\n\nExcerpt (Section VI, teacher control):\nWhile in manual mode, the teacher must have control of the robot and associated equipment. The teacher should be familiar with what needs to be programmed, system interfacing, and control functions of the robot and other equipment in the application. When systems are large and complex, it could be possible to improperly activate functions. Since the teacher can be within the restricted space, mistakes can result in injuries. Mistakes in programming can result in unintended movement or actions with similar results. For this reason, robot speeds should be placed at a reduced speed of 10 inches per second (250 mm/second) or less on any part of the application during teaching to decrease the likelihood of contact and minimize the potential of injuries.\n\nExcerpt (Appendix I glossary, Enabling Device):\nEnabling Device – A manually operated device that permits motion when continuously activated. ANSI/RIA R15.06-2012 requires a 3-position enabling device where release of, or compression of, the device stops robot system motion and motion of associated equipment that may present a hazard."
+    },
+    {
+      "partId": "speed-condition-and-textual-limits",
+      "citationId": "osha-otm-robots",
+      "sourceUrl": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+      "supportingPassage": "Excerpt (Section VIII, manual/teach/T1 mode speed):\nAs already explained, enabling devices are used during manual mode, sometimes also known as teach or T1 mode. In this mode, the robot system operates at a reduced speed, slow enough for a person to avoid hazardous contact, but not greater than 10 inches/second (250mm/second).\n\nExcerpt (Section VI, first teacher paragraph):\nSpecial consideration must be given to the teacher or worker who is programming the robot. In manual mode, a trained programmer programs the robot, typically using a portable control station (a teach pendant). Robot speeds during these programming sessions are at a reduced speed, less than 10 inches (250 mm) per second.\n\nExcerpt (Section VI, teacher control paragraph):\nWhile in manual mode, the teacher must have control of the robot and associated equipment. The teacher should be familiar with what needs to be programmed, system interfacing, and control functions of the robot and other equipment in the application. When systems are large and complex, it could be possible to improperly activate functions. Since the teacher can be within the restricted space, mistakes can result in injuries. Mistakes in programming can result in unintended movement or actions with similar results. For this reason, robot speeds should be placed at a reduced speed of 10 inches per second (250 mm/second) or less on any part of the application during teaching to decrease the likelihood of contact and minimize the potential of injuries.\n\nExcerpt (Appendix I glossary, Manual Mode):\nManual Mode – A mode of operating the robot in which a trained operator (programmer; teacher) typically uses a portable control device (a teach pendant) to teach a robot its task(s) manually. Robot speeds during manual mode are limited to less than 10 inches (250 mm) per second, to reduce hazards to the teacher."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "guards-and-presence",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator f6733708-9f65-4434-9591-b942aa63369c; retained-source review 2026-09-15",
+      "rationale": "The retained Section V list and Section VI paragraph name presence-sensing safeguarding devices, fixed barrier/perimeter guards and interlocked barrier guards; OSHA's terms are guards, and the source claims no gate for every application.",
+      "evidenceDigest": "b57cf74fcfd94be8ba275219b1e0d14e2efae9ec370bba0fc2b802cee99fac18"
+    },
+    {
+      "partId": "automatic-population",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator f6733708-9f65-4434-9591-b942aa63369c; retained-source review 2026-09-15",
+      "rationale": "The retained Non-Collaborative Robot Application Risk Reduction paragraph states physical separation during automatic operation (in automatic mode), and the operator paragraph protects the operator during automatic operation; automatic safeguarding is distinct from manual teaching.",
+      "evidenceDigest": "47f7c256cc9156fd306b45c5875f1f173e2d084eacd8c414e5da96b6e1196d0b"
+    },
+    {
+      "partId": "manual-teaching-safeguards",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator f6733708-9f65-4434-9591-b942aa63369c; retained-source review 2026-09-15",
+      "rationale": "The retained manual-entry passage bases inside-space worker safety on manual mode with an enabling device and reduced speed with adequate clearance, names the typical 3-position device held center-ON, conditions other-equipment inhibition on interconnection, and requires teacher control; the glossary requires the 3-position enabling device under ANSI/RIA R15.06-2012.",
+      "evidenceDigest": "108da57a2fbcf15919e679d5e24ebfc5b7bd9a2ea7f38fac44531869ab3714c3"
+    },
+    {
+      "partId": "speed-condition-and-textual-limits",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator f6733708-9f65-4434-9591-b942aa63369c; retained-source review 2026-09-15",
+      "rationale": "The retained Section VIII passage says slow enough to avoid hazardous contact, but not greater than 10 inches/second (250mm/second); Section VI and the glossary print less than and or less formulations. All are preserved verbatim-faithfully; no single resolved inequality, no universal safe-boundary or universal cap claim.",
+      "evidenceDigest": "95f03db8dede35664ed06818c047903f5323abeea01a243039c17af55c6b708b"
+    }
+  ]
+}
 ]

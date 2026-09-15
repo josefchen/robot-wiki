@@ -3987,3 +3987,81 @@ byte-identical) is unchanged by the correction.
 | Readers | owned offline Next runtime, 375x812 and 1440x900 | 2 passed / 0 failed / 0 flaky; 10 screenshots (3 spans × 2 widths); configs byte-restored; see lane `convergence-dexterity-figure-holson-remaining-integration-20260915/readers-results.json` |
 
 Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-dexterity-figure-holson-remaining-integration-20260915/`.
+
+## Industrial OSHA modes original 38 (2026-09-15)
+
+Exactly **1 original applied / 0 held / 0 unattempted** from the frozen
+parent-qualified packet (`convergence-lane-b-industrial-osha-modes-20260913`
+rows.json, 88,529 bytes, SHA-256
+`9f13c4b682d4226bffe35da4af9b9f8eb86545f41005797c8604cb6a803c39db`),
+**zero retrieval**. Packet SHA, the record's originalId/rowOrdinal 38, the
+current four-cell digest `f314dae5…` and all four cells were rechecked at
+application against HEAD `ee95d0a625762fd4e6379196bf7386cd0d53618b`; all 18
+packet passages were re-verified verbatim inside the hash-matched retained
+OSHA Technical Manual bodies (the lane's four read events, joined 109,236
+bytes SHA-256 `8bf48403…`, and the 20260913 review body, 144,692 bytes
+SHA-256 `f40d2f5f…`). One context-only passage (`collaborative-automatic`)
+differs from the review body by a single space before footnote digit 8
+(`mode: 8` vs `mode:8`); words identical, and it supports no mandatory part.
+The packet's UTF-8 offsets were computed against an earlier article state, so
+the guard span was relocated by exact current content: exactly one
+occurrence, SHA-256 `25f65364…`, and the frozen article (SHA-256 `415b7573…`)
+is byte-identical to the current one.
+
+Resulting native totals: **570 complete / 424 incomplete / 994 originals /
+47 articles**, **476 plans / 550 approvals / 43 unchanged full baseline
+failures** (288 approved differences, unchanged). All 569 prior complete
+originals/order, 985 unselected semantic records, 475 prior plan
+objects/order and 549 prior approval objects/order are preserved; exactly
+one native plan (`osha-industrial-modes-20260915-industrial-deployment-38`)
+and one approval entry (`osha-industrial-modes-38-20260915-1`, prose member
+`article:data-hardware/industrial-deployment` anchored at the immutable
+baseline hash `2bc62cf7…` → unchanged current `aed44cd3…`) were appended.
+The guarded article endpoint is byte-unchanged (action guard-only; no
+article or glossary edit), so no prose/relationships manifest member moved.
+Protected neighbor original 39 and every other industrial-deployment
+original are untouched. Citation multiset, see-also links, glossary, dates,
+defaults, neighbors and the just-integrated dexterity rows are unchanged.
+
+**Original 38** (V→C, 4 mandatory parts / 4 citation pairs / 4 evidence
+items, 0 ARTICLE endpoints): OSHA's terms are guards — fixed
+barrier/perimeter guards, interlocked barrier guards and presence-sensing
+safeguarding devices — not a claim that every application specifically needs
+a gate; the physical-separation guidance is the Non-Collaborative Robot
+Application Risk Reduction subsection and applies during automatic operation;
+manual teaching inside the safeguarded space carries manual mode, an
+enabling device (typically 3-position, held center-ON, with conditional
+inhibition of interconnected equipment), reduced speed, adequate clearance
+and teacher control; and the teach-mode speed limit is preserved exactly as
+the source prints it — Section VIII "not greater than 10 inches/second
+(250mm/second)", Section VI's first teacher paragraph and the Appendix
+manual-mode glossary "less than", Section VI's next paragraph "or less on
+any part of the application" — never converted to a bare "less than", with
+no universal-safe-boundary or universal-cap claim. Collaborative automatic
+operation and attended program verification stay distinct context.
+
+The derived `audit/data-hardware.md` summary block was regenerated with
+`check-audit-coverage --write-summaries` from the new tree only: 128 claim
+rows unchanged, verified 65→64, corrected 60→61, complete evidence records
+42→43, incomplete 86→85 — exactly this one conversion, no other row touched.
+No article prose changed, so no `lastReviewed` moved and the humanizer does
+not apply (carve-out stated). The OSHA registry entry's 2026 publication
+year remains an open P1 gap, not claimed here. No source retrieval,
+production build/export, push or independent scrutiny/user-testing
+acceptance is claimed; the content gate remains red with the honest count
+below. Known shared debts remain open and are not claimed here.
+
+| Gate | Command | Result |
+|---|---|---|
+| Ownership guard | `python3 live-guard.py` (role start, pre-apply, pre-readers) | pass each run; 0 unknown processes; HEAD/lineage/service identity exact |
+| Red-first unit | `NODE_DISABLE_COMPILE_CACHE=1 npx vitest run tests/unit/industrial-osha-modes-source.test.ts` (before application) | 4 failed / 2 passed |
+| Unit | same, after application | 6 passed |
+| Affected units | `npx vitest run` industrial-osha-modes-source (new), symbotic-a3-originals, ifr-industrial-originals, audit-ledger, citations | 134 passed / 5 files |
+| Prelint | `npm run prelint` | exit 0 |
+| Lint | `npm run lint` | exit 0 |
+| Typecheck (non-incremental) | `NODE_DISABLE_COMPILE_CACHE=1 npm run typecheck` | exit 0; next-env.d.ts/tsconfig.json/next.config.ts byte-identical |
+| Baseline | `NODE_DISABLE_COMPILE_CACHE=1 npm run baseline:brand-v2` | exit 1, expected red: 43 pre-existing failures (unchanged), 288 approved differences |
+| Content | `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` | exit 1, expected red: **570/994 complete**, 431 findings (was 432; −1 lawful, this row); 9 known unresolved citation rows unchanged |
+| Readers | owned offline Next runtime (`next dev` 127.0.0.1:3273, mocked offline fonts), 375x812 and 1440x900 | 2 passed / 0 failed; screenshots for both widths in lane `readers/`; configs byte-restored (see lane `runtime-stop.json`) |
+
+Evidence root: `/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-industrial-osha-modes-38-integration-20260915/`.
