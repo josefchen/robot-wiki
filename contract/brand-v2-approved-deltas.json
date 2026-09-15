@@ -10357,6 +10357,60 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "dexterity-brooks-ernst-1-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d",
+      "reason": "Exact original1 only: Brooks-attributed 1961 Heinrich Ernst PhD-thesis account (computer-controlled arm and hand connected to MIT's TX-0, picking up and stacking blocks); opening age-equivalence sentence and universal-researcher difficulty inference cut, not certified as independent MIT history.",
+      "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 exact three-original integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "dexterity-brooks-eweek-4-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d",
+      "reason": "Exact original4 only: eWeek report scoped as reproduced and labeled by Brooks, moving-toward vision-only wording instead of completed shift, helmet-and-backpack rigs with five in-house cameras, t-shirt/object task examples and mimic-training purpose; not Tesla technical specifications or tested capability.",
+      "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 exact three-original integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "dexterity-brooks-forecast-7-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "64e29b28a9dc02d9a35b524ff454b78536881cd61f54d64907bf550b3ce7554d",
+      "reason": "Exact original7 only: historical ledger correction binding Brooks's within-decades pure-fantasy-thinking opinion to its plug-compatible human-replacement, lower-price/equal-competence scope with Baxter/Sawyer deployment and specialized-future countercontext; zero article endpoints, no forecast paragraph exists or was added.",
+      "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 exact three-original integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }

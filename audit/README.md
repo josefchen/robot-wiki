@@ -3806,3 +3806,79 @@ mid-audit. No source retrieval, full browser corpus, production build, push or
 independent Sol/high scrutiny/user-testing acceptance is claimed; the content
 gate remains red with the honest finding count recorded in the verification
 section of `audit/frontier.md`'s sibling ledgers.
+
+## Brooks dexterity originals 1, 4 and 7 close the remaining lane-A group (2026-09-15)
+
+Exactly **3 originals applied / 0 held / 0 unattempted** from the frozen
+parent-qualified packet `convergence-lane-a-brooks-dexterity-remaining-20260914`
+(rows.json, 40,173 bytes, SHA-256
+`9fa59add045376c1f1e69445d3db8079b349bb973890a12cc2dc35fc86020816`),
+**zero retrieval**. Packet SHA, each record's originalId/rowOrdinal/current
+four-cell digest and cells, the 12 mandatory parts, 12 part/citation pairs,
+12 native evidence items and 19 retained literal/context records were
+rechecked at application; every quoted passage was verified verbatim inside
+the hash-matched retained author text (`brooks-dexterity-2025.author-text.md`,
+62,634 bytes, SHA-256 `523ce6c9c592f17353ff4c8f32c97ed8159119bac38b376a474722e99ba1cb28`;
+tool response 88,799 bytes, `46d726566d5d1ed25f846df73375a4888d9642b77298df7c8d37215b62bf68a5`).
+The packet's UTF-8 offsets were computed against the September 14 frozen
+article, so both ARTICLE before-spans were relocated by exact current content
+at HEAD `f0618120f8a5c9070f2af534200b80756b820cfc` (each exactly one
+occurrence, byte hashes `b1a77465…` and `189d8913…` matching the packet).
+
+Resulting native totals: **565 complete / 429 incomplete / 994 originals /
+47 articles**, **471 plans / 545 approvals / 43 unchanged full baseline
+failures**. All **562 prior complete originals/order, 991 unselected semantic
+records, 468 prior plan objects/order and 542 prior approval objects/order**
+are preserved; exactly three native plans and three exact prose approvals were
+appended, and no relationships delta was required (the D1/D4 after-texts keep
+the same single `brooks-dexterity-2025` citation; citation multiset, see-also
+links, glossary, dates, defaults and neighbors unchanged, including the
+just-integrated Holson rows). No exact-text-lawful extra deltas arose.
+
+- **Original1** (V→C, 3 parts, 1 ARTICLE endpoint): Brooks-attributed 1961
+  Ernst thesis account with TX-0 arm and hand and picking-and-stacking; the
+  age-equivalence sentence and universal-researcher inference are cut. The
+  linked MIT thesis and video remain uninspected; no independent history,
+  publication-day or whole-P1 credit.
+- **Original4** (V→C, 5 parts, 1 ARTICLE endpoint): eWeek report as
+  reproduced and labeled by Brooks, "moving toward" vision-only (not a
+  completed shift), helmet-and-backpack rigs with five in-house cameras,
+  task examples and mimic-training purpose, with an explicit not-Tesla-
+  specification sentence. The inherited verbatim-versus-eWeek-original claim
+  stays unverified; Hubicki's nested likely and the sandbagging caveat remain
+  source context; neighboring funding/full-scale/Go-Big claims unchanged.
+- **Original7** (V→C, 4 parts, 0 ARTICLE endpoints): historical-ledger
+  correction only. The forecast is scoped to Brooks's explicitly-owned
+  opinion about plug-compatible human-worker replacement at lower prices and
+  just as well, with Baxter/Sawyer deployment and specialized-future
+  countercontext retained in the ledger. Literal scans confirm no forecast
+  text exists in the article; no paragraph was fabricated and completed
+  original6 was not reapplied. Related bear-case wording remains separate
+  out-of-scope debt.
+
+`lastReviewed` is unchanged (2026-08-18): the dexterity article remains
+mid-audit. The new plan IDs follow the lane convention
+(`dexterity-brooks-ernst-1-source-20260915`, `dexterity-brooks-eweek-4-source-20260915`,
+`dexterity-brooks-forecast-7-source-20260915`), mapping to the packet's
+native draft IDs `brooks-dexterity-remaining-original-{1,4,7}-20260914`.
+No source retrieval, full browser corpus, production build/export, push or
+independent Sol/high scrutiny/user-testing acceptance is claimed; the content
+gate remains red with the honest count below. Shared debts (Term Escape popup
+visibility, Back BODY focus, fallback fonts, full profiles) remain open and
+are not claimed here.
+
+| Gate | Command | Result |
+|---|---|---|
+| Red-first unit | `npx vitest run tests/unit/dexterity-brooks-remaining-source.test.ts` (before application) | 10 failed / 1 passed, 07:48:11 UTC |
+| Unit | same, after application | 11 passed |
+| Sibling units | `npx vitest run` dexterity-brooks-source, dexterity-figure15-source, dexterity-holson-outlook-source, audit-ledger (+ new file) | 141 passed / 5 files; 110 passed / 3 files after history append |
+| Prelint | `npm run prelint` | exit 0 |
+| Lint | `npm run lint` | exit 0 |
+| Typecheck (non-incremental) | `NODE_DISABLE_COMPILE_CACHE=1 npm run typecheck` | exit 0; next-env.d.ts/tsconfig.json/next.config.ts byte-identical |
+| Baseline | `NODE_DISABLE_COMPILE_CACHE=1 npm run baseline:brand-v2` | exit 1, expected red: 43 pre-existing failures, 0 dexterity members, 288 approved differences |
+| Content | `NODE_DISABLE_COMPILE_CACHE=1 npm run validate:content` | exit 1, expected red: **565/994 complete**, 437 findings; 9 known unresolved citation rows unchanged |
+| Readers | owned offline Next runtime, 375x812 and 1440x900 | see lane `convergence-brooks-dexterity-remaining-integration-20260915/readers-results.json` |
+
+Evidence root:
+`/home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-brooks-dexterity-remaining-integration-20260915/`.
+Content/release RED; do not publish.

@@ -47600,5 +47600,302 @@
         "evidenceDigest": "1972ca0bbd8cab599e5f9ea6940246658087568852cef401744ce423788fe691"
       }
     ]
+  },
+  {
+    "id": "dexterity-brooks-ernst-1-source-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 1,
+    "originalCellsDigest": "1cbce7b75598b77c5666cc3a6c36edde89ac311da8e04841c9fd2fcf0549d4f1",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "ernst-date-thesis",
+        "text": "Brooks's Prolog reports that by 1961 Heinrich Ernst produced a PhD thesis.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "ernst-arm-hand-tx0",
+        "text": "In that attributed account the thesis describes a computer-controlled arm and hand connected to the TX-0 computer at MIT.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "ernst-block-task",
+        "text": "The same attributed account reports picking up blocks and stacking them.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+      "rationale": "Reviewed the parent-qualified packet at HEAD f061812: row binding and four-cell digest rechecked, the retained ernst-account passage verified verbatim inside the hash-matched author text (sources/brooks-dexterity-2025.author-text.md, SHA256 523ce6c9c592f17353ff4c8f32c97ed8159119bac38b376a474722e99ba1cb28), and the one ARTICLE endpoint applied atomically with the age-equivalence and universal-researcher cuts. Brooks's account is attributed, not converted into independent MIT history; zero retrieval.",
+      "planDigest": "3d7cdc2b398482baef777e9199bbfb4157e77fb593c3844300669188a4dc64e2"
+    },
+    "evidence": [
+      {
+        "partId": "ernst-date-thesis",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Artificial Intelligence researchers have been trying to get robot arms and hands to carry out manipulation of objects for over 65 years; since just a few years after the term Artificial Intelligence first appeared [in a proposal](https://people.csail.mit.edu/brooks/idocs/DartmouthProposal.pdf) for a 1956 “Dartmouth Summer Research Project on Artificial Intelligence”. By 1961 Heinrich Ernst had produced a [PhD thesis](https://people.csail.mit.edu/brooks/idocs/ErnstPhD.pdf) describing a computer controlled arm and hand that he had connected to the TX-0 computer at MIT, and had it picking up blocks and stacking them, and stunningly there is a [video](https://people.csail.mit.edu/brooks/idocs/Ernst.mp4). His advisor was [Claude Shannon](https://en.wikipedia.org/wiki/Claude_Shannon), and he also thanked [Marvin Minsky](https://en.wikipedia.org/wiki/Marvin_Minsky) for his guidance, thus naming two of the four authors of the Dartmouth AI proposal."
+      },
+      {
+        "partId": "ernst-arm-hand-tx0",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Artificial Intelligence researchers have been trying to get robot arms and hands to carry out manipulation of objects for over 65 years; since just a few years after the term Artificial Intelligence first appeared [in a proposal](https://people.csail.mit.edu/brooks/idocs/DartmouthProposal.pdf) for a 1956 “Dartmouth Summer Research Project on Artificial Intelligence”. By 1961 Heinrich Ernst had produced a [PhD thesis](https://people.csail.mit.edu/brooks/idocs/ErnstPhD.pdf) describing a computer controlled arm and hand that he had connected to the TX-0 computer at MIT, and had it picking up blocks and stacking them, and stunningly there is a [video](https://people.csail.mit.edu/brooks/idocs/Ernst.mp4). His advisor was [Claude Shannon](https://en.wikipedia.org/wiki/Claude_Shannon), and he also thanked [Marvin Minsky](https://en.wikipedia.org/wiki/Marvin_Minsky) for his guidance, thus naming two of the four authors of the Dartmouth AI proposal."
+      },
+      {
+        "partId": "ernst-block-task",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Artificial Intelligence researchers have been trying to get robot arms and hands to carry out manipulation of objects for over 65 years; since just a few years after the term Artificial Intelligence first appeared [in a proposal](https://people.csail.mit.edu/brooks/idocs/DartmouthProposal.pdf) for a 1956 “Dartmouth Summer Research Project on Artificial Intelligence”. By 1961 Heinrich Ernst had produced a [PhD thesis](https://people.csail.mit.edu/brooks/idocs/ErnstPhD.pdf) describing a computer controlled arm and hand that he had connected to the TX-0 computer at MIT, and had it picking up blocks and stacking them, and stunningly there is a [video](https://people.csail.mit.edu/brooks/idocs/Ernst.mp4). His advisor was [Claude Shannon](https://en.wikipedia.org/wiki/Claude_Shannon), and he also thanked [Marvin Minsky](https://en.wikipedia.org/wiki/Marvin_Minsky) for his guidance, thus naming two of the four authors of the Dartmouth AI proposal."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "ernst-date-thesis",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+        "rationale": "Passage states 'By 1961 Heinrich Ernst had produced a PhD thesis'; part supported as Brooks's attributed report.",
+        "evidenceDigest": "5a1c52f87653aea4463fda490b8efe253667489045ee9dc16aa80d74bf0e73b5"
+      },
+      {
+        "partId": "ernst-arm-hand-tx0",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+        "rationale": "Passage states 'a computer controlled arm and hand that he had connected to the TX-0 computer at MIT'; supported within the same attributed account.",
+        "evidenceDigest": "67936441337a0e759d26a01da20176130a774c6adba5ccd4f7daddbe6aae494d"
+      },
+      {
+        "partId": "ernst-block-task",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+        "rationale": "Passage states 'had it picking up blocks and stacking them'; supported within the same attributed account.",
+        "evidenceDigest": "5537b0b5e51ff04301b05f2123f5c9e706076c1c4e464b2ced4d1fea7fd47499"
+      }
+    ]
+  },
+  {
+    "id": "dexterity-brooks-eweek-4-source-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 4,
+    "originalCellsDigest": "c35998b69007f000f69b7849e7f2ca28dab6043a7ce3a2aac35129e55a652d5d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "report-hierarchy",
+        "text": "Brooks explicitly labels the reproduced text as an eWeek press story about Tesla/Optimus.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "reported-transition",
+        "text": "The reproduced report says Tesla is moving toward vision-only instead of motion capture suits and teleoperation; the draft does not certify completed pipeline replacement.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "reported-rig-count",
+        "text": "The reproduced report describes helmets and backpacks with five in-house cameras, without establishing every robot's sensor specification.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "reported-task-examples",
+        "text": "The report's task examples are folding a t-shirt or picking up an object.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "reported-training-purpose",
+        "text": "The report says these videos are used to train Optimus to mimic the actions; this is not a success-rate or capability result.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+      "rationale": "Reviewed the parent-qualified packet at HEAD f061812: row binding rechecked, the eweek-report-context/eweek-transition/eweek-rig-tasks passages verified verbatim in the hash-matched retained author text, and the one ARTICLE endpoint applied atomically. The report is scoped to what Brooks reproduces and labels an eWeek press story with its own moving-toward wording; Hubicki's nested likely and the sandbagging caveat stay context, never Tesla specifications; zero retrieval.",
+      "planDigest": "acb0222aef6c939268059d35458b6ba5e459118e7dcc36646d0b760cc40f12e9"
+    },
+    "evidence": [
+      {
+        "partId": "report-hierarchy",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "And here is a [press story from eWeek](https://www.eweek.com/news/tesla-optimus-robot-training/), from just a month ago, that Tesla is going all in on training through simply looking at videos of people doing tasks. It says:\n\nTesla has shifted its training strategy for its humanoid robot Optimus. Instead of relying on motion capture suits and teleoperation, Tesla is moving toward a vision-only approach.\n\nWorkers now wear camera rigs made up of helmets and backpacks with five in-house cameras that record mundane tasks like folding a t-shirt or picking up an object. Those videos are then used to train Optimus to mimic the actions."
+      },
+      {
+        "partId": "reported-transition",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Tesla has shifted its training strategy for its humanoid robot Optimus. Instead of relying on motion capture suits and teleoperation, Tesla is moving toward a vision-only approach."
+      },
+      {
+        "partId": "reported-rig-count",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Workers now wear camera rigs made up of helmets and backpacks with five in-house cameras that record mundane tasks like folding a t-shirt or picking up an object. Those videos are then used to train Optimus to mimic the actions."
+      },
+      {
+        "partId": "reported-task-examples",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Workers now wear camera rigs made up of helmets and backpacks with five in-house cameras that record mundane tasks like folding a t-shirt or picking up an object. Those videos are then used to train Optimus to mimic the actions."
+      },
+      {
+        "partId": "reported-training-purpose",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Workers now wear camera rigs made up of helmets and backpacks with five in-house cameras that record mundane tasks like folding a t-shirt or picking up an object. Those videos are then used to train Optimus to mimic the actions."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "report-hierarchy",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+        "rationale": "Passage shows Brooks labeling the reproduced text 'a press story from eWeek' about Tesla/Optimus; hierarchy supported.",
+        "evidenceDigest": "c4c717a886d1ca558619c3f27604deeb200cc1b4f37570c41b8f4de33d1ca2b4"
+      },
+      {
+        "partId": "reported-transition",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+        "rationale": "Quoted report says 'Tesla is moving toward a vision-only approach' after 'has shifted its training strategy'; the ongoing-move reading is supported and no completed replacement is certified.",
+        "evidenceDigest": "c99d8c58f478862f427ca2d1d2b6245d7a5a79ff61c069d946024fb806432e3f"
+      },
+      {
+        "partId": "reported-rig-count",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+        "rationale": "Quoted report says 'helmets and backpacks with five in-house cameras'; rig description supported as report content, not a robot sensor specification.",
+        "evidenceDigest": "1f5b74bd4bd6ebda33d85ab3cae8c2cc9c4ee7f83a5bf444f1607c6cb825f748"
+      },
+      {
+        "partId": "reported-task-examples",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+        "rationale": "Quoted report names 'folding a t-shirt or picking up an object'; supported as report examples.",
+        "evidenceDigest": "b92b8d564efbd8b988faa4547b8a88a623a0e0d6664630103f5f66d229c36249"
+      },
+      {
+        "partId": "reported-training-purpose",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+        "rationale": "Quoted report says videos 'are then used to train Optimus to mimic the actions'; purpose supported, no success-rate or capability result.",
+        "evidenceDigest": "43ac46a1f14c9b79f9458aa9e77bad400292bef0457d6f6ac8c70c2126894abd"
+      }
+    ]
+  },
+  {
+    "id": "dexterity-brooks-forecast-7-source-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 7,
+    "originalCellsDigest": "6d79b5e2ca906a904c1a17c23e473f2ce56daf9c6f0e0691f75371ff44502798",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "forecast-target-economics",
+        "text": "The forecast concerns plug-compatible humanoids stepping into human manual work at lower prices and just as well.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "forecast-opinion-decades",
+        "text": "Brooks explicitly says 'In my opinion' and calls believing this will happen any time within decades 'pure fantasy thinking'; two/five-year claims are attributed to others.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "counter-past-deployment",
+        "text": "The essay also reports Brooks's Baxter and Sawyer humanoids deployed in factories, preventing a universal no-deployment reading.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      },
+      {
+        "id": "counter-future-forms",
+        "text": "Section 6 forecasts varied, specialized robots still called humanoids over the next fifteen years, not absence of all humanoid-labelled robots.",
+        "requiredCitationIds": [
+          "brooks-dexterity-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+      "rationale": "Reviewed the parent-qualified packet at HEAD f061812: row binding rechecked, forecast-target/past-deployments/future-countercontext passages verified verbatim in the hash-matched retained author text. Zero ARTICLE endpoints confirmed by literal scan of the current article; the historical ledger row is corrected to the plug-compatible lower-price/equal-competence opinion scope with full Baxter/Sawyer and specialized-future countercontext; no paragraph fabricated; zero retrieval.",
+      "planDigest": "136cde939bbc02f38e3b8e6ff19bed4aa9e5f0e2f6bc6bed88b9a57032520b70"
+    },
+    "evidence": [
+      {
+        "partId": "forecast-target-economics",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "For both these companies and probably several others the general plan is that humanoid robots will be “plug compatible” with humans and be able to step in and do the manual things that humans do at lower prices and just as well. In my opinion, believing that this will happen any time within decades is pure fantasy thinking. But many are predicting that it will happen in as soon as two years, and the more conservative hypenotists believe it will have significant economic impact within five years."
+      },
+      {
+        "partId": "forecast-opinion-decades",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "For both these companies and probably several others the general plan is that humanoid robots will be “plug compatible” with humans and be able to step in and do the manual things that humans do at lower prices and just as well. In my opinion, believing that this will happen any time within decades is pure fantasy thinking. But many are predicting that it will happen in as soon as two years, and the more conservative hypenotists believe it will have significant economic impact within five years."
+      },
+      {
+        "partId": "counter-past-deployment",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "Besides the early work in Japan on humanoid robots there have been many academic groups across the world that have worked on robots with human form, with and without legs, and with and without arms. My own research group at MIT started building the humanoid Cog in 1992, and we developed seven different platforms, and then I founded Rethink Robotics in 2008, and we sold thousands of two models of humanoids, Baxter and Sawyer. They were deployed in factories around the world. Some of my former post-docs returned to Italy and started the RoboCub open source humanoid project, which has enabled many tens of humanoid robots to be built in AI Labs all over the world."
+      },
+      {
+        "partId": "counter-future-forms",
+        "citationId": "brooks-dexterity-2025",
+        "sourceUrl": "https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/",
+        "supportingPassage": "##### 6\\. What is the Future of Humanoid Robots?\n\nTechnology changes and the meanings of words around technologies change too.\n\nWhen I made a [whole bunch of dated predictions](https://rodneybrooks.com/my-dated-predictions/) about future technologies back on January 1st, 2018, _flying cars_ and _self-driving cars_ meant different things than they do today. I pointed this out in my [most recent scorecard](https://rodneybrooks.com/predictions-scorecard-2025-january-01/) on how my predictions were holding up.\n\n_Flying cars_ used to mean a vehicle that could both drive on roads and fly through the air. Now it has come to mean an electric multi-rotor helicopter than can operate like a taxi flying between various fixed landing locations. Often touted are versions that have no human pilot. These are known as eVTOLs, for “electric vertical take off & landing”. Besides not yet actually existing in any practical sense, flying cars (eVTOLS) are no longer cars, as they do not travel anywhere on the ground.\n\nAt the time I made my predictions _self driving cars_ meant that the cars would drive themselves to wherever they were told to go with no further human control inputs. Now self driving cars means that there is no one in the driver’s seat, but there may well be, and in all cases so far deployed there are, [humans monitoring those cars from a remote location](https://www.nytimes.com/2024/09/11/insider/when-self-driving-cars-dont-actually-drive-themselves.html), and occasionally sending control inputs to the cars. Except for Tesla self-driving robo taxis. In that case there is a human safety operator sitting in the front passenger seat.\n\nFollowing that pattern, what it means to be a _humanoid robot_ will change over time.\n\nBefore too long (and we already start to see this) humanoid robots will get wheels for feet, at first two, and later maybe more, with nothing that any longer really resembles human legs in gross form. But they will still be called _humanoid robots_.\n\nThen there will be versions which variously have one, two, and three arms. Some of those arms will have five fingered hands, but a lot will have two fingered parallel jaw grippers. Some may have suction cups. But they will still be called _humanoid robots_.\n\nThen there will be versions which have a lot of sensors that are not passive cameras, and so they will have eyes that see with active light, or in non-human frequency ranges, and they may have eyes in their hands, and even eyes looking down from near their crotch to see the ground so that they can locomote better over uneven surfaces. But they will still be called _humanoid robots_.\n\nThere will be many, many robots with different forms for different specialized jobs that humans can do. But they will all still be called _humanoid robots_.\n\nAnd a lot of money will have disappeared, spent on trying to squeeze performance, any performance, from today’s _humanoid robots_. But those robots will be long gone and mostly conveniently forgotten.\n\nThat is the next fifteen years for you."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "forecast-target-economics",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+        "rationale": "Passage scopes the forecast to plug-compatible humanoids doing human manual things at lower prices and just as well; supported.",
+        "evidenceDigest": "5d80dd96fc6c527c8aa9216a8b57cf2d462f97af833eda3817f8a7b4395a4f53"
+      },
+      {
+        "partId": "forecast-opinion-decades",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+        "rationale": "Passage carries 'In my opinion' and 'pure fantasy thinking' within decades, with two/five-year claims attributed to others; supported.",
+        "evidenceDigest": "2b668a76fa61c47ff185ef7670251f3316a853e11c5832759e9fa2ba0df2d103"
+      },
+      {
+        "partId": "counter-past-deployment",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+        "rationale": "Passage reports Brooks's Baxter and Sawyer sold in thousands and deployed in factories; author-reported countercontext supported.",
+        "evidenceDigest": "2f7bfb7844e7f6417cf51c1a3c86342c55d2d4d504a62e6dd687e8fe77949fef"
+      },
+      {
+        "partId": "counter-future-forms",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator 9998489c-d7c0-4ade-9c4b-4a4b88caef8a; retained-source review2026-09-15",
+        "rationale": "Section 6 passage forecasts varied specialized robots still called humanoids over the next fifteen years; supported as the essay's own forecast.",
+        "evidenceDigest": "13738bc49e7b470f635a786d04d156661dd5c253e10f46df312a59010ec97573"
+      }
+    ]
   }
 ]

@@ -43,13 +43,13 @@ Conventions: verdicts count **ledger rows**; the summary also states **distinct 
 
 | # | Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
 |---|---|---|---|---|---|---|---|---|
-| D1 | "By 1961 Heinrich Ernst had connected a computer-controlled arm and hand to MIT's TX-0 and had it stacking blocks" | rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity (fetched) | V | "By 1961 Heinrich Ernst had produced a PhD thesis describing a computer controlled arm and hand that he had connected to the TX-0 computer at MIT, and had it picking up blocks and stacking them" |
+| D1 | Brooks's essay reports that by 1961 Heinrich Ernst had produced a PhD thesis describing a computer-controlled arm and hand connected to MIT's TX-0, picking up and stacking blocks. | Rodney Brooks author essay, https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request 2026-09-13T15:12:35.617Z / result 2026-09-13T15:12:43.252Z; tool-reported 200 at that retrieval, not a fresh fetch | C | Corrected2026-09-15: scope the historical account to Brooks and cut the opening's age-equivalence and universal-researcher inference. The original V and quoted note remain preserved below as non-counted history. Brooks does himself assert universal difficulty in section 2.1, but that is not independent evidence about every researcher. The linked MIT thesis and video were not inspected; their contents, thesis title and independent history remain unverified. Reviewed2026-09-15 against retained author text; all mandatory parts AND-supported. No independent history, video, publication-day, whole-P1 or independent acceptance. |  |  |  | dexterity-brooks-ernst-1-source-20260915 |
 | D2 | Brooks's account of two Johansson-lab match-lighting videos: seven seconds in the first; four times as long after fingertip anesthesia, with difficulty picking up and orienting the match. The body and Stat identify these as his reported timings, not an independent measurement. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | Source-reported demonstration only. No video playback or independent timing in this recovery; no derived second duration, trial average, clinical mechanism or general performance ratio. Coupled sensation/body/Stat correction required; original cells retained in explicit history. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-2-source-20260914 |
 | D3 | In Brooks's description, fingertip touch is absent after anesthesia, while sensations in the rest of the fingers and hand and the forces ordinarily felt with the skeletal muscle system remain. This is not a claim of intact vision or all proprioception. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | The retained source describes residual sensation; it does not establish intact vision, blanket intact proprioception or the inherited note's digital-nerve-block mechanism. That medical explanation is not asserted in the current row. The original C row and its unsupported medical note are preserved below as non-counted history, not evidence. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-3-source-20260914 |
-| D4 | Tesla: "workers wear camera rigs of helmets and backpacks with five cameras, record mundane tasks like folding a t-shirt... according to an eWeek report Brooks quotes" | Brooks essay (fetched) | V | eWeek quote reproduced verbatim inside the essay; attribution chain stated correctly |
+| D4 | In the eWeek report reproduced by Brooks, Tesla is described as moving Optimus training from motion capture suits and teleoperation toward a vision-only approach; workers wear helmet-and-backpack rigs with five in-house cameras, record tasks such as folding a t-shirt or picking up an object, and the videos train Optimus to mimic those actions. | Rodney Brooks author essay, https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request 2026-09-13T15:12:35.617Z / result 2026-09-13T15:12:43.252Z; tool-reported 200 at that retrieval, not a fresh fetch | C | Corrected2026-09-15: this evidences what Brooks reproduces and labels as an eWeek press story, not a direct eWeek fetch, a Tesla primary technical source, a fully replaced training pipeline or tested capability. The inherited claim that the eWeek quote is verbatim against the original eWeek article is not independently verified. Brooks's sandbagging caveat and Hubicki's nested likely explanation remain explicit source context. The neighboring best-funded/full-scale and Figure Go-Big assertions are out-of-scope debt and unchanged. Reviewed2026-09-15 against retained author text; all mandatory parts AND-supported. No Tesla primary source, publication-day, whole-P1 or independent acceptance. |  |  |  | dexterity-brooks-eweek-4-source-20260915 |
 | D5 | Brooks frames a scaling counterargument as an imagined inner dialogue, drawing on end-to-end successes in speech-to-text, image labeling and language models to propose learning dexterous control from human hand-use data; his reply stresses engineered inputs and likely needing the right data and learning target. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | The imagined dialogue is Brooks’s construction, not a verbatim statement by Tesla, Figure or all scaling proponents. Strongest and fairly are not source findings. Preserve the acknowledgment of end-to-end successes and his actual engineered-input/data/target reply; leave neighboring named company claims and citations untouched. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-5-source-20260914 |
 | D6 | Brooks’s touch-sensing conclusion is qualified by “It looks like,” scoped to tasks such as his match-lighting example, and an assessment at the time of the essay rather than a current census or universal impossibility proof. | Brooks author essay https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request2026-09-13T15:12:35.617Z/result2026-09-13T15:12:43.252Z, tool-reported200; no new retrieval or raw origin transport proof. | C | Retain the complete qualifier and then-current sense of yet. Registry year 2025 is existing context, not a newly verified publication day. The essay acknowledges promising academic work and corrects its own feedback description. No sensor specification, all-lab census or inference that first deployment proves necessity is certified. Reviewed2026-09-14 against retained author text; all mandatory parts AND-supported. No video/clinical/current-census/P1 or independent acceptance. |  |  |  | dexterity-brooks-6-source-20260914 |
-| D7 | Brooks: practical humanoid dexterity "within decades" = "pure fantasy thinking" | Brooks essay (fetched) | V | "believing that this will happen any time within decades is pure fantasy thinking" |
+| D7 | Brooks calls the prospect of plug-compatible humanoids doing human manual work at lower prices and just as well within decades 'pure fantasy thinking', explicitly as his opinion; the same essay reports Baxter and Sawyer factory deployments and forecasts differently shaped, task-specialized robots still called humanoids over the next fifteen years. | Rodney Brooks author essay, https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request 2026-09-13T15:12:35.617Z / result 2026-09-13T15:12:43.252Z; tool-reported 200 at that retrieval, not a fresh fetch | C | Corrected2026-09-15, historical ledger only: the original shorthand 'practical humanoid dexterity' omitted the Prolog's general human-replacement, lower-price/equal-competence scope. This is Brooks's forecast, not an observed capability outcome or present-day census. Full countercontext retained; no matching forecast exists in the current dexterity article, so zero article endpoints were applied, no paragraph fabricated and completed original 6 was not reapplied. Related bear-case wording is separately held out-of-scope debt. Reviewed2026-09-15 against retained author text; all mandatory parts AND-supported. No publication-day, deployment-history or independent acceptance. |  |  |  | dexterity-brooks-forecast-7-source-20260915 |
 | D8 | Holson pipeline limits: no wrist force feedback, open/close finger control, no touch, "roughly 1 to 3 cm of precision" | Brooks essay quoting Holson; generalrobots.substack.com (fetched) | V | Holson's own post carries all four verbatim ("No force feedback at the wrists", "Limited finger control", "No sense of touch", "Medium precision... about 1-3 cm precision"); Brooks quotes the same list |
 
 ## generalization.mdx
@@ -678,6 +678,103 @@ Non-counted exact original/current row history:
       "article-keyring-rules",
       "article-keyring-status-cut"
     ]
+  }
+]
+```
+
+
+## 2026-09-15 Brooks dexterity originals 1, 4 and 7
+
+Exactly three source-backed corrected originals from the frozen parent-qualified
+packet `convergence-lane-a-brooks-dexterity-remaining-20260914` (rows.json
+SHA-256 9fa59add045376c1f1e69445d3db8079b349bb973890a12cc2dc35fc86020816),
+applied with zero retrieval. Twelve mandatory parts / twelve part-citation
+pairs / twelve native evidence items / twelve supported adjudications across
+nineteen retained literal/context passage records; the retained author text
+(sources/brooks-dexterity-2025.author-text.md, SHA-256
+523ce6c9c592f17353ff4c8f32c97ed8159119bac38b376a474722e99ba1cb28) was
+re-verified against every passage at application. Original1 scopes the 1961
+Ernst account to Brooks (thesis, computer-controlled arm and hand, MIT TX-0,
+picking up and stacking blocks) and cuts the opening age-equivalence sentence
+and the universal-researcher difficulty inference; Brooks's own section-2.1
+universal-difficulty assertion is his, not independent proof. Original4 keeps
+the eWeek text as a report reproduced and labeled by Brooks: moving toward a
+vision-only approach (not a completed shift), helmet-and-backpack rigs with
+five in-house cameras, t-shirt/object task examples and mimic-training
+purpose; Hubicki's nested likely and the sandbagging caveat remain source
+context, and this is not a Tesla technical specification. Original7 is a
+historical-ledger correction only with zero article endpoints: the forecast is
+Brooks's explicitly-owned opinion about plug-compatible human-worker
+replacement at lower prices and just as well, with Baxter/Sawyer factory
+deployments and the specialized-future fifteen-year countercontext retained;
+no paragraph was fabricated and completed original6 was not reapplied. The
+neighboring best-funded/full-scale and Figure Go-Big assertions are unchanged
+out-of-scope debt. The exact before/current row history follows, non-counted.
+
+```json
+[
+  {
+    "originalId": "audit/frontier.md:dexterity:1",
+    "rowOrdinal": 1,
+    "currentCells": {
+      "claim": "\"By 1961 Heinrich Ernst had connected a computer-controlled arm and hand to MIT's TX-0 and had it stacking blocks\"",
+      "sourceChecked": "rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity (fetched)",
+      "verdict": "V",
+      "note": "\"By 1961 Heinrich Ernst had produced a PhD thesis describing a computer controlled arm and hand that he had connected to the TX-0 computer at MIT, and had it picking up blocks and stacking them\""
+    },
+    "currentTupleDigest": "6a46ee6673cb6b4f826847c37c01f427de43612931c2726d54632d9b783ad122",
+    "proposedCells": {
+      "claim": "Brooks's essay reports that by 1961 Heinrich Ernst had produced a PhD thesis describing a computer-controlled arm and hand connected to MIT's TX-0, picking up and stacking blocks.",
+      "sourceChecked": "Rodney Brooks author essay, https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request 2026-09-13T15:12:35.617Z / result 2026-09-13T15:12:43.252Z; tool-reported 200 at that retrieval, not a fresh fetch",
+      "verdict": "C",
+      "note": "Corrected2026-09-15: scope the historical account to Brooks and cut the opening's age-equivalence and universal-researcher inference. The original V and quoted note remain preserved below as non-counted history. Brooks does himself assert universal difficulty in section 2.1, but that is not independent evidence about every researcher. The linked MIT thesis and video were not inspected; their contents, thesis title and independent history remain unverified. Reviewed2026-09-15 against retained author text; all mandatory parts AND-supported. No independent history, video, publication-day, whole-P1 or independent acceptance."
+    },
+    "proposedTupleDigest": "83d5acd0adc3a5bc20b326cd24575d9e11dda478c406ad50be31dc27a499b1b6",
+    "noteOnDigests": "proposedTupleDigest is the frozen packet's draft (its 'not applied' note text); the applied active tuple differs only in note wording and is bound by the plan's originalCellsDigest in audit/compound-evidence.json.",
+    "oldRaw": "| D1 | \"By 1961 Heinrich Ernst had connected a computer-controlled arm and hand to MIT's TX-0 and had it stacking blocks\" | rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity (fetched) | V | \"By 1961 Heinrich Ernst had produced a PhD thesis describing a computer controlled arm and hand that he had connected to the TX-0 computer at MIT, and had it picking up blocks and stacking them\" |",
+    "newRaw": "| D1 | Brooks's essay reports that by 1961 Heinrich Ernst had produced a PhD thesis describing a computer-controlled arm and hand connected to MIT's TX-0, picking up and stacking blocks. | Rodney Brooks author essay, https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request 2026-09-13T15:12:35.617Z / result 2026-09-13T15:12:43.252Z; tool-reported 200 at that retrieval, not a fresh fetch | C | Corrected2026-09-15: scope the historical account to Brooks and cut the opening's age-equivalence and universal-researcher inference. The original V and quoted note remain preserved below as non-counted history. Brooks does himself assert universal difficulty in section 2.1, but that is not independent evidence about every researcher. The linked MIT thesis and video were not inspected; their contents, thesis title and independent history remain unverified. Reviewed2026-09-15 against retained author text; all mandatory parts AND-supported. No independent history, video, publication-day, whole-P1 or independent acceptance. |  |  |  | dexterity-brooks-ernst-1-source-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:4",
+    "rowOrdinal": 4,
+    "currentCells": {
+      "claim": "Tesla: \"workers wear camera rigs of helmets and backpacks with five cameras, record mundane tasks like folding a t-shirt... according to an eWeek report Brooks quotes\"",
+      "sourceChecked": "Brooks essay (fetched)",
+      "verdict": "V",
+      "note": "eWeek quote reproduced verbatim inside the essay; attribution chain stated correctly"
+    },
+    "currentTupleDigest": "51c29c7f75fc0f288912cc5daf6d7f4792421dc9e9cbead8d116f3fa6899192e",
+    "proposedCells": {
+      "claim": "In the eWeek report reproduced by Brooks, Tesla is described as moving Optimus training from motion capture suits and teleoperation toward a vision-only approach; workers wear helmet-and-backpack rigs with five in-house cameras, record tasks such as folding a t-shirt or picking up an object, and the videos train Optimus to mimic those actions.",
+      "sourceChecked": "Rodney Brooks author essay, https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request 2026-09-13T15:12:35.617Z / result 2026-09-13T15:12:43.252Z; tool-reported 200 at that retrieval, not a fresh fetch",
+      "verdict": "C",
+      "note": "Corrected2026-09-15: this evidences what Brooks reproduces and labels as an eWeek press story, not a direct eWeek fetch, a Tesla primary technical source, a fully replaced training pipeline or tested capability. The inherited claim that the eWeek quote is verbatim against the original eWeek article is not independently verified. Brooks's sandbagging caveat and Hubicki's nested likely explanation remain explicit source context. The neighboring best-funded/full-scale and Figure Go-Big assertions are out-of-scope debt and unchanged. Reviewed2026-09-15 against retained author text; all mandatory parts AND-supported. No Tesla primary source, publication-day, whole-P1 or independent acceptance."
+    },
+    "proposedTupleDigest": "e4dbdd46a6afd2b262c9c07e904b1fa2f40896525420baee1b9da40edbc5565a",
+    "noteOnDigests": "proposedTupleDigest is the frozen packet's draft (its 'not applied' note text); the applied active tuple differs only in note wording and is bound by the plan's originalCellsDigest in audit/compound-evidence.json.",
+    "oldRaw": "| D4 | Tesla: \"workers wear camera rigs of helmets and backpacks with five cameras, record mundane tasks like folding a t-shirt... according to an eWeek report Brooks quotes\" | Brooks essay (fetched) | V | eWeek quote reproduced verbatim inside the essay; attribution chain stated correctly |",
+    "newRaw": "| D4 | In the eWeek report reproduced by Brooks, Tesla is described as moving Optimus training from motion capture suits and teleoperation toward a vision-only approach; workers wear helmet-and-backpack rigs with five in-house cameras, record tasks such as folding a t-shirt or picking up an object, and the videos train Optimus to mimic those actions. | Rodney Brooks author essay, https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request 2026-09-13T15:12:35.617Z / result 2026-09-13T15:12:43.252Z; tool-reported 200 at that retrieval, not a fresh fetch | C | Corrected2026-09-15: this evidences what Brooks reproduces and labels as an eWeek press story, not a direct eWeek fetch, a Tesla primary technical source, a fully replaced training pipeline or tested capability. The inherited claim that the eWeek quote is verbatim against the original eWeek article is not independently verified. Brooks's sandbagging caveat and Hubicki's nested likely explanation remain explicit source context. The neighboring best-funded/full-scale and Figure Go-Big assertions are out-of-scope debt and unchanged. Reviewed2026-09-15 against retained author text; all mandatory parts AND-supported. No Tesla primary source, publication-day, whole-P1 or independent acceptance. |  |  |  | dexterity-brooks-eweek-4-source-20260915 |"
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:7",
+    "rowOrdinal": 7,
+    "currentCells": {
+      "claim": "Brooks: practical humanoid dexterity \"within decades\" = \"pure fantasy thinking\"",
+      "sourceChecked": "Brooks essay (fetched)",
+      "verdict": "V",
+      "note": "\"believing that this will happen any time within decades is pure fantasy thinking\""
+    },
+    "currentTupleDigest": "e9ba396fbc996df38fc4d4bf11eb6325e0f40e1e50d8e990057088e6a9a0bf73",
+    "proposedCells": {
+      "claim": "Brooks calls the prospect of plug-compatible humanoids doing human manual work at lower prices and just as well within decades 'pure fantasy thinking', explicitly as his opinion; the same essay reports Baxter and Sawyer factory deployments and forecasts differently shaped, task-specialized robots still called humanoids over the next fifteen years.",
+      "sourceChecked": "Rodney Brooks author essay, https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request 2026-09-13T15:12:35.617Z / result 2026-09-13T15:12:43.252Z; tool-reported 200 at that retrieval, not a fresh fetch",
+      "verdict": "C",
+      "note": "Corrected2026-09-15, historical ledger only: the original shorthand 'practical humanoid dexterity' omitted the Prolog's general human-replacement, lower-price/equal-competence scope. This is Brooks's forecast, not an observed capability outcome or present-day census. Full countercontext retained; no matching forecast exists in the current dexterity article, so zero article endpoints were applied, no paragraph fabricated and completed original 6 was not reapplied. Related bear-case wording is separately held out-of-scope debt. Reviewed2026-09-15 against retained author text; all mandatory parts AND-supported. No publication-day, deployment-history or independent acceptance."
+    },
+    "proposedTupleDigest": "979158cc6b2d3d596d4e75923bb99269c0ed47465b54d34bfc17f3eb3cc3b69f",
+    "noteOnDigests": "proposedTupleDigest is the frozen packet's draft (its 'not applied' note text); the applied active tuple differs only in note wording and is bound by the plan's originalCellsDigest in audit/compound-evidence.json.",
+    "oldRaw": "| D7 | Brooks: practical humanoid dexterity \"within decades\" = \"pure fantasy thinking\" | Brooks essay (fetched) | V | \"believing that this will happen any time within decades is pure fantasy thinking\" |",
+    "newRaw": "| D7 | Brooks calls the prospect of plug-compatible humanoids doing human manual work at lower prices and just as well within decades 'pure fantasy thinking', explicitly as his opinion; the same essay reports Baxter and Sawyer factory deployments and forecasts differently shaped, task-specialized robots still called humanoids over the next fifteen years. | Rodney Brooks author essay, https://rodneybrooks.com/why-todays-humanoids-wont-learn-dexterity/; retained FetchUrl request 2026-09-13T15:12:35.617Z / result 2026-09-13T15:12:43.252Z; tool-reported 200 at that retrieval, not a fresh fetch | C | Corrected2026-09-15, historical ledger only: the original shorthand 'practical humanoid dexterity' omitted the Prolog's general human-replacement, lower-price/equal-competence scope. This is Brooks's forecast, not an observed capability outcome or present-day census. Full countercontext retained; no matching forecast exists in the current dexterity article, so zero article endpoints were applied, no paragraph fabricated and completed original 6 was not reapplied. Related bear-case wording is separately held out-of-scope debt. Reviewed2026-09-15 against retained author text; all mandatory parts AND-supported. No publication-day, deployment-history or independent acceptance. |  |  |  | dexterity-brooks-forecast-7-source-20260915 |"
   }
 ]
 ```
