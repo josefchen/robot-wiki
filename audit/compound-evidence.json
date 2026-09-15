@@ -53070,5 +53070,494 @@
       "evidenceDigest": "d71fab12db9ed32b8ef68f932882fe8ef00b60396bf271bde6a17f53350e7d23"
     }
   ]
+},
+{
+  "id": "control-c5-pendulum-plant-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "2a6d58633c9c2f7995371e69abae21e489c2e25e77d72afa237b53a3d90a7e0b",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "c5-eom",
+      "text": "The lab plant is the torque-driven simple pendulum of the underactuated text with damping removed and a constant payload bias added to the input.",
+      "requiredCitationIds": [
+        "tedrake-underactuated"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af) at HEAD 20e1a0b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched (row-dispatch preflight preflight-result.json exit 0). Every packet evidence passage was independently needle-verified by the integrator against the retained sha256-verified fetch text preserved in the packet (exact or contained-substring checks; control:8 part c8-pd's needle target corrected from the mis-pointed ted-lqr-balancing excerpt to the retained ted-lqr-policy excerpt of the same fetched lqr.html page; control:19's part needle-verifies against bd-blog-rl with bd-blog-mpc retained as the same-page MPC-history context; results in this lane's passage-verification.json). Cited ids verified registered per-id in data/citations.ts; no new registrations. The local-AND rows (c5/c6/c8/c18) had their integrator-side local basis re-derived and re-run at application time (upright-shift substitution and lib/pendulum.ts plant match; Kp>mgl=9.81 threshold from the linearization; u=-Kx PD structure; whole-body QP symbolic form check against the article's displayed program) with observed values in this lane's local-proof.json. Zero retrieval by this integrator. Source preparation is not acceptance.",
+    "planDigest": "d483e1ad89a851561b2922c955510b2e4dca041bb0ca0e4f2c7ccf21104f1162"
+  },
+  "evidence": [
+    {
+      "partId": "c5-eom",
+      "citationId": "tedrake-underactuated",
+      "sourceUrl": "https://underactuated.mit.edu/pend.html",
+      "supportingPassage": "The Lagrangian derivation of the equations of motion (as described in the appendix) of the simple pendulum yields: \\begin{equation*} m l^2 \\ddot\\theta(t) + mgl\\sin{\\theta(t)} = Q. \\end{equation*} We'll consider the case where the generalized force, $Q$, models a damping torque (from friction) plus a control torque input, $u(t)$: $$Q = -b\\dot\\theta(t) + u(t).$$"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "c5-eom",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (tedrake-underactuated @ https://underactuated.mit.edu/pend.html; passage text exact-contained in the retained excerpt, see passage-verification.json). Local-AND basis re-derived and re-run by the integrator at application time (local-proof.json): the part's local half was verified against the live component/article form before this adjudication. Packet disposition ready-source-correction-with-local-AND.",
+      "evidenceDigest": "7380ca5a400378edc4cbf3f916e94d5d170f6d9fccfce53c49b01345bd85e06c"
+    }
+  ]
+},
+{
+  "id": "control-c6-linearization-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 6,
+  "originalCellsDigest": "f3282ccfa3ff283904b41be6ead503e629c30367684d752e798c54903a25aec5",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "c6-threshold",
+      "text": "Linearized about upright the loop is stable only when K_p exceeds m g l, which is 9.81 in the lab slider units.",
+      "requiredCitationIds": [
+        "tedrake-underactuated"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af) at HEAD 20e1a0b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched (row-dispatch preflight preflight-result.json exit 0). Every packet evidence passage was independently needle-verified by the integrator against the retained sha256-verified fetch text preserved in the packet (exact or contained-substring checks; control:8 part c8-pd's needle target corrected from the mis-pointed ted-lqr-balancing excerpt to the retained ted-lqr-policy excerpt of the same fetched lqr.html page; control:19's part needle-verifies against bd-blog-rl with bd-blog-mpc retained as the same-page MPC-history context; results in this lane's passage-verification.json). Cited ids verified registered per-id in data/citations.ts; no new registrations. The local-AND rows (c5/c6/c8/c18) had their integrator-side local basis re-derived and re-run at application time (upright-shift substitution and lib/pendulum.ts plant match; Kp>mgl=9.81 threshold from the linearization; u=-Kx PD structure; whole-body QP symbolic form check against the article's displayed program) with observed values in this lane's local-proof.json. Zero retrieval by this integrator. Source preparation is not acceptance.",
+    "planDigest": "3c96e060fecc94bfb1279cf71d59a48e2b6147e90ad4b1d7dcf150bb0683b977"
+  },
+  "evidence": [
+    {
+      "partId": "c6-threshold",
+      "citationId": "tedrake-underactuated",
+      "sourceUrl": "https://underactuated.mit.edu/pend.html",
+      "supportingPassage": "The Lagrangian derivation of the equations of motion (as described in the appendix) of the simple pendulum yields: \\begin{equation*} m l^2 \\ddot\\theta(t) + mgl\\sin{\\theta(t)} = Q. \\end{equation*} We'll consider the case where the generalized force, $Q$, models a damping torque (from friction) plus a control torque input, $u(t)$: $$Q = -b\\dot\\theta(t) + u(t).$$"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "c6-threshold",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (tedrake-underactuated @ https://underactuated.mit.edu/pend.html; passage text exact-contained in the retained excerpt, see passage-verification.json). Local-AND basis re-derived and re-run by the integrator at application time (local-proof.json): the part's local half was verified against the live component/article form before this adjudication. Packet disposition ready-source-correction-with-local-AND.",
+      "evidenceDigest": "69761d714d0be0db891b2e05e920c591bbbea820665d4335c193b4f387f51bc7"
+    }
+  ]
+},
+{
+  "id": "control-c7-lqr-riccati-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 7,
+  "originalCellsDigest": "2ca30c2e984ea6ee460cf3875ba251d256caaa8927b2a86136f0c933be85db3b",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "c7-form",
+      "text": "The optimal gain is K = R^{-1} B^T P with P solving the algebraic Riccati equation, as stated verbatim in the fetched online text (S in its notation).",
+      "requiredCitationIds": [
+        "tedrake-underactuated"
+      ]
+    },
+    {
+      "id": "c7-kalman",
+      "text": "The formulation is credited to Kalman's 1960 paper \"Contributions to the Theory of Optimal Control\", verified at bibliographic-catalogue scope via the registered reprint DOI.",
+      "requiredCitationIds": [
+        "kalman-1960"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af) at HEAD 20e1a0b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched (row-dispatch preflight preflight-result.json exit 0). Every packet evidence passage was independently needle-verified by the integrator against the retained sha256-verified fetch text preserved in the packet (exact or contained-substring checks; control:8 part c8-pd's needle target corrected from the mis-pointed ted-lqr-balancing excerpt to the retained ted-lqr-policy excerpt of the same fetched lqr.html page; control:19's part needle-verifies against bd-blog-rl with bd-blog-mpc retained as the same-page MPC-history context; results in this lane's passage-verification.json). Cited ids verified registered per-id in data/citations.ts; no new registrations. The local-AND rows (c5/c6/c8/c18) had their integrator-side local basis re-derived and re-run at application time (upright-shift substitution and lib/pendulum.ts plant match; Kp>mgl=9.81 threshold from the linearization; u=-Kx PD structure; whole-body QP symbolic form check against the article's displayed program) with observed values in this lane's local-proof.json. Zero retrieval by this integrator. Source preparation is not acceptance.",
+    "planDigest": "159d25c05ef57d678480c625fc3d785bce9f579c69d88e12a68fdea1343aa1fd"
+  },
+  "evidence": [
+    {
+      "partId": "c7-form",
+      "citationId": "tedrake-underactuated",
+      "sourceUrl": "https://underactuated.mit.edu/lqr.html",
+      "supportingPassage": "it is sufficient to consider the matrix equation $$0 = {\\bf S} {\\bf A} + {\\bf A}^T {\\bf S} - {\\bf S} \\bB {\\bf R}^{-1} \\bB^T {\\bf S} + {\\bf Q}.$$ This extremely important equation is a version of the algebraic Riccati equation ."
+    },
+    {
+      "partId": "c7-kalman",
+      "citationId": "kalman-1960",
+      "sourceUrl": "https://api.crossref.org/works/10.1109/9780470544334.ch8",
+      "supportingPassage": "Crossref record for 10.1109/9780470544334.ch8: title \"Contributions to the Theory of Optimal Control\", container-title \"Control Theory\" (Wiley reprint volume Control Theory: Twenty-Five Seminal Papers), issued 2009; no author list in Crossref. Semantic Scholar (fetched 2026-09-15T14:38:56Z..14:38:59Z) resolves the same DOI to that reprint chapter, editor-authored metadata T. Basar. The registry documents the original as R. E. Kalman, Bol. Soc. Mat. Mexicana 1960, reprinted in this volume."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "c7-form",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (tedrake-underactuated @ https://underactuated.mit.edu/lqr.html; passage text exact-contained in the retained excerpt, see passage-verification.json). Packet disposition ready-source-correction.",
+      "evidenceDigest": "94b5ee14bb5b8a1884c725810d8f4aab5b0e2c995679138ecec4a5d33ccfa6c7"
+    },
+    {
+      "partId": "c7-kalman",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (kalman-1960 @ https://api.crossref.org/works/10.1109/9780470544334.ch8; passage text exact-contained in the retained excerpt, see passage-verification.json). Packet disposition ready-source-correction.",
+      "evidenceDigest": "0fe00ff31a629a9cb35df6278c0ea1e0657d194ae22ec74bf9bc5c451d1e0bd2"
+    }
+  ]
+},
+{
+  "id": "control-c8-lqr-pd-swingup-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 8,
+  "originalCellsDigest": "939b3f1ef7d370110a8cd031c78db702539a5d3113651c7650484e5ba8b67760",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "c8-swingup",
+      "text": "Swing-up uses energy shaping, with LQR catching the system at the top for balancing.",
+      "requiredCitationIds": [
+        "tedrake-underactuated"
+      ]
+    },
+    {
+      "id": "c8-pd",
+      "text": "On the linearized pendulum, the LQR gain acting on the state (angle, rate) is exactly a PD controller.",
+      "requiredCitationIds": [
+        "tedrake-underactuated"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af) at HEAD 20e1a0b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched (row-dispatch preflight preflight-result.json exit 0). Every packet evidence passage was independently needle-verified by the integrator against the retained sha256-verified fetch text preserved in the packet (exact or contained-substring checks; control:8 part c8-pd's needle target corrected from the mis-pointed ted-lqr-balancing excerpt to the retained ted-lqr-policy excerpt of the same fetched lqr.html page; control:19's part needle-verifies against bd-blog-rl with bd-blog-mpc retained as the same-page MPC-history context; results in this lane's passage-verification.json). Cited ids verified registered per-id in data/citations.ts; no new registrations. The local-AND rows (c5/c6/c8/c18) had their integrator-side local basis re-derived and re-run at application time (upright-shift substitution and lib/pendulum.ts plant match; Kp>mgl=9.81 threshold from the linearization; u=-Kx PD structure; whole-body QP symbolic form check against the article's displayed program) with observed values in this lane's local-proof.json. Zero retrieval by this integrator. Source preparation is not acceptance.",
+    "planDigest": "0dc7664fd82e294e17f0291dd2769d90a9dff6e6fcfd934a045150602b61ec04"
+  },
+  "evidence": [
+    {
+      "partId": "c8-swingup",
+      "citationId": "tedrake-underactuated",
+      "sourceUrl": "https://underactuated.mit.edu/acrobot.html",
+      "supportingPassage": "Recall in the last chapter, we used energy shaping to swing up the simple pendulum . This idea turns out to be a bit more general than just for the simple pendulum. As we will see, we can use similar concepts of \"energy shaping\" to produce swing-up controllers for the acrobot and cart-pole systems."
+    },
+    {
+      "partId": "c8-pd",
+      "citationId": "tedrake-underactuated",
+      "sourceUrl": "https://underactuated.mit.edu/lqr.html",
+      "supportingPassage": "This yields the optimal policy $$\\bu^* = \\pi^*(\\bx) = - {\\bf R}^{-1} \\bB^T {\\bf S} \\bx = - \\bK \\bx.$$"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "c8-swingup",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (tedrake-underactuated @ https://underactuated.mit.edu/acrobot.html; passage text exact-contained in the retained excerpt, see passage-verification.json). Local-AND basis re-derived and re-run by the integrator at application time (local-proof.json): the part's local half was verified against the live component/article form before this adjudication. Packet disposition ready-source-correction-with-local-AND.",
+      "evidenceDigest": "eed6ca98f17ee6608c3234aedcf998d9cf6772a4054873ec3ca3089bc6779d65"
+    },
+    {
+      "partId": "c8-pd",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (tedrake-underactuated @ https://underactuated.mit.edu/lqr.html; passage text exact-contained in the retained excerpt, see passage-verification.json). Local-AND basis re-derived and re-run by the integrator at application time (local-proof.json): the part's local half was verified against the live component/article form before this adjudication. Packet disposition ready-source-correction-with-local-AND.",
+      "evidenceDigest": "93638450284909f1637dbd411afeda7cb02b2dcae950511e16cafff930b654fd"
+    }
+  ]
+},
+{
+  "id": "control-c9-mayne-title-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "15cab87a5ac7d5a7806cf7fd65f9f5eb0d361b945dc74e951e5ce6cd1e2bf7e7",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "c9-title",
+      "text": "The stability-and-optimality consolidation of constrained MPC is the Mayne-Rawlings-Rao-Scokaert Automatica 2000 survey, as identified by its title and catalogue record.",
+      "requiredCitationIds": [
+        "mayne-2000"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af) at HEAD 20e1a0b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched (row-dispatch preflight preflight-result.json exit 0). Every packet evidence passage was independently needle-verified by the integrator against the retained sha256-verified fetch text preserved in the packet (exact or contained-substring checks; control:8 part c8-pd's needle target corrected from the mis-pointed ted-lqr-balancing excerpt to the retained ted-lqr-policy excerpt of the same fetched lqr.html page; control:19's part needle-verifies against bd-blog-rl with bd-blog-mpc retained as the same-page MPC-history context; results in this lane's passage-verification.json). Cited ids verified registered per-id in data/citations.ts; no new registrations. The local-AND rows (c5/c6/c8/c18) had their integrator-side local basis re-derived and re-run at application time (upright-shift substitution and lib/pendulum.ts plant match; Kp>mgl=9.81 threshold from the linearization; u=-Kx PD structure; whole-body QP symbolic form check against the article's displayed program) with observed values in this lane's local-proof.json. Zero retrieval by this integrator. Source preparation is not acceptance.",
+    "planDigest": "049e544127dbd8cb4285d282552a78e9d85c805d65a07b1d06a3e953e360073c"
+  },
+  "evidence": [
+    {
+      "partId": "c9-title",
+      "citationId": "mayne-2000",
+      "sourceUrl": "https://api.crossref.org/works/10.1016/S0005-1098(99)00214-9",
+      "supportingPassage": "Crossref record: title \"Constrained model predictive control: Stability and optimality\", container-title \"Automatica\", issued June 2000, authors \"D.Q. Mayne, J.B. Rawlings, C.V. Rao, P.O.M. Scokaert\". No abstract field deposited in Crossref or OpenAlex (both fetched 2026-09-15T14:44:52Z..14:44:55Z)."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "c9-title",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (mayne-2000 @ https://api.crossref.org/works/10.1016/S0005-1098(99)00214-9; passage text exact-contained in the retained excerpt, see passage-verification.json). Packet disposition ready-source-correction.",
+      "evidenceDigest": "488313c948bf59cdc1793c147f1f744851dc9be391f3475221623a3a3358cec2"
+    }
+  ]
+},
+{
+  "id": "control-c12-dicarlo-abstract-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 12,
+  "originalCellsDigest": "89249963158323583d0fceca19435b4671f3481ec88198055790f449f8913b33",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "c12-numbers",
+      "text": "Prediction horizons of up to 0.5 seconds, each QP solved to optimality in under 1 ms, replanned at 20-30 Hz, with gaits from stand through the paper's listed gallop-class gaits.",
+      "requiredCitationIds": [
+        "di-carlo-2018"
+      ]
+    },
+    {
+      "id": "c12-simplified",
+      "text": "The robot dynamics are simplified to formulate the problem as convex optimization while still capturing the full 3D nature of the system.",
+      "requiredCitationIds": [
+        "di-carlo-2018"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af) at HEAD 20e1a0b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched (row-dispatch preflight preflight-result.json exit 0). Every packet evidence passage was independently needle-verified by the integrator against the retained sha256-verified fetch text preserved in the packet (exact or contained-substring checks; control:8 part c8-pd's needle target corrected from the mis-pointed ted-lqr-balancing excerpt to the retained ted-lqr-policy excerpt of the same fetched lqr.html page; control:19's part needle-verifies against bd-blog-rl with bd-blog-mpc retained as the same-page MPC-history context; results in this lane's passage-verification.json). Cited ids verified registered per-id in data/citations.ts; no new registrations. The local-AND rows (c5/c6/c8/c18) had their integrator-side local basis re-derived and re-run at application time (upright-shift substitution and lib/pendulum.ts plant match; Kp>mgl=9.81 threshold from the linearization; u=-Kx PD structure; whole-body QP symbolic form check against the article's displayed program) with observed values in this lane's local-proof.json. Zero retrieval by this integrator. Source preparation is not acceptance.",
+    "planDigest": "09f7985d7f34bab151b7c8d6ef66af2812b578a88365facc0a064c38de2960fc"
+  },
+  "evidence": [
+    {
+      "partId": "c12-numbers",
+      "citationId": "di-carlo-2018",
+      "sourceUrl": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1109/IROS.2018.8594448?fields=abstract",
+      "supportingPassage": "This paper presents an implementation of model predictive control (MPC) to determine ground reaction forces for a torque-controlled quadruped robot. The robot dynamics are simplified to formulate the problem as convex optimization while still capturing the full 3D nature of the system. With the simplified model, ground reaction force planning problems are formulated for prediction horizons of up to 0.5 seconds, and are solved to optimality in under 1 ms at a rate of 20–30 Hz. Despite using a simplified model, the robot is capable of robust locomotion at a variety of speeds. Experimental results demonstrate control of gaits including stand, trot, flying-trot, pronk, bound, pace, a 3-legged gait, and a full 3D gallop. The robot achieved forward speeds of up to 3 m/s, lateral speeds up to 1 m/s, and angular speeds up to 180 deg/sec. Our approach is general enough to perform all these behaviors with the same set of gains and weights."
+    },
+    {
+      "partId": "c12-simplified",
+      "citationId": "di-carlo-2018",
+      "sourceUrl": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1109/IROS.2018.8594448?fields=abstract",
+      "supportingPassage": "This paper presents an implementation of model predictive control (MPC) to determine ground reaction forces for a torque-controlled quadruped robot. The robot dynamics are simplified to formulate the problem as convex optimization while still capturing the full 3D nature of the system. With the simplified model, ground reaction force planning problems are formulated for prediction horizons of up to 0.5 seconds, and are solved to optimality in under 1 ms at a rate of 20–30 Hz. Despite using a simplified model, the robot is capable of robust locomotion at a variety of speeds. Experimental results demonstrate control of gaits including stand, trot, flying-trot, pronk, bound, pace, a 3-legged gait, and a full 3D gallop. The robot achieved forward speeds of up to 3 m/s, lateral speeds up to 1 m/s, and angular speeds up to 180 deg/sec. Our approach is general enough to perform all these behaviors with the same set of gains and weights."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "c12-numbers",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (di-carlo-2018 @ https://api.semanticscholar.org/graph/v1/paper/DOI:10.1109/IROS.2018.8594448?fields=abstract; passage text exact-contained in the retained excerpt, see passage-verification.json). Packet disposition ready-source-correction.",
+      "evidenceDigest": "af76d7a45513f90d1a1bcb30afb8b382de01ea270d393500f28b6e2024449bfe"
+    },
+    {
+      "partId": "c12-simplified",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (di-carlo-2018 @ https://api.semanticscholar.org/graph/v1/paper/DOI:10.1109/IROS.2018.8594448?fields=abstract; passage text exact-contained in the retained excerpt, see passage-verification.json). Packet disposition ready-source-correction.",
+      "evidenceDigest": "3169412729a74aecb5705564ac0fdb1ba9fcc54bdd5bba384700e6b9c1bc60f9"
+    }
+  ]
+},
+{
+  "id": "control-c14-mujoco-ilqr-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 14,
+  "originalCellsDigest": "946c9df2c9ac087db6d180d2c2550b49fd91003d21e588bad000f8aa07ab04d7",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "c14-method",
+      "text": "Plain iLQR with MuJoCo dynamics and finite-difference derivatives achieves real-time whole-body MPC on quadrupeds and a full-sized humanoid, transferring with few sim-to-real accommodations.",
+      "requiredCitationIds": [
+        "mujoco-ilqr-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af) at HEAD 20e1a0b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched (row-dispatch preflight preflight-result.json exit 0). Every packet evidence passage was independently needle-verified by the integrator against the retained sha256-verified fetch text preserved in the packet (exact or contained-substring checks; control:8 part c8-pd's needle target corrected from the mis-pointed ted-lqr-balancing excerpt to the retained ted-lqr-policy excerpt of the same fetched lqr.html page; control:19's part needle-verifies against bd-blog-rl with bd-blog-mpc retained as the same-page MPC-history context; results in this lane's passage-verification.json). Cited ids verified registered per-id in data/citations.ts; no new registrations. The local-AND rows (c5/c6/c8/c18) had their integrator-side local basis re-derived and re-run at application time (upright-shift substitution and lib/pendulum.ts plant match; Kp>mgl=9.81 threshold from the linearization; u=-Kx PD structure; whole-body QP symbolic form check against the article's displayed program) with observed values in this lane's local-proof.json. Zero retrieval by this integrator. Source preparation is not acceptance.",
+    "planDigest": "3e61336e7e490339d64aab503dad8e919e5f91a59555d372b82686d1a868eb93"
+  },
+  "evidence": [
+    {
+      "partId": "c14-method",
+      "citationId": "mujoco-ilqr-2026",
+      "sourceUrl": "https://arxiv.org/abs/2503.04613",
+      "supportingPassage": "We demonstrate the surprising real-world effectiveness of a very simple approach to whole-body model-predictive control (MPC) of quadruped and humanoid robots: the iterative LQR (iLQR) algorithm with MuJoCo dynamics and finite-difference approximated derivatives. Building upon the previous success of model-based behavior synthesis and control of locomotion and manipulation tasks with MuJoCo in simulation, we show that these policies can easily generalize to the real world with few sim-to-real considerations. Our baseline method achieves real-time whole-body MPC on a variety of hardware experiments, including dynamic quadruped locomotion, quadruped walking on two legs, and full-sized humanoid bipedal locomotion. We hope this easy-to-reproduce hardware baseline lowers the barrier to entry for real-world whole-body MPC research and contributes to accelerating research velocity in the community."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "c14-method",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (mujoco-ilqr-2026 @ https://arxiv.org/abs/2503.04613; passage text exact-contained in the retained excerpt, see passage-verification.json). Packet disposition ready-source-correction.",
+      "evidenceDigest": "adcde88c259bc676fe8d0c44565cb1a1de2d55bf37b4a2a0ce42a070f8a6e27a"
+    }
+  ]
+},
+{
+  "id": "control-c15-mujoco-gloss-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 15,
+  "originalCellsDigest": "ad7d31678267e21e96d091890837f1712b6e6990e4d77a2380d05be6b83f5178",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "c15-gloss",
+      "text": "The baseline is deliberately simple and intended as an easy-to-reproduce hardware reference, in the paper's own words.",
+      "requiredCitationIds": [
+        "mujoco-ilqr-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af) at HEAD 20e1a0b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched (row-dispatch preflight preflight-result.json exit 0). Every packet evidence passage was independently needle-verified by the integrator against the retained sha256-verified fetch text preserved in the packet (exact or contained-substring checks; control:8 part c8-pd's needle target corrected from the mis-pointed ted-lqr-balancing excerpt to the retained ted-lqr-policy excerpt of the same fetched lqr.html page; control:19's part needle-verifies against bd-blog-rl with bd-blog-mpc retained as the same-page MPC-history context; results in this lane's passage-verification.json). Cited ids verified registered per-id in data/citations.ts; no new registrations. The local-AND rows (c5/c6/c8/c18) had their integrator-side local basis re-derived and re-run at application time (upright-shift substitution and lib/pendulum.ts plant match; Kp>mgl=9.81 threshold from the linearization; u=-Kx PD structure; whole-body QP symbolic form check against the article's displayed program) with observed values in this lane's local-proof.json. Zero retrieval by this integrator. Source preparation is not acceptance.",
+    "planDigest": "31bbbde9ef34296b3117ff539be3bf155f2ecc358c13caf99a49e4c44d810b8e"
+  },
+  "evidence": [
+    {
+      "partId": "c15-gloss",
+      "citationId": "mujoco-ilqr-2026",
+      "sourceUrl": "https://arxiv.org/abs/2503.04613",
+      "supportingPassage": "We demonstrate the surprising real-world effectiveness of a very simple approach to whole-body model-predictive control (MPC) of quadruped and humanoid robots: the iterative LQR (iLQR) algorithm with MuJoCo dynamics and finite-difference approximated derivatives. Building upon the previous success of model-based behavior synthesis and control of locomotion and manipulation tasks with MuJoCo in simulation, we show that these policies can easily generalize to the real world with few sim-to-real considerations. Our baseline method achieves real-time whole-body MPC on a variety of hardware experiments, including dynamic quadruped locomotion, quadruped walking on two legs, and full-sized humanoid bipedal locomotion. We hope this easy-to-reproduce hardware baseline lowers the barrier to entry for real-world whole-body MPC research and contributes to accelerating research velocity in the community."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "c15-gloss",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (mujoco-ilqr-2026 @ https://arxiv.org/abs/2503.04613; passage text exact-contained in the retained excerpt, see passage-verification.json). Packet disposition ready-source-correction.",
+      "evidenceDigest": "7abc214c0225250915ae22694f92fc548ee7de95369a40da9e6a41a6924cc413"
+    }
+  ]
+},
+{
+  "id": "control-c17-sentis-hierarchy-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 17,
+  "originalCellsDigest": "aa1d02aa096cd884651ad1766b2a2aa7b78ab7987e21075a0431268bd45f756e",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "c17-hierarchy",
+      "text": "Sentis-Khatib 2005 establishes a hierarchy among behavioral primitives with control priorities: constraints first, then operational tasks, then postures, with CoG behavior among the controlled primitives.",
+      "requiredCitationIds": [
+        "sentis-khatib-2005"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af) at HEAD 20e1a0b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched (row-dispatch preflight preflight-result.json exit 0). Every packet evidence passage was independently needle-verified by the integrator against the retained sha256-verified fetch text preserved in the packet (exact or contained-substring checks; control:8 part c8-pd's needle target corrected from the mis-pointed ted-lqr-balancing excerpt to the retained ted-lqr-policy excerpt of the same fetched lqr.html page; control:19's part needle-verifies against bd-blog-rl with bd-blog-mpc retained as the same-page MPC-history context; results in this lane's passage-verification.json). Cited ids verified registered per-id in data/citations.ts; no new registrations. The local-AND rows (c5/c6/c8/c18) had their integrator-side local basis re-derived and re-run at application time (upright-shift substitution and lib/pendulum.ts plant match; Kp>mgl=9.81 threshold from the linearization; u=-Kx PD structure; whole-body QP symbolic form check against the article's displayed program) with observed values in this lane's local-proof.json. Zero retrieval by this integrator. Source preparation is not acceptance.",
+    "planDigest": "8957358a5f3e5950612edeff811acaaf57b72913bbe2a93bf325239bd7200ee8"
+  },
+  "evidence": [
+    {
+      "partId": "c17-hierarchy",
+      "citationId": "sentis-khatib-2005",
+      "sourceUrl": "https://api.crossref.org/works/10.1142/S0219843605000594",
+      "supportingPassage": "To synthesize whole-body behaviors interactively, multiple behavioral primitives need to be simultaneously controlled, including those that guarantee that the constraints imposed by the robot's structure and the external environment are satisfied. Behavioral primitives are entities for the control of various movement criteria, e.g. primitives describing the behavior of the center of gravity, the behaviors of the hands, legs, and head, the body attitude and posture, the constrained body parts such as joint-limits and contacts, etc. By aggregating multiple primitives, we synthesize whole-body behaviors. For safety and for efficient control, we establish a control hierarchy among behavioral primitives, which is exploited to establish control priorities among the different control categories, i.e. constraints, operational tasks, and postures. Constraints should always be guaranteed, while operational tasks should be accomplished without violating the acting constraints, and the posture should control the residual movement redundancy. In this paper, we will present a multi-level hierarchical control structure that allows the establishment of general priorities among behavioral primitives, and we will describe compliant control strategies for efficient control under contact interactions."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "c17-hierarchy",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (sentis-khatib-2005 @ https://api.crossref.org/works/10.1142/S0219843605000594; passage text exact-contained in the retained excerpt, see passage-verification.json). Packet disposition ready-source-correction.",
+      "evidenceDigest": "839b3ad0d5a089d19204d9d006df7e5dbbaae686f50ea53cd71c95ac9d6446fe"
+    }
+  ]
+},
+{
+  "id": "control-c18-wbc-qp-form-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 18,
+  "originalCellsDigest": "0c30e2155746fafb1db988028cb6391f8398c297ee35545e1b5001789ca15f5f",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "c18-form",
+      "text": "The displayed whole-body QP has joint accelerations, torques and contact forces as decision variables, the rigid-body dynamics as its equality, torque bounds, and friction cones.",
+      "requiredCitationIds": [
+        "sentis-khatib-2005"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af) at HEAD 20e1a0b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched (row-dispatch preflight preflight-result.json exit 0). Every packet evidence passage was independently needle-verified by the integrator against the retained sha256-verified fetch text preserved in the packet (exact or contained-substring checks; control:8 part c8-pd's needle target corrected from the mis-pointed ted-lqr-balancing excerpt to the retained ted-lqr-policy excerpt of the same fetched lqr.html page; control:19's part needle-verifies against bd-blog-rl with bd-blog-mpc retained as the same-page MPC-history context; results in this lane's passage-verification.json). Cited ids verified registered per-id in data/citations.ts; no new registrations. The local-AND rows (c5/c6/c8/c18) had their integrator-side local basis re-derived and re-run at application time (upright-shift substitution and lib/pendulum.ts plant match; Kp>mgl=9.81 threshold from the linearization; u=-Kx PD structure; whole-body QP symbolic form check against the article's displayed program) with observed values in this lane's local-proof.json. Zero retrieval by this integrator. Source preparation is not acceptance.",
+    "planDigest": "ac750bececf1634e41861f03d4de4ed3de36c8f239fe6a5c1fffd21badccd905"
+  },
+  "evidence": [
+    {
+      "partId": "c18-form",
+      "citationId": "sentis-khatib-2005",
+      "sourceUrl": "https://api.crossref.org/works/10.1142/S0219843605000594",
+      "supportingPassage": "To synthesize whole-body behaviors interactively, multiple behavioral primitives need to be simultaneously controlled, including those that guarantee that the constraints imposed by the robot's structure and the external environment are satisfied. Behavioral primitives are entities for the control of various movement criteria, e.g. primitives describing the behavior of the center of gravity, the behaviors of the hands, legs, and head, the body attitude and posture, the constrained body parts such as joint-limits and contacts, etc. By aggregating multiple primitives, we synthesize whole-body behaviors. For safety and for efficient control, we establish a control hierarchy among behavioral primitives, which is exploited to establish control priorities among the different control categories, i.e. constraints, operational tasks, and postures. Constraints should always be guaranteed, while operational tasks should be accomplished without violating the acting constraints, and the posture should control the residual movement redundancy. In this paper, we will present a multi-level hierarchical control structure that allows the establishment of general priorities among behavioral primitives, and we will describe compliant control strategies for efficient control under contact interactions."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "c18-form",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (sentis-khatib-2005 @ https://api.crossref.org/works/10.1142/S0219843605000594; passage text exact-contained in the retained excerpt, see passage-verification.json). Local-AND basis re-derived and re-run by the integrator at application time (local-proof.json): the part's local half was verified against the live component/article form before this adjudication. Packet disposition ready-source-correction-with-local-AND.",
+      "evidenceDigest": "33eabdb213c0edea5b98b288f13f0d2a2f88c916980953faf8842dad653ee920"
+    }
+  ]
+},
+{
+  "id": "control-c19-bd-spot-rl-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "control",
+  "rowOrdinal": 19,
+  "originalCellsDigest": "9dcaded29bf5fe75187fb03698220c05d878f5761ac046195a16713075fc4548",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "c19-integration",
+      "text": "Boston Dynamics added reinforcement learning to Spot's locomotion control system, which historically leveraged MPC, rather than replacing that stack.",
+      "requiredCitationIds": [
+        "bd-spot-rl-2024"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9cba7f40ed2206e979ffc09591dc20f0b87cf48c08e26fcb496af698d8b8b3af) at HEAD 20e1a0b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched (row-dispatch preflight preflight-result.json exit 0). Every packet evidence passage was independently needle-verified by the integrator against the retained sha256-verified fetch text preserved in the packet (exact or contained-substring checks; control:8 part c8-pd's needle target corrected from the mis-pointed ted-lqr-balancing excerpt to the retained ted-lqr-policy excerpt of the same fetched lqr.html page; control:19's part needle-verifies against bd-blog-rl with bd-blog-mpc retained as the same-page MPC-history context; results in this lane's passage-verification.json). Cited ids verified registered per-id in data/citations.ts; no new registrations. The local-AND rows (c5/c6/c8/c18) had their integrator-side local basis re-derived and re-run at application time (upright-shift substitution and lib/pendulum.ts plant match; Kp>mgl=9.81 threshold from the linearization; u=-Kx PD structure; whole-body QP symbolic form check against the article's displayed program) with observed values in this lane's local-proof.json. Zero retrieval by this integrator. Source preparation is not acceptance.",
+    "planDigest": "8cbb8b566846faf1e02267acdd0f97a700b2e883b6cc6aa3d30f59f43d80e2a0"
+  },
+  "evidence": [
+    {
+      "partId": "c19-integration",
+      "citationId": "bd-spot-rl-2024",
+      "sourceUrl": "https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/",
+      "supportingPassage": "In order to design control software that can be extended over time to handle more and more real-world viability, we’ve integrated reinforcement learning into Spot’s locomotion control system."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "c19-integration",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 7eeaeecd-c8cd-4257-a988-7bbc370d34b3; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Needle-verified against the retained sha256-verified fetch preserved in the frozen packet (bd-spot-rl-2024 @ https://bostondynamics.com/blog/starting-on-the-right-foot-with-reinforcement-learning/; passage text exact-contained in the retained excerpt, see passage-verification.json). Packet disposition ready-source-correction.",
+      "evidenceDigest": "004d6487e6ee2058bb4e725c5f2d91c0334bd372a55972fecab48093e71f3fc8"
+    }
+  ]
 }
 ]
