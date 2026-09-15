@@ -11232,6 +11232,384 @@
     "VAL-AUDIT-009"
   ],
   "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r1-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 1: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r2-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 2: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r3-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 3: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r4-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 4: this pass's article-endpoint correction, bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Following the established per-pass convention, the approval binds the sealed migration-baseline member hash c87aa9d026fd... to this pass's final member hash e02c49d851e5..., which the two endpoint corrections (R4 SO-101 BOM price span, R14 Figure 03 sale-model span) produced together from the previously approved state 754695d09e01... (performance-worldmodels-20260908-1); exact before/after spans in the ledger history block. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r5-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 5: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r6-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 6: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r7-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 7: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r8-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 8: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r9-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 9: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r10-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 10: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r11-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 11: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r12-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 12: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r13-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 13: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r14-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "c87aa9d026fd81df376a5c944b72d40476964c07a2a78eb362f5d8355fedaed0",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 14: this pass's article-endpoint correction, bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Following the established per-pass convention, the approval binds the sealed migration-baseline member hash c87aa9d026fd... to this pass's final member hash e02c49d851e5..., which the two endpoint corrections (R4 SO-101 BOM price span, R14 Figure 03 sale-model span) produced together from the previously approved state 754695d09e01... (performance-worldmodels-20260908-1); exact before/after spans in the ledger history block. Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r15-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 15: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r16-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 16: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r17-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 17: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r18-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 18: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r19-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 19: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r20-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 20: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "hardware-taxonomy-r25-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:data-hardware/hardware-taxonomy",
+  "oldHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "newHash": "e02c49d851e5a172a17148794fbd91c2fdc9c59c1e40e435554d14d4c01980af",
+  "reason": "Exactly hardware-taxonomy original 25: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. The guarded article endpoint is byte-unchanged by this ledger-only completion; this approval records the completion against the prose member hash this pass commits (e02c49d851e5..., after the two endpoint corrections applied by the same commit). Literal/source/review and exact endpoint evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-hardware-taxonomy-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
 }
   ]
 }

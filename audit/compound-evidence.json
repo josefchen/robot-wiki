@@ -50889,5 +50889,1418 @@
       "evidenceDigest": "90b86ceeb59cc7489888ef6ab1355079f8d2c48142990c3266045b73bf92f78d"
     }
   ]
+},
+{
+  "id": "hardware-taxonomy-r1-tros-price-widowx-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "a3a1814b414ba7dada516f3605db51b918602b06485df663377be012eda363e5",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r1-price-widowx",
+      "text": "WidowX AI lists at $4,545.95.",
+      "requiredCitationIds": [
+        "trossen-ai-2026"
+      ]
+    },
+    {
+      "id": "r1-price-solo",
+      "text": "Solo AI lists at $11,385.95.",
+      "requiredCitationIds": [
+        "trossen-ai-2026"
+      ]
+    },
+    {
+      "id": "r1-price-stationary",
+      "text": "Stationary AI lists at $23,995.95.",
+      "requiredCitationIds": [
+        "trossen-ai-2026"
+      ]
+    },
+    {
+      "id": "r1-price-mobile",
+      "text": "Mobile AI lists at $33,695.95.",
+      "requiredCitationIds": [
+        "trossen-ai-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "6fd4918e18bf2bbccad9ab086a123f76aa08396e00a728e5e2af3db4836a1087",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r1-price-widowx",
+      "citationId": "trossen-ai-2026",
+      "sourceUrl": "https://www.trossenrobotics.com/ai",
+      "supportingPassage": "$4,545.95"
+    },
+    {
+      "partId": "r1-price-solo",
+      "citationId": "trossen-ai-2026",
+      "sourceUrl": "https://www.trossenrobotics.com/ai",
+      "supportingPassage": "$11,385.95"
+    },
+    {
+      "partId": "r1-price-stationary",
+      "citationId": "trossen-ai-2026",
+      "sourceUrl": "https://www.trossenrobotics.com/ai",
+      "supportingPassage": "$23,995.95"
+    },
+    {
+      "partId": "r1-price-mobile",
+      "citationId": "trossen-ai-2026",
+      "sourceUrl": "https://www.trossenrobotics.com/ai",
+      "supportingPassage": "$33,695.95"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r1-price-widowx",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Vendor price grid passage ('$4,545.95' beside the WidowX AI Buy Now link) verified as a normalized substring of the retained 2,087,481-byte curl fetch; the same figure prints on the retained WidowX AI product page. Price applied exactly as printed, vendor-reported, fetch-dated 2026-09-15.",
+      "evidenceDigest": "617db4a76fd7d942b61aebae8845c5c7a7811ba42c7613625e8e09e603d96822"
+    },
+    {
+      "partId": "r1-price-solo",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Vendor price '$11,385.95' verified in the retained trossenrobotics.com/ai fetch; applied exactly as printed, vendor-reported.",
+      "evidenceDigest": "dec94fa25c341e44d60f17508aea5bdf7820443f776ed5a8a16220129293114d"
+    },
+    {
+      "partId": "r1-price-stationary",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Vendor price '$23,995.95' verified in the retained trossenrobotics.com/ai fetch; applied exactly as printed, vendor-reported.",
+      "evidenceDigest": "387110d0b47aa1d53db54674199eaf69a00aecf6d421409efbb404e062d9fcc9"
+    },
+    {
+      "partId": "r1-price-mobile",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Vendor price '$33,695.95' verified in the retained trossenrobotics.com/ai fetch; applied exactly as printed, vendor-reported. The historical no-rebrand-cut correction is unchanged; evidence fields completed only.",
+      "evidenceDigest": "28ce3e9bdf38ea2c38ac71b8cbf63fbc441d7ff66286a8e6abc2f668508be1db"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r2-tros-canfd-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 2,
+  "originalCellsDigest": "f57b77ca8232bd62f5dc11a4c9adc3b3cddd67ab464294b44e1fc44bf89bb67b",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r2-canfd-inerve",
+      "text": "The line runs 500 Hz CAN FD control on the iNerve controller board.",
+      "requiredCitationIds": [
+        "trossen-ai-2026"
+      ]
+    },
+    {
+      "id": "r2-integrations",
+      "text": "The hardware integrates with OpenPI and natively supports Hugging Face LeRobot.",
+      "requiredCitationIds": [
+        "trossen-ai-2026"
+      ]
+    },
+    {
+      "id": "r2-rebrand",
+      "text": "ALOHA is rebranded as Trossen AI.",
+      "requiredCitationIds": [
+        "trossen-ai-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "d165ccd7f64d4a610fd778471c567c1261574677661b565d5ac9c397ecec24bc",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r2-canfd-inerve",
+      "citationId": "trossen-ai-2026",
+      "sourceUrl": "https://www.trossenrobotics.com/ai",
+      "supportingPassage": "CAN FD delivers over 500Hz data transfers, reduced latency, and enhanced real-time performance, enabling seamless communication and superior precision.<br>500Hz CONTROL FREQUENCY<br>Ultra-High Performance iNerve® Controller"
+    },
+    {
+      "partId": "r2-integrations",
+      "citationId": "trossen-ai-2026",
+      "sourceUrl": "https://www.trossenrobotics.com/ai",
+      "supportingPassage": "We’re excited to announce that Trossen AI hardware is now fully integrated into the OpenPI framework, making it easier than ever to collect data, train Pi0 and Pi 0.5 policies, and inference— all in one unified ecosystem.<br>Native support for Hugging Face LeRobot"
+    },
+    {
+      "partId": "r2-rebrand",
+      "citationId": "trossen-ai-2026",
+      "sourceUrl": "https://www.trossenrobotics.com/ai",
+      "supportingPassage": "ALOHA IS NOW TROSSEN AI"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r2-canfd-inerve",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Three retained-page passages verified (CAN FD 'over 500Hz data transfers'; the 500Hz CONTROL FREQUENCY headline, verified in both the retained curl HTML and the FetchUrl excerpt which renders it as markdown headings; 'Ultra-High Performance iNerve® Controller'). The row's CAN FD / iNerve statements are each directly stated.",
+      "evidenceDigest": "0e152e848bc3cbfe8c3071a304525de32777823d8a340fd12280f14a3493d37c"
+    },
+    {
+      "partId": "r2-integrations",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "OpenPI integration sentence verified in the retained curl HTML (the FetchUrl excerpt truncates mid-sentence; the full retained HTML carries it) and the LeRobot support line verified verbatim.",
+      "evidenceDigest": "6904187ca170a4a4fa26cd5ba71010779eafeace923789b6881cab59443b7ade"
+    },
+    {
+      "partId": "r2-rebrand",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "'ALOHA IS NOW TROSSEN AI' verified verbatim in both retained fetch forms; the rebrand framing is the vendor's own.",
+      "evidenceDigest": "faf69bd532967f01cedf4f0a3c3767540b21d129ca75989731da262f0e552ecf"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r3-widowx-spec-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 3,
+  "originalCellsDigest": "043d9b476eb71a820360c4436e4356847888eb91b3f478293c4d06371a1d1693",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r3-spec-table",
+      "text": "WidowX AI: 1.5 kg payload, 700 mm reach, 6 DoF, 1 mm repeatability (span 1400 mm, weight 4 kg).",
+      "requiredCitationIds": [
+        "trossen-ai-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "4a07272da05d0074af85fbfe6e945b40136336d0cfed33cd3ee838bbed8a5777",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r3-spec-table",
+      "citationId": "trossen-ai-2026",
+      "sourceUrl": "https://www.trossenrobotics.com/widowx-ai",
+      "supportingPassage": "SPECIFICATIONS PAYLOAD 1.5kg REACH 700mm SPAN 1400mm DoF 6 REPEATABILITY 1mm WEIGHT 4kg"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r3-spec-table",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "WidowX AI spec table (PAYLOAD 1.5kg / REACH 700mm / SPAN 1400mm / DoF 6 / REPEATABILITY 1mm / WEIGHT 4kg) verified as a contiguous passage in the retained widowx-ai product-page fetch. Bound to registered trossen-ai-2026 with the product-page URL recorded as fetched; the packet's optional trossen-widowx-ai-2026 registry proposal is NOT required for this binding and was not applied.",
+      "evidenceDigest": "e3af95b505afab21fddbd5392252e62389f66b0ec116d149ba3ef3162fda0ce6"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r4-so101-follower-bom-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "83c5f228dc9d01bb3eca714fa2a9767b9ed30b52e2af120de563c15f2465397c",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r4-bom",
+      "text": "One follower arm's US BOM totals $121.94 (servos, control board, USB-C cable, power supply, clamp, screwdriver as printed).",
+      "requiredCitationIds": [
+        "so-arm100-repo-2026"
+      ]
+    },
+    {
+      "id": "r4-six-servos",
+      "text": "An SO-101 arm uses six STS3215 servos (six degrees of freedom).",
+      "requiredCitationIds": [
+        "so-arm100-repo-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "fa5bbd07911ca66c04ee7676771ff292ecd4f2f221f17b61c51f145853f0d409",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r4-bom",
+      "citationId": "so-arm100-repo-2026",
+      "sourceUrl": "https://raw.githubusercontent.com/TheRobotStudio/SO-ARM100/main/README.md",
+      "supportingPassage": "STS3215 Servo 7.4V, 1/345 gear (C001) | 6 | $13.89 … Motor Control Board | 1 | $10.6 … USB-C Cable 2 pcs | 1 | $7 … Power Supply | 1 | $10 … Table Clamp 2pcs | 1 | $5 … Screwdriver Set<sup>[1](#myfootnote1)</sup> | 1 | $6 … Total | --- | $121.94"
+    },
+    {
+      "partId": "r4-six-servos",
+      "citationId": "so-arm100-repo-2026",
+      "sourceUrl": "https://raw.githubusercontent.com/TheRobotStudio/SO-ARM100/main/README.md",
+      "supportingPassage": "You can buy **all six STS3215 servos needed for the SO-101 leader arm** (3 × 1/147 gear (C046), 2 × 1/191 gear (C044), 1 × 1/345 gear (C001)) in a single bundle"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r4-bom",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Follower-arm BOM verified fragment-wise (21 fragments) in the retained raw README: Total $121.94 US column; servos + board $10.6 + cable $7 + PSU $10 core rows. The README prints no '$100' figure, so the article's 'about $100 in core parts' is corrected to the printed $110.94 core / $121.94 total via this pass's article endpoint; the '$122' entry-arm Stat stays as the rounded total.",
+      "evidenceDigest": "45910871cc94e3fdbc6b1a4d8763f5a8b7996df9a95777d217c5170b624853df"
+    },
+    {
+      "partId": "r4-six-servos",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Six STS3215 servos verified verbatim in the retained README (leader bundle wording) and the follower table's six servo rows; the servo identity and count stand.",
+      "evidenceDigest": "9ceae53280331c26244c5994562dd4386dbe2dce973f0dc4d36037fce88674b0"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r5-seeed-price-row-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "5007b41a30396dfc4aadb57d2ba99f60c01acb69dda888c6dbca3a7aa612a382",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r5-prices",
+      "text": "SO-ARM101 Pro: $295 unassembled, $299 assembled.",
+      "requiredCitationIds": [
+        "seeed-so-arm101-pro-2026"
+      ]
+    },
+    {
+      "id": "r5-encoders",
+      "text": "Six STS3215 magnetic-encoder bus servos with 12-bit absolute position feedback.",
+      "requiredCitationIds": [
+        "seeed-so-arm101-pro-2026"
+      ]
+    },
+    {
+      "id": "r5-payload",
+      "text": "Payload 500 g (spec row: DoF 5+1).",
+      "requiredCitationIds": [
+        "seeed-so-arm101-pro-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "80b317f5dbe91f1b5cce72121139cfbcea405fdc5cc207199fa4f3b3f43b2823",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r5-prices",
+      "citationId": "seeed-so-arm101-pro-2026",
+      "sourceUrl": "https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html",
+      "supportingPassage": "SO-ARM101 Pro Servo Motor Kit SO-ARM101 Pro Unassembled Bundle SO-ARM101 Pro Kit Price $189.00 $295.00 $299.00"
+    },
+    {
+      "partId": "r5-encoders",
+      "citationId": "seeed-so-arm101-pro-2026",
+      "sourceUrl": "https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html",
+      "supportingPassage": "Six STS3215 magnetic-encoder bus servos deliver 30 kg·cm torque per joint with 12-bit absolute position feedback for smooth, quiet, and repeatable motion"
+    },
+    {
+      "partId": "r5-payload",
+      "citationId": "seeed-so-arm101-pro-2026",
+      "sourceUrl": "https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html",
+      "supportingPassage": "DoF 5+1 Payload 500g Angle sensor 12-bit magnetic encoder"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r5-prices",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Comparison-sheet price row ($189.00 / $295.00 / $299.00) verified in the retained decoded sheet; the page's own buy box prints $299.00 (10+: $293.02) for this URL, fixing the column mapping. Vendor-reported with fetch date.",
+      "evidenceDigest": "9de6b5dfae2cc808adf7d44747083f9690caf20213a5aeb7d5b00766656986be"
+    },
+    {
+      "partId": "r5-encoders",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "'Six STS3215 magnetic-encoder bus servos … 12-bit absolute position feedback' verified in the retained decoded sheet text.",
+      "evidenceDigest": "db8e57aea46564d2e28ffb94aa254550bdff573266681780b50b1af35990b6e2"
+    },
+    {
+      "partId": "r5-payload",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Spec row 'DoF 5+1 Payload 500g Angle sensor 12-bit magnetic encoder' verified in the retained decoded sheet text.",
+      "evidenceDigest": "da9b8e0b790685ebdf6dcc6074064d2cb3693ec08f054b5fe49ef733aee5aa0c"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r6-issue-pricing-rows-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 6,
+  "originalCellsDigest": "97fa95c8212f6d90c9b4fcaab75817217eab1ebacd2fc1e2aae58579842bf579",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r6-koch",
+      "text": "Koch v1.1 circulates at about $250–300 (community estimate, marked 'older').",
+      "requiredCitationIds": [
+        "lerobot-pricing-2026"
+      ]
+    },
+    {
+      "id": "r6-aloha",
+      "text": "The combined ALOHA / ALOHA 2 research-bimanual category is estimated at about $17k–32k, not a configuration-specific USD quote.",
+      "requiredCitationIds": [
+        "lerobot-pricing-2026"
+      ]
+    },
+    {
+      "id": "r6-reachy",
+      "text": "Reachy 2 is estimated at about $70,000.",
+      "requiredCitationIds": [
+        "lerobot-pricing-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "1361142bc5cd8145d459466be6b39b35f877584b9d79b8a0d93fe8a29ae826ad",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r6-koch",
+      "citationId": "lerobot-pricing-2026",
+      "sourceUrl": "https://github.com/alpibrusl/lex-robot/issues/3",
+      "supportingPassage": "## Pricing (approx — DIY BOM vs assembled, tariffs cause big spreads) | Robot | Type | ~Price | … | Koch v1.1 | 6-DOF arm | ~$250–300 (older) | … | ALOHA / ALOHA 2 | research bimanual | ~$17k–32k | … | Reachy 2 | full humanoid/mobile | ~$70,000 |"
+    },
+    {
+      "partId": "r6-aloha",
+      "citationId": "lerobot-pricing-2026",
+      "sourceUrl": "https://github.com/alpibrusl/lex-robot/issues/3",
+      "supportingPassage": "## Pricing (approx — DIY BOM vs assembled, tariffs cause big spreads) | Robot | Type | ~Price | … | Koch v1.1 | 6-DOF arm | ~$250–300 (older) | … | ALOHA / ALOHA 2 | research bimanual | ~$17k–32k | … | Reachy 2 | full humanoid/mobile | ~$70,000 |"
+    },
+    {
+      "partId": "r6-reachy",
+      "citationId": "lerobot-pricing-2026",
+      "sourceUrl": "https://github.com/alpibrusl/lex-robot/issues/3",
+      "supportingPassage": "## Pricing (approx — DIY BOM vs assembled, tariffs cause big spreads) | Robot | Type | ~Price | … | Koch v1.1 | 6-DOF arm | ~$250–300 (older) | … | ALOHA / ALOHA 2 | research bimanual | ~$17k–32k | … | Reachy 2 | full humanoid/mobile | ~$70,000 |"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r6-koch",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Community-issue pricing row verified fragment-wise (13 fragments) in the retained issue HTML: Koch v1.1 '~$250–300 (older)'. Secondary community research figure under an explicit 'approx — DIY BOM vs assembled, tariffs cause big spreads' heading; recorded as community-reported, not a vendor quote.",
+      "evidenceDigest": "ad9d4132eab43bc83897f50c35b3150f3def1571904604b1f25b96e9b6ce9186"
+    },
+    {
+      "partId": "r6-aloha",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Same retained issue table states ALOHA / ALOHA 2 '~$17k–32k' for the combined research-bimanual category; the approx/tariff scope labels stay, per the 2026-09-07 price correction's own semantics.",
+      "evidenceDigest": "60f7dce6446ed0cb7086918e72d2740893634c9d1876aa4fb21643c90b44a09b"
+    },
+    {
+      "partId": "r6-reachy",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Same retained issue table states Reachy 2 '~$70,000'; community-reported approximation with the same scope labels. The prior 'Koch and Reachy remain unverified' state is resolved within this same cited source; no vendor quote is claimed.",
+      "evidenceDigest": "0512819a8e196ecb02be9412f08163dc5baff8d0fb114acf4b507a183be100e7"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r7-robo-13k-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 7,
+  "originalCellsDigest": "4c6f0f211261177fb1fe42067696dab2dcf4c6d47a028326bef67a29d882f4d0",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r7-total",
+      "text": "Omdia counts roughly 13,000 humanoids shipped in 2025.",
+      "requiredCitationIds": [
+        "robozaps-humanoids-2026"
+      ]
+    },
+    {
+      "id": "r7-agibot",
+      "text": "Omdia ranks AgiBot first at 5,168 units and a 39% share.",
+      "requiredCitationIds": [
+        "robozaps-humanoids-2026"
+      ]
+    },
+    {
+      "id": "r7-dispute",
+      "text": "Unitree self-reports 5,500+ and disputes the ranking; Omdia counts ~4,200 and ranks AgiBot first.",
+      "requiredCitationIds": [
+        "robozaps-humanoids-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "eea0665a1bd00de9e63c2b23bbe4bd5ec8324f3af680599c3d1c9757b558e5b3",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r7-total",
+      "citationId": "robozaps-humanoids-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+      "supportingPassage": "roughly 13,000 humanoids shipped in 2025 (per Omdia)"
+    },
+    {
+      "partId": "r7-agibot",
+      "citationId": "robozaps-humanoids-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+      "supportingPassage": "Omdia ranks it #1 for 2025 shipments (5,168 units, 39% share), a ranking Unitree disputes with its own 5,500+ figure"
+    },
+    {
+      "partId": "r7-dispute",
+      "citationId": "robozaps-humanoids-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+      "supportingPassage": "Unitree self-reports 5,500+ humanoids shipped in 2025 and claims the volume crown, though analyst firm Omdia counts ~4,200 and ranks AgiBot first, a dispute worth knowing"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r7-total",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/robozaps-humanoids.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "fa20661c048da2cd4b3c709349302940fcabb718ce11d201b2d224127217774b"
+    },
+    {
+      "partId": "r7-agibot",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/robozaps-humanoids.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "99137ab1dcdabb1709ec6310cc81aa60d92b6da350d2e3b3ea4ad9ea3827b2e7"
+    },
+    {
+      "partId": "r7-dispute",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/robozaps-humanoids.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "b9ee8737c5d152c084d5d301bc76f5e89dd3c5c97b302afd8b9125bcc723665f"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r8-g1-price-hero-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 8,
+  "originalCellsDigest": "fbc87a40a90aff990f91ac7ebf69763246d93963471020e39d4f59916dd06295",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r8-price",
+      "text": "Unitree G1 lists from $13.5K ($13,500) for the base model.",
+      "requiredCitationIds": [
+        "unitree-g1-2026"
+      ]
+    },
+    {
+      "id": "r8-dof",
+      "text": "G1 base has 23 DoF; the EDU configuration spans 23-43 DoF and is available by quote (Contact sales).",
+      "requiredCitationIds": [
+        "unitree-g1-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "714c9eeee267ab8fbe6ae24fb0c08dc2bdd09ac3fdbc7f2662557fc60067519b",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r8-price",
+      "citationId": "unitree-g1-2026",
+      "sourceUrl": "https://www.unitree.com/g1/",
+      "supportingPassage": "Unitree G1 Humanoid agent AI avatar Price from $13.5K"
+    },
+    {
+      "partId": "r8-dof",
+      "citationId": "unitree-g1-2026",
+      "sourceUrl": "https://www.unitree.com/g1/",
+      "supportingPassage": "Total Degrees of Freedom（Joint Freedom） 23 23 - 43"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r8-price",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/unitree-g1.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "f7a23ba618af45f84ecd0dacbb6b3dd8e8d9dd4216c92b2e9c36be4243d18251"
+    },
+    {
+      "partId": "r8-dof",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/unitree-g1.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "78faf481e7340be81299ed4144685bdd222c299e776d47b854143ad17a3a8452"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r9-h2-price-table-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "738453c21a4b7d7d45b5b6f122b1fb0be1b86ff7da1452a578eb421b8eb49039",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r9-price",
+      "text": "Unitree H2 ships at $29,900 (tax and shipping excluded); H2 EDU is contact-sales.",
+      "requiredCitationIds": [
+        "unitree-h2-2026"
+      ]
+    },
+    {
+      "id": "r9-dof-torque",
+      "text": "H2 has 31 degrees of freedom and 360 N·m joint torque.",
+      "requiredCitationIds": [
+        "unitree-h2-2026"
+      ]
+    },
+    {
+      "id": "r9-compute",
+      "text": "H2 is powered by a 2070 TOPS onboard chip.",
+      "requiredCitationIds": [
+        "unitree-h2-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "c8555e0a54ccc531f29c6aea84890dd4ce900f8a8cb62533b7227b4fc125904c",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r9-price",
+      "citationId": "unitree-h2-2026",
+      "sourceUrl": "https://www.unitree.com/H2/",
+      "supportingPassage": "Unitree H2 Parameter Model Price（Tax and Shipping cost excluded） H2 $29,900 H2 EDU Contact Sales"
+    },
+    {
+      "partId": "r9-dof-torque",
+      "citationId": "unitree-h2-2026",
+      "sourceUrl": "https://www.unitree.com/H2/",
+      "supportingPassage": "31 degrees of freedom, 360N·m joint torque, and precise dynamic movement replication."
+    },
+    {
+      "partId": "r9-compute",
+      "citationId": "unitree-h2-2026",
+      "sourceUrl": "https://www.unitree.com/H2/",
+      "supportingPassage": "Powered by a 2070 TOPS chip, it supports diverse intelligent models, enabling multiple work scenarios"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r9-price",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/unitree-h2.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "df3b6acf829f2bff1c1985c23068631d91e07d15066cd6b27198b9d0e524c769"
+    },
+    {
+      "partId": "r9-dof-torque",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/unitree-h2.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "d5234545f664b396b7ce7ba0a350507e32608d5f6911a37cafac339820b03a65"
+    },
+    {
+      "partId": "r9-compute",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/unitree-h2.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "0731028431044f65dc70b08bc0014e4dd62c95d444a9cb91b4126f5a34392dd3"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r10-robo-neo-price-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 10,
+  "originalCellsDigest": "5d3a93a4482983c09e0a78ce9622d1c7bc10662b4450a4819e2bd7749435af9d",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r10-price",
+      "text": "NEO is priced at $20,000 outright or $499/month against a $200 refundable deposit.",
+      "requiredCitationIds": [
+        "robozaps-humanoids-2026",
+        "1x-neo-2026"
+      ]
+    },
+    {
+      "id": "r10-hands",
+      "text": "The order page lists 22 DoF per hand.",
+      "requiredCitationIds": [
+        "1x-neo-2026",
+        "robozaps-humanoids-2026"
+      ]
+    },
+    {
+      "id": "r10-revision",
+      "text": "A 25-DoF hand revision was announced on July 9.",
+      "requiredCitationIds": [
+        "robozaps-humanoids-2026"
+      ]
+    },
+    {
+      "id": "r10-delivery",
+      "text": "US deliveries are promised by the end of 2026.",
+      "requiredCitationIds": [
+        "robozaps-humanoids-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "99c1ba4cbf30361223aec87c8839638038e16f4e6695e37222076f40aa1f6d29",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r10-price",
+      "citationId": "robozaps-humanoids-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+      "supportingPassage": "At $20,000 (or $499/month with a $200 refundable deposit), it's the cheapest path to a full-size home humanoid."
+    },
+    {
+      "partId": "r10-price",
+      "citationId": "1x-neo-2026",
+      "sourceUrl": "https://www.1x.tech/neo",
+      "supportingPassage": "Order Now $200 Deposit"
+    },
+    {
+      "partId": "r10-hands",
+      "citationId": "1x-neo-2026",
+      "sourceUrl": "https://www.1x.tech/neo",
+      "supportingPassage": "Degrees of Freedom Hands 22x2 Arms 7x2 Neck 3 Spine 2 Legs 6x2"
+    },
+    {
+      "partId": "r10-hands",
+      "citationId": "robozaps-humanoids-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+      "supportingPassage": "1X announced a 25-DOF NEO hand revision on July 9, while the order page still lists 22 DOF per hand; its Hayward factory opened April 30 with customer shipments promised by end of 2026"
+    },
+    {
+      "partId": "r10-revision",
+      "citationId": "robozaps-humanoids-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+      "supportingPassage": "1X announced a 25-DOF NEO hand revision on July 9, while the order page still lists 22 DOF per hand; its Hayward factory opened April 30 with customer shipments promised by end of 2026"
+    },
+    {
+      "partId": "r10-delivery",
+      "citationId": "robozaps-humanoids-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+      "supportingPassage": "1X announced a 25-DOF NEO hand revision on July 9, while the order page still lists 22 DOF per hand; its Hayward factory opened April 30 with customer shipments promised by end of 2026"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r10-price",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "NEO price passage verified verbatim in the retained robozaps fetch ('$20,000 (or $499/month with a $200 refundable deposit)') with the retained 1x.tech excerpt carrying the $200 Deposit button.",
+      "evidenceDigest": "ed782a12df62ef12fbb79b25490aed8f499d2b0e79b2d534d617a201f80060cb"
+    },
+    {
+      "partId": "r10-hands",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/1x-neo.fetchurl-excerpt.md, sources2/robozaps-humanoids.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "ff183e9687c05f8c80d8e746cd8e3385e0ab253451b9235f28031f9ba7fb30f5"
+    },
+    {
+      "partId": "r10-revision",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/robozaps-humanoids.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "4ccbcf5eab52d2ad391d24ed1e1313ccaf5990a2d7531790b23c3016e1deab2e"
+    },
+    {
+      "partId": "r10-delivery",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/robozaps-humanoids.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "af6a6a27d5df8f6bb43c68f1e93492be3cad4c435bd82dc8a094d27ba1c57531"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r11-neo-compute-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 11,
+  "originalCellsDigest": "9d257e3b0a4d8e7144ffe1c0f8c4d9e3b786c1002b4f2721f11f3e573c19bff5",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r11-compute",
+      "text": "NEO's onboard computer is a Jetson Thor at up to 2,070 FP4 TFLOPS.",
+      "requiredCitationIds": [
+        "1x-neo-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "1689f1fb73a12cac03326abf17063061f54b6cf36746fbea0e8482aacf077e07",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r11-compute",
+      "citationId": "1x-neo-2026",
+      "sourceUrl": "https://www.1x.tech/neo",
+      "supportingPassage": "Compute Chipset 1X NEO Cortex (Nvidia Jetson Thor) AI Compute Up to 2070 FP4 TFLOPS"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r11-compute",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Spec-table span 'Compute Chipset 1X NEO Cortex (Nvidia Jetson Thor) AI Compute Up to 2070 FP4 TFLOPS' verified in the retained 1x.tech excerpt.",
+      "evidenceDigest": "2ebd0a01e7faa1121dc958faf6b26d29cdfcc877bdb01015826017f848cd3001"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r12-robo-shakeout-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 12,
+  "originalCellsDigest": "d9a81291d612fafbf38aebf81068656842fe8aabe932f0f20757e689f7a2dfb9",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r12-shakeout",
+      "text": "K-Scale Labs shut down in November 2025, Cartwheel Robotics in February 2026, Sanctuary AI pivoted to software in June (printed June 17), and Amazon acquired Fauna Robotics in March.",
+      "requiredCitationIds": [
+        "robozaps-humanoids-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "50ee1be253da91b62b852bb5b03a170ac2990d176b2d6bcf400f0dc2619f2f05",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r12-shakeout",
+      "citationId": "robozaps-humanoids-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+      "supportingPassage": "Sanctuary AI pivoted to hardware-agnostic robot software (June 17), and Amazon quietly acquired home-robot startup Fauna Robotics (March), the market shakeout has begun: K-Scale Labs shut down in November 2025, Cartwheel Robotics in February 2026"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r12-shakeout",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Shakeout passage verified verbatim in the retained robozaps HTML, which now prints '(June 17)' where the historical ledger cell said '(June)': cosmetic live-wording drift already adjudicated by the preparer; the packet's exact proposed cells are applied.",
+      "evidenceDigest": "f89a61fa2eeed709109457a54aaaabe8d2e055967b33a90e09b6337c57bea52b"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r13-atlas-spec-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 13,
+  "originalCellsDigest": "251086cade421689ca3cbe2cd02b2f6be8407e93a72add4e56dfcba1561dc7fc",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r13-spec",
+      "text": "Atlas (Electric) carries 56 DoF with continuous rotation and IP67.",
+      "requiredCitationIds": [
+        "bd-atlas-2026"
+      ]
+    },
+    {
+      "id": "r13-hyundai",
+      "text": "2026 builds are commencing field testing with Hyundai.",
+      "requiredCitationIds": [
+        "bd-atlas-2026"
+      ]
+    },
+    {
+      "id": "r13-noprice",
+      "text": "No Atlas price is published.",
+      "requiredCitationIds": [
+        "robozaps-humanoids-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "8b61b6fccb082561ea84de0ee282f49339701721f7a95fcae9c21fd040ee5e12",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r13-spec",
+      "citationId": "bd-atlas-2026",
+      "sourceUrl": "https://bostondynamics.com/products/atlas/",
+      "supportingPassage": "DoF 56 Reach 2.3 m (7.5 ft) Range of Motion Continuous<br>IP Rating IP67 Operating Temp -20° to 40°C (-4° to 104°F)"
+    },
+    {
+      "partId": "r13-hyundai",
+      "citationId": "bd-atlas-2026",
+      "sourceUrl": "https://bostondynamics.com/products/atlas/",
+      "supportingPassage": "Atlas is already taking its first steps into a customer facility with Hyundai for field testing on real-world sequencing tasks."
+    },
+    {
+      "partId": "r13-noprice",
+      "citationId": "robozaps-humanoids-2026",
+      "sourceUrl": "https://blog.robozaps.com/b/best-humanoid-robots",
+      "supportingPassage": "Price Not published; no open ordering announced"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r13-spec",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Atlas spec (DoF 56, IP67) verified in the retained Boston Dynamics fetch; price 'Not published; no open ordering announced' verified in the retained robozaps fetch.",
+      "evidenceDigest": "35214efb7dc4dac9ab2b406ecbe04c5436a64c8e1d65def2160e4f89d2a62652"
+    },
+    {
+      "partId": "r13-hyundai",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Hyundai field-testing sentence verified verbatim in the retained bd-atlas.html.",
+      "evidenceDigest": "ff176a0890eb311daf3bf1ab659fc3568f0157b7e81e2f5af0f4c6c9a0a99623"
+    },
+    {
+      "partId": "r13-noprice",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/robozaps-humanoids.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "f92c44c7111252d7d4e50b19b2a452c9bb4e692a0f14c3ce1c5329433d382de8"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r14-fig-palm-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 14,
+  "originalCellsDigest": "e427aab2c27fcd55eac4eb76e34c66ed1f75639f5de684bf57cc6c294f854662",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r14-palm",
+      "text": "Figure 03 integrates an embedded palm camera into each hand.",
+      "requiredCitationIds": [
+        "figure-03-2025"
+      ]
+    },
+    {
+      "id": "r14-charging",
+      "text": "Figure 03 charges wirelessly at 2 kW through coils in its feet.",
+      "requiredCitationIds": [
+        "figure-03-2025"
+      ]
+    },
+    {
+      "id": "r14-manufacturing",
+      "text": "Figure builds 03 for high-volume manufacturing at its BotQ facility; the cited page states no individual-sale channel.",
+      "requiredCitationIds": [
+        "figure-03-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "3b5d975acb19892d75fff1c375114b28f1701c6765f6330cee9d03636264de12",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r14-palm",
+      "citationId": "figure-03-2025",
+      "sourceUrl": "https://www.figure.ai/news/introducing-figure-03",
+      "supportingPassage": "Each hand now integrates an embedded palm camera with a wide field of view and low-latency sensing, which offers redundant, close-range visual feedback during grasps."
+    },
+    {
+      "partId": "r14-charging",
+      "citationId": "figure-03-2025",
+      "sourceUrl": "https://www.figure.ai/news/introducing-figure-03",
+      "supportingPassage": "Charging coils in the robot’s feet allow it to simply step onto a wireless stand and charge at 2 kW."
+    },
+    {
+      "partId": "r14-manufacturing",
+      "citationId": "figure-03-2025",
+      "sourceUrl": "https://www.figure.ai/news/introducing-figure-03",
+      "supportingPassage": "In order to scale, we established a new supply chain and entirely new process for manufacturing humanoid robots at BotQ."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r14-palm",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Palm-camera sentence verified verbatim in the retained figure.ai news fetch ('embedded palm camera with a wide field of view').",
+      "evidenceDigest": "73a773b9f791eb37355a9468c8c2893e6ef0253ae14f29539d7a394eca01a7cf"
+    },
+    {
+      "partId": "r14-charging",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/figure-03.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "341a6b03a408827d76362a7d85e002ea28ebcaafcba33df320d3aad972cc2f85"
+    },
+    {
+      "partId": "r14-manufacturing",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/figure-03.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "ae77f63024cffcdf2b2520beb3cb1c9025770035fd09880e29263eccc0aa104a"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r15-leaabs-cost-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 15,
+  "originalCellsDigest": "dae73d6605d85c10d44573b1b656fed91b31021b037de3d7eac0247326c6b468",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r15-cost",
+      "text": "LEAP Hand assembles in about four hours from catalog parts at a cost of $2,000.",
+      "requiredCitationIds": [
+        "leap-hand-2023"
+      ]
+    },
+    {
+      "id": "r15-eighth",
+      "text": "It costs roughly one eighth of the Allegro Hand it was benchmarked against.",
+      "requiredCitationIds": [
+        "leap-hand-2023"
+      ]
+    },
+    {
+      "id": "r15-dof",
+      "text": "LEAP Hand has 16 DoF.",
+      "requiredCitationIds": [
+        "leap-hand-2023"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "6f78d6475222118cce99026d35768586cab61e99fcace63ccc7a704901fd984c",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r15-cost",
+      "citationId": "leap-hand-2023",
+      "sourceUrl": "https://arxiv.org/abs/2309.06440",
+      "supportingPassage": "LEAP Hand is low-cost and can be assembled in 4 hours at a cost of 2000 USD from readily available parts."
+    },
+    {
+      "partId": "r15-eighth",
+      "citationId": "leap-hand-2023",
+      "sourceUrl": "https://arxiv.org/abs/2309.06440",
+      "supportingPassage": "LEAP Hand significantly outperforms its closest competitor Allegro Hand in all our experiments while being 1/8th of the cost."
+    },
+    {
+      "partId": "r15-dof",
+      "citationId": "leap-hand-2023",
+      "sourceUrl": "https://arxiv.org/html/2309.06440",
+      "supportingPassage": "The policy receives joint angles (16 values) from the motors and outputs the target joint angles (16) at 20 Hz which is passed as position commands to the motors."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r15-cost",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Abstract sentence 'assembled in 4 hours at a cost of 2000 USD' verified in the retained abs fetch.",
+      "evidenceDigest": "416b3643550e5b906e761936321762d72ff3f96b02633aff9ac9df1f509e359b"
+    },
+    {
+      "partId": "r15-eighth",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "'outperforms its closest competitor Allegro Hand … 1/8th of the cost' verified in the retained abs fetch.",
+      "evidenceDigest": "6f81a101329b077aee0bac12e1c10af4244accd37b5cdc5c8c08f5ef863bc537"
+    },
+    {
+      "partId": "r15-dof",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator adjudication 2026-09-15: every passage for this part was needle-verified against the retained sha256-verified fetch (sources2/arxiv-2309.06440.html) before application; the passage(s) state the part's figures and wording at exactly the printed scope, vendor/vendor-page figures remaining vendor-reported with the preparer's fetch dates. Compound claims are certified only part-wise; no breadth beyond the verified passage is inferred.",
+      "evidenceDigest": "0d872a3b00c3c5a0b14b0ce161d8ab6cb9a3e7f50089c20c8634081308c58228"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r16-droid-rig-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 16,
+  "originalCellsDigest": "fd5114597740359dd95c72c6323c9c0aff1dbd1145b0eb99e157c88796954dfb",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r16-droid-notouch",
+      "text": "DROID's rig is a Franka with three cameras and no touch sensing.",
+      "requiredCitationIds": [
+        "droid-2024"
+      ]
+    },
+    {
+      "id": "r16-agibot-touch",
+      "text": "AgiBot World is the counterexample: its robots carry visuo-tactile sensors.",
+      "requiredCitationIds": [
+        "agibot-world-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "cf9725924ac0846d8f68124f4a7400206135fa153c534c38496ce42b02329d5a",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r16-droid-notouch",
+      "citationId": "droid-2024",
+      "sourceUrl": "https://arxiv.org/pdf/2403.12945",
+      "supportingPassage": "The setup consists of a Franka Panda 7DoF robot arm, two adjustable Zed 2 stereo cameras, a wristmounted Zed Mini stereo camera, and an Oculus Quest 2 headset with controllers for teleoperation.<br>Each episode contains three camera views, depth information, camera calibration, and language annotations."
+    },
+    {
+      "partId": "r16-agibot-touch",
+      "citationId": "agibot-world-2025",
+      "sourceUrl": "https://arxiv.org/html/2503.06669",
+      "supportingPassage": "AgiBot World utilizes humanoid robots equipped with visuo-tactile sensors and dexterous hands to enable multimodal demonstrations, setting it apart from previous efforts.<br>For tasks necessitating tactile feedback, a gripper equipped with visuo-tactile sensors is utilized."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r16-droid-notouch",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "DROID rig passage verified in the retained pdftotext layer of the sha-verified PDF fetch (contiguous substring) and the three-camera-views sentence in the retained arXiv HTML; the preparer's zero-occurrence 'tactile' grep over both retained DROID texts stands unchallenged.",
+      "evidenceDigest": "8450b3e30fafcaaf7142d2c099b6f3e2f0811b1a5d2b33674e03e7e8b1252e7b"
+    },
+    {
+      "partId": "r16-agibot-touch",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Both AgiBot World visuo-tactile passages verified verbatim in the retained arXiv 2503.06669 fetch.",
+      "evidenceDigest": "3ea4992b8cc30c407a9c7dce55505a057f3da1ef21e54387a5705ff77e122121"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r17-tact-framework-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 17,
+  "originalCellsDigest": "56f6e1a1bf6a41e130bfdbbc0ddad16ef7631261a51fc4f8ba12206624cf56ea",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r17-framework",
+      "text": "The outlook blames divergent transduction methods with no standardized evaluation framework.",
+      "requiredCitationIds": [
+        "tactile-outlook-2025"
+      ]
+    },
+    {
+      "id": "r17-materials",
+      "text": "It also records durability failures, temperature sensitivity and hysteresis in the sensing materials.",
+      "requiredCitationIds": [
+        "tactile-outlook-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "2c665ded98c7fe471ca0ccbe7aaf415491449fc56d7fb5959e6fbc7d00b9cfcc",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r17-framework",
+      "citationId": "tactile-outlook-2025",
+      "sourceUrl": "https://arxiv.org/html/2508.11261",
+      "supportingPassage": "The lack of a standardised framework for evaluating and comparing these materials hinders a clear understanding of trade-offs between properties such as sensitivity, flexibility, cost, and robustness."
+    },
+    {
+      "partId": "r17-materials",
+      "citationId": "tactile-outlook-2025",
+      "sourceUrl": "https://arxiv.org/html/2508.11261",
+      "supportingPassage": "elastomers used in [ 28 ] , although soft and sensitive, often lack durability under prolonged use or under harsh conditions. Similarly, conductive polymers can suffer from hysteresis [ 24 ] , which reduces the accuracy of long-term sensing. Temperature sensitivity is another challenge, as some materials experience performance degradation in dynamic or extreme environments"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r17-framework",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "'The lack of a standardised framework for evaluating and comparing these materials hinders…' verified verbatim; 'calibration drift' appears nowhere in the retained outlook, so the historical correction stands.",
+      "evidenceDigest": "783548c33ae8c61b2555b5001a33cd32ebb52a8a0d93fe78680ce595bf3f2b53"
+    },
+    {
+      "partId": "r17-materials",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Durability/hysteresis/temperature passages verified verbatim in the retained arXiv 2508.11261 fetch.",
+      "evidenceDigest": "2134d4b5ac618460862391d4fede439521893bdec2c9b33dd2372ad39a938494"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r18-tact-prices-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 18,
+  "originalCellsDigest": "128788187853d29bc9646c415666d0124451c44ff71780d3d4d898d68843f6bc",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r18-prices",
+      "text": "GelSight Mini retails at $500; DIGIT at $350.",
+      "requiredCitationIds": [
+        "tactile-outlook-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "86d5341a89d45e76e20fbf4fa6cb26d95cfde062670daeb77d0376c975959313",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r18-prices",
+      "citationId": "tactile-outlook-2025",
+      "sourceUrl": "https://arxiv.org/html/2508.11261",
+      "supportingPassage": "low-cost optical tactile sensors such as the DIGIT [ 60 ] (retails at $350) and the GelSight Mini (retails at $500), which are far cheaper than commercial tactile sensors such as the BioTac (used to retail at $5,000-10,000)"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r18-prices",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "'the DIGIT [60] (retails at $350) and the GelSight Mini (retails at $500)' verified verbatim in the retained outlook fetch; paper-reported retail prices.",
+      "evidenceDigest": "efb846873aed17ab74b7336865d2490784591312b0aa35f0e8d066580d583b6b"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r19-meta-taxels-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 19,
+  "originalCellsDigest": "03fcc5f0576337747f622b5217bc7144ebe1ca7464eb715eaa9cf79c595fd75a",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r19-taxels",
+      "text": "Digit 360 has 360° optical coverage with over eight million taxels.",
+      "requiredCitationIds": [
+        "meta-fair-touch-2024"
+      ]
+    },
+    {
+      "id": "r19-force",
+      "text": "It resolves forces down to 1 mN.",
+      "requiredCitationIds": [
+        "meta-fair-touch-2024"
+      ]
+    },
+    {
+      "id": "r19-gelsight",
+      "text": "GelSight Inc will manufacture and distribute Digit 360 under the partnership announced October 2024.",
+      "requiredCitationIds": [
+        "meta-fair-touch-2024"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "91c90cd289f9ff9530872126441653eea565fca9dba38b9a1340af2d0fbe252f",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r19-taxels",
+      "citationId": "meta-fair-touch-2024",
+      "sourceUrl": "https://ai.meta.com/blog/fair-robotics-open-source/",
+      "supportingPassage": "To achieve this, we developed a touch perception-specific optical system with a wide field of view consisting of over 8 million taxels for capturing omnidirectional deformations on the fingertip surface."
+    },
+    {
+      "partId": "r19-force",
+      "citationId": "meta-fair-touch-2024",
+      "sourceUrl": "https://ai.meta.com/blog/fair-robotics-open-source/",
+      "supportingPassage": "Digit 360 significantly surpasses previous sensors, detecting miniature changes in spatial details, and captures forces as small as 1 millinewton."
+    },
+    {
+      "partId": "r19-gelsight",
+      "citationId": "meta-fair-touch-2024",
+      "sourceUrl": "https://ai.meta.com/blog/fair-robotics-open-source/",
+      "supportingPassage": "GelSight Inc will manufacture and distribute Digit 360, which will be available for purchase next year, and members of the research community can apply through the Digit 360 call for proposals to gain early access."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r19-taxels",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "'over 8 million taxels' plus the omnidirectional-fingertip wording verified in the retained FetchUrl excerpt (curl UA is bot-blocked with 400, recorded in the packet fetch log); Meta first-party blog, dated October 2024.",
+      "evidenceDigest": "6184d0445366b3865a6c6909ae9b693d0d069da6af548c0e66443a07479c8a60"
+    },
+    {
+      "partId": "r19-force",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "'captures forces as small as 1 millinewton' verified in the retained FetchUrl excerpt.",
+      "evidenceDigest": "32e440f8815d075976d1845329d4379fcd94a70038a63b9713f265f716048987"
+    },
+    {
+      "partId": "r19-gelsight",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "'GelSight Inc will manufacture and distribute Digit 360' verified in the retained FetchUrl excerpt; partnership attribution is the vendor's own announcement.",
+      "evidenceDigest": "cb53b38a2e728baafb6d4762d977447777723d556d5863ea0afddc4d86677a54"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r20-nvidia-summary-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 20,
+  "originalCellsDigest": "fd0db0aa23ea0ee8f08654dc3f32aaff65574eaed32fb95a69f684db6e5024ed",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r20-summary",
+      "text": "T5000: 2,070 sparse FP4 TFLOPS, 128 GB LPDDR5X at 273 GB/s, 40–130 W, 7.5× AGX Orin; T4000: 1,200 TFLOPS, 64 GB.",
+      "requiredCitationIds": [
+        "jetson-thor-2026"
+      ]
+    },
+    {
+      "id": "r20-cpu",
+      "text": "The T5000 CPU is a 14-core Neoverse-V3AE.",
+      "requiredCitationIds": [
+        "jetson-thor-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "32ce72e41e5b0a608152f2a059080b58d87cdd2befe9f0a5069930c11c6103aa",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r20-summary",
+      "citationId": "jetson-thor-2026",
+      "sourceUrl": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/",
+      "supportingPassage": "NVIDIA® Jetson Thor™ series modules deliver up to 2070 FP4 TFLOPS of AI compute and 128 GB of memory — 7.5× the performance and 3.5× the energy efficiency of NVIDIA AGX Orin™ — at 40–130 W.<br>Jetson T5000 Jetson T4000 AI Performance 2070 TFLOPS (FP4—Sparse) 1200 TFLOPS (FP4—Sparse) … Memory 128 GB 256-bit LPDDR5X 273 GB/s 64 GB 256-bit LPDDR5X 273 GB/s"
+    },
+    {
+      "partId": "r20-cpu",
+      "citationId": "jetson-thor-2026",
+      "sourceUrl": "https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/",
+      "supportingPassage": "CPU 14-core Arm® Neoverse®-V3AE 64-bit CPU"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r20-summary",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "NVIDIA summary sentence ('up to 2070 FP4 TFLOPS … 128 GB … 7.5× … 3.5× … 40–130 W') verified verbatim in the retained nvidia.com fetch.",
+      "evidenceDigest": "952377bb35c6eb4507b1a2c4fd63883fae49ef6deca04dc52850b9c2b5938bca"
+    },
+    {
+      "partId": "r20-cpu",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "'14-core Arm® Neoverse®-V3AE 64-bit CPU' verified verbatim in the retained nvidia.com fetch.",
+      "evidenceDigest": "34566299d638eec2553a234c52bbc35426f99a82ac3756149572f86b2d20890d"
+    }
+  ]
+},
+{
+  "id": "hardware-taxonomy-r25-local-proof-20260915",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "hardware-taxonomy",
+  "rowOrdinal": 25,
+  "originalCellsDigest": "b22d72cf41a7679a8367ad4f34dab16f57f168ea5ad86f89e22b09781c8634e2",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "r25-ratio-floor",
+      "text": "The Table 3 endpoints 314.4 Hz (B100) and 19.0 Hz (Jetson Thor) give a throughput ratio of 16.547…, whose conservative floor the article states as 'Sixteen times'.",
+      "requiredCitationIds": [
+        "vla-perf-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+    "planDigest": "d012b758817384ab4668ce5eef1289f658858c43526a40fa8f178ee5e1cd02d1",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 a4d77342...) at HEAD d0516a4: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. All 54 packet passages were independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized substring or ordered fragment checks; results in this lane's passage-verification.json) before any part was adjudicated. Registered citation identity verified per-id in data/citations.ts (22 distinct ids, all registered); the optional trossen-widowx-ai-2026 registry proposal was not required and was not applied. Ordinal 25 carries the integrator-executed local arithmetic (314.4/19.0) paired with the retained vla-perf Table 3 endpoints. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "r25-ratio-floor",
+      "citationId": "vla-perf-2026",
+      "sourceUrl": "https://arxiv.org/pdf/2602.18397",
+      "supportingPassage": "Table 3: Inference performance of π0 on various GPUs without considering network latency. Hardware Vision Lat. VLM Lat. Action Lat. E2E Lat. E2E Freq. Jetson Thor RTX 4090 A100 H100 B100 6.06 ms 4.02 ms 2.13 ms 0.71 ms 0.40 ms 20.30 ms 19.79 ms 10.47 ms 3.30 ms 1.87 ms 26.20 ms 7.25 ms 3.60 ms 2.14 ms 0.91 ms 52.57 ms 31.06 ms 16.20 ms 6.15 ms 3.18 ms 19.0 Hz 32.2 Hz 61.7 Hz 162.5 Hz 314.4 Hz"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "r25-ratio-floor",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator e2d4f940-0b08-4d88-9d33-611dcea0b304; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Local-AND row: the integrator re-ran the arithmetic at application time (python3: 314.4/19.0 = 16.54736842105263, floor 16.0) and paired it with the vla-perf Table 3 endpoints (19.0 Hz Jetson Thor … 314.4 Hz B100, network excluded) re-read as a contiguous span of THIS packet's own retained sha-verified fetch (sources/vla-perf-2602.18397.txt); no fetch was made for this row by either worker. The article's 'Sixteen times the throughput across the range' holds as the conservative floor of the ratio.",
+      "evidenceDigest": "9873bd2b790e9474a4cf7897db0a9ffa2cf85483a1c7071b2ba9f2aa111ab39b"
+    }
+  ]
 }
 ]
