@@ -7666,6 +7666,21 @@ export const CITATIONS: Citation[] = [
     type: 'paper',
   },
   {
+    // HAL author-deposited PDF (inria-00590039) fetched 2026-09-15:
+    // IJRR 14(3), pp. 195-210, June 1995; the HAL cover prints the
+    // citation and DOI 10.1177/027836499501400301. Registered exactly
+    // as the frozen perception packet proposed; integrator needle-
+    // verified the retained PDF passages (shared-form listing,
+    // classical-linear naming, eq. 18/16, rank deficiency).
+    id: 'horaud-dornaika-1995',
+    title: 'Hand-Eye Calibration',
+    authors: ['Radu Horaud', 'Fadi Dornaika'],
+    year: 1995,
+    venue: 'The International Journal of Robotics Research 14(3), pp. 195-210',
+    url: 'https://inria.hal.science/inria-00590039/document',
+    type: 'paper',
+  },
+  {
     // Crossref 10.1109/70.143350 read 2026-08-22: IEEE T-RA 8(3),
     // 313-326, June 1992. Initials as Crossref prints them.
     id: 'espiau-1992',

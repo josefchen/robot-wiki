@@ -11610,6 +11610,222 @@
     "VAL-AUDIT-009"
   ],
   "disposition": "permanent"
+},
+{
+  "id": "perception-r4-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:classical/perception",
+  "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "reason": "Exactly classical/perception original 4: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Both packet-proposed article endpoints resolve to zero article byte changes (p7 note-span is ledger-only by the packet's own missingDependencies; p16's corrected wording is already live in perception.mdx and was re-verified against the fetched Horaud listing), so the article prose member hash 36a15b41640c... is byte-unchanged by this pass and this approval records the completion against it. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "perception-r5-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:classical/perception",
+  "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "reason": "Exactly classical/perception original 5: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Both packet-proposed article endpoints resolve to zero article byte changes (p7 note-span is ledger-only by the packet's own missingDependencies; p16's corrected wording is already live in perception.mdx and was re-verified against the fetched Horaud listing), so the article prose member hash 36a15b41640c... is byte-unchanged by this pass and this approval records the completion against it. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "perception-r6-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:classical/perception",
+  "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "reason": "Exactly classical/perception original 6: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Both packet-proposed article endpoints resolve to zero article byte changes (p7 note-span is ledger-only by the packet's own missingDependencies; p16's corrected wording is already live in perception.mdx and was re-verified against the fetched Horaud listing), so the article prose member hash 36a15b41640c... is byte-unchanged by this pass and this approval records the completion against it. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "perception-r16-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:classical/perception",
+  "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "reason": "Exactly classical/perception original 16: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Both packet-proposed article endpoints resolve to zero article byte changes (p7 note-span is ledger-only by the packet's own missingDependencies; p16's corrected wording is already live in perception.mdx and was re-verified against the fetched Horaud listing), so the article prose member hash 36a15b41640c... is byte-unchanged by this pass and this approval records the completion against it. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "perception-r18-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:classical/perception",
+  "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "reason": "Exactly classical/perception original 18: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Both packet-proposed article endpoints resolve to zero article byte changes (p7 note-span is ledger-only by the packet's own missingDependencies; p16's corrected wording is already live in perception.mdx and was re-verified against the fetched Horaud listing), so the article prose member hash 36a15b41640c... is byte-unchanged by this pass and this approval records the completion against it. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "perception-r22-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:classical/perception",
+  "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "reason": "Exactly classical/perception original 22: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Both packet-proposed article endpoints resolve to zero article byte changes (p7 note-span is ledger-only by the packet's own missingDependencies; p16's corrected wording is already live in perception.mdx and was re-verified against the fetched Horaud listing), so the article prose member hash 36a15b41640c... is byte-unchanged by this pass and this approval records the completion against it. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "perception-r33-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:classical/perception",
+  "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "reason": "Exactly classical/perception original 33: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Both packet-proposed article endpoints resolve to zero article byte changes (p7 note-span is ledger-only by the packet's own missingDependencies; p16's corrected wording is already live in perception.mdx and was re-verified against the fetched Horaud listing), so the article prose member hash 36a15b41640c... is byte-unchanged by this pass and this approval records the completion against it. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "perception-r34-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:classical/perception",
+  "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "reason": "Exactly classical/perception original 34: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Both packet-proposed article endpoints resolve to zero article byte changes (p7 note-span is ledger-only by the packet's own missingDependencies; p16's corrected wording is already live in perception.mdx and was re-verified against the fetched Horaud listing), so the article prose member hash 36a15b41640c... is byte-unchanged by this pass and this approval records the completion against it. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "perception-r47-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:classical/perception",
+  "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "reason": "Exactly classical/perception original 47: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Both packet-proposed article endpoints resolve to zero article byte changes (p7 note-span is ledger-only by the packet's own missingDependencies; p16's corrected wording is already live in perception.mdx and was re-verified against the fetched Horaud listing), so the article prose member hash 36a15b41640c... is byte-unchanged by this pass and this approval records the completion against it. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "perception-r48-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:classical/perception",
+  "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "reason": "Exactly classical/perception original 48: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Both packet-proposed article endpoints resolve to zero article byte changes (p7 note-span is ledger-only by the packet's own missingDependencies; p16's corrected wording is already live in perception.mdx and was re-verified against the fetched Horaud listing), so the article prose member hash 36a15b41640c... is byte-unchanged by this pass and this approval records the completion against it. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "perception-r49-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:classical/perception",
+  "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "reason": "Exactly classical/perception original 49: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Both packet-proposed article endpoints resolve to zero article byte changes (p7 note-span is ledger-only by the packet's own missingDependencies; p16's corrected wording is already live in perception.mdx and was re-verified against the fetched Horaud listing), so the article prose member hash 36a15b41640c... is byte-unchanged by this pass and this approval records the completion against it. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "perception-r50-20260915-1",
+  "manifest": "prose",
+  "memberId": "article:classical/perception",
+  "oldHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "newHash": "36a15b41640cb11c0822e49ea79ca70926576ccb6e1bb259a74794eaa66cc0a7c",
+  "reason": "Exactly classical/perception original 50: ledger-only evidence completion bound to its registered citation(s) with retained-source needle-verified passages and integrator per-part adjudication. Both packet-proposed article endpoints resolve to zero article byte changes (p7 note-span is ledger-only by the packet's own missingDependencies; p16's corrected wording is already live in perception.mdx and was re-verified against the fetched Horaud listing), so the article prose member hash 36a15b41640c... is byte-unchanged by this pass and this approval records the completion against it. Literal/source/review and local-basis evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-perception-integration-20260915. Not whole-article, full-document manual-review, independent or release acceptance.",
+  "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
 }
   ]
 }

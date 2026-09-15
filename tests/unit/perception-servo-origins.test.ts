@@ -18,7 +18,11 @@ describe('source-backed visual-servo origin pair', () => {
       expect(record.evidenceFailures, `original ${ordinal}`).toEqual([]);
       expect(record.compound?.planId).toBe(`perception-calibration-servo-origins-${ordinal}-20260913`);
     }
-    for (const ordinal of [9, 16, 17, 18, 33, 34]) {
+    // 2026-09-15 perception originals pass completed 16/18 (Horaud author
+    // PDF, horaud-dornaika-1995 registered) and 33/34 (D400 datasheet /
+    // PhoXi page, Azure leg retained); 9 and 17 stay held on the
+    // unreachable Tsai-Lenz IEEE abstract and must remain incomplete.
+    for (const ordinal of [9, 17]) {
       expect(perception.claimRecords[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
     }
   });

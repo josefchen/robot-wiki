@@ -52302,5 +52302,773 @@
       "evidenceDigest": "9873bd2b790e9474a4cf7897db0a9ffa2cf85483a1c7071b2ba9f2aa111ab39b"
     }
   ]
+},
+{
+  "id": "perception-p4-default-close-local-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "bd0e8b73380572c0cadfac2144ea689b85167df974f818aeab62afcd126160de",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "p4-default-composition",
+      "text": "DEFAULT_PARAMS (0.5 deg hand-eye, 2% depth, 3 mm pose, 0.5 m, opaque) composes to 11.3155 mm, within the 15 mm clearance band but close to it.",
+      "requiredCitationIds": [
+        "realsense-d400-datasheet-2026"
+      ]
+    },
+    {
+      "id": "p4-two-percent-spec",
+      "text": "The 2% depth term is the D400 datasheet Table 4-15 Z-accuracy of ±2%, measured against a texture-less white target at default 150 mW laser power and auto exposure.",
+      "requiredCitationIds": [
+        "realsense-d400-datasheet-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "planDigest": "df6bf5a2dab35c81aa8ceff339e7366c2a2913d564a20ed832a120e1bdcf653a",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 fa80d51b...) at HEAD 56b825f: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every packet passage was independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized-substring or ordered-fragment checks; the Azure leg is identity-checked against the bound retained evidence of compound plan perception-depth-25-20260913 per the preserved-source override, no fresh fetch); results in this lane's passage-verification.json. Cited ids verified registered per-id in data/citations.ts; horaud-dornaika-1995 was genuinely unregistered, genuinely required by rows 16/18, and was registered exactly as the packet proposed. Rows 4/6 are local-AND: the integrator re-ran the read-only lib/perception-error.ts import at application time (local-proof.json) and bound the genuinely-required citation to the arithmetic parts, whose figures the published sources state. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "p4-two-percent-spec",
+      "citationId": "realsense-d400-datasheet-2026",
+      "sourceUrl": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+      "supportingPassage": "KPIs for D405, a passive camera, are measured using a textured target and typical ambient room light (~250 Lux). All other models are active and measured using a texture-less (white) target with default laser power (150mW) and auto exposure enabled."
+    },
+    {
+      "partId": "p4-default-composition",
+      "citationId": "realsense-d400-datasheet-2026",
+      "sourceUrl": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+      "supportingPassage": "Z-accuracy (or\nAbsolute Error)\n\n± 2%\n\n± 2%\n\n± 2%\n\n± 2%"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "p4-default-composition",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Integrator local-AND adjudication: the composition was re-run at application time (composeBudget DEFAULT_PARAMS: 4.3634 + 10.0000 + 3.0000 mm quadrature total 11.3155 mm, verdict 'within' against the 15 mm band); the 2% depth term is the datasheet's own published spec, so this part carries that citation with the +/-2% rows integrator-read from the retained text layer.",
+      "evidenceDigest": "ba6e0247d8d8e38dae494cd90b9acc15c97a9fb63827038389d3c63790c258b7"
+    },
+    {
+      "partId": "p4-two-percent-spec",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Table 4-15 KPI note needle-verified in the retained datasheet text layer (D405 textured target ~250 Lux; all other models texture-less white target, default 150 mW laser, auto exposure); the +/-2% Z-accuracy rows were separately integrator-read from the same retained text layer.",
+      "evidenceDigest": "af6e8ccf09b239bcaf4daf3bcc56a051e657c87cb49e81bde3648f7adff727bf"
+    }
+  ]
+},
+{
+  "id": "perception-p5-play2perfect-clearance-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "bc7550c44216fce4c779d0b509e490693472db74d5092e552d5f9eddd3130320",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "p5-clearance",
+      "text": "Play2Perfect reports 60% success on tight insertions with only 0.5 mm contact clearance in zero-shot sim-to-real transfer.",
+      "requiredCitationIds": [
+        "play2perfect-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "planDigest": "88c1eba3cd55e04d538b44d428e9519b929f12a6feb179ebfc295e2c5e1111fd",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 fa80d51b...) at HEAD 56b825f: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every packet passage was independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized-substring or ordered-fragment checks; the Azure leg is identity-checked against the bound retained evidence of compound plan perception-depth-25-20260913 per the preserved-source override, no fresh fetch); results in this lane's passage-verification.json. Cited ids verified registered per-id in data/citations.ts; horaud-dornaika-1995 was genuinely unregistered, genuinely required by rows 16/18, and was registered exactly as the packet proposed. Rows 4/6 are local-AND: the integrator re-ran the read-only lib/perception-error.ts import at application time (local-proof.json) and bound the genuinely-required citation to the arithmetic parts, whose figures the published sources state. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "p5-clearance",
+      "citationId": "play2perfect-2026",
+      "sourceUrl": "https://arxiv.org/abs/2606.26428",
+      "supportingPassage": "We demonstrate zero-shot sim-to-real transfer, achieving 60% success on tight insertions with only 0.5 mm contact clearance, and over 50% success on long-horizon multi-part assembly and screwing."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "p5-clearance",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Play2Perfect abstract needle-verified in the retained abs-page fetch (43,105 bytes, sha-verified against the packet fetch log): '60% success on tight insertions with only 0.5 mm contact clearance', zero-shot sim-to-real scope stated in the same sentence.",
+      "evidenceDigest": "11d421122f9b6c1923d3c0ed3444ca31a9cc7b4b3730ccabd77f15093f3f3a12"
+    }
+  ]
+},
+{
+  "id": "perception-p6-order-of-magnitude-local-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 6,
+  "originalCellsDigest": "a40f4c842060316a5cf67330108558fe6a7c72c74f3da722f83e20bab5a2df38",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "p6-clearance-source",
+      "text": "Assembly results reported at 0.5 mm contact clearance (60% success on tight insertions, zero-shot sim-to-real).",
+      "requiredCitationIds": [
+        "play2perfect-2026"
+      ]
+    },
+    {
+      "id": "p6-factor-local",
+      "text": "The default composed vision-chain total of 11.3155 mm is 22.631× the 0.5 mm clearance, which is the article's \"order of magnitude below\" claim made precise.",
+      "requiredCitationIds": [
+        "play2perfect-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "planDigest": "756903a5df0e61decc9387c48126cd6177f2d0c904344e5499eb5c5c27f0679c",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 fa80d51b...) at HEAD 56b825f: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every packet passage was independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized-substring or ordered-fragment checks; the Azure leg is identity-checked against the bound retained evidence of compound plan perception-depth-25-20260913 per the preserved-source override, no fresh fetch); results in this lane's passage-verification.json. Cited ids verified registered per-id in data/citations.ts; horaud-dornaika-1995 was genuinely unregistered, genuinely required by rows 16/18, and was registered exactly as the packet proposed. Rows 4/6 are local-AND: the integrator re-ran the read-only lib/perception-error.ts import at application time (local-proof.json) and bound the genuinely-required citation to the arithmetic parts, whose figures the published sources state. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "p6-clearance-source",
+      "citationId": "play2perfect-2026",
+      "sourceUrl": "https://arxiv.org/abs/2606.26428",
+      "supportingPassage": "We demonstrate zero-shot sim-to-real transfer, achieving 60% success on tight insertions with only 0.5 mm contact clearance, and over 50% success on long-horizon multi-part assembly and screwing."
+    },
+    {
+      "partId": "p6-factor-local",
+      "citationId": "play2perfect-2026",
+      "sourceUrl": "https://arxiv.org/abs/2606.26428",
+      "supportingPassage": "We demonstrate zero-shot sim-to-real transfer, achieving 60% success on tight insertions with only 0.5 mm contact clearance, and over 50% success on long-horizon multi-part assembly and screwing."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "p6-clearance-source",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "0.5 mm contact clearance verbatim in the retained Play2Perfect abs fetch (same needle-verified passage as row 5).",
+      "evidenceDigest": "6939b690dded71d29fb0e56988cc42cac1a6f00ad88531e511465b6f340aff3b"
+    },
+    {
+      "partId": "p6-factor-local",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Integrator local-AND adjudication: 11.315456480378765 / 0.5 = 22.6309... (about 23x), re-computed at application time; the 0.5 mm divisor is the paper's printed figure, needle-verified in the retained fetch.",
+      "evidenceDigest": "9dfbbd55f359d52a043a9d1651dcfd9ca8a8a82763a46cb0eb5a09fc28c1fd7c"
+    }
+  ]
+},
+{
+  "id": "perception-p16-shared-form-horaud-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 16,
+  "originalCellsDigest": "af380f9af442f492558dd105dc15aab889f2bb2695f6fd4dd8725dec72878945",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "p16-shared-form",
+      "text": "Section 3 lists the AX=XB solutions as proposed, among others, by Shiu & Ahmad, Tsai & Lenz, Chou & Kamel, and Wang; at least three positions are necessary to uniquely determine X.",
+      "requiredCitationIds": [
+        "horaud-dornaika-1995"
+      ]
+    },
+    {
+      "id": "p16-classical-linear",
+      "text": "Horaud and Dornaika twice name \"the classical linear method developed by Tsai & Lenz\", supporting \"Tsai and Lenz gave the efficient closed-form technique still used\".",
+      "requiredCitationIds": [
+        "horaud-dornaika-1995"
+      ]
+    },
+    {
+      "id": "p16-1989-pair",
+      "text": "Both 1989 papers (Shiu & Ahmad, Tsai & Lenz) appear in the same shared-form listing, supporting \"The 1989 papers on it share one form\".",
+      "requiredCitationIds": [
+        "horaud-dornaika-1995"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "planDigest": "fb1d329b6a124529ba2243fa09353142b86ddac1e97f238260ccbbb2153c333a",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 fa80d51b...) at HEAD 56b825f: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every packet passage was independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized-substring or ordered-fragment checks; the Azure leg is identity-checked against the bound retained evidence of compound plan perception-depth-25-20260913 per the preserved-source override, no fresh fetch); results in this lane's passage-verification.json. Cited ids verified registered per-id in data/citations.ts; horaud-dornaika-1995 was genuinely unregistered, genuinely required by rows 16/18, and was registered exactly as the packet proposed. Rows 4/6 are local-AND: the integrator re-ran the read-only lib/perception-error.ts import at application time (local-proof.json) and bound the genuinely-required citation to the arithmetic parts, whose figures the published sources state. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "p16-shared-form",
+      "citationId": "horaud-dornaika-1995",
+      "sourceUrl": "https://inria.hal.science/inria-00590039/document",
+      "supportingPassage": "Solutions were proposed, among others, by Shiu & Ahmad SA89], Tsai & Lenz TL89], Chou & Kamel CK91], and Wang Wan92]. All these authors noticed that at least three positions are necessary in order to uniquely determine X , i.e., RX and tX . Shiu & Ahmad cast the rotation determination problem into the problem of solving for 8 linear equations in 4 unknowns and they used standard linear algebra techniques in order to obtain a solution."
+    },
+    {
+      "partId": "p16-classical-linear",
+      "citationId": "horaud-dornaika-1995",
+      "sourceUrl": "https://inria.hal.science/inria-00590039/document",
+      "supportingPassage": "Third, we perform a stability analysis both for our two methods and for the classical linear method developed by Tsai & Lenz TL89]."
+    },
+    {
+      "partId": "p16-1989-pair",
+      "citationId": "horaud-dornaika-1995",
+      "sourceUrl": "https://inria.hal.science/inria-00590039/document",
+      "supportingPassage": "Solutions were proposed, among others, by Shiu & Ahmad SA89], Tsai & Lenz TL89], Chou & Kamel CK91], and Wang Wan92]. All these authors noticed that at least three positions are necessary in order to uniquely determine X , i.e., RX and tX . Shiu & Ahmad cast the rotation determination problem into the problem of solving for 8 linear equations in 4 unknowns and they used standard linear algebra techniques in order to obtain a solution."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "p16-shared-form",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Horaud-Dornaika Section 3 listing needle-verified in the retained HAL author PDF text layer: the shared-form sentence prints FOUR groups (Shiu & Ahmad SA89], Tsai & Lenz TL89], Chou & Kamel CK91], Wang Wan92]); Chen Che91] appears separately with the screw-motion result. The ledger source cell's five-name parenthetical is corrected to the four names as printed.",
+      "evidenceDigest": "f72088dd77d89dee0dfa262d4a2fe7664d2c0cb35aadcedd1814d0c5f5d76405"
+    },
+    {
+      "partId": "p16-classical-linear",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "'the classical linear method developed by Tsai & Lenz TL89]' needle-verified twice in the retained Horaud text layer (abstract/introduction and the stability-analysis sentence); supports 'Tsai and Lenz gave the efficient closed-form technique still used'.",
+      "evidenceDigest": "05bd38775705da0919cc8660749265360bf14843f83082375cb37b2cb46e573e"
+    },
+    {
+      "partId": "p16-1989-pair",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Both 1989 papers appear inside the same shared-form listing sentence in the retained Horaud text layer, supporting 'The 1989 papers on it share one form'.",
+      "evidenceDigest": "392f4999e3886a8baf39079637f77a8afdf07e77c914e2a0124f7d9d3452a0ce"
+    }
+  ]
+},
+{
+  "id": "perception-p18-rotation-first-horaud-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 18,
+  "originalCellsDigest": "3b08f02ad5cf15740ce4d64fe5d6c698b4f8fccb71e1f1d32e957f9a7f66ba40",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "p18-decomposition",
+      "text": "Solving AX = XB decomposes into the rotation equation (18) and the translation equation (16).",
+      "requiredCitationIds": [
+        "horaud-dornaika-1995"
+      ]
+    },
+    {
+      "id": "p18-tsai-lenz-mechanism",
+      "text": "The Tsai-Lenz linear method represents rotation by unit eigenvector and angle, casts eq. (18) into a rank-deficient form needing at least two independent motions, and solves an over-constrained set of 2n linear equations in 3 unknowns before translation.",
+      "requiredCitationIds": [
+        "horaud-dornaika-1995"
+      ]
+    },
+    {
+      "id": "p18-classical-linear",
+      "text": "Horaud and Dornaika name it \"the classical linear method developed by Tsai & Lenz\".",
+      "requiredCitationIds": [
+        "horaud-dornaika-1995"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "planDigest": "3ca4980dbced15518afcc261fab5b4c10217d5175da2a26b4bdf517980a07ec4",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 fa80d51b...) at HEAD 56b825f: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every packet passage was independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized-substring or ordered-fragment checks; the Azure leg is identity-checked against the bound retained evidence of compound plan perception-depth-25-20260913 per the preserved-source override, no fresh fetch); results in this lane's passage-verification.json. Cited ids verified registered per-id in data/citations.ts; horaud-dornaika-1995 was genuinely unregistered, genuinely required by rows 16/18, and was registered exactly as the packet proposed. Rows 4/6 are local-AND: the integrator re-ran the read-only lib/perception-error.ts import at application time (local-proof.json) and bound the genuinely-required citation to the arithmetic parts, whose figures the published sources state. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "p18-decomposition",
+      "citationId": "horaud-dornaika-1995",
+      "sourceUrl": "https://inria.hal.science/inria-00590039/document",
+      "supportingPassage": "and we conclude that RX nB is equal to nA , the eigenvector of RA associated with the unit eigenvalue: nA = RX nB (18) To conclude, solving for AX = XB is equivalent to solving for eq. (18) and for eq. (16)."
+    },
+    {
+      "partId": "p18-tsai-lenz-mechanism",
+      "citationId": "horaud-dornaika-1995",
+      "sourceUrl": "https://inria.hal.science/inria-00590039/document",
+      "supportingPassage": "It is easy to notice that eq. (19) is rank de cient and hence, at least two independent hand-eye motions (at least three positions) are necessary for determining a unique solution. In the general case of n motions (n + 1 positions of the hand-eye device relative to the calibration frame) one may solve for an over constrained set of 2n linear equations in 3 unknowns."
+    },
+    {
+      "partId": "p18-classical-linear",
+      "citationId": "horaud-dornaika-1995",
+      "sourceUrl": "https://inria.hal.science/inria-00590039/document",
+      "supportingPassage": "Third, we perform a stability analysis both for our two methods and for the classical linear method developed by Tsai & Lenz TL89]."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "p18-decomposition",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Eq. (18)/eq. (16) decomposition sentence needle-verified in the retained Horaud text layer: 'solving for AX = XB is equivalent to solving for eq. (18) and for eq. (16)'.",
+      "evidenceDigest": "3803ce55c20c5f7e78c524d36e6d73c5e7584e37533c2a1425f23ef8aa78c082"
+    },
+    {
+      "partId": "p18-tsai-lenz-mechanism",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Rank-deficiency and over-constrained 2n-linear-equations sentences needle-verified in the retained Horaud text layer (pdftotext drops the ff ligature in 'rank de cient'; passage reproduces the text layer as extracted).",
+      "evidenceDigest": "f2726214fbadfd0d7031a6ecb68d24fd7b4e14ae4e340e43c912ed3cc984b6af"
+    },
+    {
+      "partId": "p18-classical-linear",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Same needle-verified stability-analysis sentence as row 16; names the classical linear method as Tsai & Lenz's.",
+      "evidenceDigest": "ed6af2698e230263dc3575f506dde4e1c17295e744631bb2540795bbfe701d1e"
+    }
+  ]
+},
+{
+  "id": "perception-p22-keselman-projector-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 22,
+  "originalCellsDigest": "0989173d796edd359a263b41ff41dc319b89386ff3e193b2e97628444b06d075",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "p22-textureless",
+      "text": "Classical stereo struggles with texture-less surfaces; Intel RGBD depth cameras instead carry an active texture projector on the module.",
+      "requiredCitationIds": [
+        "keselman-2017-realsense"
+      ]
+    },
+    {
+      "id": "p22-r200-projector",
+      "text": "Section 3.3.2: each R200 includes an infrared texture projector with a fixed, high-contrast, random dot pattern.",
+      "requiredCitationIds": [
+        "keselman-2017-realsense"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "planDigest": "60bd9f1ee22198f37501afe8e3e40e9b980fdd453ed19197b3c08260e5bcaa10",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 fa80d51b...) at HEAD 56b825f: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every packet passage was independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized-substring or ordered-fragment checks; the Azure leg is identity-checked against the bound retained evidence of compound plan perception-depth-25-20260913 per the preserved-source override, no fresh fetch); results in this lane's passage-verification.json. Cited ids verified registered per-id in data/citations.ts; horaud-dornaika-1995 was genuinely unregistered, genuinely required by rows 16/18, and was registered exactly as the packet proposed. Rows 4/6 are local-AND: the integrator re-ran the read-only lib/perception-error.ts import at application time (local-proof.json) and bound the genuinely-required citation to the arithmetic parts, whose figures the published sources state. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "p22-textureless",
+      "citationId": "keselman-2017-realsense",
+      "sourceUrl": "https://arxiv.org/pdf/1705.05548",
+      "supportingPassage": "Classical stereoscopic depth systems struggle with resolving depth on texture-less surfaces. A plethora of techniques have been developed to solve this problem, from global optimization methods, to semi-global propagation techniques, to plane sweeping methods. However, these techniques all depend on some prior assumptions about data in order to generate correct depth candidates. In the Intel RGBD depth cameras, there is instead an active texture projector available on the module."
+    },
+    {
+      "partId": "p22-r200-projector",
+      "citationId": "keselman-2017-realsense",
+      "sourceUrl": "https://arxiv.org/pdf/1705.05548",
+      "supportingPassage": "Each R200 also includes an infrared texture projector with a fixed pattern. The pattern can be seen in Figure 2. The pattern itself is designed to be a high-contrast, random dot pattern."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "p22-textureless",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Intro sentences needle-verified in the retained keselman PDF text layer: classical stereo struggles on texture-less surfaces; Intel RGBD cameras carry an active texture projector on the module.",
+      "evidenceDigest": "8b3e34f0033e9747107839810a8a23ca181436cbd37694b90810d33048b71357"
+    },
+    {
+      "partId": "p22-r200-projector",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Sec. 3.3.2 Projector sentences needle-verified in the retained keselman text layer: infrared texture projector, fixed high-contrast random dot pattern. 'Standard mitigation' stays scoped to the paper's own presentation.",
+      "evidenceDigest": "b564b67123bf50ffdc30c0eaa34e95832a991c930e01330bb2bcac6b2a0390a5"
+    }
+  ]
+},
+{
+  "id": "perception-p33-target-conditions-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 33,
+  "originalCellsDigest": "2b5d9fe10b6d542d0b4d477cb5936f9eaf0ca1903e25af5d76a71576fc3a33a4",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "p33-twopercent-target",
+      "text": "The ±2% Z-accuracy KPI is measured against a texture-less (white) target with default laser power (150mW) and auto exposure enabled.",
+      "requiredCitationIds": [
+        "realsense-d400-datasheet-2026"
+      ]
+    },
+    {
+      "id": "p33-d405",
+      "text": "D405 KPIs instead use a textured target in typical ambient room light (~250 Lux).",
+      "requiredCitationIds": [
+        "realsense-d400-datasheet-2026"
+      ]
+    },
+    {
+      "id": "p33-phoxi-no-condition",
+      "text": "The PhoXi L publishes Calibration accuracy 0.200 mm (1 σ) with no target condition at all in its parameter list.",
+      "requiredCitationIds": [
+        "photoneo-phoxi-l-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "planDigest": "4440c8011f4fbbde2c7e58759ecb64b55a6bf7a9c25b71097d1ffa397420ba0a",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 fa80d51b...) at HEAD 56b825f: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every packet passage was independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized-substring or ordered-fragment checks; the Azure leg is identity-checked against the bound retained evidence of compound plan perception-depth-25-20260913 per the preserved-source override, no fresh fetch); results in this lane's passage-verification.json. Cited ids verified registered per-id in data/citations.ts; horaud-dornaika-1995 was genuinely unregistered, genuinely required by rows 16/18, and was registered exactly as the packet proposed. Rows 4/6 are local-AND: the integrator re-ran the read-only lib/perception-error.ts import at application time (local-proof.json) and bound the genuinely-required citation to the arithmetic parts, whose figures the published sources state. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "p33-twopercent-target",
+      "citationId": "realsense-d400-datasheet-2026",
+      "sourceUrl": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+      "supportingPassage": "KPIs for D405, a passive camera, are measured using a textured target and typical ambient room light (~250 Lux). All other models are active and measured using a texture-less (white) target with default laser power (150mW) and auto exposure enabled."
+    },
+    {
+      "partId": "p33-d405",
+      "citationId": "realsense-d400-datasheet-2026",
+      "sourceUrl": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+      "supportingPassage": "KPIs for D405, a passive camera, are measured using a textured target and typical ambient room light (~250 Lux). All other models are active and measured using a texture-less (white) target with default laser power (150mW) and auto exposure enabled."
+    },
+    {
+      "partId": "p33-phoxi-no-condition",
+      "citationId": "photoneo-phoxi-l-2026",
+      "sourceUrl": "https://www.photoneo.com/products/phoxi-scan-l/",
+      "supportingPassage": "Datasheet Parameter Value Resolution (3D Points) Up to 3.2 M Scanning range 870 – 2150 mm Optimal scanning distance 1239 mm Scanning area at sweet spot 1082 x 772 mm Point to point distance 0.524 mm Calibration accuracy (1 σ) 0.200 mm Temporal noise (1 σ) 0.190 mm Scanning time 250 – 2750 ms"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "p33-twopercent-target",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Table 4-15 KPI note needle-verified in the retained datasheet text layer.",
+      "evidenceDigest": "5fe4db37b9f574351355bc45e2480584fc4c21b594ff1c27828865fb92ba9cb0"
+    },
+    {
+      "partId": "p33-d405",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "D405's distinct KPI conditions are in the same needle-verified KPI note.",
+      "evidenceDigest": "5cbeb3d1f1fd272bb2f6ecc45c314aeaf2d4a94e4c83ecfaad2ecb86417fbd33"
+    },
+    {
+      "partId": "p33-phoxi-no-condition",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "PhoXi parameter list needle-verified in the retained product-page fetch: Calibration accuracy (1 sigma) 0.200 mm with no target/material field anywhere in the table.",
+      "evidenceDigest": "dd7f7a05a8ccc46afaca3a43c8e7168fabd857b25b66a9943a9ec85c4c62247c"
+    }
+  ]
+},
+{
+  "id": "perception-p34-no-material-accuracy-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 34,
+  "originalCellsDigest": "ff063414e79be28d5fc33b75f5e32b5b930193326db25f783a654d3590a590c4",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "p34-realsense",
+      "text": "The D400 datasheet treats specular reflections qualitatively in Table 3-50 (may cause image saturation; mitigated on D400f) and publishes no per-material accuracy figure.",
+      "requiredCitationIds": [
+        "realsense-d400-datasheet-2026"
+      ]
+    },
+    {
+      "id": "p34-phoxi",
+      "text": "The PhoXi L parameter list publishes no transparent or specular accuracy figure.",
+      "requiredCitationIds": [
+        "photoneo-phoxi-l-2026"
+      ]
+    },
+    {
+      "id": "p34-azure",
+      "text": "The Azure Kinect DK documentation enumerates invalidation causes and publishes no per-material accuracy figure (retained evidence; URL 404 this session).",
+      "requiredCitationIds": [
+        "azure-kinect-depth-docs-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "planDigest": "638f5161b14fe4ee7e6ba37b512d238d190779022845608ff4a3a2c0e9ec03ec",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 fa80d51b...) at HEAD 56b825f: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every packet passage was independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized-substring or ordered-fragment checks; the Azure leg is identity-checked against the bound retained evidence of compound plan perception-depth-25-20260913 per the preserved-source override, no fresh fetch); results in this lane's passage-verification.json. Cited ids verified registered per-id in data/citations.ts; horaud-dornaika-1995 was genuinely unregistered, genuinely required by rows 16/18, and was registered exactly as the packet proposed. Rows 4/6 are local-AND: the integrator re-ran the read-only lib/perception-error.ts import at application time (local-proof.json) and bound the genuinely-required citation to the arithmetic parts, whose figures the published sources state. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "p34-realsense",
+      "citationId": "realsense-d400-datasheet-2026",
+      "sourceUrl": "https://www.realsenseai.com/wp-content/uploads/2026/03/RealSense-D400-Series-Datasheet-Mar-2026.pdf",
+      "supportingPassage": "Table 3-50. D400 and D400f product lines Comparison Items D400 D400f ... Repetitive pattern May cause false depth False depth mitigated Specular reflections May cause image saturation Saturation mitigated Indoor operating range Long (unlimited) Limited by IR projector power"
+    },
+    {
+      "partId": "p34-phoxi",
+      "citationId": "photoneo-phoxi-l-2026",
+      "sourceUrl": "https://www.photoneo.com/products/phoxi-scan-l/",
+      "supportingPassage": "Datasheet Parameter Value Resolution (3D Points) Up to 3.2 M Scanning range 870 – 2150 mm Optimal scanning distance 1239 mm Scanning area at sweet spot 1082 x 772 mm Point to point distance 0.524 mm Calibration accuracy (1 σ) 0.200 mm Temporal noise (1 σ) 0.190 mm Scanning time 250 – 2750 ms"
+    },
+    {
+      "partId": "p34-azure",
+      "citationId": "azure-kinect-depth-docs-2026",
+      "sourceUrl": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/depth-camera",
+      "supportingPassage": "In certain situations, the depth camera may not provide correct values for some pixels. In these situations depth pixels are invalidated. Invalid pixels are indicated by the depth value equals to 0. Reasons for the depth engine being unable to produce correct values include: Outside of active IR illumination mask Saturated IR signal Low IR signal Filter outlier Multi-path interference\n\nThe Azure Kinect DK depth camera implements the Amplitude Modulated Continuous Wave (AMCW) Time-of-Flight (ToF) principle. The camera casts modulated illumination in the near-IR (NIR) spectrum onto the scene. It then records an indirect measurement of the time it takes the light to travel from the camera to the scene and back. These measurements are processed to generate a depth map. A depth map is a set of Z-coordinate values for every pixel of the image, measured in units of millimeters."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "p34-realsense",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Table 3-50 rows verified fragment-wise in the retained datasheet text layer: specular reflections 'May cause image saturation' (D400) / 'Saturation mitigated' (D400f), qualitative only, no per-material accuracy figure.",
+      "evidenceDigest": "103f996581ab66585b4179d258524a29835084c98eaa1b2c149610bc8c613607"
+    },
+    {
+      "partId": "p34-phoxi",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Same retained PhoXi parameter list: no transparent/specular accuracy published.",
+      "evidenceDigest": "9ebb65ef7a39fe284b9c398b4bfd3466d5ccec938b65c809f4092fbbd3752859"
+    },
+    {
+      "partId": "p34-azure",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Retained Azure Kinect DK documentation passage identity-checked against the bound evidence item of compound plan perception-depth-25-20260913 (preserved-source override; the registered URL 404'd three times in the preparer's session, so no fresh fetch is claimed). Enumerates invalidation causes only.",
+      "evidenceDigest": "a167c2312357fce0bf165815fc9c0d74503df441bb660e9ed7c645647de32482"
+    }
+  ]
+},
+{
+  "id": "perception-p47-posecnn-architecture-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 47,
+  "originalCellsDigest": "df7e1fed5c313910a93cc08046b4391d2ec4935938f30bae4fe83cc177cafc79",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "p47-translation",
+      "text": "PoseCNN estimates 3D translation by localizing the object centre in the image and predicting its distance from the camera.",
+      "requiredCitationIds": [
+        "posecnn-2018"
+      ]
+    },
+    {
+      "id": "p47-rotation",
+      "text": "The 3D rotation is estimated by regressing to a quaternion representation.",
+      "requiredCitationIds": [
+        "posecnn-2018"
+      ]
+    },
+    {
+      "id": "p47-symmetry-loss",
+      "text": "A novel loss function enables PoseCNN to handle symmetric objects.",
+      "requiredCitationIds": [
+        "posecnn-2018"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "planDigest": "25c655ad4758480bca92f44d5a6927de283c40b3ee2a8e7bc5b1f997eaf5ee5d",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 fa80d51b...) at HEAD 56b825f: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every packet passage was independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized-substring or ordered-fragment checks; the Azure leg is identity-checked against the bound retained evidence of compound plan perception-depth-25-20260913 per the preserved-source override, no fresh fetch); results in this lane's passage-verification.json. Cited ids verified registered per-id in data/citations.ts; horaud-dornaika-1995 was genuinely unregistered, genuinely required by rows 16/18, and was registered exactly as the packet proposed. Rows 4/6 are local-AND: the integrator re-ran the read-only lib/perception-error.ts import at application time (local-proof.json) and bound the genuinely-required citation to the arithmetic parts, whose figures the published sources state. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "p47-translation",
+      "citationId": "posecnn-2018",
+      "sourceUrl": "https://arxiv.org/abs/1711.00199",
+      "supportingPassage": "PoseCNN estimates the 3D translation of an object by localizing its center in the image and predicting its distance from the camera. The 3D rotation of the object is estimated by regressing to a quaternion representation. We also introduce a novel loss function that enables PoseCNN to handle symmetric objects."
+    },
+    {
+      "partId": "p47-rotation",
+      "citationId": "posecnn-2018",
+      "sourceUrl": "https://arxiv.org/abs/1711.00199",
+      "supportingPassage": "PoseCNN estimates the 3D translation of an object by localizing its center in the image and predicting its distance from the camera. The 3D rotation of the object is estimated by regressing to a quaternion representation. We also introduce a novel loss function that enables PoseCNN to handle symmetric objects."
+    },
+    {
+      "partId": "p47-symmetry-loss",
+      "citationId": "posecnn-2018",
+      "sourceUrl": "https://arxiv.org/abs/1711.00199",
+      "supportingPassage": "PoseCNN estimates the 3D translation of an object by localizing its center in the image and predicting its distance from the camera. The 3D rotation of the object is estimated by regressing to a quaternion representation. We also introduce a novel loss function that enables PoseCNN to handle symmetric objects."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "p47-translation",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Abstract sentences needle-verified in the retained PoseCNN abs-page fetch: centre localization plus distance prediction for translation.",
+      "evidenceDigest": "4545d4ec6160f39ed1c68ef1a9566498a8f30d17e32d4044a8cf2d01c6af1b37"
+    },
+    {
+      "partId": "p47-rotation",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Quaternion regression sentence in the same needle-verified retained abstract.",
+      "evidenceDigest": "193057f726ab8d32dce19439a377b7201d8a9aed034dd573b225612889487658"
+    },
+    {
+      "partId": "p47-symmetry-loss",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Novel symmetric-object loss sentence in the same needle-verified retained abstract.",
+      "evidenceDigest": "72669661c6830a763eafaa477eacbf53505d976fa41581ea34a2b7a0cabc86c7"
+    }
+  ]
+},
+{
+  "id": "perception-p48-ycbvideo-counts-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 48,
+  "originalCellsDigest": "0a949cb1c23b8d7fedb1b3bfd32b46a5e10291ee57a61932f724157ddfaea1c3",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "p48-counts",
+      "text": "YCB-Video provides accurate 6D poses of 21 YCB objects observed in 92 videos with 133,827 frames.",
+      "requiredCitationIds": [
+        "posecnn-2018"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "planDigest": "d3ea1f6f18246fb9f494548721c228eedce0fcc07b3cd35c8afc8be215b3eb48",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 fa80d51b...) at HEAD 56b825f: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every packet passage was independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized-substring or ordered-fragment checks; the Azure leg is identity-checked against the bound retained evidence of compound plan perception-depth-25-20260913 per the preserved-source override, no fresh fetch); results in this lane's passage-verification.json. Cited ids verified registered per-id in data/citations.ts; horaud-dornaika-1995 was genuinely unregistered, genuinely required by rows 16/18, and was registered exactly as the packet proposed. Rows 4/6 are local-AND: the integrator re-ran the read-only lib/perception-error.ts import at application time (local-proof.json) and bound the genuinely-required citation to the arithmetic parts, whose figures the published sources state. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "p48-counts",
+      "citationId": "posecnn-2018",
+      "sourceUrl": "https://arxiv.org/abs/1711.00199",
+      "supportingPassage": "Our dataset provides accurate 6D poses of 21 objects from the YCB dataset observed in 92 videos with 133,827 frames."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "p48-counts",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "'21 objects ... 92 videos with 133,827 frames' needle-verified verbatim in the retained PoseCNN abs-page fetch.",
+      "evidenceDigest": "547f1add69f2e709a6fc70f97233c1cab7a6a598e09a9832729c6bc0607cfec1"
+    }
+  ]
+},
+{
+  "id": "perception-p49-megapose-rendercompare-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 49,
+  "originalCellsDigest": "240f13f83447a0ca1651969338b9d0d4977ef5d2b466efbd13d99b31ecf11652",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "p49-assumptions",
+      "text": "At inference time MegaPose assumes only a region of interest and a CAD model of the observed object.",
+      "requiredCitationIds": [
+        "megapose-2022"
+      ]
+    },
+    {
+      "id": "p49-rendercompare",
+      "text": "Its 6D pose refiner uses a render&compare strategy applicable to novel objects.",
+      "requiredCitationIds": [
+        "megapose-2022"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "planDigest": "32346b46a5c8526b1a820fc43f39ac687d8e68ebd17fac114a3f33b0279baa8d",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 fa80d51b...) at HEAD 56b825f: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every packet passage was independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized-substring or ordered-fragment checks; the Azure leg is identity-checked against the bound retained evidence of compound plan perception-depth-25-20260913 per the preserved-source override, no fresh fetch); results in this lane's passage-verification.json. Cited ids verified registered per-id in data/citations.ts; horaud-dornaika-1995 was genuinely unregistered, genuinely required by rows 16/18, and was registered exactly as the packet proposed. Rows 4/6 are local-AND: the integrator re-ran the read-only lib/perception-error.ts import at application time (local-proof.json) and bound the genuinely-required citation to the arithmetic parts, whose figures the published sources state. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "p49-assumptions",
+      "citationId": "megapose-2022",
+      "sourceUrl": "https://arxiv.org/abs/2212.06870",
+      "supportingPassage": "At inference time, the method only assumes knowledge of (i) a region of interest displaying the object in the image and (ii) a CAD model of the observed object."
+    },
+    {
+      "partId": "p49-rendercompare",
+      "citationId": "megapose-2022",
+      "sourceUrl": "https://arxiv.org/abs/2212.06870",
+      "supportingPassage": "First, we present a 6D pose refiner based on a render&compare strategy which can be applied to novel objects."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "p49-assumptions",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Inference-time assumptions sentence needle-verified in the retained MegaPose abs-page fetch.",
+      "evidenceDigest": "2edad70baf8f8883886a6b4c029166b89b0e1322c28a91674d4394825fe38ed7"
+    },
+    {
+      "partId": "p49-rendercompare",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Render&compare refiner sentence needle-verified in the retained MegaPose abs-page fetch.",
+      "evidenceDigest": "1b3417eea7a8d664fc1478fa9e7f1849452ee333b21e49799f0a239bc439e97c"
+    }
+  ]
+},
+{
+  "id": "perception-p50-foundationpose-unified-20260915",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "perception",
+  "rowOrdinal": 50,
+  "originalCellsDigest": "b05fc35426043ec8c897de8d8af7b4c2ff14c0aead895728886b11b863aa8dcc",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "p50-unified",
+      "text": "FoundationPose supports both model-based and model-free setups, applied at test time from a CAD model or a small number of captured reference images.",
+      "requiredCitationIds": [
+        "foundationpose-2024"
+      ]
+    },
+    {
+      "id": "p50-comparable",
+      "text": "It achieves results comparable to instance-level methods despite the reduced assumptions.",
+      "requiredCitationIds": [
+        "foundationpose-2024"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+    "planDigest": "6d8f1e8b96cc858293136989ba4f0e526e8bcd7e13a3448c65cbcd0af1ad18ca",
+    "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 fa80d51b...) at HEAD 56b825f: row binding, ordinal, currentTupleDigest and live ledger cells re-checked immediately before application and matched. Every packet passage was independently needle-verified by the integrator against the retained sha256-verified fetches preserved in the source lane (normalized-substring or ordered-fragment checks; the Azure leg is identity-checked against the bound retained evidence of compound plan perception-depth-25-20260913 per the preserved-source override, no fresh fetch); results in this lane's passage-verification.json. Cited ids verified registered per-id in data/citations.ts; horaud-dornaika-1995 was genuinely unregistered, genuinely required by rows 16/18, and was registered exactly as the packet proposed. Rows 4/6 are local-AND: the integrator re-ran the read-only lib/perception-error.ts import at application time (local-proof.json) and bound the genuinely-required citation to the arithmetic parts, whose figures the published sources state. Zero retrieval by this integrator. Source preparation is not acceptance."
+  },
+  "evidence": [
+    {
+      "partId": "p50-unified",
+      "citationId": "foundationpose-2024",
+      "sourceUrl": "https://arxiv.org/abs/2312.08344",
+      "supportingPassage": "We present FoundationPose, a unified foundation model for 6D object pose estimation and tracking, supporting both model-based and model-free setups. Our approach can be instantly applied at test-time to a novel object without fine-tuning, as long as its CAD model is given, or a small number of reference images are captured."
+    },
+    {
+      "partId": "p50-comparable",
+      "citationId": "foundationpose-2024",
+      "sourceUrl": "https://arxiv.org/abs/2312.08344",
+      "supportingPassage": "In addition, it even achieves comparable results to instance-level methods despite the reduced assumptions."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "p50-unified",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Model-based/model-free setup sentence plus CAD-or-reference-images sentence needle-verified in the retained FoundationPose abs-page fetch; the article's 'a handful of reference images' is a faithful gloss of 'a small number of reference images'.",
+      "evidenceDigest": "0ed746533a85b2b6eeb2c0ebf9a5de7363404762427c5f32af3242ceb9fb55c7"
+    },
+    {
+      "partId": "p50-comparable",
+      "outcome": "supported",
+      "reviewedBy": "GLM-5.3/max integrator 73a03382-488c-4190-9b48-52d68a9a7083; preserved-packet + retained-source needle re-verification + local-basis re-run 2026-09-15",
+      "rationale": "Comparable-results-despite-reduced-assumptions sentence needle-verified in the same retained abstract.",
+      "evidenceDigest": "d71fab12db9ed32b8ef68f932882fe8ef00b60396bf271bde6a17f53350e7d23"
+    }
+  ]
 }
 ]
