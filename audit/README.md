@@ -3758,3 +3758,51 @@ Final follow-up: the actual checked-in reader admission body passed **42 negativ
 The corrected reader selector passed focused ESLint, and final nonincremental
 TypeScript passed with restored configuration. All43 baseline failure objects/order
 are compared directly in the native preservation proof, not only by count.
+
+## Holson pipeline, tactile outlook and keyring originals 10/11/28 (2026-09-15)
+
+Exactly **3 original records applied, 0 held records, 0 unattempted assigned
+records**: `audit/frontier.md:dexterity:10`, `:11` and `:28`, from the frozen
+parent-qualified packet `convergence-lane-a-holson-tactile-outlook-20260914`
+(SHA-256 `06a0b77074bbd05e6c91f5ed8a80fcea8c354539a1b3852eee568abff59e4594`)
+with **zero retrieval**; the packet's retained passages are the source basis.
+Current-HEAD row IDs, ordinals, four-cell tuple digests, all four article
+endpoint before-spans and hashes were rechecked at application. The resulting
+native totals are **562 complete / 432 incomplete / 994 originals /
+47 articles**, **468 plans / 542 approvals**. All **559 prior complete
+originals/order, 991 unselected semantic records/order, 465 prior plan
+objects/order and 538 prior approval objects/order** are preserved; the 43
+unrelated baseline failures remain unresolved and the baseline was not
+replaced. Approval objects are 542, one above the packet's anticipated 541:
+the three per-original prose deltas plus one relationships delta
+(`dexterity-holson-relationships-20260915-1`) honestly required because the
+packet's exact D28 after-text drops the `proprioception` Term usage carried by
+the cut unsupported necessity clause; no other relationship changed.
+
+The reviewed plans contain **20 mandatory parts, 20 required part/citation
+pairs, 20 native evidence items and 20 source-specific supported
+adjudications** across 38 literal passages and two retained source containers.
+D10 keeps Holson's dated (September 8, 2025), exception-qualified
+learning-from-demonstration limitations scoped to the human teleoperator
+interface: wrist-force feedback to the operator, open/close finger control,
+puppeteer-usable touch; the 1-3 cm figure stays an explicit guess from videos
+with his teleoperation-versus-model caveat and described sub-cm counterexample.
+The fingertip-anesthesia analogy and blanket tactile categorization are
+removed. D11 keeps Luo and colleagues' outlook definition (development and
+integration of tactile-sensing technologies) with multiple challenge areas
+(materials, networks, simulation, benchmarking, data interpretation,
+multimodal learning, active touch) and cuts the unsupported stick-slip
+amplification attribution; v1/accepted-to-T-RO is metadata scope, not VOR.
+D28's two article endpoints were applied atomically: keyring with at least two
+keys and keychain dropped into the waiting palm/gripper, never put down,
+align/insert/turn the correct key, framed as challenge rules rather than
+observed performance; the unclaimed-medal status clause is cut because the
+post's update promise does not prove a negative scoreboard state. Original 8
+remains a separate unassigned duplicate earning no credit; D28's two endpoints
+travel together per the packet's coupling rule.
+
+`lastReviewed` is unchanged (2026-08-18): the dexterity article remains
+mid-audit. No source retrieval, full browser corpus, production build, push or
+independent Sol/high scrutiny/user-testing acceptance is claimed; the content
+gate remains red with the honest finding count recorded in the verification
+section of `audit/frontier.md`'s sibling ledgers.

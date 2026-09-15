@@ -7809,176 +7809,176 @@
       ],
       "disposition": "permanent"
     },
-  {
-    "id": "rudin-kl-mechanism-not-retuning-guarantee-20260909",
-    "manifest": "prose",
-    "memberId": "article:rl-sim2real/reward-design-mpc",
-    "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
-    "newHash": "ba535f68160576457aeac8b92033ef6dde238e2a08556507f5fedb8fff5efc22",
-    "reason": "Remove unsupported reward-retuning stability and exact-KL-target causality; retain Rudin Table 3 desired KL 0.01 and Algorithm 1 twice/half-target adaptive learning-rate mechanism. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-rma-integration-20260909/source-proof.json",
-    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or release acceptance.",
-    "responsibleMilestone": "brand-v2-editorial",
-    "affectedAssertions": [
-      "VAL-B2-BASE-002",
-      "VAL-B2-BASE-010",
-      "VAL-AUDIT-004",
-      "VAL-AUDIT-009"
-    ],
-    "disposition": "permanent"
-  },
-  {
-    "id": "rma-asynchronous-latent-1-20260909",
-    "manifest": "prose",
-    "memberId": "article:rl-sim2real/sim2real-transfer",
-    "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
-    "newHash": "ea1eebe9d2c019c630660f0c93f48569d536a39a8306a41f67948ba7bbc9db1a",
-    "reason": "Atomic RMA source-backed rates, state-action-history inference, training/mechanism, limits and quiz/glossary consistency. Actual source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rma-and-kl-reader-integration-20260909/source-proof.json",
-    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
-    "responsibleMilestone": "brand-v2-editorial",
-    "affectedAssertions": [
-      "VAL-B2-BASE-002",
-      "VAL-B2-BASE-010",
-      "VAL-AUDIT-002",
-      "VAL-AUDIT-009"
-    ],
-    "disposition": "permanent"
-  },
-  {
-    "id": "rma-asynchronous-latent-2-20260909",
-    "manifest": "article-metadata",
-    "memberId": "canonical-metadata-source:data/glossary.ts",
-    "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
-    "newHash": "800c8e6054f44e9a9523bfbc264aab4b2d6feaff66c22aa9b3a22d6ca4b5dec5",
-    "reason": "Atomic RMA source-backed rates, state-action-history inference, training/mechanism, limits and quiz/glossary consistency. Actual source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rma-and-kl-reader-integration-20260909/source-proof.json",
-    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
-    "responsibleMilestone": "brand-v2-editorial",
-    "affectedAssertions": [
-      "VAL-B2-BASE-002",
-      "VAL-B2-BASE-010",
-      "VAL-AUDIT-002",
-      "VAL-AUDIT-009"
-    ],
-    "disposition": "permanent"
-  },
-  {
-    "id": "domain-randomization-source-1-20260909",
-    "manifest": "prose",
-    "memberId": "article:rl-sim2real/sim2real-transfer",
-    "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
-    "newHash": "e69163064966555ef0c762bf7254b51518a04b399df291c59540677bc3c1a739",
-    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
-    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
-    "responsibleMilestone": "brand-v2-editorial",
-    "affectedAssertions": [
-      "VAL-B2-BASE-011",
-      "VAL-B2-BASE-012",
-      "VAL-AUDIT-002",
-      "VAL-AUDIT-009"
-    ],
-    "disposition": "permanent"
-  },
-  {
-    "id": "domain-randomization-source-2-20260909",
-    "manifest": "prose",
-    "memberId": "article:rl-sim2real/why-rl-locomotion",
-    "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
-    "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
-    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
-    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
-    "responsibleMilestone": "brand-v2-editorial",
-    "affectedAssertions": [
-      "VAL-B2-BASE-011",
-      "VAL-B2-BASE-012",
-      "VAL-AUDIT-002",
-      "VAL-AUDIT-009"
-    ],
-    "disposition": "permanent"
-  },
-  {
-    "id": "domain-randomization-source-3-20260909",
-    "manifest": "relationships",
-    "memberId": "article:rl-sim2real/sim2real-transfer",
-    "oldHash": "37ac6804fe8d3683da470450a7c89b081bee8f0800b7c0d568dbf89a72bb1ac8",
-    "newHash": "6a23c89913297ff7c6f6ee8495f4ba1ef53f8678032ee8c309b9f255c8422946",
-    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
-    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
-    "responsibleMilestone": "brand-v2-editorial",
-    "affectedAssertions": [
-      "VAL-B2-BASE-011",
-      "VAL-B2-BASE-012",
-      "VAL-AUDIT-002",
-      "VAL-AUDIT-009"
-    ],
-    "disposition": "permanent"
-  },
-  {
-    "id": "domain-randomization-source-4-20260909",
-    "manifest": "relationships",
-    "memberId": "article:rl-sim2real/why-rl-locomotion",
-    "oldHash": "b0b744221f2a7f22117bd733ca798be417c3b1e6fddaf04ac2c1b9eaf6092fc2",
-    "newHash": "b5decbf9df603d6658018f76d4e04e46da69ee69ab78470c693da0d8466e2333",
-    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
-    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
-    "responsibleMilestone": "brand-v2-editorial",
-    "affectedAssertions": [
-      "VAL-B2-BASE-011",
-      "VAL-B2-BASE-012",
-      "VAL-AUDIT-002",
-      "VAL-AUDIT-009"
-    ],
-    "disposition": "permanent"
-  },
-  {
-    "id": "domain-randomization-source-5-20260909",
-    "manifest": "interactive-sources-mounts",
-    "memberId": "source:components/interactive/friction-transfer.tsx",
-    "oldHash": "e3b585903b881c63119a830ca15380265b14b850aefc0178a352fa657e140f98",
-    "newHash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d",
-    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
-    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
-    "responsibleMilestone": "brand-v2-editorial",
-    "affectedAssertions": [
-      "VAL-B2-BASE-011",
-      "VAL-B2-BASE-012",
-      "VAL-AUDIT-002",
-      "VAL-AUDIT-009"
-    ],
-    "disposition": "permanent"
-  },
-  {
-    "id": "domain-randomization-source-6-20260909",
-    "manifest": "behavioral-defaults",
-    "memberId": "default:components/interactive/friction-transfer.tsx:11",
-    "oldHash": "9cc10a02f78e2246bb66e4c012f22a7801266615b878fa638386826130eba7d1",
-    "newHash": "84775288845c55993fd63a1d0151d49de30a12215938d429af88a19fe6bed620",
-    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
-    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
-    "responsibleMilestone": "brand-v2-editorial",
-    "affectedAssertions": [
-      "VAL-B2-BASE-011",
-      "VAL-B2-BASE-012",
-      "VAL-AUDIT-002",
-      "VAL-AUDIT-009"
-    ],
-    "disposition": "permanent"
-  },
-  {
-    "id": "domain-randomization-source-7-20260909",
-    "manifest": "article-metadata",
-    "memberId": "citation:openai-rubiks-cube-2019",
-    "oldHash": "a16d3652cef1054616ec5631e839912e64e994ba84496f1a0801c9e19d237dc8",
-    "newHash": "bb26d459d2c458beb8e3592c3c8c0aad45b110151743883bee160c5db411204b",
-    "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
-    "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
-    "responsibleMilestone": "brand-v2-editorial",
-    "affectedAssertions": [
-      "VAL-B2-BASE-011",
-      "VAL-B2-BASE-012",
-      "VAL-AUDIT-002",
-      "VAL-AUDIT-009"
-    ],
-    "disposition": "permanent"
-  },
+    {
+      "id": "rudin-kl-mechanism-not-retuning-guarantee-20260909",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/reward-design-mpc",
+      "oldHash": "aacb99442d50320eedba7f48ed125debecdce52cf764b5c05b53c33f1e9f6699",
+      "newHash": "ba535f68160576457aeac8b92033ef6dde238e2a08556507f5fedb8fff5efc22",
+      "reason": "Remove unsupported reward-retuning stability and exact-KL-target causality; retain Rudin Table 3 desired KL 0.01 and Algorithm 1 twice/half-target adaptive learning-rate mechanism. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rudin-rma-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or release acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rma-asynchronous-latent-1-20260909",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "ea1eebe9d2c019c630660f0c93f48569d536a39a8306a41f67948ba7bbc9db1a",
+      "reason": "Atomic RMA source-backed rates, state-action-history inference, training/mechanism, limits and quiz/glossary consistency. Actual source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rma-and-kl-reader-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "rma-asynchronous-latent-2-20260909",
+      "manifest": "article-metadata",
+      "memberId": "canonical-metadata-source:data/glossary.ts",
+      "oldHash": "c45b39ad43436858a15116c81819ec6234fac213bdee1c11f92dee32027578bc",
+      "newHash": "800c8e6054f44e9a9523bfbc264aab4b2d6feaff66c22aa9b3a22d6ca4b5dec5",
+      "reason": "Atomic RMA source-backed rates, state-action-history inference, training/mechanism, limits and quiz/glossary consistency. Actual source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-rma-and-kl-reader-integration-20260909/source-proof.json",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-randomization-source-1-20260909",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
+      "newHash": "e69163064966555ef0c762bf7254b51518a04b399df291c59540677bc3c1a739",
+      "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-randomization-source-2-20260909",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/why-rl-locomotion",
+      "oldHash": "25fb300e0579d47d5d1505846b1bc869c4b15e1e2669d6e591b97e4dfa83501b",
+      "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+      "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-randomization-source-3-20260909",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/sim2real-transfer",
+      "oldHash": "37ac6804fe8d3683da470450a7c89b081bee8f0800b7c0d568dbf89a72bb1ac8",
+      "newHash": "6a23c89913297ff7c6f6ee8495f4ba1ef53f8678032ee8c309b9f255c8422946",
+      "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-randomization-source-4-20260909",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/why-rl-locomotion",
+      "oldHash": "b0b744221f2a7f22117bd733ca798be417c3b1e6fddaf04ac2c1b9eaf6092fc2",
+      "newHash": "b5decbf9df603d6658018f76d4e04e46da69ee69ab78470c693da0d8466e2333",
+      "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-randomization-source-5-20260909",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/friction-transfer.tsx",
+      "oldHash": "e3b585903b881c63119a830ca15380265b14b850aefc0178a352fa657e140f98",
+      "newHash": "adf1ed81484c74e9fa09777a26e1330eb8919cbd07b02fe3406898b285ffb85d",
+      "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-randomization-source-6-20260909",
+      "manifest": "behavioral-defaults",
+      "memberId": "default:components/interactive/friction-transfer.tsx:11",
+      "oldHash": "9cc10a02f78e2246bb66e4c012f22a7801266615b878fa638386826130eba7d1",
+      "newHash": "84775288845c55993fd63a1d0151d49de30a12215938d429af88a19fe6bed620",
+      "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "domain-randomization-source-7-20260909",
+      "manifest": "article-metadata",
+      "memberId": "citation:openai-rubiks-cube-2019",
+      "oldHash": "a16d3652cef1054616ec5631e839912e64e994ba84496f1a0801c9e19d237dc8",
+      "newHash": "bb26d459d2c458beb8e3592c3c8c0aad45b110151743883bee160c5db411204b",
+      "reason": "Five original source corrections: Tobin/Peng identities and limits, OpenAI protocol/calibration/full byline, and authored-toy disclosure. Default-expression change is explanatory text; numerical defaults and formulas are unchanged. Source proof: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-domain-randomization-integration-20260909/source-review.json",
+      "ownerApproval": "Josef, 2026-09-07: fix it all! Routine source-backed correction authority; /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md. Not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-002",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
     {
       "id": "randomization-citation-rendering-reconciliation-20260909",
       "manifest": "article-metadata",
@@ -8653,7 +8653,7 @@
       "memberId": "article:rl-sim2real/humanoid-wbc",
       "oldHash": "1b5e2d4497df30a9250ac25f795c7c036fc5daca7d1f8e697694e1406da382b0",
       "newHash": "98a85d01809b619ce821fea6490be0d6e27f25d282f088fbc88e6ad5bca36560",
-      "reason": "Exact existing native member approval for three measured article-local mobile citation placements: first ASAP 518\u2192358px, H2O lineage 426\u2192362px, summary ASAP 383\u2192367px at width375. Both hover/focus are asserted; all six source-reader identities have completed passes across retained runs. Meaning-preserving delta action model noun spelling restores the existing reader vocabulary. Byte reconstruction is preserved in reader-repairs.json and summary-placement.json. No source row, shared renderer, scientific value or whole-reader acceptance changed.",
+      "reason": "Exact existing native member approval for three measured article-local mobile citation placements: first ASAP 518→358px, H2O lineage 426→362px, summary ASAP 383→367px at width375. Both hover/focus are asserted; all six source-reader identities have completed passes across retained runs. Meaning-preserving delta action model noun spelling restores the existing reader vocabulary. Byte reconstruction is preserved in reader-repairs.json and summary-placement.json. No source row, shared renderer, scientific value or whole-reader acceptance changed.",
       "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to daf8738d-c462-4afa-82ce-9ab57455ccb8. Authority to correct is not personal source certification or independent acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -8670,7 +8670,7 @@
       "memberId": "article:rl-sim2real/sim2real-transfer",
       "oldHash": "e4d1cadc887fe36598f7df346ae12edeb479b7acf9267b904da9b69dbf12bc8b",
       "newHash": "88c4ad4d990ea57dc1f8ae0dbb7a00afc57130a337121d4fddaf96562c8bf841",
-      "reason": "Exact existing native member approval for three measured article-local mobile citation placements: first ASAP 518\u2192358px, H2O lineage 426\u2192362px, summary ASAP 383\u2192367px at width375. Both hover/focus are asserted; all six source-reader identities have completed passes across retained runs. Meaning-preserving delta action model noun spelling restores the existing reader vocabulary. Byte reconstruction is preserved in reader-repairs.json and summary-placement.json. No source row, shared renderer, scientific value or whole-reader acceptance changed.",
+      "reason": "Exact existing native member approval for three measured article-local mobile citation placements: first ASAP 518→358px, H2O lineage 426→362px, summary ASAP 383→367px at width375. Both hover/focus are asserted; all six source-reader identities have completed passes across retained runs. Meaning-preserving delta action model noun spelling restores the existing reader vocabulary. Byte reconstruction is preserved in reader-repairs.json and summary-placement.json. No source row, shared renderer, scientific value or whole-reader acceptance changed.",
       "ownerApproval": "Josef September 7 fix it all correction authority and bounded parent assignment to daf8738d-c462-4afa-82ce-9ab57455ccb8. Authority to correct is not personal source certification or independent acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
@@ -10276,6 +10276,78 @@
       "newHash": "969ca0af100d7e56570a56b3b8896569fb686321be9e8b02375fe877273f5c96",
       "reason": "Exact hierarchy originals6/7 only: ECoT matched Bridge baseline, protocol/annotation/five-step/trace/execution scope; Hi Robot separate policies, feedback/training/evaluation/limitations and coupled learned hierarchies Stat label. Date/year/note/registry/neighbors/synthesis unchanged.",
       "ownerApproval": "Josef September7 fix-it-all and parent September14 fixed two-original assignment authorize exact routine evidence-backed corrections, not personal source certification, deployment or independent acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "dexterity-holson-pipeline-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196",
+      "reason": "Exact original10 only: Holson dated September 8 2025, exception-qualified learning-from-demonstration limitations scoped to the human teleoperator interface, 1-3 cm precision explicitly guessed from videos with teleoperation-versus-model caveat and described sub-cm counterexample; anesthesia analogy and blanket tactile categorization removed.",
+      "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 exact three-original integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "dexterity-tactile-outlook-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196",
+      "reason": "Exact original11 only: Luo-and-colleagues 2025 outlook definition of tactile robotics as development and integration of tactile-sensing technologies, multiple challenge areas across materials, networks, simulation, benchmarking, data interpretation, multimodal learning and active touch; unsupported stick-slip amplification attribution cut, not certified.",
+      "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 exact three-original integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "dexterity-keyring-rules-20260915-1",
+      "manifest": "prose",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "4d026108b52862335e8cb734302d77aa271ce33ffb94bdd36d80d98c3b2cb4f4",
+      "newHash": "1c0b85dc5dc97ba464e7aa21be7f10e8617ffa294c02cb894fe3fe0cdd487196",
+      "reason": "Exact original28 only: keyring with at least two keys and keychain dropped into waiting palm/gripper, no putting keys down, align/insert/turn correct key, framed as challenge rules not observed performance; unclaimed-medal status clause cut as unproved absence. Original8 duplicate and unassigned dexterity neighbors unchanged.",
+      "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 exact three-original integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-BASE-012",
+        "VAL-AUDIT-006",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "dexterity-holson-relationships-20260915-1",
+      "manifest": "relationships",
+      "memberId": "article:frontier/dexterity",
+      "oldHash": "775975450148df398e0e7dda1f2a353caff7231b642ee045832f759f23dacc4f",
+      "newHash": "08569c6c060803acd370491d59fec76f2bdf71b93c79ad286ceb6c8ee7bc46a9",
+      "reason": "Exact originals10/11/28 relationship side effect only: the cut proprioception Term usage in the removed unsupported necessity clause. Citation multiset, see-also links, registry and all other relationships are unchanged.",
+      "ownerApproval": "Josef September 7 fix-it-all authority and the September 15 exact three-original integrator assignment authorize routine source-backed correction, not personal source certification or acceptance.",
       "responsibleMilestone": "brand-v2-editorial",
       "affectedAssertions": [
         "VAL-B2-BASE-002",

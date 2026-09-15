@@ -47143,5 +47143,462 @@
         "evidenceDigest": "2044acd5967ddda3c6b1f7099ae6d3590959e1b3eb3bdc9f890593c8a7066dd2"
       }
     ]
+  },
+  {
+    "id": "dexterity-holson-pipeline-source-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 10,
+    "originalCellsDigest": "da08340c29ed1dbf0a081ed1a3bfc04153a3156c3507cd9bbb12c669fc516e28",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "holson-identity",
+        "text": "Holson authored the named post dated September 8, 2025; this is his commentary, not a measured technical benchmark.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "dated-setup-and-exceptions",
+        "text": "The learning-from-demonstration setup and four limitations are what Holson says he was seeing at that time, a general trend with exceptions, not a universal current census.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "operator-force-feedback",
+        "text": "The wrist limitation concerns conveying force information to the human teleoperator; it does not establish the absence of robot wrist sensing.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "finger-control",
+        "text": "Holson describes difficulty for the teleoperator and foundation model in seeing and controlling all fingers with more finesse than open/close, not the absence of articulated fingers.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "touch-for-puppeteer",
+        "text": "The touch claim is Holson’s difficulty in obtaining human-like robot-hand sensing usable by a puppeteer, not evidence that every robot hand has no sensors.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "video-based-precision-guess",
+        "text": "About 1–3 cm task precision is explicitly Holson’s guess based on videos, not a measured accuracy or repeatability bound.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "precision-qualification-and-counterexample",
+        "text": "Holson says this is likely more a teleoperation precision limitation than a model limitation and describes a Generalist video as showing sub-cm tasks; the video was not independently measured here.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+      "rationale": "Reviewed the parent-qualified packet (SHA-256 06a0b770...) at HEAD f943599: before-span, row-ordinal and four-cell digest bindings rechecked, all seven retained passages checked against the registered holson-olympics-2025 citation and its full HTTPS URL, and the dated exception-qualified operator-interface reading verified against the passage text itself. One ARTICLE endpoint applied exactly; no retrieval, no cell changes.",
+      "planDigest": "6d9ecd6df6cb81b75a0521040257c7f72b802b09bddcdf4c10dd03a2045c9f0a"
+    },
+    "evidence": [
+      {
+        "partId": "holson-identity",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "# Benjie's Humanoid Olympic Games\n\n### A gauntlet thrown\n\n[![Benjie Holson's avatar](https://substackcdn.com/image/fetch/$s_!tglM!,w_36,h_36,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ad2174a-ba2c-4f3e-918a-60c417d8020f_1118x1184.png)](https://substack.com/@generalrobots)\n\n[Benjie Holson](https://substack.com/@generalrobots)\n\nSep 08, 2025\n\n69\n\n12\n\n3\n\nShare"
+      },
+      {
+        "partId": "dated-setup-and-exceptions",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "In order to talk about why each of these challenges pushes the state of the art, let's talk about what's working now. What I’m seeing working is learning-from-demonstration. Folks get some robots and some puppeteering interfaces (standard seems to be two copies of the robot where you grab & move one of them and the other matches, or an Oculus headset + controllers or hand tracking) and record some 10-30 second activity over and over again (100s of times). We can then train a neural network to mimic those examples. This has unlocked tasks that have steps that are somewhat chaotic (like pulling a corner of a towel to see if it lays flat) or high state space (like how a wooden block is on one of 6 sides but a towel can be bunched up in myriad different ways). But thinking about it, it should be clear what some of the limitations are. Each of these has exceptions, but form a general trend."
+      },
+      {
+        "partId": "operator-force-feedback",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "1. No force feedback at the wrists. [2](https://generalrobots.substack.com/p/benjies-humanoid-olympic-games#footnote-2) The robot can only ever perform as well as the human teleoperation and we don’t yet have good standard ways of getting force information to the human teleoperator."
+      },
+      {
+        "partId": "finger-control",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "2. Limited finger control. [3](https://generalrobots.substack.com/p/benjies-humanoid-olympic-games#footnote-3) It's hard for the teleoperator (and AI foundation model) to see and control all the robot fingers with more finesse than just open/close."
+      },
+      {
+        "partId": "touch-for-puppeteer",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "3. No sense of touch. [4](https://generalrobots.substack.com/p/benjies-humanoid-olympic-games#footnote-4) Human hands are packed absolutely full of sensors. Getting anywhere near that kind of sensing out of robot hands and usable by a human puppeteer is not currently possible."
+      },
+      {
+        "partId": "video-based-precision-guess",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "4. Medium precision. [5](https://generalrobots.substack.com/p/benjies-humanoid-olympic-games#footnote-5) Guessing based on videos I think we’ve got about 1-3 cm precision for tasks."
+      },
+      {
+        "partId": "precision-qualification-and-counterexample",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "This is likely more a teleoperation precision limitation than a model limitation. Here is a video of Generalist Robotics doing sub-cm precision tasks:"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "holson-identity",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The retained passage shows the post title, the Benjie Holson byline and the Sep 08, 2025 date on generalrobots.substack.com, supporting the identity part: this is one author's dated commentary, not a measured technical benchmark.",
+        "evidenceDigest": "bc8c865917667252cf06dd46a49768490b2be7f142b679cb1f07273502dfe691"
+      },
+      {
+        "partId": "dated-setup-and-exceptions",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The passage says learning-from-demonstration is \"what I'm seeing working\" and closes with \"Each of these has exceptions, but form a general trend\", which supports exactly the time-bound, exception-qualified framing and contradicts any universal census reading.",
+        "evidenceDigest": "4663610f49058e2adb42d4a6e5d82e5f0852545d7e85a00ebf7ede39e3c40c30"
+      },
+      {
+        "partId": "operator-force-feedback",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The numbered passage is explicitly about \"getting force information to the human teleoperator\", so the limitation is operator-interface scoping; it does not establish that robot wrists lack force sensing, and the part keeps that distinction.",
+        "evidenceDigest": "3367b032fdefce9eb639624505fe8c0669058275d1282856e8182da1375473c4"
+      },
+      {
+        "partId": "finger-control",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The passage says it is hard \"for the teleoperator (and AI foundation model)\" to control fingers \"with more finesse than just open/close\", supporting a control-difficulty claim without asserting articulated fingers are absent.",
+        "evidenceDigest": "7382f8b04d19e54f02eedc7d8453b35c25143ff0b8304a10988eee1d9a7f6b0b"
+      },
+      {
+        "partId": "touch-for-puppeteer",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The passage scopes the sensing gap to what is \"usable by a human puppeteer\", supporting the puppeteer-usability reading rather than a claim that every robot hand lacks sensors.",
+        "evidenceDigest": "f971144625b6a099328922ddf747b90089cad59c142f9f3d8ea1613e1d399b31"
+      },
+      {
+        "partId": "video-based-precision-guess",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The passage literally begins \"Guessing based on videos\" before the 1-3 cm figure, so the part correctly carries an explicitly guessed estimate, not a measured accuracy or repeatability bound.",
+        "evidenceDigest": "2a9c8aa25a1272cb340346c0386789e0947b5d975786d1ef6a81d4a6cf616489"
+      },
+      {
+        "partId": "precision-qualification-and-counterexample",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The passage supplies both the \"likely more a teleoperation precision limitation than a model limitation\" caveat and the described sub-cm Generalist Robotics video, and the part preserves both without independently measuring the video.",
+        "evidenceDigest": "0ff49cd661580a0c255e713a82211c4ea2f1a11a855a74992209048218ac6551"
+      }
+    ]
+  },
+  {
+    "id": "dexterity-tactile-outlook-source-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 11,
+    "originalCellsDigest": "9122842af12f40111b326a74db7c7e37c2e199926631a6786d84cb2065139d75",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "outlook-bibliographic-identity",
+        "text": "The registered title and explicit six-person author list match arXiv metadata; the generated “and 4 other authors” boilerplate is not the author-count authority.",
+        "requiredCitationIds": [
+          "tactile-outlook-2025"
+        ]
+      },
+      {
+        "id": "outlook-version-and-venue-scope",
+        "text": "The inspected arXiv record is v1 submitted August 15, 2025 and its Comments say accepted to IEEE Transactions on Robotics; no published VOR identity or year is inferred.",
+        "requiredCitationIds": [
+          "tactile-outlook-2025"
+        ]
+      },
+      {
+        "id": "outlook-definition",
+        "text": "The authors define tactile robotics as development and integration of tactile-sensing technologies into robotic systems.",
+        "requiredCitationIds": [
+          "tactile-outlook-2025"
+        ]
+      },
+      {
+        "id": "outlook-plural-framing",
+        "text": "The outlook expressly examines several challenges and potential solutions, not the article’s exact sensing-error amplification argument.",
+        "requiredCitationIds": [
+          "tactile-outlook-2025"
+        ]
+      },
+      {
+        "id": "outlook-challenge-areas",
+        "text": "The discussion spans materials, transduction, networks, simulation, benchmarking, data interpretation, multimodal/cross-modal learning and active touch.",
+        "requiredCitationIds": [
+          "tactile-outlook-2025"
+        ]
+      },
+      {
+        "id": "outlook-integration-substance",
+        "text": "Hardware/software co-design is one substantive integration challenge; the paper does not reduce its whole outlook to that single challenge.",
+        "requiredCitationIds": [
+          "tactile-outlook-2025"
+        ]
+      },
+      {
+        "id": "outlook-coverage-limits",
+        "text": "The authors explicitly leave self-deformation, ego-vibrations and detailed sensor-coverage discussion outside the paper’s coverage; it is not an exhaustive field census.",
+        "requiredCitationIds": [
+          "tactile-outlook-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+      "rationale": "Reviewed the parent-qualified packet at HEAD f943599: row bindings rechecked, the six-author byline, v1 marker and accepted-to-T-RO metadata distinguished from VOR, and all seven retained passages checked against the registered tactile-outlook-2025 citation across its abs and html URLs. The unsupported stick-slip attribution was cut rather than certified; one ARTICLE endpoint applied exactly; no retrieval.",
+      "planDigest": "2b18235dd9f587ffe47467c16f1d98ebe7519ae13f43fdf7fe4a7c44a8d9f855"
+    },
+    "evidence": [
+      {
+        "partId": "outlook-bibliographic-identity",
+        "citationId": "tactile-outlook-2025",
+        "sourceUrl": "https://arxiv.org/abs/2508.11261",
+        "supportingPassage": "# Title:Tactile Robotics: An Outlook\n\nAuthors: [Shan Luo](https://arxiv.org/search/cs?searchtype=author&query=Luo,+S), [Nathan F. Lepora](https://arxiv.org/search/cs?searchtype=author&query=Lepora,+N+F), [Wenzhen Yuan](https://arxiv.org/search/cs?searchtype=author&query=Yuan,+W), [Kaspar Althoefer](https://arxiv.org/search/cs?searchtype=author&query=Althoefer,+K), [Gordon Cheng](https://arxiv.org/search/cs?searchtype=author&query=Cheng,+G), [Ravinder Dahiya](https://arxiv.org/search/cs?searchtype=author&query=Dahiya,+R)"
+      },
+      {
+        "partId": "outlook-version-and-venue-scope",
+        "citationId": "tactile-outlook-2025",
+        "sourceUrl": "https://arxiv.org/abs/2508.11261",
+        "supportingPassage": "| Comments: | 20 pages, 2 figures, accepted to IEEE Transactions on Robotics |\n| Subjects: | Robotics (cs.RO) |\n| Cite as: | [arXiv:2508.11261](https://arxiv.org/abs/2508.11261) \\[cs.RO\\] |\n|  | (or [arXiv:2508.11261v1](https://arxiv.org/abs/2508.11261v1) \\[cs.RO\\] for this version) |\n|  | [https://doi.org/10.48550/arXiv.2508.11261](https://doi.org/10.48550/arXiv.2508.11261)<br>Focus to learn more<br>arXiv-issued DOI via DataCite |\n\n## Submission history\n\nFrom: Shan Luo Dr \\[ [view email](https://arxiv.org/show-email/f21ac11d/2508.11261)\\]\n\n**\\[v1\\]**\nFri, 15 Aug 2025 06:55:31 UTC (11,686 KB)"
+      },
+      {
+        "partId": "outlook-definition",
+        "citationId": "tactile-outlook-2025",
+        "sourceUrl": "https://arxiv.org/html/2508.11261",
+        "supportingPassage": "Although tactile robotics is an emerging sub-field in robotics, there appears, despite an extensive search, to be no firm definition of it within the literature. In this article, we define tactile robotics as a field of robotics that focuses on the development and integration of tactile-sensing technologies into robotic systems. The goal of tactile robotics is to enhance a robot’s ability to perceive and interact with its surroundings by providing it with a sense of touch."
+      },
+      {
+        "partId": "outlook-plural-framing",
+        "citationId": "tactile-outlook-2025",
+        "sourceUrl": "https://arxiv.org/html/2508.11261",
+        "supportingPassage": "Robotics research has long sought to give robots the ability to perceive the physical world through touch in an analogous manner to many biological systems.Developing such tactile capabilities is important for numerous emerging applications that require robots to co-exist and interact closely with humans.Consequently, there has been growing interest in tactile sensing, leading to the development of various technologies, including piezoresistive and piezoelectric sensors, capacitive sensors, magnetic sensors, and optical tactile sensors. These diverse approaches utilise different transduction methods and materials to equip robots with distributed sensing capabilities, enabling more effective physical interactions. These advances have been supported in recent years by simulation tools that generate large-scale tactile datasets to support sensor designs and algorithms to interpret and improve the utility of tactile data. The integration of tactile sensing with other modalities, such as vision, as well as with action strategies for active tactile perception highlights the growing scope of this field. To further the transformative progress in tactile robotics, a holistic approach is essential. In this outlook article, we examine several challenges associated with the current state of the art in tactile robotics and explore potential solutions to inspire innovations across multiple domains, including manufacturing, healthcare, recycling and agriculture."
+      },
+      {
+        "partId": "outlook-challenge-areas",
+        "citationId": "tactile-outlook-2025",
+        "sourceUrl": "https://arxiv.org/html/2508.11261",
+        "supportingPassage": "This paper is structured as follows: we introduce the key preliminary concepts of tactile robotics in Sec. [II](https://arxiv.org/html/2508.11261#S2 \"II Preliminaries ‣ Tactile Robotics: An Outlook\"). Tactile materials, the broad categories of sensors, and tactile sensor distribution are presented in Sec. [III](https://arxiv.org/html/2508.11261#S3 \"III Materials for Tactile Sensing ‣ Tactile Robotics: An Outlook\") through Sec. [V](https://arxiv.org/html/2508.11261#S5 \"V Tactile Sensor Networks ‣ Tactile Robotics: An Outlook\"). The tactile simulation is discussed in Sec. [VI](https://arxiv.org/html/2508.11261#S6 \"VI Simulation for Tactile Sensing ‣ Tactile Robotics: An Outlook\"). We then detail our insights into tactile data collection and benchmarking in Sec. [VII](https://arxiv.org/html/2508.11261#S7 \"VII Tactile Data Collection and Benchmarking ‣ Tactile Robotics: An Outlook\"), data interpretation in Sec. [VIII](https://arxiv.org/html/2508.11261#S8 \"VIII Tactile Data Interpretation ‣ Tactile Robotics: An Outlook\"), multi/cross-modal perception in Sec. [IX](https://arxiv.org/html/2508.11261#S9 \"IX Multimodal and Cross-modal Learning ‣ Tactile Robotics: An Outlook\") and active touch in Sec. [X](https://arxiv.org/html/2508.11261#S10 \"X Active Tactile Perception ‣ Tactile Robotics: An Outlook\"). We conclude the paper in Sec. [XI](https://arxiv.org/html/2508.11261#S11 \"XI Discussions and Conclusion ‣ Tactile Robotics: An Outlook\") with a discussion of future tactile robotics."
+      },
+      {
+        "partId": "outlook-integration-substance",
+        "citationId": "tactile-outlook-2025",
+        "sourceUrl": "https://arxiv.org/html/2508.11261",
+        "supportingPassage": "Coupling the transduction with software algorithms. Successful implementation of tactile sensors hinges on concurrent development of both physical hardware and the accompanying algorithms. The synergy between hardware and software is critical to the interpretation of sensor data and therefore ultimately to the creation of commercially viable and fully functional robotic systems. For instance, convolutional neural networks (CNNs) are now a widely used technique to process data from image-based tactile sensors that make use of the high spatial resolution for improved feature extraction. Similarly, frequency decomposition techniques are utilised to analyse vibration data \\[ [92](https://arxiv.org/html/2508.11261#bib.bib92 \"\")\\], enabling fine-grained detection of surface textures and contact dynamics. Another example is the use of neuromorphic computing frameworks, as demonstrated in \\[ [93](https://arxiv.org/html/2508.11261#bib.bib93 \"\")\\], which efficiently process tactile information to mimic biological sensory processing. These advancements underscore the importance of co-designing hardware and software to achieve optimal performance in tactile sensing applications."
+      },
+      {
+        "partId": "outlook-coverage-limits",
+        "citationId": "tactile-outlook-2025",
+        "sourceUrl": "https://arxiv.org/html/2508.11261",
+        "supportingPassage": "Due to space limitations, several important topics have not been covered in this paper. For instance, self-deformation and ego-vibrations, i.e., tactile sensations caused by the robot’s own movement, are crucial aspects of tactile sensing, especially as robots become equipped with more sophisticated tactile systems. The coupling between robot body motion and tactile sensing introduces challenges in distinguishing between self-caused and externally caused tactile sensations. This issue is analogous to the challenge in computer vision of distinguishing camera motion from the movement of objects in the environment. Additionally, we have not discussed in detail the topic of sensor coverage: the proportion of the robot’s body surface that can be instrumented with tactile sensors. This consideration depends further on whether soft tactile sensors are applied to rigid body parts or if the entire robot structure is soft. These topics will require further exploration as they are likely to play a significant role in the future development of robots with advanced tactile sensing capabilities."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "outlook-bibliographic-identity",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The arXiv abs passage carries the title and the author list beginning Shan Luo, Nathan F. Lepora, Wenzhen Yuan, supporting the \"Luo and colleagues\" attribution used in the corrected claim and article span.",
+        "evidenceDigest": "f8628acfdddff9eeb2b76a45793eee409601d004af3f7bad21b02be506bfc56e"
+      },
+      {
+        "partId": "outlook-version-and-venue-scope",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The abs metadata passage records 20 pages, 2 figures, the v1 marker and \"accepted to IEEE Transactions on Robotics\"; the part keeps this as version and venue scope only, not VOR equivalence or final-published status.",
+        "evidenceDigest": "5489531bba5578fe5af015a75591b9ed450075ff6b6d3ede5e6d31644433d46d"
+      },
+      {
+        "partId": "outlook-definition",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The html passage states the authors \"define tactile robotics as a field of robotics that focuses on the development\" of tactile-sensing integration, which is the definition the corrected claim and article span now quote-scoped.",
+        "evidenceDigest": "95b274888fdf4e29e993410ec1a073655190d810fc12888a9392bfa785d4c290"
+      },
+      {
+        "partId": "outlook-plural-framing",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The abstract-derived passage speaks of \"numerous emerging applications\" and plural capabilities, supporting the multiple-challenge framing and contradicting any single-defining-challenge gloss.",
+        "evidenceDigest": "139caefd40a7c41fbd3f83f35245199dd99a54a76698a365c99e7989b8fa4229"
+      },
+      {
+        "partId": "outlook-challenge-areas",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The structure passage enumerates the paper's own topic categories across materials, sensing, processing and learning, supporting the named challenge areas now listed in the corrected article span.",
+        "evidenceDigest": "f3e32a8c4e9ffa1e2dd7092307085bcf7b0036f75e296394d0b60df4e8448f89"
+      },
+      {
+        "partId": "outlook-integration-substance",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The passage \"Coupling the transduction with software algorithms... synergy between hardware and software is critical\" supports the integration substance of the definition without endorsing the article's former amplification argument.",
+        "evidenceDigest": "370032275ccc635c5a6c20aa075902cbe0336eb014fdcd41c2f32f967b94df98"
+      },
+      {
+        "partId": "outlook-coverage-limits",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The passage \"Due to space limitations, several important topics have not been covered\" supports the coverage-limits part and the honest non-completeness framing retained in the ledger note.",
+        "evidenceDigest": "f49c09e95960e69cd6ed81650552d2cce220bea2f15cb5c44de3bb6933464572"
+      }
+    ]
+  },
+  {
+    "id": "dexterity-keyring-rules-source-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "dexterity",
+    "rowOrdinal": 28,
+    "originalCellsDigest": "3bdb8f60ff88e8589c6fc7223ef008eef94cd7e7a73dfce7e0511f2a3a126b5e",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "keyring-author-and-date",
+        "text": "The keyring example belongs to Holson’s named September 8, 2025 challenge post.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "gold-tool-use-initial-condition",
+        "text": "Use a key is the gold-medal event under Basic Tool Use, starting with at least two keys and a keychain dropped into a waiting robot palm/gripper.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "keyring-action-sequence",
+        "text": "Without putting the keys down, align, insert and turn the correct key in a lock; do not substitute a pre-aligned single key or omit insertion.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "author-described-task-difficulty",
+        "text": "Holson describes the task as challenging in-hand manipulation with high precision and interesting forceful interaction; this is not proof that touch is universally necessary.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "general-eligibility-context",
+        "text": "The general terms require an uncut 1x-speed video and autonomous general-purpose execution; mobile(?) wording and the separate poll must not be silently resolved.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      },
+      {
+        "id": "challenge-not-performance",
+        "text": "The post issues a challenge and promises future updates; it does not itself substantiate a task success rate, a current universal absence, or an inferred last-update date.",
+        "requiredCitationIds": [
+          "holson-olympics-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+      "rationale": "Reviewed the parent-qualified packet at HEAD f943599: row bindings rechecked, all six retained passages checked against the registered holson-olympics-2025 citation and full HTTPS URL, and the two ARTICLE endpoints verified atomic (initial-condition rules restoration plus status-clause cut travel together). Challenge rules were not converted into observed performance; no retrieval.",
+      "planDigest": "b13eb741b61724ff518c52f2371a0b94dd1ac3ceb86e8c99372669e09d3a8861"
+    },
+    "evidence": [
+      {
+        "partId": "keyring-author-and-date",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "# Benjie's Humanoid Olympic Games\n\n### A gauntlet thrown\n\n[![Benjie Holson's avatar](https://substackcdn.com/image/fetch/$s_!tglM!,w_36,h_36,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ad2174a-ba2c-4f3e-918a-60c417d8020f_1118x1184.png)](https://substack.com/@generalrobots)\n\n[Benjie Holson](https://substack.com/@generalrobots)\n\nSep 08, 2025\n\n69\n\n12\n\n3\n\nShare"
+      },
+      {
+        "partId": "gold-tool-use-initial-condition",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "## Event 3: Basic Tool Use\n\nHumans are creatures of technology and, as useful as our hands are, we mostly use them to hold and manipulate tools. This challenge is about building the strength and dexterity to use tools.\n\n### Bronze Medal: Windex and paper towels\n\nThe ~~windex~~ ammonia-based-window-cleaning-fluid bottle is super forgiving in terms of how you grasp it, but you do need to independently articulate a finger (and the finger has to be pretty strong to get fluid to spray out). [9](https://generalrobots.substack.com/p/benjies-humanoid-olympic-games#footnote-9)\n\n### Silver Medal: Peanut butter sandwiches\n\nThe challenge here is to pick up a knife and then adjust the grasp to be strong and stable enough to scoop and spread the peanut butter. Humans use a ‘strong tool grasp’ for all kinds of activities but it is very challenging for robot grippers. [10](https://generalrobots.substack.com/p/benjies-humanoid-olympic-games#footnote-10)\n\n### Gold Medal: Use a key\n\nA keyring with at least 2 keys and a keychain is dropped into the robot’s waiting palm/gripper _. Without putting the keys down,_ get the correct key aligned and inserted and turned in a lock. This requires very challenging in-hand manipulation, high precision and interesting forceful interaction."
+      },
+      {
+        "partId": "keyring-action-sequence",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "A keyring with at least 2 keys and a keychain is dropped into the robot’s waiting palm/gripper _. Without putting the keys down,_ get the correct key aligned and inserted and turned in a lock. This requires very challenging in-hand manipulation, high precision and interesting forceful interaction."
+      },
+      {
+        "partId": "author-described-task-difficulty",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "A keyring with at least 2 keys and a keychain is dropped into the robot’s waiting palm/gripper _. Without putting the keys down,_ get the correct key aligned and inserted and turned in a lock. This requires very challenging in-hand manipulation, high precision and interesting forceful interaction."
+      },
+      {
+        "partId": "general-eligibility-context",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "To be eligible to win it must be a 1x speed video with no cuts, featuring a general purpose mobile(?) manipulator robot running autonomously. (Wheels and centaur robots: totally fair game; [industrial automation orange peelers](https://www.alibaba.com/product-detail/Commercial-Tabletop-Stainless-Steel-Electric-Orange_1601229086773.html?mark=google_shopping&seo=1) don’t count.)"
+      },
+      {
+        "partId": "challenge-not-performance",
+        "citationId": "holson-olympics-2025",
+        "sourceUrl": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games",
+        "supportingPassage": "With that in mind I am issuing a challenge to roboticists: here are my Humanoid Olympics. Each event will require us to push the state of the art and unlock new capabilities. I will update this post as folks achieve these milestones, and will mail actual real-life medals to the winners."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "keyring-author-and-date",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The same dated byline passage anchors authorship and date for the keyring rules, keeping the event description tied to Holson's September 8, 2025 challenge post.",
+        "evidenceDigest": "6aa598cf703c3848ec736645d36a681c110d5d3a66667d8840b9dc1765072893"
+      },
+      {
+        "partId": "gold-tool-use-initial-condition",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The \"Event 3: Basic Tool Use\" heading passage anchors the event identity in which the keyring task is set, supporting the gold-medal event attribution.",
+        "evidenceDigest": "1b9a94c2c189b9e5c36265f98907fb2dc2aad55a413ebbc431de743eb6424571"
+      },
+      {
+        "partId": "keyring-action-sequence",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The passage states the full rule: a keyring with at least 2 keys and a keychain dropped into the waiting palm/gripper, without putting the keys down, align, insert and turn the correct key in a lock; the part carries that whole sequence.",
+        "evidenceDigest": "701d5e4e9280a57db61ad58833a4582ed8cbf9373a5d44caabfa447c5263be1e"
+      },
+      {
+        "partId": "author-described-task-difficulty",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The passage continues \"This requires very close control...\" in the author's own voice, supporting the author-described difficulty without converting it into an external difficulty measurement.",
+        "evidenceDigest": "7c321f1d1174ba06db430cbec5a97f69123bc5bf11e768b161114fd1f9bfa1b5"
+      },
+      {
+        "partId": "general-eligibility-context",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The eligibility passage (1x speed video, no cuts, autonomous general-purpose mobile manipulator) supplies the rules context that keeps the keyring description a challenge specification.",
+        "evidenceDigest": "8c3e5914c7196dc3a68d63049ef8a679b377e17579874de2272df44eef368554"
+      },
+      {
+        "partId": "challenge-not-performance",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator b7c3ecb7-1f51-4b86-9c85-04f3e33489cc; retained-document review2026-09-15",
+        "rationale": "The passage \"I am issuing a challenge to roboticists... I will update this post as folks achieve\" supports treating the events as open challenge rules, not observed robot performance or a scoreboard census.",
+        "evidenceDigest": "1972ca0bbd8cab599e5f9ea6940246658087568852cef401744ce423788fe691"
+      }
+    ]
   }
 ]

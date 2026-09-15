@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 6
 - Claim rows: 147
-- Recorded verified: 106
-- Recorded corrected: 38
+- Recorded verified: 104
+- Recorded corrected: 40
 - Recorded cut: 0
 - Recorded source inconsistencies: 3
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 22
-- Incomplete evidence records: 125
+- Complete evidence records: 25
+- Incomplete evidence records: 122
 
 <!-- audit-summary:end -->
 
@@ -98,8 +98,8 @@ Conventions: verdicts count **ledger rows**; the summary also states **distinct 
 | # | Claim (quoted) | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
 |---|---|---|---|---|---|---|---|---|
 | D9 | "about 17,000 low-threshold mechanoreceptors... roughly 1,000 of them at each fingertip" (cited to macefield-touch-2022) | Brooks essay (fetched, quoting the review) + Crossref for the DOI | V | Brooks: "In a review of Johansson's earlier work from 1979 it is reported that a human hand has about 17,000... with about 1,000 of them right at the tip of each finger", linking the Macefield review. Wiley bot-walls direct fetch; Crossref confirms registry title/author/year (Macefield, J Physiol 2022). |
-| D10 | Holson pipeline limits: no wrist force feedback / open-close finger control / no touch / "roughly 1 to 3 cm of precision" | generalrobots.substack.com (fetched) | V | all four in Holson's own post, bolded headings "No force feedback at the wrists", "Limited finger control", "No sense of touch", "Medium precision... about 1-3 cm precision" |
-| D11 | "the 2025 tactile robotics outlook identifies exactly this sensing and integration gap as the field's open problem" | arXiv 2508.11261 HTML (fetched) | C | the outlook examines "several challenges" and defines the field as "development and integration of tactile-sensing technologies into robotic systems"; it never ties itself to the article's stick-slip amplification argument. Reworded to the paper's own framing ("frames integrating touch sensing into working robotic systems as the field's defining challenge"). |
+| D10 | In his September 8, 2025 post, Holson describes exception-qualified learning-from-demonstration limitations involving operator wrist-force feedback, finger control and human-like touch for the puppeteer. About 1–3 cm task precision is his guess from videos, likely more a teleoperation than a model limitation, with an explicitly described sub-cm counterexample. | https://generalrobots.substack.com/p/benjies-humanoid-olympic-games; FetchUrl tool-reported 200 on 2026-09-14 | C | Source-only proposal. Human-operator feedback is distinct from robot sensing; articulated-finger control is not restricted hardware. The 1–3 cm figure is an author guess, not a measured bound. Exceptions and the likely teleoperation-versus-model caveat are retained. Historical original cells remain separately preserved; original 8 is a separate unassigned duplicate and earns no credit. |  |  |  | dexterity-holson-pipeline-source-20260915 |
+| D11 | Luo and colleagues’ 2025 arXiv v1 outlook defines tactile robotics as development and integration of tactile-sensing technologies into robotic systems and discusses multiple challenges across sensing, processing, simulation, benchmarking, multimodal learning and active touch; it is not attributed the article’s stick-slip amplification argument. | https://arxiv.org/html/2508.11261; FetchUrl tool-reported 200 on 2026-09-14; identity/version/accepted-venue metadata from https://arxiv.org/abs/2508.11261 | C | Source-only proposal. The current article’s definition is closer to the source than the historical ledger note’s single-defining-challenge gloss. The unsupported adjoining stick-slip amplification claim is proposed for removal, not certified. Explicit six-author byline and v1 marker are retained; accepted-to-T-RO is metadata, not VOR equivalence. |  |  |  | dexterity-tactile-outlook-source-20260915 |
 | D12 | Go-Big: 100% egocentric human video, no robot demonstrations, Brookfield 100,000+ residential units, zero-shot video-to-robot navigation as first result | figure.ai/news/project-go-big (fetched) | V | all four stated; article correctly hedges the navigation claim as Figure's claim |
 | D13 | Fishel: video alone does not reveal touch "until well after the collision has physically moved the object"; Wells: touch "the key enabler for human-level dexterity" | sanctuary.ai tactile announcement (fetched, 2025-02-26) | V | both stated; Fishel is "Principal Researcher", Wells "CEO at Sanctuary AI" |
 | D14 | Phoenix hands: hydraulic actuation, "fingertip arrays of micro-barometer cells sensitive to about five millinewtons, against roughly three for a human fingertip" | sanctuary.ai announcement + blog.robozaps.com Phoenix review (both fetched) | V | RoboZaps: "seven-cell tactile array to each fingerpad, built on micro-barometers... sensitive to about five millinewtons against a human finger's roughly three" (Feb 2025, matching the announcement date); hydraulics from Sanctuary's own pages |
@@ -116,7 +116,7 @@ Conventions: verdicts count **ledger rows**; the summary also states **distinct 
 | D25 | Helix 02 four tasks: bottle cap, single pill from an organizer, exactly 5 ml syringe, small metal parts from clutter | figure.ai/news/helix-02 (fetched) | V | Dexterity Tasks 1-4 verbatim ("Unscrew a bottle cap"; "locate and extract a single small pill from an organizer"; "Push exactly 5 ml from a syringe"; "Pick metal pieces from a cluttered box") |
 | D26 | "Sanctuary demonstrated zero-shot in-hand reorientation with its 21-DoF hydraulic hands in December 2024" | sanctuary.ai in-hand announcement (fetched; datePublished 2024-12-12) | C | the announcement states 21-DoF hands performing in-hand manipulation in Dec 2024, but never uses "zero-shot" or "reorientation"; that characterization is the RoboZaps review's ("performing zero-shot in-hand manipulation, reorienting a held object"). Reworded to the primary's claim with the review cited for the characterization. |
 | D27 | Sanctuary RL demo: "sim-trained reinforcement-learning policy reorienting objects against gravity with a 500 g weight added, a vendor-run result" | sanctuary.ai hydraulic-RL post (fetched) | V | "an in-hand reorientation policy trained in simulation... executed in the real world, against gravity and with 500 grams of weight added" |
-| D28 | Holson keyring task: "handed a keyring and must align and turn the correct key without putting it down" | Holson's Olympics post (fetched) | V | "A keyring with at least 2 keys... Without putting the keys down, get the correct key aligned and inserted and turned in a lock" |
+| D28 | Holson’s gold-medal Basic Tool Use event starts with a keyring containing at least two keys and a keychain dropped into the robot’s waiting palm/gripper; without putting the keys down, the correct key must be aligned, inserted and turned in a lock. This describes challenge rules, not observed robot performance or an unclaimed-medal census. | https://generalrobots.substack.com/p/benjies-humanoid-olympic-games; FetchUrl tool-reported 200 on 2026-09-14 | C | Source-only proposal. Initial keyring/keychain condition, alignment/insertion/turning and no-setting-down constraint are retained. The attached universal sensing-necessity and unclaimed-status claims are proposed for removal, not disproved by unavailable evidence. General time/video/autonomy rules, author discretion and mobility ambiguity remain in the source context. |  |  |  | dexterity-keyring-rules-source-20260915 |
 | D29 | RL-100 folds cloth; π0.7 "does laundry and espresso tasks with language steering" | arXiv 2510.14830 abstract (fetched); pi07 blog (fetched) | V | cloth folding among RL-100's eight tasks; coaching sections of the blog |
 | D30 | π Olympics: gold in 3 of 5 categories, "under nine hours of data per task", 52% success / 72% progress, 9% baseline progress, two golds physically impossible, orange "needed a tool and did not count" | pi.website/blog/olympics (fetched) | C | all figures verified ("success rate of 52% and a task progress of 72%"; baseline "average task progress of 9%"; "3 out of 5"; "physically impossible for our robot"; orange "technically a rule violation, so we don't count this as successful") except the data figure, which the post states as "under 9 hours **for most tasks**". Corrected "per task" → "for most tasks". |
 
@@ -572,4 +572,112 @@ Non-counted exact original/current row history:
     "separatorAfter": "|---|---|---|---|---|---|---|---|---|"
   }
 }
+```
+
+## 2026-09-15 Holson pipeline, tactile outlook and keyring closeout
+
+Exactly three dexterity originals are corrected from the parent-qualified frozen
+packet `convergence-lane-a-holson-tactile-outlook-20260914/plan.json` (SHA-256
+06a0b77074bbd05e6c91f5ed8a80fcea8c354539a1b3852eee568abff59e4594); zero retrieval
+was performed and the retained passages are the source basis. Originals10/11/28
+carry 7/7/6 mandatory parts and 20 part-source pairs total, bound to the two
+registered citations holson-olympics-2025 and tactile-outlook-2025 with full
+uncredentialed HTTP(S) URLs and substantive passages in the three native plans
+`dexterity-holson-pipeline-source-20260915`, `dexterity-tactile-outlook-source-20260915`
+and `dexterity-keyring-rules-source-20260915`. All 20 members were adjudicated
+supported by this integrator's retained-document review2026-09-15; the packet's
+source-only proposal supplied neither review nor adjudication.
+
+D10 keeps Holson's dated, exception-qualified human-operator interface account,
+with 1-3 cm explicitly guessed from videos and the sub-cm counterexample; the
+fingertip-anesthesia analogy and blanket tactile categorization are removed.
+D11 keeps the outlook definition and its multiple challenge areas and cuts the
+unsupported stick-slip amplification attribution; the v1/T-RO-accepted metadata
+is scope, not VOR equivalence. D28's two article endpoints travel together:
+keyring initial condition, no-putting-down and align/insert/turn rules restored
+as challenge rules not observed performance, and the unclaimed-medal status
+clause cut. Genuine uncertainty is preserved; original8 remains a separate
+unassigned duplicate and earns no credit.
+
+All 991 unselected semantic records, prior plans/approvals and order, the
+citation registry, glossary, dates, defaults and neighbors are preserved.
+`lastReviewed` is unchanged (2026-08-18): the dexterity article remains mid-audit
+and no whole-article clean promise is made. No source retrieval, full corpus,
+push or independent acceptance is claimed.
+
+Non-counted exact original/current row history:
+
+```json
+[
+  {
+    "originalId": "audit/frontier.md:dexterity:10",
+    "oldCells": {
+      "claim": "Holson pipeline limits: no wrist force feedback / open-close finger control / no touch / \"roughly 1 to 3 cm of precision\"",
+      "sourceChecked": "generalrobots.substack.com (fetched)",
+      "verdict": "V",
+      "note": "all four in Holson's own post, bolded headings \"No force feedback at the wrists\", \"Limited finger control\", \"No sense of touch\", \"Medium precision... about 1-3 cm precision\""
+    },
+    "currentCells": {
+      "claim": "In his September 8, 2025 post, Holson describes exception-qualified learning-from-demonstration limitations involving operator wrist-force feedback, finger control and human-like touch for the puppeteer. About 1–3 cm task precision is his guess from videos, likely more a teleoperation than a model limitation, with an explicitly described sub-cm counterexample.",
+      "sourceChecked": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games; FetchUrl tool-reported 200 on 2026-09-14",
+      "verdict": "C",
+      "note": "Source-only proposal. Human-operator feedback is distinct from robot sensing; articulated-finger control is not restricted hardware. The 1–3 cm figure is an author guess, not a measured bound. Exceptions and the likely teleoperation-versus-model caveat are retained. Historical original cells remain separately preserved; original 8 is a separate unassigned duplicate and earns no credit."
+    },
+    "oldRaw": "| D10 | Holson pipeline limits: no wrist force feedback / open-close finger control / no touch / \"roughly 1 to 3 cm of precision\" | generalrobots.substack.com (fetched) | V | all four in Holson's own post, bolded headings \"No force feedback at the wrists\", \"Limited finger control\", \"No sense of touch\", \"Medium precision... about 1-3 cm precision\" |",
+    "newRaw": "| D10 | In his September 8, 2025 post, Holson describes exception-qualified learning-from-demonstration limitations involving operator wrist-force feedback, finger control and human-like touch for the puppeteer. About 1–3 cm task precision is his guess from videos, likely more a teleoperation than a model limitation, with an explicitly described sub-cm counterexample. | https://generalrobots.substack.com/p/benjies-humanoid-olympic-games; FetchUrl tool-reported 200 on 2026-09-14 | C | Source-only proposal. Human-operator feedback is distinct from robot sensing; articulated-finger control is not restricted hardware. The 1–3 cm figure is an author guess, not a measured bound. Exceptions and the likely teleoperation-versus-model caveat are retained. Historical original cells remain separately preserved; original 8 is a separate unassigned duplicate and earns no credit. |  |  |  | dexterity-holson-pipeline-source-20260915 |",
+    "currentTupleDigestBeforeApplication": "4c37d010e90d0917bde6013ad91c0d229ee2f566fdd3ccced139216a9d45296a",
+    "proposedCurrentTupleDigest": "da08340c29ed1dbf0a081ed1a3bfc04153a3156c3507cd9bbb12c669fc516e28",
+    "packetNativeDraftId": "source-prepared-dexterity-10-20260914",
+    "packetEndpointIds": [
+      "article-holson-pipeline"
+    ]
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:11",
+    "oldCells": {
+      "claim": "\"the 2025 tactile robotics outlook identifies exactly this sensing and integration gap as the field's open problem\"",
+      "sourceChecked": "arXiv 2508.11261 HTML (fetched)",
+      "verdict": "C",
+      "note": "the outlook examines \"several challenges\" and defines the field as \"development and integration of tactile-sensing technologies into robotic systems\"; it never ties itself to the article's stick-slip amplification argument. Reworded to the paper's own framing (\"frames integrating touch sensing into working robotic systems as the field's defining challenge\")."
+    },
+    "currentCells": {
+      "claim": "Luo and colleagues’ 2025 arXiv v1 outlook defines tactile robotics as development and integration of tactile-sensing technologies into robotic systems and discusses multiple challenges across sensing, processing, simulation, benchmarking, multimodal learning and active touch; it is not attributed the article’s stick-slip amplification argument.",
+      "sourceChecked": "https://arxiv.org/html/2508.11261; FetchUrl tool-reported 200 on 2026-09-14; identity/version/accepted-venue metadata from https://arxiv.org/abs/2508.11261",
+      "verdict": "C",
+      "note": "Source-only proposal. The current article’s definition is closer to the source than the historical ledger note’s single-defining-challenge gloss. The unsupported adjoining stick-slip amplification claim is proposed for removal, not certified. Explicit six-author byline and v1 marker are retained; accepted-to-T-RO is metadata, not VOR equivalence."
+    },
+    "oldRaw": "| D11 | \"the 2025 tactile robotics outlook identifies exactly this sensing and integration gap as the field's open problem\" | arXiv 2508.11261 HTML (fetched) | C | the outlook examines \"several challenges\" and defines the field as \"development and integration of tactile-sensing technologies into robotic systems\"; it never ties itself to the article's stick-slip amplification argument. Reworded to the paper's own framing (\"frames integrating touch sensing into working robotic systems as the field's defining challenge\"). |",
+    "newRaw": "| D11 | Luo and colleagues’ 2025 arXiv v1 outlook defines tactile robotics as development and integration of tactile-sensing technologies into robotic systems and discusses multiple challenges across sensing, processing, simulation, benchmarking, multimodal learning and active touch; it is not attributed the article’s stick-slip amplification argument. | https://arxiv.org/html/2508.11261; FetchUrl tool-reported 200 on 2026-09-14; identity/version/accepted-venue metadata from https://arxiv.org/abs/2508.11261 | C | Source-only proposal. The current article’s definition is closer to the source than the historical ledger note’s single-defining-challenge gloss. The unsupported adjoining stick-slip amplification claim is proposed for removal, not certified. Explicit six-author byline and v1 marker are retained; accepted-to-T-RO is metadata, not VOR equivalence. |  |  |  | dexterity-tactile-outlook-source-20260915 |",
+    "currentTupleDigestBeforeApplication": "b8e762fb4af5da651df8c902d3d781070e20031d7b58e2242c3e40e0b83ad0c5",
+    "proposedCurrentTupleDigest": "9122842af12f40111b326a74db7c7e37c2e199926631a6786d84cb2065139d75",
+    "packetNativeDraftId": "source-prepared-dexterity-11-20260914",
+    "packetEndpointIds": [
+      "article-outlook-framing"
+    ]
+  },
+  {
+    "originalId": "audit/frontier.md:dexterity:28",
+    "oldCells": {
+      "claim": "Holson keyring task: \"handed a keyring and must align and turn the correct key without putting it down\"",
+      "sourceChecked": "Holson's Olympics post (fetched)",
+      "verdict": "V",
+      "note": "\"A keyring with at least 2 keys... Without putting the keys down, get the correct key aligned and inserted and turned in a lock\""
+    },
+    "currentCells": {
+      "claim": "Holson’s gold-medal Basic Tool Use event starts with a keyring containing at least two keys and a keychain dropped into the robot’s waiting palm/gripper; without putting the keys down, the correct key must be aligned, inserted and turned in a lock. This describes challenge rules, not observed robot performance or an unclaimed-medal census.",
+      "sourceChecked": "https://generalrobots.substack.com/p/benjies-humanoid-olympic-games; FetchUrl tool-reported 200 on 2026-09-14",
+      "verdict": "C",
+      "note": "Source-only proposal. Initial keyring/keychain condition, alignment/insertion/turning and no-setting-down constraint are retained. The attached universal sensing-necessity and unclaimed-status claims are proposed for removal, not disproved by unavailable evidence. General time/video/autonomy rules, author discretion and mobility ambiguity remain in the source context."
+    },
+    "oldRaw": "| D28 | Holson keyring task: \"handed a keyring and must align and turn the correct key without putting it down\" | Holson's Olympics post (fetched) | V | \"A keyring with at least 2 keys... Without putting the keys down, get the correct key aligned and inserted and turned in a lock\" |",
+    "newRaw": "| D28 | Holson’s gold-medal Basic Tool Use event starts with a keyring containing at least two keys and a keychain dropped into the robot’s waiting palm/gripper; without putting the keys down, the correct key must be aligned, inserted and turned in a lock. This describes challenge rules, not observed robot performance or an unclaimed-medal census. | https://generalrobots.substack.com/p/benjies-humanoid-olympic-games; FetchUrl tool-reported 200 on 2026-09-14 | C | Source-only proposal. Initial keyring/keychain condition, alignment/insertion/turning and no-setting-down constraint are retained. The attached universal sensing-necessity and unclaimed-status claims are proposed for removal, not disproved by unavailable evidence. General time/video/autonomy rules, author discretion and mobility ambiguity remain in the source context. |  |  |  | dexterity-keyring-rules-source-20260915 |",
+    "currentTupleDigestBeforeApplication": "8d452b0b2fb200b0ab0e16c5733453a7517f17f518293114d00ff1ee04f1b420",
+    "proposedCurrentTupleDigest": "3bdb8f60ff88e8589c6fc7223ef008eef94cd7e7a73dfce7e0511f2a3a126b5e",
+    "packetNativeDraftId": "source-prepared-dexterity-28-20260914",
+    "packetEndpointIds": [
+      "article-keyring-rules",
+      "article-keyring-status-cut"
+    ]
+  }
+]
 ```
