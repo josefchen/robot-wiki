@@ -12024,6 +12024,312 @@
     "VAL-AUDIT-009"
   ],
   "disposition": "permanent"
-}
+},
+  {
+    "id": "av-r1-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 1: ledger evidence-plan completion bound to its registered citation, with the corrected laser-range-finder sensor wording applied to the article span (the tour clause's own correction is record 2, held for the http-only registration blocker). All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r3-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 3: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r4-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 4: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r5-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 5: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r6-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 6: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r7-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 7: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r8-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 8: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r9-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 9: ledger evidence-plan completion bound to its registered citation with the ledger source cell corrected to the registered arXiv 1604.07446 (the old cell's 1606.06576 is an unrelated Weinberger-Merhav paper). All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r10-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 10: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r11-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 11: ledger evidence-plan completion bound to its registered citation with the SAE 2021-revision article span corrected to the announcement's actual clarity items (Driver Support Systems name for 1-2; Level 3-vs-4 clarity). All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r12-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 12: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r13-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 13: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r14-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 14: ledger evidence-plan completion bound to its registered citation with the Koopman dimensions article span corrected to the post's actual multi-dimensional safety list. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r15-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 15: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r16-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 16: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r17-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 17: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r18-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 18: ledger evidence-plan completion bound to its registered citation with the ledger source cell corrected to the registered arXiv PDF actually fetched (1011.0686, not an unfetched cs.cmu.edu copy). All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  },
+  {
+    "id": "av-r19-20260915-1",
+    "manifest": "prose",
+    "memberId": "article:adjacent/autonomous-vehicles",
+    "oldHash": "2640117057bf21d731355ab0b9811ffd98b4845f74590ad3a77bb0ba63a61ad9",
+    "newHash": "ce225439211d526929beb119f85fffd5140f7891f56c23d97e2bf758549abfc3",
+    "reason": "Exactly adjacent/autonomous-vehicles original 19: ledger evidence-plan completion bound to its registered citation. All part passages needle-verified against the retained fetch text by the integrator before adjudication (see lane passage-verification.json). Literal/source/review evidence: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-autonomous-vehicles-integration-20260915/. Not whole-article, full-document manual-review, independent or release acceptance.",
+    "ownerApproval": "Josef's actual September 7, 2026 \"fix it all!\" instruction recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+    "responsibleMilestone": "brand-v2-editorial",
+    "affectedAssertions": [
+      "VAL-B2-BASE-002",
+      "VAL-B2-BASE-010",
+      "VAL-B2-ART-010",
+      "VAL-AUDIT-009"
+    ],
+    "disposition": "permanent"
+  }
   ]
 }

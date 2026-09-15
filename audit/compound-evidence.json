@@ -53559,5 +53559,1253 @@
       "evidenceDigest": "004d6487e6ee2058bb4e725c5f2d91c0334bd372a55972fecab48093e71f3fc8"
     }
   ]
-}
+},
+  {
+    "id": "av-1-alvinn-arch-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 1,
+    "originalCellsDigest": "df530939487717795ecf2f63da63e1e2dc0108d5ae3a9dd2a424ab505b0076e0",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av1-three-layer",
+        "text": "ALVINN (1988) is a three-layer back-propagation network designed for the task of road following.",
+        "requiredCitationIds": [
+          "alvinn-1988"
+        ]
+      },
+      {
+        "id": "av1-inputs",
+        "text": "It took images from a camera and a laser range finder as input and produced the direction the vehicle should travel to follow the road.",
+        "requiredCitationIds": [
+          "alvinn-1988"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av1-three-layer",
+        "citationId": "alvinn-1988",
+        "sourceUrl": "https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html",
+        "supportingPassage": "ALVINN (Autonomous Land Vehicle In a Neural Network) is a 3-layer back-propagation network designed for the task of road following."
+      },
+      {
+        "partId": "av1-inputs",
+        "citationId": "alvinn-1988",
+        "sourceUrl": "https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html",
+        "supportingPassage": "Cur­rently ALVINN takes images from a camera and a laser range finder as input and produces as output the direction the vehicle should travel in order to follow the road."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "2b3d4e9bb62aa6204752e9ef7522af7b228910439b9f174f939a207441dee273"
+    },
+    "adjudications": [
+      {
+        "partId": "av1-three-layer",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "71bf24cfb0e1592bb986bfbff2321e792bb7dfce53b87d494d6b1770bba83d8a"
+      },
+      {
+        "partId": "av1-inputs",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "730aa9fc9234d4454070481a939f8ccd7dca07d6860cb0469b90010820d6659e"
+      }
+    ]
+  },
+  {
+    "id": "av-3-waymo-crash-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "a640069fa869d1a631bcff84a3f84978a703a46c29542f15676c9082f505f388",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av3-mileage",
+        "text": "The study examined 56.7 million rider-only miles through the end of January 2025.",
+        "requiredCitationIds": [
+          "waymo-crash-rates-2025"
+        ]
+      },
+      {
+        "id": "av3-significant-outcomes",
+        "text": "It found statistically significant lower crash rates than the human benchmarks for Any-Injury-Reported, Airbag Deployment, and Suspected Serious Injury+ outcomes.",
+        "requiredCitationIds": [
+          "waymo-crash-rates-2025"
+        ]
+      },
+      {
+        "id": "av3-v2v-96",
+        "text": "Vehicle-to-vehicle intersection crashes were reduced 96 percent in the any-injury-reported category (87-99 percent CI).",
+        "requiredCitationIds": [
+          "waymo-crash-rates-2025"
+        ]
+      },
+      {
+        "id": "av3-no-disbenefit",
+        "text": "No statistically significant disbenefit was found in any of the eleven crash type groups.",
+        "requiredCitationIds": [
+          "waymo-crash-rates-2025"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av3-mileage",
+        "citationId": "waymo-crash-rates-2025",
+        "sourceUrl": "https://arxiv.org/abs/2505.01515",
+        "supportingPassage": "Data was examined over 56.7 million RO miles through the end of January 2025"
+      },
+      {
+        "partId": "av3-significant-outcomes",
+        "citationId": "waymo-crash-rates-2025",
+        "sourceUrl": "https://arxiv.org/abs/2505.01515",
+        "supportingPassage": "resulting in a statistically significant lower crashed vehicle rate for all crashes compared to the benchmarks in Any-Injury-Reported and Airbag Deployment, and Suspected Serious Injury+ crashes"
+      },
+      {
+        "partId": "av3-v2v-96",
+        "citationId": "waymo-crash-rates-2025",
+        "sourceUrl": "https://arxiv.org/abs/2505.01515",
+        "supportingPassage": "V2V Intersection crash events represented the largest total crash reduction, with a 96% reduction in Any-injury-reported (87%-99% CI)"
+      },
+      {
+        "partId": "av3-no-disbenefit",
+        "citationId": "waymo-crash-rates-2025",
+        "sourceUrl": "https://arxiv.org/abs/2505.01515",
+        "supportingPassage": "There was no statistically significant disbenefit found in any of the 11 crash type groups."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "ff33619aa9ab307667e9dc2ce7fa2879a14e802df40b7cdfe1df875a3a26420e"
+    },
+    "adjudications": [
+      {
+        "partId": "av3-mileage",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "daaac19c9723ff30b75f1e1d6b608640b3b8007228d432968fe205279e267bbb"
+      },
+      {
+        "partId": "av3-significant-outcomes",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "7085072f06ebd639cf60ccd54e1bf3939d40f3b1173565fff07cbee520f61a07"
+      },
+      {
+        "partId": "av3-v2v-96",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "fa87ea18f98f7c10b143aad0c6e9fbacf9478760c14f90f8ce72c52163a1e527"
+      },
+      {
+        "partId": "av3-no-disbenefit",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "987dfbf85f60881b0f8715fad1d825b594d164708fa09f9be980870a91b08f1e"
+      }
+    ]
+  },
+  {
+    "id": "av-4-wod-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 4,
+    "originalCellsDigest": "97854153bb56285289fe08fe728d48d442a077c3bebb858a6cf04d751095134a",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av4-scenes",
+        "text": "The Waymo Open Dataset shipped 1,150 scenes of 20 seconds each of synchronized, calibrated lidar and camera data across urban and suburban geographies.",
+        "requiredCitationIds": [
+          "waymo-open-dataset-2020"
+        ]
+      },
+      {
+        "id": "av4-diversity",
+        "text": "Under the paper's proposed diversity metric it was 15 times more diverse than the largest existing camera-plus-lidar dataset.",
+        "requiredCitationIds": [
+          "waymo-open-dataset-2020"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av4-scenes",
+        "citationId": "waymo-open-dataset-2020",
+        "sourceUrl": "https://arxiv.org/abs/1912.04838",
+        "supportingPassage": "Our new dataset consists of 1150 scenes that each span 20 seconds, consisting of well synchronized and calibrated high quality LiDAR and camera data captured across a range of urban and suburban geographies."
+      },
+      {
+        "partId": "av4-diversity",
+        "citationId": "waymo-open-dataset-2020",
+        "sourceUrl": "https://arxiv.org/abs/1912.04838",
+        "supportingPassage": "It is 15x more diverse than the largest camera+LiDAR dataset available based on our proposed diversity metric."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "d0f1905bb813f4a8c55415c7a8f112f89d33ae84c335364e130e098d8adc5af7"
+    },
+    "adjudications": [
+      {
+        "partId": "av4-scenes",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "3bdabb00d2cf87a565b091601887b5755cd94e4c61bb4bdac4b828cd79ca6d72"
+      },
+      {
+        "partId": "av4-diversity",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "22e0e75f612e6ac633b0fe582f4cf5020457eff520eff2a60f220cbc62749f22"
+      }
+    ]
+  },
+  {
+    "id": "av-5-vectornet-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "9dbf0079ee6089409af121295fc6d42305a27e7087d26dc987e5776efa5092ba",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av5-architecture",
+        "text": "VectorNet is a hierarchical graph neural network operating directly on vectorized HD-map entities and agent trajectories rather than rendered rasters.",
+        "requiredCitationIds": [
+          "vectornet-2020"
+        ]
+      },
+      {
+        "id": "av5-efficiency",
+        "text": "It matched or beat the competitive rendering approach on both benchmarks evaluated while saving over 70 percent of the model parameters and an order of magnitude in FLOPs.",
+        "requiredCitationIds": [
+          "vectornet-2020"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av5-architecture",
+        "citationId": "vectornet-2020",
+        "sourceUrl": "https://arxiv.org/abs/2005.04259",
+        "supportingPassage": "By operating on the vectorized high definition (HD) maps and agent trajectories, we avoid lossy rendering and computationally intensive ConvNet encoding steps."
+      },
+      {
+        "partId": "av5-efficiency",
+        "citationId": "vectornet-2020",
+        "sourceUrl": "https://arxiv.org/abs/2005.04259",
+        "supportingPassage": "Our method achieves on par or better performance than the competitive rendering approach on both benchmarks while saving over 70% of the model parameters with an order of magnitude reduction in FLOPs."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "8f0fe79a7ad218597883305724f0db981a233c59cd0cc6b39a83b4686e4a4367"
+    },
+    "adjudications": [
+      {
+        "partId": "av5-architecture",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "767e4c8ef2c7c0d6b7d3bee00cd57289940bdda68dc75cd7c873b1872b2fbbd4"
+      },
+      {
+        "partId": "av5-efficiency",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "a0305cd53a45793a61eb1f8ef0329f3110823a0b77fcb00b330a99c99e43bc8e"
+      }
+    ]
+  },
+  {
+    "id": "av-6-uniad-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 6,
+    "originalCellsDigest": "76596947d71e7d3f2792d7468a536ab61ad1fd38424fabd59e2ab56d501713d1",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av6-sequential-quote",
+        "text": "Papers describe modern autonomous driving systems as 'modular tasks in sequential order, i.e., perception, prediction, and planning'.",
+        "requiredCitationIds": [
+          "uniad-2023"
+        ]
+      },
+      {
+        "id": "av6-one-network",
+        "text": "UniAD incorporates full-stack driving tasks in one network, with tasks communicating through unified query interfaces so each contributes to planning.",
+        "requiredCitationIds": [
+          "uniad-2023"
+        ]
+      },
+      {
+        "id": "av6-differentiable",
+        "text": "Its modules are designed to avoid non-differentiable post-processing so the whole pipeline trains end to end.",
+        "requiredCitationIds": [
+          "uniad-2023"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av6-sequential-quote",
+        "citationId": "uniad-2023",
+        "sourceUrl": "https://arxiv.org/abs/2212.10156",
+        "supportingPassage": "Modern autonomous driving system is characterized as modular tasks in sequential order, i.e., perception, prediction, and planning."
+      },
+      {
+        "partId": "av6-one-network",
+        "citationId": "uniad-2023",
+        "sourceUrl": "https://arxiv.org/abs/2212.10156",
+        "supportingPassage": "We introduce Unified Autonomous Driving (UniAD), a comprehensive framework up-to-date that incorporates full-stack driving tasks in one network. ... Tasks are communicated with unified query interfaces to facilitate each other toward planning."
+      },
+      {
+        "partId": "av6-differentiable",
+        "citationId": "uniad-2023",
+        "sourceUrl": "https://arxiv.org/pdf/2212.10156",
+        "supportingPassage": "TrackFormer. It jointly performs detection and multiobject tracking (MOT) without non-differentiable postprocessing."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "5125c5482f7c1fc479b9d195c72e9cb5f6a475b29e5f75831a3fa1d7d209ad9a"
+    },
+    "adjudications": [
+      {
+        "partId": "av6-sequential-quote",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "fa076699143ff3986badc9bdf9526ba0942d2866c674715b657bd56069d29ae1"
+      },
+      {
+        "partId": "av6-one-network",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "603dd53933f2ccb2df5409072705274ba3a5307619df1ff9df6d01541be1bbcb"
+      },
+      {
+        "partId": "av6-differentiable",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "4368b75254b09ab00db0826441cb60a2453fecc20a1da789bcc42787ed7cbd62"
+      }
+    ]
+  },
+  {
+    "id": "av-7-emma-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 7,
+    "originalCellsDigest": "4835e4d74f52d5ea24bc78adbceaf269b192991a1802ac7a9966215bfcd36c85",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av7-foundation",
+        "text": "EMMA is built on a multimodal large language model foundation in the Gemini family.",
+        "requiredCitationIds": [
+          "emma-2024"
+        ]
+      },
+      {
+        "id": "av7-text-io",
+        "text": "It represents all non-sensor inputs, such as navigation instructions and ego vehicle status, and outputs, such as trajectories and 3D locations, as natural language text.",
+        "requiredCitationIds": [
+          "emma-2024"
+        ]
+      },
+      {
+        "id": "av7-endtoend",
+        "text": "It directly maps raw camera sensor data into driving-specific outputs.",
+        "requiredCitationIds": [
+          "emma-2024"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av7-foundation",
+        "citationId": "emma-2024",
+        "sourceUrl": "https://arxiv.org/pdf/2410.23262v1",
+        "supportingPassage": "Gemini [Gemini Team Google, 2023] without additional specialized components."
+      },
+      {
+        "partId": "av7-text-io",
+        "citationId": "emma-2024",
+        "sourceUrl": "https://arxiv.org/abs/2410.23262",
+        "supportingPassage": "EMMA maximizes the utility of world knowledge from the pre-trained large language models, by representing all non-sensor inputs (e.g. navigation instructions and ego vehicle status) and outputs (e.g. trajectories and 3D locations) as natural language text."
+      },
+      {
+        "partId": "av7-endtoend",
+        "citationId": "emma-2024",
+        "sourceUrl": "https://arxiv.org/abs/2410.23262",
+        "supportingPassage": "Built upon a multi-modal large language model foundation like Gemini, EMMA directly maps raw camera sensor data into various driving-specific outputs, including planner trajectories, perception objects, and road graph elements."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "814265127a0dbeae805df3e7356adf025b1519fcb5d713b4bc7121393fe8ce08"
+    },
+    "adjudications": [
+      {
+        "partId": "av7-foundation",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "dda680ba43d35a04d75e7d58ab8d7ffa17b5e0745be9465133e0b6fbcf0074fb"
+      },
+      {
+        "partId": "av7-text-io",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "5a720418ab9416f14b46f7dc1d311103bf76c0a2b18c7fa38817b245713d48ab"
+      },
+      {
+        "partId": "av7-endtoend",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "e8e23d8bc0d237f4e6cb452e93063dd83547d6198d3be8b6289d90c4ebb6403d"
+      }
+    ]
+  },
+  {
+    "id": "av-8-chauffeurnet-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "0e5e4fc85b7bbf7451d296cf2b375b1e2a4072f4dabadf792fbd2591e0da70ab",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av8-30m",
+        "text": "Standard behavior cloning over 30 million examples was still not enough to drive robustly, even with a perception system preprocessing inputs and a controller executing outputs.",
+        "requiredCitationIds": [
+          "chauffeurnet-2018"
+        ]
+      },
+      {
+        "id": "av8-perturb",
+        "text": "The fix exposed the learner to perturbed expert trajectories that create collisions and off-road excursions.",
+        "requiredCitationIds": [
+          "chauffeurnet-2018"
+        ]
+      },
+      {
+        "id": "av8-losses",
+        "text": "The imitation loss was augmented with losses penalizing those undesirable events.",
+        "requiredCitationIds": [
+          "chauffeurnet-2018"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av8-30m",
+        "citationId": "chauffeurnet-2018",
+        "sourceUrl": "https://arxiv.org/abs/1812.03079",
+        "supportingPassage": "even when we leverage a perception system for preprocessing the input and a controller for executing the output on the car: 30 million examples are still not enough."
+      },
+      {
+        "partId": "av8-perturb",
+        "citationId": "chauffeurnet-2018",
+        "sourceUrl": "https://arxiv.org/abs/1812.03079",
+        "supportingPassage": "We propose exposing the learner to synthesized data in the form of perturbations to the expert's driving, which creates interesting situations such as collisions and/or going off the road."
+      },
+      {
+        "partId": "av8-losses",
+        "citationId": "chauffeurnet-2018",
+        "sourceUrl": "https://arxiv.org/abs/1812.03079",
+        "supportingPassage": "Rather than purely imitating all data, we augment the imitation loss with additional losses that penalize undesirable events and encourage progress"
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "264880115a990a2b65f1cb47f14a2386bec97e4dd1a388b7fca05e7e9c2d8048"
+    },
+    "adjudications": [
+      {
+        "partId": "av8-30m",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "d98c830e0c7363e280512206118f681dddda8a5ce2d285f5b8ab69ab162dc3b6"
+      },
+      {
+        "partId": "av8-perturb",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "eb7d7be9ff6fcf5dc39dbd7edaa8b274a75ee371d8d8ea94ea6f19ecd7380218"
+      },
+      {
+        "partId": "av8-losses",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "0f447399454ae32633157b802d78d28ec2debb046cb4c12584d4cc44b4ea0e53"
+      }
+    ]
+  },
+  {
+    "id": "av-9-paden-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 9,
+    "originalCellsDigest": "c7ead4ea7c5ab93b2bcdf35abf0cd966dbdce15613a5973140596f045ec59060",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av9-hierarchy",
+        "text": "The standard survey organizes the decision making of contemporary autonomous driving systems hierarchically into route planning, behavioral decision making, local motion planning, and feedback control.",
+        "requiredCitationIds": [
+          "paden-2016"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av9-hierarchy",
+        "citationId": "paden-2016",
+        "sourceUrl": "https://arxiv.org/pdf/1604.07446",
+        "supportingPassage": "The decision making in contemporary autonomous driving systems is typically hierarchically structured into route planning, behavioral decision making, local motion planning and feedback control."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "3319318e6f1cea2004f3441373755495f62ea2586ffa8244c35fb2e2dd4608ff"
+    },
+    "adjudications": [
+      {
+        "partId": "av9-hierarchy",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "b4fb4453e9e39c1fbad90bcff1e8980ac39c5ec0cfc9c7ee2a87e4974cb09709"
+      }
+    ]
+  },
+  {
+    "id": "av-10-e2esurvey-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 10,
+    "originalCellsDigest": "7f6698f7cdd62d2f1413b4aa52fc8c9e9a8b86e69d18f3d1547e47f72abe67c1",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av10-benefit",
+        "text": "The survey notes that end-to-end systems, compared to modular pipelines, benefit from joint feature optimization for perception and planning.",
+        "requiredCitationIds": [
+          "e2e-ad-survey-2024"
+        ]
+      },
+      {
+        "id": "av10-cost",
+        "text": "The corresponding cost is losing the classical pipeline's per-component interpretability and ease of debugging.",
+        "requiredCitationIds": [
+          "e2e-ad-survey-2024"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av10-benefit",
+        "citationId": "e2e-ad-survey-2024",
+        "sourceUrl": "https://arxiv.org/abs/2306.16927",
+        "supportingPassage": "End-to-end systems, in comparison to modular pipelines, benefit from joint feature optimization for perception and planning."
+      },
+      {
+        "partId": "av10-cost",
+        "citationId": "e2e-ad-survey-2024",
+        "sourceUrl": "https://arxiv.org/pdf/2306.16927",
+        "supportingPassage": "In the classical pipeline, each model serves a standalone component and corresponds to a specific task (e.g., traffic light detection). Such a design is beneficial in terms of interpretability and ease of debugging."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "358edc4a7f6019c56a9255d3efa1ac7c6425030b5c7d767fcd3709efb60818a9"
+    },
+    "adjudications": [
+      {
+        "partId": "av10-benefit",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "aa0044e2fd8e6835c70bf93f335097745dc69622d02bfc99bfbcf2634c61c725"
+      },
+      {
+        "partId": "av10-cost",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "fa515e374c67be7bbab718a6f44f31a9421dc89f8c6b136eb3d55c290072a19e"
+      }
+    ]
+  },
+  {
+    "id": "av-11-sae-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 11,
+    "originalCellsDigest": "e5349b7c128c3e030c9ce7bd27113453e1bfc5a2c8bcd28b02d0fd481ff35235",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av11-six-levels",
+        "text": "SAE J3016 defines six levels of driving automation, 0 through 5, from no driving automation to full driving automation.",
+        "requiredCitationIds": [
+          "sae-j3016-2021"
+        ]
+      },
+      {
+        "id": "av11-2021-refinements",
+        "text": "Its 2021 revision adopted the 'Driver Support Systems' name for levels 1 and 2 and added further clarity on the differences between levels 3 and 4, leaving the taxonomy content unchanged from 2019.",
+        "requiredCitationIds": [
+          "sae-j3016-2021"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av11-six-levels",
+        "citationId": "sae-j3016-2021",
+        "sourceUrl": "https://www.sae.org/news/blog/sae-levels-driving-automation-clarity-refinements",
+        "supportingPassage": "With a taxonomy for SAE's six levels of driving automation, SAE J3016 defines the SAE Levels from Level 0 (no driving automation) to Level 5 (full driving automation) in the context of motor vehicles and their operation on roadways."
+      },
+      {
+        "partId": "av11-2021-refinements",
+        "citationId": "sae-j3016-2021",
+        "sourceUrl": "https://www.sae.org/news/blog/sae-levels-driving-automation-clarity-refinements",
+        "supportingPassage": "Further clarity on the differences between SAE Level 3 and SAE Level 4. ... The use of the “Driver Support Systems” name for SAE Level 1 and 2 driving automation systems. ... All taxonomy content from the 2019 version remains unchanged in this latest version."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "58451f089de7d73c470b44b866462a0d81d6a61e08090538e44d73ea8a9c174b"
+    },
+    "adjudications": [
+      {
+        "partId": "av11-six-levels",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Integrator binding correction applied: the retained SAE announcement reads \"full driving automation\", which the catalog carries verbatim. Packet disposition ready-source-correction.",
+        "evidenceDigest": "f935c1920bf26fd3a42b6737941483b7625668b259403cb9f70c2463be6696fa"
+      },
+      {
+        "partId": "av11-2021-refinements",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "1ab6f00ee9138bbc4d926b6853aba9a2f2a32fd1e911090b40dcea0910bfc4d1"
+      }
+    ]
+  },
+  {
+    "id": "av-12-kalra-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 12,
+    "originalCellsDigest": "7a1a1477c935e03a000614a15908537a08622ef2b95ea0e5ce0fa275267c6ad9",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av12-miles",
+        "text": "Demonstrating reliability through test driving alone would take hundreds of millions of miles, and under some scenarios hundreds of billions of miles.",
+        "requiredCitationIds": [
+          "kalra-paddock-2016"
+        ]
+      },
+      {
+        "id": "av12-conclusion",
+        "text": "The study's conclusion is that on-road testing cannot be the primary safety case.",
+        "requiredCitationIds": [
+          "kalra-paddock-2016"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av12-miles",
+        "citationId": "kalra-paddock-2016",
+        "sourceUrl": "https://www.rand.org/news/press/2016/04/12.html",
+        "supportingPassage": "Autonomous vehicles would have to be driven hundreds of millions of miles and, under some scenarios, hundreds of billions of miles to create enough data to clearly demonstrate their safety, according to a new RAND report."
+      },
+      {
+        "partId": "av12-conclusion",
+        "citationId": "kalra-paddock-2016",
+        "sourceUrl": "https://www.rand.org/pubs/research_reports/RR1478.html",
+        "supportingPassage": "Therefore, at least for fatalities and injuries, test-driving alone cannot provide sufficient evidence for demonstrating autonomous vehicle safety."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "dd8c68242c7d5d62a3084e6c13ea36a7e235922d59fb7e20764c86ab660a0c46"
+    },
+    "adjudications": [
+      {
+        "partId": "av12-miles",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "627f27e88f35bb3522295f5eabb7ddbc8e7fbe84040655d08f2b98bcd0668590"
+      },
+      {
+        "partId": "av12-conclusion",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "3972177878ed6267dc6884fce64497c1ef2d078d18ef1c35966422a36ee90d78"
+      }
+    ]
+  },
+  {
+    "id": "av-13-rss-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "898bf3dcd146ae2e5bfae23959f6a2ba6a3ee0a140e862db1ba30995ec5bf720",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av13-whitebox",
+        "text": "RSS specifies, as a white-box mathematical condition, what it means to drive safely, so an auditor can check compliance without crash statistics.",
+        "requiredCitationIds": [
+          "rss-2017"
+        ]
+      },
+      {
+        "id": "av13-safe-distances",
+        "text": "The model formalizes safe distances in longitudinal and lateral motion.",
+        "requiredCitationIds": [
+          "rss-2017"
+        ]
+      },
+      {
+        "id": "av13-winter",
+        "text": "Its authors warned that without standardization the field risked a 'winter of autonomous driving'.",
+        "requiredCitationIds": [
+          "rss-2017"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av13-whitebox",
+        "citationId": "rss-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1708.06374",
+        "supportingPassage": "In the first part of the paper we propose a white-box, interpretable, mathematical model for safety assurance, which we call Responsibility-Sensitive Safety (RSS)."
+      },
+      {
+        "partId": "av13-safe-distances",
+        "citationId": "rss-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1708.06374",
+        "supportingPassage": "we now turn to the harder part of constructing adequate definitions for all type of roads. We start with formally defining the notions of longitudinal and lateral position/velocity/acceleration. ... Let vr , vf be the longitudinal velocities of the cars. Then, the minimal safe longitudinal distance"
+      },
+      {
+        "partId": "av13-winter",
+        "citationId": "rss-2017",
+        "sourceUrl": "https://arxiv.org/pdf/1708.06374",
+        "supportingPassage": "will push interest in this field into a niche academic corner, and drive the entire field into a “winter of autonomous driving”."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "5f4db03ca6a440b56dc0195f610ead6ced42758a85bef7eff37f90d66a79707c"
+    },
+    "adjudications": [
+      {
+        "partId": "av13-whitebox",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "d4283f966c3cee0628211600c02293571768c8ade3dbe43ab9ac1f86d6cc336b"
+      },
+      {
+        "partId": "av13-safe-distances",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "75befba9412d2a739ca2a80900f4af734404c17084c75615d069c18ca430d1fa"
+      },
+      {
+        "partId": "av13-winter",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "1547131fb45dace44b87e79773e7df68da736e1552d41471ffb6aee0b1d78ee5"
+      }
+    ]
+  },
+  {
+    "id": "av-14-koopman-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "29bfe5897196002078381f435881dd2e9cdcd817214ab1600569ccb0fea2663d",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av14-not-one-metric",
+        "text": "Koopman's position is that 'safe enough' is more than crashes divided by miles: acceptable safety is multi-dimensional.",
+        "requiredCitationIds": [
+          "koopman-safe-enough-2026"
+        ]
+      },
+      {
+        "id": "av14-all-constraints",
+        "text": "All safety constraints must be met; compromising one aspect below its acceptance criterion to improve a single appealing metric is not acceptable.",
+        "requiredCitationIds": [
+          "koopman-safe-enough-2026"
+        ]
+      },
+      {
+        "id": "av14-dimensions",
+        "text": "Beyond net statistical safety the dimensions include avoiding reckless driving, not shifting risk onto vulnerable populations, absence of unreasonable risk, standards conformance, avoiding negative externalities such as blocking fire trucks, and accountability for breaking road rules.",
+        "requiredCitationIds": [
+          "koopman-safe-enough-2026"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av14-not-one-metric",
+        "citationId": "koopman-safe-enough-2026",
+        "sourceUrl": "https://philkoopman.substack.com/p/whats-the-deal-with-safe-enough-autonomous",
+        "supportingPassage": "\"Safe Enough\" means more than crashes divided by miles, and that explains a lot of why this topic has been getting messy ... The reality is that there is more to societally acceptable safety than crashes/mile."
+      },
+      {
+        "partId": "av14-all-constraints",
+        "citationId": "koopman-safe-enough-2026",
+        "sourceUrl": "https://philkoopman.substack.com/p/whats-the-deal-with-safe-enough-autonomous",
+        "supportingPassage": "The take-away for acceptable safety is that all safety constraints need to be met. Compromising one aspect of safety below its acceptance criterion to bolster another aspect of safety is not acceptable, even if it does make some intuitively appealing single safety metric look better."
+      },
+      {
+        "partId": "av14-dimensions",
+        "citationId": "koopman-safe-enough-2026",
+        "sourceUrl": "https://philkoopman.substack.com/p/whats-the-deal-with-safe-enough-autonomous",
+        "supportingPassage": "As safe as a human driver on a net statistical basis ... Avoiding reckless driving ... Avoiding shifting risk onto vulnerable populations ... Absence of unreasonable risk (AUR) ... Standards conformance ... Avoiding negative externalities (e.g., not blocking fire trucks) ... Accountability for breaking road rules ... Meeting all stakeholder safety requirements"
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "96b85922f5fc37d01f52579f51ad0eb2dcf94540f7dec2624f4d0f19ef6df54b"
+    },
+    "adjudications": [
+      {
+        "partId": "av14-not-one-metric",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "21c10a4e616901ada6525e4723a6b18cdfedc017ae3cb32fabf18aec646eb7ca"
+      },
+      {
+        "partId": "av14-all-constraints",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "eac4e4493a491ccc01b15fd2877546a46223decefc8c3882e290880466892556"
+      },
+      {
+        "partId": "av14-dimensions",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "16ce024806902f2ab570be8cf0b76ad86eb7b9c82e03b9e7b5cb0b1b13826151"
+      }
+    ]
+  },
+  {
+    "id": "av-15-waymo-wm-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "69a3119cec51261ac7f29191222f95ea61bdfdc71d45f17f47b9cdaf5dce7007",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av15-miles",
+        "text": "The Waymo Driver has traveled nearly 200 million fully autonomous miles, and navigates billions of miles in virtual worlds.",
+        "requiredCitationIds": [
+          "waymo-world-model-2026"
+        ]
+      },
+      {
+        "id": "av15-genie3",
+        "text": "The Waymo World Model, announced in February 2026, is built on Google DeepMind's Genie 3.",
+        "requiredCitationIds": [
+          "waymo-world-model-2026"
+        ]
+      },
+      {
+        "id": "av15-modalities-control",
+        "text": "It generates camera and lidar outputs and is controllable through driving action control, scene layout control, and language control.",
+        "requiredCitationIds": [
+          "waymo-world-model-2026"
+        ]
+      },
+      {
+        "id": "av15-tornado-elephant",
+        "text": "It can simulate exceedingly rare events, 'from a tornado to a casual encounter with an elephant', that are almost impossible to capture at scale in reality.",
+        "requiredCitationIds": [
+          "waymo-world-model-2026"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av15-miles",
+        "citationId": "waymo-world-model-2026",
+        "sourceUrl": "https://waymo.com/blog/2026/02/the-waymo-world-model-a-new-frontier-for-autonomous-driving-simulation/",
+        "supportingPassage": "The Waymo Driver has traveled nearly 200 million fully autonomous miles ... our Driver navigating billions of miles in virtual worlds"
+      },
+      {
+        "partId": "av15-genie3",
+        "citationId": "waymo-world-model-2026",
+        "sourceUrl": "https://waymo.com/blog/2026/02/the-waymo-world-model-a-new-frontier-for-autonomous-driving-simulation/",
+        "supportingPassage": "The Waymo World Model is built upon Genie 3—Google DeepMind’s most advanced general-purpose world model that generates photorealistic and interactive 3D environments—and is adapted for the rigors of the driving domain."
+      },
+      {
+        "partId": "av15-modalities-control",
+        "citationId": "waymo-world-model-2026",
+        "sourceUrl": "https://waymo.com/blog/2026/02/the-waymo-world-model-a-new-frontier-for-autonomous-driving-simulation/",
+        "supportingPassage": "The Waymo World Model offers strong simulation controllability through three main mechanisms: driving action control, scene layout control, and language control. ... the Waymo World Model generates high-fidelity, multi-sensor outputs that include both camera and lidar data."
+      },
+      {
+        "partId": "av15-tornado-elephant",
+        "citationId": "waymo-world-model-2026",
+        "sourceUrl": "https://waymo.com/blog/2026/02/the-waymo-world-model-a-new-frontier-for-autonomous-driving-simulation/",
+        "supportingPassage": "it can simulate exceedingly rare events—from a tornado to a casual encounter with an elephant—that are almost impossible to capture at scale in reality."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "73e882ca922501538d55443dce2321e1774e12c1219f58212c07f241fbc849f3"
+    },
+    "adjudications": [
+      {
+        "partId": "av15-miles",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "8123f946387a4e244e5564c89a19c22bef9e606ab090ef7541a862f4a37476cb"
+      },
+      {
+        "partId": "av15-genie3",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "9e3cd0c67b1bf4cd3aad22dfdc572b984350212a275f2e099b4ccb794095c8e6"
+      },
+      {
+        "partId": "av15-modalities-control",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "61c59b15d886696eb81fe55d4325c3e1aca1ec78e30866561f49d008ee8ce1be"
+      },
+      {
+        "partId": "av15-tornado-elephant",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "17e26593cabc585f349edf54c39f82450ff12f03e71858b43516a8a6f4f50949"
+      }
+    ]
+  },
+  {
+    "id": "av-16-ntsb-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 16,
+    "originalCellsDigest": "f6864d6360469e70ce3bb5807fed9d8da3c5b611bcae62b7e36355e38b8e9db9",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av16-56s-classification",
+        "text": "Perception detected the pedestrian 5.6 seconds before impact but reclassified her among vehicle, unknown object, and bicycle, never accurately classifying her as a pedestrian or predicting her path.",
+        "requiredCitationIds": [
+          "ntsb-uber-2019"
+        ]
+      },
+      {
+        "id": "av16-12s",
+        "text": "The system determined a collision was imminent 1.2 seconds before impact, by then outside its braking response specification.",
+        "requiredCitationIds": [
+          "ntsb-uber-2019"
+        ]
+      },
+      {
+        "id": "av16-braking-precluded",
+        "text": "Its design precluded emergency braking for collision mitigation, relying on the operator instead.",
+        "requiredCitationIds": [
+          "ntsb-uber-2019"
+        ]
+      },
+      {
+        "id": "av16-glance",
+        "text": "The operator was glancing down for extended periods and redirected her gaze to the road about one second before impact.",
+        "requiredCitationIds": [
+          "ntsb-uber-2019"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av16-56s-classification",
+        "citationId": "ntsb-uber-2019",
+        "sourceUrl": "https://www.ntsb.gov/investigations/Pages/HWY18MH010.aspx",
+        "supportingPassage": "The ADS detected the pedestrian 5.6 seconds before impact. Although the ADS continued to track the pedestrian until the crash, it never accurately classified her as a pedestrian or predicted her path."
+      },
+      {
+        "partId": "av16-56s-classification",
+        "citationId": "ntsb-uber-2019",
+        "sourceUrl": "https://www.ntsb.gov/investigations/accidentreports/reports/har1903.pdf",
+        "supportingPassage": "It initially classified the pedestrian as a vehicle, and subsequently also as an unknown object"
+      },
+      {
+        "partId": "av16-12s",
+        "citationId": "ntsb-uber-2019",
+        "sourceUrl": "https://www.ntsb.gov/investigations/accidentreports/reports/har1903.pdf",
+        "supportingPassage": "determined that a collision with the pedestrian was imminent—1.2 seconds before impact."
+      },
+      {
+        "partId": "av16-braking-precluded",
+        "citationId": "ntsb-uber-2019",
+        "sourceUrl": "https://www.ntsb.gov/investigations/Pages/HWY18MH010.aspx",
+        "supportingPassage": "The system design precluded activation of emergency braking for collision mitigation, relying instead on the operator’s intervention to avoid a collision or mitigate an impact."
+      },
+      {
+        "partId": "av16-glance",
+        "citationId": "ntsb-uber-2019",
+        "sourceUrl": "https://www.ntsb.gov/investigations/Pages/HWY18MH010.aspx",
+        "supportingPassage": "The operator redirected her gaze to the road ahead about 1 second before impact."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "ff415f764955fb50fd44ee74e04a7783ee2b7f2d63fab037c2e9643c35ee5391"
+    },
+    "adjudications": [
+      {
+        "partId": "av16-56s-classification",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "d1f54c969464d32c08d470205f85707573748c169a5de128a43255c5a02a65cd"
+      },
+      {
+        "partId": "av16-12s",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "6d858ea4b97735f3f4e81e11cbd835c276b285da3a1e7c9ca3dbfc5687e1c19d"
+      },
+      {
+        "partId": "av16-braking-precluded",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "8047d58d7b9e56fae23e580a4ca955380332cbf38167409948960acfdf36d05a"
+      },
+      {
+        "partId": "av16-glance",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "23e38f1003389192bacaebdbbdbffdffc96f62e9b0565ad7dac4833389f02bd4"
+      }
+    ]
+  },
+  {
+    "id": "av-17-vlaad-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 17,
+    "originalCellsDigest": "c1e6860cd57ab1b8de9260b94d12ba32cf5f534bc4fcc509a2c5a111fa047f38",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av17-taxonomy",
+        "text": "The survey maps the driving VLA field into two paradigms: End-to-End VLA, one model integrating perception, reasoning, and planning, and Dual-System VLA, a slow deliberative VLM separated from fast, safety-critical execution.",
+        "requiredCitationIds": [
+          "vla-ad-survey-2026"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av17-taxonomy",
+        "citationId": "vla-ad-survey-2026",
+        "sourceUrl": "https://arxiv.org/abs/2512.16760",
+        "supportingPassage": "organize existing methods into two principal paradigms: End-to-End VLA, which integrates perception, reasoning, and planning within a single model, and Dual-System VLA, which separates slow deliberation (via VLMs) from fast, safety-critical execution (via planners)."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "7ee657a2b17dcb24273b0d3833a5d0977bf2ccb0c22fc42214e11501309565ca"
+    },
+    "adjudications": [
+      {
+        "partId": "av17-taxonomy",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "20d1e7245e453ee6b2e067fa38057d6e0a0e2c4c304f97dde1e4c0ac0c0b056c"
+      }
+    ]
+  },
+  {
+    "id": "av-18-dagger-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 18,
+    "originalCellsDigest": "4d3f0b63693dddaaae0814ea1ec7cccaadeae59a2c894d7dbb77e984b4b6ec36",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av18-quadratic",
+        "text": "Under naive supervised imitation, the number of mistakes the learner makes can grow quadratically in the task horizon T.",
+        "requiredCitationIds": [
+          "dagger-2011"
+        ]
+      },
+      {
+        "id": "av18-linear",
+        "text": "DAgger trains a stationary deterministic policy whose mistake/cost growth is linear in T, via a no-regret online-learning reduction.",
+        "requiredCitationIds": [
+          "dagger-2011"
+        ]
+      },
+      {
+        "id": "av18-driving",
+        "text": "The paper's evaluation includes learning to steer a car in a 3D racing game.",
+        "requiredCitationIds": [
+          "dagger-2011"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av18-quadratic",
+        "citationId": "dagger-2011",
+        "sourceUrl": "https://arxiv.org/pdf/1011.0686",
+        "supportingPassage": "the expert can make as many as T 2 ε mistakes in expectation ... the traditional supervised learning approach has poor performance guarantees due to the quadratic growth in T"
+      },
+      {
+        "partId": "av18-linear",
+        "citationId": "dagger-2011",
+        "sourceUrl": "https://arxiv.org/pdf/1011.0686",
+        "supportingPassage": "which learns a stationary deterministic policy guaranteed to perform well under its induced distribution of states (number of mistakes/costs that grows linearly in T and classification cost ε)."
+      },
+      {
+        "partId": "av18-driving",
+        "citationId": "dagger-2011",
+        "sourceUrl": "https://arxiv.org/pdf/1011.0686",
+        "supportingPassage": "on two challenging imitation learning problems: 1) learning to steer a car in a 3D racing game (Super Tux Kart)"
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "22bbb455a02819e114d26c0bca149e5bbc033b0c7ba12f0c37d10cda58009b8f"
+    },
+    "adjudications": [
+      {
+        "partId": "av18-quadratic",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Integrator binding correction applied: the retained PDF reads \"as many as T 2 ε mistakes in expectation\"; the epsilon factor is restored verbatim. Packet disposition ready-source-correction.",
+        "evidenceDigest": "2aab0ec0aee3c89576d5e0b94eb6730faaf22f96de93021ee17513986239290b"
+      },
+      {
+        "partId": "av18-linear",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "7ec53612393e24fc7aadf42621ae3b1bb8e5032b05ac596c9593556e246e5dfd"
+      },
+      {
+        "partId": "av18-driving",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "a42495cee8e0335a5d579b6ecddba797a986290283c02a30ce851db9c3047868"
+      }
+    ]
+  },
+  {
+    "id": "av-19-oxe-20260915",
+    "ledgerPath": "audit/adjacent.md",
+    "articleSlug": "autonomous-vehicles",
+    "rowOrdinal": 19,
+    "originalCellsDigest": "85910c0a5d41414827d036b7625728979b59ec19693a1fc9876d68604b35cb9e",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "av19-scale",
+        "text": "The Open X-Embodiment dataset pools over a million (1M+) robot trajectories from 22 robot embodiments.",
+        "requiredCitationIds": [
+          "open-x-embodiment-2023"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "partId": "av19-scale",
+        "citationId": "open-x-embodiment-2023",
+        "sourceUrl": "https://arxiv.org/pdf/2310.08864v1",
+        "supportingPassage": "Open X-Embodiment Dataset: robot learning dataset with 1M+ robot trajectories from 22 robot embodiments."
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+      "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 78203bf030d34fc8184f579d0972cbbd7079caa6ebabe732e23061806356ce4a) at HEAD 1438f67d: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the read-only parent row-dispatch preflight (preflight-result.json exit 0) before application. Every packet evidence passage was independently needle-verified by the integrator against the retained fetch text (23 FetchUrl tool_result captures + 8 curl-PDF pdftotext extractions, sha256-pinned in this lane's retained-fetch-store.json): normalized-substring or all-fragments-present checks, 70/70 items verified, results in passage-verification.json. Two documented integrator binding corrections applied where the preparer's transcription imprecisely quoted the retained source (av11: \"full automation\" -> the page's \"full driving automation\"; av18: restored the dropped linear-in-epsilon factor \"T 2 ε mistakes\"). Cited ids verified registered per-id in data/citations.ts; one genuinely-required new registration (no-hands-across-america-1995, verified unregistered) added for the row-2 correction was HELD: the pages serve over plain http only and the locked registry schema admits https URLs and dated web.archive.org captures alone, so a lawful registration would require a fetch this zero-retrieval integrator may not make (record 2 held; see lane handoff.json). Zero retrieval by this integrator. Source preparation is not acceptance.",
+      "planDigest": "2b52b5bd219bbdc080dd6209032b3ca8c58763cddfcbdb4fcd8f61d8e47c022c"
+    },
+    "adjudications": [
+      {
+        "partId": "av19-scale",
+        "outcome": "supported",
+        "reviewedBy": "GLM-5.3/max integrator bfde370f-aef4-43c5-bbd7-2fb6cb8d718e; preserved-packet + retained-source needle re-verification 2026-09-15",
+        "rationale": "Needle-verified against the retained fetch text for this part's source URL (retained-fetch-store.json; see passage-verification.json). Packet disposition ready-source-correction.",
+        "evidenceDigest": "04e315404392d91389e90d2cce06dd8d8c9f894ef5e3e765eae764d9239c664c"
+      }
+    ]
+  }
 ]
