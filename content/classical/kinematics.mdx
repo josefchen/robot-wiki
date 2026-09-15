@@ -114,7 +114,7 @@ The same matrix does double duty in statics: the transpose maps a wrench at the 
 
 The Jacobian depends on configuration, and it can lose rank. When the arm is fully extended, or when joint axes line up, columns become dependent and the velocity map stops covering every task-space direction. Those configurations are singularities. Near one, a modest end-effector speed can demand arbitrarily large joint speeds, because the inverse of a nearly rank-deficient matrix blows up. Any velocity-level controller has to say what happens there.
 
-Whitney's resolved motion rate control gave the classical answer in 1969: command a task-space velocity and invert the Jacobian to obtain joint rates <Cite id="whitney-1969" />,
+Whitney's resolved motion rate control gave the classical answer in 1969: the operator commands desired hand motion along axes relevant to the task <Cite id="whitney-1969" />; the classical rate-control relations then invert the Jacobian to obtain joint rates,
 
 $$
 \dot{q} = J^{-1}(q)\,\dot{x}

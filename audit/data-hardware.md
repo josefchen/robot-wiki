@@ -8,13 +8,13 @@ Recorded verdicts are not proof of source verification. Incomplete evidence fail
 
 - Articles with records: 6
 - Claim rows: 128
-- Recorded verified: 65
-- Recorded corrected: 60
+- Recorded verified: 62
+- Recorded corrected: 63
 - Recorded cut: 2
 - Recorded source inconsistencies: 1
 - Unresolved or unrecognised verdicts: 0
-- Complete evidence records: 42
-- Incomplete evidence records: 86
+- Complete evidence records: 76
+- Incomplete evidence records: 52
 
 <!-- audit-summary:end -->
 
@@ -233,23 +233,22 @@ Int = checked against repo code/data rather than an external source.
 
 ### data-bottleneck.mdx
 
-| Claim | Source checked | Verdict |
-| --- | --- | --- |
-| GPT-3 consumed 300B tokens (2020) | gpt3-2020 (arXiv 2005.14165 abs) | V |
-| Llama 3 consumed over 15T tokens (2024); FineWeb replicates that scale from 96 Common Crawl snapshots | llama-3-2024 (Meta blog), fineweb-2024 (arXiv 2406.17557) | V |
-| OXE holds over a million trajectories across 22 robot embodiments; ~10,000 h is an estimate, flagged as such | open-x-embodiment-2023 (arXiv 2310.08864 HTML: "1M+ robot trajectories from 22 robot embodiments"; no hour count published anywhere in the paper, so the ~10k h figure stays flagged `estimated` in lib/data-scaling.ts) | V |
-| AgiBot World holds 1,001,552 trajectories and publishes an hour count: 2,976 h, about 11 s per trajectory | agibot-world-2025 (arXiv 2503.06669 v4 HTML, Sec. 3: "The latest version contains 1,001,552 trajectories, with a total duration of 2976.4 hours, covering 217 specific tasks, 87 skills, and 106 scenes"); 2976.4 x 3600 / 1,001,552 = 10.7 s | C (was "about a million trajectories, with no published hour count"; the ~100k h estimate circulated from research/03 and is wrong) |
-| DROID: 76,000 trajectories, 350 hours, 50 operators, 13 institutions, a full year | droid-2024 (arXiv 2403.12945 abs + HTML) | V |
-| TRI LBM trained on about 1,700 hours total across bimanual, sim, UMI, and OXE | tri-lbm-2025 (arXiv 2507.05331 HTML: "approximately 1,700 hours"; Sec. 4.4: TRI-Ramen 545 h = 468 real + 45 sim + 32 UMI, plus ~1,150 h OXE-Ramen) | V |
-| EgoScale: 20,854 h of action-labeled egocentric human video, log-linear scaling law, +54% success | egoscale-2026 (arXiv 2602.16710 abs; previously verified by frontier audit, re-checked here) | V |
-| Ego4D: 3,670 h from 931 wearers across 74 locations | ego4d-2022 (arXiv 2110.07058 abs) | V |
-| EgoDex: 829 h, 194 tabletop tasks, per-joint 3D poses | egodex-2025 (arXiv 2505.11709 abs) | V |
-| Lin et al.: 40,000+ demos, 15,000+ rollouts, 32 envs x 50 demos reaching ~90% on unseen env/objects, four operators in an afternoon | lin-data-scaling-laws-2024 (arXiv 2410.18647 abs) | V |
-| Shi et al.: task > per-task count, multi-embodiment optional, expert diversity hurts (velocity multimodality), GO-1-Pro +15% = 2.5x data | diversity-scaling-2025 (arXiv 2507.06219 abs) | V |
-| Section heading "nine orders of magnitude apart" and the chart's gapDecades | Int: gapDecades = round(log10(1.5e13 / 20,854)) = round(8.86) = 9 in components/interactive/data-scale-chart.tsx; e2e updated to match | C (was "eight", correct only under the deleted ~100k h estimate) |
-| UMI: handheld GoPro gripper, zero-shot deployment onto real arms | umi-2024 (arXiv 2402.10329 abs) | V |
-| AgiBot World's 30% improvement over OXE pretraining is vendor-reported with no independent replication | agibot-world-2025 (abstract: "an average performance improvement of 30% over those trained on Open X-Embodiment"; vendor-authored paper, no third-party replication found) | V |
-
+| Claim | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| GPT-3 consumed 300B tokens (2020) | gpt3-2020 paper HTML v4, https://arxiv.org/html/2005.14165v4; curl GET 200 on 2026-09-15T19:57:17Z (1,220,894 bytes, saved sources/gpt3-html); registered citation URL https://arxiv.org/abs/2005.14165 also fetched (FetchUrl 200) and its abstract prints no token count | V | Verified against the HTML v4 body fetched 2026-09-15T19:57:17Z: "All models were trained for a total of 300 billion tokens." (Table 2.1 caption; the paper trains all eight GPT-3 models on 300B tokens). The abs page supports 175B parameters but not the token figure, so the evidence fields point at the full-paper HTML. Claim unchanged. |  |  |  |  data-bottleneck-db1-gpt3-300b-20260915 |
+| Llama 3 consumed over 15T tokens (2024); FineWeb replicates that scale from 96 Common Crawl snapshots | Meta Llama 3 blog https://ai.meta.com/blog/meta-llama-3/, FetchUrl tool-reported 200 (completed before clock read 2026-09-15T19:57:54Z); FineWeb abs https://arxiv.org/abs/2406.17557, FetchUrl tool-reported 200 (completed before clock read 2026-09-15T19:59:13Z); both re-confirmed by uncredentialed curl GET 200 this session (sources/llama-blog, sources/fineweb-abs) | V | Both elements verified verbatim this session: blog "Llama 3 is pretrained on over 15T tokens that were all collected from publicly available sources."; FineWeb abstract "we introduce FineWeb, a 15-trillion token dataset derived from 96 Common Crawl snapshots". Claim unchanged; evidence fields completed. |  |  |  |  data-bottleneck-db2-llama-fineweb-20260915 |
+| OXE holds over a million trajectories across 22 robot embodiments; ~10,000 h is an estimate, flagged as such | open-x-embodiment-2023 (arXiv 2310.08864 HTML: "1M+ robot trajectories from 22 robot embodiments"; no hour count published anywhere in the paper, so the ~10k h figure stays flagged `estimated` in lib/data-scaling.ts) | V |  |  |  |  |  |
+| AgiBot World holds 1,001,552 trajectories and publishes an hour count: 2,976 h, about 11 s per trajectory | AgiBot World Colosseo v4 HTML, https://arxiv.org/html/2503.06669v4; curl GET 200 on 2026-09-15T19:57:17Z (139,251 bytes, saved sources/agibot-html); abs page https://arxiv.org/abs/2503.06669 also fetched via FetchUrl 200 (before clock read 2026-09-15T19:59:13Z) | C | Confirmed against the v4 HTML fetched 2026-09-15T19:57:17Z: "The latest version contains 1,001,552 trajectories, with a total duration of 2976.4 hours, covering 217 specific tasks, 87 skills, and 106 scenes." Per-trajectory duration is a flagged derivation: 2976.4 x 3600 / 1,001,552 = 10.70 s ("about 11 seconds"). The applied C verdict stands; evidence fields completed. |  |  |  |  data-bottleneck-db4-agibot-counts-20260915 |
+| DROID: 76,000 trajectories, 350 hours, 50 operators, 13 institutions, a full year | droid-2024 (arXiv 2403.12945 abs + HTML) | V |  |  |  |  |  |
+| TRI LBM trained on about 1,700 hours total across bimanual, sim, UMI, and OXE | TRI LBM paper HTML, https://arxiv.org/html/2507.05331; curl GET 200 on 2026-09-15T19:57:17Z (500,709 bytes, saved sources/tri-html) | V | Verified verbatim against the HTML fetched 2026-09-15T19:57:17Z: abstract "approximately 1,700 hours of robot demonstrations"; Sec. 4.4 "totaling ∼1695 hours ... (∼545 hours; TRI-Ramen) combined with curated external robot data (∼1150 hours; OXE-Ramen) ... TRI-Ramen-Real - 468 hours ... TRI-Ramen-Sim - 45 hours ... TRI-Ramen-UMI (32 hours, 129 tasks, 10851 demonstrations) collected with the Universal Manipulation Interface". Claim unchanged; evidence fields completed. |  |  |  |  data-bottleneck-db6-tri-ramen-20260915 |
+| EgoScale: 20,854 h of action-labeled egocentric human video, log-linear scaling law, +54% success | EgoScale HTML, https://arxiv.org/html/2602.16710; curl GET 200 on 2026-09-15T19:57:17Z (198,251 bytes, saved sources/egoscale-html); passages identical to those already bound in audit/compound-evidence.json plan generalization-g12-egoscale-figures-20260915 | V | Live page confirmed to print, verbatim: "We train a Vision–Language–Action (VLA) model on over 20,854 hours of action-labeled egocentric human video—more than 20× larger than prior efforts—and uncover a log-linear scaling law between human data scale and validation loss."; "This validation loss strongly correlates with downstream real-robot performance, establishing large-scale human data as a predictable supervision source." (auto-extracted sentence); "Our final policy improves average success rate by 54% over a no-pretraining baseline using a 22-DoF dexterous robotic hand, and transfers effectively to robots with lower-DoF hands...". Claim unchanged; evidence fields completed; same registered citation and passages as the integrated generalization packet. |  |  |  |  data-bottleneck-db7-egoscale-20260915 |
+| Ego4D: 3,670 h from 931 wearers across 74 locations | Ego4D abs, https://arxiv.org/abs/2110.07058; FetchUrl tool-reported 200 (completed before clock read 2026-09-15T19:59:13Z); re-confirmed by uncredentialed curl GET 200 (sources/ego4d-abs) | V | Verified verbatim this session: "It offers 3,670 hours of daily-life activity video spanning hundreds of scenarios (household, outdoor, workplace, leisure, etc.) captured by 931 unique camera wearers from 74 worldwide locations and 9 different countries." Claim unchanged; evidence fields completed. |  |  |  |  data-bottleneck-db8-ego4d-20260915 |
+| EgoDex: 829 h, 194 tabletop tasks, per-joint 3D poses | EgoDex abs, https://arxiv.org/abs/2505.11709; FetchUrl tool-reported 200 (completed before clock read 2026-09-15T19:59:13Z); re-confirmed by uncredentialed curl GET 200 (sources/egodex-abs) | V | Verified verbatim this session: "we use Apple Vision Pro to collect EgoDex"; "EgoDex has 829 hours of egocentric video with paired 3D hand and finger tracking data ... precisely track the pose of every joint of each hand ... 194 different tabletop tasks". Claim unchanged; evidence fields completed. |  |  |  |  data-bottleneck-db9-egodex-20260915 |
+| Lin et al.: 40,000+ demos, 15,000+ rollouts, 32 envs x 50 demos reaching ~90% on unseen env/objects, four operators in an afternoon | Lin et al. abs https://arxiv.org/abs/2410.18647 (FetchUrl 200, completed before clock read 2026-09-15T19:59:13Z; re-confirmed by curl, sources/lin-abs) for corpus/afternoon/90% elements; HTML v4 body https://arxiv.org/html/2410.18647v4 (curl GET 200 on 2026-09-15T19:59:13Z, 339,919 bytes, saved sources/lin-html) for the 32x50 recipe and the 50-per-pair recommendation, which the abstract does not print | V | Verified verbatim this session. Abstract: "we collect over 40,000 demonstrations and execute more than 15,000 real-world robot rollouts"; "With four data collectors working for one afternoon, we collect sufficient data to enable the policies for two tasks to achieve approximately 90% success rates in novel environments with unseen objects." Body v4: "Collecting data in as many environments as possible (e.g., 32 environments), each with one unique manipulation object and 50 demonstrations, allows training a policy that generalizes well (90% success rate) to any new environment and new object."; "we recommend collecting 50 demonstrations per environment-object pair". The article's "four operators" faithfully renders "four data collectors". Precise correction: row sourceChecked now names abs + HTML v4 body. Claim otherwise unchanged. |  |  |  |  data-bottleneck-db10-lin-scaling-20260915 |
+| Shi et al.: task > per-task count, multi-embodiment optional, expert diversity hurts (velocity multimodality), GO-1-Pro +15% = 2.5x data | diversity-scaling abs, https://arxiv.org/abs/2507.06219; FetchUrl tool-reported 200 (completed before clock read 2026-09-15T19:59:13Z); re-confirmed by uncredentialed curl GET 200 (sources/diversity-abs) | V | Verified verbatim this session: "(1) task diversity proves more critical than per-task demonstration quantity ...; (2) multi-embodiment pre-training data is optional for cross-embodiment transfer-models trained on high-quality single-embodiment data can efficiently transfer to different platforms, showing more desirable scaling property during fine-tuning ...; and (3) expert diversity ... can be confounding to policy learning, with velocity multimodality emerging as a key contributing factor"; "the yielding GO-1-Pro achieves substantial performance gains of 15%, equivalent to using 2.5 times pre-training data". Claim unchanged; evidence fields completed. |  |  |  |  data-bottleneck-db11-diversity-20260915 |
+| Section heading "nine orders of magnitude apart" and the chart's gapDecades | local arithmetic over components/interactive/data-scale-chart.tsx + lib/data-scaling.ts at HEAD 1cc197288d343c3ca50c516b7e50e5e565ed4ff0 (read-only node verification 2026-09-15T20:05:00Z): gapDecades = Math.round(Math.log10(1.5e13 / 20,854)) = round(8.8569) = 9; source operands confirmed live: https://ai.meta.com/blog/meta-llama-3/ (FetchUrl 200, before 2026-09-15T19:57:54Z) and https://arxiv.org/html/2602.16710 (curl GET 200 on 2026-09-15T19:57:17Z) | C | Local-AND row, no fetch of its own: line 162 of data-scale-chart.tsx computes the gap from the last LLM_POINTS entry (llama3, 1.5e13) and last ROBOT_POINTS entry (EgoScale, 20,854); log10(1.5e13/20,854) = 8.8569 rounds to 9, matching the applied heading. Operand passages verified this session (llama blog "over 15T tokens"; EgoScale HTML "over 20,854 hours"). The applied C verdict stands; evidence fields completed; integrator must re-run the local proof. |  |  |  |  data-bottleneck-db12-gapdecades-20260915 |
+| UMI: handheld GoPro gripper, zero-shot deployment onto real arms | UMI abs https://arxiv.org/abs/2402.10329 (FetchUrl 200, completed before clock read 2026-09-15T19:59:13Z; re-confirmed by curl, sources/umi-abs) for the zero-shot element; HTML v3 body https://arxiv.org/html/2402.10329v3 (curl GET 200 on 2026-09-15T19:59:13Z, 230,972 bytes, saved sources/umi-html) for the GoPro / 3D-printed gripper detail, which the abstract does not print | V | Verified verbatim this session. Abstract: "The resulting learned policies are hardware-agnostic and deployable across multiple robot platforms"; "policies learned via UMI zero-shot generalize to novel environments and objects when trained on diverse human demonstrations". Body III-A: "UMI’s data collection hardware takes the form of a trigger-activated, handheld 3D printed parallel jaw gripper with soft fingers, mounted with a GoPro camera as the only sensor and recording device (see HD1)." Precise correction: row sourceChecked now names abs + HTML v3 body. Claim otherwise unchanged. |  |  |  |  data-bottleneck-db13-umi-20260915 |
+| AgiBot World's 30% improvement over OXE pretraining is vendor-reported with no independent replication | AgiBot World Colosseo abs, https://arxiv.org/abs/2503.06669; FetchUrl tool-reported 200 (completed before clock read 2026-09-15T19:59:13Z); re-confirmed by uncredentialed curl GET 200 (sources/agibot-abs) and by the v4 HTML fetched 2026-09-15T19:57:17Z (sources/agibot-html), which prints the same sentence | V | Verified verbatim this session: "Policies pre-trained on our dataset achieve an average performance improvement of 30% over those trained on Open X-Embodiment, both in in-domain and out-of-distribution scenarios." The vendor-reported characterization stands (authors' own claim about their own dataset; first-party). The no-independent-replication absence statement is retained from the row's own note and cannot be positively evidenced by a fetch. Claim unchanged; evidence fields completed. |  |  |  |  data-bottleneck-db14-agibot-30pct-20260915 |
 ### datasets.mdx
 
 | Claim | Source checked | Verdict |
@@ -270,31 +269,31 @@ Int = checked against repo code/data rather than an external source.
 
 | Claim | Source checked | Verdict | Note | Citation ID | Source URL fetched | Supporting passage | Evidence plan |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Trossen AI prices: WidowX AI \$4,545.95, Solo AI \$11,385.95, Stationary AI \$23,995.95, Mobile AI \$33,695.95 | trossenrobotics.com/ai (live, fetched 2026-08-17: "\$4,545.95", "\$11,385.95", "\$23,995.95", "\$33,695.95") + trossenrobotics.com/widowx-ai product page | C (the article claimed a 30-34% rebrand price cut to \$2,995/\$15,995/\$22,995; no live Trossen page states any cut or any of the lower figures; research/03 error) |
-| Trossen AI line runs 500 Hz CAN FD on the iNerve board; LeRobot and OpenPI integration; ALOHA rebranded as Trossen AI | trossenrobotics.com/ai ("CAN FD delivers over 500Hz data transfers"; "500Hz CONTROL FREQUENCY"; "Ultra-High Performance iNerve® Controller"; "fully integrated into the OpenPI framework"; "ALOHA IS NOW TROSSEN AI"; "Native support for Hugging Face LeRobot") | V |
-| WidowX AI: 1.5 kg payload, 700 mm reach, 6 DoF, 1 mm repeatability | trossenrobotics.com/widowx-ai spec table (PAYLOAD 1.5kg / REACH 700mm / DoF 6 / REPEATABILITY 1mm / SPAN 1400mm / WEIGHT 4kg) | V (banked addition; the dof field in data/hardware.ts moved from null to 6 with this source) |
-| SO-101: 6 DoF (5 joints + gripper), STS3215 servos, ~\$100 core / \$122 US BOM for one follower arm | github.com/TheRobotStudio/SO-ARM100 README (fetched 2026-08-17; follower-arm table Total \$121.94 in the US column; STS3215 servo rows) | V |
-| Seeed SO-ARM101 Pro: \$295 unassembled, \$299 assembled, 12-bit magnetic encoders, 500 g payload | seeedstudio.com product pages (fetched 2026-08-17: "\$295.00"/"\$299.00" in the comparison table; "12-bit magnetic encoder"; "500g" payload; six STS3215 servos) | V |
-| Koch v1.1 \$250-\$300; the June 2026 community issue estimates the combined ALOHA / ALOHA 2 category at about $17k–32k, not a configuration-specific USD quote; Reachy 2 ~\$70,000 | ALOHA subclaim only: https://github.com/alpibrusl/lex-robot/issues/3. FetchUrl response 2026-09-07T12:15:17.844Z; secondary community research issue, not a vendor quote. Retained response SHA-256 6d34debe7a74d97ee8c0f05be8639454ffbac8eceb268edda3102e3930ae8046; reused after event/body/excerpt verification on 2026-09-07, no new retrieval. | corrected | PRICE-HARDWARE-20260907 corrects only ALOHA attribution, currency and purchase scope. Koch and Reachy claims remain unchanged and unverified in this batch; the whole row remains incomplete. No partial source passage is promoted to whole-row evidence. Original three cells are preserved in pricing-current-claim-history-20260907. |  |  |  |
-| Omdia: ~13,000 humanoids shipped 2025; AgiBot first at 5,168 units / 39% share; Unitree self-reports 5,500+ and disputes the ranking | robozaps-humanoids-2026 (blog.robozaps.com, fetched 2026-08-17: "Roughly 13,000 humanoid robots shipped in 2025 (Omdia)"; "Omdia credits it with 5,168 units and a 39% global share"; "Unitree self-reports 5,500+... though analyst firm Omdia counts ~4,200 and ranks AgiBot first, a dispute worth knowing") | V |
-| Unitree G1: \$13,500 base, 23 DoF, EDU 23-43 DoF by quote | unitree.com/g1 (fetched 2026-08-17: "Price from \$13.5K"; "23~43 joint motors") | V |
-| Unitree H2: \$29,900, 31 DoF, 360 N·m leg joints, 2070 TOPS onboard | unitree.com/H2 (fetched 2026-08-17: "\$29,900"; "31 degrees of freedom, 360N·m joint torque"; "Powered by a 2070 TOPS chip") | V |
-| 1X NEO: \$20,000 or \$499/month, \$200 refundable deposit, 22 DoF per hand, 25-DoF revision announced July 9, US deliveries by end of 2026 | 1x.tech/neo ("\$200 Deposit"; FAQ subscription) + robozaps-humanoids-2026 ("Price \$20,000 or \$499/month; \$200 refundable deposit (official)"; "1X announced a 25-DOF NEO hand revision on July 9, while the order page still lists 22 DOF per hand"; "customer shipments promised by end of 2026") | V |
-| NEO onboard computer is a Jetson Thor at up to 2,070 FP4 TFLOPS | 1x.tech/neo spec table ("Compute \| Chipset \| 1X NEO Cortex (Nvidia Jetson Thor) \| AI Compute \| Up to 2070 FP4 TFLOPS") | V |
-| Humanoid shakeout: K-Scale Labs shut down Nov 2025, Cartwheel Feb 2026, Sanctuary pivoted to software in June, Amazon acquired Fauna Robotics in March | robozaps-humanoids-2026 ("K-Scale Labs shut down in November 2025, Cartwheel Robotics in February 2026, Sanctuary AI pivoted to software in June, and Amazon absorbed Fauna Robotics in March") | V |
-| Atlas (Electric): 56 DoF, IP67; no price | bostondynamics.com/products/atlas (fetched 2026-08-17: spec table "DoF 56"; "IP Rating IP67"; Hyundai field testing) + robozaps ("Not published") | V |
-| Figure 03: palm camera per hand, 2 kW wireless charging, not for individual sale; fingertip resolution and Digit tote counts stay excluded | figure-03-2025 (Figure news page, verified 2026-08-09) + library/content-quality.md exclusion decisions | V (exclusions still hold; neither figure appears in the article or the dataset) |
-| LEAP Hand: 16 DoF, ~4 h assembly, \$2,000 catalog parts, ~1/8 the Allegro Hand's cost | v1.leaphand.com + arXiv 2309.06440 abstract ("assembled in 4 hours at a cost of 2000 USD"; "outperforms its closest competitor Allegro Hand... 1/8th of the cost"; paper body: joint angles "16 values") | V |
-| Sensors paragraph: datasets ship vision+proprioception; DROID's rig has no touch sensing; AgiBot World is the counterexample with visuo-tactile sensors | droid-2024 (rig: Franka + cameras, no tactile) + agibot-world-2025 (arXiv 2503.06669: "AgiBot World utilizes humanoid robots equipped with visuo-tactile sensors and dexterous hands"; "For tasks necessitating tactile feedback, a gripper equipped with visuo-tactile sensors is utilized") | C (the old text claimed touch was "absent from OXE, DROID, and AgiBot World alike", citing tactile-outlook-2025, which never mentions any of the three datasets; grep-confirmed zero mentions) |
-| Tactile outlook blames: divergent transduction with no standardized evaluation framework, durability failures, temperature sensitivity and hysteresis | tactile-outlook-2025 (arXiv 2508.11261 HTML: "The lack of a standardised framework for evaluating and comparing these materials hinders..."; "lack durability under prolonged use or under harsh conditions"; "conductive polymers can suffer from hysteresis"; "Temperature sensitivity is another challenge") | C (was "no standardization... calibration drift"; the paper states no standardized evaluation framework and materials-level temperature/hysteresis issues, never "calibration drift") |
-| GelSight Mini retails at \$500; DIGIT at \$350 | tactile-outlook-2025 ("optical tactile sensors such as the DIGIT (retails at \$350) and the GelSight Mini (retails at \$500)") | C (both were previously null/"not disclosed"; the T-RO outlook states both retail prices) |
-| Digit 360: 360° optical coverage, forces down to 1 mN, 8M+ taxels, GelSight manufacturing partnership announced October 2024 | meta-fair-touch-2024 (ai.meta.com blog, dated October 31, 2024: "over 8 million taxels"; "captures forces as small as 1 millinewton"; "GelSight Inc will manufacture and distribute Digit 360") | V |
-| Jetson Thor T5000: 2,070 FP4 TFLOPS, 128 GB LPDDR5X at 273 GB/s, 14-core Neoverse-V3AE, 40-130 W, 7.5x AGX Orin; T4000: 1,200 TFLOPS, 64 GB | nvidia.com Jetson Thor page (fetched 2026-08-17: "2070 TFLOPS (FP4—Sparse)" / "1200 TFLOPS"; "128 GB 256-bit LPDDR5X \| 273 GB/s \| 64 GB"; "14-core Arm® Neoverse®-V3AE"; "Power \| 40 W–130 W \| 40 W–70 W"; "7.5× the performance and 3.5× the energy efficiency of NVIDIA AGX Orin™") | V |
+| Trossen AI prices: WidowX AI \$4,545.95, Solo AI \$11,385.95, Stationary AI \$23,995.95, Mobile AI \$33,695.95 | trossenrobotics.com/ai, https://www.trossenrobotics.com/ai; curl GET 200 on 2026-09-15T13:23:07.475Z (2,087,481 bytes; sha256 a43216dad7f928a76a911d32a2d9d002669b76320c8a70dbeef572173b9cb6dc) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z; widowx-ai product page curl GET 200 on 2026-09-15T13:23:07.862Z (1,581,161 bytes; sha256 95109ccdc3c20a2fb0435eddb413617ed9f2b73add5636974d9990d6db7f6e07) | C (the article claimed a 30-34% rebrand price cut to \$2,995/\$15,995/\$22,995; no live Trossen page states any cut or any of the lower figures; research/03 error) | Preparer re-verified live 2026-09-15 (source-lane fetches); integrator needle-verified every passage against the retained sha256-verified sources: $4,545.95 / $11,385.95 / $23,995.95 / $33,695.95 all still printed beside their kits' Buy Now / Get a Quote links. Vendor-reported list prices with fetch dates; the 2026-08-17 correction (no 30-34% rebrand cut; research/03 error) stands unchanged. |  |  |  | hardware-taxonomy-r1-tros-price-widowx-20260915 |
+| Trossen AI line runs 500 Hz CAN FD on the iNerve board; LeRobot and OpenPI integration; ALOHA rebranded as Trossen AI | trossenrobotics.com/ai, https://www.trossenrobotics.com/ai; curl GET 200 on 2026-09-15T13:23:07.475Z (2,087,481 bytes; sha256 a43216dad7f928a76a911d32a2d9d002669b76320c8a70dbeef572173b9cb6dc) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z | V | Re-verified live 2026-09-15 against the same URL: 500 Hz CAN FD control on the iNerve board, OpenPI and LeRobot integration, and the ALOHA-to-Trossen AI rebrand all still stated verbatim. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r2-tros-canfd-20260915 |
+| WidowX AI: 1.5 kg payload, 700 mm reach, 6 DoF, 1 mm repeatability | trossenrobotics.com/widowx-ai spec table, https://www.trossenrobotics.com/widowx-ai; curl GET 200 on 2026-09-15T13:23:07.862Z (1,581,161 bytes; sha256 95109ccdc3c20a2fb0435eddb413617ed9f2b73add5636974d9990d6db7f6e07); same page prints the $4,545.95 Base configuration price | V (banked addition; the dof field in data/hardware.ts moved from null to 6 with this source) | Re-verified live 2026-09-15: spec table as recorded. Banked dof=6 in data/hardware.ts stands. Citation bound to registered trossen-ai-2026; dedicated product-page registration proposed (registryProposals). |  |  |  | hardware-taxonomy-r3-widowx-spec-20260915 |
+| SO-101: 6 DoF (5 joints + gripper), STS3215 servos, ~\$100 core / \$122 US BOM for one follower arm | github.com/TheRobotStudio/SO-ARM100 README (raw markdown), https://raw.githubusercontent.com/TheRobotStudio/SO-ARM100/main/README.md; curl GET 200 on 2026-09-15T13:23:08.184Z (26,524 bytes; sha256 e635f305cf6d2ddcf19096239761a87b33821e1ff124ec11fde5225e191540f4) | C (the README prints no '$100' figure: the follower-arm core subtotal exceeds $100 and the printed total is $121.94; the article's 'about $100 in core parts' is corrected to the printed subtotals with this fetch) | Re-verified live 2026-09-15: follower-arm table Total $121.94 US; STS3215 servo rows; six-servo bundle (6-DoF basis). Correction: the README states no '~$100' figure; core parts (servos, board, cable, PSU) sum above $100 and the printed total is $121.94 — the article's 'about $100 in core parts' is corrected to the printed subtotals (endpoint hardware-taxonomy-r4-so101-core-price-span). 'Five joints plus a gripper' is the standard SO-101 decomposition of the six-servo BOM; the README itself does not spell it (LeRobot docs not re-fetched in the preparer's 2026-09-15 source session). |  |  |  | hardware-taxonomy-r4-so101-follower-bom-20260915 |
+| Seeed SO-ARM101 Pro: \$295 unassembled, \$299 assembled, 12-bit magnetic encoders, 500 g payload | seeedstudio.com SO-ARM101 Pro assembled-kit page, https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html (final URL https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html); curl GET 200 on 2026-09-15T13:23:10.517Z (979,551 bytes; sha256 e7dcc7fb88ef803619796b69b30d14aba967ded20361b1b0b7ef0595b10cdd67); the embedded comparison sheet carries the $295.00 unassembled price, so one URL covers both kits | V | Re-verified live 2026-09-15: $295.00 (unassembled bundle) and $299.00 (assembled kit) in the comparison-sheet Price row; buy box $299.00 In stock; 12-bit encoders; Payload 500g. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r5-seeed-price-row-20260915 |
+| Koch v1.1 \$250-\$300; the June 2026 community issue estimates the combined ALOHA / ALOHA 2 category at about $17k–32k, not a configuration-specific USD quote; Reachy 2 ~\$70,000 | https://github.com/alpibrusl/lex-robot/issues/3; fetched as HTML page (curl GET 200 on 2026-09-15T13:23:15.120Z (264,954 bytes; sha256 38900aac857a97b25503e982ac8a59cc2dc38477e0c0d20fe5655132dbb2399f)) and as unauthenticated API JSON (curl GET 200 on 2026-09-15T13:23:15.483Z (7,389 bytes; sha256 5533d8a0f468f9ae9df56a51735f77f938071fcd6d780b3781bb3a5ef68cc009)); issue created 2026-06-13T12:16:37Z by alpibrupa, body self-describes 'Researched June 2026' | corrected | Re-verified live 2026-09-15: the issue's own pricing table states Koch v1.1 ~$250–300 (older), ALOHA / ALOHA 2 ~$17k–32k, and Reachy 2 ~$70,000, all under 'Pricing (approx — DIY BOM vs assembled, tariffs cause big spreads)'. Community approximations with no currency code, configurations or inclusions itemized; PRICE-HARDWARE-20260907's ALOHA scoping stands and now extends to the Koch/Reachy cells by the same basis. No partial passage promoted: the single fetched document covers every element of the claim. |  |  |  | hardware-taxonomy-r6-issue-pricing-rows-20260915 |
+| Omdia: ~13,000 humanoids shipped 2025; AgiBot first at 5,168 units / 39% share; Unitree self-reports 5,500+ and disputes the ranking | blog.robozaps.com, https://blog.robozaps.com/b/best-humanoid-robots; curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4) | V | Re-verified live 2026-09-15: ~13,000 shipped 2025 (Omdia); AgiBot first at 5,168 units / 39% share; Unitree self-reports 5,500+ and disputes the ranking while Omdia counts ~4,200 — both positions carried, P5 satisfied. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r7-robo-13k-20260915 |
+| Unitree G1: \$13,500 base, 23 DoF, EDU 23-43 DoF by quote | unitree.com/g1, https://www.unitree.com/g1/; curl GET 200 on 2026-09-15T13:23:11.200Z (61,896 bytes; sha256 b7cc9a302e25c48405f0f3b3fcf6314090017f3eff7c7c0983514b5acef3ad0a) | V | Re-verified live 2026-09-15: Price from $13.5K (table: US $13.5K Contact sales); G1 column 23 DoF, G1 EDU column 23-43 DoF, EDU by quote (Contact sales). Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r8-g1-price-hero-20260915 |
+| Unitree H2: \$29,900, 31 DoF, 360 N·m leg joints, 2070 TOPS onboard | unitree.com/H2, https://www.unitree.com/H2/; curl GET 200 on 2026-09-15T13:23:11.461Z (53,644 bytes; sha256 c9fc6212689d54125a18fd430df69a4d5a1ccd28b8cc9df9e758234ac25c6de8) | V | Re-verified live 2026-09-15: H2 $29,900 (tax and shipping excluded), 31 DoF total, 360 N·m joint torque, 2070 TOPS onboard chip. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r9-h2-price-table-20260915 |
+| 1X NEO: \$20,000 or \$499/month, \$200 refundable deposit, 22 DoF per hand, 25-DoF revision announced July 9, US deliveries by end of 2026 | 1x.tech/neo (https://www.1x.tech/neo; curl GET 200 on 2026-09-15T13:23:11.860Z (178,766 bytes; sha256 afd7c2a8ab46403d32a36d5ac22e82ae2d01013f5120b7616b6c3131b7268455) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z) + blog.robozaps.com (https://blog.robozaps.com/b/best-humanoid-robots; curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4)) | V | Re-verified live 2026-09-15: $20,000 outright or $499/month with a $200 refundable deposit (robozaps; the deposit also prints on the 1x order page); order page lists 22 DoF per hand (1x spec Hands 22x2 + robozaps); 25-DoF hand revision announced July 9 (robozaps); US deliveries promised by end of 2026 (robozaps). The 1x page prints no dollar price in this session's fetches — the price element rests on robozaps exactly as the row records. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r10-robo-neo-price-20260915 |
+| NEO onboard computer is a Jetson Thor at up to 2,070 FP4 TFLOPS | 1x.tech/neo spec table, https://www.1x.tech/neo; curl GET 200 on 2026-09-15T13:23:11.860Z (178,766 bytes; sha256 afd7c2a8ab46403d32a36d5ac22e82ae2d01013f5120b7616b6c3131b7268455) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z | V | Re-verified live 2026-09-15: the NEO onboard computer is a Jetson Thor ('1X NEO Cortex (Nvidia Jetson Thor)') at 'Up to 2070 FP4 TFLOPS'. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r11-neo-compute-20260915 |
+| Humanoid shakeout: K-Scale Labs shut down Nov 2025, Cartwheel Feb 2026, Sanctuary pivoted to software in June, Amazon acquired Fauna Robotics in March | blog.robozaps.com, https://blog.robozaps.com/b/best-humanoid-robots; curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4) | V | Re-verified live 2026-09-15: all four shakeout events stated as recorded (K-Scale Nov 2025, Cartwheel Feb 2026, Sanctuary software pivot June — printed as June 17 —, Amazon-Fauna March). Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r12-robo-shakeout-20260915 |
+| Atlas (Electric): 56 DoF, IP67; no price | bostondynamics.com/products/atlas (https://bostondynamics.com/products/atlas/; curl GET 200 on 2026-09-15T13:23:12.754Z (144,976 bytes; sha256 d7d036f47284d70918383ffc31a6ae9de950fc61ebbdc88d39a35eb1f8f7d418)) + blog.robozaps.com (curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4)) | V | Re-verified live 2026-09-15: 56 DoF with continuous range of motion, IP67, Hyundai field testing (BD page); no price printed on the BD page and robozaps records Not published; no open ordering announced. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r13-atlas-spec-20260915 |
+| Figure 03: palm camera per hand, 2 kW wireless charging, not for individual sale; fingertip resolution and Digit tote counts stay excluded | figure.ai news page, https://www.figure.ai/news/introducing-figure-03; curl GET 200 on 2026-09-15T13:23:13.070Z (57,802 bytes; sha256 6f3b5121fadffb031e7b79d06b76a91386b4bd34cc9f92073bfb03ef151a8f30); page dated October 09, 2025 | C (palm camera per hand and 2 kW wireless charging verified verbatim on the live page; 'not for individual sale' appears nowhere on the cited source — grep-confirmed — so the clause is cut and the sentence reworded to the page's manufacturing framing) | Correction after live re-fetch 2026-09-15: 'Each hand now integrates an embedded palm camera…' and '…charge at 2 kW' verified verbatim. The cited page states no 'not for individual sale' and no ordering channel (grep-confirmed); the article clause is cut and the sentence reworded to the page's own BotQ high-volume-manufacturing framing (see endpoint). Fingertip resolution and Digit tote counts remain excluded (neither appears on the page, in the article, or in the dataset). |  |  |  | hardware-taxonomy-r14-fig-palm-20260915 |
+| LEAP Hand: 16 DoF, ~4 h assembly, \$2,000 catalog parts, ~1/8 the Allegro Hand's cost | arXiv 2309.06440 abstract (https://arxiv.org/abs/2309.06440; curl GET 200 on 2026-09-15T13:23:15.637Z (41,934 bytes; sha256 4f7ea1eb5e36cbc9651a76e58da30a33cff57360265866fefe00d0cd3648f274)) + arXiv HTML body (https://arxiv.org/html/2309.06440; curl GET 200 on 2026-09-15T13:23:15.859Z (187,272 bytes; sha256 53186c07c3f58482eed5753ee1c29c211a03572f1ce81d7f635828d2aa6bf928)) + v1.leaphand.com (https://v1.leaphand.com/; curl GET 200 on 2026-09-15T13:23:16.305Z (50,765 bytes; sha256 c9e2f3980ea0385652fe7ca5a8c192446bf76c87eb90e8805af4a5d010859f2e)) | V | Re-verified 2026-09-15: 16 DoF (body: joint angles '(16 values)'); 'assembled in 4 hours at a cost of 2000 USD'; '1/8th of the cost' of the Allegro Hand — all verbatim in this session's fetches; the project site repeats the abstract. $2,000 is the 2023-publication build cost, as the article's pricing note already scopes. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r15-leaabs-cost-20260915 |
+| Sensors paragraph: datasets ship vision+proprioception; DROID's rig has no touch sensing; AgiBot World is the counterexample with visuo-tactile sensors | droid-2024 (https://arxiv.org/pdf/2403.12945; curl GET 200 on 2026-09-15T13:26:20.646Z (9,707,714 bytes; sha256 9e40a9c934ce78ea315d2c05593d60f9e18edf6dcd3785cd66439518965c3b07), pdftotext extraction; + https://arxiv.org/html/2403.12945; curl GET 200 on 2026-09-15T13:23:16.499Z (258,370 bytes; sha256 dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897)) + agibot-world-2025 (https://arxiv.org/html/2503.06669; curl GET 200 on 2026-09-15T13:23:16.678Z (139,251 bytes; sha256 0f5f22a172d141db2469e85b4d04bb32d6ba8b7877a117f5cc322ba94f067e36)) | C (the old text claimed touch was "absent from OXE, DROID, and AgiBot World alike", citing tactile-outlook-2025, which never mentions any of the three datasets; grep-confirmed zero mentions) | Re-verified 2026-09-15: DROID's rig is Franka + three cameras + Quest 2 with no touch sensing (rig passage verbatim from the PDF; zero 'tactile' mentions in the fetched paper); AgiBot World's humanoids carry visuo-tactile sensors with dexterous hands (two verbatim passages). The 2026-08 correction (old text wrongly claimed touch absent from AgiBot World too) stands. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r16-droid-rig-20260915 |
+| Tactile outlook blames: divergent transduction with no standardized evaluation framework, durability failures, temperature sensitivity and hysteresis | tactile-outlook-2025, https://arxiv.org/html/2508.11261; curl GET 200 on 2026-09-15T13:23:16.915Z (317,223 bytes; sha256 6051f73a3a34b50e226963917fb8c5953a95ae9b33c6569445a54ae5f43fe239) | C (was "no standardization... calibration drift"; the paper states no standardized evaluation framework and materials-level temperature/hysteresis issues, never "calibration drift") | Re-verified 2026-09-15: the outlook blames divergent transduction with no standardised evaluation framework, materials-level durability failures, hysteresis and temperature sensitivity — all verbatim; 'calibration drift' remains the article's corrected-out phrasing. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r17-tact-framework-20260915 |
+| GelSight Mini retails at \$500; DIGIT at \$350 | tactile-outlook-2025, https://arxiv.org/html/2508.11261; curl GET 200 on 2026-09-15T13:23:16.915Z (317,223 bytes; sha256 6051f73a3a34b50e226963917fb8c5953a95ae9b33c6569445a54ae5f43fe239) | C (both were previously null/"not disclosed"; the T-RO outlook states both retail prices) | Re-verified 2026-09-15: 'the DIGIT (retails at $350) and the GelSight Mini (retails at $500)', stated by the T-RO outlook as printed (reference-bracket spacing as extracted). Both prices stay attributed to this source. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r18-tact-prices-20260915 |
+| Digit 360: 360° optical coverage, forces down to 1 mN, 8M+ taxels, GelSight manufacturing partnership announced October 2024 | ai.meta.com blog, https://ai.meta.com/blog/fair-robotics-open-source/; FetchUrl tool-reported 200 observed 2026-09-15T13:30Z; curl GET with browser UA returned 400 at 2026-09-15T13:23:17.328Z (host blocks non-tool clients; no body beyond the 1,542-byte error page) | V | Re-verified 2026-09-15: Digit 360 wraps the fingertip with an optical system of 'over 8 million taxels' capturing 'omnidirectional deformations' (the page also says the lens 'can see the imprints all around the artificial fingertip'), resolves forces 'as small as 1 millinewton', and GelSight Inc will manufacture and distribute it; blog dateline October 31, 2024. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r19-meta-taxels-20260915 |
+| Jetson Thor T5000: 2,070 FP4 TFLOPS, 128 GB LPDDR5X at 273 GB/s, 14-core Neoverse-V3AE, 40-130 W, 7.5x AGX Orin; T4000: 1,200 TFLOPS, 64 GB | nvidia.com Jetson Thor page, https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/; curl GET 200 on 2026-09-15T13:23:13.905Z (546,144 bytes; sha256 225ae6698dd40e48327484ee15e88b96d2340202826eb6684701600670d03eae) | V | Re-verified live 2026-09-15: T5000 2,070 sparse FP4 TFLOPS, 128 GB LPDDR5X at 273 GB/s, 14-core Neoverse-V3AE, 40–130 W, 7.5× AGX Orin; T4000 1,200 TFLOPS and 64 GB. The T4000's own CPU is 12-core (the claim assigns 14 cores only to the T5000, which is correct). Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r20-nvidia-summary-20260915 |
 | VLA-Perf v1 Table 3 predicts π0 inference at 19.0/32.2/61.7/162.5/314.4 Hz on Thor/RTX4090/A100/H100/B100, network excluded, not five-GPU measured deployment. The baseline is 2.7B with three 224×224 cameras, 32 language tokens, 14 action dimensions, chunk 50, 10 steps, batch one and BF16/FP16; inference frequency is distinct from robot execution. | vla-perf-2026: https://arxiv.org/pdf/2602.18397 | corrected | PERFORMANCE-WORLDMODELS-hardware-taxonomy-21. The retained Table3 has five batch-one no-network predictions, not measured five-GPU execution. Preserve19.0/32.2/61.7/162.5/314.4Hz with the full source setup. Retained-source review 2026-09-07T23:31:48.212Z; zero new retrievals. Rebound to actual89a31e5. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance. |  |  |  | performance-worldmodels-hardware-taxonomy-21-20260908 |
 | In the analytical B100 π0 sweep, 10→50 steps at chunk 50 increase expert latency 5× and total latency 2.15×; chunk 50→250 at 10 steps increases expert/total latency 40%/11%. Neither proportional end-to-end throughput nor zero chunk-size overhead follows. | vla-perf-2026: https://arxiv.org/pdf/2602.18397 | corrected | PERFORMANCE-WORLDMODELS-hardware-taxonomy-22. The source’s B100 sweep distinguishes5× expert/2.15×total step cost and40%expert/11%total chunk cost; neither is a proportional total-throughput result or exactly zero chunk overhead. Retained-source review 2026-09-07T23:31:48.218Z; zero new retrievals. Rebound to actual89a31e5. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance. |  |  |  | performance-worldmodels-hardware-taxonomy-22-20260908 |
 | The old RTX4090 $1,599–1,999, A100 $10k–15k and H100 $25k–40k price attributions remain cut. The four GPU price pairs remain null with disclosure scoped to the cited performance-study source, which does not establish a vendor quote for those configurations. This is removal of unsupported attribution, not proof that no manufacturer or seller publishes prices. | vla-perf-2026: https://arxiv.org/pdf/2602.18397 | cut | PERFORMANCE-WORLDMODELS-hardware-taxonomy-23. The four GPU rows retain source-scoped null prices because this performance paper does not establish a price. Remove fabricated card-price attribution without claiming that no seller or manufacturer publishes prices. Retained-source review 2026-09-07T23:31:48.226Z; zero new retrievals. Rebound to actual89a31e5. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance. |  |  |  | performance-worldmodels-hardware-taxonomy-23-20260908 |
 | VLA-Perf Table 10 uses RTX4090 24 GB/1,008 GB/s, A100 80 GB/2,039 GB/s, H100 80 GB/3,350 GB/s and B100 192 GB/8,000 GB/s configurations. These are memory gigabytes per second, not network gigabits per second or universal SKU specifications. Its Thor input is 270 GB/s, separate from the article’s vendor specification. | vla-perf-2026: https://arxiv.org/pdf/2602.18397 | corrected | PERFORMANCE-WORLDMODELS-hardware-taxonomy-24. Table10 specifies24/80/80/192GB and1008/2039/3350/8000GB/s. GB/s is gigabytes per second, not the gigabit-per-second network unit. Preserve all four configurations and their predicted inference rates. Retained-source review 2026-09-07T23:31:48.232Z; zero new retrievals. Rebound to actual89a31e5. Original retrieval status/time, literal contexts and hashes: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/source-proof.json. Exact prior/current tuple and plan archive: /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-performance-worldmodels-integration-20260908/row-history.json and correction history below. Routine correction authority is not owner source certification or independent acceptance. |  |  |  | performance-worldmodels-hardware-taxonomy-24-20260908 |
-| "Sixteen times the throughput across the range" | Int: 314.4 / 19.0 = 16.5x | V |
+| "Sixteen times the throughput across the range" | Int: 314.4 / 19.0 = 16.5x; recomputed by the integrator at application time (python3 2026-09-15: 314.4/19.0 = 16.54736842105263, floor 16.0). No fetch by either worker for this row; input basis is ledger row 21's retained vla-perf-2026 Table 3 figures (19.0/32.2/61.7/162.5/314.4 Hz), read-only at HEAD d0516a4 | V | Local-AND row. Arithmetic verified read-only: 314.4 Hz (B100) / 19.0 Hz (Jetson Thor) = 16.547…x; the article's 'Sixteen times the throughput across the range' is the conservative floor of that ratio and stays as written. The integrator re-runs the arithmetic locally (endpoint hardware-taxonomy-r25-local-proof) and pairs it with row 21's retained vla-perf evidence before applying. |  |  |  | hardware-taxonomy-r25-local-proof-20260915 |
 
 ### teleop-rigs.mdx
 
@@ -377,7 +376,7 @@ this ledger's conventions.
 | Morgan Stanley's 2026 "PR problem" note is the same observation about the hype cycle from the capital side | morgan-stanley-pr-problem-2026 (CNBC, fetched live: "investors have become harder to impress with polished videos and one-off demonstrations alone and are increasingly looking for tangible evidence of real-world return on investment"; "The industry's social license to deploy may matter just as much as technical performance") | V | | | |
 | Figure's eight-hour autonomous sorting shift "was one task at one site with no published intervention count" | figure-8hr-shift-2026 (fetched live): a May 13 2026 eight-hour livestream of small-package sorting, "fully autonomous running Helix-02", speeds the company says match human performance. The source does carry a zero-intervention claim (Figure's own), and publishes no success rate | C (now "one task at one site, on the company's own livestream, with no published success rate", which is what the source withholds; consistent with the deployment-dashboard row in lib/deployment-reality.ts: "no independent audit of the success rate") | | | |
 | "The seven-row deployment dashboard at The Reliability Gap" | Int: lib/deployment-reality.ts DEPLOYMENT_ROWS holds six rows (agility-digit, figure-bmw, unitree-2025, tesla-optimus, optimus-50k-claim, figure-8hr-shift) | C (now "six-row"; a stale comment in tests/e2e/industrial-deployment.spec.ts still says seven, and tests are out of my edit scope) | | | |
-| OSHA describes perimeter fencing, interlocked gates and reduced-speed teach modes | osha-otm-robots (fetched live): "guards (fences, barriers), interlocked guards, and presence-sensing devices (e.g., light curtains, safety mats, safety scanners...)"; "the robot system operates at a reduced speed... not greater than 10 inches/second (250mm/second)" | V | | | |
+| OSHA describes guards such as fences and barriers, interlocked guards and presence-sensing devices for non-collaborative robot applications during automatic operation. For teaching inside the safeguarded space it describes reduced-speed manual mode with an enabling device and adequate clearance. | osha-otm-robots | C |  |  |  | Current integration review 2026-09-15T09:20:27+00:00 by agent:f6733708-9f65-4434-9591-b942aa63369c/integrator. All four mandatory parts and the complete current reader correction reviewed in this integration. OSHA source: retained Technical Manual Section IV Chapter 4 body; original September 6 batch request 2026-09-06T00:49:10.685Z, result 2026-09-06T00:49:14.485Z reported final HTTP 200 and 243403 bytes, with no preserved origin headers or redirect chain and no new fetch. OSHA's terms are guards (fences, barriers), interlocked guards and presence-sensing devices; the old perimeter-fencing and interlocked-gates wording overstated a gate claim the source does not make for every application. The physical-separation guidance is the Non-Collaborative Robot Application Risk Reduction subsection and applies during automatic operation; operator safeguarding there is distinct from manual teaching. For teaching inside the safeguarded space the manual-mode passage gives an enabling device (typically 3-position, held center-ON), reduced speed, adequate clearance and teacher control; inhibition of interconnected other equipment is conditional on interconnection. The teach-mode speed limit is preserved exactly as the source prints it: Section VIII says not greater than 10 inches/second (250mm/second), Section VI's first teacher paragraph and the Appendix manual-mode glossary say less than, and Section VI's next paragraph says or less on any part of the application; these textual formulations are retained rather than resolved to a single inequality, and reduced speed alone is not treated as sufficient. Collaborative automatic operation and attended program verification are distinct context, not a universal 250 mm/s permission. The current article already carries the qualified automatic/manual distinction, so the guarded article endpoint is byte-unchanged; no article or glossary edit is made. The registry's 2026 publication year remains unestablished. Original four-cell history: {"claim":"OSHA describes perimeter fencing, interlocked gates and reduced-speed teach modes","sourceChecked":"osha-otm-robots (fetched live): \"guards (fences, barriers), interlocked guards, and presence-sensing devices (e.g., light curtains, safety mats, safety scanners...)\"; \"the robot system operates at a reduced speed... not greater than 10 inches/second (250mm/second)\"","verdict":"V","note":""} Retained fetch times are not this review time; no new retrieval, liveness, whole-article/P1 or independent acceptance. | osha-industrial-modes-20260915-industrial-deployment-38 |
 | OSHA describes guards, interlocked guards and presence-sensing devices for non-collaborative robot applications during automatic operation, reduced-speed manual mode with an enabling device for teaching inside safeguarded space, and lockout/tagout procedures and training with hazardous-energy controls for maintenance. Separately, Symbotic reports that its systems can be installed in phases while an existing warehouse continues to operate. | osha-otm-robots; symbotic-10k-2025 | C |  |  |  | Current integration review 2026-09-13T00:12:58.954Z by agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator. All mandatory parts and complete current reader corrections reviewed in this integration. Symbotic source: exact FY2025 10-K, FetchUrl request 2026-09-12T21:03:13.584Z / result 2026-09-12T21:03:19.099Z, tool-reported 200; raw origin headers/redirects unavailable. No current whole-article/P1 or release acceptance is asserted. Vendor ability is not a universal guarantee; unsupported manual/automated parallel-flow and cannot-close causal wording is excluded. OSHA actual retained body and original September 6 batch request/result are hash-bound; no new OSHA request. Its registry 2026 publication year remains unestablished. Both source sets are mandatory. Original/current four-cell history at frozen input: {"claim":"OSHA cited for \"guarding and interlocks around aisles, lockout procedures, and phased go-lives that run manual and automated flows in parallel\"","sourceChecked":"osha-otm-robots covers guarding, interlocks and lockout/tagout SOPs, but says nothing about phased go-lives; that claim belongs to symbotic-10k-2025","verdict":"C (citation moved to close after the lockout clause, leaving the phased go-live observation to the Symbotic sentence that follows and sources it)","note":""} The actual OSHA subsection is Non-Collaborative Robot Application Risk Reduction. Its paragraph explicitly describes guards, interlocked guards and presence-sensing devices separating workers during automatic operation; the population and mode are preserved. The actual OSHA safeguarded-space paragraph describes active teaching in reduced-speed manual mode with an enabling device. This is distinct from automatic-operation safeguards, not unrestricted human/robot coexistence. Actual OSHA text names lockout/tagout SOPs and training, calls for hazardous-energy control under 29 CFR 1910.147 or 1910.333, discusses powered manual-mode maintenance safeguards, and warns about time pressure. The schedule-cannot-stop implication is cut, not treated as an exemption. The actual Symbotic Scalable Modularity and No Compromise Retrofit paragraphs report phased installation while a warehouse operates. This is explicitly company-reported capability; OSHA does not become the source of vendor phasing or a generic parallel-flow guarantee. Retained fetch times are not this review time; no new retrieval, whole-article/P1 or independent acceptance. | symbotic-industrial-20260912-industrial-deployment-39 |
 | Symbotic says in its FY2025 Form 10-K that its systems can be installed in phases while an existing warehouse continues to operate; this is the company's stated capability, not a guarantee for every retrofit. | symbotic-10k-2025 | C |  |  |  | Current integration review 2026-09-13T00:12:58.954Z by agent:411f808f-c314-432b-8dc4-800eb761dbbe/integrator. All mandatory parts and complete current reader corrections reviewed in this integration. Symbotic source: exact FY2025 10-K, FetchUrl request 2026-09-12T21:03:13.584Z / result 2026-09-12T21:03:19.099Z, tool-reported 200; raw origin headers/redirects unavailable. No current whole-article/P1 or release acceptance is asserted. Vendor ability is not a universal guarantee; unsupported manual/automated parallel-flow and cannot-close causal wording is excluded. Original/current four-cell history at frozen input: {"claim":"Symbotic's systems install in phases inside operating warehouses","sourceChecked":"symbotic-10k-2025 (\"They are so space-efficient that they can be installed in phases in operating warehouses with minimal impact to operations\"; \"install our systems in phases, allowing the existing warehouse to continue to operate\")","verdict":"V","note":""} Actual overview, modularity and retrofit passages agree on vendor phasing capability. Actual integration-risk and error/disruption paragraphs rule out promoting it to universal uninterrupted operation. The cannot-close causal claim is removed. Retained fetch times are not this review time; no new retrieval, whole-article/P1 or independent acceptance. | symbotic-industrial-20260912-industrial-deployment-40 |
 | Acemoglu and Restrepo: one more robot per thousand workers cuts the employment-to-population ratio by about 0.2 points and wages by 0.42 percent, losses concentrated in exposed commuting zones | acemoglu-restrepo-2020. journals.uchicago.edu is 403; the published JPE abstract was read verbatim on RePEc: "We estimate robust negative effects of robots on employment and wages across commuting zones... One more robot per thousand workers reduces the employment-to-population ratio by 0.2 percentage points and wages by 0.42%" | V | | | |
@@ -1012,3 +1011,594 @@ Fresh native checkpoint: 492 complete / 502 incomplete across 994 originals and 
 | worker-source-proof.receipt.json | `python3 /home/remy-simpc4/.factory/missions/fd137388-f254-4d11-97b1-548904d2cad2/validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-benchmarks-integration-20260913/worker-source-proof.py` | 1 | `5c0a5d619eab04984d8de39c56375dc022a1c7f40c5a06307959b4d7b8e5c10e` |
 | worker-tsc.receipt.json | `node node_modules/typescript/bin/tsc --noEmit --incremental false` | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
 | worker-typegen.receipt.json | `node node_modules/next/dist/bin/next typegen` | 0 | `adba4af9194e10e47dda75ff0fd0f8c2b756474896d0eba5612799c527ff372a` |
+
+## 2026-09-15 Hardware-taxonomy originals 1-20 and 25
+
+Applied from the frozen packet `convergence-source-c-hardware-taxonomy-20260915/rows.json` (sha256 a4d77342...) with zero retrieval by this integrator. Twenty-one ledger evidence-plan bindings with integrator plan review and per-part adjudications; two article endpoints (R4 SO-101 follower-BOM price span $100-core/$122 -> printed $110.94 core / $121.94 US total; R14 Figure 03 'not for individual sale' -> the cited page's own BotQ high-volume-manufacturing framing) with exact before/after spans in the record below. All 54 packet passages were independently needle-verified against the retained sha256-verified fetches (normalized substring or ordered fragment checks; see the lane's passage-verification.json) before adjudication; the robozaps live page now printing '(June 17)' where the ledger said '(June)' was the preparer-adjudicated cosmetic case and the packet's exact proposed cells are applied. Ordinal 25 is the local-AND row: the integrator re-ran 314.4/19.0 = 16.54736842105263 (floor 16) and paired it with the vla-perf Table 3 endpoints re-read from this packet's own retained sha-verified fetch. Vendor prices appear exactly as the fetched pages print them, vendor-reported with fetch dates. The optional trossen-widowx-ai-2026 registry proposal was not required (row 3 binds to registered trossen-ai-2026) and was not applied. The exact before/current row history follows, non-counted.
+
+```json
+[
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:1",
+    "rowOrdinal": 1,
+    "currentCells": {
+      "claim": "Trossen AI prices: WidowX AI \\$4,545.95, Solo AI \\$11,385.95, Stationary AI \\$23,995.95, Mobile AI \\$33,695.95",
+      "sourceChecked": "trossenrobotics.com/ai (live, fetched 2026-08-17: \"\\$4,545.95\", \"\\$11,385.95\", \"\\$23,995.95\", \"\\$33,695.95\") + trossenrobotics.com/widowx-ai product page",
+      "verdict": "C (the article claimed a 30-34% rebrand price cut to \\$2,995/\\$15,995/\\$22,995; no live Trossen page states any cut or any of the lower figures; research/03 error)",
+      "note": ""
+    },
+    "currentTupleDigest": "6b3932fb610363b28401b1230976b750ce294e5d485b0c37758ffaa9e6eacb0d",
+    "proposedCells": {
+      "claim": "Trossen AI prices: WidowX AI \\$4,545.95, Solo AI \\$11,385.95, Stationary AI \\$23,995.95, Mobile AI \\$33,695.95",
+      "sourceChecked": "trossenrobotics.com/ai, https://www.trossenrobotics.com/ai; curl GET 200 on 2026-09-15T13:23:07.475Z (2,087,481 bytes; sha256 a43216dad7f928a76a911d32a2d9d002669b76320c8a70dbeef572173b9cb6dc) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z; widowx-ai product page curl GET 200 on 2026-09-15T13:23:07.862Z (1,581,161 bytes; sha256 95109ccdc3c20a2fb0435eddb413617ed9f2b73add5636974d9990d6db7f6e07)",
+      "verdict": "C (the article claimed a 30-34% rebrand price cut to \\$2,995/\\$15,995/\\$22,995; no live Trossen page states any cut or any of the lower figures; research/03 error)",
+      "note": "Re-verified live 2026-09-15 (this session's fetches): $4,545.95 / $11,385.95 / $23,995.95 / $33,695.95 all still printed beside their kits' Buy Now / Get a Quote links. Vendor-reported list prices with fetch dates; the 2026-08-17 correction (no 30-34% rebrand cut; research/03 error) stands unchanged."
+    },
+    "appliedCells": {
+      "claim": "Trossen AI prices: WidowX AI \\$4,545.95, Solo AI \\$11,385.95, Stationary AI \\$23,995.95, Mobile AI \\$33,695.95",
+      "sourceChecked": "trossenrobotics.com/ai, https://www.trossenrobotics.com/ai; curl GET 200 on 2026-09-15T13:23:07.475Z (2,087,481 bytes; sha256 a43216dad7f928a76a911d32a2d9d002669b76320c8a70dbeef572173b9cb6dc) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z; widowx-ai product page curl GET 200 on 2026-09-15T13:23:07.862Z (1,581,161 bytes; sha256 95109ccdc3c20a2fb0435eddb413617ed9f2b73add5636974d9990d6db7f6e07)",
+      "verdict": "C (the article claimed a 30-34% rebrand price cut to \\$2,995/\\$15,995/\\$22,995; no live Trossen page states any cut or any of the lower figures; research/03 error)",
+      "note": "Preparer re-verified live 2026-09-15 (source-lane fetches); integrator needle-verified every passage against the retained sha256-verified sources: $4,545.95 / $11,385.95 / $23,995.95 / $33,695.95 all still printed beside their kits' Buy Now / Get a Quote links. Vendor-reported list prices with fetch dates; the 2026-08-17 correction (no 30-34% rebrand cut; research/03 error) stands unchanged."
+    },
+    "integratorAdjustments": [
+      [
+        "Re-verified live 2026-09-15 (this session's fetches)",
+        "Preparer re-verified live 2026-09-15 (source-lane fetches); integrator needle-verified every passage against the retained sha256-verified sources"
+      ]
+    ],
+    "appliedTupleDigest": "a3a1814b414ba7dada516f3605db51b918602b06485df663377be012eda363e5",
+    "oldRaw": "| Trossen AI prices: WidowX AI \\$4,545.95, Solo AI \\$11,385.95, Stationary AI \\$23,995.95, Mobile AI \\$33,695.95 | trossenrobotics.com/ai (live, fetched 2026-08-17: \"\\$4,545.95\", \"\\$11,385.95\", \"\\$23,995.95\", \"\\$33,695.95\") + trossenrobotics.com/widowx-ai product page | C (the article claimed a 30-34% rebrand price cut to \\$2,995/\\$15,995/\\$22,995; no live Trossen page states any cut or any of the lower figures; research/03 error) |",
+    "newRaw": "| Trossen AI prices: WidowX AI \\$4,545.95, Solo AI \\$11,385.95, Stationary AI \\$23,995.95, Mobile AI \\$33,695.95 | trossenrobotics.com/ai, https://www.trossenrobotics.com/ai; curl GET 200 on 2026-09-15T13:23:07.475Z (2,087,481 bytes; sha256 a43216dad7f928a76a911d32a2d9d002669b76320c8a70dbeef572173b9cb6dc) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z; widowx-ai product page curl GET 200 on 2026-09-15T13:23:07.862Z (1,581,161 bytes; sha256 95109ccdc3c20a2fb0435eddb413617ed9f2b73add5636974d9990d6db7f6e07) | C (the article claimed a 30-34% rebrand price cut to \\$2,995/\\$15,995/\\$22,995; no live Trossen page states any cut or any of the lower figures; research/03 error) | Preparer re-verified live 2026-09-15 (source-lane fetches); integrator needle-verified every passage against the retained sha256-verified sources: $4,545.95 / $11,385.95 / $23,995.95 / $33,695.95 all still printed beside their kits' Buy Now / Get a Quote links. Vendor-reported list prices with fetch dates; the 2026-08-17 correction (no 30-34% rebrand cut; research/03 error) stands unchanged. |  |  |  | hardware-taxonomy-r1-tros-price-widowx-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:2",
+    "rowOrdinal": 2,
+    "currentCells": {
+      "claim": "Trossen AI line runs 500 Hz CAN FD on the iNerve board; LeRobot and OpenPI integration; ALOHA rebranded as Trossen AI",
+      "sourceChecked": "trossenrobotics.com/ai (\"CAN FD delivers over 500Hz data transfers\"; \"500Hz CONTROL FREQUENCY\"; \"Ultra-High Performance iNerve® Controller\"; \"fully integrated into the OpenPI framework\"; \"ALOHA IS NOW TROSSEN AI\"; \"Native support for Hugging Face LeRobot\")",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "e11f3560eabf5c8b6402f3745d283e5c512b296c8ad1497281d7f2e81ac879ee",
+    "proposedCells": {
+      "claim": "Trossen AI line runs 500 Hz CAN FD on the iNerve board; LeRobot and OpenPI integration; ALOHA rebranded as Trossen AI",
+      "sourceChecked": "trossenrobotics.com/ai, https://www.trossenrobotics.com/ai; curl GET 200 on 2026-09-15T13:23:07.475Z (2,087,481 bytes; sha256 a43216dad7f928a76a911d32a2d9d002669b76320c8a70dbeef572173b9cb6dc) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15 against the same URL: 500 Hz CAN FD control on the iNerve board, OpenPI and LeRobot integration, and the ALOHA-to-Trossen AI rebrand all still stated verbatim. Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "Trossen AI line runs 500 Hz CAN FD on the iNerve board; LeRobot and OpenPI integration; ALOHA rebranded as Trossen AI",
+      "sourceChecked": "trossenrobotics.com/ai, https://www.trossenrobotics.com/ai; curl GET 200 on 2026-09-15T13:23:07.475Z (2,087,481 bytes; sha256 a43216dad7f928a76a911d32a2d9d002669b76320c8a70dbeef572173b9cb6dc) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15 against the same URL: 500 Hz CAN FD control on the iNerve board, OpenPI and LeRobot integration, and the ALOHA-to-Trossen AI rebrand all still stated verbatim. Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "f57b77ca8232bd62f5dc11a4c9adc3b3cddd67ab464294b44e1fc44bf89bb67b",
+    "oldRaw": "| Trossen AI line runs 500 Hz CAN FD on the iNerve board; LeRobot and OpenPI integration; ALOHA rebranded as Trossen AI | trossenrobotics.com/ai (\"CAN FD delivers over 500Hz data transfers\"; \"500Hz CONTROL FREQUENCY\"; \"Ultra-High Performance iNerve® Controller\"; \"fully integrated into the OpenPI framework\"; \"ALOHA IS NOW TROSSEN AI\"; \"Native support for Hugging Face LeRobot\") | V |",
+    "newRaw": "| Trossen AI line runs 500 Hz CAN FD on the iNerve board; LeRobot and OpenPI integration; ALOHA rebranded as Trossen AI | trossenrobotics.com/ai, https://www.trossenrobotics.com/ai; curl GET 200 on 2026-09-15T13:23:07.475Z (2,087,481 bytes; sha256 a43216dad7f928a76a911d32a2d9d002669b76320c8a70dbeef572173b9cb6dc) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z | V | Re-verified live 2026-09-15 against the same URL: 500 Hz CAN FD control on the iNerve board, OpenPI and LeRobot integration, and the ALOHA-to-Trossen AI rebrand all still stated verbatim. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r2-tros-canfd-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:3",
+    "rowOrdinal": 3,
+    "currentCells": {
+      "claim": "WidowX AI: 1.5 kg payload, 700 mm reach, 6 DoF, 1 mm repeatability",
+      "sourceChecked": "trossenrobotics.com/widowx-ai spec table (PAYLOAD 1.5kg / REACH 700mm / DoF 6 / REPEATABILITY 1mm / SPAN 1400mm / WEIGHT 4kg)",
+      "verdict": "V (banked addition; the dof field in data/hardware.ts moved from null to 6 with this source)",
+      "note": ""
+    },
+    "currentTupleDigest": "1fb16ed882f9ead2acdbd47fe931e50b039074846f21d016f1c0d360b003052c",
+    "proposedCells": {
+      "claim": "WidowX AI: 1.5 kg payload, 700 mm reach, 6 DoF, 1 mm repeatability",
+      "sourceChecked": "trossenrobotics.com/widowx-ai spec table, https://www.trossenrobotics.com/widowx-ai; curl GET 200 on 2026-09-15T13:23:07.862Z (1,581,161 bytes; sha256 95109ccdc3c20a2fb0435eddb413617ed9f2b73add5636974d9990d6db7f6e07); same page prints the $4,545.95 Base configuration price",
+      "verdict": "V (banked addition; the dof field in data/hardware.ts moved from null to 6 with this source)",
+      "note": "Re-verified live 2026-09-15: spec table as recorded. Banked dof=6 in data/hardware.ts stands. Citation bound to registered trossen-ai-2026; dedicated product-page registration proposed (registryProposals)."
+    },
+    "appliedCells": {
+      "claim": "WidowX AI: 1.5 kg payload, 700 mm reach, 6 DoF, 1 mm repeatability",
+      "sourceChecked": "trossenrobotics.com/widowx-ai spec table, https://www.trossenrobotics.com/widowx-ai; curl GET 200 on 2026-09-15T13:23:07.862Z (1,581,161 bytes; sha256 95109ccdc3c20a2fb0435eddb413617ed9f2b73add5636974d9990d6db7f6e07); same page prints the $4,545.95 Base configuration price",
+      "verdict": "V (banked addition; the dof field in data/hardware.ts moved from null to 6 with this source)",
+      "note": "Re-verified live 2026-09-15: spec table as recorded. Banked dof=6 in data/hardware.ts stands. Citation bound to registered trossen-ai-2026; dedicated product-page registration proposed (registryProposals)."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "043d9b476eb71a820360c4436e4356847888eb91b3f478293c4d06371a1d1693",
+    "oldRaw": "| WidowX AI: 1.5 kg payload, 700 mm reach, 6 DoF, 1 mm repeatability | trossenrobotics.com/widowx-ai spec table (PAYLOAD 1.5kg / REACH 700mm / DoF 6 / REPEATABILITY 1mm / SPAN 1400mm / WEIGHT 4kg) | V (banked addition; the dof field in data/hardware.ts moved from null to 6 with this source) |",
+    "newRaw": "| WidowX AI: 1.5 kg payload, 700 mm reach, 6 DoF, 1 mm repeatability | trossenrobotics.com/widowx-ai spec table, https://www.trossenrobotics.com/widowx-ai; curl GET 200 on 2026-09-15T13:23:07.862Z (1,581,161 bytes; sha256 95109ccdc3c20a2fb0435eddb413617ed9f2b73add5636974d9990d6db7f6e07); same page prints the $4,545.95 Base configuration price | V (banked addition; the dof field in data/hardware.ts moved from null to 6 with this source) | Re-verified live 2026-09-15: spec table as recorded. Banked dof=6 in data/hardware.ts stands. Citation bound to registered trossen-ai-2026; dedicated product-page registration proposed (registryProposals). |  |  |  | hardware-taxonomy-r3-widowx-spec-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:4",
+    "rowOrdinal": 4,
+    "currentCells": {
+      "claim": "SO-101: 6 DoF (5 joints + gripper), STS3215 servos, ~\\$100 core / \\$122 US BOM for one follower arm",
+      "sourceChecked": "github.com/TheRobotStudio/SO-ARM100 README (fetched 2026-08-17; follower-arm table Total \\$121.94 in the US column; STS3215 servo rows)",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "71ab10dbb0c562fa5aac4f5407086b482490333c5cb561561eac316788e51f55",
+    "proposedCells": {
+      "claim": "SO-101: 6 DoF (5 joints + gripper), STS3215 servos, ~\\$100 core / \\$122 US BOM for one follower arm",
+      "sourceChecked": "github.com/TheRobotStudio/SO-ARM100 README (raw markdown), https://raw.githubusercontent.com/TheRobotStudio/SO-ARM100/main/README.md; curl GET 200 on 2026-09-15T13:23:08.184Z (26,524 bytes; sha256 e635f305cf6d2ddcf19096239761a87b33821e1ff124ec11fde5225e191540f4)",
+      "verdict": "C (the README prints no '$100' figure: the follower-arm core subtotal exceeds $100 and the printed total is $121.94; the article's 'about $100 in core parts' is corrected to the printed subtotals with this fetch)",
+      "note": "Re-verified live 2026-09-15: follower-arm table Total $121.94 US; STS3215 servo rows; six-servo bundle (6-DoF basis). Correction: the README states no '~$100' figure; core parts (servos, board, cable, PSU) sum above $100 and the printed total is $121.94 — the article's 'about $100 in core parts' is corrected to the printed subtotals (endpoint hardware-taxonomy-r4-so101-core-price-span). 'Five joints plus a gripper' is the standard SO-101 decomposition of the six-servo BOM; the README itself does not spell it (LeRobot docs not re-fetched this session)."
+    },
+    "appliedCells": {
+      "claim": "SO-101: 6 DoF (5 joints + gripper), STS3215 servos, ~\\$100 core / \\$122 US BOM for one follower arm",
+      "sourceChecked": "github.com/TheRobotStudio/SO-ARM100 README (raw markdown), https://raw.githubusercontent.com/TheRobotStudio/SO-ARM100/main/README.md; curl GET 200 on 2026-09-15T13:23:08.184Z (26,524 bytes; sha256 e635f305cf6d2ddcf19096239761a87b33821e1ff124ec11fde5225e191540f4)",
+      "verdict": "C (the README prints no '$100' figure: the follower-arm core subtotal exceeds $100 and the printed total is $121.94; the article's 'about $100 in core parts' is corrected to the printed subtotals with this fetch)",
+      "note": "Re-verified live 2026-09-15: follower-arm table Total $121.94 US; STS3215 servo rows; six-servo bundle (6-DoF basis). Correction: the README states no '~$100' figure; core parts (servos, board, cable, PSU) sum above $100 and the printed total is $121.94 — the article's 'about $100 in core parts' is corrected to the printed subtotals (endpoint hardware-taxonomy-r4-so101-core-price-span). 'Five joints plus a gripper' is the standard SO-101 decomposition of the six-servo BOM; the README itself does not spell it (LeRobot docs not re-fetched in the preparer's 2026-09-15 source session)."
+    },
+    "integratorAdjustments": [
+      [
+        "fetched this session",
+        "fetched in the preparer's 2026-09-15 source session"
+      ]
+    ],
+    "appliedTupleDigest": "83c5f228dc9d01bb3eca714fa2a9767b9ed30b52e2af120de563c15f2465397c",
+    "oldRaw": "| SO-101: 6 DoF (5 joints + gripper), STS3215 servos, ~\\$100 core / \\$122 US BOM for one follower arm | github.com/TheRobotStudio/SO-ARM100 README (fetched 2026-08-17; follower-arm table Total \\$121.94 in the US column; STS3215 servo rows) | V |",
+    "newRaw": "| SO-101: 6 DoF (5 joints + gripper), STS3215 servos, ~\\$100 core / \\$122 US BOM for one follower arm | github.com/TheRobotStudio/SO-ARM100 README (raw markdown), https://raw.githubusercontent.com/TheRobotStudio/SO-ARM100/main/README.md; curl GET 200 on 2026-09-15T13:23:08.184Z (26,524 bytes; sha256 e635f305cf6d2ddcf19096239761a87b33821e1ff124ec11fde5225e191540f4) | C (the README prints no '$100' figure: the follower-arm core subtotal exceeds $100 and the printed total is $121.94; the article's 'about $100 in core parts' is corrected to the printed subtotals with this fetch) | Re-verified live 2026-09-15: follower-arm table Total $121.94 US; STS3215 servo rows; six-servo bundle (6-DoF basis). Correction: the README states no '~$100' figure; core parts (servos, board, cable, PSU) sum above $100 and the printed total is $121.94 — the article's 'about $100 in core parts' is corrected to the printed subtotals (endpoint hardware-taxonomy-r4-so101-core-price-span). 'Five joints plus a gripper' is the standard SO-101 decomposition of the six-servo BOM; the README itself does not spell it (LeRobot docs not re-fetched in the preparer's 2026-09-15 source session). |  |  |  | hardware-taxonomy-r4-so101-follower-bom-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:5",
+    "rowOrdinal": 5,
+    "currentCells": {
+      "claim": "Seeed SO-ARM101 Pro: \\$295 unassembled, \\$299 assembled, 12-bit magnetic encoders, 500 g payload",
+      "sourceChecked": "seeedstudio.com product pages (fetched 2026-08-17: \"\\$295.00\"/\"\\$299.00\" in the comparison table; \"12-bit magnetic encoder\"; \"500g\" payload; six STS3215 servos)",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "05a42b94960136cfdfda446145eca08b0f1be3b1e119630e096d3e96c16055be",
+    "proposedCells": {
+      "claim": "Seeed SO-ARM101 Pro: \\$295 unassembled, \\$299 assembled, 12-bit magnetic encoders, 500 g payload",
+      "sourceChecked": "seeedstudio.com SO-ARM101 Pro assembled-kit page, https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html (final URL https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html); curl GET 200 on 2026-09-15T13:23:10.517Z (979,551 bytes; sha256 e7dcc7fb88ef803619796b69b30d14aba967ded20361b1b0b7ef0595b10cdd67); the embedded comparison sheet carries the $295.00 unassembled price, so one URL covers both kits",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: $295.00 (unassembled bundle) and $299.00 (assembled kit) in the comparison-sheet Price row; buy box $299.00 In stock; 12-bit encoders; Payload 500g. Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "Seeed SO-ARM101 Pro: \\$295 unassembled, \\$299 assembled, 12-bit magnetic encoders, 500 g payload",
+      "sourceChecked": "seeedstudio.com SO-ARM101 Pro assembled-kit page, https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html (final URL https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html); curl GET 200 on 2026-09-15T13:23:10.517Z (979,551 bytes; sha256 e7dcc7fb88ef803619796b69b30d14aba967ded20361b1b0b7ef0595b10cdd67); the embedded comparison sheet carries the $295.00 unassembled price, so one URL covers both kits",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: $295.00 (unassembled bundle) and $299.00 (assembled kit) in the comparison-sheet Price row; buy box $299.00 In stock; 12-bit encoders; Payload 500g. Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "5007b41a30396dfc4aadb57d2ba99f60c01acb69dda888c6dbca3a7aa612a382",
+    "oldRaw": "| Seeed SO-ARM101 Pro: \\$295 unassembled, \\$299 assembled, 12-bit magnetic encoders, 500 g payload | seeedstudio.com product pages (fetched 2026-08-17: \"\\$295.00\"/\"\\$299.00\" in the comparison table; \"12-bit magnetic encoder\"; \"500g\" payload; six STS3215 servos) | V |",
+    "newRaw": "| Seeed SO-ARM101 Pro: \\$295 unassembled, \\$299 assembled, 12-bit magnetic encoders, 500 g payload | seeedstudio.com SO-ARM101 Pro assembled-kit page, https://www.seeedstudio.com/SO-ARM-101-Assembled-Kit-Pro-p-6691.html (final URL https://www.seeedstudio.com/SO-101-Assembled-Kit-Pro-p-6691.html); curl GET 200 on 2026-09-15T13:23:10.517Z (979,551 bytes; sha256 e7dcc7fb88ef803619796b69b30d14aba967ded20361b1b0b7ef0595b10cdd67); the embedded comparison sheet carries the $295.00 unassembled price, so one URL covers both kits | V | Re-verified live 2026-09-15: $295.00 (unassembled bundle) and $299.00 (assembled kit) in the comparison-sheet Price row; buy box $299.00 In stock; 12-bit encoders; Payload 500g. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r5-seeed-price-row-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:6",
+    "rowOrdinal": 6,
+    "currentCells": {
+      "claim": "Koch v1.1 \\$250-\\$300; the June 2026 community issue estimates the combined ALOHA / ALOHA 2 category at about $17k–32k, not a configuration-specific USD quote; Reachy 2 ~\\$70,000",
+      "sourceChecked": "ALOHA subclaim only: https://github.com/alpibrusl/lex-robot/issues/3. FetchUrl response 2026-09-07T12:15:17.844Z; secondary community research issue, not a vendor quote. Retained response SHA-256 6d34debe7a74d97ee8c0f05be8639454ffbac8eceb268edda3102e3930ae8046; reused after event/body/excerpt verification on 2026-09-07, no new retrieval.",
+      "verdict": "corrected",
+      "note": "PRICE-HARDWARE-20260907 corrects only ALOHA attribution, currency and purchase scope. Koch and Reachy claims remain unchanged and unverified in this batch; the whole row remains incomplete. No partial source passage is promoted to whole-row evidence. Original three cells are preserved in pricing-current-claim-history-20260907."
+    },
+    "currentTupleDigest": "c14fc2f89914fbd0f1f5e867fc0dc27dd6298f3a7ddd7f58903eb9da0c90aa41",
+    "proposedCells": {
+      "claim": "Koch v1.1 \\$250-\\$300; the June 2026 community issue estimates the combined ALOHA / ALOHA 2 category at about $17k–32k, not a configuration-specific USD quote; Reachy 2 ~\\$70,000",
+      "sourceChecked": "https://github.com/alpibrusl/lex-robot/issues/3; fetched as HTML page (curl GET 200 on 2026-09-15T13:23:15.120Z (264,954 bytes; sha256 38900aac857a97b25503e982ac8a59cc2dc38477e0c0d20fe5655132dbb2399f)) and as unauthenticated API JSON (curl GET 200 on 2026-09-15T13:23:15.483Z (7,389 bytes; sha256 5533d8a0f468f9ae9df56a51735f77f938071fcd6d780b3781bb3a5ef68cc009)); issue created 2026-06-13T12:16:37Z by alpibrupa, body self-describes 'Researched June 2026'",
+      "verdict": "corrected",
+      "note": "Re-verified live 2026-09-15: the issue's own pricing table states Koch v1.1 ~$250–300 (older), ALOHA / ALOHA 2 ~$17k–32k, and Reachy 2 ~$70,000, all under 'Pricing (approx — DIY BOM vs assembled, tariffs cause big spreads)'. Community approximations with no currency code, configurations or inclusions itemized; PRICE-HARDWARE-20260907's ALOHA scoping stands and now extends to the Koch/Reachy cells by the same basis. No partial passage promoted: the single fetched document covers every element of the claim."
+    },
+    "appliedCells": {
+      "claim": "Koch v1.1 \\$250-\\$300; the June 2026 community issue estimates the combined ALOHA / ALOHA 2 category at about $17k–32k, not a configuration-specific USD quote; Reachy 2 ~\\$70,000",
+      "sourceChecked": "https://github.com/alpibrusl/lex-robot/issues/3; fetched as HTML page (curl GET 200 on 2026-09-15T13:23:15.120Z (264,954 bytes; sha256 38900aac857a97b25503e982ac8a59cc2dc38477e0c0d20fe5655132dbb2399f)) and as unauthenticated API JSON (curl GET 200 on 2026-09-15T13:23:15.483Z (7,389 bytes; sha256 5533d8a0f468f9ae9df56a51735f77f938071fcd6d780b3781bb3a5ef68cc009)); issue created 2026-06-13T12:16:37Z by alpibrupa, body self-describes 'Researched June 2026'",
+      "verdict": "corrected",
+      "note": "Re-verified live 2026-09-15: the issue's own pricing table states Koch v1.1 ~$250–300 (older), ALOHA / ALOHA 2 ~$17k–32k, and Reachy 2 ~$70,000, all under 'Pricing (approx — DIY BOM vs assembled, tariffs cause big spreads)'. Community approximations with no currency code, configurations or inclusions itemized; PRICE-HARDWARE-20260907's ALOHA scoping stands and now extends to the Koch/Reachy cells by the same basis. No partial passage promoted: the single fetched document covers every element of the claim."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "97fa95c8212f6d90c9b4fcaab75817217eab1ebacd2fc1e2aae58579842bf579",
+    "oldRaw": "| Koch v1.1 \\$250-\\$300; the June 2026 community issue estimates the combined ALOHA / ALOHA 2 category at about $17k–32k, not a configuration-specific USD quote; Reachy 2 ~\\$70,000 | ALOHA subclaim only: https://github.com/alpibrusl/lex-robot/issues/3. FetchUrl response 2026-09-07T12:15:17.844Z; secondary community research issue, not a vendor quote. Retained response SHA-256 6d34debe7a74d97ee8c0f05be8639454ffbac8eceb268edda3102e3930ae8046; reused after event/body/excerpt verification on 2026-09-07, no new retrieval. | corrected | PRICE-HARDWARE-20260907 corrects only ALOHA attribution, currency and purchase scope. Koch and Reachy claims remain unchanged and unverified in this batch; the whole row remains incomplete. No partial source passage is promoted to whole-row evidence. Original three cells are preserved in pricing-current-claim-history-20260907. |  |  |  |",
+    "newRaw": "| Koch v1.1 \\$250-\\$300; the June 2026 community issue estimates the combined ALOHA / ALOHA 2 category at about $17k–32k, not a configuration-specific USD quote; Reachy 2 ~\\$70,000 | https://github.com/alpibrusl/lex-robot/issues/3; fetched as HTML page (curl GET 200 on 2026-09-15T13:23:15.120Z (264,954 bytes; sha256 38900aac857a97b25503e982ac8a59cc2dc38477e0c0d20fe5655132dbb2399f)) and as unauthenticated API JSON (curl GET 200 on 2026-09-15T13:23:15.483Z (7,389 bytes; sha256 5533d8a0f468f9ae9df56a51735f77f938071fcd6d780b3781bb3a5ef68cc009)); issue created 2026-06-13T12:16:37Z by alpibrupa, body self-describes 'Researched June 2026' | corrected | Re-verified live 2026-09-15: the issue's own pricing table states Koch v1.1 ~$250–300 (older), ALOHA / ALOHA 2 ~$17k–32k, and Reachy 2 ~$70,000, all under 'Pricing (approx — DIY BOM vs assembled, tariffs cause big spreads)'. Community approximations with no currency code, configurations or inclusions itemized; PRICE-HARDWARE-20260907's ALOHA scoping stands and now extends to the Koch/Reachy cells by the same basis. No partial passage promoted: the single fetched document covers every element of the claim. |  |  |  | hardware-taxonomy-r6-issue-pricing-rows-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:7",
+    "rowOrdinal": 7,
+    "currentCells": {
+      "claim": "Omdia: ~13,000 humanoids shipped 2025; AgiBot first at 5,168 units / 39% share; Unitree self-reports 5,500+ and disputes the ranking",
+      "sourceChecked": "robozaps-humanoids-2026 (blog.robozaps.com, fetched 2026-08-17: \"Roughly 13,000 humanoid robots shipped in 2025 (Omdia)\"; \"Omdia credits it with 5,168 units and a 39% global share\"; \"Unitree self-reports 5,500+... though analyst firm Omdia counts ~4,200 and ranks AgiBot first, a dispute worth knowing\")",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "622b27da7033306fcc7de47f4535d7eb636a904c9d688c88498785130a4a8637",
+    "proposedCells": {
+      "claim": "Omdia: ~13,000 humanoids shipped 2025; AgiBot first at 5,168 units / 39% share; Unitree self-reports 5,500+ and disputes the ranking",
+      "sourceChecked": "blog.robozaps.com, https://blog.robozaps.com/b/best-humanoid-robots; curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4)",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: ~13,000 shipped 2025 (Omdia); AgiBot first at 5,168 units / 39% share; Unitree self-reports 5,500+ and disputes the ranking while Omdia counts ~4,200 — both positions carried, P5 satisfied. Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "Omdia: ~13,000 humanoids shipped 2025; AgiBot first at 5,168 units / 39% share; Unitree self-reports 5,500+ and disputes the ranking",
+      "sourceChecked": "blog.robozaps.com, https://blog.robozaps.com/b/best-humanoid-robots; curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4)",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: ~13,000 shipped 2025 (Omdia); AgiBot first at 5,168 units / 39% share; Unitree self-reports 5,500+ and disputes the ranking while Omdia counts ~4,200 — both positions carried, P5 satisfied. Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "4c6f0f211261177fb1fe42067696dab2dcf4c6d47a028326bef67a29d882f4d0",
+    "oldRaw": "| Omdia: ~13,000 humanoids shipped 2025; AgiBot first at 5,168 units / 39% share; Unitree self-reports 5,500+ and disputes the ranking | robozaps-humanoids-2026 (blog.robozaps.com, fetched 2026-08-17: \"Roughly 13,000 humanoid robots shipped in 2025 (Omdia)\"; \"Omdia credits it with 5,168 units and a 39% global share\"; \"Unitree self-reports 5,500+... though analyst firm Omdia counts ~4,200 and ranks AgiBot first, a dispute worth knowing\") | V |",
+    "newRaw": "| Omdia: ~13,000 humanoids shipped 2025; AgiBot first at 5,168 units / 39% share; Unitree self-reports 5,500+ and disputes the ranking | blog.robozaps.com, https://blog.robozaps.com/b/best-humanoid-robots; curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4) | V | Re-verified live 2026-09-15: ~13,000 shipped 2025 (Omdia); AgiBot first at 5,168 units / 39% share; Unitree self-reports 5,500+ and disputes the ranking while Omdia counts ~4,200 — both positions carried, P5 satisfied. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r7-robo-13k-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:8",
+    "rowOrdinal": 8,
+    "currentCells": {
+      "claim": "Unitree G1: \\$13,500 base, 23 DoF, EDU 23-43 DoF by quote",
+      "sourceChecked": "unitree.com/g1 (fetched 2026-08-17: \"Price from \\$13.5K\"; \"23~43 joint motors\")",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "28fcac58aabe9fc2fb2c0b41456f3d62550a88e5cbe010be2fa4b853c6411ebb",
+    "proposedCells": {
+      "claim": "Unitree G1: \\$13,500 base, 23 DoF, EDU 23-43 DoF by quote",
+      "sourceChecked": "unitree.com/g1, https://www.unitree.com/g1/; curl GET 200 on 2026-09-15T13:23:11.200Z (61,896 bytes; sha256 b7cc9a302e25c48405f0f3b3fcf6314090017f3eff7c7c0983514b5acef3ad0a)",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: Price from $13.5K (table: US $13.5K Contact sales); G1 column 23 DoF, G1 EDU column 23-43 DoF, EDU by quote (Contact sales). Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "Unitree G1: \\$13,500 base, 23 DoF, EDU 23-43 DoF by quote",
+      "sourceChecked": "unitree.com/g1, https://www.unitree.com/g1/; curl GET 200 on 2026-09-15T13:23:11.200Z (61,896 bytes; sha256 b7cc9a302e25c48405f0f3b3fcf6314090017f3eff7c7c0983514b5acef3ad0a)",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: Price from $13.5K (table: US $13.5K Contact sales); G1 column 23 DoF, G1 EDU column 23-43 DoF, EDU by quote (Contact sales). Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "fbc87a40a90aff990f91ac7ebf69763246d93963471020e39d4f59916dd06295",
+    "oldRaw": "| Unitree G1: \\$13,500 base, 23 DoF, EDU 23-43 DoF by quote | unitree.com/g1 (fetched 2026-08-17: \"Price from \\$13.5K\"; \"23~43 joint motors\") | V |",
+    "newRaw": "| Unitree G1: \\$13,500 base, 23 DoF, EDU 23-43 DoF by quote | unitree.com/g1, https://www.unitree.com/g1/; curl GET 200 on 2026-09-15T13:23:11.200Z (61,896 bytes; sha256 b7cc9a302e25c48405f0f3b3fcf6314090017f3eff7c7c0983514b5acef3ad0a) | V | Re-verified live 2026-09-15: Price from $13.5K (table: US $13.5K Contact sales); G1 column 23 DoF, G1 EDU column 23-43 DoF, EDU by quote (Contact sales). Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r8-g1-price-hero-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:9",
+    "rowOrdinal": 9,
+    "currentCells": {
+      "claim": "Unitree H2: \\$29,900, 31 DoF, 360 N·m leg joints, 2070 TOPS onboard",
+      "sourceChecked": "unitree.com/H2 (fetched 2026-08-17: \"\\$29,900\"; \"31 degrees of freedom, 360N·m joint torque\"; \"Powered by a 2070 TOPS chip\")",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "e26614616c292c5e0c0247902c1386b6015a715e720f0c43f73b019132b39b0d",
+    "proposedCells": {
+      "claim": "Unitree H2: \\$29,900, 31 DoF, 360 N·m leg joints, 2070 TOPS onboard",
+      "sourceChecked": "unitree.com/H2, https://www.unitree.com/H2/; curl GET 200 on 2026-09-15T13:23:11.461Z (53,644 bytes; sha256 c9fc6212689d54125a18fd430df69a4d5a1ccd28b8cc9df9e758234ac25c6de8)",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: H2 $29,900 (tax and shipping excluded), 31 DoF total, 360 N·m joint torque, 2070 TOPS onboard chip. Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "Unitree H2: \\$29,900, 31 DoF, 360 N·m leg joints, 2070 TOPS onboard",
+      "sourceChecked": "unitree.com/H2, https://www.unitree.com/H2/; curl GET 200 on 2026-09-15T13:23:11.461Z (53,644 bytes; sha256 c9fc6212689d54125a18fd430df69a4d5a1ccd28b8cc9df9e758234ac25c6de8)",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: H2 $29,900 (tax and shipping excluded), 31 DoF total, 360 N·m joint torque, 2070 TOPS onboard chip. Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "738453c21a4b7d7d45b5b6f122b1fb0be1b86ff7da1452a578eb421b8eb49039",
+    "oldRaw": "| Unitree H2: \\$29,900, 31 DoF, 360 N·m leg joints, 2070 TOPS onboard | unitree.com/H2 (fetched 2026-08-17: \"\\$29,900\"; \"31 degrees of freedom, 360N·m joint torque\"; \"Powered by a 2070 TOPS chip\") | V |",
+    "newRaw": "| Unitree H2: \\$29,900, 31 DoF, 360 N·m leg joints, 2070 TOPS onboard | unitree.com/H2, https://www.unitree.com/H2/; curl GET 200 on 2026-09-15T13:23:11.461Z (53,644 bytes; sha256 c9fc6212689d54125a18fd430df69a4d5a1ccd28b8cc9df9e758234ac25c6de8) | V | Re-verified live 2026-09-15: H2 $29,900 (tax and shipping excluded), 31 DoF total, 360 N·m joint torque, 2070 TOPS onboard chip. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r9-h2-price-table-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:10",
+    "rowOrdinal": 10,
+    "currentCells": {
+      "claim": "1X NEO: \\$20,000 or \\$499/month, \\$200 refundable deposit, 22 DoF per hand, 25-DoF revision announced July 9, US deliveries by end of 2026",
+      "sourceChecked": "1x.tech/neo (\"\\$200 Deposit\"; FAQ subscription) + robozaps-humanoids-2026 (\"Price \\$20,000 or \\$499/month; \\$200 refundable deposit (official)\"; \"1X announced a 25-DOF NEO hand revision on July 9, while the order page still lists 22 DOF per hand\"; \"customer shipments promised by end of 2026\")",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "c9a3b8de2014f18084cc34e1d2326580ed6ad2e6c598edd3eb3696a4e237fef1",
+    "proposedCells": {
+      "claim": "1X NEO: \\$20,000 or \\$499/month, \\$200 refundable deposit, 22 DoF per hand, 25-DoF revision announced July 9, US deliveries by end of 2026",
+      "sourceChecked": "1x.tech/neo (https://www.1x.tech/neo; curl GET 200 on 2026-09-15T13:23:11.860Z (178,766 bytes; sha256 afd7c2a8ab46403d32a36d5ac22e82ae2d01013f5120b7616b6c3131b7268455) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z) + blog.robozaps.com (https://blog.robozaps.com/b/best-humanoid-robots; curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4))",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: $20,000 outright or $499/month with a $200 refundable deposit (robozaps; the deposit also prints on the 1x order page); order page lists 22 DoF per hand (1x spec Hands 22x2 + robozaps); 25-DoF hand revision announced July 9 (robozaps); US deliveries promised by end of 2026 (robozaps). The 1x page prints no dollar price in this session's fetches — the price element rests on robozaps exactly as the row records. Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "1X NEO: \\$20,000 or \\$499/month, \\$200 refundable deposit, 22 DoF per hand, 25-DoF revision announced July 9, US deliveries by end of 2026",
+      "sourceChecked": "1x.tech/neo (https://www.1x.tech/neo; curl GET 200 on 2026-09-15T13:23:11.860Z (178,766 bytes; sha256 afd7c2a8ab46403d32a36d5ac22e82ae2d01013f5120b7616b6c3131b7268455) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z) + blog.robozaps.com (https://blog.robozaps.com/b/best-humanoid-robots; curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4))",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: $20,000 outright or $499/month with a $200 refundable deposit (robozaps; the deposit also prints on the 1x order page); order page lists 22 DoF per hand (1x spec Hands 22x2 + robozaps); 25-DoF hand revision announced July 9 (robozaps); US deliveries promised by end of 2026 (robozaps). The 1x page prints no dollar price in this session's fetches — the price element rests on robozaps exactly as the row records. Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "5d3a93a4482983c09e0a78ce9622d1c7bc10662b4450a4819e2bd7749435af9d",
+    "oldRaw": "| 1X NEO: \\$20,000 or \\$499/month, \\$200 refundable deposit, 22 DoF per hand, 25-DoF revision announced July 9, US deliveries by end of 2026 | 1x.tech/neo (\"\\$200 Deposit\"; FAQ subscription) + robozaps-humanoids-2026 (\"Price \\$20,000 or \\$499/month; \\$200 refundable deposit (official)\"; \"1X announced a 25-DOF NEO hand revision on July 9, while the order page still lists 22 DOF per hand\"; \"customer shipments promised by end of 2026\") | V |",
+    "newRaw": "| 1X NEO: \\$20,000 or \\$499/month, \\$200 refundable deposit, 22 DoF per hand, 25-DoF revision announced July 9, US deliveries by end of 2026 | 1x.tech/neo (https://www.1x.tech/neo; curl GET 200 on 2026-09-15T13:23:11.860Z (178,766 bytes; sha256 afd7c2a8ab46403d32a36d5ac22e82ae2d01013f5120b7616b6c3131b7268455) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z) + blog.robozaps.com (https://blog.robozaps.com/b/best-humanoid-robots; curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4)) | V | Re-verified live 2026-09-15: $20,000 outright or $499/month with a $200 refundable deposit (robozaps; the deposit also prints on the 1x order page); order page lists 22 DoF per hand (1x spec Hands 22x2 + robozaps); 25-DoF hand revision announced July 9 (robozaps); US deliveries promised by end of 2026 (robozaps). The 1x page prints no dollar price in this session's fetches — the price element rests on robozaps exactly as the row records. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r10-robo-neo-price-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:11",
+    "rowOrdinal": 11,
+    "currentCells": {
+      "claim": "NEO onboard computer is a Jetson Thor at up to 2,070 FP4 TFLOPS",
+      "sourceChecked": "1x.tech/neo spec table (\"Compute | Chipset | 1X NEO Cortex (Nvidia Jetson Thor) | AI Compute | Up to 2070 FP4 TFLOPS\")",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "f30652f439385238790b43d7319cfcba110b144aec17fd9cd0ffc898fb20f82f",
+    "proposedCells": {
+      "claim": "NEO onboard computer is a Jetson Thor at up to 2,070 FP4 TFLOPS",
+      "sourceChecked": "1x.tech/neo spec table, https://www.1x.tech/neo; curl GET 200 on 2026-09-15T13:23:11.860Z (178,766 bytes; sha256 afd7c2a8ab46403d32a36d5ac22e82ae2d01013f5120b7616b6c3131b7268455) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: the NEO onboard computer is a Jetson Thor ('1X NEO Cortex (Nvidia Jetson Thor)') at 'Up to 2070 FP4 TFLOPS'. Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "NEO onboard computer is a Jetson Thor at up to 2,070 FP4 TFLOPS",
+      "sourceChecked": "1x.tech/neo spec table, https://www.1x.tech/neo; curl GET 200 on 2026-09-15T13:23:11.860Z (178,766 bytes; sha256 afd7c2a8ab46403d32a36d5ac22e82ae2d01013f5120b7616b6c3131b7268455) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: the NEO onboard computer is a Jetson Thor ('1X NEO Cortex (Nvidia Jetson Thor)') at 'Up to 2070 FP4 TFLOPS'. Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "9d257e3b0a4d8e7144ffe1c0f8c4d9e3b786c1002b4f2721f11f3e573c19bff5",
+    "oldRaw": "| NEO onboard computer is a Jetson Thor at up to 2,070 FP4 TFLOPS | 1x.tech/neo spec table (\"Compute \\| Chipset \\| 1X NEO Cortex (Nvidia Jetson Thor) \\| AI Compute \\| Up to 2070 FP4 TFLOPS\") | V |",
+    "newRaw": "| NEO onboard computer is a Jetson Thor at up to 2,070 FP4 TFLOPS | 1x.tech/neo spec table, https://www.1x.tech/neo; curl GET 200 on 2026-09-15T13:23:11.860Z (178,766 bytes; sha256 afd7c2a8ab46403d32a36d5ac22e82ae2d01013f5120b7616b6c3131b7268455) + FetchUrl tool-reported 200 observed 2026-09-15T13:30Z | V | Re-verified live 2026-09-15: the NEO onboard computer is a Jetson Thor ('1X NEO Cortex (Nvidia Jetson Thor)') at 'Up to 2070 FP4 TFLOPS'. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r11-neo-compute-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:12",
+    "rowOrdinal": 12,
+    "currentCells": {
+      "claim": "Humanoid shakeout: K-Scale Labs shut down Nov 2025, Cartwheel Feb 2026, Sanctuary pivoted to software in June, Amazon acquired Fauna Robotics in March",
+      "sourceChecked": "robozaps-humanoids-2026 (\"K-Scale Labs shut down in November 2025, Cartwheel Robotics in February 2026, Sanctuary AI pivoted to software in June, and Amazon absorbed Fauna Robotics in March\")",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "e7772b27befb2b37b83ffcac2732ea7b31d5ca1f2715aecabfe3e546d24950d2",
+    "proposedCells": {
+      "claim": "Humanoid shakeout: K-Scale Labs shut down Nov 2025, Cartwheel Feb 2026, Sanctuary pivoted to software in June, Amazon acquired Fauna Robotics in March",
+      "sourceChecked": "blog.robozaps.com, https://blog.robozaps.com/b/best-humanoid-robots; curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4)",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: all four shakeout events stated as recorded (K-Scale Nov 2025, Cartwheel Feb 2026, Sanctuary software pivot June — printed as June 17 —, Amazon-Fauna March). Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "Humanoid shakeout: K-Scale Labs shut down Nov 2025, Cartwheel Feb 2026, Sanctuary pivoted to software in June, Amazon acquired Fauna Robotics in March",
+      "sourceChecked": "blog.robozaps.com, https://blog.robozaps.com/b/best-humanoid-robots; curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4)",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: all four shakeout events stated as recorded (K-Scale Nov 2025, Cartwheel Feb 2026, Sanctuary software pivot June — printed as June 17 —, Amazon-Fauna March). Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "d9a81291d612fafbf38aebf81068656842fe8aabe932f0f20757e689f7a2dfb9",
+    "oldRaw": "| Humanoid shakeout: K-Scale Labs shut down Nov 2025, Cartwheel Feb 2026, Sanctuary pivoted to software in June, Amazon acquired Fauna Robotics in March | robozaps-humanoids-2026 (\"K-Scale Labs shut down in November 2025, Cartwheel Robotics in February 2026, Sanctuary AI pivoted to software in June, and Amazon absorbed Fauna Robotics in March\") | V |",
+    "newRaw": "| Humanoid shakeout: K-Scale Labs shut down Nov 2025, Cartwheel Feb 2026, Sanctuary pivoted to software in June, Amazon acquired Fauna Robotics in March | blog.robozaps.com, https://blog.robozaps.com/b/best-humanoid-robots; curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4) | V | Re-verified live 2026-09-15: all four shakeout events stated as recorded (K-Scale Nov 2025, Cartwheel Feb 2026, Sanctuary software pivot June — printed as June 17 —, Amazon-Fauna March). Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r12-robo-shakeout-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:13",
+    "rowOrdinal": 13,
+    "currentCells": {
+      "claim": "Atlas (Electric): 56 DoF, IP67; no price",
+      "sourceChecked": "bostondynamics.com/products/atlas (fetched 2026-08-17: spec table \"DoF 56\"; \"IP Rating IP67\"; Hyundai field testing) + robozaps (\"Not published\")",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "668a0ebabbe6fc2265b27bbfbff3824e638620b8220a63a400643c0585b6f356",
+    "proposedCells": {
+      "claim": "Atlas (Electric): 56 DoF, IP67; no price",
+      "sourceChecked": "bostondynamics.com/products/atlas (https://bostondynamics.com/products/atlas/; curl GET 200 on 2026-09-15T13:23:12.754Z (144,976 bytes; sha256 d7d036f47284d70918383ffc31a6ae9de950fc61ebbdc88d39a35eb1f8f7d418)) + blog.robozaps.com (curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4))",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: 56 DoF with continuous range of motion, IP67, Hyundai field testing (BD page); no price printed on the BD page and robozaps records Not published; no open ordering announced. Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "Atlas (Electric): 56 DoF, IP67; no price",
+      "sourceChecked": "bostondynamics.com/products/atlas (https://bostondynamics.com/products/atlas/; curl GET 200 on 2026-09-15T13:23:12.754Z (144,976 bytes; sha256 d7d036f47284d70918383ffc31a6ae9de950fc61ebbdc88d39a35eb1f8f7d418)) + blog.robozaps.com (curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4))",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: 56 DoF with continuous range of motion, IP67, Hyundai field testing (BD page); no price printed on the BD page and robozaps records Not published; no open ordering announced. Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "251086cade421689ca3cbe2cd02b2f6be8407e93a72add4e56dfcba1561dc7fc",
+    "oldRaw": "| Atlas (Electric): 56 DoF, IP67; no price | bostondynamics.com/products/atlas (fetched 2026-08-17: spec table \"DoF 56\"; \"IP Rating IP67\"; Hyundai field testing) + robozaps (\"Not published\") | V |",
+    "newRaw": "| Atlas (Electric): 56 DoF, IP67; no price | bostondynamics.com/products/atlas (https://bostondynamics.com/products/atlas/; curl GET 200 on 2026-09-15T13:23:12.754Z (144,976 bytes; sha256 d7d036f47284d70918383ffc31a6ae9de950fc61ebbdc88d39a35eb1f8f7d418)) + blog.robozaps.com (curl GET 200 on 2026-09-15T13:23:12.418Z (668,671 bytes; sha256 784a3d9e90724be9a2569c90e73a16c5aae76067126939f800d5378a190e01b4)) | V | Re-verified live 2026-09-15: 56 DoF with continuous range of motion, IP67, Hyundai field testing (BD page); no price printed on the BD page and robozaps records Not published; no open ordering announced. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r13-atlas-spec-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:14",
+    "rowOrdinal": 14,
+    "currentCells": {
+      "claim": "Figure 03: palm camera per hand, 2 kW wireless charging, not for individual sale; fingertip resolution and Digit tote counts stay excluded",
+      "sourceChecked": "figure-03-2025 (Figure news page, verified 2026-08-09) + library/content-quality.md exclusion decisions",
+      "verdict": "V (exclusions still hold; neither figure appears in the article or the dataset)",
+      "note": ""
+    },
+    "currentTupleDigest": "bc95b8543a7047fa00ec8be11616694707d0cf857e56f05faffdc102df3bed01",
+    "proposedCells": {
+      "claim": "Figure 03: palm camera per hand, 2 kW wireless charging, not for individual sale; fingertip resolution and Digit tote counts stay excluded",
+      "sourceChecked": "figure.ai news page, https://www.figure.ai/news/introducing-figure-03; curl GET 200 on 2026-09-15T13:23:13.070Z (57,802 bytes; sha256 6f3b5121fadffb031e7b79d06b76a91386b4bd34cc9f92073bfb03ef151a8f30); page dated October 09, 2025",
+      "verdict": "C (palm camera per hand and 2 kW wireless charging verified verbatim on the live page; 'not for individual sale' appears nowhere on the cited source — grep-confirmed — so the clause is cut and the sentence reworded to the page's manufacturing framing)",
+      "note": "Correction after live re-fetch 2026-09-15: 'Each hand now integrates an embedded palm camera…' and '…charge at 2 kW' verified verbatim. The cited page states no 'not for individual sale' and no ordering channel (grep-confirmed); the article clause is cut and the sentence reworded to the page's own BotQ high-volume-manufacturing framing (see endpoint). Fingertip resolution and Digit tote counts remain excluded (neither appears on the page, in the article, or in the dataset)."
+    },
+    "appliedCells": {
+      "claim": "Figure 03: palm camera per hand, 2 kW wireless charging, not for individual sale; fingertip resolution and Digit tote counts stay excluded",
+      "sourceChecked": "figure.ai news page, https://www.figure.ai/news/introducing-figure-03; curl GET 200 on 2026-09-15T13:23:13.070Z (57,802 bytes; sha256 6f3b5121fadffb031e7b79d06b76a91386b4bd34cc9f92073bfb03ef151a8f30); page dated October 09, 2025",
+      "verdict": "C (palm camera per hand and 2 kW wireless charging verified verbatim on the live page; 'not for individual sale' appears nowhere on the cited source — grep-confirmed — so the clause is cut and the sentence reworded to the page's manufacturing framing)",
+      "note": "Correction after live re-fetch 2026-09-15: 'Each hand now integrates an embedded palm camera…' and '…charge at 2 kW' verified verbatim. The cited page states no 'not for individual sale' and no ordering channel (grep-confirmed); the article clause is cut and the sentence reworded to the page's own BotQ high-volume-manufacturing framing (see endpoint). Fingertip resolution and Digit tote counts remain excluded (neither appears on the page, in the article, or in the dataset)."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "e427aab2c27fcd55eac4eb76e34c66ed1f75639f5de684bf57cc6c294f854662",
+    "oldRaw": "| Figure 03: palm camera per hand, 2 kW wireless charging, not for individual sale; fingertip resolution and Digit tote counts stay excluded | figure-03-2025 (Figure news page, verified 2026-08-09) + library/content-quality.md exclusion decisions | V (exclusions still hold; neither figure appears in the article or the dataset) |",
+    "newRaw": "| Figure 03: palm camera per hand, 2 kW wireless charging, not for individual sale; fingertip resolution and Digit tote counts stay excluded | figure.ai news page, https://www.figure.ai/news/introducing-figure-03; curl GET 200 on 2026-09-15T13:23:13.070Z (57,802 bytes; sha256 6f3b5121fadffb031e7b79d06b76a91386b4bd34cc9f92073bfb03ef151a8f30); page dated October 09, 2025 | C (palm camera per hand and 2 kW wireless charging verified verbatim on the live page; 'not for individual sale' appears nowhere on the cited source — grep-confirmed — so the clause is cut and the sentence reworded to the page's manufacturing framing) | Correction after live re-fetch 2026-09-15: 'Each hand now integrates an embedded palm camera…' and '…charge at 2 kW' verified verbatim. The cited page states no 'not for individual sale' and no ordering channel (grep-confirmed); the article clause is cut and the sentence reworded to the page's own BotQ high-volume-manufacturing framing (see endpoint). Fingertip resolution and Digit tote counts remain excluded (neither appears on the page, in the article, or in the dataset). |  |  |  | hardware-taxonomy-r14-fig-palm-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:15",
+    "rowOrdinal": 15,
+    "currentCells": {
+      "claim": "LEAP Hand: 16 DoF, ~4 h assembly, \\$2,000 catalog parts, ~1/8 the Allegro Hand's cost",
+      "sourceChecked": "v1.leaphand.com + arXiv 2309.06440 abstract (\"assembled in 4 hours at a cost of 2000 USD\"; \"outperforms its closest competitor Allegro Hand... 1/8th of the cost\"; paper body: joint angles \"16 values\")",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "0b50884f9109b7d8e0cd842eae01e693a7383496ef3628db8e07b3de5d2bc185",
+    "proposedCells": {
+      "claim": "LEAP Hand: 16 DoF, ~4 h assembly, \\$2,000 catalog parts, ~1/8 the Allegro Hand's cost",
+      "sourceChecked": "arXiv 2309.06440 abstract (https://arxiv.org/abs/2309.06440; curl GET 200 on 2026-09-15T13:23:15.637Z (41,934 bytes; sha256 4f7ea1eb5e36cbc9651a76e58da30a33cff57360265866fefe00d0cd3648f274)) + arXiv HTML body (https://arxiv.org/html/2309.06440; curl GET 200 on 2026-09-15T13:23:15.859Z (187,272 bytes; sha256 53186c07c3f58482eed5753ee1c29c211a03572f1ce81d7f635828d2aa6bf928)) + v1.leaphand.com (https://v1.leaphand.com/; curl GET 200 on 2026-09-15T13:23:16.305Z (50,765 bytes; sha256 c9e2f3980ea0385652fe7ca5a8c192446bf76c87eb90e8805af4a5d010859f2e))",
+      "verdict": "V",
+      "note": "Re-verified 2026-09-15: 16 DoF (body: joint angles '(16 values)'); 'assembled in 4 hours at a cost of 2000 USD'; '1/8th of the cost' of the Allegro Hand — all verbatim in this session's fetches; the project site repeats the abstract. $2,000 is the 2023-publication build cost, as the article's pricing note already scopes. Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "LEAP Hand: 16 DoF, ~4 h assembly, \\$2,000 catalog parts, ~1/8 the Allegro Hand's cost",
+      "sourceChecked": "arXiv 2309.06440 abstract (https://arxiv.org/abs/2309.06440; curl GET 200 on 2026-09-15T13:23:15.637Z (41,934 bytes; sha256 4f7ea1eb5e36cbc9651a76e58da30a33cff57360265866fefe00d0cd3648f274)) + arXiv HTML body (https://arxiv.org/html/2309.06440; curl GET 200 on 2026-09-15T13:23:15.859Z (187,272 bytes; sha256 53186c07c3f58482eed5753ee1c29c211a03572f1ce81d7f635828d2aa6bf928)) + v1.leaphand.com (https://v1.leaphand.com/; curl GET 200 on 2026-09-15T13:23:16.305Z (50,765 bytes; sha256 c9e2f3980ea0385652fe7ca5a8c192446bf76c87eb90e8805af4a5d010859f2e))",
+      "verdict": "V",
+      "note": "Re-verified 2026-09-15: 16 DoF (body: joint angles '(16 values)'); 'assembled in 4 hours at a cost of 2000 USD'; '1/8th of the cost' of the Allegro Hand — all verbatim in this session's fetches; the project site repeats the abstract. $2,000 is the 2023-publication build cost, as the article's pricing note already scopes. Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "dae73d6605d85c10d44573b1b656fed91b31021b037de3d7eac0247326c6b468",
+    "oldRaw": "| LEAP Hand: 16 DoF, ~4 h assembly, \\$2,000 catalog parts, ~1/8 the Allegro Hand's cost | v1.leaphand.com + arXiv 2309.06440 abstract (\"assembled in 4 hours at a cost of 2000 USD\"; \"outperforms its closest competitor Allegro Hand... 1/8th of the cost\"; paper body: joint angles \"16 values\") | V |",
+    "newRaw": "| LEAP Hand: 16 DoF, ~4 h assembly, \\$2,000 catalog parts, ~1/8 the Allegro Hand's cost | arXiv 2309.06440 abstract (https://arxiv.org/abs/2309.06440; curl GET 200 on 2026-09-15T13:23:15.637Z (41,934 bytes; sha256 4f7ea1eb5e36cbc9651a76e58da30a33cff57360265866fefe00d0cd3648f274)) + arXiv HTML body (https://arxiv.org/html/2309.06440; curl GET 200 on 2026-09-15T13:23:15.859Z (187,272 bytes; sha256 53186c07c3f58482eed5753ee1c29c211a03572f1ce81d7f635828d2aa6bf928)) + v1.leaphand.com (https://v1.leaphand.com/; curl GET 200 on 2026-09-15T13:23:16.305Z (50,765 bytes; sha256 c9e2f3980ea0385652fe7ca5a8c192446bf76c87eb90e8805af4a5d010859f2e)) | V | Re-verified 2026-09-15: 16 DoF (body: joint angles '(16 values)'); 'assembled in 4 hours at a cost of 2000 USD'; '1/8th of the cost' of the Allegro Hand — all verbatim in this session's fetches; the project site repeats the abstract. $2,000 is the 2023-publication build cost, as the article's pricing note already scopes. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r15-leaabs-cost-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:16",
+    "rowOrdinal": 16,
+    "currentCells": {
+      "claim": "Sensors paragraph: datasets ship vision+proprioception; DROID's rig has no touch sensing; AgiBot World is the counterexample with visuo-tactile sensors",
+      "sourceChecked": "droid-2024 (rig: Franka + cameras, no tactile) + agibot-world-2025 (arXiv 2503.06669: \"AgiBot World utilizes humanoid robots equipped with visuo-tactile sensors and dexterous hands\"; \"For tasks necessitating tactile feedback, a gripper equipped with visuo-tactile sensors is utilized\")",
+      "verdict": "C (the old text claimed touch was \"absent from OXE, DROID, and AgiBot World alike\", citing tactile-outlook-2025, which never mentions any of the three datasets; grep-confirmed zero mentions)",
+      "note": ""
+    },
+    "currentTupleDigest": "79016e0ef99efdb8106e886585306946809c2460af8a658664649b936e41c073",
+    "proposedCells": {
+      "claim": "Sensors paragraph: datasets ship vision+proprioception; DROID's rig has no touch sensing; AgiBot World is the counterexample with visuo-tactile sensors",
+      "sourceChecked": "droid-2024 (https://arxiv.org/pdf/2403.12945; curl GET 200 on 2026-09-15T13:26:20.646Z (9,707,714 bytes; sha256 9e40a9c934ce78ea315d2c05593d60f9e18edf6dcd3785cd66439518965c3b07), pdftotext extraction; + https://arxiv.org/html/2403.12945; curl GET 200 on 2026-09-15T13:23:16.499Z (258,370 bytes; sha256 dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897)) + agibot-world-2025 (https://arxiv.org/html/2503.06669; curl GET 200 on 2026-09-15T13:23:16.678Z (139,251 bytes; sha256 0f5f22a172d141db2469e85b4d04bb32d6ba8b7877a117f5cc322ba94f067e36))",
+      "verdict": "C (the old text claimed touch was \"absent from OXE, DROID, and AgiBot World alike\", citing tactile-outlook-2025, which never mentions any of the three datasets; grep-confirmed zero mentions)",
+      "note": "Re-verified 2026-09-15: DROID's rig is Franka + three cameras + Quest 2 with no touch sensing (rig passage verbatim from the PDF; zero 'tactile' mentions in the fetched paper); AgiBot World's humanoids carry visuo-tactile sensors with dexterous hands (two verbatim passages). The 2026-08 correction (old text wrongly claimed touch absent from AgiBot World too) stands. Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "Sensors paragraph: datasets ship vision+proprioception; DROID's rig has no touch sensing; AgiBot World is the counterexample with visuo-tactile sensors",
+      "sourceChecked": "droid-2024 (https://arxiv.org/pdf/2403.12945; curl GET 200 on 2026-09-15T13:26:20.646Z (9,707,714 bytes; sha256 9e40a9c934ce78ea315d2c05593d60f9e18edf6dcd3785cd66439518965c3b07), pdftotext extraction; + https://arxiv.org/html/2403.12945; curl GET 200 on 2026-09-15T13:23:16.499Z (258,370 bytes; sha256 dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897)) + agibot-world-2025 (https://arxiv.org/html/2503.06669; curl GET 200 on 2026-09-15T13:23:16.678Z (139,251 bytes; sha256 0f5f22a172d141db2469e85b4d04bb32d6ba8b7877a117f5cc322ba94f067e36))",
+      "verdict": "C (the old text claimed touch was \"absent from OXE, DROID, and AgiBot World alike\", citing tactile-outlook-2025, which never mentions any of the three datasets; grep-confirmed zero mentions)",
+      "note": "Re-verified 2026-09-15: DROID's rig is Franka + three cameras + Quest 2 with no touch sensing (rig passage verbatim from the PDF; zero 'tactile' mentions in the fetched paper); AgiBot World's humanoids carry visuo-tactile sensors with dexterous hands (two verbatim passages). The 2026-08 correction (old text wrongly claimed touch absent from AgiBot World too) stands. Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "fd5114597740359dd95c72c6323c9c0aff1dbd1145b0eb99e157c88796954dfb",
+    "oldRaw": "| Sensors paragraph: datasets ship vision+proprioception; DROID's rig has no touch sensing; AgiBot World is the counterexample with visuo-tactile sensors | droid-2024 (rig: Franka + cameras, no tactile) + agibot-world-2025 (arXiv 2503.06669: \"AgiBot World utilizes humanoid robots equipped with visuo-tactile sensors and dexterous hands\"; \"For tasks necessitating tactile feedback, a gripper equipped with visuo-tactile sensors is utilized\") | C (the old text claimed touch was \"absent from OXE, DROID, and AgiBot World alike\", citing tactile-outlook-2025, which never mentions any of the three datasets; grep-confirmed zero mentions) |",
+    "newRaw": "| Sensors paragraph: datasets ship vision+proprioception; DROID's rig has no touch sensing; AgiBot World is the counterexample with visuo-tactile sensors | droid-2024 (https://arxiv.org/pdf/2403.12945; curl GET 200 on 2026-09-15T13:26:20.646Z (9,707,714 bytes; sha256 9e40a9c934ce78ea315d2c05593d60f9e18edf6dcd3785cd66439518965c3b07), pdftotext extraction; + https://arxiv.org/html/2403.12945; curl GET 200 on 2026-09-15T13:23:16.499Z (258,370 bytes; sha256 dc5f9f9f4a2c128b647d8447602b12379ff75ee291ffd9cd45a1127bd8616897)) + agibot-world-2025 (https://arxiv.org/html/2503.06669; curl GET 200 on 2026-09-15T13:23:16.678Z (139,251 bytes; sha256 0f5f22a172d141db2469e85b4d04bb32d6ba8b7877a117f5cc322ba94f067e36)) | C (the old text claimed touch was \"absent from OXE, DROID, and AgiBot World alike\", citing tactile-outlook-2025, which never mentions any of the three datasets; grep-confirmed zero mentions) | Re-verified 2026-09-15: DROID's rig is Franka + three cameras + Quest 2 with no touch sensing (rig passage verbatim from the PDF; zero 'tactile' mentions in the fetched paper); AgiBot World's humanoids carry visuo-tactile sensors with dexterous hands (two verbatim passages). The 2026-08 correction (old text wrongly claimed touch absent from AgiBot World too) stands. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r16-droid-rig-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:17",
+    "rowOrdinal": 17,
+    "currentCells": {
+      "claim": "Tactile outlook blames: divergent transduction with no standardized evaluation framework, durability failures, temperature sensitivity and hysteresis",
+      "sourceChecked": "tactile-outlook-2025 (arXiv 2508.11261 HTML: \"The lack of a standardised framework for evaluating and comparing these materials hinders...\"; \"lack durability under prolonged use or under harsh conditions\"; \"conductive polymers can suffer from hysteresis\"; \"Temperature sensitivity is another challenge\")",
+      "verdict": "C (was \"no standardization... calibration drift\"; the paper states no standardized evaluation framework and materials-level temperature/hysteresis issues, never \"calibration drift\")",
+      "note": ""
+    },
+    "currentTupleDigest": "cfecdb8e743198b59bc604ef17e6a7da5cc1d1f9944923f9e27810f6b9635961",
+    "proposedCells": {
+      "claim": "Tactile outlook blames: divergent transduction with no standardized evaluation framework, durability failures, temperature sensitivity and hysteresis",
+      "sourceChecked": "tactile-outlook-2025, https://arxiv.org/html/2508.11261; curl GET 200 on 2026-09-15T13:23:16.915Z (317,223 bytes; sha256 6051f73a3a34b50e226963917fb8c5953a95ae9b33c6569445a54ae5f43fe239)",
+      "verdict": "C (was \"no standardization... calibration drift\"; the paper states no standardized evaluation framework and materials-level temperature/hysteresis issues, never \"calibration drift\")",
+      "note": "Re-verified 2026-09-15: the outlook blames divergent transduction with no standardised evaluation framework, materials-level durability failures, hysteresis and temperature sensitivity — all verbatim; 'calibration drift' remains the article's corrected-out phrasing. Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "Tactile outlook blames: divergent transduction with no standardized evaluation framework, durability failures, temperature sensitivity and hysteresis",
+      "sourceChecked": "tactile-outlook-2025, https://arxiv.org/html/2508.11261; curl GET 200 on 2026-09-15T13:23:16.915Z (317,223 bytes; sha256 6051f73a3a34b50e226963917fb8c5953a95ae9b33c6569445a54ae5f43fe239)",
+      "verdict": "C (was \"no standardization... calibration drift\"; the paper states no standardized evaluation framework and materials-level temperature/hysteresis issues, never \"calibration drift\")",
+      "note": "Re-verified 2026-09-15: the outlook blames divergent transduction with no standardised evaluation framework, materials-level durability failures, hysteresis and temperature sensitivity — all verbatim; 'calibration drift' remains the article's corrected-out phrasing. Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "56f6e1a1bf6a41e130bfdbbc0ddad16ef7631261a51fc4f8ba12206624cf56ea",
+    "oldRaw": "| Tactile outlook blames: divergent transduction with no standardized evaluation framework, durability failures, temperature sensitivity and hysteresis | tactile-outlook-2025 (arXiv 2508.11261 HTML: \"The lack of a standardised framework for evaluating and comparing these materials hinders...\"; \"lack durability under prolonged use or under harsh conditions\"; \"conductive polymers can suffer from hysteresis\"; \"Temperature sensitivity is another challenge\") | C (was \"no standardization... calibration drift\"; the paper states no standardized evaluation framework and materials-level temperature/hysteresis issues, never \"calibration drift\") |",
+    "newRaw": "| Tactile outlook blames: divergent transduction with no standardized evaluation framework, durability failures, temperature sensitivity and hysteresis | tactile-outlook-2025, https://arxiv.org/html/2508.11261; curl GET 200 on 2026-09-15T13:23:16.915Z (317,223 bytes; sha256 6051f73a3a34b50e226963917fb8c5953a95ae9b33c6569445a54ae5f43fe239) | C (was \"no standardization... calibration drift\"; the paper states no standardized evaluation framework and materials-level temperature/hysteresis issues, never \"calibration drift\") | Re-verified 2026-09-15: the outlook blames divergent transduction with no standardised evaluation framework, materials-level durability failures, hysteresis and temperature sensitivity — all verbatim; 'calibration drift' remains the article's corrected-out phrasing. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r17-tact-framework-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:18",
+    "rowOrdinal": 18,
+    "currentCells": {
+      "claim": "GelSight Mini retails at \\$500; DIGIT at \\$350",
+      "sourceChecked": "tactile-outlook-2025 (\"optical tactile sensors such as the DIGIT (retails at \\$350) and the GelSight Mini (retails at \\$500)\")",
+      "verdict": "C (both were previously null/\"not disclosed\"; the T-RO outlook states both retail prices)",
+      "note": ""
+    },
+    "currentTupleDigest": "4b7c74263f9079f4d4725bad74e40d1c758e68f0aa0821e0b58e5a3d01ef7e08",
+    "proposedCells": {
+      "claim": "GelSight Mini retails at \\$500; DIGIT at \\$350",
+      "sourceChecked": "tactile-outlook-2025, https://arxiv.org/html/2508.11261; curl GET 200 on 2026-09-15T13:23:16.915Z (317,223 bytes; sha256 6051f73a3a34b50e226963917fb8c5953a95ae9b33c6569445a54ae5f43fe239)",
+      "verdict": "C (both were previously null/\"not disclosed\"; the T-RO outlook states both retail prices)",
+      "note": "Re-verified 2026-09-15: 'the DIGIT (retails at $350) and the GelSight Mini (retails at $500)', stated by the T-RO outlook as printed (reference-bracket spacing as extracted). Both prices stay attributed to this source. Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "GelSight Mini retails at \\$500; DIGIT at \\$350",
+      "sourceChecked": "tactile-outlook-2025, https://arxiv.org/html/2508.11261; curl GET 200 on 2026-09-15T13:23:16.915Z (317,223 bytes; sha256 6051f73a3a34b50e226963917fb8c5953a95ae9b33c6569445a54ae5f43fe239)",
+      "verdict": "C (both were previously null/\"not disclosed\"; the T-RO outlook states both retail prices)",
+      "note": "Re-verified 2026-09-15: 'the DIGIT (retails at $350) and the GelSight Mini (retails at $500)', stated by the T-RO outlook as printed (reference-bracket spacing as extracted). Both prices stay attributed to this source. Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "128788187853d29bc9646c415666d0124451c44ff71780d3d4d898d68843f6bc",
+    "oldRaw": "| GelSight Mini retails at \\$500; DIGIT at \\$350 | tactile-outlook-2025 (\"optical tactile sensors such as the DIGIT (retails at \\$350) and the GelSight Mini (retails at \\$500)\") | C (both were previously null/\"not disclosed\"; the T-RO outlook states both retail prices) |",
+    "newRaw": "| GelSight Mini retails at \\$500; DIGIT at \\$350 | tactile-outlook-2025, https://arxiv.org/html/2508.11261; curl GET 200 on 2026-09-15T13:23:16.915Z (317,223 bytes; sha256 6051f73a3a34b50e226963917fb8c5953a95ae9b33c6569445a54ae5f43fe239) | C (both were previously null/\"not disclosed\"; the T-RO outlook states both retail prices) | Re-verified 2026-09-15: 'the DIGIT (retails at $350) and the GelSight Mini (retails at $500)', stated by the T-RO outlook as printed (reference-bracket spacing as extracted). Both prices stay attributed to this source. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r18-tact-prices-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:19",
+    "rowOrdinal": 19,
+    "currentCells": {
+      "claim": "Digit 360: 360° optical coverage, forces down to 1 mN, 8M+ taxels, GelSight manufacturing partnership announced October 2024",
+      "sourceChecked": "meta-fair-touch-2024 (ai.meta.com blog, dated October 31, 2024: \"over 8 million taxels\"; \"captures forces as small as 1 millinewton\"; \"GelSight Inc will manufacture and distribute Digit 360\")",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "00b017e8d36cb7252a27258759fdc295e2fefbe375d983b04db992e50a426135",
+    "proposedCells": {
+      "claim": "Digit 360: 360° optical coverage, forces down to 1 mN, 8M+ taxels, GelSight manufacturing partnership announced October 2024",
+      "sourceChecked": "ai.meta.com blog, https://ai.meta.com/blog/fair-robotics-open-source/; FetchUrl tool-reported 200 observed 2026-09-15T13:30Z; curl GET with browser UA returned 400 at 2026-09-15T13:23:17.328Z (host blocks non-tool clients; no body beyond the 1,542-byte error page)",
+      "verdict": "V",
+      "note": "Re-verified 2026-09-15: Digit 360 wraps the fingertip with an optical system of 'over 8 million taxels' capturing 'omnidirectional deformations' (the page also says the lens 'can see the imprints all around the artificial fingertip'), resolves forces 'as small as 1 millinewton', and GelSight Inc will manufacture and distribute it; blog dateline October 31, 2024. Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "Digit 360: 360° optical coverage, forces down to 1 mN, 8M+ taxels, GelSight manufacturing partnership announced October 2024",
+      "sourceChecked": "ai.meta.com blog, https://ai.meta.com/blog/fair-robotics-open-source/; FetchUrl tool-reported 200 observed 2026-09-15T13:30Z; curl GET with browser UA returned 400 at 2026-09-15T13:23:17.328Z (host blocks non-tool clients; no body beyond the 1,542-byte error page)",
+      "verdict": "V",
+      "note": "Re-verified 2026-09-15: Digit 360 wraps the fingertip with an optical system of 'over 8 million taxels' capturing 'omnidirectional deformations' (the page also says the lens 'can see the imprints all around the artificial fingertip'), resolves forces 'as small as 1 millinewton', and GelSight Inc will manufacture and distribute it; blog dateline October 31, 2024. Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "03fcc5f0576337747f622b5217bc7144ebe1ca7464eb715eaa9cf79c595fd75a",
+    "oldRaw": "| Digit 360: 360° optical coverage, forces down to 1 mN, 8M+ taxels, GelSight manufacturing partnership announced October 2024 | meta-fair-touch-2024 (ai.meta.com blog, dated October 31, 2024: \"over 8 million taxels\"; \"captures forces as small as 1 millinewton\"; \"GelSight Inc will manufacture and distribute Digit 360\") | V |",
+    "newRaw": "| Digit 360: 360° optical coverage, forces down to 1 mN, 8M+ taxels, GelSight manufacturing partnership announced October 2024 | ai.meta.com blog, https://ai.meta.com/blog/fair-robotics-open-source/; FetchUrl tool-reported 200 observed 2026-09-15T13:30Z; curl GET with browser UA returned 400 at 2026-09-15T13:23:17.328Z (host blocks non-tool clients; no body beyond the 1,542-byte error page) | V | Re-verified 2026-09-15: Digit 360 wraps the fingertip with an optical system of 'over 8 million taxels' capturing 'omnidirectional deformations' (the page also says the lens 'can see the imprints all around the artificial fingertip'), resolves forces 'as small as 1 millinewton', and GelSight Inc will manufacture and distribute it; blog dateline October 31, 2024. Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r19-meta-taxels-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:20",
+    "rowOrdinal": 20,
+    "currentCells": {
+      "claim": "Jetson Thor T5000: 2,070 FP4 TFLOPS, 128 GB LPDDR5X at 273 GB/s, 14-core Neoverse-V3AE, 40-130 W, 7.5x AGX Orin; T4000: 1,200 TFLOPS, 64 GB",
+      "sourceChecked": "nvidia.com Jetson Thor page (fetched 2026-08-17: \"2070 TFLOPS (FP4—Sparse)\" / \"1200 TFLOPS\"; \"128 GB 256-bit LPDDR5X | 273 GB/s | 64 GB\"; \"14-core Arm® Neoverse®-V3AE\"; \"Power | 40 W–130 W | 40 W–70 W\"; \"7.5× the performance and 3.5× the energy efficiency of NVIDIA AGX Orin™\")",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "7041e165e3bde7c9a2838dc1539aa3f73d35036ea060028a737b9f6de89c8413",
+    "proposedCells": {
+      "claim": "Jetson Thor T5000: 2,070 FP4 TFLOPS, 128 GB LPDDR5X at 273 GB/s, 14-core Neoverse-V3AE, 40-130 W, 7.5x AGX Orin; T4000: 1,200 TFLOPS, 64 GB",
+      "sourceChecked": "nvidia.com Jetson Thor page, https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/; curl GET 200 on 2026-09-15T13:23:13.905Z (546,144 bytes; sha256 225ae6698dd40e48327484ee15e88b96d2340202826eb6684701600670d03eae)",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: T5000 2,070 sparse FP4 TFLOPS, 128 GB LPDDR5X at 273 GB/s, 14-core Neoverse-V3AE, 40–130 W, 7.5× AGX Orin; T4000 1,200 TFLOPS and 64 GB. The T4000's own CPU is 12-core (the claim assigns 14 cores only to the T5000, which is correct). Claim unchanged; evidence fields completed."
+    },
+    "appliedCells": {
+      "claim": "Jetson Thor T5000: 2,070 FP4 TFLOPS, 128 GB LPDDR5X at 273 GB/s, 14-core Neoverse-V3AE, 40-130 W, 7.5x AGX Orin; T4000: 1,200 TFLOPS, 64 GB",
+      "sourceChecked": "nvidia.com Jetson Thor page, https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/; curl GET 200 on 2026-09-15T13:23:13.905Z (546,144 bytes; sha256 225ae6698dd40e48327484ee15e88b96d2340202826eb6684701600670d03eae)",
+      "verdict": "V",
+      "note": "Re-verified live 2026-09-15: T5000 2,070 sparse FP4 TFLOPS, 128 GB LPDDR5X at 273 GB/s, 14-core Neoverse-V3AE, 40–130 W, 7.5× AGX Orin; T4000 1,200 TFLOPS and 64 GB. The T4000's own CPU is 12-core (the claim assigns 14 cores only to the T5000, which is correct). Claim unchanged; evidence fields completed."
+    },
+    "integratorAdjustments": [],
+    "appliedTupleDigest": "fd0db0aa23ea0ee8f08654dc3f32aaff65574eaed32fb95a69f684db6e5024ed",
+    "oldRaw": "| Jetson Thor T5000: 2,070 FP4 TFLOPS, 128 GB LPDDR5X at 273 GB/s, 14-core Neoverse-V3AE, 40-130 W, 7.5x AGX Orin; T4000: 1,200 TFLOPS, 64 GB | nvidia.com Jetson Thor page (fetched 2026-08-17: \"2070 TFLOPS (FP4—Sparse)\" / \"1200 TFLOPS\"; \"128 GB 256-bit LPDDR5X \\| 273 GB/s \\| 64 GB\"; \"14-core Arm® Neoverse®-V3AE\"; \"Power \\| 40 W–130 W \\| 40 W–70 W\"; \"7.5× the performance and 3.5× the energy efficiency of NVIDIA AGX Orin™\") | V |",
+    "newRaw": "| Jetson Thor T5000: 2,070 FP4 TFLOPS, 128 GB LPDDR5X at 273 GB/s, 14-core Neoverse-V3AE, 40-130 W, 7.5x AGX Orin; T4000: 1,200 TFLOPS, 64 GB | nvidia.com Jetson Thor page, https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/; curl GET 200 on 2026-09-15T13:23:13.905Z (546,144 bytes; sha256 225ae6698dd40e48327484ee15e88b96d2340202826eb6684701600670d03eae) | V | Re-verified live 2026-09-15: T5000 2,070 sparse FP4 TFLOPS, 128 GB LPDDR5X at 273 GB/s, 14-core Neoverse-V3AE, 40–130 W, 7.5× AGX Orin; T4000 1,200 TFLOPS and 64 GB. The T4000's own CPU is 12-core (the claim assigns 14 cores only to the T5000, which is correct). Claim unchanged; evidence fields completed. |  |  |  | hardware-taxonomy-r20-nvidia-summary-20260915 |"
+  },
+  {
+    "originalId": "audit/data-hardware.md:hardware-taxonomy:25",
+    "rowOrdinal": 25,
+    "currentCells": {
+      "claim": "\"Sixteen times the throughput across the range\"",
+      "sourceChecked": "Int: 314.4 / 19.0 = 16.5x",
+      "verdict": "V",
+      "note": ""
+    },
+    "currentTupleDigest": "02120524e44b11d9f34de8501dd427eb966e19e4b0f0acd0c88790219fa84240",
+    "proposedCells": {
+      "claim": "\"Sixteen times the throughput across the range\"",
+      "sourceChecked": "Int: 314.4 / 19.0 = 16.5x; recomputed read-only this session (python3 2026-09-15: 314.4/19.0 = 16.54736842105263, floor 16). No fetch this session; input basis is ledger row 21's retained vla-perf-2026 Table 3 figures (19.0/32.2/61.7/162.5/314.4 Hz), read-only at HEAD d0516a4",
+      "verdict": "V",
+      "note": "Local-AND row. Arithmetic verified read-only: 314.4 Hz (B100) / 19.0 Hz (Jetson Thor) = 16.547…x; the article's 'Sixteen times the throughput across the range' is the conservative floor of that ratio and stays as written. The integrator re-runs the arithmetic locally (endpoint hardware-taxonomy-r25-local-proof) and pairs it with row 21's retained vla-perf evidence before applying."
+    },
+    "appliedCells": {
+      "claim": "\"Sixteen times the throughput across the range\"",
+      "sourceChecked": "Int: 314.4 / 19.0 = 16.5x; recomputed by the integrator at application time (python3 2026-09-15: 314.4/19.0 = 16.54736842105263, floor 16.0). No fetch by either worker for this row; input basis is ledger row 21's retained vla-perf-2026 Table 3 figures (19.0/32.2/61.7/162.5/314.4 Hz), read-only at HEAD d0516a4",
+      "verdict": "V",
+      "note": "Local-AND row. Arithmetic verified read-only: 314.4 Hz (B100) / 19.0 Hz (Jetson Thor) = 16.547…x; the article's 'Sixteen times the throughput across the range' is the conservative floor of that ratio and stays as written. The integrator re-runs the arithmetic locally (endpoint hardware-taxonomy-r25-local-proof) and pairs it with row 21's retained vla-perf evidence before applying."
+    },
+    "integratorAdjustments": [
+      [
+        "recomputed read-only this session (python3 2026-09-15: 314.4/19.0 = 16.54736842105263, floor 16). No fetch this session;",
+        "recomputed by the integrator at application time (python3 2026-09-15: 314.4/19.0 = 16.54736842105263, floor 16.0). No fetch by either worker for this row;"
+      ]
+    ],
+    "appliedTupleDigest": "b22d72cf41a7679a8367ad4f34dab16f57f168ea5ad86f89e22b09781c8634e2",
+    "oldRaw": "| \"Sixteen times the throughput across the range\" | Int: 314.4 / 19.0 = 16.5x | V |",
+    "newRaw": "| \"Sixteen times the throughput across the range\" | Int: 314.4 / 19.0 = 16.5x; recomputed by the integrator at application time (python3 2026-09-15: 314.4/19.0 = 16.54736842105263, floor 16.0). No fetch by either worker for this row; input basis is ledger row 21's retained vla-perf-2026 Table 3 figures (19.0/32.2/61.7/162.5/314.4 Hz), read-only at HEAD d0516a4 | V | Local-AND row. Arithmetic verified read-only: 314.4 Hz (B100) / 19.0 Hz (Jetson Thor) = 16.547…x; the article's 'Sixteen times the throughput across the range' is the conservative floor of that ratio and stays as written. The integrator re-runs the arithmetic locally (endpoint hardware-taxonomy-r25-local-proof) and pairs it with row 21's retained vla-perf evidence before applying. |  |  |  | hardware-taxonomy-r25-local-proof-20260915 |"
+  }
+]
+```
