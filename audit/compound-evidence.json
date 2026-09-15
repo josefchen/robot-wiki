@@ -56430,5 +56430,851 @@
         "evidenceDigest": "944fde9a0565d5167535fb192d99efc3e0abc5dc2d963fbacb82399d54f651fb"
       }
     ]
+  },
+  {
+    "id": "reliability-gap-r1-compounding-arithmetic-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 1,
+    "originalCellsDigest": "85269c738d91bd4b1695b1fc66d51c9fd0097827f147f3f2a728584d64f901b3",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r1-arithmetic",
+        "text": "Compounding arithmetic on the article's own illustrative per-step figures over a 30-step horizon: 0.95^30 = 21%, 0.99^30 = 74%, 0.999^30 = 97% (preparer-derived node arithmetic; integrator re-runs as the local-AND proof).",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "r1-framing",
+        "text": "The 80%-to-99.9% framing the stat box illustrates is Bessemer's own statement that getting from 80% task success to 99.9% is not a linear problem.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:1 (ready-source-correction-with-local-AND): both parts bound to the Bessemer not-a-linear-problem framing passage, needle-verified FULL; the arithmetic is the integrator's own node re-derivation over the article's illustrative figures, never a fetch. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Local-AND re-proven by the integrator before application (node, this session): Math.pow(0.95,30)=0.2146387639 -> 21%, Math.pow(0.99,30)=0.7397003734 -> 74%, Math.pow(0.999,30)=0.9704309673 -> 97%; pinned in tests/unit/reliability-gap-originals.test.ts. Zero retrieval performed by this integrator.",
+      "planDigest": "d984c7fb1dd979e0d500dd35d94f1f90c7168438aad0f4e25064215734babaea"
+    },
+    "evidence": [
+      {
+        "partId": "r1-arithmetic",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Getting from 80% task success to 99.9% is not a linear problem. The last 20% requires fundamentally different approaches—tactile sensing, force feedback, better sim-to-real transfer for manipulation—and it takes longer than most timelines assume."
+      },
+      {
+        "partId": "r1-framing",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Getting from 80% task success to 99.9% is not a linear problem. The last 20% requires fundamentally different approaches—tactile sensing, force feedback, better sim-to-real transfer for manipulation—and it takes longer than most timelines assume."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r1-arithmetic",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "evidenceDigest": "da6ecd6bfc335f28b02ee7b565bd6f4cd8d6ed2b633cfb3af7a02e1aa29aa2a0"
+      },
+      {
+        "partId": "r1-framing",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "evidenceDigest": "f4e84ae288c71005492c9ec696091412c6b875cb17ed085efbd78ece5d59e5f5"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r2-failure-rounding-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 2,
+    "originalCellsDigest": "ab3e1e96e6ddb4bbc33f6094c4b34868ad3f8801f5ce26274abcd7185a62280b",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r2-rounding",
+        "text": "At 99.9% per-step over 30 steps the exact failure rate is 2.96% (one failure per 33.8 runs); the article's 'once in thirty runs' rounds the ~3% to a plain-language frequency.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:2 (ready-source-correction-with-local-AND): rounding part needle-verified FULL against the framing anchor; the 1-in-33.8 arithmetic re-proven integrator-side; the article's 'once in thirty runs' kept as accepted plain-language rounding of ~3%. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Local-AND re-proven by the integrator before application (node, this session): 1-Math.pow(0.999,30)=0.0295690327 (2.96%), one failure per 33.82 runs; pinned in tests/unit/reliability-gap-originals.test.ts. Zero retrieval performed by this integrator.",
+      "planDigest": "e340c2f154c30dcc8cca9eb9b7de4953325740c44bd3b8914ff4dd2a5f0b5253"
+    },
+    "evidence": [
+      {
+        "partId": "r2-rounding",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Getting from 80% task success to 99.9% is not a linear problem. The last 20% requires fundamentally different approaches—tactile sensing, force feedback, better sim-to-real transfer for manipulation—and it takes longer than most timelines assume."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r2-rounding",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "evidenceDigest": "800f8e62973c9a02a670115906e2d8d095680aabde816da7ba6f5c5a40e9a137"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r3-inverse-bar-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 3,
+    "originalCellsDigest": "dd5d7bcdc0a6f2f3730ccb9d4115f3d36a5faa34c49b8801a2dc8b03ce1e15e2",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r3-inverse",
+        "text": "Holding 99% end-to-end success on a 50-step task requires about 99.98% per-step reliability (0.99^(1/50) = 99.9799%).",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:3 (ready-source-correction-with-local-AND): inverse-bar part needle-verified FULL; arithmetic re-proven integrator-side. Honest flag retained: the article's trailing clause 'a figure no generalist policy publishes' is an editorial absence statement inherited unchanged (same policy as the held row 6); no corpus-wide proof attempted or claimed. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Local-AND re-proven by the integrator before application (node, this session): Math.pow(0.99,1/50)=0.9997990135 = 99.97990% (~99.98% at the stated precision); pinned in tests/unit/reliability-gap-originals.test.ts. Zero retrieval performed by this integrator.",
+      "planDigest": "8fe198e99816c80aad3ccc8451aae2d177149e2953f030aca703bfb4cd9a0dab"
+    },
+    "evidence": [
+      {
+        "partId": "r3-inverse",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Getting from 80% task success to 99.9% is not a linear problem. The last 20% requires fundamentally different approaches—tactile sensing, force feedback, better sim-to-real transfer for manipulation—and it takes longer than most timelines assume."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r3-inverse",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "evidenceDigest": "7b076628f57dfe102def7859871820a56e54f8156c0280cfea22c718b8d53d25"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r4-pistar06-recap-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 4,
+    "originalCellsDigest": "4d7dde0f78b64082b72ee50c3f37723bae18ab0b69297eb8cbd81f63f0c789aa",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r4-failure-2x",
+        "text": "Training π*0.6 with Recap on autonomous experience can decrease failure rates by 2x or more.",
+        "requiredCitationIds": [
+          "pistar06-blog-2025"
+        ]
+      },
+      {
+        "id": "r4-90-success",
+        "text": "π*0.6 performs the three studied applications (espresso drinks, diverse laundry, box assembly) with over a 90% success rate after on-robot RL.",
+        "requiredCitationIds": [
+          "pistar06-blog-2025"
+        ]
+      },
+      {
+        "id": "r4-throughput-scope",
+        "text": "Recap more than doubles throughput on some of the hardest tasks (espresso: both throughput and success rate more than double), not a flat 2x everywhere.",
+        "requiredCitationIds": [
+          "pistar06-blog-2025"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:4 (ready-source-correction): all three parts needle-verified against the retained pi.website/blog/pistar06 render; the packet's precise correction (unqualified 'with a 2x throughput improvement' -> 'with more than 2x throughput on some of the hardest tasks') is applied to the article in this same commit per the packet endpoint reliability-gap-r4-article-span; verdict corrected V->C. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Original row cells before this correction: [\"R4\",\"π*0.6/Recap: \\\"cutting failure rates by 2x or more\\\", \\\">90% success on espresso, laundry, and box-assembly\\\", \\\"2x throughput improvement\\\"\",\"pi.website/blog/pistar06 (fetched)\",\"V\",\"\\\"more than doubles the throughput on some of the hardest tasks, and can decrease failure rates by 2x or more\\\"; \\\"π*0.6 can perform them with over a 90% success rate\\\" (espresso/laundry/boxes context)\"]. Article span corrected in this same commit per the packet endpoint reliability-gap-r4-article-span. Zero retrieval performed by this integrator.",
+      "planDigest": "a277fca82df72583885a6ae88aa2a31c8b61e860b907cc739772c0c90cc080cd"
+    },
+    "evidence": [
+      {
+        "partId": "r4-failure-2x",
+        "citationId": "pistar06-blog-2025",
+        "sourceUrl": "https://www.pi.website/blog/pistar06",
+        "supportingPassage": "Training π\\*0.6 with Recap on autonomous experience more than doubles the throughput on some of the hardest tasks, and can decrease failure rates by 2x or more."
+      },
+      {
+        "partId": "r4-90-success",
+        "citationId": "pistar06-blog-2025",
+        "sourceUrl": "https://www.pi.website/blog/pistar06",
+        "supportingPassage": "Each of these stages is challenging for even the best current VLA models, and π\\*0.6 can perform them with over a 90% success rate."
+      },
+      {
+        "partId": "r4-throughput-scope",
+        "citationId": "pistar06-blog-2025",
+        "sourceUrl": "https://www.pi.website/blog/pistar06",
+        "supportingPassage": "Notably, we see the largest improvement on some of the hardest tasks, such as espresso making, where both throughput and success rate more than double from including on-robot experience."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r4-failure-2x",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.pi.website/blog/pistar06",
+        "evidenceDigest": "6d233800d18c7da3cc5626913dea4fd5ea2ca9ddc44f8d7ab8d171033937aa9d"
+      },
+      {
+        "partId": "r4-90-success",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.pi.website/blog/pistar06",
+        "evidenceDigest": "39e84ce6881765a30211c7289cc25c8ca37ece95467d1bf0b7a0ec57dd0671b6"
+      },
+      {
+        "partId": "r4-throughput-scope",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.pi.website/blog/pistar06",
+        "evidenceDigest": "58feca9f3cd641c2564a9e8ef784d70c0be6c8379d9f1a34b0c5e20ec9f1092c"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r5-pi07-coaching-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 5,
+    "originalCellsDigest": "e3f73e5db5e5fc1d036b918282777c7e3fe150daf1910fdafe5ca10b736f8fe0",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r5-coaching",
+        "text": "π0.7 accepts step-by-step language coaching that steers it through tasks it has not seen, turning false starts into effective execution.",
+        "requiredCitationIds": [
+          "pi07-blog-2026"
+        ]
+      },
+      {
+        "id": "r5-autonomous",
+        "text": "After repeated coaching, a fine-tuned high-level policy generates the subgoals fully autonomously without any additional teleoperation at all.",
+        "requiredCitationIds": [
+          "pi07-blog-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:5 (ready-source-correction): both parts needle-verified against the retained pi.website/blog/pi07 render (the autonomous-execution passage verified after folding the renderer's link/emphasis markers only). Citation reconciliation applied per the packet's missingDependencies: the coaching span now cites the fetched blog (pi07-blog-2026) instead of the PDF twin (pi07-2026, now unreferenced by this article and left registered); claim unchanged. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Original row cells before this completion: [\"R5\",\"π0.7 \\\"accepts step-by-step language coaching... recovering from failures\\\"\",\"pi.website/blog/pi07 (fetched)\",\"V\",\"coaching section; fine-tuned high-level policy runs task autonomously \\\"without any additional teleoperation at all\\\"\"]. Article citation re-pointed to the fetched blog in this same commit (pi07-2026 -> pi07-blog-2026, frontmatter updated; registry entry for pi07-2026 left in place, now unreferenced by this article). Zero retrieval performed by this integrator.",
+      "planDigest": "543f236a6d8b4971e762fd0b703d01548ac0b02a3d6f0e44222004e02e39cc8b"
+    },
+    "evidence": [
+      {
+        "partId": "r5-coaching",
+        "citationId": "pi07-blog-2026",
+        "sourceUrl": "https://www.pi.website/blog/pi07",
+        "supportingPassage": "However, if we walk it through the task with step-by-step language coaching, it performs the task much more effectively."
+      },
+      {
+        "partId": "r5-autonomous",
+        "citationId": "pi07-blog-2026",
+        "sourceUrl": "https://www.pi.website/blog/pi07",
+        "supportingPassage": "After we’ve provided language coaching to the robot multiple times, we can use the instructions to fine-tune a high level policy that can then generate the language subgoals fully autonomously, significantly improving fully autonomous execution of the task without any additional teleoperation at all."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r5-coaching",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.pi.website/blog/pi07",
+        "evidenceDigest": "519293a48050b5f818dcd90cc3ac7343b31abb5a8ad105b4e17c675f8319ab7b"
+      },
+      {
+        "partId": "r5-autonomous",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified after folding renderer artifacts only (markdown link/emphasis markers, typographic quotes/dashes; NORMALIZED tier) against the sha256-recorded retained fetch render. Evidence: https://www.pi.website/blog/pi07",
+        "evidenceDigest": "f5d00d11b8bf2eb85a321021ac11d7e2ff8d7e3b11f75824f364c3c5e74234b3"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r7-asimov-triple-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 7,
+    "originalCellsDigest": "2127694faa295daaa0c10fff1b5a02546e2a19fec70a0838fd233948d96ff50b",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r7-card-task-names",
+        "text": "The ASIMOV-Agentic dataset card itself carries only task names and directories: safety_tool_call, VLA feasibility over extended dialogue with tool invocation, and uncertainty quantification and resolution.",
+        "requiredCitationIds": [
+          "asimov-agentic-2026"
+        ]
+      },
+      {
+        "id": "r7-gr2-triple",
+        "text": "The GR2 announcement states ASIMOV-Agentic measures the embodied reasoning agent's ability to refuse unsafe tool calls from a VLA, to predict whether a task is possible, and to proactively request human intervention when uncertain.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:7 (ready-source-correction): card part verified against the retained gated-repo public README render (task table rows; both pins sha-resolved, the UQ row pin resolved from the same render) and the GR2 triple needle-verified FULL; the recorded C (card carries task names only; the triple comes from the GR2 blog) matches the retained texts; article already carries the GR2 citation. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Zero retrieval performed by this integrator.",
+      "planDigest": "a5e39dfe7497f34ede12c680dc30bf52132f75f14496c80fb5358f4d9bf1e9d9"
+    },
+    "evidence": [
+      {
+        "partId": "r7-card-task-names",
+        "citationId": "asimov-agentic-2026",
+        "sourceUrl": "https://huggingface.co/datasets/google/asimov_agentic",
+        "supportingPassage": "agent_vla_feasibility_extended_di_vla_protocol_eval | VLA feasibility over extended dialogue with tool invocation"
+      },
+      {
+        "partId": "r7-gr2-triple",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "it measures the embodied reasoning agent’s ability to refuse unsafe tool calls from a VLA.It also measures the agent’s ability to predict whether a task is possible and to proactively request human intervention when uncertain."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r7-card-task-names",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified after folding renderer artifacts only (markdown link/emphasis markers, typographic quotes/dashes; NORMALIZED tier) against the sha256-recorded retained fetch render. Evidence: https://huggingface.co/datasets/google/asimov_agentic",
+        "evidenceDigest": "aa2dc7edeac2da5a51121594c7c5762b210acd05b1ca722a869c490f2c98b839"
+      },
+      {
+        "partId": "r7-gr2-triple",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "97148165ecb14ad29fa0c6fe74df26c8fb5abaac7f722533c2248120f04885f5"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r8-er2-safest-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 8,
+    "originalCellsDigest": "011e81b99d2fe94b9343e8d0e71013592dc9ce16e5a6d3206bfaa0d93d9677d9",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r8-er2-safest",
+        "text": "The blog's safest-model sentence names Gemini Robotics ER 2 - the embodied-reasoning model - in safety constraint following and human proximity benchmarks, not the GR2 VLA family.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      },
+      {
+        "id": "r8-detect-stop",
+        "text": "Gemini Robotics ER 2 can better detect when humans are nearby, trigger safety tool calls and bring the robot to a safe stop if someone approaches too closely.",
+        "requiredCitationIds": [
+          "gemini-robotics-2-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:8 (ready-source-correction): both parts needle-verified FULL; the article already carries the corrected Gemini Robotics ER 2 scoping; no article edit. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Zero retrieval performed by this integrator.",
+      "planDigest": "c1e16cc16cefc63f1dd4dd76b9af4015ebe7da9b56b85b89b74ea3a5369a0176"
+    },
+    "evidence": [
+      {
+        "partId": "r8-er2-safest",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "Additionally, with enhanced embodied reasoning, Gemini Robotics ER 2 is our safest robotics model to date in safety constraint following and human proximity benchmarks. It can better detect when humans are nearby, trigger safety tool calls and bring the robot to a safe stop if someone approaches too closely."
+      },
+      {
+        "partId": "r8-detect-stop",
+        "citationId": "gemini-robotics-2-2026",
+        "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "supportingPassage": "Additionally, with enhanced embodied reasoning, Gemini Robotics ER 2 is our safest robotics model to date in safety constraint following and human proximity benchmarks. It can better detect when humans are nearby, trigger safety tool calls and bring the robot to a safe stop if someone approaches too closely."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r8-er2-safest",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "3988149569a720927dc9078b87c2fe8be356a252c3a148ce5a876ff3926098db"
+      },
+      {
+        "partId": "r8-detect-stop",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+        "evidenceDigest": "9af432325cf811a742bc6795ed75e56690df05e9a21effe55c964d8804e2f91b"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r9-deployment-record-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 9,
+    "originalCellsDigest": "2f30371c6dfead1eab7d9d4017523fbe8a4dc322f8882161fe1fa3c469dc6dfe",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r9-circulating",
+        "text": "Circulating figures put Tesla past 50,000 cumulative Optimus units and Figure above 10,000 deployments; none of these figures come from the companies they describe.",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      },
+      {
+        "id": "r9-tesla-never",
+        "text": "Tesla has never published an Optimus production count, audited or otherwise.",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      },
+      {
+        "id": "r9-agility",
+        "text": "Agility's Digit has accumulated more than 65,000 operating hours across nine customer facilities (GXO, Schaeffler, Toyota Motor Manufacturing Canada, Mercado Libre).",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      },
+      {
+        "id": "r9-bmw",
+        "text": "Figure's eleven-month BMW Spartanburg pilot logged more than 1,250 hours, 90,000+ parts loaded, above 99 percent placement accuracy per shift and an 84-second cycle time (Figure's November 2025 report).",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      },
+      {
+        "id": "r9-unitree-target",
+        "text": "Unitree shipped roughly 5,500 units in 2025 and targets 10,000 to 20,000 units in 2026.",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:9 (ready-source-correction): all five parts needle-verified against the retained technology.org sweep; the Unitree 2026-target part reuses the bear-case-registered b4-volume passage byte-exact with the same registered citation (technology-org-deployed-2026); claim unchanged. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Bear-case overlap rule honored: the reused parts bind the same registered citations and byte-identical (row 11: verbatim sub-span) passages already in audit/compound-evidence.json; verified read-only against the registered plans bear-case-b4-unitree/b5-figure-goldman/b8-lisa-yan (see bear-case-reuse-check.json). Zero retrieval performed by this integrator.",
+      "planDigest": "42cb92739a500244917916f5e6ad87c6173eb0b3021e0ffef0b9d23646ec3ee4"
+    },
+    "evidence": [
+      {
+        "partId": "r9-circulating",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Search for humanoid robot deployment figures and you will find confident numbers. Tesla has passed 50,000 cumulative Optimus units. Figure AI has surpassed 10,000 deployments across partner warehouses."
+      },
+      {
+        "partId": "r9-tesla-never",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "None of these figures come from the companies they describe. Tesla has never published an Optimus production count, audited or otherwise."
+      },
+      {
+        "partId": "r9-agility",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Agility Robotics has the broader commercial footprint. The company says its Digit robot has accumulated more than 65,000 operating hours across nine customer facilities, naming GXO, Schaeffler, Toyota Motor Manufacturing Canada and Mercado Libre as commercial customers."
+      },
+      {
+        "partId": "r9-bmw",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Figure AI completed an eleven-month pilot at BMW Group Plant Spartanburg with its Figure 02 robot. According to Figure’s November 2025 report, the robot logged more than 1,250 operating hours, loaded over 90,000 sheet-metal parts and took roughly 1.2 million steps while supporting production of more than 30,000 BMW X3 vehicles. It worked ten-hour shifts, Monday through Friday, placing metal parts into welding fixtures to five-millimetre precision, holding above 99 percent placement accuracy per shift and meeting an 84-second cycle time."
+      },
+      {
+        "partId": "r9-unitree-target",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025 – more than Figure has shipped in its entire history – and targets 10,000 to 20,000 units in 2026."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r9-circulating",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "evidenceDigest": "4e7d0d93233ed7ca05a4c31003a78408bee8d5c9cb7ec98845430fd598c059d0"
+      },
+      {
+        "partId": "r9-tesla-never",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "evidenceDigest": "dec69167f78ffe68766827e2193023d818a61e3f9e6b9ace3e8f4c177099d270"
+      },
+      {
+        "partId": "r9-agility",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "evidenceDigest": "0936a3bb0cff7e2944eb7c4b5c6a5e230b5d01730f0abb2387cd57c3a6a775d1"
+      },
+      {
+        "partId": "r9-bmw",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "evidenceDigest": "782886ce83e782512e6ae4dee98dd586fa593e90f3cf78415261708de4dcaf3a"
+      },
+      {
+        "partId": "r9-unitree-target",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "evidenceDigest": "dd2d3ab8b80be130f26c6961266d0eb9cbaa2689f25c8b52a419c4e28d59bcb4"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r10-unitree-g1-price-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 10,
+    "originalCellsDigest": "c8adccdacf49ed649874ad79903755ce795e0054fe1994b391b34b938a99ae05",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r10-volume",
+        "text": "Unitree shipped roughly 5,500 humanoid units across its product line in 2025.",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      },
+      {
+        "id": "r10-g1-price",
+        "text": "The $16,000 figure is the G1's starting price, roughly an order of magnitude below full-size Western platforms - not the price of the whole 2025 shipment line.",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:10 (ready-source-correction): volume part reuses the bear-case b4-volume passage byte-exact; G1-price part needle-verified; the recorded C was already applied to the article ('with its G1 starting near $16,000'); verdict history preserved, no article edit. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Bear-case overlap rule honored: the reused parts bind the same registered citations and byte-identical (row 11: verbatim sub-span) passages already in audit/compound-evidence.json; verified read-only against the registered plans bear-case-b4-unitree/b5-figure-goldman/b8-lisa-yan (see bear-case-reuse-check.json). Zero retrieval performed by this integrator.",
+      "planDigest": "540135742fccec9d04f010f83dfdd20d3ca9bf3fddc0717854ba8999f9a6a4a3"
+    },
+    "evidence": [
+      {
+        "partId": "r10-volume",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Unitree Robotics, based in Hangzhou, shipped approximately 5,500 humanoid units across its product line in 2025 – more than Figure has shipped in its entire history – and targets 10,000 to 20,000 units in 2026."
+      },
+      {
+        "partId": "r10-g1-price",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Its G1 humanoid starts around $16,000, roughly an order of magnitude below full-size Western platforms."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r10-volume",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "evidenceDigest": "e81212e7ebfbde3ec8134d2c2b9857b9b958e491bc59dd6fde87404c360dc0d1"
+      },
+      {
+        "partId": "r10-g1-price",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "evidenceDigest": "0758a465f9057831ffeb1fee3aa3df966bce79f662f769c251d38d96a034d982"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r11-unitree-profit-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 11,
+    "originalCellsDigest": "6c1b333f39cb5bbe12b75fab197fba1d08621e8c214a8327f1b307796909a2d2",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r11-adjusted-profit",
+        "text": "Unitree's Q1 2026 adjusted net profit fell to 40.25 million yuan from 84.84 million yuan, a year-on-year decline of 52.55%.",
+        "requiredCitationIds": [
+          "unitree-profit-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:11 (ready-source-correction): passage needle-verified and consistent with the bear-case-registered b4-profit passage (verbatim sub-span of the registered excerpt, same citation unitree-profit-2026); the recorded C was already applied ('adjusted net profit fell 52.55%'); no article edit. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Bear-case overlap rule honored: the reused parts bind the same registered citations and byte-identical (row 11: verbatim sub-span) passages already in audit/compound-evidence.json; verified read-only against the registered plans bear-case-b4-unitree/b5-figure-goldman/b8-lisa-yan (see bear-case-reuse-check.json). Zero retrieval performed by this integrator.",
+      "planDigest": "a2d23e77ad81ca9641b7645b72301e5efc33d44072f0291eb1569dbaf5421a5d"
+    },
+    "evidence": [
+      {
+        "partId": "r11-adjusted-profit",
+        "citationId": "unitree-profit-2026",
+        "sourceUrl": "https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
+        "supportingPassage": "Adjusted net profit fell to 40.25 million yuan (approximately $5.9 million) from 84.84 million yuan in the same quarter last year, a year-on-year decline of 52.55%."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r11-adjusted-profit",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.techtimes.com/articles/320197/20260711/robot-boom-meets-earnings-reality-unitree-profits-halved-optimus-not-sale.htm",
+        "evidenceDigest": "7b09473266fb624a7e416f462bc3095eefb9e8ccde3cb8ed65c9da23e51bb725"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r12-figure-8hr-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 12,
+    "originalCellsDigest": "71ebe09140e77afffbb4a2673db0d84b978f4e3dee35970d8c1648f29be0e421",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r12-eight-hours",
+        "text": "The May 13, 2026 demonstration placed Figure AI robots on package-sorting conveyor belts for a continuous eight hours running Helix-02.",
+        "requiredCitationIds": [
+          "figure-8hr-shift-2026"
+        ]
+      },
+      {
+        "id": "r12-vendor-speeds",
+        "text": "Processing speeds are the company's own claim ('speeds the company says match human performance'), and the piece publishes no success rate.",
+        "requiredCitationIds": [
+          "figure-8hr-shift-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:12 (ready-source-correction): both parts needle-verified against the retained TechTimes render (link-marker folding only); 'no published success rate' recorded as absence in this fetched source, not universalized; claim unchanged. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Zero retrieval performed by this integrator.",
+      "planDigest": "1eca871492bf49153c0d8b89363efaabcb2e672b2448a5d75ce9bac9734a0d6c"
+    },
+    "evidence": [
+      {
+        "partId": "r12-eight-hours",
+        "citationId": "figure-8hr-shift-2026",
+        "sourceUrl": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
+        "supportingPassage": "The May 13 demonstration, running on the company’s Helix-02 AI system, placed Figure AI robots on package-sorting conveyor belts for a continuous eight hours, processing barcoded packages at speeds the company says match human performance."
+      },
+      {
+        "partId": "r12-vendor-speeds",
+        "citationId": "figure-8hr-shift-2026",
+        "sourceUrl": "https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
+        "supportingPassage": "The May 13 demonstration, running on the company’s Helix-02 AI system, placed Figure AI robots on package-sorting conveyor belts for a continuous eight hours, processing barcoded packages at speeds the company says match human performance."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r12-eight-hours",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified after folding renderer artifacts only (markdown link/emphasis markers, typographic quotes/dashes; NORMALIZED tier) against the sha256-recorded retained fetch render. Evidence: https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
+        "evidenceDigest": "90e55429acdc9ab65931d8a491b2b7fe75beabd8de042deaa8d512520dff4504"
+      },
+      {
+        "partId": "r12-vendor-speeds",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified after folding renderer artifacts only (markdown link/emphasis markers, typographic quotes/dashes; NORMALIZED tier) against the sha256-recorded retained fetch render. Evidence: https://www.techtimes.com/articles/316632/20260514/figure-ais-helix-02-robots",
+        "evidenceDigest": "20017a2e45ca0d89335a4385e87672d3925cdeb19a32747e42448799664b54e5"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r13-figure-goldman-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 13,
+    "originalCellsDigest": "c8e2b636a39c39ecdd8456cd5c3442f28ae8b0a282c709eae82feaf7a282ef99",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r13-valuation",
+        "text": "Figure held a $39 billion private valuation as of September 2025 - higher than Goldman's projection for the entire humanoid market nine years out.",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      },
+      {
+        "id": "r13-goldman",
+        "text": "Goldman Sachs projects the humanoid market at $38 billion by 2035.",
+        "requiredCitationIds": [
+          "technology-org-deployed-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:13 (ready-source-correction): both parts reuse the bear-case-registered b5 passages byte-exact with the same registered citation; claim unchanged. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Bear-case overlap rule honored: the reused parts bind the same registered citations and byte-identical (row 11: verbatim sub-span) passages already in audit/compound-evidence.json; verified read-only against the registered plans bear-case-b4-unitree/b5-figure-goldman/b8-lisa-yan (see bear-case-reuse-check.json). Zero retrieval performed by this integrator.",
+      "planDigest": "d942979e9e826d08460f5804e2b43d30b220274a84647b9118876be21a5029bf"
+    },
+    "evidence": [
+      {
+        "partId": "r13-valuation",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Figure held a $39 billion private valuation as of September 2025 – higher than Goldman’s projection for the entire humanoid market nine years out."
+      },
+      {
+        "partId": "r13-goldman",
+        "citationId": "technology-org-deployed-2026",
+        "sourceUrl": "https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "supportingPassage": "Goldman Sachs projects the humanoid market at $38 billion by 2035; Morgan Stanley projects $152 billion by 2040."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r13-valuation",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "evidenceDigest": "896edbaf64fd4bac3c001b627069522ae9ba815d0a95d1273bfb9125df50f839"
+      },
+      {
+        "partId": "r13-goldman",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.technology.org/2026/07/18/humanoid-robots-in-2026-what-is-actually-deployed/",
+        "evidenceDigest": "c691817d44e2e291e0d9ec2be6247f31ccb8ffeeb5310c2309d7eba0c6a4b1b8"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r14-lisa-yan-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 14,
+    "originalCellsDigest": "d11e0fa547bc62a9ee26e132367eff5f8c06e031da66b1e60fd550cb6b26194b",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r14-steep-quote",
+        "text": "Lisa Yan's quote in Bessemer's analysis: closing the gap between 99% and 99.9% reliability is a steep hill climb that takes longer than most people realize.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "r14-attribution",
+        "text": "The essay bylines her Co-Founder & CEO of Argus Systems; the 'previously at Waymo' framing rests on her quote's own 'My experience at Waymo taught me...' sentence.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:14 (ready-source-correction): steep-quote part reuses the bear-case-registered b8-yan-steep passage byte-exact; attribution part needle-verified (typographic folding only). Basis recorded: 'previously at Waymo' rests on the quote's own first-person 'My experience at Waymo taught me...' sentence, not a Bessemer biographical statement; phrasing kept with that basis, tightening left flagged for the owner. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Bear-case overlap rule honored: the reused parts bind the same registered citations and byte-identical (row 11: verbatim sub-span) passages already in audit/compound-evidence.json; verified read-only against the registered plans bear-case-b4-unitree/b5-figure-goldman/b8-lisa-yan (see bear-case-reuse-check.json). Zero retrieval performed by this integrator.",
+      "planDigest": "90a2561f1056ece134dfd2865beb1575c8f423b4bee042ad4504bf253eb5aaa6"
+    },
+    "evidence": [
+      {
+        "partId": "r14-steep-quote",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Closing the gap between 99% and 99.9% reliability is a steep hill climb that takes longer than most people realize.\" — Lisa Yan, Co-Founder & CEO, Argus Systems"
+      },
+      {
+        "partId": "r14-attribution",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "We are nowhere near ‘solving’ the data problem in robotics. My experience at Waymo taught me that real-world deployment uncovers harder, more specialized data curation and labeling problems over time. Closing the gap between 99% and 99.9% reliability is a steep hill climb that takes longer than most people realize.” — Lisa Yan, Co-Founder & CEO, Argus Systems"
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r14-steep-quote",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified after folding renderer artifacts only (markdown link/emphasis markers, typographic quotes/dashes; NORMALIZED tier) against the sha256-recorded retained fetch render. Evidence: https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "evidenceDigest": "acecad9f855582789c44d36cd16f5b32502cfe56ac79751913f4804c9905f608"
+      },
+      {
+        "partId": "r14-attribution",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified after folding renderer artifacts only (markdown link/emphasis markers, typographic quotes/dashes; NORMALIZED tier) against the sha256-recorded retained fetch render. Evidence: https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "evidenceDigest": "862b90a9f23f976100b977fb71972cdaa8485221550f8d8e8ccc7b981d0ec593"
+      }
+    ]
+  },
+  {
+    "id": "reliability-gap-r15-bessemer-quotes-20260915",
+    "ledgerPath": "audit/frontier.md",
+    "articleSlug": "reliability-gap",
+    "rowOrdinal": 15,
+    "originalCellsDigest": "c932af43a10a8f2474bf377b0228e3a25fa85c86060330d248942e01a7427737",
+    "kind": "explicit-parts",
+    "parts": [
+      {
+        "id": "r15-not-linear",
+        "text": "Bessemer, in its gaps-and-open-debates section: getting from 80% task success to 99.9% is not a linear problem.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      },
+      {
+        "id": "r15-moment",
+        "text": "On the ChatGPT moment for robotics, Bessemer writes: we don't think that moment is years away. But it's not here yet.",
+        "requiredCitationIds": [
+          "bessemer-robotics-2026"
+        ]
+      }
+    ],
+    "planReview": {
+      "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Packet record reliability-gap:15 (ready-source-correction): both quotes needle-verified against the retained bvp.com render (the moment quote after typographic folding only); freshly bound by this packet (no bear-case plan binds these two sentences); P5 held: the article keeps Bessemer's timing optimism against Yan's steeper-climb view, both named with the same citation. Integrator review: packet plan reviewed in full; all 29 evidence passages across the 14 selected records needle-verified against the retained FetchUrl renders sha256-recorded in this lane (22 verbatim FULL, 7 verified after folding renderer artifacts only - markdown link/emphasis markers and typographic quotes - with zero wording or figure changes; see needle-verification.json and retained-fetch-manifest.json); every evidenceItemBindings pin cross-checked by sha256; every cited id confirmed registered in data/citations.ts; zero retrieval by this integrator. Zero retrieval performed by this integrator.",
+      "planDigest": "775d16be65ac7157bfd989eb6ce7146e2c77af364688b70b22c82e12edea7912"
+    },
+    "evidence": [
+      {
+        "partId": "r15-not-linear",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "Getting from 80% task success to 99.9% is not a linear problem. The last 20% requires fundamentally different approaches—tactile sensing, force feedback, better sim-to-real transfer for manipulation—and it takes longer than most timelines assume."
+      },
+      {
+        "partId": "r15-moment",
+        "citationId": "bessemer-robotics-2026",
+        "sourceUrl": "https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "supportingPassage": "We don’t think that moment is years away. But it’s not here yet."
+      }
+    ],
+    "adjudications": [
+      {
+        "partId": "r15-not-linear",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified verbatim (FULL) against the sha256-recorded retained fetch render. Evidence: https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "evidenceDigest": "b6b929970fac5d4840286e1a0a34517e1d97508d859ed8ebf5f3994f9d3159db"
+      },
+      {
+        "partId": "r15-moment",
+        "outcome": "supported",
+        "reviewedBy": "reliability-gap-integrator-20260915 (session 0ba02c88-050b-4e30-9d11-95cc4f956c97, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+        "rationale": "Passage needle-verified after folding renderer artifacts only (markdown link/emphasis markers, typographic quotes/dashes; NORMALIZED tier) against the sha256-recorded retained fetch render. Evidence: https://www.bvp.com/atlas/bessemer-predicts-robotics-and-physical-ai",
+        "evidenceDigest": "c3fc73923b8bedc9b098068defc4a61f5042492b7b549142be990f8b22ff88dc"
+      }
+    ]
   }
 ]
