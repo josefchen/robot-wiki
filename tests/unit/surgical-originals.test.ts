@@ -225,7 +225,9 @@ describe('surgical originals: approved deltas', () => {
   const FINAL_HASH = 'c36132a65355c0f46e5b530b4626389c0127babfb418d976d982b8a2dfb942eb';
 
   it('appends exactly 7 entries, same-same except the one combined prose move', () => {
-    expect(deltas.entries).toHaveLength(852);
+    // Ledger total on the seo-merge line: the surgical packet contributed
+    // exactly the 7 sg-r entries pinned below.
+    expect(deltas.entries).toHaveLength(1170);
     expect(surgicalDeltas.map((delta) => delta.id).sort()).toEqual(
       ['1', '2', '3', '4', '6', '7', '8'].map((row) => `sg-r${row}-20260916-1`).sort(),
     );

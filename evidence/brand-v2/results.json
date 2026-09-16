@@ -99435,7 +99435,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "Against the immutable brand-v2 migration baseline, visible article prose, accessible names, factual claims, citation targets/source labels/dates/quantities, References, See also, and Linked from relationships are byte- or semantics-identical except approved brand-string migration and fact-preserving caption/attribution additions; visible first-party creator labels may change from `robot-wiki` to `Robot Wiki` without changing factual authorship.",
-      "actual": "prose member article:adjacent/surgical hashes to f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1 in the current tree, the value the immutable migration baseline sealed",
+      "actual": "prose member article:adjacent/surgical moved from f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1 to c36132a65355c0f46e5b530b4626389c0127babfb418d976d982b8a2dfb942eb exactly as approved delta sg-r8-20260916-1 permits: Exactly adjacent/surgical original 8 (STAR 2016: supervised autonomous anastomosis in vivo, outcom...): evidence-completion per the frozen packet. Every retained passage was needle-verified by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-side correction only); lastReviewed deliberately not moved.",
       "selectorOrRegistryId": "evidence/brand-v2/baseline/baseline.json#manifests:article-truth",
       "exceptionVerdict": "none",
       "status": "passed",
@@ -99447,9 +99447,9 @@
           "manifest": "prose",
           "member": "article:adjacent/surgical",
           "baselineHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
-          "currentHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
-          "status": "identical",
-          "approvedDelta": null
+          "currentHash": "c36132a65355c0f46e5b530b4626389c0127babfb418d976d982b8a2dfb942eb",
+          "status": "approved-delta",
+          "approvedDelta": "sg-r8-20260916-1"
         },
         "tool": "scripts/brand-v2-baseline.ts#collectArticleTruthManifests"
       }
@@ -129791,7 +129791,7 @@
       ],
       "coverageKind": "per-member",
       "expected": "The visible product identity never renders `robot-wiki`, `ROBOT WIKI`, `Robot-Wiki`, `Robotics encyclopaedia`, or any descriptor paraphrase.",
-      "actual": "/adjacent/surgical/ rendered no v1 identity spelling and no v1 descriptor in 33612 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
+      "actual": "/adjacent/surgical/ rendered no v1 identity spelling and no v1 descriptor in 33690 characters of visible text across 1440x900 and 375x812, and no prose metadata field carries one; the 2 identity-bearing states the default load does not reach (webgl-unavailable-fallback, trajectory-export-format-discriminator) were provoked and swept the same way",
       "selectorOrRegistryId": "contract/brand-v2-registries.json#routes.public",
       "exceptionVerdict": "none",
       "status": "passed",
