@@ -81,7 +81,7 @@ const ROWS: TeleopRig[] = [
       cost:
         'GELLO is built from 3D-printed links and economical off-the-shelf motors, with a parts list under $300 according to the project site. That buys the controller only: the robot arm it drives is a separate cost, so a full GELLO station costs a GELLO plus whatever the target arm costs.',
       dataQuality:
-        'The device is constructed with the same kinematic structure as the target arm, so joint readings map directly onto robot commands with no inverse-kinematics remapping. In the paper user study with 12 participants and 5 bimanual UR5 tasks, GELLO produced more reliable and more efficient demonstration collection than VR controllers or a 3D spacemouse.',
+        'The device is constructed with the same kinematic structure as the target arm, so joint readings map directly onto robot commands with no inverse-kinematics remapping. In the paper user study with 12 participants and 5 tasks on a bimanual pair of UR5 arms, GELLO produced more reliable and more efficient demonstration collection than VR controllers or a 3D spacemouse.',
       throughput:
         'The paper describes assembly as straightforward and requiring minimal technical expertise, and neither the paper nor the project site publishes a build time. Parts are printed or off the catalog, so duplicating a station is cheap. The constraint is universality: every new robot model needs its own kinematically matched design, and the published builds cover Franka, UR5, and xArm.',
       embodimentGap:
@@ -123,7 +123,7 @@ const ROWS: TeleopRig[] = [
       { label: 'UMI paper', url: 'https://arxiv.org/abs/2402.10329' },
       { label: 'Project site', url: 'https://umi-gripper.github.io/' },
     ],
-    sources: ['umi-2024'],
+    sources: ['umi-2024', 'umi-gripper-site-2024'],
   },
   {
     id: 'vr-teleop',
@@ -159,7 +159,7 @@ const ROWS: TeleopRig[] = [
       { label: 'Open-TeleVision', url: 'https://arxiv.org/abs/2407.01512' },
       { label: 'Bunny-VisionPro', url: 'https://arxiv.org/abs/2407.03162' },
     ],
-    sources: ['droid-2024', 'open-television-2024', 'bunny-visionpro-2024'],
+    sources: ['droid-2024', 'open-television-2024', 'bunny-visionpro-2024', 'apple-visionpro-price-2024'],
   },
 ];
 

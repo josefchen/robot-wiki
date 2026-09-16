@@ -8,12 +8,17 @@ status: published
 lastReviewed: "2026-08-17"
 citations:
   - cosmos-3-2026
+  - nvidia-cosmos-3-launch-2026
+  - genie-1-2024
+  - genie-2-2024
   - genie-3-2025
   - project-genie-2026
   - gr-1-2023
   - gr-2-2024
   - 1x-world-model-lab-2026
   - odyssey-2-2025
+  - odyssey-starchild-1-2026
+  - odyssey-agora-1-2026
   - interactive-world-simulator-2026
   - roboworld-2026
   - world-model-survey-2026
@@ -41,7 +46,7 @@ Whether any of them is a simulator rather than a movie generator comes down to o
 
 ## Cosmos 3: the omni-model
 
-In the Cosmos 3 report, NVIDIA argues that a hypothetical home robot would otherwise need a VLM to plan, a VLA or WAM to generate actions, and a forward-dynamics model to simulate and evaluate future states. It calls that arrangement "fragmented" and "computationally wasteful" <Cite id="cosmos-3-2026" />. Cosmos 3, launched at GTC Taipei in late May 2026, unifies those capabilities in one omni-model <Cite id="cosmos-3-2026" />. Cosmos 3 uses a Mixture-of-Transformers backbone. Modality-specific encoders project inputs into a shared representation space. Its autoregressive subsequence handles language tokens and ViT-encoded images and video; its diffusion subsequence handles VAE-encoded images and video, audio, and action tokens. Each transformer layer has separate reasoner and generator parameters. Autoregressive tokens attend causally only within their own subsequence, while diffusion tokens attend to both subsequences; the reasoning stream is not updated from diffusion tokens <Cite id="cosmos-3-2026" />.
+In the Cosmos 3 report, NVIDIA argues that a hypothetical home robot would otherwise need a VLM to plan, a VLA or WAM to generate actions, and a forward-dynamics model to simulate and evaluate future states. It calls that arrangement "fragmented" and "computationally wasteful" <Cite id="cosmos-3-2026" />. Cosmos 3, launched at GTC Taipei in late May 2026, unifies those capabilities in one omni-model <Cite id="nvidia-cosmos-3-launch-2026" />. Cosmos 3 uses a Mixture-of-Transformers backbone. Modality-specific encoders project inputs into a shared representation space. Its autoregressive subsequence handles language tokens and ViT-encoded images and video; its diffusion subsequence handles VAE-encoded images and video, audio, and action tokens. Each transformer layer has separate reasoner and generator parameters. Autoregressive tokens attend causally only within their own subsequence, while diffusion tokens attend to both subsequences; the reasoning stream is not updated from diffusion tokens <Cite id="cosmos-3-2026" />.
 
 Section 4.1.1 trains the reasoner by next-token prediction. Section 4.2 specifies rectified flow matching for the generator, whereas the infrastructure discussion in Section 5.2 calls the generator loss "EDM loss". Those two descriptions are not treated as equivalent here <span className="block" data-cosmos-source-placement="line-start"><Cite id="cosmos-3-2026" />.</span>
 
@@ -51,7 +56,7 @@ Section 2.2.2 describes three action modes. Forward dynamics denoises future vid
 
 ## Genie 2 and Genie 3: interactive worlds with an honest limitation list
 
-DeepMind's Genie line approaches from play rather than from robots. The original Genie learned latent actions from video-game footage and generated 2D worlds at about one frame per second. Genie 2 (December 2024) moved to 3D at 360p with 10 to 20 second horizons. In their August 5, 2025 announcement, Jack Parker-Holder and Shlomi Fruchter describe Genie 3 as a limited research preview. They report text-prompted worlds navigable in real time at 24 fps and 720p, remaining largely consistent for a few minutes <Cite id="genie-3-2025" />. Promptable world events can alter weather or introduce objects and characters through text input; DeepMind presents these interventions as a way to broaden counterfactual scenarios. To test compatibility with future agent training, DeepMind gave a recent version of SIMA goals in generated worlds. SIMA sent navigation actions to Genie 3, while the <Term id="world-model">world model</Term> received no agent goal and simulated the future from those actions. This is a navigation demonstration, not a reported robot-manipulation training result <Cite id="genie-3-2025" />.
+DeepMind's Genie line approaches from play rather than from robots. The original Genie learned latent actions from video-game footage and generated 2D worlds at about one frame per second <Cite id="genie-1-2024" />. Genie 2 (December 2024) moved to 3D, with consistent worlds for up to a minute and most examples lasting 10 to 20 seconds <Cite id="genie-2-2024" />. In their August 5, 2025 announcement, Jack Parker-Holder and Shlomi Fruchter describe Genie 3 as a limited research preview. They report text-prompted worlds navigable in real time at 24 fps and 720p, remaining largely consistent for a few minutes <Cite id="genie-3-2025" />. Promptable world events can alter weather or introduce objects and characters through text input; DeepMind presents these interventions as a way to broaden counterfactual scenarios. To test compatibility with future agent training, DeepMind gave a recent version of SIMA goals in generated worlds. SIMA sent navigation actions to Genie 3, while the <Term id="world-model">world model</Term> received no agent goal and simulated the future from those actions. This is a navigation demonstration, not a reported robot-manipulation training result <Cite id="genie-3-2025" />.
 
 DeepMind lists the following limitations of Genie 3 <Cite id="genie-3-2025" />:
 
@@ -71,7 +76,7 @@ The robotics-specific lineage started with GR-1, which established the pattern: 
 
 1X treats its world model as the route to self-learning humanoids. The company credits the model with letting NEO generalize to unseen tasks with zero-shot execution, and in June 2026 it launched a dedicated World Model Lab, led by Sam Sinha (previously a founding research scientist at Luma AI), to pre-train video foundation models on a mixture of web video, egocentric human data, simulation, teleoperated robot data, and on-policy NEO data <Cite id="1x-world-model-lab-2026" />.
 
-Odyssey is the clearest consumer expression of the paradigm. Odyssey-2 (October 2025) is a causal, autoregressive interactive video model: each frame is generated only from prior frames and user input, streamed in real time at a new frame every 50 ms (about 20 fps), and steerable with text as it plays <Cite id="odyssey-2-2025" />. The follow-ons push the same direction, with Starchild-1 adding audio alongside video and Agora-1 letting four participants share one simulation.
+Odyssey is the clearest consumer expression of the paradigm. Odyssey-2 (October 2025) is a causal, autoregressive interactive video model: each frame is generated only from prior frames and user input, streamed in real time at a new frame every 50 ms (about 20 fps), and steerable with text as it plays <Cite id="odyssey-2-2025" />. The follow-ons push the same direction, with Starchild-1 adding audio alongside video <Cite id="odyssey-starchild-1-2026" /> and Agora-1 letting four participants share one simulation <Cite id="odyssey-agora-1-2026" />.
 
 ## The conditioning problem
 

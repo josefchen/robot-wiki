@@ -139,9 +139,12 @@ describe('pointmaps, simulation and layered-costmap source corrections', () => {
     });
   }
 
-  it('does not promote MASt3R, OccWorld or the authored illustration', () => {
+  it('keeps MASt3R, OccWorld and the authored illustration bound to their completed plans', () => {
+    // Rows 18/24/45 were completed lawfully by the scene-representation
+    // 20260916d integration (packet-anchored evidence, no promotion beyond it).
     for (const ordinal of [18, 24, 45]) {
-      expect(records()[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
+      expect(records()[ordinal - 1].evidenceFailures).toEqual([]);
+      expect(records()[ordinal - 1].compound?.planId).toMatch(/^scene-representation-\d+-[a-z0-9-]+-20260916d$/);
     }
     for (const ordinal of [12, 13, 14, 15, 16, 40, 42, 43, 44]) {
       expect(records()[ordinal - 1].evidenceFailures).toEqual([]);

@@ -107,9 +107,10 @@ const ROWS: Dataset[] = [
     name: 'AgiBot World 2026',
     aka: [],
     year: 2026,
-    // The release publishes a 13.7 TB total file size (HF storage API,
-    // 13.66 TB as of 2026-08-17) but no
-    // episode, hour, task, or scene counts as of August 2026 (the module
+    // The release publishes a 13.6 TB total file size (card-printed,
+    // September 2026; HF storage API reports 14,054,068,535,897 bytes as
+    // of 2026-09-16) but no
+    // episode, hour, task, or scene counts as of September 2026 (the module
     // prose carries the file size, the table cells stay not disclosed).
     episodes: null,
     hours: null,

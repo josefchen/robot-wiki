@@ -68,6 +68,9 @@ describe('source-scoped neural scene originals 12 through 16', () => {
     expect(library).toContain('opacity controls alpha compositing rather than a calibrated');
     expect(library).toContain('deriving contact geometry is separate work');
     expect(library).toContain('bytesPerElement: 236');
-    expect(records()[44].evidenceFailures.length).toBeGreaterThan(0);
+    // Row 45 (demo unknown-vs-fill) was completed lawfully by the
+    // scene-representation 20260916d integration; it must now stay complete.
+    expect(records()[44].evidenceFailures).toEqual([]);
+    expect(records()[44].compound?.planId).toBe('scene-representation-45-occluder-demo-20260916d');
   });
 });

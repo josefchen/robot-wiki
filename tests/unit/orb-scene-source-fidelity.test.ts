@@ -100,6 +100,9 @@ describe('ORB scene source fidelity', () => {
     expect(article).toContain("Direct Sparse Odometry's formulation");
     expect(article).toContain('lastReviewed: "2026-08-22"');
     for (const ordinal of [25, 32, 34, 35, 38, 39]) expect(records()[ordinal - 1].evidenceFailures).toEqual([]);
-    for (const ordinal of [18, 24, 45, 49]) expect(records()[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
+    // Rows 18/24/45/49 were completed lawfully by the scene-representation
+    // 20260916d integration; they must now stay complete with compound plans.
+    for (const ordinal of [18, 24, 45, 49]) expect(records()[ordinal - 1].evidenceFailures).toEqual([]);
+    for (const ordinal of [18, 24, 45, 49]) expect(records()[ordinal - 1].compound?.planId).toMatch(/^scene-representation-\d+-[a-z0-9-]+-20260916d$/);
   });
 });

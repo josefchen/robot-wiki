@@ -1,0 +1,316 @@
+import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+
+/**
+ * Red-first proof for the grasp-planning originals integration
+ * (frozen packet convergence-source-j-grasp-planning-20260916c, rows 5, 7,
+ * 8, 10, 12). Every applied-state assertion here failed before application
+ * and must pass after it. The regression guards (article span stability,
+ * held-row invariance, prior-registry order) passed before and must stay
+ * green.
+ */
+const article = readFileSync('content/classical/grasp-planning.mdx', 'utf8');
+const ledger = readFileSync('audit/classical.md', 'utf8');
+type Part = { id: string; text: string; requiredCitationIds: string[] };
+type EvidenceItem = { partId: string; citationId: string; sourceUrl: string; supportingPassage: string };
+type PlanRecord = {
+  id: string;
+  ledgerPath: string;
+  articleSlug: string;
+  rowOrdinal: number;
+  originalCellsDigest: string;
+  kind: string;
+  parts: Part[];
+  planReview: { reviewedBy: string; rationale: string; planDigest: string };
+  evidence: EvidenceItem[];
+  adjudications: Array<{
+    partId: string;
+    outcome: string;
+    reviewedBy: string;
+    rationale: string;
+    evidenceDigest: string;
+  }>;
+};
+const plans = JSON.parse(readFileSync('audit/compound-evidence.json', 'utf8')) as unknown as PlanRecord[];
+type DeltaRecord = {
+  id: string;
+  manifest: string;
+  memberId: string;
+  oldHash: string;
+  newHash: string;
+  reason: string;
+  ownerApproval: string;
+  responsibleMilestone: string;
+  affectedAssertions: string[];
+  disposition: string;
+};
+const deltas = JSON.parse(
+  readFileSync('contract/brand-v2-approved-deltas.json', 'utf8'),
+) as unknown as { entries: DeltaRecord[] };
+
+const graspSection = (() => {
+  const lines = ledger.split('\n');
+  const start = lines.findIndex((line) => line.startsWith('### grasp-planning.mdx'));
+  const end = lines.findIndex((line, index) => index > start && line.startsWith('### '));
+  return lines.slice(start, end === -1 ? undefined : end).join('\n');
+})();
+
+/** Row ordinal N is the Nth data row of the article's table. */
+function row(n: number): string[] {
+  const lines = graspSection.split('\n').filter((line) => line.startsWith('|'));
+  const dataRows = lines.filter((line) => !/^\|\s*---/.test(line) && !line.startsWith('| Claim'));
+  expect(dataRows.length).toBeGreaterThanOrEqual(n);
+  const cells = dataRows[n - 1].trim().slice(1, -1).split(/(?<!\\)\|/);
+  return cells.map((cell) => cell.trim());
+}
+
+const registeredIds = new Set(
+  [...readFileSync('data/citations.ts', 'utf8').matchAll(/id: '([a-z0-9-]+)'/g)].map((m) => m[1]),
+);
+
+const digest = (value: unknown) =>
+  createHash('sha256').update(JSON.stringify(value)).digest('hex');
+
+const planDigestOf = (plan: PlanRecord) =>
+  digest([plan.id, plan.ledgerPath, plan.articleSlug, plan.rowOrdinal,
+    plan.originalCellsDigest, plan.kind, plan.parts]);
+
+const partDigestOf = (plan: PlanRecord, partId: string) =>
+  digest([planDigestOf(plan), partId,
+    plan.evidence
+      .filter((item) => item.partId === partId)
+      .map(({ citationId, sourceUrl, supportingPassage }) => [citationId, sourceUrl, supportingPassage])]);
+
+const SAGE = 'https://journals.sagepub.com/doi/10.1177/027836499000900102';
+const SPRINGER_MSS = 'https://link.springer.com/article/10.1007/BF01840373';
+const SPRINGER_ROA = 'https://link.springer.com/article/10.1007/s10514-014-9402-3';
+const PINNED_PROSE_HASH = '156f690191b0e7fb9e4619c870c8ec1501b1d6be800312d91aa4e0c5fc8b56b6';
+const CURRENT_PROSE_HASH = '1c15d22439324446fc28291802042d344796476f9b4db4d3829692b4ad074cb5';
+
+const newPlanIds = [
+  'grasp-planning-5-gws-evidence-20260916',
+  'grasp-planning-7-form-closure-evidence-20260916',
+  'grasp-planning-8-frictional-counts-20260916',
+  'grasp-planning-10-epsilon-evidence-20260916',
+  'grasp-planning-12-internal-local-and-20260916',
+];
+const newDeltaIds = [
+  'gp-r5-20260916-1',
+  'gp-r7-20260916-1',
+  'gp-r8-20260916-1',
+  'gp-r10-20260916-1',
+  'gp-r12-20260916-1',
+];
+
+describe('grasp-planning originals: ledger rows complete', () => {
+  it('binds each applied row to its exact compound plan (rows 5, 7, 8, 10, 12)', () => {
+    expect(row(5)[7]).toBe('grasp-planning-5-gws-evidence-20260916');
+    expect(row(7)[7]).toBe('grasp-planning-7-form-closure-evidence-20260916');
+    expect(row(8)[7]).toBe('grasp-planning-8-frictional-counts-20260916');
+    expect(row(10)[7]).toBe('grasp-planning-10-epsilon-evidence-20260916');
+    expect(row(12)[7]).toBe('grasp-planning-12-internal-local-and-20260916');
+  });
+
+  it('keeps every applied row free of scalar evidence cells (compound convention)', () => {
+    for (const n of [5, 7, 8, 10, 12]) {
+      expect(row(n)[3]).toBe('');
+      expect(row(n)[4]).toBe('');
+      expect(row(n)[5]).toBe('');
+    }
+  });
+
+  it('completes row 5 on the OA review with the honest unit-force caveat (verdict V)', () => {
+    expect(row(5)[2]).toBe('V');
+    expect(row(5)[1]).toContain(SPRINGER_ROA);
+    expect(row(5)[1]).toContain('roa-suarez-2015');
+    expect(row(5)[6]).toContain('convex hull of the primitive wrenches');
+    expect(row(5)[6]).toContain("'at unit normal force' is printed by no fetched page");
+    expect(row(5)[1]).toContain('murray-li-sastry-1994 and bicchi-kumar-2000 NOT re-fetched');
+  });
+
+  it('completes row 7 evidence on the two verbatim abstracts, keeping the C verdict', () => {
+    expect(row(7)[2]).toBe(
+      'C (lower bound re-attributed to Reuleaux/Somoff via MNP; sufficiency numbers corrected to MNP\'s actual results; MSS re-scoped to its real contribution; bicchi-1995 removed)',
+    );
+    expect(row(7)[1]).toContain(SAGE);
+    expect(row(7)[1]).toContain(SPRINGER_MSS);
+    expect(row(7)[1]).toContain('FetchUrl 200 by 2026-09-16T04:07Z');
+    expect(row(7)[1]).toContain('murray-li-sastry-1994 Table 5.3 NOT re-fetched');
+    expect(row(7)[6]).toContain('Reuleaux (1875) / Somoff (1897) / Lakshminarayana (1978) lower bounds');
+    expect(row(7)[6]).toContain('at least four wrenches planar, at least seven spatial');
+    expect(row(7)[6]).toContain('Abstracts prove only what they print');
+  });
+
+  it('completes row 8 on the MNP abstract verbatim sentence (verdict V)', () => {
+    expect(row(8)[2]).toBe('V');
+    expect(row(8)[1]).toContain(SAGE);
+    expect(row(8)[6]).toContain(
+      'three fingers are necessary and sufficient in two dimensions, and four fingers in three dimensions',
+    );
+    expect(row(8)[1]).toContain('murray-li-sastry-1994 Table 5.3 NOT re-fetched');
+  });
+
+  it('completes row 10 on the review epsilon definition with the honest normalization caveat (verdict V)', () => {
+    expect(row(10)[2]).toBe('V');
+    expect(row(10)[1]).toContain(SPRINGER_ROA);
+    expect(row(10)[6]).toContain('the distance from the origin of the wrench space to the closest facet of P');
+    expect(row(10)[6]).toContain("'per unit normal force' tail");
+    expect(row(10)[1]).toContain('ferrari-canny-1992 IEEE body paywalled and not fetched');
+  });
+
+  it('completes row 12 on the internal basis with the integrator-run local proof (verdict V)', () => {
+    expect(row(12)[2]).toBe('V');
+    expect(row(12)[1]).toContain('lib/grasp.ts');
+    expect(row(12)[1]).toContain('components/interactive/grasp-wrench-lab.tsx');
+    expect(row(12)[1]).toContain('tests/e2e/grasp-planning.spec.ts');
+    expect(row(12)[1]).toContain('internal, read-only 2026-09-16, with integrator-run local proof');
+    expect(row(12)[6]).toContain('epsilon 0.44360697536713445 at mu 0.7 for the default tripod');
+    expect(row(12)[6]).toContain('45 deg > arctan(0.7) = 34.992 deg');
+    expect(row(12)[6]).toContain('No external source is claimed for this internal behavior');
+  });
+
+  it('leaves the six held rows untouched (1, 2, 3, 4, 6, 9)', () => {
+    expect(row(1)[1]).toBe('murray-li-sastry-1994 ch. 5; prattichizzo-trinkle-2016');
+    expect(row(2)[1]).toBe('murray-li-sastry-1994');
+    expect(row(3)[1]).toBe('cutkosky-1989 (title + canonical content)');
+    expect(row(4)[1]).toBe('murray-li-sastry-1994');
+    expect(row(6)[1]).toBe('nguyen-1988; murray-li-sastry-1994');
+    expect(row(9)[1]).toBe('nguyen-1988; murray-li-sastry-1994 Thm 5.6');
+    for (const n of [1, 2, 3, 4, 6, 9]) {
+      expect(row(n)).toHaveLength(3);
+      expect(row(n)[6]).toBeUndefined();
+      expect(row(n)[7]).toBeUndefined();
+    }
+  });
+});
+
+describe('grasp-planning originals: compound plans', () => {
+  it('appends exactly five new plans and preserves the prior 713 in order', () => {
+    expect(plans).toHaveLength(718);
+    expect(plans[712].id).toBe('state-estimation-17-20260916');
+    expect(plans.slice(713).map((plan) => plan.id)).toEqual(newPlanIds);
+  });
+
+  it('binds every plan to the classical grasp-planning ledger with fresh digests', () => {
+    for (const plan of plans.slice(713)) {
+      expect(plan.ledgerPath).toBe('audit/classical.md');
+      expect(plan.articleSlug).toBe('grasp-planning');
+      expect(plan.kind).toBe('explicit-parts');
+      expect(plan.originalCellsDigest).toBe(
+        digest([row(plan.rowOrdinal)[0], row(plan.rowOrdinal)[1], row(plan.rowOrdinal)[2], row(plan.rowOrdinal)[6]]),
+      );
+      expect(plan.planReview.planDigest).toBe(planDigestOf(plan));
+      expect(plan.planReview.reviewedBy).toContain('grasp-planning-integrator-20260916');
+    }
+  });
+
+  it('covers every required (part, citation) pair exactly with registered ids and real passages', () => {
+    for (const plan of plans.slice(713)) {
+      const required = plan.parts.flatMap((part) =>
+        part.requiredCitationIds.map((id) => JSON.stringify([part.id, id])));
+      const supplied = plan.evidence.map((item) => JSON.stringify([item.partId, item.citationId]));
+      expect([...new Set(supplied)].sort()).toEqual([...new Set(required)].sort());
+      expect(supplied.length).toBe(new Set(supplied).size);
+      for (const item of plan.evidence) {
+        expect(registeredIds.has(item.citationId)).toBe(true);
+        expect(item.sourceUrl).toMatch(/^https:\/\//);
+        expect(item.supportingPassage.length).toBeGreaterThan(40);
+      }
+    }
+  });
+
+  it('adjudicates every part supported with fresh evidence digests', () => {
+    for (const plan of plans.slice(713)) {
+      expect(plan.adjudications.map((review) => review.partId).sort())
+        .toEqual(plan.parts.map((part) => part.id).sort());
+      for (const review of plan.adjudications) {
+        expect(review.outcome).toBe('supported');
+        expect(review.evidenceDigest).toBe(partDigestOf(plan, review.partId));
+        expect(review.reviewedBy).toContain('grasp-planning-integrator-20260916');
+      }
+    }
+  });
+
+  it('anchors the internal row 12 plan per the internal-row convention (repo text, no fetch)', () => {
+    const plan = plans.find((entry) => entry.id === 'grasp-planning-12-internal-local-and-20260916');
+    expect(plan).toBeDefined();
+    const anchors = new Set(plan!.evidence.map((item) => item.citationId));
+    for (const id of anchors) expect(registeredIds.has(id)).toBe(true);
+    expect(anchors).toEqual(new Set(['murray-li-sastry-1994', 'nguyen-1988', 'ferrari-canny-1992']));
+    for (const item of plan!.evidence) {
+      expect(item.supportingPassage).toContain('REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct)');
+    }
+  });
+
+  it('carries the verbatim needle-checked passages in the external plans', () => {
+    const gp7 = plans.find((entry) => entry.id === 'grasp-planning-7-form-closure-evidence-20260916')!;
+    expect(gp7.evidence.some((item) => item.citationId === 'markenscoff-1990'
+      && item.supportingPassage.includes('pointed out by Reuleaux (1875) and Somoff (1897)'))).toBe(true);
+    expect(gp7.evidence.some((item) => item.citationId === 'markenscoff-1990'
+      && item.supportingPassage.includes('12 fingers if and only if the object does not have a rotational symmetry'))).toBe(true);
+    expect(gp7.evidence.some((item) => item.citationId === 'mishra-1987'
+      && item.supportingPassage.includes('The algorithms run in time linear in the number of faces/sides'))).toBe(true);
+    const gp8 = plans.find((entry) => entry.id === 'grasp-planning-8-frictional-counts-20260916')!;
+    expect(gp8.evidence[0].supportingPassage).toContain(
+      'three fingers are necessary and sufficient in two dimensions, and four fingers in three dimensions',
+    );
+    const gp10 = plans.find((entry) => entry.id === 'grasp-planning-10-epsilon-evidence-20260916')!;
+    expect(gp10.evidence.some((item) => item.supportingPassage.includes(
+      'the distance from the origin of the wrench space to the closest facet of P'))).toBe(true);
+    expect(gp10.evidence.some((item) => item.supportingPassage.includes(
+      'the sum of modules of the forces applied by n fingers is limited'))).toBe(true);
+    const gp5 = plans.find((entry) => entry.id === 'grasp-planning-5-gws-evidence-20260916')!;
+    expect(gp5.evidence[0].supportingPassage).toContain('Grasp Wrench Space GWS');
+  });
+});
+
+describe('grasp-planning originals: approved deltas', () => {
+  it('appends exactly five new entries and preserves the prior 788 in order', () => {
+    expect(deltas.entries).toHaveLength(793);
+    expect(deltas.entries[787].id).toBe('se-r17-20260916-1');
+    expect(deltas.entries.slice(788).map((entry) => entry.id)).toEqual(newDeltaIds);
+  });
+
+  it('records every entry against the grasp-planning prose member with pinned-baseline oldHash', () => {
+    for (const entry of deltas.entries.slice(788)) {
+      expect(entry.manifest).toBe('prose');
+      expect(entry.memberId).toBe('article:classical/grasp-planning');
+      expect(entry.oldHash).toBe(PINNED_PROSE_HASH);
+      expect(entry.newHash).toBe(CURRENT_PROSE_HASH);
+      expect(entry.responsibleMilestone).toBe('brand-v2-editorial');
+      expect(entry.disposition).toBe('permanent');
+      expect(entry.affectedAssertions).toContain('VAL-AUDIT-005');
+      expect(entry.affectedAssertions).toContain('VAL-AUDIT-009');
+      expect(entry.ownerApproval).toContain('convergence-source-j-grasp-planning-20260916c');
+      expect(entry.reason).toContain('zero retrieval');
+    }
+  });
+});
+
+describe('grasp-planning originals: regression guards (green before and after)', () => {
+  it('keeps the article prose byte-identical (no article change in this lane)', () => {
+    expect(article).toContain('the wrenches along the cone edges at unit normal force');
+    expect(article).toContain('Reuleaux stated it in 1875 and Somoff in 1897');
+    expect(article).toContain('three contacts are necessary and sufficient in the plane and four in space');
+    expect(article).toContain('per unit of normal force at the contacts');
+    expect(article).toContain('The default tripod of top, right, and bottom contacts is force closure at $\\mu = 0.7$');
+  });
+
+  it('keeps every bound citation id registered and in the frontmatter', () => {
+    for (const id of [
+      'murray-li-sastry-1994',
+      'nguyen-1988',
+      'mishra-1987',
+      'markenscoff-1990',
+      'cutkosky-1989',
+      'ferrari-canny-1992',
+      'bicchi-kumar-2000',
+      'prattichizzo-trinkle-2016',
+      'roa-suarez-2015',
+    ]) {
+      expect(registeredIds.has(id)).toBe(true);
+      expect(article).toContain(`  - ${id}\n`);
+    }
+  });
+});

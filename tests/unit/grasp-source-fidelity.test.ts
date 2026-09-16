@@ -52,7 +52,11 @@ describe('grasp source fidelity', () => {
     expect(registry).toContain('94% overall success and 99% precision (68/69 robust classifications)');
   });
   it('preserves held originals, citation URLs, article date and unassigned conclusion', () => {
-    for (const ordinal of [3, 10, 12]) expect(records()[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
+    // Rows 10 and 12 were completed by the 2026-09-16 grasp-planning originals
+    // integration (frozen packet convergence-source-j-grasp-planning-20260916c);
+    // row 3 (Cutkosky body) remains held without a lawful public mirror.
+    for (const ordinal of [3]) expect(records()[ordinal - 1].evidenceFailures.length).toBeGreaterThan(0);
+    for (const ordinal of [10, 12]) expect(records()[ordinal - 1].evidenceFailures.length).toBe(0);
     expect(article).toContain('lastReviewed: "2026-08-17"');
     expect(article).toContain('That pattern generalizes. Modern learned manipulation');
     expect(CITATIONS.find(c => c.id === 'roa-suarez-2015')?.url).toBe('https://doi.org/10.1007/s10514-014-9402-3');
