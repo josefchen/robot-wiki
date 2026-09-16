@@ -16186,6 +16186,57 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "motion-planning-r1-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:classical/motion-planning",
+   "oldHash": "1733d4f3f828c55652401a56b1959beaeb648555f5296fd96d708139f82b5f30",
+   "newHash": "1733d4f3f828c55652401a56b1959beaeb648555f5296fd96d708139f82b5f30",
+   "reason": "Exactly classical/motion-planning original 1 (Lozano-Pérez 1983 configuration-space reformulation row: evidence completion of the standing V verdict from the IEEE abstract at the registered DOI plus the free ch.4 PDF of the registered lavalle-2006 book) per the frozen packet convergence-source-w-motion-planning-20260916j. The book-side passages were needle-verified verbatim by this integrator against the preparer's retained, byte-verified chapter PDFs and the IEEE abstract surfaces against the packet's FetchUrl renderings of record before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-motion-planning-integration-20260916j. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger-row evidence completion/correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 3 selected records of frozen packet convergence-source-w-motion-planning-20260916j, sha256 9f356ad25eba709e1817aad8719a5a488220440c2d27998b062473c65156c4cf) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "motion-planning-r2-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:classical/motion-planning",
+   "oldHash": "1733d4f3f828c55652401a56b1959beaeb648555f5296fd96d708139f82b5f30",
+   "newHash": "1733d4f3f828c55652401a56b1959beaeb648555f5296fd96d708139f82b5f30",
+   "reason": "Exactly classical/motion-planning original 2 (C_obs/C_free definitions row: precise source correction replacing the non-fetch standard basis with ch.4 Sec. 4.3.1 (Eq. 4.34 + free-space definition + C = Cfree ∪ Cobs), the 1983 abstract kept as concept origin) per the frozen packet convergence-source-w-motion-planning-20260916j. The book-side passages were needle-verified verbatim by this integrator against the preparer's retained, byte-verified chapter PDFs and the IEEE abstract surfaces against the packet's FetchUrl renderings of record before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-motion-planning-integration-20260916j. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger-row evidence completion/correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 3 selected records of frozen packet convergence-source-w-motion-planning-20260916j, sha256 9f356ad25eba709e1817aad8719a5a488220440c2d27998b062473c65156c4cf) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "motion-planning-r4-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:classical/motion-planning",
+   "oldHash": "1733d4f3f828c55652401a56b1959beaeb648555f5296fd96d708139f82b5f30",
+   "newHash": "1733d4f3f828c55652401a56b1959beaeb648555f5296fd96d708139f82b5f30",
+   "reason": "Exactly classical/motion-planning original 4 (Kavraki 1996 PRM row: precise source correction of the quoted LaValle credit to the fetched chapter's own chapter-local numbering [90] (not the book-global [516])) per the frozen packet convergence-source-w-motion-planning-20260916j. The book-side passages were needle-verified verbatim by this integrator against the preparer's retained, byte-verified chapter PDFs and the IEEE abstract surfaces against the packet's FetchUrl renderings of record before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-motion-planning-integration-20260916j. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger-row evidence completion/correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 3 selected records of frozen packet convergence-source-w-motion-planning-20260916j, sha256 9f356ad25eba709e1817aad8719a5a488220440c2d27998b062473c65156c4cf) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]

@@ -69023,6 +69023,183 @@
     "evidenceDigest": "2c589fd6d8ea9195a12aac2139d8665c157f84b38f630dcead1e2c59de139bad"
    }
   ]
+ },
+ {
+  "id": "motion-planning-1-cspace-reformulation-20260916j",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "motion-planning",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "5928d41c293632d161c5ed665986ce7fee4f4d836ad86cb6c69e14c9ec09ce38",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "mp1-primary-abstract",
+    "text": "The 1983 primary, at its registered DOI, supports the reformulation attribution at abstract scope: the approach characterizes the position and orientation of an object as a single point in a configuration space, and characterizes the forbidden configurations as regions called configuration space obstacles, with algorithms to compute them for polygons and polyhedra. Bibliographic identity matches the registry exactly (IEEE Trans. Computers C-32(2):108-120, February 1983).",
+    "requiredCitationIds": [
+     "lozano-perez-1983"
+    ]
+   },
+   {
+    "id": "mp1-seminal-book-credit",
+    "text": "LaValle's Planning Algorithms chapter 4 (free PDF at the registered book's author-hosted site) prints the verbatim credit that the configuration-space notion is 'based on Lagrangian mechanics and the seminal work of Lozano-Pérez [24, 26, 25]', and the chapter bibliography's [25] is the exact 1983 paper. This is the secondary/lineage basis already named in the row's sourceChecked cell.",
+    "requiredCitationIds": [
+     "lavalle-2006"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator b9b23a9f-318b-4f93-91d2-5a613e6ec9c5; retained-source byte-verification + packet needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9f356ad25eba709e1817aad8719a5a488220440c2d27998b062473c65156c4cf) at HEAD b38d94d9bbed99603804b249a1afb3891d29c5f9: row binding, ordinal and currentTupleDigest re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) and re-derived with the repo lib/audit-ledger.ts parser before application. Book-side evidence needle-verified verbatim by this integrator against the preparer's retained, byte-verified chapter PDFs (ch4 sha256 fd8b25e0…, ch5 89a9bb4d…; curl GET 200 fetches of record 2026-09-16T15:28Z; pdftotext extraction glyphs disclosed); IEEE abstract surfaces needle-verified sentence-by-sentence against the packet's FetchUrl renderings of record (plain curl bot-walled 202/0 bytes, logged; an abstract proves only what it prints). Zero retrieval by this integrator: no fresh fetch exists or is claimed. Cited ids verified registered in data/citations.ts and REUSED read-only (lozano-perez-1983, kavraki-1996, lavalle-2006); the registry entry lavalle-kuffner-2001 is untouched (parent-held correction proposal). Held rows 7 (kinodynamic, registered-URL misbinding + paywalled original) and 15 (repo-internal demo scene, compoundPlanSchema requiredCitationIds min(1)) stay honestly HELD and byte-unchanged. Source preparation is not acceptance. Row 1 is an evidence completion of the standing V verdict: both conjuncts of the claim are printed by the primary's own abstract at the registered DOI, and the book credit in the sourceChecked cell is verbatim-confirmed against the free chapter PDF of the registered book.",
+   "planDigest": "be2cf7017efa288f61ad51c8499bae26f2b8598c9bbb848242523e332a917214"
+  },
+  "evidence": [
+   {
+    "partId": "mp1-primary-abstract",
+    "citationId": "lozano-perez-1983",
+    "sourceUrl": "https://doi.org/10.1109/TC.1983.1676196",
+    "supportingPassage": "This paper presents algorithms for computing constraints on the position of an object due to the presence of ther objects [sic - the page's own typo for 'other objects']. ... The approach presented here is based on characterizing the position and orientation of an object as a single point in a configuration space, in which each coordinate represents a degree of freedom in the position or orientation of the object. The configurations forbidden to this object, due to the presence of other objects, can then be characterized as regions in the configuration space, called configuration space obstacles. The paper presents algorithms for computing these configuration space obstacles when the objects are polygons or polyhedra."
+   },
+   {
+    "partId": "mp1-seminal-book-credit",
+    "citationId": "lavalle-2006",
+    "sourceUrl": "https://lavalle.pl/planning/ch4.pdf",
+    "supportingPassage": "Sec. 4.1.1: 'The state space for motion planning is a set of possible transformations that could be applied to the robot. This will be referred to as the configuration space, based on Lagrangian mechanics and the seminal work of Lozano-Pérez [24, 26, 25], who extensively utilized this notion in the context of planning (the idea was also used in early collision avoidance work by Udupa [35]).' Chapter bibliography: '[25] T. Lozano-Pérez. Spatial planning: A configuration space approach. IEEE Transactions on Computing, C-32(2):108–120, 1983.'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "mp1-primary-abstract",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator b9b23a9f-318b-4f93-91d2-5a613e6ec9c5; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified against the packet passage w-lp1983-abstract (FetchUrl rendering of record of the registered DOI page): the abstract's own words print both conjuncts at abstract scope — the approach \"is based on characterizing the position and orientation of an object as a single point in a configuration space\" (robot shrunk to a point) and the forbidden configurations \"characterized as regions in the configuration space, called configuration space obstacles\" with algorithms \"when the objects are polygons or polyhedra\" (obstacles grown into C-space regions). P1 anchors as printed: title, Lozano-Perez, IEEE TC C-32(2):108-120, Feb 1983, DOI; Crossref record (retained crossref-lp1983.json) agrees.",
+    "evidenceDigest": "ab48fe35890a4baf7de87c4cd81de3f635568cad16c367f3cc7669a8f7e21275"
+   },
+   {
+    "partId": "mp1-seminal-book-credit",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator b9b23a9f-318b-4f93-91d2-5a613e6ec9c5; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified verbatim by this integrator against the retained, byte-verified ch4.pdf extraction: Sec. 4.1.1 prints \"the seminal work of Lozano-Pérez [24, 26, 25], who extensively utilized this notion in the context of planning\" and the chapter bibliography [25] is the exact 1983 paper (IEEE Transactions on Computing, C-32(2):108–120, 1983). This is the secondary/lineage basis the row's sourceChecked cell names; scope limit recorded in the row note: \"grows each obstacle by the robot's shape\" is the article's wording for the abstract's C-space-obstacle construction, not a verbatim abstract sentence.",
+    "evidenceDigest": "b8b680f9b5239b8f16ccbdb4eb1c186537289d27c77221da78484b2794f9b47d"
+   }
+  ]
+ },
+ {
+  "id": "motion-planning-2-cspace-definitions-20260916j",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "motion-planning",
+  "rowOrdinal": 2,
+  "originalCellsDigest": "d32ebd5437ff0ccc103e43ac3a049b7869845515c2009915524a830cc7e16759",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "mp2-definitions-textbook",
+    "text": "The article's displayed equation and its C_obs sentence restate the textbook definitions verbatim: Cobs = {q ∈ C | A(q) ∩ O ≠ ∅} (LaValle Eq. 4.34, 'the set of all configurations, q, at which A(q), the transformed robot, intersects the obstacle region, O'), 'The leftover configurations are called the free space, which is defined and denoted as Cfree = C \\ Cobs', and the figure text 'The entire blob represents C = Cfree ∪ Cobs.'",
+    "requiredCitationIds": [
+     "lavalle-2006"
+    ]
+   },
+   {
+    "id": "mp2-concept-origin-primary",
+    "text": "The configuration-space-obstacle concept the definitions formalize originates in the row's other named source: the 1983 abstract's 'The configurations forbidden to this object, due to the presence of other objects, can then be characterized as regions in the configuration space, called configuration space obstacles.'",
+    "requiredCitationIds": [
+     "lozano-perez-1983"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator b9b23a9f-318b-4f93-91d2-5a613e6ec9c5; retained-source byte-verification + packet needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9f356ad25eba709e1817aad8719a5a488220440c2d27998b062473c65156c4cf) at HEAD b38d94d9bbed99603804b249a1afb3891d29c5f9: row binding, ordinal and currentTupleDigest re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) and re-derived with the repo lib/audit-ledger.ts parser before application. Book-side evidence needle-verified verbatim by this integrator against the preparer's retained, byte-verified chapter PDFs (ch4 sha256 fd8b25e0…, ch5 89a9bb4d…; curl GET 200 fetches of record 2026-09-16T15:28Z; pdftotext extraction glyphs disclosed); IEEE abstract surfaces needle-verified sentence-by-sentence against the packet's FetchUrl renderings of record (plain curl bot-walled 202/0 bytes, logged; an abstract proves only what it prints). Zero retrieval by this integrator: no fresh fetch exists or is claimed. Cited ids verified registered in data/citations.ts and REUSED read-only (lozano-perez-1983, kavraki-1996, lavalle-2006); the registry entry lavalle-kuffner-2001 is untouched (parent-held correction proposal). Held rows 7 (kinodynamic, registered-URL misbinding + paywalled original) and 15 (repo-internal demo scene, compoundPlanSchema requiredCitationIds min(1)) stay honestly HELD and byte-unchanged. Source preparation is not acceptance. Row 2 is a precise source correction: the article's displayed equation and its C_obs sentence restate Eq. 4.34 and the free-space definition verbatim, so the claim and article content are unchanged and now precisely sourced; the old cell's non-fetch \"standard\" basis is removed.",
+   "planDigest": "05e42895544f697122bcfcfdc00236dfff46e392f3f3161e0b05434fe4c36b94"
+  },
+  "evidence": [
+   {
+    "partId": "mp2-definitions-textbook",
+    "citationId": "lavalle-2006",
+    "sourceUrl": "https://lavalle.pl/planning/ch4.pdf",
+    "supportingPassage": "Sec. 4.3.1: 'The obstacle region, Cobs ⊆ C, is defined as Cobs = {q ∈ C | A(q) ∩ O ≠ ∅}, (4.34) which is the set of all configurations, q, at which A(q), the transformed robot, intersects the obstacle region, O. Since O and A(q) are closed sets in W, the obstacle region is a closed set in C. The leftover configurations are called the free space, which is defined and denoted as Cfree = C \\ Cobs.' Formulation 4.1 figure text: 'The entire blob represents C = Cfree ∪ Cobs.'"
+   },
+   {
+    "partId": "mp2-concept-origin-primary",
+    "citationId": "lozano-perez-1983",
+    "sourceUrl": "https://doi.org/10.1109/TC.1983.1676196",
+    "supportingPassage": "The configurations forbidden to this object, due to the presence of other objects, can then be characterized as regions in the configuration space, called configuration space obstacles."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "mp2-definitions-textbook",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator b9b23a9f-318b-4f93-91d2-5a613e6ec9c5; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Precise correction of the source basis (claim and article math unchanged and correct): needle-verified verbatim against the retained, byte-verified ch4.pdf — Sec. 4.3.1 prints Eq. 4.34 (Cobs = {q ∈ C | A(q) ∩ O ≠ ∅}, \"the set of all configurations, q, at which A(q), the transformed robot, intersects the obstacle region, O\"), the free-space definition (\"The leftover configurations are called the free space, which is defined and denoted as Cfree = C \\ Cobs\") and the Formulation 4.1 figure text (\"The entire blob represents C = Cfree ∪ Cobs\"), which is exactly the article's displayed equation; pdftotext renders the printed ≠ as \"6=\" and the Cfree subscript as \"Cf ree\" (disclosed). The non-fetch \"standard\" half of the old cell is removed.",
+    "evidenceDigest": "88f8475906d47a35da2ee31c11fed3e3b2e920b8cc05b714aba6c18d2dcce872"
+   },
+   {
+    "partId": "mp2-concept-origin-primary",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator b9b23a9f-318b-4f93-91d2-5a613e6ec9c5; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified against the packet passage w-lp1983-abstract (same rendering of record as row 1): the 1983 abstract names the concept the definitions formalize — \"The configurations forbidden to this object, due to the presence of other objects, can then be characterized as regions in the configuration space, called configuration space obstacles\" — keeping the row's named primary as the concept origin alongside the textbook that prints the formal definitions.",
+    "evidenceDigest": "36e2d78601f6ade65865b6c4dd47048911a2c5263f77d0e3a711a5b5cbd533c6"
+   }
+  ]
+ },
+ {
+  "id": "motion-planning-4-prm-20260916j",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "motion-planning",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "a8d15a0c69cc5bdef80af68c117f44948a39dac309ac8ca1c6888125a9caf099",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "mp4-prm-primary-abstract",
+    "text": "The 1996 primary's abstract, at its registered DOI, supports the method structure: a two-phase method whose learning phase stores a roadmap 'as a graph whose nodes correspond to collision-free configurations and whose edges correspond to feasible paths between these configurations', edges computed by 'a simple and fast local planner', and whose query phase connects any given start and goal to roadmap nodes and then searches the roadmap graph - the multi-query, local-planner-edge and graph-search conjuncts.",
+    "requiredCitationIds": [
+     "kavraki-1996"
+    ]
+   },
+   {
+    "id": "mp4-book-credit-and-uniform",
+    "text": "LaValle's registered free chapter 5 supplies the attribution credit and the remaining conjunct: Sec. 5.6 'The general framework presented here was mainly introduced in [90] under the name probabilistic roadmaps (PRMs)' (chapter bibliography [90] = Kavraki, Svestka, Latombe, Overmars, IEEE T-RA 12(4):566-580), the multiple-query framing, and Sec. 5.6.1's 'the algorithm utilizes a uniform, dense sequence α' for the uniform-sampling conjunct.",
+    "requiredCitationIds": [
+     "lavalle-2006"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator b9b23a9f-318b-4f93-91d2-5a613e6ec9c5; retained-source byte-verification + packet needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 9f356ad25eba709e1817aad8719a5a488220440c2d27998b062473c65156c4cf) at HEAD b38d94d9bbed99603804b249a1afb3891d29c5f9: row binding, ordinal and currentTupleDigest re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) and re-derived with the repo lib/audit-ledger.ts parser before application. Book-side evidence needle-verified verbatim by this integrator against the preparer's retained, byte-verified chapter PDFs (ch4 sha256 fd8b25e0…, ch5 89a9bb4d…; curl GET 200 fetches of record 2026-09-16T15:28Z; pdftotext extraction glyphs disclosed); IEEE abstract surfaces needle-verified sentence-by-sentence against the packet's FetchUrl renderings of record (plain curl bot-walled 202/0 bytes, logged; an abstract proves only what it prints). Zero retrieval by this integrator: no fresh fetch exists or is claimed. Cited ids verified registered in data/citations.ts and REUSED read-only (lozano-perez-1983, kavraki-1996, lavalle-2006); the registry entry lavalle-kuffner-2001 is untouched (parent-held correction proposal). Held rows 7 (kinodynamic, registered-URL misbinding + paywalled original) and 15 (repo-internal demo scene, compoundPlanSchema requiredCitationIds min(1)) stay honestly HELD and byte-unchanged. Source preparation is not acceptance. Row 4 is a precise source correction of the quotation: the corrected cell quotes the passage exactly as the fetched chapter prints it ([90], chapter-local), and with that numbering correction the quoted passage is verbatim-confirmed and the standing V verdict holds with the note cell filled.",
+   "planDigest": "71758a4d8bbe0f3bd47616f9d509c4f7bc570010183f3583e08d1ff972fb5e92"
+  },
+  "evidence": [
+   {
+    "partId": "mp4-prm-primary-abstract",
+    "citationId": "kavraki-1996",
+    "sourceUrl": "https://doi.org/10.1109/70.508439",
+    "supportingPassage": "A new motion planning method for robots in static workspaces is presented. This method proceeds in two phases: a learning phase and a query phase. In the learning phase, a probabilistic roadmap is constructed and stored as a graph whose nodes correspond to collision-free configurations and whose edges correspond to feasible paths between these configurations. These paths are computed using a simple and fast local planner. In the query phase, any given start and goal configurations of the robot are connected to two nodes of the roadmap; the roadmap is then searched for a path joining these two nodes. ... In this paper the method is applied to planar articulated robots with many degrees of freedom."
+   },
+   {
+    "partId": "mp4-book-credit-and-uniform",
+    "citationId": "lavalle-2006",
+    "sourceUrl": "https://lavalle.pl/planning/ch5.pdf",
+    "supportingPassage": "Sec. 5.6 Roadmap Methods for Multiple Queries: 'Suppose now that numerous initial-goal queries will be given to the algorithm, while keeping the robot model and obstacles fixed. ... The goal is to construct a topological graph called a roadmap, which efficiently solves multiple initial-goal queries. ... The general framework presented here was mainly introduced in [90] under the name probabilistic roadmaps (PRMs).' Sec. 5.6.1: 'the algorithm utilizes a uniform, dense sequence α. In each iteration, the algorithm must check whether α(i) ∈ Cfree. ... Once α(i) ∈ Cfree, then in line 4 it is inserted as a vertex of G. The next step is to try to connect α(i) to some nearby vertices, q, of G. Each connection is attempted by the connect function, which is a typical LPM (local planning method) from Section 5.4.1.' Bibliography: '[90] L. E. Kavraki, P. Svestka, J.-C. Latombe, and M. H. Overmars. Probabilistic roadmaps for path planning in high-dimensional configuration spaces. IEEE Transactions on Robotics & Automation, 12(4):566–580, June 1996.'"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "mp4-prm-primary-abstract",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator b9b23a9f-318b-4f93-91d2-5a613e6ec9c5; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified against the packet passage w-kavraki-abstract (FetchUrl rendering of record of the registered DOI page): the abstract prints the two-phase learning/query structure, the roadmap \"stored as a graph whose nodes correspond to collision-free configurations and whose edges correspond to feasible paths\", edges computed by \"a simple and fast local planner\", and the query phase where \"the roadmap is then searched for a path joining these two nodes\" — the collision-free-node, local-planner-edge and graph-search conjuncts, with the application scope \"planar articulated robots with many degrees of freedom\". The abstract prints neither \"milestones\" nor \"uniform\" (needle-asserted), so those conjuncts are attributed to the article's wording and ch5 Sec. 5.6.1 respectively, recorded in the row note.",
+    "evidenceDigest": "5bf8c08c74a397a6f5af0748dd0fb56ae2d26586500d0421fec247e2857b996b"
+   },
+   {
+    "partId": "mp4-book-credit-and-uniform",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator b9b23a9f-318b-4f93-91d2-5a613e6ec9c5; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Precise correction of the quoted credit (numbering precision): needle-verified verbatim against the retained, byte-verified ch5.pdf — Sec. 5.6 prints \"The general framework presented here was mainly introduced in [90] under the name probabilistic roadmaps (PRMs)\" with the chapter-local bibliography [90] = Kavraki, Svestka, Latombe, Overmars, IEEE T-RA 12(4):566–580; the fetched chapter prints [90] and no [516] anywhere (needle-asserted), [516] being the printed book's global numbering the old cell quoted; Sec. 5.6.1 supplies the uniform-sampling conjunct (\"the algorithm utilizes a uniform, dense sequence α\") and the LPM connect rule; the month discrepancy (IEEE page August 1996, chapter bibliography June 1996) is disclosed in the row note.",
+    "evidenceDigest": "83f0a256202546089f69dfbd71ccd8f9365c5bec8da86c805ffb4d1c83221c5f"
+   }
+  ]
  }
 
 ]
