@@ -69200,6 +69200,363 @@
     "evidenceDigest": "83f0a256202546089f69dfbd71ccd8f9365c5bec8da86c805ffb4d1c83221c5f"
    }
   ]
+ },
+ {
+  "id": "jepa-4-ami-raise-stat-20260916j",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "jepa",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "373c88f210af1387ee4ec59c5fb8d03f692c45b69449111d4525404fb730dd25",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "j4-raise-amount-and-date",
+    "text": "The Stat's amount and month trace to the registered TechCrunch article: $1.03 billion raised at a $3.5 billion pre-money valuation, dateline March 9, 2026 (PDT). The Stat renders $1.03B and 'March 2026' at month precision only; no day, no valuation claim on the Stat itself.",
+    "requiredCitationIds": [
+     "ami-labs-2026"
+    ]
+   },
+   {
+    "id": "j4-not-a-seed",
+    "text": "The applied relabel from 'AMI seed' to 'AMI raise' stands: the source never calls AMI's round a seed. The only 'seed' on the page describes SpAItial's $13 million round; AMI's raise is compared to World Labs' $1 billion, never characterized as a seed round.",
+    "requiredCitationIds": [
+     "ami-labs-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 09d53ff85358962c9df424bf5072c22036d71515873610a62ab1c620a4ffb843) at HEAD 868f4f337c5123c6f3a99f18112f200f601ce69d: row binding, ordinal and currentTupleDigest re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) and re-derived with the repo lib/audit-ledger.ts parser before application. All evidence needle-verified verbatim by this integrator against the preparer's retained, byte-verified fetch corpus (March page sha256 cf7c510f… 240,357 bytes; January page 9b81d9b2… 240,641 bytes; arXiv abs pages; survey HTML 810,733 bytes with Table 5 exactness; genie3/odyssey2 blogs; cosmos-3 title page via disclosed 1 MiB range GET at identity+abstract scope; vjepa-2024 abs + ar5iv body) AND against the packet's own passages of record, with typographic-quote normalisation and the ar5iv inline-math duplication disclosed in needle-verification.json. Zero retrieval by this integrator: no fresh fetch exists or is claimed. Cited ids verified registered in data/citations.ts and reused read-only except the single REQUIRED registration ami-labs-founding-2026 (fields exactly as proposed, applied in this commit before this plan could bind, per the parser's fail-closed unregistered-id rule); the OPTIONAL lecun-ami-position-2022 registration was deliberately NOT applied. Source preparation is not acceptance. Row 4 is an evidence completion of the standing C verdict on the AMI-raise Stat: the fetched page prints the amount, the pre-money valuation and the March 9, 2026 dateline verbatim, and its only occurrence of \"seed\" describes SpAItial's round, confirming the applied relabel away from \"AMI seed\".",
+   "planDigest": "3cde9d39bf2ad2c7dc2feb9fe92586c8cd75ab2decfc5a5306f36a172e6c981a"
+  },
+  "evidence": [
+   {
+    "partId": "j4-raise-amount-and-date",
+    "citationId": "ami-labs-2026",
+    "sourceUrl": "https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/",
+    "supportingPassage": "AMI Labs , the new venture co-founded by Turing Award winner Yann LeCun after he left Meta, has raised $1.03 billion at a $3.5 billion pre-money valuation. [byline/dateline] Anna Heim 10:00 PM PDT · March 9, 2026"
+   },
+   {
+    "partId": "j4-not-a-seed",
+    "citationId": "ami-labs-2026",
+    "sourceUrl": "https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/",
+    "supportingPassage": "companies developing world models have attracted big checks. SpAItial raised a $13 million seed round — unusually large for a European startup, while Fei-Fei Li's World Labs secured a whopping $1 billion last month alone. Now AMI Labs joins the club with more funding than initially rumored."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "j4-raise-amount-and-date",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified against the retained March body and the packet passage x4-tc-raise-sentence: \"has raised $1.03 billion at a $3.5 billion pre-money valuation\" with the dateline \"Anna Heim 10:00 PM PDT · March 9, 2026\". The Stat renders $1.03B and March 2026 at month precision only; no day, no valuation claim on the Stat itself.",
+    "evidenceDigest": "63491624774041647e3735cfe8ab05498e8cee46831bf42f68521636b12a6463"
+   },
+   {
+    "partId": "j4-not-a-seed",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified: the page's only \"seed\" is SpAItial's $13 million round in the funding-context paragraph; AMI's raise is compared to World Labs' $1 billion and never characterized as a seed. The applied relabel \"AMI raise\" matches the source.",
+    "evidenceDigest": "f21584f10d99cba35c4701d41806c24ed9e4b1103206b324e43542f4751093e3"
+   }
+  ]
+ },
+ {
+  "id": "jepa-9-lecun-departure-cofounding-20260916j",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "jepa",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "231bcb3a24dbe2a80469731120ac04e06ccb9fe75c4a33bf8d642700899ca29e",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "j9-departure-and-cofounding",
+    "text": "'LeCun left Meta and co-founded AMI Labs' traces to the registered March 9, 2026 TechCrunch piece: 'the new venture co-founded by Turing Award winner Yann LeCun after he left Meta'. Neither fetched piece states a month; the article correctly carries none.",
+    "requiredCitationIds": [
+     "ami-labs-2026"
+    ]
+   },
+   {
+    "id": "j9-ami-expansion",
+    "text": "The parenthetical '(Advanced Machine Intelligence)' traces to the January 23, 2026 TechCrunch piece: 'The focus on world models was already hinted at by AMI's name, which stands for Advanced Machine Intelligence'. No registered citation prints this expansion; requires the proposed registration ami-labs-founding-2026 before application.",
+    "requiredCitationIds": [
+     "ami-labs-founding-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 09d53ff85358962c9df424bf5072c22036d71515873610a62ab1c620a4ffb843) at HEAD 868f4f337c5123c6f3a99f18112f200f601ce69d: row binding, ordinal and currentTupleDigest re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) and re-derived with the repo lib/audit-ledger.ts parser before application. All evidence needle-verified verbatim by this integrator against the preparer's retained, byte-verified fetch corpus (March page sha256 cf7c510f… 240,357 bytes; January page 9b81d9b2… 240,641 bytes; arXiv abs pages; survey HTML 810,733 bytes with Table 5 exactness; genie3/odyssey2 blogs; cosmos-3 title page via disclosed 1 MiB range GET at identity+abstract scope; vjepa-2024 abs + ar5iv body) AND against the packet's own passages of record, with typographic-quote normalisation and the ar5iv inline-math duplication disclosed in needle-verification.json. Zero retrieval by this integrator: no fresh fetch exists or is claimed. Cited ids verified registered in data/citations.ts and reused read-only except the single REQUIRED registration ami-labs-founding-2026 (fields exactly as proposed, applied in this commit before this plan could bind, per the parser's fail-closed unregistered-id rule); the OPTIONAL lecun-ami-position-2022 registration was deliberately NOT applied. Source preparation is not acceptance. Row 9 is an evidence completion over BOTH TechCrunch pieces: the registered March page prints the departure and co-founding with no month (\"November\" occurs zero times in both retained bodies), and the newly registered January piece is the only TechCrunch print of the AMI-name expansion \"Advanced Machine Intelligence\". Binding order honored: the registration was applied before this plan, so part j9-ami-expansion carries a schema-valid registered requiredCitationId.",
+   "planDigest": "b3815b8f1c91c30e48a25338f5f39ce0c10c3bea38790544fe55a948cc9781e8"
+  },
+  "evidence": [
+   {
+    "partId": "j9-departure-and-cofounding",
+    "citationId": "ami-labs-2026",
+    "sourceUrl": "https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/",
+    "supportingPassage": "AMI Labs , the new venture co-founded by Turing Award winner Yann LeCun after he left Meta, has raised $1.03 billion at a $3.5 billion pre-money valuation."
+   },
+   {
+    "partId": "j9-ami-expansion",
+    "citationId": "ami-labs-founding-2026",
+    "sourceUrl": "https://techcrunch.com/2026/01/23/whos-behind-ami-labs-yann-lecuns-world-model-startup/",
+    "supportingPassage": "Yann LeCun's new venture, AMI Labs, has drawn intense attention since the AI scientist left Meta to found it. ... The focus on world models was already hinted at by AMI's name, which stands for Advanced Machine Intelligence, but it has now officially joined the ranks of the hottest AI research startups."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "j9-departure-and-cofounding",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified against the retained March body: \"the new venture co-founded by Turing Award winner Yann LeCun after he left Meta\". \"November\" occurs zero times in either retained body; the article correctly carries no month.",
+    "evidenceDigest": "0cae847a2563bb56d59f19827dfc4cc33e6caaa1324425374f8f214bfae37acf"
+   },
+   {
+    "partId": "j9-ami-expansion",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified against the retained January body and packet passage x9-tc-january-lede: \"The focus on world models was already hinted at by AMI's name, which stands for Advanced Machine Intelligence\" — the only TechCrunch print of the expansion (\"Advanced Machine\" occurs once in January, zero times in March). Carried by the registration applied in this commit.",
+    "evidenceDigest": "c50fc6138d6cb3f1af56016b9c715a3631342431806f28db26eae4e23a20dc03"
+   }
+  ]
+ },
+ {
+  "id": "jepa-10-raise-terms-20260916j",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "jepa",
+  "rowOrdinal": 10,
+  "originalCellsDigest": "689839ffb3e632f503bce4ecf6c5febe9fb32cd81ad1b46b27b723f309e4682a",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "j10-verified-core",
+    "text": "The span's financial core traces verbatim to the registered article: $1.03 billion raised at a $3.5 billion pre-money valuation, March 2026 (dateline March 9, 2026), to build world models (headline + lede).",
+    "requiredCitationIds": [
+     "ami-labs-2026"
+    ]
+   },
+   {
+    "id": "j10-superlative-cut",
+    "text": "The applied cut of 'one of the largest seed rounds on record' stands: the phrase and each of its load-bearing tokens appear nowhere on the fetched page; the page's own framing compares the raise to World Labs' $1 billion and notes it exceeded the initially rumored €500 million.",
+    "requiredCitationIds": [
+     "ami-labs-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 09d53ff85358962c9df424bf5072c22036d71515873610a62ab1c620a4ffb843) at HEAD 868f4f337c5123c6f3a99f18112f200f601ce69d: row binding, ordinal and currentTupleDigest re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) and re-derived with the repo lib/audit-ledger.ts parser before application. All evidence needle-verified verbatim by this integrator against the preparer's retained, byte-verified fetch corpus (March page sha256 cf7c510f… 240,357 bytes; January page 9b81d9b2… 240,641 bytes; arXiv abs pages; survey HTML 810,733 bytes with Table 5 exactness; genie3/odyssey2 blogs; cosmos-3 title page via disclosed 1 MiB range GET at identity+abstract scope; vjepa-2024 abs + ar5iv body) AND against the packet's own passages of record, with typographic-quote normalisation and the ar5iv inline-math duplication disclosed in needle-verification.json. Zero retrieval by this integrator: no fresh fetch exists or is claimed. Cited ids verified registered in data/citations.ts and reused read-only except the single REQUIRED registration ami-labs-founding-2026 (fields exactly as proposed, applied in this commit before this plan could bind, per the parser's fail-closed unregistered-id rule); the OPTIONAL lecun-ami-position-2022 registration was deliberately NOT applied. Source preparation is not acceptance. Row 10 is an evidence completion of the standing C verdict: the financial core ($1.03B at $3.5B pre-money, March 2026, to build world models) prints verbatim on the registered page, and the cut superlative is needle-confirmed absent (\"one of the largest\", \"largest seed\", \"on record\": zero occurrences; the page's own comparison is World Labs' $1B and the rumored €500M).",
+   "planDigest": "0dec8f17d680227b232ded0466f22a1b242bf0d1a91c9adf7c8e095da2f11bb7"
+  },
+  "evidence": [
+   {
+    "partId": "j10-verified-core",
+    "citationId": "ami-labs-2026",
+    "sourceUrl": "https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/",
+    "supportingPassage": "Yann LeCun's AMI Labs raises $1.03B to build world models. Anna Heim 10:00 PM PDT · March 9, 2026. AMI Labs , the new venture co-founded by Turing Award winner Yann LeCun after he left Meta, has raised $1.03 billion at a $3.5 billion pre-money valuation. AMI is working on world models, or AI that learns from reality, not just from language."
+   },
+   {
+    "partId": "j10-superlative-cut",
+    "citationId": "ami-labs-2026",
+    "sourceUrl": "https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/",
+    "supportingPassage": "companies developing world models have attracted big checks. SpAItial raised a $13 million seed round — unusually large for a European startup, while Fei-Fei Li's World Labs secured a whopping $1 billion last month alone. Now AMI Labs joins the club with more funding than initially rumored. The French AI lab was reportedly seeking just €500 million last December, but ended up raising some €890 million"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "j10-verified-core",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified: headline \"Yann LeCun's AMI Labs raises $1.03B to build world models\", the raise sentence, the dateline, and the lede \"AMI is working on world models, or AI that learns from reality, not just from language.\"",
+    "evidenceDigest": "016d503a5aa27aa75e79e4c3632d7637a9d15bbde240ce96466590e6c45533ac"
+   },
+   {
+    "partId": "j10-superlative-cut",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified negative plus the page's own framing: \"one of the largest\" / \"largest seed\" / \"on record\" appear nowhere; the comparison paragraph names SpAItial's seed, World Labs' $1 billion, and the €500M-rumor-to-€890M-reality arc the article's remaining text rests near.",
+    "evidenceDigest": "31b2d5b3ae1eb7d9fc03f5ec04eeb1b3b78fbd7be774d30b1a180e668ca5f904"
+   }
+  ]
+ },
+ {
+  "id": "jepa-11-lebrun-quote-20260916j",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "jepa",
+  "rowOrdinal": 11,
+  "originalCellsDigest": "6bd948dfac9a2a8807b5692523e2d3376345cc6cde123e4a68e318b15e197eb2",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "j11-quote-verbatim",
+    "text": "The LeBrun quotation in the article reproduces both of the source's quoted spans word-for-word - \"'world models' will be the next buzzword\" and \"In six months, every company will call itself a world model to raise funding\" - with the nested quote marks and tense exactly as printed, attributed to AMI Labs CEO Alexandre LeBrun told TechCrunch.",
+    "requiredCitationIds": [
+     "ami-labs-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 09d53ff85358962c9df424bf5072c22036d71515873610a62ab1c620a4ffb843) at HEAD 868f4f337c5123c6f3a99f18112f200f601ce69d: row binding, ordinal and currentTupleDigest re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) and re-derived with the repo lib/audit-ledger.ts parser before application. All evidence needle-verified verbatim by this integrator against the preparer's retained, byte-verified fetch corpus (March page sha256 cf7c510f… 240,357 bytes; January page 9b81d9b2… 240,641 bytes; arXiv abs pages; survey HTML 810,733 bytes with Table 5 exactness; genie3/odyssey2 blogs; cosmos-3 title page via disclosed 1 MiB range GET at identity+abstract scope; vjepa-2024 abs + ar5iv body) AND against the packet's own passages of record, with typographic-quote normalisation and the ar5iv inline-math duplication disclosed in needle-verification.json. Zero retrieval by this integrator: no fresh fetch exists or is claimed. Cited ids verified registered in data/citations.ts and reused read-only except the single REQUIRED registration ami-labs-founding-2026 (fields exactly as proposed, applied in this commit before this plan could bind, per the parser's fail-closed unregistered-id rule); the OPTIONAL lecun-ami-position-2022 registration was deliberately NOT applied. Source preparation is not acceptance. Row 11 is an evidence completion of the standing V verdict: the quote reproduces both of the source's quoted spans word-for-word with the nested single quotes and the \"AMI Labs CEO Alexandre LeBrun told TechCrunch\" attribution; the article's period-splice of the source's comma-close and its replacement lead-in are disclosed in the note, with no quoted word altered.",
+   "planDigest": "b415f8bf64b28a99120d8b126d6fc6f4bf8b6c2b7eca89f007c0f26274b7b307"
+  },
+  "evidence": [
+   {
+    "partId": "j11-quote-verbatim",
+    "citationId": "ami-labs-2026",
+    "sourceUrl": "https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/",
+    "supportingPassage": "\"My prediction is that 'world models' will be the next buzzword,\" AMI Labs CEO Alexandre LeBrun told TechCrunch. \"In six months, every company will call itself a world model to raise funding.\""
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "j11-quote-verbatim",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified verbatim: both quoted spans, the nested single quotes around 'world models', the singular \"a world model\", the tense, and the \"AMI Labs CEO Alexandre LeBrun told TechCrunch\" attribution; \"buzzword\" occurs exactly once on the page, in this quote.",
+    "evidenceDigest": "b4e4e26ed3d75816d8b6c0ed8b2fc977ee0a59db4aadb7148cb7e837e5c20fd5"
+   }
+  ]
+ },
+ {
+  "id": "jepa-14-disagreement-representation-20260916j",
+  "ledgerPath": "audit/world-models.md",
+  "articleSlug": "jepa",
+  "rowOrdinal": 14,
+  "originalCellsDigest": "e7f0bb7bebee8d8b2514d898dd4e82ef7b9b5c782a8b1511e02223965eaa2653",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "j14-jepa-camp-named-proponent",
+    "text": "The JEPA camp's position appears with named proponents and their own citations: Yann LeCun (AMI Labs institutional bet, ami-labs-2026) and the V-JEPA author teams including LeCun (vjepa-2024: feature prediction as a stand-alone objective without reconstruction; vjepa2-2025: self-supervised understanding, prediction and planning from observation plus a small amount of interaction data).",
+    "requiredCitationIds": [
+     "ami-labs-2026",
+     "vjepa-2024",
+     "vjepa2-2025"
+    ]
+   },
+   {
+    "id": "j14-generative-camp-named-proponents",
+    "text": "The generative camp is represented by named proponents' own artifact pages: Google DeepMind's Parker-Holder and Fruchter announcing Genie 3 (genie-3-2025), NVIDIA's Cosmos 3 technical report (cosmos-3-2026), Oliver Cameron's Odyssey-2 announcement (odyssey-2-2025), Wang et al.'s Interactive World Simulator (interactive-world-simulator-2026), and Yuan et al.'s Fast-WAM, whose title itself interrogates 'Do World Action Models Need Test-time Future Imagination?' (fast-wam-2026).",
+    "requiredCitationIds": [
+     "genie-3-2025",
+     "cosmos-3-2026",
+     "odyssey-2-2025",
+     "interactive-world-simulator-2026",
+     "fast-wam-2026"
+    ]
+   },
+   {
+    "id": "j14-survey-comparability",
+    "text": "Point 5's comparability claim is verified exactly against survey Table 5: the Latent-space WM group (VLA-JEPA 97.2 avg, JEPA-VLA 96.4 avg) sits alongside video-based groups (Say-Dream-ACT 98.1, Cosmos Policy 98.5, LingBot-VA 98.5 avg), and the survey groups methods 'by how world modeling is integrated with policy learning' without ranking paradigms - the printed basis for 'Nothing in the numbers adjudicates the architectural argument'.",
+    "requiredCitationIds": [
+     "world-model-survey-2026"
+    ]
+   },
+   {
+    "id": "j14-counterargument-fidelity-vjepa1-body",
+    "text": "Counterargument point 2's difficulty-of-validation claims are body-supported in vjepa-2024: the feature-prediction objective 'would admit a trivial solution, where the encoder outputs a constant representation' (collapse invisible in the loss); Sec 3.1 offers 'a simple adaptation' of BYOL's theoretical analysis, described as hypothesis-level ('The hypothesis is that...'), supporting 'whose theory is still thin'; and Figure 6 trains a frozen-backbone diffusion decoder solely to visualize predictions ('V-JEPA is not a generative model and the decoder does not have access to the context'), supporting 'Without a decoder you cannot see what the model believes'.",
+    "requiredCitationIds": [
+     "vjepa-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 09d53ff85358962c9df424bf5072c22036d71515873610a62ab1c620a4ffb843) at HEAD 868f4f337c5123c6f3a99f18112f200f601ce69d: row binding, ordinal and currentTupleDigest re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) and re-derived with the repo lib/audit-ledger.ts parser before application. All evidence needle-verified verbatim by this integrator against the preparer's retained, byte-verified fetch corpus (March page sha256 cf7c510f… 240,357 bytes; January page 9b81d9b2… 240,641 bytes; arXiv abs pages; survey HTML 810,733 bytes with Table 5 exactness; genie3/odyssey2 blogs; cosmos-3 title page via disclosed 1 MiB range GET at identity+abstract scope; vjepa-2024 abs + ar5iv body) AND against the packet's own passages of record, with typographic-quote normalisation and the ar5iv inline-math duplication disclosed in needle-verification.json. Zero retrieval by this integrator: no fresh fetch exists or is claimed. Cited ids verified registered in data/citations.ts and reused read-only except the single REQUIRED registration ami-labs-founding-2026 (fields exactly as proposed, applied in this commit before this plan could bind, per the parser's fail-closed unregistered-id rule); the OPTIONAL lecun-ami-position-2022 registration was deliberately NOT applied. Source preparation is not acceptance. Row 14 is a precise source correction plus evidence completion of the standing P5 verdict: the sourceChecked cell no longer names the unregistered \"LeCun 2022 JEPA position\" (the article does not cite it) and now names the registered evidence set the disagreement spans actually carry — both camps with named proponents on their own pages, and survey Table 5 comparability with the Avg values matching the article's point-5 figures exactly. The generative camp's leading numbers print in the table the article shows, with the article's own no-adjudication caveat. cosmos-3-2026 evidence is identity+abstract scope only (20 MiB mission ceiling, disclosed). The closing synthesis negatives remain the article's own voice, not attributed to named opponents, and are not certified as proven universal absence.",
+   "planDigest": "ad693784ce00d0f2248233c33c7cfa702c7a589d92025d723744eeeffede59cf"
+  },
+  "evidence": [
+   {
+    "partId": "j14-jepa-camp-named-proponent",
+    "citationId": "ami-labs-2026",
+    "sourceUrl": "https://techcrunch.com/2026/03/09/yann-lecuns-ami-labs-raises-1-03-billion-to-build-world-models/",
+    "supportingPassage": "Yann LeCun's AMI Labs raises $1.03B to build world models. ... AMI Labs , the new venture co-founded by Turing Award winner Yann LeCun after he left Meta ... AMI is working on world models, or AI that learns from reality, not just from language."
+   },
+   {
+    "partId": "j14-jepa-camp-named-proponent",
+    "citationId": "vjepa-2024",
+    "sourceUrl": "https://arxiv.org/abs/2404.08471",
+    "supportingPassage": "This paper explores feature prediction as a stand-alone objective for unsupervised learning from video and introduces V-JEPA, a collection of vision models trained solely using a feature prediction objective, without the use of pretrained image encoders, text, negative examples, reconstruction, or other sources of supervision."
+   },
+   {
+    "partId": "j14-jepa-camp-named-proponent",
+    "citationId": "vjepa2-2025",
+    "sourceUrl": "https://arxiv.org/abs/2506.09985",
+    "supportingPassage": "This paper explores a self-supervised approach that combines internet-scale video data with a small amount of interaction data (robot trajectories), to develop models capable of understanding, predicting, and planning in the physical world. We first pre-train an action-free joint-embedding-predictive architecture, V-JEPA 2, on a video and image dataset comprising over 1 million hours of internet video."
+   },
+   {
+    "partId": "j14-generative-camp-named-proponents",
+    "citationId": "genie-3-2025",
+    "sourceUrl": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
+    "supportingPassage": "Genie 3: A new frontier for world models — Google DeepMind ... August 5, 2025 Models Genie 3: A new frontier for world models Jack Parker-Holder and Shlomi Fruchter ... Today we are announcing Genie 3, a general purpose world model"
+   },
+   {
+    "partId": "j14-generative-camp-named-proponents",
+    "citationId": "cosmos-3-2026",
+    "sourceUrl": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf",
+    "supportingPassage": "2026-6-22 / Cosmos 3: Omnimodal World Models for Physical AI / NVIDIA1 / Abstract: We introduce Cosmos 3, a family of omnimodal world models designed to jointly process and generate language, image, video, audio, and action sequences within a unified mixture-of-transformers architecture. ... subsuming vision-language models, video generators, world simulators, and world-action models into a single framework."
+   },
+   {
+    "partId": "j14-generative-camp-named-proponents",
+    "citationId": "odyssey-2-2025",
+    "sourceUrl": "https://odyssey.ml/introducing-odyssey-2",
+    "supportingPassage": "Introducing Odyssey-2: A General-Purpose World Model A frontier world model that brings video to life Oliver Cameron October 27th, 2025"
+   },
+   {
+    "partId": "j14-generative-camp-named-proponents",
+    "citationId": "interactive-world-simulator-2026",
+    "sourceUrl": "https://arxiv.org/abs/2603.08546",
+    "supportingPassage": "Action-conditioned video prediction models (often referred to as world models) have shown strong potential for robotics applications ... We present Interactive World Simulator, a framework for building interactive world models from a moderate-sized robot interaction dataset. ... the learned world models produce interaction-consistent pixel-level predictions and support stable long-horizon interactions for more than 10 minutes at 15 FPS on a single RTX 4090 GPU."
+   },
+   {
+    "partId": "j14-generative-camp-named-proponents",
+    "citationId": "fast-wam-2026",
+    "sourceUrl": "https://arxiv.org/abs/2603.16666",
+    "supportingPassage": "Fast-WAM: Do World Action Models Need Test-time Future Imagination? ... World Action Models (WAMs) ... Most existing WAMs follow an imagine-then-execute paradigm ... yet it remains unclear whether explicit future imagination is actually necessary for strong action performance."
+   },
+   {
+    "partId": "j14-survey-comparability",
+    "citationId": "world-model-survey-2026",
+    "sourceUrl": "https://arxiv.org/html/2605.00080",
+    "supportingPassage": "Table 5 : Representative results on the LIBERO standard 4-suite benchmark, grouped by how world modeling is integrated with policy learning. ... Latent-space WM VLA-JEPA ( Sun et al., 2026 ) 96.2 99.6 97.2 95.8 97.2 JEPA-VLA ( Miao et al., 2026 ) 97.2 98.0 95.6 94.8 96.4 ... Say-Dream-ACT ( Gu et al., 2026 ) 99.4 99.2 98.6 95.4 98.1 ... Cosmos Policy ( Kim et al., 2026 ) 98.1 100.0 98.2 97.6 98.5 ... LingBot-VA ( Li et al., 2026b ) 98.5 99.6 97.2 98.5 98.5"
+   },
+   {
+    "partId": "j14-counterargument-fidelity-vjepa1-body",
+    "citationId": "vjepa-2024",
+    "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2404.08471",
+    "supportingPassage": "would admit a trivial solution, where the encoder outputs a constant representation, regardless of its input. In practice, we use the following modified objective to prevent representation collapse ... Theoretical motivation. A theoretical motivation for the effectiveness of this collapse prevention strategy was proposed in Grill et al. 2020 for the BYOL method. We provide a simple adaptation of their analysis for our ℓ 1 loss. ... The hypothesis is that incorporating an exponential moving average to compute the representation of y ensures that the predictor evolves faster than the encoder and remains close to optimal, thereby preventing collapse. ... We train a conditional diffusion model to decode the V-JEPA feature-space predictions to interpretable pixels; the pretrained V-JEPA encoder and predictor networks are kept frozen in this process. ... V-JEPA is not a generative model and the decoder does not have access to the context"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "j14-jepa-camp-named-proponent",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified on the named proponents' own registered pages: the TechCrunch institutional print (\"Yann LeCun's AMI Labs raises $1.03B to build world models\"; \"AMI is working on world models, or AI that learns from reality, not just from language\"), the V-JEPA abstract's stand-alone feature-prediction objective \"without the use of pretrained image encoders, text, negative examples, reconstruction, or other sources of supervision\" (LeCun a co-author per the registry), and the V-JEPA 2 abstract's internet-scale video plus small interaction-data claims.",
+    "evidenceDigest": "3fa8e362fce6927dbaa5f1c54782a0bff5595abcafd88ff2d397408ed8a64e60"
+   },
+   {
+    "partId": "j14-generative-camp-named-proponents",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified on the named proponents' own artifact pages: Parker-Holder and Fruchter's Genie 3 announcement (\"a general purpose world model\", August 5, 2025), the Cosmos 3 title page and abstract (identity+abstract scope via disclosed 1 MiB range GET; the full body exceeds the 20 MiB mission ceiling), Oliver Cameron's Odyssey-2 announcement (October 27th, 2025), the Interactive World Simulator abstract (\"more than 10 minutes at 15 FPS on a single RTX 4090 GPU\"), and Fast-WAM's title question \"Do World Action Models Need Test-time Future Imagination?\" with the imagine-then-execute framing.",
+    "evidenceDigest": "40ae6364eedc27d3a1eb8b59699bcf9ef3016015acb89fadfd073e3fac8a9ef8"
+   },
+   {
+    "partId": "j14-survey-comparability",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified against the retained survey HTML: Table 5 groups \"by how world modeling is integrated with policy learning\" and prints the Latent-space WM rows (VLA-JEPA 96.2 99.6 97.2 95.8 97.2; JEPA-VLA 97.2 98.0 95.6 94.8 96.4) alongside the video-based rows (Say-Dream-ACT 99.4 99.2 98.6 95.4 98.1; Cosmos Policy 98.1 100.0 98.2 97.6 98.5; LingBot-VA 98.5 99.6 97.2 98.5 98.5); the Avg column matches the article's point-5 figures exactly, and the survey ranks no paradigm.",
+    "evidenceDigest": "7bd74c498668fe198d10b79e134a1842138e7f3941f84e9d72af635c74b7ffe3"
+   },
+   {
+    "partId": "j14-counterargument-fidelity-vjepa1-body",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 357160dd-f8f3-4d0d-82a6-6e6eafddd8a1; retained-source byte-verification + packet needle re-verification 2026-09-16",
+    "rationale": "Needle-verified against the retained ar5iv body: the trivial-solution collapse (\"would admit a trivial solution, where the encoder outputs a constant representation\"), Sec 3.1's \"simple adaptation\" of BYOL's analysis stated at hypothesis level (\"The hypothesis is that…\", supporting \"whose theory is still thin\"), and Figure 6's frozen-backbone diffusion decoder trained solely to visualize predictions (\"V-JEPA is not a generative model and the decoder does not have access to the context\"), supporting \"Without a decoder you cannot see what the model believes\".",
+    "evidenceDigest": "e208bc4d80322f05e2b7f65979298cc75aeee3da044f42cca2c71d63ea65a9fb"
+   }
+  ]
  }
 
 ]
