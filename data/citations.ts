@@ -8643,6 +8643,23 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
+    // AgiBot-World official repository README (OpenDriveLab), registered by
+    // the datasets integrator for the repo trajectory count and the repo
+    // license. Raw markdown fetched live by the frozen packet's source
+    // session (curl 200, 2026-09-16T04:09:19Z, 19,254 bytes, retained at
+    // convergence-source-i-datasets-20260916c/sources/agibot-github-readme.md);
+    // year 2026 is the fetched-snapshot year (the living README prints no
+    // publication year; latest printed news date is 2025/09/19), following
+    // the so-arm100-repo-2026 repo-docs convention. Markdown document: no
+    // HTML title tag for the reachability title check to compare.
+    id: 'agibot-world-repo-2026',
+    title: 'AgiBot-World repository README (OpenDriveLab): current trajectory count and repo license',
+    authors: ['OpenDriveLab'],
+    year: 2026,
+    url: 'https://raw.githubusercontent.com/OpenDriveLab/AgiBot-World/main/README.md',
+    type: 'docs',
+  },
+  {
     // This is Money coverage of the Kroger closures (Reuters-sourced
     // facts): three of the eight built Ocado sheds close in January
     // 2026, a 20-site agreement, ~$38M annual fee revenue lost,

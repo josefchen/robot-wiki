@@ -14688,6 +14688,204 @@
     "VAL-AUDIT-009"
   ],
   "disposition": "permanent"
-}
-]
+},
+    {
+      "id": "ds-r1-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "b3ff49da0ad2736cacb9ec26636e3fa2364b17df86e1feafcadcb940cffcd596",
+      "reason": "Exactly data-hardware/datasets original 1: OXE pooling evidence completion (60 datasets / 34 labs / RLDS / 1M+ / 22 embodiments / 527 skills / 160,266 tasks; 21-institutions distinction recorded); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained source corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-datasets-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-i-datasets-20260916c, sha256 11509e8d956989f412eaa5b639c00132941ed109db83f9d2dbaeb92e1eaec473) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ds-r2-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "b3ff49da0ad2736cacb9ec26636e3fa2364b17df86e1feafcadcb940cffcd596",
+      "reason": "Exactly data-hardware/datasets original 2: RT-1-X / RT-2-X evidence completion over the applied scoping correction (Fig. 3 small-scale 50%, large-scale underfitting attribution, ~3x RT-2-X conclusion); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained source corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-datasets-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-i-datasets-20260916c, sha256 11509e8d956989f412eaa5b639c00132941ed109db83f9d2dbaeb92e1eaec473) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ds-r3-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "b3ff49da0ad2736cacb9ec26636e3fa2364b17df86e1feafcadcb940cffcd596",
+      "reason": "Exactly data-hardware/datasets original 3: OXE data-quality critique evidence completion on the registered Reuss blog (open-secret framing, single named proponent); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained source corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-datasets-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-i-datasets-20260916c, sha256 11509e8d956989f412eaa5b639c00132941ed109db83f9d2dbaeb92e1eaec473) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ds-r4-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "b3ff49da0ad2736cacb9ec26636e3fa2364b17df86e1feafcadcb940cffcd596",
+      "reason": "Exactly data-hardware/datasets original 4: DROID facts evidence completion (counts, rig, DP results, landing-page maintenance news) with the abs-84 vs body-86 task-count discrepancy recorded per the both-passages rule; no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained source corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-datasets-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-i-datasets-20260916c, sha256 11509e8d956989f412eaa5b639c00132941ed109db83f9d2dbaeb92e1eaec473) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ds-r5-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "b3ff49da0ad2736cacb9ec26636e3fa2364b17df86e1feafcadcb940cffcd596",
+      "reason": "Exactly data-hardware/datasets original 5: DROID CC BY 4.0 license evidence completion over the applied correction, with the deed-permission part honestly held: the cc-by-4-0-deed registration is blocked because the registry schema requires a year and no frozen-packet evidence prints one (zero retrieval); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained source corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-datasets-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-i-datasets-20260916c, sha256 11509e8d956989f412eaa5b639c00132941ed109db83f9d2dbaeb92e1eaec473) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ds-r6-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "b3ff49da0ad2736cacb9ec26636e3fa2364b17df86e1feafcadcb940cffcd596",
+      "reason": "Exactly data-hardware/datasets original 6: BridgeData V2 evidence completion for the six paper-backed elements; the 38-timestep average and CC BY 4.0 license elements held on the dead project site (404 both paths; Wayback not-archived page; last live 2026-08-18). Article change: the two carrying spans annotated with the dead-source status, not certified. Every retained passage was needle-verified by this integrator against the frozen packet's retained source corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-datasets-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-i-datasets-20260916c, sha256 11509e8d956989f412eaa5b639c00132941ed109db83f9d2dbaeb92e1eaec473) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ds-r7-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "b3ff49da0ad2736cacb9ec26636e3fa2364b17df86e1feafcadcb940cffcd596",
+      "reason": "Exactly data-hardware/datasets original 7: AgiBot World Beta claim-cell correction dropping the stale GO-1 VRAM figures (cut 2026-08-17, stay cut) plus completion on the paper counts and the newly registered agibot-world-repo-2026 README (1,003,672 (~43.8T), CC BY-NC-SA 4.0); no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained source corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-datasets-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-i-datasets-20260916c, sha256 11509e8d956989f412eaa5b639c00132941ed109db83f9d2dbaeb92e1eaec473) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ds-r8-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "b3ff49da0ad2736cacb9ec26636e3fa2364b17df86e1feafcadcb940cffcd596",
+      "reason": "Exactly data-hardware/datasets original 8: Local-AND row closed with the integrator-run arithmetic (2976.4 × 3600 / 1,001,552 = 10.6984 -> \"about 11 seconds\"; 2976.4 < 3670) anchored to the two registered operand sources; no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained source corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-datasets-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-i-datasets-20260916c, sha256 11509e8d956989f412eaa5b639c00132941ed109db83f9d2dbaeb92e1eaec473) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ds-r9-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "b3ff49da0ad2736cacb9ec26636e3fa2364b17df86e1feafcadcb940cffcd596",
+      "reason": "Exactly data-hardware/datasets original 9: AgiBot World 2026 moving-size correction: article spans and the ledger claim cell corrected 13.7 TB -> 13.6 TB (card-printed, September 2026; API 14,054,068,535,897 bytes), as-of date moved to September 2026, data/datasets.ts comment re-read recorded. Every retained passage was needle-verified by this integrator against the frozen packet's retained source corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-datasets-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-i-datasets-20260916c, sha256 11509e8d956989f412eaa5b639c00132941ed109db83f9d2dbaeb92e1eaec473) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ds-r10-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "b3ff49da0ad2736cacb9ec26636e3fa2364b17df86e1feafcadcb940cffcd596",
+      "reason": "Exactly data-hardware/datasets original 10: RoboMIND evidence completion for the seven paper-backed elements; the CC BY-NC-SA 4.0 license element held (stated abs basis does not reproduce; site and full text print none; HF gated). Article change: the license span annotated with its verification status, not certified. Every retained passage was needle-verified by this integrator against the frozen packet's retained source corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-datasets-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-i-datasets-20260916c, sha256 11509e8d956989f412eaa5b639c00132941ed109db83f9d2dbaeb92e1eaec473) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "ds-r11-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "b3ff49da0ad2736cacb9ec26636e3fa2364b17df86e1feafcadcb940cffcd596",
+      "reason": "Exactly data-hardware/datasets original 11: Diversity-scaling evidence completion on the registered abs passage (task diversity > per-task count; multi-embodiment pretraining optional), compression nuance recorded; no article change. Every retained passage was needle-verified by this integrator against the frozen packet's retained source corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-datasets-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 11 selected records of frozen packet convergence-source-i-datasets-20260916c, sha256 11509e8d956989f412eaa5b639c00132941ed109db83f9d2dbaeb92e1eaec473) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-004",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    }
+  ]
 }

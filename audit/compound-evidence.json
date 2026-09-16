@@ -64218,5 +64218,807 @@
       "evidenceDigest": "d805980a911bb63f328714cc933fc97557476e367a3ea2907f8cb60c56da1bf9"
     }
   ]
+},
+{
+  "id": "datasets-1-oxe-pool-20260916c",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "datasets",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "12cf77f3350d64f21a8326f5bfdf81903eb9b1bc020c8e3d238ffa58c69908b7",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "ds1-pool-60-34-rlds",
+      "text": "The Open X-Embodiment Dataset was constructed by pooling 60 existing robot datasets from 34 robotic research labs and standardizing them into the RLDS data format (Sec. III-A).",
+      "requiredCitationIds": [
+        "open-x-embodiment-2023"
+      ]
+    },
+    {
+      "id": "ds1-scale-figures",
+      "text": "The dataset contains 1M+ trajectories from 22 robot embodiments, and the paper's intro reports 527 skills (160266 tasks) from 22 different robots via a collaboration between 21 institutions; the article's 34-labs figure is the Sec. III-A lab count, a distinct and correctly-used number.",
+      "requiredCitationIds": [
+        "open-x-embodiment-2023"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record datasets:1 (ready-evidence-completion) reviewed in full against the frozen packet: row binding, ordinal and current cells re-checked; both passages needle-verified by this integrator against the retained sources/oxe-html-v9.html fetch (Sec. III-A pooling/RLDS sentences and the intro 527-skills/160266-tasks sentence; the 34-vs-34 MathML duplication and \"[ 119 ]\" citation-bracket spacing are render artifacts, recorded); 1M+/22-embodiment elements already bound read-only in manipulation plans vla-models-11 / cross-embodiment-11 reuse the same registered citation, no duplication created. Zero retrieval by this integrator.",
+    "planDigest": "260822906c4419b5787bf38f0d2518f8cbec03044a7962bb8f82a6f993af7dd9"
+  },
+  "evidence": [
+    {
+      "partId": "ds1-pool-60-34-rlds",
+      "citationId": "open-x-embodiment-2023",
+      "sourceUrl": "https://arxiv.org/html/2310.08864v9",
+      "supportingPassage": "The Open X-Embodiment Dataset contains 1M+ real robot trajectories spanning 22 robot embodiments, from single robot arms to bi-manual robots and quadrupeds. The dataset was constructed by pooling 60 existing robot datasets from 34 robotic research labs around the world and converting them into a consistent data format for easy download and usage. We use the RLDS data format [119], which saves data in serialized tfrecord files and accommodates the various action spaces and input modalities of different robot setups"
+    },
+    {
+      "partId": "ds1-scale-figures",
+      "citationId": "open-x-embodiment-2023",
+      "sourceUrl": "https://arxiv.org/html/2310.08864v9",
+      "supportingPassage": "We assemble a dataset from 22 different robots collected through a collaboration between 21 institutions, demonstrating 527 skills (160266 tasks)."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "ds1-pool-60-34-rlds",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: Sec. III-A prints \"pooling 60 existing robot datasets from 34 robotic research labs\" with \"We use the RLDS data format\"; passage needle-verified verbatim against the retained v9 HTML (MathML/citation-bracket spacing artifacts recorded).",
+      "evidenceDigest": "ccc6854c302c138f7dbc3703487dd64fc77e63a406fb1ae48af7d81fe2b527a5"
+    },
+    {
+      "partId": "ds1-scale-figures",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the intro prints \"527 skills (160266 tasks)\" from 22 robots via 21 institutions; the 34-labs vs 21-institutions distinction is printed by the same document and the article's use of the Sec. III-A lab count is correct as scoped.",
+      "evidenceDigest": "ccbe93fac13cb26fc7b12560391b7bf8445c50eb5833457ab474e41a5f380f13"
+    }
+  ]
+},
+{
+  "id": "datasets-2-rtxx-results-20260916c",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "datasets",
+  "rowOrdinal": 2,
+  "originalCellsDigest": "928aae54d83c17daa6be6ecb6b912fc70715ec04202d8bf47b784b449db31514",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "ds2-small-scale-50pct",
+      "text": "On the small-scale dataset domains (Fig. 3), RT-1-X's mean success rate is 50% higher than either the Original Method or RT-1, with RT-1 and RT-1-X sharing the same architecture so the increase is attributed to co-training on the robotics data mixture.",
+      "requiredCitationIds": [
+        "open-x-embodiment-2023"
+      ]
+    },
+    {
+      "id": "ds2-large-scale-underfitting",
+      "text": "On the large-scale domains (Bridge and RT-1 paper data, Table I), RT-1-X does not outperform the embodiment-specific RT-1 baseline, which the authors attribute to underfitting for that model class; the larger RT-2-X model outperforms both the Original Method and RT-1.",
+      "requiredCitationIds": [
+        "open-x-embodiment-2023"
+      ]
+    },
+    {
+      "id": "ds2-rt2x-3x",
+      "text": "The paper's conclusion states RT-2-X demonstrated roughly 3x generalization improvements over a model trained only on data from the evaluation embodiment.",
+      "requiredCitationIds": [
+        "open-x-embodiment-2023"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record datasets:2 (ready-evidence-completion over the applied scoping correction) reviewed: all three passages needle-verified against the retained v9 HTML (Fig. 3 caption incl. the co-training attribution, the Sec. V-A large-dataset underfitting passage plus the Table I note, and the conclusion 50%/~3x sentence; MathML \"50 % 50\\%\" duplication is a render artifact). The corrected claim is fully source-printed; the scoping qualifiers stay.",
+    "planDigest": "5e2ac5fbfebacfa9ee2f64f592b54fbafba1007e7134e1ec2c26d37cb907ee6d"
+  },
+  "evidence": [
+    {
+      "partId": "ds2-small-scale-50pct",
+      "citationId": "open-x-embodiment-2023",
+      "sourceUrl": "https://arxiv.org/html/2310.08864v9",
+      "supportingPassage": "Fig. 3: RT-1-X mean success rate is 50% higher than that of either the Original Method or RT-1. RT-1 and RT-1-X have the same network architecture. Therefore the performance increase can be attributed to co-training on the robotics data mixture."
+    },
+    {
+      "partId": "ds2-large-scale-underfitting",
+      "citationId": "open-x-embodiment-2023",
+      "sourceUrl": "https://arxiv.org/html/2310.08864v9",
+      "supportingPassage": "In the large-dataset setting, the RT-1-X model does not outperform the RT-1 baseline trained on only the embodiment-specific dataset, which indicates underfitting for that model class. However, the larger RT-2-X model outperforms both the Original Method and RT-1 suggesting that X-robot training can improve performance in the data-rich domains, but only when utilizing a sufficiently high-capacity architecture. [...] For these large-scale datasets (Bridge and RT-1 paper data), RT-1-X underfits and performs worse than the Original Method and RT-1."
+    },
+    {
+      "partId": "ds2-rt2x-3x",
+      "citationId": "open-x-embodiment-2023",
+      "sourceUrl": "https://arxiv.org/html/2310.08864v9",
+      "supportingPassage": "Our results showed that the RT-1-X policy has a 50% higher success rate than the original, state-of-the-art methods contributed by different collaborating institutions, while the bigger vision-language-model-based version (RT-2-X) demonstrated ∼3× generalization improvements over a model trained only on data from the evaluation embodiment."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "ds2-small-scale-50pct",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: Fig. 3 caption prints the 50% mean-success-rate result with the same-architecture co-training attribution; Sec. V-A scopes Fig. 3 to the small-scale domains.",
+      "evidenceDigest": "9bb8d157930affb59a431bd2b28ea9ffc68cc8d9bda3c8e7c0979fff85fab6e2"
+    },
+    {
+      "partId": "ds2-large-scale-underfitting",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: Sec. V-A prints the large-dataset underfitting attribution and the RT-2-X recovery; the Table I note names Bridge and RT-1 paper data as the large-scale domains.",
+      "evidenceDigest": "2bc7a5088efda388ca0be4ed1ccf46ea0d9461ab0692b2deb5940eb55a322291"
+    },
+    {
+      "partId": "ds2-rt2x-3x",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the conclusion prints the 50% aggregate and the ~3x RT-2-X generalization improvement over an embodiment-only model, verbatim.",
+      "evidenceDigest": "edad1c650c8a5636dbce47c134b0d8528e7206ee7215a42d4d44eaab4561c32d"
+    }
+  ]
+},
+{
+  "id": "datasets-3-oxe-critique-20260916c",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "datasets",
+  "rowOrdinal": 3,
+  "originalCellsDigest": "eaf8caf46460a2062e1ac90de76f606dccb07226b1a7587490ae6804d65e32af",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "ds3-open-secret",
+      "text": "Reuss's ICLR 2026 survey post states it is an open secret that OXE is mostly low-quality data and that good methods to quantify data quality in imitation learning are still lacking.",
+      "requiredCitationIds": [
+        "oxe-quality-critique-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record datasets:3 (ready-evidence-completion) reviewed: the registered blog URL is itself the source; the open-secret passage was needle-verified by this integrator against the preserved FetchUrl render in the source-session log (four distinctive fragments found). Single-named-proponent attribution nuance recorded in the row note; no P5 pairing obligation arises from this row alone.",
+    "planDigest": "87e972ddce44c98adf248cea27639da3565e27af4e90bcb926d102f6a367bf4b"
+  },
+  "evidence": [
+    {
+      "partId": "ds3-open-secret",
+      "citationId": "oxe-quality-critique-2026",
+      "sourceUrl": "https://mbreuss.github.io/blog_post_iclr_26_vla.html",
+      "supportingPassage": "Data quality: Despite being critical for VLA performance, surprisingly few ICLR 2026 submissions focused on data collection and curation. It's an open secret that OXE is mostly low-quality data, yet we still lack good methods to quantify data quality in imitation learning. Data-centric research is hard, but understanding how to curate high-quality datasets remains one of the most crucial unsolved problems in VLA research."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "ds3-open-secret",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the registered blog prints the open-secret critique and the no-good-methods gap verbatim in its Summary and Outlook; single named proponent, attribution preserved.",
+      "evidenceDigest": "e47893c0079c5ec5f179331bb16646016a6d2a7848d28660fcd558a0e2231a10"
+    }
+  ]
+},
+{
+  "id": "datasets-4-droid-facts-20260916c",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "datasets",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "ea6b5138d91f01c2cca91a52d13e8b64a008cc9f4da9d6ab99957a2c8a76bcec",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "ds4-scale-counts",
+      "text": "DROID contains 76k demonstration trajectories / 350 hours of interaction data across 564 scenes and 86 tasks, collected by 50 data collectors across 13 institutions over 12 months (18 robots, 52 buildings); Table I prints 76k/86/564.",
+      "requiredCitationIds": [
+        "droid-2024"
+      ]
+    },
+    {
+      "id": "ds4-task-count-discrepancy",
+      "text": "Recorded source-internal discrepancy: the arXiv abstract prints '564 scenes and 84 tasks' while the full-text HTML prints 86 tasks in both the intro and Table I; the article's 86 follows the full text, and the 84 stays recorded here.",
+      "requiredCitationIds": [
+        "droid-2024"
+      ]
+    },
+    {
+      "id": "ds4-rig",
+      "text": "Every trajectory came from the same rig: a Franka Panda 7DoF arm, two adjustable Zed 2 stereo cameras, a wrist-mounted Zed Mini, teleoperated with an Oculus Quest 2 (passage identical to the already-integrated hardware-taxonomy-r16/teleop-rigs-11 evidence).",
+      "requiredCitationIds": [
+        "droid-2024"
+      ]
+    },
+    {
+      "id": "ds4-dp-results",
+      "text": "Controlled comparison result: DROID-trained diffusion policies outperform the next best method by 22% absolute success rate in-distribution and 17% out of distribution.",
+      "requiredCitationIds": [
+        "droid-2024"
+      ]
+    },
+    {
+      "id": "ds4-maintenance-news",
+      "text": "Post-release maintenance, printed on the project landing: improved camera calibrations for 36k episodes (April 2025) and an updated set of language annotations, 3 per episode for 95% of successful episodes = 75k episodes (December 2024), both on HuggingFace.",
+      "requiredCitationIds": [
+        "droid-2024"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record datasets:4 (ready-evidence-completion) reviewed: five parts; every passage needle-verified against the retained sources (droid-html-v2.html byte-identical by sha256 to the already-integrated r16/tr11 fetch; droid-abs.html; droid-landing.html). The 84-vs-86 task-count source-internal discrepancy is recorded per the both-passages rule, not resolved; the OXE/DROID hold document's two direct obligations (data-bottleneck:3 teaching-cut, data-bottleneck:5 rig-year model) appear in no part of this row, which contains only published figures. Zero retrieval by this integrator.",
+    "planDigest": "08d2517c96c9367eade87032ae47d69638fa8663fd1a195509ab21b15708fe55"
+  },
+  "evidence": [
+    {
+      "partId": "ds4-scale-counts",
+      "citationId": "droid-2024",
+      "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+      "supportingPassage": "DROID consist of 76k demonstration trajectories or 350 hours of interaction data, collected across 564 scenes, 52 buildings and 86 tasks. DROID was collected by 18 research labs in North America, Asia, and Europe over the course of 12 months. [...] It was collected over the course of 12 months in a large, cross-institutional effort with 18 robots and 50 data collectors across 13 institutions."
+    },
+    {
+      "partId": "ds4-task-count-discrepancy",
+      "citationId": "droid-2024",
+      "sourceUrl": "https://arxiv.org/abs/2403.12945",
+      "supportingPassage": "a diverse robot manipulation dataset with 76k demonstration trajectories or 350 hours of interaction data, collected across 564 scenes and 84 tasks by 50 data collectors in North America, Asia, and Europe over the course of 12 months (abs page; the full-text HTML prints 86 tasks in the intro and Table I)"
+    },
+    {
+      "partId": "ds4-rig",
+      "citationId": "droid-2024",
+      "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+      "supportingPassage": "The setup consists of a Franka Panda 7DoF robot arm, two adjustable Zed 2 stereo cameras, a wrist-mounted Zed Mini stereo camera, and an Oculus Quest 2 headset with controllers for teleoperation."
+    },
+    {
+      "partId": "ds4-dp-results",
+      "citationId": "droid-2024",
+      "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+      "supportingPassage": "We compare success rate averaged across all tasks with standard error, and find DROID outperforms the next best method by 22% absolute success rate in-distribution and by 17% out of distribution."
+    },
+    {
+      "partId": "ds4-maintenance-news",
+      "citationId": "droid-2024",
+      "sourceUrl": "https://droid-dataset.github.io/",
+      "supportingPassage": "April 2025: We provide improved camera calibrations for 36k episodes of the DROID dataset on HuggingFace -- check our updated paper for how we computed these calibration values! December 2024: We provide an updated set of DROID language annotations on HuggingFace -- 3 natural language annotations for 95% of all successful DROID episodes (75k episodes)"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "ds4-scale-counts",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: intro prints 76k/350h/564 scenes/52 buildings/86 tasks/12 months and the collection passage prints 18 robots, 50 data collectors, 13 institutions; Table I prints 76k/86/564.",
+      "evidenceDigest": "805d3734ac9e1d4e31afdbf11d08fe7fd3c6892aa550fc2b6a2ee4f345865ab0"
+    },
+    {
+      "partId": "ds4-task-count-discrepancy",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported as a recorded discrepancy: abs prints \"564 scenes and 84 tasks by 50 data collectors\" while the full text prints 86 twice; the article follows the body, tension recorded per the both-passages rule, no silent resolution.",
+      "evidenceDigest": "59281b9d50be82fff650a8f480c28ebb784c2e9effc40864d33e3b7ccdb72d35"
+    },
+    {
+      "partId": "ds4-rig",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the rig sentence (Franka Panda 7DoF, two Zed 2, wrist Zed Mini, Quest 2) is byte-identical to the already-integrated r16/tr11 evidence; needle-verified against the retained fetch.",
+      "evidenceDigest": "3d0456742e85a6d5901d5d6a983f2c2b89ee2cb8ee52508dda74e9f28304b11d"
+    },
+    {
+      "partId": "ds4-dp-results",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the paper prints \"DROID outperforms the next best method by 22% absolute success rate in-distribution and by 17% out of distribution\"; also printed on the project landing (retained).",
+      "evidenceDigest": "6ba442a41eec5df19a39161644710fce446dd3199bb4bc5676320ad8438c7baa"
+    },
+    {
+      "partId": "ds4-maintenance-news",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the official project landing prints both maintenance items verbatim (April 2025 36k camera calibrations; December 2024 3 annotations for 95% of successful episodes = 75k); the landing is the registered droid-2024 project site surface.",
+      "evidenceDigest": "59a07ffbf3c8958f0ee2c503242bfe0ebed1433db331593ccaaeee7ac9ae27df"
+    }
+  ]
+},
+{
+  "id": "datasets-5-droid-license-20260916c",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "datasets",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "688e0ecb481a7a24f7df8b88ce2c996077a12a976afacad7802423a834d3a6b0",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "ds5-paper-license",
+      "text": "DROID is released under CC BY 4.0: the paper states the full dataset ships 'under CC-BY 4.0 license' (printed in both the abstract and the Sec. III release statement), correcting the earlier CC BY-NC 4.0 error.",
+      "requiredCitationIds": [
+        "droid-2024"
+      ]
+    },
+    {
+      "id": "ds5-deed-commercial-attribution",
+      "text": "CC BY 4.0 permits commercial use with attribution: the deed grants freedom to share and adapt the material 'for any purpose, even commercially', under the Attribution term requiring appropriate credit (deed citation proposed for registration; part waits on that registration).",
+      "requiredCitationIds": [
+        "cc-by-4-0-deed"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record datasets:5 (ready-evidence-completion over the applied CC BY-NC 4.0 -> CC BY 4.0 correction) reviewed: the paper license sentence was needle-verified against the retained droid-html-v2.html (printed twice, abstract + Sec. III) and the deed freedoms passage against sources/ccby4-deed.html. The deed part is held unresolved by this integrator: the registry schema requires a year and no frozen-packet evidence prints one for the deed, so the proposed cc-by-4-0-deed registration is lawfully blocked under this lane's zero-retrieval rule. The dataset-scope qualifier (dataset license, not code/model licenses) is preserved from the hold record.",
+    "planDigest": "8a9fb95a2303cecc24defc8cf922bf8397644964d4a3bf49a69e36c3afcac50a"
+  },
+  "evidence": [
+    {
+      "partId": "ds5-paper-license",
+      "citationId": "droid-2024",
+      "sourceUrl": "https://arxiv.org/html/2403.12945v2",
+      "supportingPassage": "This includes the full dataset under CC-BY 4.0 license, an interactive dataset visualizer, code for training generalizable policies on DROID, pre-trained policy checkpoints, and a detailed guide for reproducing our robot hardware setup and control stack."
+    },
+    {
+      "partId": "ds5-deed-commercial-attribution",
+      "citationId": "cc-by-4-0-deed",
+      "sourceUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "supportingPassage": "You are free to: Share — copy and redistribute the material in any medium or format... Adapt — remix, transform, and build upon the material for any purpose, even commercially. The licensor cannot revoke these freedoms as long as you follow the license terms. Under the following terms: Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "ds5-paper-license",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the paper prints \"the full dataset under CC-BY 4.0 license\" twice (abstract and Sec. III release statement); needle-verified against the retained v2 HTML, byte-identical to the integrated source.",
+      "evidenceDigest": "a565e56d5cb52932832ee856b11334e2dee0285963b096c40ad2caf15bc9782b"
+    },
+    {
+      "partId": "ds5-deed-commercial-attribution",
+      "outcome": "unresolved",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "UNRESOLVED, held by this integrator: the deed passage itself (share/adapt \"for any purpose, even commercially\" under the Attribution term) was needle-verified verbatim against sources/ccby4-deed.html, but the cc-by-4-0-deed registry registration is lawfully blocked - the citation schema requires a year and neither the retained deed render (grep-confirmed: no year token) nor any other frozen-packet evidence prints one, and this lane performs zero retrieval. The part keeps its fetched passage and waits on a registration with a source-printed year; the paper-license part alone does not complete this row.",
+      "evidenceDigest": "4b8aef26ccf29dcee037d087cb7052eb9ffb4bbf525dfbed1ca961558a6a7902"
+    }
+  ]
+},
+{
+  "id": "datasets-6-bridgedata-20260916c",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "datasets",
+  "rowOrdinal": 6,
+  "originalCellsDigest": "9afc87472fd05dfcd84fd3c6baa2342884ad0ea7bfefcbb4d8ea87b7d654f9b4",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "ds6-total-and-robot",
+      "text": "BridgeData V2 contains 60,096 trajectories collected across 24 environments on the WidowX 250, a publicly available low-cost arm (abstract total; Fig. 2 names the WidowX 250; the setup costs approximately $4,000).",
+      "requiredCitationIds": [
+        "bridgedata-v2-2023"
+      ]
+    },
+    {
+      "id": "ds6-split-and-rate",
+      "text": "The data splits into 50,365 teleoperated demonstrations (VR controller, 5 Hz control frequency) and 9,731 trajectories from a heavily randomized scripted pick-and-place policy, spanning 13 skills.",
+      "requiredCitationIds": [
+        "bridgedata-v2-2023"
+      ]
+    },
+    {
+      "id": "ds6-held-38timesteps-license",
+      "text": "HELD PARTS (not evidenced this session): the 38-timestep average trajectory length and the CC BY 4.0 data license rest solely on the project site, which now returns 404 with no Wayback capture; last live verification 2026-08-18. The integrator annotates or cuts these two elements; they are not certified here.",
+      "requiredCitationIds": [
+        "bridgedata-v2-2023"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record datasets:6 (ready-evidence-completion with two held elements) reviewed: the six paper-backed elements were needle-verified against sources/bridge-abs.html and sources/bridge-html.html (60,096 total; 50,365/9,731 split; 13 skills; 5 Hz VR teleoperation; WidowX 250 and the ~$4,000 setup). The held part stays unresolved: the dead-site evidence is retained (404 bodies; the Wayback page printing \"Wayback Machine has not archived that URL\"; the availability-API 429 recorded separately and not relied on); last live verification 2026-08-18. The article spans are annotated this pass, not certified.",
+    "planDigest": "4c4de7e5d5f25bc558b343a2b8b83c7d9a10cf9b8349bb34be0f904236340f2c"
+  },
+  "evidence": [
+    {
+      "partId": "ds6-total-and-robot",
+      "citationId": "bridgedata-v2-2023",
+      "sourceUrl": "https://arxiv.org/abs/2308.12952",
+      "supportingPassage": "BridgeData V2 contains 60,096 trajectories collected across 24 environments on a publicly available low-cost robot. [Full text, Fig. 2:] A picture of our robot setup showing the WidowX 250 robot arm and various cameras. ... The robot setup (Figure 2) costs approximately $4,000 in total and consists of parts that are all publicly available with a turnaround time of less than two weeks."
+    },
+    {
+      "partId": "ds6-split-and-rate",
+      "citationId": "bridgedata-v2-2023",
+      "sourceUrl": "https://arxiv.org/html/2308.12952",
+      "supportingPassage": "In total, BridgeData V2 contains 50,365 expert demonstrations and 9,731 trajectories from a scripted policy. [...] BridgeData V2 contains 50,365 demonstrations of 13 skills across 24 environments, more than 7 times as many demonstrations as the original Bridge Dataset. [...] the control frequency is 5 Hz. We collect demonstrations by teleoperating the robot with a VR controller. [...] We also augment the demonstrations with 9,731 trajectories collected from a heavily randomized pick-and-place policy to boost the robustness of the foundational objection repositioning skill."
+    },
+    {
+      "partId": "ds6-held-38timesteps-license",
+      "citationId": "bridgedata-v2-2023",
+      "sourceUrl": "https://bridgedata.github.io/bridge-data-v2/",
+      "supportingPassage": "NO PASSAGE FETCHABLE THIS SESSION: the URL returned HTTP 404 (FetchUrl by 2026-09-16T04:11Z; curl root path 404 at 2026-09-16T04:11:12Z) and the Wayback Machine reports it has not archived that URL (2026-09-16T04:13:59Z). Prior live verification of both elements: 2026-08-18 (audit/data-hardware.md re-verification addendum). Held, not certified."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "ds6-total-and-robot",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: abstract prints 60,096 trajectories across 24 environments on a publicly available low-cost robot; Fig. 2 names the WidowX 250 and the ~$4,000 setup; Table 1 prints 60.1k/13/24.",
+      "evidenceDigest": "b5a988250c16be8f614978bcbafe1f877be41e78389d8e97107989acc82a86e5"
+    },
+    {
+      "partId": "ds6-split-and-rate",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the full text prints the 50,365 expert demonstrations / 9,731 scripted-policy split, the 13-skills and 24-environments counts, 5 Hz control, and VR-controller teleoperation.",
+      "evidenceDigest": "7eb6e124a654445a8e580b1956b07066e146332383890f372c800f2cce0c56e0"
+    },
+    {
+      "partId": "ds6-held-38timesteps-license",
+      "outcome": "unresolved",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "UNRESOLVED, held: the 38-timestep average and the CC BY 4.0 data license rest solely on the project site, which returned 404 on both path forms (2026-09-16T04:11Z, bodies retained) while the Wayback page prints \"Wayback Machine has not archived that URL\" (2026-09-16T04:13:59Z); the availability API was separately rate-limited 429 and is recorded, not relied on. Last live verification 2026-08-18 per the committed addendum; the two article spans are annotated this pass (dead-source annotation), not certified, and the paper prints no timestep average or data license.",
+      "evidenceDigest": "1bc4a5d2d256e7aa8d94208fa48c9b53632fc3214064ff7ed893e9f2a5fbbbde"
+    }
+  ]
+},
+{
+  "id": "datasets-7-agibot-beta-20260916c",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "datasets",
+  "rowOrdinal": 7,
+  "originalCellsDigest": "8a685b0dea834f74f89d49aae232fae666afca1c0823a6633a92fe3040cc0df0",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "ds7-published-counts",
+      "text": "AgiBot World's latest version contains 1,001,552 trajectories totaling 2,976.4 hours covering 217 tasks (87 skills, 106 scenes), collected on the AgiBot G1 platform; the abstract states the 217 tasks span five deployment scenarios. Same registered passage as data-bottleneck-db4, confirmed live on identical bytes.",
+      "requiredCitationIds": [
+        "agibot-world-2025"
+      ]
+    },
+    {
+      "id": "ds7-30pct-vendor",
+      "text": "Policies pre-trained on AgiBot World achieve an average 30% improvement over OXE pretraining, in-domain and out-of-distribution — vendor-reported (authors on their own dataset), no independent replication. Same registered passage as data-bottleneck-db14, confirmed live.",
+      "requiredCitationIds": [
+        "agibot-world-2025"
+      ]
+    },
+    {
+      "id": "ds7-repo-count-and-license",
+      "text": "The release repository's count has grown to 1,003,672 trajectories (~43.8T per the README's own pairing), and all data and code in the repo are under CC BY-NC-SA 4.0 — both printed by the official AgiBot-World README, fetched live this session (proposed registration required for this document).",
+      "requiredCitationIds": [
+        "agibot-world-repo-2026"
+      ]
+    },
+    {
+      "id": "ds7-go1-vram-stays-cut",
+      "text": "The GO-1 ~7 GB inference / ~70 GB fine-tune figures are NOT part of the corrected claim: they were cut from the article on 2026-08-17 as unsourceable at every reachable primary source (paper, README, HF cards, vendor properties, Wayback), and the stale claim cell now drops them. Nothing here resurrects them.",
+      "requiredCitationIds": [
+        "agibot-world-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record datasets:7 (ready-source-correction on the claim cell only) reviewed: counts/hours/scenarios/30% passages needle-verified against sources/agibot-html-v4.html (sha256-identical to the already-integrated data-bottleneck-db4 fetch; same registered citation reused read-only); the repo count and license lines needle-verified against sources/agibot-github-readme.md; the integrator registered agibot-world-repo-2026 (raw README url, OpenDriveLab authors printed by the repo itself, snapshot year 2026 per the so-arm100-repo-2026 repo-docs convention) so this part is lawfully bound. The GO-1 VRAM figures stay cut; the stale claim-cell mention of them is dropped. No article change.",
+    "planDigest": "800a73f38a4f0b4e2c468262a4c455222f92a274035c2a3ddc9971ad058a33b6"
+  },
+  "evidence": [
+    {
+      "partId": "ds7-published-counts",
+      "citationId": "agibot-world-2025",
+      "sourceUrl": "https://arxiv.org/html/2503.06669v4",
+      "supportingPassage": "The latest version contains 1,001,552 trajectories, with a total duration of 2976.4 hours, covering 217 specific tasks, 87 skills, and 106 scenes. [...] Introducing AgiBot World, a large-scale platform comprising over 1 million trajectories across 217 tasks in five deployment scenarios, we achieve an order-of-magnitude increase in data scale compared to existing datasets."
+    },
+    {
+      "partId": "ds7-30pct-vendor",
+      "citationId": "agibot-world-2025",
+      "sourceUrl": "https://arxiv.org/html/2503.06669v4",
+      "supportingPassage": "Policies pre-trained on our dataset achieve an average performance improvement of 30% over those trained on Open X-Embodiment, both in in-domain and out-of-distribution scenarios."
+    },
+    {
+      "partId": "ds7-repo-count-and-license",
+      "citationId": "agibot-world-repo-2026",
+      "sourceUrl": "https://raw.githubusercontent.com/OpenDriveLab/AgiBot-World/main/README.md",
+      "supportingPassage": "AgiBot World Beta: Our complete dataset featuring 1,003,672 trajectories (~43.8T) [...] All the data and code within this repo are under CC BY-NC-SA 4.0."
+    },
+    {
+      "partId": "ds7-go1-vram-stays-cut",
+      "citationId": "agibot-world-2025",
+      "sourceUrl": "https://arxiv.org/abs/2503.06669",
+      "supportingPassage": "CUT ELEMENT, NO PASSAGE BY DESIGN: the 2026-08-17 audit cut the GO-1 VRAM sentence after finding the figures in no reachable primary source (arXiv paper, GitHub README, HF model/dataset cards, vendor blog, live vendor-site JS, Wayback capture); this row records the cut's continuation and corrects the stale claim cell. This session performed no new retrieval for these figures."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "ds7-published-counts",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the v4 HTML (sha256-identical to the integrated db4 fetch) prints 1,001,552 trajectories / 2976.4 hours / 217 tasks / 87 skills / 106 scenes, and the abstract prints the 217 tasks across five deployment scenarios; same registered citation as data-bottleneck-db4, reused read-only.",
+      "evidenceDigest": "192bcec349d5ef35df5140ab17b23607f4fc823b915ff6af32ae6ddca8b55f5b"
+    },
+    {
+      "partId": "ds7-30pct-vendor",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported as vendor-reported: the paper prints the 30% average improvement over OXE pretraining in-domain and out-of-distribution; the authors' own claim about their own dataset, no independent replication asserted.",
+      "evidenceDigest": "43abe6f29214b0e46d4221a92703a39e227053ebaa7cfc005f0ed04b672e34c6"
+    },
+    {
+      "partId": "ds7-repo-count-and-license",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported after registration: the official AgiBot-World README (raw markdown, fetched 200, retained and needle-verified) prints \"AgiBot World Beta: Our complete dataset featuring 1,003,672 trajectories (~43.8T)\" and \"All the data and code within this repo are under CC BY-NC-SA 4.0.\"; this integrator registered agibot-world-repo-2026 (raw README url; OpenDriveLab authors; snapshot year 2026 per the repo-docs convention, the README printing no publication year), which activates this binding.",
+      "evidenceDigest": "29c73b209173176012568162f0d089c281340961b219fe7a2a5f24c4b1b3994f"
+    },
+    {
+      "partId": "ds7-go1-vram-stays-cut",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported as a negative/provenance record: the GO-1 ~7 GB / ~70 GB figures stay cut per the committed 2026-08-17 cut row (\"NOT FOUND in arXiv 2503.06669, the GitHub README, the HF model cards, the OpenGO1 blog, the live agibot-world.com, or the Wayback capture\"); this session performed no new retrieval for these figures and the stale claim-cell mention is dropped. Nothing here resurrects them.",
+      "evidenceDigest": "4af5736e641e3d6cbb6d9c9ad6fe7f6683daf2c19f04343969c60522b69a3096"
+    }
+  ]
+},
+{
+  "id": "datasets-8-eleven-seconds-20260916c",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "datasets",
+  "rowOrdinal": 8,
+  "originalCellsDigest": "72a567f7dd579277b1fddec4f2a83f81388a0e2cdeae568572ae4a5383951027",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "ds8-operands-agibot",
+      "text": "Published operands: AgiBot World's latest version contains 1,001,552 trajectories totaling 2,976.4 hours (v4 HTML, confirmed live this session on bytes identical to the integrated db4 source).",
+      "requiredCitationIds": [
+        "agibot-world-2025"
+      ]
+    },
+    {
+      "id": "ds8-operand-ego4d",
+      "text": "Comparison operand: Ego4D offers 3,670 hours of daily-life activity video captured by 931 unique camera wearers (abs page, confirmed live; same registered citation as data-bottleneck-db8).",
+      "requiredCitationIds": [
+        "ego4d-2022"
+      ]
+    },
+    {
+      "id": "ds8-local-arithmetic",
+      "text": "LOCAL-AND part (integrator proves at application time): 2976.4 x 3600 / 1,001,552 = 10.6984 s, which the article rounds to 'about 11 seconds'; and 2,976.4 < 3,670, so the million-trajectory pool carries less interaction than Ego4D's passive video.",
+      "requiredCitationIds": [
+        "agibot-world-2025",
+        "ego4d-2022"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record datasets:8 (ready-source-correction-with-local-AND) reviewed: the integrator re-ran the local arithmetic at application time (2976.4*3600/1001552 = 10.698436027285652 -> rounds to 11; 2976.4 < 3670) and anchored the local conjunct per the internal-row convention (db12/gp12 precedent): the packet's file://local-proof item was replaced by real anchor items over the two registered operand sources, both needle-verified against retained fetches. Distinct from the held data-bottleneck:5 rig-year authored model; this row is division over two published operands of record.",
+    "planDigest": "0453b77254e743d720be80669c9d1db6ee9ef23f2b087dcc17fdded91a2fbba0"
+  },
+  "evidence": [
+    {
+      "partId": "ds8-operands-agibot",
+      "citationId": "agibot-world-2025",
+      "sourceUrl": "https://arxiv.org/html/2503.06669v4",
+      "supportingPassage": "The latest version contains 1,001,552 trajectories, with a total duration of 2976.4 hours, covering 217 specific tasks, 87 skills, and 106 scenes."
+    },
+    {
+      "partId": "ds8-operand-ego4d",
+      "citationId": "ego4d-2022",
+      "sourceUrl": "https://arxiv.org/abs/2110.07058",
+      "supportingPassage": "It offers 3,670 hours of daily-life activity video spanning hundreds of scenarios (household, outdoor, workplace, leisure, etc.) captured by 931 unique camera wearers from 74 worldwide locations and 9 different countries."
+    },
+    {
+      "partId": "ds8-local-arithmetic",
+      "citationId": "agibot-world-2025",
+      "sourceUrl": "https://arxiv.org/html/2503.06669v4",
+      "supportingPassage": "LOCAL PROOF (integrator-run at application time, no fetch): 2976.4 * 3600 / 1001552 = 10.698436027285652 seconds per trajectory, rounding to the article's \"about 11 seconds\"; comparison conjunct 2976.4 < 3670 holds, so the million-trajectory pool carries less interaction than Ego4D's 3,670 published hours. The anchor citation is the AgiBot operand source (2,976.4 h over 1,001,552 trajectories, printed by the retained v4 fetch); the Ego4D operand anchors the second item of this part. No external fetch applies to the arithmetic conjunct."
+    },
+    {
+      "partId": "ds8-local-arithmetic",
+      "citationId": "ego4d-2022",
+      "sourceUrl": "https://arxiv.org/abs/2110.07058",
+      "supportingPassage": "It offers 3,670 hours of daily-life activity video spanning hundreds of scenarios (household, outdoor, workplace, leisure, etc.) captured by 931 unique camera wearers from 74 worldwide locations and 9 different countries."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "ds8-operands-agibot",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the retained v4 HTML prints 1,001,552 trajectories totaling 2976.4 hours; byte-identical fetch to the integrated db4 source, needle-verified.",
+      "evidenceDigest": "a1fdea222c6cf2f8bab4aa0e1dbddfab480f7fa752fdf52897b2dbf51af854c9"
+    },
+    {
+      "partId": "ds8-operand-ego4d",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the Ego4D abs (registered ego4d-2022, same citation as data-bottleneck-db8) prints 3,670 hours of daily-life activity video captured by 931 unique camera wearers; needle-verified against the retained abs fetch.",
+      "evidenceDigest": "6b2aca9d1b7a99017884ab6c99f0cff35ea2ff7e30cfc7545a4194f7786b73f2"
+    },
+    {
+      "partId": "ds8-local-arithmetic",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported by integrator local proof, no fetch: re-run at application time (node python3 2026-09-16: 2976.4*3600/1001552 = 10.698436027285652 s, rounding to the article's \"about 11 seconds\"; 2976.4 < 3670). Anchored per the internal-row convention to the two registered operand sources; simple division over published operands, distinct from the held data-bottleneck:5 authored rig-year model.",
+      "evidenceDigest": "150c7ab3f22632d77452444d2307989fe015644d8c8c07dc29d6847decc5a013"
+    }
+  ]
+},
+{
+  "id": "datasets-9-agibot2026-size-20260916c",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "datasets",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "703d6aecaf35a9ffa0a776ba6cea1bbc771ac43d6144925aa61e4726780af2e0",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "ds9-size-live",
+      "text": "The AgiBot World 2026 card prints 'Total file size: 13.6 TB' (September 2026); the HF storage API reports 14,054,068,535,897 bytes (lastModified 2026-09-01). The article's 13.7 TB span and the ledger's 13.2 TB claim cell are both corrected to the card-printed 13.6 TB with an as-of date; the figure is explicitly a moving one.",
+      "requiredCitationIds": [
+        "agibot-world-2026"
+      ]
+    },
+    {
+      "id": "ds9-realworld-no-counts",
+      "text": "The card states the dataset is collected from 100% real-world environments (on the AGIBOT G2 platform, free-form collection), and publishes no episode, hour, or task totals as of 2026-09-16 — the counts-absence and real-world elements re-verify unchanged in substance.",
+      "requiredCitationIds": [
+        "agibot-world-2026"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record datasets:9 (ready-source-correction, moving figure) reviewed: the card \"Total file size: 13.6 TB\" line and the 100%-real-world overview passage were needle-verified against the preserved FetchUrl render in the source-session log; the API fields (usedStorage 14054068535897, lastModified 2026-09-01T05:54:04.000Z, cardData license cc-by-nc-sa-4.0, size_categories 1K<n<10K) verified field-by-field against sources/agibot2026-hf-api.json. Article spans corrected 13.7 TB -> 13.6 TB with the as-of date moved to September 2026; the registry comment re-read recorded.",
+    "planDigest": "733ee7fd4290dbe87927d34379626918aeca42ab3c8a7f28d188160dd2672657"
+  },
+  "evidence": [
+    {
+      "partId": "ds9-size-live",
+      "citationId": "agibot-world-2026",
+      "sourceUrl": "https://huggingface.co/datasets/agibot-world/AgiBotWorld2026",
+      "supportingPassage": "Total file size: 13.6 TB"
+    },
+    {
+      "partId": "ds9-size-live",
+      "citationId": "agibot-world-2026",
+      "sourceUrl": "https://huggingface.co/api/datasets/agibot-world/AgiBotWorld2026",
+      "supportingPassage": "API JSON (curl 200, 2026-09-16T04:09:19Z): \"usedStorage\": 14054068535897, \"lastModified\": \"2026-09-01T05:54:04.000Z\", \"cardData\": {\"license\": \"cc-by-nc-sa-4.0\", \"size_categories\": [\"1K<n<10K\"]} — 14,054,068,535,897 bytes = 14.05 TB decimal / 12.78 TiB binary."
+    },
+    {
+      "partId": "ds9-realworld-no-counts",
+      "citationId": "agibot-world-2026",
+      "sourceUrl": "https://huggingface.co/datasets/agibot-world/AgiBotWorld2026",
+      "supportingPassage": "The AGIBOT WORLD 2026 dataset is collected from 100% real-world environments, covering commercial spaces, home, and other general-purpose scenarios. Collected on the AGIBOT G2 robot platform through a free-form collection mode, the dataset provides developers with structured, accurately annotated, high-quality data. [...] All the data and code within this repo are licensed under CC BY-NC-SA 4.0. [No episode/hour/task totals appear anywhere on the card as of 2026-09-16; the dataset viewer fails to generate, and the only size hint is the coarse 1K<n<10K tag.]"
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "ds9-size-live",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the live card prints \"Total file size: 13.6 TB\" (needle-verified against the preserved FetchUrl render) and the HF API reports usedStorage 14054068535897 with lastModified 2026-09-01 (verified field-by-field against the retained JSON); the figure is a moving one and is corrected with its as-of date.",
+      "evidenceDigest": "c71457df79705552a017cf3120f359c8681b9d1687fa221fb26739b75129d829"
+    },
+    {
+      "partId": "ds9-realworld-no-counts",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the card prints \"collected from 100% real-world environments\" on the AGIBOT G2 platform through a free-form collection mode, and publishes no episode/hour/task totals anywhere on it (viewer broken; only the coarse 1K<n<10K tag).",
+      "evidenceDigest": "1373c8563051fb66d195c460433c2b6fba82a5939f366f79b4bb111f64ad1242"
+    }
+  ]
+},
+{
+  "id": "datasets-10-robomind-20260916c",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "datasets",
+  "rowOrdinal": 10,
+  "originalCellsDigest": "66ef45e82775c5a3fe0f5f87391a6d6bf4b450b8917a26859ee7251403f11c0e",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "ds10-counts-and-robots",
+      "text": "RoboMIND contains 107k demonstration trajectories across 479 diverse tasks involving 96 object classes, collected on a unified platform under a standardized protocol across four embodiments: Franka Emika Panda, UR5e, AgileX dual-arm robot, and a humanoid robot with dual dexterous hands (the v3 full text names it X-Humanoid Tien Kung).",
+      "requiredCitationIds": [
+        "robomind-2024"
+      ]
+    },
+    {
+      "id": "ds10-failures-and-twin",
+      "text": "The dataset includes 5k real-world failure demonstrations each accompanied by detailed causes, and a digital twin of the tasks and assets was created in the Isaac Sim simulator for additional data collection and evaluation.",
+      "requiredCitationIds": [
+        "robomind-2024"
+      ]
+    },
+    {
+      "id": "ds10-license-held",
+      "text": "HELD PART (not evidenced this session): the CC BY-NC-SA 4.0 data license. The abs page (the row's stated basis) prints no data license today, the full text prints none, the official project site prints none, and the HF dataset page is gated. The element keeps its 2026-08-09 prior verification and is not certified here.",
+      "requiredCitationIds": [
+        "robomind-2024"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record datasets:10 (ready-evidence-completion with one held element) reviewed: the seven paper-backed elements needle-verified against sources/robomind-abs.html (all counts, the four-embodiment list, 5k failures, Isaac Sim twin). The license part stays unresolved: abs prints only arXiv boilerplate, the v3 full text prints the arXiv perpetual license, the official project site (fetched 200) prints no license, and the HF page is gated (401); the 2026-08-09 stated basis does not reproduce. Article span annotated, not certified.",
+    "planDigest": "89f762ea560c47b891cacb20e6ae932e8ff2b5129fea273be27d33316114a3c7"
+  },
+  "evidence": [
+    {
+      "partId": "ds10-counts-and-robots",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://arxiv.org/abs/2412.13877",
+      "supportingPassage": "In this paper, we introduce RoboMIND (Multi-embodiment Intelligence Normative Data for Robot Manipulation), a dataset containing 107k demonstration trajectories across 479 diverse tasks involving 96 object classes. [...] RoboMIND is built on a unified data collection platform and a standardized protocol, covering four distinct robotic embodiments: the Franka Emika Panda, the UR5e, the AgileX dual-arm robot, and a humanoid robot with dual dexterous hands."
+    },
+    {
+      "partId": "ds10-failures-and-twin",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://arxiv.org/abs/2412.13877",
+      "supportingPassage": "Our dataset also includes 5k real-world failure demonstrations, each accompanied by detailed causes, enabling failure reflection and correction during policy learning. Additionally, we created a digital twin environment in the Isaac Sim simulator, replicating the real-world tasks and assets, which facilitates the low-cost collection of additional training data and enables efficient evaluation."
+    },
+    {
+      "partId": "ds10-license-held",
+      "citationId": "robomind-2024",
+      "sourceUrl": "https://arxiv.org/abs/2412.13877",
+      "supportingPassage": "NO PASSAGE FETCHABLE THIS SESSION: the abs page prints only arXiv license boilerplate; the full text v3 prints 'License: arXiv.org perpetual non-exclusive license'; the project site (x-humanoid-robomind.github.io, fetched 200, 2026-09-16T04:13:58Z) prints no license; the HF dataset page returns 401 (gated). Held on the 2026-08-09 prior verification; not certified."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "ds10-counts-and-robots",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the abstract prints 107k trajectories / 479 tasks / 96 object classes and the four-embodiment list (Franka Emika Panda, UR5e, AgileX dual-arm, humanoid with dual dexterous hands); the v3 full text names the humanoid Tien Kung.",
+      "evidenceDigest": "96d765e4711a5f62c7acfad8356d172cc6edb13b6e636cbca5ef03c602654a81"
+    },
+    {
+      "partId": "ds10-failures-and-twin",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the abstract prints the 5k real-world failure demonstrations with detailed causes and the Isaac Sim digital twin replicating real-world tasks and assets.",
+      "evidenceDigest": "67d0039099118c7def52f3e6243a4c7a0556cd58170cdf2b3a2baaea3dcfccbc"
+    },
+    {
+      "partId": "ds10-license-held",
+      "outcome": "unresolved",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "UNRESOLVED, held: the CC BY-NC-SA 4.0 element's stated basis (abs page) does not reproduce - abs prints only arXiv boilerplate, the v3 full text prints \"License: arXiv.org perpetual non-exclusive license\", the official project site (fetched 200, retained) prints no license, and the HF dataset page is gated (401). Held on the 2026-08-09 prior verification; the article span is annotated this pass, not certified; escalate for a license-bearing source (gated HF card or a future project-page print).",
+      "evidenceDigest": "a676f112e3eecdc791a380890903810fe84a65e5049166f96aea13e6d17e6048"
+    }
+  ]
+},
+{
+  "id": "datasets-11-diversity-20260916c",
+  "ledgerPath": "audit/data-hardware.md",
+  "articleSlug": "datasets",
+  "rowOrdinal": 11,
+  "originalCellsDigest": "51bd40a9526e62a97f2124e772e4ba124c765c843f9756ca35c154d55413689a",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "ds11-optional-when-diverse",
+      "text": "The paper's abstract reports that task diversity proves more critical than per-task demonstration count and that multi-embodiment pre-training data is optional for cross-embodiment transfer, with high-quality single-embodiment data transferring across platforms and scaling better in fine-tuning. The article's 'may be optional when task diversity is high' compresses the two parallel findings into one conditional; recorded as a wording nuance, not a correction.",
+      "requiredCitationIds": [
+        "diversity-scaling-2025"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record datasets:11 (ready-evidence-completion) reviewed: the three-findings abstract sentence needle-verified against sources/diversity-abs.html; the same passage is sha-pinned by the reviewed plan data-bottleneck-db11-diversity-20260915 and is reused read-only here. The article's \"may be optional when task diversity is high\" compression of the two parallel findings is recorded as a wording nuance in the row note, not corrected. No OXE-hold authored-mapping reduction in any part.",
+    "planDigest": "e150dd8f11e665ee239e32f3cd28deef2e0d1d8ee53615f55d9da18cfacc47c1"
+  },
+  "evidence": [
+    {
+      "partId": "ds11-optional-when-diverse",
+      "citationId": "diversity-scaling-2025",
+      "sourceUrl": "https://arxiv.org/abs/2507.06219",
+      "supportingPassage": "Throughout extensive experiments on various robot platforms, we reveal that (1) task diversity proves more critical than per-task demonstration quantity, benefiting transfer from diverse pre-training tasks to novel downstream scenarios; (2) multi-embodiment pre-training data is optional for cross-embodiment transfer-models trained on high-quality single-embodiment data can efficiently transfer to different platforms, showing more desirable scaling property during fine-tuning than multi-embodiment pre-trained models; and (3) expert diversity, arising from individual operational preferences and stochastic variations in human demonstrations, can be confounding to policy learning, with velocity multimodality emerging as a key contributing factor."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "ds11-optional-when-diverse",
+      "outcome": "supported",
+      "reviewedBy": "datasets-integrator-20260916 (session b5c07ce8-b17e-490a-9dfe-2a04bf8ffc2b, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Supported: the abstract prints findings (1) and (2) verbatim (task diversity more critical than per-task count; multi-embodiment pre-training data optional for cross-embodiment transfer); the article's conditional compression is recorded as a wording nuance, faithful in substance. Same passage sha-pinned by plan data-bottleneck-db11-diversity-20260915, reused read-only.",
+      "evidenceDigest": "325938317c04bfbbac1e4c69a8de5d333300f13a8553aa50abb8e9a79163e480"
+    }
+  ]
 }
 ]

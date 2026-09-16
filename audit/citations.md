@@ -413,6 +413,7 @@ bot-walled or JS-shell page, identity verified through Crossref metadata;
 | robozaps-humanoids-2026 | https://blog.robozaps.com/b/best-humanoid-robots | ok | match | none (verified as cited) |  |
 | unitree-g1-2026 | https://www.unitree.com/g1/ | ok | match | none (verified as cited) |  |
 | unitree-h2-2026 | https://www.unitree.com/H2/ | ok | match | none (verified as cited) |  |
+| agibot-world-repo-2026 | https://raw.githubusercontent.com/OpenDriveLab/AgiBot-World/main/README.md | ok | match | none (verified as cited) | registered 2026-09-16 by the datasets integrator (packet convergence-source-i-datasets-20260916c row 7 part ds7-repo-count-and-license). Raw README fetched live in the packet session (curl 200, 19,254 bytes, retained sha-verified in the source lane); repo count 1,003,672 (~43.8T) and CC BY-NC-SA 4.0 license lines needle-verified by the integrator. Markdown document, no HTML title tag. |
 | 1x-neo-2026 | https://www.1x.tech/neo | ok | match | fixed: registry title aligned to the product page title |  |
 | bd-atlas-2026 | https://bostondynamics.com/products/atlas/ | ok | match | fixed: registry title aligned to the product page title |  |
 | figure-03-2025 | https://www.figure.ai/news/introducing-figure-03 | ok | match | none (verified as cited) |  |
