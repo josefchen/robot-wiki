@@ -68393,6 +68393,282 @@
     "evidenceDigest": "9449b839dc0586b002722ab1b013d953bfa7da4aacba9993bbdd63fe467069b6"
    }
   ]
+ },
+ {
+  "id": "sim2real-transfer-1-survey-taxonomy-20260916h",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "sim2real-transfer",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "63252a4a1012f177f36a14acb6e752da0669a1cdd4ff8ad1b8f6375077e60d34",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "s1-abstract-taxonomy",
+    "text": "The survey's abstract enumerates the solution taxonomy with the two cross-cutting levers named: 'By leveraging techniques such as domain randomization, real-to-sim transfer, state and action abstractions, and sim-real co-training, many works have overcome the reality gap.'",
+    "requiredCitationIds": [
+     "reality-gap-survey-2026"
+    ]
+   },
+   {
+    "id": "s1-sec4-organization",
+    "text": "Sec. 4 'Existing Solutions' organizes the field into buckets via the Figure 3 taxonomy ('distinguishing clearly between approaches and techniques that are designed to reduce the reality gap and those designed to overcome it. The colored squares indicate which reality gap each method addresses') and the 4.1 Reducing / 4.2 Overcoming split; the article's four buckets are present in the body (Domain Randomization; the System Identification bullet; the Real-to-Sim First bullet; teacher-student-style and co-training methods in 4.2). The survey prints no literal 'teacher-student' phrase — absorbed by the claim's 'nearly these same buckets'.",
+    "requiredCitationIds": [
+     "reality-gap-survey-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 ef6410bf9d0e03899eddd9700cffa7d86de01af7246cf722a0138888f10bac16) at HEAD ff0fcdd68ddd272b4e1f7864e067b5e5a64fb9a8: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 4 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha256-verified saved source bodies (sources/, fetch of record 2026-09-16T13:15:53Z-13:15:55Z) with zero network retrieval; the full 83-check run is the lane's needle-verification.json. Cited ids verified registered per-id in data/citations.ts (the survey reuses the citation already bound for the why-rl-locomotion rows; Isaac Lab reuses the entry behind rows 2/8/12/13; SplatSim/RoboGSim reuse the entries behind rows 4/18/19); no new registrations proposed or needed. Rows 23 and 24 stay honestly HELD (authored-toy internal rows with no registered citation; compoundPlanSchema requiredCitationIds min(1); standing owner question). Source preparation is not acceptance.",
+   "planDigest": "9837dcf41031b89e1d9fce4235a13de94a30c4293f34801b4e30571f06f04bdf"
+  },
+  "evidence": [
+   {
+    "partId": "s1-abstract-taxonomy",
+    "citationId": "reality-gap-survey-2026",
+    "sourceUrl": "https://arxiv.org/html/2510.20808",
+    "supportingPassage": "Recent advances in sim-to-real transfer have demonstrated promising results across various platforms, including locomotion, navigation, and manipulation. By leveraging techniques such as domain randomization, real-to-sim transfer, state and action abstractions, and sim-real co-training, many works have overcome the reality gap. However, challenges persist, and a deeper understanding of the reality gap’s root causes and solutions is necessary. In this survey, we present a comprehensive overview of the sim-to-real landscape, highlighting the causes, solutions, and evaluation metrics for the reality gap and sim-to-real transfer."
+   },
+   {
+    "partId": "s1-sec4-organization",
+    "citationId": "reality-gap-survey-2026",
+    "sourceUrl": "https://arxiv.org/html/2510.20808",
+    "supportingPassage": "Figure 3: A taxonomy of sim-to-real transfer methods, distinguishing clearly between approaches and techniques that are designed to reduce the reality gap and those designed to overcome it. The colored squares indicate which reality gap each method addresses. Successful sim-to-real transfer requires careful consideration of the reality gap. Methods addressing this challenge typically target one or more of the previously introduced sources of the reality gap (Section 3). [...] • System Identification. has been repeatedly shown to be a crucial aspect for successful sim-to-real transfer in multiple domains such as navigation [ 8 ] , locomotion [ 4 , 44 ] , and manipulation [ 45 , 46 ] . {marginnote} [] Sys-ID helps reduce the dynamics gap . — and — • Real-to-Sim First. A variety of techniques have aimed to use real-world data to construct visually and dynamically accurate simulation environments on the fly at test time [ 58 , 59 , 60 , 61 , 62 , 46 , 63 , 64 , 65 , 66 , 67 , 68 ] . Real-to-sim environment creation involves creating environments in simulation from data collected in the real world 𝒟 real = { ( z , a , z ′ ) i } i = 1 N . {marginnote} [] Real-to-sim can reduce various kinds of reality gap . [...] This work demonstrated the benefits of co-training with real-world data versus training with only simulation data. Ankile et al. [ 108 ] proposed a residual RL scheme to combine real-world and simulated data for vision-based manipulation. Maddukuri et al. [ 109 ] demonstrated the effectiveness of co-training vision-based manipulation policies with simulation and real-world data. Co-training has also been shown to be beneficial for training robotic foundation models [ 110 , 111 ] ."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "s1-abstract-taxonomy",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the packet's sha256-verified saved body (reality-gap-html, fetch of record 2026-09-16T13:15:54Z): the abstract prints the taxonomy enumeration verbatim, with the two cross-cutting levers (state and action abstractions; sim-real co-training) named alongside the buckets.",
+    "evidenceDigest": "f40df20525f6ba560c0333c498fdf33ec57fe63506bcaea1b741554dcc31e5b5"
+   },
+   {
+    "partId": "s1-sec4-organization",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the same saved body: Sec. 4 organizes by the Figure 3 reduce-vs-overcome taxonomy with the 4.1/4.2 split, and the article's four buckets are each present in the body (Domain Randomization; the System Identification bullet; the Real-to-Sim First bullet; teacher-student-style and co-training methods in 4.2). The survey prints no literal 'teacher-student' phrase (verified 0 hits), absorbed by the claim's 'nearly these same buckets'.",
+    "evidenceDigest": "8b73ef0338676496ff7288f305bccf33c306a78ca8f8b42d66638dad48ab5fc7"
+   }
+  ]
+ },
+ {
+  "id": "sim2real-transfer-7-adr-20260916h",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "sim2real-transfer",
+  "rowOrdinal": 7,
+  "originalCellsDigest": "95d4a4d88c511ca6ce26fdf7372f2471909ac4a8fc4427932da2c60e8e6494e8",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "s7-openai-adr-mechanism",
+    "text": "OpenAI's paper defines ADR as 'a novel algorithm, which we call automatic domain randomization (ADR)' that 'automatically generates a distribution over randomized environments of ever-increasing difficulty', with the body's Algorithm 1 expanding a randomized parameter's boundary when average performance exceeds the high threshold t_H and contracting it below the low threshold t_L — the range widens as the agent succeeds.",
+    "requiredCitationIds": [
+     "openai-rubiks-cube-2019"
+    ]
+   },
+   {
+    "id": "s7-isaac-adr-curriculum",
+    "text": "Isaac Lab Sec. 5.3 (within Sec. 5, Learning Techniques and Workflows): 'Isaac Lab supports Automatic Domain Randomization (ADR) (OpenAI et al., 2019) through a configurable curriculum framework that adaptively adjusts the difficulty of the environment based on the performance of the agent. The dexsuite examples in Isaac Lab provide reference ADR configurations for RL training.' The article's 'dexterous-manipulation examples' glosses 'dexsuite examples'.",
+    "requiredCitationIds": [
+     "isaac-lab-2025"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 ef6410bf9d0e03899eddd9700cffa7d86de01af7246cf722a0138888f10bac16) at HEAD ff0fcdd68ddd272b4e1f7864e067b5e5a64fb9a8: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 4 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha256-verified saved source bodies (sources/, fetch of record 2026-09-16T13:15:53Z-13:15:55Z) with zero network retrieval; the full 83-check run is the lane's needle-verification.json. Cited ids verified registered per-id in data/citations.ts (the survey reuses the citation already bound for the why-rl-locomotion rows; Isaac Lab reuses the entry behind rows 2/8/12/13; SplatSim/RoboGSim reuse the entries behind rows 4/18/19); no new registrations proposed or needed. Rows 23 and 24 stay honestly HELD (authored-toy internal rows with no registered citation; compoundPlanSchema requiredCitationIds min(1); standing owner question). Source preparation is not acceptance.",
+   "planDigest": "8db8384983e323ad1278ae76166f219a02ffee9ff536a87ea67a80cd542c27f0"
+  },
+  "evidence": [
+   {
+    "partId": "s7-openai-adr-mechanism",
+    "citationId": "openai-rubiks-cube-2019",
+    "sourceUrl": "https://arxiv.org/abs/1910.07113",
+    "supportingPassage": "We demonstrate that models trained only in simulation can be used to solve a manipulation problem of unprecedented complexity on a real robot. This is made possible by two key components: a novel algorithm, which we call automatic domain randomization (ADR) and a robot platform built for machine learning. ADR automatically generates a distribution over randomized environments of ever-increasing difficulty. Control policies and vision state estimators trained with ADR exhibit vastly improved sim2real transfer."
+   },
+   {
+    "partId": "s7-openai-adr-mechanism",
+    "citationId": "openai-rubiks-cube-2019",
+    "sourceUrl": "https://arxiv.org/html/1910.07113",
+    "supportingPassage": "At each iteration, the ADR algorithm randomly selects a dimension of the environment λ i to fix to a boundary value ϕ i L or ϕ i H (we call this “boundary sampling”), while the other parameters are sampled as per P ϕ . Model performance for the sampled environment is then evaluated and appended to the buffer associated with the selected boundary of the selected parameter. Once enough performance data is collected, it is averaged and compared to thresholds. If the average model performance is better than the high threshold t H , the parameter for the chosen dimension is increased. It is decreased if the average model performance is worse than the low threshold t L . [...] However, in automatic domain randomization (ADR), ϕ is changing dynamically with training progress. ... To quantify the amount of ADR expansion, we define ADR entropy ... The higher the ADR entropy, the broader the randomization sampling distribution."
+   },
+   {
+    "partId": "s7-isaac-adr-curriculum",
+    "citationId": "isaac-lab-2025",
+    "sourceUrl": "https://arxiv.org/html/2511.04831v1",
+    "supportingPassage": "Furthermore, Isaac Lab supports Automatic Domain Randomization (ADR) ( OpenAI et al., 2019 ) through a configurable curriculum framework that adaptively adjusts the difficulty of the environment based on the performance of the agent. The dexsuite examples in Isaac Lab provide reference ADR configurations for RL training. The framework automatically manages difficulty progression, continuously challenging the learning agent without overwhelming it, thereby promoting more robust and generalizable policies."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "s7-openai-adr-mechanism",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the packet's saved rubiks abs + v1 HTML bodies: the abstract coins ADR and prints 'ever-increasing difficulty'; the body's algorithm makes the as-the-agent-succeeds expansion explicit (boundary value increased when average performance beats the high threshold t_H, decreased below the low threshold t_L; phi 'changing dynamically with training progress').",
+    "evidenceDigest": "620465cece670bd0d9d7bad68da1e4caef66a232c94511bab7d8a1fb50ed1323"
+   },
+   {
+    "partId": "s7-isaac-adr-curriculum",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the packet's saved Isaac Lab v1 HTML body (sha byte-identical to the retained 2026-09-08 producer body behind corrected rows 2/8/12/13): Sec. 5.3 prints the configurable-curriculum ADR sentence and 'The dexsuite examples in Isaac Lab provide reference ADR configurations for RL training'; the article's 'dexterous-manipulation examples' is a faithful gloss of 'dexsuite', disclosed in the row note.",
+    "evidenceDigest": "61e51fe30ed7170b045fa8a1fbdfc9ed652eb9dca7d48e7e7b2536859f7ea90c"
+   }
+  ]
+ },
+ {
+  "id": "sim2real-transfer-21-splat-division-20260916h",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "sim2real-transfer",
+  "rowOrdinal": 21,
+  "originalCellsDigest": "b149371d4b70eac72982fab06e1334abbfe172011cb68d37f5563cbe18d459d3",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "s21-division-of-labor",
+    "text": "SplatSim states the division of labor: Gaussian splats replace 'traditional mesh representation in the rendering pipeline of the simulator' (appearance), while 'the simulator as a physics backend' (PyBullet) supplies dynamics; RoboGSim is likewise 'powered by 3D Gaussian Splatting and the physics engine'.",
+    "requiredCitationIds": [
+     "splatsim-2024",
+     "robogsim-2024"
+    ]
+   },
+   {
+    "id": "s21-static-scene",
+    "text": "The static-scene caveat matches both papers: SplatSim 'relies solely on an initial video of the static scene with the robot' / 'requires only an initial video of the static scene'; RoboGSim's Gaussian Reconstructor 'employ[s] the 3DGS method to reconstruct static scenes'.",
+    "requiredCitationIds": [
+     "splatsim-2024",
+     "robogsim-2024"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 ef6410bf9d0e03899eddd9700cffa7d86de01af7246cf722a0138888f10bac16) at HEAD ff0fcdd68ddd272b4e1f7864e067b5e5a64fb9a8: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 4 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha256-verified saved source bodies (sources/, fetch of record 2026-09-16T13:15:53Z-13:15:55Z) with zero network retrieval; the full 83-check run is the lane's needle-verification.json. Cited ids verified registered per-id in data/citations.ts (the survey reuses the citation already bound for the why-rl-locomotion rows; Isaac Lab reuses the entry behind rows 2/8/12/13; SplatSim/RoboGSim reuse the entries behind rows 4/18/19); no new registrations proposed or needed. Rows 23 and 24 stay honestly HELD (authored-toy internal rows with no registered citation; compoundPlanSchema requiredCitationIds min(1); standing owner question). Source preparation is not acceptance.",
+   "planDigest": "25f25c15c016f65375986a4656f0a7dac61060238570e3a4bc3fe1fc38c52950"
+  },
+  "evidence": [
+   {
+    "partId": "s21-division-of-labor",
+    "citationId": "splatsim-2024",
+    "sourceUrl": "https://arxiv.org/html/2409.10161",
+    "supportingPassage": "We propose a novel and scalable data generation framework, “SplatSim” for manipulation tasks. SplatSim is focused predominantly on bridging the vision Sim2Real gap by leveraging photorealistic renderings generated through Gaussian Splatting, replacing traditional mesh representation in the rendering pipeline of the simulator. • We show how to leverage Robot Splat Models and Object Splat Models, along with the simulator as a physics backend, to generate photorealistic trajectories of robot-object interactions. Our method eliminates the need for the real-world data collection to learn these interactions, and relies solely on an initial video of the static scene with the robot. [...] Fig. 2: Top: Our proposed SplatSim framework. Expert demonstrations are collected (a) in a physics simulator (PyBullet). In our case, these demonstrations come either from human experts (teleoperation via Gello [50]) or through a privileged information-based motion planner. The trajectories from the simulator are then fed to the simulator-aligned splat models of the scene and the object (b)."
+   },
+   {
+    "partId": "s21-static-scene",
+    "citationId": "splatsim-2024",
+    "sourceUrl": "https://arxiv.org/html/2409.10161",
+    "supportingPassage": "and leverages an initial scan of the target deployment environment, significantly simplifying the process. ... Our method requires only an initial video of the static scene without the need for additional real-world data collection."
+   },
+   {
+    "partId": "s21-division-of-labor",
+    "citationId": "robogsim-2024",
+    "sourceUrl": "https://arxiv.org/html/2411.11839",
+    "supportingPassage": "To address these limitations, we introduce the RoboGSim, a real2sim2real robotic simulator, powered by 3D Gaussian Splatting and the physics engine. RoboGSim mainly includes four parts: Gaussian Reconstructor, Digital Twins Builder, Scene Composer, and Interactive Engine."
+   },
+   {
+    "partId": "s21-static-scene",
+    "citationId": "robogsim-2024",
+    "sourceUrl": "https://arxiv.org/html/2411.11839",
+    "supportingPassage": "3.2 Gaussian Reconstructor We employ the 3DGS method to reconstruct static scenes, followed by point cloud segmentation of the robotic arm’s joints. Subsequently, we utilize the MDH dynamic model to control the point clouds corresponding to each joint, facilitating the dynamic rendering of the robotic arm."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "s21-division-of-labor",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the packet's saved SplatSim v3 and RoboGSim v2 HTML bodies (the same editions retained behind complete rows 4/18/19): SplatSim replaces 'traditional mesh representation in the rendering pipeline of the simulator' with splats while using 'the simulator as a physics backend' (PyBullet, Fig. 2); RoboGSim is 'powered by 3D Gaussian Splatting and the physics engine'.",
+    "evidenceDigest": "d8b1e0e6353ee3d75c3a0934970be8efa4cf09270434b93527100e216828b440"
+   },
+   {
+    "partId": "s21-static-scene",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the same saved bodies: SplatSim 'relies solely on an initial video of the static scene with the robot' / 'requires only an initial video of the static scene'; RoboGSim's Gaussian Reconstructor 'employ[s] the 3DGS method to reconstruct static scenes'. The article span is the section's uncited synthesis sentence; the surrounding paragraphs cite both papers.",
+    "evidenceDigest": "0d79d9ae193642a7a32993672734fffdca0062f556158fadc5385ed4d2b8b0b8"
+   }
+  ]
+ },
+ {
+  "id": "sim2real-transfer-22-action-space-20260916h",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "sim2real-transfer",
+  "rowOrdinal": 22,
+  "originalCellsDigest": "cd6be483074c02090a372c945deaa866c40b45316be2e5422bdaac416e73eee6",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "s22-survey-emphasis",
+    "text": "The survey's own emphasis on the abstraction lever, verbatim (Sec. 4.1, Action Representations bullet): 'The action space plays a crucial role in reducing the sim-to-real gap as demonstrated across robotics domains including navigation [91], locomotion [92], and manipulation [25].' The article's corrected span restates exactly this.",
+    "requiredCitationIds": [
+     "reality-gap-survey-2026"
+    ]
+   },
+   {
+    "id": "s22-absence-of-coinage",
+    "text": "The 'highest-leverage' / 'least-discussed' coinage appears nowhere in the survey: 0 occurrences of 'highest-leverage', 'highest leverage', 'least-discussed', 'least discussed' in the fetched 347,792-byte body. The corrected article span and verdict stand.",
+    "requiredCitationIds": [
+     "reality-gap-survey-2026"
+    ]
+   },
+   {
+    "id": "s22-locator-correction",
+    "text": "Cell correction: the sentence prints in Sec. 4.1 'Reducing the Gap' (State/Action Representations bullet block), not Sec. 4.2. Body-position proof on the fetched HTML: heading 4.1 at 41434, 'Action Representations' bullet at 48145, sentence at 48169, heading 4.2 at 52302 (positions 961-1246 are the sidebar table of contents).",
+    "requiredCitationIds": [
+     "reality-gap-survey-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 ef6410bf9d0e03899eddd9700cffa7d86de01af7246cf722a0138888f10bac16) at HEAD ff0fcdd68ddd272b4e1f7864e067b5e5a64fb9a8: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 4 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha256-verified saved source bodies (sources/, fetch of record 2026-09-16T13:15:53Z-13:15:55Z) with zero network retrieval; the full 83-check run is the lane's needle-verification.json. Cited ids verified registered per-id in data/citations.ts (the survey reuses the citation already bound for the why-rl-locomotion rows; Isaac Lab reuses the entry behind rows 2/8/12/13; SplatSim/RoboGSim reuse the entries behind rows 4/18/19); no new registrations proposed or needed. Row 22 is the packet's ready-source-correction: the applied sourceChecked cell fixes the stale Sec. 4.2 locator to Sec. 4.1 (State/Action Representations bullet block) with the positional proof and the live confirmation recorded in the note; verdict and note substance unchanged, article span unchanged. Rows 23 and 24 stay honestly HELD (authored-toy internal rows with no registered citation; compoundPlanSchema requiredCitationIds min(1); standing owner question). Source preparation is not acceptance.",
+   "planDigest": "2ed3475dd34a199e46ce86293289e1aa4a5813af31b35cef96d99285c3dd09e7"
+  },
+  "evidence": [
+   {
+    "partId": "s22-survey-emphasis",
+    "citationId": "reality-gap-survey-2026",
+    "sourceUrl": "https://arxiv.org/html/2510.20808",
+    "supportingPassage": "State Representations. Similar to sensor modalities, the choice of state representations can strongly influence the reality gap [ 85 , 86 , 87 , 88 , 89 ] . While using inferred depth maps can be a popular choice in the literature, other representations such as keypoint detections [ 87 ] , visual feature tracking [ 90 ] or foundation model embeddings [ 89 ] have also been proved to be good abstractions for reducing the sensory reality gap. • Action Representations. The action space plays a crucial role in reducing the sim-to-real gap as demonstrated across robotics domains including navigation [ 91 ] , locomotion [ 92 ] , and manipulation [ 25 ] . For instance, for manipulation, previous studies have shown the advantages of using {marginnote} [] Choice of action representations affects the actuation gap . joint velocity control spaces ..."
+   },
+   {
+    "partId": "s22-absence-of-coinage",
+    "citationId": "reality-gap-survey-2026",
+    "sourceUrl": "https://arxiv.org/html/2510.20808",
+    "supportingPassage": "Recent advances in sim-to-real transfer have demonstrated promising results across various platforms, including locomotion, navigation, and manipulation. By leveraging techniques such as domain randomization, real-to-sim transfer, state and action abstractions, and sim-real co-training, many works have overcome the reality gap. However, challenges persist, and a deeper understanding of the reality gap’s root causes and solutions is necessary. In this survey, we present a comprehensive overview of the sim-to-real landscape, highlighting the causes, solutions, and evaluation metrics for the reality gap and sim-to-real transfer."
+   },
+   {
+    "partId": "s22-locator-correction",
+    "citationId": "reality-gap-survey-2026",
+    "sourceUrl": "https://arxiv.org/html/2510.20808",
+    "supportingPassage": "State Representations. Similar to sensor modalities, the choice of state representations can strongly influence the reality gap [ 85 , 86 , 87 , 88 , 89 ] . While using inferred depth maps can be a popular choice in the literature, other representations such as keypoint detections [ 87 ] , visual feature tracking [ 90 ] or foundation model embeddings [ 89 ] have also been proved to be good abstractions for reducing the sensory reality gap. • Action Representations. The action space plays a crucial role in reducing the sim-to-real gap as demonstrated across robotics domains including navigation [ 91 ] , locomotion [ 92 ] , and manipulation [ 25 ] ."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "s22-survey-emphasis",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the packet's saved survey body: the Action Representations bullet prints 'The action space plays a crucial role in reducing the sim-to-real gap as demonstrated across robotics domains including navigation, locomotion, and manipulation' — the survey's own emphasis, which the corrected article span restates exactly.",
+    "evidenceDigest": "a6c855edb15a9aae2d0ac03f7253b08b6aa6a6470ee37379998fb60ab31f4aaa"
+   },
+   {
+    "partId": "s22-absence-of-coinage",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+    "rationale": "Measured on the packet's sha256-verified 347,792-byte fetched body: zero occurrences of 'highest-leverage', 'highest leverage', 'least-discussed' and 'least discussed' (verified 0 hits, all four variants). The bound abstract passage shows the survey's own framing vocabulary — the taxonomy enumeration with no leverage-ranked superlative anywhere. The corrected verdict and the applied article span stand unchanged.",
+    "evidenceDigest": "5d88e8f73839f38ca5dfa43362ca690a10ef268547c186f16981c6275afdfad0"
+   },
+   {
+    "partId": "s22-locator-correction",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator 3d7479b5-a9c5-44c4-a342-c269feb14e05; preserved-packet needle re-verification 2026-09-16 (83/83 checks, lane needle-verification.json)",
+    "rationale": "Precise cell correction, applied exactly as prepared: the quoted sentence's only body occurrence sits inside Sec. 4.1 'Reducing the Gap' (State/Action Representations bullet block), not Sec. 4.2. Positional proof on the saved body: body heading 4.1 < sentence < body heading 4.2 (the first heading hits are the sidebar ToC; relative deltas equal the packet's measurement). Verdict, note substance and the applied article span are unchanged.",
+    "evidenceDigest": "ea9c08018383757dcb7f3b81d9057bc2b369b82147a558bbd54df8531f12a934"
+   }
+  ]
  }
 
 ]

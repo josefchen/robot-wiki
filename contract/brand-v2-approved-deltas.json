@@ -16016,6 +16016,74 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "sim2real-transfer-r1-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/sim2real-transfer",
+   "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+   "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+   "reason": "Exactly rl-sim2real/sim2real-transfer original 1 (evidence completion of the standing V verdict on the survey taxonomy (abstract enumeration verbatim + Sec. 4 organization)) per the frozen packet convergence-source-s-sim2real-transfer-20260916h. All packet evidence passages and precision disclosures needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (83/83 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-transfer-integration-20260916h. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-cell correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 4 selected records of frozen packet convergence-source-s-sim2real-transfer-20260916h, sha256 ef6410bf9d0e03899eddd9700cffa7d86de01af7246cf722a0138888f10bac16) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sim2real-transfer-r7-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/sim2real-transfer",
+   "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+   "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+   "reason": "Exactly rl-sim2real/sim2real-transfer original 7 (evidence completion of the standing V verdict on the ADR mechanism (OpenAI) and the Isaac Lab Sec. 5.3 ADR curriculum, dexsuite gloss disclosed) per the frozen packet convergence-source-s-sim2real-transfer-20260916h. All packet evidence passages and precision disclosures needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (83/83 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-transfer-integration-20260916h. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-cell correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 4 selected records of frozen packet convergence-source-s-sim2real-transfer-20260916h, sha256 ef6410bf9d0e03899eddd9700cffa7d86de01af7246cf722a0138888f10bac16) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sim2real-transfer-r21-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/sim2real-transfer",
+   "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+   "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+   "reason": "Exactly rl-sim2real/sim2real-transfer original 21 (evidence completion of the standing V verdict on the SplatSim/RoboGSim division of labor and static-scene scope) per the frozen packet convergence-source-s-sim2real-transfer-20260916h. All packet evidence passages and precision disclosures needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (83/83 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-transfer-integration-20260916h. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-cell correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 4 selected records of frozen packet convergence-source-s-sim2real-transfer-20260916h, sha256 ef6410bf9d0e03899eddd9700cffa7d86de01af7246cf722a0138888f10bac16) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "sim2real-transfer-r22-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/sim2real-transfer",
+   "oldHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+   "newHash": "a32a9627b99ec169d196d1e26a30286dfc00bcfaaf83ac475cb37e4a22eb608b",
+   "reason": "Exactly rl-sim2real/sim2real-transfer original 22 (ready-source-correction of the stale Sec. 4.2 locator to Sec. 4.1 (State/Action Representations bullet block), positional proof and live confirmation recorded; verdict and note substance unchanged) per the frozen packet convergence-source-s-sim2real-transfer-20260916h. All packet evidence passages and precision disclosures needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (83/83 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-sim2real-transfer-integration-20260916h. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-cell correction only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 4 selected records of frozen packet convergence-source-s-sim2real-transfer-20260916h, sha256 ef6410bf9d0e03899eddd9700cffa7d86de01af7246cf722a0138888f10bac16) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]
