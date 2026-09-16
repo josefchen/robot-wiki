@@ -69557,6 +69557,307 @@
     "evidenceDigest": "e208bc4d80322f05e2b7f65979298cc75aeee3da044f42cca2c71d63ea65a9fb"
    }
   ]
+ },
+ {
+  "id": "parallel-sim-rl-1-isaac-gym-20260916k",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "parallel-sim-rl",
+  "rowOrdinal": 1,
+  "originalCellsDigest": "bd7eeec0acfd6dcee7bf363a99d41a7f1bbd84e7d3330efb245c356dc4bd30b4",
+  "kind": "explicit-parts",
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7f22e287c2d47a7102b56f5a665ee25b5d661e252c67b67788daf0b2d7d5579a) at HEAD a2e74eab1b693ad76f27a81d54b17972b8ca9cf1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check, ledgerSha256 audit/rl-sim2real.md 3cab6082...) before application, and re-derived with the repo lib/audit-ledger.ts parser. Every evidence passage was independently needle-verified by this integrator before adjudication against the packet sha256-verified retained bodies (fetchLog of record 2026-09-16T16:50:48Z-16:55:21Z; sources/ under convergence-source-y-parallel-sim-rl-20260916k) and, for the Rudin ar5iv surface (rows 3 and 18), against the registered row-2 plan rudin-protocol-writer-parallel-sim-rl-2-20260909 retained passages in audit/compound-evidence.json read-only; the Brax title-page affiliations were re-derived by pdftotext from the sha256-verified PDF. Negative needles hold on the retained bodies: the Isaac Gym abstract and full text print no primacy claim (\"first\" 0 abstract hits, 2 procedural full-text hits, \"first demonstration\" 0 anywhere; the paper itself acknowledges concurrent work), and the MuJoCo Playground abstract prints no \"unified\", \"built on MJX\", \"locomotion\" or \"manipulation\". Row 18 local-AND obligations re-executed read-only at apply HEAD (Callout illustrative labeling with the registered rudin-2021 citation on the bounds sentence; lib/parallel-sim.ts fixed-transitions three-bucket header; RUDIN_MARKERS flat 4,096/4 min and uneven 4,096/20 min; no measured-curve presentation anywhere). The packet preparation is not acceptance. Zero retrieval by this integrator; the packet apply-time re-fetch suggestions are superseded by the dispatch binding no-fetch rule (same resolution as the verified perception checkpoint).",
+   "planDigest": "845d0d2291e907b8dec0761aa4e02b48bc4c8411d930aef5861719f8a5a7030f"
+  },
+  "parts": [
+   {
+    "id": "y1-gpu-pipeline-tensors",
+    "text": "Isaac Gym's plumbing and throughput claim trace to the registered paper's own abstract: physics simulation and neural-network policy training both reside on GPU, communicating by directly passing data from physics buffers to PyTorch tensors without CPU bottlenecks, giving 2-3 orders of magnitude training-time improvements over conventional RL that uses a CPU-based simulator with a GPU for the neural network; the full body prints the end-to-end framing ('an end-to-end GPU accelerated training pipeline', roll-outs staying on GPU for the entire learning process).",
+    "requiredCitationIds": [
+     "isaac-gym-2021"
+    ]
+   },
+   {
+    "id": "y1-primacy-cut",
+    "text": "The applied cut of 'was the first demonstration' stands: 'first' appears nowhere as a claim in the paper (needle-checked abstract: 0 hits; full text: 2 procedural occurrences of 'We first ...'; 'first demonstration': 0 hits anywhere), and the paper itself acknowledges concurrent work ('others [14] have recently begun attempting an approach similar to Isaac Gym with respect to running end-to-end training on hardware accelerators'), so the primacy framing had no support in the cited document.",
+    "requiredCitationIds": [
+     "isaac-gym-2021"
+    ]
+   }
+  ],
+  "evidence": [
+   {
+    "partId": "y1-gpu-pipeline-tensors",
+    "citationId": "isaac-gym-2021",
+    "sourceUrl": "https://arxiv.org/abs/2108.10470",
+    "supportingPassage": "Isaac Gym offers a high performance learning platform to train policies for wide variety of robotics tasks directly on GPU. Both physics simulation and the neural network policy training reside on GPU and communicate by directly passing data from physics buffers to PyTorch tensors without ever going through any CPU bottlenecks. This leads to blazing fast training times for complex robotics tasks on a single GPU with 2-3 orders of magnitude improvements compared to conventional RL training that uses a CPU based simulator and GPU for neural networks."
+   },
+   {
+    "partId": "y1-gpu-pipeline-tensors",
+    "citationId": "isaac-gym-2021",
+    "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2108.10470",
+    "supportingPassage": "To address these bottlenecks, we present Isaac Gym - an end-to-end high performance robotics simulation platform. It runs an end-to-end GPU accelerated training pipeline, which allows researchers to overcome the aforementioned limitations and achieves 2-3 orders of magnitude of training speed-up in continuous control tasks. ... With the end-to-end approach, roll-outs of observation, reward, and action buffers can stay on the GPU for the entire learning process, eliminating the need to read data back from the CPU."
+   },
+   {
+    "partId": "y1-primacy-cut",
+    "citationId": "isaac-gym-2021",
+    "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2108.10470",
+    "supportingPassage": "We note that others [ 14 ] have recently begun attempting an approach similar to Isaac Gym with respect to running end-to-end training on hardware accelerators."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "y1-gpu-pipeline-tensors",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "abstract prints the PyTorch-tensor plumbing and the 2-3-orders figure with its exact comparator verbatim; body prints the end-to-end single-GPU pipeline framing Needle-verified verbatim by this integrator before adjudication against the packet sha256-verified retained body before any product byte was written.",
+    "evidenceDigest": "57a8e3c48a1ba2895c6f5f152dba9f791bb9e6129ef7ef911621d4fec512c0ee"
+   },
+   {
+    "partId": "y1-primacy-cut",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "negative needle-check this session plus the paper's own concurrent-work acknowledgment remove any basis for 'first demonstration'; the correction deletes only the primacy framing Needle-verified verbatim by this integrator before adjudication against the packet sha256-verified retained body before any product byte was written.",
+    "evidenceDigest": "8be5a72cce064b79c59cd0ca4eeb04ce7363c9c52f55018da4816c3d3b45099d"
+   }
+  ]
+ },
+ {
+  "id": "parallel-sim-rl-3-legged-gym-20260916k",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "parallel-sim-rl",
+  "rowOrdinal": 3,
+  "originalCellsDigest": "73d1646d4bd19a5b0b5e28876456d30ce596506bce47d02130cc6543390de65b",
+  "kind": "explicit-parts",
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7f22e287c2d47a7102b56f5a665ee25b5d661e252c67b67788daf0b2d7d5579a) at HEAD a2e74eab1b693ad76f27a81d54b17972b8ca9cf1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check, ledgerSha256 audit/rl-sim2real.md 3cab6082...) before application, and re-derived with the repo lib/audit-ledger.ts parser. Every evidence passage was independently needle-verified by this integrator before adjudication against the packet sha256-verified retained bodies (fetchLog of record 2026-09-16T16:50:48Z-16:55:21Z; sources/ under convergence-source-y-parallel-sim-rl-20260916k) and, for the Rudin ar5iv surface (rows 3 and 18), against the registered row-2 plan rudin-protocol-writer-parallel-sim-rl-2-20260909 retained passages in audit/compound-evidence.json read-only; the Brax title-page affiliations were re-derived by pdftotext from the sha256-verified PDF. Negative needles hold on the retained bodies: the Isaac Gym abstract and full text print no primacy claim (\"first\" 0 abstract hits, 2 procedural full-text hits, \"first demonstration\" 0 anywhere; the paper itself acknowledges concurrent work), and the MuJoCo Playground abstract prints no \"unified\", \"built on MJX\", \"locomotion\" or \"manipulation\". Row 18 local-AND obligations re-executed read-only at apply HEAD (Callout illustrative labeling with the registered rudin-2021 citation on the bounds sentence; lib/parallel-sim.ts fixed-transitions three-bucket header; RUDIN_MARKERS flat 4,096/4 min and uneven 4,096/20 min; no measured-curve presentation anywhere). The packet preparation is not acceptance. Zero retrieval by this integrator; the packet apply-time re-fetch suggestions are superseded by the dispatch binding no-fetch rule (same resolution as the verified perception checkpoint).",
+   "planDigest": "2c061023f2e1ea675f5343a431ee31fa7318cf69980837c6b0339ad42152f97f"
+  },
+  "parts": [
+   {
+    "id": "y3-paper-links-code",
+    "text": "The span's 'the paper links its released training code' conjunct traces to the Rudin paper's own abstract: 'We open-source our training code to help accelerate further research in the field of learned legged locomotion' followed by the legged_gym URL.",
+    "requiredCitationIds": [
+     "rudin-2021"
+    ]
+   },
+   {
+    "id": "y3-repo-self-identification",
+    "text": "The span's repository conjunct traces to the registered repo: the README (identical at the pinned October 2021 commit ae614c02 and at master today) titles itself 'Isaac Gym Environments for Legged Robots' and states 'This repository provides the environment used to train ANYmal (and other robots) to walk on rough terrain using NVIDIA's Isaac Gym', with Nikita Rudin (Robotic Systems Lab, ETH Zurich) as maintainer and a link back to the paper (arXiv 2109.11978).",
+    "requiredCitationIds": [
+     "legged-gym-repo-2021"
+    ]
+   },
+   {
+    "id": "y3-lineage-correction",
+    "text": "The cut of 'is still the reference lineage' stands on the repo's own announcement: 'With the shift from Isaac Gym to Isaac Sim at NVIDIA, we have migrated all the environments from this work to Isaac Lab. Following this migration, this repository will receive limited updates and support. We encourage all users to migrate to the new framework.' The surviving RSL-RL linkage is the README's printed installation dependency: 'Install rsl_rl (PPO implementation)', pinned v1.0.2 from leggedrobotics/rsl_rl.",
+    "requiredCitationIds": [
+     "legged-gym-repo-2021"
+    ]
+   }
+  ],
+  "evidence": [
+   {
+    "partId": "y3-paper-links-code",
+    "citationId": "rudin-2021",
+    "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+    "supportingPassage": "Finally, we transfer the policies to the real robot to validate the approach. We open-source our training code to help accelerate further research in the field of learned legged locomotion: [https://leggedrobotics.github.io/legged_gym/]"
+   },
+   {
+    "partId": "y3-repo-self-identification",
+    "citationId": "legged-gym-repo-2021",
+    "sourceUrl": "https://raw.githubusercontent.com/leggedrobotics/legged_gym/master/README.md",
+    "supportingPassage": "# Isaac Gym Environments for Legged Robots # This repository provides the environment used to train ANYmal (and other robots) to walk on rough terrain using NVIDIA's Isaac Gym. It includes all components needed for sim-to-real transfer: actuator network, friction & mass randomization, noisy observations and random pushes during training. **Maintainer**: Nikita Rudin **Affiliation**: Robotic Systems Lab, ETH Zurich ... Paper: https://arxiv.org/abs/2109.11978"
+   },
+   {
+    "partId": "y3-lineage-correction",
+    "citationId": "legged-gym-repo-2021",
+    "sourceUrl": "https://raw.githubusercontent.com/leggedrobotics/legged_gym/master/README.md",
+    "supportingPassage": "### :bell: Announcement (09.01.2024) ### With the shift from Isaac Gym to Isaac Sim at NVIDIA, we have migrated all the environments from this work to [Isaac Lab](https://github.com/isaac-sim/IsaacLab). Following this migration, this repository will receive limited updates and support. We encourage all users to migrate to the new framework for their applications. ... 4. Install rsl_rl (PPO implementation) - Clone https://github.com/leggedrobotics/rsl_rl - `cd rsl_rl && git checkout v1.0.2 && pip install -e .`"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "y3-paper-links-code",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "retained Rudin abstract sentence (row 2's registered plan surface) prints the open-source-code link verbatim; reused read-only per the compound-evidence reuse rule Needle-verified verbatim by this integrator before adjudication: the Rudin-surface items against the registered row-2 plan retained passages read-only, the README items against the sha256-verified retained master README and repo landing page.",
+    "evidenceDigest": "1450577a22761e69759de93339fb62dcb60bfe0516e28ed0962afe02718400fc"
+   },
+   {
+    "partId": "y3-repo-self-identification",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "self-identification sentence printed identically at the pinned Oct-2021 commit (retained) and at master (fresh fetch this session); maintainer block matches the registry author Needle-verified verbatim by this integrator before adjudication: the Rudin-surface items against the registered row-2 plan retained passages read-only, the README items against the sha256-verified retained master README and repo landing page.",
+    "evidenceDigest": "122c262ed3b40c618fd12374ceb2d167a4368a66235804f72d8d444c4fd85ba4"
+   },
+   {
+    "partId": "y3-lineage-correction",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "the repo's own 2024 announcement contradicts any 'still the reference lineage' present-tense claim; the article already carries the corrected sentence, so the row's cells are corrected to describe that state Needle-verified verbatim by this integrator before adjudication: the Rudin-surface items against the registered row-2 plan retained passages read-only, the README items against the sha256-verified retained master README and repo landing page.",
+    "evidenceDigest": "2438922e7d621d92791aee982c62dc25072edb073490d0a19051111c0b4ec408"
+   }
+  ]
+ },
+ {
+  "id": "parallel-sim-rl-5-brax-20260916k",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "parallel-sim-rl",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "462e62d6993b6e46003c24d8e8e1bbadb633115da233d4017485c866c904b518",
+  "kind": "explicit-parts",
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7f22e287c2d47a7102b56f5a665ee25b5d661e252c67b67788daf0b2d7d5579a) at HEAD a2e74eab1b693ad76f27a81d54b17972b8ca9cf1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check, ledgerSha256 audit/rl-sim2real.md 3cab6082...) before application, and re-derived with the repo lib/audit-ledger.ts parser. Every evidence passage was independently needle-verified by this integrator before adjudication against the packet sha256-verified retained bodies (fetchLog of record 2026-09-16T16:50:48Z-16:55:21Z; sources/ under convergence-source-y-parallel-sim-rl-20260916k) and, for the Rudin ar5iv surface (rows 3 and 18), against the registered row-2 plan rudin-protocol-writer-parallel-sim-rl-2-20260909 retained passages in audit/compound-evidence.json read-only; the Brax title-page affiliations were re-derived by pdftotext from the sha256-verified PDF. Negative needles hold on the retained bodies: the Isaac Gym abstract and full text print no primacy claim (\"first\" 0 abstract hits, 2 procedural full-text hits, \"first demonstration\" 0 anywhere; the paper itself acknowledges concurrent work), and the MuJoCo Playground abstract prints no \"unified\", \"built on MJX\", \"locomotion\" or \"manipulation\". Row 18 local-AND obligations re-executed read-only at apply HEAD (Callout illustrative labeling with the registered rudin-2021 citation on the bounds sentence; lib/parallel-sim.ts fixed-transitions three-bucket header; RUDIN_MARKERS flat 4,096/4 min and uneven 4,096/20 min; no measured-curve presentation anywhere). The packet preparation is not acceptance. Zero retrieval by this integrator; the packet apply-time re-fetch suggestions are superseded by the dispatch binding no-fetch rule (same resolution as the verified perception checkpoint).",
+   "planDigest": "76f1150bd5a97257b5321c9dc3fe8e380d70844d9d6ff789c2969e00cd67f034"
+  },
+  "parts": [
+   {
+    "id": "y5-jax-physics-and-learning",
+    "text": "Both halves of 'wrote the physics and the learning algorithms in JAX' trace verbatim to the abstract: the rigid-body-simulation library is 'written in JAX', and the learning algorithms are 'reimplementations of PPO, SAC, ES, and direct policy optimization in JAX that compile alongside our environments, allowing the learning algorithm and the environment processing to occur on the same device' - the article's 'so both compile onto the same accelerator' - with 'training of performant policies on common OpenAI Gym MuJoCo-like tasks in minutes' closing the claim verbatim.",
+    "requiredCitationIds": [
+     "brax-2021"
+    ]
+   },
+   {
+    "id": "y5-from-google-2021",
+    "text": "'From Google in 2021' traces to the paper's own title page: all six listed authors carry the 'Google Research' affiliation line, and the page header prints 'arXiv:2106.13281v1 [cs.RO] 24 Jun 2021' (the abs dateline likewise reads 'Submitted on 24 Jun 2021'). The affiliation is printed by the document body surface, not the abstract page - scope disclosed.",
+    "requiredCitationIds": [
+     "brax-2021"
+    ]
+   }
+  ],
+  "evidence": [
+   {
+    "partId": "y5-jax-physics-and-learning",
+    "citationId": "brax-2021",
+    "sourceUrl": "https://arxiv.org/abs/2106.13281",
+    "supportingPassage": "We present Brax, an open source library for rigid body simulation with a focus on performance and parallelism on accelerators, written in JAX. We present results on a suite of tasks inspired by the existing reinforcement learning literature, but remade in our engine. Additionally, we provide reimplementations of PPO, SAC, ES, and direct policy optimization in JAX that compile alongside our environments, allowing the learning algorithm and the environment processing to occur on the same device, and to scale seamlessly on accelerators. Finally, we include notebooks that facilitate training of performant policies on common OpenAI Gym MuJoCo-like tasks in minutes."
+   },
+   {
+    "partId": "y5-from-google-2021",
+    "citationId": "brax-2021",
+    "sourceUrl": "https://arxiv.org/pdf/2106.13281",
+    "supportingPassage": "C. Daniel Freeman Google Research Erik Frey Google Research Anton Raichuk Google Research Sertan Girgin Google Research Igor Mordatch Google Research Olivier Bachem Google Research [page header] arXiv:2106.13281v1 [cs.RO] 24 Jun 2021 [pdftotext line-order flattened; each author name is followed by the printed affiliation line 'Google Research']"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "y5-jax-physics-and-learning",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "abstract prints every conjunct of the claim's JAX/compile-same-device/minutes-on-MuJoCo-like-tasks content verbatim Needle-verified verbatim by this integrator before adjudication against the packet sha256-verified retained body before any product byte was written.",
+    "evidenceDigest": "3331784d108a4d926817f1eb9325f814993cf31f899f282bfee5a8452e57594e"
+   },
+   {
+    "partId": "y5-from-google-2021",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "'Google Research' is printed under all six authors on the PDF title page (public surface of the same registered document); the abs page prints no affiliations, so the attribution rests on the body surface - disclosed in the note Needle-verified verbatim by this integrator before adjudication against the packet sha256-verified retained body before any product byte was written.",
+    "evidenceDigest": "ecbf384d4e3b58ffd21c927714d1465f3496b832f48d6e9ecbb096ceafcf90ca"
+   }
+  ]
+ },
+ {
+  "id": "parallel-sim-rl-6-mujoco-playground-20260916k",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "parallel-sim-rl",
+  "rowOrdinal": 6,
+  "originalCellsDigest": "aae8feb33b26c4e0fe7352b785c60668080eb5dfd7132a7a3090490dedcd0ae0",
+  "kind": "explicit-parts",
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7f22e287c2d47a7102b56f5a665ee25b5d661e252c67b67788daf0b2d7d5579a) at HEAD a2e74eab1b693ad76f27a81d54b17972b8ca9cf1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check, ledgerSha256 audit/rl-sim2real.md 3cab6082...) before application, and re-derived with the repo lib/audit-ledger.ts parser. Every evidence passage was independently needle-verified by this integrator before adjudication against the packet sha256-verified retained bodies (fetchLog of record 2026-09-16T16:50:48Z-16:55:21Z; sources/ under convergence-source-y-parallel-sim-rl-20260916k) and, for the Rudin ar5iv surface (rows 3 and 18), against the registered row-2 plan rudin-protocol-writer-parallel-sim-rl-2-20260909 retained passages in audit/compound-evidence.json read-only; the Brax title-page affiliations were re-derived by pdftotext from the sha256-verified PDF. Negative needles hold on the retained bodies: the Isaac Gym abstract and full text print no primacy claim (\"first\" 0 abstract hits, 2 procedural full-text hits, \"first demonstration\" 0 anywhere; the paper itself acknowledges concurrent work), and the MuJoCo Playground abstract prints no \"unified\", \"built on MJX\", \"locomotion\" or \"manipulation\". Row 18 local-AND obligations re-executed read-only at apply HEAD (Callout illustrative labeling with the registered rudin-2021 citation on the bounds sentence; lib/parallel-sim.ts fixed-transitions three-bucket header; RUDIN_MARKERS flat 4,096/4 min and uneven 4,096/20 min; no measured-curve presentation anywhere). The packet preparation is not acceptance. Zero retrieval by this integrator; the packet apply-time re-fetch suggestions are superseded by the dispatch binding no-fetch rule (same resolution as the verified perception checkpoint).",
+   "planDigest": "8fc8733c90e2e89f210e4630b6042831ca3eb09d8e1da7f221296671cd89eb42"
+  },
+  "parts": [
+   {
+    "id": "y6-open-framework-sim2real",
+    "text": "The Playground conjunct traces verbatim to the abstract: 'a fully open-source framework for robot learning built with MJX' (open robot-learning framework), 'with the express goal of streamlining simulation, training, and sim-to-real transfer onto robots' plus 'enabling zero-shot sim-to-real transfer from both state and pixel inputs' (sim-to-real as a stated goal), 'train policies in minutes on a single GPU', and the platform list 'quadrupeds, humanoids, dexterous hands, and robotic arms' that the article's 'spanning locomotion and manipulation' glosses.",
+    "requiredCitationIds": [
+     "mujoco-playground-2025"
+    ]
+   },
+   {
+    "id": "y6-note-quote-correction",
+    "text": "The note cell's quoted fragment is corrected to the page's own words: the live abstract prints 'built with MJX' and contains no 'unified', no 'built on MJX', and no literal 'locomotion'/'manipulation' (needle-checked this session); the verdict 'verified' is unaffected because the claim's substance is printed, only the note's quotation was inexact.",
+    "requiredCitationIds": [
+     "mujoco-playground-2025"
+    ]
+   }
+  ],
+  "evidence": [
+   {
+    "partId": "y6-open-framework-sim2real",
+    "citationId": "mujoco-playground-2025",
+    "sourceUrl": "https://arxiv.org/abs/2502.08844",
+    "supportingPassage": "We introduce MuJoCo Playground, a fully open-source framework for robot learning built with MJX, with the express goal of streamlining simulation, training, and sim-to-real transfer onto robots. With a simple \"pip install playground\", researchers can train policies in minutes on a single GPU. Playground supports diverse robotic platforms, including quadrupeds, humanoids, dexterous hands, and robotic arms, enabling zero-shot sim-to-real transfer from both state and pixel inputs. This is achieved through an integrated stack comprising a physics engine, batch renderer, and training environments."
+   },
+   {
+    "partId": "y6-note-quote-correction",
+    "citationId": "mujoco-playground-2025",
+    "sourceUrl": "https://arxiv.org/abs/2502.08844",
+    "supportingPassage": "a fully open-source framework for robot learning built with MJX [needle-check against this abstract, 2026-09-16: 'unified' 0 hits; 'built on MJX' 0 hits; 'locomotion' 0 hits; 'manipulation' 0 hits; 'sim-to-real' 2 hits; 'minutes' 1 hit]"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "y6-open-framework-sim2real",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "abstract prints the open-framework-on-MJX framing, sim-to-real as express goal, minutes-on-single-GPU, and the platform list the article glosses Needle-verified verbatim by this integrator before adjudication against the packet sha256-verified retained body before any product byte was written.",
+    "evidenceDigest": "e7ce4047048f198988d644c981e5b6ccf53e243a81eceac8de075aa319a198f7"
+   },
+   {
+    "partId": "y6-note-quote-correction",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "the note cell's quotation did not match the live page; corrected to the exact printed wording with the negative needle-check recorded Needle-verified verbatim by this integrator before adjudication against the packet sha256-verified retained body before any product byte was written.",
+    "evidenceDigest": "d550709209c270f4561b612a0426a60cc07d93b19bf7d12d0f80218c7aef9f0e"
+   }
+  ]
+ },
+ {
+  "id": "parallel-sim-rl-18-training-time-chart-20260916k",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "parallel-sim-rl",
+  "rowOrdinal": 18,
+  "originalCellsDigest": "c48d84728c0ef1633848263913732949a7713b5efea7cd27e2f13c4c712f4948",
+  "kind": "explicit-parts",
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 7f22e287c2d47a7102b56f5a665ee25b5d661e252c67b67788daf0b2d7d5579a) at HEAD a2e74eab1b693ad76f27a81d54b17972b8ca9cf1: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check, ledgerSha256 audit/rl-sim2real.md 3cab6082...) before application, and re-derived with the repo lib/audit-ledger.ts parser. Every evidence passage was independently needle-verified by this integrator before adjudication against the packet sha256-verified retained bodies (fetchLog of record 2026-09-16T16:50:48Z-16:55:21Z; sources/ under convergence-source-y-parallel-sim-rl-20260916k) and, for the Rudin ar5iv surface (rows 3 and 18), against the registered row-2 plan rudin-protocol-writer-parallel-sim-rl-2-20260909 retained passages in audit/compound-evidence.json read-only; the Brax title-page affiliations were re-derived by pdftotext from the sha256-verified PDF. Negative needles hold on the retained bodies: the Isaac Gym abstract and full text print no primacy claim (\"first\" 0 abstract hits, 2 procedural full-text hits, \"first demonstration\" 0 anywhere; the paper itself acknowledges concurrent work), and the MuJoCo Playground abstract prints no \"unified\", \"built on MJX\", \"locomotion\" or \"manipulation\". Row 18 local-AND obligations re-executed read-only at apply HEAD (Callout illustrative labeling with the registered rudin-2021 citation on the bounds sentence; lib/parallel-sim.ts fixed-transitions three-bucket header; RUDIN_MARKERS flat 4,096/4 min and uneven 4,096/20 min; no measured-curve presentation anywhere). The packet preparation is not acceptance. Zero retrieval by this integrator; the packet apply-time re-fetch suggestions are superseded by the dispatch binding no-fetch rule (same resolution as the verified perception checkpoint).",
+   "planDigest": "8eedf7d5a8fb0593d1ff8beeac63e696070b716a619e81f62a8b6c58b36f2a67"
+  },
+  "parts": [
+   {
+    "id": "y18-rudin-diamond-anchors",
+    "text": "The chart's two measured anchors are printed by the registered Rudin paper on its retained surface: flat-terrain policies trained 'in under four minutes' and uneven-terrain 'in twenty minutes' via massive parallelism on a single workstation GPU, and the documented simulation-and-deployment protocol of 4,096 robots with batch size 98,304 trained for 1,500 policy updates 'in under 20 minutes' on an i9-11900k CPU and NVIDIA RTX A6000 GPU - the exact bounds and hardware the article Callout's diamonds carry. LOCAL-AND (integrator): the curve itself is an authored illustrative fixed-transitions model labeled as such in the Callout and lib/parallel-sim.ts header; the integrator must verify that labeling in-repo and that no surface presents the curve as measured, before applying.",
+    "requiredCitationIds": [
+     "rudin-2021"
+    ]
+   }
+  ],
+  "evidence": [
+   {
+    "partId": "y18-rudin-diamond-anchors",
+    "citationId": "rudin-2021",
+    "sourceUrl": "https://ar5iv.labs.arxiv.org/html/2109.11978",
+    "supportingPassage": "The parallel approach allows training policies for flat terrain in under four minutes, and in twenty minutes for uneven terrain. ... For our simulation and deployment experiments, we use a policy trained with 4096 robots and a batch size of 98304, which we train for 1500 policy updates in under 20 minutes [footnote as printed: Trained on: i9-11900k CPU, NVIDIA RTX A6000 GPU. VRAM requirements are in the supplementary material.]"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "y18-rudin-diamond-anchors",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator d96335d9-d14a-43fa-a4fa-f79486c4890c; preserved-packet + retained-source needle re-verification 2026-09-16; zero retrieval",
+    "rationale": "the measured-anchor conjunct is printed verbatim on the retained registered surface (reused read-only per the compound-evidence reuse rule; integrator re-fetches at apply time); the illustrative-model conjunct discharges via the integrator's in-repo local proof, enumerated in missingDependencies Needle-verified verbatim by this integrator before adjudication: the Rudin-surface items against the registered row-2 plan retained passages read-only, the README items against the sha256-verified retained master README and repo landing page.",
+    "evidenceDigest": "08a087fb75f768293f05a66946682da356a1d18c5e1b127750da313e75245024"
+   }
+  ]
  }
 
 ]

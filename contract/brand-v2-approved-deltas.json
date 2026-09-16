@@ -16322,6 +16322,92 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "parallel-sim-rl-r1-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/parallel-sim-rl",
+   "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+   "newHash": "0a3c06a2d19b52530c88d39ac49fdabfa3654d2706eb9b868f403b1d10eae7d6",
+   "reason": "Exactly rl-sim2real/parallel-sim-rl original 1 (Isaac Gym primacy row): article-span correction per the frozen packet convergence-source-y-parallel-sim-rl-20260916k - the unsupported sentence \"Isaac Gym was the first demonstration of end-to-end RL for complex robot tasks running entirely on one GPU.\" is replaced by \"Isaac Gym ran an end-to-end GPU accelerated training pipeline for complex robot tasks on a single GPU.\" (the paper prints the end-to-end pipeline wording and its own concurrent-work acknowledgment; \"first demonstration\" appears nowhere, needle-checked abstract and full text; the following two sentences and the isaac-gym-2021 citation placement are unchanged). All packet passages were needle-verified by this integrator against the sha256-verified retained bodies before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-sim-rl-integration-20260916k. Not whole-article, full-document manual-review, independent or release acceptance. lastReviewed deliberately not moved (bounded single-sentence recovery; the article audit remains partial).",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-y-parallel-sim-rl-20260916k, sha256 7f22e287c2d47a7102b56f5a665ee25b5d661e252c67b67788daf0b2d7d5579a) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "parallel-sim-rl-r3-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/parallel-sim-rl",
+   "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+   "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+   "reason": "Exactly rl-sim2real/parallel-sim-rl original 3 (legged_gym lineage row): ledger-row source correction - the repository own 09.01.2024 master-README announcement (migration to Isaac Lab, limited updates ahead) corrects the stale still-the-reference-lineage framing, and every conjunct of the already-applied article span is evidenced (Rudin abstract open-source link, pinned-repo self-identification identical at master, maintainer Nikita Rudin, rsl_rl v1.0.2 install dependency) per the frozen packet convergence-source-y-parallel-sim-rl-20260916k. All packet passages were needle-verified by this integrator against the sha256-verified retained bodies before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-sim-rl-integration-20260916k. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger-row work only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-y-parallel-sim-rl-20260916k, sha256 7f22e287c2d47a7102b56f5a665ee25b5d661e252c67b67788daf0b2d7d5579a) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "parallel-sim-rl-r5-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/parallel-sim-rl",
+   "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+   "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+   "reason": "Exactly rl-sim2real/parallel-sim-rl original 5 (Brax row): evidence completion of the standing verified verdict - abstract conjuncts verified verbatim (written in JAX, same-device compile, MuJoCo-like tasks in minutes) with the from-Google attribution evidenced by the PDF title-page Google Research affiliations under all six authors, disclosed as a beyond-abstract surface per the frozen packet convergence-source-y-parallel-sim-rl-20260916k. All packet passages were needle-verified by this integrator against the sha256-verified retained bodies before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-sim-rl-integration-20260916k. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger-row work only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-y-parallel-sim-rl-20260916k, sha256 7f22e287c2d47a7102b56f5a665ee25b5d661e252c67b67788daf0b2d7d5579a) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "parallel-sim-rl-r6-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/parallel-sim-rl",
+   "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+   "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+   "reason": "Exactly rl-sim2real/parallel-sim-rl original 6 (MuJoCo Playground row): note-cell precision correction - the prior quoted fragment appears nowhere on the live abstract (needle-checked: unified 0, built on MJX 0, locomotion 0, manipulation 0) and is corrected to the exact printed wording \"a fully open-source framework for robot learning built with MJX\", with spanning-locomotion-and-manipulation recorded as the article gloss of the printed platform list and the MJX-context half of the span disclosed as beyond-abstract per the frozen packet convergence-source-y-parallel-sim-rl-20260916k. All packet passages were needle-verified by this integrator against the sha256-verified retained bodies before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-sim-rl-integration-20260916k. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger-row work only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-y-parallel-sim-rl-20260916k, sha256 7f22e287c2d47a7102b56f5a665ee25b5d661e252c67b67788daf0b2d7d5579a) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "parallel-sim-rl-r18-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/parallel-sim-rl",
+   "oldHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+   "newHash": "326cc1e57dda0b1a57f8225b0fa171fd5189cdf8c097c0b09571cd8042c02cb4",
+   "reason": "Exactly rl-sim2real/parallel-sim-rl original 18 (TrainingTimeChart economics row): local-AND completion - the measured-anchor conjunct reuses the registered rudin-2021 surface of compound plan rudin-protocol-writer-parallel-sim-rl-2-20260909 read-only (flat under four minutes, uneven in twenty minutes, 4,096 robots, batch 98,304, 1,500 updates under 20 minutes on i9-11900k + RTX A6000) and the illustrative-model conjunct discharges via the integrator in-repo local proof re-executed at apply HEAD (Callout illustrative labeling, lib/parallel-sim.ts header, RUDIN_MARKERS, no measured-curve presentation); the packet owner caveat on the pending authored-evidence decision is recorded verbatim in the ledger history per the frozen packet convergence-source-y-parallel-sim-rl-20260916k. All packet passages were needle-verified by this integrator against the sha256-verified retained bodies before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-parallel-sim-rl-integration-20260916k. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (ledger-row work only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-y-parallel-sim-rl-20260916k, sha256 7f22e287c2d47a7102b56f5a665ee25b5d661e252c67b67788daf0b2d7d5579a) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]
