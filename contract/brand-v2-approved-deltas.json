@@ -14598,6 +14598,96 @@
       "VAL-AUDIT-009"
     ],
     "disposition": "permanent"
-  }
-  ]
+  },
+{
+  "id": "gp-r5-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/grasp-planning",
+  "oldHash": "156f690191b0e7fb9e4619c870c8ec1501b1d6be800312d91aa4e0c5fc8b56b6",
+  "newHash": "1c15d22439324446fc28291802042d344796476f9b4db4d3829692b4ad074cb5",
+  "reason": "Exactly classical/grasp-planning original 5: evidence completion on the open-access Roa-Suarez review (GWS = convex hull of primitive wrenches, Eqs. 21-23, GWS naming) with the unit-normal-force qualifier caveat recorded verbatim in the row note and the review-printed normalization family accepted as the span basis; zero retrieval by this integrator (passage needle-verified against retained source-session fetch text); no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-j-grasp-planning-20260916c, sha256 a52116a2c3db1c8d2f087e8515ec4c5b106297379cd2a00db5c595539d0fd965) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "gp-r7-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/grasp-planning",
+  "oldHash": "156f690191b0e7fb9e4619c870c8ec1501b1d6be800312d91aa4e0c5fc8b56b6",
+  "newHash": "1c15d22439324446fc28291802042d344796476f9b4db4d3829692b4ad074cb5",
+  "reason": "Exactly classical/grasp-planning original 7: evidence completion binding the already-applied C correction to the two verbatim public abstracts (MNP SAGE: Reuleaux/Somoff/Lakshminarayana lower bounds, 4-finger planar except a circle, 12 in 3D iff no rotational symmetry, seven under very general conditions; MSS Springer: tight bounds for the three frictionless-grip cases, linear-time synthesis); zero retrieval by this integrator; no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-j-grasp-planning-20260916c, sha256 a52116a2c3db1c8d2f087e8515ec4c5b106297379cd2a00db5c595539d0fd965) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "gp-r8-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/grasp-planning",
+  "oldHash": "156f690191b0e7fb9e4619c870c8ec1501b1d6be800312d91aa4e0c5fc8b56b6",
+  "newHash": "1c15d22439324446fc28291802042d344796476f9b4db4d3829692b4ad074cb5",
+  "reason": "Exactly classical/grasp-planning original 8: evidence completion on the MNP SAGE abstract verbatim sentence (3 planar / 4 spatial frictional necessary and sufficient), covering prose and Stat-box; zero retrieval by this integrator; no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-j-grasp-planning-20260916c, sha256 a52116a2c3db1c8d2f087e8515ec4c5b106297379cd2a00db5c595539d0fd965) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "gp-r10-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/grasp-planning",
+  "oldHash": "156f690191b0e7fb9e4619c870c8ec1501b1d6be800312d91aa4e0c5fc8b56b6",
+  "newHash": "1c15d22439324446fc28291802042d344796476f9b4db4d3829692b4ad074cb5",
+  "reason": "Exactly classical/grasp-planning original 10: evidence completion on the OA Roa-Suarez review epsilon definition with Ferrari-Canny attribution, the per-unit-normal-force tail caveat recorded and the printed force-constraint family accepted as the span basis with the FC 1992 body named as dependency; zero retrieval by this integrator; no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-j-grasp-planning-20260916c, sha256 a52116a2c3db1c8d2f087e8515ec4c5b106297379cd2a00db5c595539d0fd965) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+},
+{
+  "id": "gp-r12-20260916-1",
+  "manifest": "prose",
+  "memberId": "article:classical/grasp-planning",
+  "oldHash": "156f690191b0e7fb9e4619c870c8ec1501b1d6be800312d91aa4e0c5fc8b56b6",
+  "newHash": "1c15d22439324446fc28291802042d344796476f9b4db4d3829692b4ad074cb5",
+  "reason": "Exactly classical/grasp-planning original 12: internal-row evidence completion with the conjunctive local proof run by this integrator before application (grasp unit suites 41/41; read-only lib/grasp.ts computation in grasp-local-proof.json: tripod force closure epsilon 0.44360697536713445 at mu 0.7, top+right pair fails at 45 deg vs arctan(0.7)=34.992 deg, antipodal pair recovers, epsilon monotone in mu), anchored per the internal-row convention; zero retrieval (no fetch applies); no article change.",
+  "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 5 selected records of frozen packet convergence-source-j-grasp-planning-20260916c, sha256 a52116a2c3db1c8d2f087e8515ec4c5b106297379cd2a00db5c595539d0fd965) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+  "responsibleMilestone": "brand-v2-editorial",
+  "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-B2-ART-010",
+    "VAL-AUDIT-005",
+    "VAL-AUDIT-009"
+  ],
+  "disposition": "permanent"
+}
+]
 }

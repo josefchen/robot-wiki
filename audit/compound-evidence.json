@@ -63903,5 +63903,320 @@
         "evidenceDigest": "10d686160b1de8b30deff5735c2dbf2dc39ea5cad78db6a21f93a64468cbcfa8"
       }
     ]
-  }
+  },
+{
+  "id": "grasp-planning-5-gws-evidence-20260916",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "grasp-planning",
+  "rowOrdinal": 5,
+  "originalCellsDigest": "d928584ce6f35078328a14e7755ee03178227c9af083828398cedd243ab02902",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "gp5-gws-definition",
+      "text": "Grasp wrench space = convex hull of the primitive cone-edge wrenches under a printed unit-force constraint (per-finger unit magnitude, Eq. 21; normalized total force sum of modules <= 1, Eq. 22-23), named GWS after Pollard 1996 / Borst et al. 1999 (OA Roa-Suarez review, Sec. 3.2)",
+      "requiredCitationIds": [
+        "roa-suarez-2015"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record grasp-planning:5 (ready-evidence-completion) adapted by this integrator from frozen packet convergence-source-j-grasp-planning-20260916c (sha256 a52116a2...): part text scoped to the review-printed construction and normalizations with requiredCitationIds added per the strict schema; single evidence item needle-verified against retained fetch text; caveat acceptance explicit, not silent.",
+    "planDigest": "9870d0b305b1819cc42aae61ad4890a90b1fff414a71391564d0f061fd600859"
+  },
+  "evidence": [
+    {
+      "partId": "gp5-gws-definition",
+      "citationId": "roa-suarez-2015",
+      "sourceUrl": "https://link.springer.com/article/10.1007/s10514-014-9402-3",
+      "supportingPassage": "By approximating again the friction cone with a pyramid, the resultant wrench on the object is given by omega = sum_ij alpha_ij omega_ij with alpha_ij >= 0, sum alpha_ij <= 1 ... and now the set P is the convex hull of the primitive wrenches omega_ij: P = CH(U_{i=1..n} {omega_i1, ..., omega_im}). The set P is known as Grasp Wrench Space GWS (Pollard 1996; Borst et al. 1999)."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "gp5-gws-definition",
+      "outcome": "supported",
+      "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator adjudication of part gp5-gws-definition (record audit/classical.md:grasp-planning:5): supported by the open-access Roa-Suarez review Sec. 3.2, passage needle-verified verbatim against the retained FetchUrl text in the source-session log (Eqs. 21-23 area, math transcribed from rendered LaTeX). The unit-normal-force qualifier is printed by no fetched page; the integrator accepts the review-printed normalization family as the span basis and records the MLS/Bicchi-Kumar body dependency in the row note.",
+      "evidenceDigest": "2c46b27a7f0c5859564b696a31ee5a715a3f782a967d05f335aabc3f020a77a6"
+    }
+  ]
+},
+{
+  "id": "grasp-planning-7-form-closure-evidence-20260916",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "grasp-planning",
+  "rowOrdinal": 7,
+  "originalCellsDigest": "d91793a60a5d9b42df41bf3e2cb6ccf7e2d43092ebaac34342193ff9997b6dcd",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "gp7-mnp-attribution",
+      "text": "Form-closure lower bounds (>=4 planar, >=7 spatial wrenches) attributed by Markenscoff-Ni-Papadimitriou to Reuleaux (1875), Somoff (1897) and Lakshminarayana (1978)",
+      "requiredCitationIds": [
+        "markenscoff-1990"
+      ]
+    },
+    {
+      "id": "gp7-mnp-sufficiency",
+      "text": "MNP sufficiency: four fingers for any 2D bounded object with piecewise smooth boundary except a circle; twelve in 3D iff no rotational symmetry (symmetric objects admit no form closure); seven under very general conditions",
+      "requiredCitationIds": [
+        "markenscoff-1990"
+      ]
+    },
+    {
+      "id": "gp7-mss-algorithmic",
+      "text": "Mishra-Schwartz-Sharir: tight finger-count bounds for the three frictionless positive-grip cases and linear-time synthesis on bounded polyhedral/polygonal objects",
+      "requiredCitationIds": [
+        "mishra-1987"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record grasp-planning:7 (ready-evidence-completion) adapted: three parts with required citation ids added per the strict schema; all three passages needle-verified verbatim against the retained SAGE/Springer FetchUrl text; the prior-integration C correction is unchanged and no article edit is proposed.",
+    "planDigest": "fc0f3b07ec2e8d5d9a1094edabe3388cb96dce0d74f9d991a5b407d880522fc1"
+  },
+  "evidence": [
+    {
+      "partId": "gp7-mnp-attribution",
+      "citationId": "markenscoff-1990",
+      "sourceUrl": "https://journals.sagepub.com/doi/10.1177/027836499000900102",
+      "supportingPassage": "It has been pointed out by Reuleaux (1875) and Somoff (1897), and more recently by Lakshminarayana (1978), that the form closure of a two-dimensional object requires at least four wrenches, and that form closure of a three-dimensional object requires at least seven wrenches."
+    },
+    {
+      "partId": "gp7-mnp-sufficiency",
+      "citationId": "markenscoff-1990",
+      "sourceUrl": "https://journals.sagepub.com/doi/10.1177/027836499000900102",
+      "supportingPassage": "In particular we show that form closure of any two-dimensional bounded object with piecewise smooth boundary (except a circle) can be achieved by four fingers. For three dimensions, we prove that form closure of any bounded object with piecewise smooth boundary can be achieved with 12 fingers if and only if the object does not have a rotational symmetry (in which case, of course, form closure is not achievable, since no moment along the axis of symmetry can be opposed). We also show that, under very general conditions, form closure of three-dimensional objects without rotational symmetries can be achieved with seven fingers."
+    },
+    {
+      "partId": "gp7-mss-algorithmic",
+      "citationId": "mishra-1987",
+      "sourceUrl": "https://link.springer.com/article/10.1007/BF01840373",
+      "supportingPassage": "We study three cases in detail: (i) the body is at equilibrium, (ii) the body is under some constant external force/torque, and (iii) the body is under a varying external force/torque. In each case we obtain tight bounds on the number of fingers needed to obtain grip. We also present efficient algorithms to synthesize such positive grips for bounded polyhedral/polygonal objects; the number of fingers employed in the grips synthesized by our algorithms match the above bounds. The algorithms run in time linear in the number of faces/sides."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "gp7-mnp-attribution",
+      "outcome": "supported",
+      "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator adjudication: supported verbatim by the public MNP SAGE abstract, needle-verified against retained FetchUrl text; body paywalled, abstract proves only what it prints.",
+      "evidenceDigest": "abb1acdc016565f2eeab0a3827f09abe38668ebe24f4761c2a7a5e55cbc59e5e"
+    },
+    {
+      "partId": "gp7-mnp-sufficiency",
+      "outcome": "supported",
+      "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator adjudication: supported verbatim by the same public MNP abstract; the current article span and the Stat-box 7-12 range stay inside these printed numbers.",
+      "evidenceDigest": "da63baabd0e648eef08f277c91f6f87fad6dad14676992f55ae5ec4e9dacbe54"
+    },
+    {
+      "partId": "gp7-mss-algorithmic",
+      "outcome": "supported",
+      "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator adjudication: supported verbatim by the public MSS Springer abstract; the article's compressions (polyhedral objects; each equilibrium case) stay inside the abstract's enumerated cases and object classes.",
+      "evidenceDigest": "1eb2f7ae35becde152e42ef5a9b2543bea9eb5b7450d03a9adad3ce8f4838d5a"
+    }
+  ]
+},
+{
+  "id": "grasp-planning-8-frictional-counts-20260916",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "grasp-planning",
+  "rowOrdinal": 8,
+  "originalCellsDigest": "b86afa6b382de2cdb1d27d5ed6ac0690c5ab8926e44f1489ee6c522734e847cd",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "gp8-frictional-counts",
+      "text": "With Coulomb friction, under the most relaxed assumptions three fingers are necessary and sufficient in 2D and four in 3D (MNP abstract, verbatim)",
+      "requiredCitationIds": [
+        "markenscoff-1990"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record grasp-planning:8 (ready-evidence-completion) adapted: single part with required citation id added; passage needle-verified verbatim; no article change.",
+    "planDigest": "6fd55b506fe5d6d5934ee4bde9c948167ec5a9db990fe978b915f0f58487794d"
+  },
+  "evidence": [
+    {
+      "partId": "gp8-frictional-counts",
+      "citationId": "markenscoff-1990",
+      "sourceUrl": "https://journals.sagepub.com/doi/10.1177/027836499000900102",
+      "supportingPassage": "Finally, we show that when Coulomb friction is taken into account, under the most relaxed assumptions three fingers are necessary and sufficient in two dimensions, and four fingers in three dimensions."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "gp8-frictional-counts",
+      "outcome": "supported",
+      "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator adjudication: supported verbatim by the public MNP SAGE abstract, needle-verified against retained FetchUrl text; covers the prose span and the frictional Stat-box pair.",
+      "evidenceDigest": "7b5071957c07b5b774971580709c46202ff8d8510b1c03cab87d820ebc6989a8"
+    }
+  ]
+},
+{
+  "id": "grasp-planning-10-epsilon-evidence-20260916",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "grasp-planning",
+  "rowOrdinal": 10,
+  "originalCellsDigest": "aa59a727ff3bce14ae4b81bc81e0c5224ec260e5835c9ad3a27ef3276efb8f26",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "gp10-epsilon-definition",
+      "text": "Ferrari-Canny epsilon: largest resistible perturbation wrench in any direction = distance from the origin of the wrench space to the closest facet of the grasp wrench polytope, attributed to Ferrari and Canny 1992 by the open-access Roa-Suarez review",
+      "requiredCitationIds": [
+        "roa-suarez-2015"
+      ]
+    },
+    {
+      "id": "gp10-epsilon-force-constraint",
+      "text": "The quality measure is defined under printed force constraints: independent per-finger unit limits (Eq. 21) or the normalized total-force budget sum of force modules <= 1 (Eq. 22-23)",
+      "requiredCitationIds": [
+        "roa-suarez-2015"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record grasp-planning:10 (ready-evidence-completion) adapted: the packet's second evidence binding (force-constraint passage) is promoted to its own declared part gp10-epsilon-force-constraint per the strict parts schema; both passages needle-verified verbatim against retained fetch text.",
+    "planDigest": "c8b26ebb1dcf370cc210fd1f211be6f31df8f2dcd2a9d0f95f5637addcc39d64"
+  },
+  "evidence": [
+    {
+      "partId": "gp10-epsilon-definition",
+      "citationId": "roa-suarez-2015",
+      "sourceUrl": "https://link.springer.com/article/10.1007/s10514-014-9402-3",
+      "supportingPassage": "Considering the force constraints, a grasp quality measure is defined as the largest perturbation wrench that the grasp can resist in any direction, i.e. the distance from the origin of the wrench space to the closest facet of P (Ferrari and Canny 1992; Kirkpatrick et al. 1992)."
+    },
+    {
+      "partId": "gp10-epsilon-force-constraint",
+      "citationId": "roa-suarez-2015",
+      "sourceUrl": "https://link.springer.com/article/10.1007/s10514-014-9402-3",
+      "supportingPassage": "The second common constraint in the finger forces is that the sum of modules of the forces applied by n fingers is limited, which corresponds to a limited common power source for all the fingers. Assuming a normalized limit of 1, the constraint is sum ||f_i|| <= 1. By approximating again the friction cone with a pyramid ... and now the set P is the convex hull of the primitive wrenches omega_ij: P = CH(U_{i=1..n} {omega_i1, ..., omega_im}) (Eq. 23)."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "gp10-epsilon-definition",
+      "outcome": "supported",
+      "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator adjudication: supported verbatim by the OA Roa-Suarez review Sec. 3.2 (needle-verified against retained FetchUrl text), including the Ferrari-Canny attribution. The claim's per-unit-normal-force tail is printed by no fetched page; the FC 1992 body is named as the dependency in the row note.",
+      "evidenceDigest": "dce0821c3643f32594f420b4269885ba2a55b8aca8dce9c91433c8493ddf9bf8"
+    },
+    {
+      "partId": "gp10-epsilon-force-constraint",
+      "outcome": "supported",
+      "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator adjudication: supported by the review's printed force-constraint text (needle-verified, sum-of-modules wording verbatim); the integrator accepts this printed constraint family as the span's normalization basis rather than the unverifiable FC normal-component convention.",
+      "evidenceDigest": "61818ea5114d33e276248ab5400ac68776e1f4fa61b2a8592bd4572b8f401cdd"
+    }
+  ]
+},
+{
+  "id": "grasp-planning-12-internal-local-and-20260916",
+  "ledgerPath": "audit/classical.md",
+  "articleSlug": "grasp-planning",
+  "rowOrdinal": 12,
+  "originalCellsDigest": "340e740e21a26234bdd79255e5e4fefd66340dd54b33211728833bc156a95b5c",
+  "kind": "explicit-parts",
+  "parts": [
+    {
+      "id": "gp12-defaults",
+      "text": "DEFAULT_CONTACTS [0.125, 0.875, 0.625] and DEFAULT_MU 0.7 in lib/grasp.ts; perimeter origin at the top-right corner, counterclockwise, edge midpoints 0.125/0.375/0.625/0.875 (grasp-wrench-lab.tsx) - the defaults are exactly the top/right/bottom midpoints",
+      "requiredCitationIds": [
+        "murray-li-sastry-1994"
+      ]
+    },
+    {
+      "id": "gp12-pair-fails",
+      "text": "Local proof: the top (0,1) to right (1,0) connecting line, direction (1,-1), sits at 45 deg to the inward top normal (0,-1) while arctan(0.7) = 34.992 deg, so the top+right pair fails the antipodal test as narrated (computed epsilon 0 at mu 0.7)",
+      "requiredCitationIds": [
+        "nguyen-1988"
+      ]
+    },
+    {
+      "id": "gp12-antipodal-recovers",
+      "text": "Bottom-antipodal pair (0,1)-(0,-1): the connecting line coincides with the shared normal, strictly inside both cones for any mu > 0; the hull re-inflates (computed force closure at mu 0.7)",
+      "requiredCitationIds": [
+        "nguyen-1988"
+      ]
+    },
+    {
+      "id": "gp12-epsilon-monotone",
+      "text": "epsilon is the min distance from the origin to hull facets; hull edge rays scale with mu, so epsilon falls as mu falls (observed monotonically across mu 0.7 to 0.05); tests/e2e/grasp-planning.spec.ts asserts the epsilon readout and the falling behavior for the tripod",
+      "requiredCitationIds": [
+        "ferrari-canny-1992"
+      ]
+    }
+  ],
+  "planReview": {
+    "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+    "rationale": "Packet record grasp-planning:12 (ready-source-correction-with-local-AND) adapted: the source cell is corrected to the internal-with-local-proof convention; four parts with anchor citations added per the strict schema (anchors are the model semantics the module header itself names, mirroring the state-estimation-17 internal-row convention; no fetch applies and no external source is claimed); local proof re-run by this integrator before application (41/41 existing grasp tests + grasp-local-proof.json).",
+    "planDigest": "83f71c4e18e3d5dfa5b45bc15b2537ea11139acf50a71be53ca1656491348ec2"
+  },
+  "evidence": [
+    {
+      "partId": "gp12-defaults",
+      "citationId": "murray-li-sastry-1994",
+      "sourceUrl": "https://www.cds.caltech.edu/~murray/books/MLS/pdf/mls94-complete.pdf",
+      "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): lib/grasp.ts at HEAD d50fa3f8074c86dec2f88a6fcc86977013b9936d prints 'Top, right, and bottom edge midpoints: a force-closure tripod.' export const DEFAULT_CONTACTS = [0.125, 0.875, 0.625]; export const DEFAULT_MU = 0.7; contactGeometry maps s counterclockwise from the top-right corner with exact midpoints (integrator recomputation: 0.125 -> top (0,1) edge 0, 0.875 -> right (1,0) edge 3, 0.625 -> bottom (0,-1) edge 2). The anchor citation is the wrench-space model the module header names; no fetch applies."
+    },
+    {
+      "partId": "gp12-pair-fails",
+      "citationId": "nguyen-1988",
+      "sourceUrl": "https://journals.sagepub.com/doi/10.1177/027836498800700301",
+      "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): integrator local arithmetic + lib/grasp.ts analyzeGrasp([0.125, 0.875], 0.7): forceClosure false, epsilon 0; connecting-line direction (1,-1)/sqrt(2) makes exactly 45 deg with the inward top normal (0,-1); arctan(0.7) = 34.992 deg; 45 > 34.992 so the line is outside both cones. The anchor citation is Nguyen's antipodal theorem the narration names; the theorem body itself is held on rows 6/9 and is not certified here."
+    },
+    {
+      "partId": "gp12-antipodal-recovers",
+      "citationId": "nguyen-1988",
+      "sourceUrl": "https://journals.sagepub.com/doi/10.1177/027836498800700301",
+      "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): integrator local arithmetic + analyzeGrasp([0.125, 0.625], 0.7): forceClosure true (epsilon 0.44360697536713445); the connecting line from (0,1) to (0,-1) is the shared inward normal, strictly inside both cones for any mu > 0. Same anchor convention as gp12-pair-fails; held body not certified."
+    },
+    {
+      "partId": "gp12-epsilon-monotone",
+      "citationId": "ferrari-canny-1992",
+      "sourceUrl": "https://doi.org/10.1109/ROBOT.1992.220124",
+      "supportingPassage": "REPO TEXT (read-only, no HTTP fetch applies to the internal conjunct): lib/grasp.ts epsilon = min over hull facets of -offset (largest origin-centered ball radius); integrator recomputation across mu in {0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.05}: epsilon strictly non-increasing as mu falls (monotoneFalling true, grasp-local-proof.json); tests/e2e/grasp-planning.spec.ts asserts the epsilon readout and that lower friction lowers epsilon while the tripod stays force closure. The anchor citation is the Ferrari-Canny metric the module header names; the FC 1992 body is paywalled and not certified here."
+    }
+  ],
+  "adjudications": [
+    {
+      "partId": "gp12-defaults",
+      "outcome": "supported",
+      "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator adjudication: supported by repo-internal source read-only at application HEAD plus the integrator-run local proof (grasp-local-proof.json); anchor citation registered; conjunction holds for the applied row cells.",
+      "evidenceDigest": "e899e33963033fc41b65b6a11765ede8396eb01ddd01fbbe3e82e0c7d2417616"
+    },
+    {
+      "partId": "gp12-pair-fails",
+      "outcome": "supported",
+      "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator adjudication: supported by the integrator-run local arithmetic proof against lib/grasp.ts pure functions; anchor is the theorem the narration names, not evidence; the held Nguyen body is explicitly not certified.",
+      "evidenceDigest": "7f4927926daee72f422579ad3c3b502be0728b04051e958eba5d8ebc81ef082f"
+    },
+    {
+      "partId": "gp12-antipodal-recovers",
+      "outcome": "supported",
+      "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator adjudication: supported by the integrator-run local arithmetic proof; same anchor convention; held body explicitly not certified.",
+      "evidenceDigest": "81f2bd084e7401838318f3fa6591d72fcfdf9222075726d3109b6e4615a169c6"
+    },
+    {
+      "partId": "gp12-epsilon-monotone",
+      "outcome": "supported",
+      "reviewedBy": "grasp-planning-integrator-20260916 (session aef5f5d5-9719-4103-93a1-b999b26070a1, model custom:GLM-[Z.AI-Coding-Plan]---Anthropic-2, reasoning effort max)",
+      "rationale": "Integrator adjudication: supported by the integrator-run monotonicity computation and the existing e2e assertions; anchor is the metric the module names, not evidence; FC body paywalled and not certified.",
+      "evidenceDigest": "d805980a911bb63f328714cc933fc97557476e367a3ea2907f8cb60c56da1bf9"
+    }
+  ]
+}
 ]
