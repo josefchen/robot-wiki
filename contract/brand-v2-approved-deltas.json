@@ -15896,6 +15896,126 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "why-rl-locomotion-r2-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/why-rl-locomotion",
+   "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "reason": "Exactly rl-sim2real/why-rl-locomotion original 2 (evidence completion of the standing V verdict on the survey framing) per the frozen packet convergence-source-r-why-rl-locomotion-20260916g. All 26 packet evidence passages needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (168/168 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-why-rl-locomotion-integration-20260916g. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-r-why-rl-locomotion-20260916g, sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "why-rl-locomotion-r4-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/why-rl-locomotion",
+   "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "reason": "Exactly rl-sim2real/why-rl-locomotion original 4 (evidence completion of the standing corrected verdict on the Lin v1 quote) per the frozen packet convergence-source-r-why-rl-locomotion-20260916g. All 26 packet evidence passages needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (168/168 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-why-rl-locomotion-integration-20260916g. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-r-why-rl-locomotion-20260916g, sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "why-rl-locomotion-r7-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/why-rl-locomotion",
+   "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "reason": "Exactly rl-sim2real/why-rl-locomotion original 7 (evidence completion of the standing V verdict on Play2Perfect (verified on v3, the version the registered URL serves)) per the frozen packet convergence-source-r-why-rl-locomotion-20260916g. All 26 packet evidence passages needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (168/168 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-why-rl-locomotion-integration-20260916g. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-r-why-rl-locomotion-20260916g, sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "why-rl-locomotion-r9-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/why-rl-locomotion",
+   "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "reason": "Exactly rl-sim2real/why-rl-locomotion original 9 (evidence completion of the standing V verdict on the GR2 endpoints, reusing the humanoid-wbc-registered citation read-only) per the frozen packet convergence-source-r-why-rl-locomotion-20260916g. All 26 packet evidence passages needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (168/168 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-why-rl-locomotion-integration-20260916g. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-r-why-rl-locomotion-20260916g, sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "why-rl-locomotion-r10-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/why-rl-locomotion",
+   "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "reason": "Exactly rl-sim2real/why-rl-locomotion original 10 (local-AND evidence completion of the honest-unknown absence verdict (survey + Lin + retained Isaac rows-3/6 + Play2Perfect wall-clock + Rudin row-1 baseline; Stat renders absence, not measurement)) per the frozen packet convergence-source-r-why-rl-locomotion-20260916g. All 26 packet evidence passages needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (168/168 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-why-rl-locomotion-integration-20260916g. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-r-why-rl-locomotion-20260916g, sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "why-rl-locomotion-r11-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/why-rl-locomotion",
+   "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "reason": "Exactly rl-sim2real/why-rl-locomotion original 11 (local-AND evidence completion of the illustrative-widgets verdict (six MDP_ROWS properties; 2/20/0.5 mm constants; callout anchors; re-proved read-only at application HEAD)) per the frozen packet convergence-source-r-why-rl-locomotion-20260916g. All 26 packet evidence passages needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (168/168 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-why-rl-locomotion-integration-20260916g. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-r-why-rl-locomotion-20260916g, sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
+  },
+  {
+   "id": "why-rl-locomotion-r12-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:rl-sim2real/why-rl-locomotion",
+   "oldHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "newHash": "2eb5dfd01b64ba5cb2875364b9963727762c32ed67629f65464c2d8ee437e670",
+   "reason": "Exactly rl-sim2real/why-rl-locomotion original 12 (fail-closed frontmatter P1 sweep with fresh fetch + passage for all 7 identities, Isaac name-list and Lin venue caveats recorded) per the frozen packet convergence-source-r-why-rl-locomotion-20260916g. All 26 packet evidence passages needle-verified by this integrator against the packet's sha256-verified saved source bodies before adjudication (168/168 checks, lane needle-verification.json); zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-why-rl-locomotion-integration-20260916g. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-r-why-rl-locomotion-20260916g, sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-002",
+    "VAL-AUDIT-008",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]

@@ -67861,6 +67861,538 @@
     "evidenceDigest": "8f367b86a839c450ee9c89ab630f54d1fcd682d43f68d7fb9c4f1d76c4c35bcf"
    }
   ]
+ },
+ {
+  "id": "why-rl-locomotion-2-reality-gap-20260916g",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "why-rl-locomotion",
+  "rowOrdinal": 2,
+  "originalCellsDigest": "8eda276c3dd59d359c6c604e1114f66b084dbe17adaa5d82f58bea04cc2f1ba8",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "w2-contact-gap-paraphrase",
+    "text": "The reality-gap survey (Annual Review of Control, Robotics, and Autonomous Systems 2026, arXiv 2510.20808) states that 'To maintain computational efficiency, simulators typically rely on simplified models such as point contacts, linearized friction cones, or compliant spring-damper systems' and that such mismatches are 'particularly problematic in contact-rich tasks like robotic manipulation, where precise interaction modeling is crucial for successful control and planning.' The article's 'the manipulation MDP is not cheaply simulatable' is the article's synthesis of that statement (the survey prints no form of 'cheap'), and the existing note's synthesis/attribution split is preserved.",
+    "requiredCitationIds": [
+     "reality-gap-survey-2026"
+    ]
+   },
+   {
+    "id": "w2-venue-gloss",
+    "text": "The article's gloss 'the field's authoritative 2026 statement on sim-to-real' is tied to the survey's publication identity: 'Accepted for Publication as part of the Annual Review of Control, Robotics, and Autonomous Systems 2026' (abs Comments, fetched live 2026-09-16T11:45:14Z); title and 12-author list match the registry exactly.",
+    "requiredCitationIds": [
+     "reality-gap-survey-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) at HEAD a1fbb6467d5fa56a4e37992234e11354f4c5686b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 7 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha256-verified saved source bodies (sources/, fetch of record 2026-09-16T11:45:14Z-11:45:43Z) with zero network retrieval; the full 168-check run is the lane's needle-verification.json. Cited ids verified registered per-id in data/citations.ts; GR2 reuses the humanoid-wbc-registered gemini-robotics-2-2026 entry read-only (registered exactly once, fields consistent, never duplicated); no new registrations proposed or needed. Source preparation is not acceptance.",
+   "planDigest": "0669ccb9b3c88094660d73870f7601e0dde18f06e80119c64642517edf9beff7"
+  },
+  "evidence": [
+   {
+    "partId": "w2-contact-gap-paraphrase",
+    "citationId": "reality-gap-survey-2026",
+    "sourceUrl": "https://arxiv.org/html/2510.20808",
+    "supportingPassage": "Contact Dynamics. A key contributor to the dynamics gap in robotics is the inaccurate modeling of physical contact. Real-world contact interactions are inherently complex and nonlinear. Materials deform under pressure, friction varies with relative velocity, and contact states can alternate between sticking, slipping, and separation. To maintain computational efficiency, simulators typically rely on simplified models such as point contacts, linearized friction cones, or compliant spring-damper systems. While these approximations enable faster simulation, they often fail to capture critical physical behaviors. This can result in non-physical artifacts such as spurious internal forces, unstable grasps, or unrealistic motion patterns. Such mismatches are particularly problematic in contact-rich tasks like robotic manipulation, where precise interaction modeling is crucial for successful control and planning. [...] These proxy shapes are evaluated at discrete time steps, which further limits the accuracy of contact modeling, especially in tasks involving fine-grained manipulation or dense contact."
+   },
+   {
+    "partId": "w2-venue-gloss",
+    "citationId": "reality-gap-survey-2026",
+    "sourceUrl": "https://arxiv.org/abs/2510.20808",
+    "supportingPassage": "Title: The Reality Gap in Robotics: Challenges, Solutions, and Best Practices — Authors: Elie Aljalbout , Jiaxu Xing , Angel Romero , Iretiayo Akinola , Caelan Reed Garrett , Eric Heiden , Abhishek Gupta , Tucker Hermans , Yashraj Narang , Dieter Fox , Davide Scaramuzza , Fabio Ramos — Comments: Accepted for Publication as part of the Annual Review of Control, Robotics, and Autonomous Systems 2026 — [Submitted on 23 Oct 2025] — Cite as: arXiv:2510.20808 [cs.RO] (or arXiv:2510.20808v1 [cs.RO] for this version)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "w2-contact-gap-paraphrase",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified by this integrator against the packet's sha256-verified saved body (reality-gap-html, fetch of record 2026-09-16T11:45:14Z): the Contact Dynamics passage prints the \"particularly problematic in contact-rich tasks like robotic manipulation\" basis and the efficiency-motivated contact simplification (\"To maintain computational efficiency, simulators typically rely on simplified models...\") verbatim. The survey prints no form of \"cheap\" (verified 0 hits), so \"not cheaply simulatable\" stays disclosed as the article's paraphrase in the row note.",
+    "evidenceDigest": "e9bde90cf2ea084d8f5e5925931f98ce01b8bfbfadae3bca044d2eee4c7cdc01"
+   },
+   {
+    "partId": "w2-venue-gloss",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the saved abs body: the survey's live Comments print \"Accepted for Publication as part of the Annual Review of Control, Robotics, and Autonomous Systems 2026\", the document identity behind the article's venue gloss; all 12 authors print in registry order.",
+    "evidenceDigest": "bba56d73115ac579a451306868bc3207ea25e74e8d4c25716c07558a70b42984"
+   }
+  ]
+ },
+ {
+  "id": "why-rl-locomotion-4-lin-v1-20260916g",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "why-rl-locomotion",
+  "rowOrdinal": 4,
+  "originalCellsDigest": "a709506c4eee3609d583efa2b073a525e687cbd23d8b9e2af62fa1736b7e8922",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "w4-laborious-efforts",
+    "text": "Lin et al. (arXiv 2502.20396 v1) state: 'previous successes in dexterous manipulation involve much more laborious real-to-sim engineering efforts that are task-specific or hardware-specific', in explicit contrast with RL-based locomotion successes in the same sentence. Article quotes this with the plural noun and the task-/hardware-specific qualifier, per the applied correction.",
+    "requiredCitationIds": [
+     "lin-humanoid-sim2real-2025"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) at HEAD a1fbb6467d5fa56a4e37992234e11354f4c5686b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 7 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha256-verified saved source bodies (sources/, fetch of record 2026-09-16T11:45:14Z-11:45:43Z) with zero network retrieval; the full 168-check run is the lane's needle-verification.json. Cited ids verified registered per-id in data/citations.ts; GR2 reuses the humanoid-wbc-registered gemini-robotics-2-2026 entry read-only (registered exactly once, fields consistent, never duplicated); no new registrations proposed or needed. Source preparation is not acceptance.",
+   "planDigest": "1d91a7374f6d5361ba9ee79ed57f00a9b383c97cf7ff34a7c81039707de9a6b1"
+  },
+  "evidence": [
+   {
+    "partId": "w4-laborious-efforts",
+    "citationId": "lin-humanoid-sim2real-2025",
+    "sourceUrl": "https://arxiv.org/html/2502.20396v1",
+    "supportingPassage": "While previous successes in RL-based locomotion [16, 21, 26, 43] are encouraging, we observe that previous successes in dexterous manipulation involve much more laborious real-to-sim engineering efforts that are task-specific or hardware-specific [2, 17, 31]. To better align simulation with the real world, we propose an automated real-to-sim tuning module that substantially reduces the engineering effort required for the environment modeling gap."
+   },
+   {
+    "partId": "w4-laborious-efforts",
+    "citationId": "lin-humanoid-sim2real-2025",
+    "sourceUrl": "https://arxiv.org/abs/2502.20396v1",
+    "supportingPassage": "Title: Sim-to-Real Reinforcement Learning for Vision-Based Dexterous Manipulation on Humanoids — Authors: Toru Lin , Kartik Sachdev , Linxi Fan , Jitendra Malik , Yuke Zhu — Comments: Project page can be found at this https URL — [Submitted on 27 Feb 2025 (this version), latest version 1 Sep 2025 ( v2 )] — Cite as: arXiv:2502.20396 [cs.RO] (or arXiv:2502.20396v1 [cs.RO] for this version)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "w4-laborious-efforts",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the saved v1 HTML body: the quoted sentence is verbatim in the Introduction with the in-sentence locomotion contrast (\"While previous successes in RL-based locomotion [16, 21, 26, 43] are encouraging...\"). The registered citation points at the versioned v1 URL and the quote is genuine to that cited version (v2 removed the sentence; disclosed in the row note).",
+    "evidenceDigest": "f01bb5a11687009ee81b9d3a0f3b5d73f592c98ec8ba5766610cfdfb738e7894"
+   }
+  ]
+ },
+ {
+  "id": "why-rl-locomotion-7-play2perfect-20260916g",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "why-rl-locomotion",
+  "rowOrdinal": 7,
+  "originalCellsDigest": "5440aedb79d2f0d86cd13c42ae2df20011db3ce1b36e483471c58099fbf84d39",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "w7-cad-sparse-reward",
+    "text": "Play2Perfect's assembly finetuning uses sparse-reward RL environments derived from CAD designs ('This pretrained play policy is then finetuned in sparse-reward RL environments derived from CAD designs').",
+    "requiredCitationIds": [
+     "play2perfect-2026"
+    ]
+   },
+   {
+    "id": "w7-zero-shot-60pct",
+    "text": "Play2Perfect transfers zero-shot to the real world ('no real-world finetuning') and achieves 60% success on tight insertions with 0.5 mm contact clearance (abstract; Table 1 Tight-Insertion 6/10 at 0.5 mm; 'At 0.5 mm clearance, Play2Perfect still succeeds 60% of the time').",
+    "requiredCitationIds": [
+     "play2perfect-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) at HEAD a1fbb6467d5fa56a4e37992234e11354f4c5686b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 7 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha256-verified saved source bodies (sources/, fetch of record 2026-09-16T11:45:14Z-11:45:43Z) with zero network retrieval; the full 168-check run is the lane's needle-verification.json. Cited ids verified registered per-id in data/citations.ts; GR2 reuses the humanoid-wbc-registered gemini-robotics-2-2026 entry read-only (registered exactly once, fields consistent, never duplicated); no new registrations proposed or needed. Source preparation is not acceptance.",
+   "planDigest": "69128b6cfc3742b751ea0b0c2efb843847a4846e2652d970e2813a9f70175d3d"
+  },
+  "evidence": [
+   {
+    "partId": "w7-zero-shot-60pct",
+    "citationId": "play2perfect-2026",
+    "sourceUrl": "https://arxiv.org/html/2606.26428",
+    "supportingPassage": "We demonstrate zero-shot sim-to-real transfer, achieving 60% success on tight insertions with only 0.5 mm contact clearance, and over 50% success on long-horizon multi-part assembly and screwing. [...] The real-world results show the same trend. At 10 mm clearance, Play2Perfect achieves 100% success compared to 60% for Play-only . At 2 mm clearance, Play2Perfect achieves 90% success while Play-only drops to 20%. At 0.5 mm clearance, Play2Perfect still succeeds 60% of the time, whereas Play-only fails completely. Table 1: Real-World Assembly Results. Play2Perfect transfers zero-shot to real-world insertion, multi-part assembly, and screwing tasks. ... Tight-Insertion ... 10mm 2mm 0.5mm ... Success Rate 10/10 9/10 6/10 ... Setup. We evaluate whether assembly policies finetuned in simulation can transfer zero-shot to the real world. We deploy Play2Perfect on Tight-Insertion , Assemble-Beam , and Screw-Leg , using FoundationPose [ 59 ] for object pose tracking and no real-world finetuning."
+   },
+   {
+    "partId": "w7-cad-sparse-reward",
+    "citationId": "play2perfect-2026",
+    "sourceUrl": "https://arxiv.org/html/2606.26428",
+    "supportingPassage": "This pretrained play policy is then finetuned in sparse-reward RL environments derived from CAD designs to solve diverse contact-rich assembly tasks, including tight insertions, screwing, and multi-part assembly. [...] All policies are trained in Isaac Sim on a single NVIDIA RTX A6000 GPU. The physics simulation runs at 120 Hz, while the policy outputs actions at 60 Hz. Play pretraining uses 24,576 parallel simulation environments and is run for 7 days. Each downstream assembly policy is finetuned for 1 day using 12,228 parallel environments."
+   },
+   {
+    "partId": "w7-zero-shot-60pct",
+    "citationId": "play2perfect-2026",
+    "sourceUrl": "https://arxiv.org/abs/2606.26428",
+    "supportingPassage": "Title: Play2Perfect: What Matters in Dexterous Play Pretraining for Precise Assembly? — Authors: Tyler Ga Wei Lum , Kushal Kedia , C. Karen Liu , Jeannette Bohg — Comments: 25 pages, 19 figures, 4 tables. Project page: this https URL — [Submitted on 24 Jun 2026 ( v1 ), last revised 8 Sep 2026 (this version, v3)] — Cite as: arXiv:2606.26428 [cs.RO] (or arXiv:2606.26428v3 [cs.RO] for this version)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "w7-cad-sparse-reward",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the saved v3 HTML body: abstract prints \"finetuned in sparse-reward RL environments derived from CAD designs\"; training context (single RTX A6000, 7 days play pretraining, 1 day per-task finetuning, \"roughly 2-5 hours of wall-clock RL training\") recorded for row 10's absence conjunction.",
+    "evidenceDigest": "a9307402db11fe484a792c47ed4a3cb9a274183e7926dcf363fb3f022640376d"
+   },
+   {
+    "partId": "w7-zero-shot-60pct",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the saved v3 body: abstract prints \"We demonstrate zero-shot sim-to-real transfer, achieving 60% success on tight insertions with only 0.5 mm contact clearance\"; the real-world section prints \"At 0.5 mm clearance, Play2Perfect still succeeds 60% of the time\" with Table 1 Tight-Insertion 6/10 and \"no real-world finetuning\". v3 (8 Sep 2026) is the version the registered unversioned URL serves.",
+    "evidenceDigest": "84eb7766c1262819420d7710bdd75e31fbe8889351d9783c87ed68a7f0978776"
+   }
+  ]
+ },
+ {
+  "id": "why-rl-locomotion-9-gr2-20260916g",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "why-rl-locomotion",
+  "rowOrdinal": 9,
+  "originalCellsDigest": "d73fb9463000f24acd5bb83148a65977854a3be6b0612ca69f811fcf329bd551",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "w9-multifinger-span",
+    "text": "Gemini Robotics 2's published multi-finger dexterity chart (Apollo with Sharpa hands) prints per-task success 36% (Screw bulb), 92% (Unscrew bulb), 44% (Tie trash bag), 32% (Dustpan), 40% (Ziplock) — the article's '32% (dustpan) to 92% (unscrewing a bulb)' span with exact endpoints; 'household' is the article's descriptor of these tasks (the page does not print the word).",
+    "requiredCitationIds": [
+     "gemini-robotics-2-2026"
+    ]
+   },
+   {
+    "id": "w9-gripper-insertion",
+    "text": "The Gripper dexterity chart (Franka Duo) prints 'Precise insertion tasks' at 89.6% (with General pick and place 74.2% and Diverse tool kitting 78.9%); the page frames these as 'gripper-based dexterous tasks'.",
+    "requiredCitationIds": [
+     "gemini-robotics-2-2026"
+    ]
+   },
+   {
+    "id": "w9-wholebody-pick",
+    "text": "The General whole body manipulation chart (Apollo with Inspire hands) prints Pick up from table 68.4%, from floor 45.7%, from shelf 76.3%.",
+    "requiredCitationIds": [
+     "gemini-robotics-2-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) at HEAD a1fbb6467d5fa56a4e37992234e11354f4c5686b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 7 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha256-verified saved source bodies (sources/, fetch of record 2026-09-16T11:45:14Z-11:45:43Z) with zero network retrieval; the full 168-check run is the lane's needle-verification.json. Cited ids verified registered per-id in data/citations.ts; GR2 reuses the humanoid-wbc-registered gemini-robotics-2-2026 entry read-only (registered exactly once, fields consistent, never duplicated); no new registrations proposed or needed. Source preparation is not acceptance.",
+   "planDigest": "5deb67bf37f785c75b318f9a6d4ab136c971a97550c9d96186af132e34954808"
+  },
+  "evidence": [
+   {
+    "partId": "w9-multifinger-span",
+    "citationId": "gemini-robotics-2-2026",
+    "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+    "supportingPassage": "A bar chart titled \"Multi-finger dexterity\" with subtitle \"Apollo with Sharpa hands\" displaying accuracy percentages with error bars across five tasks: \"Screw bulb\" at 36%, \"Unscrew bulb\" at 92%, \"Tie trash bag\" at 44%, \"Dustpan\" at 32%, and \"Ziplock\" at 40%. [...] Each bar represents the average success rate over multiple tasks within the same skill category. For multifinger tasks we show individual task performance. While Gemini Robotics 2 achieves a medium to high success rate for whole-body and gripper-based dexterous tasks, the multi-finger dexterous manipulation remains challenging. July 30, 2026 — Models — Gemini Robotics 2 brings whole body intelligence to robots — Carolina Parada (cover block; meta article:published_time 2026-07-30T16:00:00+00:00; article:modified_time 2026-08-25T09:18:43.551300+00:00; og:url == registered URL)"
+   },
+   {
+    "partId": "w9-gripper-insertion",
+    "citationId": "gemini-robotics-2-2026",
+    "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+    "supportingPassage": "A bar chart titled \"Gripper dexterity\" with subtitle \"Franka Duo\" displaying accuracy percentages with error bars across three tasks: \"General pick and place\" at 74.2%, \"Diverse tool kitting\" at 78.9%, and \"Precise insertion tasks\" at 89.6%."
+   },
+   {
+    "partId": "w9-wholebody-pick",
+    "citationId": "gemini-robotics-2-2026",
+    "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+    "supportingPassage": "A bar chart titled \"General whole body manipulation\" with subtitle \"Apollo with Inspire hands\" displaying accuracy percentages with error bars across three tasks: \"Pick up from table\" at 68.4%, \"Pick up from floor\" at 45.7%, and \"Pick up from shelf\" at 76.3%."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "w9-multifinger-span",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the saved GR2 announcement body: the \"Multi-finger dexterity\" chart alt prints Screw bulb 36%, Unscrew bulb 92%, Tie trash bag 44%, Dustpan 32%, Ziplock 40% - the article's span endpoints exactly. The page prints \"Multi-finger dexterity\", never \"household\" (verified 0 hits); \"household tasks\" stays disclosed as the article's descriptor in the row note. Citation gemini-robotics-2-2026 is the humanoid-wbc-registered entry (rows 15/18/19), reused read-only; registered title/author/year/url confirmed consistent, never duplicated.",
+    "evidenceDigest": "98d23e1216fc667222ae4ec8842de1d3785831c8afdb04126b94e9bee36dbdcc"
+   },
+   {
+    "partId": "w9-gripper-insertion",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the saved body: the \"Gripper dexterity\" (Franka Duo) chart alt prints General pick and place 74.2%, Diverse tool kitting 78.9%, Precise insertion tasks 89.6%.",
+    "evidenceDigest": "f7aae1bcc9cd561ecca5732c967ceef6cb19e362639fbdc64142c055a5242e6b"
+   },
+   {
+    "partId": "w9-wholebody-pick",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against the saved body: the \"General whole body manipulation\" (Apollo with Inspire hands) chart alt prints Pick up from table 68.4%, from floor 45.7%, from shelf 76.3%.",
+    "evidenceDigest": "11a0c723171aa5295a59c4e083bd643b6473379c94bec67dffad193c5bfee1d7"
+   }
+  ]
+ },
+ {
+  "id": "why-rl-locomotion-10-absence-and-20260916g",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "why-rl-locomotion",
+  "rowOrdinal": 10,
+  "originalCellsDigest": "b881a84d1e6c32e6a0c57d6cf6cd2baf9b96ea03defc84093bac01c8db234e61",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "w10-survey-clause",
+    "text": "Reality-gap survey (fresh, row 2): contact modeling for manipulation is 'particularly problematic' and simplified 'to maintain computational efficiency'; the document nowhere prints a minutes-scale manipulation training time.",
+    "requiredCitationIds": [
+     "reality-gap-survey-2026"
+    ]
+   },
+   {
+    "id": "w10-lin-clause",
+    "text": "Lin et al. v1 (fresh, row 4): manipulation successes involve 'much more laborious real-to-sim engineering efforts that are task-specific or hardware-specific', contrasted in-sentence with locomotion successes.",
+    "requiredCitationIds": [
+     "lin-humanoid-sim2real-2025"
+    ]
+   },
+   {
+    "id": "w10-play2perfect-clause",
+    "text": "Play2Perfect v3 (fresh, row 7), the strongest cited RL manipulation wall-clock result: 'roughly 2-5 hours of wall-clock RL training'; play pretraining 'run for 7 days'; per-task finetuning '1 day'; single RTX A6000; zero occurrences of any minutes-scale training number — two-plus orders of magnitude above Rudin's four minutes.",
+    "requiredCitationIds": [
+     "play2perfect-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) at HEAD a1fbb6467d5fa56a4e37992234e11354f4c5686b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 7 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha256-verified saved source bodies (sources/, fetch of record 2026-09-16T11:45:14Z-11:45:43Z) with zero network retrieval; the full 168-check run is the lane's needle-verification.json. Cited ids verified registered per-id in data/citations.ts; GR2 reuses the humanoid-wbc-registered gemini-robotics-2-2026 entry read-only (registered exactly once, fields consistent, never duplicated); no new registrations proposed or needed. Local clauses beyond the plan (schema requires >=1 registered requiredCitationId per part): the Isaac clause rests on the RETAINED rows-3/6 evidence (verbatim passage re-verified by this integrator in convergence-isaac-only-integration-20260908/source-proof.json), the Rudin baseline clause on row 1's complete scalar cells at HEAD (\"less than 4 minutes ... 20 minutes\", i9-11900k + RTX A6000), and the Stat-P4 clause on the article's own absence rendering (value \"none\" with the explicit note) - all recorded in the applied note cell. Source preparation is not acceptance.",
+   "planDigest": "ab22b3b78a41d9b83c0105aa2c8aaa2a6929f4278017ff2108d075991ea4e672"
+  },
+  "evidence": [
+   {
+    "partId": "w10-survey-clause",
+    "citationId": "reality-gap-survey-2026",
+    "sourceUrl": "https://arxiv.org/html/2510.20808",
+    "supportingPassage": "Contact Dynamics. A key contributor to the dynamics gap in robotics is the inaccurate modeling of physical contact. Real-world contact interactions are inherently complex and nonlinear. Materials deform under pressure, friction varies with relative velocity, and contact states can alternate between sticking, slipping, and separation. To maintain computational efficiency, simulators typically rely on simplified models such as point contacts, linearized friction cones, or compliant spring-damper systems. While these approximations enable faster simulation, they often fail to capture critical physical behaviors. This can result in non-physical artifacts such as spurious internal forces, unstable grasps, or unrealistic motion patterns. Such mismatches are particularly problematic in contact-rich tasks like robotic manipulation, where precise interaction modeling is crucial for successful control and planning."
+   },
+   {
+    "partId": "w10-lin-clause",
+    "citationId": "lin-humanoid-sim2real-2025",
+    "sourceUrl": "https://arxiv.org/html/2502.20396v1",
+    "supportingPassage": "While previous successes in RL-based locomotion [16, 21, 26, 43] are encouraging, we observe that previous successes in dexterous manipulation involve much more laborious real-to-sim engineering efforts that are task-specific or hardware-specific [2, 17, 31]. To better align simulation with the real world, we propose an automated real-to-sim tuning module that substantially reduces the engineering effort required for the environment modeling gap."
+   },
+   {
+    "partId": "w10-play2perfect-clause",
+    "citationId": "play2perfect-2026",
+    "sourceUrl": "https://arxiv.org/html/2606.26428",
+    "supportingPassage": "All policies are trained in Isaac Sim on a single NVIDIA RTX A6000 GPU. The physics simulation runs at 120 Hz, while the policy outputs actions at 60 Hz. Play pretraining uses 24,576 parallel simulation environments and is run for 7 days. Each downstream assembly policy is finetuned for 1 day using 12,228 parallel environments."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "w10-survey-clause",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Fresh row-2 fetch, needle-verified by this integrator against the sha256-verified saved body: contact modeling for manipulation is \"particularly problematic\" and simplified \"to maintain computational efficiency\"; the document carries no minutes-scale manipulation training time (every \"minute\" occurrence verified context-free of training times).",
+    "evidenceDigest": "d145c0d3d67df0736ce5f221826d4d4ffda944d92910635594bec4d43fdb99c8"
+   },
+   {
+    "partId": "w10-lin-clause",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Fresh row-4 fetch, needle-verified against the saved v1 body: manipulation successes involve \"much more laborious real-to-sim engineering efforts that are task-specific or hardware-specific\", contrasted in-sentence with locomotion successes.",
+    "evidenceDigest": "d7f8eb422336061a17c7cc0285b53e3711340b3b04ea9ebf18e2329266a3eb9f"
+   },
+   {
+    "partId": "w10-play2perfect-clause",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Fresh row-7 fetch, needle-verified against the saved v3 body: the strongest cited RL manipulation wall-clock result prints only hours-to-days scales (roughly 2-5 hours finetuning, 7 days play pretraining, 1 day per-task, single RTX A6000) with zero \"minute\" occurrences (verified 0 hits) - two-plus orders of magnitude above Rudin's four minutes.",
+    "evidenceDigest": "36d6588ddeb1dca49f3ac66c8e37cebbd80a0b4f6db7764e4ca9a4de9717a604"
+   }
+  ]
+ },
+ {
+  "id": "why-rl-locomotion-11-local-consistency-20260916g",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "why-rl-locomotion",
+  "rowOrdinal": 11,
+  "originalCellsDigest": "460089d4235c1a6c632e9869bc64575ffcfb7abaf4c75f017c08d72b01832140",
+  "kind": "explicit-parts",
+  "parts": [
+   {
+    "id": "w11-callout-anchors",
+    "text": "The callout's sourced anchors are each independently bound: Rudin wall-clock (row 1, complete at HEAD), GR2 success rates (row 9, live-confirmed this lane), Play2Perfect 0.5 mm clearance (row 7, live-confirmed this lane: '60% success on tight insertions with only 0.5 mm contact clearance'); the tolerance values are labeled representative physical scales, not a benchmark.",
+    "requiredCitationIds": [
+     "gemini-robotics-2-2026",
+     "play2perfect-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) at HEAD a1fbb6467d5fa56a4e37992234e11354f4c5686b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 7 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha256-verified saved source bodies (sources/, fetch of record 2026-09-16T11:45:14Z-11:45:43Z) with zero network retrieval; the full 168-check run is the lane's needle-verification.json. Cited ids verified registered per-id in data/citations.ts; GR2 reuses the humanoid-wbc-registered gemini-robotics-2-2026 entry read-only (registered exactly once, fields consistent, never duplicated); no new registrations proposed or needed. Local clauses beyond the plan: the two repo-internal widget parts (MdpComparison renders exactly six MDP_ROWS properties; ContactGeometry constants 2/20/0.5 mm, 4-vs-14 contacts, radii 5/0.2 mm, outcomeFor, 20/0.5 = 40) were re-proved read-only at application HEAD and live in the applied note cell; the Rudin wall-clock anchor is row 1's complete-at-HEAD basis (identity freshly verified in row 12's plan, same packet), so it carries no evidence item here. Source preparation is not acceptance.",
+   "planDigest": "0dc7a8d0e62c46055b367af0bee2688c7e377057d98045257397d3ae3032d0c0"
+  },
+  "evidence": [
+   {
+    "partId": "w11-callout-anchors",
+    "citationId": "play2perfect-2026",
+    "sourceUrl": "https://arxiv.org/html/2606.26428",
+    "supportingPassage": "We demonstrate zero-shot sim-to-real transfer, achieving 60% success on tight insertions with only 0.5 mm contact clearance, and over 50% success on long-horizon multi-part assembly and screwing."
+   },
+   {
+    "partId": "w11-callout-anchors",
+    "citationId": "gemini-robotics-2-2026",
+    "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+    "supportingPassage": "A bar chart titled \"Gripper dexterity\" with subtitle \"Franka Duo\" displaying accuracy percentages with error bars across three tasks: \"General pick and place\" at 74.2%, \"Diverse tool kitting\" at 78.9%, and \"Precise insertion tasks\" at 89.6%. A bar chart titled \"General whole body manipulation\" with subtitle \"Apollo with Inspire hands\" displaying accuracy percentages with error bars across three tasks: \"Pick up from table\" at 68.4%, \"Pick up from floor\" at 45.7%, and \"Pick up from shelf\" at 76.3%."
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "w11-callout-anchors",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Needle-verified against this packet's saved bodies: the GR2 announcement prints the gripper-precise-insertion 89.6% and whole-body pick 68.4/45.7/76.3% figures the callout anchors, and Play2Perfect v3 prints \"60% success on tight insertions with only 0.5 mm contact clearance\" - the callout's 0.5 mm equals Play2Perfect's clearance. The third anchor (Rudin wall-clock: under four minutes / twenty minutes) is row 1's complete-at-HEAD scalar evidence, with its identity freshly verified by row 12's sweep in this same packet. The repo-internal widget facts (MdpComparison renders exactly six MDP_ROWS properties from lib/contact-geometry.ts; ContactGeometry DEFAULT_ERROR_MM 2, tolerances 20 mm / 0.5 mm, 4 vs 14 contacts, patch radii 5 mm / 0.2 mm, outcomeFor fails above tolerance, 20/0.5 = 40; both widgets labeled illustrative) were re-proved read-only by this integrator at application HEAD and are recorded in the applied note cell.",
+    "evidenceDigest": "933aea7fdaf9093de51b326cf8ae6bc09a8cde27f05cee43b5e289b75138beb7"
+   }
+  ]
+ },
+ {
+  "id": "why-rl-locomotion-12-frontmatter-p1-20260916g",
+  "ledgerPath": "audit/rl-sim2real.md",
+  "articleSlug": "why-rl-locomotion",
+  "rowOrdinal": 12,
+  "originalCellsDigest": "96056fc95821b9436d475d580935d50033a610a2a6649bf943a6e54b691342ab",
+  "kind": "frontmatter-p1",
+  "parts": [
+   {
+    "id": "p1-rudin-2021",
+    "text": "rudin-2021 resolves to 'Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning', Rudin/Hoeller/Reist/Hutter, Comments 'CoRL 2021', submitted 24 Sep 2021 (current v3).",
+    "requiredCitationIds": [
+     "rudin-2021"
+    ]
+   },
+   {
+    "id": "p1-reality-gap-survey-2026",
+    "text": "reality-gap-survey-2026 resolves to 'The Reality Gap in Robotics: Challenges, Solutions, and Best Practices', Aljalbout + 11 coauthors in registry order, 'Accepted for Publication as part of the Annual Review of Control, Robotics, and Autonomous Systems 2026', submitted 23 Oct 2025, v1.",
+    "requiredCitationIds": [
+     "reality-gap-survey-2026"
+    ]
+   },
+   {
+    "id": "p1-isaac-lab-2025",
+    "text": "isaac-lab-2025 resolves to 'Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning', collective byline 'NVIDIA : Mayank Mittal, ...' (abs metadata; 6 names behind JS; registry's 106-name Appendix-A list retained, not re-derived), submitted 6 Nov 2025, v1.",
+    "requiredCitationIds": [
+     "isaac-lab-2025"
+    ]
+   },
+   {
+    "id": "p1-lin-humanoid-sim2real-2025",
+    "text": "lin-humanoid-sim2real-2025 resolves (at the registry's versioned v1 URL) to 'Sim-to-Real Reinforcement Learning for Vision-Based Dexterous Manipulation on Humanoids', Lin/Sachdev/Fan/Malik/Zhu, submitted 27 Feb 2025 (v1; latest v2 1 Sep 2025). Registry venue 'CoRL 2025' is not printed on the live pages.",
+    "requiredCitationIds": [
+     "lin-humanoid-sim2real-2025"
+    ]
+   },
+   {
+    "id": "p1-openai-rubiks-cube-2019",
+    "text": "openai-rubiks-cube-2019 resolves to 'Solving Rubik's Cube with a Robot Hand', OpenAI + 18 named authors in registry order, submitted 16 Oct 2019, v1.",
+    "requiredCitationIds": [
+     "openai-rubiks-cube-2019"
+    ]
+   },
+   {
+    "id": "p1-play2perfect-2026",
+    "text": "play2perfect-2026 resolves to 'Play2Perfect: What Matters in Dexterous Play Pretraining for Precise Assembly?', Lum/Kedia/Liu/Bohg, submitted 24 Jun 2026, current version v3 (8 Sep 2026) served at the registered unversioned URL; row 7 verified against that v3 body.",
+    "requiredCitationIds": [
+     "play2perfect-2026"
+    ]
+   },
+   {
+    "id": "p1-gemini-robotics-2-2026",
+    "text": "gemini-robotics-2-2026 resolves to 'Gemini Robotics 2 brings whole body intelligence to robots', Carolina Parada, Google DeepMind, July 30, 2026 (page modified 2026-08-25; figures unchanged per row 9 confirmation).",
+    "requiredCitationIds": [
+     "gemini-robotics-2-2026"
+    ]
+   }
+  ],
+  "planReview": {
+   "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+   "rationale": "Integrator review of the parent hash-verified frozen packet (rows.json sha256 2222994d591257e24144efc8d9b6d89e034b208ddb9255be1d56a12a27071588) at HEAD a1fbb6467d5fa56a4e37992234e11354f4c5686b: row binding, ordinal, currentTupleDigest and live ledger cells re-checked against the parent row-dispatch preflight (preflight-result.json exit 0, mode current-head-identity-check) before application, and re-derived with the repo lib/audit-ledger.ts parser (all 7 digests equal to the packet). Every evidence passage of this record was needle-verified by this integrator against the packet's sha256-verified saved source bodies (sources/, fetch of record 2026-09-16T11:45:14Z-11:45:43Z) with zero network retrieval; the full 168-check run is the lane's needle-verification.json. Cited ids verified registered per-id in data/citations.ts; GR2 reuses the humanoid-wbc-registered gemini-robotics-2-2026 entry read-only (registered exactly once, fields consistent, never duplicated); no new registrations proposed or needed. Fail-closed sweep: every one of the 7 frontmatter identities carries a fresh packet fetch record + passage (7/7); no identity rests on retained/assumed evidence, so the row applies with the Isaac name-list and Lin venue caveats recorded verbatim in the note cell (reward-design-mpc:23 pass precedent; humanoid-wbc:20 hold was for a missing fresh fetch). Source preparation is not acceptance.",
+   "planDigest": "1fc0ca11976eab6210f57d6ebda2003a6b27f31cf329326be9e6e02dbd0a343d"
+  },
+  "evidence": [
+   {
+    "partId": "p1-rudin-2021",
+    "citationId": "rudin-2021",
+    "sourceUrl": "https://arxiv.org/abs/2109.11978",
+    "supportingPassage": "Title: Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning — Authors: Nikita Rudin , David Hoeller , Philipp Reist , Marco Hutter — Comments: CoRL 2021 — [Submitted on 24 Sep 2021 ( v1 ), last revised 19 Aug 2022 (this version, v3)] — Cite as: arXiv:2109.11978 [cs.RO] (or arXiv:2109.11978v3 [cs.RO] for this version)"
+   },
+   {
+    "partId": "p1-reality-gap-survey-2026",
+    "citationId": "reality-gap-survey-2026",
+    "sourceUrl": "https://arxiv.org/abs/2510.20808",
+    "supportingPassage": "Title: The Reality Gap in Robotics: Challenges, Solutions, and Best Practices — Authors: Elie Aljalbout , Jiaxu Xing , Angel Romero , Iretiayo Akinola , Caelan Reed Garrett , Eric Heiden , Abhishek Gupta , Tucker Hermans , Yashraj Narang , Dieter Fox , Davide Scaramuzza , Fabio Ramos — Comments: Accepted for Publication as part of the Annual Review of Control, Robotics, and Autonomous Systems 2026 — [Submitted on 23 Oct 2025] — Cite as: arXiv:2510.20808 [cs.RO] (or arXiv:2510.20808v1 [cs.RO] for this version)"
+   },
+   {
+    "partId": "p1-isaac-lab-2025",
+    "citationId": "isaac-lab-2025",
+    "sourceUrl": "https://arxiv.org/abs/2511.04831",
+    "supportingPassage": "Title: Isaac Lab: A GPU-Accelerated Simulation Framework for Multi-Modal Robot Learning — Authors: NVIDIA : Mayank Mittal , Pascal Roth , James Tigue , Antoine Richard , Octi Zhang , Peter Du , Antonio Serrano-Muñoz , ... Yunrong Guo , David Hoeller , Gavriel State et al. (6 additional authors not shown) — [Submitted on 6 Nov 2025] — Cite as: arXiv:2511.04831 [cs.RO] (or arXiv:2511.04831v1 [cs.RO] for this version)"
+   },
+   {
+    "partId": "p1-lin-humanoid-sim2real-2025",
+    "citationId": "lin-humanoid-sim2real-2025",
+    "sourceUrl": "https://arxiv.org/abs/2502.20396v1",
+    "supportingPassage": "Title: Sim-to-Real Reinforcement Learning for Vision-Based Dexterous Manipulation on Humanoids — Authors: Toru Lin , Kartik Sachdev , Linxi Fan , Jitendra Malik , Yuke Zhu — Comments: Project page can be found at this https URL — [Submitted on 27 Feb 2025 (this version), latest version 1 Sep 2025 ( v2 )] — Cite as: arXiv:2502.20396 [cs.RO] (or arXiv:2502.20396v1 [cs.RO] for this version)"
+   },
+   {
+    "partId": "p1-openai-rubiks-cube-2019",
+    "citationId": "openai-rubiks-cube-2019",
+    "sourceUrl": "https://arxiv.org/abs/1910.07113",
+    "supportingPassage": "Title: Solving Rubik's Cube with a Robot Hand — Authors: OpenAI , Ilge Akkaya , Marcin Andrychowicz , Maciek Chociej , Mateusz Litwin , Bob McGrew , Arthur Petron , Alex Paino , Matthias Plappert , Glenn Powell , Raphael Ribas , Jonas Schneider , Nikolas Tezak , Jerry Tworek , Peter Welinder , Lilian Weng , Qiming Yuan , Wojciech Zaremba , Lei Zhang — [Submitted on 16 Oct 2019] — Cite as: arXiv:1910.07113 [cs.LG] (or arXiv:1910.07113v1 [cs.LG] for this version)"
+   },
+   {
+    "partId": "p1-play2perfect-2026",
+    "citationId": "play2perfect-2026",
+    "sourceUrl": "https://arxiv.org/abs/2606.26428",
+    "supportingPassage": "Title: Play2Perfect: What Matters in Dexterous Play Pretraining for Precise Assembly? — Authors: Tyler Ga Wei Lum , Kushal Kedia , C. Karen Liu , Jeannette Bohg — Comments: 25 pages, 19 figures, 4 tables. Project page: this https URL — [Submitted on 24 Jun 2026 ( v1 ), last revised 8 Sep 2026 (this version, v3)] — Cite as: arXiv:2606.26428 [cs.RO] (or arXiv:2606.26428v3 [cs.RO] for this version)"
+   },
+   {
+    "partId": "p1-gemini-robotics-2-2026",
+    "citationId": "gemini-robotics-2-2026",
+    "sourceUrl": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+    "supportingPassage": "July 30, 2026 — Models — Gemini Robotics 2 brings whole body intelligence to robots — Carolina Parada (cover block; meta article:published_time 2026-07-30T16:00:00+00:00; article:modified_time 2026-08-25T09:18:43.551300+00:00; og:url == registered URL)"
+   }
+  ],
+  "adjudications": [
+   {
+    "partId": "p1-rudin-2021",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Fresh fetch of record 2026-09-16T11:45:33Z (abs 200, sha256 60460f5c...): title, Rudin/Hoeller/Reist/Hutter authors, Comments \"CoRL 2021\" = registry venue, v3 current, registry year 2021. Identity needle-verified by this integrator against the saved body.",
+    "evidenceDigest": "ac72c8f3773cecca530f966724ff26b79b163122e604b5a64f6921f26aeffef7"
+   },
+   {
+    "partId": "p1-reality-gap-survey-2026",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Fresh fetch 2026-09-16T11:45:14Z (abs 200): title, all 12 authors in registry order, Comments \"Accepted ... Annual Review of Control, Robotics, and Autonomous Systems 2026\" = registry venue \"(accepted)\", v1 only, registry year 2025.",
+    "evidenceDigest": "5ec1c65e8f99cf825fe3f546d70db90932a372870bf9a4c8bba83a0b2e70d907"
+   },
+   {
+    "partId": "p1-isaac-lab-2025",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Fresh fetch 2026-09-16T11:45:43Z (abs 200): title, arXiv id/version v1, submitted 6 Nov 2025, collective \"NVIDIA :\" byline with 6 names behind JavaScript. Document identity fresh-verified; the registry 106-name list's name-by-name basis stays the retained Appendix-A derivation (rows 3/6 source-proof), disclosed as a caveat in the row note - not silently certified.",
+    "evidenceDigest": "918976bf1ce27c6a1a8d620544ddf33b17d58d7009f1e5942aedd050775be632"
+   },
+   {
+    "partId": "p1-lin-humanoid-sim2real-2025",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Fresh fetch 2026-09-16T11:45:14Z at the registry's versioned v1 URL: title, Lin/Sachdev/Fan/Malik/Zhu authors, submitted 27 Feb 2025 (v1; latest v2 1 Sep 2025), registry year 2025. Caveat disclosed in the row note: registry venue \"CoRL 2025\" is printed nowhere on the live v1 pages (verified 0 hits for CoRL on both saved v1 bodies).",
+    "evidenceDigest": "66e9f4e9aae6c67b34c797b53434246b0fc324a0f346dcd2f4dbc758b15b2c2f"
+   },
+   {
+    "partId": "p1-openai-rubiks-cube-2019",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Fresh fetch 2026-09-16T11:45:43Z (abs 200): title, OpenAI + 18 named authors in registry order, submitted 16 Oct 2019, v1 only, registry year 2019, registry carries no venue.",
+    "evidenceDigest": "2d6f85f602e2fdb8ecec4097d1fb24d970f0ce49ec1ddd1f5da74e4afbefc6b1"
+   },
+   {
+    "partId": "p1-play2perfect-2026",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Fresh fetch 2026-09-16T11:45:32Z (abs 200): title, Lum/Kedia/Liu/Bohg authors, submitted 24 Jun 2026, current v3 (8 Sep 2026) served at the registered unversioned URL - the version row 7 verified against; registry year 2026.",
+    "evidenceDigest": "9135c627d3394fc9b9ca3d157658aa697b9c37e1feabaf20087c5e9408d8dc4a"
+   },
+   {
+    "partId": "p1-gemini-robotics-2-2026",
+    "outcome": "supported",
+    "reviewedBy": "GLM-5.3/max integrator c9c11f0c-d775-47ef-809e-d601f165516d; preserved-packet needle re-verification 2026-09-16 (168/168 checks, lane needle-verification.json)",
+    "rationale": "Fresh fetch 2026-09-16T11:45:33Z (blog 200): h1/og:title exact, sole author Carolina Parada, July 30 2026 (cover + article:published_time 2026-07-30T16:00:00+00:00), og:url equals the registered URL, page modified 2026-08-25 with figures unchanged per row 9 confirmation.",
+    "evidenceDigest": "9449b839dc0586b002722ab1b013d953bfa7da4aacba9993bbdd63fe467069b6"
+   }
+  ]
  }
 
 ]
