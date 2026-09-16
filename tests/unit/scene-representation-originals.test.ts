@@ -111,7 +111,9 @@ describe('scene-representation originals: compound plans appended lawfully', () 
     // 768 = 759 at the space checkpoint + 9 generative-video plans appended by
     // the generative-video originals integration (2026-09-16)
     // appended by the space originals integration (2026-09-16).
-    expect(plans.length).toBe(768);
+    // 775 = 768 at the generative-video checkpoint + 7 surgical plans
+    // appended by the surgical originals integration (2026-09-16).
+    expect(plans.length).toBe(775);
     const mine = plans.filter((plan) => EXPECTED_PLAN_IDS.includes(plan.id));
     expect(mine.map((plan) => plan.id).sort()).toEqual([...EXPECTED_PLAN_IDS].sort());
     // Append-only: no prior plan id moved or disappeared. Two older
@@ -226,10 +228,9 @@ describe('scene-representation originals: packet-critical passages survive verba
 
 describe('scene-representation originals: approved deltas and protected neighbors', () => {
   it('appends exactly the 9 dispatched delta entries after the 815 prior ones', () => {
-    // 845 = 834 at the space checkpoint + 11 generative-video deltas (9 rows +
-    // relationships + article-metadata) appended 2026-09-16
-    // (sp-r*) appended by the space originals integration (2026-09-16).
-    expect(deltas.entries.length).toBe(845);
+    // 852 = 845 at the generative-video checkpoint + 7 surgical deltas
+    // appended by the surgical originals integration (2026-09-16).
+    expect(deltas.entries.length).toBe(852);
     const mine = deltas.entries.filter((entry) => entry.id.startsWith('sr-r'));
     expect(mine.map((entry) => entry.id).sort()).toEqual(
       [...ROW_ORDINALS].map((ordinal) => `sr-r${ordinal}-20260916-1`).sort(),

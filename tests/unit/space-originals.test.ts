@@ -81,7 +81,9 @@ const spacePlans = plans.filter((plan) => plan.ledgerPath === 'audit/adjacent.md
 
 describe('space originals: ledger rows and compound plans', () => {
   it('keeps all 749 prior plans first and appends exactly the 10 space plans', () => {
-    expect(plans).toHaveLength(768);
+    // 775 = 768 at this lane's close + 7 surgical plans appended by the
+    // surgical originals integration (2026-09-16)
+    expect(plans).toHaveLength(775);
     expect(plans.slice(0, 749).every((plan) => !plan.id.startsWith('space-'))).toBe(true);
     expect(spacePlans.map((plan) => plan.id)).toEqual(SPACE_PLAN_IDS);
     expect(spacePlans.map((plan) => plan.rowOrdinal)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -184,7 +186,7 @@ describe('space originals: approved deltas', () => {
   const PRE_HASH = 'f61d63c0de6a60214eb0a47e3b945794279d22250cf429389b39815af9160118';
 
   it('appends exactly 10 entries, same-same except the one article correction', () => {
-    expect(deltas.entries).toHaveLength(845);
+    expect(deltas.entries).toHaveLength(852);
     expect(spaceDeltas.map((delta) => delta.id).sort()).toEqual(
       ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'].map((row) => `sp-r${row}-20260916-1`).sort(),
     );

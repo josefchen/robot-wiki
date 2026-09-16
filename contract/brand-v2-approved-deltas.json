@@ -20898,6 +20898,132 @@
         "VAL-AUDIT-009"
       ],
       "disposition": "permanent"
+    },
+    {
+      "id": "sg-r1-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:adjacent/surgical",
+      "oldHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "newHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "reason": "Exactly adjacent/surgical original 1 (11,106 da Vinci systems as of end 2025; installed base grew ...): source-correction per the frozen packet. Every retained passage was needle-verified by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. This entry is a no-op hash record: the article prose move of this lane (row 1 span correction 17->18 percent plus row 6 risk-tolerance clause) is recorded once on the sg-r6 entry as a single approved baseline move.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-p-surgical-20260916f, sha256 54c68925abb21f4ee7f0679e8e0df3c0ad1bda59e6b3ead6dd3ab342b37bf660) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "sg-r2-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:adjacent/surgical",
+      "oldHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "newHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "reason": "Exactly adjacent/surgical original 2 (da Vinci 5 cleared March 2024, fifth-generation multiport, 1...): evidence-completion per the frozen packet. Every retained passage was needle-verified by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-side correction only); lastReviewed deliberately not moved.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-p-surgical-20260916f, sha256 54c68925abb21f4ee7f0679e8e0df3c0ad1bda59e6b3ead6dd3ab342b37bf660) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "sg-r3-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:adjacent/surgical",
+      "oldHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "newHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "reason": "Exactly adjacent/surgical original 3 (Force Feedback \"first for any surgical technology in any mod...): evidence-completion per the frozen packet. Every retained passage was needle-verified by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-side correction only); lastReviewed deliberately not moved.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-p-surgical-20260916f, sha256 54c68925abb21f4ee7f0679e8e0df3c0ad1bda59e6b3ead6dd3ab342b37bf660) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "sg-r4-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:adjacent/surgical",
+      "oldHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "newHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "reason": "Exactly adjacent/surgical original 4 (CMR Versius: De Novo October 2024, single indication adult c...): evidence-completion per the frozen packet. Every retained passage was needle-verified by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-side correction only); lastReviewed deliberately not moved.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-p-surgical-20260916f, sha256 54c68925abb21f4ee7f0679e8e0df3c0ad1bda59e6b3ead6dd3ab342b37bf660) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "sg-r6-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:adjacent/surgical",
+      "oldHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "newHash": "c36132a65355c0f46e5b530b4626389c0127babfb418d976d982b8a2dfb942eb",
+      "reason": "Exactly adjacent/surgical originals 1 and 6 prose move, recorded once because the baseline matcher resolves one approved move per member: row 1 corrects the article span 'da Vinci procedures grew roughly 17 percent worldwide that year' to 'roughly 18 percent worldwide in 2025' (release prints ~17% for Q4 only, 18% full-year 2025), and row 6 corrects the risk-tolerance clause to the editorial printed position 'risk tolerance to autonomous robots is expected to change as autonomous machines such as self-driving cars become commonplace' (prose member f0daa44d... -> c36132a6...). Every retained passage was needle-verified by this integrator against the frozen packet retained corpus before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-p-surgical-20260916f, sha256 54c68925abb21f4ee7f0679e8e0df3c0ad1bda59e6b3ead6dd3ab342b37bf660) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "sg-r7-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:adjacent/surgical",
+      "oldHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "newHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "reason": "Exactly adjacent/surgical original 7 (0.95^30 = 0.2146 (21.4639%); article prints 21.5% at one dec...): source-correction-with-local-AND per the frozen packet. Every retained passage was needle-verified by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-side correction only); lastReviewed deliberately not moved.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-p-surgical-20260916f, sha256 54c68925abb21f4ee7f0679e8e0df3c0ad1bda59e6b3ead6dd3ab342b37bf660) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "sg-r8-20260916-1",
+      "manifest": "prose",
+      "memberId": "article:adjacent/surgical",
+      "oldHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "newHash": "f0daa44d11ccdfb1690809295c3e52b7246af89f4dbc10ec743d4e08061189c1",
+      "reason": "Exactly adjacent/surgical original 8 (STAR 2016: supervised autonomous anastomosis in vivo, outcom...): evidence-completion per the frozen packet. Every retained passage was needle-verified by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-surgical-integration-20260916. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion / ledger-side correction only); lastReviewed deliberately not moved.",
+      "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 7 selected records of frozen packet convergence-source-p-surgical-20260916f, sha256 54c68925abb21f4ee7f0679e8e0df3c0ad1bda59e6b3ead6dd3ab342b37bf660) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+      "responsibleMilestone": "brand-v2-editorial",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-010",
+        "VAL-B2-ART-010",
+        "VAL-AUDIT-001",
+        "VAL-AUDIT-009"
+      ],
+      "disposition": "permanent"
     }
   ]
 }
