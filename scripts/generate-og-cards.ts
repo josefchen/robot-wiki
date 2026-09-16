@@ -48,10 +48,16 @@ import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import { ogCardCorpus } from '../lib/og-card-corpus.ts';
 import { renderCorpusCard } from '../lib/og-card-render-boundary.ts';
+import {
+  ARTICLE_IMAGE_VARIANTS,
+  articleCardPath,
+} from '../lib/og-cards.ts';
 
 const root = join(import.meta.dirname, '..');
 const publicOgDir = join(root, 'public', 'og');
 const outOgDir = join(root, 'out', 'og');
+const publicStructuredDir = join(root, 'public', 'structured-images');
+const outStructuredDir = join(root, 'out', 'structured-images');
 
 function sha256(buf: Buffer): string {
   return createHash('sha256').update(buf).digest('hex');
@@ -79,8 +85,10 @@ async function main(): Promise<void> {
   // whole tree is regenerated from the registry every build, so clear it
   // first (drafts are excluded from the export and from this set).
   rmSync(publicOgDir, { recursive: true, force: true });
+  rmSync(publicStructuredDir, { recursive: true, force: true });
   if (outOgDir.startsWith(join(root, 'out'))) {
     rmSync(outOgDir, { recursive: true, force: true });
+    rmSync(outStructuredDir, { recursive: true, force: true });
   }
 
   const t0 = Date.now();
@@ -102,7 +110,30 @@ async function main(): Promise<void> {
     // cleared and regenerated on every run.
     check(cardPath, buffer);
     if (cardId === 'site') siteCards += 1;
-    else articleCards += 1;
+    else {
+      articleCards += 1;
+      // The search-only structured-data variants (4:3 and square) render
+      // the same sealed card tree through the same boundary at the
+      // registered variant dimensions; articleJsonLd and the sitemap
+      // point at these paths.
+      const [domain, slug] = cardId.split('/');
+      for (const variant of ARTICLE_IMAGE_VARIANTS) {
+        if (variant.id === 'landscape') continue;
+        const variantPath = articleCardPath(domain, slug, variant.id);
+        const relVariant = variantPath.replace(/^\/+/, '');
+        const publicVariant = join(root, 'public', relVariant);
+        const outVariant = join(root, 'out', relVariant);
+        mkdirSync(join(publicVariant, '..'), { recursive: true });
+        mkdirSync(join(outVariant, '..'), { recursive: true });
+        const variantBuffer = await renderCorpusCard(entry, root, {
+          width: variant.width,
+          height: variant.height,
+        });
+        writeFileSync(publicVariant, variantBuffer);
+        writeFileSync(outVariant, variantBuffer);
+        check(variantPath, variantBuffer);
+      }
+    }
   }
 
   const seconds = ((Date.now() - t0) / 1000).toFixed(1);

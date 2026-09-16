@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -402,13 +403,30 @@ describe('shell runtime evidence', () => {
     );
     // The lockup string is the one change VAL-B2-SHELL-005 admits, and it is
     // admitted through a reviewable approved delta rather than through a
-    // hole in the comparison.
+    // hole in the comparison. Approved additions to the taxonomy are a
+    // different category: they carry the missing-member sentinel as their
+    // sealed hash and never move a sealed member.
     const lockup = sealed.find(({ id }) => id === 'nav:/');
     expect(lockup?.approvedDeltaId).toBe('brand-v2-id-home-link-navigation-entry');
     expect(lockup?.hash).not.toBe(lockup?.sealedHash);
+    const missingHash = createHash('sha256').update('missing').digest('hex');
+    const moved = sealed.filter(
+      ({ hash, sealedHash }) => sealedHash !== missingHash && hash !== sealedHash,
+    );
+    // Every move of a sealed member has to be an approved delta; an
+    // unapproved move would surface here with approvedDeltaId null and fail
+    // the rendered-taxonomy comparison downstream.
+    expect(moved.length).toBeGreaterThan(0);
     expect(
-      sealed.filter(({ approvedDeltaId }) => approvedDeltaId !== null),
-    ).toHaveLength(1);
+      moved.filter(({ approvedDeltaId }) => approvedDeltaId === null),
+    ).toHaveLength(0);
+    // Additions to the taxonomy arrive the same way: approved deltas whose
+    // sealed side is the missing-member sentinel.
+    for (const member of sealed) {
+      if (member.sealedHash === missingHash) {
+        expect(member.approvedDeltaId).not.toBeNull();
+      }
+    }
     expect(() =>
       navigationBaselineMembers(
         JSON.parse(

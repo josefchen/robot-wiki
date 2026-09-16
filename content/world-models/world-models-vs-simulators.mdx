@@ -23,8 +23,9 @@ seeAlso:
   - "rl-sim2real/sim2real-transfer"
   - "world-models/evaluation"
 ---
+import { SimVsModelTable } from '@/components/mdx/text-tables';
 
-A physics simulator predicts the next state from explicit geometry, dynamics and contact rules. A learned world model predicts from data. Both are models of what happens under an action; neither is automatically faithful to the real robot. The practical choice is which errors are measurable, which counterfactuals must be queried, and how far beyond the training distribution the system will operate.
+A physics simulator predicts the next state from explicit geometry, dynamics and contact rules. A learned <Term id="world-model">world model</Term> predicts from data. Both are models of what happens under an action; neither is automatically faithful to the real robot. The practical choice is which errors are measurable, which counterfactuals must be queried, and how far beyond the training distribution the system will operate.
 
 The most productive systems increasingly combine them. Physics supplies structure and broad counterfactual coverage. Learning supplies appearance, actuator residuals, contacts or task distributions that are expensive to specify.
 
@@ -63,16 +64,7 @@ The current survey of world models for robot learning treats learned simulators 
 
 ## Comparison by engineering property
 
-| Property | Physics simulator | Learned world model |
-| --- | --- | --- |
-| Dynamics source | equations and parameters | observed transitions |
-| Counterfactual coverage | broad within modeled mechanics | strongest near training support |
-| State access | explicit positions, forces and contacts | latent or generated observations |
-| Debugging | inspect parameters and constraints | inspect errors and sensitivity indirectly |
-| Appearance | authored assets and renderers | learned from image or video data |
-| Adaptation | identify parameters or modify models | fine-tune on new trajectories |
-| Failure mode | wrong assumptions or parameters | action collapse, drift, hallucination |
-| Compute pattern | many small integration steps | large neural inference calls |
+<SimVsModelTable className="my-6" />
 
 The table is not a winner. It identifies where each system makes uncertainty visible.
 

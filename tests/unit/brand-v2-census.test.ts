@@ -121,7 +121,7 @@ type Registry = {
 };
 
 const ROOT = process.cwd();
-const GENERATED_ASSET_PREFIXES = ['og/', 'pagefind/'];
+const GENERATED_ASSET_PREFIXES = ['og/', 'pagefind/', 'structured-images/'];
 const registry = JSON.parse(
   readFileSync(join(ROOT, 'contract', 'brand-v2-registries.json'), 'utf8'),
 ) as Registry;

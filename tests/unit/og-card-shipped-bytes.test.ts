@@ -29,37 +29,53 @@ import {
  */
 const ROOT = process.cwd();
 const CARD_COUNT = publishedModules().length + 1;
+// Every article card also ships the two structured-data variants (4:3 and
+// square) that articleJsonLd and the sitemap reference, so the compared
+// population is the corpus plus two variants per article.
+const EXPECTED_FILE_COUNT = CARD_COUNT + publishedModules().length * 2;
 
 describe('the shipped Open Graph card bytes', () => {
-  it('re-renders every corpus card and finds the tracked files byte-identical', async () => {
+  it(
+    're-renders every corpus card and finds the tracked files byte-identical',
+    { timeout: 120000 },
+    async () => {
     const verified = await verifyShippedCardBytes({
       root: ROOT,
       destinationRoots: [OG_CARD_TRACKED_OUTPUT_ROOT],
     });
     expect(
       verified.cards.length,
-      'corpus cards compared with the render boundary output',
-    ).toBe(CARD_COUNT);
-    expect(verified.files, 'shipped files compared').toBe(CARD_COUNT);
+      'corpus cards and structured-data variants compared with the render boundary output',
+    ).toBe(EXPECTED_FILE_COUNT);
+    expect(verified.files, 'shipped files compared').toBe(EXPECTED_FILE_COUNT);
     expect(
       new Set(verified.cards.map(({ sha256 }) => sha256)).size,
       'each shipped card must be byte-distinct',
-    ).toBe(CARD_COUNT);
+    ).toBe(EXPECTED_FILE_COUNT);
     // The tracked destination is one of the two the build writes; the other
     // is the git-ignored export tree, which postbuild compares as well.
     expect(OG_CARD_OUTPUT_ROOTS).toContain(OG_CARD_TRACKED_OUTPUT_ROOT);
-  });
+    },
+  );
 
   /**
    * Falsified against a staging copy of the shipped tree rather than by
    * editing the repository, so a crash cannot leave a corrupted card behind.
    */
-  it('rejects a card that is not the bytes the boundary produced', async () => {
+  it(
+    'rejects a card that is not the bytes the boundary produced',
+    { timeout: 120000 },
+    async () => {
     const staging = mkdtempSync(join(tmpdir(), 'og-card-shipped-bytes-'));
     try {
       cpSync(
         join(ROOT, OG_CARD_TRACKED_OUTPUT_ROOT, 'og'),
         join(staging, 'og'),
+        { recursive: true },
+      );
+      cpSync(
+        join(ROOT, OG_CARD_TRACKED_OUTPUT_ROOT, 'structured-images'),
+        join(staging, 'structured-images'),
         { recursive: true },
       );
       await expect(
@@ -94,7 +110,8 @@ describe('the shipped Open Graph card bytes', () => {
     } finally {
       rmSync(staging, { recursive: true, force: true });
     }
-  });
+    },
+  );
 
   it('refuses to conclude anything when there is no destination to compare', async () => {
     await expect(

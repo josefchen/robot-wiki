@@ -79,6 +79,7 @@ export default function PrivacyPage() {
         <p className="mt-4 font-sans text-sm leading-relaxed text-text-dim">
           Questions or correction requests can be raised through the{' '}
           <Link
+            data-brand-control-id="control:link-focus"
             href="/editorial-policy/"
             className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
           >

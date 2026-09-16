@@ -2,7 +2,11 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { IMAGES, attributionText, figureKind, legalBasis, preservationPolicy } from '../data/images.ts';
 import type { SiteImage } from '../data/schemas/image.ts';
-import { sha256, stableJson } from './brand-v2-baseline.ts';
+import {
+  sha256,
+  stableJson,
+  type ApprovedDelta,
+} from './brand-v2-baseline.ts';
 import { contrastRatio } from './brand-v2-mobile-shell-evidence.ts';
 import type { Verdict } from './brand-v2-figure-evidence.ts';
 import { REUSABLE_CONTENT_BASES } from './brand-v2-figure-evidence.ts';
@@ -839,7 +843,53 @@ export function materialHonestyVerdicts(
  * comparison would be a file compared with itself. The pin is
  * `evidence/brand-v2/baseline/assets-svg.json`, which was sealed before the
  * rollout and is never rewritten.
+ *
+ * An approved drawing change does not edit that seal; it arrives as an
+ * `assets-svg` entry in `contract/brand-v2-approved-deltas.json`, exactly
+ * the way `navigationBaselineMembers` in `lib/shell-populations.ts`
+ * resolves the sealed navigation taxonomy. The expected hash is the sealed
+ * one unless a delta names the member and claims its sealed hash, in which
+ * case it is that delta's new hash: an unapproved move still fails, and the
+ * approval stays a reviewable entry rather than a hole in the assertion.
+ * New drawings enter through an approved addition — a delta whose memberId
+ * was never sealed and whose oldHash is the missing-member sentinel
+ * `sha256("missing")` — so an addition nobody approved still reports no
+ * sealed member.
  */
+export function sealedSvgBaselineMembers(
+  sealed: { members?: Array<{ id: string; hash: string }> },
+  approvedDeltas: readonly ApprovedDelta[],
+): Array<{ id: string; hash: string }> {
+  const members = sealed.members ?? [];
+  if (members.length === 0) {
+    throw new Error(
+      'the immutable baseline records no first-party SVG members: VAL-B2-VIZ-014 would quantify over an empty population',
+    );
+  }
+  const approved = new Map(
+    approvedDeltas
+      .filter(({ manifest }) => manifest === 'assets-svg')
+      .map((entry) => [entry.memberId, entry]),
+  );
+  const resolved = members.map(({ id, hash }) => {
+    const delta = approved.get(id);
+    if (delta && delta.oldHash !== hash) {
+      throw new Error(
+        `the approved delta ${delta.id} claims to move ${id} from a hash the SVG baseline does not record`,
+      );
+    }
+    return { id, hash: delta?.newHash ?? hash };
+  });
+  const sealedIds = new Set(resolved.map(({ id }) => id));
+  const missingHash = sha256('missing');
+  for (const delta of approved.values()) {
+    if (!sealedIds.has(delta.memberId) && delta.oldHash === missingHash) {
+      resolved.push({ id: delta.memberId, hash: delta.newHash });
+    }
+  }
+  return resolved;
+}
+
 export function originalSvgSemanticVerdicts(
   assets: readonly AssetRow[],
   root: string,

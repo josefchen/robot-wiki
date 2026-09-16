@@ -76,7 +76,7 @@ const ARTICLE_SEO_TITLES: Readonly<Record<string, string>> = {
   'manipulation/realtime-execution': 'Real-Time Robot Policy Execution',
   'manipulation/cross-embodiment': 'Cross-Embodiment Transfer in Robot Learning',
   'manipulation/knowledge-insulation': 'Knowledge Insulation in Vision-Language-Action Models',
-  'manipulation/robot-learning-roadmap': 'Robot Learning Roadmap for ML Engineers',
+  'manipulation/robot-learning-roadmap': 'Robot Learning Curriculum for ML Engineers',
   'manipulation/action-spaces': 'Robot Action Spaces: Joint, Cartesian and Torque Control',
   'manipulation/foundation-models': 'Foundation Models for Robotics: VLA, World Models and More',
   'rl-sim2real/rl-for-robotics': 'Reinforcement Learning for Robotics',

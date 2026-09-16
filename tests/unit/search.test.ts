@@ -25,7 +25,7 @@ describe('toSearchHits', () => {
         results: [
           fakeResult({
             url: '/manipulation/action-chunking/',
-            meta: { title: 'Action Chunking (ACT and ALOHA) | PUBLIC_IDENTITY' },
+            meta: { title: 'Action Chunking (ACT and ALOHA) | Robot Wiki' },
             excerpt: 'the <mark>chunk</mark> size tradeoff',
           }),
         ],
@@ -95,12 +95,12 @@ describe('toSearchHits', () => {
           }),
           fakeResult({
             url: '/manipulation/',
-            meta: { title: 'Manipulation | PUBLIC_IDENTITY' },
+            meta: { title: 'Manipulation | Robot Wiki' },
             content: 'Action Chunking sits in this domain.',
           }),
           fakeResult({
             url: '/manipulation/action-chunking/',
-            meta: { title: 'Action Chunking (ACT and ALOHA) | PUBLIC_IDENTITY' },
+            meta: { title: 'Action Chunking (ACT and ALOHA) | Robot Wiki' },
             content: 'Action Chunking predicts a chunk of actions.',
           }),
         ],

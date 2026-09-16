@@ -105,6 +105,7 @@ export default function EditorialPolicyPage() {
         </p>
         <p className="mt-4 font-sans text-sm leading-relaxed text-text-dim">
           <a
+            data-brand-control-id="control:link-focus"
             href={CONTENT_CORRECTION_URL}
             target="_blank"
             rel="noopener"
@@ -113,7 +114,7 @@ export default function EditorialPolicyPage() {
             Open a content-correction report on GitHub
           </a>{' '}
           or review the repository&apos;s{' '}
-          <Link href="/credits/" className={inlineLink}>
+          <Link data-brand-control-id="control:link-focus" href="/credits/" className={inlineLink}>
             authorship and image credits
           </Link>
           .

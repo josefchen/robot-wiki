@@ -8,6 +8,7 @@ export function CorrectionLink({ articleTitle }: { articleTitle: string }) {
     >
       Spot a factual error or missing qualification?{' '}
       <a
+        data-brand-control-id="control:link-focus"
         href={contentCorrectionUrl(articleTitle)}
         target="_blank"
         rel="noopener"

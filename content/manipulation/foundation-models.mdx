@@ -22,10 +22,11 @@ seeAlso:
   - "world-models/taxonomy"
   - "manipulation/cross-embodiment"
 ---
+import { FoundationModelFamiliesTable } from '@/components/mdx/text-tables';
 
 “Foundation model” is a claim about reuse, not a synonym for a large neural network. In robotics, the useful test is whether one pretrained model supports materially different downstream tasks, environments or embodiments after bounded adaptation. Parameter count alone does not establish that property, and a model trained across many tasks can still be a closed, fixed policy rather than a foundation for new ones.
 
-Three families currently carry the label: vision-language-action models that emit controls, predictive world models used for planning or representation learning, and multimodal backbones adapted into either. They share pretraining scale and diverge at the output interface.
+Three families currently carry the label: <Term id="vision-language-action-model">vision-language-action models</Term> that emit controls, predictive world models used for planning or representation learning, and multimodal backbones adapted into either. They share pretraining scale and diverge at the output interface.
 
 Try the check below and choose the evidence that actually supports the foundation claim. The correct option requires transfer to a downstream setting rather than only a large training run.
 
@@ -110,12 +111,7 @@ The remaining costs explain why open weights are not the same as a deployable ro
 
 ## A comparison framework
 
-| Family | Pretrained capability | Typical downstream output | Strongest transfer claim | Main unresolved cost |
-| --- | --- | --- | --- | --- |
-| VLA | Vision-language semantics | Action tokens or continuous chunks | New tasks, objects and instructions | Robot data and control integration |
-| Generalist humanoid | Multimodal behavior across a morphology family | Whole-body action chunks | Tasks and related humanoid embodiments | Balance, contact and hardware variation |
-| Latent or JEPA world model | Predictive state representation | Latent future, value or plan | New tasks with shared dynamics structure | Planning objective and action grounding |
-| Generative world model | Visual and temporal generation | Future video or synthetic experience | Data generation and policy evaluation | Physical fidelity and inference cost |
+<FoundationModelFamiliesTable className="my-6" />
 
 Compare systems within the same row before comparing across rows. A VLA success rate and a world model's video metric do not answer the same question.
 

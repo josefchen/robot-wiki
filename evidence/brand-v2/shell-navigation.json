@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "aa2a8d41dec0ce049529edf70db7eea266eaa3e6011d65ce6d54a45862915f36",
+  "fingerprint": "0e838b73c36f3948322b4f22611a10f072336e951163d11165d3ad8d89c656dc",
   "viewport": "1440x900",
   "routes": [
     "/",
@@ -11,11 +11,13 @@
     "/adjacent/space/",
     "/adjacent/surgical/",
     "/classical/",
+    "/classical/calibration/",
     "/classical/control/",
     "/classical/grasp-planning/",
     "/classical/kinematics/",
     "/classical/motion-planning/",
     "/classical/perception/",
+    "/classical/ros2-for-ml-engineers/",
     "/classical/scene-representation/",
     "/classical/state-estimation/",
     "/credits/",
@@ -25,7 +27,9 @@
     "/data-hardware/evaluation-crisis/",
     "/data-hardware/hardware-taxonomy/",
     "/data-hardware/industrial-deployment/",
+    "/data-hardware/robot-learning-stack/",
     "/data-hardware/teleop-rigs/",
+    "/editorial-policy/",
     "/frontier/",
     "/frontier/bear-case/",
     "/frontier/competing-theses/",
@@ -36,22 +40,27 @@
     "/glossary/",
     "/manipulation/",
     "/manipulation/action-chunking/",
+    "/manipulation/action-spaces/",
     "/manipulation/bc-foundations/",
     "/manipulation/comparison-matrix/",
     "/manipulation/cross-embodiment/",
     "/manipulation/diffusion-policy/",
+    "/manipulation/foundation-models/",
     "/manipulation/generalist-policies/",
     "/manipulation/hierarchical/",
     "/manipulation/knowledge-insulation/",
     "/manipulation/pi-line/",
     "/manipulation/realtime-execution/",
     "/manipulation/rl-finetuning/",
+    "/manipulation/robot-learning-roadmap/",
     "/manipulation/vla-models/",
     "/market-map/",
     "/playground/",
+    "/privacy/",
     "/rl-sim2real/",
     "/rl-sim2real/humanoid-wbc/",
     "/rl-sim2real/legged-locomotion/",
+    "/rl-sim2real/offline-rl/",
     "/rl-sim2real/parallel-sim-rl/",
     "/rl-sim2real/reward-design-mpc/",
     "/rl-sim2real/rl-for-robotics/",
@@ -59,15 +68,18 @@
     "/rl-sim2real/why-rl-locomotion/",
     "/search/",
     "/world-models/",
+    "/world-models/evaluation/",
     "/world-models/generative-sim/",
     "/world-models/generative-video/",
     "/world-models/jepa/",
     "/world-models/latent-dynamics/",
-    "/world-models/taxonomy/"
+    "/world-models/model-based-robot-learning/",
+    "/world-models/taxonomy/",
+    "/world-models/world-models-vs-simulators/"
   ],
   "observations": [
     {
-      "visibleTextLength": 4530,
+      "visibleTextLength": 5638,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -191,7 +203,7 @@
       }
     },
     {
-      "visibleTextLength": 6167,
+      "visibleTextLength": 6759,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -315,7 +327,7 @@
       }
     },
     {
-      "visibleTextLength": 1171,
+      "visibleTextLength": 1198,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -499,7 +511,7 @@
       }
     },
     {
-      "visibleTextLength": 29003,
+      "visibleTextLength": 28975,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -683,7 +695,7 @@
       }
     },
     {
-      "visibleTextLength": 17928,
+      "visibleTextLength": 18032,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -867,7 +879,7 @@
       }
     },
     {
-      "visibleTextLength": 18291,
+      "visibleTextLength": 18395,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -1051,7 +1063,7 @@
       }
     },
     {
-      "visibleTextLength": 16861,
+      "visibleTextLength": 16965,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -1235,7 +1247,7 @@
       }
     },
     {
-      "visibleTextLength": 1604,
+      "visibleTextLength": 2013,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -1368,6 +1380,30 @@
         },
         {
           "index": 9,
+          "href": "/classical/calibration/",
+          "name": "Robot Calibration",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/classical/ros2-for-ml-engineers/",
+          "name": "ROS 2 for Machine Learning Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -1379,7 +1415,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 12,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -1391,7 +1427,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 13,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -1403,7 +1439,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -1415,7 +1451,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -1455,7 +1491,251 @@
       }
     },
     {
-      "visibleTextLength": 24418,
+      "visibleTextLength": 11950,
+      "ariaCurrentNodes": [
+        {
+          "tag": "a",
+          "href": "/classical/calibration/",
+          "navigationLink": true,
+          "accessibleName": "Robot Calibration",
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors fon"
+        }
+      ],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/classical/",
+          "name": "Domain overview",
+          "category": "domain-overview",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/classical/kinematics/",
+          "name": "Kinematics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/classical/motion-planning/",
+          "name": "Motion Planning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/classical/control/",
+          "name": "Control",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
+          "href": "/classical/state-estimation/",
+          "name": "State Estimation",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 6,
+          "href": "/classical/grasp-planning/",
+          "name": "Grasp Planning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 7,
+          "href": "/classical/perception/",
+          "name": "Perception for Manipulation",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/classical/scene-representation/",
+          "name": "Scene Representation and Mapping",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/classical/calibration/",
+          "name": "Robot Calibration",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": "page",
+          "marker": {
+            "deviceId": "device:active-interval-rail",
+            "anchorSelector": "#sidebar-taxonomy",
+            "ariaHidden": "true",
+            "pointerEvents": "none",
+            "borderLeftColour": "rgb(198, 255, 25)",
+            "borderLeftWidthPx": 3,
+            "leftPx": 12,
+            "heightPx": 25.88,
+            "alignmentErrorPx": 0,
+            "ownerHeightPx": 25.88,
+            "contributedText": ""
+          }
+        },
+        {
+          "index": 10,
+          "href": "/classical/ros2-for-ml-engineers/",
+          "name": "ROS 2 for Machine Learning Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/classical/calibration/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 26075,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -1588,6 +1868,30 @@
         },
         {
           "index": 9,
+          "href": "/classical/calibration/",
+          "name": "Robot Calibration",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/classical/ros2-for-ml-engineers/",
+          "name": "ROS 2 for Machine Learning Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -1599,7 +1903,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 12,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -1611,7 +1915,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 13,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -1623,7 +1927,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -1635,7 +1939,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -1675,7 +1979,7 @@
       }
     },
     {
-      "visibleTextLength": 17299,
+      "visibleTextLength": 17458,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -1808,6 +2112,30 @@
         },
         {
           "index": 9,
+          "href": "/classical/calibration/",
+          "name": "Robot Calibration",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/classical/ros2-for-ml-engineers/",
+          "name": "ROS 2 for Machine Learning Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -1819,7 +2147,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 12,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -1831,7 +2159,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 13,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -1843,7 +2171,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -1855,7 +2183,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -1895,7 +2223,7 @@
       }
     },
     {
-      "visibleTextLength": 15647,
+      "visibleTextLength": 17492,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2028,6 +2356,30 @@
         },
         {
           "index": 9,
+          "href": "/classical/calibration/",
+          "name": "Robot Calibration",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/classical/ros2-for-ml-engineers/",
+          "name": "ROS 2 for Machine Learning Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -2039,7 +2391,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 12,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -2051,7 +2403,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 13,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -2063,7 +2415,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -2075,7 +2427,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -2115,7 +2467,7 @@
       }
     },
     {
-      "visibleTextLength": 26691,
+      "visibleTextLength": 27836,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2248,6 +2600,30 @@
         },
         {
           "index": 9,
+          "href": "/classical/calibration/",
+          "name": "Robot Calibration",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/classical/ros2-for-ml-engineers/",
+          "name": "ROS 2 for Machine Learning Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -2259,7 +2635,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 12,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -2271,7 +2647,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 13,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -2283,7 +2659,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -2295,7 +2671,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -2335,7 +2711,7 @@
       }
     },
     {
-      "visibleTextLength": 41054,
+      "visibleTextLength": 42487,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2468,6 +2844,30 @@
         },
         {
           "index": 9,
+          "href": "/classical/calibration/",
+          "name": "Robot Calibration",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/classical/ros2-for-ml-engineers/",
+          "name": "ROS 2 for Machine Learning Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -2479,7 +2879,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 12,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -2491,7 +2891,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 13,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -2503,7 +2903,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -2515,7 +2915,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -2555,7 +2955,251 @@
       }
     },
     {
-      "visibleTextLength": 27268,
+      "visibleTextLength": 12183,
+      "ariaCurrentNodes": [
+        {
+          "tag": "a",
+          "href": "/classical/ros2-for-ml-engineers/",
+          "navigationLink": true,
+          "accessibleName": "ROS 2 for Machine Learning Engineers",
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors fon"
+        }
+      ],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/classical/",
+          "name": "Domain overview",
+          "category": "domain-overview",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/classical/kinematics/",
+          "name": "Kinematics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/classical/motion-planning/",
+          "name": "Motion Planning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/classical/control/",
+          "name": "Control",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
+          "href": "/classical/state-estimation/",
+          "name": "State Estimation",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 6,
+          "href": "/classical/grasp-planning/",
+          "name": "Grasp Planning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 7,
+          "href": "/classical/perception/",
+          "name": "Perception for Manipulation",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/classical/scene-representation/",
+          "name": "Scene Representation and Mapping",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/classical/calibration/",
+          "name": "Robot Calibration",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/classical/ros2-for-ml-engineers/",
+          "name": "ROS 2 for Machine Learning Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": "page",
+          "marker": {
+            "deviceId": "device:active-interval-rail",
+            "anchorSelector": "#sidebar-taxonomy",
+            "ariaHidden": "true",
+            "pointerEvents": "none",
+            "borderLeftColour": "rgb(198, 255, 25)",
+            "borderLeftWidthPx": 3,
+            "leftPx": 12,
+            "heightPx": 43.75,
+            "alignmentErrorPx": 0,
+            "ownerHeightPx": 43.75,
+            "contributedText": ""
+          }
+        },
+        {
+          "index": 11,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/classical/ros2-for-ml-engineers/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 28708,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2688,6 +3332,30 @@
         },
         {
           "index": 9,
+          "href": "/classical/calibration/",
+          "name": "Robot Calibration",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/classical/ros2-for-ml-engineers/",
+          "name": "ROS 2 for Machine Learning Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -2699,7 +3367,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 12,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -2711,7 +3379,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 13,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -2723,7 +3391,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -2735,7 +3403,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -2775,7 +3443,7 @@
       }
     },
     {
-      "visibleTextLength": 18629,
+      "visibleTextLength": 20211,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -2908,6 +3576,30 @@
         },
         {
           "index": 9,
+          "href": "/classical/calibration/",
+          "name": "Robot Calibration",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/classical/ros2-for-ml-engineers/",
+          "name": "ROS 2 for Machine Learning Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -2919,7 +3611,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 12,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -2931,7 +3623,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 13,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -2943,7 +3635,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 14,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -2955,7 +3647,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 15,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -2995,7 +3687,7 @@
       }
     },
     {
-      "visibleTextLength": 21637,
+      "visibleTextLength": 21697,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -3119,7 +3811,7 @@
       }
     },
     {
-      "visibleTextLength": 1563,
+      "visibleTextLength": 1791,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -3240,6 +3932,18 @@
         },
         {
           "index": 8,
+          "href": "/data-hardware/robot-learning-stack/",
+          "name": "The Robot Learning Stack",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -3251,7 +3955,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 10,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -3263,7 +3967,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -3275,7 +3979,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -3287,7 +3991,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -3327,7 +4031,7 @@
       }
     },
     {
-      "visibleTextLength": 14948,
+      "visibleTextLength": 15077,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -3448,6 +4152,18 @@
         },
         {
           "index": 8,
+          "href": "/data-hardware/robot-learning-stack/",
+          "name": "The Robot Learning Stack",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -3459,7 +4175,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 10,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -3471,7 +4187,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -3483,7 +4199,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -3495,7 +4211,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -3535,7 +4251,7 @@
       }
     },
     {
-      "visibleTextLength": 13484,
+      "visibleTextLength": 15456,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -3656,6 +4372,18 @@
         },
         {
           "index": 8,
+          "href": "/data-hardware/robot-learning-stack/",
+          "name": "The Robot Learning Stack",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -3667,7 +4395,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 10,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -3679,7 +4407,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -3691,7 +4419,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -3703,7 +4431,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -3743,7 +4471,7 @@
       }
     },
     {
-      "visibleTextLength": 17408,
+      "visibleTextLength": 17883,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -3864,6 +4592,18 @@
         },
         {
           "index": 8,
+          "href": "/data-hardware/robot-learning-stack/",
+          "name": "The Robot Learning Stack",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -3875,7 +4615,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 10,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -3887,7 +4627,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -3899,7 +4639,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -3911,7 +4651,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -3951,7 +4691,7 @@
       }
     },
     {
-      "visibleTextLength": 26773,
+      "visibleTextLength": 26787,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -4072,6 +4812,18 @@
         },
         {
           "index": 8,
+          "href": "/data-hardware/robot-learning-stack/",
+          "name": "The Robot Learning Stack",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -4083,7 +4835,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 10,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -4095,7 +4847,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -4107,7 +4859,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -4119,7 +4871,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -4159,7 +4911,7 @@
       }
     },
     {
-      "visibleTextLength": 22199,
+      "visibleTextLength": 22501,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -4280,6 +5032,18 @@
         },
         {
           "index": 8,
+          "href": "/data-hardware/robot-learning-stack/",
+          "name": "The Robot Learning Stack",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -4291,7 +5055,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 10,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -4303,7 +5067,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -4315,7 +5079,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -4327,7 +5091,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -4367,7 +5131,227 @@
       }
     },
     {
-      "visibleTextLength": 15137,
+      "visibleTextLength": 12542,
+      "ariaCurrentNodes": [
+        {
+          "tag": "a",
+          "href": "/data-hardware/robot-learning-stack/",
+          "navigationLink": true,
+          "accessibleName": "The Robot Learning Stack",
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors fon"
+        }
+      ],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/data-hardware/",
+          "name": "Domain overview",
+          "category": "domain-overview",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/data-hardware/data-bottleneck/",
+          "name": "The Data Bottleneck",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/data-hardware/datasets/",
+          "name": "Major Datasets",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/data-hardware/hardware-taxonomy/",
+          "name": "Hardware Taxonomy",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
+          "href": "/data-hardware/teleop-rigs/",
+          "name": "Teleoperation Rigs",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 6,
+          "href": "/data-hardware/evaluation-crisis/",
+          "name": "The Evaluation Crisis",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 7,
+          "href": "/data-hardware/industrial-deployment/",
+          "name": "Industrial Deployment",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/data-hardware/robot-learning-stack/",
+          "name": "The Robot Learning Stack",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": "page",
+          "marker": {
+            "deviceId": "device:active-interval-rail",
+            "anchorSelector": "#sidebar-taxonomy",
+            "ariaHidden": "true",
+            "pointerEvents": "none",
+            "borderLeftColour": "rgb(198, 255, 25)",
+            "borderLeftWidthPx": 3,
+            "leftPx": 12,
+            "heightPx": 25.88,
+            "alignmentErrorPx": 0,
+            "ownerHeightPx": 25.88,
+            "contributedText": ""
+          }
+        },
+        {
+          "index": 9,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/data-hardware/robot-learning-stack/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 15045,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -4488,6 +5472,18 @@
         },
         {
           "index": 8,
+          "href": "/data-hardware/robot-learning-stack/",
+          "name": "The Robot Learning Stack",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -4499,7 +5495,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 10,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -4511,7 +5507,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -4523,7 +5519,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -4535,7 +5531,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -4575,7 +5571,111 @@
       }
     },
     {
-      "visibleTextLength": 1479,
+      "visibleTextLength": 2175,
+      "ariaCurrentNodes": [],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/editorial-policy/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 1506,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -4783,7 +5883,7 @@
       }
     },
     {
-      "visibleTextLength": 17800,
+      "visibleTextLength": 17904,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -4991,7 +6091,7 @@
       }
     },
     {
-      "visibleTextLength": 24771,
+      "visibleTextLength": 24875,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -5199,7 +6299,7 @@
       }
     },
     {
-      "visibleTextLength": 20798,
+      "visibleTextLength": 20902,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -5407,7 +6507,7 @@
       }
     },
     {
-      "visibleTextLength": 17546,
+      "visibleTextLength": 17650,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -5615,7 +6715,7 @@
       }
     },
     {
-      "visibleTextLength": 14792,
+      "visibleTextLength": 14896,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -5823,7 +6923,7 @@
       }
     },
     {
-      "visibleTextLength": 24319,
+      "visibleTextLength": 24425,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6031,7 +7131,7 @@
       }
     },
     {
-      "visibleTextLength": 84288,
+      "visibleTextLength": 84317,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6155,7 +7255,7 @@
       }
     },
     {
-      "visibleTextLength": 2708,
+      "visibleTextLength": 3357,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6348,6 +7448,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -6359,7 +7495,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -6371,7 +7507,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -6383,7 +7519,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -6395,7 +7531,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -6435,7 +7571,7 @@
       }
     },
     {
-      "visibleTextLength": 22631,
+      "visibleTextLength": 23020,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6628,6 +7764,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -6639,7 +7811,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -6651,7 +7823,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -6663,7 +7835,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -6675,7 +7847,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -6715,7 +7887,323 @@
       }
     },
     {
-      "visibleTextLength": 14262,
+      "visibleTextLength": 12359,
+      "ariaCurrentNodes": [
+        {
+          "tag": "a",
+          "href": "/manipulation/action-spaces/",
+          "navigationLink": true,
+          "accessibleName": "Action Spaces for Robot Learning",
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors fon"
+        }
+      ],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/manipulation/",
+          "name": "Domain overview",
+          "category": "domain-overview",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/manipulation/bc-foundations/",
+          "name": "Behavior Cloning Foundations",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/manipulation/action-chunking/",
+          "name": "Action Chunking (ACT and ALOHA)",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/manipulation/diffusion-policy/",
+          "name": "Diffusion Policy",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
+          "href": "/manipulation/vla-models/",
+          "name": "Vision-Language-Action Models",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 6,
+          "href": "/manipulation/pi-line/",
+          "name": "The Pi Line",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 7,
+          "href": "/manipulation/generalist-policies/",
+          "name": "Other Generalist Policies",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/manipulation/comparison-matrix/",
+          "name": "Comparison Matrix",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/manipulation/hierarchical/",
+          "name": "Hierarchical Approaches",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/manipulation/rl-finetuning/",
+          "name": "RL Fine-Tuning of Policies",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
+          "href": "/manipulation/realtime-execution/",
+          "name": "Real-Time Execution",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
+          "href": "/manipulation/cross-embodiment/",
+          "name": "Cross-Embodiment Transfer",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
+          "href": "/manipulation/knowledge-insulation/",
+          "name": "Knowledge Insulation",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": "page",
+          "marker": {
+            "deviceId": "device:active-interval-rail",
+            "anchorSelector": "#sidebar-taxonomy",
+            "ariaHidden": "true",
+            "pointerEvents": "none",
+            "borderLeftColour": "rgb(198, 255, 25)",
+            "borderLeftWidthPx": 3,
+            "leftPx": 12,
+            "heightPx": 25.88,
+            "alignmentErrorPx": 0,
+            "ownerHeightPx": 25.88,
+            "contributedText": ""
+          }
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 18,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 19,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 20,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/manipulation/action-spaces/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 14657,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -6908,6 +8396,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -6919,7 +8443,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -6931,7 +8455,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -6943,7 +8467,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -6955,7 +8479,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -6995,7 +8519,7 @@
       }
     },
     {
-      "visibleTextLength": 27973,
+      "visibleTextLength": 29363,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -7188,6 +8712,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -7199,7 +8759,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -7211,7 +8771,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -7223,7 +8783,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -7235,7 +8795,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -7275,7 +8835,7 @@
       }
     },
     {
-      "visibleTextLength": 15447,
+      "visibleTextLength": 15841,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -7468,6 +9028,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -7479,7 +9075,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -7491,7 +9087,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -7503,7 +9099,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -7515,7 +9111,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -7555,7 +9151,7 @@
       }
     },
     {
-      "visibleTextLength": 14476,
+      "visibleTextLength": 14687,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -7748,6 +9344,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -7759,7 +9391,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -7771,7 +9403,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -7783,7 +9415,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -7795,7 +9427,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -7835,7 +9467,323 @@
       }
     },
     {
-      "visibleTextLength": 21496,
+      "visibleTextLength": 12435,
+      "ariaCurrentNodes": [
+        {
+          "tag": "a",
+          "href": "/manipulation/foundation-models/",
+          "navigationLink": true,
+          "accessibleName": "Foundation Models for Robotics",
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors fon"
+        }
+      ],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/manipulation/",
+          "name": "Domain overview",
+          "category": "domain-overview",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/manipulation/bc-foundations/",
+          "name": "Behavior Cloning Foundations",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/manipulation/action-chunking/",
+          "name": "Action Chunking (ACT and ALOHA)",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/manipulation/diffusion-policy/",
+          "name": "Diffusion Policy",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
+          "href": "/manipulation/vla-models/",
+          "name": "Vision-Language-Action Models",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 6,
+          "href": "/manipulation/pi-line/",
+          "name": "The Pi Line",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 7,
+          "href": "/manipulation/generalist-policies/",
+          "name": "Other Generalist Policies",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/manipulation/comparison-matrix/",
+          "name": "Comparison Matrix",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/manipulation/hierarchical/",
+          "name": "Hierarchical Approaches",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/manipulation/rl-finetuning/",
+          "name": "RL Fine-Tuning of Policies",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
+          "href": "/manipulation/realtime-execution/",
+          "name": "Real-Time Execution",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
+          "href": "/manipulation/cross-embodiment/",
+          "name": "Cross-Embodiment Transfer",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
+          "href": "/manipulation/knowledge-insulation/",
+          "name": "Knowledge Insulation",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": "page",
+          "marker": {
+            "deviceId": "device:active-interval-rail",
+            "anchorSelector": "#sidebar-taxonomy",
+            "ariaHidden": "true",
+            "pointerEvents": "none",
+            "borderLeftColour": "rgb(198, 255, 25)",
+            "borderLeftWidthPx": 3,
+            "leftPx": 12,
+            "heightPx": 25.88,
+            "alignmentErrorPx": 0,
+            "ownerHeightPx": 25.88,
+            "contributedText": ""
+          }
+        },
+        {
+          "index": 17,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 18,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 19,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 20,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/manipulation/foundation-models/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 21864,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -8028,6 +9976,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -8039,7 +10023,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -8051,7 +10035,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -8063,7 +10047,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -8075,7 +10059,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -8115,7 +10099,7 @@
       }
     },
     {
-      "visibleTextLength": 19395,
+      "visibleTextLength": 19428,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -8308,6 +10292,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -8319,7 +10339,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -8331,7 +10351,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -8343,7 +10363,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -8355,7 +10375,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -8395,7 +10415,7 @@
       }
     },
     {
-      "visibleTextLength": 12500,
+      "visibleTextLength": 12711,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -8588,6 +10608,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -8599,7 +10655,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -8611,7 +10667,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -8623,7 +10679,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -8635,7 +10691,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -8675,7 +10731,7 @@
       }
     },
     {
-      "visibleTextLength": 25716,
+      "visibleTextLength": 25927,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -8868,6 +10924,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -8879,7 +10971,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -8891,7 +10983,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -8903,7 +10995,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -8915,7 +11007,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -8955,7 +11047,7 @@
       }
     },
     {
-      "visibleTextLength": 17401,
+      "visibleTextLength": 17612,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -9148,6 +11240,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -9159,7 +11287,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -9171,7 +11299,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -9183,7 +11311,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -9195,7 +11323,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -9235,7 +11363,7 @@
       }
     },
     {
-      "visibleTextLength": 32336,
+      "visibleTextLength": 32731,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -9428,6 +11556,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -9439,7 +11603,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -9451,7 +11615,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -9463,7 +11627,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -9475,7 +11639,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -9515,7 +11679,323 @@
       }
     },
     {
-      "visibleTextLength": 18824,
+      "visibleTextLength": 11545,
+      "ariaCurrentNodes": [
+        {
+          "tag": "a",
+          "href": "/manipulation/robot-learning-roadmap/",
+          "navigationLink": true,
+          "accessibleName": "Robot Learning Curriculum for ML Engineers",
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors fon"
+        }
+      ],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/manipulation/",
+          "name": "Domain overview",
+          "category": "domain-overview",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/manipulation/bc-foundations/",
+          "name": "Behavior Cloning Foundations",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/manipulation/action-chunking/",
+          "name": "Action Chunking (ACT and ALOHA)",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/manipulation/diffusion-policy/",
+          "name": "Diffusion Policy",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
+          "href": "/manipulation/vla-models/",
+          "name": "Vision-Language-Action Models",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 6,
+          "href": "/manipulation/pi-line/",
+          "name": "The Pi Line",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 7,
+          "href": "/manipulation/generalist-policies/",
+          "name": "Other Generalist Policies",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/manipulation/comparison-matrix/",
+          "name": "Comparison Matrix",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/manipulation/hierarchical/",
+          "name": "Hierarchical Approaches",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/manipulation/rl-finetuning/",
+          "name": "RL Fine-Tuning of Policies",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
+          "href": "/manipulation/realtime-execution/",
+          "name": "Real-Time Execution",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
+          "href": "/manipulation/cross-embodiment/",
+          "name": "Cross-Embodiment Transfer",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
+          "href": "/manipulation/knowledge-insulation/",
+          "name": "Knowledge Insulation",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": "page",
+          "marker": {
+            "deviceId": "device:active-interval-rail",
+            "anchorSelector": "#sidebar-taxonomy",
+            "ariaHidden": "true",
+            "pointerEvents": "none",
+            "borderLeftColour": "rgb(198, 255, 25)",
+            "borderLeftWidthPx": 3,
+            "leftPx": 12,
+            "heightPx": 43.75,
+            "alignmentErrorPx": 0,
+            "ownerHeightPx": 43.75,
+            "contributedText": ""
+          }
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 18,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 19,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 20,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 21,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/manipulation/robot-learning-roadmap/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 20446,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -9708,6 +12188,42 @@
         },
         {
           "index": 14,
+          "href": "/manipulation/robot-learning-roadmap/",
+          "name": "Robot Learning Curriculum for ML Engineers",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 15,
+          "href": "/manipulation/action-spaces/",
+          "name": "Action Spaces for Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 16,
+          "href": "/manipulation/foundation-models/",
+          "name": "Foundation Models for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 17,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -9719,7 +12235,7 @@
           "marker": null
         },
         {
-          "index": 15,
+          "index": 18,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -9731,7 +12247,7 @@
           "marker": null
         },
         {
-          "index": 16,
+          "index": 19,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -9743,7 +12259,7 @@
           "marker": null
         },
         {
-          "index": 17,
+          "index": 20,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -9755,7 +12271,7 @@
           "marker": null
         },
         {
-          "index": 18,
+          "index": 21,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -9795,7 +12311,7 @@
       }
     },
     {
-      "visibleTextLength": 54577,
+      "visibleTextLength": 54573,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -9919,7 +12435,7 @@
       }
     },
     {
-      "visibleTextLength": 1852,
+      "visibleTextLength": 1879,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -10043,7 +12559,111 @@
       }
     },
     {
-      "visibleTextLength": 1852,
+      "visibleTextLength": 1651,
+      "ariaCurrentNodes": [],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/privacy/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 2110,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -10176,6 +12796,18 @@
         },
         {
           "index": 9,
+          "href": "/rl-sim2real/offline-rl/",
+          "name": "Offline Reinforcement Learning for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -10187,7 +12819,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -10199,7 +12831,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -10211,7 +12843,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -10223,7 +12855,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -10263,7 +12895,7 @@
       }
     },
     {
-      "visibleTextLength": 21109,
+      "visibleTextLength": 21257,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -10396,6 +13028,18 @@
         },
         {
           "index": 9,
+          "href": "/rl-sim2real/offline-rl/",
+          "name": "Offline Reinforcement Learning for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -10407,7 +13051,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -10419,7 +13063,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -10431,7 +13075,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -10443,7 +13087,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -10483,7 +13127,7 @@
       }
     },
     {
-      "visibleTextLength": 18661,
+      "visibleTextLength": 18809,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -10616,6 +13260,18 @@
         },
         {
           "index": 9,
+          "href": "/rl-sim2real/offline-rl/",
+          "name": "Offline Reinforcement Learning for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -10627,7 +13283,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -10639,7 +13295,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -10651,7 +13307,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -10663,7 +13319,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -10703,7 +13359,239 @@
       }
     },
     {
-      "visibleTextLength": 15407,
+      "visibleTextLength": 14077,
+      "ariaCurrentNodes": [
+        {
+          "tag": "a",
+          "href": "/rl-sim2real/offline-rl/",
+          "navigationLink": true,
+          "accessibleName": "Offline Reinforcement Learning for Robotics",
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors fon"
+        }
+      ],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/rl-sim2real/",
+          "name": "Domain overview",
+          "category": "domain-overview",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/rl-sim2real/rl-for-robotics/",
+          "name": "RL for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/rl-sim2real/why-rl-locomotion/",
+          "name": "Why RL Won Locomotion but Not Manipulation",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/rl-sim2real/parallel-sim-rl/",
+          "name": "Massively Parallel Sim RL",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
+          "href": "/rl-sim2real/sim2real-transfer/",
+          "name": "Sim-to-Real Transfer",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 6,
+          "href": "/rl-sim2real/legged-locomotion/",
+          "name": "Legged Locomotion Lineage",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 7,
+          "href": "/rl-sim2real/humanoid-wbc/",
+          "name": "Humanoid Whole-Body Control",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/rl-sim2real/reward-design-mpc/",
+          "name": "Reward Design and the MPC Debate",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/rl-sim2real/offline-rl/",
+          "name": "Offline Reinforcement Learning for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": "page",
+          "marker": {
+            "deviceId": "device:active-interval-rail",
+            "anchorSelector": "#sidebar-taxonomy",
+            "ariaHidden": "true",
+            "pointerEvents": "none",
+            "borderLeftColour": "rgb(198, 255, 25)",
+            "borderLeftWidthPx": 3,
+            "leftPx": 12,
+            "heightPx": 43.75,
+            "alignmentErrorPx": 0,
+            "ownerHeightPx": 43.75,
+            "contributedText": ""
+          }
+        },
+        {
+          "index": 10,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/rl-sim2real/offline-rl/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 15555,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -10836,6 +13724,18 @@
         },
         {
           "index": 9,
+          "href": "/rl-sim2real/offline-rl/",
+          "name": "Offline Reinforcement Learning for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -10847,7 +13747,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -10859,7 +13759,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -10871,7 +13771,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -10883,7 +13783,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -10923,7 +13823,7 @@
       }
     },
     {
-      "visibleTextLength": 27453,
+      "visibleTextLength": 27601,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -11056,6 +13956,18 @@
         },
         {
           "index": 9,
+          "href": "/rl-sim2real/offline-rl/",
+          "name": "Offline Reinforcement Learning for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -11067,7 +13979,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -11079,7 +13991,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -11091,7 +14003,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -11103,7 +14015,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -11143,7 +14055,7 @@
       }
     },
     {
-      "visibleTextLength": 30404,
+      "visibleTextLength": 30907,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -11276,6 +14188,18 @@
         },
         {
           "index": 9,
+          "href": "/rl-sim2real/offline-rl/",
+          "name": "Offline Reinforcement Learning for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -11287,7 +14211,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -11299,7 +14223,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -11311,7 +14235,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -11323,7 +14247,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -11363,7 +14287,7 @@
       }
     },
     {
-      "visibleTextLength": 23799,
+      "visibleTextLength": 24126,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -11496,6 +14420,18 @@
         },
         {
           "index": 9,
+          "href": "/rl-sim2real/offline-rl/",
+          "name": "Offline Reinforcement Learning for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -11507,7 +14443,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -11519,7 +14455,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -11531,7 +14467,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -11543,7 +14479,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -11583,7 +14519,7 @@
       }
     },
     {
-      "visibleTextLength": 12803,
+      "visibleTextLength": 12951,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -11716,6 +14652,18 @@
         },
         {
           "index": 9,
+          "href": "/rl-sim2real/offline-rl/",
+          "name": "Offline Reinforcement Learning for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -11727,7 +14675,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -11739,7 +14687,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -11751,7 +14699,7 @@
           "marker": null
         },
         {
-          "index": 12,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -11763,7 +14711,7 @@
           "marker": null
         },
         {
-          "index": 13,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -11803,7 +14751,7 @@
       }
     },
     {
-      "visibleTextLength": 767,
+      "visibleTextLength": 794,
       "ariaCurrentNodes": [],
       "navEntries": [
         {
@@ -11907,7 +14855,7 @@
       }
     },
     {
-      "visibleTextLength": 1604,
+      "visibleTextLength": 2263,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12016,6 +14964,42 @@
         },
         {
           "index": 7,
+          "href": "/world-models/model-based-robot-learning/",
+          "name": "Model-Based Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/world-models/evaluation/",
+          "name": "World Model Evaluation for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/world-models/world-models-vs-simulators/",
+          "name": "World Models vs Physics Simulators",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -12027,7 +15011,7 @@
           "marker": null
         },
         {
-          "index": 8,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -12039,7 +15023,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -12051,7 +15035,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -12063,7 +15047,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -12103,7 +15087,239 @@
       }
     },
     {
-      "visibleTextLength": 16034,
+      "visibleTextLength": 12985,
+      "ariaCurrentNodes": [
+        {
+          "tag": "a",
+          "href": "/world-models/evaluation/",
+          "navigationLink": true,
+          "accessibleName": "World Model Evaluation for Robotics",
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors fon"
+        }
+      ],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/world-models/",
+          "name": "Domain overview",
+          "category": "domain-overview",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/world-models/taxonomy/",
+          "name": "What Is a World Model?",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/world-models/latent-dynamics/",
+          "name": "Latent-Dynamics World Models",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/world-models/generative-video/",
+          "name": "Generative Video World Models",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
+          "href": "/world-models/jepa/",
+          "name": "JEPA and the Non-Generative Counterargument",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 6,
+          "href": "/world-models/generative-sim/",
+          "name": "Generative Simulation",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 7,
+          "href": "/world-models/model-based-robot-learning/",
+          "name": "Model-Based Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/world-models/evaluation/",
+          "name": "World Model Evaluation for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": "page",
+          "marker": {
+            "deviceId": "device:active-interval-rail",
+            "anchorSelector": "#sidebar-taxonomy",
+            "ariaHidden": "true",
+            "pointerEvents": "none",
+            "borderLeftColour": "rgb(198, 255, 25)",
+            "borderLeftWidthPx": 3,
+            "leftPx": 12,
+            "heightPx": 43.75,
+            "alignmentErrorPx": 0,
+            "ownerHeightPx": 43.75,
+            "contributedText": ""
+          }
+        },
+        {
+          "index": 9,
+          "href": "/world-models/world-models-vs-simulators/",
+          "name": "World Models vs Physics Simulators",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/world-models/evaluation/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 17532,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12212,6 +15428,42 @@
         },
         {
           "index": 7,
+          "href": "/world-models/model-based-robot-learning/",
+          "name": "Model-Based Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/world-models/evaluation/",
+          "name": "World Model Evaluation for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/world-models/world-models-vs-simulators/",
+          "name": "World Models vs Physics Simulators",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -12223,7 +15475,7 @@
           "marker": null
         },
         {
-          "index": 8,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -12235,7 +15487,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -12247,7 +15499,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -12259,7 +15511,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -12299,7 +15551,7 @@
       }
     },
     {
-      "visibleTextLength": 17533,
+      "visibleTextLength": 18710,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12408,6 +15660,42 @@
         },
         {
           "index": 7,
+          "href": "/world-models/model-based-robot-learning/",
+          "name": "Model-Based Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/world-models/evaluation/",
+          "name": "World Model Evaluation for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/world-models/world-models-vs-simulators/",
+          "name": "World Models vs Physics Simulators",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -12419,7 +15707,7 @@
           "marker": null
         },
         {
-          "index": 8,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -12431,7 +15719,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -12443,7 +15731,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -12455,7 +15743,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -12495,7 +15783,7 @@
       }
     },
     {
-      "visibleTextLength": 15168,
+      "visibleTextLength": 16674,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12604,6 +15892,42 @@
         },
         {
           "index": 7,
+          "href": "/world-models/model-based-robot-learning/",
+          "name": "Model-Based Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/world-models/evaluation/",
+          "name": "World Model Evaluation for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/world-models/world-models-vs-simulators/",
+          "name": "World Models vs Physics Simulators",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -12615,7 +15939,7 @@
           "marker": null
         },
         {
-          "index": 8,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -12627,7 +15951,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -12639,7 +15963,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -12651,7 +15975,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -12691,7 +16015,7 @@
       }
     },
     {
-      "visibleTextLength": 14542,
+      "visibleTextLength": 15842,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12800,6 +16124,42 @@
         },
         {
           "index": 7,
+          "href": "/world-models/model-based-robot-learning/",
+          "name": "Model-Based Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/world-models/evaluation/",
+          "name": "World Model Evaluation for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/world-models/world-models-vs-simulators/",
+          "name": "World Models vs Physics Simulators",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -12811,7 +16171,7 @@
           "marker": null
         },
         {
-          "index": 8,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -12823,7 +16183,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -12835,7 +16195,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -12847,7 +16207,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -12887,7 +16247,239 @@
       }
     },
     {
-      "visibleTextLength": 18289,
+      "visibleTextLength": 11201,
+      "ariaCurrentNodes": [
+        {
+          "tag": "a",
+          "href": "/world-models/model-based-robot-learning/",
+          "navigationLink": true,
+          "accessibleName": "Model-Based Robot Learning",
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors fon"
+        }
+      ],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/world-models/",
+          "name": "Domain overview",
+          "category": "domain-overview",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/world-models/taxonomy/",
+          "name": "What Is a World Model?",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/world-models/latent-dynamics/",
+          "name": "Latent-Dynamics World Models",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/world-models/generative-video/",
+          "name": "Generative Video World Models",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
+          "href": "/world-models/jepa/",
+          "name": "JEPA and the Non-Generative Counterargument",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 6,
+          "href": "/world-models/generative-sim/",
+          "name": "Generative Simulation",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 7,
+          "href": "/world-models/model-based-robot-learning/",
+          "name": "Model-Based Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": "page",
+          "marker": {
+            "deviceId": "device:active-interval-rail",
+            "anchorSelector": "#sidebar-taxonomy",
+            "ariaHidden": "true",
+            "pointerEvents": "none",
+            "borderLeftColour": "rgb(198, 255, 25)",
+            "borderLeftWidthPx": 3,
+            "leftPx": 12,
+            "heightPx": 25.88,
+            "alignmentErrorPx": 0,
+            "ownerHeightPx": 25.88,
+            "contributedText": ""
+          }
+        },
+        {
+          "index": 8,
+          "href": "/world-models/evaluation/",
+          "name": "World Model Evaluation for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/world-models/world-models-vs-simulators/",
+          "name": "World Models vs Physics Simulators",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/world-models/model-based-robot-learning/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 19963,
       "ariaCurrentNodes": [
         {
           "tag": "a",
@@ -12996,6 +16588,42 @@
         },
         {
           "index": 7,
+          "href": "/world-models/model-based-robot-learning/",
+          "name": "Model-Based Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/world-models/evaluation/",
+          "name": "World Model Evaluation for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/world-models/world-models-vs-simulators/",
+          "name": "World Models vs Physics Simulators",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 10,
           "href": "/a-z/",
           "name": "A-Z Index",
           "category": "standalone",
@@ -13007,7 +16635,7 @@
           "marker": null
         },
         {
-          "index": 8,
+          "index": 11,
           "href": "/market-map/",
           "name": "Market Map",
           "category": "standalone",
@@ -13019,7 +16647,7 @@
           "marker": null
         },
         {
-          "index": 9,
+          "index": 12,
           "href": "/playground/",
           "name": "Playground",
           "category": "standalone",
@@ -13031,7 +16659,7 @@
           "marker": null
         },
         {
-          "index": 10,
+          "index": 13,
           "href": "/glossary/",
           "name": "Glossary",
           "category": "standalone",
@@ -13043,7 +16671,7 @@
           "marker": null
         },
         {
-          "index": 11,
+          "index": 14,
           "href": "/credits/",
           "name": "Credits",
           "category": "standalone",
@@ -13070,6 +16698,238 @@
         }
       ],
       "route": "/world-models/taxonomy/",
+      "skipLink": {
+        "firstTabStopTag": "a",
+        "firstTabStopHref": "#main-content",
+        "firstTabStopText": "Skip to content",
+        "restTopPx": -96,
+        "focusedTopPx": 12,
+        "visibleWhenFocused": true,
+        "colour": "rgb(36, 95, 255)",
+        "borderColour": "rgb(36, 95, 255)",
+        "activatedFocusId": "main-content"
+      }
+    },
+    {
+      "visibleTextLength": 12505,
+      "ariaCurrentNodes": [
+        {
+          "tag": "a",
+          "href": "/world-models/world-models-vs-simulators/",
+          "navigationLink": true,
+          "accessibleName": "World Models vs Physics Simulators",
+          "outline": "<a aria-current=\"page\" data-brand-control-id=\"control:link-focus\" class=\"relative block rounded-sm py-1 pl-7 pr-2 text-[13px] leading-snug transition-colors fon"
+        }
+      ],
+      "navEntries": [
+        {
+          "index": 0,
+          "href": "/",
+          "name": "Robot Wiki",
+          "category": "lockup",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 600,
+          "fontFamilyHead": "tektur",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 1,
+          "href": "/world-models/",
+          "name": "Domain overview",
+          "category": "domain-overview",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 2,
+          "href": "/world-models/taxonomy/",
+          "name": "What Is a World Model?",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 3,
+          "href": "/world-models/latent-dynamics/",
+          "name": "Latent-Dynamics World Models",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 4,
+          "href": "/world-models/generative-video/",
+          "name": "Generative Video World Models",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 5,
+          "href": "/world-models/jepa/",
+          "name": "JEPA and the Non-Generative Counterargument",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 6,
+          "href": "/world-models/generative-sim/",
+          "name": "Generative Simulation",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 7,
+          "href": "/world-models/model-based-robot-learning/",
+          "name": "Model-Based Robot Learning",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 8,
+          "href": "/world-models/evaluation/",
+          "name": "World Model Evaluation for Robotics",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(36, 45, 51)",
+          "fontWeight": 400,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 9,
+          "href": "/world-models/world-models-vs-simulators/",
+          "name": "World Models vs Physics Simulators",
+          "category": "module",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": "page",
+          "marker": {
+            "deviceId": "device:active-interval-rail",
+            "anchorSelector": "#sidebar-taxonomy",
+            "ariaHidden": "true",
+            "pointerEvents": "none",
+            "borderLeftColour": "rgb(198, 255, 25)",
+            "borderLeftWidthPx": 3,
+            "leftPx": 12,
+            "heightPx": 25.88,
+            "alignmentErrorPx": 0,
+            "ownerHeightPx": 25.88,
+            "contributedText": ""
+          }
+        },
+        {
+          "index": 10,
+          "href": "/a-z/",
+          "name": "A-Z Index",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 11,
+          "href": "/market-map/",
+          "name": "Market Map",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 12,
+          "href": "/playground/",
+          "name": "Playground",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 13,
+          "href": "/glossary/",
+          "name": "Glossary",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        },
+        {
+          "index": 14,
+          "href": "/credits/",
+          "name": "Credits",
+          "category": "standalone",
+          "leftPx": 12,
+          "colour": "rgb(11, 11, 12)",
+          "fontWeight": 500,
+          "fontFamilyHead": "\"IBM Plex Sans\"",
+          "ariaCurrent": null,
+          "marker": null
+        }
+      ],
+      "railGeometry": {
+        "asideRightPx": 288,
+        "navLeftPx": 12,
+        "mainLeftPx": 288,
+        "documentScrollWidthPx": 1440,
+        "documentClientWidthPx": 1440
+      },
+      "registrationLabels": [
+        {
+          "text": "Search",
+          "fontSizePx": 11,
+          "trackingEm": 0.14
+        }
+      ],
+      "route": "/world-models/world-models-vs-simulators/",
       "skipLink": {
         "firstTabStopTag": "a",
         "firstTabStopHref": "#main-content",
@@ -13266,6 +17126,42 @@
     },
     {
       "index": 14,
+      "href": "/manipulation/robot-learning-roadmap/",
+      "name": "Robot Learning Curriculum for ML Engineers",
+      "category": "module",
+      "leftPx": 12,
+      "colour": "rgb(36, 45, 51)",
+      "fontWeight": 400,
+      "fontFamilyHead": "\"IBM Plex Sans\"",
+      "ariaCurrent": null,
+      "marker": null
+    },
+    {
+      "index": 15,
+      "href": "/manipulation/action-spaces/",
+      "name": "Action Spaces for Robot Learning",
+      "category": "module",
+      "leftPx": 12,
+      "colour": "rgb(36, 45, 51)",
+      "fontWeight": 400,
+      "fontFamilyHead": "\"IBM Plex Sans\"",
+      "ariaCurrent": null,
+      "marker": null
+    },
+    {
+      "index": 16,
+      "href": "/manipulation/foundation-models/",
+      "name": "Foundation Models for Robotics",
+      "category": "module",
+      "leftPx": 12,
+      "colour": "rgb(36, 45, 51)",
+      "fontWeight": 400,
+      "fontFamilyHead": "\"IBM Plex Sans\"",
+      "ariaCurrent": null,
+      "marker": null
+    },
+    {
+      "index": 17,
       "href": "/rl-sim2real/",
       "name": "Domain overview",
       "category": "domain-overview",
@@ -13277,7 +17173,7 @@
       "marker": null
     },
     {
-      "index": 15,
+      "index": 18,
       "href": "/rl-sim2real/rl-for-robotics/",
       "name": "RL for Robotics",
       "category": "module",
@@ -13289,7 +17185,7 @@
       "marker": null
     },
     {
-      "index": 16,
+      "index": 19,
       "href": "/rl-sim2real/why-rl-locomotion/",
       "name": "Why RL Won Locomotion but Not Manipulation",
       "category": "module",
@@ -13301,7 +17197,7 @@
       "marker": null
     },
     {
-      "index": 17,
+      "index": 20,
       "href": "/rl-sim2real/parallel-sim-rl/",
       "name": "Massively Parallel Sim RL",
       "category": "module",
@@ -13313,7 +17209,7 @@
       "marker": null
     },
     {
-      "index": 18,
+      "index": 21,
       "href": "/rl-sim2real/sim2real-transfer/",
       "name": "Sim-to-Real Transfer",
       "category": "module",
@@ -13325,7 +17221,7 @@
       "marker": null
     },
     {
-      "index": 19,
+      "index": 22,
       "href": "/rl-sim2real/legged-locomotion/",
       "name": "Legged Locomotion Lineage",
       "category": "module",
@@ -13337,7 +17233,7 @@
       "marker": null
     },
     {
-      "index": 20,
+      "index": 23,
       "href": "/rl-sim2real/humanoid-wbc/",
       "name": "Humanoid Whole-Body Control",
       "category": "module",
@@ -13349,7 +17245,7 @@
       "marker": null
     },
     {
-      "index": 21,
+      "index": 24,
       "href": "/rl-sim2real/reward-design-mpc/",
       "name": "Reward Design and the MPC Debate",
       "category": "module",
@@ -13361,7 +17257,19 @@
       "marker": null
     },
     {
-      "index": 22,
+      "index": 25,
+      "href": "/rl-sim2real/offline-rl/",
+      "name": "Offline Reinforcement Learning for Robotics",
+      "category": "module",
+      "leftPx": 12,
+      "colour": "rgb(36, 45, 51)",
+      "fontWeight": 400,
+      "fontFamilyHead": "\"IBM Plex Sans\"",
+      "ariaCurrent": null,
+      "marker": null
+    },
+    {
+      "index": 26,
       "href": "/world-models/",
       "name": "Domain overview",
       "category": "domain-overview",
@@ -13373,7 +17281,7 @@
       "marker": null
     },
     {
-      "index": 23,
+      "index": 27,
       "href": "/world-models/taxonomy/",
       "name": "What Is a World Model?",
       "category": "module",
@@ -13385,7 +17293,7 @@
       "marker": null
     },
     {
-      "index": 24,
+      "index": 28,
       "href": "/world-models/latent-dynamics/",
       "name": "Latent-Dynamics World Models",
       "category": "module",
@@ -13397,7 +17305,7 @@
       "marker": null
     },
     {
-      "index": 25,
+      "index": 29,
       "href": "/world-models/generative-video/",
       "name": "Generative Video World Models",
       "category": "module",
@@ -13409,7 +17317,7 @@
       "marker": null
     },
     {
-      "index": 26,
+      "index": 30,
       "href": "/world-models/jepa/",
       "name": "JEPA and the Non-Generative Counterargument",
       "category": "module",
@@ -13421,7 +17329,7 @@
       "marker": null
     },
     {
-      "index": 27,
+      "index": 31,
       "href": "/world-models/generative-sim/",
       "name": "Generative Simulation",
       "category": "module",
@@ -13433,7 +17341,43 @@
       "marker": null
     },
     {
-      "index": 28,
+      "index": 32,
+      "href": "/world-models/model-based-robot-learning/",
+      "name": "Model-Based Robot Learning",
+      "category": "module",
+      "leftPx": 12,
+      "colour": "rgb(36, 45, 51)",
+      "fontWeight": 400,
+      "fontFamilyHead": "\"IBM Plex Sans\"",
+      "ariaCurrent": null,
+      "marker": null
+    },
+    {
+      "index": 33,
+      "href": "/world-models/evaluation/",
+      "name": "World Model Evaluation for Robotics",
+      "category": "module",
+      "leftPx": 12,
+      "colour": "rgb(36, 45, 51)",
+      "fontWeight": 400,
+      "fontFamilyHead": "\"IBM Plex Sans\"",
+      "ariaCurrent": null,
+      "marker": null
+    },
+    {
+      "index": 34,
+      "href": "/world-models/world-models-vs-simulators/",
+      "name": "World Models vs Physics Simulators",
+      "category": "module",
+      "leftPx": 12,
+      "colour": "rgb(36, 45, 51)",
+      "fontWeight": 400,
+      "fontFamilyHead": "\"IBM Plex Sans\"",
+      "ariaCurrent": null,
+      "marker": null
+    },
+    {
+      "index": 35,
       "href": "/data-hardware/",
       "name": "Domain overview",
       "category": "domain-overview",
@@ -13445,7 +17389,7 @@
       "marker": null
     },
     {
-      "index": 29,
+      "index": 36,
       "href": "/data-hardware/data-bottleneck/",
       "name": "The Data Bottleneck",
       "category": "module",
@@ -13457,7 +17401,7 @@
       "marker": null
     },
     {
-      "index": 30,
+      "index": 37,
       "href": "/data-hardware/datasets/",
       "name": "Major Datasets",
       "category": "module",
@@ -13469,7 +17413,7 @@
       "marker": null
     },
     {
-      "index": 31,
+      "index": 38,
       "href": "/data-hardware/hardware-taxonomy/",
       "name": "Hardware Taxonomy",
       "category": "module",
@@ -13481,7 +17425,7 @@
       "marker": null
     },
     {
-      "index": 32,
+      "index": 39,
       "href": "/data-hardware/teleop-rigs/",
       "name": "Teleoperation Rigs",
       "category": "module",
@@ -13493,7 +17437,7 @@
       "marker": null
     },
     {
-      "index": 33,
+      "index": 40,
       "href": "/data-hardware/evaluation-crisis/",
       "name": "The Evaluation Crisis",
       "category": "module",
@@ -13505,7 +17449,7 @@
       "marker": null
     },
     {
-      "index": 34,
+      "index": 41,
       "href": "/data-hardware/industrial-deployment/",
       "name": "Industrial Deployment",
       "category": "module",
@@ -13517,7 +17461,19 @@
       "marker": null
     },
     {
-      "index": 35,
+      "index": 42,
+      "href": "/data-hardware/robot-learning-stack/",
+      "name": "The Robot Learning Stack",
+      "category": "module",
+      "leftPx": 12,
+      "colour": "rgb(36, 45, 51)",
+      "fontWeight": 400,
+      "fontFamilyHead": "\"IBM Plex Sans\"",
+      "ariaCurrent": null,
+      "marker": null
+    },
+    {
+      "index": 43,
       "href": "/classical/",
       "name": "Domain overview",
       "category": "domain-overview",
@@ -13529,7 +17485,7 @@
       "marker": null
     },
     {
-      "index": 36,
+      "index": 44,
       "href": "/classical/kinematics/",
       "name": "Kinematics",
       "category": "module",
@@ -13541,7 +17497,7 @@
       "marker": null
     },
     {
-      "index": 37,
+      "index": 45,
       "href": "/classical/motion-planning/",
       "name": "Motion Planning",
       "category": "module",
@@ -13553,7 +17509,7 @@
       "marker": null
     },
     {
-      "index": 38,
+      "index": 46,
       "href": "/classical/control/",
       "name": "Control",
       "category": "module",
@@ -13565,7 +17521,7 @@
       "marker": null
     },
     {
-      "index": 39,
+      "index": 47,
       "href": "/classical/state-estimation/",
       "name": "State Estimation",
       "category": "module",
@@ -13577,7 +17533,7 @@
       "marker": null
     },
     {
-      "index": 40,
+      "index": 48,
       "href": "/classical/grasp-planning/",
       "name": "Grasp Planning",
       "category": "module",
@@ -13589,7 +17545,7 @@
       "marker": null
     },
     {
-      "index": 41,
+      "index": 49,
       "href": "/classical/perception/",
       "name": "Perception for Manipulation",
       "category": "module",
@@ -13601,7 +17557,7 @@
       "marker": null
     },
     {
-      "index": 42,
+      "index": 50,
       "href": "/classical/scene-representation/",
       "name": "Scene Representation and Mapping",
       "category": "module",
@@ -13613,7 +17569,31 @@
       "marker": null
     },
     {
-      "index": 43,
+      "index": 51,
+      "href": "/classical/calibration/",
+      "name": "Robot Calibration",
+      "category": "module",
+      "leftPx": 12,
+      "colour": "rgb(36, 45, 51)",
+      "fontWeight": 400,
+      "fontFamilyHead": "\"IBM Plex Sans\"",
+      "ariaCurrent": null,
+      "marker": null
+    },
+    {
+      "index": 52,
+      "href": "/classical/ros2-for-ml-engineers/",
+      "name": "ROS 2 for Machine Learning Engineers",
+      "category": "module",
+      "leftPx": 12,
+      "colour": "rgb(36, 45, 51)",
+      "fontWeight": 400,
+      "fontFamilyHead": "\"IBM Plex Sans\"",
+      "ariaCurrent": null,
+      "marker": null
+    },
+    {
+      "index": 53,
       "href": "/frontier/",
       "name": "Domain overview",
       "category": "domain-overview",
@@ -13625,7 +17605,7 @@
       "marker": null
     },
     {
-      "index": 44,
+      "index": 54,
       "href": "/frontier/reliability-gap/",
       "name": "The Reliability Gap",
       "category": "module",
@@ -13637,7 +17617,7 @@
       "marker": null
     },
     {
-      "index": 45,
+      "index": 55,
       "href": "/frontier/dexterity/",
       "name": "Dexterity",
       "category": "module",
@@ -13649,7 +17629,7 @@
       "marker": null
     },
     {
-      "index": 46,
+      "index": 56,
       "href": "/frontier/generalization/",
       "name": "Generalization",
       "category": "module",
@@ -13661,7 +17641,7 @@
       "marker": null
     },
     {
-      "index": 47,
+      "index": 57,
       "href": "/frontier/competing-theses/",
       "name": "Competing Theses",
       "category": "module",
@@ -13673,7 +17653,7 @@
       "marker": null
     },
     {
-      "index": 48,
+      "index": 58,
       "href": "/frontier/bear-case/",
       "name": "The Bear Case",
       "category": "module",
@@ -13685,7 +17665,7 @@
       "marker": null
     },
     {
-      "index": 49,
+      "index": 59,
       "href": "/frontier/safety-and-assurance/",
       "name": "Safety and Assurance",
       "category": "module",
@@ -13697,7 +17677,7 @@
       "marker": null
     },
     {
-      "index": 50,
+      "index": 60,
       "href": "/adjacent/",
       "name": "Domain overview",
       "category": "domain-overview",
@@ -13709,7 +17689,7 @@
       "marker": null
     },
     {
-      "index": 51,
+      "index": 61,
       "href": "/adjacent/autonomous-vehicles/",
       "name": "Autonomous Vehicles",
       "category": "module",
@@ -13721,7 +17701,7 @@
       "marker": null
     },
     {
-      "index": 52,
+      "index": 62,
       "href": "/adjacent/drones/",
       "name": "Drones and Aerial Robotics",
       "category": "module",
@@ -13733,7 +17713,7 @@
       "marker": null
     },
     {
-      "index": 53,
+      "index": 63,
       "href": "/adjacent/surgical/",
       "name": "Surgical Robotics",
       "category": "module",
@@ -13745,7 +17725,7 @@
       "marker": null
     },
     {
-      "index": 54,
+      "index": 64,
       "href": "/adjacent/space/",
       "name": "Space Robotics",
       "category": "module",
@@ -13757,7 +17737,7 @@
       "marker": null
     },
     {
-      "index": 55,
+      "index": 65,
       "href": "/a-z/",
       "name": "A-Z Index",
       "category": "standalone",
@@ -13769,7 +17749,7 @@
       "marker": null
     },
     {
-      "index": 56,
+      "index": 66,
       "href": "/market-map/",
       "name": "Market Map",
       "category": "standalone",
@@ -13781,7 +17761,7 @@
       "marker": null
     },
     {
-      "index": 57,
+      "index": 67,
       "href": "/playground/",
       "name": "Playground",
       "category": "standalone",
@@ -13793,7 +17773,7 @@
       "marker": null
     },
     {
-      "index": 58,
+      "index": 68,
       "href": "/glossary/",
       "name": "Glossary",
       "category": "standalone",
@@ -13805,7 +17785,7 @@
       "marker": null
     },
     {
-      "index": 59,
+      "index": 69,
       "href": "/credits/",
       "name": "Credits",
       "category": "standalone",

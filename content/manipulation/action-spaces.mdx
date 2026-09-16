@@ -23,6 +23,7 @@ seeAlso:
   - "manipulation/action-chunking"
   - "manipulation/cross-embodiment"
 ---
+import { ActionSpaceTable } from '@/components/mdx/text-tables';
 
 An action space is the interface between a policy and the rest of the robot. It decides what the network predicts, which errors the low-level controller must absorb, how frequently inference must run, and whether data from two embodiments can share labels. Calling both outputs “actions” hides differences large enough to reverse a model comparison.
 
@@ -94,7 +95,7 @@ This split is often the engineering sweet spot: the learner decides how the robo
 
 ## Chunks change the time axis
 
-An action chunk predicts several future steps per inference. ACT showed that this temporal abstraction can matter more than the choice of probabilistic head <Cite id="act-aloha-2023" />. Diffusion Policy also predicts a horizon and executes only the first portion before replanning <Cite id="diffusion-policy-2023" />.
+An <Term id="action-chunking">action chunk</Term> predicts several future steps per inference. ACT showed that this temporal abstraction can matter more than the choice of probabilistic head <Cite id="act-aloha-2023" />. Diffusion Policy also predicts a horizon and executes only the first portion before replanning <Cite id="diffusion-policy-2023" />.
 
 Chunks reduce inference pressure and model temporally coordinated motion. They also create a stale-plan problem. If contact makes the world diverge after the first few steps, the remaining chunk reflects an observation that is no longer current. Receding-horizon execution, temporal ensembling and real-time chunk replacement are different answers to that problem.
 
@@ -112,13 +113,6 @@ Tokenization is therefore not an action space by itself. It is an encoding layer
 
 Choose the lowest-level action that the task requires and the platform can support safely.
 
-| Requirement | Practical starting point | Main burden below the policy |
-| --- | --- | --- |
-| Single-arm imitation on fixed hardware | Joint positions or velocities | Tracking and joint limits |
-| Transfer across different arms | Relative Cartesian deltas | IK, frames and singularities |
-| Contact compliance | Cartesian impedance targets | Fast force or torque controller |
-| Dynamic locomotion or dexterity | Torque or residual torque | Dynamics, rate and safety |
-| Slow semantic manipulation | Chunked Cartesian actions | Replanning and stale chunks |
-| Language-model output head | Tokenized chunks | Quantization and decode latency |
+<ActionSpaceTable className="my-6" />
 
 Hold the controller, rate, horizon and observation history fixed when comparing policy architectures. Otherwise the experiment measures a package of interface changes. The action space is the package's most consequential part because it decides which errors learning must solve and which errors classical control is still allowed to reject.

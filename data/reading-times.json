@@ -12,8 +12,8 @@
     "minutes": 9
   },
   "manipulation/vla-models": {
-    "words": 2184,
-    "minutes": 11
+    "words": 2346,
+    "minutes": 12
   },
   "manipulation/pi-line": {
     "words": 3104,
@@ -24,8 +24,8 @@
     "minutes": 13
   },
   "manipulation/comparison-matrix": {
-    "words": 3182,
-    "minutes": 16
+    "words": 3322,
+    "minutes": 17
   },
   "manipulation/hierarchical": {
     "words": 2148,
@@ -46,6 +46,18 @@
   "manipulation/knowledge-insulation": {
     "words": 1378,
     "minutes": 7
+  },
+  "manipulation/robot-learning-roadmap": {
+    "words": 1185,
+    "minutes": 6
+  },
+  "manipulation/action-spaces": {
+    "words": 1176,
+    "minutes": 6
+  },
+  "manipulation/foundation-models": {
+    "words": 1154,
+    "minutes": 6
   },
   "rl-sim2real/rl-for-robotics": {
     "words": 3561,
@@ -75,33 +87,49 @@
     "words": 3279,
     "minutes": 16
   },
+  "rl-sim2real/offline-rl": {
+    "words": 1598,
+    "minutes": 8
+  },
   "world-models/taxonomy": {
-    "words": 1992,
-    "minutes": 10
+    "words": 2147,
+    "minutes": 11
   },
   "world-models/latent-dynamics": {
-    "words": 1721,
+    "words": 1879,
     "minutes": 9
   },
   "world-models/generative-video": {
-    "words": 2022,
-    "minutes": 10
+    "words": 2176,
+    "minutes": 11
   },
   "world-models/jepa": {
-    "words": 1703,
+    "words": 1843,
     "minutes": 9
   },
   "world-models/generative-sim": {
-    "words": 1906,
+    "words": 2047,
     "minutes": 10
+  },
+  "world-models/model-based-robot-learning": {
+    "words": 1134,
+    "minutes": 6
+  },
+  "world-models/evaluation": {
+    "words": 1193,
+    "minutes": 6
+  },
+  "world-models/world-models-vs-simulators": {
+    "words": 1127,
+    "minutes": 6
   },
   "data-hardware/data-bottleneck": {
     "words": 1709,
     "minutes": 9
   },
   "data-hardware/datasets": {
-    "words": 1669,
-    "minutes": 8
+    "words": 1823,
+    "minutes": 9
   },
   "data-hardware/hardware-taxonomy": {
     "words": 3514,
@@ -119,20 +147,24 @@
     "words": 2571,
     "minutes": 13
   },
+  "data-hardware/robot-learning-stack": {
+    "words": 1205,
+    "minutes": 6
+  },
   "classical/kinematics": {
-    "words": 2378,
-    "minutes": 12
+    "words": 2530,
+    "minutes": 13
   },
   "classical/motion-planning": {
-    "words": 3766,
-    "minutes": 19
+    "words": 3912,
+    "minutes": 20
   },
   "classical/control": {
-    "words": 3273,
-    "minutes": 16
+    "words": 3411,
+    "minutes": 17
   },
   "classical/state-estimation": {
-    "words": 2712,
+    "words": 2851,
     "minutes": 14
   },
   "classical/grasp-planning": {
@@ -140,12 +172,20 @@
     "minutes": 12
   },
   "classical/perception": {
-    "words": 5362,
-    "minutes": 27
+    "words": 5501,
+    "minutes": 28
   },
   "classical/scene-representation": {
-    "words": 3213,
-    "minutes": 16
+    "words": 3359,
+    "minutes": 17
+  },
+  "classical/calibration": {
+    "words": 1225,
+    "minutes": 6
+  },
+  "classical/ros2-for-ml-engineers": {
+    "words": 1344,
+    "minutes": 7
   },
   "frontier/reliability-gap": {
     "words": 1725,

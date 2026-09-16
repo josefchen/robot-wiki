@@ -64,7 +64,7 @@ The artifact is a machine-readable hardware manifest and calibration bundle. The
 
 An episode should contain raw or minimally processed observations, robot state, commanded action, measured response where available, task identity, termination, success, intervention and timestamps. Keep resets and failures. Removing them creates a dataset that describes only the easy interior of the task.
 
-DROID standardized collection hardware and protocols across institutions, producing 76,000 in-the-wild manipulation trajectories with a comparatively consistent action space <Cite id="droid-2024" />. Open X-Embodiment chose breadth instead, normalizing more than one million trajectories across 22 embodiments <Cite id="open-x-embodiment-2023" />. The contrast is architectural: consistency simplifies labels; breadth increases transfer coverage and schema complexity.
+DROID standardized collection hardware and protocols across institutions, producing 76,000 in-the-wild manipulation trajectories with a comparatively consistent action space <Cite id="droid-2024" />. <Term id="open-x-embodiment">Open X-Embodiment</Term> chose breadth instead, normalizing more than one million trajectories across 22 embodiments <Cite id="open-x-embodiment-2023" />. The contrast is architectural: consistency simplifies labels; breadth increases transfer coverage and schema complexity.
 
 The artifact is an immutable episode store with checksums and provenance. The test replays random episodes, verifies monotonic timestamps, resolves every transform and plots command versus measured motion.
 

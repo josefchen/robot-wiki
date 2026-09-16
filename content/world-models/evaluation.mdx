@@ -21,8 +21,9 @@ seeAlso:
   - "data-hardware/evaluation-crisis"
   - "world-models/world-models-vs-simulators"
 ---
+import { EvalShiftTable } from '@/components/mdx/text-tables';
 
-A robotics world model is not graded by how convincing one rollout looks. It is graded by whether its errors preserve the decisions a robot must make. That requires a ladder of tests, from one-step counterfactuals to agreement with real policy rankings. Image metrics can diagnose rendering quality; they cannot establish control utility.
+A robotics <Term id="world-model">world model</Term> is not graded by how convincing one rollout looks. It is graded by whether its errors preserve the decisions a robot must make. That requires a ladder of tests, from one-step counterfactuals to agreement with real policy rankings. Image metrics can diagnose rendering quality; they cannot establish control utility.
 
 The central failure is action indifference. A model can produce temporally smooth, photorealistic futures and still ignore whether the robot moved left or right. The current robot-world-model survey treats controllability and action-grounded consistency as more informative than visual plausibility alone <Cite id="world-model-survey-2026" />.
 
@@ -112,14 +113,7 @@ Distributed real-robot systems such as RoboArena make the anchor stronger by col
 
 Use a factorial matrix rather than one “unseen” split:
 
-| Shift | Example | Failure it exposes |
-| --- | --- | --- |
-| Visual | lighting, texture, distractors | representation dependence |
-| Geometric | object pose, camera pose, layout | spatial grounding |
-| Physical | mass, friction, compliance | dynamics fidelity |
-| Semantic | new object or instruction | pretrained knowledge transfer |
-| Policy | architecture or checkpoint family | evaluator overfitting |
-| Embodiment | arm, gripper or control convention | action-space dependence |
+<EvalShiftTable className="my-6" />
 
 LIBERO-Plus showed that controlled perturbations can uncover large robustness gaps hidden by a saturated standard benchmark <Cite id="libero-plus-2025" />. Apply the same discipline to world models: do not let one aggregate score average away the exact condition under which the model stops being causal.
 

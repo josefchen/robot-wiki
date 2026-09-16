@@ -88,7 +88,7 @@ tf2 maintains time-indexed rigid transforms between frames such as `map`, `odom`
 
 The tree should reflect ownership. Static transforms describe fixed mounting geometry. Dynamic transforms come from state estimation and joint state. Avoid publishing two authorities for the same edge. Name optical frames according to their axis convention rather than silently reusing a mechanical camera frame.
 
-At the policy boundary, transform observations and actions deliberately. If training used base-frame end-effector deltas, deployment must not send tool-frame deltas with the same tensor layout. The geometry behind these transformations is developed in *Modern Robotics* <Cite id="modern-robotics-2017" />.
+At the policy boundary, transform observations and actions deliberately. If training used base-frame <Term id="end-effector">end-effector</Term> deltas, deployment must not send tool-frame deltas with the same tensor layout. The geometry behind these transformations is developed in *Modern Robotics* <Cite id="modern-robotics-2017" />.
 
 ## URDF, robot state and MoveIt
 

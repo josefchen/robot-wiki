@@ -63,7 +63,7 @@ Write the robot problem as four learned or specified objects:
 
 Classical model-predictive control uses the same decomposition with explicit dynamics. MuJoCo is a hand-specified transition model: given state and control, it computes the next state under rigid-body and contact dynamics <Cite id="mujoco-2012" />. Model-based learning replaces some or all of that transition with a function estimated from data.
 
-This framing prevents a common category error. “Model-based” does not mean the policy contains a neural network, and “world model” does not require pixels. The defining fact is that predicted consequences participate in choosing or improving actions.
+This framing prevents a common category error. “Model-based” does not mean the policy contains a neural network, and <Term id="world-model">“world model”</Term> does not require pixels. The defining fact is that predicted consequences participate in choosing or improving actions.
 
 ## Two ways to use imagined experience
 

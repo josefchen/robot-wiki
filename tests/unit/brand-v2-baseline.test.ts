@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -581,11 +582,30 @@ describe('the article-truth collectors over the real tree', () => {
     const sealedNames = new Set(
       sealed.manifests['accessible-names'].members.map(({ id }) => id),
     );
+    // Additions and removals enter through the approved-delta ledger rather
+    // than the seal: an addition names a member the baseline never recorded
+    // with oldHash sha256('missing'), a removal the reverse.
+    const missingHash = createHash('sha256').update('missing').digest('hex');
+    const deltas = (
+      JSON.parse(
+        readFileSync(
+          join(process.cwd(), 'contract/brand-v2-approved-deltas.json'),
+          'utf8',
+        ),
+      ) as { entries: ApprovedDelta[] }
+    ).entries;
+    const effectiveIds = new Set(sealedIds);
+    for (const delta of deltas) {
+      if (delta.manifest !== 'article-metadata') continue;
+      if (delta.oldHash === missingHash) effectiveIds.add(delta.memberId);
+      if (delta.newHash === missingHash) effectiveIds.delete(delta.memberId);
+    }
     expect([...sealedIds].filter((id) => id.startsWith('citation:')).length)
       .toBeGreaterThan(300);
     expect(
-      [...sealedIds].filter((id) => id.startsWith('article-fact-frontmatter:'))
-        .length,
+      [...effectiveIds].filter((id) =>
+        id.startsWith('article-fact-frontmatter:'),
+      ).length,
     ).toBe(publishedModules().length);
     expect([...sealedNames].filter((id) => id.startsWith('expression:')).length)
       .toBeGreaterThan(100);

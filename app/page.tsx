@@ -180,7 +180,7 @@ export default function Home() {
         {/* Overview and CTA sit outside the sheet so the 80px band can
             close the hero exactly (the test measures the sheet bottom as
             the grid's bottom). */}
-        <p className="mt-5 max-w-[62ch] text-[17px] leading-relaxed text-text-dim">
+        <p className="mt-4 max-w-[62ch] text-[17px] leading-relaxed text-text-dim">
           {PUBLIC_IDENTITY} is an encyclopedia of modern robotics for engineers who
           already know machine learning. It covers learned manipulation
           policies, sim-to-real reinforcement learning, world models,
@@ -197,12 +197,12 @@ export default function Home() {
           >
             traceable to cited evidence
           </mark>
-          . Sources include research papers, first-party documentation, and
-          explicitly labelled community estimates; a citation is not a guarantee
-          that a claim has been verified. The centre of gravity is robot learning,
-          and the site is not a catalogue of the industry.
+          : research papers, first-party documentation, and explicitly
+          labelled community estimates; a citation is not a guarantee that a
+          claim has been verified. The centre of gravity is robot learning,
+          not the industry at large.
         </p>
-        <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3">
           <Action variant="primary" href="/manipulation/action-chunking">
             Start reading
           </Action>
@@ -217,7 +217,7 @@ export default function Home() {
         aria-labelledby="domain-index-heading"
         data-pagefind-body
         data-brand-module-signature={SECTION_SIGNATURES.domainIndex}
-        className={`${container} mt-9 border-t border-border-strong pt-5`}
+        className={`${container} mt-7 border-t border-border-strong pt-4`}
       >
         {/* The index is the page's working half, so its heading outranks the
             module headings below it. The scope sentence that used to sit
@@ -230,7 +230,7 @@ export default function Home() {
         >
           Domain index
         </h2>
-        <ul className="mt-4 divide-y divide-border border-t border-border">
+        <ul className="mt-3 divide-y divide-border border-t border-border">
           {DOMAINS.map((domain) => {
             const meta = DOMAIN_META[domain];
             // The adjacent group is a survey rather than a stack of
@@ -243,7 +243,7 @@ export default function Home() {
             const isAdjacent = domain === 'adjacent';
             return (
               <li key={domain}>
-                <div className="grid gap-0.5 py-2.5 sm:grid-cols-[16rem_1fr] sm:items-baseline sm:gap-6">
+                <div className="grid gap-0.5 py-2 sm:grid-cols-[16rem_1fr] sm:items-baseline sm:gap-6">
                   <IntentLink
                     data-brand-control-id="control:link-focus"
                     href={`/${domain}/`}

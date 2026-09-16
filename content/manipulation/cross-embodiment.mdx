@@ -27,7 +27,7 @@ import { CrossEmbodimentStrategies } from '@/components/interactive/cross-embodi
 
 An action vector is a control interface, not a hardware DoF count. ACT reports a 14-dimensional absolute-joint action vector for ALOHA, while its hardware section specifies two 6-DoF ViperX arms with grippers. The same paper also describes the observation coordinates as “7+7=14 DoF”; that wording should not be read as two 7-DoF arms <Cite id="act-aloha-2023" />. Human video supplies images rather than native robot commands: EgoScale estimates hand poses, represents wrist motion relatively, and retargets hand articulation into a robot hand action space <Cite id="egoscale-2026" />. The interface and the training recipe both matter when combining these data.
 
-The interactive compares three accounts of cross-embodiment learning with the same illustrative slot geometry. Motion Transfer is described at a high level in the Gemini report; the hatched blocks are not a recovered model architecture. Its empty human-hand row means that this diagram does not specify a hand-to-action mapping, not that the model cannot learn from human video.
+The interactive compares three accounts of <Term id="cross-embodiment">cross-embodiment</Term> learning with the same illustrative slot geometry. Motion Transfer is described at a high level in the Gemini report; the hatched blocks are not a recovered model architecture. Its empty human-hand row means that this diagram does not specify a hand-to-action mapping, not that the model cannot learn from human video.
 
 <CrossEmbodimentStrategies className="my-6" />
 

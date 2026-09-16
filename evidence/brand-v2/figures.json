@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "1ceb4e5c996106fee9b3451cdd0b528ec85342fce1bf0c460f9826af86eff8a0",
+  "fingerprint": "460362705c4da4230fb1312604777d1477f74f04f7df44602ac8cf6a072357e6",
   "viewports": [
     "375x812",
     "1440x900"
@@ -18,7 +18,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 4308,
+      "visibleTextLength": 5416,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -29,11 +29,11 @@
           "declaredWidth": "1920",
           "declaredHeight": "869",
           "loading": "lazy",
-          "naturalWidth": 1920,
-          "naturalHeight": 869,
+          "naturalWidth": 960,
+          "naturalHeight": 435,
           "complete": true,
           "renderedWidth": 327,
-          "renderedHeight": 149.09,
+          "renderedHeight": 149.27,
           "overflowPx": 0,
           "caption": "A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
@@ -69,7 +69,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 15281,
+      "visibleTextLength": 17071,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -80,11 +80,11 @@
           "declaredWidth": "1280",
           "declaredHeight": "1627",
           "loading": "lazy",
-          "naturalWidth": 1280,
-          "naturalHeight": 1627,
+          "naturalWidth": 960,
+          "naturalHeight": 1220,
           "complete": true,
           "renderedWidth": 335,
-          "renderedHeight": 425.27,
+          "renderedHeight": 425.19,
           "overflowPx": 0,
           "caption": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PUMA layout is the canonical teaching example for the Denavit-Hartenberg convention.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
@@ -120,7 +120,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 21415,
+      "visibleTextLength": 21475,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -131,11 +131,11 @@
           "declaredWidth": "1920",
           "declaredHeight": "869",
           "loading": "lazy",
-          "naturalWidth": 1920,
-          "naturalHeight": 869,
+          "naturalWidth": 960,
+          "naturalHeight": 435,
           "complete": true,
           "renderedWidth": 327,
-          "renderedHeight": 149.09,
+          "renderedHeight": 149.27,
           "overflowPx": 0,
           "caption": "A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
@@ -173,11 +173,11 @@
           "declaredWidth": "1280",
           "declaredHeight": "1762",
           "loading": "lazy",
-          "naturalWidth": 1280,
-          "naturalHeight": 1762,
+          "naturalWidth": 960,
+          "naturalHeight": 1322,
           "complete": true,
           "renderedWidth": 327,
-          "renderedHeight": 449.38,
+          "renderedHeight": 449.55,
           "overflowPx": 0,
           "caption": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its frame and sensor head exposed. The electric Atlas discussed above is its clean-sheet successor.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
@@ -215,11 +215,11 @@
           "declaredWidth": "1280",
           "declaredHeight": "1627",
           "loading": "lazy",
-          "naturalWidth": 1280,
-          "naturalHeight": 1627,
+          "naturalWidth": 960,
+          "naturalHeight": 1220,
           "complete": true,
           "renderedWidth": 327,
-          "renderedHeight": 415.09,
+          "renderedHeight": 415.02,
           "overflowPx": 0,
           "caption": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PUMA layout is the canonical teaching example for the Denavit-Hartenberg convention.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
@@ -257,8 +257,8 @@
           "declaredWidth": "1920",
           "declaredHeight": "1280",
           "loading": "lazy",
-          "naturalWidth": 1920,
-          "naturalHeight": 1280,
+          "naturalWidth": 960,
+          "naturalHeight": 640,
           "complete": true,
           "renderedWidth": 327,
           "renderedHeight": 218.66,
@@ -299,8 +299,8 @@
           "declaredWidth": "1920",
           "declaredHeight": "1280",
           "loading": "lazy",
-          "naturalWidth": 1920,
-          "naturalHeight": 1280,
+          "naturalWidth": 960,
+          "naturalHeight": 640,
           "complete": true,
           "renderedWidth": 327,
           "renderedHeight": 218.66,
@@ -5077,7 +5077,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 26419,
+      "visibleTextLength": 26408,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",
@@ -5088,8 +5088,8 @@
           "declaredWidth": "1920",
           "declaredHeight": "1280",
           "loading": "lazy",
-          "naturalWidth": 1920,
-          "naturalHeight": 1280,
+          "naturalWidth": 960,
+          "naturalHeight": 640,
           "complete": true,
           "renderedWidth": 335,
           "renderedHeight": 224,
@@ -5130,11 +5130,11 @@
           "declaredWidth": "1280",
           "declaredHeight": "1762",
           "loading": "lazy",
-          "naturalWidth": 1280,
-          "naturalHeight": 1762,
+          "naturalWidth": 960,
+          "naturalHeight": 1322,
           "complete": true,
           "renderedWidth": 335,
-          "renderedHeight": 460.39,
+          "renderedHeight": 460.56,
           "overflowPx": 0,
           "caption": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its frame and sensor head exposed. The electric Atlas discussed above is its clean-sheet successor.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
@@ -5170,7 +5170,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 22111,
+      "visibleTextLength": 22393,
       "figures": [
         {
           "imageId": "temporal-ensembling",
@@ -5217,7 +5217,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 13742,
+      "visibleTextLength": 14030,
       "figures": [
         {
           "imageId": "covariate-shift",
@@ -5264,7 +5264,7 @@
     {
       "viewportWidth": 375,
       "documentScrollWidth": 375,
-      "visibleTextLength": 18230,
+      "visibleTextLength": 18334,
       "figures": [
         {
           "imageId": "anymal-anybotics-2022",
@@ -5275,8 +5275,8 @@
           "declaredWidth": "1920",
           "declaredHeight": "1280",
           "loading": "lazy",
-          "naturalWidth": 1920,
-          "naturalHeight": 1280,
+          "naturalWidth": 960,
+          "naturalHeight": 640,
           "complete": true,
           "renderedWidth": 335,
           "renderedHeight": 224,
@@ -5315,7 +5315,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 4530,
+      "visibleTextLength": 5638,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -5326,11 +5326,11 @@
           "declaredWidth": "1920",
           "declaredHeight": "869",
           "loading": "lazy",
-          "naturalWidth": 1920,
-          "naturalHeight": 869,
+          "naturalWidth": 960,
+          "naturalHeight": 435,
           "complete": true,
           "renderedWidth": 976,
-          "renderedHeight": 442.83,
+          "renderedHeight": 443.34,
           "overflowPx": 0,
           "caption": "A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
@@ -5366,7 +5366,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 15647,
+      "visibleTextLength": 17492,
       "figures": [
         {
           "imageId": "puma-560-nasa-ames",
@@ -5377,11 +5377,11 @@
           "declaredWidth": "1280",
           "declaredHeight": "1627",
           "loading": "lazy",
-          "naturalWidth": 1280,
-          "naturalHeight": 1627,
+          "naturalWidth": 960,
+          "naturalHeight": 1220,
           "complete": true,
           "renderedWidth": 715,
-          "renderedHeight": 908.28,
+          "renderedHeight": 908.09,
           "overflowPx": 0,
           "caption": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PUMA layout is the canonical teaching example for the Denavit-Hartenberg convention.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
@@ -5417,7 +5417,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 21637,
+      "visibleTextLength": 21697,
       "figures": [
         {
           "imageId": "spot-raf-agile-liberty-2021",
@@ -5428,11 +5428,11 @@
           "declaredWidth": "1920",
           "declaredHeight": "869",
           "loading": "lazy",
-          "naturalWidth": 1920,
-          "naturalHeight": 869,
+          "naturalWidth": 960,
+          "naturalHeight": 435,
           "complete": true,
           "renderedWidth": 602,
-          "renderedHeight": 273.56,
+          "renderedHeight": 273.88,
           "overflowPx": 0,
           "caption": "A Boston Dynamics Spot quadruped walks with Royal Air Force airmen at RAF Leeming during the Agile Liberty 21-2 technology trials in August 2021.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
@@ -5470,11 +5470,11 @@
           "declaredWidth": "1280",
           "declaredHeight": "1762",
           "loading": "lazy",
-          "naturalWidth": 1280,
-          "naturalHeight": 1762,
+          "naturalWidth": 960,
+          "naturalHeight": 1322,
           "complete": true,
           "renderedWidth": 602,
-          "renderedHeight": 827.94,
+          "renderedHeight": 828.25,
           "overflowPx": 0,
           "caption": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its frame and sensor head exposed. The electric Atlas discussed above is its clean-sheet successor.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
@@ -5512,11 +5512,11 @@
           "declaredWidth": "1280",
           "declaredHeight": "1627",
           "loading": "lazy",
-          "naturalWidth": 1280,
-          "naturalHeight": 1627,
+          "naturalWidth": 960,
+          "naturalHeight": 1220,
           "complete": true,
           "renderedWidth": 602,
-          "renderedHeight": 764.66,
+          "renderedHeight": 764.5,
           "overflowPx": 0,
           "caption": "A PUMA 560 at NASA Ames, photographed in a stroboscopic exposure as it cycles through its workspace. The six-revolute PUMA layout is the canonical teaching example for the Denavit-Hartenberg convention.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
@@ -5554,8 +5554,8 @@
           "declaredWidth": "1920",
           "declaredHeight": "1280",
           "loading": "lazy",
-          "naturalWidth": 1920,
-          "naturalHeight": 1280,
+          "naturalWidth": 960,
+          "naturalHeight": 640,
           "complete": true,
           "renderedWidth": 602,
           "renderedHeight": 402,
@@ -5596,8 +5596,8 @@
           "declaredWidth": "1920",
           "declaredHeight": "1280",
           "loading": "lazy",
-          "naturalWidth": 1920,
-          "naturalHeight": 1280,
+          "naturalWidth": 960,
+          "naturalHeight": 640,
           "complete": true,
           "renderedWidth": 602,
           "renderedHeight": 402,
@@ -10374,7 +10374,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 26773,
+      "visibleTextLength": 26787,
       "figures": [
         {
           "imageId": "franka-emika-panda-cebit-2017",
@@ -10385,8 +10385,8 @@
           "declaredWidth": "1920",
           "declaredHeight": "1280",
           "loading": "lazy",
-          "naturalWidth": 1920,
-          "naturalHeight": 1280,
+          "naturalWidth": 960,
+          "naturalHeight": 640,
           "complete": true,
           "renderedWidth": 715,
           "renderedHeight": 477.33,
@@ -10427,11 +10427,11 @@
           "declaredWidth": "1280",
           "declaredHeight": "1762",
           "loading": "lazy",
-          "naturalWidth": 1280,
-          "naturalHeight": 1762,
+          "naturalWidth": 960,
+          "naturalHeight": 1322,
           "complete": true,
           "renderedWidth": 715,
-          "renderedHeight": 983.48,
+          "renderedHeight": 983.86,
           "overflowPx": 0,
           "caption": "The original Atlas humanoid, built for the 2013 DARPA Robotics Challenge: hydraulically actuated, tethered, with its frame and sensor head exposed. The electric Atlas discussed above is its clean-sheet successor.",
           "captionFontFamily": "\"IBM Plex Sans\", \"IBM Plex Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
@@ -10467,7 +10467,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 22631,
+      "visibleTextLength": 23020,
       "figures": [
         {
           "imageId": "temporal-ensembling",
@@ -10514,7 +10514,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 14262,
+      "visibleTextLength": 14657,
       "figures": [
         {
           "imageId": "covariate-shift",
@@ -10561,7 +10561,7 @@
     {
       "viewportWidth": 1440,
       "documentScrollWidth": 1440,
-      "visibleTextLength": 18661,
+      "visibleTextLength": 18809,
       "figures": [
         {
           "imageId": "anymal-anybotics-2022",
@@ -10572,8 +10572,8 @@
           "declaredWidth": "1920",
           "declaredHeight": "1280",
           "loading": "lazy",
-          "naturalWidth": 1920,
-          "naturalHeight": 1280,
+          "naturalWidth": 960,
+          "naturalHeight": 640,
           "complete": true,
           "renderedWidth": 715,
           "renderedHeight": 477.33,

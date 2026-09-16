@@ -164,6 +164,7 @@ export default function CreditsPage() {
         <p className="mt-4 font-sans text-sm text-text-dim">
           Corrections and source disputes are welcome. Read the{' '}
           <Link
+            data-brand-control-id="control:link-focus"
             href="/editorial-policy/"
             className="text-accent underline decoration-border-strong underline-offset-2 hover:decoration-accent"
           >

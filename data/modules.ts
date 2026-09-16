@@ -157,7 +157,7 @@ const entries: Array<[Domain, string, string, string]> = [
   [
     'manipulation',
     'robot-learning-roadmap',
-    'Robot Learning Roadmap for ML Engineers',
+    'Robot Learning Curriculum for ML Engineers',
     'A dependency-aware route from supervised learning to real robot policies, with the minimum robotics stack each stage assumes.',
   ],
   [

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "66ed3b5d31b872cf421efacdb88a19d5c790083a31e1c68b8555fd69838e1c3f",
+  "fingerprint": "ed3746e66e46482939fd25e71af8c303127cf48569bae528711918fd5806837a",
   "viewports": [
     {
       "id": "375px",
@@ -32,11 +32,13 @@
     "/adjacent/space/",
     "/adjacent/surgical/",
     "/classical/",
+    "/classical/calibration/",
     "/classical/control/",
     "/classical/grasp-planning/",
     "/classical/kinematics/",
     "/classical/motion-planning/",
     "/classical/perception/",
+    "/classical/ros2-for-ml-engineers/",
     "/classical/scene-representation/",
     "/classical/state-estimation/",
     "/credits/",
@@ -46,7 +48,9 @@
     "/data-hardware/evaluation-crisis/",
     "/data-hardware/hardware-taxonomy/",
     "/data-hardware/industrial-deployment/",
+    "/data-hardware/robot-learning-stack/",
     "/data-hardware/teleop-rigs/",
+    "/editorial-policy/",
     "/frontier/",
     "/frontier/bear-case/",
     "/frontier/competing-theses/",
@@ -57,22 +61,27 @@
     "/glossary/",
     "/manipulation/",
     "/manipulation/action-chunking/",
+    "/manipulation/action-spaces/",
     "/manipulation/bc-foundations/",
     "/manipulation/comparison-matrix/",
     "/manipulation/cross-embodiment/",
     "/manipulation/diffusion-policy/",
+    "/manipulation/foundation-models/",
     "/manipulation/generalist-policies/",
     "/manipulation/hierarchical/",
     "/manipulation/knowledge-insulation/",
     "/manipulation/pi-line/",
     "/manipulation/realtime-execution/",
     "/manipulation/rl-finetuning/",
+    "/manipulation/robot-learning-roadmap/",
     "/manipulation/vla-models/",
     "/market-map/",
     "/playground/",
+    "/privacy/",
     "/rl-sim2real/",
     "/rl-sim2real/humanoid-wbc/",
     "/rl-sim2real/legged-locomotion/",
+    "/rl-sim2real/offline-rl/",
     "/rl-sim2real/parallel-sim-rl/",
     "/rl-sim2real/reward-design-mpc/",
     "/rl-sim2real/rl-for-robotics/",
@@ -80,11 +89,14 @@
     "/rl-sim2real/why-rl-locomotion/",
     "/search/",
     "/world-models/",
+    "/world-models/evaluation/",
     "/world-models/generative-sim/",
     "/world-models/generative-video/",
     "/world-models/jepa/",
     "/world-models/latent-dynamics/",
+    "/world-models/model-based-robot-learning/",
     "/world-models/taxonomy/",
+    "/world-models/world-models-vs-simulators/",
     "/404/"
   ],
   "roleObservations": [
@@ -94,7 +106,7 @@
       "roles": {
         "shell-wordmark": 3,
         "home-wordmark": 1,
-        "section-display": 5
+        "section-display": 6
       }
     },
     {
@@ -103,7 +115,7 @@
       "roles": {
         "shell-wordmark": 3,
         "home-wordmark": 1,
-        "section-display": 5
+        "section-display": 6
       }
     },
     {
@@ -112,7 +124,7 @@
       "roles": {
         "shell-wordmark": 3,
         "home-wordmark": 1,
-        "section-display": 5
+        "section-display": 6
       }
     },
     {
@@ -121,7 +133,7 @@
       "roles": {
         "shell-wordmark": 3,
         "home-wordmark": 1,
-        "section-display": 5
+        "section-display": 6
       }
     },
     {
@@ -349,6 +361,38 @@
       }
     },
     {
+      "route": "/classical/calibration/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/calibration/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/calibration/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/calibration/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
       "route": "/classical/control/",
       "viewportId": "375px",
       "roles": {
@@ -502,6 +546,38 @@
     },
     {
       "route": "/classical/perception/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/classical/ros2-for-ml-engineers/",
       "viewportId": "1440px",
       "roles": {
         "shell-wordmark": 3,
@@ -797,6 +873,38 @@
       }
     },
     {
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
       "route": "/data-hardware/teleop-rigs/",
       "viewportId": "375px",
       "roles": {
@@ -826,6 +934,34 @@
       "roles": {
         "shell-wordmark": 3,
         "article-h1": 1
+      }
+    },
+    {
+      "route": "/editorial-policy/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3
+      }
+    },
+    {
+      "route": "/editorial-policy/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3
+      }
+    },
+    {
+      "route": "/editorial-policy/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3
+      }
+    },
+    {
+      "route": "/editorial-policy/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3
       }
     },
     {
@@ -1149,6 +1285,38 @@
       }
     },
     {
+      "route": "/manipulation/action-spaces/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/action-spaces/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/action-spaces/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/action-spaces/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
       "route": "/manipulation/bc-foundations/",
       "viewportId": "375px",
       "roles": {
@@ -1270,6 +1438,38 @@
     },
     {
       "route": "/manipulation/diffusion-policy/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/foundation-models/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/foundation-models/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/foundation-models/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/foundation-models/",
       "viewportId": "1440px",
       "roles": {
         "shell-wordmark": 3,
@@ -1469,6 +1669,38 @@
       }
     },
     {
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
       "route": "/manipulation/vla-models/",
       "viewportId": "375px",
       "roles": {
@@ -1565,6 +1797,34 @@
       }
     },
     {
+      "route": "/privacy/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3
+      }
+    },
+    {
+      "route": "/privacy/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3
+      }
+    },
+    {
+      "route": "/privacy/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3
+      }
+    },
+    {
+      "route": "/privacy/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3
+      }
+    },
+    {
       "route": "/rl-sim2real/",
       "viewportId": "375px",
       "roles": {
@@ -1654,6 +1914,38 @@
     },
     {
       "route": "/rl-sim2real/legged-locomotion/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/offline-rl/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/offline-rl/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/offline-rl/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/rl-sim2real/offline-rl/",
       "viewportId": "1440px",
       "roles": {
         "shell-wordmark": 3,
@@ -1885,6 +2177,38 @@
       }
     },
     {
+      "route": "/world-models/evaluation/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/evaluation/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/evaluation/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/evaluation/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
       "route": "/world-models/generative-sim/",
       "viewportId": "375px",
       "roles": {
@@ -2013,6 +2337,38 @@
       }
     },
     {
+      "route": "/world-models/model-based-robot-learning/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/model-based-robot-learning/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/model-based-robot-learning/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/model-based-robot-learning/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
       "route": "/world-models/taxonomy/",
       "viewportId": "375px",
       "roles": {
@@ -2038,6 +2394,38 @@
     },
     {
       "route": "/world-models/taxonomy/",
+      "viewportId": "1440px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/world-models-vs-simulators/",
+      "viewportId": "375px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/world-models-vs-simulators/",
+      "viewportId": "768px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/world-models-vs-simulators/",
+      "viewportId": "1024px",
+      "roles": {
+        "shell-wordmark": 3,
+        "article-h1": 1
+      }
+    },
+    {
+      "route": "/world-models/world-models-vs-simulators/",
       "viewportId": "1440px",
       "roles": {
         "shell-wordmark": 3,
@@ -2088,7 +2476,7 @@
       "weight": "600",
       "stretch": "100%",
       "variationSettings": "\"wdth\" 100, \"wght\" 600",
-      "elements": 188
+      "elements": 228
     },
     {
       "role": "display-numerals",
@@ -2120,7 +2508,7 @@
       "weight": "600",
       "stretch": "100%",
       "variationSettings": "\"wdth\" 100, \"wght\" 600",
-      "elements": 20
+      "elements": 24
     },
     {
       "role": "shell-wordmark",
@@ -2128,7 +2516,7 @@
       "weight": "600",
       "stretch": "100%",
       "variationSettings": "\"wdth\" 100, \"wght\" 600",
-      "elements": 744
+      "elements": 888
     }
   ],
   "unannotatedDisplayClassUses": [],
@@ -2622,6 +3010,82 @@
       ]
     },
     {
+      "route": "/classical/calibration/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/calibration/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/calibration/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/calibration/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "KaTeX_Main",
+        "KaTeX_Math",
+        "Newsreader",
+        "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
       "route": "/classical/control/",
       "viewportId": "375px",
       "heads": [
@@ -3048,6 +3512,70 @@
         "KaTeX_Math",
         "Newsreader",
         "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/classical/ros2-for-ml-engineers/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
         "tektur"
       ],
       "headsOutsideMath": [
@@ -3662,6 +4190,70 @@
       ]
     },
     {
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/data-hardware/robot-learning-stack/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
       "route": "/data-hardware/teleop-rigs/",
       "viewportId": "375px",
       "heads": [
@@ -3711,6 +4303,70 @@
     },
     {
       "route": "/data-hardware/teleop-rigs/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/editorial-policy/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/editorial-policy/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/editorial-policy/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/editorial-policy/",
       "viewportId": "1440px",
       "heads": [
         "IBM Plex Mono",
@@ -4386,6 +5042,70 @@
       ]
     },
     {
+      "route": "/manipulation/action-spaces/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/action-spaces/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/action-spaces/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/action-spaces/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
       "route": "/manipulation/bc-foundations/",
       "viewportId": "375px",
       "heads": [
@@ -4684,6 +5404,70 @@
         "KaTeX_Size1",
         "Newsreader",
         "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/foundation-models/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/foundation-models/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/foundation-models/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/foundation-models/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
         "tektur"
       ],
       "headsOutsideMath": [
@@ -5122,6 +5906,70 @@
       ]
     },
     {
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/manipulation/robot-learning-roadmap/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
       "route": "/manipulation/vla-models/",
       "viewportId": "375px",
       "heads": [
@@ -5294,6 +6142,70 @@
       "headsOutsideMath": [
         "IBM Plex Mono",
         "IBM Plex Sans",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/privacy/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/privacy/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/privacy/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/privacy/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
         "tektur"
       ]
     },
@@ -5484,6 +6396,70 @@
         "KaTeX_Math",
         "Newsreader",
         "math",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/offline-rl/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/offline-rl/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/offline-rl/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/rl-sim2real/offline-rl/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
         "tektur"
       ],
       "headsOutsideMath": [
@@ -5926,6 +6902,70 @@
       ]
     },
     {
+      "route": "/world-models/evaluation/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/evaluation/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/evaluation/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/evaluation/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
       "route": "/world-models/generative-sim/",
       "viewportId": "375px",
       "heads": [
@@ -6194,6 +7234,70 @@
       ]
     },
     {
+      "route": "/world-models/model-based-robot-learning/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/model-based-robot-learning/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/model-based-robot-learning/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/model-based-robot-learning/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
       "route": "/world-models/taxonomy/",
       "viewportId": "375px",
       "heads": [
@@ -6243,6 +7347,70 @@
     },
     {
       "route": "/world-models/taxonomy/",
+      "viewportId": "1440px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/world-models-vs-simulators/",
+      "viewportId": "375px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/world-models-vs-simulators/",
+      "viewportId": "768px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/world-models-vs-simulators/",
+      "viewportId": "1024px",
+      "heads": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ],
+      "headsOutsideMath": [
+        "IBM Plex Mono",
+        "IBM Plex Sans",
+        "Newsreader",
+        "tektur"
+      ]
+    },
+    {
+      "route": "/world-models/world-models-vs-simulators/",
       "viewportId": "1440px",
       "heads": [
         "IBM Plex Mono",
@@ -6629,7 +7797,7 @@
       "/_next/static/media/effe91970fc4db64-s.p.0oace-s_gkfks.woff2"
     ],
     "foreignOrigin": [],
-    "observationsWithFontRequest": 248,
+    "observationsWithFontRequest": 296,
     "observationsMixingForeignOrigin": 0,
     "fontRequests": [
       {
@@ -6978,6 +8146,24 @@
       "fallbackAdvance": 385.31
     },
     {
+      "id": "article:manipulation/robot-learning-roadmap",
+      "loaded": true,
+      "tekturAdvance": 694,
+      "fallbackAdvance": 809.16
+    },
+    {
+      "id": "article:manipulation/action-spaces",
+      "loaded": true,
+      "tekturAdvance": 526,
+      "fallbackAdvance": 616.5
+    },
+    {
+      "id": "article:manipulation/foundation-models",
+      "loaded": true,
+      "tekturAdvance": 496,
+      "fallbackAdvance": 577.97
+    },
+    {
       "id": "article:rl-sim2real/rl-for-robotics",
       "loaded": true,
       "tekturAdvance": 241,
@@ -7020,6 +8206,12 @@
       "fallbackAdvance": 616.5
     },
     {
+      "id": "article:rl-sim2real/offline-rl",
+      "loaded": true,
+      "tekturAdvance": 696,
+      "fallbackAdvance": 828.42
+    },
+    {
       "id": "article:world-models/taxonomy",
       "loaded": true,
       "tekturAdvance": 362,
@@ -7048,6 +8240,24 @@
       "loaded": true,
       "tekturAdvance": 346,
       "fallbackAdvance": 404.58
+    },
+    {
+      "id": "article:world-models/model-based-robot-learning",
+      "loaded": true,
+      "tekturAdvance": 449,
+      "fallbackAdvance": 500.91
+    },
+    {
+      "id": "article:world-models/evaluation",
+      "loaded": true,
+      "tekturAdvance": 562,
+      "fallbackAdvance": 674.3
+    },
+    {
+      "id": "article:world-models/world-models-vs-simulators",
+      "loaded": true,
+      "tekturAdvance": 562,
+      "fallbackAdvance": 655.03
     },
     {
       "id": "article:data-hardware/data-bottleneck",
@@ -7084,6 +8294,12 @@
       "loaded": true,
       "tekturAdvance": 352,
       "fallbackAdvance": 404.58
+    },
+    {
+      "id": "article:data-hardware/robot-learning-stack",
+      "loaded": true,
+      "tekturAdvance": 403,
+      "fallbackAdvance": 462.38
     },
     {
       "id": "article:classical/kinematics",
@@ -7126,6 +8342,18 @@
       "loaded": true,
       "tekturAdvance": 556,
       "fallbackAdvance": 616.5
+    },
+    {
+      "id": "article:classical/calibration",
+      "loaded": true,
+      "tekturAdvance": 269,
+      "fallbackAdvance": 327.52
+    },
+    {
+      "id": "article:classical/ros2-for-ml-engineers",
+      "loaded": true,
+      "tekturAdvance": 598,
+      "fallbackAdvance": 693.56
     },
     {
       "id": "article:frontier/reliability-gap",

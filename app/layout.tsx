@@ -17,7 +17,7 @@ import {
   PUBLIC_IDENTITY,
 } from '@/lib/identity';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
-import { HOME_SEO_DESCRIPTION, HOME_SEO_TITLE } from '@/lib/seo';
+import { HOME_SEO_TITLE } from '@/lib/seo';
 import './globals.css';
 
 // The four first-party roles are Tektur display, IBM Plex Sans interface,
@@ -87,14 +87,14 @@ export const metadata: Metadata = {
     // site card (VAL-DIST-002/005); routes that declare their own
     // openGraph object replace this block, no deep merge.
     ...routeOpenGraph(SITE_DISPLAY_NAME),
-    description: HOME_SEO_DESCRIPTION,
+    description: PUBLIC_DESCRIPTOR,
     locale: 'en_US',
   },
   // summary_large_image: the card is the 1.91:1 asset above, not a small
   // square thumbnail (VAL-DIST-001).
   twitter: {
     ...routeTwitter(SITE_DISPLAY_NAME),
-    description: HOME_SEO_DESCRIPTION,
+    description: PUBLIC_DESCRIPTOR,
   },
   // Site-wide robots guard, driven by ALLOW_INDEXING in lib/site.ts (the
   // single switch). Search engines may use the preview limits below when

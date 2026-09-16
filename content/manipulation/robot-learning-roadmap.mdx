@@ -1,5 +1,5 @@
 ---
-title: "Robot Learning Roadmap for ML Engineers"
+title: "Robot Learning Curriculum for ML Engineers"
 description: "A dependency-aware route into robot learning for people who already know machine learning: geometry, data, imitation, action representation, evaluation, simulation and deployment in the order each layer becomes necessary."
 domain: manipulation
 slug: robot-learning-roadmap
@@ -101,7 +101,7 @@ Open-loop loss is a diagnostic, not the result. A useful evaluation pyramid has 
 
 Simulation belongs where it answers a concrete question: whether a controller is stable, whether a policy survives parameter variation, or whether a reward can be optimized safely. Isaac Lab is designed for large-scale, multi-modal robot-learning workflows and is an appropriate environment once the task's contact and sensor assumptions are credible <Cite id="isaac-lab-2025" />. It is not a substitute for measuring the gap between its dynamics and the hardware.
 
-Offline RL belongs when a logged dataset contains meaningful variation in outcome quality and a reward can rank that variation. Online RL belongs when the system can explore safely, reset automatically and evaluate cheaply. Until those conditions hold, imitation learning is usually the stronger use of the same robot hours.
+Offline RL belongs when a logged dataset contains meaningful variation in outcome quality and a reward can rank that variation. Online RL belongs when the system can explore safely, reset automatically and evaluate cheaply. Until those conditions hold, <Term id="imitation-learning">imitation learning</Term> is usually the stronger use of the same robot hours.
 
 ## A practical sequence
 
