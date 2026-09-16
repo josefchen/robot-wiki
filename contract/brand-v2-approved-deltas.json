@@ -16442,6 +16442,23 @@
     "VAL-AUDIT-009"
    ],
    "disposition": "permanent"
+  },
+  {
+   "id": "evaluation-crisis-r9-20260916-1",
+   "manifest": "prose",
+   "memberId": "article:data-hardware/evaluation-crisis",
+   "oldHash": "305a77e8f50ffe093bdaa3d90ce5f35dacbf8b8e7e368ec378f3f60990024e45",
+   "newHash": "305a77e8f50ffe093bdaa3d90ce5f35dacbf8b8e7e368ec378f3f60990024e45",
+   "reason": "Exactly data-hardware/evaluation-crisis original 9 (LIBERO-Plus: seven perturbation dimensions; 95% clean falls ...): evidence completion per the frozen packet convergence-source-ab-evaluation-crisis-20260916l. The three retained abstract passages (arXiv abs page 2510.13626, fetch of record 2026-09-16T18:34:30Z-18:34:31Z by both FetchUrl render and uncredentialed curl GET, HTTP 200, identical logging) were needle-verified verbatim by this integrator before adjudication; zero retrieval by this integrator; lane evidence in validation/brand-v2-editorial/source-recovery-20260906/convergence-evaluation-crisis-integration-20260916l. Not whole-article, full-document manual-review, independent or release acceptance. No-op hash record: this row changed no article prose (evidence completion only); lastReviewed deliberately not moved.",
+   "ownerApproval": "Owner dispatch of 2026-09-16 (apply exactly the 1 selected record /records/1 of frozen packet convergence-source-ab-evaluation-crisis-20260916l, sha256 defe33b6e1ce7a8eb835dc31b7926ccbfc88d30a98388d71f7021cf28d517364, at HEAD b1d7481b49580e62a485fbc42ef6eb17e1d78b43) over Josef September 7, 2026 fix-it-all authority recorded at /home/remy-simpc4/.local/share/robot-wiki-codex-bridge/owner-correction-authority-2026-09-07.md; routine evidence-backed correction authority, not personal source certification.",
+   "responsibleMilestone": "brand-v2-editorial",
+   "affectedAssertions": [
+    "VAL-B2-BASE-002",
+    "VAL-B2-BASE-010",
+    "VAL-AUDIT-004",
+    "VAL-AUDIT-009"
+   ],
+   "disposition": "permanent"
   }
 
   ]
