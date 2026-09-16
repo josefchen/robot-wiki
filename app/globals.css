@@ -43,8 +43,9 @@
   --color-warn: #8a5a00;
   --color-err: #a52a1e;
 
-  /* Typography: IBM Plex Sans UI, Newsreader prose, IBM Plex Mono code/data.
+  /* Typography: Tektur display, IBM Plex Sans UI, Newsreader prose, IBM Plex Mono code/data.
      Variables are set by next/font in app/layout.tsx. */
+  --font-display: var(--font-tektur), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
   --font-mono: var(--font-plex-mono), ui-monospace, 'SF Mono', monospace;

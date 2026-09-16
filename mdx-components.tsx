@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
+import type { ComponentProps } from 'react';
 import { PredictThenReveal, SelfCheck } from '@/components/article/commit-to-reveal';
 import {
   Aside,
@@ -14,6 +15,23 @@ import { CiteRef } from '@/components/mdx/cite-ref';
 import { ImageRef } from '@/components/mdx/image-ref';
 import { ProseH2, ProseH3 } from '@/components/mdx/prose-heading';
 import { TermRef } from '@/components/mdx/term-ref';
+
+/** Keep authored Markdown tables inside the prose column on narrow screens. */
+function ProseTable({ className, ...props }: ComponentProps<'table'>) {
+  return (
+    <div
+      role="region"
+      aria-label="Scrollable article table"
+      tabIndex={0}
+      className="my-6 max-w-full overflow-x-auto rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+    >
+      <table
+        {...props}
+        className={`border-collapse text-left text-sm ${className ?? ''}`}
+      />
+    </div>
+  );
+}
 
 // Global MDX component registry. Design-system primitives are available in
 // every module without imports. Cite is the registry-backed resolver
@@ -40,6 +58,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Term: TermRef,
     h2: ProseH2,
     h3: ProseH3,
+    table: ProseTable,
     ...components,
   };
 }

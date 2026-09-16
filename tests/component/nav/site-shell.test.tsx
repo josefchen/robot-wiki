@@ -36,7 +36,7 @@ describe('SiteShell', () => {
   it('renders the desktop sidebar nav and a search entry point', () => {
     renderShell();
     expect(
-      screen.getByRole('navigation', { name: 'robot-wiki taxonomy' }),
+      screen.getByRole('navigation', { name: 'Robot Wiki taxonomy' }),
     ).toBeInTheDocument();
     expect(screen.getByRole('search')).toBeInTheDocument();
   });

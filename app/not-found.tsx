@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: 'website',
     title,
     url: '/404/',
-    siteName: 'robot-wiki',
+    siteName: 'Robot Wiki',
     images: siteOgImage(),
   },
   twitter: routeTwitter(title),
@@ -37,7 +37,7 @@ export default function NotFound() {
       className="mx-auto flex min-h-[70dvh] w-full max-w-3xl flex-col justify-center px-6 py-12"
     >
       <p className="font-mono text-sm text-accent">404</p>
-      <h1 className="mt-2 font-sans text-3xl font-semibold tracking-tight text-text">
+      <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight text-text">
         Page not found
       </h1>
       <p className="mt-3 max-w-[55ch] leading-relaxed text-text-dim">

@@ -10,9 +10,9 @@
  * The route set is derived from the module registry, so publishing a
  * module adds its card with no hand edit. Rendering uses Next's bundled
  * @vercel/og ImageResponse (satori + resvg wasm): no new dependency.
- * Fonts: Geist Regular (bundled with @vercel/og) for titles and
- * KaTeX_Typewriter (a dependency we already ship) for the mono labels;
- * text is sanitized to the fonts' coverage by sanitizeCardText.
+ * Fonts: the checked-in static Tektur SemiBold instance for display text and
+ * checked-in IBM Plex Mono Regular for data labels. Both are offline-only
+ * renderer assets with pinned upstream revisions and checksums.
  *
  * Byte-distinctness (VAL-DIST-003) holds structurally: since e937d16 the
  * panel artwork is one constant ornament per domain chosen by a literal
@@ -33,6 +33,7 @@ import { join } from 'node:path';
 import { DOMAIN_META, publishedModules } from '../data/modules.ts';
 import matter from 'gray-matter';
 import {
+  ARTICLE_IMAGE_VARIANTS,
   OG_CARD_HEIGHT,
   OG_CARD_WIDTH,
   SITE_CARD_PATH,
@@ -48,6 +49,8 @@ import type { ImageResponseOptions } from 'next/dist/compiled/@vercel/og/index.n
 const root = join(import.meta.dirname, '..');
 const publicOgDir = join(root, 'public', 'og');
 const outOgDir = join(root, 'out', 'og');
+const publicStructuredDir = join(root, 'public', 'structured-images');
+const outStructuredDir = join(root, 'out', 'structured-images');
 
 /** Article frontmatter facts the card carries (registry + MDX, no new data). */
 export interface ArticleCardFacts {
@@ -72,26 +75,30 @@ export function articleCardFacts(mdxSource: string): ArticleCardFacts {
 }
 
 const FONT_PATHS = {
-  sans: join(root, 'node_modules/next/dist/compiled/@vercel/og/Geist-Regular.ttf'),
-  mono: join(root, 'node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf'),
+  display: join(root, 'assets/fonts/tektur/Tektur-SemiBold.ttf'),
+  mono: join(root, 'assets/fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf'),
 };
 
 // ImageResponse's bundled typings expect a ReactElement; the node build
 // accepts the same plain satori element trees our CardNode type
 // describes. Cast at the boundary rather than loosening CardNode.
-async function render(node: CardNode): Promise<Buffer> {
+async function render(
+  node: CardNode,
+  width = OG_CARD_WIDTH,
+  height = OG_CARD_HEIGHT,
+): Promise<Buffer> {
   const fonts = [
-    { name: 'Geist', data: readFileSync(FONT_PATHS.sans), weight: 400, style: 'normal' },
+    { name: 'Tektur', data: readFileSync(FONT_PATHS.display), weight: 600, style: 'normal' },
     {
-      name: 'KaTeX_Typewriter',
+      name: 'IBM Plex Mono',
       data: readFileSync(FONT_PATHS.mono),
       weight: 400,
       style: 'normal',
     },
   ] satisfies NonNullable<ImageResponseOptions['fonts']>;
   const response = new ImageResponse(node as never, {
-    width: OG_CARD_WIDTH,
-    height: OG_CARD_HEIGHT,
+    width,
+    height,
     fonts,
   });
   return Buffer.from(await response.arrayBuffer());
@@ -133,8 +140,12 @@ async function main(): Promise<void> {
   // whole tree is regenerated from the registry every build, so clear it
   // first (drafts are excluded from the export and from this set).
   rmSync(publicOgDir, { recursive: true, force: true });
+  rmSync(publicStructuredDir, { recursive: true, force: true });
   if (outOgDir.startsWith(join(root, 'out'))) {
     rmSync(outOgDir, { recursive: true, force: true });
+  }
+  if (outStructuredDir.startsWith(join(root, 'out'))) {
+    rmSync(outStructuredDir, { recursive: true, force: true });
   }
 
   const t0 = Date.now();
@@ -151,10 +162,13 @@ async function main(): Promise<void> {
       domainName: DOMAIN_META[entry.domain].name,
       ...facts,
     });
-    const buf = await render(node);
-    check(articleCardPath(entry.domain, entry.slug), buf);
-    emit(articleCardPath(entry.domain, entry.slug), buf);
-    count += 1;
+    for (const variant of ARTICLE_IMAGE_VARIANTS) {
+      const path = articleCardPath(entry.domain, entry.slug, variant.id);
+      const buf = await render(node, variant.width, variant.height);
+      check(path, buf);
+      emit(path, buf);
+      count += 1;
+    }
   }
 
   const siteBuf = await render(siteCardElement());
@@ -163,7 +177,7 @@ async function main(): Promise<void> {
 
   const seconds = ((Date.now() - t0) / 1000).toFixed(1);
   console.log(
-    `generate-og-cards: OK (${count} article cards + 1 site card, ${seen.size} distinct assets, ${seconds}s)`,
+    `generate-og-cards: OK (${count} article images + 1 site card, ${seen.size} distinct assets, ${seconds}s)`,
   );
 }
 

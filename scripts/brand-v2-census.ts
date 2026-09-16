@@ -25,7 +25,15 @@ import {
   SITE_CARD_PATH,
   SITE_URL_ORIGIN,
 } from '../lib/og-cards.ts';
-import { SITE_URL } from '../lib/site.ts';
+import {
+  articleSeoTitle,
+  domainSeoTitle,
+  HOME_SEO_DESCRIPTION,
+  HOME_SEO_TITLE,
+  STANDALONE_SEO_DESCRIPTIONS,
+  STANDALONE_SEO_TITLES,
+} from '../lib/seo.ts';
+import { SITE_DISPLAY_NAME, SITE_URL } from '../lib/site.ts';
 
 const ROOT = join(import.meta.dirname, '..');
 const OUTPUT = join(ROOT, 'contract', 'brand-v2-registries.json');
@@ -36,9 +44,11 @@ const PUBLIC_FIXED_ROUTES = [
   '/playground/',
   '/glossary/',
   '/credits/',
+  '/editorial-policy/',
+  '/privacy/',
   '/search/',
 ] as const;
-const GENERATED_ASSET_PREFIXES = ['og/', 'pagefind/'];
+const GENERATED_ASSET_PREFIXES = ['og/', 'pagefind/', 'structured-images/'];
 const ASSET_EXTENSIONS = new Set([
   '.avif',
   '.gif',
@@ -141,6 +151,7 @@ function exportInventory(): string[] | null {
 
 function titleAndDescription(path: string): {
   title: string;
+  socialTitle: string;
   description: string;
   kind: 'article' | 'destination';
 } {
@@ -149,7 +160,8 @@ function titleAndDescription(path: string): {
   );
   if (article) {
     return {
-      title: article.title,
+      title: articleSeoTitle(article),
+      socialTitle: article.title,
       description: article.summary,
       kind: 'article',
     };
@@ -157,23 +169,63 @@ function titleAndDescription(path: string): {
   const domain = DOMAINS.find((value) => routePath(value) === path);
   if (domain) {
     return {
-      title: DOMAIN_META[domain].name,
+      title: domainSeoTitle(domain),
+      socialTitle: DOMAIN_META[domain].name,
       description: DOMAIN_META[domain].description,
       kind: 'destination',
     };
   }
-  const fixed: Record<string, [string, string]> = {
-    '/': ['robot-wiki', 'An encyclopedic interactive guide to modern robotics for ML engineers.'],
-    '/a-z/': ['A-Z Index', 'Every published robot-wiki article and glossary term in one alphabetical list.'],
-    '/market-map/': ['Market Map', 'The embodied-AI industry as data: companies across six segments, filterable by approach, geography, stage, and funding.'],
-    '/playground/': ['3D Kinematics Playground', 'A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.'],
-    '/glossary/': ['Glossary', 'Cited definitions of the robotics and machine-learning terms used across robot-wiki.'],
-    '/credits/': ['Credits', 'Every photograph and diagram on robot-wiki, with its creator, source, and licence.'],
-    '/search/': ['Search', 'Search robot-wiki: full-text over article prose plus the structured data layer (methods, companies, datasets).'],
+  const fixed: Record<string, [string, string, string]> = {
+    '/': [HOME_SEO_TITLE, SITE_DISPLAY_NAME, HOME_SEO_DESCRIPTION],
+    '/a-z/': [
+      STANDALONE_SEO_TITLES.azIndex,
+      'A-Z Index',
+      STANDALONE_SEO_DESCRIPTIONS.azIndex,
+    ],
+    '/market-map/': [
+      STANDALONE_SEO_TITLES.marketMap,
+      'Market Map',
+      STANDALONE_SEO_DESCRIPTIONS.marketMap,
+    ],
+    '/playground/': [
+      STANDALONE_SEO_TITLES.playground,
+      '3D Kinematics Playground',
+      STANDALONE_SEO_DESCRIPTIONS.playground,
+    ],
+    '/glossary/': [
+      STANDALONE_SEO_TITLES.glossary,
+      'Glossary',
+      STANDALONE_SEO_DESCRIPTIONS.glossary,
+    ],
+    '/credits/': [
+      STANDALONE_SEO_TITLES.credits,
+      'Credits',
+      STANDALONE_SEO_DESCRIPTIONS.credits,
+    ],
+    '/editorial-policy/': [
+      STANDALONE_SEO_TITLES.editorialPolicy,
+      'Editorial policy',
+      STANDALONE_SEO_DESCRIPTIONS.editorialPolicy,
+    ],
+    '/privacy/': [
+      STANDALONE_SEO_TITLES.privacy,
+      'Privacy',
+      STANDALONE_SEO_DESCRIPTIONS.privacy,
+    ],
+    '/search/': [
+      'Search',
+      'Search',
+      STANDALONE_SEO_DESCRIPTIONS.search,
+    ],
   };
   const value = fixed[path];
   if (!value) throw new Error(`Missing fixed-route metadata owner for ${path}`);
-  return { title: value[0], description: value[1], kind: 'destination' };
+  return {
+    title: value[0],
+    socialTitle: value[1],
+    description: value[2],
+    kind: 'destination',
+  };
 }
 
 function metadataLedger() {
@@ -184,6 +236,8 @@ function metadataLedger() {
     '/playground/': 'app/playground/page.tsx',
     '/glossary/': 'app/glossary/page.tsx',
     '/credits/': 'app/credits/page.tsx',
+    '/editorial-policy/': 'app/editorial-policy/page.tsx',
+    '/privacy/': 'app/privacy/page.tsx',
     '/search/': 'app/search/page.tsx',
   };
   return [
@@ -208,9 +262,14 @@ function metadataLedger() {
         ownerSourceFingerprint: configurationFingerprint(source(ownerPath)),
         canonical: `${SITE_URL}${path}`,
         title: value.title,
+        renderedTitle:
+          path === '/' ? value.title : `${value.title} | ${SITE_DISPLAY_NAME}`,
         description: value.description,
+        indexable: path !== '/privacy/' && path !== '/search/',
         openGraph: {
           type: value.kind === 'article' ? 'article' : 'website',
+          title: value.socialTitle,
+          description: value.description,
           url: `${SITE_URL}${path}`,
           image: `${SITE_URL_ORIGIN}${imagePath}`,
           width: OG_CARD_WIDTH,
@@ -218,14 +277,20 @@ function metadataLedger() {
         },
         twitter: {
           card: 'summary_large_image',
+          title: value.socialTitle,
+          description: value.description,
           image: `${SITE_URL_ORIGIN}${imagePath}`,
         },
         jsonLd:
-          article ||
-          path === '/a-z/' ||
-          DOMAINS.some((domain) => routePath(domain) === path)
-            ? ['BreadcrumbList']
-            : [],
+          path === '/'
+            ? ['WebSite']
+            : article
+              ? ['BreadcrumbList', 'Article']
+              : DOMAINS.some((domain) => routePath(domain) === path)
+                ? ['BreadcrumbList', 'CollectionPage']
+                : path === '/a-z/' || path === '/editorial-policy/'
+                  ? ['BreadcrumbList']
+                  : [],
         manifest: null,
         icons: [],
         themeColour: null,
@@ -240,9 +305,13 @@ function metadataLedger() {
       ownerSourceFingerprint: configurationFingerprint(source('app/not-found.tsx')),
       canonical: `${SITE_URL}/404/`,
       title: 'Page not found',
+      renderedTitle: `Page not found | ${SITE_DISPLAY_NAME}`,
       description: null,
+      indexable: false,
       openGraph: {
         type: 'website',
+        title: 'Page not found',
+        description: null,
         url: `${SITE_URL}/404/`,
         image: `${SITE_URL_ORIGIN}${SITE_CARD_PATH}`,
         width: OG_CARD_WIDTH,
@@ -250,6 +319,8 @@ function metadataLedger() {
       },
       twitter: {
         card: 'summary_large_image',
+        title: 'Page not found',
+        description: null,
         image: `${SITE_URL_ORIGIN}${SITE_CARD_PATH}`,
       },
       jsonLd: [],
@@ -610,11 +681,16 @@ function collect() {
     ...reconcileNamedSets({
       fixedAndModuleRegistry: routes,
       appInventory: appInventory(),
-      sitemap: sitemapInventory(),
       metadataLedger: metadata
         .filter(({ routeId }) => routeId !== 'route:/404/')
         .map(({ routeId }) => routeId.replace(/^route:/, '')),
       ...(exportRoutes ? { exportFiles: exportRoutes } : {}),
+    }),
+    ...reconcileNamedSets({
+      indexableRegistry: routes.filter(
+        (path) => path !== '/privacy/' && path !== '/search/',
+      ),
+      sitemap: sitemapInventory(),
     }),
     ...validateInteractiveRegistry(interactive.sources, interactive.mounts),
     ...validateExactRegistryParity(
@@ -647,6 +723,7 @@ function collect() {
           )
             ? 'article'
             : 'destination',
+          indexable: path !== '/privacy/' && path !== '/search/',
         }),
       ),
       notFound: stableRecord({

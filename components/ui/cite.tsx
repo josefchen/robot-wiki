@@ -38,13 +38,13 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
       {...(citeId ? { 'data-cite-id': citeId } : {})}
       className="group relative inline-block align-baseline"
     >
-      <span className="inline-flex items-stretch overflow-hidden rounded-xs border border-border bg-surface-2 font-mono text-[0.72em] leading-5 transition-colors group-hover:border-accent group-focus-within:border-accent">
+      <span className="inline-flex min-h-6 items-stretch overflow-hidden rounded-xs border border-border bg-surface-2 font-mono text-[0.72em] leading-5 transition-colors group-hover:border-accent group-focus-within:border-accent">
         <a
           href={href}
           target="_blank"
           rel="noopener noreferrer"
           aria-describedby={tooltipId}
-          className="inline-flex items-center px-1.5 text-text-dim no-underline transition-colors hover:bg-surface hover:text-accent"
+          className="inline-flex min-h-6 items-center px-1.5 text-text-dim no-underline transition-colors hover:bg-surface hover:text-accent"
         >
           {label}
         </a>
@@ -57,7 +57,7 @@ export function Cite({ href, label, title, meta, citeId, referenceHref }: CitePr
             href={referenceHref}
             aria-label={`Jump to the full reference for ${title}`}
             data-pagefind-ignore
-            className="inline-flex items-center border-l border-border px-1 text-text-dim no-underline transition-colors hover:bg-surface hover:text-accent"
+            className="inline-flex min-h-6 min-w-6 items-center justify-center border-l border-border px-1 text-text-dim no-underline transition-colors hover:bg-surface hover:text-accent"
           >
             <span aria-hidden="true">↓</span>
           </a>

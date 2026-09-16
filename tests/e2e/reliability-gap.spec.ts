@@ -52,7 +52,7 @@ test.describe('frontier reliability-gap module', () => {
     expect(mainText).not.toContain('<Cite');
     expect(mainText).not.toContain('$$');
 
-    const nav = page.getByRole('navigation', { name: 'robot-wiki taxonomy' });
+    const nav = page.getByRole('navigation', { name: 'Robot Wiki taxonomy' });
     await expect(
       nav.getByRole('link', { name: 'The Reliability Gap' }),
     ).toHaveAttribute('aria-current', 'page');

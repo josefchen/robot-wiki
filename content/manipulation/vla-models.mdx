@@ -5,7 +5,7 @@ domain: manipulation
 slug: vla-models
 order: 4
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-08-24"
 citations:
   - rt1-2022
   - rt2-2023
@@ -18,7 +18,8 @@ citations:
   - act-aloha-2023
 seeAlso:
   - "manipulation/pi-line"
-  - "manipulation/cross-embodiment"
+  - "manipulation/foundation-models"
+  - "manipulation/action-spaces"
   - "manipulation/comparison-matrix"
 ---
 
@@ -78,3 +79,9 @@ OpenVLA-OFT (2025) is the cleanest demonstration that the representation, not th
 ## Where this leaves the field
 
 The 2022 to 2024 lineage settled two facts. Web-scale pretraining transfers to robot control (RT-2, OpenVLA), and pooled cross-embodiment data transfers positively (RT-X). It also isolated <Term id="action-tokenization">discrete action tokens</Term> as the weak point: expressive enough to train with language-model machinery, too slow to close a high-frequency control loop, and coarse at 256 bins.
+
+## A 2026 selection rule
+
+Treat “VLA” as two decisions, not one model category. The first is the prior: which visual, language and robot experience the backbone brings to the task. The second is the control interface: what action the model emits, over what horizon, in which frame and at what measured rate. A large semantic prior can improve instruction following while a poor action interface still makes the system unusable at contact. OpenVLA-OFT is the clean example because changing the decoding and action head materially changed both throughput and success without replacing the underlying VLA <Cite id="openvla-oft-2025" />.
+
+Before choosing a checkpoint, write four rows: required semantic novelty, available embodiment data, action contract and latency budget. Use the [foundation-model guide](/manipulation/foundation-models) to select the prior family, then the [action-space guide](/manipulation/action-spaces) to specify the output. Only compare models after those two contracts match. Parameter count and benchmark average are weak selectors when one candidate cannot express the controller command or meet its deadline.

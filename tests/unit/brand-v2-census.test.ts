@@ -192,6 +192,8 @@ describe('brand-v2 canonical census', () => {
       '/playground/',
       '/glossary/',
       '/credits/',
+      '/editorial-policy/',
+      '/privacy/',
       '/search/',
       ...DOMAINS.map((domain) => `/${domain}/`),
       ...publishedModules().map(
@@ -287,7 +289,10 @@ describe('brand-v2 canonical census', () => {
     () => {
       const physical = filesUnder(join(ROOT, 'public'))
         .filter((path) => ASSET_EXTENSIONS.has(extname(path).toLowerCase()))
-        .filter((path) => !relative(join(ROOT, 'public'), path).startsWith('og/'))
+        .filter((path) => {
+          const rel = relative(join(ROOT, 'public'), path);
+          return !rel.startsWith('og/') && !rel.startsWith('structured-images/');
+        })
         .map((path) => relative(join(ROOT, 'public'), path));
       const accounted = new Set([
         ...registry.assets.map(({ path }) => path),

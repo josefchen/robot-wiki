@@ -13,5 +13,2195 @@
     "affectedAssertions",
     "disposition"
   ],
-  "entries": []
+  "entries": [
+    {
+      "id": "seo-20260824-routes-38bc3b828958",
+      "manifest": "routes",
+      "memberId": "route:/classical/calibration/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "38bc3b8289585b33a1d63734aaeb55fb30c5a134409502f930c236ab705a228d",
+      "reason": "Publish this exact source-cited article route for the approved SEO acquisition cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-001",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-routes-ad12a8fdd29c",
+      "manifest": "routes",
+      "memberId": "route:/classical/ros2-for-ml-engineers/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ad12a8fdd29cdb4bf2e1f06bd1876dc8019379340040d0d13f4e9d241ab5ff44",
+      "reason": "Publish this exact source-cited article route for the approved SEO acquisition cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-001",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-routes-e630a1a6e654",
+      "manifest": "routes",
+      "memberId": "route:/data-hardware/robot-learning-stack/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e630a1a6e65492f1bb3950562825de6d750e19e94387ad6b6dda5f0462f6cbfd",
+      "reason": "Publish this exact source-cited article route for the approved SEO acquisition cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-001",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-routes-2ebdd059f397",
+      "manifest": "routes",
+      "memberId": "route:/editorial-policy/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2ebdd059f397da498f4baf454820ac0e798b32b5be725fce94cb635a3905d063",
+      "reason": "Add this exact trust and policy destination for the approved SEO authority foundation.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-001",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-routes-162e33c0904f",
+      "manifest": "routes",
+      "memberId": "route:/manipulation/action-spaces/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "162e33c0904fec13ea387c3dfdc4472cfaca1d58a59beb69bf0eca2292761c11",
+      "reason": "Publish this exact source-cited article route for the approved SEO acquisition cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-001",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-routes-91bc43b6dbd4",
+      "manifest": "routes",
+      "memberId": "route:/manipulation/foundation-models/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "91bc43b6dbd41530b72d8e47d6890d4b6dc25ebf34014c813c5cfb4c41f45dd7",
+      "reason": "Publish this exact source-cited article route for the approved SEO acquisition cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-001",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-routes-e7b77494f84f",
+      "manifest": "routes",
+      "memberId": "route:/manipulation/robot-learning-roadmap/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e7b77494f84f581c50b6628f6c68278fcde50a316182a3c392df6dbea115599b",
+      "reason": "Publish this exact source-cited article route for the approved SEO acquisition cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-001",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-routes-1617fc7a2b5f",
+      "manifest": "routes",
+      "memberId": "route:/privacy/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "1617fc7a2b5f3fcdbbe12086dec8dbf41dbd01a71efb82c1196ebde9eff04320",
+      "reason": "Add this exact trust and policy destination for the approved SEO authority foundation.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-001",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-routes-89acff36c015",
+      "manifest": "routes",
+      "memberId": "route:/rl-sim2real/offline-rl/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "89acff36c01545a782eee08c07bee67e67ec1498526a044c97adfc233ba29a73",
+      "reason": "Publish this exact source-cited article route for the approved SEO acquisition cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-001",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-routes-7358a60214e5",
+      "manifest": "routes",
+      "memberId": "route:/world-models/evaluation/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7358a60214e57734dd18a2c6917540e5009ddedffef9a4dc65b15c90d7cbcc0c",
+      "reason": "Publish this exact source-cited article route for the approved SEO acquisition cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-001",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-routes-4bc92dbea6be",
+      "manifest": "routes",
+      "memberId": "route:/world-models/model-based-robot-learning/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4bc92dbea6be0bb3d8521c1e6255f9c84fb38b33f949a68d3b501de08e17652b",
+      "reason": "Publish this exact source-cited article route for the approved SEO acquisition cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-001",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-routes-de17a7a7a62f",
+      "manifest": "routes",
+      "memberId": "route:/world-models/world-models-vs-simulators/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "de17a7a7a62fd996797d0e3607a65ab7c6bababb696a7f459d9143048d2e40df",
+      "reason": "Publish this exact source-cited article route for the approved SEO acquisition cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-001",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-6e75aa2015e7",
+      "manifest": "prose",
+      "memberId": "article:classical/calibration",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6e75aa2015e7050f2786281aae4444cf66a7a53f07fcef7186ac010bbc51f232",
+      "reason": "Publish source-cited prose for this exact article in the approved SEO content expansion.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-cb9819bd8941",
+      "manifest": "prose",
+      "memberId": "article:classical/control",
+      "oldHash": "0d55c8a2c8db9a7bbadf8791af4972068bbf600dec6400398dd88200f388e79b",
+      "newHash": "cb9819bd89410c690abfd9d28151e3a776c02f2682be21a19bc26c6adbab3781",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-71ad571013f5",
+      "manifest": "prose",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "2885525f6f0448ce59a5e74b9c953866b706e61596ffa35931f8fa92e5582b4b",
+      "newHash": "71ad571013f5f8e07f26869af32c3b5ea6bcab869e25a6e452addf9efceb8c53",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-346d504679fb",
+      "manifest": "prose",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "c35aae18b5771f207e1a3a2c7a9291d61e4fc487630469d1b88f0f77f7d4ac79",
+      "newHash": "346d504679fbc989a0a43113ea691246d77faea894f6febd55a37de19ef498bd",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-08ada4a11105",
+      "manifest": "prose",
+      "memberId": "article:classical/perception",
+      "oldHash": "1108c88f43998e5ddfd982871ef4a55946cb9269fa5c76089d9306f8318dd9c8",
+      "newHash": "08ada4a11105680523d449e82c5a81b4c60e1af8e2f1a70f3d0b4ab875d15b97",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-5c42496426d9",
+      "manifest": "prose",
+      "memberId": "article:classical/ros2-for-ml-engineers",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "5c42496426d91e7dff66bec9cd9bedcca78ef1ee3e9ee181ad76603eea1fa58c",
+      "reason": "Publish source-cited prose for this exact article in the approved SEO content expansion.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-bf5bf3c19f0e",
+      "manifest": "prose",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "af8a52bd5f4a95b12affe1510e4ad0872e3b0e34a33e0e2439af17e70c3e815e",
+      "newHash": "bf5bf3c19f0e909605b2d5f7ea08bc1c24050bc776611db1216149bd245fdb92",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-a40fdbd38a84",
+      "manifest": "prose",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "0a3d05d164d257621456fbbde3b93245d08c6fc8bb08d79b6c2b6487cf6db6d7",
+      "newHash": "a40fdbd38a8413ea2d5d3a00ddceed4679d8809de2587a84a71f3f1021048a3d",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-b60aecf7d1d5",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "a34d4a0bfceba0cc8527ef5236dd0572f7502b127498153c35374a0f47e3256c",
+      "newHash": "b60aecf7d1d5d3a4279602224853311b6d77864289c1ddd5b4af42dec17c00f7",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-349c6badf01f",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/industrial-deployment",
+      "oldHash": "2bc62cf7a38e810ff1cbbbf943da72f2de28f70d58f4356571c4eab6f7620266",
+      "newHash": "349c6badf01fc723272a19107d627800666788f0699e068e0699ddde8ff1fbb0",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-23a7b1392fc2",
+      "manifest": "prose",
+      "memberId": "article:data-hardware/robot-learning-stack",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "23a7b1392fc2d0a07e9c90876912367ff92cd90d15baa3f8f58206e760975588",
+      "reason": "Publish source-cited prose for this exact article in the approved SEO content expansion.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-e54360d3514d",
+      "manifest": "prose",
+      "memberId": "article:manipulation/action-spaces",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e54360d3514dd47c8cd6cb6fdcd4792cd326b14fce71ae45f127b4308a587874",
+      "reason": "Publish source-cited prose for this exact article in the approved SEO content expansion.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-c9b8d4f8a362",
+      "manifest": "prose",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "6f904461f73d886bae381a9ebfb0172892a483066c75c270c0e365afabb7a322",
+      "newHash": "c9b8d4f8a362dcbd05872d2f2de2bdc2637b3dabe89a2baad2eeb213fa09fbb7",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-629528e68fb7",
+      "manifest": "prose",
+      "memberId": "article:manipulation/foundation-models",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "629528e68fb7e9c6e6d1901501f3c191dadc9bc3fe309d44e9f8fdea56099458",
+      "reason": "Publish source-cited prose for this exact article in the approved SEO content expansion.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-3c4d0bcec8aa",
+      "manifest": "prose",
+      "memberId": "article:manipulation/robot-learning-roadmap",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3c4d0bcec8aa6308be3d44f50f17c51e1c9fbbbeb0f880fe26c57f07ae92749a",
+      "reason": "Publish source-cited prose for this exact article in the approved SEO content expansion.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-f16f84d92169",
+      "manifest": "prose",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "a241dae507f15722c3cea4e84684f07d6773ff97fcb95c9eb6711616770b8290",
+      "newHash": "f16f84d92169d27010949709f96a13a2dcc4799a78796105661cfaa0979ca316",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-81e20f96ef96",
+      "manifest": "prose",
+      "memberId": "article:rl-sim2real/offline-rl",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "81e20f96ef96eae2d6bdd563609ef4dee8754124d0c2fd565db3521a83b23f3a",
+      "reason": "Publish source-cited prose for this exact article in the approved SEO content expansion.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-c9b45b9b7329",
+      "manifest": "prose",
+      "memberId": "article:world-models/evaluation",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "c9b45b9b73290a447f460b88d3c87d370c72474646c0c1078dd37877a205b7a8",
+      "reason": "Publish source-cited prose for this exact article in the approved SEO content expansion.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-418afe42552e",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "0eb812ecfb2f7f53a774fa49a124ca1162bd7cdeec42f3f2af934e5ed4adbba3",
+      "newHash": "418afe42552e9dcb1110803ebf541da34736b6b70a6ec4ba9f29c3c75b8b777e",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-4e0d6f0436e6",
+      "manifest": "prose",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "09a9bdcabdc1101de55d36323b52bb11cadf7d76a5a9ad57d00ed4025461cad8",
+      "newHash": "4e0d6f0436e6b4f8d824d8b4a240cb9222d3f8a77f6fdf7b8eb095b8d49b9177",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-e0ec5a44ec70",
+      "manifest": "prose",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "f8a16f238a17cd0a9e725c4af67c4402745c5d3e0add079c902536db3bd1b0d1",
+      "newHash": "e0ec5a44ec70dc6661d1328fc391854762f7ebddd85689d3542e9ff00468118a",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-7208d4fa8d42",
+      "manifest": "prose",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "ccf53d317fe7f3826f7281b6a9da4431f9dd9ce9276c16a063df2ebbe85ddb41",
+      "newHash": "7208d4fa8d42780a79eecbb0da8068625f81bd2b5da98822293cba9f706bf6ab",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-9946a562c4f9",
+      "manifest": "prose",
+      "memberId": "article:world-models/model-based-robot-learning",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "9946a562c4f9655b23ac0c7ed2d2cd5733a554a69bd13c3b187d12df0a9d48b2",
+      "reason": "Publish source-cited prose for this exact article in the approved SEO content expansion.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-b05c76b2eb63",
+      "manifest": "prose",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "122ed4a505e8638a201af9c7f47756c92ca9e4e704ea3f8fcd9229bc22862003",
+      "newHash": "b05c76b2eb63e7aa854647c74afd9fdd661f52891d2ca11717ef8f88e2d63fff",
+      "reason": "Apply the approved article-specific citation, search-context, and internal-link edits represented by this exact prose member.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-prose-c0624839a2ac",
+      "manifest": "prose",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "c0624839a2ac9e1e82881d181e0dad948ef6b79f9052d2d8379903ad930569d0",
+      "reason": "Publish source-cited prose for this exact article in the approved SEO content expansion.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-2b79865fb8a1",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/editorial-policy/page.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2b79865fb8a1268cf688448547124097e182d64e112d2e5f378522c65933a811",
+      "reason": "Register this exact accessible section relationship introduced by the approved trust-page or discovery-page addition.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-a06d19343c59",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/editorial-policy/page.tsx:aria-labelledby:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a06d19343c59cb00b1b4d5822451a517567647697b0c4205aae494adca666160",
+      "reason": "Register this exact accessible section relationship introduced by the approved trust-page or discovery-page addition.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-4284ede5ba5e",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/editorial-policy/page.tsx:aria-labelledby:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "4284ede5ba5e855db0fe7719168fe50d075e95da419c56a94fca0f128a602bac",
+      "reason": "Register this exact accessible section relationship introduced by the approved trust-page or discovery-page addition.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-6c6e6315ff80",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/editorial-policy/page.tsx:aria-labelledby:4",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6c6e6315ff80009f039ebdb520fd507c167e3395102ea0b4d7d62b4dfed71a33",
+      "reason": "Register this exact accessible section relationship introduced by the approved trust-page or discovery-page addition.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-755c1ddaf3f6",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/page.tsx:aria-labelledby:6",
+      "oldHash": "96e1a60786314f4a3a4c46d46491c14fea4c791cf8aac4eb90f1f94ffde2d12b",
+      "newHash": "755c1ddaf3f64ac76aed1e7740bc360a5c3e80efe826cfc601cbc03fe07fb555",
+      "reason": "Register this exact accessible section relationship introduced by the approved trust-page or discovery-page addition.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-96e1a6078631",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/page.tsx:aria-labelledby:7",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "96e1a60786314f4a3a4c46d46491c14fea4c791cf8aac4eb90f1f94ffde2d12b",
+      "reason": "Register this exact accessible section relationship introduced by the approved trust-page or discovery-page addition.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-b73f55d071e2",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/privacy/page.tsx:aria-labelledby:1",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b73f55d071e2317ebabb3806239e51f0e8d32d614cd78f2b7e5bf9aa124e774a",
+      "reason": "Register this exact accessible section relationship introduced by the approved trust-page or discovery-page addition.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-1e3268e97fbc",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/privacy/page.tsx:aria-labelledby:2",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "1e3268e97fbc9fa934d8226aece3d438cf873ff1209c6d173fa0d1b32fc6a36f",
+      "reason": "Register this exact accessible section relationship introduced by the approved trust-page or discovery-page addition.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-54196ec0f742",
+      "manifest": "accessible-names",
+      "memberId": "literal:app/privacy/page.tsx:aria-labelledby:3",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "54196ec0f742b89c8737d38bd72aca9bb1b98b02bbb80183fa0a3b6d9a2b4160",
+      "reason": "Register this exact accessible section relationship introduced by the approved trust-page or discovery-page addition.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-b935bfed6b72",
+      "manifest": "accessible-names",
+      "memberId": "nav:/",
+      "oldHash": "4c9befe85275ec1de40d180b207ca9aeaaf48da67b0a855c4dff5e9832103125",
+      "newHash": "b935bfed6b7290f87863f5448787f57e2b68dd9f36b0a4969397721a1fa39d18",
+      "reason": "Migrate the exact home navigation accessible name to the approved Robot Wiki identity.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-a0162c86de46",
+      "manifest": "accessible-names",
+      "memberId": "nav:/classical/calibration/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a0162c86de4684132e468baa22949fbfcf500f14c09010846d67d62dc182caf2",
+      "reason": "Register the exact accessible navigation name for this planned SEO article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-0dcc7d7d2a15",
+      "manifest": "accessible-names",
+      "memberId": "nav:/classical/ros2-for-ml-engineers/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0dcc7d7d2a1527ef895b94fa129d9fbe5c9720f2fe518d215738ea12500496c8",
+      "reason": "Register the exact accessible navigation name for this planned SEO article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-cc5feb897c0a",
+      "manifest": "accessible-names",
+      "memberId": "nav:/data-hardware/robot-learning-stack/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "cc5feb897c0a02b0ebadc364e766c6c9bb707f06aca46ff1706e9dbbd2e8e7fd",
+      "reason": "Register the exact accessible navigation name for this planned SEO article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-f94a4df8884a",
+      "manifest": "accessible-names",
+      "memberId": "nav:/manipulation/action-spaces/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "f94a4df8884a9fef0e4e52031df5ae79fe16d2d4ee093e68c63faada4a13fc89",
+      "reason": "Register the exact accessible navigation name for this planned SEO article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-c17565cc45a3",
+      "manifest": "accessible-names",
+      "memberId": "nav:/manipulation/foundation-models/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "c17565cc45a3f7ae2af5c8bf01b13d530a98a6f54939748a78de1dd1143bdd0d",
+      "reason": "Register the exact accessible navigation name for this planned SEO article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-2d97f77346d7",
+      "manifest": "accessible-names",
+      "memberId": "nav:/manipulation/robot-learning-roadmap/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "2d97f77346d74f8804f4ec0d49696a6da9613e0baec2048406930b8dc938fc29",
+      "reason": "Register the exact accessible navigation name for this planned SEO article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-b494ec5d3770",
+      "manifest": "accessible-names",
+      "memberId": "nav:/rl-sim2real/offline-rl/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "b494ec5d3770755194181d8292adc2b7c3b221a0bcba8a0a3f1ca0a77f3366ce",
+      "reason": "Register the exact accessible navigation name for this planned SEO article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-7d1bf9925869",
+      "manifest": "accessible-names",
+      "memberId": "nav:/world-models/evaluation/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7d1bf992586901ac314803e7ace3553fcccee55e3da95080c943665564e8cc95",
+      "reason": "Register the exact accessible navigation name for this planned SEO article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-1526b259d2db",
+      "manifest": "accessible-names",
+      "memberId": "nav:/world-models/model-based-robot-learning/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "1526b259d2db70effed4d36b60eca247e11a5ea010db2095ff9aa73c54e98d5f",
+      "reason": "Register the exact accessible navigation name for this planned SEO article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-accessible-names-7c0756685388",
+      "manifest": "accessible-names",
+      "memberId": "nav:/world-models/world-models-vs-simulators/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "7c0756685388bf5ffa21dde37ebdd38a17747f68f8cb817f3f41aa18a738ebb6",
+      "reason": "Register the exact accessible navigation name for this planned SEO article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-BASE-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-a44a2a541c2a",
+      "manifest": "relationships",
+      "memberId": "article:classical/calibration",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a44a2a541c2a130306bdbd477db384ed6412bbf9c62b2f0d1bf6583b7701fc04",
+      "reason": "Register citations, glossary terms, see-also edges, and internal links for this exact planned article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-5cda8704afb3",
+      "manifest": "relationships",
+      "memberId": "article:classical/control",
+      "oldHash": "ebbe757fe1758674ae6c74c46d1f6d788d8e5ca0bac4421d4aebbfe364c4deae",
+      "newHash": "5cda8704afb3f5827b8a19fd7dea21206b5118c8720da78880da0ecd06ddd4cd",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-d6825936b053",
+      "manifest": "relationships",
+      "memberId": "article:classical/kinematics",
+      "oldHash": "00b3515f4344ce4d36e0f7f159cb7e1305b8529d1463417d84cc67d94bf50d7d",
+      "newHash": "d6825936b0534b0cabd1b358f9cc3d0267732387ddf4e198f42dbc0a5d329605",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-abdeb49a5f89",
+      "manifest": "relationships",
+      "memberId": "article:classical/motion-planning",
+      "oldHash": "2de52b7ff8f01c0a9f9fbfbdf4523dbef95b1403a9d7cfacd56d703b0cf9b229",
+      "newHash": "abdeb49a5f89b3ff2221b72ff38a88ec5b315b05db486a9b5dee100a37366edf",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-15cce901bcdf",
+      "manifest": "relationships",
+      "memberId": "article:classical/perception",
+      "oldHash": "9c29f91eaa7a032ef321a69c656cd61a6bbf8cc7f8dbb9737fea30ec5d2b2041",
+      "newHash": "15cce901bcdfd7e89b9c59638c492225c0ca0c7130119a4a0b52450702606d89",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-e5b8329a444b",
+      "manifest": "relationships",
+      "memberId": "article:classical/ros2-for-ml-engineers",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "e5b8329a444b40ccfdd6597f08f8dcdbbca784ef3342ddacc76f323f620b4e1b",
+      "reason": "Register citations, glossary terms, see-also edges, and internal links for this exact planned article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-1cdb718f520d",
+      "manifest": "relationships",
+      "memberId": "article:classical/scene-representation",
+      "oldHash": "7692867d4d6e372e209ac643e18f872619aaa77c38fd59bef6faae4cb7133e31",
+      "newHash": "1cdb718f520d001ae067c8ecd1d0f2253152827a420186a538ec0317197c05d3",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-6f02656da313",
+      "manifest": "relationships",
+      "memberId": "article:classical/state-estimation",
+      "oldHash": "f8911307ca80b738167e1982e231693f080b59f6c72a4093f5c048f5d07c9f56",
+      "newHash": "6f02656da31393444e91aa159ef69d3679f4c822cec897ad5f5d7737caabd973",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-f2d4be4f23cf",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/datasets",
+      "oldHash": "2a518a54e5d7c35d271a6c0f52c3fa6c21912f4348259cf7cea76c45677db8b8",
+      "newHash": "f2d4be4f23cff1608791c0a9bf9f483a2546aeb5aa017fb6f519f29389588a78",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-0977bea495c7",
+      "manifest": "relationships",
+      "memberId": "article:data-hardware/robot-learning-stack",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0977bea495c79614790444d7fec800536598fd176eb9d48572feb3f6abf1b674",
+      "reason": "Register citations, glossary terms, see-also edges, and internal links for this exact planned article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-ecdc7dfa54df",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/action-spaces",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ecdc7dfa54dff4ba20d9f87ad51ba513417a746a52355a041b35220b1efd295b",
+      "reason": "Register citations, glossary terms, see-also edges, and internal links for this exact planned article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-0598dc5199e5",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/comparison-matrix",
+      "oldHash": "daf82ad971c917dec8683163a19760758a3670473d01621746f75dc4a92ba955",
+      "newHash": "0598dc5199e504090d8073b1b786b2acbb30491197d1784e3de13d65c8d3cdbb",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-60d3f4042d17",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/foundation-models",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "60d3f4042d17bce95c0b1cc95b20f72c3330e58ae104f48247eebcb0cfc75dc3",
+      "reason": "Register citations, glossary terms, see-also edges, and internal links for this exact planned article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-bf65ce4072e3",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/robot-learning-roadmap",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bf65ce4072e30c242692c23f248878d08455e08575d72b625da66380f57405ef",
+      "reason": "Register citations, glossary terms, see-also edges, and internal links for this exact planned article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-4547c9cb52c7",
+      "manifest": "relationships",
+      "memberId": "article:manipulation/vla-models",
+      "oldHash": "a80df3bc116c0057d112985b648e43ff24be575907d1609174f5e7814adfd37e",
+      "newHash": "4547c9cb52c76ec133b54754e73668c270606881e1f692d3f815668a03001182",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-5c87ad65c5ba",
+      "manifest": "relationships",
+      "memberId": "article:rl-sim2real/offline-rl",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "5c87ad65c5ba1fc7cb3c133b5dee315c5357bd4e2eeeeebc2fdc5541edd3f839",
+      "reason": "Register citations, glossary terms, see-also edges, and internal links for this exact planned article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-ffdf1ef9e8d7",
+      "manifest": "relationships",
+      "memberId": "article:world-models/evaluation",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ffdf1ef9e8d7883c1a884829ec10d1917d22167934b030450d8ef7ed0b42b6ae",
+      "reason": "Register citations, glossary terms, see-also edges, and internal links for this exact planned article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-18bc7b6e8b2a",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-sim",
+      "oldHash": "4205e6c9b9b4451ebe2f6743657ad89556d88721674996d40597559e6d4826d1",
+      "newHash": "18bc7b6e8b2a9c55e3bf698a387ac08cd4a4efca935991d2ea28a33804a5dcb4",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-7e7210c302f8",
+      "manifest": "relationships",
+      "memberId": "article:world-models/generative-video",
+      "oldHash": "d01756dd06c2d1f9f091d13f0272eafb22d23b8cd158456af1e4c25fd3a852dd",
+      "newHash": "7e7210c302f86af4b9be97e25eeecd4d7ca49e7b0abd9fe085a5b6a574828cd2",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-fcfea9b240e0",
+      "manifest": "relationships",
+      "memberId": "article:world-models/jepa",
+      "oldHash": "a84815cba742879e9e4aef655591040e26f1420e013ac56b3048f08f09883b77",
+      "newHash": "fcfea9b240e085d35714a59f3d98fd6efd9eda9ffb38dafd0831800c06e16502",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-69056cd397da",
+      "manifest": "relationships",
+      "memberId": "article:world-models/latent-dynamics",
+      "oldHash": "e601d03966332e6dd3894932da7c91251596f85fdfa152db2cef57ca96a61042",
+      "newHash": "69056cd397da60fec2a536333a9b138b0add7403ebe1f9b1434007858deee112",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-0ae90d1ccf05",
+      "manifest": "relationships",
+      "memberId": "article:world-models/model-based-robot-learning",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "0ae90d1ccf0575f2138810bd3709fe5f5ceb41361939c7f92ca790f6aec46eb6",
+      "reason": "Register citations, glossary terms, see-also edges, and internal links for this exact planned article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-b194cea68b5e",
+      "manifest": "relationships",
+      "memberId": "article:world-models/taxonomy",
+      "oldHash": "3d62f5c1794e774673d2b73a12ee07e9a1e19d35867e6926d10c5e5320ffd081",
+      "newHash": "b194cea68b5e23ed872e8132a717d38d8f18b0eae8e42d149a1af43255af0139",
+      "reason": "Apply the exact citation-backed internal-link relationships planned for this article SEO topic cluster.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-relationships-d7f81ffa4d03",
+      "manifest": "relationships",
+      "memberId": "article:world-models/world-models-vs-simulators",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d7f81ffa4d03b38ab5909a9a158908e361d7f524e14236d08ecdadfee880cd54",
+      "reason": "Register citations, glossary terms, see-also edges, and internal links for this exact planned article.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-ada1989d2c6a",
+      "manifest": "navigation",
+      "memberId": "nav:/",
+      "oldHash": "bdfa60a0279de4a05bbbe75df5f75cadad4b8bb9f52cffb6bba5cfb00969dfa3",
+      "newHash": "ada1989d2c6a22148e542229c0522a240616b9266a3165b84254a085ec2b19a9",
+      "reason": "Migrate this exact home navigation member to the approved Robot Wiki identity.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-6aa0b389792d",
+      "manifest": "navigation",
+      "memberId": "nav:/a-z/",
+      "oldHash": "372f4d211e095b1dab92d8cf994f340d707b3502413777c989a60a04b56cdf7e",
+      "newHash": "6aa0b389792d08d9adaa55caac361efc708786d2be7a3c4251c1eac265b73a1e",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-5eedbe5c4e49",
+      "manifest": "navigation",
+      "memberId": "nav:/adjacent/",
+      "oldHash": "1e2642297ae31838f7b3909f33f5c4ee1d08b58528fd3385cdd677efe8e6db7e",
+      "newHash": "5eedbe5c4e499ce3e47bd2764ff56d3584f065695282e0de8cb2744030e0a7c7",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-d3b5260855fd",
+      "manifest": "navigation",
+      "memberId": "nav:/adjacent/autonomous-vehicles/",
+      "oldHash": "6f8b5a77ef6423c4e57cdea3a1ea03b158eefbeb685383e05142901cfebcaa32",
+      "newHash": "d3b5260855fdd34176c90c7e8ae9aa5fbe8807cea13bede731ee4db271435bde",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-f001a150c7d2",
+      "manifest": "navigation",
+      "memberId": "nav:/adjacent/drones/",
+      "oldHash": "c63e6bf8896922d2b3395c85284fe3dec0771563055151d3d5bbd2a14530f14d",
+      "newHash": "f001a150c7d226d4089d27bef102bbb6b2b95667b6c6579706e3ebf5259d0db5",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-3a4cc0efcb73",
+      "manifest": "navigation",
+      "memberId": "nav:/adjacent/space/",
+      "oldHash": "13cda1e4a24044c197330ae02fc7a1950a5e93aad015203de66874fa0c613507",
+      "newHash": "3a4cc0efcb7344041252fa0b059a4435de0995e698d3be91076d744bc24118a5",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-702791378571",
+      "manifest": "navigation",
+      "memberId": "nav:/adjacent/surgical/",
+      "oldHash": "21311de38c7fdef772b58d306aeded0f831154d932de5cd1b9ad6be4cc5c4059",
+      "newHash": "702791378571dbba2db6e38f41ecb6816e0a0fc8eed879485eeee8c050c84d6e",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-1b4098289f00",
+      "manifest": "navigation",
+      "memberId": "nav:/classical/",
+      "oldHash": "9e7abf2053417156b110d1da0bd8c8c35a547e6326639b702e5415b03970e3b8",
+      "newHash": "1b4098289f002046406de536b3518b8f09e9f9580b4d6d1d26093455118d3680",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-bbc10ebf212e",
+      "manifest": "navigation",
+      "memberId": "nav:/classical/calibration/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bbc10ebf212e59d2cf9e2ee903caf9196bddcd267060a91e2998c4eadb8251ad",
+      "reason": "Insert this exact planned article at its canonical position in the navigation registry.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-741f707b2bc0",
+      "manifest": "navigation",
+      "memberId": "nav:/classical/control/",
+      "oldHash": "a999b1faae411b18ade3acfa3b6c2ff511584123bd2cb2080e66bff8a1a5404f",
+      "newHash": "741f707b2bc029c0cdfb1385c86f9e14e2530aa526bb5bfd32407f574e820720",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-96401e38f64e",
+      "manifest": "navigation",
+      "memberId": "nav:/classical/grasp-planning/",
+      "oldHash": "667c835bf8a7a0be484afa9832fbfb7268d925efc1aa093ba5bcbba5fad02a2e",
+      "newHash": "96401e38f64e9a941cf84e0f922e70121a0148efd603cea6ac3ab6fdaf910c33",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-91680d158b39",
+      "manifest": "navigation",
+      "memberId": "nav:/classical/kinematics/",
+      "oldHash": "fc4fb8694886d3a0bc3761fd792ced2cbe03df434aad401ae35bb20ce757a000",
+      "newHash": "91680d158b393d9b9ea9675fe4dff9423813dec79dba8fe7ad5c1fe05cce8876",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-b8ad6f619f7c",
+      "manifest": "navigation",
+      "memberId": "nav:/classical/motion-planning/",
+      "oldHash": "8d4966127f6810dd23f10de2bd2b197d04f682dbaf8f3b1407c1859caba14b79",
+      "newHash": "b8ad6f619f7cc24685785110f163f662af9b5797c2cfca72dec4dd8aaeb0788d",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-e8cd04e3e4c2",
+      "manifest": "navigation",
+      "memberId": "nav:/classical/perception/",
+      "oldHash": "d2606adef63e89318ba4067c6d5a95201405728eb683ef58a04c07a611efcdbe",
+      "newHash": "e8cd04e3e4c20bc0576f71da33fb954f0084900499646fc9bcc90f77398e94ea",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-ac9a8a6fe57a",
+      "manifest": "navigation",
+      "memberId": "nav:/classical/ros2-for-ml-engineers/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "ac9a8a6fe57a28ca1253be8629cb11596e3f5917871167ec7d91670b86ee6933",
+      "reason": "Insert this exact planned article at its canonical position in the navigation registry.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-ff8381e6f0a5",
+      "manifest": "navigation",
+      "memberId": "nav:/classical/scene-representation/",
+      "oldHash": "37c026cc047a64da6a42a42480d5cccced9985e567f8420b559f4dd9001093c2",
+      "newHash": "ff8381e6f0a5a38bcc31d353e83f66fc594b6a44531a67458f6e1560dc465af0",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-1be79e1aacd9",
+      "manifest": "navigation",
+      "memberId": "nav:/classical/state-estimation/",
+      "oldHash": "63e9ed825eeee03f4400045a68e64bc82df8161b4a867f567569db0ca7aaed26",
+      "newHash": "1be79e1aacd9d2f99014c032b66c75a178946b6b71b2732a930a2614b9f70fbc",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-957044ff6aee",
+      "manifest": "navigation",
+      "memberId": "nav:/credits/",
+      "oldHash": "052cfbdc7c81841158c08392f0babe044affc6e5aaf5056f1e71f46a1f070d12",
+      "newHash": "957044ff6aee8c4a9789c3f36db8336db5631336c342ca1d3c47bed34ba77895",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-72f6b97f7115",
+      "manifest": "navigation",
+      "memberId": "nav:/data-hardware/",
+      "oldHash": "6b4314fd47b78afaab8b884a02dc9c4a384b09c3ec5bf5c36b89ac15cb303a13",
+      "newHash": "72f6b97f7115a36d99f7d1441eeef279efab0c33da7a42395c8d968f54d15c21",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-55debac9e77a",
+      "manifest": "navigation",
+      "memberId": "nav:/data-hardware/data-bottleneck/",
+      "oldHash": "fb7c6a96e28a3ea267bc2f149d11b85a7ae23c32c12c7bd83b84819067c7265b",
+      "newHash": "55debac9e77afde3c3c5185d2633b3858ccfff68b2a9074703132bc7789b669b",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-1e9fd3fad117",
+      "manifest": "navigation",
+      "memberId": "nav:/data-hardware/datasets/",
+      "oldHash": "a37e81fbcffc387d5f91250ed03a454621bd5ffd9f7b531c6127f74fca494ed0",
+      "newHash": "1e9fd3fad117b2602ad6bfbb217085cb5a159563775a3f01f9d9fa467bcb787e",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-45b9a3df6402",
+      "manifest": "navigation",
+      "memberId": "nav:/data-hardware/evaluation-crisis/",
+      "oldHash": "5c53789db0ae5b06ff0e760a4150fb49d242b2f37341b5f418dd6e63fa18309f",
+      "newHash": "45b9a3df64021a2bf76b56be81d397309ed95f7a93a6aad7ea3ae594c1a8395d",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-50b2abb8e430",
+      "manifest": "navigation",
+      "memberId": "nav:/data-hardware/hardware-taxonomy/",
+      "oldHash": "1223d4329eb647b3a28f58c23aef7dd992c89a237f3bb0477397d291a6503681",
+      "newHash": "50b2abb8e4303f0dee7cf550dc89b0fe0f0e0cd40f1247fcb6fbce94f99d36a3",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-510c069c9864",
+      "manifest": "navigation",
+      "memberId": "nav:/data-hardware/industrial-deployment/",
+      "oldHash": "2078566eb9a3567d5bf838eb27bd6fd8febd0b2f3bdcff0d13595ff3e245e883",
+      "newHash": "510c069c98648f1f418e8586a7194d64b59ce109e0ff0a0b5551f315aedce5c2",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-a6c416f02228",
+      "manifest": "navigation",
+      "memberId": "nav:/data-hardware/robot-learning-stack/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "a6c416f02228814c5f6bc492e1d710e97fc7ea5dba355276015c235a39849f65",
+      "reason": "Insert this exact planned article at its canonical position in the navigation registry.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-262afec3a29f",
+      "manifest": "navigation",
+      "memberId": "nav:/data-hardware/teleop-rigs/",
+      "oldHash": "cce8b89181841de00abec7dc22667185f456209b568bf6fb574ca534825babe4",
+      "newHash": "262afec3a29ff291437ab7ae07e165e37016327ee502af11d6ade09458821def",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-921051c896cb",
+      "manifest": "navigation",
+      "memberId": "nav:/frontier/",
+      "oldHash": "2562be4653aede56f7ee110bcbfb412f77b2654d8b269af7ba45db287a9eb84f",
+      "newHash": "921051c896cb8989a0b77d211a08a7be9cfa6abbba1eb866cee1bad948a6e640",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-59882f70f51c",
+      "manifest": "navigation",
+      "memberId": "nav:/frontier/bear-case/",
+      "oldHash": "43a63309f99a78c87834a13d962deb9f0656df5dadead3a17b1766a030b868ad",
+      "newHash": "59882f70f51c3ecd029e497ee5afe772bca1fa0accee347214a73d3db84eaca3",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-600f827da87a",
+      "manifest": "navigation",
+      "memberId": "nav:/frontier/competing-theses/",
+      "oldHash": "07c65411672dff841f36b3d025288e140cb2409f0cffba05fbc156aa9aa90de1",
+      "newHash": "600f827da87a430ad64380796fb482842e67c2961db18a4ce8ae8df1f714f6e3",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-7fef80e10be6",
+      "manifest": "navigation",
+      "memberId": "nav:/frontier/dexterity/",
+      "oldHash": "4ab4c520906246328b2a58702b58486edfa8104c36920efe6da2a2bdaf67a9f3",
+      "newHash": "7fef80e10be69cd85127528c64cbf625bd0bd4aa0b3126c22cfc8968720cde3f",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-9f08ed9b278e",
+      "manifest": "navigation",
+      "memberId": "nav:/frontier/generalization/",
+      "oldHash": "76f7c36755d2b4ba8fbd1be3b8eeda6997048c2ff9a05914d347092a04217c19",
+      "newHash": "9f08ed9b278e4938b2e2d2d5106314c84b6ee7d3437dee4a6960116ccbd8a400",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-4fefb925263a",
+      "manifest": "navigation",
+      "memberId": "nav:/frontier/reliability-gap/",
+      "oldHash": "3a4d72389760574850a3d80b9e538a860926aa8ccb44ab2aa766af19a5a2cdb7",
+      "newHash": "4fefb925263a48d90b4f1dbe5c046fd20561d2c5e8764078aee7508a29872a87",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-5db8b0016a9b",
+      "manifest": "navigation",
+      "memberId": "nav:/frontier/safety-and-assurance/",
+      "oldHash": "1178cd34af0d217efea6c9f1127b145b77907b6f410bff6f460271656605aa7b",
+      "newHash": "5db8b0016a9b1c7fe5a72847bc126ebe042e1c36d10126e6b40378d1fb218755",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-7d6a95d95c82",
+      "manifest": "navigation",
+      "memberId": "nav:/glossary/",
+      "oldHash": "28d5a2cde58a45e1d9236f5c9d5d5069844225110caf4c2b22f127a43037bf33",
+      "newHash": "7d6a95d95c82fadfddb70ffabf75c71593a846bd8079f66f74a06520fc971efc",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-f7fe6676d3dd",
+      "manifest": "navigation",
+      "memberId": "nav:/manipulation/action-spaces/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "f7fe6676d3ddc549020647840966417ba2ae31f395766b9ef97376578b2ef1a2",
+      "reason": "Insert this exact planned article at its canonical position in the navigation registry.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-6e40898d1e3b",
+      "manifest": "navigation",
+      "memberId": "nav:/manipulation/foundation-models/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "6e40898d1e3ba0f9cd6bdb32992ace4c6e5610f633c7a266d8d22c8d77490d52",
+      "reason": "Insert this exact planned article at its canonical position in the navigation registry.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-d28a77875351",
+      "manifest": "navigation",
+      "memberId": "nav:/manipulation/robot-learning-roadmap/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d28a77875351ea1544c4d509c0a5eabe4b50458118b8836acfdf6859eedb5dcf",
+      "reason": "Insert this exact planned article at its canonical position in the navigation registry.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-8aaae9075f69",
+      "manifest": "navigation",
+      "memberId": "nav:/market-map/",
+      "oldHash": "d944e2074fb3caf3006f96df62a035dc274a0fc89ef3959f77e8933642347ae0",
+      "newHash": "8aaae9075f6925879e1f4430bbb909ac7f41be7e8a60ceb0c9c3745229a79abf",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-5b9155592e24",
+      "manifest": "navigation",
+      "memberId": "nav:/playground/",
+      "oldHash": "5cb8e8e368973f951c3a2acca6b30b8a67308a22515d762986be855199e861ef",
+      "newHash": "5b9155592e243b745ed3e8f1183003f10f6cef369044835f5f05979990e6cf47",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-07faeabf78e4",
+      "manifest": "navigation",
+      "memberId": "nav:/rl-sim2real/",
+      "oldHash": "601008e0850b6321304cff796ea4efcc3f8a2aa747abf4826321029dca9b6380",
+      "newHash": "07faeabf78e4a634da375e08a16adc6b25665d543fa498cea6ec8c140c22416a",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-5297de279f68",
+      "manifest": "navigation",
+      "memberId": "nav:/rl-sim2real/humanoid-wbc/",
+      "oldHash": "a059ccc4a808eff66160c8e902486bdd7335975f140c21813adea2745ef67109",
+      "newHash": "5297de279f684f6096f7405464bc94bd061cd604d4ca1b7879393b05868b3e33",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-a25728f010c7",
+      "manifest": "navigation",
+      "memberId": "nav:/rl-sim2real/legged-locomotion/",
+      "oldHash": "06e566e049b6a93cdfbcd4790ad227aa8b6f2c6bd8ce6496d13f41b834612a92",
+      "newHash": "a25728f010c770b38cea6f2fd607f7f5ee55fbfb19825777f5b769de0e6d5932",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-bb632a1dcc5a",
+      "manifest": "navigation",
+      "memberId": "nav:/rl-sim2real/offline-rl/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "bb632a1dcc5aa4480fab62aec48194370840f5756f508f7520c9832219893b66",
+      "reason": "Insert this exact planned article at its canonical position in the navigation registry.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-d59d4d058351",
+      "manifest": "navigation",
+      "memberId": "nav:/rl-sim2real/parallel-sim-rl/",
+      "oldHash": "135dec02312af3c0097ae276ed25208f978bbeaa89db7c62c4d5b435f2e86a1c",
+      "newHash": "d59d4d0583512142df46faf636b0b096b6ef47dffdc49edf416e8c97e205e7cc",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-46c499c5af2c",
+      "manifest": "navigation",
+      "memberId": "nav:/rl-sim2real/reward-design-mpc/",
+      "oldHash": "68eb4a4d0e8a0ca223290bb031831d50f97bff94ced745a419d5c42a9dd862c7",
+      "newHash": "46c499c5af2cefb3f170b3aaf7f2587ff1952b5ab9fb7f0ef3ead9be9c0ed015",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-3028528ecd8f",
+      "manifest": "navigation",
+      "memberId": "nav:/rl-sim2real/rl-for-robotics/",
+      "oldHash": "c7d023268585d3aa54f1e1c7027e1e40895827035cc54becdfb8028ad720c22a",
+      "newHash": "3028528ecd8f1191b49454a541fd2c9b511f9bf3fe7b039d295deb49d815944f",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-e02cfb3d103e",
+      "manifest": "navigation",
+      "memberId": "nav:/rl-sim2real/sim2real-transfer/",
+      "oldHash": "bcd2c04d98e151976a5c216f3b121e47a6f22908c5dfa6254944b9cb4adb1254",
+      "newHash": "e02cfb3d103e0c470d382761833096327e1d81a6cb10ec690e210f3132b31000",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-9908ee81ce9b",
+      "manifest": "navigation",
+      "memberId": "nav:/rl-sim2real/why-rl-locomotion/",
+      "oldHash": "ed2230a0c22f9830528bba4d592f2d93c2498869931667a0bac8e48df76ad3d4",
+      "newHash": "9908ee81ce9b7cea654a2a8a82ba6232559652be182be43d99e392a68145093d",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-a25b167fd149",
+      "manifest": "navigation",
+      "memberId": "nav:/world-models/",
+      "oldHash": "5d9324cb5c0b3a8975b3c0e61462b7ca67881d4705c7968fb1ff7422a03ce6e2",
+      "newHash": "a25b167fd149c080dc81df4a5dd6d638a8de9180d02c61baf9e386b6a1b21593",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-d4dbc270ea6a",
+      "manifest": "navigation",
+      "memberId": "nav:/world-models/evaluation/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "d4dbc270ea6a8be87f80fff15fc7af03914dbb961384657a265cb3c4c503fc8a",
+      "reason": "Insert this exact planned article at its canonical position in the navigation registry.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-3427cd16bfc9",
+      "manifest": "navigation",
+      "memberId": "nav:/world-models/generative-sim/",
+      "oldHash": "ded6c752320c39b4a884cc44b5d192b06c2707f48f8a4d4c9cee43d4f196038d",
+      "newHash": "3427cd16bfc977fda58b8a2731bb9de3a7b66a20905984ba428e7033ed6b79c0",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-0a7f04cfa0bc",
+      "manifest": "navigation",
+      "memberId": "nav:/world-models/generative-video/",
+      "oldHash": "cae0f831be1358b3149359cbdf92c63c7cbd38da34d1babc72e756df8db73b1b",
+      "newHash": "0a7f04cfa0bc42b4b0e53b6330644c71e5a7802e5eac7adb527af80bfb849373",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-5e43f1e2a74a",
+      "manifest": "navigation",
+      "memberId": "nav:/world-models/jepa/",
+      "oldHash": "0218c8b6ca4efe166dd11faa8b5d542c5d1e7e543ed0f9c25827dca11818481d",
+      "newHash": "5e43f1e2a74a605b1e08bdcf96c89545f104fa6f7bcdc0e33f42155a6daf3167",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-1108120d4c6f",
+      "manifest": "navigation",
+      "memberId": "nav:/world-models/latent-dynamics/",
+      "oldHash": "12b83d46ad559b5b06d415342ff58463ace98ca0550456789dbb380f2d4ec196",
+      "newHash": "1108120d4c6ff354dc819e7b94c78dc00ec9c192cc8a981f1c7953a87116aeba",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-fb4bacf3cc67",
+      "manifest": "navigation",
+      "memberId": "nav:/world-models/model-based-robot-learning/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "fb4bacf3cc6704565159dd89c730fd1036e5d342653a7c3b5889828d965c467a",
+      "reason": "Insert this exact planned article at its canonical position in the navigation registry.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-60d82dc22510",
+      "manifest": "navigation",
+      "memberId": "nav:/world-models/taxonomy/",
+      "oldHash": "a931c3a735ce0d142f6f3e545c030f967e2c8d450bb24dc2ef70f65a1d73c320",
+      "newHash": "60d82dc22510259b4b48fabb67654da11fc864471033ea823e5fa942b811b013",
+      "reason": "Shift this exact navigation ordinal after inserting the approved article entries; its registered href and name remain intact.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-navigation-3c5a1372239f",
+      "manifest": "navigation",
+      "memberId": "nav:/world-models/world-models-vs-simulators/",
+      "oldHash": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+      "newHash": "3c5a1372239f37bcf2099bf6d3f55164f064806c101a8b6844997947de50ba35",
+      "reason": "Insert this exact planned article at its canonical position in the navigation registry.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-CONT-007"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-market-playground-c14d24a34d6b",
+      "manifest": "market-playground",
+      "memberId": "playground-source:lib/trajectory.ts",
+      "oldHash": "772d715662ee2d6b1eb0a1c547fa8ae342c26ab20666dd723b963816159411b8",
+      "newHash": "c14d24a34d6b99084c70f026a54231cf5a3f1e3ed4c28d9a67716839426a2a0b",
+      "reason": "Migrate the invalid-file messages in this exact trajectory source to Robot Wiki without changing its technical identifier or behavior.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-004",
+        "VAL-B2-BASE-008",
+        "VAL-B2-ID-001"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260825-market-playground-566a551c68c5",
+      "manifest": "market-playground",
+      "memberId": "company:tars-robotics",
+      "oldHash": "a37c3840b13fd6698b46006ff86662b7ae776067b50e603c8f432689884fa1e2",
+      "newHash": "566a551c68c559e3881252fab51c0cc92b3f3cfed3e9cadf83f52a81c4ed99d6",
+      "reason": "Replace the dead Ola China source in this exact TARS company record with a live Pandaily report supporting the same disclosed round facts.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO live-source repair, 2026-08-25",
+      "affectedAssertions": [
+        "VAL-B2-BASE-003",
+        "VAL-B2-BASE-011"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-assets-svg-a226587582a2",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:covariate-shift",
+      "oldHash": "d9477b6b2816906b99c326775d2ce6abab6924e71a6b2b9ba709fb7469ad2c06",
+      "newHash": "a226587582a28bb9a290e1a56ee53f55c3c878ea0eef8f684c1db6662caa2bb9",
+      "reason": "Migrate the creator label in this exact registered diagram to Robot Wiki without changing attribution facts or SVG bytes.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-IMG-009",
+        "VAL-B2-ID-001"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-assets-svg-16255b25318d",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:temporal-ensembling",
+      "oldHash": "b4aaadf5230707565cc34e6d474bf05e71213dc1ea66c19ea42feff9a271fa2b",
+      "newHash": "16255b25318de56638998b5303ea9d79228fd15984d4df273563af56c6d5f3a7",
+      "reason": "Migrate the creator label in this exact registered diagram to Robot Wiki without changing attribution facts or SVG bytes.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-002",
+        "VAL-B2-IMG-009",
+        "VAL-B2-ID-001"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-interactive-sources-mounts-de3ffb3df0f7",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/interactive/egoscale-scaling.tsx",
+      "oldHash": "a9403a1ccbe7a43f50f7d582c0075a2819a5044582b1718a3edfae32a785e3aa",
+      "newHash": "de3ffb3df0f72d6ae73baac749f521ad6959dfe45e55c9291d7bdd3dbed5755c",
+      "reason": "Migrate the exact visible first-party label in this component to Robot Wiki without changing interaction behavior.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-ID-001"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260824-interactive-sources-mounts-9ce25a5f81c8",
+      "manifest": "interactive-sources-mounts",
+      "memberId": "source:components/three/webgl-unavailable.tsx",
+      "oldHash": "3fb43de387c62a85804ed2e01985913b2db7c855876ef736393be72c00f10dcb",
+      "newHash": "9ce25a5f81c8b622eb4823b722c0d8a0845947c7294fe97643481a53341a21cd",
+      "reason": "Migrate the exact visible first-party label in this component to Robot Wiki without changing interaction behavior.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO growth foundation execution, 2026-08-24",
+      "affectedAssertions": [
+        "VAL-B2-BASE-006",
+        "VAL-B2-ID-001"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260825-assets-svg-7626629fc292",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:anymal-anybotics-2022",
+      "oldHash": "cf34f07eb37564df4a5ae84c5edc1d8058c5bc823eee93be52638896ba5e52a5",
+      "newHash": "7626629fc292cd459103e2c4092598a5b9398f7d2bf721c416815c0ead85d810",
+      "reason": "Resize and recompress this exact licensed photograph for faster article delivery while preserving its subject, caption, attribution, and source.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO performance optimisation, 2026-08-25",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-IMG-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260825-assets-svg-efd70db5b6b6",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:atlas-darpa-frontview-2013",
+      "oldHash": "ae819fbc7f4f852a0dbd7af34c86e0216951b346cc75a8e81da9d3e74ec4f7fa",
+      "newHash": "efd70db5b6b61c0638869b02b5354ed3d8e272c3e3056f1db793b080a2fb4bd0",
+      "reason": "Resize and recompress this exact licensed photograph for faster article delivery while preserving its subject, caption, attribution, and source.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO performance optimisation, 2026-08-25",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-IMG-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260825-assets-svg-c76cc826b173",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:franka-emika-panda-cebit-2017",
+      "oldHash": "c3a8fc1ed7fb36545ca8b74bee329ede0340ceb6b85ece0f9006a29dda8894ae",
+      "newHash": "c76cc826b173cdae2e6c4beb6052d837cb377f30c6781b89b8bfd346f4335ead",
+      "reason": "Resize and recompress this exact licensed photograph for faster article delivery while preserving its subject, caption, attribution, and source.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO performance optimisation, 2026-08-25",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-IMG-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260825-assets-svg-a8373d504211",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:puma-560-nasa-ames",
+      "oldHash": "8b04a521e3c49dc4d14b7c0eb9921444ce16c70e4b19b968f1b202877bb822d1",
+      "newHash": "a8373d504211ef9ab89563ec2a4e9c3c243aef45b005af22c06b4a96a70ed143",
+      "reason": "Resize and recompress this exact licensed photograph for faster article delivery while preserving its subject, caption, attribution, and source.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO performance optimisation, 2026-08-25",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-IMG-006"
+      ],
+      "disposition": "permanent"
+    },
+    {
+      "id": "seo-20260825-assets-svg-f3e5e673aa9d",
+      "manifest": "assets-svg",
+      "memberId": "registered-image:spot-raf-agile-liberty-2021",
+      "oldHash": "757149d9ab2f923e184527ba1699a6e94ed58f9472ac5d613390a07cec68e423",
+      "newHash": "f3e5e673aa9d098cce6b3f2f6aed2724f46504dafc07d5d04129734386f67c36",
+      "reason": "Resize and recompress this exact licensed photograph for faster home-page delivery while preserving its subject, caption, attribution, and source.",
+      "ownerApproval": "User approved execution of the Robot Wiki SEO optimisation plan in this Codex task on 2026-08-24.",
+      "responsibleMilestone": "SEO performance optimisation, 2026-08-25",
+      "affectedAssertions": [
+        "VAL-B2-BASE-011",
+        "VAL-IMG-006"
+      ],
+      "disposition": "permanent"
+    }
+  ]
 }

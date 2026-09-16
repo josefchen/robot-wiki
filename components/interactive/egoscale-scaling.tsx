@@ -542,7 +542,7 @@ export function EgoScaleScaling({
             className="inline-block h-0.5 w-4"
             style={{ background: 'var(--color-text-dim)' }}
           />
-          completion fit (robot-wiki, R² = {COMPLETION_FIT.rSquared.toFixed(2)})
+          completion fit (Robot Wiki, R² = {COMPLETION_FIT.rSquared.toFixed(2)})
         </span>
         <span className="flex items-center gap-1.5">
           <span

@@ -5,7 +5,7 @@ domain: classical
 slug: motion-planning
 order: 2
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-08-24"
 citations:
   - lozano-perez-1983
   - kavraki-1996
@@ -20,7 +20,7 @@ citations:
 seeAlso:
   - "classical/kinematics"
   - "classical/control"
-  - "rl-sim2real/reward-design-mpc"
+  - "classical/ros2-for-ml-engineers"
   - "manipulation/hierarchical"
 ---
 
@@ -114,3 +114,9 @@ The family's weakness is structural, not incidental. Descent methods find local 
 Classical planning did not disappear when learned policies arrived; it changed jobs. Sampling planners label demonstration data, verify that a proposed motion is feasible, and generate the diverse training scenes that [generative simulation](/world-models/generative-sim) pipelines rely on. Optimization survives inside model-predictive control, which replans a short horizon at every control cycle, a design whose tradeoffs against learned policies have their own module in [reward design and the MPC debate](/rl-sim2real/reward-design-mpc). And the hierarchical school of robot learning, from SayCan onward, is precisely the bet that a learned system should emit goals for a classical planner to execute, a bet the end-to-end camp answers by training the planning in.
 
 What end-to-end policies do not escape is the geometry. A diffusion policy's action chunk is a trajectory in configuration space; an RRT's path is a trajectory in configuration space. The difference is who computed it, a planner with an explicit collision model or a network with an implicit one. The modules that follow, [control](/classical/control) and state estimation, assume some such trajectory exists and ask how to track it and where the robot actually is while doing so.
+
+## The runtime handoff contract
+
+A deployable planner consumes more than a start and goal. It needs the robot model, current state, collision geometry, allowed contacts, attached objects, joint limits, timing limits and a controller capable of executing the returned trajectory. Give each input a freshness rule. A collision-free path against a stale scene is not a safe path, and a valid geometric path can still violate velocity or torque limits after time parameterization.
+
+The [ROS 2 guide](/classical/ros2-for-ml-engineers) locates these artifacts in the runtime graph. For hybrid systems, keep the handoff explicit: a learned component may propose a goal, cost, waypoint or whole action chunk, while a planner or command gate checks the constraints the model cannot certify. Log the scene version and planning request with every execution. That record distinguishes planning failure, world-state failure and tracking failure instead of collapsing all three into “the robot missed.”

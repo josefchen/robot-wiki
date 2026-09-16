@@ -1800,7 +1800,7 @@ export const CITATIONS: Citation[] = [
     authors: ['Andrew Y. Ng', 'Daishi Harada', 'Stuart Russell'],
     year: 1999,
     venue: 'ICML 1999',
-    url: 'https://people.eecs.berkeley.edu/~russell/papers/icml99-shaping.pdf',
+    url: 'https://ai.stanford.edu/~ang/papers/shaping-icml99.pdf',
     type: 'paper',
   },
   {
@@ -4042,7 +4042,7 @@ export const CITATIONS: Citation[] = [
     ],
     year: 2009,
     venue: 'ICRA 2009',
-    url: 'https://www.ri.cmu.edu/publications/chomp-gradient-optimization-techniques-for-efficient-motion-planning/',
+    url: 'https://publications.ri.cmu.edu/chomp-gradient-optimization-techniques-for-efficient-motion-planning',
     type: 'paper',
   },
   {
@@ -7074,11 +7074,11 @@ export const CITATIONS: Citation[] = [
     // the ACWG maintains it) and the document is published open under
     // CC BY 4.0. Version 3 is current; there is no Version 4.
     id: 'gsn-standard-v3',
-    title: 'Goal Structuring Notation Community Standard Version 3',
+    title: 'Goal Structuring Notation Community Standard (Version 3)',
     authors: ['SCSC Assurance Case Working Group'],
     year: 2021,
     venue: 'Safety-Critical Systems Club',
-    url: 'https://scsc.uk/scsc-141c',
+    url: 'https://scsc.uk/resources/citation_r1386.html',
     type: 'docs',
   },
   {
@@ -7217,14 +7217,16 @@ export const CITATIONS: Citation[] = [
   },
   {
     // A3 press release: 2025 North American robot orders up 6.6%,
-    // cobots 19.6% of orders by value, sixth straight quarter of growth.
+    // cobots 19.6% of units and 10.7% of value, sixth straight quarter of
+    // growth. The corrected live slug includes "broader" (verified
+    // 2026-08-24); the former slug returned a Cloudflare 403.
     id: 'a3-orders-2025',
     title:
-      'Robot Orders Grow 6.6% in 2025 as General Industries Drive Automation Adoption',
+      'Robot Orders Grow 6.6% in 2025 as General Industries Drive Broader Automation Adoption',
     authors: ['Association for Advancing Automation'],
     year: 2026,
-    venue: 'A3, 2026-02-04',
-    url: 'https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-automation-adoption',
+    venue: 'A3, 2026-02-06',
+    url: 'https://www.automate.org/robotics/news/robot-orders-grow-6-6-in-2025-as-general-industries-drive-broader-automation-adoption',
     type: 'press',
   },
   {
@@ -7337,18 +7339,56 @@ export const CITATIONS: Citation[] = [
     type: 'docs',
   },
   {
-    // This is Money coverage of the Kroger closures (Reuters-sourced
-    // facts): three of the eight built Ocado sheds close in January
-    // 2026, a 20-site agreement, ~$38M annual fee revenue lost,
-    // ~£190M compensation, Kroger $2.6B impairment.
+    // Kroger's own Q3 2025 Form 10-Q: three named automated fulfilment
+    // centres close in January 2026, the Charlotte plan is cancelled, and
+    // the network review produces $2.585B of impairment and related charges,
+    // including an approximately $350M termination payment to Ocado.
     id: 'kroger-ocado-closures-2025',
-    title:
-      "Warehouse closures crush Ocado shares: US partner shuts three sites in 'a devastating blow' to UK firm",
-    authors: ['Emily Hawkins'],
+    title: 'Kroger Co._November 8, 2025',
+    authors: ['The Kroger Co.'],
     year: 2025,
-    venue: 'This is Money, 2025-11-18',
-    url: 'https://www.thisismoney.co.uk/money/markets/article-15303311/Warehouse-closures-crush-Ocado-shares-US-partner-shuts-three-sites-devastating-blow-UK-firm.html',
-    type: 'press',
+    venue: 'Form 10-Q, U.S. Securities and Exchange Commission',
+    url: 'https://www.sec.gov/Archives/edgar/data/56873/000110465925120642/kr-20251108x10q.htm',
+    type: 'docs',
+  },
+  // ---- ROS 2 for ML engineers (classical/ros2-for-ml-engineers, 2026-08-24) ----
+  // These pages have no individual byline. The project/maintainer collective
+  // is retained as the organizational author rather than inventing names.
+  {
+    id: 'ros2-lyrical-2026',
+    title: "Lyrical Luth (codename 'lyrical'; May, 2026)",
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-08-24',
+    url: 'https://docs.ros.org/en/lyrical/Releases/Release-Lyrical-Luth.html',
+    type: 'docs',
+  },
+  {
+    id: 'ros2-interfaces-2026',
+    title: 'Interfaces (topics, services, actions)',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-08-24',
+    url: 'https://docs.ros.org/en/lyrical/Concepts/Basic/Interfaces-Topics-Services-Actions.html',
+    type: 'docs',
+  },
+  {
+    id: 'ros2-qos-2026',
+    title: 'Quality of Service settings',
+    authors: ['ROS 2 Project'],
+    year: 2026,
+    venue: 'ROS 2 Documentation, as of 2026-08-24',
+    url: 'https://docs.ros.org/en/lyrical/Concepts/Intermediate/About-Quality-of-Service-Settings.html',
+    type: 'docs',
+  },
+  {
+    id: 'moveit-planning-scene-2026',
+    title: 'Planning Scene',
+    authors: ['MoveIt Maintainers'],
+    year: 2026,
+    venue: 'MoveIt 2 Documentation, as of 2026-08-24',
+    url: 'https://moveit.picknik.ai/main/api/html/planning_scene_overview.html',
+    type: 'docs',
   },
 ];
 

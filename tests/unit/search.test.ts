@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  contentPhraseWeight,
   createRequestSequencer,
   isGenuineHit,
   RESULT_LIMIT,
@@ -24,7 +25,7 @@ describe('toSearchHits', () => {
         results: [
           fakeResult({
             url: '/manipulation/action-chunking/',
-            meta: { title: 'Action Chunking (ACT and ALOHA) - robot-wiki' },
+            meta: { title: 'Action Chunking (ACT and ALOHA) | Robot Wiki' },
             excerpt: 'the <mark>chunk</mark> size tradeoff',
           }),
         ],
@@ -57,12 +58,12 @@ describe('toSearchHits', () => {
   it('handles a missing excerpt as an empty string', async () => {
     const hits = await toSearchHits(
       {
-        results: [fakeResult({ url: '/', meta: { title: 'robot-wiki' } })],
+        results: [fakeResult({ url: '/', meta: { title: 'Robot Wiki' } })],
       },
       'wiki',
     );
     expect(hits[0].excerpt).toBe('');
-    expect(hits[0].title).toBe('robot-wiki');
+    expect(hits[0].title).toBe('Robot Wiki');
   });
 
   it('caps the hits at the result limit, preserving rank order within a tier', async () => {
@@ -89,17 +90,17 @@ describe('toSearchHits', () => {
         results: [
           fakeResult({
             url: '/',
-            meta: { title: 'robot-wiki' },
+            meta: { title: 'Robot Wiki' },
             content: 'Action Chunking is one of the modules listed here.',
           }),
           fakeResult({
             url: '/manipulation/',
-            meta: { title: 'Manipulation - robot-wiki' },
+            meta: { title: 'Manipulation | Robot Wiki' },
             content: 'Action Chunking sits in this domain.',
           }),
           fakeResult({
             url: '/manipulation/action-chunking/',
-            meta: { title: 'Action Chunking (ACT and ALOHA) - robot-wiki' },
+            meta: { title: 'Action Chunking (ACT and ALOHA) | Robot Wiki' },
             content: 'Action Chunking predicts a chunk of actions.',
           }),
         ],
@@ -132,6 +133,33 @@ describe('toSearchHits', () => {
       'action chunking',
     );
     expect(hits.map((hit) => hit.url)).toEqual(['/b/', '/a/']);
+  });
+
+  it('keeps an exact prose phrase above scattered-term hits and inside the cap', async () => {
+    const scattered = Array.from({ length: RESULT_LIMIT }, (_, i) =>
+      fakeResult({
+        url: `/scattered-${i}/`,
+        meta: { title: `Scattered ${i}` },
+        content:
+          'Every page mentions learned systems. A policy appears elsewhere. This closes the passage.',
+      }),
+    );
+    const exact = fakeResult({
+      url: '/classical/',
+      meta: { title: 'Classical Foundations' },
+      content: 'Every learned policy this domain discusses depends on geometry.',
+    });
+
+    const hits = await toSearchHits(
+      { results: [...scattered, exact] },
+      'every learned policy this',
+    );
+
+    expect(hits).toHaveLength(RESULT_LIMIT);
+    expect(hits[0].url).toBe('/classical/');
+    expect(hits.map((hit) => hit.url)).not.toContain(
+      `/scattered-${RESULT_LIMIT - 1}/`,
+    );
   });
 
   it('filters for genuineness before capping, so a post-cap genuine hit is rendered', async () => {
@@ -219,6 +247,25 @@ describe('toSearchHits', () => {
       'covariate',
     );
     expect(hits).toHaveLength(1);
+  });
+});
+
+describe('contentPhraseWeight', () => {
+  it('scores a contiguous phrase, including typeahead and punctuation folding', () => {
+    expect(contentPhraseWeight('tempor ensemb', 'Temporal ensembling smooths actions.')).toBe(1);
+    expect(contentPhraseWeight('sim-to-real', 'The sim to real gap remains.')).toBe(1);
+    expect(contentPhraseWeight('pi0.5 policy', 'The π0.5 policy is open.')).toBe(1);
+  });
+
+  it('does not score terms that only occur apart or empty input', () => {
+    expect(
+      contentPhraseWeight(
+        'every learned policy this',
+        'Every page mentions learned systems. A policy appears. This closes.',
+      ),
+    ).toBe(0);
+    expect(contentPhraseWeight('', 'Action chunking')).toBe(0);
+    expect(contentPhraseWeight('action', '')).toBe(0);
   });
 });
 

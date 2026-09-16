@@ -10,6 +10,7 @@ import {
   type ChangeEvent,
   type KeyboardEvent,
 } from 'react';
+import { IntentLink } from '@/components/ui/intent-link';
 import {
   createPagefindClient,
   createRequestSequencer,
@@ -371,7 +372,7 @@ export function SearchInterface({
               <ul className="divide-y divide-border">
                 {hits.map((entry, index) => (
                   <li key={entry.url}>
-                    <Link
+                    <IntentLink
                       href={entry.url}
                       data-search-result
                       onKeyDown={(event) => onResultKeyDown(event, index)}
@@ -386,7 +387,7 @@ export function SearchInterface({
                           dangerouslySetInnerHTML={{ __html: entry.excerpt }}
                         />
                       ) : null}
-                    </Link>
+                    </IntentLink>
                   </li>
                 ))}
               </ul>

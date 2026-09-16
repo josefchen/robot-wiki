@@ -1,9 +1,10 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { List, X } from '@phosphor-icons/react';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { SITE_DESCRIPTOR, SITE_DISPLAY_NAME } from '@/lib/site';
+import { IntentLink } from '@/components/ui/intent-link';
 import { NavTree } from './nav-tree';
 import { SearchBox } from './search-box';
 import { SiteFooter } from './site-footer';
@@ -78,12 +79,12 @@ export function SiteShell({ children }: { children: ReactNode }) {
         >
           <List size={20} aria-hidden />
         </button>
-        <Link
+        <IntentLink
           href="/"
-          className="font-sans text-[15px] font-semibold tracking-[-0.02em] text-text"
+          className="font-display text-[15px] font-semibold tracking-[-0.02em] text-text"
         >
-          robot-wiki
-        </Link>
+          {SITE_DISPLAY_NAME}
+        </IntentLink>
       </header>
 
       {/* Desktop sidebar: sticky, full-height, independently scrollable. */}
@@ -94,22 +95,22 @@ export function SiteShell({ children }: { children: ReactNode }) {
       >
         <div className="sticky top-0 flex h-dvh flex-col gap-5 overflow-y-auto px-3 py-5">
           <div className="px-2">
-            <Link
+            <IntentLink
               href="/"
               aria-current={pathname === '/' ? 'page' : undefined}
-              className="font-sans text-[17px] font-semibold tracking-[-0.025em] text-text"
+              className="font-display text-[17px] font-semibold tracking-[-0.025em] text-text"
             >
-              robot-wiki
-            </Link>
+              {SITE_DISPLAY_NAME}
+            </IntentLink>
             <p
               aria-hidden="true"
-              className="mt-1 font-mono text-[9px] uppercase tracking-[0.14em] text-text-dim"
+              className="mt-1 font-mono text-[9px] leading-snug text-text-dim"
             >
-              Robotics encyclopaedia
+              {SITE_DESCRIPTOR}
             </p>
           </div>
           <SearchBox idPrefix="sidebar" />
-          <NavTree idPrefix="sidebar" ariaLabel="robot-wiki taxonomy" />
+          <NavTree idPrefix="sidebar" ariaLabel="Robot Wiki taxonomy" />
         </div>
       </aside>
 
@@ -150,13 +151,13 @@ export function SiteShell({ children }: { children: ReactNode }) {
               border on top of it is a redundant edge. */}
           <div className="relative flex h-full w-[85vw] max-w-80 flex-col bg-bg">
             <div className="flex items-center justify-between border-b border-border px-4 py-2.5">
-              <Link
+              <IntentLink
                 href="/"
                 onClick={() => setDrawerOpen(false)}
-                className="font-sans text-[15px] font-semibold tracking-[-0.02em] text-text"
+                className="font-display text-[15px] font-semibold tracking-[-0.02em] text-text"
               >
-                robot-wiki
-              </Link>
+                {SITE_DISPLAY_NAME}
+              </IntentLink>
               <button
                 ref={closeButtonRef}
                 type="button"
@@ -174,7 +175,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
               />
               <NavTree
                 idPrefix="drawer"
-                ariaLabel="robot-wiki taxonomy drawer"
+                ariaLabel="Robot Wiki taxonomy drawer"
                 onNavigate={() => setDrawerOpen(false)}
                 className="mt-5"
               />

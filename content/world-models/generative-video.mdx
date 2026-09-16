@@ -5,7 +5,7 @@ domain: world-models
 slug: generative-video
 order: 3
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-08-24"
 citations:
   - cosmos-3-2026
   - genie-3-2025
@@ -20,8 +20,8 @@ citations:
 seeAlso:
   - "world-models/taxonomy"
   - "world-models/generative-sim"
-  - "world-models/latent-dynamics"
-  - "adjacent/autonomous-vehicles"
+  - "world-models/evaluation"
+  - "world-models/world-models-vs-simulators"
 ---
 
 import { ActionConditioning } from '@/components/interactive/action-conditioning';
@@ -84,3 +84,9 @@ The positive results are recent and real. The Interactive World Simulator uses c
 The negative evidence is structural. The survey's verdict on evaluation is blunt: visual plausibility is only a weak proxy for control utility, and action-grounded consistency and controllability are much more reliable indicators of downstream usefulness <Cite id="world-model-survey-2026" />. Beyond weak conditioning, the survey lists missing modalities (vision and proprioception cannot capture friction, stiffness, or contact stability, and it calls tactile integration indispensable) and cost (world-model-based policies are far more computationally intensive than <Term id="vision-language-action-model">VLAs</Term>, with diffusion denoising latency the specific culprit) <Cite id="world-model-survey-2026" />. Every positive result above also sits on quasi-static tabletop tasks. Nothing published shows a generative video model producing usable training signal for contact-rich assembly or locomotion.
 
 The net assessment, mid-2026: generative video world models are demonstrably useful today for policy evaluation, for synthetic demonstration generation, and for RL post-training in narrow, in-distribution task families. They are not a general replacement for a physics engine, and nobody credible claims they are. The gating property is the one in the interactive: whether the predicted future actually listens to the action.
+
+## An evaluation ladder for video models
+
+Begin below photorealism. Run paired interventions in which the initial frames are identical and only the action changes. Verify direction, contact onset and object identity before measuring image quality. Next test one-step prediction on held-out physical transitions, then increase the horizon and record where geometry, action sensitivity or temporal consistency fails. A long attractive rollout does not compensate for an incorrect first contact.
+
+Only after those checks should the model rank candidate policies or generate training data. Compare its ranking with blinded real-robot trials and report uncertainty by task family. For synthetic data, train the same policy with and without generated episodes, then evaluate both on untouched real scenes. Preserve prompts, action traces, seeds and model versions so a result can be reproduced. The [world-model evaluation guide](/world-models/evaluation) gives the full protocol, and [world models versus simulators](/world-models/world-models-vs-simulators) explains when an engine or hybrid system is the better evidence source.

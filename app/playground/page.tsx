@@ -1,17 +1,20 @@
 import type { Metadata } from 'next';
 import { PlaygroundCanvas } from '@/components/three/playground-canvas';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import {
+  STANDALONE_SEO_DESCRIPTIONS,
+  STANDALONE_SEO_TITLES,
+} from '@/lib/seo';
 
 const title = '3D Kinematics Playground';
 
 export const metadata: Metadata = {
-  title,
-  description:
-    'A SO-101 robot arm rendered from its URDF in the browser: joint sliders for forward kinematics, click-to-reach inverse kinematics, and trajectory record/replay.',
+  title: STANDALONE_SEO_TITLES.playground,
+  description: STANDALONE_SEO_DESCRIPTIONS.playground,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)
-  // instead of the templated ' - robot-wiki' document title.
+  // instead of the templated '| Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
 };
@@ -25,7 +28,7 @@ export default function PlaygroundPage() {
           (VAL-SEARCH-021). The canvas below carries live joint readouts
           that change on every interaction and are not prose. */}
       <div data-pagefind-body>
-        <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+        <h1 className="font-display text-3xl font-semibold tracking-tight text-text">
           3D Kinematics Playground
         </h1>
         <p className="mt-3 max-w-2xl leading-relaxed text-text-dim">

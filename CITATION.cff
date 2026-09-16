@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: If Robot Wiki supports your work, cite the project and the specific article URL you used.
+title: Robot Wiki
+type: software
+version: 0.1.0
+date-released: 2026-08-24
+authors:
+  - family-names: Chen
+    given-names: Josef
+repository-code: https://github.com/josefchen/robot-wiki
+url: https://robot-wiki.com/
+license:
+  - MIT
+  - CC-BY-4.0
+keywords:
+  - robotics
+  - robot learning
+  - embodied AI
+  - reinforcement learning
+  - world models

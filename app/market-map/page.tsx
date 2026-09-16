@@ -2,17 +2,20 @@ import type { Metadata } from 'next';
 import { MarketMap } from '@/components/market-map/market-map';
 import { COMPANIES } from '@/data/companies';
 import { routeOpenGraph, routeTwitter } from '@/lib/og-cards';
+import {
+  STANDALONE_SEO_DESCRIPTIONS,
+  STANDALONE_SEO_TITLES,
+} from '@/lib/seo';
 
 const title = 'Market Map';
 
 export const metadata: Metadata = {
-  title,
-  description:
-    'The embodied-AI industry as data: companies across six segments, filterable by approach, geography, stage, and funding.',
+  title: STANDALONE_SEO_TITLES.marketMap,
+  description: STANDALONE_SEO_DESCRIPTIONS.marketMap,
   // Full card blocks restated: a route-level object replaces the
   // layout's for the same key (no deep merge). og:title is the plain
   // page title so the card matches the rendered h1 (VAL-DIST-004)
-  // instead of the templated ' - robot-wiki' document title.
+  // instead of the templated '| Robot Wiki' document title.
   openGraph: routeOpenGraph(title),
   twitter: routeTwitter(title),
 };
@@ -28,7 +31,7 @@ export default function MarketMapPage() {
           their prose here would return this page for every company name
           instead of the entity row. */}
       <div data-pagefind-body>
-        <h1 className="font-sans text-3xl font-semibold tracking-tight text-text">
+        <h1 className="font-display text-3xl font-semibold tracking-tight text-text">
           Market Map
         </h1>
         <p className="mt-3 max-w-3xl leading-relaxed text-text-dim">

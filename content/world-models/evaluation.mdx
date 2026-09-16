@@ -1,0 +1,136 @@
+---
+title: "World Model Evaluation for Robotics"
+description: "A robotics-specific evaluation ladder for world models: action sensitivity, temporal consistency, physical events, task progress, policy ranking and agreement with real closed-loop trials."
+domain: world-models
+slug: evaluation
+order: 7
+status: published
+datePublished: "2026-08-24"
+lastReviewed: "2026-08-24"
+citations:
+  - world-model-survey-2026
+  - genie-3-2025
+  - simpler-2024
+  - libero-plus-2025
+  - interactive-world-simulator-2026
+  - roboworld-2026
+  - roboarena-2025
+seeAlso:
+  - "world-models/taxonomy"
+  - "world-models/generative-video"
+  - "data-hardware/evaluation-crisis"
+  - "world-models/world-models-vs-simulators"
+---
+
+A robotics world model is not graded by how convincing one rollout looks. It is graded by whether its errors preserve the decisions a robot must make. That requires a ladder of tests, from one-step counterfactuals to agreement with real policy rankings. Image metrics can diagnose rendering quality; they cannot establish control utility.
+
+The central failure is action indifference. A model can produce temporally smooth, photorealistic futures and still ignore whether the robot moved left or right. The current robot-world-model survey treats controllability and action-grounded consistency as more informative than visual plausibility alone <Cite id="world-model-survey-2026" />.
+
+Try the check below and choose the evaluation that tests a world model as a policy-evaluation instrument.
+
+<SelfCheck
+  prompt="You want to use a video world model to select between two robot policies before hardware testing. Which validation result matters most?"
+  options={[
+    {
+      value: 'policy-ranking',
+      label: 'Its policy ranking agrees with repeated real-world policy trials',
+      why: 'This directly validates the intended use. The neural evaluator may still be imperfect, but its ordering is calibrated against the decision it will support.'
+    },
+    {
+      value: 'sharpness',
+      label: 'Its generated frames receive the best perceptual sharpness score',
+      why: 'Sharpness may improve human inspection, but it does not show that the model preserves action consequences or ranks policies the way the real robot does.'
+    },
+    {
+      value: 'long-video',
+      label: 'It can generate the longest uninterrupted video',
+      why: 'Duration is useful only if errors remain bounded and actions stay causal. A long action-insensitive rollout can be less useful than a short calibrated one.'
+    }
+  ]}
+  answer="policy-ranking"
+  takeaway="Validate the downstream decision: a policy evaluator must preserve real policy ordering, not merely produce attractive frames."
+/>
+
+## Start with the intended use
+
+World models serve at least four roles, and each needs a different endpoint:
+
+- **planning:** rank candidate action sequences;
+- **policy training:** generate transitions whose optimization transfers;
+- **policy evaluation:** predict task progress or success for a fixed policy;
+- **data generation:** create observations or scenarios that improve a learner.
+
+An evaluation is valid only relative to one of these roles. A model can be excellent for generating background diversity and unusable for planning contact. State the role before selecting metrics.
+
+## Level 1: one-step action sensitivity
+
+Construct matched counterfactuals from the same observation. Change one action dimension at a time while holding noise, prompt and history fixed. Check whether the predicted displacement, contact or gripper state changes in the expected direction.
+
+Useful measurements include:
+
+- signed displacement response to signed action changes;
+- monotonic response to action magnitude within a safe local range;
+- sensitivity to gripper open and close commands;
+- preservation of static objects when only the robot moves;
+- variance across generation seeds relative to the action effect.
+
+If seed variance is larger than the separation between actions, the model is a weak counterfactual instrument even when its average video is plausible.
+
+## Level 2: temporal and physical consistency
+
+Roll the model autoregressively and measure the events the task needs: object permanence, gripper-object attachment, collision, release, support and termination. Report error against horizon rather than one pooled number. A model that is accurate for eight steps and unstable by step sixteen has a usable eight-step planning horizon.
+
+Genie 3 demonstrates why limitation reporting belongs beside capability reporting. DeepMind describes real-time 720p generation at 24 frames per second and also identifies a constrained direct action space and consistency measured in minutes rather than indefinitely <Cite id="genie-3-2025" />. For robotics, the action-space limitation can dominate the visual achievement.
+
+Contact events deserve separate metrics because pixel averages dilute them. Annotate the first grasp, slip, insertion, collision and release. Measure event timing and binary correctness. These sparse events often decide task success.
+
+## Level 3: task-progress scoring
+
+Many evaluation systems pair a video world model with a vision-language scorer. The generator predicts a rollout; the scorer estimates progress or success from the predicted frames. Test each half separately.
+
+For the generator, measure action sensitivity and event fidelity. For the scorer, build a balanced set of real successful, partial and failed trajectories. Measure calibration, false positives and invariance to irrelevant visual changes. Then measure the composed error. A scorer cannot repair a generated grasp that never reflected the action.
+
+Interactive World Simulator is explicitly designed for robot policy training and evaluation, representing the direction toward action-controllable learned environments rather than prompt-only video <Cite id="interactive-world-simulator-2026" />. The relevant question is how its predicted task outcomes agree with hardware, not only how its frames compare with a reference video.
+
+## Level 4: policy ranking
+
+Policy evaluation rarely needs perfect trajectories. It needs the same ordering as reality. Select policies with deliberately different strengths: a weak baseline, several intermediate checkpoints and a strong reference. Run enough real trials to estimate each policy's success distribution. Evaluate the same policies in the world model under matched initial conditions.
+
+Report rank correlation, calibration error and pairwise inversions. Include confidence intervals from both real and generated trials. A high correlation across checkpoints from one training run is weaker evidence than agreement across architectures and failure modes.
+
+RoboWorld targets this layer with a fast autoregressive neural simulator and task-progress-aware scoring. Its reported evaluation compares neural rankings with real policy evaluation, rather than stopping at video fidelity <Cite id="roboworld-2026" />. That is the right shape of evidence even though independent replication and broader tasks remain necessary.
+
+## Level 5: closed-loop usefulness
+
+The final test is whether using the model changes a real outcome. For planning, compare real success with and without model-based selection under the same action budget. For training, compare a policy trained with generated experience to a data-matched baseline. For evaluation, compare how many poor policies the model filters without discarding good ones.
+
+Simulation-based policy evaluation already follows this logic. SIMPLER asks whether simulated policy performance correlates with real performance under carefully matched visual and physical conditions <Cite id="simpler-2024" />. A learned simulator should meet at least the same standard while disclosing where its training data overlaps the evaluated policies.
+
+Distributed real-robot systems such as RoboArena make the anchor stronger by collecting evaluations across sites rather than one laboratory setup <Cite id="roboarena-2025" />. A world-model benchmark is most valuable when it predicts that kind of heterogeneous physical evidence.
+
+## Control the evaluation shifts
+
+Use a factorial matrix rather than one “unseen” split:
+
+| Shift | Example | Failure it exposes |
+| --- | --- | --- |
+| Visual | lighting, texture, distractors | representation dependence |
+| Geometric | object pose, camera pose, layout | spatial grounding |
+| Physical | mass, friction, compliance | dynamics fidelity |
+| Semantic | new object or instruction | pretrained knowledge transfer |
+| Policy | architecture or checkpoint family | evaluator overfitting |
+| Embodiment | arm, gripper or control convention | action-space dependence |
+
+LIBERO-Plus showed that controlled perturbations can uncover large robustness gaps hidden by a saturated standard benchmark <Cite id="libero-plus-2025" />. Apply the same discipline to world models: do not let one aggregate score average away the exact condition under which the model stops being causal.
+
+## Leakage and circularity
+
+A foundation world model may have seen web videos of the environment, benchmark or robot. A task-progress scorer may share a backbone with the policy being evaluated. Generated training data may then be graded by a related model. Document these relationships.
+
+Hold out environments, policy families and collection dates where possible. Include simple non-neural checks for events such as gripper closure and object displacement. Human review is useful for auditing failure categories, but graders should be blind to the policy identity.
+
+## The minimum credible report
+
+A credible world-model evaluation states the use case, action representation, rollout horizon, sampling procedure, real-world anchor, task-level results and failure categories. It publishes both visual diagnostics and decision metrics. It separates generator error from scorer error. It shows sensitivity to actions and agreement with real closed-loop outcomes.
+
+The final number should answer an engineering question: how often can this model replace, prioritize or reduce a physical trial without changing the decision? Anything less may still be useful generative research, but it has not yet established a robotics evaluator.

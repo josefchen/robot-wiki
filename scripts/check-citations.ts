@@ -39,12 +39,11 @@ import {
   BROWSER_UA,
   classifyStatus,
   extractDoi,
-  parseCrossrefWork,
   shouldRetryStatus,
   validateExceptions,
   verifyCrossrefWork,
-  type CrossrefWork,
 } from '../lib/citation-links.ts';
+import { fetchCrossrefWork } from '../lib/crossref-client.ts';
 import {
   applyTitleMismatchException,
   compareTitles,
@@ -200,39 +199,6 @@ async function readCapped(
     if (offset >= buffer.length) break;
   }
   return buffer;
-}
-
-/**
- * Verify a bot-walled DOI-bearing URL through Crossref content negotiation,
- * with one retry: under sweep concurrency the doi.org metadata endpoint
- * occasionally times out or resets, and a transient Crossref failure would
- * otherwise turn a verifiable DOI entry into unexplained noise.
- */
-async function fetchCrossrefWork(doi: string, timeoutMs: number): Promise<CrossrefWork | null> {
-  const attempt = async (): Promise<CrossrefWork | null> => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const response = await fetch(`https://doi.org/${doi}`, {
-        redirect: 'follow',
-        signal: controller.signal,
-        headers: {
-          'User-Agent': BROWSER_UA,
-          Accept: 'application/vnd.citationstyles.csl+json',
-        },
-      });
-      if (!response.ok) return null;
-      return parseCrossrefWork(await response.json());
-    } catch {
-      return null;
-    } finally {
-      clearTimeout(timer);
-    }
-  };
-  const first = await attempt();
-  if (first) return first;
-  await sleep(RETRY_BACKOFF_MS);
-  return attempt();
 }
 
 /** pdftotext (poppler) availability, probed once per run. */

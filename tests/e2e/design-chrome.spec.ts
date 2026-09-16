@@ -470,7 +470,7 @@ test.describe('design chrome discipline', () => {
       .evaluate((el) => getComputedStyle(el).borderBottomWidth);
     expect(headerBorder).toBe('1px');
 
-    const link = page.locator('header').getByRole('link', { name: 'robot-wiki' });
+    const link = page.locator('header').getByRole('link', { name: 'Robot Wiki' });
     await link.focus();
     const outline = await link.evaluate((el) => {
       const cs = getComputedStyle(el);
@@ -493,36 +493,36 @@ test.describe('design chrome discipline', () => {
     const heroWordmark = await page
       .getByRole('heading', { level: 1 })
       .textContent();
-    expect(heroWordmark?.trim()).toBe('robot-wiki');
+    expect(heroWordmark?.trim()).toBe('Robot Wiki');
     const heroDescriptor = page
       .getByRole('region', { name: 'Introduction' })
-      .getByText('Robotics encyclopaedia', { exact: true });
+      .getByText('Citation-first encyclopedia of modern robot learning.', { exact: true });
     await expect(heroDescriptor).toHaveCount(1);
 
     // Desktop sidebar lockup at 1440px: wordmark link plus descriptor,
     // exactly once each, and no other lockup on the page carries it.
     const sidebarDescriptor = page
       .locator('aside')
-      .getByText('Robotics encyclopaedia', { exact: true });
+      .getByText('Citation-first encyclopedia of modern robot learning.', { exact: true });
     await expect(sidebarDescriptor).toHaveCount(1);
     const sidebarWordmark = await page
       .locator('aside')
-      .getByRole('link', { name: 'robot-wiki' })
+      .getByRole('link', { name: 'Robot Wiki' })
       .textContent();
-    expect(sidebarWordmark?.trim()).toBe('robot-wiki');
+    expect(sidebarWordmark?.trim()).toBe('Robot Wiki');
 
     // Mobile header at 375px: wordmark present, descriptor omitted.
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
     const headerWordmark = await page
       .locator('header')
-      .getByRole('link', { name: 'robot-wiki' })
+      .getByRole('link', { name: 'Robot Wiki' })
       .textContent();
-    expect(headerWordmark?.trim()).toBe('robot-wiki');
+    expect(headerWordmark?.trim()).toBe('Robot Wiki');
     await expect(
       page
         .locator('header')
-        .getByText('Robotics encyclopaedia', { exact: true }),
+        .getByText('Citation-first encyclopedia of modern robot learning.', { exact: true }),
     ).toHaveCount(0);
   });
 
@@ -545,43 +545,43 @@ test.describe('design chrome discipline', () => {
     const em = (m: { size: number; tracking: string }) =>
       parseFloat(m.tracking) / m.size;
 
-    // Home wordmark: 48px/48px below sm, 60px/60px from sm, Sans 600,
-    // tracking -0.035em; descriptor 10px mono uppercase 0.14em.
+    // Home wordmark: 48px/48px below sm, 60px/60px from sm, Tektur 600,
+    // tracking -0.035em; descriptor 10px mono in unmodified sentence case.
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
     const homeH1Mobile = await metricsOf('main h1');
     expect(homeH1Mobile.size).toBeCloseTo(48, 5);
     expect(homeH1Mobile.lineHeight).toBeCloseTo(48, 5);
     expect(homeH1Mobile.weight).toBe('600');
-    expect(homeH1Mobile.family).toContain('IBM Plex Sans');
+    expect(homeH1Mobile.family).toMatch(/\btektur\b/i);
     expect(em(homeH1Mobile)).toBeCloseTo(-0.035, 2);
     const heroDescriptor = await metricsOf(
       'main [aria-label="Introduction"] p.font-mono',
     );
     expect(heroDescriptor.size).toBeCloseTo(10, 5);
-    expect(heroDescriptor.transform).toBe('uppercase');
+    expect(heroDescriptor.transform).toBe('none');
     expect(heroDescriptor.family).toContain('IBM Plex Mono');
-    expect(em(heroDescriptor)).toBeCloseTo(0.14, 2);
-    // Mobile header lockup: 15px Sans 600 wordmark, no descriptor.
+    expect(em(heroDescriptor)).toBeCloseTo(0, 5);
+    // Mobile header lockup: 15px Tektur 600 wordmark, no descriptor.
     const mobileHeaderWordmark = await metricsOf('header a');
     expect(mobileHeaderWordmark.size).toBeCloseTo(15, 5);
     expect(mobileHeaderWordmark.weight).toBe('600');
-    expect(mobileHeaderWordmark.family).toContain('IBM Plex Sans');
+    expect(mobileHeaderWordmark.family).toMatch(/\btektur\b/i);
 
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/');
     const homeH1Desktop = await metricsOf('main h1');
     expect(homeH1Desktop.size).toBeCloseTo(60, 5);
     expect(homeH1Desktop.lineHeight).toBeCloseTo(60, 5);
-    // Desktop sidebar lockup: 17px Sans 600 wordmark, 9px mono
-    // uppercase descriptor at 0.14em.
+    // Desktop sidebar lockup: 17px Tektur 600 wordmark, 9px mono
+    // sentence-case descriptor with normal tracking.
     const sidebarWordmark = await metricsOf('aside a[href="/"]');
     expect(sidebarWordmark.size).toBeCloseTo(17, 5);
     expect(sidebarWordmark.weight).toBe('600');
-    expect(sidebarWordmark.family).toContain('IBM Plex Sans');
+    expect(sidebarWordmark.family).toMatch(/\btektur\b/i);
     const sidebarDescriptor = await page
       .locator('aside')
-      .getByText('Robotics encyclopaedia', { exact: true })
+      .getByText('Citation-first encyclopedia of modern robot learning.', { exact: true })
       .evaluate((el) => {
         const cs = getComputedStyle(el);
         return {
@@ -592,27 +592,24 @@ test.describe('design chrome discipline', () => {
         };
       });
     expect(sidebarDescriptor.size).toBeCloseTo(9, 5);
-    expect(sidebarDescriptor.transform).toBe('uppercase');
+    expect(sidebarDescriptor.transform).toBe('none');
     expect(sidebarDescriptor.family).toContain('IBM Plex Mono');
-    expect(parseFloat(sidebarDescriptor.tracking) / sidebarDescriptor.size).toBeCloseTo(
-      0.14,
-      2,
-    );
+    expect(parseFloat(sidebarDescriptor.tracking) / sidebarDescriptor.size).toBeCloseTo(0, 5);
 
-    // Article h1: 32px/35.8px below sm, 40px/44.8px from sm, Sans 600,
+    // Article h1: 32px/34.6px below sm, 40px/43.2px from sm, Tektur 600,
     // tracking -0.025em; prose h2 22px and h3 18px, Sans 600.
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto(MODULE_ROUTE);
     const articleH1Mobile = await metricsOf('article h1');
     expect(articleH1Mobile.size).toBeCloseTo(32, 5);
-    expect(articleH1Mobile.lineHeight).toBeCloseTo(35.84, 1);
+    expect(articleH1Mobile.lineHeight).toBeCloseTo(34.56, 1);
     expect(em(articleH1Mobile)).toBeCloseTo(-0.025, 2);
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto(MODULE_ROUTE);
     const articleH1Desktop = await metricsOf('article h1');
     expect(articleH1Desktop.size).toBeCloseTo(40, 5);
-    expect(articleH1Desktop.lineHeight).toBeCloseTo(44.8, 1);
-    expect(articleH1Desktop.family).toContain('IBM Plex Sans');
+    expect(articleH1Desktop.lineHeight).toBeCloseTo(43.2, 1);
+    expect(articleH1Desktop.family).toMatch(/\btektur\b/i);
     expect(articleH1Desktop.weight).toBe('600');
     const proseH2 = await metricsOf('article .prose h2');
     expect(proseH2.size).toBeCloseTo(22, 5);

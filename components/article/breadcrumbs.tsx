@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { IntentLink } from '@/components/ui/intent-link';
 import { SITE_URL } from '@/lib/site';
 
 /**
@@ -41,12 +41,12 @@ export function Breadcrumbs({ items }: { items: readonly BreadcrumbItem[] }) {
               className="flex items-baseline gap-2"
             >
               {item.href && !last ? (
-                <Link
+                <IntentLink
                   href={item.href}
                   className="text-text-dim transition-colors hover:text-accent"
                 >
                   {item.label}
-                </Link>
+                </IntentLink>
               ) : (
                 <span className="text-text">{item.label}</span>
               )}

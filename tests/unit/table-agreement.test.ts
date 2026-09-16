@@ -393,7 +393,7 @@ describe('clause (c) per-column binding', () => {
     // The panel legend prints "R² = 0.9983", which rounds to 1.00 inside
     // the 2-decimal tolerance; it is a different quantity at a different
     // precision and must not carry the completion-fit cell.
-    const withLegend = 'completion fit: 1.17 holds / 0.71 plateau completion fit (robot-wiki, R² = 0.9983)';
+    const withLegend = 'completion fit: 1.17 holds / 0.71 plateau completion fit (Robot Wiki, R² = 0.9983)';
     expect(cellTokenInReadout('1.00 holds / 0.71 plateau', withLegend)).toBe(false);
     expect(cellTokenInReadout('1.17 holds / 0.71 plateau', withLegend)).toBe(true);
   });

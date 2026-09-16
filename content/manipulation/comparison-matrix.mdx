@@ -5,7 +5,7 @@ domain: manipulation
 slug: comparison-matrix
 order: 7
 status: published
-lastReviewed: "2026-08-17"
+lastReviewed: "2026-08-24"
 citations:
   - rt1-2022
   - act-aloha-2023
@@ -32,7 +32,8 @@ citations:
 seeAlso:
   - "manipulation/vla-models"
   - "manipulation/pi-line"
-  - "manipulation/hierarchical"
+  - "manipulation/foundation-models"
+  - "manipulation/action-spaces"
 ---
 
 import { ComparisonMatrix } from '@/components/interactive/comparison-matrix';
@@ -77,3 +78,9 @@ Finally, the weights column tells the access story in one glance. Everything dow
 </Callout>
 
 One comparison the table cannot make is frequency against frequency. ACT's 50 Hz, Helix's 200 Hz S1, and π0.7's 50 Hz with training-time latency compensation are three different measurement setups, not three points on one scale. Treat the Control Hz column as "the rate the source reports for the policy" and read the cell notes before ranking two rows against each other.
+
+## Use the matrix as a constraint solver
+
+Start with elimination, not ranking. Remove models whose weights or training data cannot be used under the project's terms. Remove models whose action representation cannot map cleanly to the robot's controller, then those whose measured end-to-end latency misses the deadline. Next test observation compatibility and the amount of adaptation data the model requires. Only after those constraints should benchmark performance influence the shortlist.
+
+For the surviving candidates, run one controlled comparison with the same cameras, action horizon, reset policy and physical trial protocol. Keep a simple behavior-cloning or action-chunking baseline in the evaluation. The [foundation-model guide](/manipulation/foundation-models) explains what prior each family contributes; the [action-space guide](/manipulation/action-spaces) explains whether its output is a fair fit. A matrix can expose missing evidence, but it cannot turn results from different robots and protocols into a universal leaderboard.

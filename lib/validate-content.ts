@@ -118,6 +118,8 @@ const DEFAULT_STATIC_ROUTES = [
   '/playground',
   '/glossary',
   '/credits',
+  '/editorial-policy',
+  '/privacy',
   '/a-z',
   ...DOMAINS.map((domain) => `/${domain}`),
 ];

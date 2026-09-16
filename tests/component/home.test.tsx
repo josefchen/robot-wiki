@@ -16,7 +16,7 @@ describe('Home page', () => {
   it('renders the hero with the wiki wordmark and substantive overview prose', () => {
     render(<Home />);
     expect(
-      screen.getByRole('heading', { level: 1, name: 'robot-wiki' }),
+      screen.getByRole('heading', { level: 1, name: 'Robot Wiki' }),
     ).toBeInTheDocument();
     expect(
       screen.getByText(/encyclopedia of modern robotics/),
